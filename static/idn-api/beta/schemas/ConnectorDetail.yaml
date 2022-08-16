@@ -1,0 +1,49 @@
+type: object
+properties:
+  name:
+    type: string
+    description: The connector name
+    example: "JDBC"
+  sourceConfigXml:
+    type: string
+    description: XML representation of the source config data
+    example: "<Form connectorName='Active Directory - Direct' directConnect='true' name='Active Directory' status='released' type='SourceConfig' xmlns='http://www.sailpoint.com/xsd/sailpoint_form_1_0.xsd'>\n\t<Field defaultValue='true' hidden='true' name='cloudAuthEnabled' type='boolean' value='true'> </Field> </Form>"
+  sourceConfig:
+    type: string
+    description: JSON representation of the source config data
+    example: {
+      "Form": {
+        "Field": {
+          "_defaultValue": "true",
+          "_hidden": "true",
+          "_name": "cloudAuthEnabled",
+          "_type": "boolean",
+          "_value": "true"
+        },
+        "_xmlns": "http://www.sailpoint.com/xsd/sailpoint_form_1_0.xsd",
+        "_connectorName": "Active Directory - Direct",
+        "_directConnect": "true",
+        "_name": "Active Directory",
+        "_status": "released",
+        "_type": "SourceConfig",
+        "__text": "\\n\\t"
+      }
+    }
+  directConnect:
+    type: boolean
+    description: true if the source is a direct connect source
+    example: true
+  fileUpload:
+    type: boolean
+    description: Connector config's file upload attribute, false if not there
+    example: false
+  uploadedFiles:
+    type: string
+    description: List of uploaded file strings for the connector
+    example: []
+  connectorMetadata:
+    type: object
+    description: Object containing metadata pertinent to the UI to be used
+    example: {
+      "supportedUI": "EXTJS"
+    }

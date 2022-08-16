@@ -1,0 +1,7 @@
+name: fields
+description: List of fields that the query should be restricted.
+schema:
+  type: array
+  items:
+    type: string
+in: query

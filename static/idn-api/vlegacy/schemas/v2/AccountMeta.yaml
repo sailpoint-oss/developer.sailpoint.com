@@ -1,0 +1,8 @@
+type: object
+properties:
+  created:
+    type: string
+  modified:
+    type: string
+  type:
+    type: string

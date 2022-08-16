@@ -1,0 +1,74 @@
+post:
+  tags:
+    - Saved Search
+  description: |
+    Creates a new saved search.
+  summary: Create a saved search
+  operationId: savedSearchCreate
+  requestBody:
+    description: The saved search to persist.
+    content:
+      application/json:
+        schema:
+          allOf:
+          - $ref: '../schemas/search/saved/Name.yaml'
+          - $ref: '../schemas/search/saved/Search.yaml'
+    required: true
+  responses:
+    '201':
+      description: The persisted saved search.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/search/saved/SavedSearch.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+get:
+  tags:
+    - Saved Search
+  description: |
+    Returns a list of saved searches.
+  summary: Return a list of Saved Searches
+  operationId: savedSearchList
+  parameters:
+  - $ref: '../parameters/offset.yaml'
+  - $ref: '../parameters/limit.yaml'
+  - $ref: '../parameters/count.yaml'
+  - name: filters
+    in: query
+    schema:
+      type: string
+    description: |
+      An expression used to constrain the result set using the filtering syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/docs/standard_collection_parameters.html).
+
+      Allowed filter properties: *owner.id*, *public*
+
+      Allowed filter operator: *eq*
+
+      **Example filters**:
+
+      ```owner.id eq "0de46054-fe90-434a-b84e-c6b3359d0c64"``` -- returns saved searches for the specified owner ID
+
+      ```public eq true``` -- returns all public saved searches
+
+      ```owner.id eq me or public eq true``` -- returns all of the current user's saved searches as well as all public saved searches belonging to other users in the current org
+  responses:
+    '200':
+      description: The list of requested saved searches.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/search/saved/SavedSearch.yaml'
+      headers:
+        X-Total-Count:
+          description: The total result count (returned only if the *count* parameter is specified as *true*).
+          schema:
+            type: integer
+    '400':
+      $ref: '../responses/400.yaml'
+    '403':
+      $ref: '../responses/403.yaml'

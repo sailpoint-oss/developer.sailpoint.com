@@ -1,0 +1,31 @@
+get:
+  operationId: getIdentityGroup
+  summary: Identity group by group id
+  tags:
+    - IAI Identity Groups
+  description: >-
+    This gets an specified identity group
+  parameters:
+    - in: path
+      name: identityGroupId
+      schema:
+        type: string
+      required: true
+      description: The identity group id
+      example: 'ff8081814d2a8036014d701f3fbf53fa'  
+  responses:
+    '200':
+      description: An identity group for a customer.
+      content:
+        application/json:
+          schema:
+            type: object
+            $ref: '../schemas/IdentityGroupDto.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - bearerAuth : []

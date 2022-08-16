@@ -1,0 +1,5 @@
+type: string
+enum:
+  - GOVERNANCE_GROUP
+  - IDENTITY
+example: IDENTITY

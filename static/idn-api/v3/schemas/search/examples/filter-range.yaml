@@ -1,0 +1,21 @@
+summary: Filter with Range
+value:
+  indices:
+  - 'identities'
+  query:
+    query: 'attributes.city:London'
+    timeZone: 'Europe/London'
+  filters:
+    accessCount:
+      type: 'RANGE'
+      range:
+        lower:
+          value: '3'
+    created:
+      type: 'RANGE'
+      range:
+        lower:
+          value: '2019-12-01'
+          inclusive: true
+        upper:
+          value: '2020-01-01'

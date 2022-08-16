@@ -1,0 +1,28 @@
+get:
+  tags:
+    - access-requests
+  summary: Lists the access request for an identity.
+  description: Lists both the pending and past access requests for an identity.
+  operationId: listAccessRequests
+  parameters:
+    - "$ref": "../../parameters/v2/query/offset.yaml"
+    - "$ref": "../../parameters/v2/query/limit.yaml"
+  responses:
+    '200':
+      description: OK.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              "$ref": "../../schemas/v2/AccessRequest.yaml"
+      headers:
+        X-Total-Count:
+          description: Total number of items, regardless of paging limits.
+          schema:
+            type: integer
+            format: int64
+        Link:
+          description: Links to alternate or related resources.
+          schema:
+            type: string

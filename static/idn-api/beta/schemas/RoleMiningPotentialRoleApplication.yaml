@@ -1,0 +1,11 @@
+type : object
+properties:
+  id:
+    type: string
+    description: Id of the potential role
+  name:
+    type: string
+    description: Name of the potential role
+example:
+  id: "2c9180877212632a017228d5a796292b"
+  name: "Slack"

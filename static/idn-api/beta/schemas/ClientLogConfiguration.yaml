@@ -1,0 +1,34 @@
+description: Client Runtime Logging Configuration
+type: object
+required:
+  - durationMinutes
+  - rootLevel
+properties:
+  clientId:
+    description: client ID of the Log configuration
+    type: string
+    example: aClientId
+  durationMinutes:
+    description: duration in minutes for the log configuration to remain in effect before resetting to defaults
+    type: integer
+    format: int32
+    example: 120
+    default: 240
+    minimum: 5
+    maximum: 1440
+  expiration:
+    description: Expiration date-time of the log configuration request
+    example: 120
+    type: string
+    format: date-time
+  rootLevel:
+    description: Root Log level to apply
+    default: INFO
+    example: TRACE
+    $ref: './StandardLevel.yaml'
+  logLevels:
+    description: Map of LogLevel by key
+    example: '{
+    level:WARN
+    }'
+    $ref: './LogLevelSpec.yaml'

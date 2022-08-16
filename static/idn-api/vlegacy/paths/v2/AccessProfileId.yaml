@@ -1,0 +1,120 @@
+get:
+  tags:
+    - access-profiles
+  summary: Retrieves an access profile.
+  description: Retrieves an access profile by ID.
+  operationId: getAccessProfile
+  parameters:
+    - "$ref": "../../parameters/v2/path/accessProfileId.yaml"
+  responses:
+    '200':
+      description: OK.
+      content:
+        application/json:
+          schema:
+            "$ref": "../../schemas/v2/AccessProfile.yaml"
+      headers:
+        ETag:
+          description: Entity tag.
+          schema:
+            type: string
+        Last-Modified:
+          description: Last modified date.
+          schema:
+            type: string
+            format: date-time
+        Link:
+          description: Links to alternate or related resources.
+          schema:
+            type: string
+    '404':
+      "$ref": "../../responses/v2/404.yaml"
+put:
+  tags:
+    - access-profiles
+  summary: Updates an existing access profile.
+  description: Updates an existing access profile, found by ID.
+  operationId: putAccessProfile
+  parameters:
+    - "$ref": "../../parameters/v2/path/accessProfileId.yaml"
+  requestBody:
+    description: Access profile attributes to update.
+    required: true
+    content:
+      application/json:
+        schema:
+          "$ref": "../../schemas/v2/AccessProfileCreateEto.yaml"
+  responses:
+    '200':
+      description: OK.
+      content:
+        application/json:
+          schema:
+            "$ref": "../../schemas/v2/AccessProfile.yaml"
+      headers:
+        ETag:
+          description: Entity tag.
+          schema:
+            type: string
+        Last-Modified:
+          description: Last modified date.
+          schema:
+            type: string
+            format: date-time
+        Link:
+          description: Links to alternate or related resources.
+          schema:
+            type: string
+    '404':
+      "$ref": "../../responses/v2/404.yaml"
+patch:
+  tags:
+    - access-profiles
+  summary: Updates one or more access profile attributes.
+  description: Updates one or more attributes of access profile, found by ID.
+  operationId: patchAccessProfile
+  parameters:
+    - "$ref": "../../parameters/v2/path/accessProfileId.yaml"
+  requestBody:
+    description: Access profile attributes to update.
+    required: true
+    content:
+      application/json:
+        schema:
+          "$ref": "../../schemas/v2/AccessProfile.yaml"
+  responses:
+    '200':
+      description: OK.
+      content:
+        application/json:
+          schema:
+            "$ref": "../../schemas/v2/AccessProfile.yaml"
+      headers:
+        ETag:
+          description: Entity tag.
+          schema:
+            type: string
+        Last-Modified:
+          description: Last modified date.
+          schema:
+            type: string
+            format: date-time
+        Link:
+          description: Links to alternate or related resources.
+          schema:
+            type: string
+    '404':
+      "$ref": "../../responses/v2/404.yaml"
+delete:
+  tags:
+    - access-profiles
+  summary: Deletes an access profile.
+  description: Deletes an access profile, found by ID.
+  operationId: deleteAccessProfile
+  parameters:
+    - "$ref": "../../parameters/v2/path/accessProfileId.yaml"
+  responses:
+    '204':
+      "$ref": "../../responses/v2/204.yaml"
+    '404':
+      "$ref": "../../responses/v2/404.yaml"

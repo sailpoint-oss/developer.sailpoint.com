@@ -1,0 +1,10 @@
+type: object
+properties:
+  id:
+    type: string
+    description: the application ID
+    example: "ff8081814d977c21014da056804a0af3"
+  name:
+    type: string
+    description: the application name
+    example: "Github"

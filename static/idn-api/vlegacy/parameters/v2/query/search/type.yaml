@@ -1,0 +1,6 @@
+name: type
+description: Type to query (currently either identity, entitlement or event).
+schema:
+  type: string
+required: true
+in: query

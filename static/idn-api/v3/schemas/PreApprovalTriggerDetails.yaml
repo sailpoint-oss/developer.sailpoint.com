@@ -1,0 +1,18 @@
+type: object
+properties:
+  comment:
+    type: string
+    description: Comment left for the pre-approval decision
+    example: Access is Approved
+  reviewer:
+    type: string
+    description: The reviewer of the pre-approval decision
+    example: John Doe
+  decision:
+    type: string
+    enum:
+      - APPROVED
+      - REJECTED
+    description: The decision of the pre-approval trigger
+    example: APPROVED
+description: Provides additional details about the pre-approval trigger for this request.

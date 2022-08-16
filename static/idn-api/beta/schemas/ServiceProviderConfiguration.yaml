@@ -1,0 +1,15 @@
+type: object
+properties:
+  enabled:
+    type: boolean
+  bypassIdp:
+    description: This allows basic login with the parameter prompt=true. This is often toggled on when debugging SAML authentication setup.
+    type: boolean
+  samlConfigurationValid:
+    type: boolean
+  federationProtocolDetails:
+    type: array
+    items:
+      oneOf:
+        - $ref: 'IdpDetails.yaml'
+        - $ref: 'SpDetails.yaml'

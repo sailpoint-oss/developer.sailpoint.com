@@ -1,0 +1,14 @@
+description: Details of a service request Service Desk integration
+required:
+  - provision
+  - checkStatus
+type: object
+properties:
+  provision:
+    description: provisioning details for the service request Service Desk integration
+    type: object
+    $ref: './ServiceRequestProvision.yaml'
+  checkStatus:
+    description: check status mappings for the Service Desk integration
+    type: object
+    $ref: './CheckStatus.yaml'

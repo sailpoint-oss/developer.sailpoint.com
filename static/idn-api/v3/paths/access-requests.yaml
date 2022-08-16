@@ -1,0 +1,55 @@
+post:
+  operationId: createAccessRequest
+  summary: Submit an Access Request
+  tags:
+    - Access Requests
+  description: |
+    This submits the access request into IdentityNow, where it will follow any IdentityNow approval processes.
+
+    Access requests are processed asynchronously by IdentityNow.  A success response from this endpoint means the request
+    has been submitted to IDN and is queued for processing.  Because this endpoint is asynchronous, it will not return an error
+    if you submit duplicate access requests in quick succession, or you submit an access request for access that is already in progress, approved, or rejected.
+    It is best practice to check for any existing access requests that reference the same access items before submitting a new access request.  This can
+    be accomplished by using the [access request status](https://developer.sailpoint.com/apis/v3/#operation/listAccessRequestStatus) endpoint.  You can also
+    use the [search API](https://developer.sailpoint.com/apis/v3/#operation/search) to check the existing access items that an identity has before submitting
+    an access request to ensure you are not requesting access that is already granted.
+  
+    There are two types of access request:
+    
+    __GRANT_ACCESS__
+    * Can be requested for multiple identities in a single request.
+    * Supports self request and request on behalf of other users, see '/beta/access-request-config' endpoint for request configuration options.  
+    * Allows any authenticated token (except API) to call this endpoint to request to grant access to themselves. Depending on the configuration, a user can request access for others.
+    * Roles, Access Profiles and Entitlements can be requested.
+    * While requesting entitlements, maximum of 5 entitlements and 10 recipients are allowed in a request.
+     
+    __REVOKE_ACCESS__
+    * Can only be requested for a single identity at a time.
+    * Does not support self request. Only manager can request to revoke access for their directly managed employees.
+    * If removeDate is specified, then the access will be removed on that date and time.
+    * Allows a manager to request to revoke access for direct employees. A token with ORG_ADMIN authority can also request to revoke access from anyone.
+    * Roles and Access Profiles can be requested for revocation. Revoke request for entitlements are not supported currently.
+
+    NOTE: There is no indication to the approver in the IdentityNow UI that the approval request is for a revoke action. Take this into consideration when calling this API.
+    
+    A token with API authority cannot be used to call this endpoint. 
+
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/AccessRequest.yaml'
+  responses:
+    '202':
+      $ref: '../responses/202.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

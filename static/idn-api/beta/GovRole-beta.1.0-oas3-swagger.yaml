@@ -1,0 +1,53 @@
+#
+# Copyright (C) 2022 SailPoint Technologies, Inc.  All rights reserved.
+#
+openapi: 3.0.0
+info:
+  title: Gov Role API
+  description: This is an API for accessing Gov Role
+  contact:
+    email: scrum-lanai@sailpoint.com
+  version: 1.0.0-oas3
+  x-copyright-year: 2022
+servers:
+  - url: http://localhost:7100/v3/
+tags:
+  - name: Gov Role
+    description: Gov Role
+paths:
+  /access-profiles:
+    $ref: '../beta/paths/access-profiles.yaml'
+  /access-profiles/{id}:
+    $ref: '../beta/paths/access-profile.yaml'
+  /access-profiles/access-profile-bulk-delete:
+    $ref: '../beta/paths/access-profile-bulk-delete.yaml'
+  /access-profiles/{id}/entitlements:
+    $ref: '../beta/paths/access-profile-entitlements.yaml'
+  /access-profiles/cleanup:
+    $ref: '../beta/paths/access-profiles-cleanup.yaml'
+  /roles:
+    $ref: '../beta/paths/roles.yaml'
+  /roles/{id}:
+    $ref: '../beta/paths/role.yaml'
+  /access-roles/change-segment-assignments:
+    $ref: '../beta/paths/access-roles-change-segment-assignments.yaml'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: oauth2
+      description: This API uses OAuth 2 with the client credentials grant flow.
+      flows:
+        clientCredentials:
+          tokenUrl: https://acme-solar.api.cloud.sailpoint.com/oauth/token
+          scopes:
+            'idn:access-profile:read': Right to read Access Profiles
+            'idn:access-profile:manage': Right to create, update, and delete Access Profiles
+            'idn:role:create': Right to create Roles
+            'idn:role:read': Right to read Roles
+            'idn:role:update': Right to update Roles
+            'idn:role:delete': Right to delete
+            'idn:role-checked:create': Right for Role Suadmins to create Roles
+            'idn:role-checked:read': Right for Role Subadmins to read Roles
+            'idn:role-checked:update': Right for Role Subadmins to update Roles
+            'idn:role-checked:delete': Right for Role Subadmins to delete Roles
+            'idn:segments:write': Write access to segments

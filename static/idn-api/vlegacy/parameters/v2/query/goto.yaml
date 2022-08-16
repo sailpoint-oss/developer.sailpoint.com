@@ -1,0 +1,5 @@
+name: goto
+description: The goto URL.
+schema:
+  type: string
+in: query

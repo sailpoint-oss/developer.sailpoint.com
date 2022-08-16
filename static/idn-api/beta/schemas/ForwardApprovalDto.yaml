@@ -1,0 +1,15 @@
+type: object
+required:
+  - newOwnerId
+  - comment
+properties:
+  newOwnerId:
+    type: string
+    description: The Id of the new owner
+    minLength: 1
+    maxLength: 255
+  comment:
+    type: string
+    description: The comment provided by the forwarder
+    minLength: 1
+    maxLength: 255

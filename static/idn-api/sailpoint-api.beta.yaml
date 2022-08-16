@@ -1,0 +1,1093 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: developers@sailpoint.com
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss
+  description: "These are the public, beta APIs for SailPoint's SaaS services and are subject to change."
+  title: SailPoint - Beta SaaS API
+  version: 3.1.0-beta
+servers:
+  - url: https://{tenant}.api.identitynow.com/beta
+    description: This is the beta API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+tags:
+  - name: Access Profiles
+    description: |
+      Use this API to implement and customize access profile functionality. 
+      With this functionality in place, administrators can create access profiles and configure them for use throughout IdentityNow, enabling users to get the access they need quickly and securely.
+      
+      Access profiles group entitlements, which represent access rights on sources. 
+
+      For example, an Active Directory source in IdentityNow can have multiple entitlements: the first, 'Employees,' may represent the access all employees have at the organization, and a second, 'Developers,' may represent the access all developers have at the organization.
+      
+      An administrator can then create a broader set of access in the form of an access profile, 'AD Developers' grouping the 'Employees' entitlement with the 'Developers' entitlement.
+      
+      When users only need Active Directory employee access, they can request access to the 'Employees' entitlement.
+      
+      When users need both Active Directory employee and developer access, they can request access to the 'AD Developers' access profile.
+      
+      Access profiles are the most important units of access in IdentityNow. IdentityNow uses access profiles in many features, including the following:
+      
+      - Provisioning: When you use the Provisioning Service, lifecycle states and roles both grant access to users in the form of access profiles.
+      
+      - Certifications: You can approve or revoke access profiles in certification campaigns, just like entitlements. 
+      
+      - Access Requests: You can assign access profiles to applications, and when a user requests access to the app associated with an access profile and someone approves the request, access is granted to both the application and its associated access profile.
+
+      - Roles: You can group one or more access profiles into a role to quickly assign access items based on an identity's role. 
+      
+      In IdentityNow, administrators can use the Access drop-down menu and select Access Profiles to view, configure, and delete existing access profiles, as well as create new ones. 
+      Administrators can enable and disable an access profile, and they can also make the following configurations: 
+      
+      - Manage Entitlements: Manage the profile's access by adding and removing entitlements. 
+      
+      - Access Requests: Configure access profiles to be requestable and establish an approval process for any requests that the access profile be granted or revoked. 
+      Do not configure an access profile to be requestable without first establishing a secure access request approval process for the access profile.
+      
+      - Multiple Account Options: Define the logic IdentityNow uses to provision access to an identity with multiple accounts on the source. 
+
+
+      Refer to the following link for more information about access profiles.
+    externalDocs:
+      description: Learn more about access profiles
+      url: https://documentation.sailpoint.com/saas/help/access/access-profiles.html    
+  - name: Access Request Approvals
+    description: |
+      Use this API to implement and customize access request approval functionality. 
+      With this functionality in place, administrators can delegate qualified users to review users' requests for access or managers' requests to revoke team members' access to applications, entitlements, or roles.      
+      This enables more qualified users to review access requests and the others to spend their time on other tasks.  
+      
+      In IdentityNow, users can request access to applications, entitlements, and roles, and managers can request that team members' access be revoked.   
+      For applications and entitlements, administrators can set access profiles to require approval from the access profile owner, the application owner, the source owner, the requesting user's manager, or a governance group for access to be granted or revoked.   
+      For roles, administrators can also set roles to allow access requests and require approval from the role owner, the requesting user's manager, or a governance group for access to be granted or revoked.   
+      If the administrator designates a governance group as the required approver, any governance group member can approve the requests.
+         
+      When a user submits an access request, IdentityNow sends the first required approver in the queue an email notification, based on the access request configuration's approval and reminder escalation configuration.
+
+      In Approvals in IdentityNow, required approvers can view pending access requests under the Requested tab and approve or deny them, or the approvers can reassign the requests to different reviewers for approval.   
+      If the required approver approves the request and is the only reviewer required, IdentityNow grants or revokes access, based on the request.   
+      If multiple reviewers are required, IdentityNow sends the request to the next reviewer in the queue, based on the access request configuration's approval reminder and escalation configuration.   
+      The required approver can then view any completed access requests under the Reviewed tab.     
+      
+      Refer to the following link for more information about access request approvals.  
+    externalDocs:
+      description: Learn more about access request approvals
+      url: https://documentation.sailpoint.com/saas/help/requests/index.html  
+  - name: Access Requests
+    description: |
+      Use this API to implement and customize access request functionality. 
+      With this functionality in place, users can request access to applications, entitlements, or roles, and managers can request that team members' access be revoked.
+      This allows users to get access to the tools they need quickly and securely, and it allows managers to take away access to those tools. 
+
+      In the Request Center in IdentityNow, users can view available applications, roles, and entitlements and request access to them. 
+      If the requested tools requires approval, the requests appear as 'Pending' under the My Requests tab until the required approver approves, rejects, or cancels them. 
+
+      Users can use My Requests to track and/or cancel the requests.
+
+      In My Team on the IdentityNow Home, managers can submit requests to revoke their team members' access. 
+      They can use the My Requests tab under Request Center to track and/or cancel the requests.
+      
+      Refer to the following link for more information about access requests.
+    externalDocs:
+      description: Learn more about access requests
+      url: https://documentation.sailpoint.com/saas/user-help/requests/requesting_access.html
+  - name: Account Activities
+  - name: Account Aggregations
+  - name: Accounts
+  - name: Certification Campaigns
+  - name: Certifications
+  - name: Connector Rule Management
+  - name: Connectors
+  - name: Custom Password Instructions
+    description: Operations for managing custom password instructions
+  - name: Entitlements
+    description: |
+      Use this API to implement and customize entitlement functionality. 
+      With this functionality in place, administrators can view entitlements and configure them for use throughout IdentityNow in certifications, access profiles, and roles. 
+      Administrators in IdentityNow can then grant users access to the entitlements or configure them so users themselves can request access to the entitlements whenever they need them. 
+      With a good approval process, this entitlement functionality allows users to gain the specific access they need on sources quickly and securely. 
+
+      Entitlements represent access rights on sources. 
+      Entitlements are the most granular form of access in IdentityNow. 
+      Entitlements are often grouped into access profiles, and access profiles themselves are often grouped into roles, the broadest form of access in IdentityNow. 
+
+      For example, an Active Directory source in IdentityNow can have multiple entitlements: the first, 'Employees,' may represent the access all employees have at the organization, and a second, 'Developers,' may represent the access all developers have at the organization.
+      
+      An administrator can then create a broader set of access in the form of an access profile, 'AD Developers' grouping the 'Employees' entitlement with the 'Developers' entitlement.
+      
+      An administrator can then create an even broader set of access in the form of a role grouping the 'AD Developers' access profile with another profile, 'GitHub Developers,' grouping entitlements for the GitHub source.
+      
+      When users only need Active Directory employee access, they can request access to the 'Employees' entitlement.
+      
+      When users need both Active Directory employee and developer access, they can request access to the 'AD Developers' access profile.
+      
+      When users need both the 'AD Developers' access profile and the 'GitHub Developers' access profile, they can request access to the role grouping both. 
+
+      Administrators often use roles and access profiles within those roles to manage access so that users can gain access more quickly, but the hierarchy of access all starts with entitlements. 
+
+      Anywhere entitlements appear, you can select them to find more information about the following: 
+      
+      - Cloud Access Details: These provide details about the cloud access entitlements on cloud-enabled sources. 
+      
+      - Permissions: Permissions represent individual units of read/write/admin access to a system.
+      
+      - Relationships: These list each entitlement's parent and child relationships.
+      
+      - Type: This is the entitlement's type. Some sources support multiple types, each with a different attribute schema.
+      
+      IdentityNow uses entitlements in many features, including the following: 
+      
+      - Certifications: Entitlements can be revoked from an identity that no longer needs them.
+
+      - Roles: Roles can group access profiles which themselves group entitlements. You can grant and revoke access on a broad level with roles. Role membership criteria can grant roles to identities based on whether they have certain entitlements or attributes.
+      
+      - Access Profiles: Access profiles group entitlements.
+      They are the most important units of access in IdentityNow. 
+      IdentityNow uses them in provisioning, certifications, and access requests, and administrators can configure them to grant very broad or very granular access. 
+
+      You cannot delete entitlements directly from IdentityNow. 
+      Entitlements are deleted based on their inclusion in aggregations. 
+      
+      Refer to https://documentation.sailpoint.com/saas/help/access/entitlements.html#deleting-entitlements more information about deleting entitlements.
+      
+      Refer to the following link for more information about entitlements.
+    externalDocs:
+      description: Learn more about entitlements
+      url: https://documentation.sailpoint.com/saas/help/access/index.html
+  - name: IAI Access Request Recommendations
+  - name: IAI Common Access
+  - name: IAI Outliers
+  - name: IAI Peer Group Strategies
+  - name: IAI Recommendations
+  - name: IAI Role Mining
+  - name: Identities
+  - name: Identity History
+  - name: Identity Profiles
+  - name: Lifecycle States
+  - name: Managed Clients
+    description: Read and write operations for managing client data and statuses
+  - name: Managed Clusters
+    description: Operations for accessing and managing client Clusters, including Log Configuration
+  - name: MFA Configuration
+    description: Configure and test multifactor authentication (MFA) methods
+  - name: Non-Employee Lifecycle Management
+  - name: Notifications
+  - name: OAuth Clients
+  - name: Org Config
+    description: Operations for managing org configuration settings (eg. time zone)
+  - name: Password Configuration
+  - name: Password Dictionary
+  - name: Password Management
+    description: Operations for managing identity's passwords
+  - name: Password Sync Groups
+  - name: Personal Access Tokens
+  - name: Public Identity Config
+  - name: Requestable Objects
+  - name: Role Insights
+  - name: Roles
+    description: |
+      Use this API to implement and customize role functionality.
+      With this functionality in place, administrators can create roles and configure them for use throughout IdentityNow. 
+      IdentityNow can use established criteria to automatically assign the roles to qualified users. This enables users to get all the access they need quickly and securely and administrators to spend their time on other tasks.
+
+      Entitlements represent the most granular level of access in IdentityNow. 
+      Access profiles represent the next level and often group entitlements. 
+      Roles represent the broadest level of access and often group access profiles. 
+
+      For example, an Active Directory source in IdentityNow can have multiple entitlements: the first, 'Employees,' may represent the access all employees have at the organization, and a second, 'Developers,' may represent the access all developers have at the organization.
+      
+      An administrator can then create a broader set of access in the form of an access profile, 'AD Developers' grouping the 'Employees' entitlement with the 'Developers' entitlement.
+      
+      An administrator can then create an even broader set of access in the form of a role grouping the 'AD Developers' access profile with another profile, 'GitHub Developers,' grouping entitlements for the GitHub source.
+      
+      When users only need Active Directory employee access, they can request access to the 'Employees' entitlement.
+      
+      When users need both Active Directory employee and developer access, they can request access to the 'AD Developers' access profile.
+      
+      When users need both the 'AD Developers' access profile and the 'GitHub Developers' access profile, they can request access to the role grouping both. 
+      
+      Roles often represent positions within organizations. 
+      For example, an organization's accountant can access all the tools the organization's accountants need with the 'Accountant' role. 
+      If the accountant switches to engineering, a qualified member of the organization can quickly revoke the accountant's 'Accountant' access and grant access to the 'Engineer' role instead, granting access to all the tools the organization's engineers need.
+
+      In IdentityNow, adminstrators can use the Access drop-down menu and select Roles to view, configure, and delete existing roles, as well as create new ones. 
+      Administrators can enable and disable the role, and they can also make the following configurations: 
+
+      - Manage Access: Manage the role's access by adding or removing access profiles.
+
+      - Define Assignment: Define the criteria IdentityNow uses to assign the role to identities. 
+      Use the first option, 'Standard Criteria,' to provide specific criteria for assignment like specific account attributes, entitlements, or identity attributes. 
+      Use the second, 'Identity List,' to specify the identities for assignment.
+
+      - Access Requests: Configure roles to be requestable and establish an approval process for any requests that the role be granted or revoked. 
+      Do not configure a role to be requestable without establishing a secure access request approval process for that role first. 
+
+      Refer to the following link for more information about roles.
+    externalDocs:
+      description: Learn more about roles
+      url: https://documentation.sailpoint.com/saas/help/provisioning/roles.html
+  - name: Search Attribute Configuration
+  - name: Segments
+  - name: Service Desk Integration
+    description: Operations for creating and accessing service desk integrations
+  - name: SOD Policy
+    description: Operations for Creating & Executing SOD (Seperation of Duties) policies
+  - name: SOD Violations
+    description: Operations for Predicting SOD (Seperation of Duties) violations
+  - name: Sources
+  - name: SP-Config
+    description: Import and export configuration for some objects between tenants.
+  - name: Tagged Objects
+  - name: Transforms
+    description: Operations for creating, managing, and deleting transforms
+  - name: Triggers
+    description: |
+      Event Triggers provide real-time updates to changes in IdentityNow so you can take action as soon as an event occurs, rather than poll an API endpoint for updates. IdentityNow provides a user interface within the admin console to create and manage trigger subscriptions.  These endpoints allow for programatically creating and managing trigger subscriptions.
+      
+      There are two types of event triggers:
+        * `FIRE_AND_FORGET`: This trigger type will send a payload to each subscriber without needing a response.  Each trigger of this type has a limit of **50 subscriptions**.
+        * `REQUEST_RESPONSE`: This trigger type will send a payload to a subscriber and expect a response back.  Each trigger of this type may only have **one subscription**.
+
+      ## Available Event Triggers
+      Production ready event triggers that are available in all tenants.
+
+      | Name | ID | Type | Trigger condition | Schema(s) |
+      |-|-|-|-|-|
+      | [Access Request Dynamic Approver](https://developer.sailpoint.com/triggers/available-event-triggers/access-request-dynamic-approval-event-trigger.html) | idn:access-request-dynamic-approver | REQUEST_RESPONSE |After an access request is submitted. Expects the subscriber to respond with the ID of an identity or workgroup to add to the approval workflow. | [Input Schema](#section/Access-Request-Dynamic-Approver-Event-Trigger-Input) - [Output Schema](#section/Access-Request-Dynamic-Approver-Event-Trigger-Output) |
+      | [Access Request Decision](https://developer.sailpoint.com/triggers/available-event-triggers/access-request-postapproval-trigger.html) | idn:access-request-post-approval | FIRE_AND_FORGET | After an access request is approved. |[Input Schema](#section/Access-Request-Post-Approval-Event-Trigger-Input)|
+      | [Access Request Submitted](https://developer.sailpoint.com/triggers/available-event-triggers/access-request-preapproval-event-trigger.html) | idn:access-request-pre-approval | REQUEST_RESPONSE | After an access request is submitted. Expects the subscriber to respond with an approval decision. | [Input Schema](#section/Access-Request-Pre-Approval-Event-Trigger-Input) - [Output Schema](#section/Access-Request-Pre-Approval-Event-Trigger-Output) |
+      | Account Aggregation Completed | idn:account-aggregation-completed | FIRE_AND_FORGET | After an account aggregation completed, terminated, failed. | [Input Schema](#section/Account-Aggregation-Completed-Event-Trigger-Input) |
+      | Account Attributes Changed | idn:account-attributes-changed | FIRE_AND_FORGET | After an account aggregation, and one or more account attributes have changed. | [Input Schema](#section/Account-Attributes-Changed-Event-Trigger-Input) |
+      | Account Correlated | idn:account-correlated | FIRE_AND_FORGET | After an account is added to an identity. | [Input Schema](#section/Account-Correlated-Event-Trigger-Input) |
+      | [Accounts Collected for Aggregation](https://developer.sailpoint.com/triggers/available-event-triggers/account-aggregation-completed.html) |  idn:aggregation-accounts-collected | FIRE_AND_FORGET | New, changed, and deleted accounts have been gathered during an aggregation and are being processed. | [Input Schema](#section/Accounts-Collected-for-Aggregation-Event-Trigger-Input) |
+      | Account Uncorrelated | idn:account-uncorrelated | FIRE_AND_FORGET | After an account is removed from an identity. | [Input Schema](#section/Account-Uncorrelated-Event-Trigger-Input)  |
+      | Campaign Activated | idn:campaign-activated | FIRE_AND_FORGET | After a campaign is activated. | [Input Schema](#section/Campaign-Activated-Event-Trigger-Input) |
+      | Campaign Ended | idn:campaign-ended | FIRE_AND_FORGET | After a campaign ends. | [Input Schema](#section/Campaign-Ended-Event-Trigger-Input) |
+      | Campaign Generated | idn:campaign-generated | FIRE_AND_FORGET | After a campaign finishes generating. | [Input Schema](#section/Campaign-Generated-Event-Trigger-Input) |
+      | Certification Signed Off | idn:certification-signed-off | FIRE_AND_FORGET | After a certification is signed off by its reviewer. | [Input Schema](#section/Certification-Signed-Off-Event-Trigger-Input) |
+      | [Identity Attributes Changed](https://developer.sailpoint.com/triggers/available-event-triggers/identity-attribute-changed-event-trigger.html) | idn:identity-attributes-changed | FIRE_AND_FORGET | After One or more identity attributes changed. | [Input Schema](#section/Identity-Attributes-Changed-Event-Trigger-Input) |
+      | [Identity Created](https://developer.sailpoint.com/triggers/available-event-triggers/identity-created-event-trigger.html) | idn:identity-created | FIRE_AND_FORGET | After an identity is created. | [Input Schema](#section/Identity-Created-Event-Trigger-Input) |
+      | [Provisioning Completed](https://developer.sailpoint.com/triggers/available-event-triggers/provisioning-action-completed-trigger.html) |  idn:post-provisioning | FIRE_AND_FORGET | After a provisioning action completed on a source. | [Input Schema](#section/Provisioning-Completed-Event-Trigger-Input) |
+      | [Saved Search Complete](https://developer.sailpoint.com/triggers/available-event-triggers/saved-search-completed.html) |  idn:saved-search-complete | FIRE_AND_FORGET | After a scheduled search completed. | [Input Schema](#section/Saved-Search-Complete-Event-Trigger-Input) |
+      | [VA Cluster Status Changed Event](https://developer.sailpoint.com/triggers/available-event-triggers/va-cluster-status-change-event-trigger.html) | idn:va-cluster-status-change | FIRE_AND_FORGET | After the status of a VA cluster has changed. | [Input Schema](#section/VA-Cluster-Status-Change-Event-Event-Trigger-Input) |
+
+      ## Early Access Event Triggers
+      Triggers that are in-development and not ready for production use.  Please contact support to enable these triggers in your tenant.
+
+      | Name | ID | Type | Trigger condition | Schema(s) |
+      |-|-|-|-|-|
+      | [Identity Deleted](https://developer.sailpoint.com/triggers/early-access-event-triggers/identity-deleted-event-trigger.html) | idn:identity-deleted | FIRE_AND_FORGET | After an identity is deleted. | [Input Schema](#section/Identity-Deleted-Event-Trigger-Input) |
+      | [Source Account Created](https://developer.sailpoint.com/triggers/early-access-event-triggers/source-account-created-trigger.html) | idn:source-account-created | FIRE_AND_FORGET | After a source account is created. | [Input Schema](#section/Source-Account-Created-Event-Trigger-Input) |
+      | [Source Account Deleted](https://developer.sailpoint.com/triggers/early-access-event-triggers/source-account-deleted-trigger.html) | idn:source-account-deleted | FIRE_AND_FORGET | After a source account is deleted. | [Input Schema](#section/Source-Account-Deleted-Event-Trigger-Input) |
+      | [Source Account Updated](https://developer.sailpoint.com/triggers/early-access-event-triggers/source-account-updated-trigger.html) | idn:source-account-updated | FIRE_AND_FORGET | After a source account is changed. | [Input Schema](#section/Source-Account-Updated-Event-Trigger-Input) |
+      | [Source Created](https://developer.sailpoint.com/triggers/early-access-event-triggers/source-created-trigger.html) | idn:source-created | FIRE_AND_FORGET | After a source is created. | [Input Schema](#section/Source-Created-Event-Trigger-Input) |
+      | [Source Deleted](https://developer.sailpoint.com/triggers/early-access-event-triggers/source-deleted-trigger.html) | idn:source-deleted | FIRE_AND_FORGET | After a source is deleted. | [Input Schema](#section/Source-Deleted-Event-Trigger-Input) |
+      | [Source Updated](https://developer.sailpoint.com/triggers/early-access-event-triggers/source-updated-trigger.html) | idn:source-updated | FIRE_AND_FORGET | After configuration changes have been made to a source. | [Input Schema](#section/Source-Updated-Event-Trigger-Input) |
+
+    externalDocs:
+      description: Getting started with event triggers
+      url: https://developer.sailpoint.com/triggers/event-triggers-overview.html
+  - name: Work Items
+    description: Operations for retrieving and modifying details relating to Work Items.
+  - name: Workflows
+    description: |
+      Workflows allow administrators to create custom automation scripts directly within IdentityNow.  These automation scripts respond to [event triggers](https://developer.sailpoint.com/triggers/getting_started.html) and perform a series of actions to perform tasks that are either too cumbersome or not available in the IdentityNow UI.  Workflows can be configured via a graphical user interface within IdentityNow, or by creating and uploading a JSON formatted script to the Workflow service.  The Workflows API collection provides the necessary functionality to create, manage, and test your workflows via REST.
+      
+      Workflows is currently in Beta, and is not generally available to all customer tenants.  If you would like to participate in the beta program, please [submit an application](https://app.smartsheet.com/b/form/e758ab109dc649589f57b4b5c41d4373).  You must be a customer or partner to participate.
+
+      For more information about how to build a workflow in the visual builder in the IdentityNow UI, use the documentation in the following link:
+    externalDocs:
+      description: Workflow User Guide and Technical Documentation
+      url: https://documentation.sailpoint.com/saas/help/workflows/workflow-basics.html
+  - name: Event Trigger Models
+    x-displayName: Trigger Models
+    description: |
+      ## Access Request Dynamic Approver Event Trigger Input
+      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-AccessRequestDynamicApprover" />
+
+      ## Access Request Dynamic Approver Event Trigger Output
+      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Output-AccessRequestDynamicApprover" />
+
+      ## Access Request Post Approval Event Trigger Input
+      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-AccessRequestPostApproval" />
+
+      ## Access Request Pre Approval Event Trigger Input
+      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-AccessRequestPreApproval" />
+
+      ## Access Request Pre Approval Event Trigger Output
+      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Output-AccessRequestPreApproval" />
+
+      ## Account Aggregation Completed Event Trigger Input
+      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-AccountAggregationCompleted" />
+
+      ## Account Attributes Changed Event Trigger Input
+      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-AccountAttributesChanged" />
+
+      ## Account Correlated Event Trigger Input
+      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-AccountCorrelated" />
+
+      ## Accounts Collected for Aggregation Event Trigger Input
+      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-AccountsCollectedForAggregation" />
+
+      ## Account Uncorrelated Event Trigger Input
+      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-AccountUncorrelated" />
+
+      ## Campaign Activated Event Trigger Input
+      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-CampaignActivated" />
+
+      ## Campaign Ended Event Trigger Input
+      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-CampaignEnded" />
+
+      ## Campaign Generated Event Trigger Input
+      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-CampaignGenerated" />
+
+      ## Certification Signed Off Event Trigger Input
+      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-CertificationSignedOff" />
+
+      ## Identity Attributes Changed Event Trigger Input
+      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-IdentityAttributesChanged" />
+
+      ## Identity Created Event Trigger Input
+      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-IdentityCreated" />
+
+      ## Identity Deleted Event Trigger Input
+      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-IdentityDeleted" />
+
+      ## Provisioning Completed Event Trigger Input
+      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-ProvisioningCompleted" />
+
+      ## Saved Search Complete Event Trigger Input
+      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-SavedSearchComplete" />
+
+      ## Source Account Created Event Trigger Input
+      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-SourceAccountCreated" />
+
+      ## Source Account Deleted Event Trigger Input
+      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-SourceAccountDeleted" />
+
+      ## Source Account Updated Event Trigger Input
+      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-SourceAccountUpdated" />
+
+      ## Source Created Event Trigger Input
+      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-SourceCreated" />
+
+      ## Source Deleted Event Trigger Input
+      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-SourceDeleted" />
+
+      ## Source Updated Event Trigger Input
+      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-SourceUpdated" />
+
+      ## VA Cluster Status Change Event Event Trigger Input
+      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-VAClusterStatusChangeEvent" />
+
+
+# x-tagGroups:
+#   - name: Access
+#     tags:
+#       - Access Profiles
+#       - Access Request Approvals
+#       - Access Requests
+#       - Entitlements
+#       - Requestable Objects
+#       - Roles
+#       - Segments
+#   - name: Accounts
+#     tags:
+#       - Account Activities
+#       - Account Aggregations
+#       - Accounts
+#   - name: Certification Campaigns
+#     tags:
+#       - Certification Campaigns
+#       - Certifications
+#       - Work Items
+#   - name: Connections
+#     tags:
+#       - Connector Rule Management
+#       - Connectors
+#       - Managed Clients
+#       - Managed Clusters
+#       - Service Desk Integration
+#       - Sources
+#   - name: Event Triggers
+#     tags:
+#       - Triggers
+#       - Event Trigger Models
+#   - name: Global Settings
+#     tags:
+#       - MFA Configuration
+#       - Notifications
+#       - OAuth Clients
+#       - Personal Access Tokens
+#       - SP-Config
+#   - name: IdentityAI
+#     tags:
+#       - IAI Access Request Recommendations
+#       - IAI Common Access
+#       - IAI Outliers
+#       - IAI Peer Group Strategies
+#       - IAI Recommendations
+#       - IAI Role Mining
+#       - Role Insights
+#   - name: Identities
+#     tags:
+#       - Identity History
+#       - Identity Profiles
+#       - Public Identity Config
+#       - Transforms
+#   - name: Lifecycles
+#     tags:
+#       - Lifecycle States
+#       - Non-Employee Lifecycle Management
+#   - name: Password Management
+#     tags:
+#       - Custom Password Instructions
+#       - Password Configuration
+#       - Password Dictionary
+#       - Password Management
+#       - Password Sync Groups
+#   - name: Search
+#     tags:
+#       - Search Attribute Configuration
+#   - name: Separation of Duties (SOD)
+#     tags:
+#       - SOD Policy
+#       - SOD Violations
+#       - Tagged Objects
+#   - name: Workflows
+#     tags:      
+#       - Workflows
+
+security:
+  - oauth2: []
+
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: |
+        OAuth2 Bearer token (JWT). See [IdentityNow REST API Authentication](https://developer.sailpoint.com/docs/authentication.html) for more information.
+        - Directions for generating a [personal access token](https://developer.sailpoint.com/docs/authentication.html#personal-access-tokens)
+        - Directions using [client credentials flow](https://developer.sailpoint.com/docs/authentication.html#client-credentials-grant-flow)
+        - Directions for using [authorization code flow](https://developer.sailpoint.com/docs/authentication.html#authorization-code-grant-flow)
+
+        Which authentication method should I choose?  See our [guide](https://developer.sailpoint.com/docs/authentication.html#which-oauth-2-0-grant-flow-should-i-use)
+      
+        Learn more about how to find your `tokenUrl` and `authorizationUrl` [in our docs](https://developer.sailpoint.com/docs/authentication.html#finding-your-tenant-s-oauth-details)
+      flows:
+        clientCredentials:
+          tokenUrl: https://tenant.api.identitynow.com/oauth/token
+          scopes: 
+            'sp:scopes:default': 'default scope'
+            'sp:scopes:all': 'access to all scopes'
+        authorizationCode:
+          authorizationUrl: https://tenant.identitynow.com/oauth/authorize
+          tokenUrl: https://tenant.api.identitynow.com/oauth/token
+          scopes: 
+            'sp:scopes:default': 'default scope'
+            'sp:scopes:all': 'access to all scopes'
+  schemas:
+    AccountAggregation:
+      $ref: './beta/schemas/AccountAggregationStatus.yaml'
+    ApprovalItems:
+      $ref: './beta/schemas/ApprovalItemDetails.yaml'
+    slimcampaign:
+      $ref: './beta/schemas/SlimCampaign.yaml'
+    fullcampaign:
+      $ref: './beta/schemas/Campaign.yaml'
+    IdentityProfile:
+      $ref: './beta/schemas/IdentityProfile.yaml'
+    ManagedClient:
+      $ref: './beta/schemas/ManagedClient.yaml'
+    ManagedClientStatus:
+      $ref: './beta/schemas/ManagedClientStatus.yaml'
+    MessageCatalogDto:
+      $ref: './beta/schemas/MessageCatalogDto.yaml'
+    PeerGroupMember:
+      $ref: './beta/schemas/PeerGroupMember.yaml'
+    RecommendationRequestDto:
+      $ref: './beta/schemas/RecommendationRequestDto.yaml'
+    RecommendationResponseDto:
+      $ref: './beta/schemas/RecommendationResponseDto.yaml'
+    RemediationItems:
+      $ref: './beta/schemas/RemediationItemDetails.yaml'
+    SearchAttributeConfig:
+      $ref: './beta/schemas/SearchAttributeConfig.yaml'
+    WorkItems:
+      $ref: './beta/schemas/WorkItems.yaml'
+    WorkItemsCount:
+      $ref: './beta/schemas/WorkItemsCount.yaml'
+    WorkItemsSummary:
+      $ref: './beta/schemas/WorkItemsSummary.yaml'
+    Form:
+      $ref: './beta/schemas/FormDetails.yaml'
+    FormItem:
+      $ref: './beta/schemas/FormItemDetails.yaml'
+    Section:
+      $ref: './beta/schemas/SectionDetails.yaml'
+    Field:
+      $ref: './beta/schemas/FieldDetails.yaml'
+    Trigger-Input-AccessRequestDynamicApprover:
+      $ref: './beta/schemas/trigger/example-input/AccessRequestDynamicApprover.yaml'
+    Trigger-Input-AccessRequestPostApproval:
+      $ref: './beta/schemas/trigger/example-input/AccessRequestPostApproval.yaml'
+    Trigger-Input-AccessRequestPreApproval:
+      $ref: './beta/schemas/trigger/example-input/AccessRequestPreApproval.yaml'
+    Trigger-Input-AccountAggregationCompleted:
+      $ref: './beta/schemas/trigger/example-input/AccountAggregationCompleted.yaml'
+    Trigger-Input-AccountAttributesChanged:
+      $ref: './beta/schemas/trigger/example-input/AccountAttributesChanged.yaml'
+    Trigger-Input-AccountCorrelated:
+      $ref: './beta/schemas/trigger/example-input/AccountCorrelated.yaml'
+    Trigger-Input-AccountsCollectedForAggregation:
+      $ref: './beta/schemas/trigger/example-input/AccountsCollectedForAggregation.yaml'
+    Trigger-Input-AccountUncorrelated:
+      $ref: './beta/schemas/trigger/example-input/AccountUncorrelated.yaml'
+    Trigger-Input-CampaignActivated:
+      $ref: './beta/schemas/trigger/example-input/CampaignActivated.yaml'
+    Trigger-Input-CampaignEnded:
+      $ref: './beta/schemas/trigger/example-input/CampaignEnded.yaml'
+    Trigger-Input-CampaignGenerated:
+      $ref: './beta/schemas/trigger/example-input/CampaignGenerated.yaml'
+    Trigger-Input-CertificationSignedOff:
+      $ref: './beta/schemas/trigger/example-input/CertificationSignedOff.yaml'
+    Trigger-Input-IdentityAttributesChanged:
+      $ref: './beta/schemas/trigger/example-input/IdentityAttributesChanged.yaml'
+    Trigger-Input-IdentityCreated:
+      $ref: './beta/schemas/trigger/example-input/IdentityCreated.yaml'
+    Trigger-Input-IdentityDeleted:
+      $ref: './beta/schemas/trigger/example-input/IdentityDeleted.yaml'
+    Trigger-Input-ProvisioningCompleted:
+      $ref: './beta/schemas/trigger/example-input/ProvisioningCompleted.yaml'
+    Trigger-Input-SavedSearchComplete:
+      $ref: './beta/schemas/trigger/example-input/SavedSearchComplete.yaml'
+    Trigger-Input-SourceAccountCreated:
+      $ref: './beta/schemas/trigger/example-input/SourceAccount.yaml'
+    Trigger-Input-SourceAccountDeleted:
+      $ref: './beta/schemas/trigger/example-input/SourceAccount.yaml'
+    Trigger-Input-SourceAccountUpdated:
+      $ref: './beta/schemas/trigger/example-input/SourceAccount.yaml'
+    Trigger-Input-SourceCreated:
+      $ref: './beta/schemas/trigger/example-input/SourceCreated.yaml'
+    Trigger-Input-SourceDeleted:
+      $ref: './beta/schemas/trigger/example-input/SourceDeleted.yaml'
+    Trigger-Input-SourceUpdated:
+      $ref: './beta/schemas/trigger/example-input/SourceUpdated.yaml'
+    Trigger-Input-VAClusterStatusChangeEvent:
+      $ref: './beta/schemas/trigger/example-input/VAClusterStatusChangeEvent.yaml'
+    Trigger-Output-AccessRequestDynamicApprover:
+      $ref: './beta/schemas/trigger/example-output/AccessRequestDynamicApprover.yaml'
+    Trigger-Output-AccessRequestPreApproval:
+      $ref: './beta/schemas/trigger/example-output/AccessRequestPreApproval.yaml'
+
+paths:
+  /access-profiles:
+    $ref: './beta/paths/access-profiles.yaml'
+  /access-profiles/{id}:
+    $ref: './beta/paths/access-profile.yaml'
+  /access-profiles/bulk-delete:
+    $ref: './beta/paths/access-profile-bulk-delete.yaml'
+  /access-profiles/{id}/entitlements:
+    $ref: './beta/paths/access-profile-entitlements.yaml'
+  /access-requests:
+    $ref: './v3/paths/access-requests.yaml'
+  /access-requests/cancel:
+    $ref: './v3/paths/access-request-cancel.yaml'
+  /access-request-config:
+    $ref: './v3/paths/access-request-config.yaml'
+  /access-request-status:
+    $ref: './v3/paths/access-request-status.yaml'
+  /access-request-approvals/pending:
+    $ref: './beta/paths/pending-access-request-approvals.yaml'
+  /access-request-approvals/completed:
+    $ref: './beta/paths/completed-access-request-approvals.yaml'
+  /access-request-approvals/{approvalId}/approve:
+    $ref: './beta/paths/approve-access-request-approval.yaml'
+  /access-request-approvals/{approvalId}/reject:
+    $ref: './beta/paths/reject-access-request-approval.yaml'
+  /access-request-approvals/{approvalId}/forward:
+    $ref: './beta/paths/forward-access-request-approval.yaml'
+  /access-request-approvals/approval-summary:
+    $ref: './beta/paths/access-request-approval-summary.yaml'
+  /ai-access-request-recommendations:
+    $ref: './beta/paths/ai-access-request-recommendations.yaml'
+  /ai-access-request-recommendations/ignored-items:
+    $ref: './beta/paths/ai-access-request-recommendations-ignored.yaml'
+  /ai-access-request-recommendations/requested-items:
+    $ref: './beta/paths/ai-access-request-recommendations-requested.yaml'
+  /ai-access-request-recommendations/viewed-items:
+    $ref: './beta/paths/ai-access-request-recommendations-viewed.yaml'
+  /ai-access-request-recommendations/viewed-items/bulk-create:
+    $ref: './beta/paths/ai-access-request-recommendations-viewed-bulk-create.yaml'
+  /accounts:
+    $ref: './beta/paths/accounts.yaml'
+  /accounts/{id}:
+    $ref: './beta/paths/account.yaml'
+  /accounts/{id}/entitlements:
+    $ref: './beta/paths/accounts-id-entitlements.yaml'
+  /accounts/{id}/reload:
+    $ref: './beta/paths/accounts-id-reload.yaml'
+  /accounts/{id}/enable:
+    $ref: './beta/paths/accounts-id-enable.yaml'
+  /accounts/{id}/disable:
+    $ref: './beta/paths/accounts-id-disable.yaml'
+  /accounts/{id}/unlock:
+    $ref: './beta/paths/accounts-id-unlock.yaml'
+  /accounts/search-attribute-config:
+    $ref: './beta/paths/searchAttributeConfig.yaml'
+  /accounts/search-attribute-config/{name}:
+    $ref: './beta/paths/searchAttributeConfig-get-patch-delete.yaml'
+  /account-activities:
+    $ref: './beta/paths/account-activities.yaml'
+  /account-activities/{id}:
+    $ref: './beta/paths/account-activity.yaml'
+  /account-aggregations/{id}/status:
+    $ref: './beta/paths/account-aggregation-status.yaml'
+  /campaigns:
+    $ref: './beta/paths/campaigns.yaml'
+  /campaigns/delete:
+    $ref: './beta/paths/campaigns-delete.yaml'
+  /campaigns/{id}:
+    $ref: './beta/paths/campaign.yaml'
+  /campaigns/{id}/activate:
+    $ref: './beta/paths/campaign-activate.yaml'
+  /campaigns/{id}/complete:
+    $ref: './beta/paths/campaign-complete.yaml'
+  /campaigns/{id}/run-remediation-scan:
+    $ref: './beta/paths/campaign-run-remediation-scan.yaml'
+  /campaigns/{id}/reassign:
+    $ref: './beta/paths/campaign-admin-cert-reassign.yaml'
+  /campaigns/{id}/reports:
+    $ref: './beta/paths/campaign-reports.yaml'
+  /campaigns/{id}/run-report/{type}:
+    $ref: './beta/paths/campaign-run-report.yaml'
+  /campaigns/reports-configuration:
+    $ref: './beta/paths/campaign-reports-configuration.yaml'
+  /campaign-templates:
+    $ref: './beta/paths/campaign-templates.yaml'
+  /campaign-templates/{id}:
+    $ref: './beta/paths/campaign-template.yaml'
+  /campaign-templates/{id}/generate:
+    $ref: './beta/paths/campaign-template-generate.yaml'
+  /campaign-templates/{id}/schedule:
+    $ref: './beta/paths/campaign-template-schedule.yaml'
+  /certifications/{id}/reassign-async:
+    $ref: './beta/paths/identity-certifications-reassign-async.yaml'
+  /certifications/{id}/tasks/{taskId}:
+    $ref: './beta/paths/identity-certifications-task-status.yaml'
+  /certifications/{id}/tasks-pending:
+    $ref: './beta/paths/identity-certifications-tasks-pending.yaml'
+  /certifications/{certificationId}/access-review-items/{itemId}/permissions:
+    $ref: './beta/paths/identity-certifications-item-permissions.yaml'
+  /certifications/{id}/reviewers:
+    $ref: './beta/paths/certifications-reviewers.yaml'
+  /connector-rules:
+    $ref: './beta/paths/connector-rules.yaml'
+  /connector-rules/{id}:
+    $ref: './beta/paths/connector-rule.yaml'
+  /connector-rules/validate:
+    $ref: './beta/paths/connector-rule-validate.yaml'
+  /connectors:
+    $ref: './beta/paths/connectors.yaml'
+  /custom-password-instructions:
+    $ref: './beta/paths/custom-password-instructions.yaml'
+  /custom-password-instructions/{pageId}:
+    $ref: './beta/paths/custom-password-instruction.yaml'
+  /entitlements:
+    $ref: './beta/paths/entitlements.yaml'
+  /entitlements/{id}:
+    $ref: './beta/paths/ears-entitlement.yaml'
+  /entitlements/{id}/parents:
+    $ref: './beta/paths/ears-entitlement-parents.yaml'
+  /entitlements/{id}/children:
+    $ref: './beta/paths/ears-entitlement-children.yaml'
+  /entitlements/bulk-update:
+    $ref: './beta/paths/ears-entitlement-bulk-update.yaml'
+  /generate-password-reset-token/digit:
+    $ref: './beta/paths/password-reset-digit-token.yaml'
+  /historical-identities:
+    $ref: './beta/paths/historical-identities.yaml'
+  /historical-identities/{id}:
+    $ref: './beta/paths/historical-identity.yaml'
+  /historical-identities/{id}/access-items:
+    $ref: './beta/paths/historical-identity-access-items.yaml'
+  /historical-identities/{id}/snapshots:
+    $ref: './beta/paths/historical-identity-snapshots.yaml'
+  /historical-identities/{id}/snapshot-summary:
+    $ref: './beta/paths/historical-identity-snapshot-summary.yaml'
+  /historical-identities/{id}/snapshots/{date}:
+    $ref: './beta/paths/historical-identity-snapshot-date.yaml'
+  /historical-identities/{id}/snapshots/{date}/access-items:
+    $ref: './beta/paths/historical-identity-snapshot-date-access-items.yaml'
+  /common-access:
+    $ref: './beta/paths/common-access.yaml'
+  /common-access/update-status:
+    $ref: './beta/paths/common-access-update-status.yaml'
+  /historical-identities/{id}/events:
+    $ref: './beta/paths/historical-identity-events.yaml'
+  /historical-identities/{id}/start-date:
+    $ref: './beta/paths/historical-identity-start-date.yaml'
+  /historical-identities/{id}/compare:
+    $ref: './beta/paths/historical-identity-compare.yaml'
+  /historical-identities/{id}/compare/{access-type}:
+    $ref: './beta/paths/historical-identity-compare-type.yaml'
+  /identities/{identityId}/synchronize-attributes:
+    $ref: './beta/paths/identity-synchronize-attributes.yaml'
+  /identity-profiles:
+    $ref: './beta/paths/identity-profiles.yaml'
+  /identity-profiles/bulk-delete:
+    $ref: './beta/paths/identity-profiles-bulk-delete.yaml'
+  /identity-profiles/export:
+    $ref: './beta/paths/identity-profiles-export.yaml'
+  /identity-profiles/import:
+    $ref: './beta/paths/identity-profiles-import.yaml'
+  /identity-profiles/identity-preview:
+    $ref: './beta/paths/identity-profiles-identity-preview.yaml'
+  /identity-profiles/{identity-profile-id}:
+    $ref: './beta/paths/identity-profile.yaml'
+  /identity-profiles/{identity-profile-id}/default-identity-attribute-config:
+    $ref: './beta/paths/identity-profile-default-config.yaml'
+  /identity-profiles/{identity-profile-id}/refresh-identities:
+    $ref: './beta/paths/identity-profile-refresh-identities.yaml'
+  /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}:
+    $ref: './beta/paths/identity-profile-lifecycle-state.yaml'
+  /non-employee-records:
+    $ref: './beta/paths/non-employee-records.yaml'
+  /non-employee-records/{id}:
+    $ref: './beta/paths/non-employee-record.yaml'
+  /non-employee-records/bulk-delete:
+    $ref: './beta/paths/non-employee-records-bulk-delete.yaml'
+  /non-employee-requests:
+    $ref: './beta/paths/non-employee-requests.yaml'
+  /non-employee-requests/{id}:
+    $ref: './beta/paths/non-employee-request.yaml'
+  /non-employee-requests/summary/{requested-for}:
+    $ref: './beta/paths/non-employee-request-summary-get.yaml'
+  /non-employee-sources:
+    $ref: './beta/paths/non-employee-sources.yaml'
+  /non-employee-sources/{sourceId}:
+    $ref: './beta/paths/non-employee-source.yaml'
+  /non-employee-sources/{id}/non-employees/download:
+    $ref: './beta/paths/non-employee-sources-export-non-employees.yaml'
+  /non-employee-sources/{id}/non-employee-bulk-upload:
+    $ref: './beta/paths/non-employee-sources-bulk-upload-non-employees.yaml'
+  /non-employee-sources/{id}/non-employee-bulk-upload/status:
+    $ref: './beta/paths/non-employee-sources-bulk-upload-status.yaml'
+  /non-employee-sources/{id}/schema-attributes-template/download:
+    $ref: './beta/paths/non-employee-sources-export-schema-attributes-template.yaml'
+  /non-employee-approvals:
+    $ref: './beta/paths/non-employee-approval-list.yaml'
+  /non-employee-approvals/{id}:
+    $ref: './beta/paths/non-employee-approve-get.yaml'
+  /non-employee-approvals/{id}/approve:
+    $ref: './beta/paths/non-employee-approve-request.yaml'
+  /non-employee-approvals/{id}/reject:
+    $ref: './beta/paths/non-employee-reject-request.yaml'
+  /non-employee-approvals/summary/{requested-for}:
+    $ref: './beta/paths/non-employee-approval-summary.yaml'
+  /non-employee-sources/{sourceId}/schema-attributes:
+    $ref: './beta/paths/non-employee-sources-schema-attributes.yaml'
+  /non-employee-sources/{sourceId}/schema-attributes/{attributeId}:
+    $ref: './beta/paths/non-employee-sources-schema-attribute.yaml'
+  /managed-clients/{id}/status:
+    $ref: './beta/paths/managed-client-status.yaml'
+  /managed-clusters/{id}:
+    $ref: './beta/paths/managed-cluster-path.yaml'
+  /managed-clusters/{id}/log-config:
+    $ref: './beta/paths/managed-cluster-log-config.yaml'
+  /managed-clusters:
+    $ref: './beta/paths/managed-clusters.yaml'
+  /mfa/{method}/config:
+    $ref: './beta/paths/mfa-config.yaml'
+  /mfa/{method}/test:
+    $ref: './beta/paths/mfa-config-test.yaml'
+  /notification-template-defaults:
+    $ref: './beta/paths/notification-template-defaults.yaml'
+  /notification-templates:
+    $ref: './beta/paths/notification-templates.yaml'
+  /notification-templates/{id}:
+    $ref: './beta/paths/notification-template.yaml'
+  /notification-templates/bulk-delete:
+    $ref: './beta/paths/notification-templates-bulk-delete.yaml'
+  /oauth-clients:
+    $ref: './beta/paths/oauth-clients.yaml'
+  /oauth-clients/{id}:
+    $ref: './beta/paths/oauth-client.yaml'
+  /org-config:
+    $ref: './beta/paths/org-config.yaml'
+  /org-config/valid-time-zones:
+    $ref: './beta/paths/org-config-valid-time-zones.yaml'
+  /outlier-summaries:
+    $ref: './beta/paths/outlier-summaries.yaml'
+  /outlier-summaries/latest:
+    $ref: './beta/paths/outlier-summaries-latest.yaml'
+  /outliers:
+    $ref: './beta/paths/outliers.yaml'
+  /outliers/ignore:
+    $ref: './beta/paths/outliers-ignore.yaml'
+  /outliers/unignore:
+    $ref: './beta/paths/outliers-unignore.yaml'
+  /outliers/export:
+    $ref: './beta/paths/outliers-export.yaml'
+  /password-dictionary:
+    $ref: './beta/paths/password-dictionary.yaml'
+  /query-password-info:
+    $ref: './beta/paths/query-password-info.yaml'
+  /set-password:
+    $ref: './beta/paths/set-password.yaml'
+  /password-change-status/{id}:
+    $ref: './beta/paths/password-change-status.yaml'
+  /password-sync-groups:
+    $ref: './beta/paths/password-sync-groups.yaml'
+  /password-sync-groups/{id}:
+    $ref: './beta/paths/password-sync-group.yaml'
+  /password-org-config:
+    $ref: './beta/paths/password-org-config.yaml'
+  /peer-group-strategies/{strategy}/identity-outliers:
+    $ref: './beta/paths/peer-group-strategies.yaml'
+  /personal-access-tokens:
+    $ref: './beta/paths/personal-access-tokens.yaml'
+  /personal-access-tokens/{id}:
+    $ref: './beta/paths/personal-access-token.yaml'
+  /public-identities-config:
+    $ref: './beta/paths/public-identities-config.yaml'
+  /notification-template-context:
+    $ref: './beta/paths/notification-template-context.yaml'
+  /notification-preferences/{key}:
+    $ref: './beta/paths/notification-preferences.yaml'
+  /recommendations/request:
+    $ref: './beta/paths/recommendations-request.yaml'
+  /recommendations/config:
+    $ref: './beta/paths/recommendations-config.yaml'
+  /requestable-objects:
+    $ref: './v3/paths/requestable-object-list.yaml'
+  /role-insights/requests:
+    $ref: './beta/paths/role-insights-requests.yaml'
+  /role-insights/requests/{id}:
+    $ref: './beta/paths/role-insights-request.yaml'
+  /role-insights/summary:
+    $ref: './beta/paths/role-insights-summary.yaml'
+  /role-insights:
+    $ref: './beta/paths/role-insights.yaml'
+  /role-insights/{insightId}:
+    $ref: './beta/paths/role-insight.yaml'
+  /role-insights/{insightId}/entitlement-changes:
+    $ref: './beta/paths/role-insights-entitlement-changes.yaml'
+  /role-insights/{insightId}/entitlement-changes/download:
+    $ref: './beta/paths/role-insights-entitlement-changes-download.yaml'
+  /role-insights/{insightId}/current-entitlements:
+    $ref: './beta/paths/role-insights-current-entitlements.yaml'
+  /role-insights/{insightId}/entitlement-changes/{entitlementId}/identities:
+    $ref: './beta/paths/role-insights-entitlement-changes-identities.yaml'
+  /role-mining-sessions:
+    $ref: './beta/paths/role-mining-sessions.yaml'
+  /role-mining-sessions/{sessionId}:
+    $ref: './beta/paths/role-mining-session.yaml'
+  /role-mining-sessions/{sessionId}/status:
+    $ref: './beta/paths/role-mining-session-status.yaml'
+  /role-mining-sessions/{sessionId}/potential-role-summaries:
+    $ref: './beta/paths/role-mining-session-potential-role-summaries.yaml'
+  /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}:
+    $ref: './beta/paths/role-mining-session-potential-role-summary.yaml'
+  /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}/applications:
+    $ref: './beta/paths/role-mining-session-potential-role-applications.yaml'
+  /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/entitlement-popularities:
+    $ref: './beta/paths/role-mining-potential-role-entitlement-popularities.yaml'
+  /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/entitlement-popularity-distribution:
+    $ref: './beta/paths/role-mining-potential-role-entitlement-popularity-distribution.yaml'
+  /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/edit-entitlements:
+    $ref: './beta/paths/role-mining-potential-role-edit-entitlements.yaml'
+  /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/identities:
+    $ref: './beta/paths/role-mining-potential-role-identities.yaml'
+  /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/export:
+    $ref: './beta/paths/role-mining-session-potential-role-export.yaml'
+  /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/export-async:
+    $ref: './beta/paths/role-mining-session-potential-role-export-async.yaml'
+  /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/export-async/{exportId}:
+    $ref: './beta/paths/role-mining-session-potential-role-export-status.yaml'
+  /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/export-async/{exportId}/download:
+    $ref: './beta/paths/role-mining-session-potential-role-export-download.yaml'
+  /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/provision:
+    $ref: './beta/paths/role-mining-potential-role-provision.yaml'
+  /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/excluded-entitlements:
+    $ref: './beta/paths/role-mining-potential-role-excluded-entitlements.yaml'
+  /roles:
+    $ref: './beta/paths/roles.yaml'
+  /roles/{id}:
+    $ref: './beta/paths/role.yaml'
+  /roles/{id}/assigned-identities:
+    $ref: './beta/paths/role-assigned-identities.yaml'
+  /segments:
+    $ref: './beta/paths/segments.yaml'
+  /segments/{id}:
+    $ref: './beta/paths/segment.yaml'
+  /send-test-notification:
+    $ref: './beta/paths/send-test-notification.yaml'
+  /service-desk-integrations:
+    $ref: './beta/paths/service-desk-integrations.yaml'
+  /service-desk-integrations/{id}:
+    $ref: './beta/paths/service-desk-integration.yaml'
+  /service-desk-integrations/types:
+    $ref: './beta/paths/service-desk-integration-types.yaml'
+  /service-desk-integrations/templates/{scriptName}:
+    $ref: './beta/paths/service-desk-integration-template.yaml'
+  /service-desk-integrations/status-check-configuration:
+    $ref: './beta/paths/service-desk-integration-configuration.yaml'
+  /sp-config/export:
+    $ref: './beta/paths/sp-config-export.yaml'
+  /sp-config/export/{id}:
+    $ref: './beta/paths/sp-config-export-status.yaml'
+  /sp-config/export/{id}/download:
+    $ref: './beta/paths/sp-config-export-download.yaml'
+  /sp-config/import:
+    $ref: './beta/paths/sp-config-import.yaml'
+  /sp-config/import/{id}:
+    $ref: './beta/paths/sp-config-import-status.yaml'
+  /sp-config/import/{id}/download:
+    $ref: './beta/paths/sp-config-import-download.yaml'
+  /sp-config/config-objects:
+    $ref: './beta/paths/sp-config-objects.yaml'
+  /sources:
+    $ref: './beta/paths/sources.yaml'
+  /sources/{id}:
+    $ref: './beta/paths/source.yaml'
+  /sources/{id}/attribute-sync-config:
+    $ref: './beta/paths/attr-sync-config-source.yaml'
+  /sources/{sourceId}/connector/check-connection:
+    $ref: './beta/paths/source-connector-check-connection.yaml'
+  /sources/{sourceId}/connector/peek-resource-objects:
+    $ref: './beta/paths/source-connector-peek-resource-objects.yaml'
+  /sources/{sourceId}/connector/ping-cluster:
+    $ref: './beta/paths/source-connector-ping-cluster.yaml'
+  /sources/{sourceId}/connector/test-configuration:
+    $ref: './beta/paths/source-connector-test-configuration.yaml'
+  /sources/{sourceId}/connectors/source-config:
+    $ref: './beta/paths/source-connectors-source-config.yaml'
+  /sources/{sourceId}/provisioning-policies:
+    $ref: './v3/paths/provisioning-policies.yaml'
+  /sources/{sourceId}/provisioning-policies/{usageType}:
+    $ref: './v3/paths/provisioning-policy.yaml'
+  /sources/{sourceId}/provisioning-policies/bulk-update:
+    $ref: './v3/paths/provisioning-policies-bulk-update.yaml'
+  /sources/{sourceId}/schemas:
+    $ref: './beta/paths/schemas.yaml'
+  /sources/{sourceId}/schemas/{schemaId}:
+    $ref: './beta/paths/schema.yaml'
+  /sources/{id}/schemas/accounts:
+    $ref: './beta/paths/source-accounts-schema.yaml'
+  /sources/{id}/schemas/entitlements:
+    $ref: './beta/paths/source-entitlements-schema.yaml'
+  /sources/{sourceId}/upload-connector-file:
+    $ref: './beta/paths/source-upload-connector-file.yaml'
+  /sources/{id}/synchronize-attributes:
+    $ref: './beta/paths/source-synchronize-attributes.yaml'
+  /tagged-objects:
+    $ref: './beta/paths/tagged-objects.yaml'
+  /tagged-objects/{type}:
+    $ref: './beta/paths/tagged-objects-type.yaml'
+  /tagged-objects/{type}/{id}:
+    $ref: './beta/paths/tagged-object.yaml'
+  /tagged-objects/bulk-add:
+    $ref: './beta/paths/bulk-add-tagged-objects.yaml'
+  /tagged-objects/bulk-remove:
+    $ref: './beta/paths/bulk-remove-tagged-objects.yaml'
+  /transforms:
+    $ref: './beta/paths/transforms.yaml'
+  /transforms/{id}:
+    $ref: './beta/paths/transform.yaml'
+  /translation-catalogs/{catalog-id}:
+    $ref: './beta/paths/message-catalog.yaml'
+  /triggers:
+    $ref: './beta/paths/triggers.yaml'
+  /trigger-subscriptions:
+    $ref: './beta/paths/trigger-subscriptions.yaml'
+  /trigger-subscriptions/{id}:
+    $ref: './beta/paths/trigger-subscription.yaml'
+  /trigger-subscriptions/validate-filter:
+    $ref: './beta/paths/trigger-subscriptions-validate-filter.yaml'
+  /trigger-invocations/status:
+    $ref: './beta/paths/trigger-invocations-status.yaml'
+  /trigger-invocations/{id}/complete:
+    $ref: './beta/paths/trigger-invocations-complete.yaml'
+  /trigger-invocations/test:
+    $ref: './beta/paths/trigger-invocations-test.yaml'
+  /verified-from-addresses:
+    $ref: './beta/paths/verified-from-addresses.yaml'
+  /verified-from-addresses/{id}:
+    $ref: './beta/paths/verified-from-address.yaml'
+  /sod-policies:
+    $ref: './beta/paths/sod-policies.yaml'
+  /sod-policies/{id}:
+    $ref: './beta/paths/sod-policy.yaml'
+  /sod-policies/{id}/schedule:
+    $ref: './beta/paths/sod-schedule.yaml'
+  /sod-policies/{id}/violation-report/run:
+    $ref: './beta/paths/sod-report-run.yaml'
+  /sod-policies/{id}/violation-report:
+    $ref: './beta/paths/sod-violation-report.yaml'
+  /sod-violations/predict:
+    $ref: './beta/paths/sod/predict-violations.yaml'
+  /sod-violation-report-status/{reportResultId}:
+    $ref: './beta/paths/sod-violation-report-status.yaml'
+  /sod-violation-report/run:
+    $ref: './beta/paths/sod-all-report-run.yaml'
+  /sod-violation-report:
+    $ref: './beta/paths/sod-all-report-status.yaml'
+  /sod-violation-report/{reportResultId}/download:
+    $ref: './beta/paths/sod-download-default-report.yaml'
+  /sod-violation-report/{reportResultId}/download/{fileName}:
+    $ref: './beta/paths/sod-download-custom-report.yaml'
+  /work-items:
+    $ref: './beta/paths/work-items.yaml'
+  /work-items/completed:
+    $ref: './beta/paths/work-items-completed.yaml'
+  /work-items/count:
+    $ref: './beta/paths/work-items-count.yaml'
+  /work-items/count/completed:
+    $ref: './beta/paths/work-items-completed-count.yaml'
+  /work-items/summary:
+    $ref: './beta/paths/work-items-summary.yaml'
+  /work-items/{id}:
+    $ref: './beta/paths/work-item.yaml'
+  /work-items/{id}/approve/{approvalItemId}:
+    $ref: './beta/paths/work-items-approve-approval-item.yaml'
+  /work-items/{id}/reject/{approvalItemId}:
+    $ref: './beta/paths/work-items-reject-approval-item.yaml'
+  /work-items/bulk-approve/{id}:
+    $ref: './beta/paths/work-items-bulk-approve-approval-item.yaml'
+  /work-items/bulk-reject/{id}:
+    $ref: './beta/paths/work-items-bulk-reject-approval-item.yaml'
+  /work-items/{id}/submit-account-selection:
+    $ref: './beta/paths/work-items-account-selection.yaml'
+  /workflows:
+    $ref: './beta/paths/workflows.yaml'
+  /workflows/{id}:
+    $ref: './beta/paths/workflow.yaml'
+  /workflows/{id}/test:
+    $ref: './beta/paths/workflow-test.yaml'
+  /workflows/{id}/executions:
+    $ref: './beta/paths/workflow-executions.yaml'
+  /workflow-executions/{id}:
+    $ref: './beta/paths/workflow-execution.yaml'
+  /workflow-executions/{id}/history:
+    $ref: './beta/paths/workflow-execution-history.yaml'
+  /workflow-executions/{id}/cancel:
+    $ref: './beta/paths/workflow-execution-cancel.yaml'
+  /workflow-library:
+    $ref: './beta/paths/workflow-library.yaml'
+  /workflow-library/actions:
+    $ref: './beta/paths/workflow-library-actions.yaml'
+  /workflow-library/triggers:
+    $ref: './beta/paths/workflow-library-triggers.yaml'
+  /workflow-library/operators:
+    $ref: './beta/paths/workflow-library-operators.yaml'
+  /workflows/{id}/external/oauth-clients:
+    $ref: './beta/paths/workflow-external-oauth-client.yaml'
+  /workflows/execute/external/{id}:
+    $ref: './beta/paths/workflow-external-execute.yaml'
+  /workflows/execute/external/{id}/test:
+    $ref: './beta/paths/workflow-external-execute-test.yaml'

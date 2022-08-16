@@ -1,0 +1,30 @@
+description: Managed Cluster Source
+type: object
+properties:
+  id:
+    description: Source ID
+    type: string
+    example: 540696
+  name:
+    description: Source Name
+    type: string
+    example: EndToEnd-OpenLDAP
+  type:
+    description: Source Type
+    type: string
+    example: OpenLDAP - Direct
+  host:
+    description: Source Host
+    type: string
+    example: 10.0.2.64
+  port:
+    description: Source Port
+    type: string
+    example: 389
+  useSSL:
+    description: If Source Has SSL Enabled
+    type: string
+    example: false
+  connectorFileUploadHistory:
+    description: Source Connector File Upload History
+    $ref: './ConnectorSourcesUploadFiles.yaml'

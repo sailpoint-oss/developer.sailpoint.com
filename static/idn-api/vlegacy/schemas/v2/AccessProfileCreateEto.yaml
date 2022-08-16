@@ -1,0 +1,44 @@
+type: object
+properties:
+  name:
+    type: string
+    minLength: 1
+    maxLength: 255
+  description:
+    type: string
+    maxLength: 255
+  sourceId:
+    type: string
+  ownerId:
+    type: string
+  entitlements:
+    type: array
+    items:
+      type: string
+  approvalSchemes:
+    type: string
+    description: Comma-separated list of approval schemes. Each approval scheme is one of <br/>
+      - manager <br/>
+      - appOwner <br/>
+      - sourceOwner <br/>
+      - accessProfileOwner <br/>
+      - workgroup:\<workgroupId>
+  revokeRequestApprovalSchemes:
+    type: string
+    description: Comma-separated list of revoke request approval schemes. Each approval scheme is one of <br/>
+      - manager <br/>
+      - sourceOwner <br/>
+      - accessProfileOwner <br/>
+      - workgroup:\<workgroupId>
+  requestCommentsRequired:
+    type: boolean
+  deniedCommentsRequired:
+    type: boolean
+  disabled:
+    type: boolean
+required:
+  - name
+  - description
+  - ownerId
+  - sourceId
+  - entitlements

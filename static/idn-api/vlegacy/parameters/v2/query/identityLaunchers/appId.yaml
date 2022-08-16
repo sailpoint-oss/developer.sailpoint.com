@@ -1,0 +1,6 @@
+name: appId
+description: ID of the app to create a launcher for.
+schema:
+  type: string
+required: true
+in: query

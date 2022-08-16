@@ -1,0 +1,9 @@
+type: object
+properties:
+    type:
+        $ref: '../../v3/schemas/DtoType.yaml'
+    id:
+        type: string
+        description: Identity id
+        example: 5168015d32f890ca15812c9180835d2e
+

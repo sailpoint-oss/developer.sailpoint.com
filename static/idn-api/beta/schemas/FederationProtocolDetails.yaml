@@ -1,0 +1,11 @@
+type: object
+properties:
+  role:
+    type: string
+    enum:
+      - SAML_IDP
+      - SAML_SP
+  entityId:
+    type: string
+    description: An entity ID is a globally unique name for a SAML entity, either an Identity Provider (IDP) or a Service Provider (SP).
+    example: http://www.okta.com/exkdaruy8Ln5Ry7C54x6

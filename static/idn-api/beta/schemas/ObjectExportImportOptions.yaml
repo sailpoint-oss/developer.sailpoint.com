@@ -1,0 +1,14 @@
+type: object
+properties:
+  includedIds:
+    description: Object ids to be included in an import or export.
+    type: array
+    items:
+      type: string
+      example: "be9e116d-08e1-49fc-ab7f-fa585e96c9e4"
+  includedNames:
+    description: Object names to be included in an import or export.
+    type: array
+    items:
+      type: string
+      example: "Test Object"

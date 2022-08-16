@@ -1,0 +1,6 @@
+name: identityIdOrAlias
+description: ID or alias of an identity.
+schema:
+  type: string
+required: true
+in: path

@@ -1,0 +1,35 @@
+post:
+  operationId: approveApprovalItem
+  tags:
+    - Work Items
+  summary: Approve an Approval Item
+  description: >-
+    This API approves an Approval Item. Either an admin, or the owning/current user must make this request.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The ID of the work item
+      example: ef38f94347e94562b5bb8424a56397d8
+    - in: path
+      name: approvalItemId
+      schema:
+        type: string
+      required: true
+      description: The ID of the approval item.
+      example: 1211bcaa32112bcef6122adb21cef1ac
+  responses:
+    '200':
+      description: A work items details object.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/WorkItems.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'

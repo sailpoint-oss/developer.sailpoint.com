@@ -1,0 +1,102 @@
+type: object
+description: >-
+    The representation of an internally- or customer-defined transform.
+required:
+  - name
+  - type
+  - attributes
+properties:
+  id:
+    type: string
+    readOnly: true
+    description: >-
+      Unique ID of this transform
+    example: 2cd78adghjkja34jh2b1hkjhasuecd
+  name:
+    type: string
+    description: >-
+      Unique name of this transform
+    example: Timestamp To Date
+  type:
+    type: string
+    description: >-
+      The type of transform operation
+    enum:
+      - accountAttribute
+      - base64Decode
+      - base64Encode
+      - concat
+      - conditional
+      - dateCompare
+      - dateFormat
+      - dateMath
+      - decomposeDiacriticalMarks
+      - e164phone
+      - firstValid
+      - rule
+      - identityAttribute
+      - indexOf
+      - iso3166
+      - lastIndexOf
+      - leftPad
+      - lookup
+      - lower
+      - normalizeNames
+      - randomAlphaNumeric
+      - randomNumeric
+      - reference
+      - replaceAll
+      - replace
+      - rightPad
+      - split
+      - static
+      - substring
+      - trim
+      - upper
+      - usernameGenerator
+      - uuid
+    example: dateFormat
+    externalDocs:
+      description: Transform Operations
+      url: https://developer.sailpoint.com/docs/transforms/transform_operations/transform_operations.html#transform-operations
+  attributes:
+    description: >-
+      Meta-data about the transform. Values in this list are specific to the type of transform to be executed.
+    oneOf:
+    - $ref: './transforms/AccountAttribute.yaml'
+    - $ref: './transforms/Base64Decode.yaml'
+    - $ref: './transforms/Base64Encode.yaml'
+    - $ref: './transforms/Concatenation.yaml'
+    - $ref: './transforms/Conditional.yaml'
+    - $ref: './transforms/DateCompare.yaml'
+    - $ref: './transforms/DateFormat.yaml'
+    - $ref: './transforms/DateMath.yaml'
+    - $ref: './transforms/DecomposeDiacriticalMarks.yaml'
+    - $ref: './transforms/E164phone.yaml'
+    - $ref: './transforms/FirstValid.yaml'
+    - $ref: './transforms/Rule.yaml'
+    - $ref: './transforms/IdentityAttribute.yaml'
+    - $ref: './transforms/IndexOf.yaml'
+    - $ref: './transforms/ISO3166.yaml'
+    - $ref: './transforms/LeftPad.yaml'
+    - $ref: './transforms/Lookup.yaml'
+    - $ref: './transforms/Lower.yaml'
+    - $ref: './transforms/NameNormalizer.yaml'
+    - $ref: './transforms/RandomAlphaNumeric.yaml'
+    - $ref: './transforms/RandomNumeric.yaml'
+    - $ref: './transforms/Reference.yaml'
+    - $ref: './transforms/ReplaceAll.yaml'
+    - $ref: './transforms/Replace.yaml'
+    - $ref: './transforms/RightPad.yaml'
+    - $ref: './transforms/Split.yaml'
+    - $ref: './transforms/Static.yaml'
+    - $ref: './transforms/Substring.yaml'
+    - $ref: './transforms/Trim.yaml'
+    - $ref: './transforms/Upper.yaml'
+    - $ref: './transforms/UUIDGenerator.yaml'
+  internal:
+    type: boolean
+    readOnly: true
+    description: >-
+      Indicates whether this is an internal SailPoint-created transform or a customer-created transform
+    example: false

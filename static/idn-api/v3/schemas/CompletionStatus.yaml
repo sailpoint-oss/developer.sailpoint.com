@@ -1,0 +1,7 @@
+nullable: true
+type: string
+enum:
+  - SUCCESS
+  - FAILURE
+  - INCOMPLETE
+  - PENDING

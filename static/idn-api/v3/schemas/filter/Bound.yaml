@@ -1,0 +1,12 @@
+type: object
+required: ['value']
+properties:
+  value:
+    description: >-
+      The value of the range's endpoint.
+    type: string
+  inclusive:
+    description: >-
+      Indicates if the endpoint is included in the range.
+    type: boolean
+    default: false

@@ -1,0 +1,47 @@
+type : object
+properties:
+  potentialRoleRef:
+    $ref: './RoleMiningPotentialRoleRef.yaml'
+    description: Details about the potential role
+  identityCount:
+    type: integer
+    description: The number of identities in a potential role.
+    example: 25
+  entitlementCount:
+    type: integer
+    description: The number of entitlements in a potential role.
+    example: 15
+  identityGroupStatus:
+    type: string
+    description: The status for this identity group which can be "REQUESTED" or "OBTAINED"
+    example: "OBTAINED"
+  provisionState:
+    $ref: './RoleMiningPotentialRoleProvisionState.yaml'
+    description: The status of provisioning for this potential role. Can be "POTENTIAL", "PENDING", "FAILED", or "COMPLETE".
+    example: "PENDING"
+  roleId:
+    type: string
+    description: ID of the provisioned role in IIQ or IDN.  Null if this potential role has not been provisioned.
+    example: "2a4be6fbcf3c4e66b95a0c15ffd591"
+  density:
+    type: integer
+    description: The density metric (0-100) of this potential role. Higher density values indicate higher similarity amongst the identities.
+    example: 90
+  freshness:
+    type: integer
+    description: The freshness metric (0-100) of this potential role. Higher freshness values indicate this potential role is more distinctive compared to existing roles.
+    example: 70
+  quality:
+    type: integer
+    description: The quality metric (0-100) of this potential role. Higher quality values indicate this potential role has high density and freshness.
+    example: 80
+example:
+  potentialRoleRef: {
+    "id": "dd4c13c6-8237-4753-bfb7-f627e489f9ec",
+    "name": "Potential Role - dd4c13"
+  }
+  identityCount: "25"
+  entitlementCount: "15"
+  identityGroupStatus: "OBTAINED"
+  provisionState: "PENDING"
+  roleId: "2a4be6fbcf3c4e66b95a0c15ffd591"

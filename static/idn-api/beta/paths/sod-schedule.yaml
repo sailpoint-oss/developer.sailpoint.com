@@ -1,0 +1,115 @@
+get:
+  operationId: getSodPolicyScheduleById
+  tags:
+    - SOD Policy
+  summary: Get SOD Policy Schedule
+  description: >-
+    This gets schedule for a specified SOD policy.
+
+    Requires a role of ORG_ADMIN
+  # security:
+  #   - bearerAuth:
+  #       - ORG_ADMIN
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The ID of the object reference to retrieve.
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    '200':
+      description: SOD policy ID.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/SodPolicySchedule.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+put:
+  operationId: updatePolicyScheduleById
+  tags:
+    - SOD Policy
+  summary: Update SOD Policy schedule
+  # security:
+  #   - bearerAuth:
+  #       - ORG_ADMIN
+  description: >-
+    This updates schedule for a specified SOD policy.
+
+    Requires role of ORG_ADMIN
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The ID of the SOD policy to update its schedule.
+      example: ef38f94347e94562b5bb8424a56397d8
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/SodPolicySchedule.yaml'
+  responses:
+    '200':
+      description: SOD Policy by ID.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/SodPolicySchedule.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+delete:
+  operationId: deleteSodPolicyScheduleById
+  tags:
+    - SOD Policy
+  summary: Delete SOD Policy Schedule
+  # security:
+  #   - bearerAuth:
+  #       - ORG_ADMIN
+  description: >-
+    This deletes schedule for a specified SOD policy.
+
+    Requires role of ORG_ADMIN.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The ID of the SOD Policy for which the schedule needs to be deleted.
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    '204':
+      description: No content.
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

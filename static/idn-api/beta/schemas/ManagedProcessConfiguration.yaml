@@ -1,0 +1,24 @@
+description: Configuration information map for Managed Process object
+type: object
+required:
+  - version
+  - path
+properties:
+  version:
+    description: ManagedProcess version number
+    type: string
+    example: 133.2.1
+  path:
+    description: ManagedProcess path
+    type: string
+    example: sailpoint/ccg
+  description:
+    description: ManagedProcess description
+    type: string
+    example: version of charon used by the VA
+  dependencies:
+    description: ManagedProcess dependencies map
+    type: object
+    additionalProperties:
+      type: string
+    example: {"ad-connector":"1.0.0", "connector-bundle-directories":"77.0.0","connector-bundle-filebased":"57.0.1"}

@@ -1,0 +1,22 @@
+post:
+  operationId: roleInsightsRequests
+  summary: A request to generate insights for roles
+  tags:
+    - Role Insights
+  description: >-
+    This submits a create role insights request to the role insights application. At this time there are no parameters. All business roles will be processed for the customer.
+  responses:
+    '201':
+      description: Submitted a role insights generation request
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/RoleInsightsResponse.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

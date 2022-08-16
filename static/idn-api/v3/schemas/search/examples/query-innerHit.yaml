@@ -1,0 +1,9 @@
+summary: Query with InnerHit
+value:
+  indices:
+  - 'identities'
+  query:
+    query: '"John Doe"'
+    innerHit:
+      type: 'access'
+      query: 'source.name:\"Active Directory\"'

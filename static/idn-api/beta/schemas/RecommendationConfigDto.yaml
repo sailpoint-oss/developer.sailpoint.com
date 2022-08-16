@@ -1,0 +1,18 @@
+type: object
+properties:
+  recommenderFeatures:
+    type: array
+    items:
+      type: string
+    description: List of identity attributes to use for calculating certification recommendations
+    example: ["jobTitle", "location", "peer_group", "department", "active"]
+  peerGroupPercentageThreshold:
+    type: number
+    description: The percent value that the recommendation calculation must surpass to produce a YES recommendation
+    minimum: 0.0
+    maximum: 1.0
+    example: 0.5
+  forceRefresh:
+    type: boolean
+    description: If true, rulesRecommenderConfig will be refreshed with new programatically selected attribute and threshold values on the next pipeline run
+    example: false

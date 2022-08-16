@@ -1,0 +1,10 @@
+type: object
+properties:
+  type:
+    $ref: ../../../DtoType.yaml
+  id:
+    type: string
+    example: '2c91808568c529c60168cca6f90c1313'
+required:
+- type
+- id

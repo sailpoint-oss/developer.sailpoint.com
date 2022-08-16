@@ -1,0 +1,18 @@
+get:
+  tags:
+    - identities
+  summary: Retrieves authentication details of an identity.
+  description: Retrieves authentication details of an identity.
+  operationId: getIdentityAuthDetails
+  parameters:
+    - "$ref": "../../../parameters/v2/path/identityAlias.yaml"
+    - "$ref": "../../../parameters/v2/query/org.yaml"
+      required: true
+    - "$ref": "../../../parameters/v2/query/goto.yaml"
+  responses:
+    '200':
+      description: OK.
+      schema:
+        "$ref": "../../../schemas/v2/AuthDetails.yaml"
+    '400':
+      "$ref": "../../../responses/v2/400.yaml"

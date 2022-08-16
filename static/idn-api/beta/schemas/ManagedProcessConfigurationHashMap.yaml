@@ -1,0 +1,17 @@
+type: object
+properties:
+  charon:
+    description: ManagedProcess configuration map
+    $ref: './ManagedProcessConfiguration.yaml'
+  ccg:
+    description: ManagedProcess configuration map
+    $ref: './ManagedProcessConfiguration.yaml'
+  toolbox:
+    description: ManagedProcess configuration map
+    $ref: './ManagedProcessConfiguration.yaml'
+  fluent:
+    description: ManagedProcess configuration map
+    $ref: './ManagedProcessConfiguration.yaml'
+  va_agent:
+    description: ManagedProcess configuration map
+    $ref: './ManagedProcessConfiguration.yaml'

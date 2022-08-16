@@ -1,0 +1,6 @@
+in: path
+name: id
+description: ID of the requested document.
+schema:
+  type: string
+required: true

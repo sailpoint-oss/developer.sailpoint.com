@@ -1,0 +1,70 @@
+# Replaces IdentityCertificationDto.yaml
+type: object
+required:
+- campaignRef
+- completed
+- decisionsMade
+- decisionsTotal
+- due
+- signed
+- reviewer
+- campaignOwner
+- hasErrors
+- phase
+- entitiesCompleted
+- entitiesTotal
+properties:
+  campaignRef:
+    $ref: '../../v3/schemas/CampaignReference.yaml'
+  phase:
+    $ref: '../../v3/schemas/CertificationPhase.yaml'
+  due:
+    type: string
+    format: 'date-time'
+    description: The due date of the certification.
+    example: '2018-10-19T13:49:37.385Z'
+  signed:
+    type: string
+    format: 'date-time'
+    description: The date the reviewer signed off on the certification.
+    example: '2018-10-19T13:49:37.385Z'
+  reviewer:
+    $ref: './Reviewer.yaml'
+    description: A reference to the reviewer of the campaign.
+  reassignment:
+    $ref: './Reassignment.yaml'
+    nullable: true
+    description: A reference to a reviewer that this campaign has been reassigned to.
+  hasErrors:
+    type: boolean
+    example: false
+    description: Indicates it the certification has any errors.
+  errorMessage:
+    type: string
+    nullable: true
+    example: The certification has an error
+    description: A message indicating what the error is.
+  completed:
+    type: boolean
+    description: Indicates if all certification decisions have been made.
+    example: false
+  decisionsMade:
+    type: integer
+    description: The number of approve/revoke/acknowledge decisions that have been made by the reviewer.
+    example: 20
+    format: int32
+  decisionsTotal:
+    type: integer
+    description: The total number of approve/revoke/acknowledge decisions for the certification.
+    example: 40
+    format: int32
+  entitiesCompleted:
+    type: integer
+    description: The number of entities (identities, access profiles, roles, etc.) for which all decisions have been made and are complete.
+    example: 5
+    format: int32
+  entitiesTotal:
+    type: integer
+    format: int32
+    description: The total number of entities (identities, access profiles, roles, etc.) in the certification, both complete and incomplete.
+    example: 10

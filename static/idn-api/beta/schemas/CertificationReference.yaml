@@ -1,0 +1,24 @@
+description: The previous certification
+type: object
+allOf:
+- $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+- type: object
+  properties:
+    reviewer:
+      $ref: './Reviewer.yaml'
+      description: Certification reviewer
+properties:
+  type:
+    description: The type of object that the reviewer is.
+    enum:
+    - "CERTIFICATION"
+    example: CERTIFICATION
+example:
+  reviewer:
+    email: reviewer@test.com
+    type: IDENTITY
+    id: 2c91808568c529c60168cca6f90c1313
+    name: William Wilson
+  type: CERTIFICATION
+  id: 2c9180867921dd73017923ddd8d203ba
+  name: Identity Access Review for William Wilson

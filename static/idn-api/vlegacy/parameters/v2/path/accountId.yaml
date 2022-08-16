@@ -1,0 +1,6 @@
+name: id
+description: ID of an Account
+schema:
+  type: string
+required: true
+in: path

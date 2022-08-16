@@ -1,0 +1,128 @@
+summary: A collection of Identities
+value:
+  - id: '2c9180865c45e7e3015c46c434a80622'
+    name: 'ad.admin'
+    _type: 'identity'
+    firstName: 'AD'
+    lastName: 'Admin'
+    displayName: 'AD Admin'
+    email: 'SLPT.CLOUD.SAILPOINT.TEST+AD-ADMIN@GMAIL.COM'
+    created: '2018-08-22T19:54:54.302Z'
+    modified: '2018-08-22T19:54:54.302Z'
+    synced: '2018-08-22T19:54:54.302Z'
+    phone: '512-942-7578'
+    inactive: false
+    protected: false
+    status: 'UNREGISTERED'
+    employeeNumber: 'O349804'
+    manager: null
+    isManager: false
+    identityProfile:
+      id: '2c918085605c8d0601606f357cb231e6'
+      name: 'E2E AD'
+    source:
+      id: '2c9180855c45b230015c46c19b9c0202'
+      name: 'EndToEnd-ADSource'
+    attributes:
+      uid: 'ad.admin'
+      firstname: 'AD'
+      cloudAuthoritativeSource: '2c9180855c45b230015c46c19b9c0202'
+      cloudStatus: 'UNREGISTERED'
+      iplanet-am-user-alias-list: null
+      displayName: 'AD Admin'
+      internalCloudStatus: 'UNREGISTERED'
+      workPhone: '512-942-7578'
+      email: 'SLPT.CLOUD.SAILPOINT.TEST+AD-ADMIN@GMAIL.COM'
+      lastname: 'Admin'
+    processingState: null
+    processingDetails: null
+    accounts:
+    - id: '2c9180865c45e7e3015c46c434a80623'
+      name: 'ad.admin'
+      accountId: 'CN=AD Admin,OU=slpt-automation,DC=TestAutomationAD,DC=local'
+      source:
+        id: '2c9180855c45b230015c46c19b9c0202'
+        name: 'EndToEnd-ADSource'
+        type: 'Active Directory - Direct'
+      disabled: false
+      locked: false
+      privileged: false
+      manuallyCorrelated: false
+      passwordLastSet: '2018-08-22T19:54:54.302Z'
+      entitlementAttributes:
+        memberOf:
+        - 'CN=Group Policy Creator Owners,CN=Users,DC=TestAutomationAD,DC=local'
+        - 'CN=Domain Guests,CN=Users,DC=TestAutomationAD,DC=local'
+        - 'CN=Domain Admins,CN=Users,DC=TestAutomationAD,DC=local'
+        - 'CN=Enterprise Admins,CN=Users,DC=TestAutomationAD,DC=local'
+        - 'CN=Schema Admins,CN=Users,DC=TestAutomationAD,DC=local'
+        - 'CN=Guests,CN=Builtin,DC=TestAutomationAD,DC=local'
+        - 'CN=Administrators,CN=Builtin,DC=TestAutomationAD,DC=local'
+      created: '2018-08-22T19:54:54.302Z'
+    - id: '2c918083606d670c01606f35a30a0349'
+      name: 'ad.admin'
+      accountId: 'ad.admin'
+      source:
+        id: 'ff8081815c46b85b015c46b90c7c02a6'
+        name: 'IdentityNow'
+        type: 'IdentityNowConnector'
+      disabled: false
+      locked: false
+      privileged: false
+      manuallyCorrelated: false
+      passwordLastSet: null
+      entitlementAttributes:
+      created: '2018-08-22T19:54:54.302Z'
+    accountCount: 2
+    apps:
+    - id: '22751'
+      name: 'ADP Workforce Now'
+      source:
+        id: '2c9180855c45b230015c46e2f6a8026a'
+        name: 'Corporate Active Directory'
+      account:
+        id: '2c9180865c45efa4015c470be0de1606'
+        accountId: 'CN=Bob Wilson,OU=Austin,OU=Americas,OU=Demo,DC=seri,DC=acme,DC=com'
+    appCount: 1
+    access:
+    - id: '2c918083634bc6cb01639808d40270ba'
+      name: 'test [AccessProfile-1527264105448]'
+      displayName: 'test'
+      type: 'ACCESS_PROFILE'
+      description: 'test'
+      source:
+        id: '2c9180855c45b230015c46c19b9c0202'
+        name: 'EndToEnd-ADSource'
+      owner:
+        id: '2c9180865c45e7e3015c46c434a80622'
+        name: 'ad.admin'
+        displayName: 'AD Admin'
+    - id: '2c9180865c45e7e3015c46c457c50755'
+      name: 'Administrators'
+      displayName: 'Administrators'
+      type: 'ENTITLEMENT'
+      description: null
+      source:
+        id: '2c9180855c45b230015c46c19b9c0202'
+        name: 'EndToEnd-ADSource'
+      privileged: false
+      attribute: 'memberOf'
+      value: 'CN=Administrators,CN=Builtin,DC=TestAutomationAD,DC=local'
+      standalone: false
+    - id: '2c9180865decdaa5015e06598b293108'
+      name: 'test [cloudRole-1503345085223]'
+      displayName: 'test'
+      type: 'ROLE'
+      description: 'test'
+      owner:
+        id: '2c9180865c45e7e3015c46c5030707a0'
+        name: 'will.albin'
+        displayName: 'Albin Will'
+      disabled: false
+    accessCount: 3
+    accessProfileCount: 1
+    entitlementCount: 1
+    roleCount: 1
+    tags:
+    - 'TAG_1'
+    - 'TAG_2'

@@ -1,0 +1,6 @@
+allOf:
+- $ref: 'IdentityReference.yaml'
+- type: object
+  properties:
+    email:
+      type: string

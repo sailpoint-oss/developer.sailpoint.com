@@ -1,0 +1,6 @@
+type: string
+enum:
+  - POTENTIAL
+  - PENDING
+  - COMPLETE
+  - FAILED

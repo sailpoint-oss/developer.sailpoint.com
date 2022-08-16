@@ -1,0 +1,17 @@
+type: 'object'
+properties:
+  type:
+    $ref: 'FilterType.yaml'
+  range:
+    $ref: 'Range.yaml'
+  terms:
+    description: >-
+      The terms to be filtered.
+    type: array
+    items:
+      type: string
+  exclude:
+    description: >-
+      Indicates if the filter excludes results.
+    type: boolean
+    default: false

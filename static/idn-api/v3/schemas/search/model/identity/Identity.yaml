@@ -1,0 +1,76 @@
+description: Identity
+allOf:
+- $ref: '../base/BaseDocument.yaml'
+- $ref: '../base/DisplayReference.yaml'
+- type: object
+  properties:
+    firstName:
+      type: string
+    lastName:
+      type: string
+    displayName:
+      type: string
+    email:
+      type: string
+    created:
+      $ref: '../base/DateTime.yaml'
+    modified:
+      $ref: '../base/DateTime.yaml'
+    synced:
+      $ref: '../base/DateTime.yaml'
+    phone:
+      type: string
+    inactive:
+      type: boolean
+    protected:
+      type: boolean
+    status:
+      type: string
+    employeeNumber:
+      type: string
+    manager:
+      $ref: '../base/DisplayReference.yaml'
+      nullable: true
+    isManager:
+      type: boolean
+    identityProfile:
+      $ref: '../base/Reference.yaml'
+    source:
+      $ref: '../base/Reference.yaml'
+    attributes:
+      type: object
+      description: "a map or dictionary of key/value pairs"
+    processingState:
+      type: string
+      nullable: true
+    processingDetails:
+      $ref: 'ProcessingDetails.yaml'
+      nullable: true
+    accounts:
+      type: array
+      items:
+        $ref: '../account/BaseAccount.yaml'
+    accountCount:
+      type: integer
+    apps:
+      type: array
+      items:
+        $ref: 'App.yaml'
+    appCount:
+      type: integer
+    access:
+      type: array
+      items:
+        $ref: 'Access.yaml'
+    accessCount:
+      type: integer
+    accessProfileCount:
+      type: integer
+    entitlementCount:
+      type: integer
+    roleCount:
+      type: integer
+    owns:
+      $ref: 'Owns.yaml'
+    tags:
+      $ref: '../base/Tags.yaml'

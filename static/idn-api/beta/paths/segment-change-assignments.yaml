@@ -1,0 +1,80 @@
+post:
+  operationId: segmentChangeAssignments
+  tags:
+    - Segments
+  summary: Change Segment assignments.
+  description: >-
+    This API makes changes to the objects which are assigned to a Segment. 
+
+
+    No more than 50 changes can be made in a single call. A 400 error will result if more changes than that are
+    specified.
+
+
+    Note that segmentation changes may take time to propagate through the system.
+    
+
+
+    A token with ORG_ADMIN or API authority is required to call this API.
+  parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      description: The ID of the Segment
+      example: ab5fc0cd-e021-4b76-96e6-4818df0d73d5
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/SegmentChangeAssignments.yaml'
+  responses:
+    '202':
+      description: Accepted for processing, indicates no errors detected.
+      $ref: '../../v3/responses/202.yaml'
+    '400':
+      description: Client Error - Returned if the request body is invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '../../v3/schemas/ErrorResponseDto.yaml'
+          examples:
+            400.1 Bad Request Content:
+              description: Response for bad request content
+              value:
+                detailCode: 400.1 Bad Request Content
+                trackingId: 1ea1adcb84da4dcb890145e05745774e
+                messages:
+                  - locale: en-US
+                    localeOrigin: DEFAULT
+                    text: The request was syntactically correct but its content is semantically invalid.
+            400.1.4 Entitlements limit violation:
+              description: Entitlements limit violation response
+              value:
+                detailCode: 400.1.4 Limit violation
+                trackingId: 77aa89ac6f0e422dbc588866abc22be9
+                messages:
+                  - locale: en-US
+                    localeOrigin: DEFAULT
+                    text: You have reached the current limit of 20000 entitlements.
+            400.1.4 Segments limit violation:
+              description: Segments limit violation response
+              value:
+                detailCode: 400.1.4 Limit violation
+                trackingId: 77aa89ac6f0e422dbc588866abc22be9
+                messages:
+                  - locale: en-US
+                    localeOrigin: DEFAULT
+                    text: You have reached the current limit of 100 segments for entitlement.
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+
+

@@ -1,0 +1,43 @@
+delete:
+  tags:
+    - Managed Clusters
+  summary: Clear Clusters cache
+  description: >-
+    Clear Clusters cache.
+  operationId: clearManagedClustersCache
+  parameters:
+    - in: query
+      name: pod
+      required: true
+      schema:
+        type: string
+      description: The cluster pod. Required
+    - in: query
+      name: org
+      schema:
+        type: string
+      description: The cluster org. Required if the cluster id was set.
+    - in: query
+      name: clusterId
+      schema:
+        type: string
+      description: The cluster id
+  responses:
+    '202':
+      description: Accepted. Delete request accepted and is in progress.
+      $ref: '../../v3/responses/202.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - bearerAuth:
+        - 'idn:managed-cluster:delete'

@@ -1,0 +1,47 @@
+type: object
+properties:
+  id:
+    type: string
+    format: UUID
+    example: "ac110005-7156-1150-8171-5b292e3e0084"
+    description: Schema Attribute Id
+  system:
+    type: boolean
+    description: True if this schema attribute is mandatory on all non-employees sources.
+    example: true
+  modified:
+    type: string
+    format: date-time
+    description: When the schema attribute was last modified.
+    example: "2019-08-23T18:52:59.162Z"
+  created:
+    type: string
+    format: date-time
+    description: When the schema attribute was created.
+    example: "2019-08-23T18:40:35.772Z"
+  type:
+    $ref: './NonEmployeeSchemaAttributeType.yaml'
+  label:
+    type: string
+    description: Label displayed on the UI for this schema attribute.
+    example: "Account Name"
+  technicalName:
+    type: string
+    description: The technical name of the attribute. Must be unique per source.
+    example: "account.name"
+  helpText:
+    type: string
+    description: help text displayed by UI.
+    example: "The unique identifier for the account"
+  placeholder:
+    type: string
+    description: Hint text that fills UI box.
+    example: "Enter a unique user name for this account."
+  required:
+    type: boolean
+    description: If true, the schema attribute is required for all non-employees in the source
+    example: true
+required:
+  - type
+  - technicalName
+  - label

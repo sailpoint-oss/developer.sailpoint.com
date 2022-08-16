@@ -1,0 +1,22 @@
+discriminator:
+  propertyName: '_type'
+  mapping:
+    accessprofile: '../model/access/profile/AccessProfile.yaml'
+    accountactivity: '../model/account/activity/AccountActivity.yaml'
+    account: '../model/account/Account.yaml'
+    aggregation: '../model/aggregation/Aggregation.yaml'
+    entitlement: '../model/entitlement/Entitlement.yaml'
+    event: '../model/event/Event.yaml'
+    identity: '../model/identity/Identity.yaml'
+    role: '../model/role/Role.yaml'
+
+oneOf:
+- $ref: '../model/access/profile/AccessProfile.yaml'
+- $ref: '../model/account/activity/AccountActivity.yaml'
+- $ref: '../model/account/Account.yaml'
+- $ref: '../model/aggregation/Aggregation.yaml'
+- $ref: '../model/entitlement/Entitlement.yaml'
+- $ref: '../model/event/Event.yaml'
+- $ref: '../model/identity/Identity.yaml'
+- $ref: '../model/role/Role.yaml'
+

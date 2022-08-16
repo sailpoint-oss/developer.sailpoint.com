@@ -1,0 +1,10 @@
+type: object
+properties:
+  orderedSubPhaseReferences:
+    type: string
+    description: >-
+      Ordered CSV of sub phase references to objects that contain more information about provisioning.
+      For example, this can contain "manualWorkItemDetails" which indicate that there is further information
+      in that object for this phase.
+    example: manualWorkItemDetails
+description: Provides additional details about provisioning for this request.

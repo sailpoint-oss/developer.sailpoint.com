@@ -1,0 +1,54 @@
+type: object
+properties:
+  type:
+    type: string
+  id:
+    type: string
+  name:
+    type: string
+  description:
+    type: string
+  parentName:
+    type: string
+  launcher:
+    type: string
+  completed:
+    type: string
+    format: date-time
+  launched:
+    type: string
+    format: date-time
+  completionStatus:
+    type: string
+    enum:
+      - Success
+      - Warning
+      - Error
+      - Terminated
+      - TempError
+  messages:
+    type: array
+    items:
+      type: object
+      properties:
+        localizedText:
+          type: string
+        type:
+          type: string
+          enum:
+            - Info
+            - Warn
+            - Error
+  returns:
+    type: array
+    items:
+      type: object
+      properties:
+        attributeName:
+          type: string
+        displayLabel:
+          type: string
+  attributes:
+    "$ref": '../../schemas/v2/DynamicSchemaEto.yaml'
+  progress:
+    type: string

@@ -1,0 +1,16 @@
+type: object
+properties:
+  name:
+    type: string
+    description: the name of the argument
+    example: firstName
+  description:
+    type: string
+    description: the description of the argument
+    example: the first name of the identity
+  type:
+    type: string
+    description: the programmatic type of the argument
+    example: String
+required:
+  - name

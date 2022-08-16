@@ -1,0 +1,41 @@
+#
+# Copyright (C) 2020 SailPoint Technologies, Inc.  All rights reserved.
+#
+openapi: 3.0.0
+info:
+  title: Service Desk Integration API
+  description: This is an API for creating and accessing ServiceNow service desk integrations.
+  contact:
+    email: scrum-denali@sailpoint.com
+  version: 3.0.0-oas3
+  x-copyright-year: 2020
+servers:
+  - url: http://localhost:7100/v3/
+tags:
+  - name: Service Desk Integration
+    description: Operations for creating and accessing ServiceNow service desk integrations
+paths:
+  /service-desk-integrations:
+    $ref: "../beta/paths/service-desk-integrations.yaml"
+  /service-desk-integrations/{id}:
+    $ref: "../beta/paths/service-desk-integration.yaml"
+  /service-desk-integrations/types:
+    $ref: "../beta/paths/service-desk-integration-types.yaml"
+  /service-desk-integrations/templates/{scriptName}:
+    $ref: "../beta/paths/service-desk-integration-template.yaml"
+  /service-desk-integrations/status-check-configuration:
+    $ref: "../beta/paths/service-desk-integration-configuration.yaml"
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: oauth2
+      description: This API uses OAuth 2 with the client credentials grant flow.
+      flows:
+        clientCredentials:
+          tokenUrl: https://acme-solar.api.cloud.sailpoint.com/oauth/token
+          scopes:
+            idn:service-desk-integration:read: Service Desk integration read access
+            idn:service-desk-integration:write: Service Desk integration write access
+            idn:service-desk-admin:read: Service Desk admin read access
+            idn:service-desk-admin:write: Service Desk admin write access

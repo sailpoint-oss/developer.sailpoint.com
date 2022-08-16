@@ -1,0 +1,42 @@
+type: object
+properties:
+  id:
+    type: string
+  description:
+    type: string
+  accessProfileName:
+    type: string
+  accessProfileDescription:
+    type: string
+  appName:
+    type: string
+  appId:
+    type: string
+  accessRequestId:
+    type: string
+  ownerId:
+    type: string
+  ownerName:
+    type: string
+  requesterId:
+    type: string
+  requesterName:
+    type: string
+  requesteeId:
+    type: string
+  requesteeName:
+    type: string
+  state:
+    type: string
+    enum:
+      - Pending
+      - Approved
+      - Rejected
+  completed:
+    type: boolean
+  created:
+    type: string
+    format: date-time
+  modified:
+    type: string
+    format: date-time

@@ -1,0 +1,152 @@
+get:
+  operationId: listAccounts
+  tags:
+    - Accounts
+  summary: Accounts List
+  description: >-
+    This returns a list of accounts.  
+    
+    A token with ORG_ADMIN authority is required to call this API.
+  security:
+    - bearerAuth:
+        - idn:account-list:read
+  parameters:
+    - in: query
+      name: detailLevel
+      schema:
+        type: string
+        enum: [ SLIM, FULL ]
+      description: >-
+        Determines whether Slim, or increased level of detail is provided for each account in the returned list.
+        FULL is the default behavior.
+      example: FULL
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: '../../v3/parameters/count.yaml'
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/docs/standard_collection_parameters.html)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **id**: *eq, in*
+
+
+        **identityId**: *eq*
+
+
+        **name**: *eq, in*
+
+
+        **nativeIdentity**: *eq, in*
+
+
+        **sourceId**: *eq, in*
+
+
+        **uncorrelated**: *eq*
+  responses:
+    '200':
+      description: List of account objects
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              oneOf:
+                - $ref: '../schemas/SlimAccount.yaml'
+                - $ref: '../schemas/FullAccount.yaml'
+
+          examples:
+            Slim Accounts:
+              description: List of slim accounts that would result with *detailLevel = SLIM*
+              value:
+                - "attributes": null
+                  "created": "2021-09-28T02:15:44.644Z"
+                  "description": null
+                  "disabled": false
+                  "features": "PROVISIONING, GROUP_PROVISIONING, SYNC_PROVISIONING, AUTHENTICATE"
+                  "hasEntitlements": true
+                  "id": "2c9180867c184ff6017c2a2fbf031667"
+                  "identityId": "2c9180867c184ff6017c2a2fbf031666"
+                  "locked": false
+                  "manuallyCorrelated": false
+                  "modified": "2021-09-28T02:16:12.207Z"
+                  "name": "Geovanni.0a7cad6df"
+                  "nativeIdentity": "CN=Geovanni 0a7cad6df,OU=hpun,OU=org-data-service,DC=TestAutomationAD,DC=local"
+                  "sourceId": "2c91808b7c28b350017c2a2ec5790aa1"
+                  "uuid": "{e4218fa4-da52-4bb0-aa41-d2dcc08a7ad8}"
+
+
+            Full Accounts:
+              description: List of slim accounts that would result with *detailLevel = FULL*  or not specifying it
+              value:
+                - "attributes": null
+                  "authoritative": true
+                  "created": "2021-09-28T02:15:44.644Z"
+                  "description": null
+                  "disabled": false
+                  "features": "PROVISIONING, GROUP_PROVISIONING, SYNC_PROVISIONING, AUTHENTICATE"
+                  "hasEntitlements": true
+                  "id": "2c9180867c184ff6017c2a2fbf031667"
+                  "identityId": "2c9180867c184ff6017c2a2fbf031666"
+                  "locked": false
+                  "manuallyCorrelated": false
+                  "modified": "2021-09-28T02:16:12.207Z"
+                  "name": "Geovanni.0a7cad6df"
+                  "nativeIdentity": "CN=Geovanni 0a7cad6df,OU=hpun,OU=org-data-service,DC=TestAutomationAD,DC=local"
+                  "sourceId": "2c91808b7c28b350017c2a2ec5790aa1"
+                  "systemAccount": false
+                  "uncorrelated": false
+                  "uuid": "{e4218fa4-da52-4bb0-aa41-d2dcc08a7ad8}"
+
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+post:
+  operationId: createAccount
+  tags:
+    - Accounts
+  summary: Create Account
+  description: >-
+    This API submits an account creation task and returns the task ID.  
+
+    A token with ORG_ADMIN authority is required to call this API.
+  security:
+    - bearerAuth:
+        - idn:account:create
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/AccountAttributes.yaml'
+  responses:
+    '202':
+      description: Async task details
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/AccountsAsyncResult.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

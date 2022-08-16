@@ -1,0 +1,115 @@
+get:
+  tags:
+    - Transforms
+  summary: Transform by ID
+  description: >-
+    This API returns the transform specified by the given ID.
+
+    A token with transform read authority is required to call this API.
+
+  operationId: getTransform
+  parameters:
+    - name: id
+      in: path
+      description: ID of the transform to retrieve
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+  responses:
+    "200":
+      description: Transform with the given ID
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Transform.yaml'
+    "403":
+      $ref: '../../v3/responses/403.yaml'
+    "404":
+      $ref: '../../v3/responses/404.yaml'
+  security:
+    - bearerAuth:
+        - 'idn:transforms:read'
+put:
+  tags:
+    - Transforms
+  summary: Update a transform
+  description: >-
+    Replaces the transform specified by the given ID with the transform provided in the request body. Only the
+    "attributes" field is mutable. Attempting to change other attributes will result in an error.
+
+    A token with transform write authority is required to call this API.
+
+  operationId: updateTransform
+  parameters:
+    - name: id
+      in: path
+      description: ID of the transform to update
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+  requestBody:
+    description: >-
+      The updated transform object (must include "name", "type", and "attributes" fields).
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/Transform.yaml'
+        example:
+          name: Timestamp To Date
+          type: dateFormat
+          attributes: { "inputFormat": "MMM-dd-yyyy, HH:mm:ss.SSS", "outputFormat": "yyyy/dd/MM" }
+  responses:
+    "200":
+      description: Indicates the transform was successfully updated and returns its new representation.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Transform.yaml'
+          example:
+            id: 2cd78adghjkja34jh2b1hkjhasuecd
+            name: Timestamp To Date
+            type: dateFormat
+            attributes: { "inputFormat": "MMM-dd-yyyy, HH:mm:ss.SSS", "outputFormat": "yyyy/dd/MM" }
+            internal: false
+    "400":
+      $ref: '../../v3/responses/400.yaml'
+    "403":
+      $ref: '../../v3/responses/403.yaml'
+    "404":
+      $ref: '../../v3/responses/404.yaml'
+  security:
+    - bearerAuth:
+        - 'idn:transforms:write'
+delete:
+  tags:
+    - Transforms
+  summary: Delete a transform
+  description: >-
+    Deletes the transform specified by the given ID.
+
+    A token with transform delete authority is required to call this API.
+
+  operationId: deleteTransform
+  parameters:
+    - name: id
+      in: path
+      description: ID of the transform to delete
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+  responses:
+    "204":
+      $ref: '../../v3/responses/204.yaml'
+    "403":
+      $ref: '../../v3/responses/403.yaml'
+    "404":
+      $ref: '../../v3/responses/404.yaml'
+  security:
+    - bearerAuth:
+        - 'idn:transforms:delete'

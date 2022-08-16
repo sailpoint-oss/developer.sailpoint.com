@@ -1,0 +1,215 @@
+get:
+  tags:
+    - accounts
+  summary: Retrieves the Account by Id.
+  description: >- 
+    Retrieves the Account by Id.   
+    
+    A token with ORG_ADMIN or API_CLIENT authority is required to call this API
+  operationId: getAccount
+  parameters:
+    - "$ref": "../../parameters/v2/path/accountId.yaml"
+  responses:
+    '200':
+      description: OK.
+      content:
+        application/json:
+          schema:
+            "$ref": "../../schemas/v2/Account.yaml"
+      headers:
+        ETag:
+          description: Entity tag.
+          schema:
+            type: string
+        Last-Modified:
+          description: Last modified date.
+          schema:
+            type: string
+            format: date-time
+        Link:
+          description: Links to alternate or related resources.
+          schema:
+            type: string
+    '404':
+      "$ref": "../../responses/v2/404.yaml"
+patch:
+  tags:
+    - accounts
+  summary: Updates an existing account from a flat-file source.
+  description: >-
+    Updates an existing account from a flat-file source.  
+    
+    A token with ORG_ADMIN or API_CLIENT authority is required to call this API
+  operationId: patchAccount
+  parameters:
+    - "$ref": "../../parameters/v2/path/accountId.yaml"
+  requestBody:
+    description: >-
+      Attribute values for the account. The schema and required attributes
+      are dictated by the source.
+    required: true
+    content:
+      application/json:
+        schema:
+          "$ref": "../../schemas/v2/DynamicSchemaEto.yaml"
+        example:
+          businessCategory: Engineering
+          carLicense: carLicense
+          cn: example
+          departmentNumber: Engineering
+          description: description
+          destinationIndicator: destinationIndicator
+          displayName: example
+          distinguishedName: DN=example
+          employeeNumber: '1781263'
+          employeeType: Full Time
+          facsimileTelephoneNumber: 512-666-6666
+          givenName: exampleName
+          homePhone: 512-666-6666
+          homePostalAddress: 11305 Four Points Blvd
+          initials: KVN1
+          internationaliSDNNumber: internationaliSDNNumber
+          mail: example@sailpoint.com
+          manager: DN=example manager
+          mobile: '9018888888'
+          o: o
+          ou: ou
+          pager: pager
+          physicalDeliveryOfficeName: physicalDeliveryOfficeName
+          postOfficeBox: postOfficeBox
+          postalAddress: postalAddress
+          postalCode: '78729'
+          preferredDeliveryMethod: preferredDeliveryMethod
+          preferredLanguage: preferredLanguage
+          registeredAddress: registeredAddress
+          roomNumber: roomNumber
+          secretary: secretary
+          seeAlso: seeAlso
+          sn: LastName
+          st: st
+          street: street
+          telephoneNumber: '9018888888'
+          teletexTerminalIdentifier: teletexTerminalIdentifier
+          telexNumber: telexNumber
+          title: title
+          uid: uid
+          objectClass: objectClass
+          memberOf: Engineering
+          objectSid: objectSid
+          sAMAccountName: example
+          primaryGroupID: primaryGroupID
+          primaryGroupDN: primaryGroupDN
+          accountFlags: accountFlags
+          department: department
+          msNPCallingStationID: msNPCallingStationID
+          msRADIUSFramedRoute: msRADIUSFramedRoute
+          msNPAllowDialin: msNPAllowDialin
+          msRADIUSCallbackNumber: msRADIUSCallbackNumber
+          msRADIUSFramedIPAddress: msRADIUSFramedIPAddress
+          mailNickname: mailNickname
+          homeMDB: homeMDB
+          msExchHideFromAddressLists: msExchHideFromAddressLists
+  responses:
+    '202':
+      "$ref": "../../responses/v2/202.yaml"
+    '404':
+      "$ref": "../../responses/v2/404.yaml"
+put:
+  tags:
+    - accounts
+  summary: Updates an existing account from a flat-file source by replacing all values.
+  description: >-
+    Updates an existing account from a flat-file source. The body represents
+    all the values to be defined on the account. Attributes that are not present in
+    the body will be removed from the account.  
+    
+    A token with ORG_ADMIN or API_CLIENT authority is required to call this API
+  operationId: putAccount
+  parameters:
+    - "$ref": "../../parameters/v2/path/accountId.yaml"
+  requestBody:
+    description: Attribute values for the account. The schema and required attributes
+      are dictated by the source.
+    required: true
+    content:
+      application/json:
+        schema:
+          "$ref": "../../schemas/v2/DynamicSchemaEto.yaml"
+        example:
+          businessCategory: Engineering
+          carLicense: carLicense
+          cn: example
+          departmentNumber: Engineering
+          description: description
+          destinationIndicator: destinationIndicator
+          displayName: example
+          distinguishedName: DN=example
+          employeeNumber: '1781263'
+          employeeType: Full Time
+          facsimileTelephoneNumber: 512-666-6666
+          givenName: exampleName
+          homePhone: 512-666-6666
+          homePostalAddress: 11305 Four Points Blvd
+          initials: KVN1
+          internationaliSDNNumber: internationaliSDNNumber
+          mail: example@sailpoint.com
+          manager: DN=example manager
+          mobile: '9018888888'
+          o: o
+          ou: ou
+          pager: pager
+          physicalDeliveryOfficeName: physicalDeliveryOfficeName
+          postOfficeBox: postOfficeBox
+          postalAddress: postalAddress
+          postalCode: '78729'
+          preferredDeliveryMethod: preferredDeliveryMethod
+          preferredLanguage: preferredLanguage
+          registeredAddress: registeredAddress
+          roomNumber: roomNumber
+          secretary: secretary
+          seeAlso: seeAlso
+          sn: LastName
+          st: st
+          street: street
+          telephoneNumber: '9018888888'
+          teletexTerminalIdentifier: teletexTerminalIdentifier
+          telexNumber: telexNumber
+          title: title
+          uid: uid
+          objectClass: objectClass
+          memberOf: Engineering
+          objectSid: objectSid
+          sAMAccountName: example
+          primaryGroupID: primaryGroupID
+          primaryGroupDN: primaryGroupDN
+          accountFlags: accountFlags
+          department: department
+          msNPCallingStationID: msNPCallingStationID
+          msRADIUSFramedRoute: msRADIUSFramedRoute
+          msNPAllowDialin: msNPAllowDialin
+          msRADIUSCallbackNumber: msRADIUSCallbackNumber
+          msRADIUSFramedIPAddress: msRADIUSFramedIPAddress
+          mailNickname: mailNickname
+          homeMDB: homeMDB
+          msExchHideFromAddressLists: msExchHideFromAddressLists
+  responses:
+    '202':
+      "$ref": "../../responses/v2/202.yaml"
+    '404':
+      "$ref": "../../responses/v2/404.yaml"
+delete:
+  tags:
+    - accounts
+  summary: Deletes an existing account from a flat-file source.
+  description: >- 
+    Deletes an existing account from a flat-file source.   
+    
+    A token with ORG_ADMIN or API_CLIENT authority is required to call this API
+  operationId: deleteAccount
+  parameters:
+    - "$ref": "../../parameters/v2/path/accountId.yaml"
+  responses:
+    '202':
+      "$ref": "../../responses/v2/202.yaml"
+    '404':
+      "$ref": "../../responses/v2/404.yaml"

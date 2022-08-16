@@ -1,0 +1,27 @@
+get:
+  tags:
+    - access-profiles
+  summary: Lists all entitlements of an access profile.
+  description: Lists all entitlements of an access profile.
+  operationId: listAccessProfileEntitlements
+  parameters:
+    - "$ref": "../../parameters/v2/path/accessProfileId.yaml"
+  responses:
+    '200':
+      description: OK.
+      content:
+        application/json:
+          schema:
+            "$ref": "../../schemas/v2/Entitlement.yaml"
+      headers:
+        X-Total-Count:
+          description: Total number of items, regardless of paging limits.
+          schema:
+            type: integer
+            format: int64
+        Link:
+          description: Links to alternate or related resources.
+          schema:
+            type: string
+    '404':
+      "$ref": "../../responses/v2/404.yaml"

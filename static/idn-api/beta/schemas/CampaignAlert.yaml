@@ -1,0 +1,12 @@
+type : object
+properties:
+  level:
+    type: string
+    enum:
+      - ERROR
+      - WARN
+      - INFO
+  localizations:
+    type: array
+    items:
+      $ref: '../../v3/schemas/ErrorMessageDto.yaml'

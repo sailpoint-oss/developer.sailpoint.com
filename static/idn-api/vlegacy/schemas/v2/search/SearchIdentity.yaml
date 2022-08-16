@@ -1,0 +1,193 @@
+type: object
+properties:
+  id:
+    type: string
+  firstName:
+    type: string
+  lastName:
+    type: string
+  displayName:
+    type: string
+  name:
+    type: string
+  email:
+    type: string
+  created:
+    type: string
+    format: date-time
+  modified:
+    type: string
+    format: date-time
+  synced:
+    type: string
+    format: date-time
+  phone:
+    type: string
+  inactive:
+    type: boolean
+  status:
+    type: string
+  employeeNumber:
+    type: string
+  source:
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+  identityProfile:
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+  manager:
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      displayName:
+        type: string
+  attributes:
+    type: object
+    description: Dynamic schema, with no predefined attributes.
+    properties:
+      attribute:
+        type: string
+  processingState:
+    type: string
+  processingDetails:
+    type: object
+    properties:
+      date:
+        type: string
+        format: date-time
+      stage:
+        type: string
+      retryCount:
+        type: integer
+      stackTrace:
+        type: string
+      message:
+        type: string
+  accountCount:
+    type: integer
+  accounts:
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        accountId:
+          type: string
+        source:
+          type: object
+          description: ''
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+            type:
+              type: string
+        disabled:
+          type: boolean
+        locked:
+          type: boolean
+        manuallyCorrelated:
+          type: boolean
+        privileged:
+          type: boolean
+        passwordLastSet:
+          type: string
+          format: date-time
+        created:
+          type: string
+          format: date-time
+        entitlementAttributes:
+          type: object
+          description: Dynamic schema, with no predefined attributes.
+          properties:
+            attribute:
+              type: string
+  appCount:
+    type: integer
+  apps:
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        source:
+          type: object
+          description: ''
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+        account:
+          properties:
+            id:
+              type: string
+            accountId:
+              type: string
+  accessCount:
+    type: integer
+  entitlementCount:
+    type: integer
+  roleCount:
+    type: integer
+  accessProfileCount:
+    type: integer
+  access:
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        displayName:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        source:
+          type: object
+          description: ''
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+        owner:
+          type: object
+          description: ''
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+            displayName:
+              type: string
+        privileged:
+          type: boolean
+        attribute:
+          type: string
+        value:
+          type: string
+        disabled:
+          type: boolean

@@ -1,0 +1,27 @@
+title: Identity Created
+type: object
+required:
+- identity
+- attributes
+properties:
+  identity:
+    required:
+    - id
+    - type
+    - name
+    allOf:
+    - $ref: '../../../../v3/schemas/BaseReferenceDto.yaml'
+    description: The identity that was created.
+    properties:
+      type:
+        enum:
+        - "IDENTITY"
+        example: "IDENTITY"
+        description: The type of object that is referenced
+  attributes:
+    type: object
+    description: The attributes assigned to the identity.  Attributes are determined by the identity profile.
+    additionalProperties: true
+    example: {
+      "firstname": "John"
+    }

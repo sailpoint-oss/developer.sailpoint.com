@@ -1,0 +1,27 @@
+post:
+  operationId: forgot-username
+  tags:
+    - Forgot Username
+  summary: Retrieve Forgotten Username
+  description: This API sends an email to allow a user to retrieve a forgotten username when a valid email address associated with a valid account is provided.
+  requestBody:
+    required: true
+    description: |
+      Forgotten username request. The username is sent by email to the provided address if the the mail is valid for the organization.
+
+      A token with anonymous authority can call this API.
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/ForgotUsernameRequest.yaml'
+  responses:
+    '202':
+      description: Accepted is always returned for a successfully formatted request, even if the email address is not
+        valid for the username. If the email address is valid, matches the username, and the username is enabled, a
+        notification is sent.
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

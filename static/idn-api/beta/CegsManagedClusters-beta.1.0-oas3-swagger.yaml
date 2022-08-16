@@ -1,0 +1,58 @@
+#
+# Copyright (C) 2020 SailPoint Technologies, Inc.  All rights reserved.
+#
+openapi: 3.0.0
+info:
+  title: Managed Clusters API
+  description: This is an API for accessing and managing client Clusters, including log configuration.
+  contact:
+    email: scrum-denali@sailpoint.com
+  version: 1.0.0-oas3
+  x-copyright-year: 2020
+servers:
+  - url: http://localhost:7100/v3/
+tags:
+  - name: Managed Clusters
+    description: Operations for accessing and managing client Clusters, including Log Configuration
+paths:
+  /managed-clusters:
+    $ref: "../beta/paths/managed-clusters-full.yaml"
+  /managed-clusters/{id}:
+    $ref: "../beta/paths/managed-cluster-path-full.yaml"
+  /managed-clusters/{id}/status:
+    $ref: "../beta/paths/managed-cluster-status.yaml"
+  /managed-clusters/{id}/log-config:
+    $ref: "../beta/paths/managed-cluster-log-config.yaml"
+  /managed-clusters/{id}/upgrade:
+    $ref: "../beta/paths/managed-cluster-upgrade.yaml"
+  /managed-clusters/{id}/reboot:
+    $ref: "../beta/paths/managed-cluster-reboot.yaml"
+  /managed-clusters/{id}/jobs:
+    $ref: "../beta/paths/managed-cluster-jobs.yaml"
+  /managed-clusters/{id}/process-config:
+    $ref: "../beta/paths/managed-cluster-processes.yaml"
+  /managed-clusters/{id}/set-encryption-keys:
+    $ref: "../beta/paths/managed-clusters-set-encryption-keys.yaml"
+  /managed-clusters/cache:
+    $ref: '../beta/paths/managed-cluster-cache.yaml'
+
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: oauth2
+      description: This API uses OAuth 2 with the client credentials grant flow.
+      flows:
+        clientCredentials:
+          tokenUrl: https://acme-solar.api.cloud.sailpoint.com/oauth/token
+          scopes:
+            idn:managed-cluster:read: ManagedCluster read access
+            idn:managed-cluster-log-config:read: ManagedCluster log configuration read access
+            idn:managed-cluster-log-config:write: ManagedCluster log configuration write access
+            idn:managed-cluster:upgrade: ManagedCluster client version upgrade access
+            idn:managed-cluster-jobs:read: ManagedCluster read cache for jobs
+            idn:managed-cluster:create: ManagedCluster create access
+            idn:managed-cluster:update: ManagedCluster update access
+            idn:managed-cluster:delete: ManagedCluster delete access
+            idn:managed-cluster-status:read: ManagedClusterStatus read access
+            idn:managed-process:read: ManagedProcess read access

@@ -1,0 +1,62 @@
+get:
+  tags:
+    - org
+  summary: Retrieves your org settings.
+  description: Retrieves information and operational settings for your org (as determined
+    by the URL domain).
+  operationId: getOrgSettings
+  responses:
+    '200':
+      description: OK.
+      content:
+        application/json:
+          schema:
+            "$ref": "../../schemas/v2/Org.yaml"
+      headers:
+        ETag:
+          description: Entity tag.
+          schema:
+            type: string
+        Last-Modified:
+          description: Last modified date.
+          schema:
+            type: string
+            format: date-time
+        Link:
+          description: Links to alternate or related resources.
+          schema:
+            type: string
+patch:
+  tags:
+    - org
+  summary: Updates one or more org attributes.
+  description: Updates one or more attributes for your org.
+  operationId: updateOrgSettings
+  requestBody:
+    description: Org settings to update.
+    required: true
+    content:
+      application/json:
+        schema:
+          "$ref": "../../schemas/v2/OrgEto.yaml"
+  responses:
+    '200':
+      description: OK.
+      content:
+        application/json:
+          schema:
+            "$ref": "../../schemas/v2/Org.yaml"
+      headers:
+        ETag:
+          description: Entity tag.
+          schema:
+            type: string
+        Last-Modified:
+          description: Last modified date.
+          schema:
+            type: string
+            format: date-time
+        Link:
+          description: Links to alternate or related resources.
+          schema:
+            type: string

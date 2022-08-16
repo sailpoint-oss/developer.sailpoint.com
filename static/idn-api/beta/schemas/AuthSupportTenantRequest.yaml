@@ -1,0 +1,10 @@
+type: object
+properties:
+  authUserName:
+    type: string
+    description: The username in the target tenant that the authTenant's support and services user will log in as.
+    example: slpt.services
+  role:
+    type: string
+    description: The user access role in the auth tenant capable of providing admin-level support
+    example: Support and Services Role

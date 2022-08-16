@@ -1,0 +1,21 @@
+allOf:
+  - $ref: './FederationProtocolDetails.yaml'
+  - type: object
+    description: Specification of a Service Provider Details
+    properties:
+      role:
+        type: string
+        enum:
+          - SAML_SP
+      alias:
+        type: string
+        description: Unique alias used to identify the selected local service provider based on used URL. Used with SP configurations.
+        example: cdov-saml-sp
+      legacyAcsUrl:
+        type: string
+        description: This is the original ACS url used by the SSO service which now acts as a proxy for shared authentication as tenants migrate to the new domain. Used with SP configurations.
+        example: https://cdov-saml.test-login.sailpoint.com/saml/SSO/alias/cdov-saml-sp
+      callbackUrl:
+        type: string
+        description: The allowed callback URL where users will be redirected to after authentication. Used with SP configurations.
+        example: https://stradbroke-sso.identitysoon.com/sso/Consumer/metaAlias/cdov-saml/sp

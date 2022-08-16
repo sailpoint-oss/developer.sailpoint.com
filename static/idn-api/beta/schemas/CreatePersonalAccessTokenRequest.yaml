@@ -1,0 +1,10 @@
+type: object
+description: Object for specifying the name of a personal access token to create
+properties:
+  name:
+    type: string
+    description: >-
+      The name of the personal access token (PAT) to be created. Cannot be the same as another PAT owned by the user for whom this PAT is being created.
+    example: "NodeJS Integration"
+required:
+  - name

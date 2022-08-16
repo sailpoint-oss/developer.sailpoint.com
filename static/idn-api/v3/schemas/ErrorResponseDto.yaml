@@ -1,0 +1,20 @@
+type : object
+properties:
+  detailCode:
+    type: string
+    description: Fine-grained error code providing more detail of the error.
+    example: 400.1 Bad Request Content
+  trackingId:
+    type: string
+    description: Unique tracking id for the error.
+    example: e7eab60924f64aa284175b9fa3309599
+  messages:
+    type: array
+    description: Generic localized reason for error
+    items:
+      $ref: "../../v3/schemas/ErrorMessageDto.yaml"
+  causes:
+    type: array
+    description: Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
+    items:
+      $ref: "../../v3/schemas/ErrorMessageDto.yaml"

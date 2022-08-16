@@ -1,0 +1,95 @@
+get:
+  operationId: getTagById
+  tags:
+    - Tags
+  summary: Get Tag By Id
+  description: >-
+    Returns a tag by its id.
+
+
+    A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN
+    authority is required to call this API.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The ID of the object reference to retrieve.
+      example: 329d96cf-3bdb-40a9-988a-b5037ab89022
+  responses:
+    '200':
+      description: Tag
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Tag.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+delete:
+  operationId: deleteTagById
+  tags:
+    - Tags
+  summary: Delete Tag
+  description: >-
+    This API deletes a tag by specified id.
+
+
+    A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN
+    authority is required to call this API.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The ID of the object reference to delete.
+      example: 329d96cf-3bdb-40a9-988a-b5037ab89022
+  responses:
+    '204':
+      description: No content.
+    '400':
+      description: Client Error - Returned if the request body is invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '../../v3/schemas/ErrorResponseDto.yaml'
+          examples:
+            400.1 Bad Request Content:
+              description: Response for bad request content
+              value:
+                detailCode: 400.1 Bad Request Content
+                trackingId: 1ea1adcb84da4dcb890145e05745774e
+                messages:
+                  - locale: en-US
+                    localeOrigin: DEFAULT
+                    text: The request was syntactically correct but its content is semantically invalid.
+            400.2.1 Referential integrity violation:
+              description: Response for reference violations
+              value:
+                detailCode: 400.2.1 Referential integrity violation
+                trackingId: 33956b59f6d44081a11f91959dd8731d
+                messages:
+                  - locale: en-US
+                    localeOrigin: DEFAULT
+                    text: The request cannot be fulfilled because doing so would violate referential integrity constraints.
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

@@ -1,0 +1,72 @@
+get:
+  operationId: listOauthClients
+  # security:
+  #   - bearerAuth:
+  #       - 'idn:oathkeeper-client-list:read'
+  tags:
+    - OAuth Clients
+  summary: List OAuth Clients
+  description: >-
+    This gets a list of OAuth clients.
+
+    Request will require the following security scope:
+
+    - 'idn:oathkeeper-client-list:read'
+  responses:
+    '200':
+      description: List of OAuth clients.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/GetOAuthClientResponse.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+post:
+  operationId: createOauthClient
+  # security:
+  #   - bearerAuth:
+  #       - 'idn:oathkeeper-client:create'
+  #       - 'idn:oathkeeper-internal-client:create'
+  tags:
+    - OAuth Clients
+  summary: Create OAuth Client
+  description: >-
+    This creates an OAuth client.
+
+    Request will require the following security scope:
+
+    - 'idn:oathkeeper-client:create'
+    - 'idn:oathkeeper-internal-client:create'
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/CreateOAuthClientRequest.yaml'
+  responses:
+    '200':
+      description: Request succeeded.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/CreateOAuthClientResponse.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

@@ -1,0 +1,10 @@
+allOf:
+- $ref: '../base/Reference.yaml'
+- type: object
+  properties:
+    description:
+      type: string
+    attribute:
+      type: string
+    value:
+      type: string

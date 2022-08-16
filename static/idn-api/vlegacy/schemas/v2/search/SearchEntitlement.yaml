@@ -1,0 +1,29 @@
+type: object
+properties:
+  id:
+    type: string
+  name:
+    type: string
+  displayName:
+    type: string
+  description:
+    type: string
+  source:
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+  privileged:
+    type: boolean
+  attribute:
+    type: string
+  value:
+    type: string
+  modified:
+    type: string
+    format: date-time
+  synced:
+    type: string
+    format: date-time

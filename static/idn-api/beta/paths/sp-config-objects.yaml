@@ -1,0 +1,59 @@
+get:
+  operationId: spConfigObjects
+  # security:
+  #   - bearerAuth:
+  #       - 'sp:config:export'
+  tags:
+    - SP-Config
+  summary: Get Config Object details
+  description: >-
+    This gets the list of object configurations which are known to the tenant export/import service.
+    Object configurations that contain "importUrl" and "exportUrl" are available for export/import.
+
+    Request will need the following security scope:
+
+    'sp:config:export'
+  responses:
+    '200':
+      description: >-
+        Object configurations returned successfully.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../beta/schemas/SpConfigObject.yaml'
+          example:
+            - {
+              "objectType": "TRIGGER_SUBSCRIPTION",
+              "resolveByIdUrl": {
+                "url": "ets://trigger-subscriptions/$id",
+                "query": null
+              },
+              "resolveByNameUrl": {
+                "url": "ets://trigger-subscriptions/",
+                "query": {
+                  "filters": "name eq \"$name\""
+                }
+              },
+              "exportUrl": "ets://trigger-subscriptions/export",
+              "exportRight": "idn:trigger-service-subscriptions:read",
+              "exportLimit": 10,
+              "importUrl": "ets://trigger-subscriptions/import",
+              "importRight": "idn:trigger-service-subscriptions:create",
+              "importLimit": 10,
+              "referenceExtractors": ["$.owner"],
+              "signatureRequired": false
+          }
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

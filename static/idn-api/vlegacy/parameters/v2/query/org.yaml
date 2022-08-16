@@ -1,0 +1,5 @@
+name: org
+description: Name of the org.
+schema:
+  type: string
+in: query

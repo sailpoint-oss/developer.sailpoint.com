@@ -1,0 +1,29 @@
+type : object
+title: Campaign Report
+required:
+  - reportType
+allOf:
+- $ref: './ReportResultReference.yaml'
+- type: object
+  properties:
+    reportType:
+      $ref: './ReportType.yaml'
+    lastRun:
+      type: integer
+      readOnly: true
+      format: int64
+      deprecated: true
+      description: Date is stored in Unix Epoch time format (in milliseconds)
+    lastRunAt:
+      type: string
+      readOnly: true
+      format: date-time
+      description: The most recent date and time this report was run
+example:
+  type: REPORT_RESULT
+  id: 2c91808568c529c60168cca6f90c1313
+  name: Campaign Composition Report
+  status: SUCCESS
+  reportType: CAMPAIGN_COMPOSITION_REPORT
+  lastRun: 1549051761000
+  lastRunAt: '2019-12-19T13:49:37.385Z'

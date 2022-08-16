@@ -1,0 +1,38 @@
+post:
+  tags:
+    - approvals
+  summary: Approves an access request.
+  description: Approves an access request.
+  operationId: approveAccessRequest
+  parameters:
+    - "$ref": "../../../parameters/v2/path/approvalId.yaml"
+  requestBody:
+    description: Reviewer's comment.
+    required: false
+    content:
+      application/json:
+        schema:
+          "$ref": "../../../schemas/v2/CommentEto.yaml"
+  responses:
+    '200':
+      description: OK.
+      content:
+        application/json:
+          schema:
+            "$ref": "../../../schemas/v2/Approval.yaml"
+      headers:
+        ETag:
+          description: Entity tag.
+          schema:
+            type: string
+        Last-Modified:
+          description: Last modified date.
+          schema:
+            type: string
+            format: date-time
+        Link:
+          description: Links to alternate or related resources.
+          schema:
+            type: string
+    '404':
+      "$ref": "../../../responses/v2/404.yaml"

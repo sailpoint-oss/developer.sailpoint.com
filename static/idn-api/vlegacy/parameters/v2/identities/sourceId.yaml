@@ -1,0 +1,6 @@
+name: sourceId
+description: ID of a flat-file source into which the new identity will be created.
+schema:
+  type: string
+required: true
+in: query

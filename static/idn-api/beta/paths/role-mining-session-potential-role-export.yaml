@@ -1,0 +1,39 @@
+get:
+  operationId: exportRoleMiningPotentialRole
+  summary: Export (download) details for a potential role in a role mining session
+  tags:
+    - IAI Role Mining
+  description: >-
+    This endpoint downloads all the information for a potential role in a role mining session. Includes identities and
+    entitlements in the potential role.
+  parameters:
+    - in: path
+      name: sessionId
+      schema:
+        type: string
+      required: true
+      description: The role mining session id
+      example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
+    - in: path
+      name: potentialRoleId
+      schema:
+        type: string
+      required: true
+      description: A potential role id in a role mining session
+      example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
+  responses:
+    '200':
+      description: Succeeded. Returns a zip file containing csv files for identities and entitlements for the potential role.
+      content:
+        application/zip:
+          schema:
+            type: string
+            format: binary
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

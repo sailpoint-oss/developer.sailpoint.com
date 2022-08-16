@@ -1,0 +1,13 @@
+allOf:
+- $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+- type : object
+  properties:
+    status:
+      type: string
+      enum:
+        - SUCCESS
+        - WARNING
+        - ERROR
+        - TERMINATED
+        - TEMP_ERROR
+        - PENDING

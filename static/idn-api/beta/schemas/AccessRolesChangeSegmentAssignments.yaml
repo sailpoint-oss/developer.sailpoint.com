@@ -1,0 +1,41 @@
+type: object
+description: >-
+  A request to make segment assignment changes to multiple roles and access-profiles.
+required:
+  - "segmentId"
+properties:
+  segmentId:
+    type: string
+    description: The ID of the Segment
+    example: ab5fc0cd-e021-4b76-96e6-4818df0d73d5
+  assignments:
+    type: array
+    items:
+      $ref: '../../v3/schemas/BareReference.yaml'
+    nullable: true
+    description: >-
+      List of references to objects which will be assigned the Segment. All references must be of type ROLE or
+      ACCESS_PROFILE. If a referenced object is already assigned the Segment, the new assignment will be silently
+      ignored. However, it is an error for the same object to be referenced in both the *assignments* and *removals*
+      lists.
+    example:
+      - type: "ROLE"
+        id: "2c918086750a21d701751e71ee121518"
+      - type: "ACCESS_PROFILE"
+        id: "2c918086750a2e129f1518161919ecca"
+  removals:
+    type: array
+    items:
+      $ref: '../../v3/schemas/BareReference.yaml'
+    nullable: true
+    description: >-
+      List of references to objects which will be removed from the Segment. All references must be of type ROLE or
+      ACCESS_PROFILE. If a referenced object is not assigned the Segment, the new removal will be silently
+      ignored. However, it is an error for the same object to be referenced in both the *assignments* and *removals*
+      lists.
+    example:
+      - type: "ROLE"
+        id: "2c918086750a21d701751e71e73a0289"
+      - type: "ACCESS_PROFILE"
+        id: "2c91808676fd514b017702bdc826024a"
+

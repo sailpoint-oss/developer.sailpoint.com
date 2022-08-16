@@ -1,0 +1,8 @@
+name: filters
+description: 'Search filters. Supported operators are ''co'', ''sw'', ''eq'', ''or'',
+  ''and'', ''gt'', ''lt'', ''ge'', ''le'', ''ne'', ''not'' and ''pr'' which are SCIM-compliant.
+  Supported attributes for filtering are ‘operation’, ’name’, ‘sourceName’ and ‘status’.
+  Example: ''property eq "value"''.'
+schema:
+  type: string
+in: query

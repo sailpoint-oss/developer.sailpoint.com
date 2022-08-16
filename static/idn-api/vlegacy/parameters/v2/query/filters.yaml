@@ -1,0 +1,5 @@
+name: filters
+description: 'Search filters. Example: ''property EQ "value"'''
+schema:
+  type: string
+in: query

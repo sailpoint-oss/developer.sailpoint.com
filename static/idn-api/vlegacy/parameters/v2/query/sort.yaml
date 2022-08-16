@@ -1,0 +1,6 @@
+name: sort
+description: One or more attributes on which to sort, each separated by a ','. Prefix
+  with a minus sign (ex. -dateCreated) for descending sort.
+schema:
+  type: string
+in: query

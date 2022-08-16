@@ -1,0 +1,20 @@
+type: object
+properties:
+  id:
+    type: string
+  applicationName:
+    type: string
+  applicationId:
+    type: string
+  attribute:
+    type: string
+  value:
+    type: string
+  displayName:
+    type: string
+  displayableName:
+    type: string
+  description:
+    type: string
+  privileged:
+    type: boolean

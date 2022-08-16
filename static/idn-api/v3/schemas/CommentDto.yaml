@@ -1,0 +1,24 @@
+type: object
+properties:
+  comment:
+    type: string
+    description: Content of the comment
+    example: Et quam massa maximus vivamus nisi ut urna tincidunt metus elementum erat
+  author:
+    type: object
+    properties:
+      type:
+        $ref: './DtoType.yaml'
+      id:
+        type: string
+        description: ID of the author
+        example: 2c91808568c529c60168cca6f90c1313
+      name:
+        type: string
+        description: Human-readable display name of the identity making the comment
+        example: Adam Kennedy
+  created:
+    type: string
+    format: 'date-time'
+    description: Date and time comment was created
+    example: '2017-07-11T18:45:37.098Z'

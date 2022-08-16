@@ -1,0 +1,65 @@
+type: object
+properties:
+  countryCodes:
+    type: array
+    items:
+      type: string
+  enableExternalPasswordChange:
+    type: boolean
+  enableAutomaticPasswordReplay:
+    type: boolean
+  enableAutomationGeneration:
+    type: boolean
+  kbaReqAnswers:
+    type: integer
+    format: int32
+  kbaReqForAuthn:
+    type: integer
+    format: int32
+  lockoutAttemptThreshold:
+    type: integer
+    format: int32
+  lockoutTimeMinutes:
+    type: integer
+    format: int32
+  loginUrl:
+    type: string
+  netmasks:
+    type: array
+    items:
+      type: string
+  notifyAuthenticationSettingChange:
+    type: boolean
+  passwordReplayState:
+    type: string
+    enum:
+      - enabled
+      - passive
+      - disabled
+  preferredIdentityInviteTemplate:
+    type: string
+  redirectPatterns:
+    type: array
+    items:
+      type: string
+  ssoPartnerSource:
+    type: string
+  systemNotificationEmails:
+    type: array
+    items:
+      type: string
+      format: email
+  trackAnalytics:
+    type: boolean
+  usageCertRequired:
+    type: boolean
+  usageCertText:
+    type: string
+  usernameEmptyText:
+    type: string
+  usernameLabel:
+    type: string
+  whiteList:
+    type: boolean
+  approvalConfig:
+    "$ref": '../../schemas/v2/ApprovalConfigEto.yaml'

@@ -1,0 +1,12 @@
+type: object
+properties:
+    accessProfileId:
+        type: string
+        description: ID of the Access Profile that is in use
+        example: "2c91808876438bbb017668c21919ecca"
+    usedBy:
+        type: array
+        description: List of references to objects which are using the indicated Access Profile
+        items:
+          $ref: '../BaseReferenceDto.yaml'
+

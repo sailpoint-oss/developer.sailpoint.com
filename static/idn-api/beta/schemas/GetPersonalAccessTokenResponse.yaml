@@ -1,0 +1,23 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The ID of the personal access token (to be used as the username for Basic Auth).
+    example: "86f1dc6fe8f54414950454cbb11278fa"
+  name:
+    type: string
+    description: The name of the personal access token. Cannot be the same as other personal access tokens owned by a user.
+    example: "NodeJS Integration"
+  owner:
+    $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+    description: Details about the owner of the personal access token.
+  created:
+    type: string
+    format: 'date-time'
+    description: The date and time, down to the millisecond, when this personal access token was created.
+    example: '2017-07-11T18:45:37.098Z'
+required:
+  - id
+  - name
+  - owner
+  - created

@@ -1,0 +1,46 @@
+post:
+  operationId: spConfigExport
+  # security:
+  #   - bearerAuth:
+  #       - 'sp:config:export'
+  tags:
+    - SP-Config
+  summary: Initiates Configuration Objects Export Job.
+  description: >-
+    This post will export objects from the tenant to a JSON configuration file.
+
+    Request will need the following security scope:
+
+    'sp:config:export'
+  requestBody:
+    description: Export options control what will be included in the export.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/ExportPayload.yaml'
+  responses:
+    '202':
+      description: >-
+        Export job accepted and queued for processing.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/SpConfigJob.yaml'
+    '400':
+      description: |
+        Client Error - Returned if the request body is invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '../../v3/schemas/ErrorResponseDto.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

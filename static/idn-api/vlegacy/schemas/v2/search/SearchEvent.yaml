@@ -1,0 +1,75 @@
+type: object
+properties:
+  id:
+    type: string
+  action:
+    type: string
+  type:
+    type: string
+  created:
+    type: string
+    format: date-time
+  synced:
+    type: string
+    format: date-time
+  actor:
+    type: object
+    properties:
+      name:
+        type: string
+      type:
+        type: string
+  target:
+    type: object
+    properties:
+      name:
+        type: string
+      type:
+        type: string
+  stack:
+    type: string
+  requestId:
+    type: string
+  hostname:
+    type: string
+  ipAddress:
+    type: string
+  attributes:
+    type: object
+    description: Dynamic schema
+    properties:
+      error:
+        type: string
+      reviewer:
+        type: object
+        properties:
+          name:
+            type: string
+          type:
+            type: string
+          comments:
+            type: string
+      requester:
+        type: object
+        properties:
+          name:
+            type: string
+          type:
+            type: string
+          comments:
+            type: string
+      oldValue:
+        type: string
+      newValue:
+        type: string
+      accountName:
+        type: string
+      sourceName:
+        type: string
+      SSO:
+        type: object
+        properties:
+          contextId:
+            type: string
+          ipAddress:
+            type: string

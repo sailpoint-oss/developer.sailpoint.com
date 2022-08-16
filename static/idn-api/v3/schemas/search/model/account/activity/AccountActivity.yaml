@@ -1,0 +1,51 @@
+description: AccountActivity
+allOf:
+- $ref: '../../base/BaseDocument.yaml'
+- type: object
+  properties:
+    action:
+      type: string
+    created:
+      $ref: '../../base/DateTime.yaml'
+    modified:
+      $ref: '../../base/DateTime.yaml'
+    stage:
+      type: string
+    origin:
+      type: string
+    status:
+      type: string
+    requester:
+      $ref: '../Source.yaml'
+    recipient:
+      $ref: '../Source.yaml'
+    trackingNumber:
+      type: string
+    errors:
+      type: array
+      items:
+        type: string
+    warnings:
+      type: array
+      items:
+        type: string
+    approvals:
+      type: array
+      items:
+        $ref: 'Approval.yaml'
+    originalRequests:
+      type: array
+      items:
+        $ref: 'OriginalRequest.yaml'
+    expansionItems:
+      type: array
+      items:
+        $ref: 'ExpansionItem.yaml'
+    accountRequests:
+      type: array
+      items:
+        $ref: 'AccountRequest.yaml'
+    sources:
+      type: array
+      items:
+        type: string

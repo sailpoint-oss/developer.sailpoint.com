@@ -1,0 +1,14 @@
+type: object
+description: Localized error message to indicate a failed invocation or error if any.
+required:
+- "locale"
+- "message"
+properties:
+  locale:
+    description: Message locale
+    type: string
+    example: "An error has occurred!"
+  message:
+    description: Message text
+    type: string
+    example: "Error has occurred!"

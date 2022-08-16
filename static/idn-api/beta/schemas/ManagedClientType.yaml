@@ -1,0 +1,7 @@
+description: Managed Client type
+type: string
+example: CCG
+enum:
+  - CCG
+  - VA
+  - INTERNAL

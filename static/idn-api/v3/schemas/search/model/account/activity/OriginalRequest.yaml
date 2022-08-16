@@ -1,0 +1,12 @@
+type: object
+properties:
+  accountId:
+    type: string
+  attributeRequests:
+    type: array
+    items:
+      $ref: 'AttributeRequest.yaml'
+  op:
+    type: string
+  source:
+    $ref: '../Source.yaml'

@@ -1,0 +1,70 @@
+type: object
+properties:
+  uuid:
+    type: string
+    description: Job UUID.
+    example: 'abc-d765ab-77jovaw'
+  cookbook:
+    type: string
+    description: Job Cookbook.
+    example: 'abc-d765ab-77jovaw'
+  state:
+    description: Job State
+    example: 'INPROGRESS'
+    nullable: false
+    $ref: './JobState.yaml'
+  type:
+    description: Job Type
+    example: 'VA_UPGRADE'
+    nullable: false
+    $ref: './JobType.yaml'
+  targetId:
+    type: string
+    description: Client id that the job is targeting.
+    example: '2222'
+  managedProcessConfiguration:
+    description: The active Process Dependencies for the cluster type
+    example:
+      '{
+          "charon": {
+            "version": "393",
+            "path": "sailpoint/charon",
+            "description": null,
+            "dependencies": null
+          },
+          "ccg": {
+            "version": "503_668_96.2.0",
+            "path": "sailpoint/ccg",
+            "description": null,
+            "dependencies": null
+          },
+          "toolbox": {
+            "version": "15",
+            "path": "sailpoint/toolbox",
+            "description": null,
+            "dependencies": null
+          },
+          "fluent": {
+            "version": "50",
+            "path": "fluent/va",
+            "description": null,
+            "dependencies": null
+          },
+          "va_agent": {
+            "version": "99",
+            "path": "sailpoint/va_agent",
+            "description": null,
+            "dependencies": null
+          }
+      }'
+    additionalProperties:
+      type: object
+      description: ManagedProcess configuration map
+      $ref: './ManagedProcessConfiguration.yaml'
+
+required:
+  - uuid
+  - cookbook
+  - state
+  - type
+  - targetId

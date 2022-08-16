@@ -1,0 +1,14 @@
+description: Role
+allOf:
+- $ref: '../base/BaseDocument.yaml'
+- $ref: '../access/BaseAccess.yaml'
+- type: object
+  properties:
+    accessProfiles:
+      type: array
+      items:
+        $ref: '../base/Reference.yaml'
+    accessProfileCount:
+      type: integer
+    tags:
+      $ref: '../base/Tags.yaml'

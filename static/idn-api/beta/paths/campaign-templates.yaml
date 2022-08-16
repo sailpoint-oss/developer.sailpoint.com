@@ -1,0 +1,96 @@
+get:
+  operationId: listCampaignTemplates
+  tags:
+    - Certification Campaigns
+  summary: List Campaign Templates
+  parameters:
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: '../../v3/parameters/count.yaml'
+    - in: query
+      name: sorters
+      schema:
+        type: string
+        format: comma-separated
+      description: >-
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/docs/standard_collection_parameters.html)
+
+
+        Sorting is supported for the following fields: **name, created, modified**
+    - in: query
+      name: filters
+      schema:
+        type: string
+        format: comma-separated
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/docs/standard_collection_parameters.html)
+
+
+        Filtering is supported for the following fields: **name, id**
+  responses:
+    '200':
+      description: List of campaign template objects
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/CampaignTemplate.yaml'
+          example:
+              $ref: '../schemas/campaign/examples/CampaignTemplates.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+post:
+  operationId: createCampaignTemplate
+  tags:
+    - Certification Campaigns
+  summary: Create a Campaign Template
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/CampaignTemplate.yaml'
+        examples:
+          Manager:
+            $ref: '../schemas/campaign/examples/CreateCampaignTemplateManager.yaml'
+          Search:
+            $ref: '../schemas/campaign/examples/CreateCampaignTemplateSearch.yaml'
+          Source Owner:
+            $ref: '../schemas/campaign/examples/CreateCampaignTemplateSourceOwner.yaml'
+          RoleComposition:
+            $ref: '../schemas/campaign/examples/CreateCampaignTemplateRoleComposition.yaml'
+  responses:
+    '200':
+      description: Created successfully.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/CampaignTemplate.yaml'
+          examples:
+            Manager:
+              $ref: '../schemas/campaign/examples/CampaignTemplateManager.yaml'
+            Search:
+              $ref: '../schemas/campaign/examples/CampaignTemplateSearch.yaml'
+            Source Owner:
+              $ref: '../schemas/campaign/examples/CampaignTemplateSourceOwner.yaml'
+            RoleComposition:
+              $ref: '../schemas/campaign/examples/CampaignTemplateRoleComposition.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

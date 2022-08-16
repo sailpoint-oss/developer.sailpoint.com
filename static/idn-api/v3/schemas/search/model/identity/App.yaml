@@ -1,0 +1,13 @@
+allOf:
+- $ref: '../base/Reference.yaml'
+- type: object
+  properties:
+    source:
+      $ref: '../base/Reference.yaml'
+    account:
+      type: object
+      properties:
+        id:
+          type: string
+        accountId:
+          type: string

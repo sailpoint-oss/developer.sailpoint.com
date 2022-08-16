@@ -1,0 +1,90 @@
+get:
+  operationId: listPersonalAccessTokens
+  tags:
+    - Personal Access Tokens
+  summary: List Personal Access Tokens
+  description: >-
+    This gets a collection of personal access tokens associated with the optional <code>owner-id</code>. </br>
+    query parameter. If the <code>owner-id</code> query parameter is omitted, all personal access tokens </br>
+    for a tenant will be retrieved, but the caller must have the 'idn:all-personal-access-tokens:read' right. </br>
+    </br>
+    Any of the following rights are required to access this resource:
+    <ul>
+      <li>idn:my-personal-access-tokens:read</li>
+      <li>idn:all-personal-access-tokens:read</li>
+      <li>idn:managed-personal-access-tokens:read</li>
+    </ul>
+  parameters:
+    - in: query
+      name: owner-id
+      description: >-
+        The identity ID of the owner whose personal access tokens should be listed. </br>
+        If "me", the caller should have the following right: 'idn:my-personal-access-tokens:read'</br>
+        </br>
+        If an actual owner ID or if the <code>owner-id</code> parameter is omitted in the request, </br>
+        the caller should have the following right: 'idn:all-personal-access-tokens:read'. </br>
+        </br>
+        If the caller has the following right, then managed personal access tokens associated with <code>owner-id</code> </br>
+        will be retrieved: 'idn:managed-personal-access-tokens:read'
+      required: false
+      schema:
+        type: string
+        default: null
+        example: 2c9180867b50d088017b554662fb281e
+  responses:
+    '200':
+      description: List of personal access tokens.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/GetPersonalAccessTokenResponse.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+post:
+  operationId: createPersonalAccessToken
+  tags:
+    - Personal Access Tokens
+  summary: Create Personal Access Token
+  description: >-
+    This creates a personal access token. </br>
+    </br>
+    Any of the following rights are required to access this resource:
+    <ul>
+      <li>idn:my-personal-access-tokens:create</li>
+      <li>idn:all-personal-access-tokens:create</li>
+      <li>idn:managed-personal-access-tokens:create</li>
+    </ul>
+  requestBody:
+    description: Name and scope of personal access token.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/CreatePersonalAccessTokenRequest.yaml'
+  responses:
+    '200':
+      description: Created. Note - this is the only time Personal Access Tokens' secret attribute will be displayed.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/CreatePersonalAccessTokenResponse.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

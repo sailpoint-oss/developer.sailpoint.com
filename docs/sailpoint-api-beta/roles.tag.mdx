@@ -1,0 +1,56 @@
+---
+id: roles
+title: Roles
+description: Roles
+---
+
+
+
+Use this API to implement and customize role functionality.
+With this functionality in place, administrators can create roles and configure them for use throughout IdentityNow. 
+IdentityNow can use established criteria to automatically assign the roles to qualified users. This enables users to get all the access they need quickly and securely and administrators to spend their time on other tasks.
+
+Entitlements represent the most granular level of access in IdentityNow. 
+Access profiles represent the next level and often group entitlements. 
+Roles represent the broadest level of access and often group access profiles. 
+
+For example, an Active Directory source in IdentityNow can have multiple entitlements: the first, 'Employees,' may represent the access all employees have at the organization, and a second, 'Developers,' may represent the access all developers have at the organization.
+
+An administrator can then create a broader set of access in the form of an access profile, 'AD Developers' grouping the 'Employees' entitlement with the 'Developers' entitlement.
+
+An administrator can then create an even broader set of access in the form of a role grouping the 'AD Developers' access profile with another profile, 'GitHub Developers,' grouping entitlements for the GitHub source.
+
+When users only need Active Directory employee access, they can request access to the 'Employees' entitlement.
+
+When users need both Active Directory employee and developer access, they can request access to the 'AD Developers' access profile.
+
+When users need both the 'AD Developers' access profile and the 'GitHub Developers' access profile, they can request access to the role grouping both. 
+
+Roles often represent positions within organizations. 
+For example, an organization's accountant can access all the tools the organization's accountants need with the 'Accountant' role. 
+If the accountant switches to engineering, a qualified member of the organization can quickly revoke the accountant's 'Accountant' access and grant access to the 'Engineer' role instead, granting access to all the tools the organization's engineers need.
+
+In IdentityNow, adminstrators can use the Access drop-down menu and select Roles to view, configure, and delete existing roles, as well as create new ones. 
+Administrators can enable and disable the role, and they can also make the following configurations: 
+
+- Manage Access: Manage the role's access by adding or removing access profiles.
+
+- Define Assignment: Define the criteria IdentityNow uses to assign the role to identities. 
+Use the first option, 'Standard Criteria,' to provide specific criteria for assignment like specific account attributes, entitlements, or identity attributes. 
+Use the second, 'Identity List,' to specify the identities for assignment.
+
+- Access Requests: Configure roles to be requestable and establish an approval process for any requests that the role be granted or revoked. 
+Do not configure a role to be requestable without establishing a secure access request approval process for that role first. 
+
+Refer to the following link for more information about roles.
+
+
+
+
+```mdx-code-block
+import DocCardList from '@theme/DocCardList';
+import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
+
+<DocCardList items={useCurrentSidebarCategory().items}/>
+```
+      

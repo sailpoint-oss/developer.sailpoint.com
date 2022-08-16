@@ -1,0 +1,6 @@
+type: object
+properties:
+  mappings:
+    type: object
+  operators:
+    type: object

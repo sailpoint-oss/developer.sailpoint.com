@@ -1,0 +1,49 @@
+get:
+  operationId: getAccountAggregationStatus
+  tags:
+    - Account Aggregations
+  summary: In-progress Account Aggregation status
+  description: >-
+    This API returns the status of an *in-progress* account aggregation, along with the total number of **NEW**,
+    **CHANGED** and **DELETED** accounts found since the previous aggregation, and the number of those accounts that
+    have been processed so far.
+
+
+    Accounts that have not changed since the previous aggregation are not included in **totalAccounts** and
+    **processedAccounts** counts returned by this API. This is distinct from **Accounts Scanned** shown in the
+    Aggregation UI, which indicates total accounts scanned regardless of whether they changed or not.
+
+
+    Since this endpoint reports on the status of an *in-progress* account aggregation, totalAccounts and
+    processedAccounts may change between calls to this endpoint.
+
+
+    *Only available up to an hour after the aggregation completes. May respond with *404 Not Found* after that.*
+
+
+    A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN or DASHBOARD authority is required to call this API.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The account aggregation id
+      example: 2c91808477a6b0c60177a81146b8110b
+  responses:
+    '200':
+      description: An account aggregation status object
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/AccountAggregationStatus.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

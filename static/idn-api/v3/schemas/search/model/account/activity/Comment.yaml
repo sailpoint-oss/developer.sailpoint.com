@@ -1,0 +1,8 @@
+type: object
+properties:
+  comment:
+    type: string
+  commenter:
+    type: string
+  date:
+    $ref: '../../base/DateTime.yaml'

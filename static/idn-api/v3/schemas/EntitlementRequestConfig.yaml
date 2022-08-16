@@ -1,0 +1,25 @@
+type : object
+properties:
+  allowEntitlementRequest:
+    type: boolean
+    description: Flag for allowing entitlement request.
+    example: true
+  requestCommentsRequired:
+    type: boolean
+    description: Flag for requiring comments while submitting an entitlement request.
+    default: false
+    example: false
+  deniedCommentsRequired:
+    type: boolean
+    description: Flag for requiring comments while rejecting an entitlement request.
+    default: false
+    example: false
+  grantRequestApprovalSchemes:
+    type: string
+    description: |
+      Approval schemes for granting entitlement request. This can be empty if no approval is needed.
+      Multiple schemes must be comma-separated. The valid schemes are "sourceOwner", "manager" and "workgroup:{id}".
+      Multiple workgroups (governance groups) can be used.
+    default: sourceOwner
+    example:
+        "sourceOwner, manager, workgroup:2c918084660f45d6016617daa9210584"

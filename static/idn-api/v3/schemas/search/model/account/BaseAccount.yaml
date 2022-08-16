@@ -1,0 +1,24 @@
+allOf:
+- $ref: '../base/Reference.yaml'
+- type: object
+  properties:
+    accountId:
+      type: string
+    source:
+      $ref: 'Source.yaml'
+    disabled:
+      type: boolean
+    locked:
+      type: boolean
+    privileged:
+      type: boolean
+    manuallyCorrelated:
+      type: boolean
+    passwordLastSet:
+      $ref: '../base/DateTime.yaml'
+    entitlementAttributes:
+      type: object
+      nullable: true
+      description: "a map or dictionary of key/value pairs"
+    created:
+      $ref: '../base/DateTime.yaml'

@@ -1,0 +1,14 @@
+type: object
+title: Resource Objects Request
+description: Request model for peek resource objects from source connectors.
+properties:
+  objectType:
+    type: string
+    description: The type of resource objects to iterate over.
+    default: account
+    example: group
+  maxCount:
+    type: integer
+    description: The maximum number of resource objects to iterate over and return.
+    default: 25
+    example: 100

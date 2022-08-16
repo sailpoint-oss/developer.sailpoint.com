@@ -1,0 +1,10 @@
+description: Service unavailable.
+headers:
+  X-Retry-After:
+    description: Recommended number of seconds to wait before you retry the request.
+    schema:
+      type: integer
+content:
+  application/json:
+    schema:
+      "$ref": "../../responses/v2/ExceptionObject.yaml"

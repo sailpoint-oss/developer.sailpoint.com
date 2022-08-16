@@ -1,0 +1,12 @@
+description: Managed Cluster Redis Configuration
+type: object
+properties:
+  redisHost:
+    description: ManagedCluster redisHost
+    type: string
+    example: megapod-useast1-shared-redis.cloud.sailpoint.com
+  redisPort:
+    description: ManagedCluster redisPort
+    type: integer
+    format: int32
+    example: 6379

@@ -1,0 +1,11 @@
+type: object
+properties:
+  attributeName:
+    type: string
+    description: Id of the potential role
+  distribution:
+    type: array
+    items:
+      type: object
+      additionalProperties:
+        type: string

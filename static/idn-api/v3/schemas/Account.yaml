@@ -1,0 +1,32 @@
+allOf:
+  - $ref: './BaseCommonDto.yaml'
+  - type: object
+    properties:
+      sourceId:
+        type: string
+        example: 2c9180835d2e5168015d32f890ca1581
+      identityId:
+        type: string
+        example: 2c9180835d2e5168015d32f890ca1581
+      attributes:
+        type: object
+      authoritative:
+        type: boolean
+      description:
+        type: string
+      disabled:
+        type: boolean
+      locked:
+        type: boolean
+      nativeIdentity:
+        type: string
+      systemAccount:
+        type: boolean
+      uncorrelated:
+        type: boolean
+      uuid:
+        type: string
+      manuallyCorrelated:
+        type: boolean
+      hasEntitlements:
+        type: boolean

@@ -1,0 +1,15 @@
+description: EntitlementReference
+allOf:
+- $ref: 'Access.yaml'
+- type: object
+  properties:
+    source:
+      $ref: '../base/Reference.yaml'
+    privileged:
+      type: boolean
+    attribute:
+      type: string
+    value:
+      type: string
+    standalone:
+      type: boolean

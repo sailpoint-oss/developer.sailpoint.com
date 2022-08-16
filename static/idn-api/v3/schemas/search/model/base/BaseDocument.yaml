@@ -1,0 +1,9 @@
+type: object
+required : ["id", "name", "_type"]
+properties:
+  id:
+    type: string
+  name:
+    type: string
+  _type:
+    $ref: 'DocumentType.yaml'

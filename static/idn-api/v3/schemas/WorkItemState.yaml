@@ -1,0 +1,8 @@
+type: string
+enum:
+  - FINISHED
+  - REJECTED
+  - RETURNED
+  - EXPIRED
+  - PENDING
+  - CANCELED

@@ -1,0 +1,7 @@
+name: types
+description: List of types to query (currently identity, entitlement or event).
+schema:
+  type: array
+  items:
+    type: string
+in: query

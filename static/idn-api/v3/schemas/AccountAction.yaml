@@ -1,0 +1,19 @@
+type : object
+description: Object for specifying Actions to be performed on a specified list of sources' account.
+properties:
+  action:
+    example: ENABLE
+    type: string
+    description: Describes if action will be enabled or disabled
+    enum:
+      - ENABLE
+      - DISABLE
+  sourceIds:
+    type: array
+    items:
+      type: string
+    uniqueItems: true
+    example: ["2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500"]
+    description: >-
+      List of unique source IDs. The sources must have the ENABLE feature or flat file source.
+      See "/sources" endpoint for source features.

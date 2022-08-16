@@ -1,0 +1,6 @@
+name: provisioningActivityId
+description: ID of a provisioning activity.
+schema:
+  type: string
+required: true
+in: path

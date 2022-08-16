@@ -1,0 +1,20 @@
+allOf:
+- $ref: '../base/Reference.yaml'
+- type: object
+  properties:
+    description:
+      type: string
+    created:
+     $ref: '../base/DateTime.yaml'
+    modified:
+      $ref: '../base/DateTime.yaml'
+    synced:
+      $ref: '../base/DateTime.yaml'
+    enabled:
+      type: boolean
+    requestable:
+      type: boolean
+    requestCommentsRequired:
+      type: boolean
+    owner:
+      $ref: '../identity/Owner.yaml'

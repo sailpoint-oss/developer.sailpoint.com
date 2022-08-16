@@ -1,0 +1,90 @@
+get:
+  operationId: listAccountActivities
+  tags:
+    - Account Activities
+  summary: List Account Activities
+  description: >-
+    This gets a collection of account activities that satisfy the given query parameters.
+  parameters:
+    - in: query
+      name: requested-for
+      schema:
+        type: string
+      description: >-
+        The identity that the activity was requested for. *me* indicates the current user. Mutually exclusive with
+        *regarding-identity*.
+      required: false
+    - in: query
+      name: requested-by
+      schema:
+        type: string
+      description: >-
+        The identity that requested the activity. *me* indicates the current user. Mutually exclusive with
+        *regarding-identity*.
+      required: false
+    - in: query
+      name: regarding-identity
+      schema:
+        type: string
+      description: >-
+        The specified identity will be either the requester or target of the account activity. *me* indicates the
+        current user. Mutually exclusive with *requested-for* and *requested-by*.
+      required: false
+    - in: query
+      name: type
+      schema:
+        type: string
+      description: The type of account activity.
+      required: false
+    - $ref: '../../parameters/v3/limit.yaml'
+    - $ref: '../../parameters/v3/offset.yaml'
+    - $ref: '../../parameters/v3/count.yaml'
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/docs/standard_collection_parameters.html)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **type**: *eq, in*
+
+
+        **created**: *gt, lt, ge, le*
+
+
+        **modified**: *gt, lt, ge, le*
+    - in: query
+      name: sorters
+      schema:
+        type: string
+        format: comma-separated
+      description: >-
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/docs/standard_collection_parameters.html)
+
+
+        Sorting is supported for the following fields: **type, created, modified**
+  responses:
+    '200':
+      description: List of account activities
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../schemas/v3/AccountActivity.yaml'
+    '400':
+      $ref: '../../responses/v3/400.yaml'
+    '401':
+      $ref: '../../responses/v3/401.yaml'
+    '403':
+      $ref: '../../responses/v3/403.yaml'
+    '429':
+      $ref: '../../responses/v3/429.yaml'
+    '500':
+      $ref: '../../responses/v3/500.yaml'
+
+

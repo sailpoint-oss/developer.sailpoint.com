@@ -1,0 +1,19 @@
+description: Aggregation
+allOf:
+- $ref: '../base/BaseDocument.yaml'
+- type: object
+  properties:
+    status:
+      type: string
+    duration:
+      type: integer
+    avgDuration:
+      type: integer
+    changedAccounts:
+      type: integer
+    nextScheduled:
+      $ref: '../base/DateTime.yaml'
+    startTime:
+      $ref: '../base/DateTime.yaml'
+    sourceOwner:
+      type: string

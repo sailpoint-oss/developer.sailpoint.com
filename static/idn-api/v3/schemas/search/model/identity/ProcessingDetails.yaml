@@ -1,0 +1,12 @@
+type: object
+properties:
+  date:
+    $ref: '../base/DateTime.yaml'
+  stage:
+    type: string
+  retryCount:
+    type: integer
+  stackTrace:
+    type: string
+  message:
+    type: string

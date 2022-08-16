@@ -1,0 +1,61 @@
+get:
+  tags:
+    - search
+  summary: Runs csv results export job for a given search for identities.
+  description: |-
+    Runs csv results export job for a given search for identities using the [Elastic Search Query String syntax](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/query-dsl-query-string-query.html#query-string-syntax) from the Query DSL in the query string.
+
+    [BETA] This endpoint is in beta phase.
+  operationId: exportIdentitySearch
+  parameters:
+    - "$ref": "../../../parameters/v2/query/search/query.yaml"
+    - "$ref": "../../../parameters/v2/query/search/query-fields.yaml"
+    - "$ref": "../../../parameters/v2/query/sort.yaml"
+    - "$ref": "../../../parameters/v2/query/search/column-fields.yaml"
+  responses:
+    '200':
+      description: OK.
+      content:
+        application/json:
+          schema:
+            "$ref": "../../../schemas/v2/TaskResult.yaml"
+    '400':
+      "$ref": "../../../responses/v2/400.yaml"
+post:
+  tags:
+    - search
+  summary: Runs csv results export job for a given search for identities.
+  description: |-
+    Runs csv results export job for a given search for identities using the [Elastic Search Query String syntax](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/query-dsl-query-string-query.html#query-string-syntax) from the Query DSL in the query string.
+
+    [BETA] This endpoint is in beta phase.
+  operationId: runIdentitySearch
+  parameters:
+    - "$ref": "../../../parameters/v2/query/sort.yaml"
+    - "$ref": "../../../parameters/v2/query/search/column-fields.yaml"
+  requestBody:
+    description: Query object using the query portion of the [Elastic Search Query DSL
+      JSON object](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/query-dsl.html).
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            match:
+              type: object
+              properties:
+                displayName:
+                  type: string
+        example:
+          match:
+            displayName: Thomas Edison
+  responses:
+    '200':
+      description: OK.
+      content:
+        application/json:
+          schema:
+            "$ref": "../../../schemas/v2/TaskResult.yaml"
+    '400':
+      "$ref": "../../../responses/v2/400.yaml"

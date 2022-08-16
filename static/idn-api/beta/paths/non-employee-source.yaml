@@ -1,0 +1,126 @@
+get:
+  operationId: nonEmployeeSourceGet
+  security:
+    - bearerAuth: []
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: Get a Non-Employee Source
+  description: >-
+    This gets a non-employee source.
+  parameters:
+    - in: path
+      example: 2c91808b7c28b350017c2a2ec5790aa1
+      name: sourceId
+      description: >-
+        Source Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Non-Employee source object.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/NonEmployeeSource.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+patch:
+  operationId: nonEmployeeSourcePatch
+  # security:
+  #   - bearerAuth:
+  #     - 'idn:nesr:update'
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: Patch a Non-Employee Source
+  description: >-
+    patch a non-employee source. (Partial Update) <br/>
+    Patchable field: **name, description, approvers, accountManagers**
+
+    Request will require the following security scope:
+
+    'idn:nesr:update'
+  parameters:
+    - in: path
+      name: sourceId
+      description: >-
+        Source Id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    description: A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+    required: true
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: '../schemas/JsonPatchOperation.yaml'
+        example:
+          - op: "replace"
+            path: "/name"
+            value: { "new name" }
+          - op: "replace"
+            path: "/approvers"
+            value: [ "2c91809f703bb37a017040a2fe8748c7", "48b1f463c9e8427db5a5071bd81914b8" ]
+  responses:
+    '200':
+      description: A patched non-employee source object.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/NonEmployeeSource.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+delete:
+  operationId: nonEmployeeSourceDelete
+  # security:
+  #   - bearerAuth:
+  #     - 'idn:nesr:delete'
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: Delete Non-Employee Source
+  description: >-
+    This request will delete a non-employee source.
+
+    Request will require the following security scope:
+
+    'idn:nesr:delete'
+  parameters:
+    - in: path
+      name: sourceId
+      description: >-
+        Source Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '204':
+      $ref: '../../v3/responses/204.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

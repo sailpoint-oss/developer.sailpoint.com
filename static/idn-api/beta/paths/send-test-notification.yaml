@@ -1,0 +1,35 @@
+post:
+  operationId: sendTestNotification
+  tags:
+    - Notifications
+  summary: Send Test Notification
+  description: >-
+    Send a Test Notification
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../beta/schemas/SendTestNotificationRequestDto.yaml'
+        example:
+          key: "cloud_manual_work_item_summary"
+          medium: "EMAIL"
+          context: {
+            "numberOfPendingTasks": "4",
+            "ownerId": "201327fda1c44704ac01181e963d463c"
+          }
+  responses:
+    '204':
+      $ref: '../../v3/responses/204.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

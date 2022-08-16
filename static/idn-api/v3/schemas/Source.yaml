@@ -1,0 +1,154 @@
+type: object
+properties:
+  id:
+    type: string
+    readOnly: true
+    description: the id of the Source
+    example: "2c91808568c529c60168cca6f90c1324"
+  description:
+    type: string
+    description: Human-readable description of the source
+    example: "This is the corporate directory."
+  owner:
+    $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+    description: Reference to an owning Identity Object
+  cluster:
+    $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+    description: Reference to the associated Cluster
+    example:
+      type: "CLUSTER"
+      id: "2c9180866166b5b0016167c32ef31a66"
+      name: "Corporate Cluster"
+  accountCorrelationConfig:
+    $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+    description: Reference to a Correlation Config object
+    example:
+      type: "ACCOUNT_CORRELATION_CONFIG"
+      id: "2c9180855d191c59015d28583727245a"
+      name: "Directory [source-62867] Account Correlation"
+  accountCorrelationRule:
+    $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+    description: >-
+      Reference to a Rule that can do COMPLEX the correlation, should only be used when accountCorrelationConfig can't
+      be used.
+  managerCorrelationMapping:
+    $ref: '../../v3/schemas/ManagerCorrelationMapping.yaml'
+    description: >-
+      Filter Object used during manager correlation to match incoming manager values to an existing manager's
+      Account/Identity
+  managerCorrelationRule:
+    $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+    description: >-
+       Reference to the ManagerCorrelationRule, only used when a simple filter isn't sufficient.
+  beforeProvisioningRule:
+    $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+    description: >-
+       Rule that runs on the CCG and allows for customization of provisioning plans before the connector is called.
+  schemas:
+    type: array
+    items:
+      $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+    description: >-
+      List of references to Schema objects
+    example:
+      - type: "CONNECTOR_SCHEMA"
+        id: "2c9180835d191a86015d28455b4b232a"
+        name: "account"
+      - type: "CONNECTOR_SCHEMA"
+        id: "2c9180835d191a86015d28455b4b232b"
+        name: "group"
+  passwordPolicies:
+    type: array
+    items:
+      $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+    description: >-
+      List of references to the associated PasswordPolicy objects.
+    example:
+      - type: "PASSWORD_POLICY"
+        id: "2c9180855d191c59015d291ceb053980"
+        name: "Corporate Password Policy"
+  features:
+    type: array
+    description: >-
+      Optional features that can be supported by a source.
+    items:
+      $ref: '../../v3/schemas/SourceFeature.yaml'
+    example: [
+            "SYNC_PROVISIONING",
+            "MANAGER_LOOKUP",
+            "SEARCH",
+            "PROVISIONING",
+            "AUTHENTICATE",
+            "GROUP_PROVISIONING",
+            "PASSWORD"
+        ]
+  type:
+    type: string
+    description: >-
+      Specifies the type of system being managed e.g. Active Directory, Workday, etc..
+    example: "OpenLDAP - Direct"
+  connector:
+    type: string
+    description: Connector script name.
+    example: active-directory
+  connectorClass:
+    type: string
+    description: >-
+      The fully qualified name of the Java class that implements the connector interface.
+    example: "sailpoint.connector.LDAPConnector"
+  connectorAttributes:
+    type: object
+    description: >-
+      Connector specific configuration; will differ from type to type.
+    example:
+      healthCheckTimeout: 30
+      authSearchAttributes: [
+                "cn",
+                "uid",
+                "mail"
+            ]
+  deleteThreshold:
+    type: integer
+    format: int32
+    description: >-
+      Number from 0 to 100 that specifies when to skip the delete phase.
+    example: 10
+  authoritative:
+    type: boolean
+    description: >-
+      When true indicates the source is referenced by an IdentityProfile.
+    example: false
+  managementWorkgroup:
+    $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+    description: Reference to Management Workgroup for this Source
+  healthy:
+    type: boolean
+    description: >-
+      When true indicates a healthy source
+    example: true
+  status:
+    type: string
+    description: >-
+      A status identifier, giving specific information on why a source is healthy or not
+    example: "SOURCE_STATE_HEALTHY"
+  since:
+    type: string
+    description: >-
+      Timestamp showing when a source health check was last performed
+    example: "2021-09-28T15:48:29.3801666300Z"
+  connectorId:
+    type: string
+    description: The id of connector
+    example: "active-directory"
+  connectorName:
+    type: string
+    description: The name of the connector that was chosen on source creation
+    example: "Active Directory"
+  connectionType:
+    type: string
+    description: The type of connection (direct or file)
+    example: "file"
+  connectorImplementstionId:
+    type: string
+    description: The connector implementstion id
+    example: "delimited-file"

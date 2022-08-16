@@ -1,0 +1,29 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Request Id for a common access classify request
+    example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
+  createdDate:
+    type: string
+    format: 'date-time'
+    description: The date-time common access request was created.
+    example: '2020-09-16T18:49:32.150Z'
+  modifiedDate:
+    type: string
+    format: 'date-time'
+    description: The date-time common access request was completed.
+    example: '2020-09-16T18:50:12.150Z'
+  status:
+    type: string
+    description: Request status
+    enum:
+      - CREATED
+      - IN PROGRESS
+      - COMPLETED
+      - FAILED
+example:
+  id: "c9aa02f7-86b0-4bc4-84bd-3116a6131e77"
+  createdDate: "2020-09-16T18:49:32.150Z"
+  modifiedDate: "2020-09-16T18:49:32.150Z"
+  status: "CREATED"

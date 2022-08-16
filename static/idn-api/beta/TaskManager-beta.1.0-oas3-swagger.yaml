@@ -1,0 +1,43 @@
+#
+# Copyright (C) 2019-2020 SailPoint Technologies, Inc.  All rights reserved.
+#
+openapi: 3.0.0
+info:
+  title: Task Management API
+  description: This is an API for managing task execution.
+  contact:
+    email: scrum-denali@sailpoint.com
+  version: 1.0.0-oas3
+  x-copyright-year: 2019-2020
+servers:
+  - url: http://localhost:7100/v3/
+tags:
+  - name: Task Management
+    description: Operations on TaskDefinition, TaskInvocation and TaskStatus
+paths:
+  /task-definitions:
+    $ref: "../beta/paths/task-definitions.yaml"
+  /task-definitions/{id}:
+    $ref: "../beta/paths/task-definition.yaml"
+  /task-execution/run:
+    $ref: "../beta/paths/task-execution-run.yaml"
+  /task-execution/{id}/cancel:
+    $ref: "../beta/paths/task-execution-cancel.yaml"
+  /task-status/{id}:
+    $ref: "../beta/paths/task-status.yaml"
+  /task-status/pending-tasks:
+    $ref: "../beta/paths/task-status-pending.yaml"
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: oauth2
+      description: This API uses OAuth 2 with the client credentials grant flow.
+      flows:
+        clientCredentials:
+          tokenUrl: https://acme-solar.api.cloud.sailpoint.com/oauth/token
+          scopes:
+            idn:task-definition:read: Task Definition read access
+            idn:task-definition:write: Task Definition write access
+            idn:task-management:read: Task Management read access (Task Status)
+            idn:task-management:write: Task Management write access (Task Execution)

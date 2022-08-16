@@ -1,0 +1,16 @@
+type: object
+properties:
+  comments:
+    type: array
+    items:
+      $ref: 'Comment.yaml'
+  created:
+    $ref: '../../base/DateTime.yaml'
+  modified:
+    $ref: '../../base/DateTime.yaml'
+  owner:
+    $ref: '../Source.yaml'
+  result:
+    type: string
+  type:
+    type: string

@@ -1,0 +1,6 @@
+name: approvalId
+description: ID of an access request approval.
+schema:
+  type: string
+required: true
+in: path

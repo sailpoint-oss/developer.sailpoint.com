@@ -1,0 +1,50 @@
+allOf:
+  - $ref: './BaseCommonDto.yaml'
+  - type: object
+    description: Specification of a Service Desk integration
+    required:
+      - description
+      - type
+      - attributes
+    properties:
+      description:
+        description: Description of the Service Desk integration
+        type: string
+        example: A very nice Service Desk integration
+      type:
+        description: Type of the Service Desk integration
+        type: string
+        default: ServiceNowSDIM
+      ownerRef:
+        description: Reference to the identity that is the owner of this Service Desk integration
+        $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+        default:
+          type: IDENTITY
+      clusterRef:
+        description: Reference to the source cluster for this Service Desk integration
+        $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+        default:
+          type: CLUSTER
+      cluster:
+        description: ID of the cluster for the Service Desk integration (replaced by clusterRef, retained for backward compatibility)
+        type: string
+        example: xyzzy999
+        deprecated: true
+      managedSources:
+        description: Source IDs for the Service Desk integration (replaced by provisioningConfig.managedSResourceRefs, but retained here for backward compatibility)
+        type: array
+        items:
+          type: string
+        deprecated: true
+      provisioningConfig:
+        description: The 'provisioningConfig' property specifies the configuration used to provision integrations.
+        $ref: './ProvisioningConfig.yaml'
+      attributes:
+        description: Attributes of the Service Desk integration.  Validation constraints enforced by the implementation.
+        type: object
+        additionalProperties: true
+      beforeProvisioningRule:
+        description: Reference to beforeProvisioningRule for this Service Desk integration
+        $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+        default:
+          type: RULE

@@ -1,0 +1,1 @@
+Do not remove this folder. It is necessary for the theme to run smoothly.

@@ -1,0 +1,6 @@
+name: accessProfileId
+description: ID of an access profile to request access for when creating a launcher.
+schema:
+  type: string
+required: false
+in: query

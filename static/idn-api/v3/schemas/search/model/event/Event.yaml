@@ -1,0 +1,37 @@
+description: Event
+allOf:
+- $ref: '../base/BaseDocument.yaml'
+- type: object
+  properties:
+    created:
+      $ref: '../base/DateTime.yaml'
+    synced:
+      $ref: '../base/DateTime.yaml'
+    action:
+      type: string
+    type:
+      type: string
+    actor:
+      $ref: 'NameType.yaml'
+    target:
+      $ref: 'NameType.yaml'
+    stack:
+      type: string
+    trackingNumber:
+      type: string
+    ipAddress:
+      type: string
+    details:
+      type: string
+    attributes:
+      type: object
+    objects:
+      type: array
+      items:
+        type: string
+    operation:
+      type: string
+    status:
+      type: string
+    technicalName:
+      type: string

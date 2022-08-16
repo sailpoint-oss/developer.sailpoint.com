@@ -1,0 +1,34 @@
+get:
+  tags:
+    - identities
+  summary: Lists available apps.
+  description: Lists all apps available to the given identity. The list will include
+    apps which have launchers created for the identity.
+  operationId: listApps
+  parameters:
+    - "$ref": "../../../parameters/v2/path/identityIdOrAlias.yaml"
+    - "$ref": "../../../parameters/v2/query/identity-apps-filters.yaml"
+    - "$ref": "../../../parameters/v2/query/sort.yaml"
+    - "$ref": "../../../parameters/v2/query/offset.yaml"
+    - "$ref": "../../../parameters/v2/query/limit.yaml"
+  responses:
+    '200':
+      description: OK.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              "$ref": "../../../schemas/v2/App.yaml"
+      headers:
+        X-Total-Count:
+          description: Total number of items, regardless of paging limits.
+          schema:
+            type: integer
+            format: int64
+        Link:
+          description: Links to alternate or related resources.
+          schema:
+            type: string
+    '404':
+      "$ref": "../../../responses/v2/404.yaml"

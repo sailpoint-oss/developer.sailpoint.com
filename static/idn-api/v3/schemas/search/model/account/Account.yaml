@@ -1,0 +1,23 @@
+description: Account
+allOf:
+- $ref: '../base/BaseDocument.yaml'
+- $ref: 'BaseAccount.yaml'
+- type: object
+  properties:
+    modified:
+      $ref: '../base/DateTime.yaml'
+    attributes:
+      type: object
+      description: "a map or dictionary of key/value pairs"
+    identity:
+      $ref: '../base/DisplayReference.yaml'
+    access:
+      type: array
+      items:
+        $ref: '../access/Entitlement.yaml'
+    entitlementCount:
+      type: integer
+    uncorrelated:
+      type: boolean
+    tags:
+      $ref: '../base/Tags.yaml'

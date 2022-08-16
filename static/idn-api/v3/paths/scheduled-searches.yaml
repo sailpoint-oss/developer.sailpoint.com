@@ -1,0 +1,74 @@
+post:
+  tags:
+    - Scheduled Search
+  description: |
+    Creates a new scheduled search.
+  summary: Create a new scheduled search
+  operationId: scheduledSearchCreate
+  requestBody:
+    description: The scheduled search to persist.
+    content:
+      application/json:
+        schema:
+          allOf:
+          - $ref: '../schemas/search/scheduled/Name.yaml'
+          - $ref: '../schemas/search/scheduled/Schedule.yaml'
+    required: true
+  responses:
+    '201':
+      description: The persisted scheduled search.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/search/scheduled/ScheduledSearch.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+get:
+  tags:
+    - Scheduled Search
+  description: |
+    Returns a list of scheduled searches.
+  summary: Return a list of scheduled searches
+  operationId: scheduledSearchList
+  parameters:
+  - $ref: '../parameters/offset.yaml'
+  - $ref: '../parameters/limit.yaml'
+  - $ref: '../parameters/count.yaml'
+  - name: filters
+    in: query
+    schema:
+      type: string
+    description: |
+      An expression used to constrain the result set using the filtering syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/docs/standard_collection_parameters.html).
+
+      Allowed filter properties: *owner.id*, *savedSearchId*
+
+      Allowed filter operator: *eq*
+
+      **Example filters**:
+
+      ```owner.id eq "0de46054-fe90-434a-b84e-c6b3359d0c64"``` -- returns scheduled searches for the specified owner ID
+
+      ```savedSearchId eq "6cc0945d-9eeb-4948-9033-72d066e1153e"``` -- returns scheduled searches that reference the specified saved search
+
+      ```owner.id eq me or savedSearchId eq "6cc0945d-9eeb-4948-9033-72d066e1153e"``` -- returns all of the current user's scheduled searches as well as all scheduled searches that reference the specified saved search
+  responses:
+    '200':
+      description: The list of requested scheduled searches.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/search/scheduled/ScheduledSearch.yaml'
+      headers:
+        X-Total-Count:
+          description: The total result count (returned only if the *count* parameter is specified as *true*).
+          schema:
+            type: integer
+    '400':
+      $ref: '../responses/400.yaml'
+    '403':
+      $ref: '../responses/403.yaml'

@@ -1,0 +1,20 @@
+description: Details of the reviewer for certification.
+type: object
+required:
+- type
+- id
+- name
+allOf:
+- $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+properties:
+  type:
+    description: The type of object that the reviewer is.
+    enum:
+    - "IDENTITY"
+    - "GOVERNANCE_GROUP"
+    example: IDENTITY
+  email:
+    type: string
+    nullable: true
+    description: 'The email of the reviewing identity. Only applicable to `IDENTITY`'
+    example: reviewer@test.com

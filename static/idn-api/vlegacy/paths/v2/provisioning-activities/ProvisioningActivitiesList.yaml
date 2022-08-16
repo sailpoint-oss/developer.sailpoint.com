@@ -1,0 +1,30 @@
+get:
+  tags:
+    - provisioning-activities
+  summary: Lists the provisioning activities.
+  description: Lists the provisioning activities.
+  operationId: listProvisioningActivities
+  parameters:
+    - "$ref": "../../../parameters/v2/query/provisioning-activities-filters.yaml"
+    - "$ref": "../../../parameters/v2/query/provisioning-activities-sort.yaml"
+    - "$ref": "../../../parameters/v2/query/offset.yaml"
+    - "$ref": "../../../parameters/v2/query/limit.yaml"
+  responses:
+    '200':
+      description: OK.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              "$ref": "../../../schemas/v2/ProvisioningActivity.yaml"
+      headers:
+        X-Total-Count:
+          description: Total number of items, regardless of paging limits.
+          schema:
+            type: integer
+            format: int64
+        Link:
+          description: Links to alternate or related resources.
+          schema:
+            type: string

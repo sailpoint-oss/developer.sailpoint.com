@@ -1,0 +1,46 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The ID of the certification task.
+    example: 2c918086719eec070171a7e3355a360a
+  type:
+    type: string
+    description: The type of the certification task. More values may be added in the future.
+    enum:
+      - REASSIGN
+      - ADMIN_REASSIGN
+      - COMPLETE_CERTIFICATION
+      - FINISH_CERTIFICATION
+      - COMPLETE_CAMPAIGN
+      - ACTIVATE_CAMPAIGN
+      - CAMPAIGN_CREATE
+      - CAMPAIGN_DELETE
+    example: ADMIN_REASSIGN
+  targetType:
+    type: string
+    description: The type of item that is being operated on by this task whose ID is stored in the targetId field.
+    enum:
+      - CERTIFICATION
+      - CAMPAIGN
+    example: CAMPAIGN
+  targetId:
+    type: string
+    description: The ID of the item being operated on by this task.
+    example: 2c918086719eec070171a7e3355a834c
+  status:
+    type: string
+    description: The status of the task.
+    enum:
+      - QUEUED
+      - IN_PROGRESS
+      - SUCCESS
+      - ERROR
+  errors:
+    $ref: '../../v3/schemas/ErrorMessageDtoList.yaml'
+    description: A list of errors that have been encountered by the task.
+  created:
+    type: string
+    description: The date and time on which this task was created.
+    format: date-time
+    example: '2020-09-24T18:10:47.693Z'

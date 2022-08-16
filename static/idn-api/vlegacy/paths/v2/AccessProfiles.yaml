@@ -1,0 +1,64 @@
+get:
+  tags:
+    - access-profiles
+  summary: Lists the access profiles.
+  description: Lists the access profiles.
+  operationId: listAccessProfiles
+  parameters:
+    - "$ref": "../../parameters/v2/query/filters.yaml"
+    - "$ref": "../../parameters/v2/query/sort.yaml"
+    - "$ref": "../../parameters/v2/query/offset.yaml"
+    - "$ref": "../../parameters/v2/query/limit.yaml"
+  responses:
+    '200':
+      description: OK.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              "$ref": "../../schemas/v2/AccessProfile.yaml"
+      headers:
+        X-Total-Count:
+          description: Total number of items, regardless of paging limits.
+          schema:
+            type: integer
+            format: int64
+        Link:
+          description: Links to alternate or related resources.
+          schema:
+            type: string
+post:
+  tags:
+    - access-profiles
+  summary: Creates a new access profile.
+  description: Creates a new access profile.
+  operationId: createAccessProfile
+  requestBody:
+    description: Attribute values for the new access profile.
+    required: true
+    content:
+      application/json:
+        schema:
+          "$ref": "../../schemas/v2/AccessProfile.yaml"
+  responses:
+    '201':
+      description: Created.
+      content:
+        application/json:
+          schema:
+            "$ref": "../../responses/v2/201.yaml"
+      headers:
+        ETag:
+          description: Entity tag.
+          schema:
+            type: string
+        Last-Modified:
+          description: Last modified date.
+          schema:
+            type: string
+            format: date-time
+        Link:
+          description: Links to alternate or related resources.
+          schema:
+            type: string

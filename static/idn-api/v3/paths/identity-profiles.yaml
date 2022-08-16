@@ -1,0 +1,63 @@
+get:
+  operationId: listIdentityProfiles
+  tags:
+    - Identity Profiles
+  summary: Identity Profiles List
+  description: >-
+    This returns a list of Identity Profiles based on the specified query parameters.
+
+    A token with ORG_ADMIN or API authority is required to call this API to get a list of Identity Profiles.
+  parameters:
+    - $ref: '../parameters/limit.yaml'
+    - $ref: '../parameters/offset.yaml'
+    - $ref: '../parameters/count.yaml'
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/docs/standard_collection_parameters.html)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **id**: *eq, ne*
+
+
+        **name**: *eq, ne*
+
+
+        **priority**: *eq, ne*
+    - in: query
+      name: sorters
+      schema:
+        type: string
+        format: comma-separated
+      description: >-
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/docs/standard_collection_parameters.html)
+
+
+        Sorting is supported for the following fields: **id**, **name**, **priority**
+  responses:
+    '200':
+      description: List of identityProfiles.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/IdentityProfile.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+  security:
+    - bearerAuth:
+        - 'idn:identity-profile:read'

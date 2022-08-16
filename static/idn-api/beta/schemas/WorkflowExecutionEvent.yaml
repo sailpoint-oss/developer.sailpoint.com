@@ -1,0 +1,27 @@
+type: object
+properties:
+  type:
+    description: The type of event
+    enum:
+    - WorkflowExecutionScheduled
+    - WorkflowExecutionStarted
+    - WorkflowExecutionCompleted
+    - WorkflowExecutionFailed
+    - WorkflowTaskScheduled
+    - WorkflowTaskStarted
+    - WorkflowTaskCompleted
+    - WorkflowTaskFailed
+    - ActivityTaskScheduled
+    - ActivityTaskStarted
+    - ActivityTaskCompleted
+    - ActivityTaskFailed
+    example: WorkflowTaskScheduled
+  timestamp:
+    type: string
+    format: date-time
+    description: The date-time when the event occurred
+    example: "2022-02-07T20:13:31.640618296Z"
+  attributes:
+    type: object
+    description: Additional attributes associated with the event
+    example: {}

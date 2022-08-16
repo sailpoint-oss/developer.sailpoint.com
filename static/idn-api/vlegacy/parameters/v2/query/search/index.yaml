@@ -1,0 +1,6 @@
+name: index
+description: Index to be used (currently identities, entitlements, and events).
+schema:
+  type: string
+required: true
+in: query

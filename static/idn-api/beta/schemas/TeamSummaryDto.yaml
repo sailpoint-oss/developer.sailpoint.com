@@ -1,0 +1,8 @@
+type: object
+properties:
+  manager:
+    $ref: "../../v3/schemas/BaseReferenceDto.yaml"
+    description: Reference to the identity's manager
+  reports:
+    $ref: "../schemas/TeamSummaryReportsDto.yaml"
+    description: Data related to the Identities that are managed by the provided identity

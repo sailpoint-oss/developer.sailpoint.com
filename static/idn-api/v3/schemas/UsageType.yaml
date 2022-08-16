@@ -1,0 +1,19 @@
+type: string
+nullable: false
+enum:
+  - CREATE
+  - UPDATE
+  - DELETE
+  - ASSIGN
+  - UNASSIGN
+  - CREATE_GROUP
+  - UPDATE_GROUP
+  - DELETE_GROUP
+  - REGISTER
+  - CREATE_IDENTITY
+  - UPDATE_IDENTITY
+  - EDIT_GROUP
+  - ENABLE
+  - DISABLE
+  - UNLOCK
+  - CHANGE_PASSWORD

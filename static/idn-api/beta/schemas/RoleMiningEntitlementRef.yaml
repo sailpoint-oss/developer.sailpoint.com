@@ -1,0 +1,11 @@
+type : object
+properties:
+  id:
+    type: string
+    description: Id of the entitlement
+  name:
+    type: string
+    description: Name of the entitlement
+  description:
+    type: string
+    description: Description forthe entitlement

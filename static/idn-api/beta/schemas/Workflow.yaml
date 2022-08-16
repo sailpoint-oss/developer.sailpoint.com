@@ -1,0 +1,38 @@
+allOf:
+- type: object
+  properties:
+    id:
+      type: string
+      description: Workflow ID. This is a UUID generated upon creation.
+      example: d201c5e9-d37b-4aff-af14-66414f39d569
+    executionCount:
+      type: integer
+      format: int32
+      description: The number of times this workflow has been executed
+      example: 2
+    failureCount:
+      type: integer
+      format: int32
+      description: The number of times this workflow has failed during execution
+      example: 0
+    created:
+      type: string
+      format: date-time
+      description: The date and time the workflow was created
+      example: "2022-01-10T16:06:16.636381447Z"
+    creator:
+      allOf:
+      - $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+      description: The identity that created the workflow.
+      properties:
+        type:
+          enum:
+          - "IDENTITY"
+          example: "IDENTITY"
+          description: The type of object that is referenced
+      example: {
+        "type": "IDENTITY",
+        "id": "2c91808568c529c60168cca6f90c1313",
+        "name": "William Wilson"
+      }
+- $ref: './WorkflowBody.yaml'

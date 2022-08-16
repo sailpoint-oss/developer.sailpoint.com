@@ -1,0 +1,6 @@
+description: Accepted.
+headers:
+  Link:
+    description: Link to the background task.
+    schema:
+      type: string

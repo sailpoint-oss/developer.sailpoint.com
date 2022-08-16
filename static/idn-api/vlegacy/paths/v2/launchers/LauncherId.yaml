@@ -1,0 +1,69 @@
+get:
+  tags:
+    - launchers
+  summary: Retrieves the details of the launcher.
+  description: Retrieves the details of the launcher.
+  operationId: getLauncher
+  parameters:
+    - "$ref": "../../../parameters/v2/path/launcherId.yaml"
+  responses:
+    '200':
+      description: OK.
+      content:
+        application/json:
+          schema:
+            "$ref": "../../../schemas/v2/Launcher.yaml"
+      headers:
+        ETag:
+          description: Entity tag.
+          schema:
+            type: string
+        Last-Modified:
+          description: Last modified date.
+          schema:
+            type: string
+            format: date-time
+        Link:
+          description: Links to alternate or related resources.
+          schema:
+            type: string
+    '404':
+      "$ref": "../../../responses/v2/404.yaml"
+patch:
+  tags:
+    - launchers
+  summary: Updates one or more attributes of a launcher.
+  description: Updates one or more attributes of a launcher.
+  operationId: updateLauncher
+  parameters:
+    - "$ref": "../../../parameters/v2/path/launcherId.yaml"
+  requestBody:
+    description: Launcher attributes to be updated.
+    required: true
+    content:
+      application/json:
+        schema:
+          "$ref": "../../../schemas/v2/LauncherEto.yaml"
+  responses:
+    '200':
+      description: OK.
+      content:
+        application/json:
+          schema:
+            "$ref": "../../../schemas/v2/Launcher.yaml"
+      headers:
+        ETag:
+          description: Entity tag.
+          schema:
+            type: string
+        Last-Modified:
+          description: Last modified date.
+          schema:
+            type: string
+            format: date-time
+        Link:
+          description: Links to alternate or related resources.
+          schema:
+            type: string
+    '404':
+      "$ref": "../../../responses/v2/404.yaml"

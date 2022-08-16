@@ -1,0 +1,20 @@
+type: object
+properties:
+  auth:
+    type: object
+    properties:
+      service:
+        type: string
+      encryption:
+        type: string
+      publicKey:
+        type: string
+  org:
+    type: object
+    properties:
+      authErrorText:
+        type: string
+  ssoServerUrl:
+    type: string
+  gotoOnFail:
+    type: string

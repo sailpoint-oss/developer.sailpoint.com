@@ -1,0 +1,6 @@
+name: accessProfileId
+description: ID of an access profile.
+schema:
+  type: string
+required: true
+in: path

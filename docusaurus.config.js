@@ -10,10 +10,9 @@ const config = {
   tagline: 'Developers are cool',
   url: 'https://developer.sailpoint.com',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'SailPoint', // Usually your GitHub org/user name.

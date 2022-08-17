@@ -13,25 +13,20 @@
 [release-shield]: https://img.shields.io/github/v/release/sailpoint-oss/developer-community-website?label=Current%20Release
 [contributor-shield]:https://img.shields.io/github/contributors/sailpoint-oss/developer-community-website?label=Contributors
 
-[product-screenshot]: ./assets/images/screenshot.png
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-    <img src="./assets/images.logo.svg" alt="Logo" width="80" height="80">
+    <img src="./assets/images/logo.svg" alt="Logo" width="80" height="80">
 
   <h3 align="center">Developer Community Website - README</h3>
     <br />
     <br />
   </p>
 </div>
-
-<!-- ABOUT THE PROJECT -->
-## About The Project
-
 <div align="center">
-<img src="./assets/images/api-linter-output.png" width="500" height="" style="text-align:center">
+<img src="./assets/images/screenshot.png" width="500" height="" style="text-align:center">
 </div>
+<br />
 
 This repository contains the complete build, with assets, for everything seen on developer.sailpoint.com. The includes the homepage, all static elements, docs, and the API specifications. The API specifications come in from a GitHub Action in another repository, but ultimately the API specifications used to generate this static site are those found in the static folder.
 
@@ -40,21 +35,18 @@ This repository contains the complete build, with assets, for everything seen on
 <!-- GETTING STARTED -->
 ## Getting Started
 
-To...
-
 ### Prerequisites
 
 To run this project you must first have npm installed.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+```sh
+npm install npm@latest -g
+```
 
 ### Installation
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/sailpoint-oss/developer-community-site.git
    ```
 2. Install NPM packages
    ```sh

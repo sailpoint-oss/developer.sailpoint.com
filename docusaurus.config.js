@@ -17,7 +17,7 @@ const config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'SailPoint', // Usually your GitHub org/user name.
-  projectName: 'SailPoint Developer Portal', // Usually your repo name.
+  projectName: 'SailPoint Developer Community', // Usually your repo name.
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
@@ -35,19 +35,8 @@ const config = {
         docs: {
           sidebarCollapsible: true,
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
           docLayoutComponent: "@theme/DocPage",
           docItemComponent: "@theme/ApiItem" // Derived from docusaurus-theme-openapi
-        },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -73,18 +62,47 @@ const config = {
           srcDark: 'img/SailPoint-Developer-Community-Inverse-Lockup.png'
         },
         items: [
-          {to: '/blog', label: 'Blog', position: 'right'},
           {
             type: 'dropdown',
-            label: 'Identity Now Resources',
+            label: 'Learn',
             position: 'right',
             items: [
               {
+                href: 'https://medium.com/sailpointtechblog',
+                label: 'Engineering Blog',
+              },
+              {
+                href: 'https://community.sailpoint.com/t5/Professional-Certification/ct-p/product-certification-program',
+                label: 'Certifications',
+              },
+              // ... more items
+            ],
+          },
+          {
+            type: 'dropdown',
+            label: 'IdentityNow',
+            position: 'right',
+            items: [
+              {to: '/docs/category/identity-now-api', label: 'APIs'},
+              {
                 type: 'doc',
                 docId: 'idn_docs/intro',
-                label: 'IDN Documentation',
+                label: 'Documentation',
               },
-              {to: '/docs/category/identity-now-api', label: 'IDN APIs'},
+              // ... more items
+            ],
+          },
+          {
+            type: 'dropdown',
+            label: 'IdentityIQ',
+            position: 'right',
+            items: [
+              {to: '/docs/category/identity-now-api', label: 'APIs'},
+              {
+                type: 'doc',
+                docId: 'idn_docs/intro',
+                label: 'Documentation',
+              },
               // ... more items
             ],
           },
@@ -96,10 +114,42 @@ const config = {
               {
                 href: 'https://github.com/sailpoint-oss',
                 label: 'GitHub',
-              }
+              },
               // ... more items
             ],
-          }
+          },
+          {
+            type: 'dropdown',
+            label: 'Community',
+            position: 'right',
+            items: [
+              {
+                href: 'https://developer.sailpoint.com/discuss',
+                label: 'Discuss',
+              },
+              {
+                href: 'https://developer-sailpoint.ideas.aha.io/',
+                label: 'Ideas',
+              },
+              {
+                href: 'https://community.sailpoint.com/',
+                label: 'Compass',
+              },
+              // ... more items
+            ],
+          },
+          {
+            type: 'dropdown',
+            label: 'Support',
+            position: 'right',
+            items: [
+              {
+                href: 'https://support.sailpoint.com/hc/en-us',
+                label: 'Customer Support',
+              },
+              // ... more items
+            ],
+          },
         ],
       },
       footer: {
@@ -135,17 +185,13 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
                 label: 'GitHub',
                 href: 'https://github.com/facebook/docusaurus',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} SailPoint Technologies Holdings, Inc. All Rights Reserved.`,
       },
       prism: {
         theme: lightCodeTheme,

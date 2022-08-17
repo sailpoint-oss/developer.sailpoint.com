@@ -20,31 +20,29 @@ concurrency:
   group: "pages"
   cancel-in-progress: true
 
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # Build job
-  build:
+  publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Check out repo
         uses: actions/checkout@v3
-      - name: Setup Pages
-        uses: actions/configure-pages@v1
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
+      # Node is required for npm
+      - name: Set up Node
+        uses: actions/setup-node@v3
         with:
-          source: ./
-          destination: ./_site
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-
-  # Deployment job
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
+          node-version: "16"
+      # Install and build Docusaurus website
+      - name: Build Docusaurus website
+        run: |
+          npm install 
+          npm run build
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v3
+        with:
+          target_branch: gh-pages
+          build_dir: build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

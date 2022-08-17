@@ -1,3 +1,5 @@
 description: No content - indicates the request was successful but there is no content to be returned in the response.
 content:
-  application/json: {}
+  application/json:
+    schema:
+      type: object

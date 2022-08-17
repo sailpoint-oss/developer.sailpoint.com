@@ -1,4 +1,4 @@
-name: Build and Deploy Docusaurus to GitHub Pages
+name: Build/Deploy to GitHub Pages
 
 on:
   # Runs on pushes targeting the default branch
@@ -32,8 +32,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "16"
-      # Install and build Docusaurus website
-      - name: Build Docusaurus website
+      # Install and build Developer Community site
+      - name: Build Developer Community site
         run: |
           npm install 
           npm run build

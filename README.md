@@ -1,35 +1,5 @@
 <a id="readme-top"></a>
 
-## How to use this template
-
-Update sheild urls
-
-* Update url for discourse, downloads, issues, current release, and contributors
-
-Project title and logo
-
-* Update project title and description
-* Update project logo
-* Update link to point to documentation about this project
-
-About the project
-
-* Update project screenshot
-* Update the paragraph with what your project is meant to accomplish
-
-Getting started
-
-* Describe how to get started with your project
-* Describe any prerequisites needed to run your project
-* Describe how to install and run your project
-
-Discuss
-
-* Create a tag in our discourse forum for your project
-* Update link in this section to point to the newly created tag
-
-After these steps are complete remove this checklist!
-
 ![[Discourse Topics][discourse-shield]][discourse-url]
 ![Times Downloaded][downloads-shield]
 ![Issues][issues-shield]

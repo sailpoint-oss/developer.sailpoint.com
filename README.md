@@ -1,6 +1,6 @@
 <a id="readme-top"></a>
 
-[[!Discourse Topics][discourse-shield]][discourse-url]
+[![Discourse Topics][discourse-shield]][discourse-url]
 ![Times Downloaded][downloads-shield]
 ![Issues][issues-shield]
 ![Latest Releases][release-shield]

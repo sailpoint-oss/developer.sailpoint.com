@@ -4,6 +4,7 @@
     "version": "1.0",
     "title": "Access Risk Management Authentication Services"
   },
+  "tags":[{"name":"Auth"},{"name":"ChangeLogs"},{"name":"Customer"},{"name":"Impersonation"},{"name":"License"},{"name":"SelfService"},{"name":"Service"},{"name":"Signature"},{"name":"Sso"},{"name":"System"},{"name":"SystemSettings"},{"name":"TenancyCheck"},{"name":"User"},{"name":"UserCustomer"},{"name":"UserPortability"},{"name":"UserRole"}],
   "paths": {
     "/api/auth/login": {
       "post": {
@@ -357,7 +358,7 @@
         "tags": [
           "Auth"
         ],
-        "summary": "When authenticated via an external IDP for SSO, the authentication service will return\r\na short-lived cookie called SsoToken that can be used to fetch a valid JWT and refresh\r\ntoken from the system.",
+        "summary": "When authenticated via an external IDP for SSO, the authentication service will return  a short-lived cookie called SsoToken that can be used to fetch a valid JWT and refresh  token from the system.",
         "operationId": "LoginViaSsoCookie",
         "responses": {
           "200": {
@@ -767,7 +768,7 @@
         "tags": [
           "Customer"
         ],
-        "summary": "Links customer and legacy account.\r\nThis endpoint is mainly used by AuthSync process, when new customer and account are created.",
+        "summary": "Links customer and legacy account.  This endpoint is mainly used by AuthSync process, when new customer and account are created.",
         "operationId": "SetLegacyAccountId",
         "parameters": [
           {
@@ -1045,7 +1046,7 @@
         "tags": [
           "Impersonation"
         ],
-        "summary": "Gets a list of user details for a given customer for Impersonation.\r\n<param name=\"customerId\">Identifier of the customer.</param><param name=\"search\"></param>",
+        "summary": "Gets a list of user details for a given customer for Impersonation.  <param name=\"customerId\">Identifier of the customer.</param><param name=\"search\"></param>",
         "operationId": "GetCustomerUserDetailsV2",
         "parameters": [
           {
@@ -1430,7 +1431,7 @@
         "tags": [
           "SelfService"
         ],
-        "summary": "Allows a previously non-existent user to register with a new account, mainly used\r\nto sign up for a free trial.",
+        "summary": "Allows a previously non-existent user to register with a new account, mainly used  to sign up for a free trial.",
         "operationId": "RegisterUser",
         "requestBody": {
           "$ref": "#/components/requestBodies/ErpMaestro.AuthenticationServices.Models.SelfService.UserRegisterModel"
@@ -1525,7 +1526,7 @@
         "tags": [
           "SelfService"
         ],
-        "summary": "With the provided token and new password, allows a user to set/ create their password.\r\nThis will also set their account as having their email address confirmed.",
+        "summary": "With the provided token and new password, allows a user to set/ create their password.  This will also set their account as having their email address confirmed.",
         "operationId": "SetPassword",
         "requestBody": {
           "content": {
@@ -1773,7 +1774,7 @@
         "tags": [
           "SelfService"
         ],
-        "summary": "Registers a coworker at the same company as the authenticated user.  If the user's token\r\nhas expired, you can \"re-register\" the user using this method to generate a new token.",
+        "summary": "Registers a coworker at the same company as the authenticated user.  If the user's token  has expired, you can \"re-register\" the user using this method to generate a new token.",
         "operationId": "RegisterCoworker",
         "requestBody": {
           "content": {
@@ -1906,7 +1907,7 @@
         "tags": [
           "SelfService"
         ],
-        "summary": "Returns the company credential used for legacy operations within the Access Analyzer,\r\nencrypted with the provided shared secret key.  This communication should always go over TLS.",
+        "summary": "Returns the company credential used for legacy operations within the Access Analyzer,  encrypted with the provided shared secret key.  This communication should always go over TLS.",
         "operationId": "GetLegacyCredential",
         "requestBody": {
           "content": {
@@ -2349,13 +2350,13 @@
         "tags": [
           "Sso"
         ],
-        "summary": "Entry point for SAML2 SSO authentication.  If the OID is registered in the system, should redirect\r\nthe user to the registered IDP for authentication.",
+        "summary": "Entry point for SAML2 SSO authentication.  If the OID is registered in the system, should redirect  the user to the registered IDP for authentication.",
         "operationId": "AuthenticateViaSaml2",
         "parameters": [
           {
             "name": "oid",
             "in": "query",
-            "description": "The object id of the SSO client.  For example, if the SSO client hits https://foo.erpmaestro.com/sso,\r\n            the oid would be \"foo\".",
+            "description": "The object id of the SSO client.  For example, if the SSO client hits https://foo.erpmaestro.com/sso,              the oid would be \"foo\".",
             "required": true,
             "schema": {
               "type": "string"
@@ -2381,7 +2382,7 @@
         "tags": [
           "Sso"
         ],
-        "summary": "Creates a reference to an external identity provider for the SAML2 protocol.  Only one external\r\nidentity provider can be used per customer.",
+        "summary": "Creates a reference to an external identity provider for the SAML2 protocol.  Only one external  identity provider can be used per customer.",
         "operationId": "CreateSaml2IdentityProvider",
         "requestBody": {
           "content": {
@@ -2683,7 +2684,7 @@
         "tags": [
           "Sso"
         ],
-        "summary": "Permanently removes a registered SAML2 SSO IDP.  This should only be used when changing the IDP\r\nfor the customer to something else, otherwise disable the IDP via M:ErpMaestro.AuthenticationServices.Controllers.SsoController.ModifySaml2IdentityProvider(ErpMaestro.AuthenticationServices.Client.Models.ModifySaml2IdentityProviderModel).",
+        "summary": "Permanently removes a registered SAML2 SSO IDP.  This should only be used when changing the IDP  for the customer to something else, otherwise disable the IDP via M:ErpMaestro.AuthenticationServices.Controllers.SsoController.ModifySaml2IdentityProvider(ErpMaestro.AuthenticationServices.Client.Models.ModifySaml2IdentityProviderModel).",
         "operationId": "DeleteSsoIdp",
         "parameters": [
           {
@@ -2709,7 +2710,7 @@
         "tags": [
           "Sso"
         ],
-        "summary": "Associates a user with a customer's IDP and allows the claim type to be\r\nspecified or updates a previous association.  Tenancy checking is NOT performed\r\nin the authentication service; this should be done before the service calls the endpoint.",
+        "summary": "Associates a user with a customer's IDP and allows the claim type to be  specified or updates a previous association.  Tenancy checking is NOT performed  in the authentication service; this should be done before the service calls the endpoint.",
         "operationId": "AddUserToSso",
         "requestBody": {
           "content": {
@@ -2848,7 +2849,7 @@
         "tags": [
           "System"
         ],
-        "summary": "Allows a system admin to register a previously non-existent user with a new account.\r\nMainly used for ARM free trials.",
+        "summary": "Allows a system admin to register a previously non-existent user with a new account.  Mainly used for ARM free trials.",
         "operationId": "RegisterUser",
         "requestBody": {
           "$ref": "#/components/requestBodies/ErpMaestro.AuthenticationServices.Models.SelfService.UserRegisterModel"
@@ -3695,7 +3696,7 @@
         "tags": [
           "User"
         ],
-        "summary": "Creates a new user in the system under the specified customer (account).\r\nNote that this does not set a password for the account.  Please see the associated endpoint \r\nfor setting a password for a user.",
+        "summary": "Creates a new user in the system under the specified customer (account).  Note that this does not set a password for the account.  Please see the associated endpoint   for setting a password for a user.",
         "operationId": "Create",
         "requestBody": {
           "$ref": "#/components/requestBodies/ErpMaestro.AuthenticationServices.Client.Models.UserModel"
@@ -4939,7 +4940,7 @@
         "tags": [
           "User"
         ],
-        "summary": "Checks if user is a service user. Mainly serves Gaia to EmHub communication, \r\nto be able to validate the user account is service account while performing sync.",
+        "summary": "Checks if user is a service user. Mainly serves Gaia to EmHub communication,   to be able to validate the user account is service account while performing sync.",
         "operationId": "IsServiceUser",
         "parameters": [
           {
@@ -6233,7 +6234,7 @@
             "$ref": "#/components/schemas/ErpMaestro.AuthenticationServices.Core.Models.AuthenticationMethods"
           },
           "serializedAuthenticationMetadata": {
-            "description": "If ErpMaestro.AuthenticationServices.Models.Customer.AccountModel.AuthenticationMethod is set to ErpMaestro.AuthenticationServices.Core.Models.AuthenticationMethods.OnPremisesCustom, this\r\nproperty should contain a JSON\r\ndocument with the metadata necessary to connect to the custom authentication service.  This is ignored if the\r\nErpMaestro.AuthenticationServices.Models.Customer.AccountModel.AuthenticationMethod\r\nis set to a different value.",
+            "description": "If ErpMaestro.AuthenticationServices.Models.Customer.AccountModel.AuthenticationMethod is set to ErpMaestro.AuthenticationServices.Core.Models.AuthenticationMethods.OnPremisesCustom, this  property should contain a JSON  document with the metadata necessary to connect to the custom authentication service.  This is ignored if the  ErpMaestro.AuthenticationServices.Models.Customer.AccountModel.AuthenticationMethod  is set to a different value.",
             "type": "string"
           },
           "name": {
@@ -6383,13 +6384,13 @@
             "type": "integer"
           },
           "externalId": {
-            "description": "The external unique identifier for a given entity.\r\nFor example, this id would be a match between us and the CRM provider.\r\n(E.g.: SFDC company id - 0011a000003rd4TAAQ)",
+            "description": "The external unique identifier for a given entity.  For example, this id would be a match between us and the CRM provider.  (E.g.: SFDC company id - 0011a000003rd4TAAQ)",
             "maxLength": 100,
             "minLength": 0,
             "type": "string"
           },
           "externalIdType": {
-            "description": "The external unique identifier type for the entity id in ExternalId.\r\n(E.g.: SFDC, IBM, Oracle, etc.)",
+            "description": "The external unique identifier type for the entity id in ExternalId.  (E.g.: SFDC, IBM, Oracle, etc.)",
             "maxLength": 100,
             "minLength": 0,
             "type": "string"
@@ -6544,7 +6545,7 @@
         "type": "string"
       },
       "ErpMaestro.AuthenticationServices.Core.Models.ExternalIdentityProvider": {
-        "description": "External Identity Providers (IDPs) are used to support Single Signon (SSO) for a customer's enterprise.\r\nIn this manner, the customer can manage their own users from their own systems, and we can trust their\r\nsystems to authenticate their users properly.",
+        "description": "External Identity Providers (IDPs) are used to support Single Signon (SSO) for a customer's enterprise.  In this manner, the customer can manage their own users from their own systems, and we can trust their  systems to authenticate their users properly.",
         "required": [
           "key",
           "entityId",
@@ -6562,7 +6563,7 @@
             "type": "string"
           },
           "key": {
-            "description": "The Key represents a unique identifier that is externally referenced for a specific IDP.\r\nFor example, if someone is connecting to https://foo.erpmaestro.com using SSO, the Key\r\nshould be \"foo\".",
+            "description": "The Key represents a unique identifier that is externally referenced for a specific IDP.  For example, if someone is connecting to https://foo.erpmaestro.com using SSO, the Key  should be \"foo\".",
             "maxLength": 30,
             "minLength": 0,
             "type": "string"
@@ -6574,14 +6575,14 @@
             "type": "string"
           },
           "metadata": {
-            "description": "Metadata contain the contents or link to contents of metadata necessary to properly authenticate\r\nagainst the external IDP.  If the ErpMaestro.AuthenticationServices.Core.Models.ExternalIdentityProvider.MetadataType is of type ErpMaestro.AuthenticationServices.Client.Models.MetadataType.Url, this\r\nshould be a fully-qualified URL pointing to the metadata file.  If it's of type ErpMaestro.AuthenticationServices.Client.Models.MetadataType.Xml,\r\nthe contents of this property should contain the XML of the metadata itself.",
+            "description": "Metadata contain the contents or link to contents of metadata necessary to properly authenticate  against the external IDP.  If the ErpMaestro.AuthenticationServices.Core.Models.ExternalIdentityProvider.MetadataType is of type ErpMaestro.AuthenticationServices.Client.Models.MetadataType.Url, this  should be a fully-qualified URL pointing to the metadata file.  If it's of type ErpMaestro.AuthenticationServices.Client.Models.MetadataType.Xml,  the contents of this property should contain the XML of the metadata itself.",
             "type": "string"
           },
           "metadataType": {
             "$ref": "#/components/schemas/ErpMaestro.AuthenticationServices.Client.Models.MetadataType"
           },
           "claimType": {
-            "description": "The claim type that can be referenced when trying to match a user to an external IDP source.  Each IDP, upon\r\nauthenticating a user, will return a list of claims for that authenticated user.  One or more of them may be\r\nsuitable for matching against their username in the authentication service, but only one can be chosen for any\r\nauthenticated assertion.",
+            "description": "The claim type that can be referenced when trying to match a user to an external IDP source.  Each IDP, upon  authenticating a user, will return a list of claims for that authenticated user.  One or more of them may be  suitable for matching against their username in the authentication service, but only one can be chosen for any  authenticated assertion.",
             "maxLength": 500,
             "minLength": 0,
             "type": "string"
@@ -7066,13 +7067,13 @@
             "$ref": "#/components/schemas/ErpMaestro.AuthenticationServices.Core.Models.Industries"
           },
           "companyId": {
-            "description": "The external unique identifier for the company in question.\r\nThis id should be a match between us and the CRM provider.\r\n(E.g.: SFDC company id - 0011a000003rd4TAAQ)",
+            "description": "The external unique identifier for the company in question.  This id should be a match between us and the CRM provider.  (E.g.: SFDC company id - 0011a000003rd4TAAQ)",
             "maxLength": 100,
             "minLength": 0,
             "type": "string"
           },
           "companyIdType": {
-            "description": "The type of the external unique identifier for the company in question.\r\n(E.g.: SFDC, IBM, Oracle, etc.)",
+            "description": "The type of the external unique identifier for the company in question.  (E.g.: SFDC, IBM, Oracle, etc.)",
             "maxLength": 100,
             "minLength": 0,
             "type": "string"
@@ -7389,11 +7390,10 @@
         }
       },
       "ErpMaestro.Services.ActionResults.OopsResult": {
-        "type": "object",
-        "properties": {}
+        "type": "object"
       },
       "ErpMaestro.AuthenticationServices.Client.Models.CreateSaml2IdentityProviderModel": {
-        "description": "Used to register a SAML2 External Identity Provider (IDP)\r\nfor a given customer.",
+        "description": "Used to register a SAML2 External Identity Provider (IDP)  for a given customer.",
         "required": [
           "key",
           "entityId",
@@ -7405,33 +7405,33 @@
         "type": "object",
         "properties": {
           "key": {
-            "description": "The \"short\" vanity name that can identify the provider.  If the customer were to connect to \"https://foo.erpmaestro.com\" for SSO,\r\nthe ErpMaestro.AuthenticationServices.Client.Models.CreateSaml2IdentityProviderModel.Key would be \"foo\".  Must be unique.",
+            "description": "The \"short\" vanity name that can identify the provider.  If the customer were to connect to \"https://foo.erpmaestro.com\" for SSO,  the ErpMaestro.AuthenticationServices.Client.Models.CreateSaml2IdentityProviderModel.Key would be \"foo\".  Must be unique.",
             "maxLength": 30,
             "minLength": 0,
             "type": "string"
           },
           "entityId": {
-            "description": "The unique entity id for the remote IDP.  Usually this is in the form of \"https://some.url/some/path\".\r\nMust be unique.",
+            "description": "The unique entity id for the remote IDP.  Usually this is in the form of \"https://some.url/some/path\".  Must be unique.",
             "maxLength": 500,
             "minLength": 0,
             "type": "string"
           },
           "metadata": {
-            "description": "For SAML2, this contains either an XML metadata document, or a URL that resolves to an XML metadata document.\r\nThe contents should be specified by the ErpMaestro.AuthenticationServices.Client.Models.CreateSaml2IdentityProviderModel.MetadataType property.",
+            "description": "For SAML2, this contains either an XML metadata document, or a URL that resolves to an XML metadata document.  The contents should be specified by the ErpMaestro.AuthenticationServices.Client.Models.CreateSaml2IdentityProviderModel.MetadataType property.",
             "type": "string"
           },
           "metadataType": {
             "$ref": "#/components/schemas/ErpMaestro.AuthenticationServices.Client.Models.MetadataType"
           },
           "claimType": {
-            "description": "Specifies the claim type that will be matched in the SAML2 response assertion to determine who the response assertion\r\nis meant to authenticate.",
+            "description": "Specifies the claim type that will be matched in the SAML2 response assertion to determine who the response assertion  is meant to authenticate.",
             "maxLength": 500,
             "minLength": 0,
             "type": "string"
           },
           "customerId": {
             "format": "uuid",
-            "description": "Relates the external IDP to a specific customer.  Only one IDP can exist per customer, and only one customer can have a\r\nspecific IDP.",
+            "description": "Relates the external IDP to a specific customer.  Only one IDP can exist per customer, and only one customer can have a  specific IDP.",
             "type": "string"
           }
         }
@@ -7454,26 +7454,26 @@
             "type": "string"
           },
           "key": {
-            "description": "The \"short\" vanity name that can identify the provider.  If the customer were to connect to \"https://foo.erpmaestro.com\" for SSO,\r\nthe ErpMaestro.AuthenticationServices.Client.Models.ModifySaml2IdentityProviderModel.Key would be \"foo\".  Must be unique.",
+            "description": "The \"short\" vanity name that can identify the provider.  If the customer were to connect to \"https://foo.erpmaestro.com\" for SSO,  the ErpMaestro.AuthenticationServices.Client.Models.ModifySaml2IdentityProviderModel.Key would be \"foo\".  Must be unique.",
             "maxLength": 30,
             "minLength": 0,
             "type": "string"
           },
           "entityId": {
-            "description": "The unique entity id for the remote IDP.  Usually this is in the form of \"https://some.url/some/path\".\r\nMust be unique.",
+            "description": "The unique entity id for the remote IDP.  Usually this is in the form of \"https://some.url/some/path\".  Must be unique.",
             "maxLength": 500,
             "minLength": 0,
             "type": "string"
           },
           "metadata": {
-            "description": "For SAML2, this contains either an XML metadata document, or a URL that resolves to an XML metadata document.\r\nThe contents should be specified by the ErpMaestro.AuthenticationServices.Client.Models.ModifySaml2IdentityProviderModel.MetadataType property.",
+            "description": "For SAML2, this contains either an XML metadata document, or a URL that resolves to an XML metadata document.  The contents should be specified by the ErpMaestro.AuthenticationServices.Client.Models.ModifySaml2IdentityProviderModel.MetadataType property.",
             "type": "string"
           },
           "metadataType": {
             "$ref": "#/components/schemas/ErpMaestro.AuthenticationServices.Client.Models.MetadataType"
           },
           "claimType": {
-            "description": "Specifies the claim type that will be matched in the SAML2 response assertion to determine who the response assertion\r\nis meant to authenticate.",
+            "description": "Specifies the claim type that will be matched in the SAML2 response assertion to determine who the response assertion  is meant to authenticate.",
             "maxLength": 500,
             "minLength": 0,
             "type": "string"
@@ -7485,7 +7485,7 @@
         }
       },
       "ErpMaestro.AuthenticationServices.Client.Models.UserToSsoModel": {
-        "description": "Used to create and modify SSO User settings for customer IDPs.\r\nA user can have zero or one associations with any given IDP,\r\nprovided he/she is associated with the related customer.",
+        "description": "Used to create and modify SSO User settings for customer IDPs.  A user can have zero or one associations with any given IDP,  provided he/she is associated with the related customer.",
         "required": [
           "userId",
           "customerId",

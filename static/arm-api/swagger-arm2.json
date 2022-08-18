@@ -4,6 +4,7 @@
     "title": "Access Risk Management ARM Web APIs",
     "version": "v1"
   },
+  "tags":[{"name":"CustomerSot"},{"name":"SupportDashboard"},{"name":"UserSync"}],
   "paths": {
     "/api/customer-sot": {
       "get": {
@@ -460,6 +461,7 @@
         "tags": [
           "SupportDashboard"
         ],
+        "summary": "supports dashboard",
         "responses": {
           "200": {
             "description": "Success",

@@ -4,6 +4,7 @@
     "version": "1.0",
     "title": "Access Risk Management Provisioning Services Web APIs"
   },
+  "tags":[{"name":"AutomatedProvisioning"},{"name":"TenancyCheck"}],
   "paths": {
     "/api/provisioning/requests/{erpSystemId}": {
       "get": {
@@ -215,7 +216,10 @@
           {
             "name": "oDataOptions",
             "in": "query",
-            "required": false
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
           },
           {
             "name": "erpSystemId",
@@ -226,19 +230,6 @@
               "format": "int32",
               "minimum": 1,
               "maximum": 2147483647
-            }
-          },
-          {
-            "name": "displayType",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "undefined",
-                "all",
-                "mine"
-              ]
             }
           }
         ],
@@ -2223,8 +2214,7 @@
         }
       },
       "Microsoft.AspNet.OData.Query.Validators.ODataQueryValidator": {
-        "type": "object",
-        "properties": {}
+        "type": "object"
       },
       "Microsoft.AspNetCore.Http.HttpContext": {
         "type": "object",
@@ -2478,12 +2468,10 @@
         }
       },
       "System.IServiceProvider": {
-        "type": "object",
-        "properties": {}
+        "type": "object"
       },
       "Microsoft.AspNet.OData.Query.Validators.SelectExpandQueryValidator": {
-        "type": "object",
-        "properties": {}
+        "type": "object"
       },
       "Microsoft.OData.UriParser.SelectExpandClause": {
         "type": "object",
@@ -2516,8 +2504,7 @@
         }
       },
       "Microsoft.AspNet.OData.Query.Validators.FilterQueryValidator": {
-        "type": "object",
-        "properties": {}
+        "type": "object"
       },
       "Microsoft.OData.UriParser.FilterClause": {
         "type": "object",
@@ -2542,8 +2529,7 @@
         }
       },
       "Microsoft.AspNet.OData.Query.Validators.OrderByQueryValidator": {
-        "type": "object",
-        "properties": {}
+        "type": "object"
       },
       "Microsoft.OData.UriParser.OrderByClause": {
         "type": "object",
@@ -2566,12 +2552,10 @@
         }
       },
       "Microsoft.AspNet.OData.Query.Validators.SkipQueryValidator": {
-        "type": "object",
-        "properties": {}
+        "type": "object"
       },
       "Microsoft.AspNet.OData.Query.Validators.SkipTokenQueryValidator": {
-        "type": "object",
-        "properties": {}
+        "type": "object"
       },
       "Microsoft.AspNet.OData.Query.ODataQuerySettings": {
         "type": "object",
@@ -2647,12 +2631,10 @@
         }
       },
       "Microsoft.AspNet.OData.Query.Validators.TopQueryValidator": {
-        "type": "object",
-        "properties": {}
+        "type": "object"
       },
       "Microsoft.AspNet.OData.Query.Validators.CountQueryValidator": {
-        "type": "object",
-        "properties": {}
+        "type": "object"
       },
       "Microsoft.AspNetCore.Http.HttpResponse": {
         "type": "object",
@@ -2832,8 +2814,7 @@
         }
       },
       "Microsoft.OData.Edm.Vocabularies.IEdmDirectValueAnnotationsManager": {
-        "type": "object",
-        "properties": {}
+        "type": "object"
       },
       "Microsoft.OData.Edm.IEdmEntityContainer": {
         "type": "object",
@@ -2920,8 +2901,7 @@
         }
       },
       "Microsoft.OData.UriParser.SelectItem": {
-        "type": "object",
-        "properties": {}
+        "type": "object"
       },
       "Microsoft.OData.UriParser.Aggregation.TransformationNode": {
         "type": "object",
@@ -2987,8 +2967,7 @@
         "type": "string"
       },
       "Microsoft.AspNetCore.Http.IResponseCookies": {
-        "type": "object",
-        "properties": {}
+        "type": "object"
       },
       "System.Net.IPAddress": {
         "type": "object",
@@ -3241,8 +3220,7 @@
         }
       },
       "Microsoft.OData.Edm.Vocabularies.IEdmVocabularyAnnotatable": {
-        "type": "object",
-        "properties": {}
+        "type": "object"
       },
       "Microsoft.OData.Edm.IEdmExpression": {
         "type": "object",

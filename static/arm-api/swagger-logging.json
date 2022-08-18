@@ -4,13 +4,14 @@
     "version": "v1",
     "title": "Access Risk Management Logging Web APIs"
   },
+  "tags":[{"name":"Audit"},{"name":"Logs"},{"name":"MultiSystemRulebookAudit"},{"name":"RulebookAudit"},{"name":"UserManagementAudit"}],
   "paths": {
     "/api/audit": {
       "post": {
         "tags": [
           "Audit"
         ],
-        "summary": "Gets audit logs using presented filters from model.\r\nURL for GET requests has limit for its length. So, POST request type is used.",
+        "summary": "Gets audit logs using presented filters from model.  URL for GET requests has limit for its length. So, POST request type is used.",
         "operationId": "GetLogs",
         "parameters": [
           {
@@ -4048,7 +4049,7 @@
         "type": "string"
       },
       "AnonymousLog": {
-        "description": "Anonymous log model\r\nShould have all fields in ErpMaestro.LoggingServices.Common.Models.Log\r\nexcept identity specific properties like Id, User, and Logger",
+        "description": "Anonymous log model  Should have all fields in ErpMaestro.LoggingServices.Common.Models.Log  except identity specific properties like Id, User, and Logger",
         "required": [
           "application",
           "level",

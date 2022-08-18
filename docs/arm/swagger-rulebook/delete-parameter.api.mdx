@@ -1,0 +1,43 @@
+---
+id: delete-parameter
+sidebar_label: Deletes specified rulebook parameter.
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["RulebookParameter"],"operationId":"DeleteParameter","parameters":[{"name":"parameterId","in":"path","description":"Identifier of the parameter.","required":true,"schema":{"type":"string","format":"uuid"}},{"name":"accountId","in":"path","description":"Identifier of related account. Will be used by service account only.","required":true,"schema":{"type":"integer","format":"int32"}}],"responses":{"200":{"description":"Success"},"401":{"description":"Unauthorized"},"404":{"description":"Not Found"},"500":{"description":"Server Error"}},"description":"Deletes specified rulebook parameter.","method":"delete","path":"/api/rulebookparameters/{parameterId}/{accountId}","info":{"version":"v1","title":"Access Risk Management Rulebook Services"},"postman":{"name":"Deletes specified rulebook parameter.","description":{"type":"text/plain"},"url":{"path":["api","rulebookparameters",":parameterId",":accountId"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) Identifier of the parameter.","type":"text/plain"},"type":"any","value":"","key":"parameterId"},{"disabled":false,"description":{"content":"(Required) Identifier of related account. Will be used by service account only.","type":"text/plain"},"type":"any","value":"","key":"accountId"}]},"method":"DELETE"}}
+sidebar_class_name: "delete api-method"
+info_path: docs/arm/swagger-rulebook/access-risk-management-rulebook-services
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem"
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Deletes specified rulebook parameter.
+
+
+
+Deletes specified rulebook parameter.
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"parameterId","in":"path","description":"Identifier of the parameter.","required":true,"schema":{"type":"string","format":"uuid"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"accountId","in":"path","description":"Identifier of related account. Will be used by service account only.","required":true,"schema":{"type":"integer","format":"int32"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Success
+
+</div><div></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Unauthorized
+
+</div><div></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div></div></TabItem><TabItem label={"500"} value={"500"}><div>
+
+Server Error
+
+</div><div></div></TabItem></ApiTabs></div>
+      

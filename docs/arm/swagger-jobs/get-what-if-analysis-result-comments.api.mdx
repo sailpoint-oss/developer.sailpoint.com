@@ -1,0 +1,35 @@
+---
+id: get-what-if-analysis-result-comments
+sidebar_label: Gets the WhatIf analysis results comments for the specified job.
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["WhatIfAnalysis"],"operationId":"GetWhatIfAnalysisResultComments","parameters":[{"name":"jobId","in":"path","description":"The id of the job that produced the analysis result.","required":true,"schema":{"type":"integer","format":"int32"}}],"responses":{"200":{"description":"Success"}},"deprecated":true,"description":"Gets the WhatIf analysis results comments for the specified job.","method":"get","path":"/api/whatif/results/{jobId}/comments","info":{"version":"1.0","title":"Access Risk Management Jobs Service"},"postman":{"name":"Gets the WhatIf analysis results comments for the specified job.","description":{"type":"text/plain"},"url":{"path":["api","whatif","results",":jobId","comments"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) The id of the job that produced the analysis result.","type":"text/plain"},"type":"any","value":"","key":"jobId"}]},"method":"GET"}}
+sidebar_class_name: "get api-method"
+info_path: docs/arm/swagger-jobs/access-risk-management-jobs-service
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem"
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Gets the WhatIf analysis results comments for the specified job.
+
+:::caution deprecated
+
+This endpoint has been deprecated and may be removed in future versions of the API.
+
+:::
+
+Gets the WhatIf analysis results comments for the specified job.
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"jobId","in":"path","description":"The id of the job that produced the analysis result.","required":true,"schema":{"type":"integer","format":"int32"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Success
+
+</div><div></div></TabItem></ApiTabs></div>
+      

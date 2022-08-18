@@ -4,6 +4,7 @@
     "title": "Access Risk Management Utilization Tracking",
     "version": "v1"
   },
+  "tags":[{"name":"ChangeDocument"},{"name":"EamUtilization"}],
   "paths": {
     "/api/utilization/changedocument": {
       "post": {

@@ -1,0 +1,47 @@
+---
+id: soft-delete
+sidebar_label: Soft deletes the specified user.
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["User"],"operationId":"SoftDelete","parameters":[{"name":"userId","in":"path","description":"The id of the user to be deleted.","required":true,"schema":{"type":"string","format":"uuid"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"type":"string"}}}},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"type":"object","additionalProperties":{"type":"object","properties":{"rawValue":{"type":"object"},"attemptedValue":{"type":"string"},"errors":{"uniqueItems":false,"type":"array","items":{"type":"object","properties":{"exception":{"type":"object","readOnly":true},"errorMessage":{"type":"string","readOnly":true}}},"readOnly":true},"validationState":{"enum":["unvalidated","invalid","valid","skipped"],"type":"string"},"isContainerNode":{"type":"boolean","readOnly":true},"children":{"uniqueItems":false,"type":"array","items":"circular()","readOnly":true}}}}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"type":"string"}}}},"403":{"description":"Forbidden","content":{"application/json":{"schema":{"type":"string"}}}},"404":{"description":"Not Found","content":{"application/json":{"schema":{"type":"string"}}}}},"description":"Soft deletes the specified user.","method":"delete","path":"/api/users/{userId}","info":{"version":"1.0","title":"Access Risk Management Authentication Services"},"postman":{"name":"Soft deletes the specified user.","description":{"type":"text/plain"},"url":{"path":["api","users",":userId"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) The id of the user to be deleted.","type":"text/plain"},"type":"any","value":"","key":"userId"}]},"header":[{"key":"Accept","value":"application/json"}],"method":"DELETE"}}
+sidebar_class_name: "delete api-method"
+info_path: docs/arm/swagger-authentication/access-risk-management-authentication-services
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem"
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Soft deletes the specified user.
+
+
+
+Soft deletes the specified user.
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"userId","in":"path","description":"The id of the user to be deleted.","required":true,"schema":{"type":"string","format":"uuid"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Success
+
+</div><div><MimeTabs groupId={"mime-type"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs groupId={"schema-tabs"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>string</strong></div></li></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request
+
+</div><div><MimeTabs groupId={"mime-type"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs groupId={"schema-tabs"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div><code>property name*</code><span style={{"opacity":"0.6"}}> object</span></div></li></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Unauthorized
+
+</div><div><MimeTabs groupId={"mime-type"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs groupId={"schema-tabs"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>string</strong></div></li></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Forbidden
+
+</div><div><MimeTabs groupId={"mime-type"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs groupId={"schema-tabs"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>string</strong></div></li></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div><MimeTabs groupId={"mime-type"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs groupId={"schema-tabs"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>string</strong></div></li></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div>
+      

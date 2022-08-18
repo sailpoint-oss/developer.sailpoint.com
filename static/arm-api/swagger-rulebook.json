@@ -4,6 +4,7 @@
     "version": "v1",
     "title": "Access Risk Management Rulebook Services"
   },
+  "tags":[{"name":"BusinessFunction"},{"name":"MitigatingControls"},{"name":"MultiSystemMitigations"},{"name":"MultiSystemRulebook"},{"name":"Portability"},{"name":"Rule"},{"name":"Rulebook"},{"name":"RulebookDasboard"},{"name":"RulebookParameter"},{"name":"RulebookParameterDetails"}],
   "paths": {
     "/api/businessfunctions": {
       "post": {
@@ -886,7 +887,7 @@
         "tags": [
           "MitigatingControls"
         ],
-        "summary": "Gets a collection of available mitigating controls by AccountId.\r\nFor service client communication",
+        "summary": "Gets a collection of available mitigating controls by AccountId.  For service client communication",
         "operationId": "GetMitigatingControlsByAccountId",
         "parameters": [
           {
@@ -1070,7 +1071,7 @@
         "tags": [
           "MitigatingControls"
         ],
-        "summary": "Gets a collection of available mitigating controls details by AccountId.\r\nFor service client communication",
+        "summary": "Gets a collection of available mitigating controls details by AccountId.  For service client communication",
         "operationId": "GetMitigatingControlsDetailsByAccountId",
         "parameters": [
           {
@@ -1674,7 +1675,7 @@
         "tags": [
           "MitigatingControls"
         ],
-        "summary": "Adds new mitigating rules for the specified mitigating control.\r\nIt adds all or some of the rules depending on whether the rules are already mapped to the control.",
+        "summary": "Adds new mitigating rules for the specified mitigating control.  It adds all or some of the rules depending on whether the rules are already mapped to the control.",
         "operationId": "AddMitigatingRules",
         "parameters": [
           {
@@ -2103,7 +2104,7 @@
         "tags": [
           "MitigatingControls"
         ],
-        "summary": "Adds new rule mitigation entities for the specified rule mitigation.\r\nIt adds all or some of the entities depending on whether the entities\r\nare already mapped to the rule mitigation.",
+        "summary": "Adds new rule mitigation entities for the specified rule mitigation.  It adds all or some of the entities depending on whether the entities  are already mapped to the rule mitigation.",
         "operationId": "AddRuleMitigationEntities",
         "parameters": [
           {
@@ -2894,7 +2895,7 @@
         "tags": [
           "MultiSystemMitigations"
         ],
-        "summary": "Gets a multisystem mitigation.\r\n/// <param name=\"mitigationId\">Id of a multisystem Mitigation.</param>",
+        "summary": "Gets a multisystem mitigation.  /// <param name=\"mitigationId\">Id of a multisystem Mitigation.</param>",
         "operationId": "GetMultiSystemMitigation",
         "parameters": [
           {
@@ -4289,7 +4290,7 @@
         "tags": [
           "MultiSystemRulebook"
         ],
-        "summary": "Responsible for returning all rulebook systems, based on the supplied rulebookId.\r\nThis includes all systems from rulebook.",
+        "summary": "Responsible for returning all rulebook systems, based on the supplied rulebookId.  This includes all systems from rulebook.",
         "operationId": "GetAllRulebookSystems",
         "parameters": [
           {
@@ -6925,7 +6926,7 @@
         "tags": [
           "Rulebook"
         ],
-        "summary": "Gets a value indicating whether the selected account for the logged-in user\r\nhas at least one rulebook marked for provisioning.",
+        "summary": "Gets a value indicating whether the selected account for the logged-in user  has at least one rulebook marked for provisioning.",
         "operationId": "LoggedInAccountHasRulebookForProvisioning",
         "responses": {
           "200": {

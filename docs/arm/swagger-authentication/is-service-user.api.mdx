@@ -1,0 +1,39 @@
+---
+id: is-service-user
+sidebar_label: Checks if user is a service user. Mainly serves Gaia to EmHub communication,   to be able to validate the user account is service account while performing sync.
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["User"],"operationId":"IsServiceUser","parameters":[{"name":"userId","in":"path","description":"Unique user identifier.","required":true,"schema":{"type":"string","format":"uuid"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"format":"uuid","type":"string"}}}},"404":{"description":"Not Found"},"500":{"description":"Server Error"}},"description":"Checks if user is a service user. Mainly serves Gaia to EmHub communication,   to be able to validate the user account is service account while performing sync.","method":"get","path":"/api/users/checkisservice/{userId}","info":{"version":"1.0","title":"Access Risk Management Authentication Services"},"postman":{"name":"Checks if user is a service user. Mainly serves Gaia to EmHub communication,   to be able to validate the user account is service account while performing sync.","description":{"type":"text/plain"},"url":{"path":["api","users","checkisservice",":userId"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) Unique user identifier.","type":"text/plain"},"type":"any","value":"","key":"userId"}]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET"}}
+sidebar_class_name: "get api-method"
+info_path: docs/arm/swagger-authentication/access-risk-management-authentication-services
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem"
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Checks if user is a service user. Mainly serves Gaia to EmHub communication,   to be able to validate the user account is service account while performing sync.
+
+
+
+Checks if user is a service user. Mainly serves Gaia to EmHub communication,   to be able to validate the user account is service account while performing sync.
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"userId","in":"path","description":"Unique user identifier.","required":true,"schema":{"type":"string","format":"uuid"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Success
+
+</div><div><MimeTabs groupId={"mime-type"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs groupId={"schema-tabs"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>string</strong><span style={{"opacity":"0.6"}}> uuid</span></div></li></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div></div></TabItem><TabItem label={"500"} value={"500"}><div>
+
+Server Error
+
+</div><div></div></TabItem></ApiTabs></div>
+      

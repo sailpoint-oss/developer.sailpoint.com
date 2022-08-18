@@ -82,7 +82,9 @@ const config = {
             label: 'IdentityNow',
             position: 'right',
             items: [
-              {to: '/docs/category/identity-now-api', label: 'APIs'},
+              {to: '/docs/category/identity-now-api-v3', label: 'V3 APIs'},
+              {to: '/docs/category/identity-now-api-beta', label: 'Beta APIs'},
+              {to: '/docs/category/arm-agent-management', label: 'ARM APIs'},
               {
                 type: 'doc',
                 docId: 'idn_docs/intro',
@@ -96,7 +98,7 @@ const config = {
             label: 'IdentityIQ',
             position: 'right',
             items: [
-              {to: '/docs/category/identity-now-api', label: 'APIs'},
+              {to: '/docs/category/iiq-api', label: 'APIs'},
               {
                 type: 'doc',
                 docId: 'idn_docs/intro',
@@ -207,7 +209,7 @@ const config = {
           config: {
             idn_v3: {
               specPath: "static/idn-api/sailpoint-api.v3.yaml",
-              outputDir: "docs/sailpoint-api-v3",
+              outputDir: "docs/idn/sailpoint-api-v3",
               sidebarOptions: {
                 groupPathsBy: "tag",
                 categoryLinkSource: "tag"
@@ -215,7 +217,119 @@ const config = {
             },
             idn_beta: {
               specPath: "static/idn-api/sailpoint-api.beta.yaml",
-              outputDir: "docs/sailpoint-api-beta",
+              outputDir: "docs/idn/sailpoint-api-beta",
+              sidebarOptions: {
+                groupPathsBy: "tag",
+                categoryLinkSource: "tag"
+              }
+            },
+            iiq: {
+              specPath: "static/iiq-api/swagger.json",
+              outputDir: "docs/iiq/iiq-api",
+              sidebarOptions: {
+                groupPathsBy: "tag",
+                categoryLinkSource: "tag"
+              }
+            },
+            arm_agent_management: {
+              specPath: "static/arm-api/swagger-agent-management.json",
+              outputDir: "docs/arm/swagger-agent-management",
+              sidebarOptions: {
+                groupPathsBy: "tag",
+                categoryLinkSource: "tag"
+              }
+            },
+            arm_analysis: {
+              specPath: "static/arm-api/swagger-analysis.json",
+              outputDir: "docs/arm/swagger-analysis",
+              sidebarOptions: {
+                groupPathsBy: "tag",
+                categoryLinkSource: "tag"
+              }
+            },
+            arm_arm: {
+              specPath: "static/arm-api/swagger-arm.json",
+              outputDir: "docs/arm/swagger-arm",
+              sidebarOptions: {
+                groupPathsBy: "tag",
+                categoryLinkSource: "tag"
+              }
+            },
+            arm_arm2: {
+              specPath: "static/arm-api/swagger-arm2.json",
+              outputDir: "docs/arm/swagger-arm2",
+              sidebarOptions: {
+                groupPathsBy: "tag",
+                categoryLinkSource: "tag"
+              }
+            },
+            arm_authentication: {
+              specPath: "static/arm-api/swagger-authentication.json",
+              outputDir: "docs/arm/swagger-authentication",
+              sidebarOptions: {
+                groupPathsBy: "tag",
+                categoryLinkSource: "tag"
+              }
+            },
+            arm_cloud_agent: {
+              specPath: "static/arm-api/swagger-cloud-agent.json",
+              outputDir: "docs/arm/swagger-cloud-agent",
+              sidebarOptions: {
+                groupPathsBy: "tag",
+                categoryLinkSource: "tag"
+              }
+            },
+            arm_jobs: {
+              specPath: "static/arm-api/swagger-jobs.json",
+              outputDir: "docs/arm/swagger-jobs",
+              sidebarOptions: {
+                groupPathsBy: "tag",
+                categoryLinkSource: "tag"
+              }
+            },
+            arm_logging: {
+              specPath: "static/arm-api/swagger-logging.json",
+              outputDir: "docs/arm/swagger-logging",
+              sidebarOptions: {
+                groupPathsBy: "tag",
+                categoryLinkSource: "tag"
+              }
+            },
+            arm_provisioning: {
+              specPath: "static/arm-api/swagger-provisioning.json",
+              outputDir: "docs/arm/swagger-provisioning",
+              sidebarOptions: {
+                groupPathsBy: "tag",
+                categoryLinkSource: "tag"
+              }
+            },
+            arm_public: {
+              specPath: "static/arm-api/swagger-public.json",
+              outputDir: "docs/arm/swagger-public",
+              sidebarOptions: {
+                groupPathsBy: "tag",
+                categoryLinkSource: "tag"
+              }
+            },
+            arm_rulebook: {
+              specPath: "static/arm-api/swagger-rulebook.json",
+              outputDir: "docs/arm/swagger-rulebook",
+              sidebarOptions: {
+                groupPathsBy: "tag",
+                categoryLinkSource: "tag"
+              }
+            },
+            arm_scheduling: {
+              specPath: "static/arm-api/swagger-scheduling.json",
+              outputDir: "docs/arm/swagger-scheduling",
+              sidebarOptions: {
+                groupPathsBy: "tag",
+                categoryLinkSource: "tag"
+              }
+            },
+            arm_utilization_tracking: {
+              specPath: "static/arm-api/swagger-utilization-tracking.json",
+              outputDir: "docs/arm/swagger-utilization-tracking",
               sidebarOptions: {
                 groupPathsBy: "tag",
                 categoryLinkSource: "tag"

@@ -1,0 +1,31 @@
+---
+id: upload-and-process-utilization-data-for-an-eam-request-after-validate-the-relation-between-the-erp-system-and-the-eam-request
+sidebar_label: Upload and process utilization data for an EAM request after validate the relation between the Erp System and the EAM request
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["EamUtilization"],"parameters":[{"name":"erpSystemId","in":"path","description":"","required":true,"schema":{"type":"integer","description":"","format":"int32"}},{"name":"eamRequestId","in":"path","description":"","required":true,"schema":{"type":"string","description":"","format":"uuid"}}],"requestBody":{"content":{"multipart/form-data":{"schema":{"type":"object","properties":{"contentType":{"type":"string","nullable":true},"contentDisposition":{"type":"string","nullable":true},"headers":{"type":"object","additionalProperties":{"type":"array","items":{"type":"string"}},"nullable":true},"length":{"type":"integer","format":"int64"},"name":{"type":"string","nullable":true},"fileName":{"type":"string","nullable":true}}},"encoding":{"contentType":{"style":"form"},"contentDisposition":{"style":"form"},"headers":{"style":"form"},"length":{"style":"form"},"name":{"style":"form"},"fileName":{"style":"form"}}}}},"responses":{"200":{"description":"Success"}},"description":"Upload and process utilization data for an EAM request after validate the relation between the Erp System and the EAM request","method":"post","path":"/api/utilization/eam/{erpSystemId}/{eamRequestId}","info":{"title":"Access Risk Management Utilization Tracking","version":"v1"},"postman":{"name":"Upload and process utilization data for an EAM request after validate the relation between the Erp System and the EAM request","description":{"type":"text/plain"},"url":{"path":["api","utilization","eam",":erpSystemId",":eamRequestId"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) ","type":"text/plain"},"type":"any","value":"","key":"erpSystemId"},{"disabled":false,"description":{"content":"(Required) ","type":"text/plain"},"type":"any","value":"","key":"eamRequestId"}]},"header":[{"key":"Content-Type","value":"multipart/form-data"}],"method":"POST","body":{"mode":"formdata","formdata":[]}}}
+sidebar_class_name: "post api-method"
+info_path: docs/arm/swagger-utilization-tracking/access-risk-management-utilization-tracking
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem"
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Upload and process utilization data for an EAM request after validate the relation between the Erp System and the EAM request
+
+
+
+Upload and process utilization data for an EAM request after validate the relation between the Erp System and the EAM request
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"erpSystemId","in":"path","description":"","required":true,"schema":{"type":"integer","description":"","format":"int32"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"eamRequestId","in":"path","description":"","required":true,"schema":{"type":"string","description":"","format":"uuid"}}}></ParamsItem></ul></div></details><MimeTabs><TabItem label={"multipart/form-data"} value={"multipart/form-data-schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"contentType"} required={false} schemaDescription={undefined} schemaName={"string"} qualifierMessage={undefined} defaultValue={undefined}></SchemaItem><SchemaItem collapsible={false} name={"contentDisposition"} required={false} schemaDescription={undefined} schemaName={"string"} qualifierMessage={undefined} defaultValue={undefined}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>headers</strong><span style={{"opacity":"0.6"}}> object</span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"type"} required={false} schemaDescription={undefined} schemaName={""} qualifierMessage={undefined} defaultValue={undefined}></SchemaItem><SchemaItem collapsible={false} name={"items"} required={false} schemaDescription={undefined} schemaName={"string"} qualifierMessage={undefined} defaultValue={undefined}></SchemaItem></div></details></SchemaItem><SchemaItem collapsible={false} name={"length"} required={false} schemaDescription={undefined} schemaName={"int64"} qualifierMessage={undefined} defaultValue={undefined}></SchemaItem><SchemaItem collapsible={false} name={"name"} required={false} schemaDescription={undefined} schemaName={"string"} qualifierMessage={undefined} defaultValue={undefined}></SchemaItem><SchemaItem collapsible={false} name={"fileName"} required={false} schemaDescription={undefined} schemaName={"string"} qualifierMessage={undefined} defaultValue={undefined}></SchemaItem></ul></details></TabItem></MimeTabs><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Success
+
+</div><div></div></TabItem></ApiTabs></div>
+      

@@ -1,0 +1,47 @@
+---
+id: add-rule
+sidebar_label: Adds rule to the rulebook.
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["Rulebook"],"operationId":"AddRule","parameters":[{"name":"rulebookId","in":"path","description":"Identifier of the rulebook.","required":true,"schema":{"type":"string","format":"uuid"}},{"name":"ruleId","in":"path","description":"Identifier of the rule.","required":true,"schema":{"type":"string","format":"uuid"}}],"responses":{"200":{"description":"Success"},"401":{"description":"Unauthorized"},"404":{"description":"Not Found"},"409":{"description":"Conflict"},"500":{"description":"Server Error"}},"description":"Adds rule to the rulebook.","method":"post","path":"/api/rulebooks/{rulebookId}/rules/{ruleId}","info":{"version":"v1","title":"Access Risk Management Rulebook Services"},"postman":{"name":"Adds rule to the rulebook.","description":{"type":"text/plain"},"url":{"path":["api","rulebooks",":rulebookId","rules",":ruleId"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) Identifier of the rulebook.","type":"text/plain"},"type":"any","value":"","key":"rulebookId"},{"disabled":false,"description":{"content":"(Required) Identifier of the rule.","type":"text/plain"},"type":"any","value":"","key":"ruleId"}]},"method":"POST"}}
+sidebar_class_name: "post api-method"
+info_path: docs/arm/swagger-rulebook/access-risk-management-rulebook-services
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem"
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Adds rule to the rulebook.
+
+
+
+Adds rule to the rulebook.
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"rulebookId","in":"path","description":"Identifier of the rulebook.","required":true,"schema":{"type":"string","format":"uuid"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"ruleId","in":"path","description":"Identifier of the rule.","required":true,"schema":{"type":"string","format":"uuid"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Success
+
+</div><div></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Unauthorized
+
+</div><div></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div></div></TabItem><TabItem label={"409"} value={"409"}><div>
+
+Conflict
+
+</div><div></div></TabItem><TabItem label={"500"} value={"500"}><div>
+
+Server Error
+
+</div><div></div></TabItem></ApiTabs></div>
+      

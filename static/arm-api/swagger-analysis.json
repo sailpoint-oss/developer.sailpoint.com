@@ -4,6 +4,32 @@
     "version": "v1",
     "title": "Access Risk Management Analysis Services"
   },
+  "tags": [
+    {
+      "name": "Analysis"
+    },
+    {
+      "name": "OfflineReporting"
+    },
+    {
+      "name": "OnlineReporting"
+    },
+    {
+      "name": "User"
+    },
+    {
+      "name": "Role"
+    },
+    {
+      "name": "ScopedAnalysis"
+    },
+    {
+      "name": "TenancyCheck"
+    },
+    {
+      "name": "Workflow"
+    }
+  ],
   "paths": {
     "/api/analysis/extracts": {
       "post": {
@@ -345,7 +371,7 @@
         "tags": [
           "Analysis"
         ],
-        "summary": "Given a valid ErpMaestro.ErpAnalysis.Common.Models.UserWhatIfAnalysisRequest request, queries the database to\r\nretrieve the rule violations the what-if scenario described would produce.",
+        "summary": "Given a valid ErpMaestro.ErpAnalysis.Common.Models.UserWhatIfAnalysisRequest request, queries the database to  retrieve the rule violations the what-if scenario described would produce.",
         "operationId": "UserWhatIf",
         "requestBody": {
           "content": {
@@ -4326,7 +4352,7 @@
         "tags": [
           "OnlineReporting"
         ],
-        "summary": "Gets facts ErpMaestro.ErpAnalysis.Common.Models.OnlineReporting.UserPermissionLevelDetail by system with scope information.\r\nSupports ODATA filtering",
+        "summary": "Gets facts ErpMaestro.ErpAnalysis.Common.Models.OnlineReporting.UserPermissionLevelDetail by system with scope information.  Supports ODATA filtering",
         "operationId": "GetUserPermissionLevelDetail",
         "parameters": [
           {
@@ -5255,7 +5281,7 @@
         "tags": [
           "ScopedAnalysis"
         ],
-        "summary": "Gets facts ErpMaestro.ErpAnalysis.Common.Models.ScopedAnalysis.AnalysisHitModel by analysis without scope information.\r\nSupports ODATA filtering",
+        "summary": "Gets facts ErpMaestro.ErpAnalysis.Common.Models.ScopedAnalysis.AnalysisHitModel by analysis without scope information.  Supports ODATA filtering",
         "operationId": "GetAnalysisHits",
         "parameters": [
           {
@@ -5439,7 +5465,7 @@
         "tags": [
           "ScopedAnalysis"
         ],
-        "summary": "Gets facts ErpMaestro.ErpAnalysis.Common.Models.ScopedAnalysis.ScopedAnalysisHitModel by analysis with scope information.\r\nSupports ODATA filtering",
+        "summary": "Gets facts ErpMaestro.ErpAnalysis.Common.Models.ScopedAnalysis.ScopedAnalysisHitModel by analysis with scope information.  Supports ODATA filtering",
         "operationId": "GetScopedAnalysisHits",
         "parameters": [
           {
@@ -7055,7 +7081,7 @@
         }
       },
       "ErpMaestro.ErpAnalysis.Common.Models.UserWhatIfAnalysisRequest": {
-        "description": "Model for a single user what-if realtime analysis request.  See ErpMaestro.ErpAnalysis.Common.Models.UserWhatIfAnalysisResponse for\r\nthe response model.",
+        "description": "Model for a single user what-if realtime analysis request.  See ErpMaestro.ErpAnalysis.Common.Models.UserWhatIfAnalysisResponse for  the response model.",
         "required": [
           "accountId",
           "systemId",
@@ -7065,12 +7091,12 @@
         "properties": {
           "accountId": {
             "format": "uuid",
-            "description": "Reference to the account that the what-if analysis should use.  Account Id must already be\r\nexamined to verify tenancy and access rights.",
+            "description": "Reference to the account that the what-if analysis should use.  Account Id must already be  examined to verify tenancy and access rights.",
             "type": "string"
           },
           "systemId": {
             "format": "int32",
-            "description": "Reference to the system id that the analysis is running against.  System Id must already be\r\nexamined to verify tenancy and access rights.",
+            "description": "Reference to the system id that the analysis is running against.  System Id must already be  examined to verify tenancy and access rights.",
             "type": "integer"
           },
           "username": {
@@ -7118,7 +7144,7 @@
         }
       },
       "ErpMaestro.ErpAnalysis.Common.Models.UserWhatIfAnalysisResponse": {
-        "description": "Model for a single user what-if realtime analysis response.  See ErpMaestro.ErpAnalysis.Common.Models.UserWhatIfAnalysisRequest for the\r\nrequest model.",
+        "description": "Model for a single user what-if realtime analysis response.  See ErpMaestro.ErpAnalysis.Common.Models.UserWhatIfAnalysisRequest for the  request model.",
         "type": "object",
         "properties": {
           "isSuperUser": {
@@ -7202,12 +7228,12 @@
         "properties": {
           "accountId": {
             "format": "uuid",
-            "description": "Reference to the account that the what-if analysis should use.  Account Id must already be\r\nexamined to verify tenancy and access rights.",
+            "description": "Reference to the account that the what-if analysis should use.  Account Id must already be  examined to verify tenancy and access rights.",
             "type": "string"
           },
           "systemId": {
             "format": "int32",
-            "description": "Reference to the system id that the analysis is running against.  System Id must already be\r\nexamined to verify tenancy and access rights.",
+            "description": "Reference to the system id that the analysis is running against.  System Id must already be  examined to verify tenancy and access rights.",
             "type": "integer"
           },
           "username": {
@@ -7372,12 +7398,12 @@
         "properties": {
           "accountId": {
             "format": "uuid",
-            "description": "Reference to the account that the what-if analysis should use.  Account Id must already be\r\nexamined to verify tenancy and access rights.",
+            "description": "Reference to the account that the what-if analysis should use.  Account Id must already be  examined to verify tenancy and access rights.",
             "type": "string"
           },
           "systemId": {
             "format": "int32",
-            "description": "Reference to the system id that the analysis is running against.  System Id must already be\r\nexamined to verify tenancy and access rights.",
+            "description": "Reference to the system id that the analysis is running against.  System Id must already be  examined to verify tenancy and access rights.",
             "type": "integer"
           },
           "username": {
@@ -7516,11 +7542,11 @@
         "type": "object",
         "properties": {
           "ruleCode": {
-            "description": "Represents the identifier of the risk (rule), which makes up the group of\r\nrisk being summarized in the business process conflict summary.",
+            "description": "Represents the identifier of the risk (rule), which makes up the group of  risk being summarized in the business process conflict summary.",
             "type": "string"
           },
           "riskRating": {
-            "description": "Represents the rating of risk (rule) involved in the business process conflict.\r\nTypical values are: Informational, Low, Medium, High and Critical.",
+            "description": "Represents the rating of risk (rule) involved in the business process conflict.  Typical values are: Informational, Low, Medium, High and Critical.",
             "type": "string"
           },
           "ruleName": {
@@ -7780,11 +7806,11 @@
             "type": "integer"
           },
           "riskRating": {
-            "description": "Represents the rule risk rating.\r\nE.g.: Critical, High, Low, etc.",
+            "description": "Represents the rule risk rating.  E.g.: Critical, High, Low, etc.",
             "type": "string"
           },
           "ruleType": {
-            "description": "Represents the rule type.\r\nE.g.: SOD, SEN.",
+            "description": "Represents the rule type.  E.g.: SOD, SEN.",
             "type": "string"
           },
           "ruleCode": {
@@ -7952,7 +7978,7 @@
         }
       },
       "ErpMaestro.ErpAnalysis.Common.Models.OnlineReporting.UserRemediation": {
-        "description": "Serves as the item which determines if a role is assigned to a user and if the\r\nassignment has been used.",
+        "description": "Serves as the item which determines if a role is assigned to a user and if the  assignment has been used.",
         "type": "object",
         "properties": {
           "userName": {
@@ -8587,7 +8613,7 @@
         }
       },
       "ErpMaestro.ErpAnalysis.Common.Models.OnlineReporting.UserPermissionLevelDetail": {
-        "description": "Represents an actual Hit of an analysis, with information about the\r\npermission owner, the target, the risk, the business function,\r\nthe permission, and the permission group",
+        "description": "Represents an actual Hit of an analysis, with information about the  permission owner, the target, the risk, the business function,  the permission, and the permission group",
         "type": "object",
         "properties": {
           "userName": {
@@ -8683,7 +8709,7 @@
         }
       },
       "ErpMaestro.ErpAnalysis.Common.Models.ScopedAnalysis.AnalysisHitModel": {
-        "description": "Represents an actual Hit of an analysis, with information about the\r\npermission owner, the risk, the business function,\r\nthe permission, and the permission group",
+        "description": "Represents an actual Hit of an analysis, with information about the  permission owner, the risk, the business function,  the permission, and the permission group",
         "type": "object",
         "properties": {
           "userName": {
@@ -8709,7 +8735,7 @@
         }
       },
       "ErpMaestro.ErpAnalysis.Common.Models.ScopedAnalysis.ScopedAnalysisHitModel": {
-        "description": "Represents an actual Hit of an analysis, with information about the\r\npermission owner, the target, the risk, the business function,\r\nthe permission, and the permission group",
+        "description": "Represents an actual Hit of an analysis, with information about the  permission owner, the target, the risk, the business function,  the permission, and the permission group",
         "type": "object",
         "properties": {
           "userName": {

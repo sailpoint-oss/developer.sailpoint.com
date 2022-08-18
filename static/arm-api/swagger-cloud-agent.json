@@ -4,6 +4,7 @@
     "version": "v1",
     "title": "Cloud Agent API"
   },
+  "tags":[{"name":"Extracts"},{"name":"System"},{"name":"TaskAuditTrails"},{"name":"Tasks"}],
   "paths": {
     "/api/Extracts/RunSecurityExtract": {
       "post": {

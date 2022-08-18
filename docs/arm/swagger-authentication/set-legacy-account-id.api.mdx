@@ -1,0 +1,51 @@
+---
+id: set-legacy-account-id
+sidebar_label: Links customer and legacy account.  This endpoint is mainly used by AuthSync process, when new customer and account are created.
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["Customer"],"operationId":"SetLegacyAccountId","parameters":[{"name":"customerId","in":"path","description":"Identifier of the customer.","required":true,"schema":{"type":"string","format":"uuid"}},{"name":"accountId","in":"path","description":"Identifier of the account.","required":true,"schema":{"type":"integer","format":"int32"}}],"responses":{"200":{"description":"Success"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"},"500":{"description":"Server Error"}},"deprecated":true,"description":"Links customer and legacy account.  This endpoint is mainly used by AuthSync process, when new customer and account are created.","method":"post","path":"/api/accounts/{customerId}/{accountId}","info":{"version":"1.0","title":"Access Risk Management Authentication Services"},"postman":{"name":"Links customer and legacy account.  This endpoint is mainly used by AuthSync process, when new customer and account are created.","description":{"type":"text/plain"},"url":{"path":["api","accounts",":customerId",":accountId"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) Identifier of the customer.","type":"text/plain"},"type":"any","value":"","key":"customerId"},{"disabled":false,"description":{"content":"(Required) Identifier of the account.","type":"text/plain"},"type":"any","value":"","key":"accountId"}]},"method":"POST"}}
+sidebar_class_name: "post api-method"
+info_path: docs/arm/swagger-authentication/access-risk-management-authentication-services
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem"
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Links customer and legacy account.  This endpoint is mainly used by AuthSync process, when new customer and account are created.
+
+:::caution deprecated
+
+This endpoint has been deprecated and may be removed in future versions of the API.
+
+:::
+
+Links customer and legacy account.  This endpoint is mainly used by AuthSync process, when new customer and account are created.
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"customerId","in":"path","description":"Identifier of the customer.","required":true,"schema":{"type":"string","format":"uuid"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"accountId","in":"path","description":"Identifier of the account.","required":true,"schema":{"type":"integer","format":"int32"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Success
+
+</div><div></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Unauthorized
+
+</div><div></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Forbidden
+
+</div><div></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div></div></TabItem><TabItem label={"500"} value={"500"}><div>
+
+Server Error
+
+</div><div></div></TabItem></ApiTabs></div>
+      

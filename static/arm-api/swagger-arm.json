@@ -4,6 +4,7 @@
     "version": "v1",
     "title": "Access Risk Management ARM Web APIs"
   },
+  "tags":[{"name":"AccessContext"},{"name":"AccessReview"},{"name":"ChangeLogs"},{"name":"CompatibilityMatrix"},{"name":"CustomerSettings"},{"name":"Dashboard"},{"name":"DataStorage"},{"name":"EmergencyAccessManagement"},{"name":"ErpSystemBlacklists"},{"name":"ErpSystemData"},{"name":"ErpSystems"},{"name":"FilteredDashboard"},{"name":"ImportResults"},{"name":"Lookups"},{"name":"RealTimeReports"},{"name":"ReportLayouts"},{"name":"Reports"},{"name":"SapSystem"},{"name":"SecurityExtract"},{"name":"Service"},{"name":"SuccessFactorsSystem"},{"name":"UserCustomerSettings"},{"name":"UserManagement"}],
   "paths": {
     "/api/accessContext/columns": {
       "get": {
@@ -3517,7 +3518,7 @@
         "tags": [
           "AccessReview"
         ],
-        "summary": "Returns the Access Review items for a given review of type 'UserToRole'.\r\nSupports OData.",
+        "summary": "Returns the Access Review items for a given review of type 'UserToRole'.  Supports OData.",
         "operationId": "GetReviewItemsUserToRole",
         "parameters": [
           {
@@ -3858,7 +3859,7 @@
         "tags": [
           "AccessReview"
         ],
-        "summary": "Returns the Access Review items for a given review of type 'RoleToTcode'.\r\nSupports OData.",
+        "summary": "Returns the Access Review items for a given review of type 'RoleToTcode'.  Supports OData.",
         "operationId": "GetReviewItemsRoleToTcode",
         "parameters": [
           {
@@ -4455,7 +4456,7 @@
         "tags": [
           "AccessReview"
         ],
-        "summary": "Returns the Access Review items for a given review of type 'UserToRisk'.\r\nSupports OData.",
+        "summary": "Returns the Access Review items for a given review of type 'UserToRisk'.  Supports OData.",
         "operationId": "GetReviewItemsUserToRisk",
         "parameters": [
           {
@@ -4977,7 +4978,7 @@
         "tags": [
           "AccessReview"
         ],
-        "summary": "Returns the Access Review items for a given review of type 'RiskToMitigatingControl'.\r\nSupports OData.",
+        "summary": "Returns the Access Review items for a given review of type 'RiskToMitigatingControl'.  Supports OData.",
         "operationId": "GetReviewItemsRiskToMitigatingControl",
         "parameters": [
           {
@@ -5318,7 +5319,7 @@
         "tags": [
           "AccessReview"
         ],
-        "summary": "Returns the Access Review items for a given review of type 'RulebookDetails'.\r\nSupports OData.",
+        "summary": "Returns the Access Review items for a given review of type 'RulebookDetails'.  Supports OData.",
         "operationId": "GetReviewItemsRulebookDetails",
         "parameters": [
           {
@@ -5659,7 +5660,7 @@
         "tags": [
           "AccessReview"
         ],
-        "summary": "Gets the column names of the available access review items\r\nthat are needed for the presentation layer.",
+        "summary": "Gets the column names of the available access review items  that are needed for the presentation layer.",
         "operationId": "GetReviewItemsColumns",
         "responses": {
           "200": {
@@ -7897,7 +7898,7 @@
         "tags": [
           "AccessReview"
         ],
-        "summary": "Approves, rejects, or resets review item with comment.\r\nSupports group approvals for User to Role and User to Risk reviews.",
+        "summary": "Approves, rejects, or resets review item with comment.  Supports group approvals for User to Role and User to Risk reviews.",
         "operationId": "DecideReview",
         "requestBody": {
           "content": {
@@ -17790,7 +17791,7 @@
         "tags": [
           "EmergencyAccessManagement"
         ],
-        "summary": "Determines if deltas available on specified ERP system for specified dates range.\r\nAvailable only for service users.",
+        "summary": "Determines if deltas available on specified ERP system for specified dates range.  Available only for service users.",
         "operationId": "AreDeltasAvailableInSystem",
         "parameters": [
           {
@@ -20319,7 +20320,7 @@
         "tags": [
           "ErpSystems"
         ],
-        "summary": "Gets an ERP system by Id.\r\nDoesn't return sensitive information like passwords.",
+        "summary": "Gets an ERP system by Id.  Doesn't return sensitive information like passwords.",
         "operationId": "GetErpSystem",
         "parameters": [
           {
@@ -25647,7 +25648,7 @@
         "tags": [
           "Reports"
         ],
-        "summary": "Gets the risk level details dataset for the specified job id.\r\nThis endpoint will receive the filterable parameters from the\r\nodata formatted url.",
+        "summary": "Gets the risk level details dataset for the specified job id.  This endpoint will receive the filterable parameters from the  odata formatted url.",
         "operationId": "GetRiskLevelDetails",
         "parameters": [
           {
@@ -28982,7 +28983,7 @@
         "tags": [
           "Reports"
         ],
-        "summary": "Exports the report.\r\nMay be used as an OData endpoint.",
+        "summary": "Exports the report.  May be used as an OData endpoint.",
         "operationId": "ExportReport",
         "requestBody": {
           "content": {
@@ -30851,7 +30852,7 @@
         "tags": [
           "SapSystem"
         ],
-        "summary": "Schedules a LoadSapInfoJob to refresh the SAP roles\r\nfor the latest security extract.",
+        "summary": "Schedules a LoadSapInfoJob to refresh the SAP roles  for the latest security extract.",
         "operationId": "RefreshRoles",
         "parameters": [
           {
@@ -30887,7 +30888,7 @@
         "tags": [
           "SapSystem"
         ],
-        "summary": "Updates an existing SAP system based on the specified parameters.\r\nReturns the object model of the updated system.",
+        "summary": "Updates an existing SAP system based on the specified parameters.  Returns the object model of the updated system.",
         "operationId": "Update",
         "requestBody": {
           "content": {
@@ -31079,7 +31080,7 @@
         "tags": [
           "SapSystem"
         ],
-        "summary": "Creates a new SAP system based on the specified parameters.\r\nReturns the object model of the newly created system.",
+        "summary": "Creates a new SAP system based on the specified parameters.  Returns the object model of the newly created system.",
         "operationId": "Create",
         "requestBody": {
           "content": {
@@ -33973,7 +33974,7 @@
             "type": "string"
           },
           "displayId": {
-            "description": "Represents a friendly version of the id for display purposes.\r\nUseful for UI filtering via OData.",
+            "description": "Represents a friendly version of the id for display purposes.  Useful for UI filtering via OData.",
             "type": "string",
             "readOnly": true
           },
@@ -33985,7 +33986,7 @@
             "$ref": "#/components/schemas/AccessReviewType"
           },
           "displayReviewType": {
-            "description": "Represents a string version of the id for display and\r\nUI filtering via OData.",
+            "description": "Represents a string version of the id for display and  UI filtering via OData.",
             "type": "string",
             "readOnly": true
           },
@@ -34249,7 +34250,7 @@
             "type": "string"
           },
           "displayId": {
-            "description": "Represents a friendly version of the id for display purposes.\r\nUseful for UI filtering via OData.",
+            "description": "Represents a friendly version of the id for display purposes.  Useful for UI filtering via OData.",
             "type": "string"
           },
           "reviewName": {
@@ -34260,7 +34261,7 @@
             "$ref": "#/components/schemas/AccessReviewType"
           },
           "displayReviewType": {
-            "description": "Represents a string version of the id for display and\r\nUI filtering via OData.",
+            "description": "Represents a string version of the id for display and  UI filtering via OData.",
             "type": "string"
           },
           "startDate": {
@@ -34368,7 +34369,7 @@
             "type": "string"
           },
           "displayId": {
-            "description": "Represents a friendly version of the id for display purposes.\r\nUseful for UI filtering via OData.",
+            "description": "Represents a friendly version of the id for display purposes.  Useful for UI filtering via OData.",
             "type": "string"
           },
           "reviewName": {
@@ -34379,7 +34380,7 @@
             "$ref": "#/components/schemas/AccessReviewType"
           },
           "displayReviewType": {
-            "description": "Represents a string version of the id for display and\r\nUI filtering via OData.",
+            "description": "Represents a string version of the id for display and  UI filtering via OData.",
             "type": "string"
           },
           "startDate": {
@@ -34563,7 +34564,7 @@
           },
           "reviewItemId": {
             "format": "uuid",
-            "description": "ID of the reviewed item, e.g. RiskMitigatingControlReviewId, RoleTcodeReviewId, RulebookDetailsReviewId,\r\nUserRiskReviewIdv or UserRoleReviewId.\r\nNeeded for reviewer status delegation.",
+            "description": "ID of the reviewed item, e.g. RiskMitigatingControlReviewId, RoleTcodeReviewId, RulebookDetailsReviewId,  UserRiskReviewIdv or UserRoleReviewId.  Needed for reviewer status delegation.",
             "type": "string"
           }
         }
@@ -36007,7 +36008,7 @@
             "type": "string"
           },
           "displayId": {
-            "description": "The display property for the id of the request.\r\nThis is needed to allow for OData filtering since OData\r\ndoes not support Guid types at the moment.",
+            "description": "The display property for the id of the request.  This is needed to allow for OData filtering since OData  does not support Guid types at the moment.",
             "type": "string"
           },
           "profileId": {
@@ -36045,7 +36046,7 @@
             "$ref": "#/components/schemas/DurationModel"
           },
           "displayDuration": {
-            "description": "The display property for the duration of the request.\r\nThis is needed to allow for OData filtering since OData\r\ndoes not support complex types at the moment.",
+            "description": "The display property for the duration of the request.  This is needed to allow for OData filtering since OData  does not support complex types at the moment.",
             "type": "string"
           },
           "initialState": {
@@ -36300,7 +36301,7 @@
         "type": "object",
         "properties": {
           "eventType": {
-            "description": "Event type.\r\nErpMaestro.ArmServices.Common.Models.EmergencyAccess.EmergencyAccessProfileChangeLogEventTypes",
+            "description": "Event type.  ErpMaestro.ArmServices.Common.Models.EmergencyAccess.EmergencyAccessProfileChangeLogEventTypes",
             "type": "string"
           },
           "propertyName": {
@@ -36356,7 +36357,7 @@
             "$ref": "#/components/schemas/EmergencyAccessRequestState"
           },
           "displayState": {
-            "description": "Represents the description of the state.\r\nThis is needed to allow for OData filtering since OData\r\ndoes not support enum types at the moment.",
+            "description": "Represents the description of the state.  This is needed to allow for OData filtering since OData  does not support enum types at the moment.",
             "type": "string"
           },
           "profileName": {
@@ -36389,14 +36390,14 @@
             }
           },
           "displayRoleNames": {
-            "description": "The display property for the role names of the request.\r\nThis is needed to allow for OData filtering since OData\r\ndoes not support array types at the moment.",
+            "description": "The display property for the role names of the request.  This is needed to allow for OData filtering since OData  does not support array types at the moment.",
             "type": "string"
           },
           "timeRemaining": {
             "$ref": "#/components/schemas/DurationModel"
           },
           "actions": {
-            "description": "Represents the available actions for the current request state.\r\nAlso based on user permissions.",
+            "description": "Represents the available actions for the current request state.  Also based on user permissions.",
             "uniqueItems": false,
             "type": "array",
             "items": {
@@ -36443,7 +36444,7 @@
             "$ref": "#/components/schemas/RequestActivity"
           },
           "hasDownloadLink": {
-            "description": "A flag used to determine if the response contains a downloaded link.\r\nThis is used for decisions if the link should be displayed to the user.",
+            "description": "A flag used to determine if the response contains a downloaded link.  This is used for decisions if the link should be displayed to the user.",
             "type": "boolean"
           },
           "approvers": {
@@ -36455,7 +36456,7 @@
             }
           },
           "displayApproverNames": {
-            "description": "The display property for the approvers names.\r\nThis is needed to allow for OData filtering since OData\r\ndoes not support array types at the moment.",
+            "description": "The display property for the approvers names.  This is needed to allow for OData filtering since OData  does not support array types at the moment.",
             "type": "string"
           },
           "reviewers": {
@@ -36467,7 +36468,7 @@
             }
           },
           "displayReviewerNames": {
-            "description": "The display property for the reviewers names.\r\nThis is needed to allow for OData filtering since OData\r\ndoes not support array types at the moment.",
+            "description": "The display property for the reviewers names.  This is needed to allow for OData filtering since OData  does not support array types at the moment.",
             "type": "string"
           },
           "comment": {
@@ -36486,7 +36487,7 @@
             "type": "string"
           },
           "displayId": {
-            "description": "The display property for the id of the request.\r\nThis is needed to allow for OData filtering since OData\r\ndoes not support Guid types at the moment.",
+            "description": "The display property for the id of the request.  This is needed to allow for OData filtering since OData  does not support Guid types at the moment.",
             "type": "string"
           },
           "profileId": {
@@ -36524,7 +36525,7 @@
             "$ref": "#/components/schemas/DurationModel"
           },
           "displayDuration": {
-            "description": "The display property for the duration of the request.\r\nThis is needed to allow for OData filtering since OData\r\ndoes not support complex types at the moment.",
+            "description": "The display property for the duration of the request.  This is needed to allow for OData filtering since OData  does not support complex types at the moment.",
             "type": "string"
           },
           "initialState": {
@@ -37219,7 +37220,7 @@
         "type": "object",
         "properties": {
           "fieldId": {
-            "description": "Represents the unique identifier of the field.\r\nUsually the name of the column.",
+            "description": "Represents the unique identifier of the field.  Usually the name of the column.",
             "type": "string"
           },
           "type": {
@@ -38246,11 +38247,11 @@
         }
       },
       "RoleAuthorizationHitModel": {
-        "description": "Represents the authorization line item details for role conflict data.\r\nDisplays each authorization hit from the role with the corresponding\r\nmatch from the function permission definition in the rulebook.",
+        "description": "Represents the authorization line item details for role conflict data.  Displays each authorization hit from the role with the corresponding  match from the function permission definition in the rulebook.",
         "type": "object",
         "properties": {
           "roleName": {
-            "description": "Represents the analyzed role name (AGR_NAME) risk being\r\nsummarized in the business process conflict summary.",
+            "description": "Represents the analyzed role name (AGR_NAME) risk being  summarized in the business process conflict summary.",
             "type": "string"
           },
           "functionCode": {
@@ -38258,47 +38259,47 @@
             "type": "string"
           },
           "profileName": {
-            "description": "Represents the SAP security authorization profile identifier.\r\nUsually generated for a role, less often assigned directly to the user.\r\nTypically uses the format T-AA111111, but can be customized to to other\r\n10-character formats such as ZCUSTOM123.",
+            "description": "Represents the SAP security authorization profile identifier.  Usually generated for a role, less often assigned directly to the user.  Typically uses the format T-AA111111, but can be customized to to other  10-character formats such as ZCUSTOM123.",
             "type": "string"
           },
           "tCode": {
-            "description": "Represents the SAP transaction code included in the role and causing a conflict\r\nbased upon the rulebook definition. Can be any combination of letters, numerals,\r\nand special characters between 2 and 20 characters long, such as /PRO/FUGERT, BP, FB02.",
+            "description": "Represents the SAP transaction code included in the role and causing a conflict  based upon the rulebook definition. Can be any combination of letters, numerals,  and special characters between 2 and 20 characters long, such as /PRO/FUGERT, BP, FB02.",
             "type": "string"
           },
           "roleAuthorizationName": {
-            "description": "Represents the SAP security authorization identifier. Typically appends a two digit\r\nnumeral to the end of the associated authorization profile ID such as T-AA11111100.",
+            "description": "Represents the SAP security authorization identifier. Typically appends a two digit  numeral to the end of the associated authorization profile ID such as T-AA11111100.",
             "type": "string"
           },
           "roleObject": {
-            "description": "Represents the SAP security authorization object included in the role and causing a conflict.\r\nTypically a 4 to 10 character identifer with underscores such as S_TCODE, F_BKPF_BUK, M_RECH_WRK.",
+            "description": "Represents the SAP security authorization object included in the role and causing a conflict.  Typically a 4 to 10 character identifer with underscores such as S_TCODE, F_BKPF_BUK, M_RECH_WRK.",
             "type": "string"
           },
           "roleAuthorizationField": {
-            "description": "Represents the SAP security authorization object field included in the role\r\nand causing a conflict. Typically shorter than the authorization object and\r\nusually composed of only letters, such as ACTVT, KOART, TCD, JOBACTION.",
+            "description": "Represents the SAP security authorization object field included in the role  and causing a conflict. Typically shorter than the authorization object and  usually composed of only letters, such as ACTVT, KOART, TCD, JOBACTION.",
             "type": "string"
           },
           "roleAuthorizationValueFrom": {
-            "description": "Represents the SAP security authorization field value in the role. Can be\r\neither a single fixed value (01), a wildcard (*), or a combination (GROUP1*).\r\nThis field must be populated for an authorization.",
+            "description": "Represents the SAP security authorization field value in the role. Can be  either a single fixed value (01), a wildcard (*), or a combination (GROUP1*).  This field must be populated for an authorization.",
             "type": "string"
           },
           "roleAuthorizationValueTo": {
-            "description": "Represents the SAP security authorization field value in the role. Can be either a\r\nsingle fixed value (01), a wildcard (*), or a combination (GROUP1*). This field is\r\nleft blank unless the authorization is being defined as a range. The range would be\r\nanything between the FROM value through the TO value. For example, if the FROM value\r\nis A and the TO value is C, then the authorization grants access to any valid\r\nvalues falling in that range: A, Aaaz, B, B123, C.",
+            "description": "Represents the SAP security authorization field value in the role. Can be either a  single fixed value (01), a wildcard (*), or a combination (GROUP1*). This field is  left blank unless the authorization is being defined as a range. The range would be  anything between the FROM value through the TO value. For example, if the FROM value  is A and the TO value is C, then the authorization grants access to any valid  values falling in that range: A, Aaaz, B, B123, C.",
             "type": "string"
           },
           "ruleAuthorizationObject": {
-            "description": "Represents the SAP security authorization object included in the rulebook\r\ndefinition and causing a conflict. Typically a 4 to 10 character identifer\r\nwith underscores such as S_TCODE, F_BKPF_BUK, M_RECH_WRK.",
+            "description": "Represents the SAP security authorization object included in the rulebook  definition and causing a conflict. Typically a 4 to 10 character identifer  with underscores such as S_TCODE, F_BKPF_BUK, M_RECH_WRK.",
             "type": "string"
           },
           "ruleAuthorizationField": {
-            "description": "Represents the SAP security authorization object field included in the rulebook\r\ndefinition and causing a conflict. Typically shorter than the authorization object\r\nand usually composed of only letters, such as ACTVT, KOART, TCD, JOBACTION.",
+            "description": "Represents the SAP security authorization object field included in the rulebook  definition and causing a conflict. Typically shorter than the authorization object  and usually composed of only letters, such as ACTVT, KOART, TCD, JOBACTION.",
             "type": "string"
           },
           "ruleAuthorizationValueFrom": {
-            "description": "Represents the SAP security authorization field value from the rulebook.\r\nCan be either a single fixed value (01), a wildcard (*), or a combination (GROUP1*).\r\nThis field should be populated for a valid rulebook definition.",
+            "description": "Represents the SAP security authorization field value from the rulebook.  Can be either a single fixed value (01), a wildcard (*), or a combination (GROUP1*).  This field should be populated for a valid rulebook definition.",
             "type": "string"
           },
           "ruleAuthorizationValueTo": {
-            "description": "Represents the SAP security authorization field value from the rulebook.\r\nCan be either a single fixed value (01), a wildcard (*), or a combination (GROUP1*).\r\nThis field is left blank unless the rule is being defined with a range.\r\nThe range would be anything between the FROM value through the TO value.\r\nFor example, if the FROM value is A and the TO value is C, then the rule is\r\nlooking for any value falling in that range: A, Aaaz, B, B123, C.",
+            "description": "Represents the SAP security authorization field value from the rulebook.  Can be either a single fixed value (01), a wildcard (*), or a combination (GROUP1*).  This field is left blank unless the rule is being defined with a range.  The range would be anything between the FROM value through the TO value.  For example, if the FROM value is A and the TO value is C, then the rule is  looking for any value falling in that range: A, Aaaz, B, B123, C.",
             "type": "string"
           },
           "roleType": {
@@ -38306,7 +38307,7 @@
             "type": "string"
           },
           "roleIsDerived": {
-            "description": "Represents a boolean value indicating whether a role has been derived from,\r\nor created based upon, another 'parent' role. Deriving roles is useful to\r\nmaintain fewer roles. One role granting access to function A can be derived\r\nto act upon object1 vs object2. So you could have parent role Z_FUNCTION_A\r\nand derived child roles ZD_FUNCTION_A_LOCATION1 and ZD_FUNCTION_A_LOCATION2.\r\nAny changes to access to Function A would only be updated in role Z_FUNCTION_A\r\nand those changes would be automatically applied to child roles.",
+            "description": "Represents a boolean value indicating whether a role has been derived from,  or created based upon, another 'parent' role. Deriving roles is useful to  maintain fewer roles. One role granting access to function A can be derived  to act upon object1 vs object2. So you could have parent role Z_FUNCTION_A  and derived child roles ZD_FUNCTION_A_LOCATION1 and ZD_FUNCTION_A_LOCATION2.  Any changes to access to Function A would only be updated in role Z_FUNCTION_A  and those changes would be automatically applied to child roles.",
             "type": "boolean"
           },
           "derivedParentRole": {
@@ -38314,11 +38315,11 @@
             "type": "string"
           },
           "parentProfile": {
-            "description": "Represents the name of the composite profile assigned to the user if the access\r\nis inherited indirectly through a single profile that is part of a composite profile.\r\nThis is uncommon as composite profiles are not supposed to be used any longer.",
+            "description": "Represents the name of the composite profile assigned to the user if the access  is inherited indirectly through a single profile that is part of a composite profile.  This is uncommon as composite profiles are not supposed to be used any longer.",
             "type": "string"
           },
           "parentRoleName": {
-            "description": "Represents the name of the composite role assigned to the user if the access is\r\ninherited indirectly through a single role that is part of a composite role.",
+            "description": "Represents the name of the composite role assigned to the user if the access is  inherited indirectly through a single role that is part of a composite role.",
             "type": "string"
           }
         }
@@ -38452,7 +38453,7 @@
         }
       },
       "ErpRoleApproverModel": {
-        "description": "Describes erp role approver who validates that\r\nthe user requesting access needs that role for performing their job.",
+        "description": "Describes erp role approver who validates that  the user requesting access needs that role for performing their job.",
         "type": "object",
         "properties": {
           "id": {
@@ -38528,7 +38529,7 @@
         }
       },
       "SapConnectionInfoModel": {
-        "description": "Model that represents the SAP connection information.\r\nIt implements both marker interfaces to satisfy the current implementation\r\nof IErpSystemService, but should be removed once we move the ERP systems\r\nimplementations to the agent permanently.",
+        "description": "Model that represents the SAP connection information.  It implements both marker interfaces to satisfy the current implementation  of IErpSystemService, but should be removed once we move the ERP systems  implementations to the agent permanently.",
         "required": [
           "erpProductVersion",
           "serverAddress",
@@ -38739,7 +38740,7 @@
           },
           "recurrenceJobId": {
             "format": "uuid",
-            "description": "Unique identifier of the job which is used for triggering email send\r\nNull means that job is not created yet",
+            "description": "Unique identifier of the job which is used for triggering email send  Null means that job is not created yet",
             "type": "string"
           }
         }

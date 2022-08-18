@@ -1,0 +1,35 @@
+---
+id: get-task-status
+sidebar_label: Returns current status of the task.
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["Tasks"],"operationId":"GetTaskStatus","parameters":[{"name":"referenceId","in":"path","description":"","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success"},"404":{"description":"Not Found"}},"description":"Returns current status of the task.","method":"get","path":"/api/Tasks/{referenceId}","info":{"version":"v1","title":"Cloud Agent API"},"postman":{"name":"Returns current status of the task.","description":{"type":"text/plain"},"url":{"path":["api","Tasks",":referenceId"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) ","type":"text/plain"},"type":"any","value":"","key":"referenceId"}]},"method":"GET"}}
+sidebar_class_name: "get api-method"
+info_path: docs/arm/swagger-cloud-agent/cloud-agent-api
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem"
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Returns current status of the task.
+
+
+
+Returns current status of the task.
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"referenceId","in":"path","description":"","required":true,"schema":{"type":"string"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Success
+
+</div><div></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div></div></TabItem></ApiTabs></div>
+      

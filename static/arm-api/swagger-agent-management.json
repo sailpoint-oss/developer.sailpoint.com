@@ -4,6 +4,14 @@
     "version": "v1",
     "title": "Access Risk Management Agent Management Service"
   },
+  "tags": [
+    {
+      "name": "Agent"
+    },
+    {
+      "name": "AgentInstruction"
+    }
+  ],
   "paths": {
     "/api/agent": {
       "post": {

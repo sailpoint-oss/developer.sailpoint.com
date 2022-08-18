@@ -1,0 +1,39 @@
+---
+id: get-by-username
+sidebar_label: Get a user from the system by username.
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["User"],"operationId":"GetByUsername","parameters":[{"name":"username","in":"path","required":true,"schema":{"type":"string"}}],"responses":{"403":{"description":"Forbidden"},"410":{"description":"Client Error"}},"deprecated":true,"description":"Get a user from the system by username.","method":"get","path":"/api/users/{username}","info":{"version":"1.0","title":"Access Risk Management Authentication Services"},"postman":{"name":"Get a user from the system by username.","description":{"type":"text/plain"},"url":{"path":["api","users",":username"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) ","type":"text/plain"},"type":"any","value":"","key":"username"}]},"method":"GET"}}
+sidebar_class_name: "get api-method"
+info_path: docs/arm/swagger-authentication/access-risk-management-authentication-services
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem"
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Get a user from the system by username.
+
+:::caution deprecated
+
+This endpoint has been deprecated and may be removed in future versions of the API.
+
+:::
+
+Get a user from the system by username.
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"username","in":"path","required":true,"schema":{"type":"string"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"403"} value={"403"}><div>
+
+Forbidden
+
+</div><div></div></TabItem><TabItem label={"410"} value={"410"}><div>
+
+Client Error
+
+</div><div></div></TabItem></ApiTabs></div>
+      

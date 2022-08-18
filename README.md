@@ -19,22 +19,19 @@
     <img src="./assets/images/logo.svg" alt="Logo" width="80" height="80">
 
   <h3 align="center">Developer Community Website - README</h3>
-    <br />
-    <br />
-  </p>
-</div>
+  <br/>
 <div align="center">
 <img src="./assets/images/screenshot.png" width="500" height="" style="text-align:center">
 </div>
-<br />
+</div>
 
-This repository contains the complete build, with assets, for everything seen on developer.sailpoint.com. The includes the homepage, all static elements, docs, and the API specifications. The API specifications come in from a GitHub Action in another repository, but ultimately the API specifications used to generate this static site are those found in the static folder.
+<!-- ABOUT THE PROJECT -->
+## About The Project
+This repository contains the complete build, with assets, for everything seen on developer.sailpoint.com. The includes the homepage, all static elements, docs, and the API specifications. The API specifications come in from a GitHub Action in another repository, but ultimately the API specifications used to generate this static site are those found in the `static` folder.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
+Please use GitHub issues to submit bugs or make feature requests.
 <!-- GETTING STARTED -->
 ## Getting Started
-
 ### Prerequisites
 
 To run this project you must first have npm installed.
@@ -57,9 +54,6 @@ npm install npm@latest -g
    npm start
    ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 <!-- CONTRIBUTING -->
 ## Contributing
 
@@ -74,14 +68,12 @@ Don't forget to give the project a star! Thanks again!
 4. Push to the Branch (`git push origin feature/your-feature-name`)
 5. Open a Pull Request
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LICENSE -->
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTACT -->
 ## Discuss

@@ -49,7 +49,11 @@ npm install npm@latest -g
    ```sh
    npm install
    ```
-3. Start the website
+3. Generate the docs
+   ```sh
+   npm run docusaurus gen-api-docs all
+   ```
+4. Start the website
    ```sh
    npm start
    ```

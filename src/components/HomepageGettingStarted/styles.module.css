@@ -1,0 +1,93 @@
+.mainCard {
+  margin: 50px;
+  width: calc(100% - 100px);
+  height: 519px;
+  /* UI Properties */
+  background: transparent 0% 0% no-repeat padding-box;
+  box-shadow: 0px 20px 60px #00000015;
+  border: 1px solid #F7F7F7;
+  border-radius: 40px;
+  opacity: 1;
+}
+
+.gettingStartedText {
+  margin: 50px;
+  width: 496px;
+  height: 205px;
+}
+
+.gettingStartedOne {
+  color: #12329a;
+  font-size: 30px;
+  width: 396px;
+  font-weight: bold;
+  line-height: 100%;
+}
+
+.gettingStartedTwo {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.gettingStartedThree {
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+
+.bold {
+  font-weight: bold;
+}
+
+
+
+/* Getting Started Card */
+.getStartedCard {
+  position: relative;
+  margin-top: 20px;
+  height: 200px;
+  width: 300px;
+  /* UI Properties */
+  background: transparent 0% 0% no-repeat padding-box;
+  box-shadow: 0px 20px 60px #00000015;
+  border: 1px solid #F7F7F7;
+  border-radius: 40px;
+  opacity: 1;
+}
+
+.getStartedCard:hover {
+  cursor: pointer;
+}
+
+.gettingStartedCardText {
+  position: absolute;
+  margin: 20px;
+  font-size: 16px;
+  font-weight: 500;
+  width: 150px;
+  bottom: 0;
+  left: 0;
+  color: black;
+}
+
+.gettingStartedCardIcon {
+  position: absolute;
+  margin: 20px;
+  top: 0;
+  left: 0;
+}
+
+.gettingStartedCardArrow {
+  position: absolute;
+  margin: 20px;
+  bottom: 25px;
+  right: 0;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}

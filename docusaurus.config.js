@@ -84,7 +84,6 @@ const config = {
             items: [
               {to: '/docs/category/identity-now-api-v3', label: 'V3 APIs'},
               {to: '/docs/category/identity-now-api-beta', label: 'Beta APIs'},
-              {to: '/docs/category/arm-agent-management', label: 'ARM APIs'},
               {
                 type: 'doc',
                 docId: 'idn_docs/intro',
@@ -105,6 +104,14 @@ const config = {
                 label: 'Documentation',
               },
               // ... more items
+            ],
+          },
+          {
+            type: 'dropdown',
+            label: 'ARM',
+            position: 'right',
+            items: [
+              {to: '/docs/category/arm-agent-management', label: 'ARM APIs'}
             ],
           },
           {

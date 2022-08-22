@@ -1,7 +1,7 @@
 .mainCard {
   margin: 50px;
   width: calc(100% - 100px);
-  height: 519px;
+
   /* UI Properties */
   background: transparent 0% 0% no-repeat padding-box;
   box-shadow: 0px 20px 60px #00000015;
@@ -13,7 +13,6 @@
 .gettingStartedText {
   margin: 50px;
   width: 496px;
-  height: 205px;
 }
 
 .gettingStartedOne {
@@ -42,13 +41,18 @@
 }
 
 
+/* Getting Started Card container */
+.gridContainer {
+  display: grid;
+  margin: 50px;
+  grid-template-columns: repeat(auto-fill, 300px);
+  grid-gap: 20px;
+}
 
 /* Getting Started Card */
 .getStartedCard {
-  position: relative;
   margin-top: 20px;
   height: 200px;
-  width: 300px;
   /* UI Properties */
   background: transparent 0% 0% no-repeat padding-box;
   box-shadow: 0px 20px 60px #00000015;
@@ -62,7 +66,6 @@
 }
 
 .gettingStartedCardText {
-  position: absolute;
   margin: 20px;
   font-size: 16px;
   font-weight: 500;
@@ -73,21 +76,14 @@
 }
 
 .gettingStartedCardIcon {
-  position: absolute;
   margin: 20px;
   top: 0;
   left: 0;
 }
 
 .gettingStartedCardArrow {
-  position: absolute;
   margin: 20px;
   bottom: 25px;
   right: 0;
 }
 
-.gridContainer {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px,1fr));
-  grid-gap: 20px;
-}

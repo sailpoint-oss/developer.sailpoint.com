@@ -10,7 +10,8 @@ export default function HomepageGettingStarted() {
           <div className={styles.gettingStartedOne}>SailPoint Developer Community</div>
           <div className={styles.gettingStartedTwo}>Don't know where to get started?</div>
           <div className={styles.gettingStartedThree}>Jump into our <span className={styles.bold}>Get Started Guides</span> for more information.</div>
-          <div className={styles.gridContainer}>
+        </div>
+        <div className={styles.gridContainer}>
             <Link to="/docs/idn_docs/intro">
               <div className={styles.getStartedCard}>
                 <div className={styles.gettingStartedCardText}>Get Started with IdentityNow</div>
@@ -26,8 +27,6 @@ export default function HomepageGettingStarted() {
               </div>
             </Link>
           </div>
-
-        </div>
       </div>
     </div>
   );

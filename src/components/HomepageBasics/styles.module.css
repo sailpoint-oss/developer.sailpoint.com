@@ -1,0 +1,67 @@
+
+.gettingStartedText {
+  text-align: center;
+
+  margin: 50px auto;
+  width: calc(100% - 100px);
+  max-width: 600px;
+
+}
+
+.gettingStartedOne {
+  color: #12329a;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 100%;
+}
+
+.gettingStartedThree {
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+
+.bold {
+  font-weight: bold;
+}
+
+.gettingStartedCardIcon {
+  margin-bottom: 20px;
+  width: 50px;
+  height: 50px;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+}
+
+.button {
+
+  text-decoration: none;
+  text-align: center;
+  padding: 15px;
+  margin: 10px auto;
+
+  color: #cc27b0;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 100%;
+
+
+  /* Layout Properties */
+  width: 259px;
+  height: 61px;
+  /* UI Properties */
+  background: transparent 0% 0% no-repeat padding-box;
+  opacity: 1;
+
+  box-shadow: 0px 20px 60px #00000015;
+  border: 2px solid #cc27b0;
+  border-radius: 5px;
+}

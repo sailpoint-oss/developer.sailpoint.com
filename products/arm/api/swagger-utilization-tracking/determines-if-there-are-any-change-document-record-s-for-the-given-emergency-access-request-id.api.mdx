@@ -1,0 +1,39 @@
+---
+id: determines-if-there-are-any-change-document-record-s-for-the-given-emergency-access-request-id
+sidebar_label: Determines if there are any Change Document record(s) for the given emergencyAccessRequestId.
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["ChangeDocument"],"parameters":[{"name":"emergencyAccessRequestId","in":"path","description":"Represents the unique identifier of the Emergency Access Request.","required":true,"schema":{"type":"string","description":"Represents the unique identifier of the Emergency Access Request.","format":"uuid"}}],"responses":{"200":{"description":"Success","content":{"text/plain":{"schema":{"type":"boolean"}},"application/json":{"schema":{"type":"boolean"}},"text/json":{"schema":{"type":"boolean"}}}},"400":{"description":"Bad Request","content":{"text/plain":{"schema":{"type":"string"}},"application/json":{"schema":{"type":"string"}},"text/json":{"schema":{"type":"string"}}}},"401":{"description":"Unauthorized","content":{"text/plain":{"schema":{"type":"object","additionalProperties":false}},"application/json":{"schema":{"type":"object","additionalProperties":false}},"text/json":{"schema":{"type":"object","additionalProperties":false}}}}},"description":"Determines if there are any Change Document record(s) for the given emergencyAccessRequestId.","method":"get","path":"/api/utilization/changedocument/hasData/{emergencyAccessRequestId}","info":{"title":"Access Risk Management Utilization Tracking","version":"v1"},"postman":{"name":"Determines if there are any Change Document record(s) for the given emergencyAccessRequestId.","description":{"type":"text/plain"},"url":{"path":["api","utilization","changedocument","hasData",":emergencyAccessRequestId"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) Represents the unique identifier of the Emergency Access Request.","type":"text/plain"},"type":"any","value":"","key":"emergencyAccessRequestId"}]},"header":[{"key":"Accept","value":"text/plain"}],"method":"GET"}}
+sidebar_class_name: "get api-method"
+info_path: docs/arm/swagger-utilization-tracking/access-risk-management-utilization-tracking
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem"
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Determines if there are any Change Document record(s) for the given emergencyAccessRequestId.
+
+
+
+Determines if there are any Change Document record(s) for the given emergencyAccessRequestId.
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"emergencyAccessRequestId","in":"path","description":"Represents the unique identifier of the Emergency Access Request.","required":true,"schema":{"type":"string","description":"Represents the unique identifier of the Emergency Access Request.","format":"uuid"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Success
+
+</div><div><MimeTabs groupId={"mime-type"}><TabItem label={"text/plain"} value={"text/plain"}><SchemaTabs groupId={"schema-tabs"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>boolean</strong></div></li></ul></details></TabItem></SchemaTabs></TabItem><TabItem label={"application/json"} value={"application/json"}><SchemaTabs groupId={"schema-tabs"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>boolean</strong></div></li></ul></details></TabItem></SchemaTabs></TabItem><TabItem label={"text/json"} value={"text/json"}><SchemaTabs groupId={"schema-tabs"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>boolean</strong></div></li></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request
+
+</div><div><MimeTabs groupId={"mime-type"}><TabItem label={"text/plain"} value={"text/plain"}><SchemaTabs groupId={"schema-tabs"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>string</strong></div></li></ul></details></TabItem></SchemaTabs></TabItem><TabItem label={"application/json"} value={"application/json"}><SchemaTabs groupId={"schema-tabs"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>string</strong></div></li></ul></details></TabItem></SchemaTabs></TabItem><TabItem label={"text/json"} value={"text/json"}><SchemaTabs groupId={"schema-tabs"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>string</strong></div></li></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Unauthorized
+
+</div><div><MimeTabs groupId={"mime-type"}><TabItem label={"text/plain"} value={"text/plain"}><SchemaTabs groupId={"schema-tabs"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>object</strong></div></li></ul></details></TabItem></SchemaTabs></TabItem><TabItem label={"application/json"} value={"application/json"}><SchemaTabs groupId={"schema-tabs"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>object</strong></div></li></ul></details></TabItem></SchemaTabs></TabItem><TabItem label={"text/json"} value={"text/json"}><SchemaTabs groupId={"schema-tabs"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>object</strong></div></li></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div>
+      

@@ -1,0 +1,31 @@
+---
+id: schedule-action-log
+sidebar_label: Schedules a Review Action Log
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["AccessReview"],"operationId":"ScheduleActionLog","parameters":[{"name":"reviewId","in":"path","required":true,"schema":{"type":"string","format":"uuid"}}],"responses":{"200":{"description":"Success"}},"description":"Schedules a Review Action Log","method":"post","path":"/api/accessReview/schedule/actionLog/{reviewId}","info":{"version":"v1","title":"Access Risk Management ARM Web APIs"},"postman":{"name":"Schedules a Review Action Log","description":{"type":"text/plain"},"url":{"path":["api","accessReview","schedule","actionLog",":reviewId"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) ","type":"text/plain"},"type":"any","value":"","key":"reviewId"}]},"method":"POST"}}
+sidebar_class_name: "post api-method"
+info_path: docs/arm/swagger-arm/access-risk-management-arm-web-ap-is
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem"
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Schedules a Review Action Log
+
+
+
+Schedules a Review Action Log
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"reviewId","in":"path","required":true,"schema":{"type":"string","format":"uuid"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Success
+
+</div><div></div></TabItem></ApiTabs></div>
+      

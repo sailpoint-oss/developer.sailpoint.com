@@ -19,6 +19,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-/proudct/arm/api
-/product/idn/api
-/product/iiq/api
+/proudcts/arm/api
+/products/idn/api
+/products/iiq/api

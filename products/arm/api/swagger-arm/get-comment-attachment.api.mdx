@@ -1,0 +1,43 @@
+---
+id: get-comment-attachment
+sidebar_label: Gets the attachment of an EAM Request Comment.
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["EmergencyAccessManagement"],"operationId":"GetCommentAttachment","parameters":[{"name":"requestId","in":"path","description":"The request ID.","required":true,"schema":{"type":"string","format":"uuid"}},{"name":"commentId","in":"path","description":"The comment ID.","required":true,"schema":{"type":"string","format":"uuid"}}],"responses":{"200":{"description":"Success"},"401":{"description":"Unauthorized"},"404":{"description":"Not Found"},"500":{"description":"Server Error"}},"description":"Gets the attachment of an EAM Request Comment.","method":"get","path":"/api/eam/{requestId}/comments/{commentId}/attachment","info":{"version":"v1","title":"Access Risk Management ARM Web APIs"},"postman":{"name":"Gets the attachment of an EAM Request Comment.","description":{"type":"text/plain"},"url":{"path":["api","eam",":requestId","comments",":commentId","attachment"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) The request ID.","type":"text/plain"},"type":"any","value":"","key":"requestId"},{"disabled":false,"description":{"content":"(Required) The comment ID.","type":"text/plain"},"type":"any","value":"","key":"commentId"}]},"method":"GET"}}
+sidebar_class_name: "get api-method"
+info_path: docs/arm/swagger-arm/access-risk-management-arm-web-ap-is
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem"
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Gets the attachment of an EAM Request Comment.
+
+
+
+Gets the attachment of an EAM Request Comment.
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"requestId","in":"path","description":"The request ID.","required":true,"schema":{"type":"string","format":"uuid"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"commentId","in":"path","description":"The comment ID.","required":true,"schema":{"type":"string","format":"uuid"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Success
+
+</div><div></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Unauthorized
+
+</div><div></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div></div></TabItem><TabItem label={"500"} value={"500"}><div>
+
+Server Error
+
+</div><div></div></TabItem></ApiTabs></div>
+      

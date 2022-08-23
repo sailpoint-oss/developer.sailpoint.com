@@ -1,0 +1,107 @@
+---
+id: update-sys-admin-permissions
+sidebar_label: Updates isSysAdmin permission of provided user.
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["User"],"operationId":"UpdateSysAdminPermissions","parameters":[{"name":"userId","in":"path","description":"Id of the user.","required":true,"schema":{"type":"string","format":"uuid"}}],"requestBody":{"content":{"application/json;odata.metadata=minimal;odata.streaming=true":{"schema":{"type":"boolean"}},"application/json;odata.metadata=minimal;odata.streaming=false":{"schema":{"type":"boolean"}},"application/json;odata.metadata=minimal":{"schema":{"type":"boolean"}},"application/json;odata.metadata=full;odata.streaming=true":{"schema":{"type":"boolean"}},"application/json;odata.metadata=full;odata.streaming=false":{"schema":{"type":"boolean"}},"application/json;odata.metadata=full":{"schema":{"type":"boolean"}},"application/json;odata.metadata=none;odata.streaming=true":{"schema":{"type":"boolean"}},"application/json;odata.metadata=none;odata.streaming=false":{"schema":{"type":"boolean"}},"application/json;odata.metadata=none":{"schema":{"type":"boolean"}},"application/json;odata.streaming=true":{"schema":{"type":"boolean"}},"application/json;odata.streaming=false":{"schema":{"type":"boolean"}},"application/json":{"schema":{"type":"boolean"}},"application/xml":{"schema":{"type":"boolean"}},"application/prs.odatatestxx-odata":{"schema":{"type":"boolean"}},"application/json-patch+json":{"schema":{"type":"boolean"}},"text/json":{"schema":{"type":"boolean"}},"application/*+json":{"schema":{"type":"boolean"}}},"description":"True/False."},"responses":{"200":{"description":"Success"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"}},"description":"Updates isSysAdmin permission of provided user.","method":"post","path":"/api/support/{userId}/updatesysadmin","jsonRequestBodyExample":true,"info":{"version":"1.0","title":"Access Risk Management Authentication Services"},"postman":{"name":"Updates isSysAdmin permission of provided user.","description":{"type":"text/plain"},"url":{"path":["api","support",":userId","updatesysadmin"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) Id of the user.","type":"text/plain"},"type":"any","value":"","key":"userId"}]},"header":[{"key":"Content-Type","value":"application/json"}],"method":"POST","body":{"mode":"raw","raw":"\"\"","options":{"raw":{"language":"json"}}}}}
+sidebar_class_name: "post api-method"
+info_path: docs/arm/swagger-authentication/access-risk-management-authentication-services
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem"
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Updates isSysAdmin permission of provided user.
+
+
+
+Updates isSysAdmin permission of provided user.
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"userId","in":"path","description":"Id of the user.","required":true,"schema":{"type":"string","format":"uuid"}}}></ParamsItem></ul></div></details><MimeTabs groupId={"mime-type"}><TabItem label={"application/json;odata.metadata=minimal;odata.streaming=true"} value={"application/json;odata.metadata=minimal;odata.streaming=true"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}><div style={{"marginTop":"1rem","marginBottom":"1rem"}}>
+
+True/False.
+
+</div></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>boolean</strong></div></li></ul></details></TabItem><TabItem label={"application/json;odata.metadata=minimal;odata.streaming=false"} value={"application/json;odata.metadata=minimal;odata.streaming=false"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}><div style={{"marginTop":"1rem","marginBottom":"1rem"}}>
+
+True/False.
+
+</div></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>boolean</strong></div></li></ul></details></TabItem><TabItem label={"application/json;odata.metadata=minimal"} value={"application/json;odata.metadata=minimal"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}><div style={{"marginTop":"1rem","marginBottom":"1rem"}}>
+
+True/False.
+
+</div></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>boolean</strong></div></li></ul></details></TabItem><TabItem label={"application/json;odata.metadata=full;odata.streaming=true"} value={"application/json;odata.metadata=full;odata.streaming=true"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}><div style={{"marginTop":"1rem","marginBottom":"1rem"}}>
+
+True/False.
+
+</div></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>boolean</strong></div></li></ul></details></TabItem><TabItem label={"application/json;odata.metadata=full;odata.streaming=false"} value={"application/json;odata.metadata=full;odata.streaming=false"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}><div style={{"marginTop":"1rem","marginBottom":"1rem"}}>
+
+True/False.
+
+</div></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>boolean</strong></div></li></ul></details></TabItem><TabItem label={"application/json;odata.metadata=full"} value={"application/json;odata.metadata=full"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}><div style={{"marginTop":"1rem","marginBottom":"1rem"}}>
+
+True/False.
+
+</div></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>boolean</strong></div></li></ul></details></TabItem><TabItem label={"application/json;odata.metadata=none;odata.streaming=true"} value={"application/json;odata.metadata=none;odata.streaming=true"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}><div style={{"marginTop":"1rem","marginBottom":"1rem"}}>
+
+True/False.
+
+</div></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>boolean</strong></div></li></ul></details></TabItem><TabItem label={"application/json;odata.metadata=none;odata.streaming=false"} value={"application/json;odata.metadata=none;odata.streaming=false"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}><div style={{"marginTop":"1rem","marginBottom":"1rem"}}>
+
+True/False.
+
+</div></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>boolean</strong></div></li></ul></details></TabItem><TabItem label={"application/json;odata.metadata=none"} value={"application/json;odata.metadata=none"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}><div style={{"marginTop":"1rem","marginBottom":"1rem"}}>
+
+True/False.
+
+</div></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>boolean</strong></div></li></ul></details></TabItem><TabItem label={"application/json;odata.streaming=true"} value={"application/json;odata.streaming=true"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}><div style={{"marginTop":"1rem","marginBottom":"1rem"}}>
+
+True/False.
+
+</div></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>boolean</strong></div></li></ul></details></TabItem><TabItem label={"application/json;odata.streaming=false"} value={"application/json;odata.streaming=false"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}><div style={{"marginTop":"1rem","marginBottom":"1rem"}}>
+
+True/False.
+
+</div></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>boolean</strong></div></li></ul></details></TabItem><TabItem label={"application/json"} value={"application/json"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}><div style={{"marginTop":"1rem","marginBottom":"1rem"}}>
+
+True/False.
+
+</div></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>boolean</strong></div></li></ul></details></TabItem><TabItem label={"application/xml"} value={"application/xml"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}><div style={{"marginTop":"1rem","marginBottom":"1rem"}}>
+
+True/False.
+
+</div></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>boolean</strong></div></li></ul></details></TabItem><TabItem label={"application/prs.odatatestxx-odata"} value={"application/prs.odatatestxx-odata"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}><div style={{"marginTop":"1rem","marginBottom":"1rem"}}>
+
+True/False.
+
+</div></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>boolean</strong></div></li></ul></details></TabItem><TabItem label={"application/json-patch+json"} value={"application/json-patch+json"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}><div style={{"marginTop":"1rem","marginBottom":"1rem"}}>
+
+True/False.
+
+</div></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>boolean</strong></div></li></ul></details></TabItem><TabItem label={"text/json"} value={"text/json"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}><div style={{"marginTop":"1rem","marginBottom":"1rem"}}>
+
+True/False.
+
+</div></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>boolean</strong></div></li></ul></details></TabItem><TabItem label={"application/*+json"} value={"application/*+json"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}><div style={{"marginTop":"1rem","marginBottom":"1rem"}}>
+
+True/False.
+
+</div></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>boolean</strong></div></li></ul></details></TabItem></MimeTabs><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Success
+
+</div><div></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Unauthorized
+
+</div><div></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Forbidden
+
+</div><div></div></TabItem></ApiTabs></div>
+      

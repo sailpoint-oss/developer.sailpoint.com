@@ -1,0 +1,31 @@
+---
+id: remove-user-from-sso
+sidebar_label: Removes an association of an SSO user from a customer.
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["Sso"],"operationId":"RemoveUserFromSso","parameters":[{"name":"userId","in":"path","description":"","required":true,"schema":{"type":"string","format":"uuid"}},{"name":"customerId","in":"path","description":"","required":true,"schema":{"type":"string","format":"uuid"}}],"responses":{"200":{"description":"Success"}},"description":"Removes an association of an SSO user from a customer.","method":"delete","path":"/api/sso/users/{userId}/customers/{customerId}","info":{"version":"1.0","title":"Access Risk Management Authentication Services"},"postman":{"name":"Removes an association of an SSO user from a customer.","description":{"type":"text/plain"},"url":{"path":["api","sso","users",":userId","customers",":customerId"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) ","type":"text/plain"},"type":"any","value":"","key":"userId"},{"disabled":false,"description":{"content":"(Required) ","type":"text/plain"},"type":"any","value":"","key":"customerId"}]},"method":"DELETE"}}
+sidebar_class_name: "delete api-method"
+info_path: docs/arm/swagger-authentication/access-risk-management-authentication-services
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem"
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Removes an association of an SSO user from a customer.
+
+
+
+Removes an association of an SSO user from a customer.
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"userId","in":"path","description":"","required":true,"schema":{"type":"string","format":"uuid"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"customerId","in":"path","description":"","required":true,"schema":{"type":"string","format":"uuid"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Success
+
+</div><div></div></TabItem></ApiTabs></div>
+      

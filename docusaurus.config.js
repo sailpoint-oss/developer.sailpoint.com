@@ -63,144 +63,20 @@ const config = {
         items: [
           {
             type: 'dropdown',
-            label: 'Learn',
-            position: 'right',
-            items: [
-              {
-                href: 'https://medium.com/sailpointtechblog',
-                label: 'Engineering Blog',
-              },
-              {
-                href: 'https://community.sailpoint.com/t5/Professional-Certification/ct-p/product-certification-program',
-                label: 'Certifications',
-              },
-              // ... more items
-            ],
-          },
-          {
-            type: 'dropdown',
             label: 'IdentityNow',
             position: 'right',
             items: [
-              {to: '/docs/category/identity-now-api-v3', label: 'V3 APIs'},
-              {to: '/docs/category/identity-now-api-beta', label: 'Beta APIs'},
               {
                 type: 'doc',
-                docId: 'idn_docs/intro',
+                docId: 'idn/docs/getting-started/getting-started',
                 label: 'Documentation',
               },
               // ... more items
-            ],
-          },
-          {
-            type: 'dropdown',
-            label: 'IdentityIQ',
-            position: 'right',
-            items: [
-              {to: '/docs/category/iiq-api', label: 'APIs'},
-              {
-                type: 'doc',
-                docId: 'idn_docs/intro',
-                label: 'Documentation',
-              },
-              // ... more items
-            ],
-          },
-          {
-            type: 'dropdown',
-            label: 'ARM',
-            position: 'right',
-            items: [
-              {to: '/docs/category/arm-agent-management', label: 'ARM APIs'}
-            ],
-          },
-          {
-            type: 'dropdown',
-            label: 'Tools',
-            position: 'right',
-            items: [
-              {
-                href: 'https://github.com/sailpoint-oss',
-                label: 'GitHub',
-              },
-              // ... more items
-            ],
-          },
-          {
-            type: 'dropdown',
-            label: 'Community',
-            position: 'right',
-            items: [
-              {
-                href: 'https://developer.sailpoint.com/discuss',
-                label: 'Discuss',
-              },
-              {
-                href: 'https://developer-sailpoint.ideas.aha.io/',
-                label: 'Ideas',
-              },
-              {
-                href: 'https://community.sailpoint.com/',
-                label: 'Compass',
-              },
-              // ... more items
-            ],
-          },
-          {
-            type: 'dropdown',
-            label: 'Support',
-            position: 'right',
-            items: [
-              {
-                href: 'https://support.sailpoint.com/hc/en-us',
-                label: 'Customer Support',
-              },
-              // ... more items
-            ],
-          },
-        ],
+            ]
+          }
+        ]
       },
-      footer: {
-        style: 'dark',
-        links: [
-          {
-            title: 'Docs',
-            items: [
-              {
-                label: 'Tutorial',
-                to: '/docs/intro',
-              },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
-              },
-            ],
-          },
-        ],
-        copyright: `Copyright © ${new Date().getFullYear()} SailPoint Technologies Holdings, Inc. All Rights Reserved.`,
-      },
+      footer: {},
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
@@ -216,7 +92,7 @@ const config = {
           config: {
             idn_v3: {
               specPath: "static/idn-api/sailpoint-api.v3.yaml",
-              outputDir: "docs/idn/sailpoint-api-v3",
+              outputDir: "docs/idn/api/v3",
               sidebarOptions: {
                 groupPathsBy: "tag",
                 categoryLinkSource: "tag"
@@ -224,7 +100,7 @@ const config = {
             },
             idn_beta: {
               specPath: "static/idn-api/sailpoint-api.beta.yaml",
-              outputDir: "docs/idn/sailpoint-api-beta",
+              outputDir: "docs/idn/api/beta",
               sidebarOptions: {
                 groupPathsBy: "tag",
                 categoryLinkSource: "tag"
@@ -232,7 +108,7 @@ const config = {
             },
             iiq: {
               specPath: "static/iiq-api/swagger.json",
-              outputDir: "docs/iiq/iiq-api",
+              outputDir: "docs/iiq/api",
               sidebarOptions: {
                 groupPathsBy: "tag",
                 categoryLinkSource: "tag"
@@ -240,7 +116,7 @@ const config = {
             },
             arm_agent_management: {
               specPath: "static/arm-api/swagger-agent-management.json",
-              outputDir: "docs/arm/swagger-agent-management",
+              outputDir: "docs/arm/api/swagger-agent-management",
               sidebarOptions: {
                 groupPathsBy: "tag",
                 categoryLinkSource: "tag"
@@ -248,7 +124,7 @@ const config = {
             },
             arm_analysis: {
               specPath: "static/arm-api/swagger-analysis.json",
-              outputDir: "docs/arm/swagger-analysis",
+              outputDir: "docs/arm/api/swagger-analysis",
               sidebarOptions: {
                 groupPathsBy: "tag",
                 categoryLinkSource: "tag"
@@ -256,7 +132,7 @@ const config = {
             },
             arm_arm: {
               specPath: "static/arm-api/swagger-arm.json",
-              outputDir: "docs/arm/swagger-arm",
+              outputDir: "docs/arm/api/swagger-arm",
               sidebarOptions: {
                 groupPathsBy: "tag",
                 categoryLinkSource: "tag"
@@ -264,7 +140,7 @@ const config = {
             },
             arm_arm2: {
               specPath: "static/arm-api/swagger-arm2.json",
-              outputDir: "docs/arm/swagger-arm2",
+              outputDir: "docs/arm/api/swagger-arm2",
               sidebarOptions: {
                 groupPathsBy: "tag",
                 categoryLinkSource: "tag"
@@ -272,7 +148,7 @@ const config = {
             },
             arm_authentication: {
               specPath: "static/arm-api/swagger-authentication.json",
-              outputDir: "docs/arm/swagger-authentication",
+              outputDir: "docs/arm/api/swagger-authentication",
               sidebarOptions: {
                 groupPathsBy: "tag",
                 categoryLinkSource: "tag"
@@ -280,7 +156,7 @@ const config = {
             },
             arm_cloud_agent: {
               specPath: "static/arm-api/swagger-cloud-agent.json",
-              outputDir: "docs/arm/swagger-cloud-agent",
+              outputDir: "docs/arm/api/swagger-cloud-agent",
               sidebarOptions: {
                 groupPathsBy: "tag",
                 categoryLinkSource: "tag"
@@ -288,7 +164,7 @@ const config = {
             },
             arm_jobs: {
               specPath: "static/arm-api/swagger-jobs.json",
-              outputDir: "docs/arm/swagger-jobs",
+              outputDir: "docs/arm/api/swagger-jobs",
               sidebarOptions: {
                 groupPathsBy: "tag",
                 categoryLinkSource: "tag"
@@ -296,7 +172,7 @@ const config = {
             },
             arm_logging: {
               specPath: "static/arm-api/swagger-logging.json",
-              outputDir: "docs/arm/swagger-logging",
+              outputDir: "docs/arm/api/swagger-logging",
               sidebarOptions: {
                 groupPathsBy: "tag",
                 categoryLinkSource: "tag"
@@ -304,7 +180,7 @@ const config = {
             },
             arm_provisioning: {
               specPath: "static/arm-api/swagger-provisioning.json",
-              outputDir: "docs/arm/swagger-provisioning",
+              outputDir: "docs/arm/api/swagger-provisioning",
               sidebarOptions: {
                 groupPathsBy: "tag",
                 categoryLinkSource: "tag"
@@ -312,7 +188,7 @@ const config = {
             },
             arm_public: {
               specPath: "static/arm-api/swagger-public.json",
-              outputDir: "docs/arm/swagger-public",
+              outputDir: "docs/arm/api/swagger-public",
               sidebarOptions: {
                 groupPathsBy: "tag",
                 categoryLinkSource: "tag"
@@ -320,7 +196,7 @@ const config = {
             },
             arm_rulebook: {
               specPath: "static/arm-api/swagger-rulebook.json",
-              outputDir: "docs/arm/swagger-rulebook",
+              outputDir: "docs/arm/api/swagger-rulebook",
               sidebarOptions: {
                 groupPathsBy: "tag",
                 categoryLinkSource: "tag"
@@ -328,7 +204,7 @@ const config = {
             },
             arm_scheduling: {
               specPath: "static/arm-api/swagger-scheduling.json",
-              outputDir: "docs/arm/swagger-scheduling",
+              outputDir: "docs/arm/api/swagger-scheduling",
               sidebarOptions: {
                 groupPathsBy: "tag",
                 categoryLinkSource: "tag"
@@ -336,7 +212,7 @@ const config = {
             },
             arm_utilization_tracking: {
               specPath: "static/arm-api/swagger-utilization-tracking.json",
-              outputDir: "docs/arm/swagger-utilization-tracking",
+              outputDir: "docs/arm/api/swagger-utilization-tracking",
               sidebarOptions: {
                 groupPathsBy: "tag",
                 categoryLinkSource: "tag"

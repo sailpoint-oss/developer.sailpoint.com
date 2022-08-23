@@ -1,3 +1,7 @@
+---
+id: upper
+slug: idn/docs/transforms/operations/upper
+---
 # IdentityNow Transforms - Upper
 
 ## Overview

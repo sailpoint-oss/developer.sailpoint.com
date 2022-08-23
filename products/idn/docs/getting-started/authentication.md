@@ -1,3 +1,7 @@
+---
+id: authentication
+slug: idn/docs/getting-started/authentication
+---
 # Authentication
 
 ## Quick Start

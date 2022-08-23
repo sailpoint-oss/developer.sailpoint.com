@@ -1,6 +1,6 @@
 ---
 id: getting-started
-slug: /idn/getting-started
+slug: idn/docs/getting-started
 ---
 
 # Getting Started with SailPoint APIs

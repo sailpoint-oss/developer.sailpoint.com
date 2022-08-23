@@ -1,3 +1,7 @@
+---
+id: testing
+slug: idn/docs/saas-connectivity/in-depth/testing
+---
 # Testing
 
 ## Getting Started

@@ -1,3 +1,7 @@
+---
+id: static
+slug: idn/docs/transforms/operations/static
+---
 # IdentityNow Transforms - Static
 
 ## Overview

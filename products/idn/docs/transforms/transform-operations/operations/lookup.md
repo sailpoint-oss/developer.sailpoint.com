@@ -1,3 +1,7 @@
+---
+id: lookup
+slug: idn/docs/transforms/operations/lookup
+---
 # IdentityNow Transforms - Lookup
 
 ## Overview

@@ -1,3 +1,7 @@
+---
+id: logging
+slug: idn/docs/saas-connectivity/in-depth/logging
+---
 # Logging
 
 ## Printing Logs with the CLI

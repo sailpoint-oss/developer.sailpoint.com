@@ -1,3 +1,7 @@
+---
+id: trim
+slug: idn/docs/transforms/operations/trim
+---
 # IdentityNow Transforms - Trim
 
 ## Overview

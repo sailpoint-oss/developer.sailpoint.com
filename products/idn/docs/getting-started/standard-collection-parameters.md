@@ -1,3 +1,7 @@
+---
+id: standard-collection-parameters
+slug: idn/docs/getting-started/standard-collection-parameters
+---
 # Standard Collection Parameters
 
 Many collection endpoints in the IdentityNow APIs support a generic syntax for paginating, filtering

@@ -1,3 +1,7 @@
+---
+id: lower
+slug: idn/docs/transforms/operations/lower
+---
 # IdentityNow Transforms - Lower
 
 ## Overview

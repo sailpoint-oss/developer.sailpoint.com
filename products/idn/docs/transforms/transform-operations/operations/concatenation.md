@@ -1,3 +1,7 @@
+---
+id: concatenation
+slug: idn/docs/transforms/operations/concatenation
+---
 # IdentityNow Transforms - Concatenation
 
 ## Overview

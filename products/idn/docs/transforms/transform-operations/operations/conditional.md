@@ -1,3 +1,7 @@
+---
+id: conditional
+slug: idn/docs/transforms/operations/conditional
+---
 # IdentityNow Transforms - Conditional
 
 ## Overview

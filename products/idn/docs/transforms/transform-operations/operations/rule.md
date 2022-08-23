@@ -1,3 +1,7 @@
+---
+id: rule
+slug: idn/docs/transforms/operations/rule
+---
 # IdentityNow Transforms - Rule
 
 ## Overview

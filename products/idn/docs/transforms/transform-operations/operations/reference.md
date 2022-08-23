@@ -1,3 +1,7 @@
+---
+id: reference
+slug: idn/docs/transforms/operations/reference
+---
 # IdentityNow Transforms - Reference
 
 ## Overview

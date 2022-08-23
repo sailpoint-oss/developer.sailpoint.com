@@ -1,3 +1,7 @@
+---
+id: split
+slug: idn/docs/transforms/operations/split
+---
 # IdentityNow Transforms - Split
 
 ## Overview

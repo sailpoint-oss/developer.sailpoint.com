@@ -1,3 +1,7 @@
+---
+id: debugging
+slug: idn/docs/saas-connectivity/in-depth/debugging
+---
 # Debugging
 
 ## Debug locally

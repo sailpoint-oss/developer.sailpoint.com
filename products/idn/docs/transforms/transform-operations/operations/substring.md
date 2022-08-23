@@ -1,3 +1,7 @@
+---
+id: substring
+slug: idn/docs/transforms/operations/substring
+---
 # IdentityNow Transforms - Substring
 
 ## Overview

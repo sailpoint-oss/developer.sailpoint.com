@@ -1,3 +1,7 @@
+---
+id: replace
+slug: idn/docs/transforms/operations/replace
+---
 # IdentityNow Transforms - Replace
 
 ## Overview

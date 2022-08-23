@@ -5,6 +5,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageGettingStarted from '@site/src/components/HomepageGettingStarted';
 import HomepageBasics from '../components/HomepageBasics';
+import HomepageTrainingGuides from '../components/HomepageTrainingGuides';
 
 import styles from './index.module.css';
 
@@ -36,6 +37,7 @@ export default function Home() {
       <main>
         <HomepageGettingStarted />
         <HomepageBasics />
+        <HomepageTrainingGuides></HomepageTrainingGuides>
       </main>
     </Layout>
   );

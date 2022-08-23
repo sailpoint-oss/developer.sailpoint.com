@@ -1,5 +1,5 @@
 /* Getting Started Card */
-.getStartedCard {
+.card {
   position:relative;
   margin-top: 20px;
   height: 200px;
@@ -11,11 +11,11 @@
   opacity: 1;
 }
 
-.getStartedCard:hover {
+.card:hover {
   cursor: pointer;
 }
 
-.gettingStartedCardText {
+.cardText {
   position:absolute;
   margin: 20px;
   font-size: 16px;
@@ -26,16 +26,35 @@
   color: black;
 }
 
-.gettingStartedCardIcon {
+.cardIcon {
   position:absolute;
   margin: 20px;
   top: 0;
   left: 0;
 }
 
-.gettingStartedCardArrow {
+.cardArrow {
   position:absolute;
   margin: 20px;
   bottom: 25px;
   right: 0;
+}
+
+.product {
+  position:absolute;
+  margin: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  width: 120px;
+  bottom: 50px;
+  left: 0;
+  
+}
+
+.idn {
+  color: #177dd2;
+}
+
+.iiq {
+  color: #60b359
 }

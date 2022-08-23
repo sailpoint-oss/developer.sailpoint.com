@@ -1,0 +1,13 @@
+
+/* Getting Started Card container */
+.gridContainer {
+  display: grid;
+  margin-bottom: 50px;
+  grid-template-columns: repeat(auto-fill, 220px);
+  grid-gap: 40px;
+}
+
+.center {
+  margin: auto;
+  max-width: 1000px;
+}

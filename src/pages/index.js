@@ -6,6 +6,7 @@ import Layout from '@theme/Layout';
 import HomepageGettingStarted from '@site/src/components/HomepageGettingStarted';
 import HomepageBasics from '../components/HomepageBasics';
 import HomepageTrainingGuides from '../components/HomepageTrainingGuides';
+import HomepageDiscuss from '../components/HomepageDiscuss';
 
 import styles from './index.module.css';
 
@@ -38,6 +39,7 @@ export default function Home() {
         <HomepageGettingStarted />
         <HomepageBasics />
         <HomepageTrainingGuides></HomepageTrainingGuides>
+        <HomepageDiscuss></HomepageDiscuss>
       </main>
     </Layout>
   );

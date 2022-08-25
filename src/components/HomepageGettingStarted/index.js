@@ -19,7 +19,7 @@ export default function HomepageGettingStarted() {
           </div> 
         </div>
         <div className={styles.carousel}>
-            <iframe className={styles.video} src="https://www.youtube.com/embed/N-JG8xjpKaI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe className={styles.video} src="https://www.youtube.com/embed/N-JG8xjpKaI" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
         </div>
       </div>
     </div>

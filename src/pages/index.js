@@ -37,8 +37,9 @@ export default function Home() {
       description="Description will go into a meta tag in <head />">
       <main>
         <HomepageGettingStarted />
-        <HomepageBasics />
+        <HomepageBasics description={"If you still aren't sure where to get started, try one of the <b>Getting Started Guides</b> below, or see what our platform has to offer."} link={"/docs/idn_docs/intro"} title={"Start With the Basics"} image={"/homepage/person-head.png"} buttonText={"Explore our platform"} />
         <HomepageTrainingGuides></HomepageTrainingGuides>
+        <HomepageBasics description={"The SailPoint Developer Forums are a great place to find solutions to common development problems."} link={"/docs/idn_docs/intro"} title={"What is the Community saying?"} image={"/homepage/person-head.png"} buttonText={"Join the Discussion"}/>
         <HomepageDiscuss></HomepageDiscuss>
       </main>
     </Layout>

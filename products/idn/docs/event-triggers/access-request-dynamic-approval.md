@@ -27,9 +27,9 @@ This trigger can be used to develop logic outside of IdentityNow’s out-of-the-
 
 ## Configuration
 
-This is a `REQUEST_RESPONSE` type trigger.  For general information on how to respond to a `REQUEST_RESPONSE` type trigger, see [responding to a request response type trigger](../event-triggers-responding-to-a-request-response-trigger.md).  This trigger intercepts newly submitted access requests and allows the subscribing service to add one additional identity or governance group as the last step in the approver list for the access request.
+This is a `REQUEST_RESPONSE` type trigger . For general information on how to respond to a `REQUEST_RESPONSE` type trigger, see [responding to a request response type trigger](./getting-started/responding-to-a-request-response-trigger.md) . This trigger intercepts newly submitted access requests and allows the subscribing service to add one additional identity or governance group as the last step in the approver list for the access request.
 
-The subscribing service will receive the following input from the trigger service.  The input schema can be found in the [API specification](https://developer.sailpoint.com/apis/beta/#section/Access-Request-Dynamic-Approver-Event-Trigger-Input):
+The subscribing service will receive the following input from the trigger service . The input schema can be found in the [API specification](https://developer.sailpoint.com/apis/beta/#section/Access-Request-Dynamic-Approver-Event-Trigger-Input):
 
 ```json
 {
@@ -57,7 +57,7 @@ The subscribing service will receive the following input from the trigger servic
 }
 ```
 
-The subscribing service can use this information to make a decision on whether to add additional approvers to the access request.  The output schema can be found in the [API specification](https://developer.sailpoint.com/apis/beta/#section/Access-Request-Dynamic-Approver-Event-Trigger-Output).  To add an identity to the approver list, the subscribing service should respond to the event trigger with the following payload:
+The subscribing service can use this information to make a decision on whether to add additional approvers to the access request . The output schema can be found in the [API specification](https://developer.sailpoint.com/apis/beta/#section/Access-Request-Dynamic-Approver-Event-Trigger-Output) . To add an identity to the approver list, the subscribing service should respond to the event trigger with the following payload:
 
 ```json
 {

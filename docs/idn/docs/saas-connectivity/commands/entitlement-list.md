@@ -1,6 +1,6 @@
 ---
 id: entitlement-list
-slug: idn/docs/saas-connectivity/commands/entitlement-list
+slug: /idn/saas-connectivity/commands/entitlement-list
 ---
 # Entitlement List
 
@@ -34,7 +34,7 @@ slug: idn/docs/saas-connectivity/commands/entitlement-list
 
 The entitlement list command triggers during a manual or scheduled entitlement aggregation operation within IDN. This operation gathers a list of all entitlements available on the target source, usually multi-valued entitlements like groups or roles. This operation provides IDN administrators with a list of entitlements available on the source so they can create access profiles and roles accordingly, and it provides IDN with more details about the entitlements. The entitlement schema’s minimum requirements are name and ID, but you can add other values, such as created date, updated date, status, etc.
 
-![Discover Schema 4](../../img/custom_connectors/commands/entitlement_list/entitlement_list_idn.png)
+![Discover Schema 4](./img/entitlement_list_idn.png)
 
 ## Defining the Schema
 The entitlement schema is defined in the [connector-spec.json](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/connector-spec.json) file. Currently, only the multi-valued “group” type is supported. The following values are the minimum requirements, but you can add more attributes.

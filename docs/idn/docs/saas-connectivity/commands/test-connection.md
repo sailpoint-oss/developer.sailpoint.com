@@ -1,6 +1,6 @@
 ---
 id: test-connection
-slug: idn/docs/saas-connectivity/commands/test-connection
+slug: /idn/saas-connectivity/commands/test-connection
 ---
 # Test Connection
 
@@ -19,7 +19,7 @@ The test connection command ensures the connector can communicate with the targe
 
 Use ‘Test Connection’ in the IDN UI after an admin has finished entering configuration information for a new instance of the connector.
 
-![Test Connection](../../img/custom_connectors/commands/test_connection/test_command_idn.png)
+![Test Connection](./img/test_command_idn.png)
 
 ## Implementation
 In [index.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/index.ts), add the test connection function handler to your connector. Within this function, send a simple request to your web service to ensure the connection works. The web service this connector targets has a JavaScript SDK, so define your own function like the following example to test the connection:

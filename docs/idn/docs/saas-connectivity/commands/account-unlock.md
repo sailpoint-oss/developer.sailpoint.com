@@ -1,6 +1,6 @@
 ---
 id: account-unlock
-slug: idn/docs/saas-connectivity/commands/account-unlock
+slug: /idn/saas-connectivity/commands/account-unlock
 ---
 # Account Unlock
 

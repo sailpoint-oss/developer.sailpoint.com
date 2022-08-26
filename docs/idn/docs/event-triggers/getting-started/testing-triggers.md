@@ -1,6 +1,6 @@
 ---
 id: testing-triggers
-slug: idn/docs/event-triggers/getting-started/testing-triggers
+slug: /idn/event-triggers/getting-started/testing-triggers
 ---
 
 # Testing Triggers

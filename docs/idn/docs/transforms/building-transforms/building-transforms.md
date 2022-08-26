@@ -1,6 +1,6 @@
 ---
 id: building-transforms
-slug: idn/docs/transforms/getting-started
+slug: /idn/transforms/getting-started
 ---
 # Building Transforms in IdentityNow
 
@@ -10,7 +10,7 @@ In SailPoint's cloud services, transforms allow you to manipulate attribute valu
 
 Transforms are configurable objects that define easy ways to manipulate attribute data without requiring you to write code. Transforms are configurable building blocks with sets of inputs and outputs:
 
-![What are Transforms 1](../../img/transforms/what_are_transforms_1.png)
+![What are Transforms 1](./img/what_are_transforms_1.png)
 
 Because there is no code to write, an administrator can configure these using a JSON object structure and uploading them into IdentityNow using [IdentityNow's Transform REST APIs](https://developer.sailpoint.com/apis/v3/#tag/Transforms).
 
@@ -22,17 +22,17 @@ Transforms typically have an input(s) and output(s). The way the transformation 
 
 For example, a [Lower transform](../transform_operations/operations/lower.md) transforms any input text strings into lowercase versions as output. So if the input were "Foo", the lower case output of the transform would be "foo":
 
-![How Transforms Work 1](../../img/transforms/how_transforms_work_1.png)
+![How Transforms Work 1](./img/how_transforms_work_1.png)
 
 There are other types of transforms too. For example an [E.164 Phone transform](../transform_operations/operations/e164_phone.md) transforms any input phone number strings into an E.164 formatted version as output. So if the input were "(512) 346-2000" the output would be "+1 5123462000":
 
-![How Transforms Work 2](../../img/transforms/how_transforms_work_2.png)
+![How Transforms Work 2](./img/how_transforms_work_2.png)
 
 ### Multiple Transform Inputs
 
 In the previous examples, each transform had a single input. Some transforms can specify more than one input. For example, the [Concat transform](../transform_operations/operations/concatenation.md) concatenates one or more strings together. If "Foo" and "Bar" were inputs, the transformed output would be "FooBar":
 
-![How Transforms Work 3](../../img/transforms/how_transforms_work_3.png)
+![How Transforms Work 3](./img/how_transforms_work_3.png)
 
 ### Complex Nested Transforms
 
@@ -40,7 +40,7 @@ For more complex use cases, a single transform may not be enough. It is possible
 
 An example of a nested transform would be using the previous [Concat transform](../transform_operations/operations/concatenation.md) and passing its output as an input to another [Lower transform](../transform_operations/operations/lower.md). If the inputs "Foo" and "Bar" were passed into the transforms, the ultimate output would be "foobar," concatenated and lower-cased.
 
-![How Transforms Work 4](../../img/transforms/how_transforms_work_4.png)
+![How Transforms Work 4](./img/how_transforms_work_4.png)
 
 There is no hard limit for the number of transforms that can be nested. However, the more transforms applied, the more complex the nested transform will be, which can make it difficult to understand and maintain.
 
@@ -50,7 +50,7 @@ Some transforms can specify an attributes map that configures the transform beha
 
 It is possible to extend the earlier complex nested transform example. If a Replace transform, which replaces certain strings with replacement text, were added, and the transform were configured to replace "Bar with "Baz," the output would be added as an input to the Concat and Lower transforms:
 
-![Configuring Transform Behavior 1](../../img/transforms/configuring_transform_behavior_1.png)
+![Configuring Transform Behavior 1](./img/configuring_transform_behavior_1.png)
 
 The output of the Replace transform would be "Baz," which is then passed as an input to the Concat transform along with "Foo," producing an output of "FooBaz." This is then passed as an input into the Lower transform, producing a final output of "foobaz."
 
@@ -89,7 +89,7 @@ The following two examples explain how a transform with an implicit or explicit 
 
 An identity profile is configured the following way:
 
-![Configuring Transform Behavior 2](../../img/transforms/configuring_transform_behavior_2.png)
+![Configuring Transform Behavior 2](./img/configuring_transform_behavior_2.png)
 
 As an example, the "Lowercase Department" transform being used is written the following way:
 

@@ -1,6 +1,6 @@
 ---
 id: getting-started
-slug: idn/docs/saas-connectivity/getting-started
+slug: /idn/saas-connectivity/getting-started
 ---
 # SaaS Connectivity
 
@@ -14,7 +14,7 @@ Connectors are the bridges between the SailPoint Identity Now (IDN) SaaS platfor
 
 VA connectors always communicate with external sources through the Virtual Appliance (VA) as seen in the diagram below:
 
-![Old Connectivity](../img/custom_connectors/old_connectivity_diagram.png)
+![Old Connectivity](./img/old_connectivity_diagram.png)
 
 VA connectors can be disadvantageous because you need an on-prem virtual appliance to have any external connectivity with them, even when that connectivity is a SaaS service like Salesforce.com. 
 
@@ -22,6 +22,6 @@ It is also challenging to create a custom connector in the VA Connector framewor
 
 The new Cloud connectors work differently - they run on the IDN platform instead (see diagram below).
 
-![New Connectivity](../img/custom_connectors/new_connectivity_diagram.png)
+![New Connectivity](./img/new_connectivity_diagram.png)
 
 With this process, you can run an entire IDN instance without a VA. The new connector also includes a CLI tool to manage cloud connectors and an SDK to create custom connectors. Because it is simpler to create a custom connector, you can create specific connectors for a variety of sources, and the connectors' configuration can be much simpler. For example, you can now configure a formerly complicated webservice connector by providing two parameters (Base URL and API Key) in a custom cloud connector.

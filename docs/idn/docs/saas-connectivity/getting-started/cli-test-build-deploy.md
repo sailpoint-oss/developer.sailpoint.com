@@ -1,6 +1,6 @@
 ---
 id: cli-test-build-deploy
-slug: idn/docs/saas-connectivity/getting-started/cli-test-build-deploy
+slug: /idn/saas-connectivity/getting-started/cli-test-build-deploy
 ---
 # Test, Build, and Deploy Using the CLI
 ## Testing Your Connector

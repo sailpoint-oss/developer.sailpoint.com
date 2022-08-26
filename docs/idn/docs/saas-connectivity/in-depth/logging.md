@@ -1,6 +1,6 @@
 ---
 id: logging
-slug: idn/docs/saas-connectivity/in-depth/logging
+slug: /idn/saas-connectivity/in-depth/logging
 ---
 # Logging
 

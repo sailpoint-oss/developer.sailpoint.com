@@ -1,6 +1,6 @@
 ---
 id: trigger-types
-slug: idn/docs/event-triggers/getting-started/trigger-types
+slug: /idn/event-triggers/getting-started/trigger-types
 ---
 
 # Trigger Types

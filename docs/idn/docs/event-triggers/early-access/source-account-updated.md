@@ -1,6 +1,6 @@
 ---
 id: source-account-updated
-slug: idn/docs/event-triggers/early-access/source-account-updated
+slug: /idn/event-triggers/early-access/source-account-updated
 ---
 
 # Source Account Updated

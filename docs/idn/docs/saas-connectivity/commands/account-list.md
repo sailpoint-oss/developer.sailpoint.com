@@ -1,6 +1,6 @@
 ---
 id: account-list
-slug: idn/docs/saas-connectivity/commands/account-list
+slug: /idn/saas-connectivity/commands/account-list
 ---
 # Account List
 
@@ -34,7 +34,7 @@ slug: idn/docs/saas-connectivity/commands/account-list
 ## Description
 The account list command aggregates all accounts from the target source into IdentityNow. IDN calls this command during a manual or scheduled account aggregation.
 
-![Account List](../../img/custom_connectors/commands/account_list/account_list_idn.png)
+![Account List](./img/account_list_idn.png)
 
 ## Implementation
 For you to be able to implement this endpoint, the web service must expose an API for listing user accounts and entitlements (i.e. roles or groups). Sometimes, a target source’s API has a single endpoint providing all the attributes and entitlements a source account contains. However, some APIs may break these attributes and entitlements into separate API endpoints, requiring you to make multiple calls to gather all an account's necessary data. The following code from [airtable.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/airtable.ts) shows the necessary steps to create a complete account from the various endpoints the API offers:

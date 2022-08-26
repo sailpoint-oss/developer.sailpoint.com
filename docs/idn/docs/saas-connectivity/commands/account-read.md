@@ -1,6 +1,6 @@
 ---
 id: account-read
-slug: idn/docs/saas-connectivity/commands/account-read
+slug: /idn/saas-connectivity/commands/account-read
 ---
 # Account Read
 
@@ -41,7 +41,7 @@ slug: idn/docs/saas-connectivity/commands/account-read
 ## Description
 The account read command aggregates a single account from the target source into IdentityNow. IDN can call this command during a “one-off” account refresh, which you can trigger by aggregating an individual account in IDN.
 
-![Account Read](../../img/custom_connectors/commands/account_read/account_read_idn.png)
+![Account Read](./img/account_read_idn.png)
 
 ## Implementation
 Implementation of account read is similar to account list's implementation, except the code only needs to get one account, not all the accounts.  The following snippet is from [airtable.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/airtable.ts):

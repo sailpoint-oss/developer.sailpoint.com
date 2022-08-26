@@ -1,6 +1,6 @@
 ---
 id: account-create
-slug: idn/docs/saas-connectivity/commands/account-create
+slug: /idn/saas-connectivity/commands/account-create
 ---
 # Account Create
 
@@ -54,7 +54,7 @@ The account create command accepts a provisioning plan from IDN and creates the 
 
 You can create the provisioning plan through the ```accountCreateTemplate``` in the ```connector-spec.json``` file, and you can also modify its behavior in IDN using the create profile screen:
 
-![Account Create](../../img/custom_connectors/commands/account_create/account_create_idn.png)
+![Account Create](./img/account_create_idn.png)
 
 ‘Create Profile’ provides the instructions for the provisioning plan and determines which attributes are sent to your connector code. For example, if all the account attributes in the preceding image are configured for a value, then the following JSON payload is sent to your connector:
 
@@ -175,7 +175,7 @@ There are two ways you can generate random passwords:
 
 1. Use the “Create Password” generator in ‘Create Profile.’ (This can also be configured in the ```accountCreateTemplate```)
 
-![Create Password](../../img/custom_connectors/commands/account_create/create_password_idn.png)
+![Create Password](./img/create_password_idn.png)
 
 2. Disable the 'password' field.
 
@@ -209,14 +209,14 @@ async createAccount(input: StdAccountCreateInput): Promise<AirtableAccount> {
 
 One way to test whether the account create code works in IDN is to set up an access profile and role that grants members an entitlement from the connector’s target source. Start by creating an access profile that grants one or more entitlements from the target source.
 
-![Testing 1](../../img/custom_connectors/commands/account_create/testing1.png)
+![Testing 1](./img/testing1.png)
 
 Next, create a role that uses the access profile created in the previous step.
 
-![Testing 2](../../img/custom_connectors/commands/account_create/testing2.png)
+![Testing 2](./img/testing2.png)
 
 Modify the role membership to use ‘Identity List’ and select one or more users that do not have accounts in the target source yet.
 
-![Testing 3](../../img/custom_connectors/commands/account_create/testing3.png)
+![Testing 3](./img/testing3.png)
 
 Click the ‘Update’ button in the upper right corner to initiate the account provisioning process. Doing so creates the account(s) on the target source once the process is complete.

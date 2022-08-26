@@ -1,6 +1,6 @@
 ---
 id: cli-common-commands
-slug: idn/docs/saas-connectivity/getting-started/cli-common-commands
+slug: /idn/saas-connectivity/getting-started/cli-common-commands
 ---
 # Common CLI/SDK Commands
 

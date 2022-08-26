@@ -1,6 +1,6 @@
 ---
 id: preparing-a-subscriber-service
-slug: idn/docs/event-triggers/getting-started/preparing-a-subscriber-service
+slug: /idn/event-triggers/getting-started/preparing-a-subscriber-service
 ---
 
 # Preparing a Subscriber Service

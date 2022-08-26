@@ -1,6 +1,6 @@
 ---
 id: source-account-deleted
-slug: idn/docs/event-triggers/early-access/source-account-deleted
+slug: /idn/event-triggers/early-access/source-account-deleted
 ---
 
 # Source Account Deleted

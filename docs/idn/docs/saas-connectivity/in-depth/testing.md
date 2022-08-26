@@ -1,6 +1,6 @@
 ---
 id: testing
-slug: idn/docs/saas-connectivity/in-depth/testing
+slug: /idn/saas-connectivity/in-depth/testing
 ---
 # Testing
 
@@ -33,8 +33,8 @@ Ran all test suites.
 ```
 You can also view the results in an html report by viewing the ```index.html``` file inside the ```coverage/lcov-report``` folder:
 
-![Account List](../../img/custom_connectors/in_depth/testing1.png)
-![Account List](../../img/custom_connectors/in_depth/testing2.png)
+![Account List](./img/testing1.png)
+![Account List](./img/testing2.png)
 
 ## Testing Techniques
 

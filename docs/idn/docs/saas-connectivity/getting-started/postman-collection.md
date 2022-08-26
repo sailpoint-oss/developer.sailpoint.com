@@ -1,6 +1,6 @@
 ---
 id: postman-collection
-slug: idn/docs/saas-connectivity/getting-started/postman-collection
+slug: /idn/saas-connectivity/getting-started/postman-collection
 ---
 # Postman Collection
 

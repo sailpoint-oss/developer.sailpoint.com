@@ -1,6 +1,6 @@
 ---
 id: account-delete
-slug: idn/docs/saas-connectivity/commands/account-delete
+slug: /idn/saas-connectivity/commands/account-delete
 ---
 # Account Delete
 

@@ -1,6 +1,6 @@
 ---
 id: source-account-created
-slug: idn/docs/event-triggers/early-access/source-account-created
+slug: /idn/event-triggers/early-access/source-account-created
 ---
 
 # Source Account Created

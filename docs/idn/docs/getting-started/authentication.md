@@ -1,6 +1,6 @@
 ---
 id: authentication
-slug: idn/docs/getting-started/authentication
+slug: /idn/getting-started/authentication
 ---
 # Authentication
 

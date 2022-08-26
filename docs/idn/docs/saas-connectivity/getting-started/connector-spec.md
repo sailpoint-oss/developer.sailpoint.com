@@ -1,6 +1,6 @@
 ---
 id: connector-spec
-slug: idn/docs/saas-connectivity/getting-started/connector-spec
+slug: /idn/saas-connectivity/getting-started/connector-spec
 ---
 # Connector specification file (connector-spec.json)
 

@@ -1,6 +1,6 @@
 ---
 id: account-discover
-slug: idn/docs/saas-connectivity/commands/account-discover
+slug: /idn/saas-connectivity/commands/account-discover
 ---
 # Account Discover Schema
 
@@ -336,16 +336,16 @@ There are many properties in this payload, so you may want to remove some, but i
 ## Test in IdentityNow
 To test the account discover schema command in IDN, ensure that you upload your latest connector code and create a new source in IDN. After you configure and test your source connection, go to the ‘Account Schema’ page. You will see an empty schema.
 
-![Discover Schema 1](../../img/custom_connectors/commands/discover_schema/discover_schema_idn1.png)
+![Discover Schema 1](./img/discover_schema_idn1.png)
 
 To discover the schema for this source, click the ‘Options’ dropdown in the upper right and select ‘Discover Schema.’
 
-![Discover Schema 2](../../img/custom_connectors/commands/discover_schema/discover_schema_idn2.png)
+![Discover Schema 2](./img/discover_schema_idn2.png)
 
 IDN then asks you to assign attributes to ‘Account ID’ and 'Account Name.'
 
-![Discover Schema 3](../../img/custom_connectors/commands/discover_schema/discover_schema_idn3.png)
+![Discover Schema 3](./img/discover_schema_idn3.png)
 
 Save the schema. You now have a populated account schema. A user of this source must provide further details, like descriptions and identifying which attributes are entitlements.
 
-![Discover Schema 4](../../img/custom_connectors/commands/discover_schema/discover_schema_idn4.png)
+![Discover Schema 4](./img/discover_schema_idn4.png)

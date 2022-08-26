@@ -1,0 +1,77 @@
+/* Getting Started Card */
+.card {
+  position:relative;
+  margin-top: 20px;
+  height: 300px;
+  /* UI Properties */
+  background: transparent 0% 0% no-repeat padding-box;
+  box-shadow: 0px 20px 60px #00000015;
+  border: 1px solid #F7F7F7;
+  border-radius: 40px;
+  opacity: 1;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.cardText {
+  position:absolute;
+  margin: 22px;
+  font-size: 16px;
+  font-weight: 500;
+  width: 170px;
+  top: 35px;
+  left: 0;
+  color: black;
+}
+
+.cardIcon {
+  position:absolute;
+  margin: 20px;
+  top: 20px;
+  left: 0;
+  width: 20px;
+}
+
+.cardArrow {
+  position:absolute;
+  margin: 20px;
+  bottom: 25px;
+  right: 0;
+}
+
+.cardViews {
+  position:absolute;
+  margin: 15px;
+  right: 0px;
+  top: 0;
+  width: 30px;
+}
+
+.cardEye {
+  position:absolute;
+  margin: 20px;
+  right: 25px;
+  top: 0;
+  width: 22px;
+}
+
+.product {
+  position:absolute;
+  margin: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  width: 120px;
+  bottom: 50px;
+  left: 0;
+  
+}
+
+.idn {
+  color: #177dd2;
+}
+
+.iiq {
+  color: #60b359
+}

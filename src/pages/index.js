@@ -5,9 +5,10 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageGettingStarted from '@site/src/components/HomepageGettingStarted';
 import HomepageBasics from '../components/HomepageBasics';
+import HomepageTrainingGuides from '../components/HomepageTrainingGuides';
+import HomepageDiscuss from '../components/HomepageDiscuss';
 
 import styles from './index.module.css';
-// import 'bootstrap/dist/css/bootstrap.css';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -36,7 +37,10 @@ export default function Home() {
       description="Description will go into a meta tag in <head />">
       <main>
         <HomepageGettingStarted />
-        <HomepageBasics />
+        <HomepageBasics description={"If you still aren't sure where to get started, try one of the <b>Getting Started Guides</b> below, or see what our platform has to offer."} link={"/docs/idn_docs/intro"} title={"Start With the Basics"} image={"/homepage/person-head.png"} buttonText={"Explore our platform"} />
+        <HomepageTrainingGuides></HomepageTrainingGuides>
+        <HomepageBasics description={"The SailPoint Developer Forums are a great place to find solutions to common development problems."} link={"/docs/idn_docs/intro"} title={"What is the Community saying?"} image={"/homepage/person-head.png"} buttonText={"Join the Discussion"}/>
+        <HomepageDiscuss></HomepageDiscuss>
       </main>
     </Layout>
   );

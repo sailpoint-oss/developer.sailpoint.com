@@ -32,6 +32,9 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          editUrl: "https://github.com/sailpoint-oss/developer-community-site/edit/main/",
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
           sidebarCollapsible: true,
           sidebarPath: require.resolve('./sidebars.js'),
           docLayoutComponent: "@theme/DocPage",

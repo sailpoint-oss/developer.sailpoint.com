@@ -70,19 +70,6 @@ const config = {
               {to: '/docs/category/identity-now-api-beta', label: 'Beta APIs'}
               // ... more items
             ],
-          },
-          {
-            type: 'dropdown',
-            label: 'IdentityNow',
-            position: 'right',
-            items: [
-              {
-                type: 'doc',
-                docId: 'idn/docs/getting-started/getting-started',
-                label: 'Documentation',
-              },
-              // ... more items
-            ]
           }
         ]
       },
@@ -95,14 +82,33 @@ const config = {
 
     plugins: [
       [
+        "@docusaurus/plugin-content-docs",
+        {
+          id: "idn",
+          path: "products/idn",
+          routeBasePath: "idn",
+          sidebarPath: require.resolve("./products/idn/sidebar.js"),
+        },
+      ],
+      [
+        "@docusaurus/plugin-content-docs",
+        {
+          id: "iiq",
+          path: "products/iiq",
+          routeBasePath: "iiq",
+          sidebarPath: require.resolve("./products/iiq/sidebar.js"),
+        },
+      ],
+      
+      [
         "docusaurus-plugin-openapi-docs",
         {
-          id: "openapi",
-          docsPluginId: "classic",
+          id: "idn",
+          docsPluginId: "idn",
           config: {
             idn_v3: {
               specPath: "static/idn-api/sailpoint-api.v3.yaml",
-              outputDir: "docs/idn/api/v3",
+              outputDir: "products/idn/api/v3",
               sidebarOptions: {
                 groupPathsBy: "tag",
                 categoryLinkSource: "tag"
@@ -110,7 +116,24 @@ const config = {
             },
             idn_beta: {
               specPath: "static/idn-api/sailpoint-api.beta.yaml",
-              outputDir: "docs/idn/api/beta",
+              outputDir: "products/idn/api/beta",
+              sidebarOptions: {
+                groupPathsBy: "tag",
+                categoryLinkSource: "tag"
+              }
+            },
+          }
+        }
+      ],
+      [
+        "docusaurus-plugin-openapi-docs",
+        {
+          id: "iiq",
+          docsPluginId: "iiq",
+          config: {
+            iiq: {
+              specPath: "static/iiq-api/swagger.json",
+              outputDir: "products/iiq/api",
               sidebarOptions: {
                 groupPathsBy: "tag",
                 categoryLinkSource: "tag"

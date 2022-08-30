@@ -1,0 +1,69 @@
+/* Getting Started Card */
+.card {
+  position:relative;
+  margin-top: 20px;
+  height: 300px;
+  /* UI Properties */
+  background: transparent 0% 0% no-repeat padding-box;
+  box-shadow: 0px 20px 60px #00000015;
+  border: 1px solid #F7F7F7;
+  border-radius: 40px;
+  opacity: 1;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.cardText {
+  position:absolute;
+  margin: 22px auto;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  width: 100%;
+  top: 116px;
+  left: 0;
+  color: black;
+}
+
+.titleText {
+  position:absolute;
+  margin: 22px auto;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 400;
+  width: 100%;
+  letter-spacing: 2px;
+  top: 150px;
+  left: 0;
+  color: black;
+}
+
+.expertiseText {
+  position:absolute;
+  margin: 22px auto;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 500;
+  width: 100%;
+  letter-spacing: 2px;
+  top: 160px;
+  left: 0;
+  color: #12329a;
+  padding: 30px
+}
+
+.cardArrow {
+  position:absolute;
+  margin: 20px;
+  bottom: 5px;
+  right: 0;
+}
+
+.cardFace {
+  margin: 40px auto;
+  width: 100%;
+  padding: 0px 69px;
+}
+

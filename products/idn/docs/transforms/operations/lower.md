@@ -1,6 +1,6 @@
 ---
 id: lower
-slug: /transforms/operations/lower
+slug: /docs/transforms/operations/lower
 ---
 # Lower
 

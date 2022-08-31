@@ -1,6 +1,6 @@
 ---
 id: entitlement-read
-slug: /saas-connectivity/commands/entitlement-read
+slug: /docs/saas-connectivity/commands/entitlement-read
 ---
 # Entitlement Read
 

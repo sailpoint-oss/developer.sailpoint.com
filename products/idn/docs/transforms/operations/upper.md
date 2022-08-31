@@ -1,6 +1,6 @@
 ---
 id: upper
-slug: /transforms/operations/upper
+slug: /docs/transforms/operations/upper
 ---
 # Upper
 

@@ -1,6 +1,6 @@
 ---
 id: identity-attribute
-slug: /transforms/operations/identity-attribute
+slug: /docs/transforms/operations/identity-attribute
 ---
 # Identity Attribute
 

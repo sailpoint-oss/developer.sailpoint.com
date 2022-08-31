@@ -1,6 +1,6 @@
 ---
 id: linting
-slug: /saas-connectivity/in-depth/linting
+slug: /docs/saas-connectivity/in-depth/linting
 ---
 # Linting
 To add linting to your project, simple install the linter using NPM:

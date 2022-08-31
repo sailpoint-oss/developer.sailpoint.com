@@ -1,6 +1,6 @@
 ---
 id: split
-slug: /transforms/operations/split
+slug: /docs/transforms/operations/split
 ---
 # Split
 

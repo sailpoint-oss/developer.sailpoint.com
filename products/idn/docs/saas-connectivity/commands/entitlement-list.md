@@ -1,6 +1,6 @@
 ---
 id: entitlement-list
-slug: /saas-connectivity/commands/entitlement-list
+slug: /docs/saas-connectivity/commands/entitlement-list
 ---
 # Entitlement List
 

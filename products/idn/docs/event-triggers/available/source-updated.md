@@ -1,6 +1,6 @@
 ---
 id: source-updated
-slug: /event-triggers/source-updated
+slug: /docs/event-triggers/source-updated
 ---
 
 # Source Updated

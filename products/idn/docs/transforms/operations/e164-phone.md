@@ -1,6 +1,6 @@
 ---
 id: e164-phone
-slug: /transforms/operations/e164-phone
+slug: /docs/transforms/operations/e164-phone
 ---
 # E.164 Phone
 

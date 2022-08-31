@@ -1,6 +1,6 @@
 ---
 id: last-index-of
-slug: /transforms/operations/last-index-of
+slug: /docs/transforms/operations/last-index-of
 ---
 # Last Index Of
 

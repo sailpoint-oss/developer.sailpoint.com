@@ -1,6 +1,6 @@
 ---
 id: saas-configuration
-slug: /saas-configuration
+slug: /docs/saas-configuration
 ---
 # Overview
 

@@ -1,6 +1,6 @@
 ---
 id: subscribing-to-a-trigger
-slug: /event-triggers/getting-started/subscribing-to-a-trigger
+slug: /docs/event-triggers/getting-started/subscribing-to-a-trigger
 ---
 
 # Subscribing to a Trigger

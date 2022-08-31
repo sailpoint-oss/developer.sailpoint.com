@@ -1,6 +1,6 @@
 ---
 id: temporary-password-usecase
-slug: /transforms/temporary-password-usecase
+slug: /docs/transforms/temporary-password-usecase
 ---
 # Complex Transform - Generate Temporary Password
 

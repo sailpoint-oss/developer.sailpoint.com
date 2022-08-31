@@ -1,6 +1,6 @@
 ---
 id: account-aggregation-completed
-slug: /event-triggers/account-aggregation-completed
+slug: /docs/event-triggers/account-aggregation-completed
 ---
 
 # Account Aggregation Completed

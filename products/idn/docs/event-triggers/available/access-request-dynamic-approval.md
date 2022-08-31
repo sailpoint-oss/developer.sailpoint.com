@@ -1,6 +1,6 @@
 ---
 id: access-request-dynamic-approval
-slug: /event-triggers/access-request-dynamic-approval
+slug: /docs/event-triggers/access-request-dynamic-approval
 ---
 
 # Access Request Dynamic Approval

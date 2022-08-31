@@ -1,6 +1,6 @@
 ---
 id: lookup
-slug: /transforms/operations/lookup
+slug: /docs/transforms/operations/lookup
 ---
 # Lookup
 

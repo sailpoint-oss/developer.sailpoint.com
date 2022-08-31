@@ -1,6 +1,6 @@
 ---
 id: reference
-slug: /transforms/operations/reference
+slug: /docs/transforms/operations/reference
 ---
 # Reference
 

@@ -1,6 +1,6 @@
 ---
 id: generate-random-string
-slug: /transforms/operations/generate-random-string
+slug: /docs/transforms/operations/generate-random-string
 ---
 # Generate Random String
 

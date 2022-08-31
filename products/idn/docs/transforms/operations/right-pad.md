@@ -1,6 +1,6 @@
 ---
 id: right-pad
-slug: /transforms/operations/right-pad
+slug: /docs/transforms/operations/right-pad
 ---
 # Right Pad
 

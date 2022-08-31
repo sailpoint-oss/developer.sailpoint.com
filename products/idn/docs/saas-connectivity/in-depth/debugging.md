@@ -1,6 +1,6 @@
 ---
 id: debugging
-slug: /saas-connectivity/in-depth/debugging
+slug: /docs/saas-connectivity/in-depth/debugging
 ---
 # Debugging
 

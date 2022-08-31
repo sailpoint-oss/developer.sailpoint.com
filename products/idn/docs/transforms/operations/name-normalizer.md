@@ -1,6 +1,6 @@
 ---
 id: name-normalizer
-slug: /transforms/operations/name-normalizer
+slug: /docs/transforms/operations/name-normalizer
 ---
 # Name Normalizer
 

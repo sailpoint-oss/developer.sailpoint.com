@@ -1,6 +1,6 @@
 ---
 id: concatenation
-slug: /transforms/operations/concatenation
+slug: /docs/transforms/operations/concatenation
 ---
 # Concatenation
 

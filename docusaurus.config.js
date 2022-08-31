@@ -66,8 +66,8 @@ const config = {
             label: 'IdentityNow',
             position: 'right',
             items: [
-              {to: '/docs/category/identity-now-api-v3', label: 'V3 APIs'},
-              {to: '/docs/category/identity-now-api-beta', label: 'Beta APIs'}
+              {to: '/idn/api/identity-now-api-v3', label: 'V3 APIs'},
+              {to: '/idn/api/identity-now-api-beta', label: 'Beta APIs'}
               // ... more items
             ],
           }

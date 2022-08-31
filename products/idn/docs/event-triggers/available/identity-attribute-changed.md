@@ -1,6 +1,6 @@
 ---
 id: identity-attribute-changed
-slug: /event-triggers/identity-attribute-changed
+slug: /docs/event-triggers/identity-attribute-changed
 ---
 
 # Identity Attribute Changed

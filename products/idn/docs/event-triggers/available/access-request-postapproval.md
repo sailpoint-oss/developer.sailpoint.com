@@ -1,6 +1,6 @@
 ---
 id: access-request-postapproval
-slug: /event-triggers/access-request-postapproval
+slug: /docs/event-triggers/access-request-postapproval
 ---
 
 # Access Request Postapproval

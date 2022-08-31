@@ -1,6 +1,6 @@
 ---
 id: date-math
-slug: /transforms/operations/date-math
+slug: /docs/transforms/operations/date-math
 ---
 # Date Math
 

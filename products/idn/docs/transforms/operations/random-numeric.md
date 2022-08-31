@@ -1,6 +1,6 @@
 ---
 id: random-numeric
-slug: /transforms/operations/random-numeric
+slug: /docs/transforms/operations/random-numeric
 ---
 # Random Numeric
 

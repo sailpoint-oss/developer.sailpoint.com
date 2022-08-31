@@ -1,6 +1,6 @@
 ---
 id: cli
-slug: /saas-connectivity/getting-started/cli
+slug: /docs/saas-connectivity/getting-started/cli
 ---
 # Getting Started with the CLI
 

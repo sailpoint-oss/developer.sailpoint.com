@@ -1,6 +1,6 @@
 ---
 id: getting-started
-slug: /saas-connectivity/getting-started
+slug: /docs/saas-connectivity/getting-started
 ---
 # SaaS Connectivity
 

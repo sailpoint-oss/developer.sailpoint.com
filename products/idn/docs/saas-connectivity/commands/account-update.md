@@ -1,6 +1,6 @@
 ---
 id: account-update
-slug: /saas-connectivity/commands/account-update
+slug: /docs/saas-connectivity/commands/account-update
 ---
 # Account Update
 

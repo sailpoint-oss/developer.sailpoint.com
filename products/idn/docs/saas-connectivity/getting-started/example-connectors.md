@@ -1,6 +1,6 @@
 ---
 id: example-connectors
-slug: /saas-connectivity/getting-started/example-connectors
+slug: /docs/saas-connectivity/getting-started/example-connectors
 ---
 # Example Connectors
 

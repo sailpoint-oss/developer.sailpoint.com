@@ -1,6 +1,6 @@
 ---
 id: provisioning-action-completed
-slug: /event-triggers/provisioning-action-completed
+slug: /docs/event-triggers/provisioning-action-completed
 ---
 
 # Provisioning Action Completed

@@ -1,6 +1,6 @@
 ---
 id: base64-encode
-slug: /transforms/operations/base64-encode
+slug: /docs/transforms/operations/base64-encode
 ---
 # Base64 Encode
 

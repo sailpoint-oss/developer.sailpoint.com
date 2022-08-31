@@ -1,6 +1,6 @@
 ---
 id: standard-collection-parameters
-slug: /getting-started/standard-collection-parameters
+slug: /docs/getting-started/standard-collection-parameters
 ---
 # Standard Collection Parameters
 

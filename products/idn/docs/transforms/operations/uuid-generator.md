@@ -1,6 +1,6 @@
 ---
 id: uuid-generator
-slug: /transforms/operations/uuid-generator
+slug: /docs/transforms/operations/uuid-generator
 ---
 # UUID Generator
 

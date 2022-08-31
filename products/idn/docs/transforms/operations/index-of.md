@@ -1,6 +1,6 @@
 ---
 id: index-of
-slug: /transforms/operations/index-of
+slug: /docs/transforms/operations/index-of
 ---
 # Index Of
 

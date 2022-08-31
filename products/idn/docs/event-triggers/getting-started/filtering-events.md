@@ -1,6 +1,6 @@
 ---
 id: filtering-events
-slug: /event-triggers/getting-started/filtering-events
+slug: /docs/event-triggers/getting-started/filtering-events
 ---
 
 # Filtering Events

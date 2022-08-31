@@ -1,6 +1,6 @@
 ---
 id: source-created
-slug: /event-triggers/source-created
+slug: /docs/event-triggers/source-created
 ---
 
 # Source Created

@@ -1,6 +1,6 @@
 ---
 id: identity-created
-slug: /event-triggers/identity-created
+slug: /docs/event-triggers/identity-created
 ---
 
 # Identity Created

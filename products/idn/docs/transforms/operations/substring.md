@@ -1,6 +1,6 @@
 ---
 id: substring
-slug: /transforms/operations/substring
+slug: /docs/transforms/operations/substring
 ---
 # Substring
 

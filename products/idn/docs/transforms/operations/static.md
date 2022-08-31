@@ -1,6 +1,6 @@
 ---
 id: static
-slug: /transforms/operations/static
+slug: /docs/transforms/operations/static
 ---
 # Static
 

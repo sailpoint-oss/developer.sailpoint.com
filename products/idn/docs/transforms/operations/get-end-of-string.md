@@ -1,6 +1,6 @@
 ---
 id: get-end-of-string
-slug: /transforms/operations/get-end-of-string
+slug: /docs/transforms/operations/get-end-of-string
 ---
 # Get End of String
 

@@ -1,6 +1,6 @@
 ---
 id: transform-operations
-slug: /transforms/transform-operations
+slug: /docs/transforms/transform-operations
 ---
 # Operations in IdentityNow Transforms
 

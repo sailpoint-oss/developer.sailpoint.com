@@ -1,6 +1,6 @@
 ---
 id: test-connection
-slug: /saas-connectivity/commands/test-connection
+slug: /docs/saas-connectivity/commands/test-connection
 ---
 # Test Connection
 

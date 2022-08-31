@@ -1,6 +1,6 @@
 ---
 id: trim
-slug: /transforms/operations/trim
+slug: /docs/transforms/operations/trim
 ---
 # Trim
 

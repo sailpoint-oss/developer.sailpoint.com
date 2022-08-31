@@ -1,6 +1,6 @@
 ---
 id: conditional
-slug: /transforms/operations/conditional
+slug: /docs/transforms/operations/conditional
 ---
 # Conditional
 

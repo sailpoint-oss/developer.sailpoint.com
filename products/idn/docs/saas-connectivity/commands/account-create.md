@@ -1,6 +1,6 @@
 ---
 id: account-create
-slug: /saas-connectivity/commands/account-create
+slug: /docs/saas-connectivity/commands/account-create
 ---
 # Account Create
 

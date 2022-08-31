@@ -1,6 +1,6 @@
 ---
 id: saved-search-completed
-slug: /event-triggers/saved-search-completed
+slug: /docs/event-triggers/saved-search-completed
 ---
 
 # Saved Search Completed

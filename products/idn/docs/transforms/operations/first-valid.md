@@ -1,6 +1,6 @@
 ---
 id: first-valid
-slug: /transforms/operations/first-valid
+slug: /docs/transforms/operations/first-valid
 ---
 # First Valid
 

@@ -1,6 +1,6 @@
 ---
 id: access-request-preapproval
-slug: /event-triggers/access-request-preapproval
+slug: /docs/event-triggers/access-request-preapproval
 ---
 
 # Access Request Preapproval

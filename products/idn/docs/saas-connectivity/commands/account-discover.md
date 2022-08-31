@@ -1,6 +1,6 @@
 ---
 id: account-discover
-slug: /saas-connectivity/commands/account-discover
+slug: /docs/saas-connectivity/commands/account-discover
 ---
 # Account Discover Schema
 

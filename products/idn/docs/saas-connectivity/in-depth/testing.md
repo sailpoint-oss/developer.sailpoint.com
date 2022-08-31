@@ -1,6 +1,6 @@
 ---
 id: testing
-slug: /saas-connectivity/in-depth/testing
+slug: /docs/saas-connectivity/in-depth/testing
 ---
 # Testing
 

@@ -1,6 +1,6 @@
 ---
 id: username-generator
-slug: /transforms/operations/username-generator
+slug: /docs/transforms/operations/username-generator
 ---
 # Username Generator
 

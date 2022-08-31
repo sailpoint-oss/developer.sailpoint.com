@@ -1,6 +1,6 @@
 ---
 id: identity-deleted
-slug: /event-triggers/early-access/va-cluster-status-change
+slug: /docs/event-triggers/early-access/va-cluster-status-change
 ---
 
 # Identity Deleted

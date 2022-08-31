@@ -1,6 +1,6 @@
 ---
 id: rule
-slug: /transforms/operations/rule
+slug: /docs/transforms/operations/rule
 ---
 # Rule
 

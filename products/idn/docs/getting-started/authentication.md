@@ -1,6 +1,6 @@
 ---
 id: authentication
-slug: /getting-started/authentication
+slug: /docs/getting-started/authentication
 ---
 # Authentication
 

@@ -1,6 +1,6 @@
 ---
 id: replace-all
-slug: /transforms/operations/replace-all
+slug: /docs/transforms/operations/replace-all
 ---
 # Replace All
 

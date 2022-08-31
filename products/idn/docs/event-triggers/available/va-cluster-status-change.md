@@ -1,6 +1,6 @@
 ---
 id: va-cluster-status-change
-slug: /event-triggers/va-cluster-status-change
+slug: /docs/event-triggers/va-cluster-status-change
 ---
 
 # VA Cluster Status Change

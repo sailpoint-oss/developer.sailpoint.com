@@ -1,6 +1,6 @@
 ---
 id: date-compare
-slug: /transforms/operations/date-compare
+slug: /docs/transforms/operations/date-compare
 ---
 # Date Compare
 

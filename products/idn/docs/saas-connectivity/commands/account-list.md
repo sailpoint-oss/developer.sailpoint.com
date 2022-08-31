@@ -1,6 +1,6 @@
 ---
 id: account-list
-slug: /saas-connectivity/commands/account-list
+slug: /docs/saas-connectivity/commands/account-list
 ---
 # Account List
 

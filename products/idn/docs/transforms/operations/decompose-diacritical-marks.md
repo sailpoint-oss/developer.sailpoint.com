@@ -1,6 +1,6 @@
 ---
 id: decompose-diacritical-marks
-slug: /transforms/operations/decompose-diacritical-marks
+slug: /docs/transforms/operations/decompose-diacritical-marks
 ---
 # Decompose Diacritial Marks
 

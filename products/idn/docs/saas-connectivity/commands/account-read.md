@@ -1,6 +1,6 @@
 ---
 id: account-read
-slug: /saas-connectivity/commands/account-read
+slug: /docs/saas-connectivity/commands/account-read
 ---
 # Account Read
 

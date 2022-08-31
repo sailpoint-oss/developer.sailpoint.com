@@ -1,6 +1,6 @@
 ---
 id: creating-your-first-transform
-slug: /transforms/creating-your-first-transform
+slug: /docs/transforms/creating-your-first-transform
 ---
 # Creating Your First Transform
 

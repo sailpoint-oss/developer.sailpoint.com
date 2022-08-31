@@ -1,6 +1,6 @@
 ---
 id: source-deleted
-slug: /event-triggers/source-deleted
+slug: /docs/event-triggers/source-deleted
 ---
 
 # Source Deleted

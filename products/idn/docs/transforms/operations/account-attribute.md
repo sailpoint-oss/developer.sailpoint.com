@@ -1,6 +1,6 @@
 ---
 id: account-attribute
-slug: /transforms/operations/account-attribute
+slug: /docs/transforms/operations/account-attribute
 ---
 # Account Attribute
 

@@ -1,6 +1,6 @@
 ---
 id: get-reference-identity-attribute
-slug: /transforms/operations/get-reference-identity-attribute
+slug: /docs/transforms/operations/get-reference-identity-attribute
 ---
 # Get Reference Identity Attribute
 

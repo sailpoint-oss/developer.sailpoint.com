@@ -1,6 +1,6 @@
 ---
 id: account-enable
-slug: /saas-connectivity/commands/account-enable
+slug: /docs/saas-connectivity/commands/account-enable
 ---
 # Account Enable/Disable
 

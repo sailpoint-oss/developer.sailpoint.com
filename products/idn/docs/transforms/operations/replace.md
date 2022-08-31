@@ -1,6 +1,6 @@
 ---
 id: replace
-slug: /transforms/operations/replace
+slug: /docs/transforms/operations/replace
 ---
 # Replace
 

@@ -1,6 +1,6 @@
 ---
 id: date-format
-slug: /transforms/operations/date-format
+slug: /docs/transforms/operations/date-format
 ---
 # Date Format
 

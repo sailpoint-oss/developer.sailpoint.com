@@ -1,6 +1,6 @@
 ---
 id: random-alphanumeric
-slug: /transforms/operations/random-alphanumeric
+slug: /docs/transforms/operations/random-alphanumeric
 ---
 # Random Alphanumeric
 

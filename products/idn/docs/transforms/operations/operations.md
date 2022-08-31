@@ -1,8 +1,9 @@
 ---
 id: operations
 slug: /docs/transforms/operations
+title: Operations
 ---
-# Operations in IdentityNow Transforms
+# Operations in Identity Now
 
 Transforms allow you to manipulate attribute values while aggregating from or provisioning to a source.
 

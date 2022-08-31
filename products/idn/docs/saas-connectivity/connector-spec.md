@@ -1,6 +1,7 @@
 ---
 id: connector-spec
 slug: /docs/saas-connectivity/getting-started/connector-spec
+sidebar_position: 4
 ---
 # Connector specification file (connector-spec.json)
 

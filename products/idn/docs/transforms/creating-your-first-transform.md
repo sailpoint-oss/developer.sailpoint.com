@@ -1,6 +1,7 @@
 ---
 id: creating-your-first-transform
 slug: /docs/transforms/creating-your-first-transform
+sidebar_position: 2
 ---
 # Creating Your First Transform
 

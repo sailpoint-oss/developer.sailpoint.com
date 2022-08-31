@@ -1,6 +1,7 @@
 ---
 id: cli
 slug: /docs/saas-connectivity/getting-started/cli
+sidebar_position: 1
 ---
 # Getting Started with the CLI
 

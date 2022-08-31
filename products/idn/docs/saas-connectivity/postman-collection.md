@@ -1,6 +1,7 @@
 ---
 id: postman-collection
 slug: /docs/saas-connectivity/getting-started/postman-collection
+sidebar_position: 6
 ---
 # Postman Collection
 

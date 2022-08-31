@@ -1,6 +1,7 @@
 ---
 id: cli-test-build-deploy
 slug: /docs/saas-connectivity/getting-started/cli-test-build-deploy
+sidebar_position: 2
 ---
 # Test, Build, and Deploy Using the CLI
 ## Testing Your Connector

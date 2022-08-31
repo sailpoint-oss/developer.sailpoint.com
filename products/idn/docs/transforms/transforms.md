@@ -1,6 +1,7 @@
 ---
-id: building-transforms
-slug: /docs/transforms/getting-started
+id: transforms
+slug: /docs/transforms
+title: Transforms
 ---
 # Building Transforms in IdentityNow
 

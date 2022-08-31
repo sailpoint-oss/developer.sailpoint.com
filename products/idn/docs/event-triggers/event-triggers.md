@@ -1,6 +1,7 @@
 ---
-id: getting-started
+id: event-triggers
 slug: /docs/event-triggers/getting-started
+title: Event Triggers
 ---
 
 # Getting Started

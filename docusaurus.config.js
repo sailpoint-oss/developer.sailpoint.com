@@ -67,7 +67,17 @@ const config = {
             position: 'right',
             items: [
               {to: '/idn/api/identity-now-api-v3', label: 'V3 APIs'},
-              {to: '/idn/api/identity-now-api-beta', label: 'Beta APIs'}
+              {to: '/idn/api/identity-now-api-beta', label: 'Beta APIs'},
+              {to: '/idn/docs/getting-started', label: 'IDN Documentation'}
+              // ... more items
+            ],
+          },
+          {
+            type: 'dropdown',
+            label: 'IdentityIQ',
+            position: 'right',
+            items: [
+              {to: '/iiq/api/iiq-api', label: 'IIQ APIs'}
               // ... more items
             ],
           }

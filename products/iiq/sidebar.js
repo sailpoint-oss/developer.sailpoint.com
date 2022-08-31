@@ -21,7 +21,7 @@ const sidebars = {
             type: "generated-index",
             title: "IIQ Api",
             description: "These are the public APIs for SailPoint's SaaS services. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.",
-            slug: "/iiq-api"
+            slug: "/api/iiq-api"
           },
           // @ts-ignore
           items: require("./api/sidebar.js")

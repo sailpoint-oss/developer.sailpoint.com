@@ -3,16 +3,10 @@
 
   grid-gap: 20px;
 
-  margin: 50px auto;
-  width: calc(100% - 100px);
+
   max-width: 1180px;
 
-  /* UI Properties */
-  background: transparent 0% 0% no-repeat padding-box;
-  box-shadow: 0px 20px 60px #00000015;
-  border: 1px solid #F7F7F7;
-  border-radius: 40px;
-  opacity: 1;
+
 }
 
 
@@ -86,5 +80,13 @@
   }
   .mainCard {
     grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+      /* UI Properties */
+    background: transparent 0% 0% no-repeat padding-box;
+    box-shadow: 0px 20px 60px #00000015;
+    border: 1px solid #F7F7F7;
+    border-radius: 40px;
+    opacity: 1;
+    margin: 50px auto;
+    width: calc(100% - 100px);
   }
 }

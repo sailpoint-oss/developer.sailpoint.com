@@ -5,7 +5,12 @@ export default function HomepageBasics({link, title, image, description, buttonT
 
   let linkHtml = <div></div>
   if (buttonText) {
-     linkHtml =  <Link to={link}><div className={styles.button}>{buttonText}</div></Link>
+     linkHtml =  <Link to={link}>
+      <div className={styles.button}>
+
+          {buttonText}
+
+      </div></Link>
   }
   return (
         <div className={styles.gettingStartedText}>

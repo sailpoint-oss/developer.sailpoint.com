@@ -56,23 +56,55 @@ const config = {
           {
             type: 'dropdown',
             label: 'IdentityNow',
-            position: 'right',
+            position: 'left',
             items: [
-              {to: '/idn/api/identity-now-api-v3', label: 'V3 APIs'},
-              {to: '/idn/api/identity-now-api-beta', label: 'Beta APIs'},
-              {to: '/idn/docs/getting-started', label: 'IDN Documentation'}
-              // ... more items
+              {to: "#", label: "API Specifications", className: "section__docs",},
+              {to: '/idn/api/v3', label: 'V3 APIs', className: "indent"},
+              {to: '/idn/api/beta', label: 'Beta APIs', className: "indent"},
+              {to: "#", label: "Documentation", className: "section__docs",},
+              {to: '/idn/docs/getting-started', label: 'IDN Documentation', className: "indent"}
             ],
           },
           {
             type: 'dropdown',
             label: 'IdentityIQ',
-            position: 'right',
+            position: 'left',
             items: [
-              {to: '/iiq/api/iiq-api', label: 'IIQ APIs'}
-              // ... more items
+              {to: "#", label: "API Specifications", className: "section__docs",},
+              {to: '/iiq/api', label: 'IIQ APIs', className: "indent"}
             ],
-          }
+          },
+          {
+            position: "left",
+            label: "Ideas",
+            to: "https://developer-sailpoint.ideas.aha.io/"
+          },
+          {
+            position: "left",
+            label: "Discuss",
+            to: "https://developer.sailpoint.com/discuss"
+          },
+          {
+            type: "dropdown",
+            label: "Support",
+            position: "right",
+            items: [
+              {label: "Compass", href: "https://community.sailpoint.com"},
+              {label: "Submit Support Ticket", href: "https://support.sailpoint.com"}
+            ]
+          },
+          {
+            position: "right",
+            to: "https://github.com/sailpoint-oss",
+            className: "header-github-link",
+            "aria-label": "SailPoint Open-source GitHub"
+          },
+          {
+            href: "https://medium.com/sailpointtechblog",
+            className: "header-blog-link",
+            position: "right",
+            "aria-label": "SailPoint Engineering Blog",
+          },
         ]
       },
       footer: {},

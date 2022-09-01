@@ -22,7 +22,7 @@ const sidebars = {
           title: "IDN V3",
           description:
             "These are the public APIs for SailPoint's SaaS services. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.",
-          slug: "/api/identity-now-api-v3",
+          slug: "/api/v3",
         },
         // @ts-ignore
         items: require("./api/v3/sidebar.js"),
@@ -35,7 +35,7 @@ const sidebars = {
           title: "IDN Beta",
           description:
             "These are the public APIs for SailPoint's SaaS services. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.",
-          slug: "/api/identity-now-api-beta",
+          slug: "/api/beta",
         },
         // @ts-ignore
         items: require("./api/beta/sidebar.js"),

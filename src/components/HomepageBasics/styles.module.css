@@ -2,7 +2,7 @@
 .gettingStartedText {
   text-align: center;
 
-  margin: 50px auto;
+  margin: 150px auto 50px auto;
   width: calc(100% - 100px);
   max-width: 600px;
 
@@ -34,6 +34,9 @@
 
 .button:hover {
   cursor: pointer;
+  top: -2px;
+  box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+  background-color: #c552ae10;
 }
 
 a:hover, a:visited, a:link, a:active
@@ -45,7 +48,6 @@ a:hover, a:visited, a:link, a:active
 
   text-decoration: none;
   text-align: center;
-  padding: 15px;
   margin: 10px auto;
 
   color: #cc27b0;
@@ -57,6 +59,7 @@ a:hover, a:visited, a:link, a:active
   /* Layout Properties */
   width: 259px;
   height: 61px;
+  line-height: 61px;
   /* UI Properties */
   background: transparent 0% 0% no-repeat padding-box;
   opacity: 1;

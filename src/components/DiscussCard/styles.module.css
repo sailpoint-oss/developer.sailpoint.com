@@ -13,6 +13,8 @@
 
 .card:hover {
   cursor: pointer;
+  top: -2px;
+  box-shadow: 0 4px 5px rgba(0,0,0,0.2);
 }
 
 .cardText {
@@ -20,10 +22,30 @@
   margin: 22px;
   font-size: 16px;
   font-weight: 500;
-  width: 170px;
+  min-width: 170px;
   top: 35px;
   left: 0;
   color: black;
+}
+
+.linkText {
+  position:absolute;
+  margin: 15px 45px 15px 25px;
+  font-size: 18px;
+  font-weight: 700;
+  bottom: 22px;
+  left: -19;
+  color: #123198;
+}
+
+.linkSolvedText {
+  position:absolute;
+  margin: 15px 45px;
+  font-size: 18px;
+  font-weight: 700;
+  bottom: 22px;
+  left: -19px;
+  color: #123198;
 }
 
 .cardIcon {
@@ -37,8 +59,9 @@
 .cardArrow {
   position:absolute;
   margin: 20px;
-  bottom: 25px;
+  bottom: 20px;
   right: 0;
+  width: 20px;
 }
 
 .cardViews {
@@ -49,10 +72,45 @@
   width: 30px;
 }
 
+
+.cardLikes {
+  position:absolute;
+  margin: 15px;
+  right: 45px;
+  top: 0;
+  width: 30px;
+}
+
+.cardSolved {
+  position:absolute;
+  margin: 0px;
+  right: 132px;
+  top: 18px;
+  width: 20px;
+}
+
+.cardDiscuss {
+  display: none;
+  position:absolute;
+  margin: 0px;
+  left: 12px;
+  bottom: 57px;
+  width: 28px;
+}
+
+
 .cardEye {
   position:absolute;
   margin: 20px;
   right: 25px;
+  top: 0;
+  width: 22px;
+}
+
+.cardLiked {
+  position:absolute;
+  margin: 16px;
+  right: 75px;
   top: 0;
   width: 22px;
 }

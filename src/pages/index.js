@@ -7,6 +7,7 @@ import HomepageGettingStarted from '@site/src/components/HomepageGettingStarted'
 import HomepageBasics from '../components/HomepageBasics';
 import HomepageTrainingGuides from '../components/HomepageTrainingGuides';
 import HomepageDiscuss from '../components/HomepageDiscuss';
+import HomepageTeam from '../components/HomepageTeam'
 
 import styles from './index.module.css';
 
@@ -33,14 +34,15 @@ export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
       description="Description will go into a meta tag in <head />">
       <main>
         <HomepageGettingStarted />
         <HomepageBasics description={"If you still aren't sure where to get started, try one of the <b>Getting Started Guides</b> below, or see what our platform has to offer."} link={"/docs/idn_docs/intro"} title={"Start With the Basics"} image={"/homepage/person-head.png"} buttonText={"Explore our platform"} />
         <HomepageTrainingGuides></HomepageTrainingGuides>
-        <HomepageBasics description={"The SailPoint Developer Forums are a great place to find solutions to common development problems."} link={"/docs/idn_docs/intro"} title={"What is the Community saying?"} image={"/homepage/person-head.png"} buttonText={"Join the Discussion"}/>
+        <HomepageBasics description={"The SailPoint Developer Forums are a great place to find solutions to common development problems."} link={"/docs/idn_docs/intro"} title={"What is the Community saying?"} image={"/homepage/discuss.png"} buttonText={"Join the Discussion"}/>
         <HomepageDiscuss></HomepageDiscuss>
+        <HomepageBasics description={"The Developer Relations team is responsible for creating a better developer experience on our platform. Click on someone to learn more about them!"} link={"/docs/idn_docs/intro"} title={"Meet Our Team"} image={"/homepage/team.png"} buttonText={""}/>
+        <HomepageTeam></HomepageTeam>
       </main>
     </Layout>
   );

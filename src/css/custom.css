@@ -99,6 +99,10 @@
   opacity: 0.6;
 }
 
+.header-blog-link:hover {
+  opacity: 0.6;
+}
+
 .header-github-link:before {
   background: var(--ifm-github-logo) no-repeat;
   content: "";

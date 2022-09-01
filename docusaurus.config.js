@@ -145,7 +145,7 @@ const config = {
             title: "Community",
             items: [
               {
-                label: "Developer Community Forum",
+                label: "Discuss",
                 to: "https://developer.sailpoint.com/discuss"
               },
               {
@@ -222,7 +222,7 @@ const config = {
         logo: {
           alt: 'SailPoint Developer Community Logo',
           src: '/img/SailPoint-Developer-Community-Lockup.png',
-          href: 'https://opensource.fb.com',
+          href: 'https://developer.sailpoint.com',
         },
         copyright: `Copyright © ${new Date().getFullYear()} SailPoint Technologies Holdings, Inc. All Rights Reserved.`,
       },

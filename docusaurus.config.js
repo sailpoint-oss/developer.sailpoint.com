@@ -56,26 +56,166 @@ const config = {
           {
             type: 'dropdown',
             label: 'IdentityNow',
-            position: 'right',
+            position: 'left',
             items: [
-              {to: '/idn/api/identity-now-api-v3', label: 'V3 APIs'},
-              {to: '/idn/api/identity-now-api-beta', label: 'Beta APIs'},
-              {to: '/idn/docs/getting-started', label: 'IDN Documentation'}
-              // ... more items
+              {to: "#", label: "API Specifications", className: "section__docs",},
+              {to: '/idn/api/v3', label: 'V3 APIs', className: "indent"},
+              {to: '/idn/api/beta', label: 'Beta APIs', className: "indent"},
+              {to: "#", label: "Documentation", className: "section__docs",},
+              {to: '/idn/docs/getting-started', label: 'IDN Documentation', className: "indent"}
             ],
           },
           {
             type: 'dropdown',
             label: 'IdentityIQ',
-            position: 'right',
+            position: 'left',
             items: [
-              {to: '/iiq/api/iiq-api', label: 'IIQ APIs'}
-              // ... more items
+              {to: "#", label: "API Specifications", className: "section__docs",},
+              {to: '/iiq/api', label: 'IIQ APIs', className: "indent"}
             ],
-          }
+          },
+          {
+            position: "left",
+            label: "Ideas",
+            to: "https://developer-sailpoint.ideas.aha.io/"
+          },
+          {
+            position: "left",
+            label: "Discuss",
+            to: "https://developer.sailpoint.com/discuss"
+          },
+          {
+            type: "dropdown",
+            label: "Support",
+            position: "right",
+            items: [
+              {label: "Compass", href: "https://community.sailpoint.com"},
+              {label: "Submit Support Ticket", href: "https://support.sailpoint.com"}
+            ]
+          },
+          {
+            position: "right",
+            to: "https://github.com/sailpoint-oss",
+            className: "header-github-link",
+            "aria-label": "SailPoint Open-source GitHub"
+          },
+          {
+            href: "https://medium.com/sailpointtechblog",
+            className: "header-blog-link",
+            position: "right",
+            "aria-label": "SailPoint Engineering Blog",
+          },
         ]
       },
-      footer: {},
+      footer: {
+        style: "light",
+        links: [
+          {
+            title: "Learn",
+            items: [
+              {
+                label: "Make Your First API Call",
+                to: "idn/docs/getting-started"
+              },
+              {
+                label: "Build A Transform",
+                to: "idn/docs/transforms"
+              },
+              {
+                label: "Build A SaaS Connector",
+                to: "idn/docs/saas-connectors"
+              },
+              {
+                label: "Build An IdentityIQ Plugin",
+                to: "https://documentation.sailpoint.com/"
+              }
+            ]
+          },
+          {
+            title: "Community",
+            items: [
+              {
+                label: "Developer Community Forum",
+                to: "https://developer.sailpoint.com/discuss"
+              },
+              {
+                label: "Submit an Idea",
+                to: "https://developer-sailpoint.ideas.aha.io/"
+              },
+              {
+                label: "Contact the DevRel Team",
+                to: "mailto:developers@sailpoint.com"
+              }
+            ]
+          },
+          {
+            title: "More",
+            items: [
+              {
+                label: "Engineering Blog",
+                href: "https://medium.com/sailpointtechblog"
+              },
+              {
+                label: "GitHub",
+                href: "https://github.com/sailpoint-oss"
+              },
+              {
+                label: "Twitter",
+                href: "https://twitter.com/sailpoint"
+              },
+            ]
+          },
+          {
+            title: "Company",
+            items: [
+              {
+                label: "The SailPoint Story",
+                to: "https://www.sailpoint.com/company/"
+              },
+              {
+                label: "The SailPoint Way",
+                to: "https://www.sailpoint.com/company/diversity-inclusion-and-belonging/"
+              },
+              {
+                label: "Leadership Team",
+                to: "https://www.sailpoint.com/company/#h-our-leadership"
+              },
+              {
+                label: "Become A Partner",
+                to: "https://www.sailpoint.com/partners/become-partner/"
+              }
+            ]
+          },
+          {
+            title: "Careers",
+            items: [
+              {
+                label: "Join the Crew",
+                to: "https://sailpoint.wd1.myworkdayjobs.com/SailPoint/jobs"
+              },
+              {
+                label: "Why Work at SailPoint",
+                to: "https://www.sailpoint.com/company/careers/"
+              }
+            ]
+          },
+          {
+            title: "Legal",
+            items: [
+              {
+                label: "Terms & Conditions",
+                to: "https://developet.sailpoint.com"
+              }
+            ]
+          }
+        ],
+        logo: {
+          alt: 'SailPoint Developer Community Logo',
+          src: '/img/SailPoint-Developer-Community-Lockup.png',
+          href: 'https://opensource.fb.com',
+        },
+        copyright: `Copyright © ${new Date().getFullYear()} SailPoint Technologies Holdings, Inc. All Rights Reserved.`,
+      },
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,

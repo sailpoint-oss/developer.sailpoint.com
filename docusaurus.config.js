@@ -9,13 +9,10 @@ const config = {
   title: 'SailPoint Developer Community',
   url: 'https://developer.sailpoint.com',
   baseUrl: '/',
+  favicon: 'img/SailPoint-Logo-Icon.ico',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
-  // /static folder
-  favicon: 'img/SailPoint-Logo-Icon.ico',
-  // Even if you don't use internalization, you can use this field to set useful
-  // metadata like html lang. For example, if your site is Chinese, you may want
-  // to replace "en" with "zh-Hans".
+  onDuplicateRoutes: 'warn',
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -45,8 +42,8 @@ const config = {
       docs: {
         sidebar: {
           hideable: true,
-          autoCollapseCategories: true,
-        }
+          autoCollapseCategories: false,
+        },
       },
       navbar: {
         title: '',

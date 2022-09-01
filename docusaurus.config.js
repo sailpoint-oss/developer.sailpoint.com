@@ -17,7 +17,7 @@ const config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
-
+  
   presets: [
     [
       'classic',
@@ -44,6 +44,10 @@ const config = {
           hideable: true,
           autoCollapseCategories: false,
         },
+      },
+      colorMode: {
+        defaultMode: "light",
+        respectPrefersColorScheme: true
       },
       navbar: {
         title: '',
@@ -111,7 +115,7 @@ const config = {
         style: "light",
         links: [
           {
-            title: "Learn",
+            title: "IdentityNow",
             items: [
               {
                 label: "Make Your First API Call",
@@ -125,6 +129,11 @@ const config = {
                 label: "Build A SaaS Connector",
                 to: "idn/docs/saas-connectors"
               },
+            ]
+          },
+          {
+            title: "IdentityIQ",
+            items: [
               {
                 label: "Build An IdentityIQ Plugin",
                 to: "https://documentation.sailpoint.com/"
@@ -135,7 +144,7 @@ const config = {
             title: "Community",
             items: [
               {
-                label: "Developer Community Forum",
+                label: "Discuss",
                 to: "https://developer.sailpoint.com/discuss"
               },
               {
@@ -187,19 +196,6 @@ const config = {
             ]
           },
           {
-            title: "Careers",
-            items: [
-              {
-                label: "Join the Crew",
-                to: "https://sailpoint.wd1.myworkdayjobs.com/SailPoint/jobs"
-              },
-              {
-                label: "Why Work at SailPoint",
-                to: "https://www.sailpoint.com/company/careers/"
-              }
-            ]
-          },
-          {
             title: "Legal",
             items: [
               {
@@ -212,7 +208,7 @@ const config = {
         logo: {
           alt: 'SailPoint Developer Community Logo',
           src: '/img/SailPoint-Developer-Community-Lockup.png',
-          href: 'https://opensource.fb.com',
+          href: 'https://developer.sailpoint.com',
         },
         copyright: `Copyright © ${new Date().getFullYear()} SailPoint Technologies Holdings, Inc. All Rights Reserved.`,
       },

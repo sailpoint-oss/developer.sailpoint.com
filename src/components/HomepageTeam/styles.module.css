@@ -3,11 +3,13 @@
 .gridContainer {
   display: grid;
   place-content: center;
-  grid-template-columns: repeat(auto-fill, 220px);
+  grid-template-columns:  repeat(auto-fit, minmax(190px, 1fr));
   grid-gap: 40px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .center {
   margin: 50px auto;
-  max-width: 1100px;
+  max-width: 1000px;
 }

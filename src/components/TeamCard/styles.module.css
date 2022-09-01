@@ -64,9 +64,16 @@
   right: 0;
 }
 
-.cardFace {
-  margin: 40px auto;
+.cardFaceContainer {
   width: 100%;
-  padding: 0px 69px;
+  margin: 40px auto;
+}
+
+.cardFace {
+  justify-content: center;
+  display: flex;
+  margin: auto;
+  height: 80px;
+  width: 80px;
 }
 

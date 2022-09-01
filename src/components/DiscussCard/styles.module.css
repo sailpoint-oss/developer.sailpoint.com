@@ -22,7 +22,7 @@
   margin: 22px;
   font-size: 16px;
   font-weight: 500;
-  width: 170px;
+  min-width: 170px;
   top: 35px;
   left: 0;
   color: black;

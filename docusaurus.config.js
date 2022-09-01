@@ -49,12 +49,6 @@ const config = {
         defaultMode: "light",
         respectPrefersColorScheme: true
       },
-      announcementBar: {
-        id: "announcement-bar",
-        content: '⭐️ Like the new developer community design? Want to tell us what you think? Let us know in the  <a target="_blank" rel="noopener noreferrer" href="https://developer.sailpoint.com/discuss/c/feedback/2">Developer Community Forum</a>.',
-        backgroundColor: "#0388fc",
-        isCloseable: true
-      },
       navbar: {
         title: '',
         logo: {

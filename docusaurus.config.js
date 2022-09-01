@@ -121,7 +121,7 @@ const config = {
         style: "light",
         links: [
           {
-            title: "Learn",
+            title: "IdentityNow",
             items: [
               {
                 label: "Make Your First API Call",
@@ -135,6 +135,11 @@ const config = {
                 label: "Build A SaaS Connector",
                 to: "idn/docs/saas-connectors"
               },
+            ]
+          },
+          {
+            title: "IdentityIQ",
+            items: [
               {
                 label: "Build An IdentityIQ Plugin",
                 to: "https://documentation.sailpoint.com/"
@@ -193,19 +198,6 @@ const config = {
               {
                 label: "Become A Partner",
                 to: "https://www.sailpoint.com/partners/become-partner/"
-              }
-            ]
-          },
-          {
-            title: "Careers",
-            items: [
-              {
-                label: "Join the Crew",
-                to: "https://sailpoint.wd1.myworkdayjobs.com/SailPoint/jobs"
-              },
-              {
-                label: "Why Work at SailPoint",
-                to: "https://www.sailpoint.com/company/careers/"
               }
             ]
           },

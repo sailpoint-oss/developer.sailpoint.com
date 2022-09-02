@@ -163,5 +163,10 @@ html[data-theme="dark"] .header-github-link:before {
 .footer__link-item {
   line-height: 2.5;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 300;
+}
+
+.footer__copyright {
+  font-size: 10px;
+  font-weight: 300;
 }

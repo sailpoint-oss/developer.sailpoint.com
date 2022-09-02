@@ -173,7 +173,7 @@ const config = {
               },
               {
                 label: "Contact Our Team",
-                to: "https://developer.sailpoint.com/discuss/new-message?groupname=developer_relations"
+                to: "https://developer.sailpoint.com/discuss/new-message?groupname=developer_relationsd"
               }
             ]
           },

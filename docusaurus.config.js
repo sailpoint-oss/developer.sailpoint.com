@@ -42,6 +42,20 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      algolia: {
+        // The application ID provided by Algolia
+        appId: 'TB01H1DFAM',
+  
+        // Public API key: it is safe to commit it
+        apiKey: '726952a7a9389c484b6c96808a3e0010',
+  
+        indexName: 'prod_DEVELOPER_SAILPOINT_COM',
+  
+        // Optional: path for search page that enabled by default (`false` to disable it)
+        searchPagePath: 'search',
+  
+        //... other Algolia params
+      },
       docs: {
         sidebar: {
           hideable: true,

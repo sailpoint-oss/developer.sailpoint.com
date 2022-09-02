@@ -59,6 +59,18 @@ npm install npm@latest -g
    npm start
    ```
 
+### Running the Algolia crawler
+
+1. Setup a .env file inside the algolia folder
+   ```sh
+   APPLICATION_ID={APP_ID}
+   API_KEY={API_KEY}
+   ```
+2. Run the Algolia crawler using docker
+   ```
+   docker run -it --env-file=./algolia/.env -e "CONFIG=$(cat ./algolia/config.json | jq -r tostring)" algolia/docsearch-scraper
+   ```
+
 <!-- LICENSE -->
 ## License
 

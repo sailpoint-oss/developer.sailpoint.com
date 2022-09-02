@@ -157,7 +157,7 @@ const config = {
               },
               {
                 label: "Get Certified",
-                to: "https://university.sailpoint.com/Saba/Web_spf/NA10P1PRD075/guest/categorydetail/categ000000000003041/true/xxemptyxx/"
+                href: "https://university.sailpoint.com/Saba/Web_spf/NA10P1PRD075/guest/categorydetail/categ000000000003041/true/xxemptyxx/"
               }
             ]
           },
@@ -170,7 +170,7 @@ const config = {
               },
               {
                 label: "Get Certified",
-                to: "https://university.sailpoint.com/Saba/Web_spf/NA10P1PRD075/guest/categorydetail/categ000000000003042/true/xxemptyxx/"
+                href: "https://university.sailpoint.com/Saba/Web_spf/NA10P1PRD075/guest/categorydetail/categ000000000003042/true/xxemptyxx/"
               }
             ]
           },
@@ -187,7 +187,7 @@ const config = {
               },
               {
                 label: "Contact Our Team",
-                to: "https://developer.sailpoint.com/discuss/new-message?groupname=developer_relationsd"
+                to: "https://developer.sailpoint.com/discuss/new-message?groupname=developer_relations"
               }
             ]
           },

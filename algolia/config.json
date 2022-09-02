@@ -1,11 +1,18 @@
 {
     "index_name": "prod_DEVELOPER_SAILPOINT_COM",
     "start_urls": [
-      "https://effective-funicular-4286784a.pages.github.io/idn/",
-      "https://effective-funicular-4286784a.pages.github.io/iiq/"
+      "https://sailpoint-oss.github.io/developer.sailpoint.com/idn/docs/getting-started/",
+      "https://sailpoint-oss.github.io/developer.sailpoint.com/idn/docs/event-triggers/getting-started",
+      "https://sailpoint-oss.github.io/developer.sailpoint.com/idn/docs/saas-configuration/",
+      "https://sailpoint-oss.github.io/developer.sailpoint.com/idn/docs/saas-connectivity",
+      "https://sailpoint-oss.github.io/developer.sailpoint.com/idn/docs/transforms",
+      "https://sailpoint-oss.github.io/developer.sailpoint.com/idn/api/v3",
+      "https://sailpoint-oss.github.io/developer.sailpoint.com/idn/api/beta",
+      "https://sailpoint-oss.github.io/developer.sailpoint.com/iiq/api"
+
     ],
     "sitemap_urls": [
-      "https://effective-funicular-4286784a.pages.github.io/sitemap.xml"
+      "https://sailpoint-oss.github.io/developer.sailpoint.com/sitemap.xml"
     ],
     "sitemap_alternate_links": true,
     "stop_urls": [],

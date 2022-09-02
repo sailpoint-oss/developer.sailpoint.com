@@ -22,7 +22,7 @@
   <h3 align="center">Developer Community Website - README</h3>
   <br/>
 <div align="center">
-<img src="./assets/images/screenshot.png" width="500" height="" style="text-align:center">
+<img src="./static/img/screenshot.png" width="500" height="" style="text-align:center">
 </div>
 </div>
 

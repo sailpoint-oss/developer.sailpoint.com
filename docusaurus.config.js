@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'SailPoint Developer Community',
   url: 'https://developer.sailpoint.com',
-  baseUrl: '/',
+  baseUrl: '/developer.sailpoint.com/',
   favicon: 'img/SailPoint-Logo-Icon.ico',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',

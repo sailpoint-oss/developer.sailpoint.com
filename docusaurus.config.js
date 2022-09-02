@@ -42,6 +42,20 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      algolia: {
+        // The application ID provided by Algolia
+        appId: 'TB01H1DFAM',
+  
+        // Public API key: it is safe to commit it
+        apiKey: '726952a7a9389c484b6c96808a3e0010',
+  
+        indexName: 'prod_DEVELOPER_SAILPOINT_COM',
+  
+        // Optional: path for search page that enabled by default (`false` to disable it)
+        searchPagePath: 'search',
+  
+        //... other Algolia params
+      },
       docs: {
         sidebar: {
           hideable: true,
@@ -65,11 +79,13 @@ const config = {
             label: 'IdentityNow',
             position: 'left',
             items: [
-              {to: "#", label: "API Specifications", className: "section__docs",},
+              {to: "#", label: "API Specifications", className: "navbar__section",},
               {to: '/idn/api/v3', label: 'V3 APIs', className: "indent"},
               {to: '/idn/api/beta', label: 'Beta APIs', className: "indent"},
-              {to: "#", label: "Documentation", className: "section__docs",},
-              {to: '/idn/docs/getting-started', label: 'IDN Documentation', className: "indent"}
+              {to: "#", label: "Documentation", className: "navbar__section",},
+              {to: '/idn/docs/getting-started', label: 'IDN Documentation', className: "indent"},
+              {to: "#", label: "Training", className: "navbar__section",},
+              {href: 'https://university.sailpoint.com/Saba/Web_spf/NA10P1PRD075/guest/categorydetail/categ000000000003041/true/xxemptyxx/', label: 'IdentityNow Certifications', className: "indent"},
             ],
           },
           {
@@ -77,8 +93,10 @@ const config = {
             label: 'IdentityIQ',
             position: 'left',
             items: [
-              {to: "#", label: "API Specifications", className: "section__docs",},
-              {to: '/iiq/api', label: 'IIQ APIs', className: "indent"}
+              {to: "#", label: "API Specifications", className: "navbar__section",},
+              {to: '/iiq/api', label: 'IIQ APIs', className: "indent"},
+              {to: "#", label: "Training", className: "navbar__section",},
+              {href: 'https://university.sailpoint.com/Saba/Web_spf/NA10P1PRD075/guest/categorydetail/categ000000000003042/true/xxemptyxx/', label: 'IdentityIQ Certifications', className: "indent"},
             ],
           },
           {
@@ -97,8 +115,13 @@ const config = {
             position: "right",
             items: [
               {label: "Compass", href: "https://community.sailpoint.com"},
-              {label: "Submit Support Ticket", href: "https://support.sailpoint.com"}
+              {label: "Submit Support Ticket", href: "https://support.sailpoint.com/hc/en-us/requests/new?ticket_form_id=360000629992"}
             ]
+          },
+          {
+            position: "right",
+            label: "Status",
+            to: "https://status.sailpoint.com/"
           },
           {
             position: "right",
@@ -121,7 +144,7 @@ const config = {
             title: "IdentityNow",
             items: [
               {
-                label: "Make Your First API Call",
+                label: "Your First API Call",
                 to: "idn/docs/getting-started"
               },
               {
@@ -132,14 +155,22 @@ const config = {
                 label: "Build A SaaS Connector",
                 to: "idn/docs/saas-connectors"
               },
+              {
+                label: "Get Certified",
+                href: "https://university.sailpoint.com/Saba/Web_spf/NA10P1PRD075/guest/categorydetail/categ000000000003041/true/xxemptyxx/"
+              }
             ]
           },
           {
             title: "IdentityIQ",
             items: [
               {
-                label: "Build An IdentityIQ Plugin",
+                label: "Build A Plugin",
                 to: "https://documentation.sailpoint.com/"
+              },
+              {
+                label: "Get Certified",
+                href: "https://university.sailpoint.com/Saba/Web_spf/NA10P1PRD075/guest/categorydetail/categ000000000003042/true/xxemptyxx/"
               }
             ]
           },
@@ -155,8 +186,8 @@ const config = {
                 to: "https://developer-sailpoint.ideas.aha.io/"
               },
               {
-                label: "Contact the DevRel Team",
-                to: "mailto:developers@sailpoint.com"
+                label: "Contact Our Team",
+                to: "https://developer.sailpoint.com/discuss/new-message?groupname=developer_relations"
               }
             ]
           },

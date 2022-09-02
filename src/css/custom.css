@@ -148,7 +148,7 @@ html[data-theme="dark"] .header-github-link:before {
   filter: invert();
 }
 
-.section__docs{
+.navbar__section{
   font-weight: bolder;
   cursor:inherit;
   background-color: transparent !important;
@@ -158,4 +158,15 @@ html[data-theme="dark"] .header-github-link:before {
 
 .indent {
   padding-left: 1rem;
+}
+
+.footer__link-item {
+  line-height: 2.5;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.footer__copyright {
+  font-size: 10px;
+  font-weight: 300;
 }

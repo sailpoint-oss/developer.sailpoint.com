@@ -130,7 +130,7 @@ const config = {
             title: "IdentityNow",
             items: [
               {
-                label: "Make Your First API Call",
+                label: "Your First API Call",
                 to: "idn/docs/getting-started"
               },
               {
@@ -141,14 +141,22 @@ const config = {
                 label: "Build A SaaS Connector",
                 to: "idn/docs/saas-connectors"
               },
+              {
+                label: "Get Certified",
+                to: "https://university.sailpoint.com/Saba/Web_spf/NA10P1PRD075/guest/categorydetail/categ000000000003041/true/xxemptyxx/"
+              }
             ]
           },
           {
             title: "IdentityIQ",
             items: [
               {
-                label: "Build An IdentityIQ Plugin",
+                label: "Build A Plugin",
                 to: "https://documentation.sailpoint.com/"
+              },
+              {
+                label: "Get Certified",
+                to: "https://university.sailpoint.com/Saba/Web_spf/NA10P1PRD075/guest/categorydetail/categ000000000003042/true/xxemptyxx/"
               }
             ]
           },
@@ -164,8 +172,8 @@ const config = {
                 to: "https://developer-sailpoint.ideas.aha.io/"
               },
               {
-                label: "Contact the DevRel Team",
-                to: "mailto:developers@sailpoint.com"
+                label: "Contact Our Team",
+                to: "https://developer.sailpoint.com/discuss/new-message?groupname=developer_relations"
               }
             ]
           },

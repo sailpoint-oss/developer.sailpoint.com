@@ -159,3 +159,9 @@ html[data-theme="dark"] .header-github-link:before {
 .indent {
   padding-left: 1rem;
 }
+
+.footer__link-item {
+  line-height: 2.5;
+  font-size: 15px;
+  font-weight: 500;
+}

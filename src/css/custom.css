@@ -148,7 +148,7 @@ html[data-theme="dark"] .header-github-link:before {
   filter: invert();
 }
 
-.section__docs{
+.navbar__section{
   font-weight: bolder;
   cursor:inherit;
   background-color: transparent !important;

@@ -17,7 +17,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-    <img src="./static/img/SailPoint-Developer-Community-Inverse-Lockup.png" alt="Logo" width="80" height="80">
+    <img src="./static/img/SailPoint-Developer-Community-Inverse-Lockup.png" alt="Logo">
 
   <h3 align="center">Developer Community Website - README</h3>
   <br/>

@@ -1,7 +1,6 @@
 <a id="readme-top"></a>
 
 [![Discourse Topics][discourse-shield]][discourse-url]
-![Times Downloaded][downloads-shield]
 ![Issues][issues-shield]
 ![Latest Releases][release-shield]
 ![Contributor Shield][contributor-shield]
@@ -9,7 +8,6 @@
 
 [discourse-shield]: https://img.shields.io/discourse/topics?label=Discuss%20This%20Tool&server=https%3A%2F%2Fdeveloper.sailpoint.com%2Fdiscuss
 [discourse-url]: https://developer.sailpoint.com/discuss/
-[downloads-shield]: https://img.shields.io/github/downloads/sailpoint-oss/developer.sailpoint.com/total?label=Downloads
 [issues-shield]:https://img.shields.io/github/issues/sailpoint-oss/developer.sailpoint.com?label=Issues
 [release-shield]: https://img.shields.io/github/v/release/sailpoint-oss/developer.sailpoint.com?label=Current%20Release
 [contributor-shield]:https://img.shields.io/github/contributors/sailpoint-oss/developer.sailpoint.com?label=Contributors

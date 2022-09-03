@@ -9,10 +9,10 @@
 
 [discourse-shield]: https://img.shields.io/discourse/topics?label=Discuss%20This%20Tool&server=https%3A%2F%2Fdeveloper.sailpoint.com%2Fdiscuss
 [discourse-url]: https://developer.sailpoint.com/discuss/
-[downloads-shield]: https://img.shields.io/github/downloads/sailpoint-oss/developer-community-website/total?label=Downloads
-[issues-shield]:https://img.shields.io/github/issues/sailpoint-oss/developer-community-website?label=Issues
-[release-shield]: https://img.shields.io/github/v/release/sailpoint-oss/developer-community-website?label=Current%20Release
-[contributor-shield]:https://img.shields.io/github/contributors/sailpoint-oss/developer-community-website?label=Contributors
+[downloads-shield]: https://img.shields.io/github/downloads/sailpoint-oss/developer.sailpoint.com/total?label=Downloads
+[issues-shield]:https://img.shields.io/github/issues/sailpoint-oss/developer.sailpoint.com?label=Issues
+[release-shield]: https://img.shields.io/github/v/release/sailpoint-oss/developer.sailpoint.com?label=Current%20Release
+[contributor-shield]:https://img.shields.io/github/contributors/sailpoint-oss/developer.sailpoint.com?label=Contributors
 
 <!-- PROJECT LOGO -->
 <br />

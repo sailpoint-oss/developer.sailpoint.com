@@ -52,9 +52,8 @@ const config = {
         indexName: 'prod_DEVELOPER_SAILPOINT_COM',
   
         // Optional: path for search page that enabled by default (`false` to disable it)
-        searchPagePath: 'search',
-  
-        //... other Algolia params
+        searchPagePath: false,
+        placeholder: "Search the Developer Community",
       },
       docs: {
         sidebar: {
@@ -259,6 +258,7 @@ const config = {
           id: "idn",
           path: "products/idn",
           routeBasePath: "idn",
+          editUrl: "https://github.com/sailpoint-oss/developer-community-site/edit/main/",
           sidebarPath: require.resolve("./products/idn/sidebar.js"),
         },
       ],
@@ -268,6 +268,7 @@ const config = {
           id: "iiq",
           path: "products/iiq",
           routeBasePath: "iiq",
+          editUrl: "https://github.com/sailpoint-oss/developer-community-site/edit/main/",
           sidebarPath: require.resolve("./products/iiq/sidebar.js"),
         },
       ],
@@ -295,7 +296,7 @@ const config = {
               }
             },
           }
-        }
+        },
       ],
       [
         "docusaurus-plugin-openapi-docs",

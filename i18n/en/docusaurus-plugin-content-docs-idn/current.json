@@ -1,0 +1,1922 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.openApiSidebar.category.IDN V3": {
+    "message": "IDN V3",
+    "description": "The label for category IDN V3 in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.IDN V3.link.generated-index.title": {
+    "message": "IDN V3",
+    "description": "The generated-index page title for category IDN V3 in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.IDN V3.link.generated-index.description": {
+    "message": "These are the public APIs for SailPoint's SaaS services. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.",
+    "description": "The generated-index page description for category IDN V3 in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Access Request Approvals": {
+    "message": "Access Request Approvals",
+    "description": "The label for category Access Request Approvals in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Access Requests": {
+    "message": "Access Requests",
+    "description": "The label for category Access Requests in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Accounts": {
+    "message": "Accounts",
+    "description": "The label for category Accounts in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Account Activities": {
+    "message": "Account Activities",
+    "description": "The label for category Account Activities in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Certifications": {
+    "message": "Certifications",
+    "description": "The label for category Certifications in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Certification Summaries": {
+    "message": "Certification Summaries",
+    "description": "The label for category Certification Summaries in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Lifecycle States": {
+    "message": "Lifecycle States",
+    "description": "The label for category Lifecycle States in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Identity Profiles": {
+    "message": "Identity Profiles",
+    "description": "The label for category Identity Profiles in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Non-Employee Lifecycle Management": {
+    "message": "Non-Employee Lifecycle Management",
+    "description": "The label for category Non-Employee Lifecycle Management in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.OAuth Clients": {
+    "message": "OAuth Clients",
+    "description": "The label for category OAuth Clients in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Password Management": {
+    "message": "Password Management",
+    "description": "The label for category Password Management in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Personal Access Tokens": {
+    "message": "Personal Access Tokens",
+    "description": "The label for category Personal Access Tokens in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Public Identities": {
+    "message": "Public Identities",
+    "description": "The label for category Public Identities in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Public Identities Config": {
+    "message": "Public Identities Config",
+    "description": "The label for category Public Identities Config in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Requestable Objects": {
+    "message": "Requestable Objects",
+    "description": "The label for category Requestable Objects in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Saved Search": {
+    "message": "Saved Search",
+    "description": "The label for category Saved Search in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Scheduled Search": {
+    "message": "Scheduled Search",
+    "description": "The label for category Scheduled Search in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Search": {
+    "message": "Search",
+    "description": "The label for category Search in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Service Desk Integration": {
+    "message": "Service Desk Integration",
+    "description": "The label for category Service Desk Integration in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Sources": {
+    "message": "Sources",
+    "description": "The label for category Sources in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Transforms": {
+    "message": "Transforms",
+    "description": "The label for category Transforms in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Work Items": {
+    "message": "Work Items",
+    "description": "The label for category Work Items in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.IDN Beta": {
+    "message": "IDN Beta",
+    "description": "The label for category IDN Beta in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.IDN Beta.link.generated-index.title": {
+    "message": "IDN Beta",
+    "description": "The generated-index page title for category IDN Beta in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.IDN Beta.link.generated-index.description": {
+    "message": "These are the public APIs for SailPoint's SaaS services. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.",
+    "description": "The generated-index page description for category IDN Beta in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Access Profiles": {
+    "message": "Access Profiles",
+    "description": "The label for category Access Profiles in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Account Aggregations": {
+    "message": "Account Aggregations",
+    "description": "The label for category Account Aggregations in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Certification Campaigns": {
+    "message": "Certification Campaigns",
+    "description": "The label for category Certification Campaigns in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Connector Rule Management": {
+    "message": "Connector Rule Management",
+    "description": "The label for category Connector Rule Management in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Connectors": {
+    "message": "Connectors",
+    "description": "The label for category Connectors in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Custom Password Instructions": {
+    "message": "Custom Password Instructions",
+    "description": "The label for category Custom Password Instructions in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Entitlements": {
+    "message": "Entitlements",
+    "description": "The label for category Entitlements in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.IAI Access Request Recommendations": {
+    "message": "IAI Access Request Recommendations",
+    "description": "The label for category IAI Access Request Recommendations in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.IAI Common Access": {
+    "message": "IAI Common Access",
+    "description": "The label for category IAI Common Access in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.IAI Outliers": {
+    "message": "IAI Outliers",
+    "description": "The label for category IAI Outliers in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.IAI Peer Group Strategies": {
+    "message": "IAI Peer Group Strategies",
+    "description": "The label for category IAI Peer Group Strategies in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.IAI Recommendations": {
+    "message": "IAI Recommendations",
+    "description": "The label for category IAI Recommendations in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.IAI Role Mining": {
+    "message": "IAI Role Mining",
+    "description": "The label for category IAI Role Mining in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Identities": {
+    "message": "Identities",
+    "description": "The label for category Identities in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Identity History": {
+    "message": "Identity History",
+    "description": "The label for category Identity History in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Managed Clients": {
+    "message": "Managed Clients",
+    "description": "The label for category Managed Clients in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Managed Clusters": {
+    "message": "Managed Clusters",
+    "description": "The label for category Managed Clusters in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.MFA Configuration": {
+    "message": "MFA Configuration",
+    "description": "The label for category MFA Configuration in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Notifications": {
+    "message": "Notifications",
+    "description": "The label for category Notifications in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Org Config": {
+    "message": "Org Config",
+    "description": "The label for category Org Config in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Password Configuration": {
+    "message": "Password Configuration",
+    "description": "The label for category Password Configuration in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Password Dictionary": {
+    "message": "Password Dictionary",
+    "description": "The label for category Password Dictionary in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Password Sync Groups": {
+    "message": "Password Sync Groups",
+    "description": "The label for category Password Sync Groups in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Public Identity Config": {
+    "message": "Public Identity Config",
+    "description": "The label for category Public Identity Config in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Role Insights": {
+    "message": "Role Insights",
+    "description": "The label for category Role Insights in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Roles": {
+    "message": "Roles",
+    "description": "The label for category Roles in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Search Attribute Configuration": {
+    "message": "Search Attribute Configuration",
+    "description": "The label for category Search Attribute Configuration in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Segments": {
+    "message": "Segments",
+    "description": "The label for category Segments in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.SOD Policy": {
+    "message": "SOD Policy",
+    "description": "The label for category SOD Policy in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.SOD Violations": {
+    "message": "SOD Violations",
+    "description": "The label for category SOD Violations in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.SP-Config": {
+    "message": "SP-Config",
+    "description": "The label for category SP-Config in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Tagged Objects": {
+    "message": "Tagged Objects",
+    "description": "The label for category Tagged Objects in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Triggers": {
+    "message": "Triggers",
+    "description": "The label for category Triggers in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.category.Workflows": {
+    "message": "Workflows",
+    "description": "The label for category Workflows in sidebar openApiSidebar"
+  },
+  "sidebar.openApiSidebar.doc.Pending Access Request Approvals List": {
+    "message": "Pending Access Request Approvals List",
+    "description": "The label for the doc item Pending Access Request Approvals List in sidebar openApiSidebar, linking to the doc api/beta/list-pending-approvals"
+  },
+  "sidebar.openApiSidebar.doc.Completed Access Request Approvals List": {
+    "message": "Completed Access Request Approvals List",
+    "description": "The label for the doc item Completed Access Request Approvals List in sidebar openApiSidebar, linking to the doc api/beta/list-completed-approvals"
+  },
+  "sidebar.openApiSidebar.doc.Approves an access request approval.": {
+    "message": "Approves an access request approval.",
+    "description": "The label for the doc item Approves an access request approval. in sidebar openApiSidebar, linking to the doc api/beta/approve-request"
+  },
+  "sidebar.openApiSidebar.doc.Rejects an access request approval.": {
+    "message": "Rejects an access request approval.",
+    "description": "The label for the doc item Rejects an access request approval. in sidebar openApiSidebar, linking to the doc api/beta/reject-request"
+  },
+  "sidebar.openApiSidebar.doc.Forwards an access request approval.": {
+    "message": "Forwards an access request approval.",
+    "description": "The label for the doc item Forwards an access request approval. in sidebar openApiSidebar, linking to the doc api/v3/forward-request"
+  },
+  "sidebar.openApiSidebar.doc.Get the number of access-requests-approvals": {
+    "message": "Get the number of access-requests-approvals",
+    "description": "The label for the doc item Get the number of access-requests-approvals in sidebar openApiSidebar, linking to the doc api/v3/approval-summary"
+  },
+  "sidebar.openApiSidebar.doc.Submit an Access Request": {
+    "message": "Submit an Access Request",
+    "description": "The label for the doc item Submit an Access Request in sidebar openApiSidebar, linking to the doc api/beta/create-access-request"
+  },
+  "sidebar.openApiSidebar.doc.Cancel Access Request": {
+    "message": "Cancel Access Request",
+    "description": "The label for the doc item Cancel Access Request in sidebar openApiSidebar, linking to the doc api/beta/cancel-access-request"
+  },
+  "sidebar.openApiSidebar.doc.Get Access Request Configuration": {
+    "message": "Get Access Request Configuration",
+    "description": "The label for the doc item Get Access Request Configuration in sidebar openApiSidebar, linking to the doc api/beta/get-access-request-config"
+  },
+  "sidebar.openApiSidebar.doc.Update Access Request Configuration": {
+    "message": "Update Access Request Configuration",
+    "description": "The label for the doc item Update Access Request Configuration in sidebar openApiSidebar, linking to the doc api/beta/update-access-request-config"
+  },
+  "sidebar.openApiSidebar.doc.Access Request Status": {
+    "message": "Access Request Status",
+    "description": "The label for the doc item Access Request Status in sidebar openApiSidebar, linking to the doc api/beta/list-access-request-status"
+  },
+  "sidebar.openApiSidebar.doc.Accounts List": {
+    "message": "Accounts List",
+    "description": "The label for the doc item Accounts List in sidebar openApiSidebar, linking to the doc api/beta/list-accounts"
+  },
+  "sidebar.openApiSidebar.doc.Create Account": {
+    "message": "Create Account",
+    "description": "The label for the doc item Create Account in sidebar openApiSidebar, linking to the doc api/beta/create-account"
+  },
+  "sidebar.openApiSidebar.doc.Account Details": {
+    "message": "Account Details",
+    "description": "The label for the doc item Account Details in sidebar openApiSidebar, linking to the doc api/beta/get-account"
+  },
+  "sidebar.openApiSidebar.doc.Update Account": {
+    "message": "Update Account",
+    "description": "The label for the doc item Update Account in sidebar openApiSidebar, linking to the doc api/beta/put-account"
+  },
+  "sidebar.openApiSidebar.doc.Delete Account": {
+    "message": "Delete Account",
+    "description": "The label for the doc item Delete Account in sidebar openApiSidebar, linking to the doc api/beta/delete-account"
+  },
+  "sidebar.openApiSidebar.doc.Account Entitlements": {
+    "message": "Account Entitlements",
+    "description": "The label for the doc item Account Entitlements in sidebar openApiSidebar, linking to the doc api/beta/get-account-entitlements"
+  },
+  "sidebar.openApiSidebar.doc.Reload Account": {
+    "message": "Reload Account",
+    "description": "The label for the doc item Reload Account in sidebar openApiSidebar, linking to the doc api/beta/reload-account"
+  },
+  "sidebar.openApiSidebar.doc.Enable Account": {
+    "message": "Enable Account",
+    "description": "The label for the doc item Enable Account in sidebar openApiSidebar, linking to the doc api/beta/enable-account"
+  },
+  "sidebar.openApiSidebar.doc.Disable Account": {
+    "message": "Disable Account",
+    "description": "The label for the doc item Disable Account in sidebar openApiSidebar, linking to the doc api/beta/disable-account"
+  },
+  "sidebar.openApiSidebar.doc.Unlock Account": {
+    "message": "Unlock Account",
+    "description": "The label for the doc item Unlock Account in sidebar openApiSidebar, linking to the doc api/beta/unlock-account"
+  },
+  "sidebar.openApiSidebar.doc.Get a list of Account Activities": {
+    "message": "Get a list of Account Activities",
+    "description": "The label for the doc item Get a list of Account Activities in sidebar openApiSidebar, linking to the doc api/v3/list-account-activities"
+  },
+  "sidebar.openApiSidebar.doc.Get an Account Activity": {
+    "message": "Get an Account Activity",
+    "description": "The label for the doc item Get an Account Activity in sidebar openApiSidebar, linking to the doc api/v3/get-account-activity"
+  },
+  "sidebar.openApiSidebar.doc.Identity Campaign Certifications by IDs": {
+    "message": "Identity Campaign Certifications by IDs",
+    "description": "The label for the doc item Identity Campaign Certifications by IDs in sidebar openApiSidebar, linking to the doc api/v3/list-identity-certifications"
+  },
+  "sidebar.openApiSidebar.doc.Identity Certification by ID": {
+    "message": "Identity Certification by ID",
+    "description": "The label for the doc item Identity Certification by ID in sidebar openApiSidebar, linking to the doc api/v3/get-identity-certification"
+  },
+  "sidebar.openApiSidebar.doc.List of Access Review Items": {
+    "message": "List of Access Review Items",
+    "description": "The label for the doc item List of Access Review Items in sidebar openApiSidebar, linking to the doc api/v3/list-identity-access-review-items"
+  },
+  "sidebar.openApiSidebar.doc.Decide on a Certification Item": {
+    "message": "Decide on a Certification Item",
+    "description": "The label for the doc item Decide on a Certification Item in sidebar openApiSidebar, linking to the doc api/v3/make-identity-decision"
+  },
+  "sidebar.openApiSidebar.doc.Reassign Identities or Items": {
+    "message": "Reassign Identities or Items",
+    "description": "The label for the doc item Reassign Identities or Items in sidebar openApiSidebar, linking to the doc api/v3/reassign-identity-certifications"
+  },
+  "sidebar.openApiSidebar.doc.Finalize Identity Certification Decisions": {
+    "message": "Finalize Identity Certification Decisions",
+    "description": "The label for the doc item Finalize Identity Certification Decisions in sidebar openApiSidebar, linking to the doc api/v3/sign-off-identity-certification"
+  },
+  "sidebar.openApiSidebar.doc.Summary of Certification Decisions": {
+    "message": "Summary of Certification Decisions",
+    "description": "The label for the doc item Summary of Certification Decisions in sidebar openApiSidebar, linking to the doc api/v3/get-identity-decision-summary"
+  },
+  "sidebar.openApiSidebar.doc.Identity Summaries for Identity Campaign Certification": {
+    "message": "Identity Summaries for Identity Campaign Certification",
+    "description": "The label for the doc item Identity Summaries for Identity Campaign Certification in sidebar openApiSidebar, linking to the doc api/v3/get-identity-summaries"
+  },
+  "sidebar.openApiSidebar.doc.Access Summaries": {
+    "message": "Access Summaries",
+    "description": "The label for the doc item Access Summaries in sidebar openApiSidebar, linking to the doc api/v3/get-identity-access-summaries"
+  },
+  "sidebar.openApiSidebar.doc.Summary for Identity": {
+    "message": "Summary for Identity",
+    "description": "The label for the doc item Summary for Identity in sidebar openApiSidebar, linking to the doc api/v3/get-identity-summary"
+  },
+  "sidebar.openApiSidebar.doc.Set Lifecycle State": {
+    "message": "Set Lifecycle State",
+    "description": "The label for the doc item Set Lifecycle State in sidebar openApiSidebar, linking to the doc api/v3/set-lifecycle-state"
+  },
+  "sidebar.openApiSidebar.doc.Lists LifecycleStates": {
+    "message": "Lists LifecycleStates",
+    "description": "The label for the doc item Lists LifecycleStates in sidebar openApiSidebar, linking to the doc api/v3/list-lifecycle-states"
+  },
+  "sidebar.openApiSidebar.doc.Create Lifecycle State": {
+    "message": "Create Lifecycle State",
+    "description": "The label for the doc item Create Lifecycle State in sidebar openApiSidebar, linking to the doc api/v3/create-lifecycle-state"
+  },
+  "sidebar.openApiSidebar.doc.Retrieves Lifecycle State": {
+    "message": "Retrieves Lifecycle State",
+    "description": "The label for the doc item Retrieves Lifecycle State in sidebar openApiSidebar, linking to the doc api/v3/get-lifecycle-state"
+  },
+  "sidebar.openApiSidebar.doc.Update Lifecycle State": {
+    "message": "Update Lifecycle State",
+    "description": "The label for the doc item Update Lifecycle State in sidebar openApiSidebar, linking to the doc api/beta/update-lifecycle-states"
+  },
+  "sidebar.openApiSidebar.doc.Delete Lifecycle State by ID": {
+    "message": "Delete Lifecycle State by ID",
+    "description": "The label for the doc item Delete Lifecycle State by ID in sidebar openApiSidebar, linking to the doc api/v3/delete-lifecycle-state"
+  },
+  "sidebar.openApiSidebar.doc.Identity Profiles List": {
+    "message": "Identity Profiles List",
+    "description": "The label for the doc item Identity Profiles List in sidebar openApiSidebar, linking to the doc api/v3/list-identity-profiles"
+  },
+  "sidebar.openApiSidebar.doc.Export Identity Profiles": {
+    "message": "Export Identity Profiles",
+    "description": "The label for the doc item Export Identity Profiles in sidebar openApiSidebar, linking to the doc api/beta/export-identity-profiles"
+  },
+  "sidebar.openApiSidebar.doc.Import Identity Profiles": {
+    "message": "Import Identity Profiles",
+    "description": "The label for the doc item Import Identity Profiles in sidebar openApiSidebar, linking to the doc api/beta/import-identity-profiles"
+  },
+  "sidebar.openApiSidebar.doc.Get single Identity Profile": {
+    "message": "Get single Identity Profile",
+    "description": "The label for the doc item Get single Identity Profile in sidebar openApiSidebar, linking to the doc api/v3/get-identity-profile"
+  },
+  "sidebar.openApiSidebar.doc.Get default Identity Attribute Config": {
+    "message": "Get default Identity Attribute Config",
+    "description": "The label for the doc item Get default Identity Attribute Config in sidebar openApiSidebar, linking to the doc api/v3/get-default-identity-attribute-config"
+  },
+  "sidebar.openApiSidebar.doc.Create Non-Employee Record": {
+    "message": "Create Non-Employee Record",
+    "description": "The label for the doc item Create Non-Employee Record in sidebar openApiSidebar, linking to the doc api/beta/non-employee-record-creation"
+  },
+  "sidebar.openApiSidebar.doc.List Non-Employee Records": {
+    "message": "List Non-Employee Records",
+    "description": "The label for the doc item List Non-Employee Records in sidebar openApiSidebar, linking to the doc api/beta/non-employee-record-list"
+  },
+  "sidebar.openApiSidebar.doc.Get a Non-Employee Record": {
+    "message": "Get a Non-Employee Record",
+    "description": "The label for the doc item Get a Non-Employee Record in sidebar openApiSidebar, linking to the doc api/beta/non-employee-record-get"
+  },
+  "sidebar.openApiSidebar.doc.Update Non-Employee Record": {
+    "message": "Update Non-Employee Record",
+    "description": "The label for the doc item Update Non-Employee Record in sidebar openApiSidebar, linking to the doc api/beta/non-employee-record-update"
+  },
+  "sidebar.openApiSidebar.doc.Patch Non-Employee Record": {
+    "message": "Patch Non-Employee Record",
+    "description": "The label for the doc item Patch Non-Employee Record in sidebar openApiSidebar, linking to the doc api/beta/non-employee-record-patch"
+  },
+  "sidebar.openApiSidebar.doc.Delete Non-Employee Record": {
+    "message": "Delete Non-Employee Record",
+    "description": "The label for the doc item Delete Non-Employee Record in sidebar openApiSidebar, linking to the doc api/beta/non-employee-record-delete"
+  },
+  "sidebar.openApiSidebar.doc.Delete Multiple Non-Employee Records": {
+    "message": "Delete Multiple Non-Employee Records",
+    "description": "The label for the doc item Delete Multiple Non-Employee Records in sidebar openApiSidebar, linking to the doc api/beta/non-employee-record-bulk-delete"
+  },
+  "sidebar.openApiSidebar.doc.Create Non-Employee Request": {
+    "message": "Create Non-Employee Request",
+    "description": "The label for the doc item Create Non-Employee Request in sidebar openApiSidebar, linking to the doc api/beta/non-employee-request-creation"
+  },
+  "sidebar.openApiSidebar.doc.List Non-Employee Requests": {
+    "message": "List Non-Employee Requests",
+    "description": "The label for the doc item List Non-Employee Requests in sidebar openApiSidebar, linking to the doc api/beta/non-employee-request-list"
+  },
+  "sidebar.openApiSidebar.doc.Get a Non-Employee Request": {
+    "message": "Get a Non-Employee Request",
+    "description": "The label for the doc item Get a Non-Employee Request in sidebar openApiSidebar, linking to the doc api/beta/non-employee-request-get"
+  },
+  "sidebar.openApiSidebar.doc.Delete Non-Employee Request": {
+    "message": "Delete Non-Employee Request",
+    "description": "The label for the doc item Delete Non-Employee Request in sidebar openApiSidebar, linking to the doc api/beta/non-employee-request-deletion"
+  },
+  "sidebar.openApiSidebar.doc.Get Summary of Non-Employee Requests": {
+    "message": "Get Summary of Non-Employee Requests",
+    "description": "The label for the doc item Get Summary of Non-Employee Requests in sidebar openApiSidebar, linking to the doc api/beta/non-employee-request-summary-get"
+  },
+  "sidebar.openApiSidebar.doc.Create Non-Employee Source": {
+    "message": "Create Non-Employee Source",
+    "description": "The label for the doc item Create Non-Employee Source in sidebar openApiSidebar, linking to the doc api/beta/non-employee-sources-creation"
+  },
+  "sidebar.openApiSidebar.doc.List Non-Employee Sources": {
+    "message": "List Non-Employee Sources",
+    "description": "The label for the doc item List Non-Employee Sources in sidebar openApiSidebar, linking to the doc api/beta/non-employee-sources-list"
+  },
+  "sidebar.openApiSidebar.doc.Get a Non-Employee Source": {
+    "message": "Get a Non-Employee Source",
+    "description": "The label for the doc item Get a Non-Employee Source in sidebar openApiSidebar, linking to the doc api/beta/non-employee-source-get"
+  },
+  "sidebar.openApiSidebar.doc.Patch a Non-Employee Source": {
+    "message": "Patch a Non-Employee Source",
+    "description": "The label for the doc item Patch a Non-Employee Source in sidebar openApiSidebar, linking to the doc api/beta/non-employee-source-patch"
+  },
+  "sidebar.openApiSidebar.doc.Delete Non-Employee Source": {
+    "message": "Delete Non-Employee Source",
+    "description": "The label for the doc item Delete Non-Employee Source in sidebar openApiSidebar, linking to the doc api/beta/non-employee-source-delete"
+  },
+  "sidebar.openApiSidebar.doc.Exports Non-Employee Records to CSV": {
+    "message": "Exports Non-Employee Records to CSV",
+    "description": "The label for the doc item Exports Non-Employee Records to CSV in sidebar openApiSidebar, linking to the doc api/beta/non-employee-records-export"
+  },
+  "sidebar.openApiSidebar.doc.Imports, or Updates, Non-Employee Records": {
+    "message": "Imports, or Updates, Non-Employee Records",
+    "description": "The label for the doc item Imports, or Updates, Non-Employee Records in sidebar openApiSidebar, linking to the doc api/beta/non-employee-records-bulk-upload"
+  },
+  "sidebar.openApiSidebar.doc.Obtain the status of bulk upload on the source": {
+    "message": "Obtain the status of bulk upload on the source",
+    "description": "The label for the doc item Obtain the status of bulk upload on the source in sidebar openApiSidebar, linking to the doc api/beta/non-employee-bulk-upload-status"
+  },
+  "sidebar.openApiSidebar.doc.Exports Source Schema Template": {
+    "message": "Exports Source Schema Template",
+    "description": "The label for the doc item Exports Source Schema Template in sidebar openApiSidebar, linking to the doc api/beta/non-employee-export-source-schema-template"
+  },
+  "sidebar.openApiSidebar.doc.Get List of Non-Employee Approval Requests": {
+    "message": "Get List of Non-Employee Approval Requests",
+    "description": "The label for the doc item Get List of Non-Employee Approval Requests in sidebar openApiSidebar, linking to the doc api/beta/non-employee-approval-list"
+  },
+  "sidebar.openApiSidebar.doc.Get a non-employee approval item detail": {
+    "message": "Get a non-employee approval item detail",
+    "description": "The label for the doc item Get a non-employee approval item detail in sidebar openApiSidebar, linking to the doc api/beta/non-employee-approval-get"
+  },
+  "sidebar.openApiSidebar.doc.Approve a Non-Employee Request": {
+    "message": "Approve a Non-Employee Request",
+    "description": "The label for the doc item Approve a Non-Employee Request in sidebar openApiSidebar, linking to the doc api/beta/non-employee-approve-request"
+  },
+  "sidebar.openApiSidebar.doc.Reject a Non-Employee Request": {
+    "message": "Reject a Non-Employee Request",
+    "description": "The label for the doc item Reject a Non-Employee Request in sidebar openApiSidebar, linking to the doc api/beta/non-employee-reject-request"
+  },
+  "sidebar.openApiSidebar.doc.Get Summary of Non-Employee Approval Requests": {
+    "message": "Get Summary of Non-Employee Approval Requests",
+    "description": "The label for the doc item Get Summary of Non-Employee Approval Requests in sidebar openApiSidebar, linking to the doc api/beta/non-employee-approval-summary"
+  },
+  "sidebar.openApiSidebar.doc.List Schema Attributes Non-Employee Source": {
+    "message": "List Schema Attributes Non-Employee Source",
+    "description": "The label for the doc item List Schema Attributes Non-Employee Source in sidebar openApiSidebar, linking to the doc api/beta/get-schema-attributes"
+  },
+  "sidebar.openApiSidebar.doc.Create a new Schema Attribute for Non-Employee Source": {
+    "message": "Create a new Schema Attribute for Non-Employee Source",
+    "description": "The label for the doc item Create a new Schema Attribute for Non-Employee Source in sidebar openApiSidebar, linking to the doc api/beta/create-schema-attribute"
+  },
+  "sidebar.openApiSidebar.doc.Delete all custom schema attributes for Non-Employee Source": {
+    "message": "Delete all custom schema attributes for Non-Employee Source",
+    "description": "The label for the doc item Delete all custom schema attributes for Non-Employee Source in sidebar openApiSidebar, linking to the doc api/beta/delete-schema-attributes"
+  },
+  "sidebar.openApiSidebar.doc.Get Schema Attribute Non-Employee Source": {
+    "message": "Get Schema Attribute Non-Employee Source",
+    "description": "The label for the doc item Get Schema Attribute Non-Employee Source in sidebar openApiSidebar, linking to the doc api/beta/get-schema-attribute"
+  },
+  "sidebar.openApiSidebar.doc.Patch a Schema Attribute for Non-Employee Source": {
+    "message": "Patch a Schema Attribute for Non-Employee Source",
+    "description": "The label for the doc item Patch a Schema Attribute for Non-Employee Source in sidebar openApiSidebar, linking to the doc api/beta/patch-schema-attribute"
+  },
+  "sidebar.openApiSidebar.doc.Delete a Schema Attribute for Non-Employee Source": {
+    "message": "Delete a Schema Attribute for Non-Employee Source",
+    "description": "The label for the doc item Delete a Schema Attribute for Non-Employee Source in sidebar openApiSidebar, linking to the doc api/beta/delete-schema-attribute"
+  },
+  "sidebar.openApiSidebar.doc.List OAuth Clients": {
+    "message": "List OAuth Clients",
+    "description": "The label for the doc item List OAuth Clients in sidebar openApiSidebar, linking to the doc api/beta/list-oauth-clients"
+  },
+  "sidebar.openApiSidebar.doc.Create OAuth Client": {
+    "message": "Create OAuth Client",
+    "description": "The label for the doc item Create OAuth Client in sidebar openApiSidebar, linking to the doc api/beta/create-oauth-client"
+  },
+  "sidebar.openApiSidebar.doc.Get OAuth Client": {
+    "message": "Get OAuth Client",
+    "description": "The label for the doc item Get OAuth Client in sidebar openApiSidebar, linking to the doc api/beta/get-oauth-client"
+  },
+  "sidebar.openApiSidebar.doc.Delete OAuth Client": {
+    "message": "Delete OAuth Client",
+    "description": "The label for the doc item Delete OAuth Client in sidebar openApiSidebar, linking to the doc api/beta/delete-oauth-client"
+  },
+  "sidebar.openApiSidebar.doc.Patch OAuth Client": {
+    "message": "Patch OAuth Client",
+    "description": "The label for the doc item Patch OAuth Client in sidebar openApiSidebar, linking to the doc api/beta/patch-oauth-client"
+  },
+  "sidebar.openApiSidebar.doc.Query Password Info": {
+    "message": "Query Password Info",
+    "description": "The label for the doc item Query Password Info in sidebar openApiSidebar, linking to the doc api/beta/query-password-info"
+  },
+  "sidebar.openApiSidebar.doc.Set Identity's Password": {
+    "message": "Set Identity's Password",
+    "description": "The label for the doc item Set Identity's Password in sidebar openApiSidebar, linking to the doc api/beta/set-password"
+  },
+  "sidebar.openApiSidebar.doc.Get Password Change Request Status": {
+    "message": "Get Password Change Request Status",
+    "description": "The label for the doc item Get Password Change Request Status in sidebar openApiSidebar, linking to the doc api/beta/get-password-change-status"
+  },
+  "sidebar.openApiSidebar.doc.List Personal Access Tokens": {
+    "message": "List Personal Access Tokens",
+    "description": "The label for the doc item List Personal Access Tokens in sidebar openApiSidebar, linking to the doc api/beta/list-personal-access-tokens"
+  },
+  "sidebar.openApiSidebar.doc.Create Personal Access Token": {
+    "message": "Create Personal Access Token",
+    "description": "The label for the doc item Create Personal Access Token in sidebar openApiSidebar, linking to the doc api/beta/create-personal-access-token"
+  },
+  "sidebar.openApiSidebar.doc.Delete Personal Access Token": {
+    "message": "Delete Personal Access Token",
+    "description": "The label for the doc item Delete Personal Access Token in sidebar openApiSidebar, linking to the doc api/beta/delete-personal-access-token"
+  },
+  "sidebar.openApiSidebar.doc.Get a list of public identities": {
+    "message": "Get a list of public identities",
+    "description": "The label for the doc item Get a list of public identities in sidebar openApiSidebar, linking to the doc api/v3/get-public-identities"
+  },
+  "sidebar.openApiSidebar.doc.Get the Public Identities Configuration": {
+    "message": "Get the Public Identities Configuration",
+    "description": "The label for the doc item Get the Public Identities Configuration in sidebar openApiSidebar, linking to the doc api/v3/get-public-identity-config"
+  },
+  "sidebar.openApiSidebar.doc.Update the Public Identities Configuration": {
+    "message": "Update the Public Identities Configuration",
+    "description": "The label for the doc item Update the Public Identities Configuration in sidebar openApiSidebar, linking to the doc api/v3/update-public-identity-config"
+  },
+  "sidebar.openApiSidebar.doc.Requestable Objects List": {
+    "message": "Requestable Objects List",
+    "description": "The label for the doc item Requestable Objects List in sidebar openApiSidebar, linking to the doc api/beta/list-requestable-objects"
+  },
+  "sidebar.openApiSidebar.doc.Create a saved search": {
+    "message": "Create a saved search",
+    "description": "The label for the doc item Create a saved search in sidebar openApiSidebar, linking to the doc api/v3/saved-search-create"
+  },
+  "sidebar.openApiSidebar.doc.Return a list of Saved Searches": {
+    "message": "Return a list of Saved Searches",
+    "description": "The label for the doc item Return a list of Saved Searches in sidebar openApiSidebar, linking to the doc api/v3/saved-search-list"
+  },
+  "sidebar.openApiSidebar.doc.Updates an existing saved search\n": {
+    "message": "Updates an existing saved search\n",
+    "description": "The label for the doc item Updates an existing saved search\n in sidebar openApiSidebar, linking to the doc api/v3/saved-search-update"
+  },
+  "sidebar.openApiSidebar.doc.Return a saved search by ID": {
+    "message": "Return a saved search by ID",
+    "description": "The label for the doc item Return a saved search by ID in sidebar openApiSidebar, linking to the doc api/v3/saved-search-get"
+  },
+  "sidebar.openApiSidebar.doc.Delete a document by ID": {
+    "message": "Delete a document by ID",
+    "description": "The label for the doc item Delete a document by ID in sidebar openApiSidebar, linking to the doc api/v3/saved-search-delete"
+  },
+  "sidebar.openApiSidebar.doc.Execute a saved search by ID": {
+    "message": "Execute a saved search by ID",
+    "description": "The label for the doc item Execute a saved search by ID in sidebar openApiSidebar, linking to the doc api/v3/saved-search-execute"
+  },
+  "sidebar.openApiSidebar.doc.Create a new scheduled search": {
+    "message": "Create a new scheduled search",
+    "description": "The label for the doc item Create a new scheduled search in sidebar openApiSidebar, linking to the doc api/v3/scheduled-search-create"
+  },
+  "sidebar.openApiSidebar.doc.Return a list of scheduled searches": {
+    "message": "Return a list of scheduled searches",
+    "description": "The label for the doc item Return a list of scheduled searches in sidebar openApiSidebar, linking to the doc api/v3/scheduled-search-list"
+  },
+  "sidebar.openApiSidebar.doc.Update an existing Scheduled Search": {
+    "message": "Update an existing Scheduled Search",
+    "description": "The label for the doc item Update an existing Scheduled Search in sidebar openApiSidebar, linking to the doc api/v3/scheduled-search-update"
+  },
+  "sidebar.openApiSidebar.doc.Return a Scheduled Search by ID": {
+    "message": "Return a Scheduled Search by ID",
+    "description": "The label for the doc item Return a Scheduled Search by ID in sidebar openApiSidebar, linking to the doc api/v3/scheduled-search-get"
+  },
+  "sidebar.openApiSidebar.doc.Delete a Scheduled Search by ID": {
+    "message": "Delete a Scheduled Search by ID",
+    "description": "The label for the doc item Delete a Scheduled Search by ID in sidebar openApiSidebar, linking to the doc api/v3/scheduled-search-delete"
+  },
+  "sidebar.openApiSidebar.doc.Unsubscribe a recipient from Scheduled Search": {
+    "message": "Unsubscribe a recipient from Scheduled Search",
+    "description": "The label for the doc item Unsubscribe a recipient from Scheduled Search in sidebar openApiSidebar, linking to the doc api/v3/scheduled-search-unsubscribe"
+  },
+  "sidebar.openApiSidebar.doc.Get a list of Documents": {
+    "message": "Get a list of Documents",
+    "description": "The label for the doc item Get a list of Documents in sidebar openApiSidebar, linking to the doc api/v3/search"
+  },
+  "sidebar.openApiSidebar.doc.Count the number of Documents satisfying a Query": {
+    "message": "Count the number of Documents satisfying a Query",
+    "description": "The label for the doc item Count the number of Documents satisfying a Query in sidebar openApiSidebar, linking to the doc api/v3/search-count"
+  },
+  "sidebar.openApiSidebar.doc.Perform a Search Query Aggregation": {
+    "message": "Perform a Search Query Aggregation",
+    "description": "The label for the doc item Perform a Search Query Aggregation in sidebar openApiSidebar, linking to the doc api/v3/search-aggregate"
+  },
+  "sidebar.openApiSidebar.doc.Get a Document by ID": {
+    "message": "Get a Document by ID",
+    "description": "The label for the doc item Get a Document by ID in sidebar openApiSidebar, linking to the doc api/v3/search-get"
+  },
+  "sidebar.openApiSidebar.doc.List existing Service Desk Integrations": {
+    "message": "List existing Service Desk Integrations",
+    "description": "The label for the doc item List existing Service Desk Integrations in sidebar openApiSidebar, linking to the doc api/beta/get-service-desk-integration-list"
+  },
+  "sidebar.openApiSidebar.doc.Create a new Service Desk integration": {
+    "message": "Create a new Service Desk integration",
+    "description": "The label for the doc item Create a new Service Desk integration in sidebar openApiSidebar, linking to the doc api/beta/create-service-desk-integration"
+  },
+  "sidebar.openApiSidebar.doc.Get a Service Desk integration by ID": {
+    "message": "Get a Service Desk integration by ID",
+    "description": "The label for the doc item Get a Service Desk integration by ID in sidebar openApiSidebar, linking to the doc api/beta/get-service-desk-integration"
+  },
+  "sidebar.openApiSidebar.doc.Update a Service Desk integration by ID": {
+    "message": "Update a Service Desk integration by ID",
+    "description": "The label for the doc item Update a Service Desk integration by ID in sidebar openApiSidebar, linking to the doc api/beta/update-service-desk-integration"
+  },
+  "sidebar.openApiSidebar.doc.Delete a Service Desk integration by ID": {
+    "message": "Delete a Service Desk integration by ID",
+    "description": "The label for the doc item Delete a Service Desk integration by ID in sidebar openApiSidebar, linking to the doc api/beta/delete-service-desk-integration"
+  },
+  "sidebar.openApiSidebar.doc.Service Desk Integration Update - PATCH": {
+    "message": "Service Desk Integration Update - PATCH",
+    "description": "The label for the doc item Service Desk Integration Update - PATCH in sidebar openApiSidebar, linking to the doc api/beta/patch-service-desk-integration"
+  },
+  "sidebar.openApiSidebar.doc.Service Desk Integration Types List.": {
+    "message": "Service Desk Integration Types List.",
+    "description": "The label for the doc item Service Desk Integration Types List. in sidebar openApiSidebar, linking to the doc api/beta/get-service-desk-integration-types"
+  },
+  "sidebar.openApiSidebar.doc.Service Desk integration template by scriptName.": {
+    "message": "Service Desk integration template by scriptName.",
+    "description": "The label for the doc item Service Desk integration template by scriptName. in sidebar openApiSidebar, linking to the doc api/beta/get-service-desk-integration-template"
+  },
+  "sidebar.openApiSidebar.doc.Get the time check configuration of queued SDIM tickets": {
+    "message": "Get the time check configuration of queued SDIM tickets",
+    "description": "The label for the doc item Get the time check configuration of queued SDIM tickets in sidebar openApiSidebar, linking to the doc api/beta/get-status-check-details"
+  },
+  "sidebar.openApiSidebar.doc.Update the time check configuration of queued SDIM tickets": {
+    "message": "Update the time check configuration of queued SDIM tickets",
+    "description": "The label for the doc item Update the time check configuration of queued SDIM tickets in sidebar openApiSidebar, linking to the doc api/beta/update-status-check-details"
+  },
+  "sidebar.openApiSidebar.doc.Lists all sources in IdentityNow.": {
+    "message": "Lists all sources in IdentityNow.",
+    "description": "The label for the doc item Lists all sources in IdentityNow. in sidebar openApiSidebar, linking to the doc api/beta/list-sources"
+  },
+  "sidebar.openApiSidebar.doc.Creates a source in IdentityNow.": {
+    "message": "Creates a source in IdentityNow.",
+    "description": "The label for the doc item Creates a source in IdentityNow. in sidebar openApiSidebar, linking to the doc api/beta/create-source"
+  },
+  "sidebar.openApiSidebar.doc.Get Source by ID": {
+    "message": "Get Source by ID",
+    "description": "The label for the doc item Get Source by ID in sidebar openApiSidebar, linking to the doc api/beta/get-source"
+  },
+  "sidebar.openApiSidebar.doc.Update Source (Full)": {
+    "message": "Update Source (Full)",
+    "description": "The label for the doc item Update Source (Full) in sidebar openApiSidebar, linking to the doc api/beta/replace-source"
+  },
+  "sidebar.openApiSidebar.doc.Update Source (Partial)": {
+    "message": "Update Source (Partial)",
+    "description": "The label for the doc item Update Source (Partial) in sidebar openApiSidebar, linking to the doc api/beta/update-source"
+  },
+  "sidebar.openApiSidebar.doc.Delete Source by ID": {
+    "message": "Delete Source by ID",
+    "description": "The label for the doc item Delete Source by ID in sidebar openApiSidebar, linking to the doc api/beta/delete-source"
+  },
+  "sidebar.openApiSidebar.doc.Lists ProvisioningPolicies": {
+    "message": "Lists ProvisioningPolicies",
+    "description": "The label for the doc item Lists ProvisioningPolicies in sidebar openApiSidebar, linking to the doc api/beta/list-provisioning-policies"
+  },
+  "sidebar.openApiSidebar.doc.Create Provisioning Policy": {
+    "message": "Create Provisioning Policy",
+    "description": "The label for the doc item Create Provisioning Policy in sidebar openApiSidebar, linking to the doc api/beta/create-provisioning-policy"
+  },
+  "sidebar.openApiSidebar.doc.Get Provisioning Policy by UsageType": {
+    "message": "Get Provisioning Policy by UsageType",
+    "description": "The label for the doc item Get Provisioning Policy by UsageType in sidebar openApiSidebar, linking to the doc api/beta/get-provisioning-policy"
+  },
+  "sidebar.openApiSidebar.doc.Update Provisioning Policy by UsageType": {
+    "message": "Update Provisioning Policy by UsageType",
+    "description": "The label for the doc item Update Provisioning Policy by UsageType in sidebar openApiSidebar, linking to the doc api/beta/replace-provisioning-policy"
+  },
+  "sidebar.openApiSidebar.doc.Partial update of Provisioning Policy": {
+    "message": "Partial update of Provisioning Policy",
+    "description": "The label for the doc item Partial update of Provisioning Policy in sidebar openApiSidebar, linking to the doc api/beta/update-provisioning-policy"
+  },
+  "sidebar.openApiSidebar.doc.Delete Provisioning Policy by UsageType": {
+    "message": "Delete Provisioning Policy by UsageType",
+    "description": "The label for the doc item Delete Provisioning Policy by UsageType in sidebar openApiSidebar, linking to the doc api/beta/delete-provisioning-policy"
+  },
+  "sidebar.openApiSidebar.doc.Bulk Update Provisioning Policies": {
+    "message": "Bulk Update Provisioning Policies",
+    "description": "The label for the doc item Bulk Update Provisioning Policies in sidebar openApiSidebar, linking to the doc api/beta/bulk-update-provisioning-policies"
+  },
+  "sidebar.openApiSidebar.doc.List Schemas on a Source": {
+    "message": "List Schemas on a Source",
+    "description": "The label for the doc item List Schemas on a Source in sidebar openApiSidebar, linking to the doc api/v3/list-schemas"
+  },
+  "sidebar.openApiSidebar.doc.Create Schema on a Source": {
+    "message": "Create Schema on a Source",
+    "description": "The label for the doc item Create Schema on a Source in sidebar openApiSidebar, linking to the doc api/v3/create-schema"
+  },
+  "sidebar.openApiSidebar.doc.Get Source Schema by ID": {
+    "message": "Get Source Schema by ID",
+    "description": "The label for the doc item Get Source Schema by ID in sidebar openApiSidebar, linking to the doc api/beta/get-schema"
+  },
+  "sidebar.openApiSidebar.doc.Update Source Schema (Full)": {
+    "message": "Update Source Schema (Full)",
+    "description": "The label for the doc item Update Source Schema (Full) in sidebar openApiSidebar, linking to the doc api/beta/replace-schema"
+  },
+  "sidebar.openApiSidebar.doc.Update Source Schema (Partial)": {
+    "message": "Update Source Schema (Partial)",
+    "description": "The label for the doc item Update Source Schema (Partial) in sidebar openApiSidebar, linking to the doc api/beta/update-schema"
+  },
+  "sidebar.openApiSidebar.doc.Delete Source Schema by ID": {
+    "message": "Delete Source Schema by ID",
+    "description": "The label for the doc item Delete Source Schema by ID in sidebar openApiSidebar, linking to the doc api/beta/delete-schema"
+  },
+  "sidebar.openApiSidebar.doc.This API fetches source health by source's id": {
+    "message": "This API fetches source health by source's id",
+    "description": "The label for the doc item This API fetches source health by source's id in sidebar openApiSidebar, linking to the doc api/v3/get-source-health"
+  },
+  "sidebar.openApiSidebar.doc.Downloads source accounts schema template": {
+    "message": "Downloads source accounts schema template",
+    "description": "The label for the doc item Downloads source accounts schema template in sidebar openApiSidebar, linking to the doc api/beta/download-source-accounts-schema"
+  },
+  "sidebar.openApiSidebar.doc.Uploads source accounts schema template": {
+    "message": "Uploads source accounts schema template",
+    "description": "The label for the doc item Uploads source accounts schema template in sidebar openApiSidebar, linking to the doc api/beta/upload-source-accounts-schema"
+  },
+  "sidebar.openApiSidebar.doc.Downloads source entitlements schema template": {
+    "message": "Downloads source entitlements schema template",
+    "description": "The label for the doc item Downloads source entitlements schema template in sidebar openApiSidebar, linking to the doc api/beta/download-source-entitlements-schema"
+  },
+  "sidebar.openApiSidebar.doc.Uploads source entitlements schema template": {
+    "message": "Uploads source entitlements schema template",
+    "description": "The label for the doc item Uploads source entitlements schema template in sidebar openApiSidebar, linking to the doc api/beta/upload-source-entitlements-schema"
+  },
+  "sidebar.openApiSidebar.doc.Upload connector file to source": {
+    "message": "Upload connector file to source",
+    "description": "The label for the doc item Upload connector file to source in sidebar openApiSidebar, linking to the doc api/beta/upload-connector-file"
+  },
+  "sidebar.openApiSidebar.doc.List transforms": {
+    "message": "List transforms",
+    "description": "The label for the doc item List transforms in sidebar openApiSidebar, linking to the doc api/beta/get-transforms-list"
+  },
+  "sidebar.openApiSidebar.doc.Create transform": {
+    "message": "Create transform",
+    "description": "The label for the doc item Create transform in sidebar openApiSidebar, linking to the doc api/beta/create-transform"
+  },
+  "sidebar.openApiSidebar.doc.Transform by ID": {
+    "message": "Transform by ID",
+    "description": "The label for the doc item Transform by ID in sidebar openApiSidebar, linking to the doc api/beta/get-transform"
+  },
+  "sidebar.openApiSidebar.doc.Update a transform": {
+    "message": "Update a transform",
+    "description": "The label for the doc item Update a transform in sidebar openApiSidebar, linking to the doc api/beta/update-transform"
+  },
+  "sidebar.openApiSidebar.doc.Delete a transform": {
+    "message": "Delete a transform",
+    "description": "The label for the doc item Delete a transform in sidebar openApiSidebar, linking to the doc api/beta/delete-transform"
+  },
+  "sidebar.openApiSidebar.doc.List Work Items": {
+    "message": "List Work Items",
+    "description": "The label for the doc item List Work Items in sidebar openApiSidebar, linking to the doc api/beta/list-work-items"
+  },
+  "sidebar.openApiSidebar.doc.Completed Work Items": {
+    "message": "Completed Work Items",
+    "description": "The label for the doc item Completed Work Items in sidebar openApiSidebar, linking to the doc api/beta/completed-work-items"
+  },
+  "sidebar.openApiSidebar.doc.Count Work Items": {
+    "message": "Count Work Items",
+    "description": "The label for the doc item Count Work Items in sidebar openApiSidebar, linking to the doc api/beta/count-work-items"
+  },
+  "sidebar.openApiSidebar.doc.Count Completed Work Items": {
+    "message": "Count Completed Work Items",
+    "description": "The label for the doc item Count Completed Work Items in sidebar openApiSidebar, linking to the doc api/beta/count-completed-work-items"
+  },
+  "sidebar.openApiSidebar.doc.Work Items Summary": {
+    "message": "Work Items Summary",
+    "description": "The label for the doc item Work Items Summary in sidebar openApiSidebar, linking to the doc api/beta/summary-work-items"
+  },
+  "sidebar.openApiSidebar.doc.Get a Work Item": {
+    "message": "Get a Work Item",
+    "description": "The label for the doc item Get a Work Item in sidebar openApiSidebar, linking to the doc api/beta/get-work-items"
+  },
+  "sidebar.openApiSidebar.doc.Complete a Work Item": {
+    "message": "Complete a Work Item",
+    "description": "The label for the doc item Complete a Work Item in sidebar openApiSidebar, linking to the doc api/beta/complete-work-item"
+  },
+  "sidebar.openApiSidebar.doc.Approve an Approval Item": {
+    "message": "Approve an Approval Item",
+    "description": "The label for the doc item Approve an Approval Item in sidebar openApiSidebar, linking to the doc api/beta/approve-approval-item"
+  },
+  "sidebar.openApiSidebar.doc.Reject an Approval Item": {
+    "message": "Reject an Approval Item",
+    "description": "The label for the doc item Reject an Approval Item in sidebar openApiSidebar, linking to the doc api/beta/reject-approval-item"
+  },
+  "sidebar.openApiSidebar.doc.Bulk approve Approval Items": {
+    "message": "Bulk approve Approval Items",
+    "description": "The label for the doc item Bulk approve Approval Items in sidebar openApiSidebar, linking to the doc api/beta/bulk-approve-approval-item"
+  },
+  "sidebar.openApiSidebar.doc.Bulk reject Approval Items": {
+    "message": "Bulk reject Approval Items",
+    "description": "The label for the doc item Bulk reject Approval Items in sidebar openApiSidebar, linking to the doc api/beta/bulk-reject-approval-item"
+  },
+  "sidebar.openApiSidebar.doc.Submit Account Selections": {
+    "message": "Submit Account Selections",
+    "description": "The label for the doc item Submit Account Selections in sidebar openApiSidebar, linking to the doc api/beta/submit-account-selection"
+  },
+  "sidebar.openApiSidebar.doc.List Access Profiles": {
+    "message": "List Access Profiles",
+    "description": "The label for the doc item List Access Profiles in sidebar openApiSidebar, linking to the doc api/beta/list-access-profiles"
+  },
+  "sidebar.openApiSidebar.doc.Create an Access Profile": {
+    "message": "Create an Access Profile",
+    "description": "The label for the doc item Create an Access Profile in sidebar openApiSidebar, linking to the doc api/beta/create-access-profile"
+  },
+  "sidebar.openApiSidebar.doc.Get an Access Profile": {
+    "message": "Get an Access Profile",
+    "description": "The label for the doc item Get an Access Profile in sidebar openApiSidebar, linking to the doc api/beta/get-access-profile"
+  },
+  "sidebar.openApiSidebar.doc.Patch a specified Access Profile": {
+    "message": "Patch a specified Access Profile",
+    "description": "The label for the doc item Patch a specified Access Profile in sidebar openApiSidebar, linking to the doc api/beta/patch-access-profile"
+  },
+  "sidebar.openApiSidebar.doc.Delete the specified Access Profile": {
+    "message": "Delete the specified Access Profile",
+    "description": "The label for the doc item Delete the specified Access Profile in sidebar openApiSidebar, linking to the doc api/beta/delete-access-profile"
+  },
+  "sidebar.openApiSidebar.doc.Delete Access Profile(s)": {
+    "message": "Delete Access Profile(s)",
+    "description": "The label for the doc item Delete Access Profile(s) in sidebar openApiSidebar, linking to the doc api/beta/bulk-delete-access-profiles"
+  },
+  "sidebar.openApiSidebar.doc.List Access Profile's Entitlements": {
+    "message": "List Access Profile's Entitlements",
+    "description": "The label for the doc item List Access Profile's Entitlements in sidebar openApiSidebar, linking to the doc api/beta/list-access-profile-entitlements"
+  },
+  "sidebar.openApiSidebar.doc.Forwards an access request approval to a new owner.": {
+    "message": "Forwards an access request approval to a new owner.",
+    "description": "The label for the doc item Forwards an access request approval to a new owner. in sidebar openApiSidebar, linking to the doc api/beta/forward-request"
+  },
+  "sidebar.openApiSidebar.doc.Get the number of pending, approved and rejected access requests approvals": {
+    "message": "Get the number of pending, approved and rejected access requests approvals",
+    "description": "The label for the doc item Get the number of pending, approved and rejected access requests approvals in sidebar openApiSidebar, linking to the doc api/beta/approval-summary"
+  },
+  "sidebar.openApiSidebar.doc.List Account Activities": {
+    "message": "List Account Activities",
+    "description": "The label for the doc item List Account Activities in sidebar openApiSidebar, linking to the doc api/beta/list-account-activities"
+  },
+  "sidebar.openApiSidebar.doc.Get Account Activity": {
+    "message": "Get Account Activity",
+    "description": "The label for the doc item Get Account Activity in sidebar openApiSidebar, linking to the doc api/beta/get-account-activity"
+  },
+  "sidebar.openApiSidebar.doc.In-progress Account Aggregation status": {
+    "message": "In-progress Account Aggregation status",
+    "description": "The label for the doc item In-progress Account Aggregation status in sidebar openApiSidebar, linking to the doc api/beta/get-account-aggregation-status"
+  },
+  "sidebar.openApiSidebar.doc.List Campaigns": {
+    "message": "List Campaigns",
+    "description": "The label for the doc item List Campaigns in sidebar openApiSidebar, linking to the doc api/beta/get-active-campaigns"
+  },
+  "sidebar.openApiSidebar.doc.Create a campaign": {
+    "message": "Create a campaign",
+    "description": "The label for the doc item Create a campaign in sidebar openApiSidebar, linking to the doc api/beta/create-campaign"
+  },
+  "sidebar.openApiSidebar.doc.Deletes Campaigns": {
+    "message": "Deletes Campaigns",
+    "description": "The label for the doc item Deletes Campaigns in sidebar openApiSidebar, linking to the doc api/beta/delete-campaigns"
+  },
+  "sidebar.openApiSidebar.doc.Get a campaign": {
+    "message": "Get a campaign",
+    "description": "The label for the doc item Get a campaign in sidebar openApiSidebar, linking to the doc api/beta/get-campaign"
+  },
+  "sidebar.openApiSidebar.doc.Update a Campaign": {
+    "message": "Update a Campaign",
+    "description": "The label for the doc item Update a Campaign in sidebar openApiSidebar, linking to the doc api/beta/update-campaign"
+  },
+  "sidebar.openApiSidebar.doc.Activate a Campaign": {
+    "message": "Activate a Campaign",
+    "description": "The label for the doc item Activate a Campaign in sidebar openApiSidebar, linking to the doc api/beta/activate-campaign"
+  },
+  "sidebar.openApiSidebar.doc.Complete a Campaign": {
+    "message": "Complete a Campaign",
+    "description": "The label for the doc item Complete a Campaign in sidebar openApiSidebar, linking to the doc api/beta/complete-campaign"
+  },
+  "sidebar.openApiSidebar.doc.Run Campaign Remediation Scan": {
+    "message": "Run Campaign Remediation Scan",
+    "description": "The label for the doc item Run Campaign Remediation Scan in sidebar openApiSidebar, linking to the doc api/beta/run-campaign-remediation-scan"
+  },
+  "sidebar.openApiSidebar.doc.Reassign Certifications": {
+    "message": "Reassign Certifications",
+    "description": "The label for the doc item Reassign Certifications in sidebar openApiSidebar, linking to the doc api/beta/admin-reassign"
+  },
+  "sidebar.openApiSidebar.doc.Get Campaign Reports": {
+    "message": "Get Campaign Reports",
+    "description": "The label for the doc item Get Campaign Reports in sidebar openApiSidebar, linking to the doc api/beta/get-campaign-reports"
+  },
+  "sidebar.openApiSidebar.doc.Run Campaign Report": {
+    "message": "Run Campaign Report",
+    "description": "The label for the doc item Run Campaign Report in sidebar openApiSidebar, linking to the doc api/beta/run-campaign-report"
+  },
+  "sidebar.openApiSidebar.doc.Get Campaign Reports Configuration": {
+    "message": "Get Campaign Reports Configuration",
+    "description": "The label for the doc item Get Campaign Reports Configuration in sidebar openApiSidebar, linking to the doc api/beta/get-campaign-reports-config"
+  },
+  "sidebar.openApiSidebar.doc.Set Campaign Reports Configuration": {
+    "message": "Set Campaign Reports Configuration",
+    "description": "The label for the doc item Set Campaign Reports Configuration in sidebar openApiSidebar, linking to the doc api/beta/set-campaign-reports-config"
+  },
+  "sidebar.openApiSidebar.doc.List Campaign Templates": {
+    "message": "List Campaign Templates",
+    "description": "The label for the doc item List Campaign Templates in sidebar openApiSidebar, linking to the doc api/beta/list-campaign-templates"
+  },
+  "sidebar.openApiSidebar.doc.Create a Campaign Template": {
+    "message": "Create a Campaign Template",
+    "description": "The label for the doc item Create a Campaign Template in sidebar openApiSidebar, linking to the doc api/beta/create-campaign-template"
+  },
+  "sidebar.openApiSidebar.doc.Get a Campaign Template": {
+    "message": "Get a Campaign Template",
+    "description": "The label for the doc item Get a Campaign Template in sidebar openApiSidebar, linking to the doc api/beta/get-campaign-template"
+  },
+  "sidebar.openApiSidebar.doc.Update a Campaign Template": {
+    "message": "Update a Campaign Template",
+    "description": "The label for the doc item Update a Campaign Template in sidebar openApiSidebar, linking to the doc api/beta/patch-campaign-template"
+  },
+  "sidebar.openApiSidebar.doc.Delete a Campaign Template": {
+    "message": "Delete a Campaign Template",
+    "description": "The label for the doc item Delete a Campaign Template in sidebar openApiSidebar, linking to the doc api/beta/delete-campaign-template"
+  },
+  "sidebar.openApiSidebar.doc.Generate a Campaign from Template": {
+    "message": "Generate a Campaign from Template",
+    "description": "The label for the doc item Generate a Campaign from Template in sidebar openApiSidebar, linking to the doc api/beta/generate-campaign-template"
+  },
+  "sidebar.openApiSidebar.doc.Gets a Campaign Template's Schedule": {
+    "message": "Gets a Campaign Template's Schedule",
+    "description": "The label for the doc item Gets a Campaign Template's Schedule in sidebar openApiSidebar, linking to the doc api/beta/get-campaign-template-schedule"
+  },
+  "sidebar.openApiSidebar.doc.Sets a Campaign Template's Schedule": {
+    "message": "Sets a Campaign Template's Schedule",
+    "description": "The label for the doc item Sets a Campaign Template's Schedule in sidebar openApiSidebar, linking to the doc api/beta/set-campaign-template-schedule"
+  },
+  "sidebar.openApiSidebar.doc.Deletes a Campaign Template's Schedule": {
+    "message": "Deletes a Campaign Template's Schedule",
+    "description": "The label for the doc item Deletes a Campaign Template's Schedule in sidebar openApiSidebar, linking to the doc api/beta/delete-campaign-template-schedule"
+  },
+  "sidebar.openApiSidebar.doc.Reassign Certifications Asynchronously": {
+    "message": "Reassign Certifications Asynchronously",
+    "description": "The label for the doc item Reassign Certifications Asynchronously in sidebar openApiSidebar, linking to the doc api/beta/reassign-identity-certs-async"
+  },
+  "sidebar.openApiSidebar.doc.Certification Task Status": {
+    "message": "Certification Task Status",
+    "description": "The label for the doc item Certification Task Status in sidebar openApiSidebar, linking to the doc api/beta/get-identity-certification-task-status"
+  },
+  "sidebar.openApiSidebar.doc.Pending Certification Tasks": {
+    "message": "Pending Certification Tasks",
+    "description": "The label for the doc item Pending Certification Tasks in sidebar openApiSidebar, linking to the doc api/beta/get-identity-certification-pending-tasks"
+  },
+  "sidebar.openApiSidebar.doc.Permissions for Entitlement Certification Item": {
+    "message": "Permissions for Entitlement Certification Item",
+    "description": "The label for the doc item Permissions for Entitlement Certification Item in sidebar openApiSidebar, linking to the doc api/beta/get-identity-certification-item-permissions"
+  },
+  "sidebar.openApiSidebar.doc.List of Reviewers for the certification": {
+    "message": "List of Reviewers for the certification",
+    "description": "The label for the doc item List of Reviewers for the certification in sidebar openApiSidebar, linking to the doc api/beta/list-reviewers"
+  },
+  "sidebar.openApiSidebar.doc.List Connector Rules": {
+    "message": "List Connector Rules",
+    "description": "The label for the doc item List Connector Rules in sidebar openApiSidebar, linking to the doc api/beta/get-connector-rule-list"
+  },
+  "sidebar.openApiSidebar.doc.Create Connector Rule": {
+    "message": "Create Connector Rule",
+    "description": "The label for the doc item Create Connector Rule in sidebar openApiSidebar, linking to the doc api/beta/create-connector-rule"
+  },
+  "sidebar.openApiSidebar.doc.Connector-Rule by ID": {
+    "message": "Connector-Rule by ID",
+    "description": "The label for the doc item Connector-Rule by ID in sidebar openApiSidebar, linking to the doc api/beta/get-connector-rule"
+  },
+  "sidebar.openApiSidebar.doc.Update a Connector Rule": {
+    "message": "Update a Connector Rule",
+    "description": "The label for the doc item Update a Connector Rule in sidebar openApiSidebar, linking to the doc api/beta/update-connector-rule"
+  },
+  "sidebar.openApiSidebar.doc.Delete a Connector-Rule": {
+    "message": "Delete a Connector-Rule",
+    "description": "The label for the doc item Delete a Connector-Rule in sidebar openApiSidebar, linking to the doc api/beta/delete-connector-rule"
+  },
+  "sidebar.openApiSidebar.doc.Validate Connector Rule": {
+    "message": "Validate Connector Rule",
+    "description": "The label for the doc item Validate Connector Rule in sidebar openApiSidebar, linking to the doc api/beta/validate-connector-rule"
+  },
+  "sidebar.openApiSidebar.doc.Gets connector list": {
+    "message": "Gets connector list",
+    "description": "The label for the doc item Gets connector list in sidebar openApiSidebar, linking to the doc api/beta/get-connector-list"
+  },
+  "sidebar.openApiSidebar.doc.Create Custom Password Instructions": {
+    "message": "Create Custom Password Instructions",
+    "description": "The label for the doc item Create Custom Password Instructions in sidebar openApiSidebar, linking to the doc api/beta/create-custom-password-instructions"
+  },
+  "sidebar.openApiSidebar.doc.Get Custom Password Instructions by Page ID": {
+    "message": "Get Custom Password Instructions by Page ID",
+    "description": "The label for the doc item Get Custom Password Instructions by Page ID in sidebar openApiSidebar, linking to the doc api/beta/get-custom-password-instructions"
+  },
+  "sidebar.openApiSidebar.doc.Delete Custom Password Instructions by page ID": {
+    "message": "Delete Custom Password Instructions by page ID",
+    "description": "The label for the doc item Delete Custom Password Instructions by page ID in sidebar openApiSidebar, linking to the doc api/beta/delete-custom-password-instructions"
+  },
+  "sidebar.openApiSidebar.doc.Gets a list of entitlements.": {
+    "message": "Gets a list of entitlements.",
+    "description": "The label for the doc item Gets a list of entitlements. in sidebar openApiSidebar, linking to the doc api/beta/list-entitlements"
+  },
+  "sidebar.openApiSidebar.doc.Patch a specified Entitlement": {
+    "message": "Patch a specified Entitlement",
+    "description": "The label for the doc item Patch a specified Entitlement in sidebar openApiSidebar, linking to the doc api/beta/patch-entitlement"
+  },
+  "sidebar.openApiSidebar.doc.Get an Entitlement": {
+    "message": "Get an Entitlement",
+    "description": "The label for the doc item Get an Entitlement in sidebar openApiSidebar, linking to the doc api/beta/get-entitlement"
+  },
+  "sidebar.openApiSidebar.doc.List of entitlements parents": {
+    "message": "List of entitlements parents",
+    "description": "The label for the doc item List of entitlements parents in sidebar openApiSidebar, linking to the doc api/beta/list-entitlement-parents"
+  },
+  "sidebar.openApiSidebar.doc.List of entitlements children": {
+    "message": "List of entitlements children",
+    "description": "The label for the doc item List of entitlements children in sidebar openApiSidebar, linking to the doc api/beta/list-entitlementchildren"
+  },
+  "sidebar.openApiSidebar.doc.Bulk update an entitlement list": {
+    "message": "Bulk update an entitlement list",
+    "description": "The label for the doc item Bulk update an entitlement list in sidebar openApiSidebar, linking to the doc api/beta/entitlements-bulk-update"
+  },
+  "sidebar.openApiSidebar.doc.Identity Access Request Recommendations": {
+    "message": "Identity Access Request Recommendations",
+    "description": "The label for the doc item Identity Access Request Recommendations in sidebar openApiSidebar, linking to the doc api/beta/access-request-recommendations"
+  },
+  "sidebar.openApiSidebar.doc.Notification of Ignored Access Request Recommendations": {
+    "message": "Notification of Ignored Access Request Recommendations",
+    "description": "The label for the doc item Notification of Ignored Access Request Recommendations in sidebar openApiSidebar, linking to the doc api/beta/add-access-request-recommendations-ignored-item"
+  },
+  "sidebar.openApiSidebar.doc.List of Ignored Access Request Recommendations": {
+    "message": "List of Ignored Access Request Recommendations",
+    "description": "The label for the doc item List of Ignored Access Request Recommendations in sidebar openApiSidebar, linking to the doc api/beta/get-access-request-recommendations-ignored-items"
+  },
+  "sidebar.openApiSidebar.doc.Notification of Requested Access Request Recommendations": {
+    "message": "Notification of Requested Access Request Recommendations",
+    "description": "The label for the doc item Notification of Requested Access Request Recommendations in sidebar openApiSidebar, linking to the doc api/beta/add-access-request-recommendations-requested-item"
+  },
+  "sidebar.openApiSidebar.doc.List of Requested Access Request Recommendations": {
+    "message": "List of Requested Access Request Recommendations",
+    "description": "The label for the doc item List of Requested Access Request Recommendations in sidebar openApiSidebar, linking to the doc api/beta/get-access-request-recommendations-requested-items"
+  },
+  "sidebar.openApiSidebar.doc.Notification of Viewed Access Request Recommendations": {
+    "message": "Notification of Viewed Access Request Recommendations",
+    "description": "The label for the doc item Notification of Viewed Access Request Recommendations in sidebar openApiSidebar, linking to the doc api/beta/add-access-request-recommendations-viewed-item"
+  },
+  "sidebar.openApiSidebar.doc.List of Viewed Access Request Recommendations": {
+    "message": "List of Viewed Access Request Recommendations",
+    "description": "The label for the doc item List of Viewed Access Request Recommendations in sidebar openApiSidebar, linking to the doc api/beta/get-access-request-recommendations-viewed-items"
+  },
+  "sidebar.openApiSidebar.doc.Notification of Viewed Access Request Recommendations in Bulk": {
+    "message": "Notification of Viewed Access Request Recommendations in Bulk",
+    "description": "The label for the doc item Notification of Viewed Access Request Recommendations in Bulk in sidebar openApiSidebar, linking to the doc api/beta/add-access-request-recommendations-viewed-items"
+  },
+  "sidebar.openApiSidebar.doc.Get Message catalogs": {
+    "message": "Get Message catalogs",
+    "description": "The label for the doc item Get Message catalogs in sidebar openApiSidebar, linking to the doc api/beta/get-message-catalogs"
+  },
+  "sidebar.openApiSidebar.doc.Get a paginated list of common access": {
+    "message": "Get a paginated list of common access",
+    "description": "The label for the doc item Get a paginated list of common access in sidebar openApiSidebar, linking to the doc api/beta/get-common-access"
+  },
+  "sidebar.openApiSidebar.doc.Create common access items": {
+    "message": "Create common access items",
+    "description": "The label for the doc item Create common access items in sidebar openApiSidebar, linking to the doc api/beta/create-common-access"
+  },
+  "sidebar.openApiSidebar.doc.Bulk update common access status": {
+    "message": "Bulk update common access status",
+    "description": "The label for the doc item Bulk update common access status in sidebar openApiSidebar, linking to the doc api/beta/common-access-bulk-update-status"
+  },
+  "sidebar.openApiSidebar.doc.IAI Identity Outliers Summary": {
+    "message": "IAI Identity Outliers Summary",
+    "description": "The label for the doc item IAI Identity Outliers Summary in sidebar openApiSidebar, linking to the doc api/beta/get-outlier-snapshots"
+  },
+  "sidebar.openApiSidebar.doc.IAI Identity Outliers Latest Summary": {
+    "message": "IAI Identity Outliers Latest Summary",
+    "description": "The label for the doc item IAI Identity Outliers Latest Summary in sidebar openApiSidebar, linking to the doc api/beta/get-latest-outlier-snapshots"
+  },
+  "sidebar.openApiSidebar.doc.IAI Get Identity Outliers": {
+    "message": "IAI Get Identity Outliers",
+    "description": "The label for the doc item IAI Get Identity Outliers in sidebar openApiSidebar, linking to the doc api/beta/get-outliers"
+  },
+  "sidebar.openApiSidebar.doc.IAI Identity Outliers Ignore": {
+    "message": "IAI Identity Outliers Ignore",
+    "description": "The label for the doc item IAI Identity Outliers Ignore in sidebar openApiSidebar, linking to the doc api/beta/ignore-outliers"
+  },
+  "sidebar.openApiSidebar.doc.IAI Identity Outliers Unignore": {
+    "message": "IAI Identity Outliers Unignore",
+    "description": "The label for the doc item IAI Identity Outliers Unignore in sidebar openApiSidebar, linking to the doc api/beta/un-ignore-outliers"
+  },
+  "sidebar.openApiSidebar.doc.IAI Identity Outliers Export": {
+    "message": "IAI Identity Outliers Export",
+    "description": "The label for the doc item IAI Identity Outliers Export in sidebar openApiSidebar, linking to the doc api/beta/export-outliers-zip"
+  },
+  "sidebar.openApiSidebar.doc.Identity Outliers List": {
+    "message": "Identity Outliers List",
+    "description": "The label for the doc item Identity Outliers List in sidebar openApiSidebar, linking to the doc api/beta/get-outliers"
+  },
+  "sidebar.openApiSidebar.doc.Returns a Recommendation Based on Object": {
+    "message": "Returns a Recommendation Based on Object",
+    "description": "The label for the doc item Returns a Recommendation Based on Object in sidebar openApiSidebar, linking to the doc api/beta/get-recommendations"
+  },
+  "sidebar.openApiSidebar.doc.Get certification recommendation config values": {
+    "message": "Get certification recommendation config values",
+    "description": "The label for the doc item Get certification recommendation config values in sidebar openApiSidebar, linking to the doc api/beta/get-recommendations-config"
+  },
+  "sidebar.openApiSidebar.doc.Update certification recommendation config values": {
+    "message": "Update certification recommendation config values",
+    "description": "The label for the doc item Update certification recommendation config values in sidebar openApiSidebar, linking to the doc api/beta/update-recommendations-config"
+  },
+  "sidebar.openApiSidebar.doc.Create a role mining session": {
+    "message": "Create a role mining session",
+    "description": "The label for the doc item Create a role mining session in sidebar openApiSidebar, linking to the doc api/beta/role-mining-sessions"
+  },
+  "sidebar.openApiSidebar.doc.Retrieves all role mining sessions": {
+    "message": "Retrieves all role mining sessions",
+    "description": "The label for the doc item Retrieves all role mining sessions in sidebar openApiSidebar, linking to the doc api/beta/get-role-mining-sessions"
+  },
+  "sidebar.openApiSidebar.doc.Patch a role mining session": {
+    "message": "Patch a role mining session",
+    "description": "The label for the doc item Patch a role mining session in sidebar openApiSidebar, linking to the doc api/beta/patch-role-mining-session"
+  },
+  "sidebar.openApiSidebar.doc.Get a role mining session": {
+    "message": "Get a role mining session",
+    "description": "The label for the doc item Get a role mining session in sidebar openApiSidebar, linking to the doc api/beta/get-role-mining-session"
+  },
+  "sidebar.openApiSidebar.doc.Get role mining session status state": {
+    "message": "Get role mining session status state",
+    "description": "The label for the doc item Get role mining session status state in sidebar openApiSidebar, linking to the doc api/beta/get-role-mining-session-status"
+  },
+  "sidebar.openApiSidebar.doc.Retrieves the potential role summaries for a role mining session": {
+    "message": "Retrieves the potential role summaries for a role mining session",
+    "description": "The label for the doc item Retrieves the potential role summaries for a role mining session in sidebar openApiSidebar, linking to the doc api/beta/get-potential-role-summaries"
+  },
+  "sidebar.openApiSidebar.doc.Retrieves a specific potential role for a role mining session": {
+    "message": "Retrieves a specific potential role for a role mining session",
+    "description": "The label for the doc item Retrieves a specific potential role for a role mining session in sidebar openApiSidebar, linking to the doc api/beta/get-potential-role-summary"
+  },
+  "sidebar.openApiSidebar.doc.Retrieves the applications of a potential role for a role mining session": {
+    "message": "Retrieves the applications of a potential role for a role mining session",
+    "description": "The label for the doc item Retrieves the applications of a potential role for a role mining session in sidebar openApiSidebar, linking to the doc api/beta/get-potential-role-applications"
+  },
+  "sidebar.openApiSidebar.doc.Retrieves entitlements for a potential role in a role mining session": {
+    "message": "Retrieves entitlements for a potential role in a role mining session",
+    "description": "The label for the doc item Retrieves entitlements for a potential role in a role mining session in sidebar openApiSidebar, linking to the doc api/beta/get-entitlements-potential-role"
+  },
+  "sidebar.openApiSidebar.doc.Retrieves entitlement popularity distribution for a potential role in a role mining session": {
+    "message": "Retrieves entitlement popularity distribution for a potential role in a role mining session",
+    "description": "The label for the doc item Retrieves entitlement popularity distribution for a potential role in a role mining session in sidebar openApiSidebar, linking to the doc api/beta/get-entitlement-distribution-potential-role"
+  },
+  "sidebar.openApiSidebar.doc.Edit entitlements for a potential role to exclude some entitlements": {
+    "message": "Edit entitlements for a potential role to exclude some entitlements",
+    "description": "The label for the doc item Edit entitlements for a potential role to exclude some entitlements in sidebar openApiSidebar, linking to the doc api/beta/edit-entitlements-potential-role"
+  },
+  "sidebar.openApiSidebar.doc.Retrieves identities for a potential role in a role mining session": {
+    "message": "Retrieves identities for a potential role in a role mining session",
+    "description": "The label for the doc item Retrieves identities for a potential role in a role mining session in sidebar openApiSidebar, linking to the doc api/beta/get-identities-potential-role"
+  },
+  "sidebar.openApiSidebar.doc.Export (download) details for a potential role in a role mining session": {
+    "message": "Export (download) details for a potential role in a role mining session",
+    "description": "The label for the doc item Export (download) details for a potential role in a role mining session in sidebar openApiSidebar, linking to the doc api/beta/download-role-mining-potential-role-zip"
+  },
+  "sidebar.openApiSidebar.doc.Asynchronously export details for a potential role in a role mining session and upload to S3": {
+    "message": "Asynchronously export details for a potential role in a role mining session and upload to S3",
+    "description": "The label for the doc item Asynchronously export details for a potential role in a role mining session and upload to S3 in sidebar openApiSidebar, linking to the doc api/beta/export-role-mining-potential-role-async"
+  },
+  "sidebar.openApiSidebar.doc.Retrieve status of a potential role export job": {
+    "message": "Retrieve status of a potential role export job",
+    "description": "The label for the doc item Retrieve status of a potential role export job in sidebar openApiSidebar, linking to the doc api/beta/export-role-mining-potential-role-status"
+  },
+  "sidebar.openApiSidebar.doc.Create request to provision a potential role into an actual role.": {
+    "message": "Create request to provision a potential role into an actual role.",
+    "description": "The label for the doc item Create request to provision a potential role into an actual role. in sidebar openApiSidebar, linking to the doc api/beta/create-potential-role-provision-request"
+  },
+  "sidebar.openApiSidebar.doc.Retrieves excluded entitlements for a potential role in a role mining session": {
+    "message": "Retrieves excluded entitlements for a potential role in a role mining session",
+    "description": "The label for the doc item Retrieves excluded entitlements for a potential role in a role mining session in sidebar openApiSidebar, linking to the doc api/beta/get-excluded-entitlements-potential-role"
+  },
+  "sidebar.openApiSidebar.doc.Attribute synchronization for single identity.": {
+    "message": "Attribute synchronization for single identity.",
+    "description": "The label for the doc item Attribute synchronization for single identity. in sidebar openApiSidebar, linking to the doc api/beta/synchronize-attributes-for-identity"
+  },
+  "sidebar.openApiSidebar.doc.Lists all the identities": {
+    "message": "Lists all the identities",
+    "description": "The label for the doc item Lists all the identities in sidebar openApiSidebar, linking to the doc api/beta/list-identities"
+  },
+  "sidebar.openApiSidebar.doc.Gets the most recent snapshot of a specific identity": {
+    "message": "Gets the most recent snapshot of a specific identity",
+    "description": "The label for the doc item Gets the most recent snapshot of a specific identity in sidebar openApiSidebar, linking to the doc api/beta/get-identity"
+  },
+  "sidebar.openApiSidebar.doc.Gets a list of access items for the identity filtered by item type": {
+    "message": "Gets a list of access items for the identity filtered by item type",
+    "description": "The label for the doc item Gets a list of access items for the identity filtered by item type in sidebar openApiSidebar, linking to the doc api/beta/list-identity-access-items"
+  },
+  "sidebar.openApiSidebar.doc.Lists all the snapshots for the identity": {
+    "message": "Lists all the snapshots for the identity",
+    "description": "The label for the doc item Lists all the snapshots for the identity in sidebar openApiSidebar, linking to the doc api/beta/list-identity-snapshots"
+  },
+  "sidebar.openApiSidebar.doc.Gets the summary for the event count for a specific identity": {
+    "message": "Gets the summary for the event count for a specific identity",
+    "description": "The label for the doc item Gets the summary for the event count for a specific identity in sidebar openApiSidebar, linking to the doc api/beta/get-identity-snapshot-summary"
+  },
+  "sidebar.openApiSidebar.doc.Gets an identity snapshot at a given date": {
+    "message": "Gets an identity snapshot at a given date",
+    "description": "The label for the doc item Gets an identity snapshot at a given date in sidebar openApiSidebar, linking to the doc api/beta/get-identity-snapshot"
+  },
+  "sidebar.openApiSidebar.doc.Gets the list of identity access items at a given date filterd by item type": {
+    "message": "Gets the list of identity access items at a given date filterd by item type",
+    "description": "The label for the doc item Gets the list of identity access items at a given date filterd by item type in sidebar openApiSidebar, linking to the doc api/beta/list-identity-snapshot-access-items"
+  },
+  "sidebar.openApiSidebar.doc.Lists all events for the given identity": {
+    "message": "Lists all events for the given identity",
+    "description": "The label for the doc item Lists all events for the given identity in sidebar openApiSidebar, linking to the doc api/beta/get-events"
+  },
+  "sidebar.openApiSidebar.doc.Gets the start date of the identity": {
+    "message": "Gets the start date of the identity",
+    "description": "The label for the doc item Gets the start date of the identity in sidebar openApiSidebar, linking to the doc api/beta/get-start-date"
+  },
+  "sidebar.openApiSidebar.doc.Gets a difference of count for each access item types for the given identity between 2 snapshots": {
+    "message": "Gets a difference of count for each access item types for the given identity between 2 snapshots",
+    "description": "The label for the doc item Gets a difference of count for each access item types for the given identity between 2 snapshots in sidebar openApiSidebar, linking to the doc api/beta/compare-identity-snapshots"
+  },
+  "sidebar.openApiSidebar.doc.Gets a list of differences of specific accessType for the given identity between 2 snapshots": {
+    "message": "Gets a list of differences of specific accessType for the given identity between 2 snapshots",
+    "description": "The label for the doc item Gets a list of differences of specific accessType for the given identity between 2 snapshots in sidebar openApiSidebar, linking to the doc api/beta/compare-identity-snapshots-access-type"
+  },
+  "sidebar.openApiSidebar.doc.Identity Profiles list": {
+    "message": "Identity Profiles list",
+    "description": "The label for the doc item Identity Profiles list in sidebar openApiSidebar, linking to the doc api/beta/list-identity-profiles"
+  },
+  "sidebar.openApiSidebar.doc.Create an Identity Profile": {
+    "message": "Create an Identity Profile",
+    "description": "The label for the doc item Create an Identity Profile in sidebar openApiSidebar, linking to the doc api/beta/create-identity-profile"
+  },
+  "sidebar.openApiSidebar.doc.Delete Identity Profiles": {
+    "message": "Delete Identity Profiles",
+    "description": "The label for the doc item Delete Identity Profiles in sidebar openApiSidebar, linking to the doc api/beta/delete-identity-profiles"
+  },
+  "sidebar.openApiSidebar.doc.Generate Identity Profile Preview": {
+    "message": "Generate Identity Profile Preview",
+    "description": "The label for the doc item Generate Identity Profile Preview in sidebar openApiSidebar, linking to the doc api/beta/generate-identity-preview"
+  },
+  "sidebar.openApiSidebar.doc.Gets a single Identity Profile": {
+    "message": "Gets a single Identity Profile",
+    "description": "The label for the doc item Gets a single Identity Profile in sidebar openApiSidebar, linking to the doc api/beta/get-identity-profile"
+  },
+  "sidebar.openApiSidebar.doc.Delete an Identity Profile": {
+    "message": "Delete an Identity Profile",
+    "description": "The label for the doc item Delete an Identity Profile in sidebar openApiSidebar, linking to the doc api/beta/delete-identity-profile"
+  },
+  "sidebar.openApiSidebar.doc.Update the Identity Profile": {
+    "message": "Update the Identity Profile",
+    "description": "The label for the doc item Update the Identity Profile in sidebar openApiSidebar, linking to the doc api/beta/update-identity-profile"
+  },
+  "sidebar.openApiSidebar.doc.Gets the default identity attribute config": {
+    "message": "Gets the default identity attribute config",
+    "description": "The label for the doc item Gets the default identity attribute config in sidebar openApiSidebar, linking to the doc api/beta/get-default-identity-attribute-config"
+  },
+  "sidebar.openApiSidebar.doc.Refreshes all the identities under this profile": {
+    "message": "Refreshes all the identities under this profile",
+    "description": "The label for the doc item Refreshes all the identities under this profile in sidebar openApiSidebar, linking to the doc api/beta/refresh-identity-profile"
+  },
+  "sidebar.openApiSidebar.doc.Lifecycle State": {
+    "message": "Lifecycle State",
+    "description": "The label for the doc item Lifecycle State in sidebar openApiSidebar, linking to the doc api/beta/list-lifecycle-states"
+  },
+  "sidebar.openApiSidebar.doc.Get a specified Managed Client Status.": {
+    "message": "Get a specified Managed Client Status.",
+    "description": "The label for the doc item Get a specified Managed Client Status. in sidebar openApiSidebar, linking to the doc api/beta/get-client-status"
+  },
+  "sidebar.openApiSidebar.doc.Handle a status request from a client": {
+    "message": "Handle a status request from a client",
+    "description": "The label for the doc item Handle a status request from a client in sidebar openApiSidebar, linking to the doc api/beta/update-status"
+  },
+  "sidebar.openApiSidebar.doc.Get a specified ManagedCluster.": {
+    "message": "Get a specified ManagedCluster.",
+    "description": "The label for the doc item Get a specified ManagedCluster. in sidebar openApiSidebar, linking to the doc api/beta/get-managed-cluster"
+  },
+  "sidebar.openApiSidebar.doc.get ManagedCluster Log Configuration for a specified cluster": {
+    "message": "get ManagedCluster Log Configuration for a specified cluster",
+    "description": "The label for the doc item get ManagedCluster Log Configuration for a specified cluster in sidebar openApiSidebar, linking to the doc api/beta/get-client-log-configuration"
+  },
+  "sidebar.openApiSidebar.doc.Update log configuration for a specified cluster.": {
+    "message": "Update log configuration for a specified cluster.",
+    "description": "The label for the doc item Update log configuration for a specified cluster. in sidebar openApiSidebar, linking to the doc api/beta/update-client-log-configuration"
+  },
+  "sidebar.openApiSidebar.doc.Retrieve all Managed Clusters.": {
+    "message": "Retrieve all Managed Clusters.",
+    "description": "The label for the doc item Retrieve all Managed Clusters. in sidebar openApiSidebar, linking to the doc api/beta/get-managed-clusters"
+  },
+  "sidebar.openApiSidebar.doc.Get configuration of a MFA method": {
+    "message": "Get configuration of a MFA method",
+    "description": "The label for the doc item Get configuration of a MFA method in sidebar openApiSidebar, linking to the doc api/beta/get-mfa-config"
+  },
+  "sidebar.openApiSidebar.doc.Set configuration of a MFA method": {
+    "message": "Set configuration of a MFA method",
+    "description": "The label for the doc item Set configuration of a MFA method in sidebar openApiSidebar, linking to the doc api/beta/set-mfa-config"
+  },
+  "sidebar.openApiSidebar.doc.Test configuration of a MFA method": {
+    "message": "Test configuration of a MFA method",
+    "description": "The label for the doc item Test configuration of a MFA method in sidebar openApiSidebar, linking to the doc api/beta/test-mfa-config"
+  },
+  "sidebar.openApiSidebar.doc.List Notification Template Defaults": {
+    "message": "List Notification Template Defaults",
+    "description": "The label for the doc item List Notification Template Defaults in sidebar openApiSidebar, linking to the doc api/beta/list-notification-template-defaults"
+  },
+  "sidebar.openApiSidebar.doc.List Notification Templates For Your Site": {
+    "message": "List Notification Templates For Your Site",
+    "description": "The label for the doc item List Notification Templates For Your Site in sidebar openApiSidebar, linking to the doc api/beta/list-notification-templates"
+  },
+  "sidebar.openApiSidebar.doc.Create Notification Template": {
+    "message": "Create Notification Template",
+    "description": "The label for the doc item Create Notification Template in sidebar openApiSidebar, linking to the doc api/beta/create-notification-template"
+  },
+  "sidebar.openApiSidebar.doc.Get Notification Template By Id": {
+    "message": "Get Notification Template By Id",
+    "description": "The label for the doc item Get Notification Template By Id in sidebar openApiSidebar, linking to the doc api/beta/get-notification-template"
+  },
+  "sidebar.openApiSidebar.doc.Bulk Delete Notification Templates": {
+    "message": "Bulk Delete Notification Templates",
+    "description": "The label for the doc item Bulk Delete Notification Templates in sidebar openApiSidebar, linking to the doc api/beta/bulk-delete-notification-templates"
+  },
+  "sidebar.openApiSidebar.doc.Get Notification Template Context": {
+    "message": "Get Notification Template Context",
+    "description": "The label for the doc item Get Notification Template Context in sidebar openApiSidebar, linking to the doc api/beta/get-notifications-template-context"
+  },
+  "sidebar.openApiSidebar.doc.Get Notification Preferences for tenant.": {
+    "message": "Get Notification Preferences for tenant.",
+    "description": "The label for the doc item Get Notification Preferences for tenant. in sidebar openApiSidebar, linking to the doc api/beta/get-notification-preference"
+  },
+  "sidebar.openApiSidebar.doc.Overwrite the preferences for the given notification key.": {
+    "message": "Overwrite the preferences for the given notification key.",
+    "description": "The label for the doc item Overwrite the preferences for the given notification key. in sidebar openApiSidebar, linking to the doc api/beta/put-notification-preference"
+  },
+  "sidebar.openApiSidebar.doc.Send Test Notification": {
+    "message": "Send Test Notification",
+    "description": "The label for the doc item Send Test Notification in sidebar openApiSidebar, linking to the doc api/beta/send-test-notification"
+  },
+  "sidebar.openApiSidebar.doc.List From Addresses": {
+    "message": "List From Addresses",
+    "description": "The label for the doc item List From Addresses in sidebar openApiSidebar, linking to the doc api/beta/list-from-addresses"
+  },
+  "sidebar.openApiSidebar.doc.Create Verified From Address": {
+    "message": "Create Verified From Address",
+    "description": "The label for the doc item Create Verified From Address in sidebar openApiSidebar, linking to the doc api/beta/create-verified-from-address"
+  },
+  "sidebar.openApiSidebar.doc.Delete Verified From Address": {
+    "message": "Delete Verified From Address",
+    "description": "The label for the doc item Delete Verified From Address in sidebar openApiSidebar, linking to the doc api/beta/delete-verified-from-address"
+  },
+  "sidebar.openApiSidebar.doc.Get Org configuration settings": {
+    "message": "Get Org configuration settings",
+    "description": "The label for the doc item Get Org configuration settings in sidebar openApiSidebar, linking to the doc api/beta/get-org-config"
+  },
+  "sidebar.openApiSidebar.doc.Patch an Org configuration property": {
+    "message": "Patch an Org configuration property",
+    "description": "The label for the doc item Patch an Org configuration property in sidebar openApiSidebar, linking to the doc api/beta/patch-org-config"
+  },
+  "sidebar.openApiSidebar.doc.Get list of time zones": {
+    "message": "Get list of time zones",
+    "description": "The label for the doc item Get list of time zones in sidebar openApiSidebar, linking to the doc api/beta/get-valid-time-zones"
+  },
+  "sidebar.openApiSidebar.doc.Get Password Org Config": {
+    "message": "Get Password Org Config",
+    "description": "The label for the doc item Get Password Org Config in sidebar openApiSidebar, linking to the doc api/beta/get-password-org-config"
+  },
+  "sidebar.openApiSidebar.doc.Update Password Org Config": {
+    "message": "Update Password Org Config",
+    "description": "The label for the doc item Update Password Org Config in sidebar openApiSidebar, linking to the doc api/beta/update-password-org-config"
+  },
+  "sidebar.openApiSidebar.doc.Create Password Org Config": {
+    "message": "Create Password Org Config",
+    "description": "The label for the doc item Create Password Org Config in sidebar openApiSidebar, linking to the doc api/beta/create-password-org-config"
+  },
+  "sidebar.openApiSidebar.doc.Get Password Dictionary": {
+    "message": "Get Password Dictionary",
+    "description": "The label for the doc item Get Password Dictionary in sidebar openApiSidebar, linking to the doc api/beta/get-password-dictionary"
+  },
+  "sidebar.openApiSidebar.doc.Get Password Dictionary Status": {
+    "message": "Get Password Dictionary Status",
+    "description": "The label for the doc item Get Password Dictionary Status in sidebar openApiSidebar, linking to the doc api/beta/get-password-dictionary-file-status"
+  },
+  "sidebar.openApiSidebar.doc.Update Password Dictionary": {
+    "message": "Update Password Dictionary",
+    "description": "The label for the doc item Update Password Dictionary in sidebar openApiSidebar, linking to the doc api/beta/update-password-dictionary"
+  },
+  "sidebar.openApiSidebar.doc.Generate a digit token": {
+    "message": "Generate a digit token",
+    "description": "The label for the doc item Generate a digit token in sidebar openApiSidebar, linking to the doc api/beta/generate-digit-token"
+  },
+  "sidebar.openApiSidebar.doc.Get Password Sync Group List": {
+    "message": "Get Password Sync Group List",
+    "description": "The label for the doc item Get Password Sync Group List in sidebar openApiSidebar, linking to the doc api/beta/get-password-sync-groups"
+  },
+  "sidebar.openApiSidebar.doc.Create Password Sync Group": {
+    "message": "Create Password Sync Group",
+    "description": "The label for the doc item Create Password Sync Group in sidebar openApiSidebar, linking to the doc api/beta/create-password-sync-group"
+  },
+  "sidebar.openApiSidebar.doc.Get Password Sync Group by ID": {
+    "message": "Get Password Sync Group by ID",
+    "description": "The label for the doc item Get Password Sync Group by ID in sidebar openApiSidebar, linking to the doc api/beta/get-password-sync-group"
+  },
+  "sidebar.openApiSidebar.doc.Update Password Sync Group by ID": {
+    "message": "Update Password Sync Group by ID",
+    "description": "The label for the doc item Update Password Sync Group by ID in sidebar openApiSidebar, linking to the doc api/beta/update-password-sync-group"
+  },
+  "sidebar.openApiSidebar.doc.Delete Password Sync Group by ID": {
+    "message": "Delete Password Sync Group by ID",
+    "description": "The label for the doc item Delete Password Sync Group by ID in sidebar openApiSidebar, linking to the doc api/beta/delete-password-sync-group"
+  },
+  "sidebar.openApiSidebar.doc.Get Public Identity Config": {
+    "message": "Get Public Identity Config",
+    "description": "The label for the doc item Get Public Identity Config in sidebar openApiSidebar, linking to the doc api/beta/get-public-identity-config"
+  },
+  "sidebar.openApiSidebar.doc.Update Public Identity Config": {
+    "message": "Update Public Identity Config",
+    "description": "The label for the doc item Update Public Identity Config in sidebar openApiSidebar, linking to the doc api/beta/update-public-identity-config"
+  },
+  "sidebar.openApiSidebar.doc.A request to generate insights for roles": {
+    "message": "A request to generate insights for roles",
+    "description": "The label for the doc item A request to generate insights for roles in sidebar openApiSidebar, linking to the doc api/beta/role-insights-requests"
+  },
+  "sidebar.openApiSidebar.doc.Returns the metadata for a request in order to generate insights for roles.": {
+    "message": "Returns the metadata for a request in order to generate insights for roles.",
+    "description": "The label for the doc item Returns the metadata for a request in order to generate insights for roles. in sidebar openApiSidebar, linking to the doc api/beta/get-role-insights-requests"
+  },
+  "sidebar.openApiSidebar.doc.Get role insights summary information": {
+    "message": "Get role insights summary information",
+    "description": "The label for the doc item Get role insights summary information in sidebar openApiSidebar, linking to the doc api/beta/get-role-insights-summary"
+  },
+  "sidebar.openApiSidebar.doc.Get role insights": {
+    "message": "Get role insights",
+    "description": "The label for the doc item Get role insights in sidebar openApiSidebar, linking to the doc api/beta/get-role-insights"
+  },
+  "sidebar.openApiSidebar.doc.Get a single role insight": {
+    "message": "Get a single role insight",
+    "description": "The label for the doc item Get a single role insight in sidebar openApiSidebar, linking to the doc api/beta/get-role-insight"
+  },
+  "sidebar.openApiSidebar.doc.Get entitlement insights for a role": {
+    "message": "Get entitlement insights for a role",
+    "description": "The label for the doc item Get entitlement insights for a role in sidebar openApiSidebar, linking to the doc api/beta/get-role-insights-entitlements-changes"
+  },
+  "sidebar.openApiSidebar.doc.Download entitlement insights for a role": {
+    "message": "Download entitlement insights for a role",
+    "description": "The label for the doc item Download entitlement insights for a role in sidebar openApiSidebar, linking to the doc api/beta/download-role-insights-entitlements-changes"
+  },
+  "sidebar.openApiSidebar.doc.Get current entitlement for a role": {
+    "message": "Get current entitlement for a role",
+    "description": "The label for the doc item Get current entitlement for a role in sidebar openApiSidebar, linking to the doc api/beta/get-role-insights-current-entitlements"
+  },
+  "sidebar.openApiSidebar.doc.Get identities for a suggested entitlement (for a role)": {
+    "message": "Get identities for a suggested entitlement (for a role)",
+    "description": "The label for the doc item Get identities for a suggested entitlement (for a role) in sidebar openApiSidebar, linking to the doc api/beta/get-entitlement-changes-identities"
+  },
+  "sidebar.openApiSidebar.doc.List Roles": {
+    "message": "List Roles",
+    "description": "The label for the doc item List Roles in sidebar openApiSidebar, linking to the doc api/beta/list-roles"
+  },
+  "sidebar.openApiSidebar.doc.Create a Role": {
+    "message": "Create a Role",
+    "description": "The label for the doc item Create a Role in sidebar openApiSidebar, linking to the doc api/beta/create-role"
+  },
+  "sidebar.openApiSidebar.doc.Get a Role": {
+    "message": "Get a Role",
+    "description": "The label for the doc item Get a Role in sidebar openApiSidebar, linking to the doc api/beta/get-role"
+  },
+  "sidebar.openApiSidebar.doc.Patch a specified Role": {
+    "message": "Patch a specified Role",
+    "description": "The label for the doc item Patch a specified Role in sidebar openApiSidebar, linking to the doc api/beta/patch-role"
+  },
+  "sidebar.openApiSidebar.doc.Delete a Role": {
+    "message": "Delete a Role",
+    "description": "The label for the doc item Delete a Role in sidebar openApiSidebar, linking to the doc api/beta/delete-role"
+  },
+  "sidebar.openApiSidebar.doc.Get a list of Identities assigned a Role": {
+    "message": "Get a list of Identities assigned a Role",
+    "description": "The label for the doc item Get a list of Identities assigned a Role in sidebar openApiSidebar, linking to the doc api/beta/get-role-assigned-identities"
+  },
+  "sidebar.openApiSidebar.doc.Configure/create extended search attributes in IdentityNow.": {
+    "message": "Configure/create extended search attributes in IdentityNow.",
+    "description": "The label for the doc item Configure/create extended search attributes in IdentityNow. in sidebar openApiSidebar, linking to the doc api/beta/create-search-attribute-config"
+  },
+  "sidebar.openApiSidebar.doc.Retrieve a list of extended search attributes in IdentityNow.": {
+    "message": "Retrieve a list of extended search attributes in IdentityNow.",
+    "description": "The label for the doc item Retrieve a list of extended search attributes in IdentityNow. in sidebar openApiSidebar, linking to the doc api/beta/get-search-attribute-config"
+  },
+  "sidebar.openApiSidebar.doc.Get the details of a specific extended search attribute in IdentityNow.": {
+    "message": "Get the details of a specific extended search attribute in IdentityNow.",
+    "description": "The label for the doc item Get the details of a specific extended search attribute in IdentityNow. in sidebar openApiSidebar, linking to the doc api/beta/get-single-search-attribute-config"
+  },
+  "sidebar.openApiSidebar.doc.Delete an extended search attribute in IdentityNow.": {
+    "message": "Delete an extended search attribute in IdentityNow.",
+    "description": "The label for the doc item Delete an extended search attribute in IdentityNow. in sidebar openApiSidebar, linking to the doc api/beta/delete-search-attribute-config"
+  },
+  "sidebar.openApiSidebar.doc.Update the details of a specific extended search attribute in IdentityNow.": {
+    "message": "Update the details of a specific extended search attribute in IdentityNow.",
+    "description": "The label for the doc item Update the details of a specific extended search attribute in IdentityNow. in sidebar openApiSidebar, linking to the doc api/beta/patch-search-attribute-config"
+  },
+  "sidebar.openApiSidebar.doc.Create Segment": {
+    "message": "Create Segment",
+    "description": "The label for the doc item Create Segment in sidebar openApiSidebar, linking to the doc api/beta/create-segment"
+  },
+  "sidebar.openApiSidebar.doc.List Segments": {
+    "message": "List Segments",
+    "description": "The label for the doc item List Segments in sidebar openApiSidebar, linking to the doc api/beta/list-segments"
+  },
+  "sidebar.openApiSidebar.doc.Get a Segment by its ID": {
+    "message": "Get a Segment by its ID",
+    "description": "The label for the doc item Get a Segment by its ID in sidebar openApiSidebar, linking to the doc api/beta/get-segment-by-id"
+  },
+  "sidebar.openApiSidebar.doc.Delete Segment by ID": {
+    "message": "Delete Segment by ID",
+    "description": "The label for the doc item Delete Segment by ID in sidebar openApiSidebar, linking to the doc api/beta/delete-segment-by-id"
+  },
+  "sidebar.openApiSidebar.doc.Update a Segment": {
+    "message": "Update a Segment",
+    "description": "The label for the doc item Update a Segment in sidebar openApiSidebar, linking to the doc api/beta/patch-segment"
+  },
+  "sidebar.openApiSidebar.doc.Create SOD Policy": {
+    "message": "Create SOD Policy",
+    "description": "The label for the doc item Create SOD Policy in sidebar openApiSidebar, linking to the doc api/beta/create-sod-policy"
+  },
+  "sidebar.openApiSidebar.doc.List SOD Policies": {
+    "message": "List SOD Policies",
+    "description": "The label for the doc item List SOD Policies in sidebar openApiSidebar, linking to the doc api/beta/list-sod-policies"
+  },
+  "sidebar.openApiSidebar.doc.Get SOD Policy By ID": {
+    "message": "Get SOD Policy By ID",
+    "description": "The label for the doc item Get SOD Policy By ID in sidebar openApiSidebar, linking to the doc api/beta/get-sod-policy-by-id"
+  },
+  "sidebar.openApiSidebar.doc.Update SOD Policy By ID": {
+    "message": "Update SOD Policy By ID",
+    "description": "The label for the doc item Update SOD Policy By ID in sidebar openApiSidebar, linking to the doc api/beta/update-policy-by-id"
+  },
+  "sidebar.openApiSidebar.doc.Delete SOD Policy by ID": {
+    "message": "Delete SOD Policy by ID",
+    "description": "The label for the doc item Delete SOD Policy by ID in sidebar openApiSidebar, linking to the doc api/beta/delete-sod-policy-by-id"
+  },
+  "sidebar.openApiSidebar.doc.Update a SOD Policy": {
+    "message": "Update a SOD Policy",
+    "description": "The label for the doc item Update a SOD Policy in sidebar openApiSidebar, linking to the doc api/beta/patch-sod-policy"
+  },
+  "sidebar.openApiSidebar.doc.Get SOD Policy Schedule": {
+    "message": "Get SOD Policy Schedule",
+    "description": "The label for the doc item Get SOD Policy Schedule in sidebar openApiSidebar, linking to the doc api/beta/get-sod-policy-schedule-by-id"
+  },
+  "sidebar.openApiSidebar.doc.Update SOD Policy schedule": {
+    "message": "Update SOD Policy schedule",
+    "description": "The label for the doc item Update SOD Policy schedule in sidebar openApiSidebar, linking to the doc api/beta/update-policy-schedule-by-id"
+  },
+  "sidebar.openApiSidebar.doc.Delete SOD Policy Schedule": {
+    "message": "Delete SOD Policy Schedule",
+    "description": "The label for the doc item Delete SOD Policy Schedule in sidebar openApiSidebar, linking to the doc api/beta/delete-sod-policy-schedule-by-id"
+  },
+  "sidebar.openApiSidebar.doc.Runs SOD Policy Violation Report": {
+    "message": "Runs SOD Policy Violation Report",
+    "description": "The label for the doc item Runs SOD Policy Violation Report in sidebar openApiSidebar, linking to the doc api/beta/run-sod-policy"
+  },
+  "sidebar.openApiSidebar.doc.Get SOD violation report status": {
+    "message": "Get SOD violation report status",
+    "description": "The label for the doc item Get SOD violation report status in sidebar openApiSidebar, linking to the doc api/beta/get-sod-violation-report-status"
+  },
+  "sidebar.openApiSidebar.doc.Get violation report run status": {
+    "message": "Get violation report run status",
+    "description": "The label for the doc item Get violation report run status in sidebar openApiSidebar, linking to the doc api/beta/get-sod-violation-report-run-status"
+  },
+  "sidebar.openApiSidebar.doc.Runs all policies for Org.": {
+    "message": "Runs all policies for Org.",
+    "description": "The label for the doc item Runs all policies for Org. in sidebar openApiSidebar, linking to the doc api/beta/run-all-policies-for-org"
+  },
+  "sidebar.openApiSidebar.doc.Get multi-report run task status": {
+    "message": "Get multi-report run task status",
+    "description": "The label for the doc item Get multi-report run task status in sidebar openApiSidebar, linking to the doc api/beta/get-sod-all-report-run-status"
+  },
+  "sidebar.openApiSidebar.doc.Download violation report": {
+    "message": "Download violation report",
+    "description": "The label for the doc item Download violation report in sidebar openApiSidebar, linking to the doc api/beta/download-default-violation-report"
+  },
+  "sidebar.openApiSidebar.doc.Download custom violation report": {
+    "message": "Download custom violation report",
+    "description": "The label for the doc item Download custom violation report in sidebar openApiSidebar, linking to the doc api/beta/download-custom-violation-report"
+  },
+  "sidebar.openApiSidebar.doc.Predict SOD violations for the given identity if they were granted the given access.": {
+    "message": "Predict SOD violations for the given identity if they were granted the given access.",
+    "description": "The label for the doc item Predict SOD violations for the given identity if they were granted the given access. in sidebar openApiSidebar, linking to the doc api/beta/predict-violations"
+  },
+  "sidebar.openApiSidebar.doc.Attribute Sync Config": {
+    "message": "Attribute Sync Config",
+    "description": "The label for the doc item Attribute Sync Config in sidebar openApiSidebar, linking to the doc api/beta/get-source-attr-sync-config"
+  },
+  "sidebar.openApiSidebar.doc.Update Attribute Sync Config": {
+    "message": "Update Attribute Sync Config",
+    "description": "The label for the doc item Update Attribute Sync Config in sidebar openApiSidebar, linking to the doc api/beta/put-source-attr-sync-config"
+  },
+  "sidebar.openApiSidebar.doc.Check connection for the source connector.": {
+    "message": "Check connection for the source connector.",
+    "description": "The label for the doc item Check connection for the source connector. in sidebar openApiSidebar, linking to the doc api/beta/check-connection"
+  },
+  "sidebar.openApiSidebar.doc.Peek resource objects from the source connector": {
+    "message": "Peek resource objects from the source connector",
+    "description": "The label for the doc item Peek resource objects from the source connector in sidebar openApiSidebar, linking to the doc api/beta/peek-resource-objects"
+  },
+  "sidebar.openApiSidebar.doc.Ping cluster for the source connector": {
+    "message": "Ping cluster for the source connector",
+    "description": "The label for the doc item Ping cluster for the source connector in sidebar openApiSidebar, linking to the doc api/beta/ping-cluster"
+  },
+  "sidebar.openApiSidebar.doc.Test configuration for the source connector": {
+    "message": "Test configuration for the source connector",
+    "description": "The label for the doc item Test configuration for the source connector in sidebar openApiSidebar, linking to the doc api/beta/test-configuration"
+  },
+  "sidebar.openApiSidebar.doc.Gets source config with language translations": {
+    "message": "Gets source config with language translations",
+    "description": "The label for the doc item Gets source config with language translations in sidebar openApiSidebar, linking to the doc api/beta/get-source-config"
+  },
+  "sidebar.openApiSidebar.doc.Lists the Schemas that exist on the specified Source in IdentityNow.": {
+    "message": "Lists the Schemas that exist on the specified Source in IdentityNow.",
+    "description": "The label for the doc item Lists the Schemas that exist on the specified Source in IdentityNow. in sidebar openApiSidebar, linking to the doc api/beta/list-schemas"
+  },
+  "sidebar.openApiSidebar.doc.Creates a new Schema on the specified Source in IdentityNow.": {
+    "message": "Creates a new Schema on the specified Source in IdentityNow.",
+    "description": "The label for the doc item Creates a new Schema on the specified Source in IdentityNow. in sidebar openApiSidebar, linking to the doc api/beta/create-schema"
+  },
+  "sidebar.openApiSidebar.doc.Synchronize single source attributes.": {
+    "message": "Synchronize single source attributes.",
+    "description": "The label for the doc item Synchronize single source attributes. in sidebar openApiSidebar, linking to the doc api/beta/synchronize-attributes-for-source"
+  },
+  "sidebar.openApiSidebar.doc.Initiates Configuration Objects Export Job.": {
+    "message": "Initiates Configuration Objects Export Job.",
+    "description": "The label for the doc item Initiates Configuration Objects Export Job. in sidebar openApiSidebar, linking to the doc api/beta/sp-config-export"
+  },
+  "sidebar.openApiSidebar.doc.Get Status of Export Job": {
+    "message": "Get Status of Export Job",
+    "description": "The label for the doc item Get Status of Export Job in sidebar openApiSidebar, linking to the doc api/beta/sp-config-export-job-status"
+  },
+  "sidebar.openApiSidebar.doc.Download Result of Export Job": {
+    "message": "Download Result of Export Job",
+    "description": "The label for the doc item Download Result of Export Job in sidebar openApiSidebar, linking to the doc api/beta/sp-config-export-download"
+  },
+  "sidebar.openApiSidebar.doc.Initiates Configuration Objects Import Job.": {
+    "message": "Initiates Configuration Objects Import Job.",
+    "description": "The label for the doc item Initiates Configuration Objects Import Job. in sidebar openApiSidebar, linking to the doc api/beta/sp-config-import"
+  },
+  "sidebar.openApiSidebar.doc.Get Status of Import Job": {
+    "message": "Get Status of Import Job",
+    "description": "The label for the doc item Get Status of Import Job in sidebar openApiSidebar, linking to the doc api/beta/sp-config-import-job-status"
+  },
+  "sidebar.openApiSidebar.doc.Download Result of Import Job": {
+    "message": "Download Result of Import Job",
+    "description": "The label for the doc item Download Result of Import Job in sidebar openApiSidebar, linking to the doc api/beta/sp-config-import-download"
+  },
+  "sidebar.openApiSidebar.doc.Get Config Object details": {
+    "message": "Get Config Object details",
+    "description": "The label for the doc item Get Config Object details in sidebar openApiSidebar, linking to the doc api/beta/sp-config-objects"
+  },
+  "sidebar.openApiSidebar.doc.List Tagged Objects": {
+    "message": "List Tagged Objects",
+    "description": "The label for the doc item List Tagged Objects in sidebar openApiSidebar, linking to the doc api/beta/list-tagged-objects-by-type"
+  },
+  "sidebar.openApiSidebar.doc.Add Tag to Object": {
+    "message": "Add Tag to Object",
+    "description": "The label for the doc item Add Tag to Object in sidebar openApiSidebar, linking to the doc api/beta/add-tag-to-object"
+  },
+  "sidebar.openApiSidebar.doc.Get Tagged Object": {
+    "message": "Get Tagged Object",
+    "description": "The label for the doc item Get Tagged Object in sidebar openApiSidebar, linking to the doc api/beta/get-tagged-object-by-type-and-id"
+  },
+  "sidebar.openApiSidebar.doc.Update Tagged Object": {
+    "message": "Update Tagged Object",
+    "description": "The label for the doc item Update Tagged Object in sidebar openApiSidebar, linking to the doc api/beta/update-tagged-object-by-type-and-id"
+  },
+  "sidebar.openApiSidebar.doc.Delete Tagged Object": {
+    "message": "Delete Tagged Object",
+    "description": "The label for the doc item Delete Tagged Object in sidebar openApiSidebar, linking to the doc api/beta/delete-tagged-object-by-type-and-id"
+  },
+  "sidebar.openApiSidebar.doc.Tag Multiple Objects": {
+    "message": "Tag Multiple Objects",
+    "description": "The label for the doc item Tag Multiple Objects in sidebar openApiSidebar, linking to the doc api/beta/add-tags-to-many-objects"
+  },
+  "sidebar.openApiSidebar.doc.Remove Tags from Multiple Objects": {
+    "message": "Remove Tags from Multiple Objects",
+    "description": "The label for the doc item Remove Tags from Multiple Objects in sidebar openApiSidebar, linking to the doc api/beta/remove-tags-to-many-object"
+  },
+  "sidebar.openApiSidebar.doc.List Triggers": {
+    "message": "List Triggers",
+    "description": "The label for the doc item List Triggers in sidebar openApiSidebar, linking to the doc api/beta/list-triggers"
+  },
+  "sidebar.openApiSidebar.doc.Create a Subscription": {
+    "message": "Create a Subscription",
+    "description": "The label for the doc item Create a Subscription in sidebar openApiSidebar, linking to the doc api/beta/create-subscription"
+  },
+  "sidebar.openApiSidebar.doc.List Subscriptions": {
+    "message": "List Subscriptions",
+    "description": "The label for the doc item List Subscriptions in sidebar openApiSidebar, linking to the doc api/beta/list-subscriptions"
+  },
+  "sidebar.openApiSidebar.doc.Update a Subscription": {
+    "message": "Update a Subscription",
+    "description": "The label for the doc item Update a Subscription in sidebar openApiSidebar, linking to the doc api/beta/update-subscription"
+  },
+  "sidebar.openApiSidebar.doc.Patch a Subscription": {
+    "message": "Patch a Subscription",
+    "description": "The label for the doc item Patch a Subscription in sidebar openApiSidebar, linking to the doc api/beta/patch-subscription"
+  },
+  "sidebar.openApiSidebar.doc.Delete a Subscription": {
+    "message": "Delete a Subscription",
+    "description": "The label for the doc item Delete a Subscription in sidebar openApiSidebar, linking to the doc api/beta/delete-subscription"
+  },
+  "sidebar.openApiSidebar.doc.Validate a Subscription Filter": {
+    "message": "Validate a Subscription Filter",
+    "description": "The label for the doc item Validate a Subscription Filter in sidebar openApiSidebar, linking to the doc api/beta/validate-filter"
+  },
+  "sidebar.openApiSidebar.doc.List Latest Invocation Statuses": {
+    "message": "List Latest Invocation Statuses",
+    "description": "The label for the doc item List Latest Invocation Statuses in sidebar openApiSidebar, linking to the doc api/beta/list-invocation-status"
+  },
+  "sidebar.openApiSidebar.doc.Complete Trigger Invocation": {
+    "message": "Complete Trigger Invocation",
+    "description": "The label for the doc item Complete Trigger Invocation in sidebar openApiSidebar, linking to the doc api/beta/complete-invocation"
+  },
+  "sidebar.openApiSidebar.doc.Start a Test Invocation": {
+    "message": "Start a Test Invocation",
+    "description": "The label for the doc item Start a Test Invocation in sidebar openApiSidebar, linking to the doc api/beta/start-test-invocation"
+  },
+  "sidebar.openApiSidebar.doc.Create Workflow": {
+    "message": "Create Workflow",
+    "description": "The label for the doc item Create Workflow in sidebar openApiSidebar, linking to the doc api/beta/create-workflow"
+  },
+  "sidebar.openApiSidebar.doc.List Workflows": {
+    "message": "List Workflows",
+    "description": "The label for the doc item List Workflows in sidebar openApiSidebar, linking to the doc api/beta/list-workflows"
+  },
+  "sidebar.openApiSidebar.doc.Get Workflow By Id": {
+    "message": "Get Workflow By Id",
+    "description": "The label for the doc item Get Workflow By Id in sidebar openApiSidebar, linking to the doc api/beta/get-workflow"
+  },
+  "sidebar.openApiSidebar.doc.Update Workflow": {
+    "message": "Update Workflow",
+    "description": "The label for the doc item Update Workflow in sidebar openApiSidebar, linking to the doc api/beta/update-workflow"
+  },
+  "sidebar.openApiSidebar.doc.Patch Workflow": {
+    "message": "Patch Workflow",
+    "description": "The label for the doc item Patch Workflow in sidebar openApiSidebar, linking to the doc api/beta/patch-workflow"
+  },
+  "sidebar.openApiSidebar.doc.Delete Workflow By Id": {
+    "message": "Delete Workflow By Id",
+    "description": "The label for the doc item Delete Workflow By Id in sidebar openApiSidebar, linking to the doc api/beta/delete-workflow"
+  },
+  "sidebar.openApiSidebar.doc.Test Workflow By Id": {
+    "message": "Test Workflow By Id",
+    "description": "The label for the doc item Test Workflow By Id in sidebar openApiSidebar, linking to the doc api/beta/test-workflow"
+  },
+  "sidebar.openApiSidebar.doc.List Workflow Executions": {
+    "message": "List Workflow Executions",
+    "description": "The label for the doc item List Workflow Executions in sidebar openApiSidebar, linking to the doc api/beta/list-workflow-executions"
+  },
+  "sidebar.openApiSidebar.doc.Get a Workflow Execution": {
+    "message": "Get a Workflow Execution",
+    "description": "The label for the doc item Get a Workflow Execution in sidebar openApiSidebar, linking to the doc api/beta/get-workflow-execution"
+  },
+  "sidebar.openApiSidebar.doc.Get Workflow Execution History": {
+    "message": "Get Workflow Execution History",
+    "description": "The label for the doc item Get Workflow Execution History in sidebar openApiSidebar, linking to the doc api/beta/get-workflow-execution-history"
+  },
+  "sidebar.openApiSidebar.doc.Cancel Workflow Execution by ID": {
+    "message": "Cancel Workflow Execution by ID",
+    "description": "The label for the doc item Cancel Workflow Execution by ID in sidebar openApiSidebar, linking to the doc api/beta/cancel-workflow-execution"
+  },
+  "sidebar.openApiSidebar.doc.List Complete Workflow Library": {
+    "message": "List Complete Workflow Library",
+    "description": "The label for the doc item List Complete Workflow Library in sidebar openApiSidebar, linking to the doc api/beta/list-complete-workflow-library"
+  },
+  "sidebar.openApiSidebar.doc.List Workflow Library Actions": {
+    "message": "List Workflow Library Actions",
+    "description": "The label for the doc item List Workflow Library Actions in sidebar openApiSidebar, linking to the doc api/beta/list-workflow-library-actions"
+  },
+  "sidebar.openApiSidebar.doc.List Workflow Library Triggers": {
+    "message": "List Workflow Library Triggers",
+    "description": "The label for the doc item List Workflow Library Triggers in sidebar openApiSidebar, linking to the doc api/beta/list-workflow-library-triggers"
+  },
+  "sidebar.openApiSidebar.doc.List Workflow Library Operators": {
+    "message": "List Workflow Library Operators",
+    "description": "The label for the doc item List Workflow Library Operators in sidebar openApiSidebar, linking to the doc api/beta/list-workflow-library-operators"
+  },
+  "sidebar.openApiSidebar.doc.Generate External Trigger OAuth Client": {
+    "message": "Generate External Trigger OAuth Client",
+    "description": "The label for the doc item Generate External Trigger OAuth Client in sidebar openApiSidebar, linking to the doc api/beta/post-workflow-external-trigger"
+  },
+  "sidebar.openApiSidebar.doc.Execute Workflow via External Trigger": {
+    "message": "Execute Workflow via External Trigger",
+    "description": "The label for the doc item Execute Workflow via External Trigger in sidebar openApiSidebar, linking to the doc api/beta/post-external-execute-workflow"
+  },
+  "sidebar.openApiSidebar.doc.Test Workflow via External Trigger": {
+    "message": "Test Workflow via External Trigger",
+    "description": "The label for the doc item Test Workflow via External Trigger in sidebar openApiSidebar, linking to the doc api/beta/test-external-execute-workflow"
+  },
+  "sidebar.idnDocs.category.Getting Started": {
+    "message": "Getting Started",
+    "description": "The label for category Getting Started in sidebar idnDocs"
+  },
+  "sidebar.idnDocs.category.Event Triggers": {
+    "message": "Event Triggers",
+    "description": "The label for category Event Triggers in sidebar idnDocs"
+  },
+  "sidebar.idnDocs.category.available": {
+    "message": "available",
+    "description": "The label for category available in sidebar idnDocs"
+  },
+  "sidebar.idnDocs.category.early-access": {
+    "message": "early-access",
+    "description": "The label for category early-access in sidebar idnDocs"
+  },
+  "sidebar.idnDocs.category.SaaS Configuration": {
+    "message": "SaaS Configuration",
+    "description": "The label for category SaaS Configuration in sidebar idnDocs"
+  },
+  "sidebar.idnDocs.category.SaaS Connectivity": {
+    "message": "SaaS Connectivity",
+    "description": "The label for category SaaS Connectivity in sidebar idnDocs"
+  },
+  "sidebar.idnDocs.category.commands": {
+    "message": "commands",
+    "description": "The label for category commands in sidebar idnDocs"
+  },
+  "sidebar.idnDocs.category.in-depth": {
+    "message": "in-depth",
+    "description": "The label for category in-depth in sidebar idnDocs"
+  },
+  "sidebar.idnDocs.category.Transforms": {
+    "message": "Transforms",
+    "description": "The label for category Transforms in sidebar idnDocs"
+  },
+  "sidebar.idnDocs.category.Operations": {
+    "message": "Operations",
+    "description": "The label for category Operations in sidebar idnDocs"
+  }
+}

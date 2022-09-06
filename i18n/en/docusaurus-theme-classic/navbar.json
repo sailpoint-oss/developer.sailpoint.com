@@ -1,0 +1,70 @@
+{
+  "item.label.IdentityNow": {
+    "message": "IdentityNow",
+    "description": "Navbar item with label IdentityNow"
+  },
+  "item.label.IdentityIQ": {
+    "message": "IdentityIQ",
+    "description": "Navbar item with label IdentityIQ"
+  },
+  "item.label.Ideas": {
+    "message": "Ideas",
+    "description": "Navbar item with label Ideas"
+  },
+  "item.label.Discuss": {
+    "message": "Discuss",
+    "description": "Navbar item with label Discuss"
+  },
+  "item.label.Support": {
+    "message": "Support",
+    "description": "Navbar item with label Support"
+  },
+  "item.label.Status": {
+    "message": "Status",
+    "description": "Navbar item with label Status"
+  },
+  "item.label.API Specifications": {
+    "message": "API Specifications",
+    "description": "Navbar item with label API Specifications"
+  },
+  "item.label.V3 APIs": {
+    "message": "V3 APIs",
+    "description": "Navbar item with label V3 APIs"
+  },
+  "item.label.Beta APIs": {
+    "message": "Beta APIs",
+    "description": "Navbar item with label Beta APIs"
+  },
+  "item.label.Documentation": {
+    "message": "Documentation",
+    "description": "Navbar item with label Documentation"
+  },
+  "item.label.IDN Documentation": {
+    "message": "IDN Documentation",
+    "description": "Navbar item with label IDN Documentation"
+  },
+  "item.label.Training": {
+    "message": "Training",
+    "description": "Navbar item with label Training"
+  },
+  "item.label.IdentityNow Certifications": {
+    "message": "IdentityNow Certifications",
+    "description": "Navbar item with label IdentityNow Certifications"
+  },
+  "item.label.IIQ APIs": {
+    "message": "IIQ APIs",
+    "description": "Navbar item with label IIQ APIs"
+  },
+  "item.label.IdentityIQ Certifications": {
+    "message": "IdentityIQ Certifications",
+    "description": "Navbar item with label IdentityIQ Certifications"
+  },
+  "item.label.Compass": {
+    "message": "Compass",
+    "description": "Navbar item with label Compass"
+  },
+  "item.label.Submit Support Ticket": {
+    "message": "Submit Support Ticket",
+    "description": "Navbar item with label Submit Support Ticket"
+  }
+}

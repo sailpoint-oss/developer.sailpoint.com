@@ -1,12 +1,8 @@
 .mainCard {
   display: grid;
-
   grid-gap: 20px;
-
-
   max-width: 1180px;
-
-
+  justify-content: center;
 }
 
 
@@ -17,7 +13,7 @@
 }
 
 .gettingStartedOne {
-  color: #12329a;
+  color: var(--ifm-color-primary);
   font-size: 30px;
   max-width: 396px;
   font-weight: bold;
@@ -47,8 +43,10 @@
   display: grid;
   margin-left: 50px;
   margin-bottom: 50px;
-  grid-template-columns: repeat(auto-fill, 220px);
   grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  place-content: center;
+  margin-right: 40px;
 }
 
 .video {
@@ -61,17 +59,16 @@
   margin-right: 50px;
 }
 
-@media only screen and (max-width: 600px) {
-  .video {
-    display: none;
-  }
-}
+
 
 @media only screen and (max-width: 1178px) {
   .carousel {
     margin-top: 0px;
     margin-left: 50px;
     margin-bottom: 50px;
+  }
+  .contentContainer {
+    width: 600px;
   }
 }
 @media only screen and (min-width: 1179px) {
@@ -81,12 +78,23 @@
   .mainCard {
     grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
       /* UI Properties */
-    background: transparent 0% 0% no-repeat padding-box;
-    box-shadow: 0px 20px 60px #00000015;
-    border: 1px solid #F7F7F7;
+    background: var(--dev-large-background);
+    box-shadow: var(--dev-card-shadow);
+    border: 1px solid var(--dev-card-background);
     border-radius: 40px;
     opacity: 1;
     margin: 50px auto;
     width: calc(100% - 100px);
+  }
+}
+@media only screen and (max-width: 570px) {
+  .video {
+    display: none;
+  }
+  .contentContainer {
+    width: auto;
+  }
+  .carousel {
+    margin-bottom: 0px;
   }
 }

@@ -7,7 +7,7 @@ export default function HomepageGettingStarted() {
   return (
     <div>
       <div className={styles.mainCard}>
-        <div>
+        <div className={styles.contentContainer}>
           <div className={styles.gettingStartedText}>
             <div className={styles.gettingStartedOne}>SailPoint Developer Community</div>
             <div className={styles.gettingStartedTwo}>Don't know where to get started?</div>

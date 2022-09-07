@@ -9,7 +9,7 @@
 }
 
 .gettingStartedOne {
-  color: #12329a;
+  color: var(--ifm-color-primary);
   font-size: 30px;
   font-weight: bold;
   line-height: 100%;
@@ -37,6 +37,7 @@
   top: -2px;
   box-shadow: 0 4px 5px rgba(0,0,0,0.2);
   background-color: #c552ae10;
+  color: #cc27b0;
 }
 
 a:hover, a:visited, a:link, a:active
@@ -49,8 +50,6 @@ a:hover, a:visited, a:link, a:active
   text-decoration: none;
   text-align: center;
   margin: 10px auto;
-
-  color: #cc27b0;
   font-size: 20px;
   font-weight: bold;
   line-height: 100%;
@@ -67,4 +66,11 @@ a:hover, a:visited, a:link, a:active
   box-shadow: 0px 20px 60px #00000015;
   border: 2px solid #cc27b0;
   border-radius: 5px;
+}
+
+.link {
+  color: #cc27b0;
+}
+.link:hover {
+  color: #cc27b0;
 }

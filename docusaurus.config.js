@@ -249,6 +249,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        additionalLanguages: ["ruby", "csharp", "php"],
       },
     }),
 
@@ -260,6 +261,7 @@ const config = {
           path: "products/idn",
           routeBasePath: "idn",
           sidebarPath: require.resolve("./products/idn/sidebar.js"),
+          docItemComponent: "@theme/ApiItem"
         },
       ],
       [
@@ -269,6 +271,7 @@ const config = {
           path: "products/iiq",
           routeBasePath: "iiq",
           sidebarPath: require.resolve("./products/iiq/sidebar.js"),
+          docItemComponent: "@theme/ApiItem"
         },
       ],
       

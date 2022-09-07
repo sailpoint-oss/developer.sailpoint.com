@@ -9,12 +9,12 @@ import Waitlist from '../components/conference/Waitlist';
 import Theme from '../components/conference/Theme';
 import Speakers from '../components/conference/Speakers';
 import Sponsors from '../components/conference/Sponsors';
+import FAQ from '../components/conference/FAQ';
 
 export default function Conference() {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <Layout
-      description="Description will go into a meta tag in <head />">
+    <Layout>
       <main>
         <Hero
             title={"Shipyard 2023"}

@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./styles.module.css";
 import DiscussCard from "../DiscussCard";
 
-import { getTopPosts } from "../../services/DiscourseService";
+import { getTopPosts } from "../../../services/DiscourseService";
 export default function HomepageDiscuss() {
 
 

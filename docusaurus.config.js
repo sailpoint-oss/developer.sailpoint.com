@@ -52,9 +52,8 @@ const config = {
         indexName: 'prod_DEVELOPER_SAILPOINT_COM',
   
         // Optional: path for search page that enabled by default (`false` to disable it)
-        searchPagePath: 'search',
-  
-        //... other Algolia params
+        searchPagePath: false,
+        placeholder: "Search the Developer Community",
       },
       docs: {
         sidebar: {
@@ -115,25 +114,15 @@ const config = {
             position: "right",
             items: [
               {label: "Compass", href: "https://community.sailpoint.com"},
-              {label: "Submit Support Ticket", href: "https://support.sailpoint.com/hc/en-us/requests/new?ticket_form_id=360000629992"}
+              {label: "Submit Support Ticket", href: "https://support.sailpoint.com/hc/en-us/requests/new?ticket_form_id=360000629992"},
+              {label: "Status", href: "https://status.sailpoint.com/"},
             ]
-          },
-          {
-            position: "right",
-            label: "Status",
-            to: "https://status.sailpoint.com/"
           },
           {
             position: "right",
             to: "https://github.com/sailpoint-oss",
             className: "header-github-link",
             "aria-label": "SailPoint Open-source GitHub"
-          },
-          {
-            href: "https://medium.com/sailpointtechblog",
-            className: "header-blog-link",
-            position: "right",
-            "aria-label": "SailPoint Engineering Blog",
           },
         ]
       },
@@ -260,6 +249,9 @@ const config = {
           id: "idn",
           path: "products/idn",
           routeBasePath: "idn",
+          editUrl: "https://github.com/sailpoint-oss/developer-community-site/edit/main/",
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
           sidebarPath: require.resolve("./products/idn/sidebar.js"),
           docItemComponent: "@theme/ApiItem"
         },
@@ -270,6 +262,9 @@ const config = {
           id: "iiq",
           path: "products/iiq",
           routeBasePath: "iiq",
+          editUrl: "https://github.com/sailpoint-oss/developer-community-site/edit/main/",
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
           sidebarPath: require.resolve("./products/iiq/sidebar.js"),
           docItemComponent: "@theme/ApiItem"
         },
@@ -298,7 +293,7 @@ const config = {
               }
             },
           }
-        }
+        },
       ],
       [
         "docusaurus-plugin-openapi-docs",

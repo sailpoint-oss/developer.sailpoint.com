@@ -1,0 +1,222 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.iiqOpenApiSidebar.category.IIQ Api": {
+    "message": "IIQ Api",
+    "description": "The label for category IIQ Api in sidebar iiqOpenApiSidebar"
+  },
+  "sidebar.iiqOpenApiSidebar.category.IIQ Api.link.generated-index.title": {
+    "message": "IIQ Api",
+    "description": "The generated-index page title for category IIQ Api in sidebar iiqOpenApiSidebar"
+  },
+  "sidebar.iiqOpenApiSidebar.category.IIQ Api.link.generated-index.description": {
+    "message": "These are the public APIs for SailPoint's SaaS services. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.",
+    "description": "The generated-index page description for category IIQ Api in sidebar iiqOpenApiSidebar"
+  },
+  "sidebar.iiqOpenApiSidebar.category.Accounts": {
+    "message": "Accounts",
+    "description": "The label for category Accounts in sidebar iiqOpenApiSidebar"
+  },
+  "sidebar.iiqOpenApiSidebar.category.Alerts": {
+    "message": "Alerts",
+    "description": "The label for category Alerts in sidebar iiqOpenApiSidebar"
+  },
+  "sidebar.iiqOpenApiSidebar.category.Applications": {
+    "message": "Applications",
+    "description": "The label for category Applications in sidebar iiqOpenApiSidebar"
+  },
+  "sidebar.iiqOpenApiSidebar.category.Checked Policy Violations": {
+    "message": "Checked Policy Violations",
+    "description": "The label for category Checked Policy Violations in sidebar iiqOpenApiSidebar"
+  },
+  "sidebar.iiqOpenApiSidebar.category.Entitlements": {
+    "message": "Entitlements",
+    "description": "The label for category Entitlements in sidebar iiqOpenApiSidebar"
+  },
+  "sidebar.iiqOpenApiSidebar.category.LaunchedWorkflows": {
+    "message": "LaunchedWorkflows",
+    "description": "The label for category LaunchedWorkflows in sidebar iiqOpenApiSidebar"
+  },
+  "sidebar.iiqOpenApiSidebar.category.ObjectConfig": {
+    "message": "ObjectConfig",
+    "description": "The label for category ObjectConfig in sidebar iiqOpenApiSidebar"
+  },
+  "sidebar.iiqOpenApiSidebar.category.PolicyViolations": {
+    "message": "PolicyViolations",
+    "description": "The label for category PolicyViolations in sidebar iiqOpenApiSidebar"
+  },
+  "sidebar.iiqOpenApiSidebar.category.ResourceTypes": {
+    "message": "ResourceTypes",
+    "description": "The label for category ResourceTypes in sidebar iiqOpenApiSidebar"
+  },
+  "sidebar.iiqOpenApiSidebar.category.Roles": {
+    "message": "Roles",
+    "description": "The label for category Roles in sidebar iiqOpenApiSidebar"
+  },
+  "sidebar.iiqOpenApiSidebar.category.Schemas": {
+    "message": "Schemas",
+    "description": "The label for category Schemas in sidebar iiqOpenApiSidebar"
+  },
+  "sidebar.iiqOpenApiSidebar.category.ServiceProviderConfig": {
+    "message": "ServiceProviderConfig",
+    "description": "The label for category ServiceProviderConfig in sidebar iiqOpenApiSidebar"
+  },
+  "sidebar.iiqOpenApiSidebar.category.TaskResults": {
+    "message": "TaskResults",
+    "description": "The label for category TaskResults in sidebar iiqOpenApiSidebar"
+  },
+  "sidebar.iiqOpenApiSidebar.category.Users": {
+    "message": "Users",
+    "description": "The label for category Users in sidebar iiqOpenApiSidebar"
+  },
+  "sidebar.iiqOpenApiSidebar.category.Workflows": {
+    "message": "Workflows",
+    "description": "The label for category Workflows in sidebar iiqOpenApiSidebar"
+  },
+  "sidebar.iiqOpenApiSidebar.doc.Returns all Account resources.": {
+    "message": "Returns all Account resources.",
+    "description": "The label for the doc item Returns all Account resources. in sidebar iiqOpenApiSidebar, linking to the doc api/get-accounts"
+  },
+  "sidebar.iiqOpenApiSidebar.doc.Creates an Account.": {
+    "message": "Creates an Account.",
+    "description": "The label for the doc item Creates an Account. in sidebar iiqOpenApiSidebar, linking to the doc api/create-account"
+  },
+  "sidebar.iiqOpenApiSidebar.doc.Returns an Account resource based on id.": {
+    "message": "Returns an Account resource based on id.",
+    "description": "The label for the doc item Returns an Account resource based on id. in sidebar iiqOpenApiSidebar, linking to the doc api/get-account-by-id"
+  },
+  "sidebar.iiqOpenApiSidebar.doc.Updates an existing Account.": {
+    "message": "Updates an existing Account.",
+    "description": "The label for the doc item Updates an existing Account. in sidebar iiqOpenApiSidebar, linking to the doc api/update-account"
+  },
+  "sidebar.iiqOpenApiSidebar.doc.Deletes an existing Account.": {
+    "message": "Deletes an existing Account.",
+    "description": "The label for the doc item Deletes an existing Account. in sidebar iiqOpenApiSidebar, linking to the doc api/delete-account"
+  },
+  "sidebar.iiqOpenApiSidebar.doc.Returns all Alert resources.": {
+    "message": "Returns all Alert resources.",
+    "description": "The label for the doc item Returns all Alert resources. in sidebar iiqOpenApiSidebar, linking to the doc api/get-alerts"
+  },
+  "sidebar.iiqOpenApiSidebar.doc.Creates a new Alert.": {
+    "message": "Creates a new Alert.",
+    "description": "The label for the doc item Creates a new Alert. in sidebar iiqOpenApiSidebar, linking to the doc api/create-alert"
+  },
+  "sidebar.iiqOpenApiSidebar.doc.Returns an Alert resource based on id.": {
+    "message": "Returns an Alert resource based on id.",
+    "description": "The label for the doc item Returns an Alert resource based on id. in sidebar iiqOpenApiSidebar, linking to the doc api/get-alert-by-id"
+  },
+  "sidebar.iiqOpenApiSidebar.doc.Returns all Application resources.": {
+    "message": "Returns all Application resources.",
+    "description": "The label for the doc item Returns all Application resources. in sidebar iiqOpenApiSidebar, linking to the doc api/get-applications"
+  },
+  "sidebar.iiqOpenApiSidebar.doc.Returns an Application resource based on id or name.": {
+    "message": "Returns an Application resource based on id or name.",
+    "description": "The label for the doc item Returns an Application resource based on id or name. in sidebar iiqOpenApiSidebar, linking to the doc api/get-application"
+  },
+  "sidebar.iiqOpenApiSidebar.doc.This endpoint simulates provisioning a set of access items, and then checks against a set of policies to determine if granting the access items would cause creation of new policy violations.": {
+    "message": "This endpoint simulates provisioning a set of access items, and then checks against a set of policies to determine if granting the access items would cause creation of new policy violations.",
+    "description": "The label for the doc item This endpoint simulates provisioning a set of access items, and then checks against a set of policies to determine if granting the access items would cause creation of new policy violations. in sidebar iiqOpenApiSidebar, linking to the doc api/check-policy-violations"
+  },
+  "sidebar.iiqOpenApiSidebar.doc.Returns all Entitlement resources.": {
+    "message": "Returns all Entitlement resources.",
+    "description": "The label for the doc item Returns all Entitlement resources. in sidebar iiqOpenApiSidebar, linking to the doc api/get-entitlements"
+  },
+  "sidebar.iiqOpenApiSidebar.doc.Returns an Entitlement resource based on id.": {
+    "message": "Returns an Entitlement resource based on id.",
+    "description": "The label for the doc item Returns an Entitlement resource based on id. in sidebar iiqOpenApiSidebar, linking to the doc api/get-entitlement-by-id"
+  },
+  "sidebar.iiqOpenApiSidebar.doc.Returns all LaunchedWorkflow resources.": {
+    "message": "Returns all LaunchedWorkflow resources.",
+    "description": "The label for the doc item Returns all LaunchedWorkflow resources. in sidebar iiqOpenApiSidebar, linking to the doc api/launched-workflows"
+  },
+  "sidebar.iiqOpenApiSidebar.doc.Endpoint used to launch a Workflow.": {
+    "message": "Endpoint used to launch a Workflow.",
+    "description": "The label for the doc item Endpoint used to launch a Workflow. in sidebar iiqOpenApiSidebar, linking to the doc api/launch-workflow"
+  },
+  "sidebar.iiqOpenApiSidebar.doc.Returns a LaunchedWorkflow resource based on id.": {
+    "message": "Returns a LaunchedWorkflow resource based on id.",
+    "description": "The label for the doc item Returns a LaunchedWorkflow resource based on id. in sidebar iiqOpenApiSidebar, linking to the doc api/get-launched-workflow-by-id"
+  },
+  "sidebar.iiqOpenApiSidebar.doc.Returns all object of type ObjectConfig.": {
+    "message": "Returns all object of type ObjectConfig.",
+    "description": "The label for the doc item Returns all object of type ObjectConfig. in sidebar iiqOpenApiSidebar, linking to the doc api/get-object-configs"
+  },
+  "sidebar.iiqOpenApiSidebar.doc.Returns an ObjectConfig resource based on its name or id.": {
+    "message": "Returns an ObjectConfig resource based on its name or id.",
+    "description": "The label for the doc item Returns an ObjectConfig resource based on its name or id. in sidebar iiqOpenApiSidebar, linking to the doc api/get-object-config-by-id"
+  },
+  "sidebar.iiqOpenApiSidebar.doc.Returns all PolicyViolation resources.": {
+    "message": "Returns all PolicyViolation resources.",
+    "description": "The label for the doc item Returns all PolicyViolation resources. in sidebar iiqOpenApiSidebar, linking to the doc api/get-policy-violations"
+  },
+  "sidebar.iiqOpenApiSidebar.doc.Returns a PolicyViolation resource based on id.": {
+    "message": "Returns a PolicyViolation resource based on id.",
+    "description": "The label for the doc item Returns a PolicyViolation resource based on id. in sidebar iiqOpenApiSidebar, linking to the doc api/get-policy-violation-by-id"
+  },
+  "sidebar.iiqOpenApiSidebar.doc.Returns all ResourceType resources.": {
+    "message": "Returns all ResourceType resources.",
+    "description": "The label for the doc item Returns all ResourceType resources. in sidebar iiqOpenApiSidebar, linking to the doc api/get-resource-types"
+  },
+  "sidebar.iiqOpenApiSidebar.doc.Returns a ResourceType resource based on ID.": {
+    "message": "Returns a ResourceType resource based on ID.",
+    "description": "The label for the doc item Returns a ResourceType resource based on ID. in sidebar iiqOpenApiSidebar, linking to the doc api/get-resource-type-by-id"
+  },
+  "sidebar.iiqOpenApiSidebar.doc.Returns all Role resources.": {
+    "message": "Returns all Role resources.",
+    "description": "The label for the doc item Returns all Role resources. in sidebar iiqOpenApiSidebar, linking to the doc api/get-roles"
+  },
+  "sidebar.iiqOpenApiSidebar.doc.Returns a Role resource based on ID or name.": {
+    "message": "Returns a Role resource based on ID or name.",
+    "description": "The label for the doc item Returns a Role resource based on ID or name. in sidebar iiqOpenApiSidebar, linking to the doc api/get-role"
+  },
+  "sidebar.iiqOpenApiSidebar.doc.Returns all Schema resources.": {
+    "message": "Returns all Schema resources.",
+    "description": "The label for the doc item Returns all Schema resources. in sidebar iiqOpenApiSidebar, linking to the doc api/get-schemas"
+  },
+  "sidebar.iiqOpenApiSidebar.doc.Returns a Schema based on id.": {
+    "message": "Returns a Schema based on id.",
+    "description": "The label for the doc item Returns a Schema based on id. in sidebar iiqOpenApiSidebar, linking to the doc api/get-schema-by-id"
+  },
+  "sidebar.iiqOpenApiSidebar.doc.Returns all ServiceProviderConfig resources.": {
+    "message": "Returns all ServiceProviderConfig resources.",
+    "description": "The label for the doc item Returns all ServiceProviderConfig resources. in sidebar iiqOpenApiSidebar, linking to the doc api/service-provider-config"
+  },
+  "sidebar.iiqOpenApiSidebar.doc.Returns all TaskResult resources.": {
+    "message": "Returns all TaskResult resources.",
+    "description": "The label for the doc item Returns all TaskResult resources. in sidebar iiqOpenApiSidebar, linking to the doc api/task-results"
+  },
+  "sidebar.iiqOpenApiSidebar.doc.Returns a TaskResult resource based on id.": {
+    "message": "Returns a TaskResult resource based on id.",
+    "description": "The label for the doc item Returns a TaskResult resource based on id. in sidebar iiqOpenApiSidebar, linking to the doc api/get-task-result-by-id"
+  },
+  "sidebar.iiqOpenApiSidebar.doc.Returns all User resources.": {
+    "message": "Returns all User resources.",
+    "description": "The label for the doc item Returns all User resources. in sidebar iiqOpenApiSidebar, linking to the doc api/get-users"
+  },
+  "sidebar.iiqOpenApiSidebar.doc.Creates a User.": {
+    "message": "Creates a User.",
+    "description": "The label for the doc item Creates a User. in sidebar iiqOpenApiSidebar, linking to the doc api/create-user"
+  },
+  "sidebar.iiqOpenApiSidebar.doc.Returns a User resource based on id.": {
+    "message": "Returns a User resource based on id.",
+    "description": "The label for the doc item Returns a User resource based on id. in sidebar iiqOpenApiSidebar, linking to the doc api/get-user-by-id"
+  },
+  "sidebar.iiqOpenApiSidebar.doc.Updates an existing User.": {
+    "message": "Updates an existing User.",
+    "description": "The label for the doc item Updates an existing User. in sidebar iiqOpenApiSidebar, linking to the doc api/update-user"
+  },
+  "sidebar.iiqOpenApiSidebar.doc.Deletes an existing User.": {
+    "message": "Deletes an existing User.",
+    "description": "The label for the doc item Deletes an existing User. in sidebar iiqOpenApiSidebar, linking to the doc api/delete-user"
+  },
+  "sidebar.iiqOpenApiSidebar.doc.Returns all Workflow resources.": {
+    "message": "Returns all Workflow resources.",
+    "description": "The label for the doc item Returns all Workflow resources. in sidebar iiqOpenApiSidebar, linking to the doc api/workflows"
+  },
+  "sidebar.iiqOpenApiSidebar.doc.Returns a Workflow resource based on id.": {
+    "message": "Returns a Workflow resource based on id.",
+    "description": "The label for the doc item Returns a Workflow resource based on id. in sidebar iiqOpenApiSidebar, linking to the doc api/get-workflow-by-id"
+  }
+}

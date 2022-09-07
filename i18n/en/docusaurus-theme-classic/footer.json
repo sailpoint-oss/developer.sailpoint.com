@@ -1,0 +1,94 @@
+{
+  "link.title.IdentityNow": {
+    "message": "IdentityNow",
+    "description": "The title of the footer links column with title=IdentityNow in the footer"
+  },
+  "link.title.IdentityIQ": {
+    "message": "IdentityIQ",
+    "description": "The title of the footer links column with title=IdentityIQ in the footer"
+  },
+  "link.title.Community": {
+    "message": "Community",
+    "description": "The title of the footer links column with title=Community in the footer"
+  },
+  "link.title.More": {
+    "message": "More",
+    "description": "The title of the footer links column with title=More in the footer"
+  },
+  "link.title.Company": {
+    "message": "Company",
+    "description": "The title of the footer links column with title=Company in the footer"
+  },
+  "link.title.Legal": {
+    "message": "Legal",
+    "description": "The title of the footer links column with title=Legal in the footer"
+  },
+  "link.item.label.Your First API Call": {
+    "message": "Your First API Call",
+    "description": "The label of footer link with label=Your First API Call linking to idn/docs/getting-started"
+  },
+  "link.item.label.Build A Transform": {
+    "message": "Build A Transform",
+    "description": "The label of footer link with label=Build A Transform linking to idn/docs/transforms"
+  },
+  "link.item.label.Build A SaaS Connector": {
+    "message": "Build A SaaS Connector",
+    "description": "The label of footer link with label=Build A SaaS Connector linking to idn/docs/saas-connectors"
+  },
+  "link.item.label.Get Certified": {
+    "message": "Get Certified",
+    "description": "The label of footer link with label=Get Certified linking to https://university.sailpoint.com/Saba/Web_spf/NA10P1PRD075/guest/categorydetail/categ000000000003042/true/xxemptyxx/"
+  },
+  "link.item.label.Build A Plugin": {
+    "message": "Build A Plugin",
+    "description": "The label of footer link with label=Build A Plugin linking to https://documentation.sailpoint.com/"
+  },
+  "link.item.label.Discuss": {
+    "message": "Discuss",
+    "description": "The label of footer link with label=Discuss linking to https://developer.sailpoint.com/discuss"
+  },
+  "link.item.label.Submit an Idea": {
+    "message": "Submit an Idea",
+    "description": "The label of footer link with label=Submit an Idea linking to https://developer-sailpoint.ideas.aha.io/"
+  },
+  "link.item.label.Contact Our Team": {
+    "message": "Contact Our Team",
+    "description": "The label of footer link with label=Contact Our Team linking to https://developer.sailpoint.com/discuss/new-message?groupname=developer_relations"
+  },
+  "link.item.label.Engineering Blog": {
+    "message": "Engineering Blog",
+    "description": "The label of footer link with label=Engineering Blog linking to https://medium.com/sailpointtechblog"
+  },
+  "link.item.label.GitHub": {
+    "message": "GitHub",
+    "description": "The label of footer link with label=GitHub linking to https://github.com/sailpoint-oss"
+  },
+  "link.item.label.Twitter": {
+    "message": "Twitter",
+    "description": "The label of footer link with label=Twitter linking to https://twitter.com/sailpoint"
+  },
+  "link.item.label.The SailPoint Story": {
+    "message": "The SailPoint Story",
+    "description": "The label of footer link with label=The SailPoint Story linking to https://www.sailpoint.com/company/"
+  },
+  "link.item.label.The SailPoint Way": {
+    "message": "The SailPoint Way",
+    "description": "The label of footer link with label=The SailPoint Way linking to https://www.sailpoint.com/company/diversity-inclusion-and-belonging/"
+  },
+  "link.item.label.Leadership Team": {
+    "message": "Leadership Team",
+    "description": "The label of footer link with label=Leadership Team linking to https://www.sailpoint.com/company/#h-our-leadership"
+  },
+  "link.item.label.Become A Partner": {
+    "message": "Become A Partner",
+    "description": "The label of footer link with label=Become A Partner linking to https://www.sailpoint.com/partners/become-partner/"
+  },
+  "link.item.label.Terms & Conditions": {
+    "message": "Terms & Conditions",
+    "description": "The label of footer link with label=Terms & Conditions linking to https://developet.sailpoint.com"
+  },
+  "copyright": {
+    "message": "Copyright © 2022 SailPoint Technologies Holdings, Inc. All Rights Reserved.",
+    "description": "The footer copyright"
+  }
+}

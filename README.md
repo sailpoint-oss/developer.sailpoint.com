@@ -1,18 +1,16 @@
 <a id="readme-top"></a>
 
 [![Discourse Topics][discourse-shield]][discourse-url]
-![Times Downloaded][downloads-shield]
 ![Issues][issues-shield]
 ![Latest Releases][release-shield]
 ![Contributor Shield][contributor-shield]
-[![Deploy to Production](https://github.com/sailpoint-oss/developer-community-site/actions/workflows/build-and-deploy-prod-gh-pages.yml/badge.svg)](https://github.com/sailpoint-oss/developer-community-site/actions/workflows/build-and-deploy-prod-gh-pages.yml)
+[![Deploy to Production](https://github.com/sailpoint-oss/developer.sailpoint.com/actions/workflows/build-and-deploy-prod-gh-pages.yml/badge.svg)](https://github.com/sailpoint-oss/developer.sailpoint.com/actions/workflows/build-and-deploy-prod-gh-pages.yml)
 
 [discourse-shield]: https://img.shields.io/discourse/topics?label=Discuss%20This%20Tool&server=https%3A%2F%2Fdeveloper.sailpoint.com%2Fdiscuss
 [discourse-url]: https://developer.sailpoint.com/discuss/
-[downloads-shield]: https://img.shields.io/github/downloads/sailpoint-oss/developer-community-website/total?label=Downloads
-[issues-shield]:https://img.shields.io/github/issues/sailpoint-oss/developer-community-website?label=Issues
-[release-shield]: https://img.shields.io/github/v/release/sailpoint-oss/developer-community-website?label=Current%20Release
-[contributor-shield]:https://img.shields.io/github/contributors/sailpoint-oss/developer-community-website?label=Contributors
+[issues-shield]:https://img.shields.io/github/issues/sailpoint-oss/developer.sailpoint.com?label=Issues
+[release-shield]: https://img.shields.io/github/v/release/sailpoint-oss/developer.sailpoint.com?label=Current%20Release
+[contributor-shield]:https://img.shields.io/github/contributors/sailpoint-oss/developer.sailpoint.com?label=Contributors
 
 <!-- PROJECT LOGO -->
 <br />
@@ -44,7 +42,7 @@ npm install npm@latest -g
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/sailpoint-oss/developer-community-site.git
+   git clone https://github.com/sailpoint-oss/developer.sailpoint.com.git
    ```
 2. Install NPM packages
    ```sh

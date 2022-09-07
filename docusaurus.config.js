@@ -114,25 +114,15 @@ const config = {
             position: "right",
             items: [
               {label: "Compass", href: "https://community.sailpoint.com"},
-              {label: "Submit Support Ticket", href: "https://support.sailpoint.com/hc/en-us/requests/new?ticket_form_id=360000629992"}
+              {label: "Submit Support Ticket", href: "https://support.sailpoint.com/hc/en-us/requests/new?ticket_form_id=360000629992"},
+              {label: "Status", href: "https://status.sailpoint.com/"},
             ]
-          },
-          {
-            position: "right",
-            label: "Status",
-            to: "https://status.sailpoint.com/"
           },
           {
             position: "right",
             to: "https://github.com/sailpoint-oss",
             className: "header-github-link",
             "aria-label": "SailPoint Open-source GitHub"
-          },
-          {
-            href: "https://medium.com/sailpointtechblog",
-            className: "header-blog-link",
-            position: "right",
-            "aria-label": "SailPoint Engineering Blog",
           },
         ]
       },

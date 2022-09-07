@@ -4,9 +4,9 @@
   margin-top: 20px;
   height: 300px;
   /* UI Properties */
-  background: transparent 0% 0% no-repeat padding-box;
-  box-shadow: 0px 20px 60px #00000015;
-  border: 1px solid #F7F7F7;
+  background: var(--dev-card-background);
+  box-shadow: var(--dev-card-shadow);
+  border: 1px solid var(--dev-card-background);
   border-radius: 40px;
   opacity: 1;
 }
@@ -14,7 +14,7 @@
 .card:hover {
   cursor: pointer;
   top: -2px;
-  box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+  box-shadow: var(--dev-card-selected)
   
 }
 
@@ -27,7 +27,7 @@
   width: 100%;
   top: 116px;
   left: 0;
-  color: black;
+  color: var(--dev-text-color-normal);
 }
 
 .titleText {
@@ -40,7 +40,7 @@
   letter-spacing: 2px;
   top: 150px;
   left: 0;
-  color: black;
+  color: var(--dev-text-color-normal);
 }
 
 .expertiseText {
@@ -53,7 +53,7 @@
   letter-spacing: 2px;
   top: 160px;
   left: 0;
-  color: #12329a;
+  color: var(--ifm-color-primary);
   padding: 30px
 }
 

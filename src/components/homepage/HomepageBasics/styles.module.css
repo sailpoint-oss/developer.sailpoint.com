@@ -9,7 +9,7 @@
 }
 
 .gettingStartedOne {
-  color: #12329a;
+  color: var(--ifm-color-primary);
   font-size: 30px;
   font-weight: bold;
   line-height: 100%;
@@ -37,6 +37,7 @@
   top: -2px;
   box-shadow: 0 4px 5px rgba(0,0,0,0.2);
   background-color: #c552ae10;
+  color: #cc27b0;
 }
 
 a:hover, a:visited, a:link, a:active
@@ -68,5 +69,8 @@ a:hover, a:visited, a:link, a:active
 }
 
 .link {
+  color: #cc27b0;
+}
+.link:hover {
   color: #cc27b0;
 }

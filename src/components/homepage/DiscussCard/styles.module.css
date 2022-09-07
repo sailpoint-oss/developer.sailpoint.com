@@ -4,9 +4,9 @@
   margin-top: 20px;
   height: 300px;
   /* UI Properties */
-  background: transparent 0% 0% no-repeat padding-box;
-  box-shadow: 0px 20px 60px #00000015;
-  border: 1px solid #F7F7F7;
+  background: var(--dev-card-background);
+  box-shadow: var(--dev-card-shadow);
+  border: 1px solid var(--dev-card-background);
   border-radius: 40px;
   opacity: 1;
 }
@@ -14,7 +14,7 @@
 .card:hover {
   cursor: pointer;
   top: -2px;
-  box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+  box-shadow: var(--dev-card-selected)
 }
 
 .cardText {
@@ -25,7 +25,6 @@
   min-width: 170px;
   top: 35px;
   left: 0;
-  color: black;
 }
 
 .linkText {
@@ -35,7 +34,7 @@
   font-weight: 700;
   bottom: 22px;
   left: -19;
-  color: #123198;
+  color: var(--ifm-color-primary);
 }
 
 .linkSolvedText {
@@ -45,7 +44,7 @@
   font-weight: 700;
   bottom: 22px;
   left: -19px;
-  color: #123198;
+  color: var(--ifm-color-primary);
 }
 
 .cardIcon {
@@ -62,6 +61,7 @@
   bottom: 20px;
   right: 0;
   width: 20px;
+  
 }
 
 .cardViews {
@@ -115,15 +115,22 @@
   width: 22px;
 }
 
-.product {
-  position:absolute;
-  margin: 20px;
+.tag {
   font-size: 12px;
   font-weight: 500;
-  width: 120px;
+  color: var(--dev-secondary-text);
+}
+
+.tags {
+  position:absolute;
+  margin: 20px;
+  width: 230px;
   bottom: 50px;
   left: 0;
-  
+
+  display: grid;
+  grid-template-columns:  max-content max-content max-content;
+  grid-gap: 10px;
 }
 
 .idn {

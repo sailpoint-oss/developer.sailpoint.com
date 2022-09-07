@@ -2,6 +2,8 @@ import React from "react";
 import styles from "./styles.module.css";
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import { addDarkToFileName } from "../../../util/util";
+import ThemedImage from '@theme/ThemedImage';
 export default function HomepageBasics({link, title, image, description, buttonText}) {
 
   let linkHtml = <div></div>
@@ -15,7 +17,7 @@ export default function HomepageBasics({link, title, image, description, buttonT
   }
   return (
         <div className={styles.gettingStartedText}>
-          <img className={styles.gettingStartedCardIcon} src={useBaseUrl(image)}></img>
+          <ThemedImage className={styles.gettingStartedCardIcon} sources={{light: useBaseUrl(image), dark: useBaseUrl(addDarkToFileName(image)),}}></ThemedImage>
           <div className={styles.gettingStartedOne}>{title}</div>
           <div className={styles.gettingStartedThree} dangerouslySetInnerHTML={{ __html: description }} ></div>
           {linkHtml}

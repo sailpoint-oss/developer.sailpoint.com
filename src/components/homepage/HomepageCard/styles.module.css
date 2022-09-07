@@ -4,17 +4,18 @@
   margin-top: 20px;
   height: 200px;
   /* UI Properties */
-  background: transparent 0% 0% no-repeat padding-box;
-  box-shadow: 0px 20px 60px #00000015;
-  border: 1px solid #F7F7F7;
+  background: var(--dev-card-background);
+  box-shadow: var(--dev-card-shadow);
+  border: 1px solid var(--dev-card-background);
   border-radius: 40px;
   opacity: 1;
+
 }
 
 .card:hover {
   cursor: pointer;
   top: -2px;
-  box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+  box-shadow: var(--dev-card-selected)
 }
 
 .cardText {
@@ -25,7 +26,6 @@
   width: 135px;
   bottom: 0;
   left: 0;
-  color: black;
 }
 
 .cardIcon {

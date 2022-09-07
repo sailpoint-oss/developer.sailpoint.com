@@ -1,12 +1,8 @@
 .mainCard {
   display: grid;
-
   grid-gap: 20px;
-
-
   max-width: 1180px;
-
-
+  justify-content: center;
 }
 
 
@@ -47,8 +43,10 @@
   display: grid;
   margin-left: 50px;
   margin-bottom: 50px;
-  grid-template-columns: repeat(auto-fill, 220px);
   grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  place-content: center;
+  margin-right: 40px;
 }
 
 .video {
@@ -61,17 +59,16 @@
   margin-right: 50px;
 }
 
-@media only screen and (max-width: 600px) {
-  .video {
-    display: none;
-  }
-}
+
 
 @media only screen and (max-width: 1178px) {
   .carousel {
     margin-top: 0px;
     margin-left: 50px;
     margin-bottom: 50px;
+  }
+  .contentContainer {
+    width: 600px;
   }
 }
 @media only screen and (min-width: 1179px) {
@@ -88,5 +85,16 @@
     opacity: 1;
     margin: 50px auto;
     width: calc(100% - 100px);
+  }
+}
+@media only screen and (max-width: 570px) {
+  .video {
+    display: none;
+  }
+  .contentContainer {
+    width: auto;
+  }
+  .carousel {
+    margin-bottom: 0px;
   }
 }

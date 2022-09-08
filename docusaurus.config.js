@@ -12,7 +12,7 @@ const plugins = require('./plugins');
 const config = {
   title: 'SailPoint Developer Community',
   url: 'https://developer.sailpoint.com',
-  baseUrl: '/developer.sailpoint.com/',
+  baseUrl: '/',
   favicon: 'img/SailPoint-Logo-Icon.ico',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',

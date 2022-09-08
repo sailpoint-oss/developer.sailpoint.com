@@ -1,7 +1,8 @@
 ---
-id: 01-getting-started
+id: getting-started
 slug: /docs/getting-started
 title: Getting Started
+sidebar_position: 1
 ---
 
 # Getting Started with SailPoint APIs

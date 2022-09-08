@@ -64,13 +64,13 @@ a:hover, a:visited, a:link, a:active
   opacity: 1;
 
   box-shadow: 0px 20px 60px #00000015;
-  border: 2px solid #cc27b0;
+  border: 2px solid #df61ca;
   border-radius: 5px;
 }
 
 .link {
-  color: #cc27b0;
+  color: #df61ca;
 }
 .link:hover {
-  color: #cc27b0;
+  color: #df61ca;
 }

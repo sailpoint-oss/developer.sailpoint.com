@@ -12,7 +12,7 @@
 [release-shield]: https://img.shields.io/github/v/release/sailpoint-oss/developer.sailpoint.com?label=Current%20Release
 [contributor-shield]:https://img.shields.io/github/contributors/sailpoint-oss/developer.sailpoint.com?label=Contributors
 
-<!-- PROJECT LOGO -->
+<!-- PROJECT LOGO --> 
 <br />
 <div align="center">
     <img src="./static/img/SailPoint-Developer-Community-Lockup.png" alt="Logo">

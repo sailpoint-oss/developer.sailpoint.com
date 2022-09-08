@@ -46,9 +46,9 @@ module.exports = {
         label: "Support",
         position: "right",
         items: [
-          {label: "Compass", href: "https://community.sailpoint.com"},
           {label: "Submit Support Ticket", href: "https://support.sailpoint.com/hc/en-us/requests/new?ticket_form_id=360000629992"},
-          {label: "Status", href: "https://status.sailpoint.com/"},
+          {label: "Compass", href: "https://community.sailpoint.com"},
+          {label: "Platform Status", href: "https://status.sailpoint.com/"},
         ]
       },
       {

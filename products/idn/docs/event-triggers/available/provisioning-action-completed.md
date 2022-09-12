@@ -1,6 +1,5 @@
 ---
 id: provisioning-action-completed
-slug: /docs/event-triggers/provisioning-action-completed
 ---
 
 # Provisioning Action Completed
@@ -15,6 +14,53 @@ The Provisioning Action Completed event trigger notifies subscribed applications
 - Notify an application user and/or access certifier that access has been revoked.
 - Notify an administrator or system that provisioning has been completed.
 - Notify a third party system to trigger another action (e.g. continue additional provisioning actions) or simply for auditing of provisioning activities.
+
+An example input from this trigger is as follows:
+
+```json
+{
+  "trackingNumber": "4b4d982dddff4267ab12f0f1e72b5a6d",
+  "sources": "Corp AD, Corp LDAP, Corp Salesforce",
+  "action": "IdentityRefresh",
+  "errors": [
+    "Connector AD Failed"
+  ],
+  "warnings": [
+    "Notification Skipped due to invalid email"
+  ],
+  "recipient": {
+    "type": "IDENTITY",
+    "id": "2c91808568c529c60168cca6f90c1313",
+    "name": "William Wilson"
+  },
+  "requester": {
+    "type": "IDENTITY",
+    "id": "2c91808568c529c60168cca6f90c1313",
+    "name": "William Wilson"
+  },
+  "accountRequests": [
+    {
+      "source": {
+        "id": "4e4d982dddff4267ab12f0f1e72b5a6d",
+        "type": "SOURCE",
+        "name": "Corporate Active Directory"
+      },
+      "accountId": "CN=Chewy.Bacca,ou=hardcorefigter,ou=wookies,dc=starwars,dc=com",
+      "accountOperation": "Modify",
+      "provisioningResult": "SUCCESS",
+      "provisioningTarget": "Corp AD",
+      "ticketId": "72619262",
+      "attributeRequests": [
+        {
+          "attributeName": "memberOf",
+          "attributeValue": "CN=jedi,DC=starwars,DC=com",
+          "operation": "Add"
+        }
+      ]
+    }
+  ]
+}
+```
 
 ## Prerequisites
 
@@ -105,5 +151,5 @@ For password management setup, you will need to configure:
 
 ## Additional information and links
 
-- **Trigger Type**: [FIRE_AND_FORGET](../event-triggers-trigger-types.md#fire-and-forget)
-- [Input schema](https://developer.sailpoint.com/apis/beta/#section/Provisioning-Completed-Event-Trigger-Input)
+- **Trigger Type**: [FIRE_AND_FORGET](../trigger-types.md#fire-and-forget)
+ <!-- [Input schema](https://developer.sailpoint.com/apis/beta/#section/Provisioning-Completed-Event-Trigger-Input) -->

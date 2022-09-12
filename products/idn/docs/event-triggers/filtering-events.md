@@ -61,7 +61,7 @@ Start by opening a [JSONpath editor](https://jsonpath.herokuapp.com/) in your br
 
 ![JSONPath editor](./img/jsonpath-editor.png)
 
-Most of the examples provided in the operator tables above can be used against the Identity Attributes Changed event trigger input, as seen below.  You can find all of the input/output schemas for the other available triggers in our [API specification](https://developer.sailpoint.com/apis/beta/#section/Available-Event-Triggers).
+Most of the examples provided in the operator tables above can be used against the Identity Attributes Changed event trigger input, as seen below.  You can find all of the input/output schemas for the other available triggers in our [API specification](/idn/api/beta/triggers#available-event-triggers).
 
 ```json
 {
@@ -110,7 +110,7 @@ To validate a filter using the UI, subscribe to a new event trigger or edit an e
 
 ### Validating filters using the API
 
-You can validate a trigger filter using the [validate filter](https://developer.sailpoint.com/apis/beta/#operation/validateFilter) API endpoint.  You will need to escape any double quotes, as seen in the example payload in the API description.  Also, you will need to provide a sample input for the validation engine to run against.  It is best to use the input example included in the input/output schemas for the event trigger you wish to apply your filter to.  Please see [this table](https://developer.sailpoint.com/apis/beta/#section/Available-Event-Triggers) to find the schema of your event trigger.  An example request is as follows:
+You can validate a trigger filter using the [validate filter](/idn/api/beta/validate-filter) API endpoint.  You will need to escape any double quotes, as seen in the example payload in the API description.  Also, you will need to provide a sample input for the validation engine to run against.  It is best to use the input example included in the input/output schemas for the event trigger you wish to apply your filter to.  Please see [this table](/idn/api/beta/triggers#available-event-triggers) to find the schema of your event trigger.  An example request is as follows:
 
 POST `https://{tenant}.api.identitynow.com/beta/trigger-subscriptions/validate-filter`
 
@@ -160,4 +160,4 @@ If your trigger filter is accepted by SailPoint, then you will want to test that
 
 Once you fire off a test event, monitor your webhook.site webpage for an incoming event.  If the filter matches the test input, you should see an event come in.  If the filter doesn't match the input, then it won't fire.  It's good to test both scenarios to make sure your filter isn't always evaluating to `true`, and that it will indeed evaluate to `false` under the correct circumstances.  For example, the filter `$[?($.identity.name contains "john")]` will match the test event for Identity Attributes Changed and you will see an event in webhook.site, but you will also want to make sure that `$[?($.identity.name contains "archer")]` doesn't fire, since the test input is always the same.
 
-If you want to control the test input to validate your filter against a more robust set of data, then you can use the [test invocation](https://developer.sailpoint.com/apis/beta/#operation/startTestInvocation) API endpoint.
+If you want to control the test input to validate your filter against a more robust set of data, then you can use the [test invocation](/idn/api/beta/start-test-invocation) API endpoint.

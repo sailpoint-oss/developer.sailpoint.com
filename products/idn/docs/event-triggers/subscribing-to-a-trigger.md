@@ -20,6 +20,6 @@ Please see [subscribing to event triggers](https://documentation.sailpoint.com/s
 
 Sometimes, you might have to use the API to subscribe to event triggers.  This can occur when you want to programatically subscribe/unsubscribe from event triggers in a custom application or no code solution that doesn't have a native integration with SailPoint.
 
-If this is your first time calling a SailPoint API, please follow the [getting started guide](../getting_started.md) to learn how to generate a token and call the APIs.
+If this is your first time calling a SailPoint API, please follow the [getting started guide](../getting-started/index.md) to learn how to generate a token and call the APIs.
 
-Start by reviewing the list of [available event triggers](https://developer.sailpoint.com/apis/beta/#section/Available-Event-Triggers), and take note of the **ID** of the trigger that you want to subscribe to (ex `idn:access-request-dynamic-approver`).  Use the [create subscription](https://developer.sailpoint.com/apis/beta/#operation/createSubscription) endpoint to subscribe to an event trigger of your choosing.  See the API docs for the latest details on how to craft a subscription request.
+Start by reviewing the list of [available event triggers](/idn/api/beta/triggers#available-event-triggers), and take note of the **ID** of the trigger that you want to subscribe to (ex `idn:access-request-dynamic-approver`).  Use the [create subscription](/idn/api/beta/create-subscription) endpoint to subscribe to an event trigger of your choosing.  See the API docs for the latest details on how to craft a subscription request.

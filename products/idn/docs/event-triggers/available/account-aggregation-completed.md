@@ -1,6 +1,5 @@
 ---
 id: account-aggregation-completed
-slug: /docs/event-triggers/account-aggregation-completed
 ---
 
 # Account Aggregation Completed
@@ -17,7 +16,37 @@ After the initial collection of accounts in the source system during aggregation
 - Notify an administrator when the aggregation is terminated manually during the account collection phase.
 - Notify an administrator or system (e.g. PagerDuty) that IdentityNow failed to collect accounts during aggregation and indicate required remediation for the source system.
 
-> This event trigger does not include entitlement aggregations.
+:::info
+This event trigger does not include entitlement aggregations.
+:::
+
+An example input from this trigger is as follows:
+
+```json
+{
+  "source": {
+    "type": "IDENTITY",
+    "id": "2c91808568c529c60168cca6f90c1313",
+    "name": "William Wilson"
+  },
+  "status": "Success",
+  "started": "2020-06-29T22:01:50.474Z",
+  "completed": "2020-06-29T22:02:04.090Z",
+  "errors": [
+    "Accounts unable to be aggregated."
+  ],
+  "warnings": [
+    "Account Skipped"
+  ],
+  "stats": {
+    "scanned": 200,
+    "unchanged": 190,
+    "changed": 6,
+    "added": 4,
+    "removed": 3
+  }
+}
+```
 
 The source account activity is summarized in `stats` e.g:
 
@@ -45,5 +74,5 @@ The status of the aggregation can be one of three possible values:
 
 ## Additional information and links
 
-- **Trigger Type**: [FIRE_AND_FORGET](../event-triggers-trigger-types.md#fire-and-forget)
-- [Input schema](https://developer.sailpoint.com/apis/beta/#section/Account-Aggregation-Completed-Event-Trigger-Input)
+- **Trigger Type**: [FIRE_AND_FORGET](../trigger-types.md#fire-and-forget)
+ <!-- [Input schema](https://developer.sailpoint.com/apis/beta/#section/Account-Aggregation-Completed-Event-Trigger-Input) -->

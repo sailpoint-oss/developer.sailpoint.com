@@ -15,7 +15,7 @@ The easiest way to send a test event to your subscribing service is to use the *
 
 This will send a test event to your subscribing service using the default example payload for the specific trigger you are subscribing to.  This is an easy way to validate that your service can receive events, but it lacks the ability to modify the event payload to test your filter against different payloads.  Fortunately, there is an API endpoint that allows you to modify the test payload.
 
-If you want to control the test input to validate your filter against a more robust set of data, then you can use the [test invocation](https://developer.sailpoint.com/apis/beta/#operation/startTestInvocation) API endpoint.  This API allows you to send an input payload with any values that you want.  An example invocation of this API is as follows:
+If you want to control the test input to validate your filter against a more robust set of data, then you can use the [test invocation](/idn/api/beta/start-test-invocation) API endpoint.  This API allows you to send an input payload with any values that you want.  An example invocation of this API is as follows:
 
 POST `https://{tenant}.api.identitynow.com/beta/trigger-invocations/test`
 
@@ -61,11 +61,11 @@ Check the **Created** date with the time you sent the test events.  If they are 
 
 ![debug connection](./img/debug-connection.png)
 
-You can also view the activity log using the [list latest invocation statuses](https://developer.sailpoint.com/apis/beta/#operation/listInvocationStatus) endpoint.
+You can also view the activity log using the [list latest invocation statuses](/idn/api/beta/list-invocation-status) endpoint.
 
 ### Filter issues
 
-If you don't see your events in the activity log, then it could be a filtering issue.  If the filter you configured on the subscription isn't matching the test event data, then no event will be sent.  Double check your filter expression with the test payload in a JSONpath editor to make sure the filter is valid and matching your data.  See [Filtering Events](./event-triggers-filtering-events.md) for more information.
+If you don't see your events in the activity log, then it could be a filtering issue.  If the filter you configured on the subscription isn't matching the test event data, then no event will be sent.  Double check your filter expression with the test payload in a JSONpath editor to make sure the filter is valid and matching your data.  See [Filtering Events](./filtering-events.md) for more information.
 
 ### Misconfigured subscription
 

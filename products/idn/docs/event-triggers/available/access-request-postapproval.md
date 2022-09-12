@@ -1,6 +1,5 @@
 ---
 id: access-request-postapproval
-slug: /docs/event-triggers/access-request-postapproval
 ---
 
 # Access Request Postapproval
@@ -19,7 +18,50 @@ The SailPoint IdentityNow platform now includes event triggers within the Access
 
 The Access Request event trigger is a flexible way to extend the Access Request workflow after access is approved for the requester.
 
+An example input from this trigger is as follows:
+
+```json
+{
+  "accessRequestId": "2c91808b6ef1d43e016efba0ce470904",
+  "requestedFor": {
+    "type": "IDENTITY",
+    "id": "2c91808568c529c60168cca6f90c1313",
+    "name": "William Wilson"
+  },
+  "requestedItemsStatus": [
+    {
+      "id": "2c91808b6ef1d43e016efba0ce470904",
+      "name": "Engineering Access",
+      "description": "Access to engineering database",
+      "type": "ACCESS_PROFILE",
+      "operation": "Add",
+      "comment": "William needs this access to do his job.",
+      "clientMetadata": {
+        "applicationName": "My application"
+      },
+      "approvalInfo": [
+        {
+          "approvalComment": "This access looks good.  Approved.",
+          "approvalDecision": "APPROVED",
+          "approverName": "Stephen.Austin",
+          "approver": {
+            "type": "IDENTITY",
+            "id": "2c91808568c529c60168cca6f90c1313",
+            "name": "William Wilson"
+          }
+        }
+      ]
+    }
+  ],
+  "requestedBy": {
+    "type": "IDENTITY",
+    "id": "2c91808568c529c60168cca6f90c1313",
+    "name": "William Wilson"
+  }
+}
+```
+
 ## Additional information and links
 
-- **Trigger Type**: [FIRE_AND_FORGET](../event-triggers-trigger-types.md#fire-and-forget)
-- [Input schema](https://developer.sailpoint.com/apis/beta/#section/Access-Request-Post-Approval-Event-Trigger-Input)
+- **Trigger Type**: [FIRE_AND_FORGET](../trigger-types.md#fire-and-forget)
+ <!-- [Input schema](https://developer.sailpoint.com/apis/beta/#section/Access-Request-Post-Approval-Event-Trigger-Input) -->

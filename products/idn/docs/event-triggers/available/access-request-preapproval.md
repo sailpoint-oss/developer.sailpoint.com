@@ -1,6 +1,5 @@
 ---
 id: access-request-preapproval
-slug: /docs/event-triggers/access-request-preapproval
 ---
 
 # Access Request Preapproval
@@ -26,9 +25,10 @@ Additional use cases include:
 
 ## Configuration
 
-This is a `REQUEST_RESPONSE` type trigger.  For general information on how to respond to a `REQUEST_RESPONSE` type trigger, see [responding to a request response type trigger](../event-triggers-responding-to-a-request-response-trigger.md).  This trigger intercepts newly submitted access requests and allows the subscribing service to perform a preliminary approve/deny before the access request moves to the next approver in the chain.
+This is a `REQUEST_RESPONSE` type trigger.  For general information on how to respond to a `REQUEST_RESPONSE` type trigger, see [responding to a request response type trigger](../responding-to-a-request-response-trigger.md).  This trigger intercepts newly submitted access requests and allows the subscribing service to perform a preliminary approve/deny before the access request moves to the next approver in the chain.
 
-The subscribing service will receive the following input from the trigger service.  The input schema can be found in the [API specification](https://developer.sailpoint.com/apis/beta/#section/Access-Request-Pre-Approval-Event-Trigger-Input):
+The subscribing service will receive the following input from the trigger service.  
+<!-- The input schema can be found in the [API specification](https://developer.sailpoint.com/apis/beta/#section/Access-Request-Pre-Approval-Event-Trigger-Input): -->
 
 ```json
 {
@@ -56,7 +56,9 @@ The subscribing service will receive the following input from the trigger servic
 }
 ```
 
-The subscribing service can use this information to make a decision on whether to approve or deny the request.  The output schema can be found in the [API specification](https://developer.sailpoint.com/apis/beta/#section/Access-Request-Pre-Approval-Event-Trigger-Output).  To approve an access request, the subscribing service should respond to the event trigger with the following payload:
+The subscribing service can use this information to make a decision on whether to approve or deny the request.  
+<!-- The output schema can be found in the [API specification](https://developer.sailpoint.com/apis/beta/#section/Access-Request-Pre-Approval-Event-Trigger-Output).   -->
+To approve an access request, the subscribing service should respond to the event trigger with the following payload:
 
 ```json
 {
@@ -82,7 +84,7 @@ This event trigger interrupts the normal workflow for access requests.  Access r
 
 ## Additional information and links
 
-- **Trigger Type**: [REQUEST_RESPONSE](../event-triggers-trigger-types.md#request-response)
-- [Input Schema](https://developer.sailpoint.com/apis/beta/#section/Access-Request-Pre-Approval-Event-Trigger-Input)
-- [Output Schema](https://developer.sailpoint.com/apis/beta/#section/Access-Request-Pre-Approval-Event-Trigger-Output)
-- [How to respond to a REQUEST_RESPONSE trigger](../event-triggers-responding-to-a-request-response-trigger.md)
+- **Trigger Type**: [REQUEST_RESPONSE](../trigger-types.md#request-response)
+ <!-- [Input Schema](https://developer.sailpoint.com/apis/beta/#section/Access-Request-Pre-Approval-Event-Trigger-Input)
+ [Output Schema](https://developer.sailpoint.com/apis/beta/#section/Access-Request-Pre-Approval-Event-Trigger-Output) -->
+- [How to respond to a REQUEST_RESPONSE trigger](../responding-to-a-request-response-trigger.md)

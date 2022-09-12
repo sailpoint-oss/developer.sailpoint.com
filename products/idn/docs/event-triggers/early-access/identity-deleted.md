@@ -18,5 +18,5 @@ This event trigger provides a flexible way to extend Joiner-Mover-Leaver process
 
 ## Additional information and links
 
-- **Trigger Type**: [FIRE_AND_FORGET](../event-triggers-trigger-types.md#fire-and-forget)
+- **Trigger Type**: [FIRE_AND_FORGET](../trigger-types.md#fire-and-forget)
 - [Input schema](https://developer.sailpoint.com/apis/beta/#section/Identity-Deleted-Event-Trigger-Input)

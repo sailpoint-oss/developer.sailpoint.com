@@ -1,6 +1,5 @@
 ---
 id: identity-created
-slug: /docs/event-triggers/identity-created
 ---
 
 # Identity Created
@@ -16,7 +15,22 @@ This event trigger provides a flexible way to extend Joiner-Mover-Leaver process
 - Notify an administrator or system to take the appropriate birthright provisioning actions as part of the Joiner workflow.
 - Notify a third party system to trigger another action (e.g. create an onboarding experience for a new hire).
 
+An example input from this trigger is as follows:
+
+```json
+{
+  "identity": {
+    "type": "IDENTITY",
+    "id": "2c91808568c529c60168cca6f90c1313",
+    "name": "William Wilson"
+  },
+  "attributes": {
+    "firstname": "John"
+  }
+}
+```
+
 ## Additional information and links
 
-- **Trigger Type**: [FIRE_AND_FORGET](../event-triggers-trigger-types.md#fire-and-forget)
-- [Input schema](https://developer.sailpoint.com/apis/beta/#section/Identity-Created-Event-Trigger-Input)
+- **Trigger Type**: [FIRE_AND_FORGET](../trigger-types.md#fire-and-forget)
+ <!-- [Input schema](https://developer.sailpoint.com/apis/beta/#section/Identity-Created-Event-Trigger-Input) -->

@@ -13,5 +13,5 @@ Use this event trigger to watch for new accounts with highly privileged access, 
 
 ## Additional information and links
 
-- **Trigger Type**: [FIRE_AND_FORGET](../event-triggers-trigger-types.md#fire-and-forget)
+- **Trigger Type**: [FIRE_AND_FORGET](../trigger-types.md#fire-and-forget)
 - [Input schema](https://developer.sailpoint.com/apis/beta/#section/Source-Account-Created-Event-Trigger-Input)

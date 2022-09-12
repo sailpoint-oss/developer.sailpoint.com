@@ -1,6 +1,5 @@
 ---
 id: va-cluster-status-change
-slug: /docs/event-triggers/va-cluster-status-change
 ---
 
 # VA Cluster Status Change
@@ -36,7 +35,31 @@ Failed - Unhealthy Cluster
 
 ![Failed unhealthy cluster](./img/va-cluster-failed.png)
 
+An example input from this trigger is as follows:
+
+```json
+{
+  "created": "2020-06-29T22:01:50.474Z",
+  "type": "CLUSTER",
+  "application": {
+    "id": "2c9180866166b5b0016167c32ef31a66",
+    "name": "Production VA Cluster",
+    "attributes": null
+  },
+  "healthCheckResult": {
+    "message": "Test Connection failed with exception. Error message - java.lang Exception",
+    "resultType": "SOURCE_STATE_ERROR_CLUSTER",
+    "status": "Succeeded"
+  },
+  "previousHealthCheckResult": {
+    "message": "Test Connection failed with exception. Error message - java.lang Exception",
+    "resultType": "SOURCE_STATE_ERROR_CLUSTER",
+    "status": "Failed"
+  }
+}
+```
+
 ## Additional information and links
 
-- **Trigger Type**: [FIRE_AND_FORGET](../event-triggers-trigger-types.md#fire-and-forget)
+- **Trigger Type**: [FIRE_AND_FORGET](../trigger-types.md#fire-and-forget)
 - [Input schema](https://developer.sailpoint.com/apis/beta/#section/VA-Cluster-Status-Change-Event-Event-Trigger-Input)

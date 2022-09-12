@@ -1,9 +1,8 @@
 ---
 id: event-triggers
-title: Event Triggers
 ---
 
-# Overview of Event Triggers
+# Event Triggers
 
 ## What are triggers
 

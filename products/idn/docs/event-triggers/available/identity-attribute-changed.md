@@ -1,6 +1,5 @@
 ---
 id: identity-attribute-changed
-slug: /docs/event-triggers/identity-attribute-changed
 ---
 
 # Identity Attribute Changed
@@ -16,7 +15,26 @@ This event trigger provides a flexible way to extend Joiner-Mover-Leaver process
 - Notify an administrator or system to take the appropriate provisioning actions as part of the Mover workflow.
 - Notify a system to trigger another action (e.g. trigger a certification campaign when an identity's manager had changed ).
 
+An example input from this trigger is as follows:
+
+```json
+{
+  "identity": {
+    "type": "IDENTITY",
+    "id": "2c91808568c529c60168cca6f90c1313",
+    "name": "William Wilson"
+  },
+  "changes": [
+    {
+      "attribute": "department",
+      "oldValue": "sales",
+      "newValue": "marketing"
+    }
+  ]
+}
+```
+
 ## Additional information and links
 
-- **Trigger Type**: [FIRE_AND_FORGET](../event-triggers-trigger-types.md#fire-and-forget)
-- [Input schema](https://developer.sailpoint.com/apis/beta/#section/Identity-Attributes-Changed-Event-Trigger-Input)
+- **Trigger Type**: [FIRE_AND_FORGET](../trigger-types.md#fire-and-forget)
+ <!-- [Input schema](https://developer.sailpoint.com/apis/beta/#section/Identity-Attributes-Changed-Event-Trigger-Input) -->

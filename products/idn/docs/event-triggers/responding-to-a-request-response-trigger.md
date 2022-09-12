@@ -17,7 +17,10 @@ You can specify how your application interacts with a `REQUEST_RESPONSE` type tr
 
 ### SYNC response
 
-The custom application responds to the trigger invocation with an appropriate payload.  For example, the application may receive a request from the [Access Request Dynamic Approver](https://developer.sailpoint.com/apis/beta/#tag/Event-Trigger-Models) trigger.  The application will have **10 seconds** to analyze the event details and respond with a 200 (OK) status code and a [response payload](https://developer.sailpoint.com/apis/beta/#section/Access-Request-Dynamic-Approver-Event-Trigger-Input) that contains the identity to add to the approval chain.
+<!-- Uncomment this once the model definition links are fixed
+The custom application responds to the trigger invocation with an appropriate payload.  For example, the application may receive a request from the [Access Request Dynamic Approver](https://developer.sailpoint.com/apis/beta/#tag/Event-Trigger-Models) trigger.  The application will have **10 seconds** to analyze the event details and respond with a 200 (OK) status code and a [response payload](https://developer.sailpoint.com/apis/beta/#section/Access-Request-Dynamic-Approver-Event-Trigger-Output) that contains the identity to add to the approval chain. -->
+
+The custom application responds to the trigger invocation with an appropriate payload.  For example, the application may receive a request from the Access Request Dynamic Approver trigger.  The application will have **10 seconds** to analyze the event details and respond with a 200 (OK) status code and a response payload that contains the identity to add to the approval chain.  For example, the response may look like this:
 
 200 (OK)
 
@@ -31,7 +34,10 @@ The custom application responds to the trigger invocation with an appropriate pa
 
 ### ASYNC response
 
-The custom application only needs to acknowledge that it has received the trigger invocation request by returning an HTTP status of 200 (OK) with an empty JSON object (ex. `{}`) in the response body within **10 seconds** of receiving the event.  It then has until the configured deadline on the subscription to provide a full response to the invocation.  For example, the application may receive a request from the [Access Request Dynamic Approver](https://developer.sailpoint.com/apis/beta/#tag/Event-Trigger-Models) trigger.  An example of the request payload that the application might receive is as follows:
+<!-- Uncomment this once the model definition links are fixed
+The custom application only needs to acknowledge that it has received the trigger invocation request by returning an HTTP status of 200 (OK) with an empty JSON object (ex. `{}`) in the response body within **10 seconds** of receiving the event.  It then has until the configured deadline on the subscription to provide a full response to the invocation.  For example, the application may receive a request from the [Access Request Dynamic Approver](https://developer.sailpoint.com/apis/beta/#tag/Event-Trigger-Models) trigger.  An example of the request payload that the application might receive is as follows: -->
+
+The custom application only needs to acknowledge that it has received the trigger invocation request by returning an HTTP status of 200 (OK) with an empty JSON object (ex. `{}`) in the response body within **10 seconds** of receiving the event.  It then has until the configured deadline on the subscription to provide a full response to the invocation.  For example, the application may receive a request from the Access Request Dynamic Approver trigger.  An example of the request payload that the application might receive is as follows:
 
 ```json
 {
@@ -167,4 +173,4 @@ POST `https://{tenant}.api.identitynow.com/beta/trigger-invocations/e9103ca9-02c
 
 ## Trigger invocation status
 
-To check the status of a particular trigger invocation, you can use the [list invocation statuses](https://developer.sailpoint.com/apis/beta/#operation/listInvocationStatus) endpoint.  The status endpoint works for both `REQUEST_RESPONSE` and `FIRE_AND_FORGET` triggers. However, the status of `FIRE_AND_FORGET` trigger invocations will contain null values in their `completeInvocationInput` since `FIRE_AND_FORGET` triggers don't need a response to complete.
+To check the status of a particular trigger invocation, you can use the [list invocation statuses](/idn/api/beta/list-invocation-status) endpoint.  The status endpoint works for both `REQUEST_RESPONSE` and `FIRE_AND_FORGET` triggers. However, the status of `FIRE_AND_FORGET` trigger invocations will contain null values in their `completeInvocationInput` since `FIRE_AND_FORGET` triggers don't need a response to complete.

@@ -1,16 +1,15 @@
 ---
 id: authentication
-slug: /docs/getting-started/authentication
 ---
 # Authentication
 
 ## Quick Start
 
-The quickest way to authenticate and start using SailPoint APIs is to generate a [personal access token](./authentication.md#personal-access-tokens).  If you are interested in using OAuth2 for authentication, then please continue to read this document.
+The quickest way to authenticate and start using SailPoint APIs is to generate a [personal access token](#personal-access-tokens).  If you are interested in using OAuth2 for authentication, then please continue to read this document.
 
 ## Finding Your Tenant's OAuth Details
 
-This document assumes your IDN instance is using the domain name supplied by SailPoint.  If your instance is using a vanity URL, then you will need to open the following URL in your browser to get your OAuth info.  See [finding your org/tenant name](./getting_started.md#finding-your-org-tenant-name) in the [getting started guide](./getting_started.md) to get your `{tenant}`.
+This document assumes your IDN instance is using the domain name supplied by SailPoint.  If your instance is using a vanity URL, then you will need to open the following URL in your browser to get your OAuth info.  See [finding your org/tenant name](./index.md#finding-your-orgtenant-name) in the [getting started guide](./index.md) to get your `{tenant}`.
 
 `https://{tenant}.api.identitynow.com/oauth/info`
 
@@ -61,7 +60,7 @@ To generate a personal access token from the IdentityNow UI, perform the followi
 
 4. Copy both values somewhere that will be secure and accessible to you when you need to use the the token.
 
-To generate a personal access token from the API, see the [API docs](https://developer.sailpoint.com/apis/beta/#operation/createPersonalAccessToken) for details.
+To generate a personal access token from the API, use the [create personal access token endpoint](/idn/api/beta/create-personal-access-token).
 
 To use a personal access token to generate an `access_token` that can be used to authenticate requests to the API, follow the [Client Credentials Grant Flow](#client-credentials-grant-flow), using the `Client ID` and `Client Secret` obtained from the personal access token.
 
@@ -457,7 +456,7 @@ Having issues?  Follow these steps.
       }
       ```
 
-   4. If using an A[Authorization Code](#authorization-code-grant-flow) flow, verify the redirect URL(s) for your application match the `redirectUris` value in the client.  You can check this using the [oauth-clients](https://developer.sailpoint.com/apis/beta/#operation/getOauthClient) endpoint.
+   4. If using an A[Authorization Code](#authorization-code-grant-flow) flow, verify the redirect URL(s) for your application match the `redirectUris` value in the client.  You can check this using the [oauth-clients endpoint](/idn/api/beta/list-oauth-client).
 
 3. **Verify the OAuth 2.0 Calls**
 

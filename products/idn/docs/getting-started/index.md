@@ -1,6 +1,5 @@
 ---
 id: getting-started
-slug: /docs/getting-started
 title: Getting Started
 sidebar_position: 1
 ---
@@ -53,7 +52,7 @@ There is a rate limit of 100 requests per `access_token` per 10 seconds for V3 A
 
 ## Authorization
 
-Each API resource requires a specific level of authorization attached to your `access_token`. Please review the authorization constraints for each API endpoint.  Tokens generated outside of a user context, like the [Client Credentials](./authentication.md#client-credentials-grant-flow) we generated above to make your first API call, will be limited in the endpoints that it can call.  If your token doesn't have permission to call an endpoint, you will receive the following response:
+Each API resource requires a specific level of authorization attached to your `access_token`.  These level's of authorization can be viewed in the [user level access matrix](https://documentation.sailpoint.com/saas/help/common/users/user_level_matrix.html). Please review the authorization constraints for each API endpoint to understand the user level needed to invoke the endpoint.  Tokens generated outside of a user context, like the [Client Credentials](./authentication.md#client-credentials-grant-flow) grant type, will be limited in the endpoints that it can call.  If your token doesn't have permission to call an endpoint, you will receive the following response:
 
 **HTTP Status Code**: 403 Forbidden
 
@@ -75,4 +74,4 @@ Each API resource requires a specific level of authorization attached to your `a
 
 ## Using an API Tool
 
-There are several API tools that make exploring and testing APIs easier than using the command line or a programming language.  One such tool is [Postman](https://www.postman.com/downloads/).  To import the SailPoint REST APIs into a tool like Postman, you must first download the REST specification.  Navigate to [https://developer.sailpoint.com/apis/v3](https://developer.sailpoint.com/apis/v3) and click the "Download OpenAPI specification" button.  You can then import the JSON file in Postman by using the [import wizard](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/) within Postman.
+There are several API tools that make exploring and testing APIs easier than using the command line or a programming language.  One such tool is [Postman](https://www.postman.com/downloads/).  To import the SailPoint REST APIs into a tool like Postman, you must first download the REST specification.  Navigate to the [V3 IDN APIs](/idn/api/v3) and click the "Download OpenAPI specification" button.  You can then import the JSON file in Postman by using the [import wizard](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/) within Postman.

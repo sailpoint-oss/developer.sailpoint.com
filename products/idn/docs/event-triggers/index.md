@@ -1,10 +1,9 @@
 ---
 id: event-triggers
-slug: /docs/event-triggers/getting-started
 title: Event Triggers
 ---
 
-# Getting Started
+# Overview of Event Triggers
 
 ## What are triggers
 
@@ -16,4 +15,8 @@ The biggest difference between event triggers and APIs is how data is accessed. 
 
 ## When to use triggers
 
-Event triggers are best used when you need to react to an event in real-time.  Although you can set up a polling mechanism using APIs, polling uses more bandwidth and resources, and if you poll too quickly you can reach the rate limits of an API. Event triggers use less bandwidth, don't affect your API rate limit, and are as close as you can get to real-time.  However, there are downsides to event triggers that should be taken into consideration.  They must be reachable from the public internet so the trigger service knows where to send the notification, and they can be harder to configure and operate than APIs.  
+Event triggers are best used when you need to react to an event in real-time.  Although you can set up a polling mechanism using APIs, polling uses more bandwidth and resources, and if you poll too quickly you can reach the rate limits of an API. Event triggers use less bandwidth, don't affect your API rate limit, and are as close as you can get to real-time.  However, there are downsides to event triggers that should be taken into consideration.  They must be reachable from the public internet so the trigger service knows where to send the notification, and they can be harder to configure and operate than APIs.
+
+## How to get started with event triggers
+
+Event triggers require different setup and testing steps than APIs.  For this reason, it is advisable to follow each document in order to gain a better understanding of event triggers and the steps needed to configure one.  If this is your first time using event triggers, then it is advisable to use the [webhook testing service](./preparing-a-subscriber-service.md#webhook-testing-service) as you follow along.

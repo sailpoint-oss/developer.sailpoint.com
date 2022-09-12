@@ -1,6 +1,6 @@
 ---
 id: filtering-events
-slug: /docs/event-triggers/getting-started/filtering-events
+sidebar_position: 4
 ---
 
 # Filtering Events

@@ -1,6 +1,6 @@
 ---
 id: testing-triggers
-slug: /docs/event-triggers/getting-started/testing-triggers
+sidebar_position: 5
 ---
 
 # Testing Triggers

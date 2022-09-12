@@ -1,25 +1,23 @@
 ---
 id: standard-collection-parameters
-slug: /docs/getting-started/standard-collection-parameters
 ---
 # Standard Collection Parameters
 
-Many collection endpoints in the IdentityNow APIs support a generic syntax for paginating, filtering
+Many collection endpoints in the IdentityNow API support a generic syntax for paginating, filtering
 and sorting the results.
 
  A collection endpoint has the following characteristics:
 
-* The HTTP verb is always GET
-* The last component in the URL is a plural noun (ex. `/v3/public-identities`)
-* The return value from a successful request is always an array of JSON objects.  This array may be empty if there are no results
+* The HTTP verb is always GET.
+* The last component in the URL is a plural noun (ex. `/v3/public-identities`).
+* The return value from a successful request is always an array of JSON objects.  This array may be empty if there are no results.
 
 ## Paginating Results
 
 Pagination is achieved with the following optional query parameters.
 
-|||||
-|--- |--- |--- |--- |
 |Name|Description|Default|Constraints|
+|---|---|---|---|
 |**limit**|Integer that specifies the maximum number of records to return in a single API call. If not specified a default limit will be used.|250|Maxiumum of 250 records per page|
 |**offset**|Integer that specifies the offset of the first result from the beginning of the collection.  **offset** is record based, not page based, and the index starts at 0.  For example, **offset=0** and **limit=20** will return records 0-19, while **offset=1** and **limit=20** will return records 1-20.|0|Between 0 and the last record index.
 |**count**|Boolean that indicates whether a total count will be returned, factoring in any filter parameters, in the **X-Total-Count** response header. The value will be the total size of the collection that would be returned if **limit** and **offset** were ignored. For example, if the total number of records is 1000, then count=true would return 1000 in the **X-Total-Count** header. Since requesting a total count can have performance impact, it is recommended not to send **count=true** if no use is being made of that value.|false|Must be **true** or **false**|
@@ -54,9 +52,8 @@ The syntax of V3 filters is similar to, but not exactly the same as, that specif
 
 These filter operators apply directly to fields and their values:
 
-||||
-|--- |--- |--- |
 |Operator|Description|Example|
+|---|---|---|
 |ca|True if the collection-valued field contains all the listed values.|groups ca ("Venezia","Firenze")|
 |co|True if the value of the fieldcontains the specified value as a substring.(Applicable to string-valued fields only.)|name co "Rajesh"|
 |eq|True if the value of the field indicated by the first operand isequal to the value specified by the second operand.|identitySummary.id eq "2c9180846e85e4b8016eafeba20c1314"|
@@ -73,9 +70,8 @@ These filter operators apply directly to fields and their values:
 
 These operators are applied to other filter expressions:
 
-||||
-|--- |--- |--- |
 |Operator|Description|Example|
+|---|---|---|
 |and|True if both the filter-valued operands are true.|startDate gt 2018 and name sw "Genaro"|
 |not|True if the filter-valued operand is false.|not groups ca ("Venezia","Firenze")|
 |or|True if either of the filter-valued operands are true.|startDate gt 2018 or name sw "Genaro"|
@@ -95,9 +91,9 @@ If you are searching for a string that contains double quotes, you will need to 
 `/v3/sources/?filters=name eq "\"Employees\""`
 
 The following table lists the special characters that are incompatible with `filters`, and how to escape them.
-|||
-|--- |--- |
+
 |Character|Escape Sequence|
+|---|---|
 |#|%23|
 |%|%25|
 |&|%26|

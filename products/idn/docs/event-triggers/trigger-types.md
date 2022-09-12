@@ -1,6 +1,6 @@
 ---
 id: trigger-types
-slug: /docs/event-triggers/getting-started/trigger-types
+sidebar_position: 1
 ---
 
 # Trigger Types

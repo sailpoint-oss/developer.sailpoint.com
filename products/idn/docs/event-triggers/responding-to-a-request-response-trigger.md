@@ -1,6 +1,6 @@
 ---
-id: responding-to-request-response
-slug: /docs/event-triggers/getting-started/responding-to-request-response
+id: responding-to-request-response-trigger
+sidebar_position: 6
 ---
 
 # Responding to a Request Response Trigger

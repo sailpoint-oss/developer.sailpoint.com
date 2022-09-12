@@ -1,6 +1,5 @@
 ---
 id: source-account-deleted
-slug: /docs/event-triggers/early-access/source-account-deleted
 ---
 
 # Source Account Deleted
@@ -11,7 +10,34 @@ This trigger executes whenever an account is deleted from its source during an a
 
 Use this event trigger to watch for deletions of authoritative accounts, such as an account deleted on Workday.
 
+An example input from this trigger is as follows:
+
+```json
+{
+  "uuid": "b7264868-7201-415f-9118-b581d431c688",
+  "id": "ee769173319b41d19ccec35ba52f237b",
+  "nativeIdentifier": "E009",
+  "sourceId": "2c918082814e693601816e09471b29b6",
+  "sourceName": "Active Directory",
+  "identityId": "ee769173319b41d19ccec6c235423237b",
+  "identityName": "john.doe",
+  "attributes": {
+    "firstname": "John",
+    "lastname": "Doe",
+    "email": "john.doe@gmail.com",
+    "department": "Sales",
+    "displayName": "John Doe",
+    "created": "2020-04-27T16:48:33.597Z",
+    "employeeNumber": "E009",
+    "uid": "E009",
+    "inactive": "true",
+    "phone": null,
+    "identificationNumber": "E009"
+  }
+}
+```
+
 ## Additional information and links
 
 - **Trigger Type**: [FIRE_AND_FORGET](../trigger-types.md#fire-and-forget)
-- [Input schema](https://developer.sailpoint.com/apis/beta/#section/Source-Account-Deleted-Event-Trigger-Input)
+ <!-- [Input schema](https://developer.sailpoint.com/apis/beta/#section/Source-Account-Deleted-Event-Trigger-Input) -->

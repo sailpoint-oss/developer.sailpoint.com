@@ -10,7 +10,7 @@ Use the substring transform to get the inner portion of a string passed into the
 
 ### Other Considerations
 
-> - The substring transform does not currently provide an easy way to get the last n characters of a string. To do so, use the [Get End of String](./get_end_of_string.md) transform.
+> - The substring transform does not currently provide an easy way to get the last n characters of a string. To do so, use the [Get End of String](/idn/docs/transforms/operations/get-end-of-string) transform.
 
 ## Transform Structure
 

@@ -10,7 +10,7 @@ Use the generate random string transform as an out-of-the-box rule transform pro
 
 ### Other Considerations
 
-> - The generate random string transform shares some common features with two other transforms: [random numeric](./random_numeric.md) and [random alphanumeric](./random_alphanumeric.md). In most cases, either of these other two out-of-the-box transforms are recommended. However, the one advantage of the generate random string transform is its support for special characters, so a common use for this transform is generating random passwords that meet basic complexity requirements.
+> - The generate random string transform shares some common features with two other transforms: [random numeric](/idn/docs/transforms/operations/random-numeric) and [random alphanumeric](/idn/docs/transforms/operations/random-alphanumeric). In most cases, either of these other two out-of-the-box transforms are recommended. However, the one advantage of the generate random string transform is its support for special characters, so a common use for this transform is generating random passwords that meet basic complexity requirements.
 
 ## Transform Structure
 

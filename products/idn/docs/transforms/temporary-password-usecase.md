@@ -60,11 +60,11 @@ Fill out the form and choose the source created earlier.
 
 ## Creating the transform
 
-Now lets look at creating the transform for generating the user's temporary password. We will use a couple different operations in order to get the result we are looking for. We are going to break it out into pieces and then put it all together at the end. The [static transform](./operations/static.md) will be our main transform, we will use nested transforms to create each part of the password and use those variables created in the final value.
+Now lets look at creating the transform for generating the user's temporary password. We will use a couple different operations in order to get the result we are looking for. We are going to break it out into pieces and then put it all together at the end. The [static transform](/idn/docs/transforms/operations/static) will be our main transform, we will use nested transforms to create each part of the password and use those variables created in the final value.
 
 ### The first character is the user's first initial, in lowercase
 
-The first part of the password is the users first intitial in lowercase. We can create that attribute below using the [substring operation](./operations/substring.md) to get the first initial, then passing that as input into the [lower operation](./operations/lower.md). In this example the variable will be named `firstInitialLowercase` to use later in our static string.
+The first part of the password is the users first intitial in lowercase. We can create that attribute below using the [substring operation](/idn/docs/transforms/operations/substring) to get the first initial, then passing that as input into the [lower operation](/idn/docs/transforms/operations/lower). In this example the variable will be named `firstInitialLowercase` to use later in our static string.
 
 **First Initial Variable**
 
@@ -123,7 +123,7 @@ The first part of the password is the users first intitial in lowercase. We can 
 
 ### The user's last name should be provided next, with the first character uppercased
 
-Adding to the transform, we can create a variable for the first character of the last name. We can do this using the [substring operation](./operations/substring.md) and the [upper operation](./operations/upper.md). Once we have the variable `lastInitialUppercase` created we can add that to the end of the static string in the value key.
+Adding to the transform, we can create a variable for the first character of the last name. We can do this using the [substring operation](/idn/docs/transforms/operations/substring) and the [upper operation](/idn/docs/transforms/operations/upper). Once we have the variable `lastInitialUppercase` created we can add that to the end of the static string in the value key.
 
 **Last Initial Variable**
 
@@ -284,7 +284,7 @@ We also need the end of the last name without the first character we already hav
 
 ### The user's two-digit start month should be next, taken from the hire_date
 
-To get the two digit start month we will use the [split operation](./operations/split.md). The `hire_date` is in the format of `YYYY-MM-DD` in order to get the month we split on `-` and set the index to return as 1.
+To get the two digit start month we will use the [split operation](/idn/docs/transforms/operations/split). The `hire_date` is in the format of `YYYY-MM-DD` in order to get the month we split on `-` and set the index to return as 1.
 
 **Hire Date Month Variable**
 
@@ -486,7 +486,7 @@ To add the final part of the password which is just the static string `RstP\*!7`
 
 To verify our transform is working lets create the transfrom through the REST API.
 
-In order to call the APIs for transforms you will need a personal access token and the name of your tenant to provide with the request. To retrieve a personal access token, see [Personal Access Tokens](../authentication.md#personal-access-tokens). To get the name of your tenant, see [Finding Your Organization Tenant Name](../getting_started.md#finding-your-org-tenant-name)
+In order to call the APIs for transforms you will need a personal access token and the name of your tenant to provide with the request. To retrieve a personal access token, see [Personal Access Tokens](/idn/docs/getting-started/authentication#personal-access-tokens). To get the name of your tenant, see [Finding Your Organization Tenant Name](/idn/docs/getting-started#finding-your-orgtenant-name)
 
 ```bash
 curl --location --request POST 'https://{tenant}.api.identitynow.com/v3/transforms' \

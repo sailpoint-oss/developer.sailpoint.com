@@ -7,7 +7,7 @@ sidebar_position: 2
 
 ## Overview
 
-This guide explains how to use [IdentityNow's Transform REST APIs](https://developer.sailpoint.com/apis/v3/#tag/Transforms) to do the following:
+This guide explains how to use [IdentityNow's Transform REST APIs](/idn/api/v3/transforms) to do the following:
 
 - [List Transforms in your IdentityNow Tenant](#list-transforms-in-your-identitynow-tenant)
 - [Create a Transform](#create-a-transform)
@@ -17,9 +17,9 @@ This guide explains how to use [IdentityNow's Transform REST APIs](https://devel
 
 ## List Transforms in your IdentityNow Tenant
 
-To call the APIs for transforms you need a personal access token and your tenant's name to provide with the request. To get a personal access token, see [Personal Access Tokens](../../authentication.md#personal-access-tokens). To get the name of your tenant, see [Finding Your Organization Tenant Name](../../getting_started.md#finding-your-org-tenant-name)
+To call the APIs for transforms you need a personal access token and your tenant's name to provide with the request. To get a personal access token, see [Personal Access Tokens](/idn/docs/getting-started/authentication#personal-access-tokens). To get the name of your tenant, see [Finding Your Organization Tenant Name](/idn/docs/getting-started#finding-your-orgtenant-name)
 
-Before you create your first custom transform, see what transforms are already in the tenant. You can get this information by calling the [List Transforms API](https://developer.sailpoint.com/apis/v3/#operation/getTransformsList).
+Before you create your first custom transform, see what transforms are already in the tenant. You can get this information by calling the [List Transforms API](/idn/api/v3/get-transforms-list).
 
 ```bash
 curl --location --request GET 'https://{tenant}.api.identitynow.com/v3/transforms' --header 'Authorization: Bearer {token}'
@@ -29,7 +29,7 @@ The response body contains an array of transform objects containing the followin
 
 - **id** - The id of the transform
 - **name** - The name of the transform
-- **type** - The type of transform, see [Transform Operations](./transform_operations.md#transform-operations)
+- **type** - The type of transform, see [Transform Operations](/idn/docs/transforms/operations)
 - **attributes** - Object of attributes related to the transform
 - **internal** - A `true` or `false` attribute to determine whether the transform is internal or custom
   - **true** - The transform is internal and cannot be modified without contacting Sailpoint.
@@ -73,7 +73,7 @@ The response body contains an array of transform objects containing the followin
 
 ## Create a Transform
 
-This [lookup transform](./operations/lookup.md) takes the input value of an attribute, locates it in the table provided, and returns its corresponding value. If your input value is not found in the lookup table, the transform returns the default value. Replace `{tenant}` and `{token}` with the values you got ealier.
+This [lookup transform](/idn/docs/transforms/operations/lookup) takes the input value of an attribute, locates it in the table provided, and returns its corresponding value. If your input value is not found in the lookup table, the transform returns the default value. Replace `{tenant}` and `{token}` with the values you got ealier.
 
 ```bash
 curl --location --request POST 'https://{tenant}.api.identitynow.com/v3/transforms' \
@@ -116,7 +116,7 @@ Once you have created the transform, you can find it in IdentityNow by going to 
 
 ![Mappings Tab](./img/mappings_tab.png)
 
-For more information about creating transforms, see [Create Transform](https://developer.sailpoint.com/apis/v3/#operation/createTransform).
+For more information about creating transforms, see [Create Transform](/idn/api/v3/create-transform).
 
 ## Get Transform By ID
 
@@ -146,7 +146,7 @@ curl --location --request GET 'https://{tenant}.api.identitynow.com/v3/transform
 }
 ```
 
-For more information about getting a transform by its `id,` see [Transform by ID](https://developer.sailpoint.com/apis/v3/#operation/getTransform).
+For more information about getting a transform by its `id,` see [Transform by ID](/idn/api/v3/get-transform).
 
 ## Update a Transform
 
@@ -193,7 +193,7 @@ curl --location --request PUT 'https://{tenant}.api.identitynow.com/v3/transform
 }
 ```
 
-For more information about updating transforms, see [Update a transform](https://developer.sailpoint.com/apis/v3/#operation/updateTransform).
+For more information about updating transforms, see [Update a transform](/idn/api/v3/update-transform).
 
 ## Delete a Transform
 
@@ -204,8 +204,8 @@ curl --location --request DELETE 'https://{tenant}.api.identitynow.com/v3/transf
 --header 'Authorization: Bearer {token}'
 ```
 
-For more information about deleting transforms, see [Delete Transform](https://developer.sailpoint.com/apis/v3/#operation/deleteTransform).
+For more information about deleting transforms, see [Delete Transform](/idn/api/v3/delete-transform).
 
 ## Next Steps
 
-Now that you understand the lifecycle of transforms, see this [complex usecase](./temporary_password_usecase.md) using a nested transform structure to create a temporary password that can be sent to each user.
+Now that you understand the lifecycle of transforms, see this [complex usecase](/idn/docs/transforms/temporary-password-usecase) using a nested transform structure to create a temporary password that can be sent to each user.

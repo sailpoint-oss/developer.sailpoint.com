@@ -14,25 +14,25 @@ Transforms are configurable objects that define easy ways to manipulate attribut
 
 ![What are Transforms 1](./img/what_are_transforms_1.png)
 
-Because there is no code to write, an administrator can configure these using a JSON object structure and uploading them into IdentityNow using [IdentityNow's Transform REST APIs](https://developer.sailpoint.com/apis/v3/#tag/Transforms).
+Because there is no code to write, an administrator can configure these using a JSON object structure and uploading them into IdentityNow using [IdentityNow's Transform REST APIs](/idn/api/v3/transforms).
 
 > **NOTE**: Sometimes transforms are referred to as Seaspray, the codename for transforms. IdentityNow Transforms and Seaspray are essentially the same.
 
 ## How Transforms Work
 
-Transforms typically have an input(s) and output(s). The way the transformation happens mainly depends on the type of transform. Refer to [Operations in IdentityNow Transforms](../transform_operations/transform_operations.md#operations-in-identitynow-transforms) for more information.
+Transforms typically have an input(s) and output(s). The way the transformation happens mainly depends on the type of transform. Refer to [Operations in IdentityNow Transforms](/idn/docs/transforms/operations) for more information.
 
-For example, a [Lower transform](../transform_operations/operations/lower.md) transforms any input text strings into lowercase versions as output. So if the input were "Foo", the lower case output of the transform would be "foo":
+For example, a [Lower transform](/idn/docs/transforms/operations/lower) transforms any input text strings into lowercase versions as output. So if the input were "Foo", the lower case output of the transform would be "foo":
 
 ![How Transforms Work 1](./img/how_transforms_work_1.png)
 
-There are other types of transforms too. For example an [E.164 Phone transform](../transform_operations/operations/e164_phone.md) transforms any input phone number strings into an E.164 formatted version as output. So if the input were "(512) 346-2000" the output would be "+1 5123462000":
+There are other types of transforms too. For example an [E.164 Phone transform](/idn/docs/transforms/operations/e164-phone) transforms any input phone number strings into an E.164 formatted version as output. So if the input were "(512) 346-2000" the output would be "+1 5123462000":
 
 ![How Transforms Work 2](./img/how_transforms_work_2.png)
 
 ### Multiple Transform Inputs
 
-In the previous examples, each transform had a single input. Some transforms can specify more than one input. For example, the [Concat transform](../transform_operations/operations/concatenation.md) concatenates one or more strings together. If "Foo" and "Bar" were inputs, the transformed output would be "FooBar":
+In the previous examples, each transform had a single input. Some transforms can specify more than one input. For example, the [Concat transform](/idn/docs/transforms/operations/concatenation) concatenates one or more strings together. If "Foo" and "Bar" were inputs, the transformed output would be "FooBar":
 
 ![How Transforms Work 3](./img/how_transforms_work_3.png)
 
@@ -40,7 +40,7 @@ In the previous examples, each transform had a single input. Some transforms can
 
 For more complex use cases, a single transform may not be enough. It is possible to link several transforms together. IdentityNow calls these 'nested' transforms because they are transform objects within other transform objects.
 
-An example of a nested transform would be using the previous [Concat transform](../transform_operations/operations/concatenation.md) and passing its output as an input to another [Lower transform](../transform_operations/operations/lower.md). If the inputs "Foo" and "Bar" were passed into the transforms, the ultimate output would be "foobar," concatenated and lower-cased.
+An example of a nested transform would be using the previous [Concat transform](/idn/docs/transforms/operations/concatenation) and passing its output as an input to another [Lower transform](/idn/docs/transforms/operations/lower). If the inputs "Foo" and "Bar" were passed into the transforms, the ultimate output would be "foobar," concatenated and lower-cased.
 
 ![How Transforms Work 4](./img/how_transforms_work_4.png)
 
@@ -56,7 +56,7 @@ It is possible to extend the earlier complex nested transform example. If a Repl
 
 The output of the Replace transform would be "Baz," which is then passed as an input to the Concat transform along with "Foo," producing an output of "FooBaz." This is then passed as an input into the Lower transform, producing a final output of "foobaz."
 
-### Transform Syntax
+## Transform Syntax
 
 Transforms are JSON objects. Prior to this, the transforms have been shown as flows of building blocks to help illustrate basic transform ideas. However at the simplest level, a transform looks like this:
 
@@ -65,7 +65,8 @@ Transforms are JSON objects. Prior to this, the transforms have been shown as fl
     "name": "Lowercase Department",
     "type": "lower",
     "attributes": {
-        ...
+        "transform-attribute-1": "attribute-1-value",
+        "transform-attribute-2": "attribute-2-value"
     }
 }
 ```
@@ -78,7 +79,35 @@ There are three main components of a transform object:
 
 3. `attributes` - This specifies any attributes or configurations for controlling how the transform works. As mentioned earlier in [Configuring Transform Behavior](#configuring-transform-behavior), each transform type has different sets of attributes available.
 
-### Implicit vs Explicit Input
+## Template Engine
+
+Seaspray ships with the Apache Velocity template engine that allows a transform to reference, transform, and render values passed into the transform context. Every string value in a Seaspray transform can contain templated text and will run through the template engine.
+
+### Example
+
+```javascript
+// In the following string, the text "$firstName" is replaced by the value of firstName in the template context. The same goes for "$lastName".
+// If $firstName=John and $lastName=Doe then the string "$firstName.$lastName" would render as "John.Doe"
+```
+
+### Identity Attribute Context
+
+The following variables are available to the Apache Velocity template engine when a transform is used to source an identity attribute.
+
+* **identity** - sailpoint.object.Identity - This is the identity the attribute promotion is performed on.
+* **oldValue** - Object - This is the attribute's previous value.
+* **attributeDefinition** - sailpoint.object.ObjectAttribute - This is the definition of the attribute being promoted.
+
+### Account Profile Context
+
+The following variables are available to the Apache Velocity template engine when a transform is used in an account profile.
+
+* **field** - sailpoint.object.Field - This is the field definition backing the account profile attribute.
+* **identity** - sailpoint.object.Identity - This is the identity the account profile is generating for.
+* **application** - sailpoint.object.Application - This is the application backing the source that owns the account profile.
+* **current** - Object - This is the attribute's current value.
+
+## Implicit vs Explicit Input
 
 A special configuration attribute available to all transforms is input. If the input attribute is not specified, this is referred to as implicit input, and the system determines the input based on what is configured. If the input attribute is specified, then this is referred to as explicit input, and the system's input is ignored in favor of whatever the transform explicitly specifies. A good way to understand this concept is to walk through an example. Imagine that IdentityNow has the following:
 
@@ -133,36 +162,6 @@ In this example, the transform would produce "engineering" because Source 2 is p
 
 > **Note**: This is also an example of a nested transform.
 
-## Transform Usage
-
-You typically use transforms when data in IdentityNow or on a source is not normalized for its intended destination and must be mapped, generated, or otherwise altered to meet data standards. Transforms have a variety of applications across IdentityNow's feature sets, ranging from account correlation for access reviews to provisioning new accounts in target sources.
-
-You mainly use transforms in two places:
-
-1. The identity - on an identity profile for identity attribute calculation. These are calculated during any identity refresh process.
-
-2. The account - on a source profile for determining new account attribute values for provisioning operations (like account creation).
-
-### Identity Transforms
-
-Identity attribute transforms are configured on the identity profile. Use them to determine identity attribute values calculated during an identity refresh process.
-
-**Configuration**
-
-These can be configured in IdentityNow by going to **Admin** > **Identities** > **Identity Profiles** > (An Identity Profile) > **Mappings** (tab). These can also be configured with IdentityNow REST APIs.
-
-From this screen the installed, available transforms can be added to an identity profile to transform identity attributes. Select a transform next to an identity attribute. Once the transform is configured, click **Save**.
-
-**Testing Transforms**
-
-Once the transform is saved, you can preview the example transform data with the Preview function. This provides a live preview of the newly saved transforms applied to the identity data.
-
-**Applying Transforms**
-
-Select Update to apply the transform updates. This starts an identity refresh process to recalculate and update identity attributes for all identities in the system.
-
-> **Note**: This process can take some time.
-
 ### Account Transforms
 
 Account attribute transforms are configured on the account create profiles. They determine the templates for new accounts created during provisioning events.
@@ -173,19 +172,19 @@ These can be configured in IdentityNow by going to **Admin** > **Sources** > (A 
 
 You can select the installed, available transforms from this interface. Alternately, you can add more complex transforms with REST APIs.
 
-For more information on the IdentityNow REST API endpoints used to managed transform objects in APIs, refer to [IdentityNow REST APIs](https://developer.sailpoint.com/apis/v3/#tag/Transforms).
+For more information on the IdentityNow REST API endpoints used to managed transform objects in APIs, refer to [IdentityNow Transform REST APIs](/idn/api/v3/transforms).
 
-> **Note**: For details about authentication against REST APIs, refer to the [authentication docs](../../authentication.md).
+> **Note**: For details about authentication against REST APIs, refer to the [authentication docs](/idn/docs/getting-started/authentication).
 
-Testing Transforms
+Testing Transforms on account create
 
 To test a transform for an account create profile, you must generate a new account creation provisioning event. This involves granting access to an identity that does not already have an account on this source; an account is created as a byproduct of the access assignment. This can be initiated with access request or even role assignment.
 
-Applying Transforms
+Applying Transforms on account create
 
 Once the transforms are saved to the account profile, they are automatically applied for any subsequent provisioning events.
 
-## Testing Seaspray Transforms
+## Testing Transforms
 
 **Testing Transforms in Identity Profile Mappings**
 

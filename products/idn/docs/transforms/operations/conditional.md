@@ -8,11 +8,13 @@ slug: /docs/transforms/operations/conditional
 
 Use the conditional transform to output different values depending on simple conditional logic. This is a convenience transform - the same capability can be implemented with a "static" transform, but this transform has greater simplicity and null-safe error checking.
 
-### Other Considerations
+:::note Other Considerations
 
-> - The two operands within the transform cannot be null; if they are, an IllegalArgumentException is thrown.
-> - The `expression` attribute must be "eq," or the transform will throw an IllegalArgumentException.
-> - All attribute string values are case-sensitive, so differently cased strings (e.g., "engineering" and "Engineering") will not return as matched.
+- The two operands within the transform cannot be null; if they are, an IllegalArgumentException is thrown.
+- The `expression` attribute must be "eq," or the transform will throw an IllegalArgumentException.
+- All attribute string values are case-sensitive, so differently cased strings (e.g., "engineering" and "Engineering") will not return as matched.
+
+:::
 
 ## Transform Structure
 

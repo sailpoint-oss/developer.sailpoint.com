@@ -8,9 +8,11 @@ slug: /docs/transforms/operations/uuid-generator
 
 Use the UUID generator transform to create a universal unique ID (UUID) in the form of a 36-character string. 
 
-### Other Considerations
+:::note Other Considerations
 
-> There is no uniqueness checking in this transform - the underlying code is written to provide a 1 in 68,719,476,736 chance of creating a string that actually collides with another string within the tenant, so the generated UUID's uniqueness is very likely, but it is not guaranteed.
+There is no uniqueness checking in this transform - the underlying code is written to provide a 1 in 68,719,476,736 chance of creating a string that actually collides with another string within the tenant, so the generated UUID's uniqueness is very likely, but it is not guaranteed.
+
+:::
 
 ## Transform Structure
 

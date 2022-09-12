@@ -8,9 +8,11 @@ slug: /docs/transforms/operations/index-of
 
 Use the index of transform to get the location of a specific substring within an incoming value. This transform is often useful in conjunction with the substring transform for getting parts of strings that can be dynamic in length or composition. If the substring you are searching for does not occur within the data, the transform returns -1.
 
-### Other Considerations
+:::note Other Considerations
 
-> - If the substring you are searching for occurs multiple times within the incoming data, the transform returns the location of the first occurrence. If you want the last occurrence of a substring, use the [Last Index Of](./last_index_of.md) transform. If you want an occurrence that is neither first nor last, use the [Substring](./substring.md) transform.
+- If the substring you are searching for occurs multiple times within the incoming data, the transform returns the location of the first occurrence. If you want the last occurrence of a substring, use the [Last Index Of](./last_index_of.md) transform. If you want an occurrence that is neither first nor last, use the [Substring](./substring.md) transform.
+
+:::
 
 ## Transform Structure
 

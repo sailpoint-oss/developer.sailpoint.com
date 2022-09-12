@@ -8,11 +8,13 @@ slug: /docs/transforms/operations/account-attribute
 
 Use the account attribute transform to look up an account for a particular source on an identity and return a specific attribute value from that account.
 
-### Other Considerations
+:::note Other Considerations
 
-> - If there are multiple accounts, then IdentityNow by default takes the value from the oldest account (based on the account created date). You can configure this behavior by specifying `accountSortAttribute` and `accountSortDescending` attributes.
-> - If there are multiple accounts and the oldest account has a null attribute value, by default IdentityNow moves to the next account that can have a value (if there are any). You can override this behavior with the `accountReturnFirstLink` property.
-> - You can filter the multiple accounts returned based on the data they contain so that you can target specific accounts. This is often used to target accounts that are "active" instead of those that are not.
+- If there are multiple accounts, then IdentityNow by default takes the value from the oldest account (based on the account created date). You can configure this behavior by specifying `accountSortAttribute` and `accountSortDescending` attributes.
+- If there are multiple accounts and the oldest account has a null attribute value, by default IdentityNow moves to the next account that can have a value (if there are any). You can override this behavior with the `accountReturnFirstLink` property.
+- You can filter the multiple accounts returned based on the data they contain so that you can target specific accounts. This is often used to target accounts that are "active" instead of those that are not.
+
+:::
 
 ## Transform Structure
 
@@ -83,7 +85,11 @@ HR systems can have multiple HR records for a person, especially in rehire and c
 
 - `accountPropertyFilter` is filtering the accounts to look at only active accounts. Terminated accounts will not appear (assuming there are no data issues).
 
-  > **Note** You cannot use accountFilter here because WORKER_STATUS\_\_c is not a searchable attribute, but accountPropertyFilter works instead.
+:::info
+
+You cannot use accountFilter here because WORKER_STATUS\_\_c is not a searchable attribute, but accountPropertyFilter works instead.
+
+:::
 
 **Transform Request Body**:
 
@@ -111,7 +117,12 @@ When you are mapping values like a username, focus on primary accounts from a pa
 - `sourceName` is "Active Directory" because that is the source this data is coming from.
 - `attributeName` is "sAMAccountName" because you are mapping the username of the user.
 - `accountFilter` is an expression filtering the accounts to make sure they are not service accounts.
-  > **Note**: `accountPropertyFilter` also would have worked here.
+
+:::info
+
+`accountPropertyFilter` also would have worked here.
+
+:::
 
 **Transform Request Body**:
 

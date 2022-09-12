@@ -10,9 +10,11 @@ Base64 is mostly used to encode binary data like images so that the data can be 
 
 The base64 decode transform allows you to take incoming data that has been encoded using a Base64-based text encoding scheme and render the data in its original binary format.
 
-### Other Considerations
+:::note Other Considerations
 
-> - If the input to the Base64 decode transform is null, the transform returns a null value.
+- If the input to the Base64 decode transform is null, the transform returns a null value.
+
+:::
 
 ## Transform Structure
 

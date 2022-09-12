@@ -16,23 +16,27 @@ Transforms are configurable objects that define easy ways to manipulate attribut
 
 Because there is no code to write, an administrator can configure these using a JSON object structure and uploading them into IdentityNow using [IdentityNow's Transform REST APIs](/idn/api/v3/transforms).
 
-> **NOTE**: Sometimes transforms are referred to as Seaspray, the codename for transforms. IdentityNow Transforms and Seaspray are essentially the same.
+:::info
+
+Sometimes transforms are referred to as Seaspray, the codename for transforms. IdentityNow Transforms and Seaspray are essentially the same.
+
+:::
 
 ## How Transforms Work
 
-Transforms typically have an input(s) and output(s). The way the transformation happens mainly depends on the type of transform. Refer to [Operations in IdentityNow Transforms](/idn/docs/transforms/operations) for more information.
+Transforms typically have an input(s) and output(s). The way the transformation happens mainly depends on the type of transform. Refer to [Operations in IdentityNow Transforms](./operations/index.md) for more information.
 
-For example, a [Lower transform](/idn/docs/transforms/operations/lower) transforms any input text strings into lowercase versions as output. So if the input were "Foo", the lower case output of the transform would be "foo":
+For example, a [Lower transform](./operations/lower.md) transforms any input text strings into lowercase versions as output. So if the input were "Foo", the lower case output of the transform would be "foo":
 
 ![How Transforms Work 1](./img/how_transforms_work_1.png)
 
-There are other types of transforms too. For example an [E.164 Phone transform](/idn/docs/transforms/operations/e164-phone) transforms any input phone number strings into an E.164 formatted version as output. So if the input were "(512) 346-2000" the output would be "+1 5123462000":
+There are other types of transforms too. For example an [E.164 Phone transform](./operations/e164-phone.md) transforms any input phone number strings into an E.164 formatted version as output. So if the input were "(512) 346-2000" the output would be "+1 5123462000":
 
 ![How Transforms Work 2](./img/how_transforms_work_2.png)
 
 ### Multiple Transform Inputs
 
-In the previous examples, each transform had a single input. Some transforms can specify more than one input. For example, the [Concat transform](/idn/docs/transforms/operations/concatenation) concatenates one or more strings together. If "Foo" and "Bar" were inputs, the transformed output would be "FooBar":
+In the previous examples, each transform had a single input. Some transforms can specify more than one input. For example, the [Concat transform](./operations/concatenation.md) concatenates one or more strings together. If "Foo" and "Bar" were inputs, the transformed output would be "FooBar":
 
 ![How Transforms Work 3](./img/how_transforms_work_3.png)
 
@@ -40,7 +44,7 @@ In the previous examples, each transform had a single input. Some transforms can
 
 For more complex use cases, a single transform may not be enough. It is possible to link several transforms together. IdentityNow calls these 'nested' transforms because they are transform objects within other transform objects.
 
-An example of a nested transform would be using the previous [Concat transform](/idn/docs/transforms/operations/concatenation) and passing its output as an input to another [Lower transform](/idn/docs/transforms/operations/lower). If the inputs "Foo" and "Bar" were passed into the transforms, the ultimate output would be "foobar," concatenated and lower-cased.
+An example of a nested transform would be using the previous [Concat transform](./operations/concatenation.md) and passing its output as an input to another [Lower transform](./operations/lower.md). If the inputs "Foo" and "Bar" were passed into the transforms, the ultimate output would be "foobar," concatenated and lower-cased.
 
 ![How Transforms Work 4](./img/how_transforms_work_4.png)
 
@@ -160,7 +164,11 @@ Notice that there is an `input` in the attributes. This is an explicit input exa
 
 In this example, the transform would produce "engineering" because Source 2 is providing a department of "Engineering," which then gets lowercased, per the transform. Though the system is still providing an implicit input of Source 1's department attribute, the transform ignores this and uses the explicit input specified as Source 2's department attribute.
 
-> **Note**: This is also an example of a nested transform.
+:::info
+
+This is also an example of a nested transform.
+
+:::
 
 ### Account Transforms
 
@@ -174,7 +182,11 @@ You can select the installed, available transforms from this interface. Alternat
 
 For more information on the IdentityNow REST API endpoints used to managed transform objects in APIs, refer to [IdentityNow Transform REST APIs](/idn/api/v3/transforms).
 
-> **Note**: For details about authentication against REST APIs, refer to the [authentication docs](/idn/docs/getting-started/authentication).
+:::info
+
+For details about authentication against REST APIs, refer to the [authentication docs](../getting-started/authentication.md).
+
+:::
 
 Testing Transforms on account create
 

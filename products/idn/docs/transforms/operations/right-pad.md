@@ -6,11 +6,13 @@ slug: /docs/transforms/operations/right-pad
 
 ## Overview
 
-Use the right pad transform to pad an incoming string with a user-supplied character out to a specific number of characters. This transform is often useful for data normalization situations in which data such as employee IDs are not uniform in length but need to be for downstream systems. 
+Use the right pad transform to pad an incoming string with a user-supplied character out to a specific number of characters. This transform is often useful for data normalization situations in which data such as employee IDs are not uniform in length but need to be for downstream systems.
 
-### Other Considerations
+:::note Other Considerations
 
-> - If the input to the right pad transform is null, the transform returns a null value.
+- If the input to the right pad transform is null, the transform returns a null value.
+
+:::
 
 ## Transform Structure
 

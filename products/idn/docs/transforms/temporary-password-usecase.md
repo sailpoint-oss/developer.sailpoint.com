@@ -60,11 +60,11 @@ Fill out the form and choose the source created earlier.
 
 ## Creating the transform
 
-Now lets look at creating the transform for generating the user's temporary password. We will use a couple different operations in order to get the result we are looking for. We are going to break it out into pieces and then put it all together at the end. The [static transform](/idn/docs/transforms/operations/static) will be our main transform, we will use nested transforms to create each part of the password and use those variables created in the final value.
+Now lets look at creating the transform for generating the user's temporary password. We will use a couple different operations in order to get the result we are looking for. We are going to break it out into pieces and then put it all together at the end. The [static transform](./operations/static.md) will be our main transform, we will use nested transforms to create each part of the password and use those variables created in the final value.
 
 ### The first character is the user's first initial, in lowercase
 
-The first part of the password is the users first intitial in lowercase. We can create that attribute below using the [substring operation](/idn/docs/transforms/operations/substring) to get the first initial, then passing that as input into the [lower operation](/idn/docs/transforms/operations/lower). In this example the variable will be named `firstInitialLowercase` to use later in our static string.
+The first part of the password is the users first intitial in lowercase. We can create that attribute below using the [substring operation](./operations/substring.md) to get the first initial, then passing that as input into the [lower operation](./operations/lower). In this example the variable will be named `firstInitialLowercase` to use later in our static string.
 
 **First Initial Variable**
 

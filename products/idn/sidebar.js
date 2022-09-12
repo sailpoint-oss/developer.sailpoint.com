@@ -16,29 +16,36 @@ const sidebars = {
     openApiSidebar: [
       {
         type: "category",
-        label: "IDN V3",
-        link: {
-          type: "generated-index",
-          title: "IDN V3",
-          description:
-            "These are the public APIs for SailPoint's SaaS services. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.",
-          slug: "/api/v3",
-        },
-        // @ts-ignore
-        items: require("./api/v3/sidebar.js"),
-      },
-      {
-        type: "category",
-        label: "IDN Beta",
-        link: {
-          type: "generated-index",
-          title: "IDN Beta",
-          description:
-            "These are the public APIs for SailPoint's SaaS services. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.",
-          slug: "/api/beta",
-        },
-        // @ts-ignore
-        items: require("./api/beta/sidebar.js"),
+        label: "IdentityNow",
+        collapsible: false,
+        items: [
+          {
+            type: "category",
+            label: "V3 APIs",
+            link: {
+              type: "generated-index",
+              title: "V3 APIs",
+              description:
+                "These are the public APIs for SailPoint's SaaS services. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.",
+              slug: "/api/v3",
+            },
+            // @ts-ignore
+            items: require("./api/v3/sidebar.js"),
+          },
+          {
+            type: "category",
+            label: "Beta APIs",
+            link: {
+              type: "generated-index",
+              title: "Beta APIs",
+              description:
+                "These are the public APIs for SailPoint's SaaS services. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.",
+              slug: "/api/beta",
+            },
+            // @ts-ignore
+            items: require("./api/beta/sidebar.js"),
+          }, 
+        ]
       },
     ],
     idnDocs: [
@@ -53,8 +60,7 @@ const sidebars = {
           },  
         ]
       },
-      ],
+    ],
   };
-  
   module.exports = sidebars;
   

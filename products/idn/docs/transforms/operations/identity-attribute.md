@@ -6,11 +6,13 @@ slug: /docs/transforms/operations/identity-attribute
 
 ## Overview
 
-Use the identity attribute transform to get the value of a user's identity attribute. This transform is often useful within a source's account create or disable profile. 
+Use the identity attribute transform to get the value of a user's identity attribute. This transform is often useful within a source's account create or disable profile.
 
-### Other Considerations
+:::note Other Considerations
 
-> - This transform is **not** intended for use within an another identity profile attribute's calculation. Identity attribute calculations are multi-threaded processes, and there is no guarantee that a specific attribute has current data, or even exists, at the time of calculation within any given transform. *Referencing identity attributes within another identity attribute's calculation can lead to identity exceptions.*
+- This transform is **not** intended for use within an another identity profile attribute's calculation. Identity attribute calculations are multi-threaded processes, and there is no guarantee that a specific attribute has current data, or even exists, at the time of calculation within any given transform. *Referencing identity attributes within another identity attribute's calculation can lead to identity exceptions.*
+
+:::
 
 ## Transform Structure
 

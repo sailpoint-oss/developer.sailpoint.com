@@ -8,10 +8,12 @@ slug: /docs/transforms/operations/date-compare
 
 Use the date compare transform to compare two dates and, depending on the comparison result, return one value if one date is after the other or return a different value if it is before the other. A common use case is to calculate lifecycle states (e.g., the user is "active" if the current date is greater than or equal to the user's hire date, etc.).
 
-### Other Considerations
+:::note Other Considerations
 
-> - In addition to explicit date values, the transform recognizes the "now" keyword that always evaluates to the exact date and time when the transform is evaluating.
-> - All dates **must** be in [ISO8601 format](https://en.wikipedia.org/wiki/ISO_8601) in order for the date compare transform to evaluate properly.
+- In addition to explicit date values, the transform recognizes the "now" keyword that always evaluates to the exact date and time when the transform is evaluating.
+- All dates **must** be in [ISO8601 format](https://en.wikipedia.org/wiki/ISO_8601) in order for the date compare transform to evaluate properly.
+
+:::
 
 ## Transform Structure
 

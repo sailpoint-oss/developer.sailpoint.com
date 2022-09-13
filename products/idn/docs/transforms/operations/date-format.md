@@ -10,7 +10,7 @@ Use the date format transform to convert datetime strings from one format to ano
 
 This transform leverages the Java SimpleDateFormat syntax; see the [References](#references) section for more information on this standard.
 
-### Other Considerations
+:::note Other Considerations
 
 - In addition to explicit SimpleDateFormat syntax, the date format transform also recognizes several built-in "named" constructs:
   - **ISO8601:** This is the date format corresponding to the ISO8601 standard. The exact format is expressed as yyyy-MM-dd'T'HH:mm:ss.SSSX.
@@ -18,6 +18,8 @@ This transform leverages the Java SimpleDateFormat syntax; see the [References](
   - **PEOPLE_SOFT:** This is the date format format used by People Soft, also expressed as MM/dd/yyyy.
   - **EPOCH_TIME_JAVA:** This represents the incoming date value as the elapsed time in milliseconds from midnight, January 1st, 1970
   - **EPOCH_TIME_WIN32:** This represents the incoming date value as the elapsed time in 100-nanosecond intervals from midnight, January 1st, 1601.
+
+:::
 
 ## Transform Structure
 

@@ -8,9 +8,11 @@ slug: /docs/transforms/operations/e164-phone
 
 Use the E.164 phone transform to convert an incoming phone number string into an E.164-compatible number.
 
-### Other Considerations
+:::note Other Considerations
 
-> - If the input string to the transform does not represent a valid phone number, the transform returns null.
+- If the input string to the transform does not represent a valid phone number, the transform returns null.
+
+:::
 
 ## Transform Structure
 

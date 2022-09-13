@@ -8,12 +8,14 @@ slug: /docs/transforms/operations/static
 
 Use the static transform to return a fixed string value, or more commonly, to evaluate [Velocity Template Language](https://velocity.apache.org/engine/1.7/user-guide.html). The latter implementation is often useful when you are using if/then/else logic or iterating through a for loop. The static transform can also take other dynamically provided variables as inputs into the `value` attribute.
 
-### Other Considerations
+:::note Other Considerations
 
-> - When you are using static transforms within the create profile for a source, you can enter the value directly in the input field if the user selects Static as the attribute type.
-> - Because IdentityNow supports the ability to order attributes in a create profile, you can use the Velocity template of an attribute higher in the list to generate a static value for an attribute that is lower in the list. For example, if you wanted to generate an email address based on a display name, you would need to do the follwing:
-  >   - Move the "displayName" attribute higher in the list so that it is created before the email address.
-  >   - In the "mail" attribute, select Static for the attribute type. In the Static Value field, enter `$displayName@yourdomain.com.`
+- When you are using static transforms within the create profile for a source, you can enter the value directly in the input field if the user selects Static as the attribute type.
+- Because IdentityNow supports the ability to order attributes in a create profile, you can use the Velocity template of an attribute higher in the list to generate a static value for an attribute that is lower in the list. For example, if you wanted to generate an email address based on a display name, you would need to do the follwing:
+  - Move the "displayName" attribute higher in the list so that it is created before the email address.
+  - In the "mail" attribute, select Static for the attribute type. In the Static Value field, enter `$displayName@yourdomain.com.`
+
+:::
 
 ## Transform Structure
 

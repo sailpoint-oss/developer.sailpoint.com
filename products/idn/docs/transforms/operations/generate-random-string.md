@@ -8,9 +8,11 @@ slug: /docs/transforms/operations/generate-random-string
 
 Use the generate random string transform as an out-of-the-box rule transform provided through SailPoint's Cloud Services Utility rule. The transform allows you to generate a random string of any length, using true/false flags to denote whether the stringe includes numbers and/or special characters.
 
-### Other Considerations
+:::note Other Considerations
 
-> - The generate random string transform shares some common features with two other transforms: [random numeric](./random_numeric.md) and [random alphanumeric](./random_alphanumeric.md). In most cases, either of these other two out-of-the-box transforms are recommended. However, the one advantage of the generate random string transform is its support for special characters, so a common use for this transform is generating random passwords that meet basic complexity requirements.
+- The generate random string transform shares some common features with two other transforms: [random numeric](./random-numeric.md) and [random alphanumeric](./random-alphanumeric.md). In most cases, either of these other two out-of-the-box transforms are recommended. However, the one advantage of the generate random string transform is its support for special characters, so a common use for this transform is generating random passwords that meet basic complexity requirements.
+
+:::
 
 ## Transform Structure
 

@@ -10,9 +10,11 @@ Base64 is mostly used to encode binary data like images so that the data can be 
 
 The base64 encode transform allows you to take incoming data and encode it using a Base64-based text encoding scheme. The output of the transform is a string comprising 64 basic ASCII characters.
 
-### Other Considerations
+:::note Other Considerations
 
-> - If the input to the Base64 encode transform is null, the transform returns a null value.
+- If the input to the Base64 encode transform is null, the transform returns a null value.
+
+:::
 
 ## Transform Structure
 

@@ -8,9 +8,11 @@ slug: /docs/transforms/operations/lookup
 
 Use the lookup transform to take in an incoming string value and compare it to a list of key-value pairs to determine which output to return. If the incoming data matches a key, the transform returns the corresponding value. If the incoming key does not match a key, the transform returns the table's optional default value.
 
-### Other Considerations
+:::note Other Considerations
 
-> - If the input does not match any key value within the table and no default value is provided, the transform returns null.
+- If the input does not match any key value within the table and no default value is provided, the transform returns null.
+
+:::
 
 ## Transform Structure
 

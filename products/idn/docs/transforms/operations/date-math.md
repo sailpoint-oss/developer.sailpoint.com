@@ -8,19 +8,21 @@ slug: /docs/transforms/operations/date-math
 
 Use the date math transform to add, subtract, and round components of a timestamp's incoming value. It also allows you to work with a referential value of "now" to run operations against the current date and time instead of a fixed value.
 
-The output format for the DateMath transform is "yyyy-MM-dd'T'HH:mm." When you use this transform inside another transform (e.g., [dateCompare](./date_compare.md)), make sure to convert to [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) first.
+The output format for the DateMath transform is "yyyy-MM-dd'T'HH:mm." When you use this transform inside another transform (e.g., [dateCompare](./date-compare.md)), make sure to convert to [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) first.
 
-### Other Considerations
+:::note Other Considerations
 
-> - The input datetime value must always be in [ISO8601 format](https://en.wikipedia.org/wiki/ISO_8601), in UTC time zone:
+- The input datetime value must always be in [ISO8601 format](https://en.wikipedia.org/wiki/ISO_8601), in UTC time zone:
 
 - yyyy-MM-ddThh:mm:ss:nnnZ
 - 2020-10-28T12:00:00.000Z, as an example
 - The dateFormat transform can help get data into this format.
 
-> - The industry standard for rounding is actually date/time truncation. When rounding down, the fractional value is truncated from the incoming data. When rounding up, the fractional value is truncated and the next unit of time is added. Refer to the Transform Structure section below for examples.
-> - When you are rounding, the "week" unit of time is not supported as a metric, and attempting to round up or down a week will result in an error.
-> - If you are using the "now" keyword and an input date is also applied as the implicitly or explicitly definted input parameter, the transform prefers using "now" and ignores the data in the `input` attribute.
+- The industry standard for rounding is actually date/time truncation. When rounding down, the fractional value is truncated from the incoming data. When rounding up, the fractional value is truncated and the next unit of time is added. Refer to the Transform Structure section below for examples.
+  - When you are rounding, the "week" unit of time is not supported as a metric, and attempting to round up or down a week will result in an error.
+  - If you are using the "now" keyword and an input date is also applied as the implicitly or explicitly definted input parameter, the transform prefers using "now" and ignores the data in the `input` attribute.
+
+:::
 
 ## Transform Structure
 
@@ -138,7 +140,7 @@ This transform takes the `startDate` attribute from a user's record in the "HR S
 
 <p>&nbsp;</p>
 
-This transform take the `HIREDATE` from Workday and converts it to [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) to be used in the Date Math transform. The Date Math transform then creates a new Date of `HIREDATE + 1.` Since that is then outputted in the format "yyyy-MM-dd'T'HH:mm," you can then use it in a [dateFormat](./date_format.md) transform to give a WIN32 formatted date.
+This transform take the `HIREDATE` from Workday and converts it to [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) to be used in the Date Math transform. The Date Math transform then creates a new Date of `HIREDATE + 1.` Since that is then outputted in the format "yyyy-MM-dd'T'HH:mm," you can then use it in a [dateFormat](/idn/docs/transforms/operations/date-format) transform to give a WIN32 formatted date.
 
 **Transform Request Body**:
 

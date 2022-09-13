@@ -8,10 +8,12 @@ slug: /docs/transforms/operations/username-generator
 
 Use the username generator transform to specify logic to use when it derives a unique value for an attribute in an account create profile. The generator's logic can be as simple as a combination of parts of a user's name and/or HR data (e.g., firstName.lastName), but sometimes generator logic such as a uniqueness counter can be necessary to find a unique value in the target system (e.g., firstName.lastName1 if firstName.lastName is already taken).
 
-### Other Considerations
+:::note Other Considerations
 
-> - The transform allows you to use "uniqueCounter" as a reserved variable for numerically trying the next iteration of the pattern. Once the generator is active on a pattern with the "uniqueCounter," it will keep incrementing until it either has found a unique username candidate, or it exhausts the "cloudMaxUniqueChecks" value. This means that the generator does not process any patterns after one containing "uniqueCounter." The "uniqueCounter" **must always be last** in the pattern list.
-> - Within the account attribute definition structure, there is a field for "cloudMaxUniqueChecks" that identifies how many times the generator must invoke the uniqueness check logic before it stops executing. The maximum allowed value for this field is 50.
+- The transform allows you to use "uniqueCounter" as a reserved variable for numerically trying the next iteration of the pattern. Once the generator is active on a pattern with the "uniqueCounter," it will keep incrementing until it either has found a unique username candidate, or it exhausts the "cloudMaxUniqueChecks" value. This means that the generator does not process any patterns after one containing "uniqueCounter." The "uniqueCounter" **must always be last** in the pattern list.
+- Within the account attribute definition structure, there is a field for "cloudMaxUniqueChecks" that identifies how many times the generator must invoke the uniqueness check logic before it stops executing. The maximum allowed value for this field is 50.
+
+:::
 
 ## Transform Structure
 

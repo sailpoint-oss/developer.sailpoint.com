@@ -10,7 +10,7 @@ Use the first valid transform to perform if/then/else operations on multiple dif
 
 ## Transform Structure
 
-The first valid transform requires an array list of `values` that you must consider. These can be static strings or other nested transforms' return values. Remember that the transform returns the first entry in the array that evaluates to a non-null value, so you are recommended to provide the entries in the array in descending order of preference. 
+The first valid transform requires an array list of `values` that you must consider. These can be static strings or other nested transforms' return values. Remember that the transform returns the first entry in the array that evaluates to a non-null value, so you are recommended to provide the entries in the array in descending order of preference.
 
 ```json
 {

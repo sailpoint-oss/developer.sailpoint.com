@@ -4,18 +4,20 @@ id: provisioning-action-completed
 
 # Provisioning Action Completed
 
-## Event context
+## Event Context
 
 ![Flow](./img/provisioning-action.png)
 
-The Provisioning Action Completed event trigger notifies subscribed applications after the action is completed. This event trigger provides a flexible way to extend the Provisioning workflow after access has changed for an identity within SailPoint. This provides more proactive governance and ensure users can quickly obtain needed access. Some examples of how this trigger can be used include:
+The Provisioning Action Completed event trigger notifies subscribed applications after the action is completed. This event trigger provides a flexible way to extend the Provisioning workflow after access has changed for an identity within SailPoint. This provides more proactive governance and ensures users can quickly get necessary access. 
+
+Some uses cases for this trigger include the following:
 
 - Notify the requester that the access request has been fulfilled.
 - Notify an application user and/or access certifier that access has been revoked.
 - Notify an administrator or system that provisioning has been completed.
-- Notify a third party system to trigger another action (e.g. continue additional provisioning actions) or simply for auditing of provisioning activities.
+- Notify a third party system to trigger another action, like continuing additional provisioning actions or auditing of provisioning activities, for example.
 
-An example input from this trigger is as follows:
+This is an example input from this trigger:
 
 ```json
 {
@@ -64,19 +66,19 @@ An example input from this trigger is as follows:
 
 ## Prerequisites
 
-Before consuming this event trigger, the following prerequesites must be met.
+Before consuming this event trigger, the following prerequesites must be met:
 
 - An oAuth Client configured with authority as `ORG_ADMIN`.
 - An org enabled with the `ARSENAL_ALLOW_POSTPROVISIONING_TRIGGERS` feature flag.
-- Configure connectors for Provisioning into target applications.
-- An org configured for automated Provisioning. See Event context section for specific setup.
+- Configure connectors for provisioning into target applications.
+- An org configured for automated provisioning. See the Event Context section for specific setup.
 
-In order to provision to a target application, the connector for the source needs to support the following connector features:
+To provision to a target application, the connector for the source must support the following connector features:
 
-- `ENABLE` - Can enable or disable an account.
-- `UNLOCK` - Can lock or unlock an account.
+- `ENABLE` - Can enable or disable accounts.
+- `UNLOCK` - Can lock or unlock accounts.
 - `PROVISIONING` - Can write to accounts. Currently, the trigger does not include attribute synchronization.
-- `PASSWORD` - Can update password for account
+- `PASSWORD` - Can update password for accounts.
 
 For a list of supported connectors and features, see [Supported Connectors for IdentityNow](https://community.sailpoint.com/t5/Connectors/Supported-Sources-Connectors-for-IdentityNow/ta-p/80019).
 
@@ -96,14 +98,14 @@ When an Access Request approval process has completed with all positive approval
 
 ![Flow](./img/provisioning-access-request.png)
 
-Access acquired through a role request can also be revoked and those changes can be provisioned to an account.
+Access acquired through a role request can also be revoked, and those changes can be provisioned to an account.
 
-The following steps need to be completed:
+The following steps must be completed:
 
 - Source Connector configured for `PROVISIONING`.
-Access Request in SailPoint SaaS currently does not support `ACCOUNT_ONLY_REQUEST` or `ADDITIONAL_ACCOUNT_REQUEST`.
-- Source Entitlements mapped in Account Schema.
-- Access Profile using Source Entitlements. Role setup is optional.
+Access requests in SailPoint SaaS currently do not support `ACCOUNT_ONLY_REQUEST` or `ADDITIONAL_ACCOUNT_REQUEST`.
+- Source entitlements mapped in Account Schema.
+- Access profile using source entitlements. Role setup is optional.
 - Application enabled for Access Request.
 
 > **NOTE:** There is no indication to the approver in the IdentityNow UI that the approval is for a revoke action. This must be considered for all usage of these APIs.
@@ -112,42 +114,42 @@ Access Request in SailPoint SaaS currently does not support `ACCOUNT_ONLY_REQUES
 
 ### Certification
 
-To provision removal of accounts acquired through Access Request is through Certifications.
-> **Note:** Certifications cannot revoke access acquired via Role Membership or Lifecycle Changes.
+Provisioning removal of accounts acquired through Access Request occurs through certifications.
+> **Note:** Certifications cannot revoke access acquired via role membership or lifecycle Changes.
 
 ![Flow](./img/provisioning-access-request-certification.png)
 
-### Role membership
+### Role Membership
 
-Access defined in access profiles can be grouped into Roles and Roles can be assigned to identities using `COMPLEX_CRITERION` or `IDENTITY_LIST`. For information on how to set `COMPLEX_CRITERION`, see [Admin UI](https://community.sailpoint.com/t5/Admin-Help/Standard-Role-Membership-Criteria-Options/ta-p/74392)
-> **Note:** Using `CUSTOM` Role Membership through Rules is no longer supported.
+Access defined in access profiles can be grouped into roles, and roles can be assigned to identities using `COMPLEX_CRITERION` or `IDENTITY_LIST`. See [Admin UI](https://community.sailpoint.com/t5/Admin-Help/Standard-Role-Membership-Criteria-Options/ta-p/74392) for information on how to set `COMPLEX_CRITERION`.
+> **Note:** `CUSTOM` role membership through rules is no longer supported.
 
-Additionally, roles can be mapped from an authoritative source.
+Roles can also be mapped from an authoritative source.
 
 ![Flow](./img/provisioning-role-membership.png)
 
 ### Lifecycle Management
 
-This trigger will fire when an account has been provisioned, enabled, or disabled.
+This trigger fires when an account has been provisioned, enabled, or disabled.
 
 ![Flow](./img/provisioning-lifecycle-management.png)
 
-To provision access with lifecycle states, the following steps must be completed:
+To provision access with lifecycle states, the prerequisites must be met:
 
-- Source Connector configured for `ENABLE` to enable/disable accounts and/or `PROVISIONING` to create/update/delete accounts.
-- Source Entitlements mapped from Authoritative Source
-- Source Entitlements mapped to Access Profiles
-- Identity Profile using authoritative source
-- Lifecycle states configured. To set up, follow this [guide].
+- Source connector configured for `ENABLE` to enable/disable accounts and/or `PROVISIONING` to create/update/delete accounts.
+- Source entitlements mapped from an authoritative source.
+- Source entitlements mapped to access profiles.
+- Identity profile using an authoritative source.
+- Lifecycle states configured. To set them up, follow this [guide].
 
 ### Password Management
 
 Password changes can be provisioned to target applications through password reset or password interception. Also, unlocking of accounts can be provisioned via password change within SailPoint SaaS.
 
-For password management setup, you will need to configure:
+For password management setup, you must configure the following:
 
-- Source Connector configured for `PASSWORD` for password changes and/or `UNLOCK` for unlocking changes.
-- Password Sync Group
+- Source connector configured for `PASSWORD` for password changes and/or `UNLOCK` for unlocking changes.
+- Password sync group
 
 ## Additional information and links
 

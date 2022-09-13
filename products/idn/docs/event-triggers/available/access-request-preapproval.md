@@ -10,22 +10,22 @@ The platform now includes event triggers within the Access Request approval work
 
 ![Flow](./img/access-request-preapproval-path.png)
 
-When an access request is submitted, this event trigger can:
+When an access request is submitted, some uses cases for this trigger include the following:
 
-- Provide the approver with additional context about the access request, for instance, any Separation of Duties (SOD) policy violations
-- Notify the approver through a different medium, such as Slack or Outlook Actionable Messages
-- Send a Terms of Agreement form of the requested Application to be signed by the access requester
-- On average you can expect about 1 access request for every 4 identities within your org per day. - On average you can expect about 1 to 2 access requests within a 10 second period.
+- Provide the approver with additional context about the access request, like any Separation of Duties (SOD) policy violations, for example.
+- Notify the approver through a different medium, such as Slack or Outlook Actionable Messages.
+- Send a Terms of Agreement form of the requested Application to be signed by the access requester.
+- On average, you can expect about 1 access request for every 4 identities within your org per day. On average you can expect about 1 to 2 access requests within a 10 second period.
 
-Additional use cases include:
+Additional use cases include the following:
 
-- Sending a Slack Notification to the approver or an approval channel and approve the request within Slack.
+- Send a Slack Notification to the approver or an approval channel and approve the request within Slack.
 - Create an Outlook Actionable Message.
 - Create a Google Doc for the requester to fill out and submit.
 
 ## Configuration
 
-This is a `REQUEST_RESPONSE` type trigger.  For general information on how to respond to a `REQUEST_RESPONSE` type trigger, see [responding to a request response type trigger](../responding-to-a-request-response-trigger.md).  This trigger intercepts newly submitted access requests and allows the subscribing service to perform a preliminary approve/deny before the access request moves to the next approver in the chain.
+This is a `REQUEST_RESPONSE` trigger type.  For more information about how to respond to a `REQUEST_RESPONSE` type trigger, see [responding to a request response type trigger](../responding-to-a-request-response-trigger.md).  This trigger intercepts newly submitted access requests and allows the subscribing service to perform a preliminary approval/denial before the access request moves to the next approver in the chain.
 
 The subscribing service will receive the following input from the trigger service.  
 <!-- The input schema can be found in the [API specification](https://developer.sailpoint.com/apis/beta/#section/Access-Request-Pre-Approval-Event-Trigger-Input): -->
@@ -56,9 +56,9 @@ The subscribing service will receive the following input from the trigger servic
 }
 ```
 
-The subscribing service can use this information to make a decision on whether to approve or deny the request.  
+The subscribing service can use this information to make a decision about whether to approve or deny the request.  
 <!-- The output schema can be found in the [API specification](https://developer.sailpoint.com/apis/beta/#section/Access-Request-Pre-Approval-Event-Trigger-Output).   -->
-To approve an access request, the subscribing service should respond to the event trigger with the following payload:
+To approve an access request, the subscribing service responds to the event trigger with the following payload:
 
 ```json
 {
@@ -68,7 +68,7 @@ To approve an access request, the subscribing service should respond to the even
 }
 ```
 
-To deny an access request, the subscribing service should respond to the event trigger with the following payload:
+To deny an access request, the subscribing service responds to the event trigger with the following payload:
 
 ```json
 {
@@ -78,7 +78,7 @@ To deny an access request, the subscribing service should respond to the event t
 }
 ```
 
-This event trigger interrupts the normal workflow for access requests.  Access requests can only proceed if the subscribing service responds within the alotted time by approving the request.  If the subscribing service is non responsive, or responding with an incorrect payload, then access requests will fail after the **Separation of Duties** check.  If you see numerous access requests failing at this stage, check to make sure your subscribing service is operating correctly.
+This event trigger interrupts the normal workflow for access requests.  Access requests can only proceed if the subscribing service responds within the alotted time by approving the request. If the subscribing service is non-responsive or it is responding with an incorrect payload, access requests will fail after the **Separation of Duties** check.  If you see numerous access requests failing at this stage, verify that your subscribing service itself is operating correctly.
 
 ![AR failed](./img/access-request-preapproval-failure.png)
 

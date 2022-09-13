@@ -4,20 +4,20 @@ id: va-cluster-status-change
 
 # VA Cluster Status Change
 
-## Event context
+## Event Context
 
-VA Cluster Status Change Events occur when a health check is run on a VA cluster and the health status is different from the previous health check.  This trigger can be used by customers for monitoring all the health status changes of their Virtual Appliance (VA) cluster
+VA (Virtual Appliance) Cluster Status Change Events occur when a health check is run on a VA cluster and the health status is different from the previous health check.  Customers can use this trigger to monitor all the health status changes of their VA clusters.
 
-Some examples of what you can do with this trigger:
+Some uses cases for this trigger include the following:
 
-- Create real-time health dashboards for VA Clusters
-- Notify an administrator or system to take the appropriate actions when a health status changes
+- Create real-time health dashboards for VA clusters.
+- Notify an administrator or system to take the appropriate actions when a health status changes.
 
 Additional notes about VA Cluster Status Changes:
 
 - VA cluster health checks run every 30 minutes.
-- This trigger will invoke on any VA cluster health status change (i.e. healthy -> unhealthy, unhealthy -> healthy)
-- More information on [troubleshooting virtual appliances](https://community.sailpoint.com/t5/IdentityNow-Connectors/Virtual-Appliance-Troubleshooting-Guide/ta-p/78735)
+- This trigger will invoke on any VA cluster health status change (i.e. healthy -> unhealthy, unhealthy -> healthy).
+- See [troubleshooting virtual appliances](https://community.sailpoint.com/t5/IdentityNow-Connectors/Virtual-Appliance-Troubleshooting-Guide/ta-p/78735) for more information.
 
 Healthy Cluster Source
 
@@ -35,7 +35,7 @@ Failed - Unhealthy Cluster
 
 ![Failed unhealthy cluster](./img/va-cluster-failed.png)
 
-An example input from this trigger is as follows:
+This is an example input from this trigger:
 
 ```json
 {

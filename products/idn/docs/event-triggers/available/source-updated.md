@@ -5,16 +5,16 @@ slug: /docs/event-triggers/source-updated
 
 # Source Updated
 
-## Event context
+## Event Context
 
 Source Updated events occur when configuration changes are made to a source.
 
-Some uses cases for this trigger include:
+Some uses cases for this trigger include the following:
 
-- Provide evidence to show auditors that connector logic and sources are not manipulated outside of proper change control processes.
+- Provide evidence to show auditors connector logic and sources are not manipulated outside of proper change control processes.
 - Trigger review of an updated source.
 
-An example input from this trigger is as follows:
+This is an example input from this trigger:
 
 ```json
 {

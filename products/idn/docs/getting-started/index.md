@@ -8,25 +8,43 @@ sidebar_position: 1
 
 ## Find your Tenant Name
 
+<<<<<<< HEAD
 You will need to know your org/tenant name in order to form the proper URL for an API request. You can find your org/tenant name by logging into IdentityNow, navigating to the Admin UI, and clicking on the Dashboard dropdown and selecting the Overview page. The org name is displayed within the Org Details section of the dashboard. If you do not have admin access, you can find your tenant name, as well as the API base URL that you will use for API calls, by viewing your session details when logged into your IdentityNow instance. Simply change your URL to the following: `https://{your-IdentityNow-hostname}.com/ui/session`, where `{your-IdentityNow-hostname}` is your company's domain name for accessing IdentityNow. The session detail you want is the `baseUrl`, which will have the form of `https://{tenant}.api.identitynow.com`.
+=======
+To form the proper URL for an API request, you must know your tenant name. To find your tenant name by log into IdentityNow, navigate to Admin, select the Dashboard dropdown, and select Overview. The org name is displayed within the Org Details section of the dashboard. If you do not have admin access, you can still find your tenant name and the API base URL you will use for API calls. To do so, view your session details when you are logged into your IdentityNow instance.  Change your URL to the following: `https://{your-IdentityNow-hostname}.com/ui/session`, where `{your-IdentityNow-hostname}` is your company's domain name for accessing IdentityNow.  The session detail you want is the `baseUrl`, which has the form of `https://{tenant}.api.identitynow.com`.
+>>>>>>> 41e59e59161357e11138ed99d3a09231e2a49c46
 
 ## Make Your First API Call
 
+<<<<<<< HEAD
 To get started, you will need create a [personal access token](./authentication.md#personal-access-tokens), which can then be used to generate access tokens to authenticate your API calls. To generate a personal access token from the IdentityNow UI, perform the following steps after logging into your IdentityNow instance:
 
 1. Select **Preferences** from the drop-down menu under your username, then **Personal Access Tokens** on the left. You can also go straight to the page using this URL, replacing `{tenant}` with your IdentityNow tenant: `https://{tenant}.identitynow.com/ui/d/user-preferences/personal-access-tokens`.
+=======
+To get started, create a [personal access token](./authentication.md#personal-access-tokens), which can then be used to generate access tokens to authenticate your API calls.  To generate a personal access token from IdentityNow, do the following after logging into your IdentityNow instance:
 
-2. Click **New Token** and enter a meaningful description to help differentiate the token from others.
+1. Select **Preferences** from the drop-down menu under your username. Then select **Personal Access Tokens** on the left.  You can also go straight to the page using this URL, replacing `{tenant}` with your IdentityNow tenant: `https://{tenant}.identitynow.com/ui/d/user-preferences/personal-access-tokens`.
+>>>>>>> 41e59e59161357e11138ed99d3a09231e2a49c46
 
+2. Select **New Token** and enter a meaningful description to differentiate the token from others.
+
+<<<<<<< HEAD
     :::caution
     The **New Token** button will be disabled when you’ve reached the limit of 10 personal access tokens per user. To avoid reaching this limit, we recommend you delete any tokens that are no longer needed.
     :::
+=======
+    >**Note**: The **New Token** button will be disabled when you reach the limit of 10 personal access tokens per user. To avoid reaching this limit, delete any tokens that are no longer needed.
+>>>>>>> 41e59e59161357e11138ed99d3a09231e2a49c46
 
-3. Click **Create Token** to generate and view the two components that comprise the token: the `Secret` and the `Client ID`.
+3. Select **Create Token** to generate and view two components the token comprises: the `Secret` and the `Client ID`.
 
+<<<<<<< HEAD
     :::danger Important
     After you create the token, the value of the `Client ID` will be visible in the Personal Access Tokens list, but the corresponding `Secret` will not be visible after you close the window. You will need to store the `Secret` somewhere secure.
     :::
+=======
+    >**IMPORTANT**: After you create the token, the value of the `Client ID` will be visible in the Personal Access Tokens list, but the corresponding `Secret` will not be visible after you close the window.  Store the `Secret` somewhere secure.
+>>>>>>> 41e59e59161357e11138ed99d3a09231e2a49c46
 
 4. Copy both values somewhere that will be secure and accessible to you when you need to use the the token.
 
@@ -36,7 +54,7 @@ To get started, you will need create a [personal access token](./authentication.
   curl --location --request POST 'https://{tenant}.api.identitynow.com/oauth/token?grant_type=client_credentials&client_id={client_id}&client_secret={secret}'
   ```
 
-6. To test your `access_token`, execute the following cURL command, replacing `{tenant}` with your IdentityNow tenant and `access_token` with the token you generated in the previous step. If successful, you should get a JSON representation of an identity in your tenant.
+6. To test your `access_token`, execute the following cURL command, replacing `{tenant}` with your IdentityNow tenant and `access_token` with the token you generated in the previous step. If this is successful, you should get a JSON representation of an identity in your tenant.
 
   ```bash
   curl --request GET --url 'https://{tenant}.api.identitynow.com/v3/public-identities?limit=1' --header 'authorization: Bearer {access_token}'
@@ -46,7 +64,7 @@ For more information about SailPoint Platform authentication, see [API Authentic
 
 ## Rate Limits
 
-There is a rate limit of 100 requests per `access_token` per 10 seconds for V3 API calls through the API gateway. If you exceed the rate limit, expect the following response from the API.
+There is a rate limit of 100 requests per `access_token` per 10 seconds for V3 API calls through the API gateway. If you exceed the rate limit, expect the following response from the API:
 
 **HTTP Status Code**: 429 Too Many Requests
 
@@ -56,7 +74,11 @@ There is a rate limit of 100 requests per `access_token` per 10 seconds for V3 A
 
 ## Authorization
 
+<<<<<<< HEAD
 Each API resource requires a specific level of authorization attached to your `access_token`. These level's of authorization can be viewed in the [user level access matrix](https://documentation.sailpoint.com/saas/help/common/users/user_level_matrix.html). Please review the authorization constraints for each API endpoint to understand the user level needed to invoke the endpoint. Tokens generated outside of a user context, like the [Client Credentials](./authentication.md#client-credentials-grant-flow) grant type, will be limited in the endpoints that it can call. If your token doesn't have permission to call an endpoint, you will receive the following response:
+=======
+Each API resource requires a specific level of authorization attached to your `access_token`.  You can view these levels of authorization in the [user level access matrix](https://documentation.sailpoint.com/saas/help/common/users/user_level_matrix.html). Review the authorization constraints for each API endpoint to understand the user level needed to invoke the endpoint.  Tokens generated outside of a user context, like the [Client Credentials](./authentication.md#client-credentials-grant-flow) grant type, are limited in the endpoints that it can call.  If your token does not have permission to call an endpoint, you will receive the following response:
+>>>>>>> 41e59e59161357e11138ed99d3a09231e2a49c46
 
 **HTTP Status Code**: 403 Forbidden
 
@@ -78,4 +100,8 @@ Each API resource requires a specific level of authorization attached to your `a
 
 ## API Tools
 
+<<<<<<< HEAD
 There are several API tools that make exploring and testing APIs easier than using the command line or a programming language. One such tool is [Postman](https://www.postman.com/downloads/). To import the SailPoint REST APIs into a tool like Postman, you must first download the REST specification. Navigate to the [V3 IDN APIs](/idn/api/v3) and click the "Download OpenAPI specification" button. You can then import the JSON file in Postman by using the [import wizard](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/) within Postman.
+=======
+There are several API tools that make exploring and testing APIs easier than using the command line or a programming language.  One tool is [Postman](https://www.postman.com/downloads/).  To import the SailPoint REST APIs into a tool like Postman, you must first download the REST specification.  Navigate to the [V3 IDN APIs](/idn/api/v3) and select "Download OpenAPI specification".  You can then import the JSON file in Postman by using the [import wizard](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/) within Postman.
+>>>>>>> 41e59e59161357e11138ed99d3a09231e2a49c46

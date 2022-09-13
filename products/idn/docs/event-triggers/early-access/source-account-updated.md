@@ -4,9 +4,9 @@ id: source-account-updated
 
 # Source Account Updated
 
-## Event context
+## Event Context
 
-This trigger executes whenever one or more account attributes change on a single account during an account aggregation operation. The trigger cannot determine whether the account update happened on a source or in IdentityNow. It omits events related to IdentityNow accounts such as the IdentityNow Admin. The following actions are considered updates:
+Source Account Updated events occur whenever one or more account attributes change on a single account during an account aggregation operation. The trigger cannot determine whether the account update happened on a source or in IdentityNow. It omits events related to IdentityNow accounts, such as the IdentityNow Admin. The following actions are considered updates:
 
 - Update account attributes
 - Enable or disable an account
@@ -15,7 +15,7 @@ This trigger executes whenever one or more account attributes change on a single
 
 Use this event trigger to watch for updates to accounts that add highly privileged access, such as an account that is granted privileged access on a sensitive source.
 
-An example input from this trigger is as follows:
+This is an example input from this trigger:
 
 ```json
 {

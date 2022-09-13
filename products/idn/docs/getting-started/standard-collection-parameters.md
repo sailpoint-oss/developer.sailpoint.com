@@ -12,13 +12,19 @@ and sorting the results. A collection endpoint has the following characteristics
 
 ## Paginating Results
 
-Pagination is achieved with the following optional query parameters.
+Use the following optional query parameters to achieve pagination:
 
 |Name|Description|Default|Constraints|
 |---|---|---|---|
+<<<<<<< HEAD
 |`limit`|Integer that specifies the maximum number of records to return in a single API call. If not specified a default limit will be used.|250|Maxiumum of 250 records per page|
 |`offset`|Integer that specifies the offset of the first result from the beginning of the collection. **offset** is record based, not page based, and the index starts at 0. For example, **offset=0** and **limit=20** will return records 0-19, while **offset=1** and **limit=20** will return records 1-20.|0|Between 0 and the last record index.
 |`count`|Boolean that indicates whether a total count will be returned, factoring in any filter parameters, in the **X-Total-Count** response header. The value will be the total size of the collection that would be returned if **limit** and **offset** were ignored. For example, if the total number of records is 1000, then count=true would return 1000 in the **X-Total-Count** header. Since requesting a total count can have performance impact, it is recommended not to send **count=true** if no use is being made of that value.|false|Must be **true** or **false**|
+=======
+|**limit**|Integer specifying the maximum number of records to return in a single API call. If it is not specified, a default limit is used.|250|Maxiumum of 250 records per page|
+|**offset**|Integer specifying the offset of the first result from the beginning of the collection. The **offset** value is record-based, not page-based, and the index starts at 0.  For example, **offset=0** and **limit=20** returns records 0-19, but **offset=1** and **limit=20** returns records 1-20.|0|Between 0 and the last record index.
+|**count**|Boolean indicating whether a total count is returned, factoring in any filter parameters, in the **X-Total-Count** response header. The value is the total size of the collection that would be returned if **limit** and **offset** were ignored. For example, if the total number of records is 1000, then count=true would return 1000 in the **X-Total-Count** header. Because requesting a total count can have performance impact, do not send **count=true** if that value is not being used.|false|Must be **true** or **false**|
+>>>>>>> 41e59e59161357e11138ed99d3a09231e2a49c46
 
 Examples:
 
@@ -28,7 +34,11 @@ Examples:
 
 ## Filtering Results
 
+<<<<<<< HEAD
 Any collection with a `filters` parameter supports filtering. This means that an item will only be included in the returned array if the filters expression evaluates to true for that item. Check the available request parameters for the collection endpoint you are using to see if it supports filtering.
+=======
+Any collection with a `filters` parameter supports filtering. This means that an item is only included in the returned array if the filters expression evaluates to true for that item.  Check the available request parameters for the collection endpoint you are using to see if it supports filtering.
+>>>>>>> 41e59e59161357e11138ed99d3a09231e2a49c46
 
 ### Data Types
 
@@ -41,10 +51,14 @@ Filter expressions are applicable to fields of the following types:
 
 ### Filter Syntax
 
+<<<<<<< HEAD
 The syntax of V3 filters is similar to, but not exactly the same as, that specified by the SCIM standard. Some key differences are:
+=======
+The V3 filter syntax is similar to, but not exactly the same as, that specified by the SCIM standard. These are some key differences:
+>>>>>>> 41e59e59161357e11138ed99d3a09231e2a49c46
 
 * A slightly different set of supported operators
-* Case-sensitivity of operators. All V3 filter operators are in lowercase; it is illegal to specify "EQ" instead of "eq".
+* Case-sensitivity of operators. All V3 filter operators are in lowercase; specifying "EQ" instead of "eq" is not allowed.
 
 ### Primitive Operators
 
@@ -52,6 +66,7 @@ These filter operators apply directly to fields and their values:
 
 |Operator|Description|Example|
 |---|---|---|
+<<<<<<< HEAD
 |`ca`|True if the collection-valued field contains all the listed values.|groups ca ("Venezia","Firenze")|
 |`co`|True if the value of the fieldcontains the specified value as a substring.(Applicable to string-valued fields only.)|name co "Rajesh"|
 |`eq`|True if the value of the field indicated by the first operand isequal to the value specified by the second operand.|identitySummary.id eq "2c9180846e85e4b8016eafeba20c1314"|
@@ -63,6 +78,19 @@ These filter operators apply directly to fields and their values:
 |`ne`|True if the value of the field indicated by the first operand isnot equal to the value specified by the second operand.|type ne "ROLE"|
 |`pr`|True if the field is present, that is, not null.|pr accountRequestInfo|
 |`sw`|True if the value of the field starts with the specified value.(Applicable to string-valued fields only.)|name sw "Rajesh"|
+=======
+|ca|True if the collection-valued field contains all the listed values.|groups ca ("Venezia","Firenze")|
+|co|True if the value of the field contains the specified value as a substring.(Applicable to string-valued fields only.)|name co "Rajesh"|
+|eq|True if the value of the field indicated by the first operand is equal to the value specified by the second operand.|identitySummary.id eq "2c9180846e85e4b8016eafeba20c1314"|
+|ge|True if the value of the field indicated by the first operand is greater or equal to the value specified by the second operand.|daysUntilEscalation ge 7 name ge "Genaro"|
+|gt|True if the value of the field indicated by the first operand is greater than the value specified by the second operand.|daysUntilEscalation gt 7 name gt "Genaro" created gt 2018-12-18T23:05:55Z|
+|in|True if the field value is in the list of values.|accountActivityItemId in ("2c9180846b0a0583016b299f210c1314","2c9180846b0a0581016b299e82560c1314")|
+|le|True if the value of the field indicated by the first operand is less or equal to the value specified by the second operand.|daysUntilEscalation le 7 name le "Genaro"|
+|lt|True if the value of the field indicated by the first operand is less than the value specified by the second operand.|daysUntilEscalation lt 7 name lt "Genaro" created lt 2018-12-18T23:05:55Z|
+|ne|True if the value of the field indicated by the first operand is not equal to the value specified by the second operand.|type ne "ROLE"|
+|pr|True if the field is present, that is, not null.|pr accountRequestInfo|
+|sw|True if the value of the field starts with the specified value.(Applicable to string-valued fields only.)|name sw "Rajesh"|
+>>>>>>> 41e59e59161357e11138ed99d3a09231e2a49c46
 
 ### Composite Operators
 
@@ -74,21 +102,25 @@ These operators are applied to other filter expressions:
 |`not`|True if the filter-valued operand is false.|not groups ca ("Venezia","Firenze")|
 |`or`|True if either of the filter-valued operands are true.|startDate gt 2018 or name sw "Genaro"|
 
-### Escaping Special Characters in a Filter
+### Escaping special characters in a filter
 
+<<<<<<< HEAD
 Certain characters must be escaped before they can be used in a filter expression. For example, the following filter expression that attempts to find all sources with the name `#Employees` will produce a 400 error:
+=======
+Certain characters must be escaped before they can be used in a filter expression.  For example, the following filter expression attempting to find all sources with the name `#Employees` will produce a 400 error:
+>>>>>>> 41e59e59161357e11138ed99d3a09231e2a49c46
 
 `/v3/sources?filters=name eq "#Employees"`
 
-To properly escape this filter, you will need to do the following:
+To properly escape this filter, do the following:
 
 `/v3/sources?filters=name eq "%23Employees"`
 
-If you are searching for a string that contains double quotes, you will need to use the following escape sequence:
+If you are searching for a string containing double quotes, use the following escape sequence:
 
 `/v3/sources/?filters=name eq "\"Employees\""`
 
-The following table lists the special characters that are incompatible with `filters`, and how to escape them.
+The following table lists the special characters that are incompatible with `filters` and how to escape them.
 
 |Character|Escape Sequence|
 |---|---|
@@ -112,20 +144,38 @@ Examples:
 :::info
 * Spaces in URLs must be escaped with `%20`. Most programming languages, frameworks, libraries, and tools will do this for you, but some won't. In the event that your tool doesn't escape spaces, you will need to format your query as `/v3/public-identities?filters=email%20eq%20"john.doe@example.com"`
 
+<<<<<<< HEAD
 * Unless explicitly noted otherwise, strings are compared lexicographically. Most comparisons are not case sensitive. Any situations where the comparisons are case sensitive will be called out. 
 
 * Date-times are compared temporally; an earlier date-time is less than a later date-time.
 
 * The usual precedence/associativity of the composite operators applies, with **not** having higher priority than **and**, which in turn has higher priority than **or**. Parentheses can be used to override this precedence.
 :::
+=======
+* You must escape spaces in URLs with `%20`.  Most programming languages, frameworks, libraries, and tools do this for you, but some do not.  In the event that your tool does not escape spaces, you must format your query as `/v3/public-identities?filters=email%20eq%20"john.doe@example.com"`
+
+* Unless explicitly noted otherwise, strings are compared lexicographically. Most comparisons are not case sensitive. Any situations where the comparisons are case sensitive will be called out.  
+
+* Date-times are compared temporally; an earlier date-time is less than a later date-time.
+
+* The usual precedence and associativity of the composite operators applies, with **not** having higher priority than **and**, which in turn has higher priority than **or**. You can use parentheses to override this precedence.
+
+Examples:
+
+`not prop1 eq val1 or prop2 eq val2 and prop3 eq val3` is equivalent to `(not (prop1 eq val1)) or ((prop2 eq val2) and (prop3 eq val3))`
+
+and
+
+`not (prop1 eq val1 or prop2 eq val2) and prop3 eq val3` is equivalent to `(not ((prop1 eq val1) or (prop2 eq val2))) and (prop3 eq val3)`
+>>>>>>> 41e59e59161357e11138ed99d3a09231e2a49c46
 
 ### Sorting Results
 
-Sorting of results is supported with the standard `sorters` parameter. Its syntax is a set of comma-separated field names. Each field name may be optionally prefixed with a "-" character, which indicates the sort is descending based on the value of that field. Otherwise, the sort is ascending.
+Result sorting is supported with the standard `sorters` parameter. Its syntax is a set of comma-separated field names. You may optionally prefix each field name with a "-" character, indicating that the sort is descending based on the value of that field. Otherwise, the sort is ascending.
 
 For example, to sort primarily by **type** in ascending order, and secondarily by **modified date** in descending order, use `sorters=type,-modified`
 
-## Putting it all Together
+## Putting it all together
 
 Pagination, filters, and sorters can be mixed and match to achieve the desired output for a given collection endpoint. Here are some examples:
 

@@ -179,7 +179,7 @@ These can be configured in IdentityNow by going to **Admin** > **Sources** > (A 
 
 You can select the installed, available transforms from this interface. Alternately, you can add more complex transforms with REST APIs.
 
-In the following example, we can call the create provisioning policy API to create a full name field using the first and last name identity attributes.
+In the following example, we can call the [Create Provisioning Policy API](/idn/api/v3/create-provisioning-policy) to create a full name field using the first and last name identity attributes.
 
 ```bash
 curl --location --request POST 'https://{tenant}.api.identitynow.com/v3/sources/{source_id}/provisioning-policies' \

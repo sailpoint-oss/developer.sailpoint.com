@@ -1,7 +1,7 @@
 ---
 id: access-request-dynamic-approval
 title: Access Request Dynamic Approval
-slug: /idn/docs/event-triggers/triggers/access-request-dynamic-approval
+slug: /docs/event-triggers/triggers/access-request-dynamic-approval
 description: Fires after an access request is submitted.
 ---
 

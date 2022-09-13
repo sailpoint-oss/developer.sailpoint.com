@@ -1,7 +1,7 @@
 ---
 id: source-account-deleted
 title: Source Account Deleted
-slug: /idn/docs/event-triggers/triggers/source-account-deleted
+slug: /docs/event-triggers/triggers/source-account-deleted
 description: Fires after a source account is deleted.
 ---
 

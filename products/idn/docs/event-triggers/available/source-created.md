@@ -1,7 +1,7 @@
 ---
 id: source-created
 title: Source Created
-slug: /idn/docs/event-triggers/triggers/source-created
+slug: /docs/event-triggers/triggers/source-created
 description: Fires after a source is created.	
 ---
 

@@ -1,7 +1,7 @@
 ---
 id: saved-search-completed
 title: Saved Search Complete
-slug: /idn/docs/event-triggers/triggers/saved-search-completed
+slug: /docs/event-triggers/triggers/saved-search-completed
 description: Fires after a scheduled search completed.
 ---
 

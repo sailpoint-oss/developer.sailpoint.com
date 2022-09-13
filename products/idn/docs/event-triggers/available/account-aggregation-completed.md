@@ -1,7 +1,7 @@
 ---
 id: account-aggregation-completed
 title: Account Aggregation Completed
-slug: /idn/docs/event-triggers/triggers/account-aggregation-completed
+slug: /docs/event-triggers/triggers/account-aggregation-completed
 description: Fires after an account aggregation completed, terminated, or failed.
 ---
 

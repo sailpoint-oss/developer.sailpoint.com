@@ -1,7 +1,7 @@
 ---
 id: va-cluster-status-change
 title: VA Cluster Status Change
-slug: /idn/docs/event-triggers/triggers/va-cluster-status-change
+slug: /docs/event-triggers/triggers/va-cluster-status-change
 description: Fires after the status of a VA cluster has changed.
 ---
 

@@ -1,7 +1,7 @@
 ---
 id: provisioning-action-completed
 title: Provisioning Action Completed
-slug: /idn/docs/event-triggers/triggers/provisioning-action-completed
+slug: /docs/event-triggers/triggers/provisioning-action-completed
 description: Fires after a provisioning action completed on a source.
 ---
 

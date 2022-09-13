@@ -1,7 +1,7 @@
 ---
 id: identity-created
 title: Identity Created
-slug: /idn/docs/event-triggers/triggers/identity-created
+slug: /docs/event-triggers/triggers/identity-created
 description: Fires after an identity is created.
 ---
 

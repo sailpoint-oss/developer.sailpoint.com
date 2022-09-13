@@ -1,7 +1,7 @@
 ---
 id: access-request-preapproval
 title: Access Request Preapproval
-slug: /idn/docs/event-triggers/triggers/access-request-preapproval
+slug: /docs/event-triggers/triggers/access-request-preapproval
 description: Fires after an access request is submitted.
 ---
 

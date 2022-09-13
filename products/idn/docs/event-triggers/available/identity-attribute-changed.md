@@ -1,7 +1,7 @@
 ---
 id: identity-attribute-changed
 title: Identity Attribute Changed
-slug: /idn/docs/event-triggers/triggers/identity-attribute-changed
+slug: /docs/event-triggers/triggers/identity-attribute-changed
 description: Fires after One or more identity attributes changed.
 ---
 

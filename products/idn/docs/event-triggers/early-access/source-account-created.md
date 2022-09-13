@@ -1,7 +1,7 @@
 ---
 id: source-account-created
 title: Source Account Created
-slug: /idn/docs/event-triggers/triggers/source-account-created
+slug: /docs/event-triggers/triggers/source-account-created
 description: Fires after a source account is created.
 ---
 

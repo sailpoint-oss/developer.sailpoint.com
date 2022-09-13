@@ -1,7 +1,7 @@
 ---
 id: source-deleted
 title: Source Deleted
-slug: /idn/docs/event-triggers/triggers/source-deleted
+slug: /docs/event-triggers/triggers/source-deleted
 description: Fires after a source is deleted.	
 ---
 

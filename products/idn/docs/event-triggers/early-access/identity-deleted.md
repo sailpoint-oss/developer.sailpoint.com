@@ -1,7 +1,7 @@
 ---
 id: identity-deleted
 title: Identity Deleted
-slug: /idn/docs/event-triggers/triggers/identity-deleted
+slug: /docs/event-triggers/triggers/identity-deleted
 description: Fires after an identity is deleted.
 ---
 

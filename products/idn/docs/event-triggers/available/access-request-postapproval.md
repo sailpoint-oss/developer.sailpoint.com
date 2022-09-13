@@ -1,7 +1,7 @@
 ---
 id: access-request-postapproval
 title: Access Request Postapproval
-slug: /idn/docs/event-triggers/triggers/access-request-postapproval
+slug: /docs/event-triggers/triggers/access-request-postapproval
 description: Fires after an access request is approved.
 ---
 

@@ -1,7 +1,7 @@
 ---
 id: source-updated
 title: Source Updated
-slug: /idn/docs/event-triggers/triggers/source-updated
+slug: /docs/event-triggers/triggers/source-updated
 description: Fires after a source is updated.	
 ---
 

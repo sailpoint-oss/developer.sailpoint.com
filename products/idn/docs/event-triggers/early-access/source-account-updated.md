@@ -1,7 +1,7 @@
 ---
 id: source-account-updated
 title: Source Account Updated
-slug: /idn/docs/event-triggers/triggers/source-account-updated
+slug: /docs/event-triggers/triggers/source-account-updated
 description: Fires after a source account is updated.
 ---
 

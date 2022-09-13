@@ -1,8 +1,7 @@
 ---
 id: access-request-dynamic-approval
+title: Access Request Dynamic Approval
 ---
-
-# Access Request Dynamic Approval
 
 ## Event Context
 
@@ -85,7 +84,7 @@ If no identity or group should be added to a particular access request, then the
 {}
 ```
 
-## Additional information and links
+## Additional Information and Links
 
 - **Trigger Type**: [REQUEST_RESPONSE](../trigger-types.md#request-response)
 <!--  [Input Schema](https://developer.sailpoint.com/apis/beta/#section/Access-Request-Dynamic-Approver-Event-Trigger-Input)

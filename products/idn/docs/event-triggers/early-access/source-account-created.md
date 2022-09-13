@@ -1,8 +1,7 @@
 ---
 id: source-account-created
+title: Source Account Created
 ---
-
-# Source Account Created
 
 ## Event Context
 

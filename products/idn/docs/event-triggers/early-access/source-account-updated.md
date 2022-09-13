@@ -1,8 +1,7 @@
 ---
 id: source-account-updated
+title: Source Account Updated
 ---
-
-# Source Account Updated
 
 ## Event Context
 

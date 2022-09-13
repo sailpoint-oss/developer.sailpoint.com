@@ -3,11 +3,11 @@ id: preparing-a-subscriber-service
 sidebar_position: 2
 ---
 
-# Preparing a subscriber service
+# Preparing a Subscriber Service
 
 Before you can subscribe to an event trigger, you must prepare a service that can accept incoming HTTP requests from the event trigger service.  More specifically, your client service must accept a POST request to an endpoint of its choosing, with the ability to parse the JSON data sent by the trigger.  There are many ways to accomplish this, but this guide covers four of the most common types of client services you can build to handle event triggers.
 
-## Webhook testing service
+## Webhook Testing Service
 
 There are many webhook testing websites that generate a unique URL you can use to subscribe to an event trigger and explore the data sent by the trigger.  One site is https://webhook.site.  This site generates a unique URL whenever you open it, which you can copy and paste into the subscription configuration in IdentityNow.  Any events that the trigger generates will be sent to this website for you to analyze.
 
@@ -21,12 +21,12 @@ Some SaaS vendors provide built-in workflow builders in their products so you do
 
 ![Slack workflow](./img/slack-workflow.png)
 
-## No-code provider
+## No-code Provider
 
 No-code/low-code providers, like Zapier and Microsoft Power Automate, make it easy to consume event triggers and perform actions based on the event data.  They are popular solutions for those looking to prototype or quickly create automated business processes, and they cater to novices and advanced users alike.  Each no-code provider has documentation about how to create a new workflow and subscribe to an event trigger or webhook, so you must find the relevant documentation for your no-code provider to learn how to set one up.  Zapier has the ability to configure a webhook action that generates a unique URL you can configure in your event trigger subscription.
 
 ![Zapier webhook](./img/zapier-webhook.png)
 
-## Custom application
+## Custom Application
 
 A custom application is one you write in a language of your choosing and host in your own infrastructure, cloud, or on-premise.  This is the most advanced option for implementing an event trigger client service.  Although it requires a great deal of skill and knowledge to build, deploy, and operate your own service that can consume requests over HTTP, a custom application offers the most power and flexibility to implement your use cases.  You can learn more about custom applications by checking out our [Event Trigger Example Application](https://github.com/sailpoint-oss/event-trigger-examples).

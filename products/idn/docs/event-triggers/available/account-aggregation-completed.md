@@ -1,8 +1,7 @@
 ---
 id: account-aggregation-completed
+title: Account Aggregation Completed
 ---
-
-# Account Aggregation Completed
 
 ## Event Context
 
@@ -72,7 +71,7 @@ The status of the aggregation can be one of three possible values:
 
 ![Account_Delete_Threshold](./img/aggregation-delete-threshold.png)
 
-## Additional information and links
+## Additional Information and Links
 
 - **Trigger Type**: [FIRE_AND_FORGET](../trigger-types.md#fire-and-forget)
  <!-- [Input schema](https://developer.sailpoint.com/apis/beta/#section/Account-Aggregation-Completed-Event-Trigger-Input) -->

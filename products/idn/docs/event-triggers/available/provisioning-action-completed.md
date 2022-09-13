@@ -1,8 +1,7 @@
 ---
 id: provisioning-action-completed
+title: Provisioning Action Completed
 ---
-
-# Provisioning Action Completed
 
 ## Event Context
 
@@ -151,7 +150,7 @@ For password management setup, you must configure the following:
 - Source connector configured for `PASSWORD` for password changes and/or `UNLOCK` for unlocking changes.
 - Password sync group
 
-## Additional information and links
+## Additional Information and Links
 
 - **Trigger Type**: [FIRE_AND_FORGET](../trigger-types.md#fire-and-forget)
  <!-- [Input schema](https://developer.sailpoint.com/apis/beta/#section/Provisioning-Completed-Event-Trigger-Input) -->

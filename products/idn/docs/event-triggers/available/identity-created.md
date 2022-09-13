@@ -1,8 +1,7 @@
 ---
 id: identity-created
+title: Identity Created
 ---
-
-# Identity Created
 
 ## Event Context
 
@@ -32,7 +31,7 @@ This is an example input from this trigger:
 }
 ```
 
-## Additional information and links
+## Additional Information and Links
 
 - **Trigger Type**: [FIRE_AND_FORGET](../trigger-types.md#fire-and-forget)
  <!-- [Input schema](https://developer.sailpoint.com/apis/beta/#section/Identity-Created-Event-Trigger-Input) -->

@@ -1,8 +1,7 @@
 ---
 id: source-deleted
+title: Source Deleted
 ---
-
-# Source Deleted
 
 ## Event Context
 
@@ -30,7 +29,7 @@ This is an example input from this trigger:
 }
 ```
 
-## Additional information and links
+## Additional Information and Links
 
 - **Trigger Type**: [FIRE_AND_FORGET](../trigger-types.md#fire-and-forget)
  <!-- [Input schema](https://developer.sailpoint.com/apis/beta/#section/Source-Deleted-Event-Trigger-Input) -->

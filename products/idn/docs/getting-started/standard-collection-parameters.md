@@ -16,9 +16,9 @@ Use the following optional query parameters to achieve pagination:
 
 |Name|Description|Default|Constraints|
 |---|---|---|---|
-|**limit**|Integer specifying the maximum number of records to return in a single API call. If it is not specified, a default limit is used.|250|Maxiumum of 250 records per page|
-|**offset**|Integer specifying the offset of the first result from the beginning of the collection. The **offset** value is record-based, not page-based, and the index starts at 0.  For example, **offset=0** and **limit=20** returns records 0-19, but **offset=1** and **limit=20** returns records 1-20.|0|Between 0 and the last record index.
-|**count**|Boolean indicating whether a total count is returned, factoring in any filter parameters, in the **X-Total-Count** response header. The value is the total size of the collection that would be returned if **limit** and **offset** were ignored. For example, if the total number of records is 1000, then count=true would return 1000 in the **X-Total-Count** header. Because requesting a total count can have performance impact, do not send **count=true** if that value is not being used.|false|Must be **true** or **false**|
+|`limit`|Integer specifying the maximum number of records to return in a single API call. If it is not specified, a default limit is used.|`250`|Maxiumum of 250 records per page|
+|`offset`|Integer specifying the offset of the first result from the beginning of the collection. The **offset** value is record-based, not page-based, and the index starts at 0.  For example, **offset=0** and **limit=20** returns records 0-19, but **offset=1** and **limit=20** returns records 1-20.|`0`|Between 0 and the last record index.
+|`count`|Boolean indicating whether a total count is returned, factoring in any filter parameters, in the **X-Total-Count** response header. The value is the total size of the collection that would be returned if **limit** and **offset** were ignored. For example, if the total number of records is 1000, then count=true would return 1000 in the **X-Total-Count** header. Because requesting a total count can have performance impact, do not send **count=true** if that value is not being used.|`false`|Must be `true` or `false`|
 
 Examples:
 
@@ -52,17 +52,17 @@ These filter operators apply directly to fields and their values:
 
 |Operator|Description|Example|
 |---|---|---|
-|ca|True if the collection-valued field contains all the listed values.|groups ca ("Venezia","Firenze")|
-|co|True if the value of the field contains the specified value as a substring.(Applicable to string-valued fields only.)|name co "Rajesh"|
-|eq|True if the value of the field indicated by the first operand is equal to the value specified by the second operand.|identitySummary.id eq "2c9180846e85e4b8016eafeba20c1314"|
-|ge|True if the value of the field indicated by the first operand is greater or equal to the value specified by the second operand.|daysUntilEscalation ge 7 name ge "Genaro"|
-|gt|True if the value of the field indicated by the first operand is greater than the value specified by the second operand.|daysUntilEscalation gt 7 name gt "Genaro" created gt 2018-12-18T23:05:55Z|
-|in|True if the field value is in the list of values.|accountActivityItemId in ("2c9180846b0a0583016b299f210c1314","2c9180846b0a0581016b299e82560c1314")|
-|le|True if the value of the field indicated by the first operand is less or equal to the value specified by the second operand.|daysUntilEscalation le 7 name le "Genaro"|
-|lt|True if the value of the field indicated by the first operand is less than the value specified by the second operand.|daysUntilEscalation lt 7 name lt "Genaro" created lt 2018-12-18T23:05:55Z|
-|ne|True if the value of the field indicated by the first operand is not equal to the value specified by the second operand.|type ne "ROLE"|
-|pr|True if the field is present, that is, not null.|pr accountRequestInfo|
-|sw|True if the value of the field starts with the specified value.(Applicable to string-valued fields only.)|name sw "Rajesh"|
+|`ca`|True if the collection-valued field contains all the listed values.|groups ca ("Venezia","Firenze")|
+|`co`|True if the value of the field contains the specified value as a substring.(Applicable to string-valued fields only.)|name co "Rajesh"|
+|`eq`|True if the value of the field indicated by the first operand is equal to the value specified by the second operand.|identitySummary.id eq "2c9180846e85e4b8016eafeba20c1314"|
+|`ge`|True if the value of the field indicated by the first operand is greater or equal to the value specified by the second operand.|daysUntilEscalation ge 7 name ge "Genaro"|
+|`gt`|True if the value of the field indicated by the first operand is greater than the value specified by the second operand.|daysUntilEscalation gt 7 name gt "Genaro" created gt 2018-12-18T23:05:55Z|
+|`in`|True if the field value is in the list of values.|accountActivityItemId in ("2c9180846b0a0583016b299f210c1314","2c9180846b0a0581016b299e82560c1314")|
+|`le`|True if the value of the field indicated by the first operand is less or equal to the value specified by the second operand.|daysUntilEscalation le 7 name le "Genaro"|
+|`lt`|True if the value of the field indicated by the first operand is less than the value specified by the second operand.|daysUntilEscalation lt 7 name lt "Genaro" created lt 2018-12-18T23:05:55Z|
+|`ne`|True if the value of the field indicated by the first operand is not equal to the value specified by the second operand.|type ne "ROLE"|
+|`pr`|True if the field is present, that is, not null.|pr accountRequestInfo|
+|`sw`|True if the value of the field starts with the specified value.(Applicable to string-valued fields only.)|name sw "Rajesh"|
 
 ### Composite Operators
 
@@ -74,7 +74,7 @@ These operators are applied to other filter expressions:
 |`not`|True if the filter-valued operand is false.|not groups ca ("Venezia","Firenze")|
 |`or`|True if either of the filter-valued operands are true.|startDate gt 2018 or name sw "Genaro"|
 
-### Escaping special characters in a filter
+### Escaping Special Characters in a Filter
 
 Certain characters must be escaped before they can be used in a filter expression.  For example, the following filter expression attempting to find all sources with the name `#Employees` will produce a 400 error:
 
@@ -119,14 +119,7 @@ Examples:
 * Date-times are compared temporally; an earlier date-time is less than a later date-time.
 
 * The usual precedence and associativity of the composite operators applies, with **not** having higher priority than **and**, which in turn has higher priority than **or**. You can use parentheses to override this precedence.
-
-Examples:
-
-`not prop1 eq val1 or prop2 eq val2 and prop3 eq val3` is equivalent to `(not (prop1 eq val1)) or ((prop2 eq val2) and (prop3 eq val3))`
-
-and
-
-`not (prop1 eq val1 or prop2 eq val2) and prop3 eq val3` is equivalent to `(not ((prop1 eq val1) or (prop2 eq val2))) and (prop3 eq val3)`
+:::
 
 ### Sorting Results
 
@@ -134,7 +127,7 @@ Result sorting is supported with the standard `sorters` parameter. Its syntax is
 
 For example, to sort primarily by **type** in ascending order, and secondarily by **modified date** in descending order, use `sorters=type,-modified`
 
-## Putting it all together
+## Putting it all Together
 
 Pagination, filters, and sorters can be mixed and match to achieve the desired output for a given collection endpoint. Here are some examples:
 

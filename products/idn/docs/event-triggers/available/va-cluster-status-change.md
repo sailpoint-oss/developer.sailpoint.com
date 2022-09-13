@@ -1,8 +1,7 @@
 ---
 id: va-cluster-status-change
+title: VA Cluster Status Change
 ---
-
-# VA Cluster Status Change
 
 ## Event Context
 
@@ -59,7 +58,7 @@ This is an example input from this trigger:
 }
 ```
 
-## Additional information and links
+## Additional Information and Links
 
 - **Trigger Type**: [FIRE_AND_FORGET](../trigger-types.md#fire-and-forget)
 - [Input schema](https://developer.sailpoint.com/apis/beta/#section/VA-Cluster-Status-Change-Event-Event-Trigger-Input)

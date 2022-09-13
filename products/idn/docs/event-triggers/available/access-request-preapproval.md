@@ -1,10 +1,9 @@
 ---
 id: access-request-preapproval
+title: Access Request Preapproval
 ---
 
-# Access Request Preapproval
-
-## Event context
+## Event Context
 
 The platform now includes event triggers within the Access Request approval workflow. The Access Request Submitted event trigger provides more proactive governance, ensures users can quickly obtain needed access, and helps with more preventative measures towards unintended access.
 
@@ -82,7 +81,7 @@ This event trigger interrupts the normal workflow for access requests.  Access r
 
 ![AR failed](./img/access-request-preapproval-failure.png)
 
-## Additional information and links
+## Additional Information and Links
 
 - **Trigger Type**: [REQUEST_RESPONSE](../trigger-types.md#request-response)
  <!-- [Input Schema](https://developer.sailpoint.com/apis/beta/#section/Access-Request-Pre-Approval-Event-Trigger-Input)

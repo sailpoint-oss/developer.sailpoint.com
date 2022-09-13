@@ -1,8 +1,7 @@
 ---
 id: source-account-deleted
+title: Source Account Deleted
 ---
-
-# Source Account Deleted
 
 ## Event Context
 

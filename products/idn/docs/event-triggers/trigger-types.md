@@ -5,7 +5,7 @@ sidebar_position: 1
 
 # Trigger Types
 
-## Fire and forget
+## Fire and Forget
 
 A fire and forget trigger only supports one-way communication with subscribers.  Its only job is to forward each event it receives to each subscribing service.  This trigger type does not wait for a response from subscribers. It has no way of knowing whether subscribers actually receive the event, and it does not have any mechanism for resending events.  Think of this trigger type as live television. You can only see what is happening in real-time. You cannot rewind the live feed or interact with the broadcast in any way.  This trigger type is the simplest and most common trigger type among SailPoint's event triggers.  
 
@@ -13,7 +13,7 @@ A fire and forget trigger only supports one-way communication with subscribers. 
 Fire and forget triggers can have a maximum of 50 subscribers per event.
 :::
 
-## Request response
+## Request Response
 
 A request response trigger allows two-way communication between the trigger service and the subscriber.  The main difference with this trigger type is that it expects a response from the subscriber with directions about how to proceed with the event.  For example, the access request dynamic approval event trigger will send the subscriber details about the access request, and the subscriber may respond to the trigger with the identity ID to include in the approval process for an access request.  This trigger type allows subscribers to not only receive events in real-time, but to act on them as well.
 

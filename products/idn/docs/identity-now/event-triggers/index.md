@@ -1,5 +1,6 @@
 ---
 id: event-triggers
+sidebar_position: 2
 ---
 
 # Event Triggers

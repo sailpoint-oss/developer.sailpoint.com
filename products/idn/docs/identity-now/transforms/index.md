@@ -2,7 +2,7 @@
 id: transforms
 slug: /docs/transforms
 title: Transforms
-sidebar_position: 2
+sidebar_position: 1
 ---
 # Building Transforms in IdentityNow
 

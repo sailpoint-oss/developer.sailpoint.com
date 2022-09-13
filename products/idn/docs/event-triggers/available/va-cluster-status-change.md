@@ -1,24 +1,22 @@
 ---
 id: va-cluster-status-change
-slug: /docs/event-triggers/va-cluster-status-change
+title: VA Cluster Status Change
 ---
 
-# VA Cluster Status Change
+## Event Context
 
-## Event context
+VA (Virtual Appliance) Cluster Status Change Events occur when a health check is run on a VA cluster and the health status is different from the previous health check.  Customers can use this trigger to monitor all the health status changes of their VA clusters.
 
-VA Cluster Status Change Events occur when a health check is run on a VA cluster and the health status is different from the previous health check.  This trigger can be used by customers for monitoring all the health status changes of their Virtual Appliance (VA) cluster
+Some uses cases for this trigger include the following:
 
-Some examples of what you can do with this trigger:
-
-- Create real-time health dashboards for VA Clusters
-- Notify an administrator or system to take the appropriate actions when a health status changes
+- Create real-time health dashboards for VA clusters.
+- Notify an administrator or system to take the appropriate actions when a health status changes.
 
 Additional notes about VA Cluster Status Changes:
 
 - VA cluster health checks run every 30 minutes.
-- This trigger will invoke on any VA cluster health status change (i.e. healthy -> unhealthy, unhealthy -> healthy)
-- More information on [troubleshooting virtual appliances](https://community.sailpoint.com/t5/IdentityNow-Connectors/Virtual-Appliance-Troubleshooting-Guide/ta-p/78735)
+- This trigger will invoke on any VA cluster health status change (i.e. healthy -> unhealthy, unhealthy -> healthy).
+- See [troubleshooting virtual appliances](https://community.sailpoint.com/t5/IdentityNow-Connectors/Virtual-Appliance-Troubleshooting-Guide/ta-p/78735) for more information.
 
 Healthy Cluster Source
 
@@ -36,7 +34,31 @@ Failed - Unhealthy Cluster
 
 ![Failed unhealthy cluster](./img/va-cluster-failed.png)
 
-## Additional information and links
+This is an example input from this trigger:
 
-- **Trigger Type**: [FIRE_AND_FORGET](../event-triggers-trigger-types.md#fire-and-forget)
+```json
+{
+  "created": "2020-06-29T22:01:50.474Z",
+  "type": "CLUSTER",
+  "application": {
+    "id": "2c9180866166b5b0016167c32ef31a66",
+    "name": "Production VA Cluster",
+    "attributes": null
+  },
+  "healthCheckResult": {
+    "message": "Test Connection failed with exception. Error message - java.lang Exception",
+    "resultType": "SOURCE_STATE_ERROR_CLUSTER",
+    "status": "Succeeded"
+  },
+  "previousHealthCheckResult": {
+    "message": "Test Connection failed with exception. Error message - java.lang Exception",
+    "resultType": "SOURCE_STATE_ERROR_CLUSTER",
+    "status": "Failed"
+  }
+}
+```
+
+## Additional Information and Links
+
+- **Trigger Type**: [FIRE_AND_FORGET](../trigger-types.md#fire-and-forget)
 - [Input schema](https://developer.sailpoint.com/apis/beta/#section/VA-Cluster-Status-Change-Event-Event-Trigger-Input)

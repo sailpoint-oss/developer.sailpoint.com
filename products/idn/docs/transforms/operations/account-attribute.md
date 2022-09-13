@@ -1,6 +1,7 @@
 ---
 id: account-attribute
 slug: /docs/transforms/operations/account-attribute
+description: Look up an account for a particular source on an identity.
 ---
 # Account Attribute
 

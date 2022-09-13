@@ -1,6 +1,7 @@
 ---
 id: split
 slug: /docs/transforms/operations/split
+description: Return the N'th element of a split array.
 ---
 # Split
 

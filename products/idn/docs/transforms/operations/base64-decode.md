@@ -1,6 +1,7 @@
 ---
 id: base64-decode
 slug: /docs/transforms/operations/base64-decode
+description: Render base64 data in its original binary format.
 ---
 # Base64 Decode
 

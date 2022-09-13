@@ -1,6 +1,7 @@
 ---
 id: replace
 slug: /docs/transforms/operations/replace
+description: Find and replace all instances of a single string.
 ---
 # Replace
 

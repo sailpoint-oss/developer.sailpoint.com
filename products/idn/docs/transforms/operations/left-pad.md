@@ -1,6 +1,7 @@
 ---
 id: left-pad
 slug: /docs/transforms/operations/left-pad
+description: Pad an incoming string with a user-supplied character.
 ---
 # Left Pad
 

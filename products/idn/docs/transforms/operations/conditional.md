@@ -1,6 +1,7 @@
 ---
 id: conditional
 slug: /docs/transforms/operations/conditional
+description: Output different values depending on simple conditional logic.
 ---
 # Conditional
 

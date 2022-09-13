@@ -1,6 +1,7 @@
 ---
 id: decompose-diacritical-marks
 slug: /docs/transforms/operations/decompose-diacritical-marks
+description: Clean or standardize symbols used within language.
 ---
 # Decompose Diacritial Marks
 

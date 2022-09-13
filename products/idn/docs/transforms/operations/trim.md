@@ -1,6 +1,7 @@
 ---
 id: trim
 slug: /docs/transforms/operations/trim
+description: Trim whitespaces from both the beginning and ending of input strings.
 ---
 # Trim
 

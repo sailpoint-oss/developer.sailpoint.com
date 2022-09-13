@@ -1,12 +1,13 @@
 ---
 id: uuid-generator
 slug: /docs/transforms/operations/uuid-generator
+description: Create a universal unique ID (UUID).
 ---
 # UUID Generator
 
 ## Overview
 
-Use the UUID generator transform to create a universal unique ID (UUID) in the form of a 36-character string. 
+Use the UUID generator transform to create a universal unique ID (UUID) in the form of a 36-character string.
 
 :::note Other Considerations
 

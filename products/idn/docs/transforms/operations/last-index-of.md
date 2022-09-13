@@ -1,6 +1,7 @@
 ---
 id: last-index-of
 slug: /docs/transforms/operations/last-index-of
+description: Get the last location of a specific substring.
 ---
 # Last Index Of
 

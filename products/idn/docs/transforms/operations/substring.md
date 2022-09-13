@@ -1,6 +1,7 @@
 ---
 id: substring
 slug: /docs/transforms/operations/substring
+description: Get the inner portion of a string passed into the transform.
 ---
 # Substring
 

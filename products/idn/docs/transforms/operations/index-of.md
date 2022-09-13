@@ -1,6 +1,7 @@
 ---
 id: index-of
 slug: /docs/transforms/operations/index-of
+description: Get the location of a specific substring within a value.
 ---
 # Index Of
 

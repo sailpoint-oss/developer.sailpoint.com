@@ -1,7 +1,7 @@
 ---
 id: base64-encode
 slug: /docs/transforms/operations/base64-encode
-description: Encode data using a Base64-based text encoding scheme.
+description: Encode data with a Base64-based text encoding scheme.
 ---
 # Base64 Encode
 

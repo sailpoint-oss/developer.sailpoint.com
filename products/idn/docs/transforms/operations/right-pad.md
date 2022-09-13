@@ -33,7 +33,7 @@ In addition to the standard `type` and `name` attributes, the right pad transfor
 ## Attributes
 
 - **Required Attributes**
-  - **type** - This must always be set to `rightPad.`
+  - **type** - This must always be set to `rightPad`.
   - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
   - **length** - This is an integer value for the final output string's desired length.
 

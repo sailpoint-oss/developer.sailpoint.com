@@ -35,7 +35,7 @@ The random numeric transform only requires the standard `type` and `name` attrib
 
 ## Examples
 
-No explicit length is provided, so this transform generates a 10-digit random integer, such as "2334776774."
+No explicit length is provided, so this transform generates a 10-digit random integer, such as "2334776774".
 
 **Transform Request Body**:
 
@@ -50,7 +50,7 @@ No explicit length is provided, so this transform generates a 10-digit random in
 
 <p>&nbsp;</p>
 
-This transform generates a 6-digit random integer, such as "759931."
+This transform generates a 6-digit random integer, such as "759931".
 
 **Transform Request Body**:
 

@@ -1,7 +1,7 @@
 ---
 id: lookup
 slug: /docs/transforms/operations/lookup
-description: Lookup and return matching value for key.
+description: Look up and return a key's matching value.
 ---
 # Lookup
 
@@ -48,7 +48,7 @@ In addition to the `type` and `name` attributes, the structure of a lookup trans
 
 ## Examples
 
-This transform tries to map a telephone area code to a city in Texas. There is no `default` entry in the table map, so the transform returns null if there is no provided area code that is not one of the provided four values.
+This transform tries to map a telephone area code to a city in Texas. There is no default entry in the table map, so the transform returns null if there is no provided area code that is not one of the provided four values.
 
 **Transform Request Body**:
 

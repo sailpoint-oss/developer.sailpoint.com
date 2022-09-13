@@ -8,7 +8,7 @@ sidebar_position: 1
 
 ## Overview
 
-In this guide you will learn how to use [IdentityNow's Transform REST APIs](/idn/api/v3/transforms) to do the following:
+In this guide, you will learn how to use [IdentityNow's Transform REST APIs](/idn/api/v3/transforms) to do the following:
 
 * [List Transforms in Your IdentityNow Tenant](#list-transforms-in-your-identitynow-tenant)
 * [Create a Transform](#create-a-transform)
@@ -16,9 +16,9 @@ In this guide you will learn how to use [IdentityNow's Transform REST APIs](/idn
 * [Update a Transform](#update-a-transform)
 * [Delete a Transform](#delete-a-transform)
 
-## List Transforms in Your IdentityNow Tenant
+## List Transforms in your IdentityNow Tenant
 
-To call the APIs for transforms you need a personal access token and your tenant's name to provide with the request. To get a personal access token, see [Personal Access Tokens](../../../api/authentication.md#personal-access-tokens). To get the name of your tenant, see [Finding Your Organization Tenant Name](../../../api/getting-started.md#finding-your-orgtenant-name)
+To call the APIs for transforms, you need a personal access token and your tenant's name to provide with the request. For more information about how to get a personal access token, see [Personal Access Tokens](../../../api/authentication.md#personal-access-tokens). For more information about how to get the name of your tenant, see [Finding Your Organization Tenant Name](../../../api/getting-started.md#finding-your-orgtenant-name).
 
 Before you create your first custom transform, see what transforms are already in the tenant. You can get this information by calling the [List Transforms API](/idn/api/v3/get-transforms-list).
 
@@ -74,7 +74,7 @@ The response body contains an array of transform objects containing the followin
 
 ## Create a Transform
 
-This [lookup transform](../operations/lookup.md) takes the input value of an attribute, locates it in the table provided, and returns its corresponding value. If your input value is not found in the lookup table, the transform returns the default value. Replace `{tenant}` and `{token}` with the values you got ealier.
+This [lookup transform](../operations/lookup.md) takes the input value of an attribute, locates it in the table provided, and returns its corresponding value. If the transform does not find your input value in the lookup table, it returns the default value. Replace `{tenant}` and `{token}` with the values you got ealier.
 
 ```bash
 curl --location --request POST 'https://{tenant}.api.identitynow.com/v3/transforms' \

@@ -26,7 +26,7 @@ In addition to the standard `type` and `name` attributes, the structure of a rul
 ## Attributes
 
 - **Required Attributes**
-  - **type** - This must always be set to `rule.`
+  - **type** - This must always be set to `rule`.
   - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
   - **attributes.name** - This is the name of the Generic rule the transform must invoke.
 

@@ -83,8 +83,8 @@ Some examples of expressions are:
   - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether the transform logic should be reevaluated every evening as part of the identity refresh process.
   - **roundUp** - This `true` or `false` value indicates whether the transform rounds up or down when the `expression` defines a rounding ("/") operation. If this value is not provided, the transform defaults to `false.`
 
-    - `true` indicates the transform should round up (i.e., truncate the fractional date/time component indicated and then add one unit of that component).
-    - `false` indicates the transform should round down (i.e., truncate the fractional date/time component indicated).
+    - `true` indicates the transform rounds up (i.e., truncate the fractional date/time component indicated and then add one unit of that component).
+    - `false` indicates the transform rounds down (i.e., truncate the fractional date/time component indicated).
     - `input` - This is an optional attribute that can explicitly define the input data passed into the transform logic. If no input is provided, the transform takes its input from the source and attribute combination configured with the UI.
 
 ## Examples

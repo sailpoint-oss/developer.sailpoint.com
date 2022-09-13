@@ -7,13 +7,13 @@ title: SaaS Configuration
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This is a guide on using the SailPoint SaaS Configuration APIs in order to import and export configurations from the SailPoint SaaS system.  This is intended to be used to get configurations in bulk in support of environmental promotion, go-live, or tenant-to-tenant configuration management processes and pipelines.
+This is a guide about using the SailPoint SaaS Configuration APIs to import configurations into and export configurations from the SailPoint SaaS system.  Use these APIs to get configurations in bulk in support of environmental promotion, go-live, or tenant-to-tenant configuration management processes and pipelines.
 
 For more details around how to manage configurations, refer to [SailPoint SaaS Change Management and Deployment Best Practices](https://community.sailpoint.com/t5/IdentityNow-Articles/SailPoint-SaaS-Change-Management-and-Deployment-Best-Practices/ta-p/189871).
 
 ## Audience
 
-This document is intended for technically proficient administrators, implementers, integrators or even developers.  No coding experience is necessary, but being able to understand JSON data structures and make REST API web-service calls is needed to fully understand this.
+This document is intended for technically proficient administrators, implementers, integrators or even developers.  No coding experience is necessary, but being able to understand JSON data structures and make REST API web-service calls is necessary to fully understand this guide.
 
 ## Supported Objects
 
@@ -27,28 +27,28 @@ This document is intended for technically proficient administrators, implementer
 
 
 :::tip
-The available supported objects are also available via REST API too!  See List Configuration Objects in the **API Reference** section of this document. 
+The available supported objects are also available via REST API!  See List Configuration Objects in the **API Reference** section of this document. 
 :::
 
-**Rule Import and Export -** Rules are allowed to be exported from one tenant and imported into another.  Cloud Rules have already been reviewed and installed in other tenants, and Connector Rules do not require a rule review.  During the import and export process rules cannot be changed in the migration process, as these are validated by the usage of `jwsHeader` and `jwsSignature` in the object.  
+**Rule Import and Export -** Rules can be exported from one tenant and imported into another.  Cloud rules have already been reviewed and installed in other tenants, and connector rules do not require a rule review.  During the import and export process, rules cannot be changed in the migration process because these are validated by the usage of `jwsHeader` and `jwsSignature` in the object.  
 
 ## Exporting Configurations
 
 ### Prerequisites
 
-- Need to have credentials as a tenant administrator (`ORG_ADMIN`)
-- Understanding of what objects you’d like to export
+- You must have tenant administrator credentials (`ORG_ADMIN`).
+- You must have an understanding of which objects you want to export.
 
 ### Process
 
 ![img](./img/sp-config-export.png)
 
-1. **Start Export** - Start the export process by configuring a JSON payload for the export options.  This should then be sent to `POST /beta/sp-config/export`.  
-2. **Response with Export Status** - An export status will given in response.  This contains a `jobId` and a `status` which should be used to subsequently monitor the process.  Initially this might have a status of `NOT_STARTED`.
+1. **Start Export** - Start the export process by configuring a JSON payload for the export options.  This payload will be sent to `POST /beta/sp-config/export`.  
+2. **Response with Export Status** - An export status will be given in response.  This contains a `jobId` and a `status` to be used to subsequently monitor the process.  Initially, this may have a status of `NOT_STARTED`.
 3. **Get Export Status** - Using the `jobId` from the previous status, call `GET /beta/sp-config/export/{id}` where the `{id}` is the `jobId`.
-4. **Response with Export Status** - An export status will given in response.  This contains a `jobId` and a `status` which should be used to subsequently monitor the process.  After a period of time, the process `status` should move to either `COMPLETE` or `FAILED`.  Depending on the amount of objects being exported, this could take awhile.  It might be ncessary to iterate over steps 3 and 4 until the status reflects a completion.  If it takes too long, the export process may expire.  
+4. **Response with Export Status** - An export status will be given in response.  This contains a `jobId` and a `status` to be used to subsequently monitor the process.  After a period of time, the process `status` should move to either `COMPLETE` or `FAILED`.  Depending on the amount of objects being exported, this could take awhile.  It may be ncessary to iterate over steps 3 and 4 until the status reflects a completion.  If it takes too long, the export process may expire.  
 5. **Get Export Results** - Once the status is `COMPLETE`, download the export results by calling `GET /beta/sp-config/export/{id}/download` where the `{id}` is the `jobId`.
-6. **Response with Export Results** - In response, the export process should produce a set of JSON objects which you can download as an export result set.  These should reflect the objects that were selected in the export options earlier.
+6. **Response with Export Results** - In response, the export process will produce a set of JSON objects you can download as an export result set.  These will reflect the objects that were selected in the export options earlier.
 
 ## Importing Configurations
 
@@ -61,12 +61,12 @@ The available supported objects are also available via REST API too!  See List C
 
 ![img](./img/sp-config-import.png)
 
-1. **Start Import** - Start the import process by configuring a JSON payload for the import options.  This should then be sent to `POST /beta/sp-config/import`.  
-2. **Response with Import Status** - An import status will given in response.  This contains a `jobId` and a `status` which should be used to subsequently monitor the process.  Initially this might have a status of `NOT_STARTED`.
+1. **Start Import** - Start the import process by configuring a JSON payload for the import options.  This will then be sent to `POST /beta/sp-config/import`.  
+2. **Response with Import Status** - An import status will be given in response.  This contains a `jobId` and a `status` to be used to subsequently monitor the process.  Initially this might have a status of `NOT_STARTED`.
 3. **Get Import Status** - Using the `jobId` from the previous status, call `GET /beta/sp-config/import/{id}` where the `{id}` is the `jobId`.
-4. **Response with Import Status** - An import status will given in response.  This contains a `jobId` and a `status` which should be used to subsequently monitor the process.  After a period of time, the process `status` should move to either `COMPLETE` or `FAILED`.  Depending on the amount of objects being imported, this could take awhile.  It might be ncessary to iterate over steps 3 and 4 until the status reflects a completion.  If it takes too long, the import process may expire.  
+4. **Response with Import Status** - An import status will be given in response.  This contains a `jobId` and a `status` to be used to subsequently monitor the process.  After a period of time, the process `status` will move to either `COMPLETE` or `FAILED`.  Depending on the amount of objects being imported, this could take awhile.  It may be necessary to iterate over steps 3 and 4 until the status reflects a completion.  If it takes too long, the import process may expire.  
 5. **Get Import Results** - Once the status is `COMPLETE`, download the import results by calling `GET /beta/sp-config/import/{id}/download` where the `{id}` is the `jobId`.
-6. **Response with Import Results** - In response, the import process should produce listing of object that successfully imported, as well as any errors, warnings, or information about the import process.   This result set should reflect the objects that were selected to be imported earlier.
+6. **Response with Import Results** - In response, the import process should produce listing of object that successfully imported, as well as any errors, warnings, or information about the import process.   This result set will reflect the objects that were selected to be imported earlier.
 
 ## API Reference Guide
 
@@ -84,7 +84,7 @@ The available supported objects are also available via REST API too!  See List C
 
 **Description**
 
-Lists all available objects which can be imported and exported into the system.
+Lists all available objects that can be imported and exported into the system.
 
 <Tabs>
   <TabItem value="request" label="Request" default>
@@ -488,7 +488,7 @@ Content-Type: application/json
 </Tabs>
 
 :::tip
-Import also has a “preview” option if you would like to see what an import might look like without actually having to import and change your tenant.  Any errors discovered during reference or resource resolution will be provided.   To use this, simply set query option `preview` to `true`.
+Import also has a “preview” option you can use to see what an import will look like without actually having to import and change your tenant.  Any errors discovered during reference or resource resolution will be provided.   To use this, simply set query option `preview` to `true`.
 
 Example: POST /beta/sp-config/import?preview=true
 :::

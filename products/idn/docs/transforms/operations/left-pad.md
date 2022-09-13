@@ -45,7 +45,7 @@ In addition to the standard `type` and `name` attributes, the left pad transform
 
 ## Examples
 
-This transform takes the incoming attribute configured in the Identity Profile attribute UI and ensures it is padded out to 8 characters in length by adding "0"s to the left.
+This transform takes the incoming attribute configured in the identity profile attribute UI and ensures it is padded out to 8 characters in length by adding "0"s to the left.
 
 ```bash
 Input: "1234"
@@ -69,7 +69,7 @@ Output: "00001234"
 
 <p>&nbsp;</p>
 
-This transform takes the user's employeeID attribute from the HR source and ensures it is padded out to 7 characters in length by adding "x"s to the left.
+This transform takes the user's `employeeID` attribute from the HR source and ensures it is padded out to 7 characters in length by adding "x"s to the left.
 
 ```bash
 Input: "1234"

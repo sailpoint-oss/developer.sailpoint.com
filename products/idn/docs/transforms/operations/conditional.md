@@ -7,7 +7,7 @@ description: Output different values depending on simple conditional logic.
 
 ## Overview
 
-Use the conditional transform to output different values depending on simple conditional logic. This is a convenience transform - the same capability can be implemented with a "static" transform, but this transform has greater simplicity and null-safe error checking.
+Use the conditional transform to output different values depending on simple conditional logic. This is a convenient transform - the same capability can be implemented with a "static" transform, but this transform has greater simplicity and null-safe error checking.
 
 :::note Other Considerations
 
@@ -46,7 +46,7 @@ In addition to the `type` and `name` attributes, the conditional transform requi
 
 ## Examples
 
-This transform takes the user's HR-defined department attribute and compares it to the value of "Science." If this is the user's department, the transform returns "true;" otherwise it returns "false."
+This transform takes the user's HR-defined department attribute and compares it to the value of "Science". If this is the user's department, the transform returns `true`. Otherwise, it returns `false`.
 
 **Transform Request Body**:
 

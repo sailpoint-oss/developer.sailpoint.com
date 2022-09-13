@@ -17,7 +17,7 @@ This transform leverages the Java SimpleDateFormat syntax; see the [References](
   - **ISO8601:** This is the date format corresponding to the ISO8601 standard. The exact format is expressed as yyyy-MM-dd'T'HH:mm:ss.SSSX.
   - **LDAP:** This is the date format corresponding to the LDAP date format standard, also expressed as yyyyMMddHHmmss.Z.
   - **PEOPLE_SOFT:** This is the date format format used by People Soft, also expressed as MM/dd/yyyy.
-  - **EPOCH_TIME_JAVA:** This represents the incoming date value as the elapsed time in milliseconds from midnight, January 1st, 1970
+  - **EPOCH_TIME_JAVA:** This represents the incoming date value as the elapsed time in milliseconds from midnight, January 1st, 1970.
   - **EPOCH_TIME_WIN32:** This represents the incoming date value as the elapsed time in 100-nanosecond intervals from midnight, January 1st, 1601.
 
 :::
@@ -46,7 +46,7 @@ The date format transform takes whatever value provided as the input, parses the
   - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether the transform logic should be reevaluated every evening as part of the identity refresh process.
   - **inputFormat** - This string value indicates either the explicit SimpleDateFormat or the built-in named format of the incoming data.
     - If no inputFormat is provided, the transform assumes that it is in [ISO8601 format](https://en.wikipedia.org/wiki/ISO_8601).
-  - **outputFormat** - This string value indicates either the explicit SimpleDateFormat or the built-in named format that the data should be formatted into.
+  - **outputFormat** - This string value indicates either the explicit SimpleDateFormat or the built-in named format that the data is formatted into.
     - If no outputFormat is provided, the transform assumes that it is in [ISO8601 format](https://en.wikipedia.org/wiki/ISO_8601).
   - **input** - This is an optional attribute that can explicitly define the input data passed into the transform logic. If no input is provided, the transform takes its input from the source and attribute combination configured with the UI.
 

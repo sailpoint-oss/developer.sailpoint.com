@@ -24,7 +24,7 @@ The trim transform only requires the transform's `type` and `name` attributes:
 
 - **Required Attributes**
 
-  - **type** - This must always be set to `trim.`
+  - **type** - This must always be set to `trim`.
   - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
 
 - **Optional Attributes**
@@ -61,7 +61,7 @@ Output: "Vice President"
 
 <p>&nbsp;</p>
 
-This transform removes the whitespace after the "Austin, Texas " input.
+This transform removes the whitespace after the "Austin, Texas" input.
 
 ```bash
 Input: "Austin, Texas "

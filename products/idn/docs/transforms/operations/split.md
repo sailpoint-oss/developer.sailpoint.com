@@ -1,13 +1,13 @@
 ---
 id: split
 slug: /docs/transforms/operations/split
-description: Return the N'th element of a split array.
+description: Return the Nth element of a split array.
 ---
 # Split
 
 ## Overview
 
-Use the split transform to use a specific character or regex string as a delimiter and convert a single incoming string into an array of values. This transform then returns the *N*th element of that array. This transform is often useful when you want to split combined names into their constituent parts or when you want to simplify an ordered list of values into a single attribute.
+Use the split transform to use a specific character or regex string as a delimiter and convert a single incoming string into an array of values. This transform then returns the Nth element of that array. This transform is often useful when you want to split combined names into their constituent parts or when you want to simplify an ordered list of values into a single attribute.
 
 ## Transform Structure
 
@@ -27,7 +27,7 @@ In addition to the standard `type` and `name` attributes, the split transform re
 ## Attributes
 
 - **Required Attributes**
-  - **type** - This must always be set to `split.`
+  - **type** - This must always be set to `split`.
   - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
   - **delimiter** - This can be either a single character or a regex expression. Transforms use it identify the break point between two substrings in the incoming data.
   - **index** - This is the integer value for the desired array element after the incoming data has been split into a list. The array is a 0-based object, so the first array element would be index 0, the second element would be index 1, etc.
@@ -35,7 +35,7 @@ In addition to the standard `type` and `name` attributes, the split transform re
 - **Optional Attributes**
   - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether the transform logic should be reevaluated every evening as part of the identity refresh process.
   - **throws** - This boolean (true/false) value indicates whether an exception is thrown and returned as an output when an index is out of bounds with the resulting array (i.e., the provided `index` value is larger than the size of the array).
-    - true - The transform returns "IndexOutOfBoundsException."
+    - true - The transform returns "IndexOutOfBoundsException".
     - false - The transform returns null.
     - If no throws value is provided, the transform default to false and returns a null.
 

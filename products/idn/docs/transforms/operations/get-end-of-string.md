@@ -11,7 +11,7 @@ Use the get end of string transform as an out-of-the-box rule transform provided
 
 ## Transform Structure
 
-The structure of a get end of string transform requires the `name` of the referenced rule to be the "Cloud Services Deployment Utility" rule built by SailPoint. You must also set `operation` to `getEndOfString,` and provide a `numChars` value. Last, you must include the `type` and `name` attributes required for all transforms:
+The structure of a get end of string transform requires the `name` of the referenced rule to be the `Cloud Services Deployment Utility` rule built by SailPoint. You must also set `operation` to `getEndOfString,` and provide a `numChars` value. Last, you must include the `type` and `name` attributes required for all transforms:
 
 ```json
 {
@@ -30,8 +30,8 @@ The structure of a get end of string transform requires the `name` of the refere
 - **Required Attributes**
   - **type** - This must always be set to `rule.`
   - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
-  - **attributes.name** - This must always be set to "Cloud Services Deployment Utility."
-  - **operation** - This must always be set to "getEndOfString."
+  - **attributes.name** - This must always be set to `Cloud Services Deployment Utility`.
+  - **operation** - This must always be set to `getEndOfString`.
   - **numChars** - This specifies how many of the rightmost characters within the incoming string the transform returns. If the value of numChars is greater than the string length, the transform returns null.
 
 - **Optional Attributes**
@@ -40,7 +40,7 @@ The structure of a get end of string transform requires the `name` of the refere
 
 ## Examples
 
-This transform returns the last four characters of the input string "abcd1234."
+This transform returns the last four characters of the input string "abcd1234".
 
 ```bash
 Input: "abcd1234"

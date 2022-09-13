@@ -47,7 +47,7 @@ In addition to the standard `type` and `name` attributes, the substring transfor
 
 ## Examples
 
-This transform uses a zero-based array to determine that the letter "c" is the begin index of the substring it will return because "c" is in index location 2. Index location 4 contains the letter "e," so the transform will return a substring consisting of anything between the letters "c" and "e," including "c" but excluding "e."
+This transform uses a zero-based array to determine that the letter "c" is the begin index of the substring it will return because "c" is in index location 2. Index location 4 contains the letter "e," so the transform will return a substring consisting of anything between the letters "c" and "e," including "c" but excluding "e".
 
 ```bash
 Input: "abcdef"

@@ -45,9 +45,9 @@ The account attribute transform's configuration can take several attributes as i
   - **sourceName** - This is a reference to the source to search for accounts.
     - This is a reference by a source's display name attribute (e.g., Active Directory). If the display name is updated, this reference must also be updated.
     - As an alternative, you can provide an `applicationId` or `applicationName` instead.
-      - `applicationId` - This is a reference by a source's external GUID/ID attribute (e.g., "ff8081815a8b3925015a8b6adac901ff")
-      - `applicationName` - This is a reference by a source's immutable name attribute (e.g., "Active Directory \[source\]")
-  - **attributeName** - The name of the attribute on the account to return. This should match the name of the account attribute name visible in the user interface or on the source schema.
+      - `applicationId` - This is a reference by a source's external GUID/ID attribute (e.g., "ff8081815a8b3925015a8b6adac901ff").
+      - `applicationName` - This is a reference by a source's immutable name attribute (e.g., "Active Directory \[source\]").
+  - **attributeName** - The name of the attribute on the account to return. This matches the name of the account attribute name visible in the user interface or on the source schema.
 - **Optional Attributes**
   - **requiresPeriodicRefresh** - This is a `true` or `false` value indicating whether the transform logic must be reevaluated every evening as part of the identity refresh process.
   - **accountSortAttribute** - This configuration's value is a string name of the attribute to use when determining the ordering of returned accounts when there are multiple entries.
@@ -57,12 +57,12 @@ The account attribute transform's configuration can take several attributes as i
     - If not defined, the transform will default to false (ascending order)
   - **accountReturnFirstLink** - This configuration's value is a boolean (true/false). It controls which account to source a value from for an attribute. If this flag is set to true, the transform returns the value from the first account in the list, even if it is null. If this flag is set to false, the transform returns the first non-null value.
     - If the configuration's value is not defined, the transform will default to the false setting.
-  - **accountFilter** - This expression queries the database to narrow search results. This configuration's value is a sailpoint.object.Filter expression for searching against the database. The default filter always includes the source and identity, and any subsequent expressions are combined in an AND operation with the existing search criteria.
+  - **accountFilter** - This expression queries the database to narrow search results. This configuration's value is a `sailpoint.object.Filter` expression for searching against the database. The default filter always includes the source and identity, and any subsequent expressions are combined in an AND operation with the existing search criteria.
     - Only certain searchable attributes are available:
       - `nativeIdentity` - This is the account ID.
       - `displayName` - This is the account name.
       - `entitlements` - This boolean value determine whether the account has entitlements.
-  - **accountPropertyFilter** - Use this expression to search and filter accounts in memory. This configuration's value is a sailpoint.object.Filter expression for searching against the returned resultset.
+  - **accountPropertyFilter** - Use this expression to search and filter accounts in memory. This configuration's value is a `sailpoint.object.Filter` expression for searching against the returned resultset.
     - All account attributes are available for filtering because this operation is performed in memory.
     - Examples:
       - `(status != "terminated")`
@@ -88,7 +88,7 @@ HR systems can have multiple HR records for a person, especially in rehire and c
 
 :::info
 
-You cannot use accountFilter here because WORKER_STATUS\_\_c is not a searchable attribute, but accountPropertyFilter works instead.
+You cannot use `accountFilter` here because WORKER_STATUS\_\_c is not a searchable attribute, but `accountPropertyFilter` works instead.
 
 :::
 

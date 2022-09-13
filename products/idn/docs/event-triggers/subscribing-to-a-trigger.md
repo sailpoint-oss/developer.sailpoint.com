@@ -11,12 +11,12 @@ SailPoint is continuously developing new event triggers to satisfy different use
 
 ![Available triggers](./img/available-triggers.png)
 
-## Subscribe to a Trigger From the UI
+## Subscribe to a Trigger from the UI
 
 Usually, you will subscribe to event triggers using the user interface in IDN.
 Refer to [subscribing to event triggers](https://documentation.sailpoint.com/saas/help/common/event_triggers.html#subscribing-to-event-triggers) to learn how to subscribe to an event trigger through the IDN UI.
 
-## Subscribe to a Trigger From the API
+## Subscribe to a Trigger from the API
 
 Sometimes, you may need to use the API to subscribe to event triggers.  This can occur when you want to programatically subscribe/unsubscribe from event triggers in a custom application or no-code solution that does not have a native integration with SailPoint.
 

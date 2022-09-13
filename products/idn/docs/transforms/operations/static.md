@@ -14,7 +14,7 @@ Use the static transform to return a fixed string value, or more commonly, to ev
 - When you are using static transforms within the create profile for a source, you can enter the value directly in the input field if the user selects Static as the attribute type.
 - Because IdentityNow supports the ability to order attributes in a create profile, you can use the Velocity template of an attribute higher in the list to generate a static value for an attribute that is lower in the list. For example, if you wanted to generate an email address based on a display name, you would need to do the follwing:
   - Move the "displayName" attribute higher in the list so that it is created before the email address.
-  - In the "mail" attribute, select Static for the attribute type. In the Static Value field, enter `$displayName@yourdomain.com.`
+  - In the "mail" attribute, select Static for the attribute type. In the Static Value field, enter `$displayName@yourdomain.com`.
 
 :::
 

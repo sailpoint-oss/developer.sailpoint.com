@@ -39,7 +39,7 @@ The name normalizer transform only requires the transform's `type` and `name` at
 
 - **Required Attributes**
 
-  - **type** - This must always be set to `normalizeNames.`
+  - **type** - This must always be set to `normalizeNames`.
   - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
 
 - **Optional Attributes**

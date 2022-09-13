@@ -26,7 +26,7 @@ In addition to the standard `type` and `name` attributes, the structure of a ref
 ## Attributes
 
 - **Required Attributes**
-  - **type** - This must always be set to `reference.`
+  - **type** - This must always be set to `reference`.
   - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
   - **id** - This ID specifies the name of the pre-existing transform you want to use within your current transform.
 
@@ -54,7 +54,7 @@ If you had a "Get Worker Type" transform that evaluated multiple pieces of data 
 
 <p>&nbsp;</p>
 
-This transform builds the user's display name, adds a hyphen to the end, and then adds the evaluated worker type from the earlier transform to build a string that would look something like "John Smith - Employee."
+This transform builds the user's display name, adds a hyphen to the end, and then adds the evaluated worker type from the earlier transform to build a string that would look something like "John Smith - Employee".
 
 **Transform Request Body**:
 

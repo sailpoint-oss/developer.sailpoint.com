@@ -18,7 +18,7 @@ Use the date compare transform to compare two dates and, depending on the compar
 
 ## Transform Structure
 
-The date compare transform takes as an input the two dates to compare, denoted as `firstDate` and `secondDate`. The transform also requires an `operator` designation so it knows which condition to evaluate for. Lastly, the transform requires both a `positiveCondition` and a `negativeCondition` -- the former returns if the comparison evaluates to true; the latter returns if the comparison evaluates to false.
+The date compare transform takes as an input the two dates to compare, denoted as `firstDate` and `secondDate`. The transform also requires an `operator` designation so it knows which condition to evaluate for. Lastly, the transform requires both a `positiveCondition` and a `negativeCondition` -- the former returns if the comparison evaluates to `true`; the latter returns if the comparison evaluates to `false`.
 
 ```json
 {
@@ -59,7 +59,7 @@ The date compare transform takes as an input the two dates to compare, denoted a
 
 ## Examples
 
-This transform accomplishes a basic lifecycle state calculation. It compares the user's termination date with his/her HR record. If the current datetime (denoted by `now`) is less than that date, the transform returns "active." If the current datetime is greater than that date, the transform returns "terminated."
+This transform accomplishes a basic lifecycle state calculation. It compares the user's termination date with his/her HR record. If the current datetime (denoted by `now`) is less than that date, the transform returns "active". If the current datetime is greater than that date, the transform returns "terminated".
 
 **Transform Request Body**:
 
@@ -87,7 +87,7 @@ This transform accomplishes a basic lifecycle state calculation. It compares the
 
 <p>&nbsp;</p>
 
-This transform compares the user's hire date to a fixed date in the past. If the user was hired prior to January 1, 1996, the transform returns "legacy." If the user was hired later than January 1, 1996, it returns "regular."
+This transform compares the user's hire date to a fixed date in the past. If the user was hired prior to January 1, 1996, the transform returns "legacy". If the user was hired later than January 1, 1996, it returns "regular".
 
 **Transform Request Body**:
 

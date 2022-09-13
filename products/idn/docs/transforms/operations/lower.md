@@ -23,7 +23,7 @@ The lower transform only requires the transform's `type` and `name` attributes:
 ## Attributes
 
 - **Required Attributes**
-  - **type** - This must always be set to `lower.`
+  - **type** - This must always be set to `lower`.
   - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
 - **Optional Attributes**
   - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether the transform logic should be reevaluated every evening as part of the identity refresh process.

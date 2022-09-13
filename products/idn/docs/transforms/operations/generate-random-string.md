@@ -38,8 +38,8 @@ The structure of a generate random string transform requires the `name` of the r
 - **Required Attributes**
   - **type** - This must always be set to `rule.`
   - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
-  - **attributes.name** - This must always be set to "Cloud Services Deployment Utility."
-  - **operation** - This must always be set to "generateRandomString."
+  - **attributes.name** - This must always be set to `Cloud Services Deployment Utility`.
+  - **operation** - This must always be set to `generateRandomString`.
   - **includeNumbers** - You must set this value to `true` or `false` to indicate whether the generator logic includes numbers.
   - **includeSpecialChars** - You must set this value to `true` or `false` to indicate whether the generator logic includes the followin special characters:
     - !

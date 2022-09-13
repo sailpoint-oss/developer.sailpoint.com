@@ -23,7 +23,7 @@ The random alphanumeric transform only requires the standard `type` and `name` a
 ## Attributes
 
 - **Required Attributes**
-  - **type** - This must always be set to `randomAlphaNumeric.`
+  - **type** - This must always be set to `randomAlphaNumeric`.
   - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
 
 - **Optional Attributes**
@@ -35,7 +35,7 @@ The random alphanumeric transform only requires the standard `type` and `name` a
 
 ## Examples
 
-Since no explicit length is provided, this transform generates a 32-character random string, such as "VtPeE9WL56lMTlvfjr02KXqS3KtgDSuk."
+Since no explicit length is provided, this transform generates a 32-character random string, such as "VtPeE9WL56lMTlvfjr02KXqS3KtgDSuk".
 
 **Transform Request Body**:
 
@@ -50,7 +50,7 @@ Since no explicit length is provided, this transform generates a 32-character ra
 
 <p>&nbsp;</p>
 
-This transform generates a 10-character random string, such as "5GH2qsjU27."
+This transform generates a 10-character random string, such as "5GH2qsjU27".
 
 **Transform Request Body**:
 

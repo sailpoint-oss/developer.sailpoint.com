@@ -29,7 +29,7 @@ The UUID generator transform only requires the transform's `type` and `name` att
 ## Attributes
 
 - **Required Attributes**
-  - **type** - This must always be set to `uuid.`
+  - **type** - This must always be set to `uuid`.
   - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
 
 - **Optional Attributes**
@@ -37,7 +37,7 @@ The UUID generator transform only requires the transform's `type` and `name` att
 
 ## Examples
 
-This transform produces a UUID such as `f7493c55-f3fc-491a-b352-4664d71f885b.`
+This transform produces a UUID such as "f7493c55-f3fc-491a-b352-4664d71f885b".
 
 **Transform Request Body**:
 

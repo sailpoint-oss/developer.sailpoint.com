@@ -8,7 +8,7 @@ sidebar_position: 2
 
 In SailPoint's cloud services, transforms allow you to manipulate attribute values while aggregating from or provisioning to a source. This guide provides a reference to help you understand the purpose, configuration, and usage of transforms.
 
-## What are Transforms
+## What Are Transforms
 
 Transforms are configurable objects that define easy ways to manipulate attribute data without requiring you to write code. Transforms are configurable building blocks with sets of inputs and outputs:
 
@@ -22,13 +22,13 @@ Sometimes transforms are referred to as Seaspray, the codename for transforms. I
 
 ## How Transforms Work
 
-Transforms typically have an input(s) and output(s). The way the transformation happens mainly depends on the type of transform. Refer to [Operations in IdentityNow Transforms](./operations/index.md) for more information.
+Transforms typically have an input(s) and output(s). The way the transformation occurs mainly depends on the type of transform. Refer to [Operations in IdentityNow Transforms](./operations/index.md) for more information.
 
-For example, a [Lower transform](./operations/lower.md) transforms any input text strings into lowercase versions as output. So if the input were `Foo`, the lower case output of the transform would be `foo`:
+For example, a [Lower transform](./operations/lower.md) transforms any input text strings into lowercase versions as output. So if the input were `Foo`, the lowercase output of the transform would be `foo`:
 
 ![How Transforms Work 1](./img/how_transforms_work_1.png)
 
-There are other types of transforms too. For example an [E.164 Phone transform](./operations/e164-phone.md) transforms any input phone number strings into an E.164 formatted version as output. So if the input were `(512) 346-2000` the output would be `+1 5123462000`:
+There are other types of transforms too. For example, an [E.164 Phone transform](./operations/e164-phone.md) transforms any input phone number strings into an E.164 formatted version as output. So if the input were `(512) 346-2000`, the output would be `+1 5123462000`:
 
 ![How Transforms Work 2](./img/how_transforms_work_2.png)
 
@@ -42,7 +42,7 @@ In the previous examples, each transform had a single input. Some transforms can
 
 For more complex use cases, a single transform may not be enough. It is possible to link several transforms together. IdentityNow calls these 'nested' transforms because they are transform objects within other transform objects.
 
-An example of a nested transform would be using the previous [Concat transform](./operations/concatenation.md) and passing its output as an input to another [Lower transform](./operations/lower.md). If the inputs `Foo` and `Bar` were passed into the transforms, the ultimate output would be `foobar`, concatenated and lower-cased.
+An example of a nested transform would be using the previous [Concat transform](./operations/concatenation.md) and passing its output as an input to another [Lower transform](./operations/lower.md). If the inputs `Foo` and `Bar` were passed into the transforms, the ultimate output would be `foobar`, concatenated and in lowercase.
 
 ![How Transforms Work 4](./img/how_transforms_work_4.png)
 
@@ -139,7 +139,7 @@ As an example, the "Lowercase Department" transform being used is written the fo
 
 Notice that the attributes has no input. This is an implicit input example. The transform uses the input provided by the attribute you mapped on the identity profile.
 
-In this example, the transform would produce `services` when the source is aggregated because Source 1 is providing a department of `Services` which then gets lowercased per the transform.
+In this example, the transform would produce `services` when the source is aggregated because Source 1 is providing a department of `Services` which the transform then lowercases.
 
 ### Explicit Input
 
@@ -163,7 +163,7 @@ As an example, the `Lowercase Department` has been changed the following way:
 
 Notice that there is an `input` in the attributes. This is an explicit input example. The transform uses the value Source 2 provides for the `department` attribute, ignoring your configuration in the identity profile.
 
-In this example, the transform would produce "engineering" because Source 2 is providing a department of `Engineering` which then gets lowercased, per the transform. Though the system is still providing an implicit input of Source 1's department attribute, the transform ignores this and uses the explicit input specified as Source 2's department attribute.
+In this example, the transform would produce "engineering" because Source 2 is providing a department of `Engineering` which the transform then lowercases. Though the system is still providing an implicit input of Source 1's department attribute, the transform ignores this and uses the explicit input specified as Source 2's department attribute.
 
 :::tip
 This is also an example of a nested transform.
@@ -256,7 +256,7 @@ For details about authentication against REST APIs, refer to the [authentication
 
 #### Testing Transforms on Account Create
 
-To test a transform for an account create profile, you must generate a new account creation provisioning event. This involves granting access to an identity that does not already have an account on this source; an account is created as a byproduct of the access assignment. This can be initiated with access request or even role assignment.
+To test a transform for an account create profile, you must generate a new account creation provisioning event. This involves granting access to an identity who does not already have an account on this source; an account is created as a byproduct of the access assignment. This can be initiated with access request or even role assignment.
 
 #### Applying Transforms on Account Create
 
@@ -266,7 +266,7 @@ Once the transforms are saved to the account profile, they are automatically app
 
 **Testing Transforms in Identity Profile Mappings**
 
-To test a transform for identity data, go to **Identities** > **Identity Profiles** and click **Mappings**. Select the transform to map one of your identity attributes, click **Save**, and preview your identity data.
+To test a transform for identity data, go to **Identities** > **Identity Profiles** and select **Mappings**. Select the transform to map one of your identity attributes, select **Save**, and preview your identity data.
 
 **Testing Transforms for Account Attributes**
 
@@ -282,15 +282,15 @@ To test a transform for account data, you must provision a new account on that s
 
 - **Same Problem, Multiple Solutions** - There can be multiple ways to solve the same problem, but use the solution that makes the most sense to your implementation and is easiest to administer and understand.
 
-- **Encapsulate Repetition** - If you are copying and pastings the same transforms over and over, it can be useful to make a transform a stand-alone transform and just have other transforms reference it by using the reference type.
+- **Encapsulate Repetition** - If you are copying and pasting the same transforms over and over, it can be useful to make a transform a standalone transform and make other transforms reference it by using the reference type.
 
-- **Plan for Bad Data** - Data will not always be perfect, so plan for data failures and try to ensure transforms still produce workable results, in case data is missing, malformed, or has incorrect values.
+- **Plan for Bad Data** - Data will not always be perfect, so plan for data failures and try to ensure transforms still produce workable results in case data is missing, malformed, or there are incorrect values.
 
 ## Transforms vs. Rules
 
 Sometimes it can be difficult to decide when to implement a transform and when to implement a rule. Both transforms and rules can calculate values for identity or account attributes.
 
-Despite their functional similarity, transforms and rules have very different implementations. Transforms are JSON-based configurations, editable with IdentityNow's transform REST APIs. Rules are implemented with code (typically BeanShell, a Java-like syntax), they must abide by the [IdentityNow Rule Guidelines](https://community.sailpoint.com/docs/DOC-12122), and they require SailPoint in order to be reviewed and installed into the tenant. Rules, however, can do things that transforms cannot in some cases.
+Despite their functional similarity, transforms and rules have very different implementations. Transforms are JSON-based configurations, editable with IdentityNow's transform REST APIs. Rules are implemented with code (typically BeanShell, a Java-like syntax), so they must follow the [IdentityNow Rule Guidelines](https://community.sailpoint.com/docs/DOC-12122), and they require SailPoint to be reviewed and installed into the tenant. Rules, however, can do things that transforms cannot in some cases.
 
 Because transforms have easier and more accessible implementations, they are generally recommended. With transforms, any IdentityNow administrator can view, create, edit, and delete transforms directly with REST API without SailPoint involvement.
 
@@ -300,6 +300,6 @@ If something cannot be done with a transform, then consider using a rule. When y
 
 - If you are calculating account attributes (during provisioning), you can use [Attribute Generator rules](https://community.sailpoint.com/docs/DOC-12645) instead of account transforms.
 
-- All rules you build must abide by the [IdentityNow Rule Guidelines](https://community.sailpoint.com/docs/DOC-12122).
+- All rules you build must follow the [IdentityNow Rule Guidelines](https://community.sailpoint.com/docs/DOC-12122).
 
 If you use a rule, make note of it for administrative purposes. The best practice is to check in these types of artifacts into some sort of version control (e.g., GitHub, et. Al.) for records.

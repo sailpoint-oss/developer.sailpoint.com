@@ -4,7 +4,7 @@ slug: /docs/transforms/operations
 title: Operations
 ---
 
-This document lists each type of operation you can perform in a transform. Sometimes you will hear these transforms referred to as **Seaspray**, which is the code-name for transforms.
+This document lists each type of operation you can perform in a transform. Sometimes you will hear these transforms referred to as **Seaspray**, the codename for transforms.
 
 ## Transform Operations
 

@@ -1,7 +1,7 @@
 ---
 id: get-reference-identity-attribute
 slug: /docs/transforms/operations/get-reference-identity-attribute
-description: Get the identity attribute of another user.
+description: Get another user's identity attribute.
 ---
 # Get Reference Identity Attribute
 
@@ -11,7 +11,7 @@ Use the get reference identity attribute transform as an out-of-the-box rule pro
 
 ## Transform Structure
 
-The structure of a get reference identity transform requires the `name` of the referenced rule to be the "Cloud Services Deployment Utility" rule built by SailPoint. Additionally, you must set the `operation` to `getReferenceIdentityAttribute` and specify a `uid` attribute that correlates to the identity whose attribute is desired. Last, you must include the `type` and `name` attributes required for all transforms:
+The structure of a get reference identity transform requires the `name` of the referenced rule to be the `Cloud Services Deployment Utility` rule built by SailPoint. Additionally, you must set the `operation` to `getReferenceIdentityAttribute` and specify a `uid` attribute that correlates to the identity whose attribute is desired. Last, you must include the `type` and `name` attributes required for all transforms:
 
 ```json
 {
@@ -31,8 +31,8 @@ The structure of a get reference identity transform requires the `name` of the r
 - **Required Attributes**
   - **type** - This must always be set to `rule.`
   - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
-  - **attributes.name** - This must always be set to "Cloud Services Deployment Utility."
-  - **operation** - This must always be set to "getReferenceIdentityAttribute."
+  - **attributes.name** - This must always be set to `Cloud Services Deployment Utility`.
+  - **operation** - This must always be set to `getReferenceIdentityAttribute`.
   - **uid** - This is the SailPoint User Name (uid) value of the identity whose attribute is desired.
     - For your convenience, you can use the "manager" keyword to look up the user's manager and then get that manager's identity attribute.
 
@@ -62,7 +62,7 @@ This transform gets the user's manager's email address.
 
 <p>&nbsp;</p>
 
-This transform gets the alternate phone number for the user identified as "corporate.admin."
+This transform gets the alternate phone number for the user identified as "corporate.admin".
 
 **Transform Request Body**:
 

@@ -27,7 +27,7 @@ The replace transform takes a `regex` attribute as an argument to identify which
 ## Attributes
 
 - **Required Attributes**
-  - **type** - This must always be set to `replace.`
+  - **type** - This must always be set to `replace`.
   - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
   - **regex** - This is the pattern you want to replace.
   - **replacement** - This is the replacement string that replaces the pattern wherever it occurs.
@@ -38,7 +38,7 @@ The replace transform takes a `regex` attribute as an argument to identify which
 
 ## Examples
 
-This transform makes a simple word replacement, exchanging "IIQ" for "IdentityNow."
+This transform makes a simple word replacement, exchanging "IIQ" for "IdentityNow".
 
 ```bash
 Input: "Working with IIQ is fun"

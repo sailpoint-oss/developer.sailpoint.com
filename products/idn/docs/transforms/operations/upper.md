@@ -24,7 +24,7 @@ The upper transform only requires the transform's `type` and `name` attributes:
 
 - **Required Attributes**
 
-  - **type** - This must always be set to `upper.`
+  - **type** - This must always be set to `upper`.
   - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
 
 - **Optional Attributes**
@@ -33,7 +33,7 @@ The upper transform only requires the transform's `type` and `name` attributes:
 
 ## Examples
 
-This transform takes the input "inactive" and produces the output "INACTIVE."
+This transform takes the input "inactive" and produces the output "INACTIVE".
 
 ```bash
 Input: "inactive"
@@ -61,7 +61,7 @@ Output: "INACTIVE"
 
 <p>&nbsp;</p>
 
-This transform takes the input "Everyone" and produces the output "EVERYONE."
+This transform takes the input "Everyone" and produces the output "EVERYONE".
 
 ```bash
 Input: "Everyone"

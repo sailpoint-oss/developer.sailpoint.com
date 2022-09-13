@@ -1,8 +1,13 @@
 ---
 id: source-account-deleted
 title: Source Account Deleted
-description: Source Account Deleted events occur whenever an account is deleted from its source during an account aggregation operation.
+slug: /idn/docs/event-triggers/triggers/source-account-deleted
+description: Fires after a source account is deleted.
 ---
+
+:::info
+This is an early access event trigger.  Please contact support to have it enabled in your tenant.
+:::
 
 ## Event Context
 

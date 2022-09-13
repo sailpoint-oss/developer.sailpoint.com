@@ -1,7 +1,8 @@
 ---
 id: source-deleted
 title: Source Deleted
-description: Source Deleted events occur when a source is successfully deleted via the API or the Admin UI.
+slug: /idn/docs/event-triggers/triggers/source-deleted
+description: Fires after a source is deleted.	
 ---
 
 ## Event Context

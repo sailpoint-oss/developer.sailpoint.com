@@ -1,7 +1,8 @@
 ---
 id: va-cluster-status-change
 title: VA Cluster Status Change
-description: VA (Virtual Appliance) Cluster Status Change Events occur when a health check is run on a VA cluster and the health status is different from the previous health check.
+slug: /idn/docs/event-triggers/triggers/va-cluster-status-change
+description: Fires after the status of a VA cluster has changed.
 ---
 
 ## Event Context

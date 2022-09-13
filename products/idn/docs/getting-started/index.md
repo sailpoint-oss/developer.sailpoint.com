@@ -16,11 +16,15 @@ To get started, create a [personal access token](./authentication.md#personal-ac
 
 2. Select **New Token** and enter a meaningful description to differentiate the token from others.
 
-    >**Note**: The **New Token** button will be disabled when you reach the limit of 10 personal access tokens per user. To avoid reaching this limit, delete any tokens that are no longer needed.
+ :::caution
+ The **New Token** button will be disabled when you reach the limit of 10 personal access tokens per user. To avoid reaching this limit, delete any tokens that are no longer needed.
+ :::
 
 3. Select **Create Token** to generate and view two components the token comprises: the `Secret` and the `Client ID`.
 
-    >**IMPORTANT**: After you create the token, the value of the `Client ID` will be visible in the Personal Access Tokens list, but the corresponding `Secret` will not be visible after you close the window.  Store the `Secret` somewhere secure.
+    :::danger Important
+    After you create the token, the value of the `Client ID` will be visible in the Personal Access Tokens list, but the corresponding `Secret` will not be visible after you close the window.  Store the `Secret` somewhere secure.
+    :::
 
 4. Copy both values somewhere that will be secure and accessible to you when you need to use the the token.
 

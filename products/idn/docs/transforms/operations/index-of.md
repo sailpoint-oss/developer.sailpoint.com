@@ -11,7 +11,7 @@ Use the index of transform to get the location of a specific substring within an
 
 :::note Other Considerations
 
-- If the substring you are searching for occurs multiple times within the incoming data, the transform returns the location of the first occurrence. If you want the last occurrence of a substring, use the [Last Index Of](./last_index_of.md) transform. If you want an occurrence that is neither first nor last, use the [Substring](./substring.md) transform.
+- If the substring you are searching for occurs multiple times within the incoming data, the transform returns the location of the first occurrence. If you want the last occurrence of a substring, use the [Last Index Of](./last-index-of.md) transform. If you want an occurrence that is neither first nor last, use the [Substring](./substring.md) transform.
 
 :::
 

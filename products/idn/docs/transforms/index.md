@@ -251,7 +251,7 @@ curl --location --request POST 'https://{tenant}.api.identitynow.com/v3/sources/
 For more information on the IdentityNow REST API endpoints used to managed transform objects in APIs, refer to [IdentityNow Transform REST APIs](/idn/api/v3/transforms).
 
 :::tip
-For details about authentication against REST APIs, refer to the [authentication docs](../getting-started/authentication.md).
+For details about authentication against REST APIs, refer to the [authentication docs](../../api/authentication.md).
 :::
 
 #### Testing Transforms on Account Create

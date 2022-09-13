@@ -1,6 +1,7 @@
 ---
 id: get-reference-identity-attribute
 slug: /docs/transforms/operations/get-reference-identity-attribute
+description: Get the identity attribute of another user.
 ---
 # Get Reference Identity Attribute
 

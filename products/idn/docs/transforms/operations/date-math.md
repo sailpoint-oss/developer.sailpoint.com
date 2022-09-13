@@ -1,6 +1,7 @@
 ---
 id: date-math
 slug: /docs/transforms/operations/date-math
+description: Add, subtract, and round components of a timestamp's incoming value.
 ---
 # Date Math
 

@@ -1,6 +1,7 @@
 ---
 id: date-format
 slug: /docs/transforms/operations/date-format
+description: Convert datetime strings from one format to another.
 ---
 # Date Format
 

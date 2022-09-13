@@ -1,6 +1,7 @@
 ---
 id: concatenation
 slug: /docs/transforms/operations/concatenation
+description: Join two or more string values into a combined output.
 ---
 # Concatenation
 

@@ -1,6 +1,7 @@
 ---
 id: lower
 slug: /docs/transforms/operations/lower
+description: Convert an input string into all lowercase letters.
 ---
 # Lower
 

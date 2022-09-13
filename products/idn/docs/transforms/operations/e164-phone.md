@@ -1,6 +1,7 @@
 ---
 id: e164-phone
 slug: /docs/transforms/operations/e164-phone
+description: Convert a phone number string into an E.164-compatible number.
 ---
 # E.164 Phone
 

@@ -1,6 +1,7 @@
 ---
 id: static
 slug: /docs/transforms/operations/static
+description: Return a fixed string value.
 ---
 # Static
 

@@ -1,6 +1,7 @@
 ---
 id: random-numeric
 slug: /docs/transforms/operations/random-numeric
+description: Generate a random number of any length.
 ---
 # Random Numeric
 

@@ -1,6 +1,7 @@
 ---
 id: identity-attribute
 slug: /docs/transforms/operations/identity-attribute
+description: Get the value of a user's identity attribute.
 ---
 # Identity Attribute
 

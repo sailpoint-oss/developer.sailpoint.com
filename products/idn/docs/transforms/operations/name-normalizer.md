@@ -1,6 +1,7 @@
 ---
 id: name-normalizer
 slug: /docs/transforms/operations/name-normalizer
+description: Clean or standardize the spelling of strings coming in from source systems.
 ---
 # Name Normalizer
 

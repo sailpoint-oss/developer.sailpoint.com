@@ -1,6 +1,7 @@
 ---
 id: first-valid
 slug: /docs/transforms/operations/first-valid
+description: Return the first piece of data that is not null.
 ---
 # First Valid
 

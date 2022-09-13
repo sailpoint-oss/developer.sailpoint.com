@@ -1,6 +1,7 @@
 ---
 id: right-pad
 slug: /docs/transforms/operations/right-pad
+description: Add padding to the right of an incoming string.
 ---
 # Right Pad
 

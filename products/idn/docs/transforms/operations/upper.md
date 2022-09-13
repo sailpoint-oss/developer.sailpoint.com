@@ -1,6 +1,7 @@
 ---
 id: upper
 slug: /docs/transforms/operations/upper
+description: Convert an input string into all uppercase letters.
 ---
 # Upper
 

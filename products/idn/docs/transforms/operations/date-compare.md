@@ -1,6 +1,7 @@
 ---
 id: date-compare
 slug: /docs/transforms/operations/date-compare
+description: Compare two dates and return a calculated value.
 ---
 # Date Compare
 

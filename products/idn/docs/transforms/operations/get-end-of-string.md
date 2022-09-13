@@ -1,6 +1,7 @@
 ---
 id: get-end-of-string
 slug: /docs/transforms/operations/get-end-of-string
+description: Get the rightmost N characters of a string.
 ---
 # Get End of String
 

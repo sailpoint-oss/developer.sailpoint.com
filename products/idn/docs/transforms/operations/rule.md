@@ -1,6 +1,7 @@
 ---
 id: rule
 slug: /docs/transforms/operations/rule
+description: Reuse rule logic that has already been written for a previous use case.
 ---
 # Rule
 

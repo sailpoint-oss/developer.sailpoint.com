@@ -1,6 +1,7 @@
 ---
 id: lookup
 slug: /docs/transforms/operations/lookup
+description: Lookup and return matching value for key.
 ---
 # Lookup
 

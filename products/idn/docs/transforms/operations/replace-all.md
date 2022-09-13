@@ -1,6 +1,7 @@
 ---
 id: replace-all
 slug: /docs/transforms/operations/replace-all
+description: Find and replace all instances of all patterns.
 ---
 # Replace All
 

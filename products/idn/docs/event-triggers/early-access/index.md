@@ -5,4 +5,4 @@ sidebar_position: 8
 
 # Early Access Event Triggers
 
-New event triggers that are undergoing active development may appear in the early access event trigger list.  These triggers can be utilized by submitting a support ticket to have them enabled in your tenant.  Because these triggers are early access, they are subject to change at any time.
+New event triggers undergoing active development may appear in the early access event trigger list. You can use these triggers by submitting a support ticket to have them enabled in your tenant. Because these triggers are early access, they are subject to change at any time.

@@ -4,22 +4,22 @@ id: saved-search-completed
 
 # Saved Search Completed
 
-## Event context
+## Event Context
 
 ![Flow](./img/saved-search-path.png)
 
-Users can to subscribe to Saved Searches and receive an email of a report generated from the saved search. For example, a user can save a search query called "Identities with upcoming end dates" and create a subscription to receive a daily report showing identities with an end date within 10 days from the current date. This event trigger can also notify an external HTTP application that a report generated from a saved search subscription is available to be processed.
+Users can subscribe to Saved Searches and receive an email of a report generated from the saved search. For example, a user can save a search query called "Identities with upcoming end dates" and create a subscription to receive a daily report showing identities with an end date within 10 days from the current date. This event trigger can also notify an external HTTP application that a report generated from a saved search subscription is available to be processed.
 
-Saved Search Completed events occur based on the schedules set for saved search subscriptions. For example, if you have a scheduled saved search for Monday, Tuesday, Wednesday, Thursday, Friday at 6:00 GMT, this is when your HTTP endpoint will also receive a notification. This can be set using the `schedule` object in the [create scheduled search endpoint](/idn/api/v3/scheduled-search-create).
+Saved Search Completed events occur based on the schedules set for saved search subscriptions. For example, if you have a scheduled saved search for Monday, Tuesday, Wednesday, Thursday, Friday at 6:00 GMT, your HTTP endpoint will also receive a notification at those times. This can be set using the `schedule` object in the [create scheduled search endpoint](/idn/api/v3/scheduled-search-create).
 
-To receive this event when a saved search query does not have any results, set `emailEmptyResults` to `TRUE`.  You can also set the expiration date in the `expiration` field within the `schedule` object. Your HTTP endpoint will stop receiving these events when the Scheduled Search expires.
+To receive this event when a saved search query does not have any results, set `emailEmptyResults` to `TRUE`.  You can also set the expiration date in the `expiration` field within the `schedule` object. Your HTTP endpoint will stop receiving these events when the scheduled search expires.
 
-Some examples of how this trigger can be used include:
+Some uses cases for this trigger include the following:
 
-- Perform Quality Control, such as continuously checking for Separation of Duties (SOD) violations
-- Respond to upcoming Joiner-Mover-Leaver scenarios, such as deprovisioning access before an employee's separation date.
+- Perform quality control, such as continuously checking for Separation of Duties (SOD) violations.
+- Respond to upcoming joiner-mover-leaver scenarios, such as deprovisioning access before an employee's separation date.
 
-An example input from this trigger is as follows:
+This is an example input from this trigger:
 
 ```json
 {

@@ -5,15 +5,15 @@ id: authentication
 
 ## Quick Start
 
-The quickest way to authenticate and start using SailPoint APIs is to generate a [personal access token](#personal-access-tokens).  If you are interested in using OAuth2 for authentication, then please continue to read this document.
+The quickest way to authenticate and start using SailPoint APIs is to generate a [personal access token](#personal-access-tokens).  Use this document if you are interested in using OAuth2 for authentication.
 
 ## Finding Your Tenant's OAuth Details
 
-This document assumes your IDN instance is using the domain name supplied by SailPoint.  If your instance is using a vanity URL, then you will need to open the following URL in your browser to get your OAuth info.  See [finding your org/tenant name](./index.md#finding-your-orgtenant-name) in the [getting started guide](./index.md) to get your `{tenant}`.
+This document assumes your IDN instance is using the domain name supplied by SailPoint.  If your instance is using a vanity URL, you must open the following URL in your browser to get your OAuth info.  See [finding your org/tenant name](./index.md#finding-your-orgtenant-name) in the [getting started guide](./index.md) to get your `{tenant}`.
 
 `https://{tenant}.api.identitynow.com/oauth/info`
 
-This page will present you with your `authorizeEndpoint` and `tokenEndpoint`, which you will need to follow along with the examples in this document.
+This page will present you with your `authorizeEndpoint` and `tokenEndpoint`, which you must follow along with the examples in this document.
 
 ```json
 {
@@ -29,7 +29,7 @@ This page will present you with your `authorizeEndpoint` and `tokenEndpoint`, wh
 
 ## Overview
 
-In order to use the IdentityNow REST API, you must first authenticate with IdentityNow and get an `access_token`.  This `access_token` will need to be provided in the `Authorization` header of each API request.  The steps of the flow are as follows:
+To use the IdentityNow REST API, you must first authenticate with IdentityNow and get an `access_token`.  You must provide this `access_token` in the `Authorization` header of each API request.  The steps of the flow are as follows:
 
 ![Flow](./img/http-client-identity-now.png)
 
@@ -42,21 +42,21 @@ The SailPoint authentication/authorization model is fully [OAuth 2.0](https://oa
 
 ## Personal Access Tokens
 
-A personal access token is a method of authenticating to an API as a user without needing to supply a username and password.  The primary use case for personal access tokens is in scripts or programs that don't have an easy way to implement an OAuth 2.0 flow and that need to call API endpoints that require a user context.  Personal access tokens are also convenient when using Postman to explore and test APIs.
+A personal access token is a method of authenticating to an API as a user without needing to supply a username and password.  The primary use case for personal access tokens is in scripts or programs that do not have an easy way to implement an OAuth 2.0 flow and that need to call API endpoints that require a user context.  Personal access tokens are also convenient when you are using Postman to explore and test APIs.
 
->**UPDATE**: Previously, only users with the `Admin` or `Source Admin` role were allowed to generate personal access tokens.  Now, all users are able to generate personal access tokens!
+>**UPDATE**: Previously, only users with the `Admin` or `Source Admin` role were allowed to generate personal access tokens.  Now, all users can generate personal access tokens!
 
-To generate a personal access token from the IdentityNow UI, perform the following steps after logging into your IdentityNow instance:
+To generate a personal access token from the IdentityNow UI, do the following after logging into your IdentityNow instance:
 
 1. Select **Preferences** from the drop-down menu under your username, then **Personal Access Tokens** on the left.  You can also go straight to the page using this URL, replacing `{tenant}` with your IdentityNow tenant: `https://{tenant}.identitynow.com/ui/d/user-preferences/personal-access-tokens`.
 
-2. Click **New Token** and enter a meaningful description to help differentiate the token from others.
+2. Select **New Token** and enter a meaningful description to differentiate the token from others.
 
-    >**Note**: The **New Token** button will be disabled when you’ve reached the limit of 10 personal access tokens per user. To avoid reaching this limit, we recommend you delete any tokens that are no longer needed.
+    >**Note**: The **New Token** button will be disabled when you reach the limit of 10 personal access tokens per user. To avoid reaching this limit, delete any tokens that are no longer needed.
 
-3. Click **Create Token** to generate and view the two components that comprise the token: the `Secret` and the `Client ID`.
+3. Select **Create Token** to generate and view the two components the token comprises: the `Secret` and the `Client ID`.
 
-    >**IMPORTANT**: After you create the token, the value of the `Client ID` will be visible in the Personal Access Tokens list, but the corresponding `Secret` will not be visible after you close the window.  You will need to store the `Secret` somewhere secure.
+    >**IMPORTANT**: After you create the token, the value of the `Client ID` will be visible in the Personal Access Tokens list, but the corresponding `Secret` will not be visible after you close the window.  Store the `Secret` somewhere secure.
 
 4. Copy both values somewhere that will be secure and accessible to you when you need to use the the token.
 
@@ -66,25 +66,25 @@ To use a personal access token to generate an `access_token` that can be used to
 
 ## OAuth 2.0
 
-[OAuth 2.0](https://oauth.net/2/) is an industry-standard protocol for authorization, and provides a variety of authorization flows for web applications, desktop applications, mobile phones, and devices. This specification and its extensions are developed within the [IETF OAuth Working Group](https://www.ietf.org/mailman/listinfo/oauth).
+[OAuth 2.0](https://oauth.net/2/) is an industry-standard protocol for authorization. It provides a variety of authorization flows for web applications, desktop applications, mobile phones, and devices. This specification and its extensions are developed within the [IETF OAuth Working Group](https://www.ietf.org/mailman/listinfo/oauth).
 
-There are several different authorization flows that OAuth 2.0 supports, and each of these has a grant-type which defines the different use cases.  Some of the common ones which might be used with IdentityNow are as follows:
+OAuth 2.0 supports several different authorization flows, and each of these has a grant-type defining the different use cases. The following are some common ones that may be used with IdentityNow:
 
-1. [**Authorization Code**](https://oauth.net/2/grant-types/authorization-code/) - This grant type is used by clients to exchange an authorization code for an `access_token`.  This is mainly used for web applications as there is a login into IdentityNow, with a subsequent redirect back to the web application / client.
-2. [**Client Credentials**](https://oauth.net/2/grant-types/client-credentials/) - This grant type is used by clients to obtain an `access_token` outside the context of a user.  Because this is outside of a user context, only a subset of IdentityNow REST APIs may be accessible with this kind of grant type.  
-3. [**Refresh Token**](https://oauth.net/2/grant-types/refresh-token/) - This grant type is used by clients in order to exchange a refresh token for a new `access_token` when the existing `access_token` has expired.  This allows clients to continue using the API without having to re-authenticate as frequently.  This grant type is commonly used together with `Authorization Code` to prevent a user from having to log in several times per day.
+1. [**Authorization Code**](https://oauth.net/2/grant-types/authorization-code/) - Clients use this grant type to exchange an authorization code for an `access_token`.  This is mainly used for web applications as there is a login into IdentityNow, with a subsequent redirect back to the web application / client.
+2. [**Client Credentials**](https://oauth.net/2/grant-types/client-credentials/) - Clients use this grant type to obtain an `access_token` outside the context of a user.  Because this is outside of a user context, only a subset of IdentityNow REST APIs is accessible with this grant type.  
+3. [**Refresh Token**](https://oauth.net/2/grant-types/refresh-token/) - Clients use this grant type to exchange a refresh token for a new `access_token` when the existing `access_token` has expired.  This allows clients to continue using the API without having to re-authenticate as frequently.  This grant type is commonly used together with `Authorization Code` to prevent a user from having to log in multiple times per day.
 
 ## JSON Web Token (JWT)
 
-[JSON Web Token (JWT)](https://jwt.io) is an industry-standard protocol for creating access tokens which assert various claims about the resource who has authenticated.  The tokens have a specific structure consisting of a header, payload, and signature.  
+[JSON Web Token (JWT)](https://jwt.io) is an industry-standard protocol for creating access tokens that assert various claims about the resource who has authenticated.  The tokens have a specific structure consisting of a header, payload, and signature.  
 
-A raw JWT might look like this:
+A raw JWT may look like this:
 
 ```text
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRfaWQiOiI1OGViMDZhNC1kY2Q3LTRlOTYtOGZhYy1jY2EyYWZjMDNlNjEiLCJpbnRlcm5hbCI6dHJ1ZSwicG9kIjoiY29vayIsIm9yZyI6ImV4YW1wbGUiLCJpZGVudGl0eV9pZCI6ImZmODA4MTgxNTVmZThjMDgwMTU1ZmU4ZDkyNWIwMzE2IiwidXNlcl9uYW1lIjoic2xwdC5zZXJ2aWNlcyIsInN0cm9uZ19hdXRoIjp0cnVlLCJhdXRob3JpdGllcyI6WyJPUkdfQURNSU4iXSwiY2xpZW50X2lkIjoibktCUE93akpIOExYU2pJbCIsInN0cm9uZ19hdXRoX3N1cHBvcnRlZCI6dHJ1ZSwidXNlcl9pZCI6IjU5NTgyNiIsInNjb3BlIjpbInJlYWQiLCJ3cml0ZSJdLCJleHAiOjE1NjU4ODgzMTksImp0aSI6ImM5OGQxMjM2LTQ1MTMtNGM4OS1hMGQwLTBjYjlmMzI3NmI1NiJ9.SAY4ZQkXGi2cY_qz57Ah9_zDq4-bnF-oDJKotXa-LCY
 ```
 
-If you were to decode the access token data, it might look something like this:
+If you were to decode the access token data, it may look like this:
 
 Header
 
@@ -139,23 +139,23 @@ This section details how to call the SailPoint Platform OAuth 2.0 token endpoint
 
 ### Prerequisites
 
-Before any OAuth 2.0 token requests can be initiated, a Client ID and secret are necessary.  As an `ORG_ADMIN`, browse to your API Management Admin Page at `https://{tenant}.identitynow.com/ui/admin/#admin:global:security:apimanagementpanel` and create an API client with the appropriate grant types for your use case.  If you are not an admin of your org, you can ask an admin to create this for you.  Be sure to save your `Client Secret` somewhere secure, as you will not be able to view or change it later.
+Before any OAuth 2.0 token requests can be initiated, a Client ID and secret are necessary.  As an `ORG_ADMIN`, browse to your API Management Admin Page at `https://{tenant}.identitynow.com/ui/admin/#admin:global:security:apimanagementpanel` and create an API client with the appropriate grant types for your use case.  If you are not an admin of your org, ask an admin to create this for you.  Save your `Client Secret` somewhere secure because you will not be able to view or change it later.
 
 ### OAuth 2.0 Token Request
 
-When authenticating to IdentityNow, the OAuth 2.0 token endpoint resides on the IdentityNow API Gateway at:
+When authenticating to IdentityNow, the OAuth 2.0 token endpoint resides on the IdentityNow API Gateway at the following URL:
 
 ```Text
 POST https://{tenant}.api.identitynow.com/oauth/token
 ```
 
-How you call this endpoint to get your token depends largely on the OAuth 2.0 flow and grant type you wish to implement.  The details for each grant type within IdentityNow are described in the following sections.
+How you call this endpoint to get your token depends largely on the OAuth 2.0 flow and grant type you want to implement.  The details for each grant type within IdentityNow are described in the following sections.
 
 ### Authorization Code Grant Flow
 
 Further Reading: [https://oauth.net/2/grant-types/authorization-code/](https://oauth.net/2/grant-types/authorization-code/)
 
-This grant type is used by clients to exchange an authorization code for an `access_token`.  This is mainly used for web apps as there is a login into IdentityNow, with a subsequent redirect back to the web app / client.
+Clients use this grant type to exchange an authorization code for an `access_token`.  This is mainly used for web apps because there is a login into IdentityNow with a subsequent redirect back to the web app or client.
 
 The OAuth 2.0 client you are using must have `AUTHORIZATION_CODE` as one of its grant types.  The redirect URLs must also match the list in the client as well:
 
@@ -183,7 +183,7 @@ The overall authorization flow is as follows:
 
 1. The user clicks the login link on a web app.
 
-2. The web app sends an authorization request to IdentityNow in the form:
+2. The web app sends an authorization request to IdentityNow in this form:
 
     ```Text
     GET https://{tenant}.identitynow.com/oauth/authorize?client_id={client-id}&client_secret={client-secret}&response_type=code&redirect_uri={redirect-url}
@@ -195,17 +195,17 @@ The overall authorization flow is as follows:
 
 5. Once authentication is successful, IdentityNow issues an authorization code back to the web app.
 
-6. The web app submits an **OAuth 2.0 Token Request** to IdentityNow in the form:
+6. The web app submits an **OAuth 2.0 Token Request** to IdentityNow in this form:
 
    ```text
    POST https://{tenant}.api.identitynow.com/oauth/token?grant_type=authorization_code&client_id={client-id}&client_secret={client-secret}&code={code}&redirect_uri={redirect-url}
    ```
 
-   >**Note**: the token endpoint URL is `{tenant}.api.identitynow.com`, while the authorize URL is `{tenant}.identitynow.com`.  Be sure to use the correct URL when setting up your webapp to use this flow.
+   >**Note**: the token endpoint URL is `{tenant}.api.identitynow.com`, but the authorize URL is `{tenant}.identitynow.com`.  Use the correct URL when you are setting up your webapp to use this flow.
 
-7. IdentityNow validates the token request and submits a response.  If successful, the response will contain a JWT `access_token`.
+7. IdentityNow validates the token request and submits a response.  If the request is successful, the response will contain a JWT `access_token`.
 
-The query parameters in the OAuth 2.0 token request for the Authorization Code grant are as follows:
+These are the query parameters in the OAuth 2.0 token request for the Authorization Code grants:
 
 | Key           | Description                                                  |
 | ------------- | ------------------------------------------------------------ |
@@ -227,7 +227,7 @@ curl -X POST \
 
 Further Reading: [https://oauth.net/2/grant-types/client-credentials/](https://oauth.net/2/grant-types/client-credentials/)
 
-This grant type is used by clients to obtain an access token outside the context of a user.  This is probably the simplest authentication flow, but comes with a major drawback; API endpoints that require [user level permissions](https://documentation.sailpoint.com/saas/help/common/users/user_level_matrix.html) will not work. [Personal Access Tokens](#personal-access-tokens) are a form of Client Credentials that have a user context, so they do not share this drawback.  However, the APIs that can be invoked with a personal access token depend on the permissions of the user that generated it.
+Clients use this grant type to get an access token outside the context of a user.  This is probably the simplest authentication flow, but it comes with a major drawback: API endpoints that require [user level permissions](https://documentation.sailpoint.com/saas/help/common/users/user_level_matrix.html) will not work. [Personal Access Tokens](#personal-access-tokens) are a form of Client Credentials that have user context, so they do not share this drawback.  However, the APIs that can be invoked with a personal access token depend on the permissions of the user who generated it.
 
 An OAuth 2.0 client using the Client Credentials flow must have `CLIENT_CREDENTIALS` as one of its grantTypes:
 
@@ -258,7 +258,7 @@ The overall authorization flow looks like this:
 
 2. IdentityNow validates the token request and submits a response.  If successful, the response will contain a JWT access token.
 
-The query parameters in the OAuth 2.0 Token Request for the Client Credentials grant are as follows:
+These are the query parameters in the OAuth 2.0 Token Request for the Client Credentials grant:
 
 | Key           | Description                                                  |
 | ------------- | ------------------------------------------------------------ |
@@ -278,7 +278,7 @@ curl -X POST \
 
 Further Reading: [https://oauth.net/2/grant-types/refresh-token/](https://oauth.net/2/grant-types/refresh-token/)
 
-This grant type is used by clients in order to exchange a refresh token for a new `access_token` once the existing `access_token` has expired.  This allows clients to continue to have a valid `access_token` without the need for the user to login as frequently.
+Clients use this grant type to exchange a refresh token for a new `access_token` once the existing `access_token` has expired.  This allows clients to continue to have a valid `access_token` without requiring the user to log in as frequently.
 
 The OAuth 2.0 client you are using must have `REFRESH_TOKEN` as one of its grant types, and is typically used in conjunction with another grant type, like `CLIENT_CREDENTIALS` or `AUTHORIZATION_CODE`:
 
@@ -302,7 +302,7 @@ The overall authorization flow looks like this:
 
 1. The client application receives an `access_token` and a `refresh_token` via one of the other OAuth grant flows, like `AUTHORIZATION_CODE`.
 2. The client application notices that the `access_token` is about to expire, based on the `expires_in` attribute contained within the JWT token.
-3. The client submits an **OAuth 2.0 Token Request** to IdentityNow in the form:
+3. The client submits an **OAuth 2.0 Token Request** to IdentityNow in this form:
 
     ```Text
     POST https://{tenant}.api.identitynow.com/oauth/token?grant_type=refresh_token&client_id={client_id}&client_secret={client_secret}&refresh_token={refresh_token}
@@ -310,7 +310,7 @@ The overall authorization flow looks like this:
 
 4. IdentityNow validates the token request and submits a response.  If successful, the response will contain a new `access_token` and `refresh_token`.
 
-The query parameters in the OAuth 2.0 Token Request for the Refresh Token grant are as follows:
+These are the query parameters in the OAuth 2.0 Token Request for the Refresh Token grant:
 
 | Key           | Description                                                  |
 | ------------- | ------------------------------------------------------------ |
@@ -361,42 +361,42 @@ curl -X GET \
   -H 'cache-control: no-cache'
 ```
 
-The `expires_in` describes the lifetime, in seconds, of the `access_token`.  For example, the value 749 means that the `access_token` will expire in 12.5 minutes from the time the response was generated.  The exact expiration date is also contained within the `access_token`.  You can view this expiration time by decoding the JWT `access_token` using a tool like [jwt.io](https://jwt.io/).
+The `expires_in` describes the lifetime, in seconds, of the `access_token`.  For example, the value 749 means that the `access_token` expires 12.5 minutes from the time the response was generated.  The `access_token` also contains the exact expiration date.  You can view this expiration time by decoding the JWT `access_token` using a tool like [jwt.io](https://jwt.io/).
 
-The `refresh_token` contains a JSON Web Token for use in a [Refresh Token](#refresh-token-grant-flow) grant flow.  The `refresh_token` will only be present if the API client has the `REFRESH_CODE` grant flow.
+The `refresh_token` contains a JSON Web Token for use in a [Refresh Token](#refresh-token-grant-flow) grant flow.  The `refresh_token` is only present if the API client has the `REFRESH_CODE` grant flow.
 
-The `user_id` and `identity_id` define the identity context of the person that authenticated.  This is not set for the Client Credentials grant type since it doesn't have a user context.
+The `user_id` and `identity_id` define the identity context of the user who authenticated.  This is not set for the Client Credentials grant type since it does not have user context.
 
 ## Which OAuth 2.0 Grant Flow should I use?
 
-Deciding which OAuth 2.0 grant flow you should use largely depends on your use case.  
+Deciding which OAuth 2.0 grant flow to use largely depends on your use case.  
 
 ### Daily Work or Quick Actions
 
-For daily work or short, quick administrative actions, you may not really need to worry about grant types, as an access token can easily be obtained in the user interface.  In order to see this:
+For daily work or short, quick administrative actions, you do not really need to worry about grant types because you can easily get an access token from the user interface by doing the following:
 
-1. Login to IdentityNow.
+1. Log in to IdentityNow.
 2. Go to `https://{tenant}.identitynow.com/ui/session`.
 3. The `accessToken` is visible in the user interface.
-4. Use this access token in the `Authorization` header when making API calls.  If the access token expires, log back into Identity Now and retrieve the new access token.
+4. Use this access token in the `Authorization` header when you are making API calls.  If the access token expires, log back into Identity Now and get the new access token.
 
-While this is very simple to use, this is only valid for a short period of time (a few minutes).
+While this is very simple to use, the token is only valid for a short period of time (a few minutes).
 
 ### Postman
 
-If you are using the popular HTTP client, [Postman](https://www.getpostman.com), you have a couple of options on how you might setup your authorization.  You can just leverage the accessToken as mentioned above, or you can also configure Postman to use OAuth 2.0 directly.
+If you are using [Postman](https://www.getpostman.com), you have a couple of options for how to set up your authorization.  You can leverage the accessToken as mentioned above, or you can also configure Postman to use OAuth 2.0 directly.
 
 ### Web Applications
 
-If you are making a web application, the best grant flow to use is the [Authorization Code](#authorization-code-grant-flow) grant flow.  This will allow users to be directed to IdentityNow to login, and then redirected back to the web application via a URL redirect.   This also works well with SSO, strong authentication, or pass-through authentication mechanisms.
+If you are making a web application, the best grant flow to use is the [Authorization Code](#authorization-code-grant-flow) grant flow.  This allows users to be directed to IdentityNow to log in and then redirects them back to the web application via a URL redirect.   This also works well with SSO, strong authentication, or pass-through authentication mechanisms.
 
-SailPoint does not recommend using a password grant flow for web applications as it would involve entering IdentityNow credentials in the web application.  This flow also doesn't allow you to work with SSO, strong authentication, or pass-through authentication.
+Do not use a password grant flow for web applications because doing so involves entering IdentityNow credentials in the web application.  This flow also does not allow you to work with SSO, strong authentication, or pass-through authentication.
 
 ### Scripts or Programs
 
-If you are writing scripts or programs that leverage the IdentityNow APIs, which OAuth 2.0 grant from you should use typically depends on what you are doing, and which user context you need to operate under.  
+If you are writing scripts or programs that leverage the IdentityNow APIs, the OAuth 2.0 grant you should use typically depends on what you are doing and the user context you need to operate under.  
 
-Because scripts, code, or programs do not have an interactive web-interface it is difficult, but not impossible, to implement a working [Authorization Code](#authorization-code-grant-flow) flow.  Most scripts or programs typically run as a [Client Credentials](#client-credentials-grant-flow).  If your APIs can work under an API context without a user, then [Client Credentials](#client-credentials-grant-flow) is ideal.  However, if your APIs need a user or admin context, then the [Personal Access Token](#personal-access-tokens) approach will be more suitable.
+Because scripts, code, or programs do not have an interactive web-interface, it is difficult but not impossible to implement a working [Authorization Code](#authorization-code-grant-flow) flow.  Most scripts or programs typically run as a [Client Credentials](#client-credentials-grant-flow).  If your APIs can work under an API context without a user, then [Client Credentials](#client-credentials-grant-flow) is ideal.  However, if your APIs need a user or admin context, then the [Personal Access Token](#personal-access-tokens) approach is better.
 
 ## Troubleshooting
 
@@ -407,24 +407,24 @@ Having issues?  Follow these steps.
    1. Verify the structure of the API call:
       1. Verify that the API calls are going through the API gateway:
           `https://{tenant}.api.identitynow.com`
-      2. Verify you are calling their version correctly:
+      2. Verify that you are calling their version correctly:
          - Private APIs:  `https://{tenant}.api.identitynow.com/cc/api/{endpoint}`
          - V2 APIs:  `https://{tenant}.api.identitynow.com/v2/{endpoint}`
          - V3 APIs: `https://{tenant}.api.identitynow.com/v3/{endpoint}`
          - Beta APIs:  `https://{tenant}.api.identitynow.com/beta/{endpoint}`
       3. Verify that the API calls have the correct headers (e.g., `content-type`), query parameters, and body data.  
-   2. If the HTTP response is **401 Unauthorized** , this is an indication that either there is no `Authorization` header or the `access_token` is invalid.  Verify that the API calls are supplying the `access_token` in the `Authorization` header correctly (ex. `Authorization: Bearer {access_token}`) and that the `access_token` has not expired.
-   3. If the HTTP response is **403 Forbidden**, this is an indication that the `access_token` is valid, but the user you are running as doesn't have access to this endpoint.  Check the access rights which are associated with the user.  
-      >**Note**:  This can also be due to calling an API which expects a user, but your authorization grant type might not have a user context.  Calling most administrative APIs with a CLIENT_CREDENTIAL grant will often produce this result.
+   2. If the HTTP response is **401 Unauthorized** , there is either no `Authorization` header or the `access_token` is invalid.  Verify that the API calls are supplying the `access_token` in the `Authorization` header correctly (ex. `Authorization: Bearer {access_token}`) and that the `access_token` has not expired.
+   3. If the HTTP response is **403 Forbidden**, the `access_token` is valid, but the user you are running as does not have access to this endpoint.  Check the access rights associated with the user.  
+      >**Note**:  This can also be caused by calling an API that expects a user, but your authorization grant type may not have a user context.  Calling most administrative APIs with a CLIENT_CREDENTIAL grant often produces this result.
 
 2. **Verify the OAuth 2.0 Client**
 
    1. Verify that the OAuth 2.0 Client is not a Legacy OAuth client.  Legacy OAuth clients will not work.
-      This is very apparent by looking at the Client ID, as OAuth 2.0 Client IDs have dashes.  Here is an example:
+      This is very apparent by looking at the Client ID because OAuth 2.0 Client IDs have dashes.  Here is an example:
       Legacy Client ID: `G6xLlBBOKIcOAQuK`
       OAuth 2.0 Client ID: `b61429f5-203d-494c-94c3-04f54e17bc5c`
 
-   2. Verify the OAuth 2.0 Client ID exists.  This can be verified by calling:
+   2. Verify that the OAuth 2.0 Client ID exists.  This can be verified with the following calls:
 
       ```text
         GET /beta/oauth-clients/{client-id}
@@ -438,7 +438,7 @@ Having issues?  Follow these steps.
 
       You can also view all of the active clients in the UI by going to `https://{tenant}.identitynow.com/ui/admin/#admin:global:security:apimanagementpanel`.
 
-   3. Verify that the OAuth 2.0 Client grant types match the OAuth 2.0 grant type flow you are trying to use.  For instance, this client will work with [Authorization Code](#authorization-code-grant-flow) and [Client Credentials](#client-Credentials-grant-flow) flows, but not [Refresh Token](#refresh-token-grant-flow) flows:
+   3. Verify that the OAuth 2.0 Client grant types match the OAuth 2.0 grant type flow you are trying to use.  For example, this client works with [Authorization Code](#authorization-code-grant-flow) and [Client Credentials](#client-Credentials-grant-flow) flows but not [Refresh Token](#refresh-token-grant-flow) flows:
 
       ```json
       {
@@ -456,8 +456,8 @@ Having issues?  Follow these steps.
       }
       ```
 
-   4. If using an A[Authorization Code](#authorization-code-grant-flow) flow, verify the redirect URL(s) for your application match the `redirectUris` value in the client.  You can check this using the [oauth-clients endpoint](/idn/api/beta/list-oauth-client).
+   4. If you are using an A[Authorization Code](#authorization-code-grant-flow) flow, verify that the redirect URL(s) for your application match the `redirectUris` value in the client.  You can check this by using the [oauth-clients endpoint](/idn/api/beta/list-oauth-client).
 
 3. **Verify the OAuth 2.0 Calls**
 
-   1. Verify that the OAuth call flow is going to the right URLs, with the correct query parameters and data values.  A common source of errors is using the wrong host for authorization and token API calls.  The token endpoint URL is `{tenant}.api.identitynow.com`, while the authorize URL is `{tenant}.identitynow.com`.
+   1. Verify that the OAuth call flow is going to the right URLs with the correct query parameters and data values.  A common source of errors is using the wrong host for authorization and token API calls.  The token endpoint URL is `{tenant}.api.identitynow.com`, but the authorize URL is `{tenant}.identitynow.com`.

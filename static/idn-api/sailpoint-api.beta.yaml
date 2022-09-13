@@ -1,11 +1,12 @@
 openapi: 3.0.1
 info:
+  title: IdentityNow Beta API
+  description: "Use these APIs to interact with the IdentityNow platform to achieve repeatable, automated processes with greater scalability. These APIs are in beta and are subject to change. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs."
+  termsOfService: https://developer.sailpoint.com/discuss/tos
   contact:
-    email: developers@sailpoint.com
     name: Developer Relations
-    url: https://developer.sailpoint.com/discuss
-  description: "These are the public, beta APIs for SailPoint's SaaS services and are subject to change."
-  title: SailPoint - Beta SaaS API
+    url: https://developer.sailpoint.com/discuss/api-help
+  license: https://opensource.org/licenses/MIT 
   version: 3.1.0-beta
 servers:
   - url: https://{tenant}.api.identitynow.com/beta

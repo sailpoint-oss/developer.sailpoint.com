@@ -4,16 +4,16 @@ id: source-deleted
 
 # Source Deleted
 
-## Event context
+## Event Context
 
 Source Deleted events occur when a source is successfully deleted via the API or the Admin UI.
 
-Some uses cases for this trigger include:
+Some uses cases for this trigger include the following:
 
 - Provide evidence to show auditors that connector logic and sources are not manipulated outside of proper change control processes.
-- Alert admins in the event that a source was wrongfully deleted.
+- Alert admins when a source was deleted incorrectly.
 
-An example input from this trigger is as follows:
+This is an example input from this trigger:
 
 ```json
 {

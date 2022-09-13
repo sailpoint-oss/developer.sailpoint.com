@@ -1,11 +1,12 @@
 openapi: 3.0.1
 info:
+  title: IdentityNow V3 API
+  description: "Use these APIs to interact with the IdentityNow platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs."
+  termsOfService: https://developer.sailpoint.com/discuss/tos
   contact:
-    email: developers@sailpoint.com
     name: Developer Relations
-    url: https://developer.sailpoint.com/discuss
-  description: "These are the public APIs for SailPoint's SaaS services. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs."
-  title: SailPoint - SaaS API
+    url: https://developer.sailpoint.com/discuss/api-help  
+  license: https://opensource.org/licenses/MIT
   version: 3.0.0
 servers:
   - url: https://{tenant}.api.identitynow.com/v3
@@ -14,7 +15,6 @@ servers:
       tenant:
         default: sailpoint
         description: This is the name of your tenant, typically your company's name.
-
 tags:
   - name: Access Request Approvals
     description: |

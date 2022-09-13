@@ -1,7 +1,8 @@
 ---
 id: identity-created
 title: Identity Created
-description: Identity Created events occur when a new identity is detected during an aggregration and refresh from an authoritative source.
+slug: /idn/docs/event-triggers/triggers/identity-created
+description: Fires after an identity is created.
 ---
 
 ## Event Context

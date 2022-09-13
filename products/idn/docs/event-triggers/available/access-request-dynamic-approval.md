@@ -1,7 +1,8 @@
 ---
 id: access-request-dynamic-approval
 title: Access Request Dynamic Approval
-description: The Access Request Dynamic Approval event trigger provides a way to route a request to an additional approval step by an identity or a governance group.
+slug: /idn/docs/event-triggers/triggers/access-request-dynamic-approval
+description: Fires after an access request is submitted.
 ---
 
 ## Event Context

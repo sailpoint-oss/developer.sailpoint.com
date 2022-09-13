@@ -1,8 +1,13 @@
 ---
 id: source-account-created
 title: Source Account Created
-description: Source Account Created events occur after a new account is detected during an account aggregration and refresh from a source.
+slug: /idn/docs/event-triggers/triggers/source-account-created
+description: Fires after a source account is created.
 ---
+
+:::info
+This is an early access event trigger.  Please contact support to have it enabled in your tenant.
+:::
 
 ## Event Context
 

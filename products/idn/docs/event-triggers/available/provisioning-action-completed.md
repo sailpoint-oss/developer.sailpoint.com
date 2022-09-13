@@ -1,7 +1,8 @@
 ---
 id: provisioning-action-completed
 title: Provisioning Action Completed
-description: The Provisioning Action Completed event trigger notifies subscribed applications after the action is completed.
+slug: /idn/docs/event-triggers/triggers/provisioning-action-completed
+description: Fires after a provisioning action completed on a source.
 ---
 
 ## Event Context

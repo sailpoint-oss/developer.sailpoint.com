@@ -1,7 +1,8 @@
 ---
 id: source-created
 title: Source Created
-description: Source Created events occur when a new source is successfully created via the API or the Admin UI.
+slug: /idn/docs/event-triggers/triggers/source-created
+description: Fires after a source is created.	
 ---
 
 ## Event Context

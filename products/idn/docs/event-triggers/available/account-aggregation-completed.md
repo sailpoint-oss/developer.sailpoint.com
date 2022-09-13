@@ -1,7 +1,8 @@
 ---
 id: account-aggregation-completed
 title: Account Aggregation Completed
-description: This trigger helps ensure account aggregations are performing as expected and identity data always reflects current source account information for better identity governance.
+slug: /idn/docs/event-triggers/triggers/account-aggregation-completed
+description: Fires after an account aggregation completed, terminated, or failed.
 ---
 
 ## Event Context

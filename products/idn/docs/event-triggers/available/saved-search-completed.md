@@ -1,7 +1,8 @@
 ---
 id: saved-search-completed
 title: Saved Search Complete
-description: Users can subscribe to Saved Searches and receive an email of a report generated from the saved search.
+slug: /idn/docs/event-triggers/triggers/saved-search-completed
+description: Fires after a scheduled search completed.
 ---
 
 ## Event Context

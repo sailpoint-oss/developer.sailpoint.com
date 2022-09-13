@@ -1,8 +1,13 @@
 ---
 id: identity-deleted
 title: Identity Deleted
-description: Identity deleted events occur when an identity's associated account is deleted from the identity's authoritative source.
+slug: /idn/docs/event-triggers/triggers/identity-deleted
+description: Fires after an identity is deleted.
 ---
+
+:::info
+This is an early access event trigger.  Please contact support to have it enabled in your tenant.
+:::
 
 ## Event Context
 

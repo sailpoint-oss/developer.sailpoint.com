@@ -1,7 +1,8 @@
 ---
 id: source-updated
 title: Source Updated
-description: Source Updated events occur when configuration changes are made to a source.
+slug: /idn/docs/event-triggers/triggers/source-updated
+description: Fires after a source is updated.	
 ---
 
 ## Event Context

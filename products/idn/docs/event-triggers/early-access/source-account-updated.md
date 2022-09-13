@@ -1,8 +1,13 @@
 ---
 id: source-account-updated
 title: Source Account Updated
-description: Source Account Updated events occur whenever one or more account attributes change on a single account during an account aggregation operation.
+slug: /idn/docs/event-triggers/triggers/source-account-updated
+description: Fires after a source account is updated.
 ---
+
+:::info
+This is an early access event trigger.  Please contact support to have it enabled in your tenant.
+:::
 
 ## Event Context
 

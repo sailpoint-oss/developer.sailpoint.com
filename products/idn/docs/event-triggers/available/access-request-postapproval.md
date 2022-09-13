@@ -1,6 +1,7 @@
 ---
 id: access-request-postapproval
 title: Access Request Postapproval
+description: The Access Request Postapproval event trigger provides more proactive governance and ensures users can quickly obtain needed access.
 ---
 
 ## Event Context

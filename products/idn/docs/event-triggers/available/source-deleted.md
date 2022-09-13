@@ -1,13 +1,12 @@
 ---
 id: source-deleted
 title: Source Deleted
+description: Source Deleted events occur when a source is successfully deleted via the API or the Admin UI.
 ---
 
 ## Event Context
 
-Source Deleted events occur when a source is successfully deleted via the API or the Admin UI.
-
-Some uses cases for this trigger include the following:
+Source Deleted events occur when a source is successfully deleted via the API or the Admin UI. Some uses cases for this trigger include the following:
 
 - Provide evidence to show auditors that connector logic and sources are not manipulated outside of proper change control processes.
 - Alert admins when a source was deleted incorrectly.

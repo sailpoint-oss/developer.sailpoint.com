@@ -1,13 +1,12 @@
 ---
 id: source-created
 title: Source Created
+description: Source Created events occur when a new source is successfully created via the API or the Admin UI.
 ---
 
 ## Event Context
 
-Source Created events occur when a new source is successfully created via the API or the Admin UI.
-
-Some uses cases for this trigger include the following:
+Source Created events occur when a new source is successfully created via the API or the Admin UI. Some uses cases for this trigger include the following:
 
 - Provide evidence to show auditors connector logic and sources are not manipulated outside of proper change control processes.
 - Auto-configure new sources with proper owners using external data sources.

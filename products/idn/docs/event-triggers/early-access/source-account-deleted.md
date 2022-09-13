@@ -1,6 +1,7 @@
 ---
 id: source-account-deleted
 title: Source Account Deleted
+description: Source Account Deleted events occur whenever an account is deleted from its source during an account aggregation operation.
 ---
 
 ## Event Context

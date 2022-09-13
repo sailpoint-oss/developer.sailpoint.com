@@ -1,6 +1,7 @@
 ---
 id: identity-created
 title: Identity Created
+description: Identity Created events occur when a new identity is detected during an aggregration and refresh from an authoritative source.
 ---
 
 ## Event Context

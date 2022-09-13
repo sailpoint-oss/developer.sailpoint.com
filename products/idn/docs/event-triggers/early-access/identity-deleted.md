@@ -1,6 +1,7 @@
 ---
 id: identity-deleted
 title: Identity Deleted
+description: Identity deleted events occur when an identity's associated account is deleted from the identity's authoritative source.
 ---
 
 ## Event Context

@@ -1,6 +1,7 @@
 ---
 id: saved-search-completed
 title: Saved Search Complete
+description: Users can subscribe to Saved Searches and receive an email of a report generated from the saved search.
 ---
 
 ## Event Context

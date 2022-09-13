@@ -1,6 +1,7 @@
 ---
 id: identity-attribute-changed
 title: Identity Attribute Changed
+description: Identity Attribute Changed events occur when any attributes aggegrated from an authoritative source differ from the current attributes for an identity during an identity refresh.
 ---
 
 ## Event Context

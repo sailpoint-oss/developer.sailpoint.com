@@ -1,6 +1,7 @@
 ---
 id: source-account-updated
 title: Source Account Updated
+description: Source Account Updated events occur whenever one or more account attributes change on a single account during an account aggregation operation.
 ---
 
 ## Event Context

@@ -1,6 +1,7 @@
 ---
 id: access-request-preapproval
 title: Access Request Preapproval
+description: The Access Request Submitted event trigger provides more proactive governance, ensures users can quickly obtain needed access, and helps with more preventative measures towards unintended access.
 ---
 
 ## Event Context

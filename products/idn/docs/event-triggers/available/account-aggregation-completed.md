@@ -1,11 +1,12 @@
 ---
 id: account-aggregation-completed
 title: Account Aggregation Completed
+description: This trigger helps ensure account aggregations are performing as expected and identity data always reflects current source account information for better identity governance.
 ---
 
 ## Event Context
 
-The platform has introduced an event trigger within the Source Aggregation workflow to provide additional monitoring capabilities. This helps ensure account aggregations are performing as expected and identity data always reflects current source account information for better identity governance.  Aggregations connect to a source and collect account information from the source to discover the number of accounts that have been added, changed, or removed. For more information about account aggregation see [Account Aggregation Data flow](https://community.sailpoint.com/t5/Technical-White-Papers/Account-Aggregation-Data-Flow/ta-p/79914#toc-hId-1367430234)
+The platform has introduced an event trigger within the Source Aggregation workflow to provide additional monitoring capabilities. This trigger helps ensure account aggregations are performing as expected and identity data always reflects current source account information for better identity governance.  Aggregations connect to a source and collect account information from the source to discover the number of accounts that have been added, changed, or removed. For more information about account aggregation see [Account Aggregation Data flow](https://community.sailpoint.com/t5/Technical-White-Papers/Account-Aggregation-Data-Flow/ta-p/79914#toc-hId-1367430234)
 
 ![Flow](./img/aggregation-diagram.png)
 

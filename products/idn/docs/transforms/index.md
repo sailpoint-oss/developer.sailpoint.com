@@ -208,7 +208,7 @@ curl --location --request POST 'https://{tenant}.api.identitynow.com/v3/sources/
                             "attributes": {
                                 "name": "lastName"
                             },
-                            "type": "accountAttribute"
+                            "type": "identityAttribute"
                         }
                     ]
                 }

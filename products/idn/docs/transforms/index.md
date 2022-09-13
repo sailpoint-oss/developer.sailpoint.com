@@ -8,7 +8,7 @@ sidebar_position: 2
 
 In SailPoint's cloud services, transforms allow you to manipulate attribute values while aggregating from or provisioning to a source. This guide provides a reference to help you understand the purpose, configuration, and usage of transforms.
 
-## What are Transforms?
+## What are Transforms
 
 Transforms are configurable objects that define easy ways to manipulate attribute data without requiring you to write code. Transforms are configurable building blocks with sets of inputs and outputs:
 
@@ -17,26 +17,24 @@ Transforms are configurable objects that define easy ways to manipulate attribut
 Because there is no code to write, an administrator can configure these using a JSON object structure and uploading them into IdentityNow using [IdentityNow's Transform REST APIs](/idn/api/v3/transforms).
 
 :::info
-
 Sometimes transforms are referred to as Seaspray, the codename for transforms. IdentityNow Transforms and Seaspray are essentially the same.
-
 :::
 
 ## How Transforms Work
 
 Transforms typically have an input(s) and output(s). The way the transformation happens mainly depends on the type of transform. Refer to [Operations in IdentityNow Transforms](./operations/index.md) for more information.
 
-For example, a [Lower transform](./operations/lower.md) transforms any input text strings into lowercase versions as output. So if the input were "Foo", the lower case output of the transform would be "foo":
+For example, a [Lower transform](./operations/lower.md) transforms any input text strings into lowercase versions as output. So if the input were `Foo`, the lower case output of the transform would be `foo`:
 
 ![How Transforms Work 1](./img/how_transforms_work_1.png)
 
-There are other types of transforms too. For example an [E.164 Phone transform](./operations/e164-phone.md) transforms any input phone number strings into an E.164 formatted version as output. So if the input were "(512) 346-2000" the output would be "+1 5123462000":
+There are other types of transforms too. For example an [E.164 Phone transform](./operations/e164-phone.md) transforms any input phone number strings into an E.164 formatted version as output. So if the input were `(512) 346-2000` the output would be `+1 5123462000`:
 
 ![How Transforms Work 2](./img/how_transforms_work_2.png)
 
 ### Multiple Transform Inputs
 
-In the previous examples, each transform had a single input. Some transforms can specify more than one input. For example, the [Concat transform](./operations/concatenation.md) concatenates one or more strings together. If "Foo" and "Bar" were inputs, the transformed output would be "FooBar":
+In the previous examples, each transform had a single input. Some transforms can specify more than one input. For example, the [Concat transform](./operations/concatenation.md) concatenates one or more strings together. If `Foo` and `Bar` were inputs, the transformed output would be `FooBar`:
 
 ![How Transforms Work 3](./img/how_transforms_work_3.png)
 
@@ -44,7 +42,7 @@ In the previous examples, each transform had a single input. Some transforms can
 
 For more complex use cases, a single transform may not be enough. It is possible to link several transforms together. IdentityNow calls these 'nested' transforms because they are transform objects within other transform objects.
 
-An example of a nested transform would be using the previous [Concat transform](./operations/concatenation.md) and passing its output as an input to another [Lower transform](./operations/lower.md). If the inputs "Foo" and "Bar" were passed into the transforms, the ultimate output would be "foobar," concatenated and lower-cased.
+An example of a nested transform would be using the previous [Concat transform](./operations/concatenation.md) and passing its output as an input to another [Lower transform](./operations/lower.md). If the inputs `Foo` and `Bar` were passed into the transforms, the ultimate output would be `foobar`, concatenated and lower-cased.
 
 ![How Transforms Work 4](./img/how_transforms_work_4.png)
 
@@ -54,11 +52,11 @@ There is no hard limit for the number of transforms that can be nested. However,
 
 Some transforms can specify an attributes map that configures the transform behavior. Each transform type has different configuration attributes and different uses. To better understand what is configurable per transform, refer to the Transform Types section and the associated Transform guide(s) that cover each transform.
 
-It is possible to extend the earlier complex nested transform example. If a Replace transform, which replaces certain strings with replacement text, were added, and the transform were configured to replace "Bar with "Baz," the output would be added as an input to the Concat and Lower transforms:
+It is possible to extend the earlier complex nested transform example. If a Replace transform, which replaces certain strings with replacement text, were added, and the transform were configured to replace `Bar` with `Baz` the output would be added as an input to the Concat and Lower transforms:
 
 ![Configuring Transform Behavior 1](./img/configuring_transform_behavior_1.png)
 
-The output of the Replace transform would be "Baz," which is then passed as an input to the Concat transform along with "Foo," producing an output of "FooBaz." This is then passed as an input into the Lower transform, producing a final output of "foobaz."
+The output of the Replace transform would be `Baz` which is then passed as an input to the Concat transform along with `Foo` producing an output of `FooBaz`. This is then passed as an input into the Lower transform, producing a final output of `foobaz`.
 
 ## Transform Syntax
 
@@ -89,34 +87,37 @@ Seaspray ships with the Apache Velocity template engine that allows a transform 
 
 ### Example
 
-```javascript
-// In the following string, the text "$firstName" is replaced by the value of firstName in the template context. The same goes for "$lastName".
-// If $firstName=John and $lastName=Doe then the string "$firstName.$lastName" would render as "John.Doe"
-```
+In the following string, the text `$firstName` is replaced by the value of firstName in the template context. The same goes for `$lastName`.
+
+If $firstName=John and $lastName=Doe then the string `$firstName.$lastName` would render as `John.Doe`.
 
 ### Identity Attribute Context
 
 The following variables are available to the Apache Velocity template engine when a transform is used to source an identity attribute.
 
-* **identity** - sailpoint.object.Identity - This is the identity the attribute promotion is performed on.
-* **oldValue** - Object - This is the attribute's previous value.
-* **attributeDefinition** - sailpoint.object.ObjectAttribute - This is the definition of the attribute being promoted.
+| Variable | Type | Description |
+|---|---|---|
+| identity | sailpoint.object.Identity | This is the identity the attribute promotion is performed on. |
+| oldValue | Object | This is the definition of the attribute being promoted. |
+| attributeDefinition | sailpoint.object.ObjectAttribute | This is the attribute's previous value. |
 
 ### Account Profile Context
 
 The following variables are available to the Apache Velocity template engine when a transform is used in an account profile.
 
-* **field** - sailpoint.object.Field - This is the field definition backing the account profile attribute.
-* **identity** - sailpoint.object.Identity - This is the identity the account profile is generating for.
-* **application** - sailpoint.object.Application - This is the application backing the source that owns the account profile.
-* **current** - Object - This is the attribute's current value.
+| Variable | Type | Description |
+|---|---|---|
+| field | sailpoint.object.Field | This is the field definition backing the account profile attribute. |
+| identity | sailpoint.object.Identity | This is the identity the account profile is generating for. |
+| application | sailpoint.object.Application | This is the application backing the source that owns the account profile. |
+| current | Object | This is the attribute's current value.  |
 
 ## Implicit vs Explicit Input
 
 A special configuration attribute available to all transforms is input. If the input attribute is not specified, this is referred to as implicit input, and the system determines the input based on what is configured. If the input attribute is specified, then this is referred to as explicit input, and the system's input is ignored in favor of whatever the transform explicitly specifies. A good way to understand this concept is to walk through an example. Imagine that IdentityNow has the following:
 
-- An account on Source 1 with department set to "Services."
-- An account on Source 2 with department set to "Engineering."
+- An account on Source 1 with department set to `Services`.
+- An account on Source 2 with department set to `Engineering`.
 
 The following two examples explain how a transform with an implicit or explicit input would work with those sources.
 
@@ -138,11 +139,11 @@ As an example, the "Lowercase Department" transform being used is written the fo
 
 Notice that the attributes has no input. This is an implicit input example. The transform uses the input provided by the attribute you mapped on the identity profile.
 
-In this example, the transform would produce "services" when the source is aggregated because Source 1 is providing a department of "Services," which then gets lowercased per the transform.
+In this example, the transform would produce `services` when the source is aggregated because Source 1 is providing a department of `Services` which then gets lowercased per the transform.
 
 ### Explicit Input
 
-As an example, the "Lowercase Department" has been changed the following way:
+As an example, the `Lowercase Department` has been changed the following way:
 
 ```json
 {
@@ -160,21 +161,19 @@ As an example, the "Lowercase Department" has been changed the following way:
 }
 ```
 
-Notice that there is an `input` in the attributes. This is an explicit input example. The transform uses the value Source 2 provides for the "department" attribute, ignoring your configuration in the identity profile.
+Notice that there is an `input` in the attributes. This is an explicit input example. The transform uses the value Source 2 provides for the `department` attribute, ignoring your configuration in the identity profile.
 
-In this example, the transform would produce "engineering" because Source 2 is providing a department of "Engineering," which then gets lowercased, per the transform. Though the system is still providing an implicit input of Source 1's department attribute, the transform ignores this and uses the explicit input specified as Source 2's department attribute.
+In this example, the transform would produce "engineering" because Source 2 is providing a department of `Engineering` which then gets lowercased, per the transform. Though the system is still providing an implicit input of Source 1's department attribute, the transform ignores this and uses the explicit input specified as Source 2's department attribute.
 
-:::info
-
+:::tip
 This is also an example of a nested transform.
-
 :::
 
 ### Account Transforms
 
 Account attribute transforms are configured on the account create profiles. They determine the templates for new accounts created during provisioning events.
 
-**Configuration**
+#### Configuration
 
 These can be configured in IdentityNow by going to **Admin** > **Sources** > (A Source) > **Accounts** (tab) > **Create Profile**. These can also be configured with IdentityNow REST APIs.
 
@@ -182,17 +181,15 @@ You can select the installed, available transforms from this interface. Alternat
 
 For more information on the IdentityNow REST API endpoints used to managed transform objects in APIs, refer to [IdentityNow Transform REST APIs](/idn/api/v3/transforms).
 
-:::info
-
+:::tip
 For details about authentication against REST APIs, refer to the [authentication docs](../getting-started/authentication.md).
-
 :::
 
-Testing Transforms on account create
+#### Testing Transforms on Account Create
 
 To test a transform for an account create profile, you must generate a new account creation provisioning event. This involves granting access to an identity that does not already have an account on this source; an account is created as a byproduct of the access assignment. This can be initiated with access request or even role assignment.
 
-Applying Transforms on account create
+#### Applying Transforms on Account Create
 
 Once the transforms are saved to the account profile, they are automatically applied for any subsequent provisioning events.
 
@@ -208,11 +205,11 @@ To test a transform for account data, you must provision a new account on that s
 
 ## Transform Best Practices
 
-- **Designing Complex Transforms** - Start with small transform 'building blocks' and add to them. It can be helpful to diagram out the inputs and outputs if you are using many transforms.
+- **Designing Complex Transforms** - Start with small transform *building blocks* and add to them. It can be helpful to diagram out the inputs and outputs if you are using many transforms.
 
 - **JSON Editor** - Because transforms are JSON objects, it is recommended that you use a good JSON editor. Atom, Sublime Text, and Microsoft Code work well because they have JSON formatting and plugins that can do JSON validation, completion, formatting, and folding. This is very useful for large complex JSON objects.
 
-- **Leverage Examples** - Many implementations use similar sets of transforms, and a lot of common solutions can be found in examples. Feel free to share your own transform examples on Compass!
+- **Leverage Examples** - Many implementations use similar sets of transforms, and a lot of common solutions can be found in examples. Feel free to share your own transform examples on the [Developer Community forum](https://developer.sailpoint.com/discuss)!
 
 - **Same Problem, Multiple Solutions** - There can be multiple ways to solve the same problem, but use the solution that makes the most sense to your implementation and is easiest to administer and understand.
 
@@ -220,7 +217,7 @@ To test a transform for account data, you must provision a new account on that s
 
 - **Plan for Bad Data** - Data will not always be perfect, so plan for data failures and try to ensure transforms still produce workable results, in case data is missing, malformed, or has incorrect values.
 
-## Using Transforms vs. Rules
+## Transforms vs. Rules
 
 Sometimes it can be difficult to decide when to implement a transform and when to implement a rule. Both transforms and rules can calculate values for identity or account attributes.
 

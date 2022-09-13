@@ -1,21 +1,22 @@
 ---
-id: creating-your-first-transform
-slug: /docs/transforms/creating-your-first-transform
-sidebar_position: 2
+id: your-first-transform
+slug: /docs/transforms/guides/your-first-transform
+title: Your First Transform
+description: Learn to build your first transform!
+sidebar_position: 1
 ---
-# Creating Your First Transform
 
 ## Overview
 
-This guide explains how to use [IdentityNow's Transform REST APIs](/idn/api/v3/transforms) to do the following:
+In this guide you will learn how to use [IdentityNow's Transform REST APIs](/idn/api/v3/transforms) to do the following:
 
-- [List Transforms in your IdentityNow Tenant](#list-transforms-in-your-identitynow-tenant)
-- [Create a Transform](#create-a-transform)
-- [Get a Transform by Id](#get-transform-by-id)
-- [Update a Transform](#update-a-transform)
-- [Delete a Transform](#delete-a-transform)
+* [List Transforms in Your IdentityNow Tenant](#list-transforms-in-your-identitynow-tenant)
+* [Create a Transform](#create-a-transform)
+* [Get Transform by ID](#get-transform-by-id)
+* [Update a Transform](#update-a-transform)
+* [Delete a Transform](#delete-a-transform)
 
-## List Transforms in your IdentityNow Tenant
+## List Transforms in Your IdentityNow Tenant
 
 To call the APIs for transforms you need a personal access token and your tenant's name to provide with the request. To get a personal access token, see [Personal Access Tokens](../getting-started/authentication.md#personal-access-tokens). To get the name of your tenant, see [Finding Your Organization Tenant Name](../getting-started/index.md#finding-your-orgtenant-name)
 
@@ -118,7 +119,7 @@ Once you have created the transform, you can find it in IdentityNow by going to 
 
 For more information about creating transforms, see [Create Transform](/idn/api/v3/create-transform).
 
-## Get Transform By ID
+## Get Transform by ID
 
 To get the transform created with the API, call the `GET` endpoint, using the `id` returned by the create API response.
 
@@ -146,7 +147,7 @@ curl --location --request GET 'https://{tenant}.api.identitynow.com/v3/transform
 }
 ```
 
-For more information about getting a transform by its `id,` see [Transform by ID](/idn/api/v3/get-transform).
+For more information about getting a transform by its `id` see the API [Transform by ID](/idn/api/v3/get-transform).
 
 ## Update a Transform
 
@@ -201,15 +202,15 @@ For more information about updating transforms, see [Update a transform](/idn/ap
 
 ## Delete a Transform
 
-To delete the transform, call the `DELETE` endpoint with the `id` of the transform to delete. The server responds with a 204 when the transform is successfully removed.
+To delete the transform, call the DELETE endpoint with the `id` of the transform to delete. The server responds with a 204 when the transform is successfully removed.
 
 ```bash
 curl --location --request DELETE 'https://{tenant}.api.identitynow.com/v3/transforms/b23788a0-41a2-453b-89ae-0d670fa0cb6a' \
 --header 'Authorization: Bearer {token}'
 ```
 
-For more information about deleting transforms, see [Delete Transform](/idn/api/v3/delete-transform).
+For more information about deleting transforms, see the API [Delete Transform](/idn/api/v3/delete-transform).
 
 ## Next Steps
 
-Now that you understand the lifecycle of transforms, see this [complex usecase](./temporary-password-usecase.md) using a nested transform structure to create a temporary password that can be sent to each user.
+Congratulations on creating your first transform! Now that you understand the lifecycle of transforms, see [complex usecase](./temporary-password-usecase.md) to learn how to use a nested transform structure to create a temporary password that can be sent to each user.

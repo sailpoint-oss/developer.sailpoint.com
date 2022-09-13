@@ -20,6 +20,22 @@ const sidebars = {
         collapsible: false,
         items: [
           {
+            type: "doc",
+            id: "api/getting-started"
+          },
+          {
+            type: "doc",
+            id: "api/authentication"
+          },
+          {
+            type: "doc",
+            id: "api/standard-collection-parameters"
+          },
+          {
+            type: "doc",
+            id: "api/rate-limit"
+          },
+          {
             type: "category",
             label: "V3 APIs",
             link: {

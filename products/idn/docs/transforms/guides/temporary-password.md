@@ -1,9 +1,10 @@
 ---
-id: temporary-password-usecase
-slug: /docs/transforms/temporary-password-usecase
-sidebar_position: 3
+id: temporary-password
+slug: /docs/transforms/guides/temporary-password
+title: Generate Temporary Password
+description: Generate a temporary password for all users.
+sidebar_position: 2
 ---
-# Complex Transform - Generate Temporary Password
 
 ## Overview
 

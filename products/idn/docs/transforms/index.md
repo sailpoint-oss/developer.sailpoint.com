@@ -179,6 +179,75 @@ These can be configured in IdentityNow by going to **Admin** > **Sources** > (A 
 
 You can select the installed, available transforms from this interface. Alternately, you can add more complex transforms with REST APIs.
 
+In the following example, we can call the create provisioning policy API to create a full name field using the first and last name identity attributes.
+
+```bash
+curl --location --request POST 'https://{tenant}.api.identitynow.com/v3/sources/{source_id}/provisioning-policies' \
+--header 'Content-Type: application/json' \
+--header 'Accept: application/json' \
+--header 'Authorization: Bearer {token}' \
+--data-raw '{
+    "name": "Account",
+    "description": null,
+    "usageType": "CREATE",
+    "fields": [
+        {
+            "name": "displayName",
+            "transform": {
+                "type": "concat",
+                "attributes": {
+                    "values": [
+                        {
+                            "attributes": {
+                                "name": "firstName"
+                            },
+                            "type": "identityAttribute"
+                        },
+                        " ",
+                        {
+                            "attributes": {
+                                "name": "lastName"
+                            },
+                            "type": "accountAttribute"
+                        }
+                    ]
+                }
+            },
+            "attributes": {},
+            "isRequired": false,
+            "type": "string",
+            "isMultiValued": false
+        },
+        {
+            "name": "firstName",
+            "transform": {
+                "type": "identityAttribute",
+                "attributes": {
+                    "name": "firstName"
+                }
+            },
+            "attributes": {},
+            "isRequired": false,
+            "type": "string",
+            "isMultiValued": false
+        },
+        {
+            "name": "lastName",
+            "transform": {
+                "type": "identityAttribute",
+                "attributes": {
+                    "name": "lastName"
+                }
+            },
+            "attributes": {},
+            "isRequired": false,
+            "type": "string",
+            "isMultiValued": false
+        },
+    ]
+}'
+```
+
 For more information on the IdentityNow REST API endpoints used to managed transform objects in APIs, refer to [IdentityNow Transform REST APIs](/idn/api/v3/transforms).
 
 :::tip

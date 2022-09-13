@@ -1,5 +1,11 @@
+---
+id: saas-configuration
+slug: /docs/saas-configuration
+title: SaaS Configuration
+---
 
-# Overview
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 This is a guide on using the SailPoint SaaS Configuration APIs in order to import and export configurations from the SailPoint SaaS system.  This is intended to be used to get configurations in bulk in support of environmental promotion, go-live, or tenant-to-tenant configuration management processes and pipelines.
 
@@ -20,23 +26,18 @@ This document is intended for technically proficient administrators, implementer
 | Transforms                  | `TRANSFORM`            | ![:check_mark:](https://pf-emoji-service--cdn.us-east-1.prod.public.atl-paas.net/atlassian/check_mark_32.png) | ![:check_mark:](https://pf-emoji-service--cdn.us-east-1.prod.public.atl-paas.net/atlassian/check_mark_32.png) |
 
 
-
-**Note:** The available supported objects are also available via REST API too!  See List Configuration Objects in the **API Reference** section of this document. 
+:::tip
+The available supported objects are also available via REST API too!  See List Configuration Objects in the **API Reference** section of this document. 
+:::
 
 **Rule Import and Export -** Rules are allowed to be exported from one tenant and imported into another.  Cloud Rules have already been reviewed and installed in other tenants, and Connector Rules do not require a rule review.  During the import and export process rules cannot be changed in the migration process, as these are validated by the usage of `jwsHeader` and `jwsSignature` in the object.  
 
-
-
 ## Exporting Configurations
-
-
 
 ### Prerequisites
 
 - Need to have credentials as a tenant administrator (`ORG_ADMIN`)
 - Understanding of what objects you’d like to export
-
-
 
 ### Process
 
@@ -49,18 +50,12 @@ This document is intended for technically proficient administrators, implementer
 5. **Get Export Results** - Once the status is `COMPLETE`, download the export results by calling `GET /beta/sp-config/export/{id}/download` where the `{id}` is the `jobId`.
 6. **Response with Export Results** - In response, the export process should produce a set of JSON objects which you can download as an export result set.  These should reflect the objects that were selected in the export options earlier.
 
-
-
 ## Importing Configurations
-
-
 
 ### Prerequisites
 
 - Need to have credentials as a tenant administrator (`ORG_ADMIN`)
 - Prepare any objects to be imported into the system, as well as import options.
-
-
 
 ### Process
 
@@ -72,8 +67,6 @@ This document is intended for technically proficient administrators, implementer
 4. **Response with Import Status** - An import status will given in response.  This contains a `jobId` and a `status` which should be used to subsequently monitor the process.  After a period of time, the process `status` should move to either `COMPLETE` or `FAILED`.  Depending on the amount of objects being imported, this could take awhile.  It might be ncessary to iterate over steps 3 and 4 until the status reflects a completion.  If it takes too long, the import process may expire.  
 5. **Get Import Results** - Once the status is `COMPLETE`, download the import results by calling `GET /beta/sp-config/import/{id}/download` where the `{id}` is the `jobId`.
 6. **Response with Import Results** - In response, the import process should produce listing of object that successfully imported, as well as any errors, warnings, or information about the import process.   This result set should reflect the objects that were selected to be imported earlier.
-
-
 
 ## API Reference Guide
 
@@ -87,22 +80,21 @@ This document is intended for technically proficient administrators, implementer
 | Import Status       | `GET /beta/sp-config/import/{id}`          |
 | Import Results      | `GET /beta/sp-config/import/{id}/download` |
 
-
-
 ### List Configuration Objects
 
 **Description**
 
 Lists all available objects which can be imported and exported into the system.
 
-**Request**
+<Tabs>
+  <TabItem value="request" label="Request" default>
 
 ```json
 GET /beta/sp-config/config-objects
 Authorization: Bearer {token}
 ```
-
-**Response**
+  </TabItem>
+  <TabItem value="response" label="Response">
 
 ```json
 200 OK
@@ -187,8 +179,8 @@ Content-Type: application/json
     }
 ]
 ```
-
-
+  </TabItem>
+</Tabs>
 
 ### Export Objects
 
@@ -196,7 +188,8 @@ Content-Type: application/json
 
 Starts an export process to export selected objects from the system.
 
-**Request**
+<Tabs>
+  <TabItem value="request" label="Request" default>
 
 ```json
 POST /beta/sp-config/export
@@ -241,8 +234,8 @@ Content-Type: application/json
   }
 }
 ```
-
-**Response**
+  </TabItem>
+  <TabItem value="response" label="Response">
 
 ```json
 202 Accepted
@@ -260,8 +253,8 @@ Content-Type: application/json
     "completed": null
 }
 ```
-
-
+  </TabItem>
+</Tabs>
 
 ### Export Status
 
@@ -269,14 +262,15 @@ Content-Type: application/json
 
 Gets the status of an export process.
 
-**Request**
+<Tabs>
+  <TabItem value="request" label="Request" default>
 
 ```json
 GET /beta/sp-config/export/{id}
 Authorization: Bearer {token}
 ```
-
-**Response**
+  </TabItem>
+  <TabItem value="response" label="Response">
 
 ```json
 200 OK
@@ -294,8 +288,8 @@ Content-Type: application/json
     "completed": "2021-08-27T15:55:37.583Z"
 }
 ```
-
-
+  </TabItem>
+</Tabs>
 
 ### Export Results
 
@@ -303,14 +297,15 @@ Content-Type: application/json
 
 Gets the results of an export process.
 
-**Request**
+<Tabs>
+  <TabItem value="request" label="Request" default>
 
 ```json
 GET /beta/sp-config/export/{id}/download
 Authorization: Bearer {token}
 ```
-
-**Response**
+  </TabItem>
+  <TabItem value="response" label="Response">
 
 ```json
 200 OK
@@ -451,8 +446,8 @@ Content-Type: application/json
     ]
 }
 ```
-
-
+  </TabItem>
+</Tabs>
 
 ### Import Objects
 
@@ -460,7 +455,8 @@ Content-Type: application/json
 
 Starts an import process to import selected objects into the system.
 
-**Request**
+<Tabs>
+  <TabItem value="request" label="Request" default>
 
 ```json
 POST /beta/sp-config/import
@@ -469,8 +465,8 @@ Content-Type: multipart/form-data
 
 data: (File) data.json
 ```
-
-**Response**
+  </TabItem>
+  <TabItem value="response" label="Response">
 
 ```json
 202 Accepted
@@ -488,11 +484,14 @@ Content-Type: application/json
     "completed": null
 }
 ```
+  </TabItem>
+</Tabs>
 
-**Note**: Import also has a “preview” option if you would like to see what an import might look like without actually having to import and change your tenant.  Any errors discovered during reference or resource resolution will be provided.   To use this, simply set query option `preview` to `true`.  
+:::tip
+Import also has a “preview” option if you would like to see what an import might look like without actually having to import and change your tenant.  Any errors discovered during reference or resource resolution will be provided.   To use this, simply set query option `preview` to `true`.
 
-Example: `POST /beta/sp-config/import?preview=true`
-
+Example: POST /beta/sp-config/import?preview=true
+:::
 
 ### Import Status
 
@@ -500,14 +499,15 @@ Example: `POST /beta/sp-config/import?preview=true`
 
 Gets the status of an import process.
 
-**Request**
+<Tabs>
+  <TabItem value="request" label="Request" default>
 
 ```json
 GET /beta/sp-config/import/{id}
 Authorization: Bearer {token}
 ```
-
-**Response**
+  </TabItem>
+  <TabItem value="response" label="Response">
 
 ```json
 200 OK
@@ -525,8 +525,8 @@ Content-Type: application/json
     "completed": "2021-06-04T02:59:57.563Z"
 }
 ```
-
-
+  </TabItem>
+</Tabs>
 
 ### Import Results
 
@@ -534,14 +534,15 @@ Content-Type: application/json
 
 Gets the results of an import process.
 
-**Request**
+<Tabs>
+  <TabItem value="request" label="Request" default>
 
 ```json
 GET /beta/sp-config/import/{id}/download
 Authorization: Bearer {token}
 ```
-
-**Response**
+  </TabItem>
+  <TabItem value="response" label="Response">
 
 ```json
 200 OK
@@ -575,3 +576,5 @@ Content-Type: application/json
     }
 }
 ```
+  </TabItem>
+</Tabs>

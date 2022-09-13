@@ -1,16 +1,11 @@
 ---
-id: cli
-slug: /docs/saas-connectivity/getting-started/cli
+id: prerequisites
+slug: /docs/saas-connectivity/prerequisites
+title: Prerequisites
 sidebar_position: 1
 ---
-# Getting Started with the CLI
 
-> 📘 **Currently in Beta**
->
->  Connector development using this SDK and CLI is currently in beta. To participate, please sign up for the beta [here](https://app.smartsheet.com/b/form/1e4a7f063de4496b9c6d33f191996950). Once your tenant is activated, you can access and create new connectors.
-
-## Prerequisites
-
+## Packages
 To build the CLI, the following packages are required:
 - Golang >= 1.17
 - Make >= 3.81
@@ -24,19 +19,36 @@ Although you can develop connectors in a text editor, use an Integrated Developm
 
 ## Install CLI
 
-SailPoint provides a CLI tool to manage the connectors' lifecycles. To install and set up the CLI, follow the instructions in this repository's README file (TBD. This repository is not public yet):
+SailPoint provides a CLI tool to manage the connectors' lifecycles. To install and set up the CLI, follow the instructions in this repository's README file (TBD. This repository is not public yet): [SailPoint CLI on GitHub](https://github.com/sailpoint-oss/sp-connector-cli)
 
-[SailPoint CLI on GitHub](https://github.com/sailpoint-oss/sp-connector-cli)
+## Create New Project
 
-## Create new project
+To create an empty connector project, run the following command:
 
-To create an empty connector project, run ```sp conn init "my-project"``` in your terminal. The CLI init command creates a new folder with your project name in the location where you run the command.
+```bash
+sp conn init my-first-project
+```
+
+The CLI init command creates a new folder with your project name in the location where you run the command.
 
 Run npm install to change the directory to the project folder and install the dependencies. You may need to provide your GitHub credentials because the CLI tool depends on a SailPoint internal GitHub repository.
 
 ### Source Files
-The initial project source directory contains three main files:
+The earlier command creates the initial project source directory below:
 
+```
+my-first-project
+├── .gitignore
+├── connector-spec.json
+├── package.json
+├── src/
+|   ├── index.ts
+|   ├── my-client.txt
+|   └── connector-spec.ts
+├── tsconfig.json
+```
+
+This directory contains three main files:
 - **index.ts:** Use this file to register all the available commands the connector supports, provide the necessary configuration options to the client code implementing the API for the source, and pass data the client code obtains to IdentityNow. This file can either use a vendor supplied client Software Development Kit (SDK) to interact with the web service or reference custom client code within the project.
 
 - **my-client.ts:** Use this template to create custom client code to interact with a web service’s APIs. If the web service does not provide an SDK, you can modify this file to implement the necessary API calls to interact with the source web service.

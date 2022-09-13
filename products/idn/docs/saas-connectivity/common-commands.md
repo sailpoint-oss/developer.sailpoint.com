@@ -1,9 +1,11 @@
 ---
-id: cli-common-commands
-slug: /docs/saas-connectivity/getting-started/cli-common-commands
+id: common-commands
+slug: /docs/saas-connectivity/common-commands
+title: Common Commands
 sidebar_position: 3
 ---
-# Common CLI/SDK Commands
+
+Below is a list of commands and their usages:
 
 - **Development**
     - Create a project on your local system: ```sp conn init "my-project"```

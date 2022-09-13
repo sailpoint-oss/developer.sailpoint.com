@@ -1,16 +1,16 @@
 ---
 id: saas-connectivity
 slug: /docs/saas-connectivity
+title: SaaS Connectivity
 ---
-# SaaS Connectivity
 
 SaaS Connectivity is a cloud based connector runtime that makes developing and deploying web service connectors easier than Connector 1.0 does.  However, because the cloud hosts SaaS Connectivity, not a Virtual Appliance (VA), SaaS Connectivity is limited in the types of applications it can connect to.  For example, you cannot use SaaS Connectivity to connect to on-prem services that can only communicate within an intranet (no public internet access).  This excludes JDBC and Mainframe applications, to name a few.
 
-## What are connectors?
+## What Are Connectors
 
 Connectors are the bridges between the SailPoint Identity Now (IDN) SaaS platform and the source systems that IDN needs to communicate with and aggregate data from. An example of a source system IDN may need to communicate with would be an Oracle HR system or GitHub. In these cases, IDN synchronizes data between systems to ensure account entitlements and state are correct through the organization.
 
-## Why are we introducing a new connector?
+## Why Are We Introducing a New Connector
 
 VA connectors always communicate with external sources through the Virtual Appliance (VA) as seen in the diagram below:
 

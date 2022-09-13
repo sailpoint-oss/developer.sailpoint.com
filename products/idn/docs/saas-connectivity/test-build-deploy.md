@@ -1,14 +1,15 @@
 ---
-id: cli-test-build-deploy
-slug: /docs/saas-connectivity/getting-started/cli-test-build-deploy
+id: test-build-deploy
+slug: /docs/saas-connectivity/test-build-deploy
+title: Test, Build, and Deploy
 sidebar_position: 2
 ---
-# Test, Build, and Deploy Using the CLI
+
 ## Testing Your Connector
 
 You can use the following Postman Collection file to locally run tests for each of the commands.
 
-[Postman Collection](../../../files/SaaS_Connectivity.postman_collection)
+[Postman Collection](./broken-link.md)
 
 As you implement command handlers, you must test them. The connector SDK provides some utility methods to locally run your connector. To start, run ```npm run dev``` within the connector project folder. This script locally starts an Express server on port 3000, which can be used to invoke a command against the connector. You do not need to restart this process after making changes to connector code. Once the Express server is started, you can send ```POST``` requests to ```localhost:3000``` and test your command handlers. For example, you can run ```POST localhost:3000``` with the following payload to run the stdAccountRead handler method. 
 
@@ -27,15 +28,15 @@ As you implement command handlers, you must test them. The connector SDK provide
 - **input:** Input to provide to the command handler.
 - **config:** The configuration values required to test locally. A ```token``` value is not required, but the default project specifies ```token```, so you must include it in your request to begin.
 
-## Create and upload connector bundle
+## Create and Upload Connector Bundle
 Follow these steps to use the CLI to package a connector bundle, create it in your IdentityNow org, and upload it to IdentityNow.
-### Package connector files
+### Package Connector Files
 You must compress the files in the connector project into a zip file before uploading them to IdentityNow.
 
 Use the CLI to run ```npm run pack-zip``` to build and package the connector bundle. Put the resulting zip file in the ```dist``` folder.
 
 
-### Create connector in your org
+### Create Connector In Your Org
 Before uploading the zip file, you must create an entry for the connector in your IdentityNow org. Run ```sp conn create "my-project"``` to create a connector entry.
 
 The response to this command contains a connector ID you can use to manage this connector.
@@ -49,7 +50,11 @@ $ sp conn create "example-connector"
 +--------------------------------------+----------------------------+
 ```
 
-Run ```sp conn list``` to retrieve the connector ID at any time.
+Run the following command to retrieve the connector ID at any time:
+
+```
+sp conn list
+```
 
 ```bash
 $ sp conn list
@@ -61,7 +66,7 @@ $ sp conn list
 +--------------------------------------+----------------------------+
 ```
 
-### Upload connector zip file to IdentityNow
+### Upload Connector Zip File to IdentityNow
 Run ```sp conn upload -c [connectorID | connectorAlias] -f dist/[connector filename].zip``` to upload the zip file built from the previous step to IdentityNow.
 
 ```bash
@@ -85,10 +90,10 @@ $ sp conn tags list -c example-connector
 +--------------------------------------+----------+----------------+
 ```
 
-## Test connector in IdentityNow
+## Test Your Connector in IdentityNow
 Follow these steps to test a connector bundle in both IdentityNow and the IdentityNow user interface (UI). 
 
-### Test connector bundle in IdentityNow
+### Test Your Connector Bundle In IdentityNow
 The connector CLI provides ways to test invoking commands with any connector upload version. Before running a command, create a file, **config.json**, in the root project folder. Include any configuration items required to interact with the target web service in this file, such as API token, username, password, organization, version, etc. The following snippet is an example:
 
 ```json
@@ -101,7 +106,9 @@ This file is required and requires at least one key value even if your connector
 
 Next, invoke the command using the connector ID and config.json. For example, this command invokes std:account:list command on the connector:
 
-```sp connectors invoke account-list -c example-connector -p config.json```
+```
+sp connectors invoke account-list -c example-connector -p config.json
+```
 
 You will receive a list of JSON objects for each account the connector contains. 
 
@@ -115,7 +122,7 @@ $ sp connectors invoke account-list -c example-connector -p config.json
 >
 > Ensure that you add config.json to your .gitignore file so you do not accidentally store secrets in your code repository.
 
-## Test connector from IdentityNow UI
+## Test Your Connector from IdentityNow UI
 Go to your IdentityNow org’s source section. Create a source from the connector you just uploaded. This connector will display in the dropdown list: **example-connector (tag: latest)**
 
 After creating a source, you can to test connection, aggregate account, etc. from the IdentityNow UI.

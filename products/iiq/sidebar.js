@@ -16,11 +16,11 @@ const sidebars = {
     iiqOpenApiSidebar: [
         {
           type: "category",
-          label: "IIQ Api",
+          label: "IdentityIQ API",
           link: {
             type: "generated-index",
-            title: "IIQ Api",
-            description: "These are the public APIs for SailPoint's SaaS services. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.",
+            title: "IdentityIQ API",
+            description: "These are the SCIM APIs for SailPoint's on-premise service, IdentityIQ. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.",
             slug: "/api"
           },
           // @ts-ignore

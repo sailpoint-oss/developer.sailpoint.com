@@ -2,6 +2,7 @@
 id: saas-configuration
 slug: /docs/saas-configuration
 title: SaaS Configuration
+sidebar_position: 3
 ---
 
 import Tabs from '@theme/Tabs';

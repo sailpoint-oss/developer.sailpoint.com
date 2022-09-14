@@ -95,7 +95,7 @@ module.exports = {
         items: [
           {
             label: "Terms & Conditions",
-            to: "https://developet.sailpoint.com"
+            to: "https://developer.sailpoint.com/discuss/tos"
           }
         ]
       }

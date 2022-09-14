@@ -14,7 +14,7 @@ export default function HomepageGettingStarted() {
             <div className={styles.gettingStartedThree}>Jump into our <span className={styles.bold}>Get Started Guides</span> for more information.</div>
           </div>
           <div className={styles.gridContainer}>
-            <HomepageCard link={"/idn/docs/getting-started"} title={"Get Started with IdentityNow"} image={"/homepage/cloud.png"}></HomepageCard>
+            <HomepageCard link={"/idn/docs"} title={"Get Started with IdentityNow"} image={"/homepage/cloud.png"}></HomepageCard>
             <HomepageCard link={"https://documentation.sailpoint.com/identityiq/help/iiqlandingpage.html"} title={"Get Started with IdentityIQ"} image={"/homepage/cloud.png"}></HomepageCard>
           </div> 
         </div>

@@ -32,7 +32,7 @@ The lastIndexOf transform requires only the substring you want to search for, al
 ## Attributes
 
 - **Required Attributes**
-  - **type** - This must always be set to `lastIndexOf.`
+  - **type** - This must always be set to `lastIndexOf`.
   - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
   - **substring** - This is the string whose beginning location within the incoming data you want to find.
 

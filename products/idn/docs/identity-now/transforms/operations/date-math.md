@@ -81,7 +81,7 @@ Some examples of expressions are:
 - **Optional Attributes**
 
   - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether the transform logic should be reevaluated every evening as part of the identity refresh process.
-  - **roundUp** - This `true` or `false` value indicates whether the transform rounds up or down when the `expression` defines a rounding ("/") operation. If this value is not provided, the transform defaults to `false.`
+  - **roundUp** - This `true` or `false` value indicates whether the transform rounds up or down when the `expression` defines a rounding ("/") operation. If this value is not provided, the transform defaults to `false`.
 
     - `true` indicates the transform rounds up (i.e., truncate the fractional date/time component indicated and then add one unit of that component).
     - `false` indicates the transform rounds down (i.e., truncate the fractional date/time component indicated).
@@ -141,7 +141,7 @@ This transform takes the `startDate` attribute from a user's record in the "HR S
 
 <p>&nbsp;</p>
 
-This transform take the `HIREDATE` from Workday and converts it to [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) to be used in the Date Math transform. The Date Math transform then creates a new Date of `HIREDATE + 1.` Since that is then outputted in the format "yyyy-MM-dd'T'HH:mm," you can then use it in a [dateFormat](/idn/docs/transforms/operations/date-format) transform to give a WIN32 formatted date.
+This transform take the `HIREDATE` from Workday and converts it to [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) to be used in the Date Math transform. The Date Math transform then creates a new Date of `HIREDATE + 1`. Since that is then outputted in the format "yyyy-MM-dd'T'HH:mm," you can then use it in a [dateFormat](/idn/docs/transforms/operations/date-format) transform to give a WIN32 formatted date.
 
 **Transform Request Body**:
 

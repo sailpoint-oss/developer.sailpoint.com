@@ -40,7 +40,7 @@ The account attribute transform's configuration can take several attributes as i
 ## Attributes
 
 - **Required Attributes**
-  - **type** - This must always be set to `accountAttribute.`
+  - **type** - This must always be set to `accountAttribute`.
   - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
   - **sourceName** - This is a reference to the source to search for accounts.
     - This is a reference by a source's display name attribute (e.g., Active Directory). If the display name is updated, this reference must also be updated.

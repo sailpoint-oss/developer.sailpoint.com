@@ -14,7 +14,7 @@ Transforms are configurable objects that define easy ways to manipulate attribut
 
 ![What are Transforms 1](./img/what_are_transforms_1.png)
 
-Because there is no code to write, an administrator can configure these using a JSON object structure and uploading them into IdentityNow using [IdentityNow's Transform REST APIs](/idn/api/v3/transforms).
+Because there is no code to write, an administrator can configure these by using a JSON object structure and uploading them into IdentityNow using [IdentityNow's Transform REST APIs](/idn/api/v3/transforms).
 
 :::info
 Sometimes transforms are referred to as Seaspray, the codename for transforms. IdentityNow Transforms and Seaspray are essentially the same.
@@ -75,7 +75,7 @@ Transforms are JSON objects. Prior to this, the transforms have been shown as fl
 
 There are three main components of a transform object:
 
-1. `name` - This specifies the name of the transform. It refers to a transform in the IdentityNow API or User Interface. Only provide a name on the root-level transform. Nested transforms do not have names.
+1. `name` - This specifies the name of the transform. It refers to a transform in the IdentityNow API or User Interface (UI). Only provide a name on the root-level transform. Nested transforms do not have names.
 
 2. `type` - This specifies the transform type, which ultimately determines the transform's behavior.
 

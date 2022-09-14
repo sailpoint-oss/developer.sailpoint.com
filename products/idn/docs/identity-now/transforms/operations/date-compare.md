@@ -43,7 +43,7 @@ The date compare transform takes as an input the two dates to compare, denoted a
 ## Attributes
 
 - **Required Attributes**
-  - **type** - This must always be set to `dateCompare.`
+  - **type** - This must always be set to `dateCompare`.
   - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
   - **firstDate** - This is the first date to consider (i.e., the date that would be on the left hand side of the comparison operation).
   - **secondDate** - This is the second date to consider (i.e., the date that would be on the right hand side of the comparison operation).

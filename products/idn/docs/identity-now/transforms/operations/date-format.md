@@ -24,7 +24,7 @@ This transform leverages the Java SimpleDateFormat syntax; see the [References](
 
 ## Transform Structure
 
-The date format transform takes whatever value provided as the input, parses the datetime based on the `inputFormat` provided, and then reformats it into the desired `outputFormat.`
+The date format transform takes whatever value provided as the input, parses the datetime based on the `inputFormat` provided, and then reformats it into the desired `outputFormat`.
 
 ```json
 {
@@ -40,7 +40,7 @@ The date format transform takes whatever value provided as the input, parses the
 ## Attributes
 
 - **Required Attributes**
-  - **type** - This must always be set to `dateFormat.`
+  - **type** - This must always be set to `dateFormat`.
   - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
 - **Optional Attributes**
   - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether the transform logic should be reevaluated every evening as part of the identity refresh process.

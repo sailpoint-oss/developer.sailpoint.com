@@ -19,7 +19,7 @@ Use the conditional transform to output different values depending on simple con
 
 ## Transform Structure
 
-In addition to the `type` and `name` attributes, the conditional transform requires an `expression,` a `positiveCondition,` and a `negativeCondition.` If the expression evaluates to false, the transform returns the negative condition; otherwise it returns the positive condition.
+In addition to the `type` and `name` attributes, the conditional transform requires an `expression`, a `positiveCondition`, and a `negativeCondition`. If the expression evaluates to false, the transform returns the negative condition; otherwise it returns the positive condition.
 
 ```json
 {
@@ -36,7 +36,7 @@ In addition to the `type` and `name` attributes, the conditional transform requi
 ## Attributes
 
 - **Required Attributes**
-  - **type** - This must always be set to `conditional.`
+  - **type** - This must always be set to `conditional`.
   - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
   - **expression** - This comparison statement follows the structure of `ValueA eq ValueB` where `ValueA` and `ValueB` are static strings or outputs of other transforms; the `eq` operator is the only valid comparison.
   - **positiveCondition** - This is the output of the transform if the expression evaluates to true.

@@ -17,7 +17,7 @@ Use the generate random string transform as an out-of-the-box rule transform pro
 
 ## Transform Structure
 
-The structure of a generate random string transform requires the `name` of the referenced rule to be the "Cloud Services Deployment Utility" rule built by SailPoint. You must also must set `operation` to `generateRandomString,` provide a `length,` and provide the true/false attributes for `includeNumbers` and `includeSpecialChars.` Last, you must include the `type` and `name` attributes required for all transforms:
+The structure of a generate random string transform requires the `name` of the referenced rule to be the "Cloud Services Deployment Utility" rule built by SailPoint. You must also must set `operation` to `generateRandomString`, provide a `length`, and provide the true/false attributes for `includeNumbers` and `includeSpecialChars`. Last, you must include the `type` and `name` attributes required for all transforms:
 
 ```json
 {
@@ -36,7 +36,7 @@ The structure of a generate random string transform requires the `name` of the r
 ## Attributes
 
 - **Required Attributes**
-  - **type** - This must always be set to `rule.`
+  - **type** - This must always be set to `rule`.
   - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
   - **attributes.name** - This must always be set to `Cloud Services Deployment Utility`.
   - **operation** - This must always be set to `generateRandomString`.

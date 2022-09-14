@@ -26,7 +26,7 @@ The concatenation transform requires an array list of `values` that need to be j
 ## Attributes
 
 - **Required Attributes**
-  - **type** - This must always be set to `concat.`
+  - **type** - This must always be set to `concat`.
   - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
   - **values** - This is the array of items to join.
 - **Optional Attributes**

@@ -71,7 +71,7 @@ Output: "cd"
 
 <p>&nbsp;</p>
 
-This transform uses a zero-based array to determine that the substring transform must begin with the letter "c" because even though the letter "b' is in index location 1, the beginOffset value indicates one additional character must be skipped. Index location 3 contains the letter "d," so the transform would normally end at the character preceding "d." However, with the endOffset value set to 2, the transform must include an additional two characters, "d" and "e." Thus, the transform returns "cde."
+This transform uses a zero-based array to determine that the substring transform must begin with the letter "c" because even though the letter "b' is in index location 1, the beginOffset value indicates one additional character must be skipped. Index location 3 contains the letter "d," so the transform would normally end at the character preceding "d." However, with the endOffset value set to 2, the transform must include an additional two characters, "d" and "e". Thus, the transform returns "cde".
 
 ```bash
 Input: "abcdef"

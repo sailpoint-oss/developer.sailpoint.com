@@ -28,7 +28,7 @@ The structure of a get end of string transform requires the `name` of the refere
 ## Attributes
 
 - **Required Attributes**
-  - **type** - This must always be set to `rule.`
+  - **type** - This must always be set to `rule`.
   - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
   - **attributes.name** - This must always be set to `Cloud Services Deployment Utility`.
   - **operation** - This must always be set to `getEndOfString`.

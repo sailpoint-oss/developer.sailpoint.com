@@ -30,7 +30,7 @@ The transform for decompose diacritical marks requires only the transform's `typ
 ## Attributes
 
 - **Required Attributes**
-  - **type** - This must always be set to `decomposeDiacriticalMarks.`
+  - **type** - This must always be set to `decomposeDiacriticalMarks`.
   - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
 
 - **Optional Attributes**

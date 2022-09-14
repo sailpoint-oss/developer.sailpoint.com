@@ -23,7 +23,7 @@ The random numeric transform only requires the standard `type` and `name` attrib
 ## Attributes
 
 - **Required Attributes**
-  - **type** - This must always be set to `randomNumeric.`
+  - **type** - This must always be set to `randomNumeric`.
   - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
 
 - **Optional Attributes**

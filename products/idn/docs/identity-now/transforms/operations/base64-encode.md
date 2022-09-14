@@ -31,7 +31,7 @@ The Base64 encode transform only requires the `type` and `name` attributes:
 ## Attributes
 
 - **Required Attributes**
-  - **type** - This must be set to `base64Encode.`
+  - **type** - This must be set to `base64Encode`.
   - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
 - **Optional Attributes**
   - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether the transform logic should be reevaluated every evening as part of the identity refresh process.

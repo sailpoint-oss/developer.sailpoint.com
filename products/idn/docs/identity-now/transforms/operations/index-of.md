@@ -32,7 +32,7 @@ The indexOf transform requires only the substring which you want to search for, 
 ## Attributes
 
 - **Required Attributes**
-  - **type** - This must always be set to `indexOf.`
+  - **type** - This must always be set to `indexOf`.
   - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
   - **substring** - This is the string whose beginning location within the incoming data you want to find.
 

@@ -32,7 +32,7 @@ The transform for identity attributes requires the desired identity attribute's 
 ## Attributes
 
 - **Required Attributes**
-  - **type** - This must always be set to `identityAttribute.`
+  - **type** - This must always be set to `identityAttribute`.
   - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
   - **attributes.name** - The system (camel-cased) name of the identity attribute to bring in.
 

@@ -37,7 +37,7 @@ In addition to the `type` and `name` attributes, the structure of a lookup trans
 ## Attributes
 
 - **Required Attributes**
-  - **type** - This must always be set to `lookup.`
+  - **type** - This must always be set to `lookup`.
   - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
   - **table** - This is a JSON object of key-value pairs. The key is the string the transform tries to match to the input, and the value is the output string the transform returns if it matches the key.
   > **Note** This is a use for the optional default key value here: if none of the three countries in the earlier example matches the input string, the transform returns "Unknown Region" for the attribute mapped to this transform.

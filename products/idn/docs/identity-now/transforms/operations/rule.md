@@ -54,7 +54,7 @@ If you had a "Generate Random Number" rule that produced a random integer value,
 
 <p>&nbsp;</p>
 
-This transform shows a more complex use case in which you have a Generic rule written to perform various string manipulation tasks. If the manner the rule code uses to determine which task to run is passed to it by the `operation` variable and the operation is intended to get the last n characters of a string, n can be provided to the rule via the `numChars` variable. This transform invokes rule code to get the last three characters of the string passed to it via the UI configuration.
+This transform shows a more complex use case in which you have a Generic rule written to perform various string manipulation tasks. If the manner the rule code uses to determine which task to run is passed to it by the `operation` variable and the operation is intended to get the last n characters of a string, n can be provided to the rule via the `numChars` variable. This transform invokes rule code to get the last three characters of the string passed to it with the UI configuration.
 
 **Transform Request Body**:
 

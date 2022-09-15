@@ -1,9 +1,17 @@
 ---
 id: linting
+title: Linting
+pagination_label: Linting
+sidebar_label: Linting
+sidebar_position: 4
+sidebar_class_name: linting
+keywords: ["connectivity", "connectors", "linting"]
+description: Automatically check your connector source code for programmatic and stylistic errors.
 slug: /docs/saas-connectivity/in-depth/linting
+tags: ["Connectivity"]
 ---
-# Linting
-To add linting to your project, simple install the linter using NPM:
+
+To add linting to your project, simply install the linter using NPM:
 
 
 ```npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin``

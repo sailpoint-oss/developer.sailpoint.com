@@ -1,8 +1,15 @@
 ---
 id: logging
+title: Logging
+pagination_label: Logging
+sidebar_label: Logging
+sidebar_position: 5
+sidebar_class_name: logging
+keywords: ["connectivity", "connectors", "logging"]
+description: You can use this feature to read the logs of your connectors.
 slug: /docs/saas-connectivity/in-depth/logging
+tags: ["Connectivity"]
 ---
-# Logging
 
 ## Printing Logs with the CLI
 Fetch logs from IDN by issuing the ```sp conn logs``` command:

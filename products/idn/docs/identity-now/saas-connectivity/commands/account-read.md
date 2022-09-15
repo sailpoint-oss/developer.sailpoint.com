@@ -1,9 +1,13 @@
 ---
 id: account-read
-slug: /docs/saas-connectivity/commands/account-read
+title: Account Read
+pagination_label: Account Read
+sidebar_label: Account Read
+keywords: ["connectivity", "connectors", "account read"]
 description: Aggregate a single account from the source into IdentityNow.
+slug: /docs/saas-connectivity/commands/account-read
+tags: ["Connectivity"]
 ---
-# Account Read
 
 | Input/Output |  Data Type                |
 |:-------------|:-------------------------:|

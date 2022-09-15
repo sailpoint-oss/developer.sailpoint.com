@@ -1,9 +1,13 @@
 ---
 id: entitlement-list
-slug: /docs/saas-connectivity/commands/entitlement-list
+title: Entitlement List
+pagination_label: Entitlement List
+sidebar_label: Entitlement List
+keywords: ["connectivity", "connectors", "entitlement list"]
 description: Gather a list of all entitlements available on the source.
+slug: /docs/saas-connectivity/commands/entitlement-list
+tags: ["Connectivity"]
 ---
-# Entitlement List
 
 | Input/Output |  Data Type                  |
 |:-------------|:---------------------------:|

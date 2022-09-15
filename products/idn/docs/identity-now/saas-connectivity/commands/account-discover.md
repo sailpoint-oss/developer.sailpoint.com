@@ -1,9 +1,13 @@
 ---
 id: account-discover
-slug: /docs/saas-connectivity/commands/account-discover
+title: Account Discover
+pagination_label: Account Discover
+sidebar_label: Account Discover
+keywords: ["connectivity", "connectors", "account discover"]
 description: Dynamically determine account schema from the source.
+slug: /docs/saas-connectivity/commands/account-discover
+tags: ["Connectivity"]
 ---
-# Account Discover Schema
 
 | Input/Output |  Data Type                   |
 |:-------------|:----------------------------:|

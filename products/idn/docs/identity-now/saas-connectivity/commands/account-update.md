@@ -1,9 +1,13 @@
 ---
 id: account-update
-slug: /docs/saas-connectivity/commands/account-update
+title: Account Update
+pagination_label: Account Update
+sidebar_label: Account Update
+keywords: ["connectivity", "connectors", "account update"]
 description: Update an account on the source.
+slug: /docs/saas-connectivity/commands/account-update
+tags: ["Connectivity"]
 ---
-# Account Update
 
 | Input/Output |  Data Type                  |
 |:-------------|:---------------------------:|

@@ -1,9 +1,13 @@
 ---
 id: account-list
+title: Account List
+pagination_label: Account List
+sidebar_label: Account List
+keywords: ["connectivity", "connectors", "account list"]
+description: Aggregate all accounts from the source into IdentityNow.
 slug: /docs/saas-connectivity/commands/account-list
-description: Aggregate all accounts from the source into IdentityNow. 
+tags: ["Connectivity"]
 ---
-# Account List
 
 | Input/Output |  Data Type                |
 |:-------------|:-------------------------:|

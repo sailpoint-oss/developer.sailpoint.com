@@ -1,8 +1,15 @@
 ---
 id: debugging
+title: Debugging
+pagination_label: Debugging
+sidebar_label: Debugging
+sidebar_position: 2
+sidebar_class_name: debugging
+keywords: ["connectivity", "connectors", "debugging"]
+description: An easy way to debug locally is to use console.log() to print debug information to your console.
 slug: /docs/saas-connectivity/in-depth/debugging
+tags: ["Connectivity"]
 ---
-# Debugging
 
 ## Debug locally
 An easy way to debug locally is to use ```console.log()``` to print debug information to your console. You can add ```console.log()``` statements anywhere, and the messages they print can contain static text or variables. For example, to see the contents of an input object when you are invoking the ```stdAccountCreate``` command, you can craft the following debug logic:

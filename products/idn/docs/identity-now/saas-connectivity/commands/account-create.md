@@ -1,9 +1,13 @@
 ---
 id: account-create
-slug: /docs/saas-connectivity/commands/account-create
+title: Account Create
+pagination_label: Account Create
+sidebar_label: Account Create
+keywords: ["connectivity", "connectors", "account create"]
 description: Create account on the source.
+slug: /docs/saas-connectivity/commands/account-create
+tags: ["Connectivity"]
 ---
-# Account Create
 
 | Input/Output |  Data Type                  |
 |:-------------|:---------------------------:|

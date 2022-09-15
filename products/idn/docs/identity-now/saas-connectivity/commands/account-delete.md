@@ -1,9 +1,13 @@
 ---
 id: account-delete
-slug: /docs/saas-connectivity/commands/account-delete
+title: Account Delete
+pagination_label: Account Delete
+sidebar_label: Account Delete
+keywords: ["connectivity", "connectors", "account delete"]
 description: Remove account from a source.
+slug: /docs/saas-connectivity/commands/account-delete
+tags: ["Connectivity"]
 ---
-# Account Delete
 
 | Input/Output |  Data Type                  |
 |:-------------|:---------------------------:|

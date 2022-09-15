@@ -1,9 +1,13 @@
 ---
 id: account-unlock
-slug: /docs/saas-connectivity/commands/account-unlock
+title: Account Unlock
+pagination_label: Account Unlock
+sidebar_label: Account Unlock
+keywords: ["connectivity", "connectors", "account unlock"]
 description: Lock and unlock an account on the source.
+slug: /docs/saas-connectivity/commands/account-unlock
+tags: ["Connectivity"]
 ---
-# Account Unlock
 
 | Input/Output |  Data Type                |
 |:-------------|:-------------------------:|

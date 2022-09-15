@@ -1,9 +1,13 @@
 ---
 id: account-enable
-slug: /docs/saas-connectivity/commands/account-enable
+title: Account Enable
+pagination_label: Account Enable
+sidebar_label: Account Enable
+keywords: ["connectivity", "connectors", "account enable"]
 description: Enable an account on the source.
+slug: /docs/saas-connectivity/commands/account-enable
+tags: ["Connectivity"]
 ---
-# Account Enable/Disable
 
 | Input/Output |  Data Type                           |
 |:-------------|:------------------------------------:|

@@ -1,9 +1,13 @@
 ---
 id: test-connection
-slug: /docs/saas-connectivity/commands/test-connection
+title: Test Connection
+pagination_label: Test Connection
+sidebar_label: Test Connection
+keywords: ["connectivity", "connectors", "test connection"]
 description: Ensure the connector can communicate with the source.
+slug: /docs/saas-connectivity/commands/test-connection
+tags: ["Connectivity"]
 ---
-# Test Connection
 
 | Input/Output |  Data Type                |
 |:-------------|:-------------------------:|

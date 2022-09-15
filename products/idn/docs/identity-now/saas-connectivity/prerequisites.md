@@ -1,8 +1,14 @@
 ---
 id: prerequisites
-slug: /docs/saas-connectivity/prerequisites
 title: Prerequisites
+pagination_label: Prerequisites
+sidebar_label: Prerequisites
 sidebar_position: 1
+sidebar_class_name: prerequisites
+keywords: ["connectivity", "connectors", "prerequisites"]
+description: These are some prerequisites you must have before you start building SaaS Connectors.
+slug: /docs/saas-connectivity/prerequisites
+tags: ["Connectivity"]
 ---
 
 ## Packages

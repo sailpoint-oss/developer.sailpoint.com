@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 🧭 There are many different ways in which you are able to extend the IdentityNow platfrom beyond what comes out of the box. Please, explore our documentation and see what is possible! This documentation assumes that you are a current customer or partner and already have access to the IdentityNow application.
 
-:::info Looking to be a partner?
+:::info Looking to become a partner?
 If you are interested in becoming a partner, be it an ISV or Channel/Implementation partner, [click here](https://www.sailpoint.com/partners/become-partner/).
 :::
 
@@ -31,7 +31,7 @@ A webhook in web development is a method of augmenting or altering the behavior 
 While you can use whichever development tools you are most comfortable with or find most useful, we will recommend tools here for those that are new to development.
 
 :::tip
-[Our](https://google.com) team, when developing documentation, example code/applications, videos, etc. will almost always use one of the tools/languages listed below.
+Our team, when developing documentation, example code/applications, videos, etc. will almost always use one of the tools/languages listed below.
 :::
 
 ### IDEs (Integrated Development Environments)

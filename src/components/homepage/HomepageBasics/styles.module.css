@@ -40,11 +40,6 @@
   color: #cc27b0;
 }
 
-a:hover, a:visited, a:link, a:active
-{
-    text-decoration: none;
-}
-
 .button {
 
   text-decoration: none;

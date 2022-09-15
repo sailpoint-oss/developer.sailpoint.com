@@ -8,7 +8,7 @@ sidebar_class_name: testingTriggers
 keywords: ["event", "trigger", "testing"]
 description: It is important to test your trigger subscription configuration with your actual subscribing service before enabling your subscription for production use.
 slug: /docs/event-triggers/testing-triggers
-tags: ["Event Triggers", "Testing Triggers"]
+tags: ["Event Triggers"]
 ---
 
 It is important to test your trigger subscription configuration with your actual subscribing service (not a test site like [webhook.site](https://webhook.site)) before enabling your subscription for production use. Testing subscriptions ensures that your subscribing service can successfully receive events and that you are receiving the correct events based on the filter you have provided.

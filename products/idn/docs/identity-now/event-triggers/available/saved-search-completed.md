@@ -7,7 +7,7 @@ sidebar_class_name: savedSearchComplete
 keywords: ["event", "trigger", "saved", "search", "complete", "available"]
 description: Fires after a scheduled search completed.
 slug: /docs/event-triggers/triggers/saved-search-completed
-tags: ["Event Triggers", "Available Event Triggers"]
+tags: ["Event Triggers", "Available Event Triggers", "Fire and Forget"]
 ---
 
 ## Event Context

@@ -7,7 +7,7 @@ sidebar_class_name: accountAggregationCompleted
 keywords: ["event", "trigger", "account", "aggregation", "completed", "available"]
 description: Fires after an account aggregation completed, terminated, or failed.
 slug: /docs/event-triggers/triggers/account-aggregation-completed
-tags: ["Event Triggers", "Available Event Triggers"]
+tags: ["Event Triggers", "Available Event Triggers", "Fire and Forget"]
 ---
 
 ## Event Context

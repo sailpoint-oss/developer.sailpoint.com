@@ -8,7 +8,7 @@ sidebar_class_name: respondingRequestResponseTriggers
 keywords: ["event", "trigger", "request reseponse"]
 description: You can specify how your application interacts with a REQUEST_RESPONSE type trigger service by selecting an invocation response mode in the Response Type dropdown when editing or creating a REQUEST_RESPONSE subscription.
 slug: /docs/event-triggers/responding-request-response-trigger
-tags: ["Event Triggers", "Request Response Trigger"]
+tags: ["Event Triggers"]
 ---
 
 import Tabs from '@theme/Tabs';

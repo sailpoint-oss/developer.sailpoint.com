@@ -7,7 +7,7 @@ sidebar_class_name: accessRequestPreapproval
 keywords: ["event", "trigger", "access", "request", "preapproval", "available"]
 description: Fires after an access request is submitted.
 slug: /docs/event-triggers/triggers/access-request-preapproval
-tags: ["Event Triggers", "Available Event Triggers"]
+tags: ["Event Triggers", "Available Event Triggers", "Request Response"]
 ---
 
 ## Event Context

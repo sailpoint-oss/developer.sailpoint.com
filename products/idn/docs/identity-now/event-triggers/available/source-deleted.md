@@ -7,7 +7,7 @@ sidebar_class_name: sourceDeleted
 keywords: ["event", "trigger", "source", "deleted", "available"]
 description: Fires after a source is deleted.	
 slug: /docs/event-triggers/triggers/source-deleted
-tags: ["Event Triggers", "Available Event Triggers"]
+tags: ["Event Triggers", "Available Event Triggers", "Fire and Forget"]
 ---
 
 ## Event Context

@@ -7,7 +7,7 @@ sidebar_class_name: sourceAccountCreated
 keywords: ["event", "trigger", "source", "account", "created", "early access"]
 description: Fires after a source account is created.
 slug: /docs/event-triggers/triggers/source-account-created
-tags: ["Event Triggers", "Early Access Event Triggers"]
+tags: ["Event Triggers", "Early Access Event Triggers", "Fire and Forget"]
 ---
 
 :::info

@@ -7,7 +7,7 @@ sidebar_class_name: identityDeleted
 keywords: ["event", "trigger", "identity", "deleted", "early access"]
 description: Fires after an identity is deleted.
 slug: /docs/event-triggers/triggers/identity-deleted
-tags: ["Event Triggers", "Early Access Event Triggers"]
+tags: ["Event Triggers", "Early Access Event Triggers", "Fire and Forget"]
 ---
 
 

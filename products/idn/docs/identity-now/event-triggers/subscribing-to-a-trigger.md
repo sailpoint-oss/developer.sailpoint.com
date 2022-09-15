@@ -8,7 +8,7 @@ sidebar_class_name: subscribingToTrigger
 keywords: ["event", "trigger", "subscribing"]
 description: Usually, you will subscribe to event triggers using the user interface in IDN. Refer to subscribing to event triggers to learn how to subscribe to an event trigger through the IDN UI.
 slug: /docs/event-triggers/subscribing-to-trigger
-tags: ["Event Triggers", "Subscribing"]
+tags: ["Event Triggers"]
 ---
 
 ## View the Available Triggers

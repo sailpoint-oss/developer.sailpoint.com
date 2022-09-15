@@ -7,7 +7,7 @@ sidebar_class_name: sourceAccountDeleted
 keywords: ["event", "trigger", "source", "account", "deleted", "early access"]
 description: Fires after a source account is deleted.
 slug: /docs/event-triggers/triggers/source-account-deleted
-tags: ["Event Triggers", "Early Access Event Triggers"]
+tags: ["Event Triggers", "Early Access Event Triggers", "Fire and Forget"]
 ---
 
 :::info

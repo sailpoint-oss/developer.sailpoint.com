@@ -7,7 +7,7 @@ sidebar_class_name: identityCreated
 keywords: ["event", "trigger", "identity", "created", "available"]
 description: Fires after an identity is created.
 slug: /docs/event-triggers/triggers/identity-created
-tags: ["Event Triggers", "Available Event Triggers"]
+tags: ["Event Triggers", "Available Event Triggers", "Fire and Forget"]
 ---
 
 ## Event Context

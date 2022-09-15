@@ -7,7 +7,7 @@ sidebar_class_name: identityAttributesChanged
 keywords: ["event", "trigger", "identity", "attributes", "changed", "available"]
 description: Fires after one or more identity attributes changed.
 slug: /docs/event-triggers/triggers/identity-attribute-changed
-tags: ["Event Triggers", "Available Event Triggers"]
+tags: ["Event Triggers", "Available Event Triggers", "Fire and Forget"]
 ---
 
 ## Event Context

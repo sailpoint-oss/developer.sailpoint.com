@@ -8,7 +8,7 @@ sidebar_class_name: filteringEvents
 keywords: ["filtering", "events"]
 description: Many triggers can produce a staggering amount of events if left unfiltered. Event filtering helps you solve this problem.
 slug: /docs/event-triggers/filtering-events
-tags: ["Event Triggers", "Trigger Filtering"]
+tags: ["Event Triggers"]
 ---
 
 ## What is a Filter

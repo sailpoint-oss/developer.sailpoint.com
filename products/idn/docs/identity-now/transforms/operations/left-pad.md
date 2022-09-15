@@ -1,9 +1,14 @@
 ---
 id: left-pad
+title: Left Pad
+pagination_label: Left Pad
+sidebar_label: Left Pad
+sidebar_class_name: leftPad
+keywords: ["transforms", "operations", "left", "pad"]
+description: Convert a string into an ISO 3166 country code value.
 slug: /docs/transforms/operations/left-pad
-description: Pad an incoming string with a user-supplied character.
+tags: ["Transforms", "Operations", "Left", "Pad"]
 ---
-# Left Pad
 
 ## Overview
 

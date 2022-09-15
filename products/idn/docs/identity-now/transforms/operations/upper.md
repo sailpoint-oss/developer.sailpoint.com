@@ -1,9 +1,14 @@
 ---
 id: upper
-slug: /docs/transforms/operations/upper
+title: Upper
+pagination_label: Upper
+sidebar_label: Upper
+sidebar_class_name: upper
+keywords: ["transforms", "operations", "upper"]
 description: Convert an input string into all uppercase letters.
+slug: /docs/transforms/operations/upper
+tags: ["Transforms", "Operations", "Upper"]
 ---
-# Upper
 
 ## Overview
 

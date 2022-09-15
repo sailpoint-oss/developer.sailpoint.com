@@ -1,9 +1,14 @@
 ---
 id: substring
-slug: /docs/transforms/operations/substring
+title: Substring
+pagination_label: Substring
+sidebar_label: Substring
+sidebar_class_name: substring
+keywords: ["transforms", "operations", "substring"]
 description: Get the inner portion of a string passed into the transform.
+slug: /docs/transforms/operations/substring
+tags: ["Transforms", "Operations", "Substring"]
 ---
-# Substring
 
 ## Overview
 

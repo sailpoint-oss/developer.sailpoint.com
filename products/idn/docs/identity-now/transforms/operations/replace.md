@@ -1,9 +1,14 @@
 ---
 id: replace
-slug: /docs/transforms/operations/replace
+title: Replace
+pagination_label: Replace
+sidebar_label: Replace
+sidebar_class_name: replace
+keywords: ["transforms", "operations", "replace"]
 description: Find and replace all instances of a single string.
+slug: /docs/transforms/operations/replace
+tags: ["Transforms", "Operations", "Replace"]
 ---
-# Replace
 
 ## Overview
 

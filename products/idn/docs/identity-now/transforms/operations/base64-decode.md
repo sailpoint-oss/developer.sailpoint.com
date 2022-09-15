@@ -1,9 +1,14 @@
 ---
 id: base64-decode
-slug: /docs/transforms/operations/base64-decode
+title: Base64 Decode
+pagination_label: Base64 Decode
+sidebar_label: Base64 Decode
+sidebar_class_name: base64Decode
+keywords: ["transforms", "operations", "base64", "decode"]
 description: Render base64 data in its original binary format.
+slug: /docs/transforms/operations/base64-decode
+tags: ["Transforms", "Operations", "Base64", "Decode"]
 ---
-# Base64 Decode
 
 ## Overview
 

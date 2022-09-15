@@ -1,9 +1,14 @@
 ---
 id: trim
-slug: /docs/transforms/operations/trim
+title: Trim
+pagination_label: Trim
+sidebar_label: Trim
+sidebar_class_name: trim
+keywords: ["transforms", "operations", "trim"]
 description: Trim whitespaces from both the beginning and ending of input strings.
+slug: /docs/transforms/operations/substring
+tags: ["Transforms", "Operations", "Trim"]
 ---
-# Trim
 
 ## Overview
 

@@ -1,9 +1,14 @@
 ---
 id: date-math
-slug: /docs/transforms/operations/date-math
+title: Date Math
+pagination_label: Date Math
+sidebar_label: Date Math
+sidebar_class_name: dateMath
+keywords: ["transforms", "operations", "date", "math"]
 description: Add, subtract, and round components of a timestamp's incoming value.
+slug: /docs/transforms/operations/date-math
+tags: ["Transforms", "Operations", "Date", "Math"]
 ---
-# Date Math
 
 ## Overview
 

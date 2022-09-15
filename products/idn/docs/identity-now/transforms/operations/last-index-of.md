@@ -1,9 +1,14 @@
 ---
 id: last-index-of
+title: Last Index Of
+pagination_label: Last Index Of
+sidebar_label: Last Index Of
+sidebar_class_name: lastIndexOf
+keywords: ["transforms", "operations", "last", "index", "of"]
+description: Convert a string into an ISO 3166 country code value.
 slug: /docs/transforms/operations/last-index-of
-description: Get the last location of a specific substring.
+tags: ["Transforms", "Operations", "Last", "Index"]
 ---
-# Last Index Of
 
 ## Overview
 

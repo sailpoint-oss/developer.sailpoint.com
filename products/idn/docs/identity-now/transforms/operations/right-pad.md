@@ -1,9 +1,14 @@
 ---
 id: right-pad
-slug: /docs/transforms/operations/right-pad
+title: Right Pad
+pagination_label: Right Pad
+sidebar_label: Right Pad
+sidebar_class_name: rightPad
+keywords: ["transforms", "operations", "right pad"]
 description: Add padding to the right of an incoming string.
+slug: /docs/transforms/operations/right-pad
+tags: ["Transforms", "Operations"]
 ---
-# Right Pad
 
 ## Overview
 

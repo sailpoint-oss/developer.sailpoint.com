@@ -1,7 +1,13 @@
 ---
 id: operations
-slug: /docs/transforms/operations
 title: Operations
+pagination_label: Operations
+sidebar_label: Operations
+sidebar_class_name: operations
+keywords: ["transforms", "operations"]
+description: A list of transform operations.
+slug: /docs/transforms/operations
+tags: ["Transforms", "Operations"]
 ---
 
 This document lists each type of operation you can perform in a transform. Sometimes you will hear these transforms referred to as **Seaspray**, the codename for transforms.

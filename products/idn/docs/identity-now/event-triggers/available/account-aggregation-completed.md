@@ -1,8 +1,13 @@
 ---
 id: account-aggregation-completed
 title: Account Aggregation Completed
-slug: /docs/event-triggers/triggers/account-aggregation-completed
+pagination_label: Account Aggregation Completed
+sidebar_label: Account Aggregation Completed
+sidebar_class_name: accountAggregationCompleted
+keywords: ["event", "trigger", "account", "aggregation", "completed"]
 description: Fires after an account aggregation completed, terminated, or failed.
+slug: /docs/event-triggers/triggers/account-aggregation-completed
+tags: ["Event Triggers", "Account Aggregation Completed"]
 ---
 
 ## Event Context

@@ -1,8 +1,13 @@
 ---
 id: source-account-created
 title: Source Account Created
-slug: /docs/event-triggers/triggers/source-account-created
+pagination_label: Source Account Created
+sidebar_label: Source Account Created
+sidebar_class_name: sourceAccountCreated
+keywords: ["event", "trigger", "source", "account", "created"]
 description: Fires after a source account is created.
+slug: /docs/event-triggers/triggers/source-account-created
+tags: ["Event Triggers", "Source Account Created"]
 ---
 
 :::info

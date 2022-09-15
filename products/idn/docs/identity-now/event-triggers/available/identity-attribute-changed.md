@@ -1,8 +1,13 @@
 ---
 id: identity-attribute-changed
-title: Identity Attribute Changed
+title: Identity Attributes Changed
+pagination_label: Identity Attributes Changed
+sidebar_label: Identity Attributes Changed
+sidebar_class_name: identityAttributesChanged
+keywords: ["event", "trigger", "identity", "attributes", "changed"]
+description: Fires after one or more identity attributes changed.
 slug: /docs/event-triggers/triggers/identity-attribute-changed
-description: Fires after One or more identity attributes changed.
+tags: ["Event Triggers", "Identity Attributes Changed"]
 ---
 
 ## Event Context

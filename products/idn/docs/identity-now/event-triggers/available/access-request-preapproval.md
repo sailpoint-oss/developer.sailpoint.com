@@ -1,8 +1,13 @@
 ---
 id: access-request-preapproval
 title: Access Request Preapproval
-slug: /docs/event-triggers/triggers/access-request-preapproval
+pagination_label: Access Request Preapproval
+sidebar_label: Access Request Preapproval
+sidebar_class_name: accessRequestPreapproval
+keywords: ["event", "trigger", "access", "request", "preapproval"]
 description: Fires after an access request is submitted.
+slug: /docs/event-triggers/triggers/access-request-preapproval
+tags: ["Event Triggers", "Access Request Preapproval"]
 ---
 
 ## Event Context

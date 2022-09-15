@@ -11,8 +11,6 @@ slug: /docs/event-triggers/filtering-events
 tags: ["Event Triggers", "Trigger Filtering"]
 ---
 
-# Filtering Events
-
 ## What is a Filter
 
 Many triggers can produce a staggering amount of events if left unfiltered, resulting in more network traffic and more processing time on a subscribing service. Your subscribing service usually only needs to be notified of events containing a key attribute or value you want to process.  For example, the Identity Attributes Changed trigger emits an event whenever an identity has a change in attributes.  This can occur during the mover process when an identity changes departments or a manager is promoted, resulting in several identities receiving a new manager.  Rather than inundate your subscribing service with every identity change, you can use an event trigger filter to specify which events your service is interested in processing.

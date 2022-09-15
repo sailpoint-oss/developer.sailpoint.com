@@ -1,9 +1,15 @@
 ---
 id: identity-deleted
 title: Identity Deleted
-slug: /docs/event-triggers/triggers/identity-deleted
+pagination_label: Identity Deleted
+sidebar_label: Identity Deleted
+sidebar_class_name: identityDeleted
+keywords: ["event", "trigger", "identity", "deleted"]
 description: Fires after an identity is deleted.
+slug: /docs/event-triggers/triggers/identity-deleted
+tags: ["Event Triggers", "Identity Deleted"]
 ---
+
 
 :::info
 This is an early access event trigger.  Please contact support to have it enabled in your tenant.

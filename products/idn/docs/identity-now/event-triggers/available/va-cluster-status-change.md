@@ -1,8 +1,13 @@
 ---
 id: va-cluster-status-change
 title: VA Cluster Status Change
-slug: /docs/event-triggers/triggers/va-cluster-status-change
+pagination_label: VA Cluster Status Change
+sidebar_label: VA Cluster Status Change
+sidebar_class_name: vaClusterStatusChange
+keywords: ["event", "trigger", "va", "cluster", "status", "change"]
 description: Fires after the status of a VA cluster has changed.
+slug: /docs/event-triggers/triggers/va-cluster-status-change
+tags: ["Event Triggers", "VA Cluster Status Change"]
 ---
 
 ## Event Context

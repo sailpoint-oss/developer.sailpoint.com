@@ -1,8 +1,13 @@
 ---
 id: source-deleted
 title: Source Deleted
-slug: /docs/event-triggers/triggers/source-deleted
+pagination_label: Source Deleted
+sidebar_label: Source Deleted
+sidebar_class_name: sourceDeleted
+keywords: ["event", "trigger", "source", "deleted"]
 description: Fires after a source is deleted.	
+slug: /docs/event-triggers/triggers/source-deleted
+tags: ["Event Triggers", "Source Deleted"]
 ---
 
 ## Event Context

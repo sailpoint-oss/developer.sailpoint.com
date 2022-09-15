@@ -1,9 +1,15 @@
 ---
 id: trigger-types
+title: Trigger Types
+pagination_label: Trigger Types
+sidebar_label: Trigger Types
 sidebar_position: 1
+sidebar_class_name: triggerTypes
+keywords: ["event", "trigger", "types"]
+description: Different types of triggerst exist, and those types of triggers do different things depending on their type.
+slug: /docs/event-triggers/trigger-types
+tags: ["Event Triggers", "Trigger Types"]
 ---
-
-# Trigger Types
 
 ## Fire and Forget
 

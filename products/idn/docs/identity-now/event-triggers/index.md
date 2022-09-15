@@ -1,6 +1,14 @@
 ---
 id: event-triggers
+title: Event Triggers
+pagination_label: Event Triggers
+sidebar_label: Event Triggers
 sidebar_position: 2
+sidebar_class_name: eventTriggers
+keywords: ["event", "triggers", "webhooks"]
+description: The result of any action performed in a service is called an event. Services like IdentityNow constantly generate events like an update to a setting or the completion of an account aggregation.
+slug: /docs/event-triggers
+tags: ["Event Triggers"]
 ---
 
 # Event Triggers

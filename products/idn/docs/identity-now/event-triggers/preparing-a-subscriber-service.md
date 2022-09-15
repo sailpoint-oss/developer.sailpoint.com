@@ -1,6 +1,14 @@
 ---
-id: preparing-a-subscriber-service
+id: preparing-subscriber-service
+title: Preparing a Subscriber Service
+pagination_title: Preparing a Subscriber Service
+sidebar_label: Preparing a Subscriber Service
 sidebar_position: 2
+sidebar_class_name: preparingSubscriberService
+keywords: ["event", "triggers", "subscriber"]
+description: Before you can subscribe to an event trigger, you must prepare a service that can accept incoming HTTP requests from the event trigger service. 
+slug: /docs/event-triggers/preparing-subscriber-service
+tags: ["Event Triggers", "Event Subscriber Service"]
 ---
 
 # Preparing a Subscriber Service

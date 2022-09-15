@@ -1,9 +1,14 @@
 ---
 id: conditional
-slug: /docs/transforms/operations/conditional
+title: Conditional
+pagination_label: Conditional
+sidebar_label: Conditional
+sidebar_class_name: conditional
+keywords: ["transforms", "operations", "conditional"]
 description: Output different values depending on simple conditional logic.
+slug: /docs/transforms/operations/conditional
+tags: ["Transforms", "Operations", "Conditional"]
 ---
-# Conditional
 
 ## Overview
 

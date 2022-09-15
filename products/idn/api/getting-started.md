@@ -1,7 +1,14 @@
 ---
 id: getting-started
 title: Getting Started
+pagination_label: Getting Started
+sidebar_label: Getting Started
 sidebar_position: 1
+sidebar_class_name: gettingStarted
+keywords: ["getting started"]
+description: This is this place to get started with IdentityNow APIs.
+slug: /api/getting-started
+tags: ["Getting Started"]
 ---
 
 ## Find Your Tenant Name

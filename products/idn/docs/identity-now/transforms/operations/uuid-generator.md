@@ -1,9 +1,14 @@
 ---
 id: uuid-generator
-slug: /docs/transforms/operations/uuid-generator
+title: UUID Generator
+pagination_label: UUID Generator
+sidebar_label: UUID Generator
+sidebar_class_name: uuidGenerator
+keywords: ["transforms", "operations", "uuid", "generator"]
 description: Create a universal unique ID (UUID).
+slug: /docs/transforms/operations/uuid-generator
+tags: ["Transforms", "Operations", "UUID","Generator"]
 ---
-# UUID Generator
 
 ## Overview
 

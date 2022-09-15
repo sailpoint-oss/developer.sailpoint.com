@@ -1,9 +1,14 @@
 ---
 id: index-of
-slug: /docs/transforms/operations/index-of
+title: Index Of
+pagination_label: Index Of
+sidebar_label: Index Of
+sidebar_class_name: indexOf
+keywords: ["transforms", "operations", "index", "of"]
 description: Get the location of a specific substring within a value.
+slug: /docs/transforms/operations/index-of
+tags: ["Transforms", "Operations", "Index"]
 ---
-# Index Of
 
 ## Overview
 

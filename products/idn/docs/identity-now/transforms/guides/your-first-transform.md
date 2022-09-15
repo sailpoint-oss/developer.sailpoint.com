@@ -1,9 +1,14 @@
 ---
 id: your-first-transform
-slug: /docs/transforms/guides/your-first-transform
 title: Your First Transform
+pagination_label: Your First Transform
+sidebar_label: Your First Transform
+sidebar_class_name: yourFirstTransform
+keywords: ["transforms", "guides", "first"]
 description: Learn to build your first transform!
 sidebar_position: 1
+slug: /docs/transforms/guides/your-first-transform
+tags: ["Transforms", "Guides", "First"]
 ---
 
 ## Overview

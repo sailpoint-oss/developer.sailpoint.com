@@ -1,9 +1,14 @@
 ---
 id: static
-slug: /docs/transforms/operations/static
+title: Static
+pagination_label: Static
+sidebar_label: Static
+sidebar_class_name: static
+keywords: ["transforms", "operations", "static"]
 description: Return a fixed string value.
+slug: /docs/transforms/operations/static
+tags: ["Transforms", "Operations", "Static"]
 ---
-# Static
 
 ## Overview
 

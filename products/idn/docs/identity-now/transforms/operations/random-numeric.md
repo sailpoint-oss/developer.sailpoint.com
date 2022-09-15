@@ -1,9 +1,14 @@
 ---
 id: random-numeric
-slug: /docs/transforms/operations/random-numeric
+title: Random Numeric
+pagination_label: Random Numeric
+sidebar_label: Random Numeric
+sidebar_class_name: randomNumeric
+keywords: ["transforms", "operations", "random numeric"]
 description: Generate a random number of any length.
+slug: /docs/transforms/operations/random-numeric
+tags: ["Transforms", "Operations", "Random", "Numeric"]
 ---
-# Random Numeric
 
 ## Overview
 

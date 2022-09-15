@@ -1,9 +1,14 @@
 ---
 id: replace-all
-slug: /docs/transforms/operations/replace-all
+title: Replace All
+pagination_label: Replace All
+sidebar_label: Replace All
+sidebar_class_name: replaceAll
+keywords: ["transforms", "operations", "replace all"]
 description: Find and replace all instances of all patterns.
+slug: /docs/transforms/operations/replace-all
+tags: ["Transforms", "Operations", "Replace"]
 ---
-# Replace All
 
 ## Overview
 

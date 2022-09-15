@@ -1,9 +1,14 @@
 ---
 id: reference
-slug: /docs/transforms/operations/reference
+title: Reference
+pagination_label: Reference
+sidebar_label: Reference
+sidebar_class_name: reference
+keywords: ["transforms", "operations", "reference"]
 description: Reuse a transform that has already been written.
+slug: /docs/transforms/operations/reference
+tags: ["Transforms", "Operations", "Reference"]
 ---
-# Reference
 
 ## Overview
 

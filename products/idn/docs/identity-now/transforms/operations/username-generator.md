@@ -1,9 +1,14 @@
 ---
 id: username-generator
-slug: /docs/transforms/operations/username-generator
+title: Username Generator
+pagination_label: Username Generator
+sidebar_label: Username Generator
+sidebar_class_name: usernameGenerator
+keywords: ["transforms", "operations", "username", "generator"]
 description: Derive a unique value for an attribute in an account create profile.
+slug: /docs/transforms/operations/username-generator
+tags: ["Transforms", "Operations", "Username","Generator"]
 ---
-# Username Generator
 
 ## Overview
 

@@ -1,9 +1,14 @@
 ---
 id: get-end-of-string
-slug: /docs/transforms/operations/get-end-of-string
+title: Get End of String
+pagination_label: Get End of String
+sidebar_label: Get End of String
+sidebar_class_name: getEndOfString
+keywords: ["transforms", "operations", "get", "end", "string"]
 description: Get the rightmost N characters of a string.
+slug: /docs/transforms/operations/get-end-of-string
+tags: ["Transforms", "Operations", "End"]
 ---
-# Get End of String
 
 ## Overview
 

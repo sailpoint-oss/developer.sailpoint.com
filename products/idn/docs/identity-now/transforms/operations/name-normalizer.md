@@ -1,9 +1,14 @@
 ---
 id: name-normalizer
-slug: /docs/transforms/operations/name-normalizer
+title: Name Normalizer
+pagination_label: Name Normalizer
+sidebar_label: Name Normalizer
+sidebar_class_name: nameNormalizer
+keywords: ["transforms", "operations", "name normalizer"]
 description: Clean or standardize the spelling of strings coming in from source systems.
+slug: /docs/transforms/operations/name-normalizer
+tags: ["Transforms", "Operations", "Name"]
 ---
-# Name Normalizer
 
 ## Overview
 

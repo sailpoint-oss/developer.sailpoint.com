@@ -1,9 +1,14 @@
 ---
 id: identity-attribute
-slug: /docs/transforms/operations/identity-attribute
+title: Identity Attribute
+pagination_label: Identity Attribute
+sidebar_label: Identity Attribute
+sidebar_class_name: identityAttribute
+keywords: ["transforms", "operations", "identity", "attribute"]
 description: Get a user's identity attribute's value.
+slug: /docs/transforms/operations/identity-attribute
+tags: ["Transforms", "Operations", "Identity", "Attribute"]
 ---
-# Identity Attribute
 
 ## Overview
 

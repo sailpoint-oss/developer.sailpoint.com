@@ -1,9 +1,14 @@
 ---
 id: date-format
-slug: /docs/transforms/operations/date-format
+title: Date Format
+pagination_label: Date Format
+sidebar_label: Date Format
+sidebar_class_name: dateFormat
+keywords: ["transforms", "operations", "date", "format"]
 description: Convert datetime strings from one format to another.
+slug: /docs/transforms/operations/date-format
+tags: ["Transforms", "Operations", "Date", "Format"]
 ---
-# Date Format
 
 ## Overview
 

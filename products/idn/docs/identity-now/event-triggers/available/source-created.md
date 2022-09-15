@@ -1,8 +1,13 @@
 ---
 id: source-created
 title: Source Created
-slug: /docs/event-triggers/triggers/source-created
+pagination_label: Source Created
+sidebar_label: Source Created
+sidebar_class_name: sourceCreated
+keywords: ["event", "trigger", "source", "created", "available"]
 description: Fires after a source is created.	
+slug: /docs/event-triggers/triggers/source-created
+tags: ["Event Triggers", "Available Event Triggers", "Fire and Forget"]
 ---
 
 ## Event Context

@@ -1,9 +1,14 @@
 ---
 id: lower
-slug: /docs/transforms/operations/lower
+title: Lower
+pagination_label: Lower
+sidebar_label: Lower
+sidebar_class_name: lower
+keywords: ["transforms", "operations", "lower"]
 description: Convert an input string into all lowercase letters.
+slug: /docs/transforms/operations/lower
+tags: ["Transforms", "Operations", "Lower"]
 ---
-# Lower
 
 ## Overview
 

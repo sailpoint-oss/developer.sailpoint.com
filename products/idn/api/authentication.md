@@ -1,13 +1,18 @@
 ---
 id: authentication
-slug: /api/authentication
 title: Authentication
+pagination_label: Authentication
+sidebar_label: Authentication
 sidebar_position: 2
+sidebar_class_name: authentication
+keywords: ["authentication"]
+description: The quickest way to authenticate and start using SailPoint APIs is to generate a personal access token.
+slug: /api/authentication
+tags: ["Authentication"]
 ---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
-# Authentication
 
 ## Overview
 

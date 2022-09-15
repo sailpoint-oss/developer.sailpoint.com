@@ -1,8 +1,13 @@
 ---
 id: account-create
+title: Account Create
+pagination_label: Account Create
+sidebar_label: Account Create
+keywords: ["connectivity", "connectors", "account create"]
+description: Create account on the source.
 slug: /docs/saas-connectivity/commands/account-create
+tags: ["Connectivity", "Connector Command"]
 ---
-# Account Create
 
 | Input/Output |  Data Type                  |
 |:-------------|:---------------------------:|
@@ -10,6 +15,7 @@ slug: /docs/saas-connectivity/commands/account-create
 | Output       | StdAccountCreateOutput      |
 
 ### Example StdAccountCreateInput
+
 ```javascript
 {
     "attributes": {
@@ -25,7 +31,9 @@ slug: /docs/saas-connectivity/commands/account-create
     }
 }
 ```
+
 ### Example StdAccountCreateOutput
+
 ```javascript
 {
     "key": {
@@ -46,10 +54,13 @@ slug: /docs/saas-connectivity/commands/account-create
     }
 }
 ```
+
 ## Description
+
 The account create command triggers whenever IDN is told to provision entitlements for an identity on the target source, but no account for the identity on the target source exists yet. For example, if you create an access profile that grants a group on the target source and then add that access profile to a role, any identity matching that role’s membership criteria will be granted to the group. IDN determines which identities do not have accounts on the target source and triggers the account create command for each identity. If an identity already has an account, then it invokes the account update command.
 
 ## The Provisioning Plan
+
 The account create command accepts a provisioning plan from IDN and creates the corresponding account(s) in the target source. When you configure your source in IDN, you must set up ‘Create Profile’ to tell IDN how to provision new accounts for your source.
 
 You can create the provisioning plan through the ```accountCreateTemplate``` in the ```connector-spec.json``` file, and you can also modify its behavior in IDN using the create profile screen:
@@ -78,6 +89,7 @@ You can create the provisioning plan through the ```accountCreateTemplate``` in 
     }
 }
 ```
+
 The provisioning plan does not include any disabled attributes. In the earlier image, ```password``` is disabled, so the payload to your connector does not not include a field for ```password```:
 
 ```javascript
@@ -99,6 +111,7 @@ The provisioning plan does not include any disabled attributes. In the earlier i
     }
 }
 ```
+
 The provisioning plan presents multi-valued entitlements in two different ways: 
 
 If a multi-valued entitlement, like groups, has only one value, then the provisioning plan represents it as a string value:
@@ -119,6 +132,7 @@ If a multi-valued entitlement, like groups, has only one value, then the provisi
     }
 }
 ```
+
 If a multi-valued entitlement has more than one value, then the plan represents it as an array:
 
 ```javascript
@@ -140,6 +154,7 @@ If a multi-valued entitlement has more than one value, then the plan represents 
     }
 }
 ```
+
 Your connector code must handle the possibility of both cases. The following code example from [AirtableAccount.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/models/AirtableAccount.ts) shows how to handle a multi-valued attribute:
 
 ```javascript
@@ -159,10 +174,13 @@ public static createWithStdAccountCreateInput(record: StdAccountCreateInput): Ai
     return account;
 }
 ```
+
 ## The return object
+
 When the account is returned to IDN, any values you set are updated in IDN. So if an account ID is auto-generated on the source system, you must send the account ID back to IDN so IDN is aware of it for future account update activities. This is useful for the compound key type.
 
 ## Password Handling
+
 There are three main ways to handle passwords on a source:
 
 1. SSO, LDAP, or other federated authentication mechanisms are the preferred means of providing user login on a target source. If your source can integrate with a federated login service, use that service. If your source requires you to provide a password when you create accounts, even with a federated login, it is best to create a strong, random password. Your users will use the federated login, so they never need to know this password.
@@ -205,6 +223,7 @@ async createAccount(input: StdAccountCreateInput): Promise<AirtableAccount> {
 
 }
 ```
+
 ## Testing in IdentityNow
 
 One way to test whether the account create code works in IDN is to set up an access profile and role that grants members an entitlement from the connector’s target source. Start by creating an access profile that grants one or more entitlements from the target source.

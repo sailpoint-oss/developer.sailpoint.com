@@ -1,9 +1,14 @@
 ---
 id: lookup
-slug: /docs/transforms/operations/lookup
+title: Lookup
+pagination_label: Lookup
+sidebar_label: Lookup
+sidebar_class_name: lookup
+keywords: ["transforms", "operations", "lookup"]
 description: Look up and return a key's matching value.
+slug: /docs/transforms/operations/lookup
+tags: ["Transforms", "Operations", "Lookup"]
 ---
-# Lookup
 
 ## Overview
 

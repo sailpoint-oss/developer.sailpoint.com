@@ -1,7 +1,13 @@
 ---
 id: guides
-slug: /docs/transforms/guides
 title: Guides
+pagination_label: Guides
+sidebar_label: Guides
+sidebar_class_name: transforms
+keywords: ["transforms", "guides"]
+description: Transform Guides
+slug: /docs/transforms/guides
+tags: ["Transforms", "Guides"]
 ---
 
 # Transform Guides

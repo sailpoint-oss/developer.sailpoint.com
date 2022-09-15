@@ -1,10 +1,17 @@
 ---
 id: entitlement-read
+title: Entitlement Read
+pagination_label: Entitlement Read
+sidebar_label: Entitlement Read
+keywords: ["connectivity", "connectors", "entitlement read"]
+description: Fetch a single entitlement’s attributes from the source.
 slug: /docs/saas-connectivity/commands/entitlement-read
+tags: ["Connectivity", "Connector Command"]
 ---
-# Entitlement Read
 
->📘 At this time Entitlement Read is not triggered from IDN for any specific workflow and as such it is not necessary to implement this in order to have a fully functional connector.
+:::note
+At this time Entitlement Read is not triggered from IDN for any specific workflow and as such it is not necessary to implement this in order to have a fully functional connector.
+:::
 
 | Input/Output |  Data Type                  |
 |:-------------|:---------------------------:|
@@ -12,6 +19,7 @@ slug: /docs/saas-connectivity/commands/entitlement-read
 | Output       | StdEntitlementReadOutput      |
 
 ### Example StdEntitlementReadInput
+
 ```javascript
 {
     "key": {
@@ -22,7 +30,9 @@ slug: /docs/saas-connectivity/commands/entitlement-read
     "type": "group"
 }
 ```
+
 ### Example StdEntitlementReadOutput
+
 ```javascript
 {
     "key": {
@@ -37,9 +47,10 @@ slug: /docs/saas-connectivity/commands/entitlement-read
     }
 }
 ```
+
 ## Response Schema
 
-Entitlement read fetches a single entitlement’s attributes and returns the resulting object to IDN, similar to how entitlement list does. You can implement this in the main connector file, [index.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/index.ts): 
+Entitlement read fetches a single entitlement’s attributes and returns the resulting object to IDN, similar to how entitlement list does. You can implement this in the main connector file, [index.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/index.ts):
 
 ```javascript
 ...

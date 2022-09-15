@@ -1,4 +1,16 @@
-# Handling Rate Limits
+---
+id: handling-rate-limits
+title: Handling Rate Limits
+pagination_label: Handling Rate Limits
+sidebar_label: Handling Rate Limits
+sidebar_position: 6
+sidebar_class_name: handlingRateLimits
+keywords: ["connectivity", "connectors", "rate limits"]
+description: Rate limiting for SaaS Connectivity.
+slug: /docs/saas-connectivity/in-depth/handling-rate-limits
+tags: ["Connectivity"]
+---
+
 APIs often implement rate limits to prevent any one user from abusing the API or using an unfair amount of resources, limiting what other users of the API can do. The rate limits can manifest in many ways, but one of the most common ways is the 429 (Too Many Requests) HTTP status code. You must check the documentation of the API you are using to see whether it enforces rate limits and how it notifies you when you reach that limit. An example of rate limit documentation for Stripe’s API can be found [here](https://stripe.com/docs/rate-limits).
 
 If you are using a vendor supplied client library for the API, check the documentation for that client library to see whether it handles rate limits for you. If it does, you do not need to worry about rate limits. If it does not or if you have to implement your own library for interacting with the target API, you must handle rate limiting yourself. If you are implementing your own library for the target API, the easiest way to handle rate limits is to use the [axios-retry](https://www.npmjs.com/package/axios-retry) NPM package in conjunction with the [axios](https://www.npmjs.com/package/axios) HTTP request library. Start by including both packages in the dependencies section of your ```package.json``` file:

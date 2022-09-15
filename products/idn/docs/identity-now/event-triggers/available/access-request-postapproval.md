@@ -1,8 +1,13 @@
 ---
 id: access-request-postapproval
 title: Access Request Postapproval
-slug: /docs/event-triggers/triggers/access-request-postapproval
+pagination_label: Access Request Postapproval
+sidebar_label: Access Request Postapproval
+sidebar_class_name: accessRequestPostapproval
+keywords: ["event", "trigger", "access", "request", "postapproval", "post", "approval", "available"]
 description: Fires after an access request is approved.
+slug: /docs/event-triggers/triggers/access-request-postapproval
+tags: ["Event Triggers", "Available Event Triggers", "Fire and Forget"]
 ---
 
 ## Event Context

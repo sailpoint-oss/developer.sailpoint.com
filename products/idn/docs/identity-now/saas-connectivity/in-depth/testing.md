@@ -1,8 +1,15 @@
 ---
 id: testing
+title: Testing
+pagination_label: Testing
+sidebar_label: Testing
+sidebar_position: 7
+sidebar_class_name: testing
+keywords: ["connectivity", "connectors", "testing"]
+description: Testing SaaS Connectivity.
 slug: /docs/saas-connectivity/in-depth/testing
+tags: ["Connectivity"]
 ---
-# Testing
 
 ## Getting Started
 

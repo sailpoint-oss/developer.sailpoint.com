@@ -1,9 +1,14 @@
 ---
 id: first-valid
-slug: /docs/transforms/operations/first-valid
+title: First Valid
+pagination_label: First Valid
+sidebar_label: First Valid
+sidebar_class_name: firstValid
+keywords: ["transforms", "operations", "first", "valid"]
 description: Return the first piece of data that is not null.
+slug: /docs/transforms/operations/first-valid
+tags: ["Transforms", "Operations", "First", "Valid"]
 ---
-# First Valid
 
 ## Overview
 

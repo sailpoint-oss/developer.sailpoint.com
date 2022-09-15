@@ -1,8 +1,13 @@
 ---
 id: provisioning-action-completed
 title: Provisioning Action Completed
-slug: /docs/event-triggers/triggers/provisioning-action-completed
+pagination_label: Provisioning Action Completed
+sidebar_label: Provisioning Action Completed
+sidebar_class_name: provisioningActionCompleted
+keywords: ["event", "trigger", "provisioning", "action", "completed", "available"]
 description: Fires after a provisioning action completed on a source.
+slug: /docs/event-triggers/triggers/provisioning-action-completed
+tags: ["Event Triggers", "Available Event Triggers", "Fire and Forget"]
 ---
 
 ## Event Context

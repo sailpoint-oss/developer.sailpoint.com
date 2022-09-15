@@ -1,8 +1,14 @@
 ---
-id: common-commands
-slug: /docs/saas-connectivity/common-commands
-title: Common Commands
+id: common-cli-commands
+title: Common CLI Commands
+pagination_label: Common CLI Commands
+sidebar_label: Common CLI Commands
 sidebar_position: 3
+sidebar_class_name: commonCliCommands
+keywords: ["connectivity", "connectors", "commands", "cli"]
+description: These are the CLI commands most commonly used when building SaaS Connectors.
+slug: /docs/saas-connectivity/common-cli-commands
+tags: ["Connectivity"]
 ---
 
 Below is a list of commands and their usages:

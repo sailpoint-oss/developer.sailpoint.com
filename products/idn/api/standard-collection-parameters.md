@@ -1,13 +1,16 @@
 ---
 id: standard-collection-parameters
-slug: /api/standard-collection-parameters
 title: Standard Collection Parameters
+pagination_label: Standard Collection Parameters
+sidebar_label: Standard Collection Parameters
 sidebar_position: 3
+sidebar_class_name: standardCollectionParameters
+keywords: ["standard collection parameters"]
+description: Many endpoints in the IdentityNow API support a generic syntax for paginating, filtering and sorting the results.
+tags: ["Standard Collection Parameters"]
 ---
-# Standard Collection Parameters
 
-Many endpoints in the IdentityNow API support a generic syntax for paginating, filtering
-and sorting the results. A collection endpoint has the following characteristics:
+Many endpoints in the IdentityNow API support a generic syntax for paginating, filtering and sorting the results. A collection endpoint has the following characteristics:
 
 * The HTTP verb is always GET.
 * The last component in the URL is a plural noun (ex. `/v3/public-identities`).

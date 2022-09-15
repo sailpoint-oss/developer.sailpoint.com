@@ -1,4 +1,16 @@
-# Error Handling
+---
+id: error-handling
+title: Error Handling
+pagination_label: Error Handling
+sidebar_label: Error Handling
+sidebar_position: 3
+sidebar_class_name: errorHandling
+keywords: ["connectivity", "connectors", "error handling"]
+description: Any time code can fail due to validation issues, connectivity or configuration errors, handle the error and provide information back to the user about what went wrong.
+slug: /docs/saas-connectivity/in-depth/error-handling
+tags: ["Connectivity"]
+---
+
 Any time code can fail due to validation issues, connectivity or configuration errors, handle the error and provide information back to the user about what went wrong. If you handle your errors properly, it will be easier to debug and pinpoint what happened in your connector when something goes wrong.
 
 ## Connector Errors

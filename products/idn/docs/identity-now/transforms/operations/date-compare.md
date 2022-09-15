@@ -1,9 +1,14 @@
 ---
 id: date-compare
-slug: /docs/transforms/operations/date-compare
+title: Date Compare
+pagination_label: Date Compare
+sidebar_label: Date Compares
+sidebar_class_name: dateCompare
+keywords: ["transforms", "operations", "date", "compare"]
 description: Compare two dates and return a calculated value.
+slug: /docs/transforms/operations/date-compare
+tags: ["Transforms", "Operations", "Date", "Compare"]
 ---
-# Date Compare
 
 ## Overview
 

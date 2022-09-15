@@ -1,7 +1,14 @@
 ---
 id: early-access-event-triggers
 title: Early Access Event Triggers
+pagination_label: Early Access Event Triggers
+sidebar_label: Early Access Event Triggers
+sidebar_class_name: earlyAccessEventTriggers
+keywords: ["event", "trigger", "early access"]
+description: Event triggers that require a support ticket to enable.
 sidebar_position: 8
+slug: /docs/event-triggers/early-access
+tags: ["Event Triggers", "Early Access Event Triggers"]
 ---
 
 import DocCardList from '@theme/DocCardList';

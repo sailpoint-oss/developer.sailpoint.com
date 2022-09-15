@@ -1,9 +1,14 @@
 ---
 id: temporary-password
-slug: /docs/transforms/guides/temporary-password
 title: Generate Temporary Password
+pagination_label: Generate Temporary Password
+sidebar_label: Generate Temporary Password
+sidebar_class_name: generateTemporaryPassword
+keywords: ["transforms", "guides", "password"]
 description: Generate a temporary password for all users.
 sidebar_position: 2
+slug: /docs/transforms/guides/temporary-password
+tags: ["Transforms", "Guides", "Password"]
 ---
 
 ## Overview

@@ -1,9 +1,17 @@
 ---
 id: docs
-slug: /docs
 title: IdentityNow
 pagination_label: Introduction
+sidebar_label: IdentityNow
+sidebar_position: 1
+sidebar_class_name: IdentityNow
+hide_title: true
+keywords: ["IdentityNow", "development", "developer", "portal", "getting started", "docs", "documentation"]
+description: This is the intoduction documentation to development on the IdentityNow platform.
+slug: /docs
+tags: ["Introduction", "Getting Started"]
 ---
+
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

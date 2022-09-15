@@ -1,9 +1,16 @@
 ---
 id: transforms
-slug: /docs/transforms
 title: Transforms
+pagination_label: Transforms
+sidebar_label: Transforms
 sidebar_position: 1
+sidebar_class_name: transforms
+keywords: ["transforms"]
+description: Building Transforms in IdentityNow
+slug: /docs/transforms
+tags: ["Transforms"]
 ---
+
 # Building Transforms in IdentityNow
 
 In SailPoint's cloud services, transforms allow you to manipulate attribute values while aggregating from or provisioning to a source. This guide provides a reference to help you understand the purpose, configuration, and usage of transforms.

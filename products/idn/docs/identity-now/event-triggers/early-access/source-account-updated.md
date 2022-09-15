@@ -1,8 +1,14 @@
 ---
 id: source-account-updated
 title: Source Account Updated
-slug: /docs/event-triggers/triggers/source-account-updated
+pagination_label: Source Account Updated
+sidebar_label: Source Account Updated
+sidebar_class_name: sourceAccountUpdated
+keywords: ["event", "trigger", "source", "account", "updated", "early access"]
 description: Fires after a source account is updated.
+pagination_next: docs/identity-now/event-triggers/event-triggers
+slug: /docs/event-triggers/triggers/source-account-updated
+tags: ["Event Triggers", "Early Access Event Triggers", "Fire and Forget"]
 ---
 
 :::info

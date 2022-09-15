@@ -1,8 +1,13 @@
 ---
 id: source-account-deleted
 title: Source Account Deleted
-slug: /docs/event-triggers/triggers/source-account-deleted
+pagination_label: Source Account Deleted
+sidebar_label: Source Account Deleted
+sidebar_class_name: sourceAccountDeleted
+keywords: ["event", "trigger", "source", "account", "deleted", "early access"]
 description: Fires after a source account is deleted.
+slug: /docs/event-triggers/triggers/source-account-deleted
+tags: ["Event Triggers", "Early Access Event Triggers", "Fire and Forget"]
 ---
 
 :::info

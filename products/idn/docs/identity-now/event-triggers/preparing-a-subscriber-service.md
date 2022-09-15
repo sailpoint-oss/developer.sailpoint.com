@@ -1,9 +1,15 @@
 ---
-id: preparing-a-subscriber-service
+id: preparing-subscriber-service
+title: Preparing a Subscriber Service
+pagination_title: Preparing a Subscriber Service
+sidebar_label: Preparing a Subscriber Service
 sidebar_position: 2
+sidebar_class_name: preparingSubscriberService
+keywords: ["event", "triggers", "subscriber"]
+description: Before you can subscribe to an event trigger, you must prepare a service that can accept incoming HTTP requests from the event trigger service. 
+slug: /docs/event-triggers/preparing-subscriber-service
+tags: ["Event Triggers"]
 ---
-
-# Preparing a Subscriber Service
 
 Before you can subscribe to an event trigger, you must prepare a service that can accept incoming HTTP requests from the event trigger service.  More specifically, your client service must accept a POST request to an endpoint of its choosing, with the ability to parse the JSON data sent by the trigger.  There are many ways to accomplish this, but this guide covers four of the most common types of client services you can build to handle event triggers.
 

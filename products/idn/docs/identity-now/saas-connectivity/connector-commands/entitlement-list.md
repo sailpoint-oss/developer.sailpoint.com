@@ -1,8 +1,13 @@
 ---
 id: entitlement-list
+title: Entitlement List
+pagination_label: Entitlement List
+sidebar_label: Entitlement List
+keywords: ["connectivity", "connectors", "entitlement list"]
+description: Gather a list of all entitlements available on the source.
 slug: /docs/saas-connectivity/commands/entitlement-list
+tags: ["Connectivity", "Connector Command"]
 ---
-# Entitlement List
 
 | Input/Output |  Data Type                  |
 |:-------------|:---------------------------:|
@@ -10,12 +15,15 @@ slug: /docs/saas-connectivity/commands/entitlement-list
 | Output       | StdEntitlementListOutput      |
 
 ### Example StdEntitlementListInput
+
 ```javascript
 {
     "type": "group" 
 }
 ```
+
 ### Example StdEntitlementListOutput
+
 ```javascript
 {
     "key": {
@@ -30,6 +38,7 @@ slug: /docs/saas-connectivity/commands/entitlement-list
     }
 }
 ```
+
 ## Description
 
 The entitlement list command triggers during a manual or scheduled entitlement aggregation operation within IDN. This operation gathers a list of all entitlements available on the target source, usually multi-valued entitlements like groups or roles. This operation provides IDN administrators with a list of entitlements available on the source so they can create access profiles and roles accordingly, and it provides IDN with more details about the entitlements. The entitlement schema’s minimum requirements are name and ID, but you can add other values, such as created date, updated date, status, etc.
@@ -37,33 +46,35 @@ The entitlement list command triggers during a manual or scheduled entitlement a
 ![Discover Schema 4](./img/entitlement_list_idn.png)
 
 ## Defining the Schema
+
 The entitlement schema is defined in the [connector-spec.json](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/connector-spec.json) file. Currently, only the multi-valued “group” type is supported. The following values are the minimum requirements, but you can add more attributes.
 
 ```javascript
 ...
 "entitlementSchemas": [
-	{
-		"type": "group",
-		"displayAttribute": "name",
-		"identityAttribute": "id",
-		"attributes": [
-			{
-				"name": "id",
-				"type": "string",
-				"description": "Unique ID of the group (ex. admin)"
-			},
-			{
-				"name": "name",
-				"type": "string",
-				"description": "The display name of the group (ex. Admin)"
-			}
-		]
-	}
+ {
+  "type": "group",
+  "displayAttribute": "name",
+  "identityAttribute": "id",
+  "attributes": [
+   {
+    "name": "id",
+    "type": "string",
+    "description": "Unique ID of the group (ex. admin)"
+   },
+   {
+    "name": "name",
+    "type": "string",
+    "description": "The display name of the group (ex. Admin)"
+   }
+  ]
+ }
 ],
 ...
 ```
 
 ## Implementation
+
 This can be implemented in the main connector file, [index.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/index.ts):  
 
 ```javascript

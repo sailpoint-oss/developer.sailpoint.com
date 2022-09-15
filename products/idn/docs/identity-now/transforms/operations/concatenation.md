@@ -1,9 +1,14 @@
 ---
 id: concatenation
-slug: /docs/transforms/operations/concatenation
+title: Concatenation
+pagination_label: Concatenation
+sidebar_label: Concatenation
+sidebar_class_name: concatenation
+keywords: ["transforms", "operations", "concatenation"]
 description: Join two or more string values into a combined output.
+slug: /docs/transforms/operations/concatenation
+tags: ["Transforms", "Operations", "Concatenation"]
 ---
-# Concatenation
 
 ## Overview
 

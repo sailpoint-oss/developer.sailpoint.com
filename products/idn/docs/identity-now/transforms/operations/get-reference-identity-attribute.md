@@ -1,9 +1,14 @@
 ---
 id: get-reference-identity-attribute
-slug: /docs/transforms/operations/get-reference-identity-attribute
+title: Get Reference Identity Attribute
+pagination_label: Get Reference Identity Attribute
+sidebar_label: Get Reference Identity Attribute
+sidebar_class_name: getReferenceIdentityAttribute
+keywords: ["transforms", "operations", "get", "reference", "identity", "attribute"]
 description: Get another user's identity attribute.
+slug: /docs/transforms/operations/get-reference-identity-attribute
+tags: ["Transforms", "Operations", "Identity", "Attribute"]
 ---
-# Get Reference Identity Attribute
 
 ## Overview
 

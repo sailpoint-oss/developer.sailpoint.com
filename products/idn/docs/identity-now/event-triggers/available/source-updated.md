@@ -1,8 +1,13 @@
 ---
 id: source-updated
 title: Source Updated
-slug: /docs/event-triggers/triggers/source-updated
+pagination_label: Source Updated
+sidebar_label: Source Updated
+sidebar_class_name: sourceUpdated
+keywords: ["event", "trigger", "source", "updated", "available"]
 description: Fires after a source is updated.	
+slug: /docs/event-triggers/triggers/source-updated
+tags: ["Event Triggers", "Available Event Triggers", "Fire and Forget"]
 ---
 
 ## Event Context

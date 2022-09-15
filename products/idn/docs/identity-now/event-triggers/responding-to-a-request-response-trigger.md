@@ -1,12 +1,18 @@
 ---
 id: responding-to-request-response-trigger
+title: Responding To Request Response Triggers
+pagination_label: Responding To Request Response Triggers
+sidebar_label: Responding To Request Response Triggers
 sidebar_position: 6
+sidebar_class_name: respondingRequestResponseTriggers
+keywords: ["event", "trigger", "request reseponse"]
+description: You can specify how your application interacts with a REQUEST_RESPONSE type trigger service by selecting an invocation response mode in the Response Type dropdown when editing or creating a REQUEST_RESPONSE subscription.
+slug: /docs/event-triggers/responding-request-response-trigger
+tags: ["Event Triggers"]
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
-# Responding to a Request Response Trigger
 
 ## Invocation Response Modes for REQUEST_RESPONSE Type Triggers
 

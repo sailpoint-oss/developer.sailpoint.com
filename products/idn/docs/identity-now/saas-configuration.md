@@ -1,8 +1,13 @@
 ---
 id: saas-configuration
-slug: /docs/saas-configuration
 title: SaaS Configuration
+pagination_label: SaaS Configuration
 sidebar_position: 3
+sidebar_class_name: saasConfiguration
+keywords: ["configuration"]
+description: Use SaaS Configuration APIs to import and export configurations.
+slug: /docs/saas-configuration
+tags: ["SaaS Configuration"]
 ---
 
 import Tabs from '@theme/Tabs';

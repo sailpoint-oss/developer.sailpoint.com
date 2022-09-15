@@ -1,6 +1,7 @@
 ---
 id: entitlement-read
 slug: /docs/saas-connectivity/commands/entitlement-read
+description: Fetch a single entitlement’s attributes from the source.
 ---
 # Entitlement Read
 
@@ -12,6 +13,7 @@ slug: /docs/saas-connectivity/commands/entitlement-read
 | Output       | StdEntitlementReadOutput      |
 
 ### Example StdEntitlementReadInput
+
 ```javascript
 {
     "key": {
@@ -22,7 +24,9 @@ slug: /docs/saas-connectivity/commands/entitlement-read
     "type": "group"
 }
 ```
+
 ### Example StdEntitlementReadOutput
+
 ```javascript
 {
     "key": {
@@ -37,9 +41,10 @@ slug: /docs/saas-connectivity/commands/entitlement-read
     }
 }
 ```
+
 ## Response Schema
 
-Entitlement read fetches a single entitlement’s attributes and returns the resulting object to IDN, similar to how entitlement list does. You can implement this in the main connector file, [index.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/index.ts): 
+Entitlement read fetches a single entitlement’s attributes and returns the resulting object to IDN, similar to how entitlement list does. You can implement this in the main connector file, [index.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/index.ts):
 
 ```javascript
 ...

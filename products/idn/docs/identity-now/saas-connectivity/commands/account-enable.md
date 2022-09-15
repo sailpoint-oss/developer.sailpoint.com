@@ -1,6 +1,7 @@
 ---
 id: account-enable
 slug: /docs/saas-connectivity/commands/account-enable
+description: Enable an account on the source.
 ---
 # Account Enable/Disable
 
@@ -12,6 +13,7 @@ slug: /docs/saas-connectivity/commands/account-enable
 | Output -Disable      | StdAccountDisableOutput      |
 
 ### Example StdAccountEnableInput/StdAccountDisableInput
+
 ```javascript
 "key": {
     "simple": {
@@ -19,7 +21,9 @@ slug: /docs/saas-connectivity/commands/account-enable
     }
 }
 ```
+
 ### Example StdAccountEnableOutput/StdAccountDisableOutput
+
 ```javascript
 {
     "key": {
@@ -40,6 +44,7 @@ slug: /docs/saas-connectivity/commands/account-enable
     }
 }
 ```
+
 ## Description
 You typically invoke the account enable and account disable commands during the joiner, mover, leaver (JML) lifecycle. An identity’s leaving from the organization or change to a role that does not require access to one or more accounts triggers the account disable command. An identity’s rejoining the organization or move to a role that grants access to a previously disabled account triggers the account enable command.
 

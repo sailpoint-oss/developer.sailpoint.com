@@ -1,6 +1,7 @@
 ---
 id: account-discover
 slug: /docs/saas-connectivity/commands/account-discover
+description: Dynamically determine account schema from the source.
 ---
 # Account Discover Schema
 
@@ -10,6 +11,7 @@ slug: /docs/saas-connectivity/commands/account-discover
 | Output       | StdTestConnectionOutput      |
 
 ### Example StdTestConnectionOutput
+
 ```javascript
 {
     "displayAttribute": "id",
@@ -42,158 +44,162 @@ slug: /docs/saas-connectivity/commands/account-discover
     ]
 }
 ```
+
 ## Description
+
 The account discover schema command tells IDN to dynamically create the account schema for the source rather than use the account schema provided by the connector in connector-spec.json. It is often ideal to statically define the account schema because it is generally more performant and easier to develop and reason about the code. However, some sources have schemas that can be different for each customer deployment. It can also be difficult to determine which account attributes to statically expose, which requires the schema to be dynamically generated. SalesForce is an example of a source that can have thousands of account attributes, which makes it impractical to statically define a set of attributes that satisfies all connector users. Although the SalesForce connector defines a standard set of account attributes out of the box, it also allows schema discovery for users looking for more attributes.
 
 ## Implementation
+
 If your connector requires dynamic schema discovery, you must add std:account:discover-schema to the list of commands in connector-spec.json. Because the account schema is dynamic, you do not need to specify an accountSchema or an accountCreateTemplate object in connector-spec.json.  Your connector-spec.json file will look similar to this example from the [Airtable connector](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/connector-spec.json).
 
 ```javascript
 {
-	"name": "airtable-v4",
-	"keyType": "simple",
-	"commands": [
-		"std:account:list",
-		"std:account:read",
-		"std:entitlement:list",
-		"std:entitlement:read",
-		"std:test-connection",
-		"std:account:update",
-		"std:account:discover-schema",
-		"std:account:create",
-		"std:account:delete",
-		"std:account:disable",
-		"std:account:enable",
-		"std:account:unlock"
-	],
-	"sourceConfig": [
-		{
-			"type": "section",
-			"items": [
-				{
-					"key": "apiKey",
-					"label": "API Key",
-					"type": "text"
-				},
-				{
-					"key": "airtableBase",
-					"label": "airtable base ID",
-					"type": "text"
-				}
-			]
-		}
-	],
-	"entitlementSchemas": [
-		{
-			"type": "group",
-			"displayAttribute": "name",
-			"identityAttribute": "id",
-			"attributes": [
-				{
-					"name": "id",
-					"type": "string",
-					"description": "Unique ID of the group (ex. admin)"
-				},
-				{
-					"name": "name",
-					"type": "string",
-					"description": "The display name of the group (ex. Admin)"
-				}
-			]
-		}
-	],
-	"accountCreateTemplate": {
-		"fields": [
-			{
-				"key": "email",
-				"label": "Email",
-				"type": "string",
-				"required": true,
-				"initialValue": {
-					"type": "identityAttribute",
-					"attributes": {
-						"name": "email"
-					}
-				}
-			},
-			{
-				"key": "id",
-				"label": "id",
-				"type": "string",
-				"required": true,
-				"initialValue": {
-					"type": "identityAttribute",
-					"attributes": {
-						"name": "uid"
-					}
-				}
-			},
-			{
-				"key": "password",
-				"label": "Password",
-				"type": "string",
-				"required": true,
-				"initialValue": {
-					"type": "generator",
-					"attributes": {
-						"name": "Create Password"
-					}
-				}
-			},
-			{
-				"key": "department",
-				"label": "Department",
-				"type": "string",
-				"required": false,
-				"initialValue": {
-					"type": "identityAttribute",
-					"attributes": {
-						"name": "department"
-					}
-				}
-			},
-			{
-				"key": "displayName",
-				"label": "Display Name",
-				"type": "string",
-				"required": false,
-				"initialValue": {
-					"type": "identityAttribute",
-					"attributes": {
-						"name": "displayName"
-					}
-				}
-			},
-			{
-				"key": "firstName",
-				"label": "First Name",
-				"type": "string",
-				"required": false,
-				"initialValue": {
-					"type": "identityAttribute",
-					"attributes": {
-						"name": "firstname"
-					}
-				}
-			},
-			{
-				"key": "lastName",
-				"label": "Last Name",
-				"type": "string",
-				"required": false,
-				"initialValue": {
-					"type": "identityAttribute",
-					"attributes": {
-						"name": "lastname"
-					}
-				}
-			}
-		]
-	}
+ "name": "airtable-v4",
+ "keyType": "simple",
+ "commands": [
+  "std:account:list",
+  "std:account:read",
+  "std:entitlement:list",
+  "std:entitlement:read",
+  "std:test-connection",
+  "std:account:update",
+  "std:account:discover-schema",
+  "std:account:create",
+  "std:account:delete",
+  "std:account:disable",
+  "std:account:enable",
+  "std:account:unlock"
+ ],
+ "sourceConfig": [
+  {
+   "type": "section",
+   "items": [
+    {
+     "key": "apiKey",
+     "label": "API Key",
+     "type": "text"
+    },
+    {
+     "key": "airtableBase",
+     "label": "airtable base ID",
+     "type": "text"
+    }
+   ]
+  }
+ ],
+ "entitlementSchemas": [
+  {
+   "type": "group",
+   "displayAttribute": "name",
+   "identityAttribute": "id",
+   "attributes": [
+    {
+     "name": "id",
+     "type": "string",
+     "description": "Unique ID of the group (ex. admin)"
+    },
+    {
+     "name": "name",
+     "type": "string",
+     "description": "The display name of the group (ex. Admin)"
+    }
+   ]
+  }
+ ],
+ "accountCreateTemplate": {
+  "fields": [
+   {
+    "key": "email",
+    "label": "Email",
+    "type": "string",
+    "required": true,
+    "initialValue": {
+     "type": "identityAttribute",
+     "attributes": {
+      "name": "email"
+     }
+    }
+   },
+   {
+    "key": "id",
+    "label": "id",
+    "type": "string",
+    "required": true,
+    "initialValue": {
+     "type": "identityAttribute",
+     "attributes": {
+      "name": "uid"
+     }
+    }
+   },
+   {
+    "key": "password",
+    "label": "Password",
+    "type": "string",
+    "required": true,
+    "initialValue": {
+     "type": "generator",
+     "attributes": {
+      "name": "Create Password"
+     }
+    }
+   },
+   {
+    "key": "department",
+    "label": "Department",
+    "type": "string",
+    "required": false,
+    "initialValue": {
+     "type": "identityAttribute",
+     "attributes": {
+      "name": "department"
+     }
+    }
+   },
+   {
+    "key": "displayName",
+    "label": "Display Name",
+    "type": "string",
+    "required": false,
+    "initialValue": {
+     "type": "identityAttribute",
+     "attributes": {
+      "name": "displayName"
+     }
+    }
+   },
+   {
+    "key": "firstName",
+    "label": "First Name",
+    "type": "string",
+    "required": false,
+    "initialValue": {
+     "type": "identityAttribute",
+     "attributes": {
+      "name": "firstname"
+     }
+    }
+   },
+   {
+    "key": "lastName",
+    "label": "Last Name",
+    "type": "string",
+    "required": false,
+    "initialValue": {
+     "type": "identityAttribute",
+     "attributes": {
+      "name": "lastname"
+     }
+    }
+   }
+  ]
+ }
 }
 ```
 
 ## Programmatically build an account schema
+
 There are many ways to programmatically build the account schema for a source. This section will cover one such method. To start, register your command in the main connector file, [index.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/index.ts).
 
 ```javascript
@@ -334,6 +340,7 @@ This code produces the following payload that will be sent back to IDN.
 There are many properties in this payload, so you may want to remove some, but it can be hard to determine which properties to keep in a dynamic way. If you can programmatically determine which properties to remove, you can alter the ```discoverSchema()``` function to remove them.
 
 ## Test in IdentityNow
+
 To test the account discover schema command in IDN, ensure that you upload your latest connector code and create a new source in IDN. After you configure and test your source connection, go to the ‘Account Schema’ page. You will see an empty schema.
 
 ![Discover Schema 1](./img/discover_schema_idn1.png)

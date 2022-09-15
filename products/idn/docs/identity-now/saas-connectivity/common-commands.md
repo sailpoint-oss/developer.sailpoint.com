@@ -22,3 +22,5 @@ Below is a list of commands and their usages:
     - Get a list of actions: ```sp conn invoke -h```
     - Run read-only integration tests against your connector: ```sp conn validate -p config.json -c [connectorID | connectorAlias] -r```
     - Tail IDN Org connector logs: ```sp conn logs tail```
+- **Delete**
+    - Delete a connector: ```sp conn delete -c [connectorID | connectorAlias]```

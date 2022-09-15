@@ -194,8 +194,10 @@ html[data-theme="dark"] .footer {
   border-color: #7f7f7f;
 }
 
-.alert a {
-  color: var(--ifm-link-color);
-  text-decoration: var(--ifm-link-decoration);
-  transition: color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+.theme-admonition-note {
+  background-color: #eeeeee;
+}
+
+html[data-theme="dark"] .theme-admonition-note {
+  background-color: #474748;
 }

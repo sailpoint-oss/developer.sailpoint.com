@@ -4,10 +4,10 @@ title: Source Account Created
 pagination_label: Source Account Created
 sidebar_label: Source Account Created
 sidebar_class_name: sourceAccountCreated
-keywords: ["event", "trigger", "source", "account", "created"]
+keywords: ["event", "trigger", "source", "account", "created", "early access"]
 description: Fires after a source account is created.
 slug: /docs/event-triggers/triggers/source-account-created
-tags: ["Event Triggers", "Source Account Created"]
+tags: ["Event Triggers", "Early Access Event Triggers"]
 ---
 
 :::info

@@ -4,10 +4,10 @@ title: Saved Search Complete
 pagination_label: Saved Search Complete
 sidebar_label: Saved Search Complete
 sidebar_class_name: savedSearchComplete
-keywords: ["event", "trigger", "saved", "search", "complete"]
+keywords: ["event", "trigger", "saved", "search", "complete", "available"]
 description: Fires after a scheduled search completed.
 slug: /docs/event-triggers/triggers/saved-search-completed
-tags: ["Event Triggers", "Saved Search Complete"]
+tags: ["Event Triggers", "Available Event Triggers"]
 ---
 
 ## Event Context

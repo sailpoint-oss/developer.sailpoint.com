@@ -8,7 +8,7 @@ keywords: ["event", "trigger", "available"]
 description: Event triggers that are generally available.
 sidebar_position: 7
 slug: /docs/event-triggers/available
-tags: ["Event Triggers", "Available"]
+tags: ["Event Triggers", "Available Event Triggers"]
 ---
 
 import DocCardList from '@theme/DocCardList';

@@ -11,8 +11,6 @@ slug: /docs/event-triggers/subscribing-to-trigger
 tags: ["Event Triggers", "Subscribing"]
 ---
 
-# Subscribing to a Trigger
-
 ## View the Available Triggers
 
 SailPoint is continuously developing new event triggers to satisfy different use cases.  Some of these triggers are considered **early access** and are only available in an IDN tenant upon request.  To see a list of available event triggers in your tenant, go to the **Event Triggers** tab in the **Admin** section of IdentityNow.  The first page is a list of your tenant's available event triggers. You can select each trigger to learn more about its type, what causes it to fire, and what the payload will look like.

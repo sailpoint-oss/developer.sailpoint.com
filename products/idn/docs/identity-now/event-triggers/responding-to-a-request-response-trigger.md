@@ -14,8 +14,6 @@ tags: ["Event Triggers", "Request Response Trigger"]
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Responding to a Request Response Trigger
-
 ## Invocation Response Modes for REQUEST_RESPONSE Type Triggers
 
 You can specify how your application interacts with a `REQUEST_RESPONSE` type trigger service by selecting an invocation response mode in the **Response Type** dropdown when editing or creating a `REQUEST_RESPONSE` subscription. There are three response modes to choose from: `SYNC`, `ASYNC`, and `DYNAMIC`. These response modes are only available when the subscription type is set to `HTTP`.

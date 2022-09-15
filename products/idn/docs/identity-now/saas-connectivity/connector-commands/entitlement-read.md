@@ -6,7 +6,7 @@ sidebar_label: Entitlement Read
 keywords: ["connectivity", "connectors", "entitlement read"]
 description: Fetch a single entitlement’s attributes from the source.
 slug: /docs/saas-connectivity/commands/entitlement-read
-tags: ["Connectivity"]
+tags: ["Connectivity", "Connector Command"]
 ---
 
 :::note

@@ -6,7 +6,7 @@ sidebar_label: Account Create
 keywords: ["connectivity", "connectors", "account create"]
 description: Create account on the source.
 slug: /docs/saas-connectivity/commands/account-create
-tags: ["Connectivity"]
+tags: ["Connectivity", "Connector Command"]
 ---
 
 | Input/Output |  Data Type                  |

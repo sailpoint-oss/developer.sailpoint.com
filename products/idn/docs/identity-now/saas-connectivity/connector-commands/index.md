@@ -1,17 +1,16 @@
 ---
-id: commands
-title: Commands
-pagination_label: Commands
-sidebar_label: Commands
+id: connector-commands
+title: Connector Commands
+pagination_label: Connector Commands
+sidebar_label: Connector Commands
 sidebar_position: 7
-sidebar_class_name: commands
+sidebar_class_name: connectorCommands
 keywords: ["connectivity", "connector", "commands"]
 description: All commands available to implement in a SaaS Connector.
-slug: /docs/saas-connectivity/commands
+slug: /docs/saas-connectivity/connector-commands
 tags: ["Connectivity"]
 ---
 
-## Connector Commands
 Below you will find all of commands available to implement in a SaaS Connector.
 
 ```mdx-code-block

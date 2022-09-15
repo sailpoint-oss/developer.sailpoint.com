@@ -6,7 +6,7 @@ sidebar_label: Account Unlock
 keywords: ["connectivity", "connectors", "account unlock"]
 description: Lock and unlock an account on the source.
 slug: /docs/saas-connectivity/commands/account-unlock
-tags: ["Connectivity"]
+tags: ["Connectivity", "Connector Command"]
 ---
 
 | Input/Output |  Data Type                |

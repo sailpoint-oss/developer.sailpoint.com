@@ -6,7 +6,7 @@ sidebar_label: Test Connection
 keywords: ["connectivity", "connectors", "test connection"]
 description: Ensure the connector can communicate with the source.
 slug: /docs/saas-connectivity/commands/test-connection
-tags: ["Connectivity"]
+tags: ["Connectivity", "Connector Command"]
 ---
 
 | Input/Output |  Data Type                |

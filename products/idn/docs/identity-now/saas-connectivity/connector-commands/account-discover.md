@@ -6,7 +6,7 @@ sidebar_label: Account Discover
 keywords: ["connectivity", "connectors", "account discover"]
 description: Dynamically determine account schema from the source.
 slug: /docs/saas-connectivity/commands/account-discover
-tags: ["Connectivity"]
+tags: ["Connectivity", "Connector Command"]
 ---
 
 | Input/Output |  Data Type                   |

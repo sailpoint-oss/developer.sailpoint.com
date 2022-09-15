@@ -6,7 +6,7 @@ sidebar_label: Account Enable
 keywords: ["connectivity", "connectors", "account enable"]
 description: Enable an account on the source.
 slug: /docs/saas-connectivity/commands/account-enable
-tags: ["Connectivity"]
+tags: ["Connectivity", "Connector Command"]
 ---
 
 | Input/Output |  Data Type                           |

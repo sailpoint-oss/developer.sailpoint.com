@@ -6,7 +6,7 @@ sidebar_label: Account Delete
 keywords: ["connectivity", "connectors", "account delete"]
 description: Remove account from a source.
 slug: /docs/saas-connectivity/commands/account-delete
-tags: ["Connectivity"]
+tags: ["Connectivity", "Connector Command"]
 ---
 
 | Input/Output |  Data Type                  |

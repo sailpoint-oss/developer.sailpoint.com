@@ -6,7 +6,7 @@ sidebar_label: Account Read
 keywords: ["connectivity", "connectors", "account read"]
 description: Aggregate a single account from the source into IdentityNow.
 slug: /docs/saas-connectivity/commands/account-read
-tags: ["Connectivity"]
+tags: ["Connectivity", "Connector Command"]
 ---
 
 | Input/Output |  Data Type                |

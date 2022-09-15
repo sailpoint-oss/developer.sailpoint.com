@@ -6,7 +6,7 @@ sidebar_label: Account Update
 keywords: ["connectivity", "connectors", "account update"]
 description: Update an account on the source.
 slug: /docs/saas-connectivity/commands/account-update
-tags: ["Connectivity"]
+tags: ["Connectivity", "Connector Command"]
 ---
 
 | Input/Output |  Data Type                  |

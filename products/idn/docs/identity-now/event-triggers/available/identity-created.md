@@ -4,10 +4,10 @@ title: Identity Created
 pagination_label: Identity Created
 sidebar_label: Identity Created
 sidebar_class_name: identityCreated
-keywords: ["event", "trigger", "identity", "created"]
+keywords: ["event", "trigger", "identity", "created", "available"]
 description: Fires after an identity is created.
 slug: /docs/event-triggers/triggers/identity-created
-tags: ["Event Triggers", "Identity Created"]
+tags: ["Event Triggers", "Available Event Triggers"]
 ---
 
 ## Event Context

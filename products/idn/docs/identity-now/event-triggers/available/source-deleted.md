@@ -4,10 +4,10 @@ title: Source Deleted
 pagination_label: Source Deleted
 sidebar_label: Source Deleted
 sidebar_class_name: sourceDeleted
-keywords: ["event", "trigger", "source", "deleted"]
+keywords: ["event", "trigger", "source", "deleted", "available"]
 description: Fires after a source is deleted.	
 slug: /docs/event-triggers/triggers/source-deleted
-tags: ["Event Triggers", "Source Deleted"]
+tags: ["Event Triggers", "Available Event Triggers"]
 ---
 
 ## Event Context

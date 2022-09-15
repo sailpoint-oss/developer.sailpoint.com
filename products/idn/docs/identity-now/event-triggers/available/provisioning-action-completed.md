@@ -4,10 +4,10 @@ title: Provisioning Action Completed
 pagination_label: Provisioning Action Completed
 sidebar_label: Provisioning Action Completed
 sidebar_class_name: provisioningActionCompleted
-keywords: ["event", "trigger", "provisioning", "action", "completed"]
+keywords: ["event", "trigger", "provisioning", "action", "completed", "available"]
 description: Fires after a provisioning action completed on a source.
 slug: /docs/event-triggers/triggers/provisioning-action-completed
-tags: ["Event Triggers", "Provisioning Action Completed"]
+tags: ["Event Triggers", "Available Event Triggers"]
 ---
 
 ## Event Context

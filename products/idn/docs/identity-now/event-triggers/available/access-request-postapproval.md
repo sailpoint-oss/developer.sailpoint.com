@@ -4,10 +4,10 @@ title: Access Request Postapproval
 pagination_label: Access Request Postapproval
 sidebar_label: Access Request Postapproval
 sidebar_class_name: accessRequestPostapproval
-keywords: ["event", "trigger", "access", "request", "postapproval", "post", "approval"]
+keywords: ["event", "trigger", "access", "request", "postapproval", "post", "approval", "available"]
 description: Fires after an access request is approved.
 slug: /docs/event-triggers/triggers/access-request-postapproval
-tags: ["Event Triggers", "Access Request Postapproval"]
+tags: ["Event Triggers", "Available Event Triggers"]
 ---
 
 ## Event Context

@@ -4,10 +4,10 @@ title: Source Updated
 pagination_label: Source Updated
 sidebar_label: Source Updated
 sidebar_class_name: sourceUpdated
-keywords: ["event", "trigger", "source", "updated"]
+keywords: ["event", "trigger", "source", "updated", "available"]
 description: Fires after a source is updated.	
 slug: /docs/event-triggers/triggers/source-updated
-tags: ["Event Triggers", "Source Updated"]
+tags: ["Event Triggers", "Available Event Triggers"]
 ---
 
 ## Event Context

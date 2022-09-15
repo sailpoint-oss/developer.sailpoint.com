@@ -4,10 +4,10 @@ title: Identity Deleted
 pagination_label: Identity Deleted
 sidebar_label: Identity Deleted
 sidebar_class_name: identityDeleted
-keywords: ["event", "trigger", "identity", "deleted"]
+keywords: ["event", "trigger", "identity", "deleted", "early access"]
 description: Fires after an identity is deleted.
 slug: /docs/event-triggers/triggers/identity-deleted
-tags: ["Event Triggers", "Identity Deleted"]
+tags: ["Event Triggers", "Early Access Event Triggers"]
 ---
 
 

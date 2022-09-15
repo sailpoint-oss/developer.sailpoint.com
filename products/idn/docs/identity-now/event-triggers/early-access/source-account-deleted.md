@@ -4,10 +4,10 @@ title: Source Account Deleted
 pagination_label: Source Account Deleted
 sidebar_label: Source Account Deleted
 sidebar_class_name: sourceAccountDeleted
-keywords: ["event", "trigger", "source", "account", "deleted"]
+keywords: ["event", "trigger", "source", "account", "deleted", "early access"]
 description: Fires after a source account is deleted.
 slug: /docs/event-triggers/triggers/source-account-deleted
-tags: ["Event Triggers", "Source Account Deleted"]
+tags: ["Event Triggers", "Early Access Event Triggers"]
 ---
 
 :::info

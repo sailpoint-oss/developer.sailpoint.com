@@ -1,8 +1,13 @@
 ---
 id: access-request-dynamic-approval
 title: Access Request Dynamic Approval
-slug: /docs/event-triggers/triggers/access-request-dynamic-approval
+pagination_label: Access Request Dynamic Approval
+sidebar_label: Access Request Dynamic Approval
+sidebar_class_name: accessRequestDynamicApproval
+keywords: ["event", "trigger", "access", "request", "dynamic", "approval"]
 description: Fires after an access request is submitted.
+slug: /docs/event-triggers/triggers/access-request-dynamic-approval
+tags: ["Event Triggers", "Access Request Dynamic Approval"]
 ---
 
 ## Event Context

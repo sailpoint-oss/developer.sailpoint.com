@@ -6,15 +6,15 @@ module.exports = {
         items: [
           {
             label: "Your First API Call",
-            to: "idn/docs/getting-started"
+            to: "idn/api/getting-started"
           },
           {
             label: "Build A Transform",
-            to: "idn/docs/transforms"
+            to: "idn/docs/transforms/guides/your-first-transform"
           },
           {
             label: "Build A SaaS Connector",
-            to: "idn/docs/saas-connectors"
+            to: "idn/docs/saas-connectivity"
           },
           {
             label: "Get Certified",
@@ -27,7 +27,7 @@ module.exports = {
         items: [
           {
             label: "Build A Plugin",
-            to: "https://documentation.sailpoint.com/"
+            to: "https://documentation.sailpoint.com/identityiq/help/plugins/identityiq_plugins.html"
           },
           {
             label: "Get Certified",
@@ -95,7 +95,7 @@ module.exports = {
         items: [
           {
             label: "Terms & Conditions",
-            to: "https://developet.sailpoint.com"
+            to: "https://developer.sailpoint.com/discuss/tos"
           }
         ]
       }

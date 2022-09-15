@@ -12,7 +12,7 @@
     "description": "The title of the 404 page"
   },
   "theme.NotFound.p1": {
-    "message": "We could not find what you were looking for.",
+    "message": "...but it could!",
     "description": "The first paragraph of the 404 page"
   },
   "theme.NotFound.p2": {

@@ -15,7 +15,7 @@ module.exports = {
           {to: '/idn/api/v3', label: 'V3 APIs', className: "indent"},
           {to: '/idn/api/beta', label: 'Beta APIs', className: "indent"},
           {to: "#", label: "Documentation", className: "navbar__section",},
-          {to: '/idn/docs/getting-started', label: 'IDN Documentation', className: "indent"},
+          {to: 'idn/docs', label: 'IDN Documentation', className: "indent"},
           {to: "#", label: "Training", className: "navbar__section",},
           {href: 'https://university.sailpoint.com/Saba/Web_spf/NA10P1PRD075/guest/categorydetail/categ000000000003041/true/xxemptyxx/', label: 'IdentityNow Certifications', className: "indent"},
         ],

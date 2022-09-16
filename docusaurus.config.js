@@ -1,56 +1,56 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const lightCodeTheme = require("prism-react-renderer/themes/github");
+const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
-const footer = require('./footer');
-const navbar = require('./navbar');
-const plugins = require('./plugins');
+const footer = require("./footer");
+const navbar = require("./navbar");
+const plugins = require("./plugins");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'SailPoint Developer Community',
-  url: 'https://developer.sailpoint.com',
-  baseUrl: '/developer.sailpoint.com/',
-  favicon: 'img/SailPoint-Logo-Icon.ico',
-  onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
-  onDuplicateRoutes: 'warn',
+  title: "SailPoint Developer Community",
+  url: "https://developer.sailpoint.com",
+  baseUrl: "/developer.sailpoint.com/",
+  favicon: "img/SailPoint-Logo-Icon.ico",
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "throw",
+  onDuplicateRoutes: "warn",
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
-  
+
   presets: [
     [
-      'classic',
+      "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          editUrl: "https://github.com/sailpoint-oss/developer-community-site/edit/main/",
+          editUrl:
+            "https://github.com/sailpoint-oss/developer-community-site/edit/main/",
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
           sidebarCollapsible: true,
-          sidebarPath: require.resolve('./sidebars.js'),
+          sidebarPath: require.resolve("./sidebars.js"),
           docLayoutComponent: "@theme/DocPage",
-          docItemComponent: "@theme/ApiItem" // Derived from docusaurus-theme-openapi
+          docItemComponent: "@theme/ApiItem", // Derived from docusaurus-theme-openapi
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve("./src/css/custom.css"),
         },
       }),
     ],
   ],
 
-  
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       algolia: {
-        appId: 'TB01H1DFAM',
-        apiKey: '726952a7a9389c484b6c96808a3e0010',
-        indexName: 'prod_DEVELOPER_SAILPOINT_COM',
+        appId: "TB01H1DFAM",
+        apiKey: "726952a7a9389c484b6c96808a3e0010",
+        indexName: "prod_DEVELOPER_SAILPOINT_COM",
         searchPagePath: false,
         placeholder: "Search the Developer Community",
       },
@@ -62,7 +62,7 @@ const config = {
       },
       colorMode: {
         defaultMode: "light",
-        respectPrefersColorScheme: true
+        respectPrefersColorScheme: true,
       },
       navbar: navbar,
       footer: footer,
@@ -73,9 +73,9 @@ const config = {
       },
     }),
 
-    plugins: plugins,
-  
-    themes: ["docusaurus-theme-openapi-docs"]
+  plugins: plugins,
+
+  themes: ["docusaurus-theme-openapi-docs"],
 };
 
 module.exports = config;

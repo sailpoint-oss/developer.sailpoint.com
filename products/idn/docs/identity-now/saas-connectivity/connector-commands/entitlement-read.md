@@ -10,13 +10,17 @@ tags: ["Connectivity", "Connector Command"]
 ---
 
 :::note
-At this time Entitlement Read is not triggered from IDN for any specific workflow and as such it is not necessary to implement this in order to have a fully functional connector.
+
+At this time Entitlement Read is not triggered from IDN for any specific
+workflow and as such it is not necessary to implement this in order to have a
+fully functional connector.
+
 :::
 
-| Input/Output |  Data Type                  |
-|:-------------|:---------------------------:|
-| Input        | StdEntitlementReadInput       |
-| Output       | StdEntitlementReadOutput      |
+| Input/Output |        Data Type         |
+| :----------- | :----------------------: |
+| Input        | StdEntitlementReadInput  |
+| Output       | StdEntitlementReadOutput |
 
 ### Example StdEntitlementReadInput
 
@@ -50,7 +54,10 @@ At this time Entitlement Read is not triggered from IDN for any specific workflo
 
 ## Response Schema
 
-Entitlement read fetches a single entitlement’s attributes and returns the resulting object to IDN, similar to how entitlement list does. You can implement this in the main connector file, [index.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/index.ts):
+Entitlement read fetches a single entitlement’s attributes and returns the
+resulting object to IDN, similar to how entitlement list does. You can implement
+this in the main connector file,
+[index.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/index.ts):
 
 ```javascript
 ...

@@ -30,11 +30,17 @@ The upper transform only requires the transform's `type` and `name` attributes:
 - **Required Attributes**
 
   - **type** - This must always be set to `upper`.
-  - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
+  - **name** - This is a required attribute for all transforms. It represents
+    the name of the transform as it will appear in the UI's dropdown menus.
 
 - **Optional Attributes**
-  - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether the transform logic should be reevaluated every evening as part of the identity refresh process.
-  - **input** - This is an optional attribute that can explicitly define the input data passed into the transform logic. If no input is provided, the transform takes its input from the source and attribute combination configured with the UI.
+  - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether
+    the transform logic should be reevaluated every evening as part of the
+    identity refresh process.
+  - **input** - This is an optional attribute that can explicitly define the
+    input data passed into the transform logic. If no input is provided, the
+    transform takes its input from the source and attribute combination
+    configured with the UI.
 
 ## Examples
 

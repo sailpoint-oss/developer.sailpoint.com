@@ -9,16 +9,16 @@ slug: /docs/saas-connectivity/commands/entitlement-list
 tags: ["Connectivity", "Connector Command"]
 ---
 
-| Input/Output |  Data Type                  |
-|:-------------|:---------------------------:|
-| Input        | StdEntitlementListInput       |
-| Output       | StdEntitlementListOutput      |
+| Input/Output |        Data Type         |
+| :----------- | :----------------------: |
+| Input        | StdEntitlementListInput  |
+| Output       | StdEntitlementListOutput |
 
 ### Example StdEntitlementListInput
 
 ```javascript
 {
-    "type": "group" 
+    "type": "group"
 }
 ```
 
@@ -41,13 +41,23 @@ tags: ["Connectivity", "Connector Command"]
 
 ## Description
 
-The entitlement list command triggers during a manual or scheduled entitlement aggregation operation within IDN. This operation gathers a list of all entitlements available on the target source, usually multi-valued entitlements like groups or roles. This operation provides IDN administrators with a list of entitlements available on the source so they can create access profiles and roles accordingly, and it provides IDN with more details about the entitlements. The entitlement schema’s minimum requirements are name and ID, but you can add other values, such as created date, updated date, status, etc.
+The entitlement list command triggers during a manual or scheduled entitlement
+aggregation operation within IDN. This operation gathers a list of all
+entitlements available on the target source, usually multi-valued entitlements
+like groups or roles. This operation provides IDN administrators with a list of
+entitlements available on the source so they can create access profiles and
+roles accordingly, and it provides IDN with more details about the entitlements.
+The entitlement schema’s minimum requirements are name and ID, but you can add
+other values, such as created date, updated date, status, etc.
 
 ![Discover Schema 4](./img/entitlement_list_idn.png)
 
 ## Defining the Schema
 
-The entitlement schema is defined in the [connector-spec.json](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/connector-spec.json) file. Currently, only the multi-valued “group” type is supported. The following values are the minimum requirements, but you can add more attributes.
+The entitlement schema is defined in the
+[connector-spec.json](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/connector-spec.json)
+file. Currently, only the multi-valued “group” type is supported. The following
+values are the minimum requirements, but you can add more attributes.
 
 ```javascript
 ...
@@ -75,7 +85,8 @@ The entitlement schema is defined in the [connector-spec.json](https://github.co
 
 ## Implementation
 
-This can be implemented in the main connector file, [index.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/index.ts):  
+This can be implemented in the main connector file,
+[index.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/index.ts):
 
 ```javascript
 ...

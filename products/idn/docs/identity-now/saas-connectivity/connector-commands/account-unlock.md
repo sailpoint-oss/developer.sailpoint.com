@@ -9,10 +9,10 @@ slug: /docs/saas-connectivity/commands/account-unlock
 tags: ["Connectivity", "Connector Command"]
 ---
 
-| Input/Output |  Data Type                |
-|:-------------|:-------------------------:|
-| Input        | StdAccountUnlockInput       |
-| Output       | StdAccountUnlockOutput      |
+| Input/Output |       Data Type        |
+| :----------- | :--------------------: |
+| Input        | StdAccountUnlockInput  |
+| Output       | StdAccountUnlockOutput |
 
 ### Example StdAccountUnlockInput
 
@@ -49,9 +49,13 @@ tags: ["Connectivity", "Connector Command"]
 
 ## Description
 
-The account lock and account unlock commands provide ways to temporarily prevent access to an account. IDN only supports the unlock command, so accounts must be locked on the source level, but they can be unlocked through IDN, and IDN can store the account's status.
+The account lock and account unlock commands provide ways to temporarily prevent
+access to an account. IDN only supports the unlock command, so accounts must be
+locked on the source level, but they can be unlocked through IDN, and IDN can
+store the account's status.
 
-Implementing account unlock is similar to the other commands that update attributes on an account. The following code unlocks an account:
+Implementing account unlock is similar to the other commands that update
+attributes on an account. The following code unlocks an account:
 
 ```javascript
 .stdAccountUnlock(async (context: Context, input: StdAccountUnlockInput, res: Response<StdAccountUnlockOutput>) => {

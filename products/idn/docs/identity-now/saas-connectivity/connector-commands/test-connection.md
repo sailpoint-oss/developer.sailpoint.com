@@ -9,28 +9,42 @@ slug: /docs/saas-connectivity/commands/test-connection
 tags: ["Connectivity", "Connector Command"]
 ---
 
-| Input/Output |  Data Type                |
-|:-------------|:-------------------------:|
-| Input        | undefined                 |
-| Output       |  StdTestConnectionOutput  |
+| Input/Output |        Data Type        |
+| :----------- | :---------------------: |
+| Input        |        undefined        |
+| Output       | StdTestConnectionOutput |
 
 ### Example StdTestConnectionOutput
 
 ```javascript
-{}
+{
+}
 ```
 
 ## Summary
 
-The test connection command ensures the connector can communicate with the target web service. It validates API credentials, host names, ports, and other configuration items. To implement this command, look for either a health endpoint or a simple GET endpoint. Some web services implement a health endpoint that returns status information about the service, which can be useful to test a connection. If no health endpoint exists, use a simple GET endpoint that takes few to no parameters to ensure the connector can make a successful call to the web service.
+The test connection command ensures the connector can communicate with the
+target web service. It validates API credentials, host names, ports, and other
+configuration items. To implement this command, look for either a health
+endpoint or a simple GET endpoint. Some web services implement a health endpoint
+that returns status information about the service, which can be useful to test a
+connection. If no health endpoint exists, use a simple GET endpoint that takes
+few to no parameters to ensure the connector can make a successful call to the
+web service.
 
-Use ‘Test Connection’ in the IDN UI after an admin has finished entering configuration information for a new instance of the connector.
+Use ‘Test Connection’ in the IDN UI after an admin has finished entering
+configuration information for a new instance of the connector.
 
 ![Test Connection](./img/test_command_idn.png)
 
 ## Implementation
 
-In [index.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/index.ts), add the test connection function handler to your connector. Within this function, send a simple request to your web service to ensure the connection works. The web service this connector targets has a JavaScript SDK, so define your own function like the following example to test the connection:
+In
+[index.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/index.ts),
+add the test connection function handler to your connector. Within this
+function, send a simple request to your web service to ensure the connection
+works. The web service this connector targets has a JavaScript SDK, so define
+your own function like the following example to test the connection:
 
 ```javascript
 export const connector = async () => {
@@ -50,11 +64,13 @@ export const connector = async () => {
 }
 ```
 
-To implement the ```testConnection()``` function, use the following function created in the web service client code, [airtable.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/airtable.ts).
+To implement the `testConnection()` function, use the following function created
+in the web service client code,
+[airtable.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/airtable.ts).
 
 ```javascript
  /**
-     * Test connection by listing users from the Airtable instance.  
+     * Test connection by listing users from the Airtable instance.
      * This will make sure the apiKey has the correct access.
      * @returns empty struct if response is 2XX
      */
@@ -69,4 +85,7 @@ To implement the ```testConnection()``` function, use the following function cre
     }
 ```
 
-This function calls an endpoint on the target web service to list all users. If the call is successful, the web service returns an empty object, which is okay because you do not need to do anything with the data. Your only goal is to ensure that you can make API calls with the provided configuration.
+This function calls an endpoint on the target web service to list all users. If
+the call is successful, the web service returns an empty object, which is okay
+because you do not need to do anything with the data. Your only goal is to
+ensure that you can make API calls with the provided configuration.

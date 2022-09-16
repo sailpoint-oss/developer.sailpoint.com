@@ -12,7 +12,9 @@ tags: ["Connectivity"]
 ---
 
 ## Printing Logs with the CLI
-Fetch logs from IDN by issuing the ```sp conn logs``` command:
+
+Fetch logs from IDN by issuing the `sp conn logs` command:
+
 ```bash
 $ sp conn logs
 
@@ -25,9 +27,12 @@ $ sp conn logs
 [2022-07-14T11:04:24.890-04:00] INFO  | invokeCommand    ▶︎ Command invocation complete : std:test-connection, for connector version: 8. Elapsed time 125.749µs
 [2022-07-14T11:04:24.941-04:00] INFO  | commandOutcome   ▶︎ {"commandType":"std:test-connection","completed":true,"elapsed":49,"message":"command completed","requestId":"cca732a2-084d-4433-9bd5-ed22fa397d8d","version":8}
 ```
-To tail the logs to see output as it happens, execute the ```sp conn logs tail``` command.
 
-It can also be helpful to execute the logs command along with grep to filter your results to a specific connector or text:
+To tail the logs to see output as it happens, execute the `sp conn logs tail`
+command.
+
+It can also be helpful to execute the logs command along with grep to filter
+your results to a specific connector or text:
 
 ```bash
 $ sp conn logs | grep 'connector version 29'
@@ -35,7 +40,9 @@ $ sp conn logs | grep 'connector version 29'
 ```
 
 ## Logging with console.log
-anywhere that you use console.log in your code will expose the output to the logs. The following example has a printed statement in the index.ts file: 
+
+anywhere that you use console.log in your code will expose the output to the
+logs. The following example has a printed statement in the index.ts file:
 
 ```javascript
 // Connector must be exported as module property named connector
@@ -54,7 +61,10 @@ export const connector = async () => {
 ...
 
 ```
-When you run the ```sp conn logs``` command, you will see the following in the output:
+
+When you run the `sp conn logs` command, you will see the following in the
+output:
+
 ```bash
 $ sp conn logs tail
 
@@ -64,20 +74,23 @@ $ sp conn logs tail
 
 ## Logging using the SDK
 
-Use the built in logging tool to simplify the logging process and enhance your logger’s capabilities. To start, import the logger from the sdk:
+Use the built in logging tool to simplify the logging process and enhance your
+logger’s capabilities. To start, import the logger from the sdk:
 
-```import { logger as SDKLogger } from '@sailpoint/connector-sdk'```
+`import { logger as SDKLogger } from '@sailpoint/connector-sdk'`
 
-Next, add a simple configuration for the logger to use throughout your application.
+Next, add a simple configuration for the logger to use throughout your
+application.
 
 [logger.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/logger/logger.ts)
+
 ```javascript
-import { logger as SDKLogger } from '@sailpoint/connector-sdk'
+import { logger as SDKLogger } from "@sailpoint/connector-sdk";
 
 export const logger = SDKLogger.child(
-    // specify your connector name
-    { connectorName: 'Airtable' }
-)
+  // specify your connector name
+  { connectorName: "Airtable" }
+);
 ```
 
 Now you can import your logger into your project and start logging.
@@ -108,36 +121,42 @@ export const connector = async () => {
 
 ## Configuring the SDK to Mask Sensitive Values
 
-The SDK Logger uses [Pino](https://github.com/pinojs/pino) under the hood, which has the built-in capability to search and remove json paths that can contain sensitive information. 
+The SDK Logger uses [Pino](https://github.com/pinojs/pino) under the hood, which
+has the built-in capability to search and remove json paths that can contain
+sensitive information.
 
->🚧 Never expose any Personal Identifiable Information in any logging operations.
+> 🚧 Never expose any Personal Identifiable Information in any logging
+> operations.
 
-Start by looking at line 116 to 122 in your logger configuration, which looks like the one below:
+Start by looking at line 116 to 122 in your logger configuration, which looks
+like the one below:
 
 ```javascript
-import { logger as SDKLogger } from '@sailpoint/connector-sdk'
+import { logger as SDKLogger } from "@sailpoint/connector-sdk";
 
 export const logger = SDKLogger.child(
-    // specify your connector name
-    { connectorName: 'Airtable' },
-    // This is optional for  removing specific information you might not want to be logged
-    {
-        redact: {
-            paths: [
-                '*.password',
-                '*.username',
-                '*.email',
-                '*.id',
-                '*.firstName',
-                '*.lastName',
-                '*.displayName'
-            ],
-            censor: '****',
-        },
-    }
-)
+  // specify your connector name
+  { connectorName: "Airtable" },
+  // This is optional for  removing specific information you might not want to be logged
+  {
+    redact: {
+      paths: [
+        "*.password",
+        "*.username",
+        "*.email",
+        "*.id",
+        "*.firstName",
+        "*.lastName",
+        "*.displayName",
+      ],
+      censor: "****",
+    },
+  }
+);
 ```
-Now compare that with the object you want to remove information from while still logging information in it: 
+
+Now compare that with the object you want to remove information from while still
+logging information in it:
 
 [AirtableAccount.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/models/AirtableAccount.ts)
 
@@ -156,7 +175,11 @@ export class AirtableAccount {
     entitlments!: Array<string>
 }
 ```
-Now when you log the contents of an ```AirtableAccount``` object, you will see all the fields redacted. For example, in [index.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/index.ts) we log the ```accounts``` in the following code snippet:
+
+Now when you log the contents of an `AirtableAccount` object, you will see all
+the fields redacted. For example, in
+[index.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/index.ts)
+we log the `accounts` in the following code snippet:
 
 ```javascript
 .stdAccountList(async (context: Context, input: undefined, res: Response<StdAccountListOutput>) => {
@@ -170,6 +193,7 @@ Now when you log the contents of an ```AirtableAccount``` object, you will see a
 ```
 
 which results in the following log output:
+
 ```bash
 $ sp conn logs
 
@@ -178,4 +202,5 @@ $ sp conn logs
 [2022-07-14T11:19:30.678-04:00] INFO  | commandOutcome   ▶︎ {"commandType":"std:account:list","completed":true,"elapsed":1290,"message":"command completed","requestId":"379a8a4510944daf9d02b51a29ae863e","version":8}
 ```
 
-You can see that any of the PII information has now been transformed into "****"
+You can see that any of the PII information has now been transformed into
+"\*\*\*\*"

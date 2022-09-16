@@ -5,16 +5,18 @@ pagination_label: Source Deleted
 sidebar_label: Source Deleted
 sidebar_class_name: sourceDeleted
 keywords: ["event", "trigger", "source", "deleted", "available"]
-description: Fires after a source is deleted.	
+description: Fires after a source is deleted.
 slug: /docs/event-triggers/triggers/source-deleted
 tags: ["Event Triggers", "Available Event Triggers", "Fire and Forget"]
 ---
 
 ## Event Context
 
-Source Deleted events occur when a source is successfully deleted via the API or the Admin UI. Some uses cases for this trigger include the following:
+Source Deleted events occur when a source is successfully deleted via the API or
+the Admin UI. Some uses cases for this trigger include the following:
 
-- Provide evidence to show auditors that connector logic and sources are not manipulated outside of proper change control processes.
+- Provide evidence to show auditors that connector logic and sources are not
+  manipulated outside of proper change control processes.
 - Alert admins when a source was deleted incorrectly.
 
 This is an example input from this trigger:
@@ -37,4 +39,4 @@ This is an example input from this trigger:
 ## Additional Information and Links
 
 - **Trigger Type**: [FIRE_AND_FORGET](../trigger-types.md#fire-and-forget)
- <!-- [Input schema](https://developer.sailpoint.com/apis/beta/#section/Source-Deleted-Event-Trigger-Input) -->
+<!-- [Input schema](https://developer.sailpoint.com/apis/beta/#section/Source-Deleted-Event-Trigger-Input) -->

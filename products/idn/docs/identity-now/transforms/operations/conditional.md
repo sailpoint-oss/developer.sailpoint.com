@@ -12,19 +12,28 @@ tags: ["Transforms", "Operations", "Conditional"]
 
 ## Overview
 
-Use the conditional transform to output different values depending on simple conditional logic. This is a convenient transform - the same capability can be implemented with a "static" transform, but this transform has greater simplicity and null-safe error checking.
+Use the conditional transform to output different values depending on simple
+conditional logic. This is a convenient transform - the same capability can be
+implemented with a "static" transform, but this transform has greater simplicity
+and null-safe error checking.
 
 :::note Other Considerations
 
-- The two operands within the transform cannot be null; if they are, an IllegalArgumentException is thrown.
-- The `expression` attribute must be "eq," or the transform will throw an IllegalArgumentException.
-- All attribute string values are case-sensitive, so differently cased strings (e.g., "engineering" and "Engineering") will not return as matched.
+- The two operands within the transform cannot be null; if they are, an
+  IllegalArgumentException is thrown.
+- The `expression` attribute must be "eq," or the transform will throw an
+  IllegalArgumentException.
+- All attribute string values are case-sensitive, so differently cased strings
+  (e.g., "engineering" and "Engineering") will not return as matched.
 
 :::
 
 ## Transform Structure
 
-In addition to the `type` and `name` attributes, the conditional transform requires an `expression`, a `positiveCondition`, and a `negativeCondition`. If the expression evaluates to false, the transform returns the negative condition; otherwise it returns the positive condition.
+In addition to the `type` and `name` attributes, the conditional transform
+requires an `expression`, a `positiveCondition`, and a `negativeCondition`. If
+the expression evaluates to false, the transform returns the negative condition;
+otherwise it returns the positive condition.
 
 ```json
 {
@@ -42,16 +51,25 @@ In addition to the `type` and `name` attributes, the conditional transform requi
 
 - **Required Attributes**
   - **type** - This must always be set to `conditional`.
-  - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
-  - **expression** - This comparison statement follows the structure of `ValueA eq ValueB` where `ValueA` and `ValueB` are static strings or outputs of other transforms; the `eq` operator is the only valid comparison.
-  - **positiveCondition** - This is the output of the transform if the expression evaluates to true.
-  - **negativeCondition** - This is the output of the transform if the expression evaluates to false.
+  - **name** - This is a required attribute for all transforms. It represents
+    the name of the transform as it will appear in the UI's dropdown menus.
+  - **expression** - This comparison statement follows the structure of
+    `ValueA eq ValueB` where `ValueA` and `ValueB` are static strings or outputs
+    of other transforms; the `eq` operator is the only valid comparison.
+  - **positiveCondition** - This is the output of the transform if the
+    expression evaluates to true.
+  - **negativeCondition** - This is the output of the transform if the
+    expression evaluates to false.
 - **Optional Attributes**
-  - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether the transform logic should be reevaluated every evening as part of the identity refresh process.
+  - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether
+    the transform logic should be reevaluated every evening as part of the
+    identity refresh process.
 
 ## Examples
 
-This transform takes the user's HR-defined department attribute and compares it to the value of "Science". If this is the user's department, the transform returns `true`. Otherwise, it returns `false`.
+This transform takes the user's HR-defined department attribute and compares it
+to the value of "Science". If this is the user's department, the transform
+returns `true`. Otherwise, it returns `false`.
 
 **Transform Request Body**:
 
@@ -78,7 +96,10 @@ This transform takes the user's HR-defined department attribute and compares it 
 
 <p>&nbsp;</p>
 
-This transform extends the previous one by returning the output of another Seaspray transform depending on the result of the expression. You can assign Seaspray transforms' outputs to variables and then reference them within the `positiveCondition` and `negativeCondition` attributes.
+This transform extends the previous one by returning the output of another
+Seaspray transform depending on the result of the expression. You can assign
+Seaspray transforms' outputs to variables and then reference them within the
+`positiveCondition` and `negativeCondition` attributes.
 
 **Transform Request Body**:
 

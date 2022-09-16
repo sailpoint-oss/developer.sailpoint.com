@@ -12,19 +12,28 @@ tags: ["Event Triggers", "Early Access Event Triggers", "Fire and Forget"]
 ---
 
 :::info
-This is an early access event trigger.  Please contact support to have it enabled in your tenant.
+
+This is an early access event trigger. Please contact support to have it enabled
+in your tenant.
+
 :::
 
 ## Event Context
 
-Source Account Updated events occur whenever one or more account attributes change on a single account during an account aggregation operation. The trigger cannot determine whether the account update happened on a source or in IdentityNow. It omits events related to IdentityNow accounts, such as the IdentityNow Admin. The following actions are considered updates:
+Source Account Updated events occur whenever one or more account attributes
+change on a single account during an account aggregation operation. The trigger
+cannot determine whether the account update happened on a source or in
+IdentityNow. It omits events related to IdentityNow accounts, such as the
+IdentityNow Admin. The following actions are considered updates:
 
 - Update account attributes
 - Enable or disable an account
 - Lock or unlock source accounts
 - Change source account password
 
-Use this event trigger to watch for updates to accounts that add highly privileged access, such as an account that is granted privileged access on a sensitive source.
+Use this event trigger to watch for updates to accounts that add highly
+privileged access, such as an account that is granted privileged access on a
+sensitive source.
 
 This is an example input from this trigger:
 

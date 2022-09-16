@@ -66,7 +66,7 @@ npm install npm@latest -g
    ```
 4. Start the website
    ```bash
-   npm start
+   npm run start
    ```
 
 ### Running the Algolia crawler

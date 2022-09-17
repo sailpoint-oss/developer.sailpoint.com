@@ -2,24 +2,24 @@
 # Enable "labeler" for your PR that would add labels to PRs based on the paths that are modified in the PR.
 labelPRBasedOnFilePath:
   Docs:
-    - product/**/*.md
+    - products/**/*.md
   IdentityNow:
-    - product/idn/**/* 
+    - products/idn/**/* 
   IdentityIQ:
-    - product/iiq/**/*
+    - products/iiq/**/*
   Event Trigger Docs:
-    - product/idn/event-triggers/**/*.md*
+    - products/idn/event-triggers/**/*.md*
   SaaS Connectivity Docs:
-    - product/idn/saas-connectivity/**/*.md*
+    - products/idn/saas-connectivity/**/*.md*
   Transform Docs:
-    - product/idn/transforms/**/*.md*
+    - products/idn/transforms/**/*.md*
   SaaS Configuration Docs:
-    - product/idn/saas-configuration.md*
+    - products/idn/saas-configuration.md*
   Introduction Doc:
-    - product/idn/index.md*
+    - products/idn/index.md*
   Sidebar Change:
     - sidebars.js
-    - product/**/sidebar.js
+    - products/**/sidebar.js
   Docusaurus Config:
     - docusaurus.config.js
   Footer:

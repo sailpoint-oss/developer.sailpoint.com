@@ -2,7 +2,7 @@
 # Enable "labeler" for your PR that would add labels to PRs based on the paths that are modified in the PR.
 labelPRBasedOnFilePath:
   Docs:
-    - products/**/*.md
+    - products/**/*.md*
   IdentityNow:
     - products/idn/**/* 
   IdentityIQ:

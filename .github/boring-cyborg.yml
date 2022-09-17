@@ -8,15 +8,15 @@ labelPRBasedOnFilePath:
   IdentityIQ:
     - products/iiq/**/*
   Event Trigger Docs:
-    - products/idn/event-triggers/**/*.md*
+    - products/idn/docs/identity-now/event-triggers/**/*.md*
   SaaS Connectivity Docs:
-    - products/idn/saas-connectivity/**/*.md*
+    - products/idndocs/identity-now//saas-connectivity/**/*.md*
   Transform Docs:
-    - products/idn/transforms/**/*.md*
+    - products/idndocs/identity-now//transforms/**/*.md*
   SaaS Configuration Docs:
-    - products/idn/saas-configuration.md*
+    - products/idn/docs/identity-now/saas-configuration.md*
   Introduction Doc:
-    - products/idn/index.md*
+    - products/idn/docs/identity-now/index.md*
   Sidebar Change:
     - sidebars.js
     - products/**/sidebar.js

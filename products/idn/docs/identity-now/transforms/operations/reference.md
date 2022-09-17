@@ -7,7 +7,7 @@ sidebar_class_name: reference
 keywords: ["transforms", "operations", "reference"]
 description: Reuse a transform that has already been written.
 slug: /docs/transforms/operations/reference
-tags: ["Transforms", "Operations", "Reference"]
+tags: ["Transforms", "Transform Operations"]
 ---
 
 ## Overview

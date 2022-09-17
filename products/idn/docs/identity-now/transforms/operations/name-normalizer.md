@@ -8,7 +8,7 @@ keywords: ["transforms", "operations", "name normalizer"]
 description:
   Clean or standardize the spelling of strings coming in from source systems.
 slug: /docs/transforms/operations/name-normalizer
-tags: ["Transforms", "Operations", "Name"]
+tags: ["Transforms", "Transform Operations"]
 ---
 
 ## Overview

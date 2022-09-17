@@ -7,7 +7,7 @@ sidebar_class_name: base64Encode
 keywords: ["transforms", "operations", "base64", "encode"]
 description: Encode data with a Base64-based text encoding scheme.
 slug: /docs/transforms/operations/base64-encode
-tags: ["Transforms", "Operations", "Base64", "Encode"]
+tags: ["Transforms", "Transform Operations"]
 ---
 
 ## Overview

@@ -7,7 +7,7 @@ sidebar_class_name: upper
 keywords: ["transforms", "operations", "upper"]
 description: Convert an input string into all uppercase letters.
 slug: /docs/transforms/operations/upper
-tags: ["Transforms", "Operations", "Upper"]
+tags: ["Transforms", "Transform Operations"]
 ---
 
 ## Overview

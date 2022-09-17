@@ -7,7 +7,7 @@ sidebar_class_name: generateRandomString
 keywords: ["transforms", "operations", "generate", "random", "string"]
 description: Generate a random string of any length.
 slug: /docs/transforms/operations/generate-random-string
-tags: ["Transforms", "Operations", "Generate", "Random"]
+tags: ["Transforms", "Transform Operations"]
 ---
 
 ## Overview

@@ -7,7 +7,7 @@ sidebar_class_name: operations
 keywords: ["transforms", "operations"]
 description: A list of transform operations.
 slug: /docs/transforms/operations
-tags: ["Transforms", "Operations"]
+tags: ["Transforms", "Transform Operations"]
 ---
 
 This document lists each type of operation you can perform in a transform.

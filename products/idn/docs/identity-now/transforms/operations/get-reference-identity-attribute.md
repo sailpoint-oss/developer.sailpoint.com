@@ -8,7 +8,7 @@ keywords:
   ["transforms", "operations", "get", "reference", "identity", "attribute"]
 description: Get another user's identity attribute.
 slug: /docs/transforms/operations/get-reference-identity-attribute
-tags: ["Transforms", "Operations", "Identity", "Attribute"]
+tags: ["Transforms", "Transform Operations"]
 ---
 
 ## Overview

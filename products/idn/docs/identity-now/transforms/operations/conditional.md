@@ -7,7 +7,7 @@ sidebar_class_name: conditional
 keywords: ["transforms", "operations", "conditional"]
 description: Output different values depending on simple conditional logic.
 slug: /docs/transforms/operations/conditional
-tags: ["Transforms", "Operations", "Conditional"]
+tags: ["Transforms", "Transform Operations"]
 ---
 
 ## Overview

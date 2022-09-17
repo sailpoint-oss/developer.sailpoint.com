@@ -1,0 +1,51 @@
+##### Labeler ##########################################################################################################
+# Enable "labeler" for your PR that would add labels to PRs based on the paths that are modified in the PR.
+labelPRBasedOnFilePath:
+  Docs:
+    - products/**/*.md*
+  IdentityNow:
+    - products/idn/**/* 
+  IdentityIQ:
+    - products/iiq/**/*
+  Event Trigger Docs:
+    - products/idn/docs/identity-now/event-triggers/**/*.md*
+  SaaS Connectivity Docs:
+    - products/idn/docs/identity-now/saas-connectivity/**/*.md*
+  Transform Docs:
+    - products/idn/docs/identity-now/transforms/**/*.md*
+  SaaS Configuration Docs:
+    - products/idn/docs/identity-now/saas-configuration.md*
+  Introduction Doc:
+    - products/idn/docs/identity-now/index.md*
+  Pages:
+    - src/pages/**/*
+  Components:
+    - src/components/**/*
+  CSS:
+    - src/**/*.css
+  Swizzled Components:
+    - src/theme/**/*
+  Sidebar:
+    - sidebars.js
+    - products/**/sidebar.js
+  Docusaurus Config:
+    - docusaurus.config.js
+  Footer:
+    - footer.js
+  Navbar:
+    - navbar.js
+  Plugins:
+    - plugins.js
+
+##### Greetings ########################################################################################################
+# Comment to be posted to welcome users when they open their first PR
+firstPRWelcomeComment: >
+  🎉 Thanks for opening this pull request! We really appreciate contributors like you! 🙌
+
+# Comment to be posted to congratulate user on their first merged PR
+firstPRMergeComment: >
+  🎉 Awesome work, congrats on your first merged pull request! 🙌
+
+# Comment to be posted to on first time issues
+firstIssueWelcomeComment: >
+  🎉 Thanks for opening your first issue here! Welcome to the community!

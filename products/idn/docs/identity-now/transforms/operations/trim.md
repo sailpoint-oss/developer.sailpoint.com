@@ -8,7 +8,7 @@ keywords: ["transforms", "operations", "trim"]
 description:
   Trim whitespaces from both the beginning and ending of input strings.
 slug: /docs/transforms/operations/substring
-tags: ["Transforms", "Operations", "Trim"]
+tags: ["Transforms", "Transform Operations"]
 ---
 
 ## Overview

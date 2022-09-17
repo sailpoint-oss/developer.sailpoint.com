@@ -7,7 +7,7 @@ sidebar_class_name: dateCompare
 keywords: ["transforms", "operations", "date", "compare"]
 description: Compare two dates and return a calculated value.
 slug: /docs/transforms/operations/date-compare
-tags: ["Transforms", "Operations", "Date", "Compare"]
+tags: ["Transforms", "Transform Operations"]
 ---
 
 ## Overview

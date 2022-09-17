@@ -7,7 +7,7 @@ sidebar_class_name: lookup
 keywords: ["transforms", "operations", "lookup"]
 description: Look up and return a key's matching value.
 slug: /docs/transforms/operations/lookup
-tags: ["Transforms", "Operations", "Lookup"]
+tags: ["Transforms", "Transform Operations"]
 ---
 
 ## Overview

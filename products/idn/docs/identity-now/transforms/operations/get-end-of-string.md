@@ -7,7 +7,7 @@ sidebar_class_name: getEndOfString
 keywords: ["transforms", "operations", "get", "end", "string"]
 description: Get the rightmost N characters of a string.
 slug: /docs/transforms/operations/get-end-of-string
-tags: ["Transforms", "Operations", "End"]
+tags: ["Transforms", "Transform Operations"]
 ---
 
 ## Overview

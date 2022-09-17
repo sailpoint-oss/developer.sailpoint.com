@@ -7,7 +7,7 @@ sidebar_class_name: randomAlphanumeric
 keywords: ["transforms", "operations", "random alphanumeric"]
 description: Generate a random string of any length.
 slug: /docs/transforms/operations/random-alphanumeric
-tags: ["Transforms", "Operations", "Random", "Alphanumeric"]
+tags: ["Transforms", "Transform Operations"]
 ---
 
 ## Overview

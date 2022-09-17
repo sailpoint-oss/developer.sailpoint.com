@@ -7,7 +7,7 @@ sidebar_class_name: replace
 keywords: ["transforms", "operations", "replace"]
 description: Find and replace all instances of a single string.
 slug: /docs/transforms/operations/replace
-tags: ["Transforms", "Operations", "Replace"]
+tags: ["Transforms", "Transform Operations"]
 ---
 
 ## Overview

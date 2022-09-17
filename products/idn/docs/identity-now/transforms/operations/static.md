@@ -7,7 +7,7 @@ sidebar_class_name: static
 keywords: ["transforms", "operations", "static"]
 description: Return a fixed string value.
 slug: /docs/transforms/operations/static
-tags: ["Transforms", "Operations", "Static"]
+tags: ["Transforms", "Transform Operations"]
 ---
 
 ## Overview

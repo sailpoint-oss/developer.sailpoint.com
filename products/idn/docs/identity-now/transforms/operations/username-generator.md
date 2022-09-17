@@ -8,7 +8,7 @@ keywords: ["transforms", "operations", "username", "generator"]
 description:
   Derive a unique value for an attribute in an account create profile.
 slug: /docs/transforms/operations/username-generator
-tags: ["Transforms", "Operations", "Username", "Generator"]
+tags: ["Transforms", "Transform Operations"]
 ---
 
 ## Overview

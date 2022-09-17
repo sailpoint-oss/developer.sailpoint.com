@@ -7,7 +7,7 @@ sidebar_class_name: e164Phone
 keywords: ["transforms", "operations", "e164", "phone"]
 description: Convert a phone number string into an E.164-compatible number.
 slug: /docs/transforms/operations/e164-phone
-tags: ["Transforms", "Operations", "Phone"]
+tags: ["Transforms", "Transform Operations"]
 ---
 
 ## Overview

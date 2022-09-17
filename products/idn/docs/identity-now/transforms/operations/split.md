@@ -7,7 +7,7 @@ sidebar_class_name: split
 keywords: ["transforms", "operations", "split"]
 description: Return the Nth element of a split array.
 slug: /docs/transforms/operations/split
-tags: ["Transforms", "Operations", "Split"]
+tags: ["Transforms", "Transform Operations"]
 ---
 
 ## Overview

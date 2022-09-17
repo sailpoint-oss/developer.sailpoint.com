@@ -7,7 +7,7 @@ sidebar_class_name: dateFormat
 keywords: ["transforms", "operations", "date", "format"]
 description: Convert datetime strings from one format to another.
 slug: /docs/transforms/operations/date-format
-tags: ["Transforms", "Operations", "Date", "Format"]
+tags: ["Transforms", "Transform Operations"]
 ---
 
 ## Overview

@@ -7,7 +7,7 @@ sidebar_class_name: leftPad
 keywords: ["transforms", "operations", "left", "pad"]
 description: Convert a string into an ISO 3166 country code value.
 slug: /docs/transforms/operations/left-pad
-tags: ["Transforms", "Operations", "Left", "Pad"]
+tags: ["Transforms", "Transform Operations"]
 ---
 
 ## Overview

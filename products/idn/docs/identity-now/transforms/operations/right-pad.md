@@ -7,7 +7,7 @@ sidebar_class_name: rightPad
 keywords: ["transforms", "operations", "right pad"]
 description: Add padding to the right of an incoming string.
 slug: /docs/transforms/operations/right-pad
-tags: ["Transforms", "Operations"]
+tags: ["Transforms", "Transform Operations"]
 ---
 
 ## Overview

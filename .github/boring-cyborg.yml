@@ -11,7 +11,7 @@ labelPRBasedOnFilePath:
     - product/idn/event-triggers/**/*.md*
   SaaS Connectivity Docs:
     - product/idn/saas-connectivity/**/*.md*
-  Transforms Docs:
+  Transform Docs:
     - product/idn/transforms/**/*.md*
   SaaS Configuration Docs:
     - product/idn/saas-configuration.md*

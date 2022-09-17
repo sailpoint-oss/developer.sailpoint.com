@@ -18,7 +18,13 @@ labelPRBasedOnFilePath:
   Introduction Doc:
     - products/idn/docs/identity-now/index.md*
   Pages:
-    - pages/**/*
+    - src/pages/**/*
+  Components:
+    - src/components/**/*
+  CSS:
+    - src/**/*.css
+  Swizzled Components:
+    - src/theme/**/*
   Sidebar:
     - sidebars.js
     - products/**/sidebar.js

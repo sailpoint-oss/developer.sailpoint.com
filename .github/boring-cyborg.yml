@@ -10,9 +10,9 @@ labelPRBasedOnFilePath:
   Event Trigger Docs:
     - products/idn/docs/identity-now/event-triggers/**/*.md*
   SaaS Connectivity Docs:
-    - products/idndocs/identity-now//saas-connectivity/**/*.md*
+    - products/idn/docs/identity-now//saas-connectivity/**/*.md*
   Transform Docs:
-    - products/idndocs/identity-now//transforms/**/*.md*
+    - products/idn/docs/identity-now//transforms/**/*.md*
   SaaS Configuration Docs:
     - products/idn/docs/identity-now/saas-configuration.md*
   Introduction Doc:

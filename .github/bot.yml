@@ -17,6 +17,8 @@ labelPRBasedOnFilePath:
     - products/idn/docs/identity-now/saas-configuration.md*
   Introduction Doc:
     - products/idn/docs/identity-now/index.md*
+  Pages:
+    - pages/**/*
   Sidebar:
     - sidebars.js
     - products/**/sidebar.js

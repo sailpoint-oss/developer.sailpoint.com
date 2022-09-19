@@ -1,0 +1,74 @@
+# SAP BuildMap Rule
+
+## Overview
+
+This rule is used to gather additional attributes from SAP systems for building accounts. This is implemented using SAP's Java Connector (JCo) framework, via a supplied SAP connection.
+
+## Execution
+
+- **Connector Execution** - This rule executes within the Virtual Appliance and may offer special abilities to perform connector-related functions, and may offer managed connections to sources.
+- **Logging** - Logging statements are viewable within the ccg.log on the Virtual Appliance and by SailPoint personnel.
+
+![Rule Execution](../img/connector_execution.png)
+
+## Input
+
+| Argument    | Type                                     | Purpose                                                                    |
+| ----------- | ---------------------------------------  | -------------------------------------------------------------------------- |
+| object      | sailpoint.object.Attributes              | A reference to a SailPoint attributes object (basically a Map object with some added convenience methods) that holds the attributes that have been built up by the default connector implementation. The rule should modify this object to change, add or remove attributes from the map. |
+| connector   | sailpoint.connector.SAPInternalConnector | A reference to the current SAP Connector                                   |
+| state       | java.util.Map                            | A Map that can be used to store and share data between executions of this rule during a single aggregation run. |
+| application | sailpoint.object.Application             | Attribute value of the identity attribute before the rule runs.            |
+| schema      | sailpoint.object.Schema                  | A reference to the Schema object for the Delimited File source being read. |
+| destination | com.sap.conn.jco.JCoDestination          | A connected and ready to use SAP destination object that can be used to call BAPI function modules and call to SAP tables. |
+
+## Template
+
+```xml
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule name="Example Rule" type="SAPBuildMap">
+  <Description>Describe your rule here.</Description>
+  <Source><![CDATA[
+
+  // Add your logic here.
+
+  ]]></Source>
+</Rule>
+```
+
+## Example
+
+```java
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule name="Example Rule" type="SAPBuildMap">
+  <Description> This example SAP Build Map rule constructs an Initials attribute from the first character of the FirstName and LastName attributes and changes the name of the “InitDate” attribute to “HireDate”. </Description>
+  <Source><![CDATA[
+  import java.util.HashMap;
+
+  // Create initials
+
+  String firstName = object.get("FirstName");
+  String lastName = object.get("LastName");
+
+  String initials = "";
+
+  if ( firstName != null && firstName.length() > 0 ) {
+    char letter = firstName.charAt(0);
+    letter = Character.toUpperCase(letter);
+    initials = letter + ".";
+  }
+
+  if ( lastName != null && lastName.length() > 0 ) {
+    letter = lastName.charAt(0);
+    letter = Character.toUpperCase(letter);
+    initials += letter + ".";
+  }
+
+  object.put("Initials", initials);
+  object.put("HireDate", object.remove("InitDate"));
+
+]]></Source>
+</Rule>
+```

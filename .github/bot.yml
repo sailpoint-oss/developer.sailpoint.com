@@ -13,7 +13,7 @@ labelPRBasedOnFilePath:
     - products/idn/docs/identity-now/saas-connectivity/**/*.md*
   Transform Docs:
     - products/idn/docs/identity-now/transforms/**/*.md*
-  Rule Docs:
+  Rules Docs:
     - products/idn/docs/identity-now/rules/**/*.md*
   SaaS Configuration Docs:
     - products/idn/docs/identity-now/saas-configuration.md*

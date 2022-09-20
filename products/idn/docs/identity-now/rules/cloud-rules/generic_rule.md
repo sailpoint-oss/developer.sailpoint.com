@@ -1,4 +1,14 @@
-# Generic Rule
+---
+id: generic-rule
+title: Generic Rule
+pagination_label: Generic Rule
+sidebar_label: Generic Rule
+sidebar_class_name: Generic Rule
+keywords: ["cloud", "rules", "generic"]
+description: This rule is used to perform Transforms.
+slug: /docs/rules/cloud-rules/generic-rule
+tags: ["Rules"]
+---
 
 ## Overview
 
@@ -6,23 +16,26 @@ This rule is used to perform Transforms.
 
 ## Execution
 
-- **Cloud Execution** - This rule executes in the IdentityNow cloud, and has read-only access to IdentityNow data models, however it doesn't have access to on-premise sources or connectors.
-- **Logging** - Logging statements are currently only visible to SailPoint personnel.
+- **Cloud Execution** - This rule executes in the IdentityNow cloud, and has
+  read-only access to IdentityNow data models, however it doesn't have access to
+  on-premise sources or connectors.
+- **Logging** - Logging statements are currently only visible to SailPoint
+  personnel.
 
 ![Rule Execution](../img/cloud_execution.png)
 
 ## Input
 
-| Argument    | Type                            | Purpose |
-| ----------- | ------------------------------- | ------- |
-| log         | org.apache.log4j.Logger         | A logger to log statements. *Note: This executes in the cloud and logging is currently not exposed to anyone other than SailPoint.* |
-| idn         | sailpoint.server.IdnRuleUtil    | Provides a read-only starting point for using the SailPoint API. From this passed reference, the rule can interrogate the IdentityNow data model including identities or account information via helper methods as described in [IdnRuleUtil](../idn_rule_utility.md). |
+| Argument | Type                         | Purpose                                                                                                                                                                                                                                                                |
+| -------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| log      | org.apache.log4j.Logger      | A logger to log statements. _Note: This executes in the cloud and logging is currently not exposed to anyone other than SailPoint._                                                                                                                                    |
+| idn      | sailpoint.server.IdnRuleUtil | Provides a read-only starting point for using the SailPoint API. From this passed reference, the rule can interrogate the IdentityNow data model including identities or account information via helper methods as described in [IdnRuleUtil](../idn_rule_utility.md). |
 
 ## Output
 
-| Argument    | Type                            | Purpose |
-| ----------- | ------------------------------- | ------- |
-| value       | java.lang.Object                | Value returned of the account attribute; typically a String. |
+| Argument | Type             | Purpose                                                      |
+| -------- | ---------------- | ------------------------------------------------------------ |
+| value    | java.lang.Object | Value returned of the account attribute; typically a String. |
 
 ## Template
 
@@ -41,7 +54,8 @@ This rule is used to perform Transforms.
 
 ## Example - Name Normalizer
 
-This rule will normalize any names into normal names capitaliztion.  For instance: JOHN DOE -> John Doe
+This rule will normalize any names into normal names capitaliztion. For
+instance: JOHN DOE -> John Doe
 
 ```java
 <?xml version='1.0' encoding='UTF-8'?>
@@ -149,31 +163,27 @@ return normalizeName( input );
 
 ```json
 {
-    "name": "Normalize Name",
-    "type": "rule",
-    "attributes": {
-        "name": "Name Normalizer",
-        "delimiters": [
-            "-",
-            " ",
-            "\\'"
-        ],
-        "replacements": {
-            "\\\\b(?:Von)\\\\b": "von",
-            "\\\\b(?:Del)\\\\b": "del",
-            "\\\\b(?:Of)\\\\b": "of",
-            "\\\\b(?:De)\\\\b": "de",
-            "\\\\b(?:La)\\\\b": "la",
-            "\\\\b(?:Y)\\\\b": "y",
-            "\\\\b(?:Iv)\\\\b": "IV",
-            "\\\\b(?:Iii)\\\\b": "III",
-            "\\\\b(?:Ii)\\\\b": "II",
-            "\\\\b(?:Mc )\\\\b": "Mc"
-        },
-        "patterns": "\\b(Mc|Mac)",
-        "input": {
-            "type": "trim"
-        }
+  "name": "Normalize Name",
+  "type": "rule",
+  "attributes": {
+    "name": "Name Normalizer",
+    "delimiters": ["-", " ", "\\'"],
+    "replacements": {
+      "\\\\b(?:Von)\\\\b": "von",
+      "\\\\b(?:Del)\\\\b": "del",
+      "\\\\b(?:Of)\\\\b": "of",
+      "\\\\b(?:De)\\\\b": "de",
+      "\\\\b(?:La)\\\\b": "la",
+      "\\\\b(?:Y)\\\\b": "y",
+      "\\\\b(?:Iv)\\\\b": "IV",
+      "\\\\b(?:Iii)\\\\b": "III",
+      "\\\\b(?:Ii)\\\\b": "II",
+      "\\\\b(?:Mc )\\\\b": "Mc"
+    },
+    "patterns": "\\b(Mc|Mac)",
+    "input": {
+      "type": "trim"
     }
+  }
 }
 ```

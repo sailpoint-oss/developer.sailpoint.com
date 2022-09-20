@@ -1,30 +1,48 @@
-# JDBC Provision Rule
+---
+id: jdbc-provisioning-rule
+title: JDBC Provision Rule
+pagination_label: JDBC Provision Rule
+sidebar_label: JDBC Provision Rule
+sidebar_class_name: jdbcProvisionRule
+keywords: ["cloud", "rules", "jdbc"]
+description:
+  This rule is designed to carry out provisioning actions from a provisioning
+  plan, via a supplied JDBC connection. These typically issue SQL commands, such
+  as insert, update, select, and deletes.
+slug: /docs/rules/connector-rules/jdbc-provisioning-rule
+tags: ["Rules"]
+---
 
 ## Overview
 
-This rule is designed to carry out provisioning actions from a provisioning plan, via a supplied JDBC connection. These typically issue SQL commands, such as insert, update, select, and deletes.
+This rule is designed to carry out provisioning actions from a provisioning
+plan, via a supplied JDBC connection. These typically issue SQL commands, such
+as insert, update, select, and deletes.
 
 ## Execution
 
-- **Connector Execution** - This rule executes within the Virtual Appliance and may offer special abilities to perform connector-related functions, and may offer managed connections to sources.
-- **Logging** - Logging statements are viewable within the ccg.log on the Virtual Appliance and by SailPoint personnel.
+- **Connector Execution** - This rule executes within the Virtual Appliance and
+  may offer special abilities to perform connector-related functions, and may
+  offer managed connections to sources.
+- **Logging** - Logging statements are viewable within the ccg.log on the
+  Virtual Appliance and by SailPoint personnel.
 
 ![Rule Execution](../img/connector_execution.png)
 
 ## Input
 
-| Argument    | Type                                   | Purpose                                                                   |
-| ----------- | -------------------------------------- | ------------------------------------------------------------------------- |
-| connection  | java.sql.Connection                    | A reference to the current SQL connection                                 |
-| plan        | sailpoint.object.ProvisioningPlan      | Provisioning plan containing the provisioning request(s)                  |
-| application | sailpoint.object.Application           | Attribute value of the identity attribute before the rule runs            |
-| schema      | sailpoint.object.Schema                | A reference to the Schema object for the Delimited File source being read |
+| Argument    | Type                              | Purpose                                                                   |
+| ----------- | --------------------------------- | ------------------------------------------------------------------------- |
+| connection  | java.sql.Connection               | A reference to the current SQL connection                                 |
+| plan        | sailpoint.object.ProvisioningPlan | Provisioning plan containing the provisioning request(s)                  |
+| application | sailpoint.object.Application      | Attribute value of the identity attribute before the rule runs            |
+| schema      | sailpoint.object.Schema           | A reference to the Schema object for the Delimited File source being read |
 
 ## Output
 
-| Argument    | Type                                   | Purpose                                                                   |
-| ----------- | -------------------------------------- | ------------------------------------------------------------------------- |
-| result      | sailpoint.object.ProvisioningResult    | ProvisioningResult object containing the status (success, failure, retry, etc.) of the provisioning request |
+| Argument | Type                                | Purpose                                                                                                     |
+| -------- | ----------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| result   | sailpoint.object.ProvisioningResult | ProvisioningResult object containing the status (success, failure, retry, etc.) of the provisioning request |
 
 ## Template
 
@@ -64,7 +82,7 @@ This rule is designed to carry out provisioning actions from a provisioning plan
   import sailpoint.object.ProvisioningPlan.PermissionRequest;
   import sailpoint.object.ProvisioningResult;
   import sailpoint.object.Schema;
-  
+
   public String getAttributeRequestValue(AccountRequest acctReq, String attribute) {
 
     if ( acctReq != null ) {

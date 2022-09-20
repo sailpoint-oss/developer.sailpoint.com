@@ -1,53 +1,82 @@
 ---
-id: identitynow-rule-utility
+id: rule-utility
 title: Using IDNRuleUtil as a Wrapper for Common Rule Operations
+pagination_label: IdentityNow Rule Utility
 sidebar_label: IdentityNow Rule Utility
 sidebar_position: 2
+sidebar_class_name: ruleUtility
+keywords: ["rule", "utility"]
+description: Using IDNRuleUtil as a Wrapper for Common Rule Operations
+slug: /docs/rules/rule-utility
+tags: ["Rules"]
 ---
 
 ## Overview
 
-This article with teach you how to configure searchable account attributes within IdentityNow and then leverage them within the IDNRuleUtil wrapper class when searching accounts for things such as uniqueness checks. There are also methods in the IDNRuleUtil wrapper class that you can use without the additional searchable attributes.
+This article with teach you how to configure searchable account attributes
+within IdentityNow and then leverage them within the IDNRuleUtil wrapper class
+when searching accounts for things such as uniqueness checks. There are also
+methods in the IDNRuleUtil wrapper class that you can use without the additional
+searchable attributes.
 
-Search attributes allow you to search across accounts and sources to determine if a specific attribute value is being used in your IdentityNow environment.
+Search attributes allow you to search across accounts and sources to determine
+if a specific attribute value is being used in your IdentityNow environment.
 
-There are a few components that are critical when working with searchable attributes:
+There are a few components that are critical when working with searchable
+attributes:
 
 - [Configuration of search attributes within the IdentityNow system](#configuration-of-search-attributes-within-the-identitynow-system)
   - Seed data for accounts already aggregated into the system.
-  - Ensure attribute promotion happens for new/changed accounts that are aggregated.
+  - Ensure attribute promotion happens for new/changed accounts that are
+    aggregated.
 - [Create rules that can be used to query the newly created attribute values](#create-rules-that-can-be-used-to-query-the-newly-created-attribute-values)
 - [Implement rules within the Create Profile section of each source for which an account is being provisioned](#implement-rules-within-the-create-profile-section-of-each-source-for-which-an-account-is-being-provisioned)
 
 ## Configuration of search attributes within the IdentityNow system
 
-When planning to implement search attributes, it is important to consider how new accounts will have their values generated and what attributes should be used as reference.
+When planning to implement search attributes, it is important to consider how
+new accounts will have their values generated and what attributes should be used
+as reference.
 
 The information you need to create search attributes:
 
 - IDs for sources that will be searched
 
-- Attribute name for each source that will be searched (such as mail, email, emailAddress)
+- Attribute name for each source that will be searched (such as mail, email,
+  emailAddress)
 
-- A unique name for the new attribute that will become common to all accounts in the Account Search configuration. Ex (newMail, newEmail, newEmailAddress)
+- A unique name for the new attribute that will become common to all accounts in
+  the Account Search configuration. Ex (newMail, newEmail, newEmailAddress)
 
 - A display name for new attribute configuration.
 
-The following example shows how to create a new attribute via the [Search Attributes API](https://developer.sailpoint.com/apis/beta/#operation/createSearchAttributeConfig)
+The following example shows how to create a new attribute via the
+[Search Attributes API](/idn/api/beta/create-search-attribute-config)
 
-A company has two sources. The first is Active Directory and the second is Workday. When new accounts are aggregated into the system, they wish to query IdentityNow to see if an email address is in existence. If the email address is not in use, it can be assigned to the new account. If it is in use, we can iterate on the email address value (add a 1 for example). We can then query IdentityNow once more to see if our incremented email address is in use. We can repeat this procedure until we have determined that an email address is unique.
+A company has two sources. The first is Active Directory and the second is
+Workday. When new accounts are aggregated into the system, they wish to query
+IdentityNow to see if an email address is in existence. If the email address is
+not in use, it can be assigned to the new account. If it is in use, we can
+iterate on the email address value (add a 1 for example). We can then query
+IdentityNow once more to see if our incremented email address is in use. We can
+repeat this procedure until we have determined that an email address is unique.
 
 The information needed to create our search attribute:
 
 - IDs for sources that will be searched
+
   - Active Directory: `4028112837fe14c70177fe1955e9032c`
   - Workday: `4028812877fa18c72177fs195baa0341`
 
-- Attribute name on each source that will be searched (such as mail, email, emailAddress)
+- Attribute name on each source that will be searched (such as mail, email,
+  emailAddress)
+
   - Active Directory: `mail`
   - Workday: `emailAddress`
 
-- A unique name for the new attribute that will become common to all accounts in the Account Search configuration. Ex (newMail, newEmail, newEmailAddress)
+- A unique name for the new attribute that will become common to all accounts in
+  the Account Search configuration. Ex (newMail, newEmail, newEmailAddress)
+
   - `promotedEmailAddress`
 
 - A display name for new attribute configuration.
@@ -55,9 +84,18 @@ The information needed to create our search attribute:
 
 ### Create the new search attribute in IdentityNow
 
-In order to call the APIs for search attributes you will need a personal access token and the name of your tenant to provide with the request. To retrieve a personal access token, see [Personal Access Tokens](../authentication.md#personal-access-tokens). To get the name of your tenant, see [Finding Your Organization Tenant Name](../getting_started.md#finding-your-org-tenant-name)
+In order to call the APIs for search attributes you will need a personal access
+token and the name of your tenant to provide with the request. To retrieve a
+personal access token, see
+[Personal Access Tokens](../../../api/authentication.md#personal-access-tokens).
+To get the name of your tenant, see
+[Finding Your Organization Tenant Name](../../../api/getting-started.md#find-your-tenant-name)
 
-This will create an Account Search configuration for the two sources/attributes specified. All new/changed accounts that are aggregated will have this new attribute(“promotedEmailAddress”) created in the account schema and the value of the attribute(“mail” or “emailAddress”) depending on the source will be promoted to that new attribute.
+This will create an Account Search configuration for the two sources/attributes
+specified. All new/changed accounts that are aggregated will have this new
+attribute(“promotedEmailAddress”) created in the account schema and the value of
+the attribute(“mail” or “emailAddress”) depending on the source will be promoted
+to that new attribute.
 
 ```bash
 curl --location -g --request POST 'https://{tenant}.api.identitynow.com/beta/accounts/search-attribute-config' \
@@ -66,7 +104,7 @@ curl --location -g --request POST 'https://{tenant}.api.identitynow.com/beta/acc
 --data-raw '{
   "name": "promotedEmailAddress",
   "displayName": "Promoted Email Address",
-  "applicationAttributes": 
+  "applicationAttributes":
     {
       "4028112837fe14c70177fe1955e9032c": "mail",
       "4028812877fa18c72177fs195baa0341": "emailAddress"
@@ -74,15 +112,32 @@ curl --location -g --request POST 'https://{tenant}.api.identitynow.com/beta/acc
 }'
 ```
 
-**NOTE: AGGREGATION ONLY PROCESSES NEW AND/OR CHANGED ACCOUNTS FOR MANY SOURCES. THIS MEANS THAT IF AN ACCOUNT IS UNCHANGED, AN AGGREGATION WILL NOT SEED THE NEW ATTRIBUTE OR ITS VALUE FOR THIS ACCOUNT. FOR THIS REASON, IT IS MANDATORY THAT A NON-OPTIMIZED AGGREGATION BE PERFORMED WHEN AN ACCOUNT SEARCH CONFIGURATION IS CREATED/MODIFIED, FOR EACH SOURCE INVOLVED IN THAT CONFIGURATION.**
+:::caution
 
-If this source has already been aggregated before the Account Search configuration was created, a non-optimized aggregation must be performed at this time to seed the new attribute data for all existing accounts.
+AGGREGATION ONLY PROCESSES NEW AND/OR CHANGED ACCOUNTS FOR MANY SOURCES. THIS
+MEANS THAT IF AN ACCOUNT IS UNCHANGED, AN AGGREGATION WILL NOT SEED THE NEW
+ATTRIBUTE OR ITS VALUE FOR THIS ACCOUNT. FOR THIS REASON, IT IS MANDATORY THAT A
+NON-OPTIMIZED AGGREGATION BE PERFORMED WHEN AN ACCOUNT SEARCH CONFIGURATION IS
+CREATED/MODIFIED, FOR EACH SOURCE INVOLVED IN THAT CONFIGURATION.
 
-At this point, the configuration exists to promote attributes on any new/changed account that comes into IdentityNow. These attributes and their associated values are stored for use in custom rules. Each account that exists on either of these sources will now have a new attribute called “promotedEmailAddress”. *The value of this attribute will be the value of `mail` if it was the Active Directory Source or `emailAddress` if it was the Workday source.*
+:::
+
+If this source has already been aggregated before the Account Search
+configuration was created, a non-optimized aggregation must be performed at this
+time to seed the new attribute data for all existing accounts.
+
+At this point, the configuration exists to promote attributes on any new/changed
+account that comes into IdentityNow. These attributes and their associated
+values are stored for use in custom rules. Each account that exists on either of
+these sources will now have a new attribute called “promotedEmailAddress”. _The
+value of this attribute will be the value of `mail` if it was the Active
+Directory Source or `emailAddress` if it was the Workday source._
 
 ## Create rules that can be used to query the newly created attribute values
 
-To access the promoted attribute data mentioned in the above section, library methods have been implemented to allow access to that data. There are two methods that have been implemented.
+To access the promoted attribute data mentioned in the above section, library
+methods have been implemented to allow access to that data. There are two
+methods that have been implemented.
 
 ```java
 /**
@@ -113,9 +168,14 @@ public int attrSearchCountAccounts(List<String> sourceIds, String attributeName,
 public String attrSearchGetIdentityName(List<String> sourceIds, String attributeName, String operation, List<String> values)
 ```
 
-Each of these utility library methods are loaded into the context that is available from within your custom rule. It can be accessed by appending the prefix “idn.” to the method call.
+Each of these utility library methods are loaded into the context that is
+available from within your custom rule. It can be accessed by appending the
+prefix “idn.” to the method call.
 
-Example: We want to use the promoted attribute data to determine the uniqueness of an email address before it is used to provision a new account to one of the sources involved in the Account Search configuration. A call to these methods can be used to determine that uniqueness.
+Example: We want to use the promoted attribute data to determine the uniqueness
+of an email address before it is used to provision a new account to one of the
+sources involved in the Account Search configuration. A call to these methods
+can be used to determine that uniqueness.
 
 ```java
 import sailpoint.object.*;
@@ -130,43 +190,75 @@ import org.apache.commons.lang.StringUtils;
 
     //return matching accounts
      return idn.attrSearchCountAccounts(SOURCE_IDS, PROMOTED_ATTR_NAME, SEARCH_OP, SEARCH_VALUES));
-     
+
      //In the event the above call returns non-zero values, it is certain
-     //that an email value is already in use.  Should it be required to 
-     //know which identity owns the account with this value, this method 
+     //that an email value is already in use.  Should it be required to
+     //know which identity owns the account with this value, this method
      //can be called.
      //idn.attrSearchGetIdentityName(SOURCE_IDS, PROMOTED_ATTR_NAME, SEARCH_OP, SEARCH_VALUES));
 ```
 
+:::info
+
 Note that there are two method calls from within the example rule above.
 
-Calling the *`idn.attrSearchCountAccounts()`* method with both example source IDs, will cause a search of all accounts for a value “promotedEmailAddress=jc@sailpoint.com”. It will return the count of accounts that contain that attribute value pair.
+:::
 
-In the event *`idn.attrSearchCountAccounts()`* returns non zero, it may be useful to determine which identity owns the account(s) contain that value. The *`idn.attrSearchGetIdentityName()`* method will return that identity name.
+Calling the _`idn.attrSearchCountAccounts()`_ method with both example source
+IDs, will cause a search of all accounts for a value
+“promotedEmailAddress=jc@sailpoint.com”. It will return the count of accounts
+that contain that attribute value pair.
+
+In the event _`idn.attrSearchCountAccounts()`_ returns non zero, it may be
+useful to determine which identity owns the account(s) contain that value. The
+_`idn.attrSearchGetIdentityName()`_ method will return that identity name.
 
 ## Implement rules within the Create Profile section of each source for which an account is being provisioned
 
-Create Profile can be found at **Admin** > **Connections** > **Source** > `SourceName` > **Accounts** > **Create Profile**
+Create Profile can be found at **Admin** > **Connections** > **Source** >
+`SourceName` > **Accounts** > **Create Profile**
 
-Rules can be invoked in different ways but one of the most common implementations involves binding it to the create profile. This will result in the rule being used to generate/check values that are used during new account provisioning.
+Rules can be invoked in different ways but one of the most common
+implementations involves binding it to the create profile. This will result in
+the rule being used to generate/check values that are used during new account
+provisioning.
 
-When a `Generator` is selected for the `distinguishedName` attribute, a rule can be selected that invokes the provided library methods. An example of this would be the following scenario.
+When a `Generator` is selected for the `distinguishedName` attribute, a rule can
+be selected that invokes the provided library methods. An example of this would
+be the following scenario.
 
-Through a Lifecycle State Change, an account needs to be provisioned to an Active Directory source.
+Through a Lifecycle State Change, an account needs to be provisioned to an
+Active Directory source.
 
-When the provisioning plan is created, the rule that generates the value for `distinguishedName` is called. The rule invokes the library methods mentioned earlier to determine the uniqueness of the attribute. In this case it may:
+When the provisioning plan is created, the rule that generates the value for
+`distinguishedName` is called. The rule invokes the library methods mentioned
+earlier to determine the uniqueness of the attribute. In this case it may:
 
-Call *`idn.attrSearchCountAccounts()`* to determine if any other accounts are using first.last as a distinguishedName. If a count of 1 or more is returned, the call can be retried with first.last+1. The call is repeated until a zero is returned. At that point, the value is unique and can be used. The value is returned to the calling rule.
+Call _`idn.attrSearchCountAccounts()`_ to determine if any other accounts are
+using first.last as a distinguishedName. If a count of 1 or more is returned,
+the call can be retried with first.last+1. The call is repeated until a zero is
+returned. At that point, the value is unique and can be used. The value is
+returned to the calling rule.
 
-In some cases, where a non zero value is returned, it may be useful to know which identity owns the account to which that value belongs. In order to find out this information, call *`idn.attrSearchGetIdentityName()`* to determine the identity in question.
+In some cases, where a non zero value is returned, it may be useful to know
+which identity owns the account to which that value belongs. In order to find
+out this information, call _`idn.attrSearchGetIdentityName()`_ to determine the
+identity in question.
 
 ## IdnRuleUtil.java Descriptors
 
-<u><b>Important Note:</b></u> Both the normal SailPoint context which is passed into the Beanshell rule evaluation and the new IdnRuleUtil class which is referenced below include an "Identity" class:
+:::caution
+
+Both the normal SailPoint context which is passed into the Beanshell rule
+evaluation and the new IdnRuleUtil class which is referenced below include an
+"Identity" class:
 
 The SailPoint context Identity class is provided via `sailpoint.object.Identity`
-The IdnRuleUtil Identity class is provided via `sailpoint.rule.Identity`
-When referencing an Identity class, you must be explicit as to which Identity class you are using to avoid a namespace conflict. For example:
+The IdnRuleUtil Identity class is provided via `sailpoint.rule.Identity` When
+referencing an Identity class, you must be explicit as to which Identity class
+you are using to avoid a namespace conflict. For example:
+
+:::
 
 ```java
 sailpoint.object.Identity identity = plan.getIdentity();
@@ -176,11 +268,12 @@ sailpoint.rule.Identity foundIdentity = idn.getIdentityById("uid");
 String email = foundIdentity.getAttribute("email");
 ```
 
-The below section provides a full accounting of the methods available to rule writes via the IdnRuleUtil class:
+The below section provides a full accounting of the methods available to rule
+writes via the IdnRuleUtil class:
 
 ```java
 /**
- * Utility class containing methods customers can use within a rules to perform common tasks. 
+ * Utility class containing methods customers can use within a rules to perform common tasks.
  * IdnRuleUtil is available in rules as "idn" variable, e.g. "idn.countAccounts("someAppId")".
  * This utility class allows us to abstract out the use of SailPointContext in rules so that we can one day not pass a
  * context to the rule at all.
@@ -252,11 +345,11 @@ class IdnRuleUtil {
 
     /**
     * Get the first account for the application and identityName and return the first accounts native Identity.
-    * 
-    * @param applicationName The name of the application 
+    *
+    * @param applicationName The name of the application
     * @param identityName The name of the identity
     * @return The first link's nativeIdentity
-    * 
+    *
     * @throws GeneralException wrapping underlying DB related errors
     */
     public String getFirstAccountNativeIdentity(String applicationName, String identityName)
@@ -294,8 +387,8 @@ class IdnRuleUtil {
      */
     Object getRawAccountAttribute(Account account, String attribute)
 
- 
- 
+
+
     /**
      * Gets the String value of an attribute from an account on an application.
      *
@@ -307,8 +400,8 @@ class IdnRuleUtil {
      */
      String getAccountAttribute(String applicationName, String nativeIdentity, String attribute)
 
- 
- 
+
+
     /**
      * Gets the String value of an attribute from an account on an application.
      *
@@ -318,8 +411,8 @@ class IdnRuleUtil {
      */
      String getAccountAttribute(Account account, String attribute)
 
- 
- 
+
+
     /**
      * Gets the boolean value of an attribute from an account on an application.
      *
@@ -331,8 +424,8 @@ class IdnRuleUtil {
      */
     boolean getAccountAttributeBool(String applicationName, String nativeIdentity, String attribute)
 
- 
- 
+
+
     /**
      * Gets the boolean value of an attribute from an account on an application.
      *
@@ -342,8 +435,8 @@ class IdnRuleUtil {
      */
     boolean getAccountAttributeBool(Account account, String attribute)
 
- 
- 
+
+
     /**
      * Count the accounts that match the searchable attribute and value.
      *
@@ -372,8 +465,8 @@ class IdnRuleUtil {
      */
     String attrSearchGetIdentityName(List<String> sourceIds, String attributeName, String operation, List<String> values)
 
- 
- 
+
+
     /**
      * Gets the int value of an attribute from an account on an application.
      *
@@ -385,8 +478,8 @@ class IdnRuleUtil {
      */
     int getAccountAttributeInt(String applicationName, String nativeIdentity, String attribute)
 
- 
- 
+
+
     /**
      * Gets the int value of an attribute from an account on an application.
      *
@@ -394,7 +487,7 @@ class IdnRuleUtil {
      * @param attribute The name of the attribute to retrieve.
      * @return The attribute value or zero if the attribute does not exist.
      */
-    int getAccountAttributeInt(Account account, String attribute) 
+    int getAccountAttributeInt(Account account, String attribute)
 
 
 
@@ -430,7 +523,7 @@ class IdnRuleUtil {
 
    /**
     * Fetch an identity by the internal id.
-    * 
+    *
     * @param id The id to use when fetching an identity object
     * @return A DTO representing the Identity, will throw if identity was not found
     */
@@ -445,21 +538,21 @@ class IdnRuleUtil {
     * @param attributeName The attribute that should be searched, must be searchable and non-nul
     * @param operation The operation to be used when searching and only allowed equals and starts wit
     * @param value The value that should match and must be non-null
-    * @param sortAttribute The attribute that should be used while sorting. 
+    * @param sortAttribute The attribute that should be used while sorting.
     * Default ordering will be on uid if not specified and this also must be searchable.
     * Sort will always be in ascending order
-    * 
+    *
     * @return The List of users that match the passed in parameters. The max number returned values will be limited to 50.
-    * 
-    * @throws IllegalStateException when attribute provided is not searchable, 
-    * when operation is not StartsWith or Equals, 
+    *
+    * @throws IllegalStateException when attribute provided is not searchable,
+    * when operation is not StartsWith or Equals,
     * the sortAttribute is not searahable,
     * or if there are issues during the search
-    * 
+    *
     * @see #EQUALS_FILTER
     * @see #STARTS_WITH_FILTER
     */
-    public List<sailpoint.rule.Identity> findIdentitiesBySearchableIdentityAttribute(String attributeName, String operation, 
+    public List<sailpoint.rule.Identity> findIdentitiesBySearchableIdentityAttribute(String attributeName, String operation,
 String value, String sortAttribute)
 
 
@@ -473,8 +566,8 @@ String value, String sortAttribute)
     *
     * @return The number of identities that match the parameters
     *
-    * @throws IllegalStateException when attribute provided is not searchable, 
-    * when operation is not StartsWith or Equals, 
+    * @throws IllegalStateException when attribute provided is not searchable,
+    * when operation is not StartsWith or Equals,
     * or if there are issues during the count operation
     *
     * @see #EQUALS_FILTE
@@ -491,7 +584,7 @@ String value, String sortAttribute)
 ```java
 //IdnRuleUtil is available in rules as "idn" variable, the same way we can currently use context
 /*
-  * In before provisioning rules (where this will likely be used), the Source that is being provisioned to 
+  * In before provisioning rules (where this will likely be used), the Source that is being provisioned to
   * is passed in via "application" variable. This can then be used to get sourceId using application.getId()
   * e.g. String sourceId = application.getId();
 */
@@ -503,7 +596,7 @@ String entitlementDescription = idn.getManagedAttributeDescription(sourceId, att
 ```java
 //IdnRuleUtil is available in rules as "idn" variable, the same way we can currently use context
 /*
-  * In Attribute Generator rules (where this will likely be used), the Source that is being provisioned to 
+  * In Attribute Generator rules (where this will likely be used), the Source that is being provisioned to
   * is passed in via "application" variable. This can then be used to get applicationName using application.getName()
   * e.g. String applicationName = application.getName();
 */

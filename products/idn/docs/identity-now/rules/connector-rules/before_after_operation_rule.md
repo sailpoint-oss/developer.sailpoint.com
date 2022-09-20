@@ -1,13 +1,28 @@
+---
+id: before-and-after-rule-operations
+title: Before and After Operations on Source Account Rule
+pagination_label: Before and After Operations
+sidebar_label: Before and After Rule Operations
+sidebar_class_name: beforeAndAfterRuleOperations
+keywords: ["cloud", "rules"]
+description:
+  This rule is used to execute PowerShell commands on the IQService component
+  after a source account has an operation performed on it.
+slug: /docs/rules/connector-rules/before-and-after-rule-operations
+tags: ["Rules"]
+---
+
 # Before and After Operations on Source Account Rule
 
 ## Overview
 
-This rule is used to execute PowerShell commands on the IQService component after a source account has an operation performed on it.
+This rule is used to execute PowerShell commands on the IQService component
+after a source account has an operation performed on it.
 
 The operations that are performed on a source are as follows:
 
-| Rule Name            | Rule Type             | Source Type(s) | Purpose |
-| -------------------- | --------------------- | -------------- | ------- |
+| Rule Name            | Rule Type             | Source Type(s)                           | Purpose                                                                                      |
+| -------------------- | --------------------- | ---------------------------------------- | -------------------------------------------------------------------------------------------- |
 | Before Creation Rule | ConnectorBeforeCreate | Active Directory, Azure Active Directory | Executes PowerShell commands on the IQService component before a source account is created.  |
 | Before Modify Rule   | ConnectorBeforeModify | Active Directory, Azure Active Directory | Executes PowerShell commands on the IQService component before a source account is modified. |
 | Before Delete Rule   | ConnectorBeforeDelete | Active Directory, Azure Active Directory | Executes PowerShell commands on the IQService component before a source account is deleted.  |
@@ -17,8 +32,11 @@ The operations that are performed on a source are as follows:
 
 ## Execution
 
-- **Connector Execution** - This rule executes within the Virtual Appliance and may offer special abilities to perform connector-related functions, and may offer managed connections to sources.
-- **Logging** - Logging statements are viewable within the ccg.log on the Virtual Appliance and by SailPoint personnel.
+- **Connector Execution** - This rule executes within the Virtual Appliance and
+  may offer special abilities to perform connector-related functions, and may
+  offer managed connections to sources.
+- **Logging** - Logging statements are viewable within the ccg.log on the
+  Virtual Appliance and by SailPoint personnel.
 
 ![Rule Execution](../img/connector_execution.png)
 
@@ -32,11 +50,20 @@ The operations that are performed on a source are as follows:
 
 ## Architecture Best Practices
 
-For supportability, it is recommended that these operation rules be written with only the most basic logic necessary to trigger a PowerShell script, and shift the bulk of the downstream events and/or modifications to the PowerShell script itself. This script would reside on the client's servers and could therefore be easily maintained or modified by the client as needed. It also allows the client to implement changes to the PowerShell scripted functionality without requiring code review by SailPoint, as the code runs outside of the IdentityNow platform.
+For supportability, it is recommended that these operation rules be written with
+only the most basic logic necessary to trigger a PowerShell script, and shift
+the bulk of the downstream events and/or modifications to the PowerShell script
+itself. This script would reside on the client's servers and could therefore be
+easily maintained or modified by the client as needed. It also allows the client
+to implement changes to the PowerShell scripted functionality without requiring
+code review by SailPoint, as the code runs outside of the IdentityNow platform.
 
 ## Rule Template
 
-In this example we are triggering on the BeforeCreate operation. If you wanted to use another operation replace `BeforeCreate` in the name and `ConnectorBeforeCreate` in type with one of the other operations described earlier in the [Overview](#overview) section.
+In this example we are triggering on the BeforeCreate operation. If you wanted
+to use another operation replace `BeforeCreate` in the name and
+`ConnectorBeforeCreate` in type with one of the other operations described
+earlier in the [Overview](#overview) section.
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
@@ -52,7 +79,7 @@ In this example we are triggering on the BeforeCreate operation. If you wanted t
    </Map>
   </Attributes>
   <Description>
-   This is an IQService afterScript - On a successful provisioning event, this after script should be used as the starting point for 
+   This is an IQService afterScript - On a successful provisioning event, this after script should be used as the starting point for
             initiating a separate PowerShell script residing on the client's IQService server.
 
             Configuration tasks include:
@@ -78,7 +105,7 @@ Try{
     if($enableDebug) {
         LogToFile("Entering SailPoint rule")
     }
- 
+
     Add-type -path utils.dll;
  $sReader = New-Object System.IO.StringReader([System.String]$env:Request);
  $xmlReader = [System.xml.XmlTextReader]([sailpoint.utils.xml.XmlUtil]::getReader($sReader));
@@ -94,7 +121,7 @@ Try{
     Invoke-Expression $command
 
 }Catch{
- $ErrorMessage = $_.Exception.Message 
+ $ErrorMessage = $_.Exception.Message
    $ErrorItem = $_.Exception.ItemName
    LogToFile("Error: Item = $ErrorItem -> Message = $ErrorMessage")
 }
@@ -110,7 +137,10 @@ if($enableDebug) {
 
 ## Powershell Script Template
 
-The following Powershell Script Template can also be used for each operation in the [Overview](#overview) section. Make sure to update the `$logFile` variable with the operation you use to ensure you are logging to a file with the correct operation name.
+The following Powershell Script Template can also be used for each operation in
+the [Overview](#overview) section. Make sure to update the `$logFile` variable
+with the operation you use to ensure you are logging to a file with the correct
+operation name.
 
 ```powershell
 ###############################################################################################################################
@@ -151,7 +181,7 @@ function LogToFile([String] $info) {
 #if we have a non-null account request, get our value; otherwise return nothing
 function Get-AttributeValueFromAccountRequest([sailpoint.Utils.objects.AccountRequest] $request, [String] $targetAttribute) {
     $value = $null;
-    
+
     if ($request) {
         foreach ($attrib in $request.AttributeRequests) {
             if ($attrib.Name -eq $targetAttribute) {
@@ -165,7 +195,7 @@ function Get-AttributeValueFromAccountRequest([sailpoint.Utils.objects.AccountRe
     return $value;
 }
 
-  
+
 ###############################################################################################################################
 # BODY
 ###############################################################################################################################
@@ -181,7 +211,7 @@ try {
         $sReader = New-Object System.IO.StringReader([System.String]$requestString);
         $xmlReader = [System.xml.XmlTextReader]([sailpoint.utils.xml.XmlUtil]::getReader($sReader));
         $requestObject = New-Object Sailpoint.Utils.objects.AccountRequest($xmlReader);
-        
+
         #debug line for testing
         if($enableDebug) {
             LogToFile("Request object contents:")
@@ -204,7 +234,7 @@ try {
     # End Client-provided code
 }
 catch {
-    $ErrorMessage = $_.Exception.Message 
+    $ErrorMessage = $_.Exception.Message
    $ErrorItem = $_.Exception.ItemName
    LogToFile("Error: Item = $ErrorItem -> Message = $ErrorMessage")
 }

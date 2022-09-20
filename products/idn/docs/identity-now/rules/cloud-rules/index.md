@@ -25,15 +25,12 @@ that they execute in an efficient and secure manner.
 
 ## Supported Cloud Rules
 
-| Rule Name                                                                                                     | Rule Type                                                                                | Purpose                                                                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Identity Attribute Rule](./identity_attribute_rule.md)                                                       | [Identity Attribute](./identity_attribute_rule.md)                                       | Calculates complex identity attributes for a single identity, during identity calculation or refresh. Known as a "complex" rule on the identity profile. |
-| [Account Profile Attribute Generator](./account_profile_attribute_generator.md)                               | [AttributeGenerator](./account_profile_attribute_generator.md)                           | Generates complex account attribute values during provisioning, e.g. when creating an account.                                                           |
-| [Account Profile Attribute Generator (from Template)](./account_profile_attribute_generator_from_template.md) | [AttributeGeneratorFromTemplate](./account_profile_attribute_generator_from_template.md) | Generates complex account attribute values during provisioning, e.g. when creating an account. Configuration comes from a template of values.            |
-| [Correlation Rule](./correlation_rule.md)                                                                     | [Correlation](./correlation_rule.md)                                                     | Associates an account to an identity based on complex logic.                                                                                             |
-| [Manager Correlation Rule](./manager_correlation_rule.md)                                                     | [ManagerCorrelation](./manager_correlation_rule.md)                                      | Calculate a manager relationship between identities.                                                                                                     |
-| [Before Provisioning Rule](./before_provisioning_rule.md)                                                     | [BeforeProvisioning](./before_provisioning_rule.md)                                      | Performs modifications to provisioning instructions during provisioning time.                                                                            |
-| [Generic Rule](./generic_rule.md)                                                                             |                                                                                          | Used to perform complex transform operations.                                                                                                            |
+```mdx-code-block
+import DocCardList from '@theme/DocCardList';
+import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
+
+<DocCardList items={useCurrentSidebarCategory().items}/>
+```
 
 ## Configuration Process
 
@@ -150,3 +147,7 @@ things to keep in mind:
   who are submitting the rule. Reviewers may give advice, examples, etc. to
   assist, but this is not guaranteed to be the solution, and should be tested
   before re-submission.
+
+```
+
+```

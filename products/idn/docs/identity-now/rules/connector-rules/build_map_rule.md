@@ -1,24 +1,42 @@
+---
+id: buildmap-rule
+title: BuildMap Rule
+pagination_label: BuildMap Rule
+sidebar_label: BuildMap Rule
+sidebar_class_name: buildMapRule
+keywords: ["cloud", "rules"]
+description:
+  A BuildMap rule is used to manipulate the raw input data (provided via the
+  rows and columns in the file) and build a map out of the incoming data.
+slug: /docs/rules/connector-rules/buildmap-rule
+tags: ["Rules"]
+---
+
 # BuildMap Rule
 
 ## Overview
 
-A BuildMap rule is used to manipulate the raw input data (provided via the rows and columns in the file) and build a map out of the incoming data.
+A BuildMap rule is used to manipulate the raw input data (provided via the rows
+and columns in the file) and build a map out of the incoming data.
 
 ## Execution
 
-- **Connector Execution** - This rule executes within the Virtual Appliance and may offer special abilities to perform connector-related functions, and may offer managed connections to sources.
-- **Logging** - Logging statements are viewable within the ccg.log on the Virtual Appliance and by SailPoint personnel.
+- **Connector Execution** - This rule executes within the Virtual Appliance and
+  may offer special abilities to perform connector-related functions, and may
+  offer managed connections to sources.
+- **Logging** - Logging statements are viewable within the ccg.log on the
+  Virtual Appliance and by SailPoint personnel.
 
 ![Rule Execution](../img/connector_execution.png)
 
 ## Input
 
-| Argument    | Type                                   | Purpose                                                                   |
-| ----------- | -------------------------------------- | ------------------------------------------------------------------------- |
-| col         | java.util.List                         | An ordered list of the column names from the file’s header record or specified Columns list. |
-| record      | java.util.List                         | An ordered list of the values for the current record (parsed based on the specified delimiter) |
-| application | System.Collections.Hashtable           | Map of the application configuration.                                     |
-| schema      | sailpoint.object.Schema                | A reference to the Schema object for the Delimited File source being read. |
+| Argument    | Type                         | Purpose                                                                                        |
+| ----------- | ---------------------------- | ---------------------------------------------------------------------------------------------- |
+| col         | java.util.List               | An ordered list of the column names from the file’s header record or specified Columns list.   |
+| record      | java.util.List               | An ordered list of the values for the current record (parsed based on the specified delimiter) |
+| application | System.Collections.Hashtable | Map of the application configuration.                                                          |
+| schema      | sailpoint.object.Schema      | A reference to the Schema object for the Delimited File source being read.                     |
 
 ## Template
 

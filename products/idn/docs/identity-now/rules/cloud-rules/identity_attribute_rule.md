@@ -1,30 +1,48 @@
+---
+id: identity-attribute-rule
+title: Identity Attribute Rule
+pagination_label: Identity Attribute Rule
+sidebar_label: Identity Attribute Rule
+sidebar_class_name: identityAttributeRule
+keywords: ["cloud", "rules", "identity attribute"]
+description:
+  This rule is used to calculate and return an identity attribute for a specific
+  identity.
+slug: /docs/rules/cloud-rules/identity-attribute-rule
+tags: ["Rules"]
+---
+
 # Identity Attribute Rule
 
 ## Overview
 
-This rule is used to calculate and return an identity attribute for a specific identity. Also known as a "complex" rule on the identity profile.
+This rule is used to calculate and return an identity attribute for a specific
+identity. Also known as a "complex" rule on the identity profile.
 
 ## Execution
 
-- **Cloud Execution** - This rule executes in the IdentityNow cloud, and has read-only access to IdentityNow data models, however it doesn't have access to on-premise sources or connectors.
-- **Logging** - Logging statements are currently only visible to SailPoint personnel.
+- **Cloud Execution** - This rule executes in the IdentityNow cloud, and has
+  read-only access to IdentityNow data models, however it doesn't have access to
+  on-premise sources or connectors.
+- **Logging** - Logging statements are currently only visible to SailPoint
+  personnel.
 
 ![Rule Execution](../img/cloud_execution.png)
 
 ## Input
 
-| Argument | Type                         | Purpose |
-| -------- | ---------------------------- | ------- |
-| log      | org.apache.log4j.Logger      | A logger to log statements. *Note: This executes in the cloud and logging is currently not exposed to anyone other than SailPoint.* |
+| Argument | Type                         | Purpose                                                                                                                                                                                                                                                                |
+| -------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| log      | org.apache.log4j.Logger      | A logger to log statements. _Note: This executes in the cloud and logging is currently not exposed to anyone other than SailPoint._                                                                                                                                    |
 | idn      | sailpoint.server.IdnRuleUtil | Provides a read-only starting point for using the SailPoint API. From this passed reference, the rule can interrogate the IdentityNow data model including identities or account information via helper methods as described in [IdnRuleUtil](../idn_rule_utility.md). |
-| identity | sailpoint.object.Identity    | Reference to identity object that represents the identity being calculated. |
-| oldValue | java.lang.Object             | Attribute value of the identity attribute before the rule runs. |
+| identity | sailpoint.object.Identity    | Reference to identity object that represents the identity being calculated.                                                                                                                                                                                            |
+| oldValue | java.lang.Object             | Attribute value of the identity attribute before the rule runs.                                                                                                                                                                                                        |
 
 ## Output
 
-| Argument       | Type                         | Purpose                                   |
-| -------------- | ---------------------------- | ----------------------------------------- |
-| attributeValue | java.lang.Object             | Value returned of the identity attribute. |
+| Argument       | Type             | Purpose                                   |
+| -------------- | ---------------- | ----------------------------------------- |
+| attributeValue | java.lang.Object | Value returned of the identity attribute. |
 
 ## Template
 

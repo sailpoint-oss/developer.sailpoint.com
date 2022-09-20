@@ -1,4 +1,15 @@
-# Web Services Before Operation Rule
+---
+id: webservices-before-provisioning-rule
+title: Web Services Before Operation Rule
+pagination_label: Web Services Before Operation Rule
+sidebar_label: Web Services Before Operation Rule
+sidebar_class_name: webServicesBeforeOperationRule
+keywords: ["cloud", "rules", "webservices"]
+description:
+  This rule is used to calculate attributes before a web-service operation call.
+slug: /docs/rules/connector-rules/webservices-before-provisioning-rule
+tags: ["Rules"]
+---
 
 ## Overview
 
@@ -6,26 +17,29 @@ This rule is used to calculate attributes before a web-service operation call.
 
 ## Execution
 
-- **Connector Execution** - This rule executes within the Virtual Appliance and may offer special abilities to perform connector-related functions, and may offer managed connections to sources.
-- **Logging** - Logging statements are viewable within the ccg.log on the Virtual Appliance and by SailPoint personnel.
+- **Connector Execution** - This rule executes within the Virtual Appliance and
+  may offer special abilities to perform connector-related functions, and may
+  offer managed connections to sources.
+- **Logging** - Logging statements are viewable within the ccg.log on the
+  Virtual Appliance and by SailPoint personnel.
 
 ![Rule Execution](../img/connector_execution.png)
 
 ## Input
 
-| Argument         | Type                                              | Purpose                                                                    |
-| ---------------- | ------------------------------------------------- | -------------------------------------------------------------------------- |
-| application      | sailpoint.object.Application                      | Application whose data file is being processed.                            |
-| provisioningPlan | sailpoint.object.ProvisioningPlan            | Used to update the payload of the http request. Provisioning plan has an account request which defines the operation to be performed on the account. An account request can contain multiple attributes requests and each attribute request represents an operation on a single account attribute. This argument enables the user to update the body/payload or URL attributes of endpoint object using the provisioningPlan information.|
-| requestEndPoint  | sailpoint.connector.webservices.EndPoint     | Current request information; contains the header, body, context url, method type, response attribute map, successful response code |
-| restClient       | sailpoint.connector.webservices.WebServicesClient | This is a WebServicesClient (HttpClient) object that would enable the user to call Web Services API to target system. |
-| oldResponseMap   | java.util.Map                                     | The response object returned from earlier endpoint configuration of same operation type like Account Aggregation, Get Object and so on. |
+| Argument         | Type                                              | Purpose                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ---------------- | ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| application      | sailpoint.object.Application                      | Application whose data file is being processed.                                                                                                                                                                                                                                                                                                                                                                                           |
+| provisioningPlan | sailpoint.object.ProvisioningPlan                 | Used to update the payload of the http request. Provisioning plan has an account request which defines the operation to be performed on the account. An account request can contain multiple attributes requests and each attribute request represents an operation on a single account attribute. This argument enables the user to update the body/payload or URL attributes of endpoint object using the provisioningPlan information. |
+| requestEndPoint  | sailpoint.connector.webservices.EndPoint          | Current request information; contains the header, body, context url, method type, response attribute map, successful response code                                                                                                                                                                                                                                                                                                        |
+| restClient       | sailpoint.connector.webservices.WebServicesClient | This is a WebServicesClient (HttpClient) object that would enable the user to call Web Services API to target system.                                                                                                                                                                                                                                                                                                                     |
+| oldResponseMap   | java.util.Map                                     | The response object returned from earlier endpoint configuration of same operation type like Account Aggregation, Get Object and so on.                                                                                                                                                                                                                                                                                                   |
 
 ## Output
 
-| Argument         | Type                                              | Purpose                                                                    |
-| ---------------- | ------------------------------------------------- | -------------------------------------------------------------------------- |
-| EndPoint / Map   | sailpoint.connector.webservices.EndPoint / sailpoint.connector.webservices.Map | The rule allows user to return the Endpoint object (requestEndPoint) or a map. The map can hold **updatedEndPoint** and **connectorStateMap** keys where the value expected is **Endpoint** (requestEndPoint) and **connectorStateMap** object respectively. The **connectorStateMap** object is a map that contains key and value of the attribute that must be updated in the application through rule.
+| Argument       | Type                                                                           | Purpose                                                                                                                                                                                                                                                                                                                                                                                                   |
+| -------------- | ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| EndPoint / Map | sailpoint.connector.webservices.EndPoint / sailpoint.connector.webservices.Map | The rule allows user to return the Endpoint object (requestEndPoint) or a map. The map can hold **updatedEndPoint** and **connectorStateMap** keys where the value expected is **Endpoint** (requestEndPoint) and **connectorStateMap** object respectively. The **connectorStateMap** object is a map that contains key and value of the attribute that must be updated in the application through rule. |
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
@@ -55,8 +69,8 @@ import sailpoint.connector.webservices.EndPoint;
 import sailpoint.connector.webservices.WebServicesClient;
 import sailpoint.object.Application;
 import sailpoint.object.ProvisioningPlan;
-import sailpoint.object.ProvisioningPlan.AccountRequest;              
-                
+import sailpoint.object.ProvisioningPlan.AccountRequest;
+
         Map body = requestEndPoint.getBody();
         String jsonBody = (String) body.get("jsonBody");
         log.info("Rule - Modify Body: running");

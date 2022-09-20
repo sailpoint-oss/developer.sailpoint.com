@@ -3,7 +3,7 @@ id: event-triggers
 title: Event Triggers
 pagination_label: Event Triggers
 sidebar_label: Event Triggers
-sidebar_position: 2
+sidebar_position: 3
 sidebar_class_name: eventTriggers
 keywords: ["event", "triggers", "webhooks"]
 description:

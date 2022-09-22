@@ -6,8 +6,8 @@ sidebar_label: SAP HR Provisioning Modify Rule
 sidebar_class_name: sapHRProvisioningModifyRule
 keywords: ["cloud", "rules", "sap"]
 description:
-  This rule is used to perform SAP HR modification operations during
-  provisioning. This is often used for attribute sync to custom SAP HR
+  This rule performs SAP HR modification operations during
+  provisioning. This rule is typically used for attribute sync to custom SAP HR
   attributes.
 slug: /docs/rules/connector-rules/sap-provisioning-modify-rule
 tags: ["Rules"]
@@ -15,16 +15,16 @@ tags: ["Rules"]
 
 ## Overview
 
-This rule is used to perform SAP HR modification operations during provisioning.
-This is often used for attribute sync to custom SAP HR attributes.
+This rule performs SAP HR modification operations during provisioning. 
+This rule is typically used for attribute sync to custom SAP HR attributes.
 
 ## Execution
 
-- **Connector Execution** - This rule executes within the Virtual Appliance and
-  may offer special abilities to perform connector-related functions, and may
+- **Connector Execution** - This rule executes within the virtual appliance. It 
+  may offer special abilities to perform connector-related functions, and it may
   offer managed connections to sources.
 - **Logging** - Logging statements are viewable within the ccg.log on the
-  Virtual Appliance and by SailPoint personnel.
+  virtual appliance, and they are viewable by SailPoint personnel.
 
 ![Rule Execution](../img/connector_execution.png)
 
@@ -32,18 +32,18 @@ This is often used for attribute sync to custom SAP HR attributes.
 
 | Argument    | Type                                              | Purpose                                                                                                                    |
 | ----------- | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| application | sailpoint.object.Application                      | Reference to the application object                                                                                        |
-| schema      | sailpoint.object.Schema                           | Reference to the application schema                                                                                        |
-| destination | com.sap.conn.jco.JCoDestination                   | A connected and ready to use SAP destination object that can be used to call BAPI function modules and call to SAP tables. |
-| plan        | sailpoint.object.ProvisioningPlan                 | Provisioning plan containing the provisioning request(s)                                                                   |
-| request     | sailpoint.object.ProvisioningPlan.AbstractRequest | AccountRequest being processed; always null for this global rule; only set for SapHrOperationProvisioning                  |
-| connector   | sailpoint.connector.SAPHRConnector                | Application connector being used for the operation                                                                         |
+| application | sailpoint.object.Application                      | Reference to the application object.                                                                                        |
+| schema      | sailpoint.object.Schema                           | Reference to the application schema.                                                                                        |
+| destination | com.sap.conn.jco.JCoDestination                   | Connected and ready-to-use SAP destination object that can be used to call BAPI function modules and call to SAP tables. |
+| plan        | sailpoint.object.ProvisioningPlan                 | Provisioning plan containing the provisioning request(s).                                                                   |
+| request     | sailpoint.object.ProvisioningPlan.AbstractRequest | AccountRequest being processed. It is always null for this global rule. It is only set for SapHrOperationProvisioning.                  |
+| connector   | sailpoint.connector.SAPHRConnector                | Application connector being used for the operation.                                                                         |
 
 ## Output
 
 | Argument | Type                                | Purpose                                                                                                     |
 | -------- | ----------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| result   | sailpoint.object.ProvisioningResult | ProvisioningResult object containing the status (success, failure, retry, etc.) of the provisioning request |
+| result   | sailpoint.object.ProvisioningResult | ProvisioningResult object containing the provisioning request's status (success, failure, retry, etc.). |
 
 ## Template
 

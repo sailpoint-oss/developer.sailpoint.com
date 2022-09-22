@@ -6,22 +6,22 @@ sidebar_label: Web Services After Operation Rule
 sidebar_class_name: webServicesAfterOperationRule
 keywords: ["cloud", "rules", "webservices"]
 description:
-  This rule is used to calculate attributes after a web-service operation call.
+  This rule calculates attributes after a web-service operation call.
 slug: /docs/rules/connector-rules/webservices-after-provisioning-rule
 tags: ["Rules"]
 ---
 
 ## Overview
 
-This rule is used to calculate attributes after a web-service operation call.
+This rule calculates attributes after a web-service operation call.
 
 ## Execution
 
-- **Connector Execution** - This rule executes within the Virtual Appliance and
-  may offer special abilities to perform connector-related functions, and may
+- **Connector Execution** - This rule executes within the virtual appliance. It 
+  may offer special abilities to perform connector-related functions, and it may
   offer managed connections to sources.
 - **Logging** - Logging statements are viewable within the ccg.log on the
-  Virtual Appliance and by SailPoint personnel.
+  virtual appliance, and they are viewable by SailPoint personnel.
 
 ![Rule Execution](../img/connector_execution.png)
 
@@ -29,17 +29,17 @@ This rule is used to calculate attributes after a web-service operation call.
 
 | Argument                | Type                                              | Purpose                                                                                                                                                                                                                                   |
 | ----------------------- | ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| application             | sailpoint.object.Application                      | Application whose data file is being processed                                                                                                                                                                                            |
-| processedResponseObject | List<Map<String, Object>>                         | This object is List of Map (account/group). The map contains key as identityAttribute of the application schema and value is all the account/group attributes (schema) passed by the connector after parsing the respective API response. |
-| requestEndPoint         | sailpoint.connector.webservices.EndPoint          | Current request information; contains the header, body, context url, method type, response attribute map, successful response code                                                                                                        |
-| restClient              | sailpoint.connector.webservices.WebServicesClient | A WebServicesClient (HttpClient) object that would enable the user to call the Web Services API target system.                                                                                                                            |
-| rawResponseObject       | String                                            | String object which holds the raw response returned from the target system which can be in JSON or XML form.                                                                                                                              |
+| application             | sailpoint.object.Application                      | Application whose data file is being processed.                                                                                                                                                                                            |
+| processedResponseObject | List<Map<String, Object>>                         | List of map (account/group). The map contains a key, the identityAttribute of the application schema, and a value, all the account/group attributes (schema) passed by the connector after parsing the respective API response. |
+| requestEndPoint         | sailpoint.connector.webservices.EndPoint          | Current request information. It contains the header, body, context url, method type, response attribute map, successful response code.                                                                                                        |
+| restClient              | sailpoint.connector.webservices.WebServicesClient | WebServicesClient (HttpClient) object that enables the user to call the Web Services API target system.                                                                                                                            |
+| rawResponseObject       | String                                            | String object that holds the raw response returned from the target system, which can be in JSON or XML form.                                                                                                                              |
 
 ## Output
 
 | Argument                  | Type          | Purpose                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | ------------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| updatedAccountOrGroupList | java.util.Map | The `Map` object returned from the After Operation Rule may contain any or all of the following: Updated list of account / group resource objects; identified by key `data`/ Attribute values to be updated into application via connector state map; identified by key `connectorStateMap`. Each resource (account/group) object is of type Map which contains **key-value** pair, where **key** represents the schema attribute name and **value** represents the account/group attribute value. |
+| updatedAccountOrGroupList | java.util.Map | `Map` object returned from the After Operation Rule. It may contain any or all of the following: an updated list of account / group resource objects, identified by key `data`/ attribute values to be updated into application by the connector state map identified by key `connectorStateMap`. Each resource (account/group) object is of type `Map`, which contains the **key-value** pair. The **key** represents the schema attribute name, and the **value** represents the account/group attribute value. |
 
 ## Template
 

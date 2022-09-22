@@ -6,8 +6,8 @@ sidebar_label: Account Profile Attribute Generator (from Template)
 sidebar_class_name: accountProfileAttributeGeneratorTemplate
 keywords: ["cloud", "rules", "account profile", "attribute generator"]
 description:
-  Generates complex account attribute values during provisioning, e.g. when
-  creating an account. Configuration comes from a template of values.
+  This rule generates complex account attribute values during provisioning, e.g. when
+  creating an account. The rule's configuration comes from a template of values.
 slug: /docs/rules/cloud-rules/account-profile-attribute-generator-template
 tags: ["Rules"]
 ---
@@ -16,13 +16,14 @@ tags: ["Rules"]
 
 ## Overview
 
-Used to generate complex value for account attributes during provisioning.
-Typically used when creating an account to generate things like usernames.
+This rule generates complex account attribute values during provisioning, e.g. when creating an account. 
+The rule's configuration comes from a template of values.
+You would typically use this rule when you are creating an account to generate attributes like usernames.
 
 ## Execution
 
-- **Cloud Execution** - This rule executes in the IdentityNow cloud, and has
-  read-only access to IdentityNow data models, however it doesn't have access to
+- **Cloud Execution** - This rule executes in the IdentityNow cloud, and it has
+  read-only access to IdentityNow data models, but it does not have access to
   on-premise sources or connectors.
 - **Logging** - Logging statements are currently only visible to SailPoint
   personnel.
@@ -33,16 +34,16 @@ Typically used when creating an account to generate things like usernames.
 
 | Argument | Type                         | Purpose                                                                                                                                                                                                                                                                |
 | -------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| log      | org.apache.log4j.Logger      | A logger to log statements. _Note: This executes in the cloud and logging is currently not exposed to anyone other than SailPoint._                                                                                                                                    |
+| log      | org.apache.log4j.Logger      | Logger to log statements. _Note: This executes in the cloud, and logging is currently not exposed to anyone other than SailPoint._                                                                                                                                    |
 | idn      | sailpoint.server.IdnRuleUtil | Provides a read-only starting point for using the SailPoint API. From this passed reference, the rule can interrogate the IdentityNow data model including identities or account information via helper methods as described in [IdnRuleUtil](../idn_rule_utility.md). |
-| identity | sailpoint.object.Identity    | Reference to identity object that represents the identity being calculated.                                                                                                                                                                                            |
-| field    | sailpoint.object.Field       | A field object which is used to get information about the attribute being generated.                                                                                                                                                                                   |
+| identity | sailpoint.object.Identity    | Reference to identity object representing the identity being calculated.                                                                                                                                                                                            |
+| field    | sailpoint.object.Field       | Field object used to get information about the attribute being generated.                                                                                                                                                                                   |
 
 ## Output
 
 | Argument | Type             | Purpose                                  |
 | -------- | ---------------- | ---------------------------------------- |
-| value    | java.lang.Object | Value returned of the account attribute. |
+| value    | java.lang.Object | Value returned for the account attribute. |
 
 ## Template
 

@@ -6,26 +6,25 @@ sidebar_label: SAP BuildMap Rule
 sidebar_class_name: sapBuildMapRule
 keywords: ["cloud", "rules", "sap"]
 description:
-  This rule is used to gather additional attributes from SAP systems for
-  building accounts. This is implemented using SAP's Java Connector (JCo)
-  framework, via a supplied SAP connection.
+  This rule gathers additional attributes from SAP systems to
+  build accounts. This rule is implemented using SAP's Java Connector (JCo)
+  framework provided by a supplied SAP connection.
 slug: /docs/rules/connector-rules/sap-buildmap-rule
 tags: ["Rules"]
 ---
 
 ## Overview
 
-This rule is used to gather additional attributes from SAP systems for building
-accounts. This is implemented using SAP's Java Connector (JCo) framework, via a
-supplied SAP connection.
+This rule gathers additional attributes from SAP systems to build accounts. 
+This rule is implemented using SAP's Java Connector (JCo) framework provided by a supplied SAP connection.
 
 ## Execution
 
-- **Connector Execution** - This rule executes within the Virtual Appliance and
-  may offer special abilities to perform connector-related functions, and may
+- **Connector Execution** - This rule executes within the virtual appliance. It 
+  may offer special abilities to perform connector-related functions, and it may
   offer managed connections to sources.
 - **Logging** - Logging statements are viewable within the ccg.log on the
-  Virtual Appliance and by SailPoint personnel.
+  virtual appliance, and they are viewable by SailPoint personnel.
 
 ![Rule Execution](../img/connector_execution.png)
 
@@ -33,12 +32,12 @@ supplied SAP connection.
 
 | Argument    | Type                                     | Purpose                                                                                                                                                                                                                                                                                   |
 | ----------- | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| object      | sailpoint.object.Attributes              | A reference to a SailPoint attributes object (basically a Map object with some added convenience methods) that holds the attributes that have been built up by the default connector implementation. The rule should modify this object to change, add or remove attributes from the map. |
-| connector   | sailpoint.connector.SAPInternalConnector | A reference to the current SAP Connector                                                                                                                                                                                                                                                  |
-| state       | java.util.Map                            | A Map that can be used to store and share data between executions of this rule during a single aggregation run.                                                                                                                                                                           |
-| application | sailpoint.object.Application             | Attribute value of the identity attribute before the rule runs.                                                                                                                                                                                                                           |
-| schema      | sailpoint.object.Schema                  | A reference to the Schema object for the Delimited File source being read.                                                                                                                                                                                                                |
-| destination | com.sap.conn.jco.JCoDestination          | A connected and ready to use SAP destination object that can be used to call BAPI function modules and call to SAP tables.                                                                                                                                                                |
+| object      | sailpoint.object.Attributes              | Reference to a SailPoint attributes object (basically a map object with some added convenience methods) that holds the attributes that have been built up by the default connector implementation. The rule should modify this object to change, add, or remove attributes from the map. |
+| connector   | sailpoint.connector.SAPInternalConnector | Reference to the current SAP connector.                                                                                                                                                                                                                                                  |
+| state       | java.util.Map                            | Map that can be used to store and share data between executions of this rule during a single aggregation run.                                                                                                                                                                           |
+| application | sailpoint.object.Application             | Attribute value for the identity attribute before the rule runs.                                                                                                                                                                                                                           |
+| schema      | sailpoint.object.Schema                  | Reference to the schema object for the delimited file source being read.                                                                                                                                                                                                                |
+| destination | com.sap.conn.jco.JCoDestination          | Connected and ready-to-use SAP destination object that can be used to call BAPI function modules and call to SAP tables.                                                                                                                                                                |
 
 ## Template
 

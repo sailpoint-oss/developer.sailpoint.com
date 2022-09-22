@@ -6,26 +6,25 @@ sidebar_label: JDBC Provision Rule
 sidebar_class_name: jdbcProvisionRule
 keywords: ["cloud", "rules", "jdbc"]
 description:
-  This rule is designed to carry out provisioning actions from a provisioning
-  plan, via a supplied JDBC connection. These typically issue SQL commands, such
-  as insert, update, select, and deletes.
+  This rule performs provisioning actions from a provisioning
+  plan provided by a supplied JDBC connection. These actions typically issue SQL commands, such
+  as insert, update, select, and delete.
 slug: /docs/rules/connector-rules/jdbc-provisioning-rule
 tags: ["Rules"]
 ---
 
 ## Overview
 
-This rule is designed to carry out provisioning actions from a provisioning
-plan, via a supplied JDBC connection. These typically issue SQL commands, such
-as insert, update, select, and deletes.
+This rule performs provisioning actions from a provisioning plan provided by a supplied JDBC connection. 
+These actions typically issue SQL commands, such as insert, update, select, and delete.
 
 ## Execution
 
-- **Connector Execution** - This rule executes within the Virtual Appliance and
-  may offer special abilities to perform connector-related functions, and may
+- **Connector Execution** - This rule executes within the virtual appliance. It 
+  may offer special abilities to perform connector-related functions, and it may
   offer managed connections to sources.
 - **Logging** - Logging statements are viewable within the ccg.log on the
-  Virtual Appliance and by SailPoint personnel.
+  virtual appliance, and they are viewable by SailPoint personnel.
 
 ![Rule Execution](../img/connector_execution.png)
 
@@ -33,16 +32,16 @@ as insert, update, select, and deletes.
 
 | Argument    | Type                              | Purpose                                                                   |
 | ----------- | --------------------------------- | ------------------------------------------------------------------------- |
-| connection  | java.sql.Connection               | A reference to the current SQL connection                                 |
-| plan        | sailpoint.object.ProvisioningPlan | Provisioning plan containing the provisioning request(s)                  |
-| application | sailpoint.object.Application      | Attribute value of the identity attribute before the rule runs            |
-| schema      | sailpoint.object.Schema           | A reference to the Schema object for the Delimited File source being read |
+| connection  | java.sql.Connection               | Reference to the current SQL connection.                                 |
+| plan        | sailpoint.object.ProvisioningPlan | Provisioning plan containing the provisioning request(s).                  |
+| application | sailpoint.object.Application      | Attribute value for the identity attribute before the rule runs.            |
+| schema      | sailpoint.object.Schema           | Reference to the schema object for the delimited file source being read. |
 
 ## Output
 
 | Argument | Type                                | Purpose                                                                                                     |
 | -------- | ----------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| result   | sailpoint.object.ProvisioningResult | ProvisioningResult object containing the status (success, failure, retry, etc.) of the provisioning request |
+| result   | sailpoint.object.ProvisioningResult | ProvisioningResult object containing the provisioning request's status (success, failure, retry, etc.). |
 
 ## Template
 

@@ -6,7 +6,7 @@ sidebar_label: Correlation Rule
 sidebar_class_name: Correlation Rule
 keywords: ["cloud", "rules", "correlation"]
 description:
-  This rule is used to associate or correlate an account to an identity based on
+  This rule associates or correlates an account to an identity, based on
   complex logic.
 slug: /docs/rules/cloud-rules/correlation-rule
 tags: ["Rules"]
@@ -14,13 +14,12 @@ tags: ["Rules"]
 
 ## Overview
 
-This rule is used to associate or correlate an account to an identity based on
-complex logic.
+This rule associates or correlates an account to an identity, based on complex logic.
 
 ## Execution
 
-- **Cloud Execution** - This rule executes in the IdentityNow cloud, and has
-  read-only access to IdentityNow data models, however it doesn't have access to
+- **Cloud Execution** - This rule executes in the IdentityNow cloud, and it has
+  read-only access to IdentityNow data models, but it does not have access to
   on-premise sources or connectors.
 - **Logging** - Logging statements are currently only visible to SailPoint
   personnel.
@@ -31,15 +30,15 @@ complex logic.
 
 | Argument | Type                            | Purpose                                                                                                                                                                                                                                                                |
 | -------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| log      | org.apache.log4j.Logger         | A logger to log statements. _Note: This executes in the cloud and logging is currently not exposed to anyone other than SailPoint._                                                                                                                                    |
+| log      | org.apache.log4j.Logger         | Logger to log statements. _Note: This executes in the cloud, and logging is currently not exposed to anyone other than SailPoint._                                                                                                                                    |
 | idn      | sailpoint.server.IdnRuleUtil    | Provides a read-only starting point for using the SailPoint API. From this passed reference, the rule can interrogate the IdentityNow data model including identities or account information via helper methods as described in [IdnRuleUtil](../idn_rule_utility.md). |
-| account  | sailpoint.object.ResourceObject | A read-only representation of account data which has been aggregated. This is used as a basis to determine correlation linkages with a specific identity.                                                                                                              |
+| account  | sailpoint.object.ResourceObject | Read-only representation of account data that has been aggregated. Use this as a basis to determine correlation linkages with a specific identity.                                                                                                              |
 
 ## Output
 
 | Argument  | Type          | Purpose                                                                                                                                                                 |
 | --------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| returnMap | java.util.Map | A map object containing a reference to the identity attributes to correlate on. These should contain both `identityAttributeName` and `identityAttributeValue` as keys. |
+| returnMap | java.util.Map | Map object containing a reference to the identity attributes to correlate to. These should contain both `identityAttributeName` and `identityAttributeValue` as keys. |
 
 ## Template
 
@@ -56,7 +55,7 @@ complex logic.
 </Rule>
 ```
 
-## Example - Correlate account to identity based on calculated email address
+## Example - Correlate Account to Identity Based on Calculated Email Address
 
 ```java
 <?xml version='1.0' encoding='UTF-8'?>

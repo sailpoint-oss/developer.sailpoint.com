@@ -6,7 +6,7 @@ sidebar_label: Before and After Rule Operations
 sidebar_class_name: beforeAndAfterRuleOperations
 keywords: ["cloud", "rules"]
 description:
-  This rule is used to execute PowerShell commands on the IQService component
+  This rule executes PowerShell commands on the IQService component
   after a source account has an operation performed on it.
 slug: /docs/rules/connector-rules/before-and-after-rule-operations
 tags: ["Rules"]
@@ -16,10 +16,9 @@ tags: ["Rules"]
 
 ## Overview
 
-This rule is used to execute PowerShell commands on the IQService component
-after a source account has an operation performed on it.
+This rule executes PowerShell commands on the IQService component after a source account has an operation performed on it.
 
-The operations that are performed on a source are as follows:
+The following operations can be performed on a source:
 
 | Rule Name            | Rule Type             | Source Type(s)                           | Purpose                                                                                      |
 | -------------------- | --------------------- | ---------------------------------------- | -------------------------------------------------------------------------------------------- |
@@ -32,11 +31,11 @@ The operations that are performed on a source are as follows:
 
 ## Execution
 
-- **Connector Execution** - This rule executes within the Virtual Appliance and
-  may offer special abilities to perform connector-related functions, and may
+- **Connector Execution** - This rule executes within the virtual appliance. It 
+  may offer special abilities to perform connector-related functions, and it may
   offer managed connections to sources.
 - **Logging** - Logging statements are viewable within the ccg.log on the
-  Virtual Appliance and by SailPoint personnel.
+  virtual appliance, and they are viewable by SailPoint personnel.
 
 ![Rule Execution](../img/connector_execution.png)
 
@@ -45,24 +44,24 @@ The operations that are performed on a source are as follows:
 | Argument    | Type                                   | Purpose                                                                   |
 | ----------- | -------------------------------------- | ------------------------------------------------------------------------- |
 | Application | System.Collections.Hashtable           | Map of the application configuration.                                     |
-| Request     | SailPoint.Utils.objects.AccountRequest | A reference to the account request provisioning instructions.             |
-| Result      | SailPoint.Utils.objects.ServiceResult  | A reference to the provisioning result that can be manipulated if needed. |
+| Request     | SailPoint.Utils.objects.AccountRequest | Reference to the account request provisioning instructions.             |
+| Result      | SailPoint.Utils.objects.ServiceResult  | Reference to the provisioning result that can be manipulated if necessary. |
 
 ## Architecture Best Practices
 
-For supportability, it is recommended that these operation rules be written with
-only the most basic logic necessary to trigger a PowerShell script, and shift
+For supportability, it is recommended that you write these operation rules with
+only the most basic logic necessary to trigger a PowerShell script and shift
 the bulk of the downstream events and/or modifications to the PowerShell script
-itself. This script would reside on the client's servers and could therefore be
+itself. This script would reside on the client's servers and can therefore be
 easily maintained or modified by the client as needed. It also allows the client
 to implement changes to the PowerShell scripted functionality without requiring
-code review by SailPoint, as the code runs outside of the IdentityNow platform.
+code review by SailPoint because the code runs outside of the IdentityNow platform.
 
 ## Rule Template
 
-In this example we are triggering on the BeforeCreate operation. If you wanted
-to use another operation replace `BeforeCreate` in the name and
-`ConnectorBeforeCreate` in type with one of the other operations described
+This example triggers on the BeforeCreate operation. If you want
+to use another operation, replace `BeforeCreate` in the name and
+`ConnectorBeforeCreate` in the type with one of the other operations described
 earlier in the [Overview](#overview) section.
 
 ```xml
@@ -79,13 +78,13 @@ earlier in the [Overview](#overview) section.
    </Map>
   </Attributes>
   <Description>
-   This is an IQService afterScript - On a successful provisioning event, this after script should be used as the starting point for
-            initiating a separate PowerShell script residing on the client's IQService server.
+   This is an IQService afterScript - On a successful provisioning event, this after script should be used as the starting point to
+            initiate a separate PowerShell script residing on the client's IQService server.
 
-            Configuration tasks include:
-             - Set a proper location for the $logFile variable
-             - Set the proper script location and name for the $command variable
-             - Set the $enableDebug flag to $true or $false to toggle debug mode
+            Configuration tasks include the following:
+             - Set a proper location for the $logFile variable.
+             - Set the proper script location and name for the $command variable.
+             - Set the $enableDebug flag to $true or $false to toggle debug mode.
   </Description>
   <Source>
 <![CDATA[
@@ -137,8 +136,8 @@ if($enableDebug) {
 
 ## Powershell Script Template
 
-The following Powershell Script Template can also be used for each operation in
-the [Overview](#overview) section. Make sure to update the `$logFile` variable
+You can also use the following Powershell script template for each operation in
+the [Overview](#overview) section. Be sure to update the `$logFile` variable
 with the operation you use to ensure you are logging to a file with the correct
 operation name.
 

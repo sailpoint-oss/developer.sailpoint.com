@@ -31,5 +31,5 @@ jobs:
       - name: Build Developer Community site
         run: |
           npm install
-          npm run docusaurus gen-api-docs all
+          npm run gen-api-docs-all
           npm run build

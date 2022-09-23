@@ -37,7 +37,7 @@ module.exports = [
   [
     "docusaurus-plugin-openapi-docs",
     {
-      id: "idn",
+      id: "idn-api",
       docsPluginId: "idn",
       config: {
         idn_v3: {
@@ -62,7 +62,7 @@ module.exports = [
   [
     "docusaurus-plugin-openapi-docs",
     {
-      id: "iiq",
+      id: "iiq-api",
       docsPluginId: "iiq",
       config: {
         iiq: {

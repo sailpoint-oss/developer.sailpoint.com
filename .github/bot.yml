@@ -58,7 +58,11 @@ addReviewerBasedOnLabel:
       SaaS Configuration Docs:
         - colin-mckibben-sp
       Introduction Doc:
-        - sailpoint-oss/developer-relations
+        - jordan-violet-sp
+        - colin-mckibben-sp
+        - tyler-mairose-sp
+        - james-haytko-sp
+        - philip-ellis-sp
       Pages:
         - philip-ellis-sp
       Components:
@@ -76,7 +80,11 @@ addReviewerBasedOnLabel:
         - jordan-violet-sp
         - philip-ellis-sp
       Navbar:
-        - sailpoint-oss/developer-relations
+        - jordan-violet-sp
+        - colin-mckibben-sp
+        - tyler-mairose-sp
+        - james-haytko-sp
+        - philip-ellis-sp
       Plugins:
         - philip-ellis-sp
 ##### Greetings ########################################################################################################

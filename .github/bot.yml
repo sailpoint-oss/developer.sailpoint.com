@@ -4,7 +4,7 @@ labelPRBasedOnFilePath:
   Docs:
     - products/**/*.md*
   IdentityNow:
-    - products/idn/**/* 
+    - products/idn/**/*
   IdentityIQ:
     - products/iiq/**/*
   Event Trigger Docs:

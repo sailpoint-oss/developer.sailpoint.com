@@ -38,7 +38,47 @@ labelPRBasedOnFilePath:
     - navbar.js
   Plugins:
     - plugins.js
-
+##### Reviewer #########################################################################################################
+addReviewerBasedOnLabel:
+  labels:
+      Docs:
+        - james-haytko-sp
+      IdentityNow:
+        - colin-mckibben-sp
+      IdentityIQ:
+        - colin-mckibben-sp
+      Event Trigger Docs:
+        - colin-mckibben-sp
+      SaaS Connectivity Docs:
+        - philip-ellis-sp
+      Transform Docs:
+        - tyler-mairose-sp
+      Rules Docs:
+        - tyler-mairose-sp
+      SaaS Configuration Docs:
+        - colin-mckibben-sp
+      Introduction Doc:
+        - sailpoint-oss/developer-relations
+      Pages:
+        - philip-ellis-sp
+      Components:
+        - philip-ellis-sp
+      CSS:
+        - philip-ellis-sp
+      Swizzled Components:
+        - philip-ellis-sp
+        - jordan-violet-sp
+      Sidebar:
+        - philip-ellis-sp
+      Docusaurus Config:
+        - philip-ellis-sp
+      Footer:
+        - jordan-violet-sp
+        - philip-ellis-sp
+      Navbar:
+        - sailpoint-oss/developer-relations
+      Plugins:
+        - philip-ellis-sp
 ##### Greetings ########################################################################################################
 # Comment to be posted to welcome users when they open their first PR
 firstPRWelcomeComment: >

@@ -19,7 +19,7 @@ export default function NotFound() {
                 Page Not Found
               </h1>
               <p>
-              Our docs and API specifications have recently moved—checkout the navbar at the top of this page to find their new home. If this document still doesn't exist, and you think it should, <a href="https://developer.sailpoint.com/discuss/docs-request" target="_blank" rel="noopener noreferrer">let us know</a>.
+              Our docs and API specifications have recently moved—checkout the navbar at the top of this page to find their new home. If you can't find the document you're looking for, <a href="https://developer.sailpoint.com/discuss/docs-request" target="_blank" rel="noopener noreferrer">let us know</a>.
               </p>
                 <img height="60%" src="img/not-found/codey.png"/>
             </div>

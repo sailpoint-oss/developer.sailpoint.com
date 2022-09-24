@@ -10,6 +10,7 @@
 [release-shield]: https://img.shields.io/github/v/release/sailpoint-oss/developer.sailpoint.com?label=Current%20Release
 [contributor-shield]: https://img.shields.io/github/contributors/sailpoint-oss/developer.sailpoint.com?label=Contributors
 
+
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">

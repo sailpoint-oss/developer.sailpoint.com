@@ -37,6 +37,8 @@ jobs:
           node-version: "16"
       # Install and build Developer Community site
       - name: Build Developer Community site
+        env:
+          NODE_ENV: 'production'
         run: |
           export NODE_OPTIONS="--max_old_space_size=4096"
           npm install 

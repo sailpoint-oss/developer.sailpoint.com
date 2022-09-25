@@ -7,12 +7,13 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const footer = require("./footer");
 const navbar = require("./navbar");
 const plugins = require("./plugins");
+const baseUrl = process.env.NODE_ENV == 'production' ? '/developer.sailpoint.com/' : '/';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "SailPoint Developer Community",
   url: "https://developer.sailpoint.com",
-  baseUrl: "/developer.sailpoint.com/",
+  baseUrl: baseUrl,
   favicon: "img/SailPoint-Logo-Icon.ico",
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",

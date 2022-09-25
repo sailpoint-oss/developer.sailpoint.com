@@ -7,8 +7,6 @@ jobs:
   build_and_preview:
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
-    env:
-      NODE_ENV: development
     steps:
       - uses: actions/checkout@v2
       - run: npm install && npm run docusaurus gen-api-docs all && npm run build

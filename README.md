@@ -21,7 +21,7 @@
 <img src="./static/img/screenshot.png" width="500" height="" style="text-align:center">
 </div>
 </div>
-
+ 
 <!-- ABOUT THE PROJECT -->
 
 ## About The Project

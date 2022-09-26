@@ -22,6 +22,7 @@
     "@docusaurus/plugin-google-gtag": "^2.0.1",
     "@docusaurus/preset-classic": "2.0.1",
     "@mdx-js/react": "^1.6.22",
+    "@typeform/embed-react": "^1.21.0",
     "clsx": "^1.1.1",
     "docusaurus-plugin-openapi-docs": "github:philip-ellis-sp/docusaurus-plugin-openapi-docs",
     "docusaurus-theme-openapi-docs": "^1.1.10",

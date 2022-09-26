@@ -1,0 +1,109 @@
+.mainCard {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 760px auto;
+    align-content: center;
+}
+
+.background {
+    width: 760px;
+    height: 600px;
+}
+
+.learnDeployText {
+    position: absolute;
+    left: 467px;
+    height: 196px;
+    top: 425px;
+}
+
+.signUpSection {
+    min-width: 368px;
+    width: 368px;
+    margin: 30px auto;
+}
+.imageContainer {
+    text-align: center;
+}
+.shipyardLogo {
+    margin-top: 10px;
+    width: 368px;
+    height: 75px;
+    top: 50%;
+    left: 50%;
+}
+
+.sailpointImage {
+    margin-top: 70px;
+    width: 177px;
+    height: 38px;
+    text-align: center;
+}
+
+.welcomeContainer {
+    text-align: center;
+    margin-top: 70px;
+    font-size: 30px;
+    color: #0033A1;
+    font-weight: bold;
+    font-family: monospace;
+}
+
+.welcomeText {
+    width: 368px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #0033A1;
+}
+
+.emailText {
+    letter-spacing: 3.2px;
+    margin-top: 10px;
+    color: #0033A1;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.emailInput {
+    margin-top: 8px;
+    box-shadow: inset 0px 3px 6px #00000029;
+    border: 1px solid #DFE3E7;
+    border-radius: 4px;
+    height: 52px;
+    width: 433px;
+    font-size: 20px;
+    padding-left: 15px;
+}
+
+.button {
+
+    text-decoration: none;
+    text-align: center;
+    margin: 10px auto;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 100%;
+  
+  
+    /* Layout Properties */
+    margin-top: 20px;
+    width: 433px;
+    height: 52px;
+    line-height: 52px;
+    /* UI Properties */
+    background: transparent 0% 0% no-repeat padding-box;
+    opacity: 1;
+  
+    box-shadow: 0px 20px 60px #00000015;
+    border: 2px solid #df61ca;
+    border-radius: 5px;
+  }
+  
+  .link {
+    color: #df61ca;
+  }
+  .link:hover {
+    color: #df61ca;
+    cursor: pointer;
+  }

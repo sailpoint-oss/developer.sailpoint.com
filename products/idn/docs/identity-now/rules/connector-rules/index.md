@@ -14,14 +14,13 @@ tags: ["Rules"]
 **Connector-Executed Rules** or **Connector Rules** are rules that are executed
 in the IdentityNow virtual appliance, and they are usually extensions of the
 connector itself. The rules are commonly used to perform complex
-connector-related functions, so they are specific to only certain
-connectors. Because these rules execute in the virtual appliance, they do not
-have access to query the IdentityNow data model or fetch information from
-IdentityNow. They rely instead on contextual information sent from IdentityNow.
-Connector-executed rules may also have managed connections provided in their
-contexts to support querying end systems or sources. Though these
-managed connections may be used, making additional connections or call-outs is
-not allowed.
+connector-related functions, so they are specific to only certain connectors.
+Because these rules execute in the virtual appliance, they do not have access to
+query the IdentityNow data model or fetch information from IdentityNow. They
+rely instead on contextual information sent from IdentityNow. Connector-executed
+rules may also have managed connections provided in their contexts to support
+querying end systems or sources. Though these managed connections may be used,
+making additional connections or call-outs is not allowed.
 
 Unlike cloud rules, connector rules do not have a rule review process and are
 directly editable with the
@@ -30,21 +29,21 @@ For more details, see [Configuration Process](#configuration-process).
 
 ## Supported Connector Rules
 
-| Rule Name                                           | Rule Type                                            | Source Type(s)                           | Purpose                                                                                                                                                                                                                                                                                                                        |
-| --------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [Before Creation Rule](before_after_operation_rule) | [ConnectorBeforeCreate](before_after_operation_rule) | Active Directory, Azure Active Directory | Executes PowerShell commands on the IQService component before a source account is created.                                                                                                                                                                                                                                    |
-| [Before Modify Rule](before_after_operation_rule)   | [ConnectorBeforeModify](before_after_operation_rule) | Active Directory, Azure Active Directory | Executes PowerShell commands on the IQService component before a source account is modified.                                                                                                                                                                                                                                   |
-| [Before Delete Rule](before_after_operation_rule)   | [ConnectorBeforeDelete](before_after_operation_rule) | Active Directory, Azure Active Directory | Executes PowerShell commands on the IQService component before a source account is deleted.                                                                                                                                                                                                                                    |
-| [After Creation Rule](before_after_operation_rule)  | [ConnectorAfterCreate](before_after_operation_rule)  | Active Directory, Azure Active Directory | Executes PowerShell commands on the IQService component after a source account is created.                                                                                                                                                                                                                                     |
-| [After Modify Rule](before_after_operation_rule)    | [ConnectorAfterModify](before_after_operation_rule)  | Active Directory, Azure Active Directory | Executes PowerShell commands on the IQService component after a source account is modified.                                                                                                                                                                                                                                    |
-| [After Delete Rule](before_after_operation_rule)    | [ConnectorAfterDelete](before_after_operation_rule)  | Active Directory, Azure Active Directory | Executes PowerShell commands on the IQService component after a source account is deleted.                                                                                                                                                                                                                                     |
-| Build Map Rule                                      | BuildMap                                             | Delimited File                           | Calculates and transforms data from a parsed file during the aggregation process. _Note: This is only available for the Delimited File source type, not Generic source types._                                                                                                                                             |
+| Rule Name                                           | Rule Type                                            | Source Type(s)                           | Purpose                                                                                                                                                                                                                                                                                                              |
+| --------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Before Creation Rule](before_after_operation_rule) | [ConnectorBeforeCreate](before_after_operation_rule) | Active Directory, Azure Active Directory | Executes PowerShell commands on the IQService component before a source account is created.                                                                                                                                                                                                                          |
+| [Before Modify Rule](before_after_operation_rule)   | [ConnectorBeforeModify](before_after_operation_rule) | Active Directory, Azure Active Directory | Executes PowerShell commands on the IQService component before a source account is modified.                                                                                                                                                                                                                         |
+| [Before Delete Rule](before_after_operation_rule)   | [ConnectorBeforeDelete](before_after_operation_rule) | Active Directory, Azure Active Directory | Executes PowerShell commands on the IQService component before a source account is deleted.                                                                                                                                                                                                                          |
+| [After Creation Rule](before_after_operation_rule)  | [ConnectorAfterCreate](before_after_operation_rule)  | Active Directory, Azure Active Directory | Executes PowerShell commands on the IQService component after a source account is created.                                                                                                                                                                                                                           |
+| [After Modify Rule](before_after_operation_rule)    | [ConnectorAfterModify](before_after_operation_rule)  | Active Directory, Azure Active Directory | Executes PowerShell commands on the IQService component after a source account is modified.                                                                                                                                                                                                                          |
+| [After Delete Rule](before_after_operation_rule)    | [ConnectorAfterDelete](before_after_operation_rule)  | Active Directory, Azure Active Directory | Executes PowerShell commands on the IQService component after a source account is deleted.                                                                                                                                                                                                                           |
+| Build Map Rule                                      | BuildMap                                             | Delimited File                           | Calculates and transforms data from a parsed file during the aggregation process. _Note: This is only available for the Delimited File source type, not Generic source types._                                                                                                                                       |
 | JDBC Build Map Rule                                 | JDBCBuildMap                                         | JDBC                                     | Calculates and transforms data from a database query result during the aggregation process. It can also perform additional calls back to the database. _Note: This rule is available for the JDBC Generic source, as well as other sources that derive from the JDBC connector (e.g., Oracle EBS, PeopleSoft, etc.)_ |
-| JDBC Provision Rule                                 | JDBCProvision                                        | JDBC                                     | Executes database queries to perform provisioning of account and access for all account operations.                                                                                                                                                                                                                         |
-| SAP Build Map Rule                                  | SAPBuildMap                                          | SAP HR, SAP                              | Calculates and transforms data from SAP during the aggregation process. It can also perform additional calls back to the SAP system using SAP BAPI calls.                                                                                                                                                                |
-| SAP HR Provisioning Modify Rule                     | SapHrOperationProvisioning                           | SAP HR                                   | Performs SAP HR modification operations during provisioning. Often used for attribute sync to custom SAP HR attributes.                                                                                                                                                                            |
-| Web Services Before Operation Rule                  | WebServiceBeforeOperationRule                        | Web Services                             | Executes before the next web-services HTTP(S) operation. Often used to calculate values.                                                                                                                                                                                                                                       |
-| Web Services After Operation Rule                   | WebServiceAfterOperationRule                         | Web Services                             | Executes after a web-services HTTP(S) operation. Often used to parse complex data.                                                                                                                                                                                                                                             |
+| JDBC Provision Rule                                 | JDBCProvision                                        | JDBC                                     | Executes database queries to perform provisioning of account and access for all account operations.                                                                                                                                                                                                                  |
+| SAP Build Map Rule                                  | SAPBuildMap                                          | SAP HR, SAP                              | Calculates and transforms data from SAP during the aggregation process. It can also perform additional calls back to the SAP system using SAP BAPI calls.                                                                                                                                                            |
+| SAP HR Provisioning Modify Rule                     | SapHrOperationProvisioning                           | SAP HR                                   | Performs SAP HR modification operations during provisioning. Often used for attribute sync to custom SAP HR attributes.                                                                                                                                                                                              |
+| Web Services Before Operation Rule                  | WebServiceBeforeOperationRule                        | Web Services                             | Executes before the next web-services HTTP(S) operation. Often used to calculate values.                                                                                                                                                                                                                             |
+| Web Services After Operation Rule                   | WebServiceAfterOperationRule                         | Web Services                             | Executes after a web-services HTTP(S) operation. Often used to parse complex data.                                                                                                                                                                                                                                   |
 
 ## Configuration Process
 
@@ -62,9 +61,9 @@ which provide ability to interact with rules directly.
 | [Validate Connector Rule](https://developer.sailpoint.com/apis/beta/#operation/validateConnectorRule) | `POST /beta/connector-rules/validate` |
 
 SailPoint architectural optimizations have added resiliency and protections
-against malformed or long-running rules. These APIs also offer
-built-in protection and checking against potentially harmful code. For more information, see
-[Rule Code Restrictions](../rule_guide.md#rule-code-restrictions).
+against malformed or long-running rules. These APIs also offer built-in
+protection and checking against potentially harmful code. For more information,
+see [Rule Code Restrictions](../rule_guide.md#rule-code-restrictions).
 
 ## Connector Rule Object Model
 
@@ -93,34 +92,34 @@ requestEndPoint.getBody().put(\"jsonBody\",requestXML); \n              }\n     
 
 - `id` - Unique UUID that the REST APIs refers to this rule by. This is
   generated on creation.
-- `name` - Name the user interface and references may use to refer to this
-  rule.
+- `name` - Name the user interface and references may use to refer to this rule.
 - `description` - Description of the rule’s purpose or usage.
 - `created` - Timestamp when the rule was created.
 - `modified` - Timestamp when the rule was last modified. The default is `null`.
-- `type` - Type of connector rule. For a list of supported rule
-  types, see [Supported Connector Rules](#supported-connector-rules).
+- `type` - Type of connector rule. For a list of supported rule types, see
+  [Supported Connector Rules](#supported-connector-rules).
 - `attributes` - List of attributes.
-  - `sourceVersion` - String indicating the rule's version.
-    Typically, this is the same as `version`.
-- `sourceCode` - Object housing the actual source code that makes the rule
-  work.
+  - `sourceVersion` - String indicating the rule's version. Typically, this is
+    the same as `version`.
+- `sourceCode` - Object housing the actual source code that makes the rule work.
   - `version` - String indicating the rule's version. Typically, this is the
     same as `sourceVersion`.
-  - `script` - Rule’s code the connector runs.
+  - `script` - Rule’s code the connector runs. This must be escaped Java code,
+    to help with formatting please use an escaping tool like
+    [Free Formatter.](https://www.freeformatter.com/java-dotnet-escape.html#before-output)
 
 ## Attaching Connector-Related Rules to Sources
 
 Once a connector-related rule has been imported to your tenant, you must
 configure any sources that need to reference that rule during the desired
 operation. You can accomplish this configuration through the execution of an API
-call on the source. The following examples all use a `PATCH` operation for a partial
-source update, but `PUT` operations work too, as long as the entire
+call on the source. The following examples all use a `PATCH` operation for a
+partial source update, but `PUT` operations work too, as long as the entire
 source object model is provided.
 
 For the `PATCH` operations, you must provide an `op` key. For new
-configurations, this key is typically set to `add` as the example shows, but they
-can be any of the following:
+configurations, this key is typically set to `add` as the example shows, but
+they can be any of the following:
 
 - `add` - Add a new value to the configuration. Use this operation if this is
   the first time you are setting the value, i.e. it has never been configured
@@ -129,8 +128,8 @@ can be any of the following:
   operation if you are updating the value, i.e. you want to change the
   configuration.
 - `remove` - Removes a value from the configuration. Use this operation if you
-  want to unset a value. **Caution: Removals can be destructive if the path is improperly
-  configured. This can negatively alter your source config.**
+  want to unset a value. **Caution: Removals can be destructive if the path is
+  improperly configured. This can negatively alter your source config.**
 
 ## Example API calls by Rule Type
 
@@ -248,8 +247,9 @@ Content-Type: `application/json-patch+json`
 
 Content-Type: `application/json-patch+json`
 
-_Note: Replace `_`with the index location of operation the way it is configured on the source. 
-For example, 0, 1, 2, etc. You can use a`GET`call on the source first to verify the index location prior to executing the`PATCH` call to attach the rule.\*
+_Note: Replace
+`_`with the index location of operation the way it is configured on the source. For example, 0, 1, 2, etc. You can use a`GET`call on the source first to verify the index location prior to executing the`PATCH`
+call to attach the rule.\*
 
 ```json
 [
@@ -265,10 +265,10 @@ For example, 0, 1, 2, etc. You can use a`GET`call on the source first to verify 
 
 `PATCH` /v3/sources/{id} Content-Type: `application/json-patch+json`
 
-_Note: Replace \[\*\] with the index location of the operation the way it is configured
-on the source. For example, 0, 1, 2, etc. You can use a `GET` call on the source
-first to verify the index location prior to executing the `PATCH` call to attach
-the rule._
+_Note: Replace \[\*\] with the index location of the operation the way it is
+configured on the source. For example, 0, 1, 2, etc. You can use a `GET` call on
+the source first to verify the index location prior to executing the `PATCH`
+call to attach the rule._
 
 ```json
 [

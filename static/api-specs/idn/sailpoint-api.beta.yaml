@@ -380,7 +380,7 @@ tags:
 
       - Create the text file that will contain the prohibited password values.
 
-      - If the dictionary is not in English, they must add a locale string to the top line: locale:<languageCode>_<countryCode>
+      - If the dictionary is not in English, they must add a locale string to the top line: locale:`languageCode`_`countryCode`
 
       The languageCode value refers to the language's 2-letter ISO 639-1 code.
       The countryCode value refers to the country's 2-letter ISO 3166-1 code.

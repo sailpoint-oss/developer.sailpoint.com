@@ -58,7 +58,7 @@ npm install npm@latest -g
    ```
 3. Generate the docs
    ```bash
-   npm run docusaurus gen-api-docs all
+   npm run gen-api-docs-all
    ```
 4. Start the website
    ```bash

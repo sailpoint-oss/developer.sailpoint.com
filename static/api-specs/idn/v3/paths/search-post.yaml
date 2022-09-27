@@ -2,12 +2,12 @@ post:
   tags:
   - Search
   description: >-
-    Performs a search with provided query and returns matching result collection.
+    Performs a search with the provided query and returns a matching result collection.
   externalDocs:
     description: Learn more about search.
     url: https://documentation.sailpoint.com/saas/help/search/index.html
   operationId: search
-  summary: "Get a list of Documents"
+  summary: "Perform Search"
   parameters:
   - $ref: '../parameters/offset.yaml'
   - $ref: '../parameters/limit.yaml'

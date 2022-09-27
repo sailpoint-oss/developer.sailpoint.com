@@ -45,18 +45,17 @@ put:
   tags:
     - Sources
   summary: Update Source Schema (Full)
-  description: >-
+  description: |
     This API will completely replace an existing Schema with the submitted payload. Some fields of the Schema cannot be updated. These fields are listed below.
 
     * id
-
     * name
-
     * created
-
     * modified
 
     Any attempt to modify these fields will result in an error response with a status code of 400.
+
+    > `id` must remain in the request body, but it cannot be changed.  If `id` is omitted from the request body, the result will be a 400 error.
   parameters:
     - in: path
       name: sourceId
@@ -136,6 +135,24 @@ patch:
           type: array
           items:
             $ref: '../schemas/JsonPatchOperation.yaml'
+        examples:
+          add-attribute:
+            summary: Add an attribute to the end of the list
+            value: [
+                {
+                    "op": "add",
+                    "path": "/attributes/-",
+                    "value": {
+                        "name": "location",
+                        "type": "STRING",
+                        "schema": null,
+                        "description": "Employee location",
+                        "isMulti": false,
+                        "isEntitlement": false,
+                        "isGroup": false
+                    }
+                }
+            ]
   responses:
     '200':
       description: The Schema was successfully updated.

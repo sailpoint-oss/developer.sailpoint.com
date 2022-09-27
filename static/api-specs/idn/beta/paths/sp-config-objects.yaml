@@ -1,8 +1,7 @@
 get:
   operationId: spConfigObjects
-  # security:
-  #   - bearerAuth:
-  #       - 'sp:config:export'
+  security:
+    - oauth2: [sp:config:export]
   tags:
     - SP-Config
   summary: Get Config Object details
@@ -23,28 +22,6 @@ get:
             type: array
             items:
               $ref: '../../beta/schemas/SpConfigObject.yaml'
-          example:
-            - {
-              "objectType": "TRIGGER_SUBSCRIPTION",
-              "resolveByIdUrl": {
-                "url": "ets://trigger-subscriptions/$id",
-                "query": null
-              },
-              "resolveByNameUrl": {
-                "url": "ets://trigger-subscriptions/",
-                "query": {
-                  "filters": "name eq \"$name\""
-                }
-              },
-              "exportUrl": "ets://trigger-subscriptions/export",
-              "exportRight": "idn:trigger-service-subscriptions:read",
-              "exportLimit": 10,
-              "importUrl": "ets://trigger-subscriptions/import",
-              "importRight": "idn:trigger-service-subscriptions:create",
-              "importLimit": 10,
-              "referenceExtractors": ["$.owner"],
-              "signatureRequired": false
-          }
     '400':
       $ref: '../../v3/responses/400.yaml'
     '401':

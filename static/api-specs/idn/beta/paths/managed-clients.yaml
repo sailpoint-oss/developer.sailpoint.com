@@ -16,21 +16,11 @@ get:
       description: >-
         Filtering is supported for the following fields and operators:
 
-
-        **alertKey**: *eq*
-        **apiGatewayBaseUrl**: *eq*
+        **id**: *eq*
+        **name**: *eq*
         **clientId**: *eq*
         **clusterId**: *eq*
-        **cookbook**: *eq*
-        **description**: *eq*
-        **ipAddress**: *eq*
-        **lastSeen**: *eq*
-        **name**: *eq*
-        **sinceLastSeen**: *eq*
-        **status**: *eq*
-        **type**: *eq*
-        **vaDownloadUrl**: *eq*
-        **vaVersion**: *eq*
+      example: name eq "client name"
   responses:
     "200":
       description: Responds with a list of ManagedClient based on the query params provided

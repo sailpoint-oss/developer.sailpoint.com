@@ -118,10 +118,26 @@ patch:
           type: array
           items:
             $ref: '../schemas/JsonPatchOperation.yaml'
-        example:
-          - op: "replace"
-            path: "/description"
-            value: "Updated description!"
+        examples:
+          add-attribute-transform:
+            summary: Add an attribute transform
+            value: [
+                {
+                    "op": "add",
+                    "path": "/identityAttributeConfig/attributeTransforms/0",
+                    "value": {
+                        "identityAttributeName": "location",
+                        "transformDefinition": {
+                            "type": "accountAttribute",
+                            "attributes": {
+                                "sourceName": "Employees",
+                                "attributeName": "location",
+                                "sourceId": "2c91808878b7d63b0178c66ffcdc4ce4"
+                            }
+                        }
+                    }
+                }
+            ]
   responses:
     '200':
       description: >-

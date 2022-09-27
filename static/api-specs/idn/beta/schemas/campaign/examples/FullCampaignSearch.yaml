@@ -13,6 +13,7 @@ value:
   filter: 
     type: CAMPAIGN_FILTER
     id: 0fbe863c063c4c88a35fd7f17e8a3df5
+    name: Test Search Filter
   sunsetCommentsRequired: true
   sourceOwnerCampaignInfo: null
   searchCampaignInfo: 

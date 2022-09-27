@@ -14,6 +14,7 @@ value:
     filter:
       type: CAMPAIGN_FILTER
       id: 0fbe863c063c4c88a35fd7f17e8a3df5
+      name: Test Role Composition Filter
     sunsetCommentsRequired: true
     sourceOwnerCampaignInfo: null
     searchCampaignInfo: null
@@ -51,6 +52,7 @@ value:
     filter:
       type: CAMPAIGN_FILTER
       id: 0fbe863c063c4c88a35fd7f17e8a3df5
+      name: Test Manager Filter
     sunsetCommentsRequired: true
     sourceOwnerCampaignInfo: null
     searchCampaignInfo: null
@@ -73,6 +75,7 @@ value:
     filter:
       type: CAMPAIGN_FILTER
       id: 0fbe863c063c4c88a35fd7f17e8a3df5
+      name: Test Search Filter
     sunsetCommentsRequired: true
     sourceOwnerCampaignInfo: null
     searchCampaignInfo:
@@ -104,6 +107,7 @@ value:
     filter:
       type: CAMPAIGN_FILTER
       id: 0fbe863c063c4c88a35fd7f17e8a3df5
+      name: Test Source Owner Filter
     sunsetCommentsRequired: true
     sourceOwnerCampaignInfo:
       sourceIds:

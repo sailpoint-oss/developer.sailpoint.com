@@ -13,12 +13,12 @@ value:
   filter:
     type: CAMPAIGN_FILTER
     id: 0fbe863c063c4c88a35fd7f17e8a3df5
-    sunsetCommentsRequired: true
-    sourceOwnerCampaignInfo: null
-    searchCampaignInfo: null
-    roleCompositionCampaignInfo: null
-    alerts: null
-    totalCertifications: 0
-    completedCertifications: 0
-    sourcesWithOrphanEntitlements: null
-
+    name: Test Manager Filter
+  sunsetCommentsRequired: true
+  sourceOwnerCampaignInfo: null
+  searchCampaignInfo: null
+  roleCompositionCampaignInfo: null
+  alerts: null
+  totalCertifications: 0
+  completedCertifications: 0
+  sourcesWithOrphanEntitlements: null

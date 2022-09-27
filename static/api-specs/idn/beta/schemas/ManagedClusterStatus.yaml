@@ -111,3 +111,8 @@ properties:
         }'
     additionalProperties:
       $ref: './ManagedProcessConfiguration.yaml'
+  debug:
+    description: Whether or not the cluster debugging is enabled
+    type: boolean
+    default: false
+    example: false

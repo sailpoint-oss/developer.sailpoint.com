@@ -24,6 +24,7 @@ properties:
   ccId:
     description: Previous CC ID to be used in data migration. (This field will be deleted after CC migration!)
     type: integer
+    format: int64
     example: 2248
   clientId:
     description: The client ID used in API management
@@ -81,3 +82,7 @@ properties:
     readOnly: true
     type: string
     example: va-megapod-useast1-610-1621372012
+  secret:
+    description: Client's apiKey
+    type: string
+    example: ef878e15eaa8c8d3e2fa52f41125e2a0eeadadc6a14f931a33ad3e1b62d56381

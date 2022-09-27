@@ -1,6 +1,0 @@
-name: launcherId
-description: ID of a launcher.
-schema:
-  type: string
-required: true
-in: path

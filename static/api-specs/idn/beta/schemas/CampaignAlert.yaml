@@ -6,6 +6,8 @@ properties:
       - ERROR
       - WARN
       - INFO
+    description: Denotes the level of the message
+    example: ERROR
   localizations:
     type: array
     items:

@@ -20,7 +20,7 @@ post:
     required: true
     description: The PublicCertificate used to update the keyPair value in persistence.
     content:
-      application/json-patch+json:
+      application/json:
         schema:
           $ref: '../schemas/SetEncryptionKeysData.yaml'
   responses:

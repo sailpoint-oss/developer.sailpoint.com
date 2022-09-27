@@ -8,10 +8,14 @@ allOf:
         type: string
         readOnly: true
         format: date-time
+        description: Created time of the campaign
+        example: '2020-03-03T22:15:13.611Z'
       modified:
         type: string
         readOnly: true
         format: date-time
+        description: Modified time of the campaign
+        example: '2020-03-03T22:20:12.674Z'
       filter:
         type: object
         description: >-
@@ -21,15 +25,24 @@ allOf:
           id:
             type: string
             description: The ID of whatever type of filter is being used.
+            example: 0fbe863c063c4c88a35fd7f17e8a3df5
           type:
             type: string
+            description: Type of the filter
             enum:
               - CAMPAIGN_FILTER
+              - RULE
+            example: CAMPAIGN_FILTER
+          name:
+            type: string
+            description: Name of the filter
+            example: Test Filter
       sunsetCommentsRequired:
         type: boolean
         description: >-
           Determines if comments on sunset date changes are required.
         default: true
+        example: true
       sourceOwnerCampaignInfo:
         type: object
         description: Must be set only if the campaign type is SOURCE_OWNER.
@@ -39,6 +52,7 @@ allOf:
             description: The list of sources to be included in the campaign.
             items:
               type: string
+            example: [0fbe863c063c4c88a35fd7f17e8a3df5]
       searchCampaignInfo:
         type: object
         description: Must be set only if the campaign type is SEARCH.
@@ -49,11 +63,13 @@ allOf:
             enum:
               - IDENTITY
               - ACCESS
+            example: ACCESS
           description:
             type: string
             description: >-
               Describes this search campaign. Intended for storing the query used, and possibly the number of identities
               selected/available.
+            example: Search Campaign description
           reviewer:
             description: >-
               If specified, this identity or governance group will be the reviewer for all certifications in
@@ -66,12 +82,14 @@ allOf:
             description: >-
               The scope for the campaign. The campaign will cover identities returned by the query and identities that
               have access items returned by the query. One of `query` or `identityIds` must be set.
+            example: Search Campaign query description
           identityIds:
             type: array
             description: A direct list of identities to include in this campaign. One of `identityIds` or `query` must be set.
             items:
               type: string
             maxItems: 1000
+            example: [0fbe863c063c4c88a35fd7f17e8a3df5]
           accessConstraints:
             type: array
             description: >-
@@ -100,6 +118,7 @@ allOf:
               neither are set, all roles are included.
             items:
               type: string
+            example: [2c90ad2a70ace7d50170acf22ca90010]
           remediatorRef:
             type: object
             description: >-
@@ -111,13 +130,17 @@ allOf:
                 type: string
                 enum:
                   - IDENTITY
+                description: Legal Remediator Type
+                example: IDENTITY
               id:
                 type: string
                 description: The ID of the remediator.
+                example: 2c90ad2a70ace7d50170acf22ca90010
               name:
                 type: string
                 description: The name of the remediator.
                 readOnly: true
+                example: Role Admin
             required:
               - type
               - id
@@ -126,11 +149,13 @@ allOf:
             description: >-
               Optional search query to scope this campaign to a set of roles. Only one of `roleIds` and `query` may
               be set; if neither are set, all roles are included.
+            example: Search Query
           description:
             type: string
             description: >-
               Describes this role composition campaign. Intended for storing the query used, and possibly the number
               of roles selected/available.
+            example: Role Composition Description
         required:
           - remediatorRef
       alerts:
@@ -143,10 +168,12 @@ allOf:
         type: integer
         description: The total number of certifications in this campaign.
         readOnly: true
+        example: 100
       completedCertifications:
         type: integer
         description: The number of completed certifications in this campaign.
         readOnly: true
+        example: 10
       sourcesWithOrphanEntitlements:
         type: array
         description: >-
@@ -159,24 +186,15 @@ allOf:
           properties:
             id:
               type: string
+              description: Id of the source
+              example: 2c90ad2a70ace7d50170acf22ca90010
             type:
               type: string
               enum:
                 - SOURCE
+              description: Type
+              example: SOURCE
             name:
               type: string
-example:
-  id: 2c9079b270a266a60170a2779fcb0007
-  name: Manager Campaign
-  description: Everyone needs to be reviewed by their manager.
-  created: '2020-03-03T22:15:13.611Z'
-  modified: '2020-03-03T22:20:12.674Z'
-  deadline: '2020-03-15T00:00:00.456Z'
-  type: MANAGER
-  emailNotificationEnabled: true
-  autoRevokeAllowed: false
-  recommendationsEnabled: false
-  status: ACTIVE
-  filter:
-    type: CAMPAIGN_FILTER
-    id: e0adaae69852e8fe8b8a3d48e5ce757c
+              description: Name of the source
+              example: Source with orphan entitlements

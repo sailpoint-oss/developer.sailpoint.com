@@ -40,7 +40,7 @@ properties:
 
   includeNested:
     description: >-
-      Indicates if nested objects from returned search results should be included.
+      Indicates whether nested objects from returned search results should be included.
     type: boolean
     default: true
     example: true

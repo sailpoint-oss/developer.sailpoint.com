@@ -8,12 +8,6 @@ allOf:
   properties:
     reportType:
       $ref: './ReportType.yaml'
-    lastRun:
-      type: integer
-      readOnly: true
-      format: int64
-      deprecated: true
-      description: Date is stored in Unix Epoch time format (in milliseconds)
     lastRunAt:
       type: string
       readOnly: true
@@ -25,5 +19,4 @@ example:
   name: Campaign Composition Report
   status: SUCCESS
   reportType: CAMPAIGN_COMPOSITION_REPORT
-  lastRun: 1549051761000
   lastRunAt: '2019-12-19T13:49:37.385Z'

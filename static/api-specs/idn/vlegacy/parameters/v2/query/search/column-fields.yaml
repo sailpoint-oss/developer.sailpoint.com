@@ -1,7 +1,0 @@
-name: fields
-description: List of field columns that should be included in the export.
-schema:
-  type: array
-  items:
-    type: string
-in: query

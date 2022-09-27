@@ -6,7 +6,9 @@ info:
   contact:
     name: Developer Relations
     url: https://developer.sailpoint.com/discuss/api-help
-  license: https://opensource.org/licenses/MIT 
+  license: 
+    name: MIT
+    url: https://opensource.org/licenses/MIT 
   version: 3.1.0-beta
 servers:
   - url: https://{tenant}.api.identitynow.com/beta
@@ -83,7 +85,9 @@ tags:
       Use this API to implement and customize access request functionality. 
       With this functionality in place, users can request access to applications, entitlements, or roles, and managers can request that team members' access be revoked.
       This allows users to get access to the tools they need quickly and securely, and it allows managers to take away access to those tools. 
-
+      
+      IdentityNow's Access Request service allows end users to request access that requires approval before it can be granted to users and enables qualified users to review those requests and approve or deny them.
+      
       In the Request Center in IdentityNow, users can view available applications, roles, and entitlements and request access to them. 
       If the requested tools requires approval, the requests appear as 'Pending' under the My Requests tab until the required approver approves, rejects, or cancels them. 
 
@@ -97,14 +101,128 @@ tags:
       description: Learn more about access requests
       url: https://documentation.sailpoint.com/saas/user-help/requests/requesting_access.html
   - name: Account Activities
+    description: |
+      Use this API to implement account activity tracking functionality.
+      With this functionality in place, users can track source account activity in IdentityNow, which greatly improves traceability in the system. 
+
+      An account activity refers to a log of each action performed on a source account. This is useful for auditing the changes that occur on an account throughout its life. 
+      In IdentityNow's Search, users can search for account activities and select the activity's row to get an overview of the activity's account action and view its progress, its involved sources, and its most basic metadata, such as the identity requesting the option and the recipient. 
+
+      Account activity includes most actions IdentityNow completes on source accounts. Users can search in IdentityNow for the following account action types: 
+
+      - Access Request: These include any access requests the source account is involved in. 
+
+      - Account Attribute Updates: These include updates to a single attribute on an account on a source. 
+
+      - Account State Update: These include locking or unlocking actions on an account on a source. 
+
+      - Certification: These include actions removing an entitlement from an account on a source as a result of the entitlement's revocation during a certification.
+
+      - Cloud Automated <Lifecyclestate>: These include automated lifecycle state changes that result in a source account's correlated identity being assigned to a different lifecycle state. 
+      IdentityNow replaces the <Lifecyclestate> variable with the name of the lifecycle state it has moved the account's identity to. 
+
+      - Identity Attribute Update: These include updates to a source account's correlated identity attributes as the result of a provisioning action. 
+      When you update an identity attribute that also updates an identity's lifecycle state, the cloud automated <Lifecyclestate> event also displays.
+      Account Activity does not include attribute updates that occur as a result of aggregation.
+
+      - Identity Refresh: These include correlated identity refreshes that occur for an account on a source whenever the account's correlated identity profile gets a new role or updates. 
+      These also include refreshes that occur whenever IdentityNow assigns an application to the account's correlated identity based on the application's being assigned to All Users From Source or Specific Users From Source. 
+
+      - Lifecycle State Refresh: These include the actions that took place when a lifecycle state changed. This event only occurs after a cloud automated <Lifecyclestate> change or a lifecycle state change. 
+
+      - Lifecycle State Change: These include the account activities that result from an identity's manual assignment to a null lifecycle state.
+
+      - Password Change: These include password changes on sources.
+
+      Refer to the following link for more information about account activities: 
+    externalDocs:
+      description: Learn more about account activities
+      url: https://documentation.sailpoint.com/saas/help/search/index.html
   - name: Account Aggregations
+    description: |
+      Use this API to implement account aggregation progress tracking functionality. 
+      With this functionality in place, administrators can view in-progress account aggregations, their statuses, and their relevant details. 
+      
+      An account aggregation refers to the process IdentityNow uses to gather and load account data from a source into IdentityNow.
+
+      Whenever IdentityNow is in the process of aggregating a source, it adds an entry to the Aggregation Activity Log, along with its relevant details. 
+      To view aggregation activity, administrators can select the Connections drop-down menu, select Sources, and select the relevant source, select its Import Data tab, and select Account Aggregation. 
+      In Account Aggregation, administrators can view the account aggregations' statuses and details in the Account Activity Log.
+
+      Refer to the following link for more information about account aggregations: 
+    externalDocs:
+      description: Learn more about account aggregations
+      url: https://documentation.sailpoint.com/saas/help/accounts/loading_data.html
   - name: Accounts
+    description: |
+      Use this API to implement and customize account functionality.
+      With this functionality in place, administrators can manage users' access across sources in IdentityNow. 
+
+      In IdentityNow, an account refers to a user's account on a supported source.
+      This typically includes a unique identifier for the user, a unique password, a set of permissions associated with the source and a set of attributes. IdentityNow loads accounts through the creation of sources in IdentityNow.
+
+      Administrators can correlate users' identities with the users' accounts on the different sources they use. 
+      This allows IdentityNow to govern the access of identities and all their correlated accounts securely and cohesively. 
+
+      To view the accounts on a source and their correlated identities, administrators can use the Connections drop-down menu, select Sources, select the relevant source, and select its Account tab. 
+
+      To view and edit source account statuses for an identity in IdentityNow, administrators can use the Identities drop-down menu, select Identity List, select the relevant identity, and select its Accounts tab. 
+      Administrators can toggle an account's Actions to aggregate the account, enable/disable it, unlock it, or remove it from the identity. 
+      
+      Accounts can have the following statuses: 
+
+      - Enabled: The account is enabled. The user can access it.
+
+      - Disabled: The account is disabled, and the user cannot access it, but the identity is not disabled in IdentityNow. This can occur when an administrator disables the account or when the user's lifecycle state changes. 
+
+      - Locked: The account is locked. This may occur when someone has entered an incorrect password for the account too many times.
+
+      - Pending: The account is currently updating. This status typically lasts seconds. 
+
+      Administrators can select the source account to view its attributes, entitlements, and the last time the account's password was changed.
+
+      Refer to the following link for more information about accounts: 
+    externalDocs:
+      description: Learn more about accounts
+      url: https://documentation.sailpoint.com/saas/help/common/users/user_access.html 
   - name: Certification Campaigns
   - name: Certifications
   - name: Connector Rule Management
   - name: Connectors
+    description: |
+      Use this API to implement connector functionality. 
+      With this functionality in place, administrators can view available connectors.
+
+      Connectors are the bridges IdentityNow uses to communicate with and aggregate data from sources. 
+      For example, if it is necessary to set up a connection between IdentityNow and the Active Directory source, a connector can bridge the two and enable IdentityNow to synchronize data between the systems. 
+      This ensures account entitlements and states are correct throughout the organization. 
+
+      In IdentityNow, administrators can use the Connections drop-down menu and select Sources to view the available source connectors. 
+
+      Refer to https://documentation.sailpoint.com/connectors/identitynow/landingpages/help/landingpages/identitynow_connectivity_landing.html for more information about the connectors available in IdentityNow. 
+
+      Refer to https://developer.sailpoint.com/docs/custom_connectors/overview.html for more information about the SaaS custom connectors that do not need VAs (virtual appliances) to communicate with their sources. 
+
+      Refer to the following link for more information about using connectors in IdentityNow: 
+    externalDocs:
+      description: Learn more about connectors
+      url: https://documentation.sailpoint.com/saas/help/sources/managing_sources.html
   - name: Custom Password Instructions
-    description: Operations for managing custom password instructions
+    description: |
+      Use this API to implement custom password instruction functionality.
+      With this functionality in place, administrators can create custom password instructions to help users reset their passwords, change them, unlock their accounts, or recover their usernames. 
+      This allows administrators to emphasize password policies or provide organization-specific instructions.
+
+      Administrators must first use [Update Password Org Config](https://developer.sailpoint.com/apis/beta/#operation/updatePasswordOrgConfig) to set `customInstructionsEnabled` to `true`. 
+
+      Once they have enabled custom instructions, they can use [Create Custom Password Instructions](https://developer.sailpoint.com/apis/beta/#operation/createCustomPasswordInstructions) to create custom page content for the specific pageId they select. 
+
+      For example, an administrator can use the pageId forget-username:user-email to set the custom text for the case when users forget their usernames and must enter their emails. 
+
+      Refer to the following link for more information about creating custom password instructions: 
+    externalDocs:
+      description: Learn more about custom password instructions
+      url: https://documentation.sailpoint.com/saas/help/pwd/pwd_reset.html
   - name: Entitlements
     description: |
       Use this API to implement and customize entitlement functionality. 
@@ -155,7 +273,7 @@ tags:
       
       Refer to https://documentation.sailpoint.com/saas/help/access/entitlements.html#deleting-entitlements more information about deleting entitlements.
       
-      Refer to the following link for more information about entitlements.
+      Refer to the following link for more information about entitlements:
     externalDocs:
       description: Learn more about entitlements
       url: https://documentation.sailpoint.com/saas/help/access/index.html
@@ -166,8 +284,42 @@ tags:
   - name: IAI Recommendations
   - name: IAI Role Mining
   - name: Identities
+    description: |
+      Use this API to implement identity functionality. 
+      With this functionality in place, administrators can synchronize an identity's attributes with its various source attributes. 
+
+      IdentityNow uses identities as users' authoritative accounts. Identities can own other accounts, entitlements, and attributes. 
+      
+      An identity has a variety of attributes, such as an account name, an email address, a job title, and more. 
+      These identity attributes can be correlated with different attributes on different sources. 
+      For example, the identity John.Smith can own an account in the GitHub source with the account name John-Smith-Org, and IdentityNow knows they are the same person with the same access and attributes. 
+
+      In IdentityNow, administrators often set up these synchronizations to get triggered automatically with a change or to run on a schedule. 
+      To manually synchronize attributes for an identity, administrators can use the Identities drop-down menu and select Identity List to view the list of identities.
+      They can then select the identity they want to manually synchronize and use the hamburger menu to select 'Synchronize Attributes.' 
+      Doing so immediately begins the attribute synchronization and analyzes all accounts for the selected identity.
+
+      Refer to the following link for more information about synchronizing attributes: 
+    externalDocs:
+      description: Learn more about synchronizing attributes
+      url: https://documentation.sailpoint.com/saas/help/provisioning/attr_sync.html   
   - name: Identity History
   - name: Identity Profiles
+    description: |
+      Use this API to implement and customize identity profile functionality. 
+      With this functionality in place, administrators can manage identity profiles and configure them for use by identities throughout IdentityNow. 
+
+      Identity profiles represent the configurations that can be applied to identities as a way of granting them a set of security and access, as well as defining the mappings between their identity attributes and their source attributes. 
+      This allows administrators to save time by applying identity profiles to any number of similar identities rather than configuring each one individually.
+
+      In IdentityNow, administrators can use the Identities drop-down menu and select Identity Profiles to view the list of identity profiles. 
+      This list shows some details about each identity profile, along with its status. They can select an identity profile to view and modify its settings, its mappings between identity attributes and correlating source account attributes, and its provisioning settings. 
+      Administrators can also use this page to create new identity profiles or delete existing ones. 
+      
+      Refer to the following link for more information about identity profiles: 
+    externalDocs:
+      description: Learn more about identity profiles
+      url: https://documentation.sailpoint.com/saas/help/setup/identity_profiles.html
   - name: Lifecycle States
   - name: Managed Clients
     description: Read and write operations for managing client data and statuses
@@ -181,12 +333,162 @@ tags:
   - name: Org Config
     description: Operations for managing org configuration settings (eg. time zone)
   - name: Password Configuration
+    description: |
+      Use this API to implement organization password configuration functionality. 
+      With this functionality in place, organization administrators can create organization-specific password configurations. 
+
+      These configurations include details like custom password instructions, as well as digit token length and duration. 
+
+      Refer to the following link for more information about organization password configuration functionality: 
+    externalDocs:
+      description: Learn more about organization password configurations
+      url: https://documentation.sailpoint.com/saas/help/pwd/pwd_reset.html
   - name: Password Dictionary
+    description: |
+      Use this API to implement password dictionary functionality.  
+      With this functionality in place, administrators can create password dictionaries to prevent users from using certain words or characters in their passwords. 
+
+      A password dictionary is a list of words or characters that users are prevented from including in their passwords. 
+      This can help protect users from themselves and force them to create passwords that are not easy to break. 
+
+      A password dictionary must meet the following requirements to for the API to handle them correctly: 
+
+      - It must be in .txt format.
+
+      - All characters must be UTF-8 characters. 
+
+      - Each line must contain a single word or character with no spaces or whitespace characters.
+
+      - It must contain at least one line other than the locale string.
+
+      - Each line must not exceed 128 characters.
+
+      - The file must not exceed 2500 lines. 
+
+      Administrators should also consider the following when they create their dictionaries: 
+
+      - Lines starting with a # represent comments.
+
+      - All words in the password dictionary are case-insensitive. 
+      For example, adding the word "password" to the dictionary also disallows the following: PASSWORD, Password, and PassWord.
+
+      - The dictionary uses substring matching. 
+      For example, adding the word "spring" to the dictionary also disallows the following: Spring124, 345SprinG, and 8spring.
+      Users can then select 'Change Password' to update their passwords. 
+
+      Administrators must do the following to create a password dictionary: 
+
+      - Create the text file that will contain the prohibited password values.
+
+      - If the dictionary is not in English, they must add a locale string to the top line: locale:<languageCode>_<countryCode>
+
+      The languageCode value refers to the language's 2-letter ISO 639-1 code.
+      The countryCode value refers to the country's 2-letter ISO 3166-1 code.
+      
+      Refer to this list https://docs.oracle.com/cd/E13214_01/wli/docs92/xref/xqisocodes.html to see all the available ISO 639-1 language codes and ISO 3166-1 country codes.
+
+      - Upload the .txt file to IdentityNow with [Update Password Dictionary](https://developer.sailpoint.com/apis/beta/#operation/updatePasswordDictionary). Uploading a new file always overwrites the previous dictionary file.
+
+      Administrators can then specify which password policies check new passwords against the password dictionary by doing the following: In the Admin panel, they can use the Password Mgmt dropdown menu to select Policies, select the policy, and select the 'Prevent use of words in this site's password dictionary' checkbox beside it.
+
+      Refer to the following link for more information about password dictionaries: 
+    externalDocs:
+      description: Learn more about password dictionaries
+      url: https://documentation.sailpoint.com/saas/help/pwd/adv_config.html
   - name: Password Management
-    description: Operations for managing identity's passwords
+    description: |
+      Use this API to implement password management functionality.  
+      With this functionality in place, users can manage their identity passwords for all their applications.
+
+      In IdentityNow, users can select their names in the upper right corner of the page and use the drop-down menu to select Password Manager. 
+      Password Manager lists the user's identity's applications, possibly grouped to share passwords. 
+      Users can then select 'Change Password' to update their passwords. 
+
+      Grouping passwords allows users to update their passwords more broadly, rather than requiring them to update each password individually. 
+      Password Manager may list the applications and sources in the following groups:
+
+      - Password Group: This refers to a group of applications that share a password. 
+      For example, a user can use the same password for Google Drive, Google Mail, and YouTube. 
+      Updating the password for the password group updates the password for all its included applications.
+
+      - Multi-Application Source: This refers to a source with multiple applications that share a password. 
+      For example, a user can have a source, G Suite, that includes the Google Calendar, Google Drive, and Google Mail applications. 
+      Updating the password for the multi-application source updates the password for all its included applications. 
+
+      - Applications: These are applications that do not share passwords with other applications.
+
+      An organization may require some authentication for users to update their passwords. 
+      Users may be required to answer security questions or use a third-party authenticator before they can confirm their updates. 
+
+      Refer to the following link for more information about password management: 
+    externalDocs:
+      description: Learn more about password management
+      url: https://documentation.sailpoint.com/saas/user-help/accounts/passwords.html
   - name: Password Sync Groups
-  - name: Personal Access Tokens
-  - name: Public Identity Config
+    description: |
+      Use this API to implement password sync group functionality. 
+      With this functionality in place, administrators can group sources into password sync groups so that all their applications share the same password. 
+      This allows users to update the password for all the applications in a sync group if they want, rather than updating each password individually. 
+
+      A password sync group is a group of applications that shares a password. 
+      Administrators create these groups by grouping the applications' sources. 
+      For example, an administrator can group the ActiveDirectory, GitHub, and G Suite sources together so that all those sources' applications can also be grouped to share a password. 
+      A user can then update his or her password for ActiveDirectory, GitHub, Gmail, Google Drive, and Google Calendar all at once, rather then updating each one individually.
+
+      The following are required for administrators to create a password sync group in IdentityNow: 
+
+      - At least two direct connect sources connected to IdentityNow and configured for Password Management.
+
+      - Each authentication source in a sync group must have at least one application. Refer to https://documentation.sailpoint.com/saas/help/pwd/adv_config.html for more information about adding applications to sources.
+
+      - At least one password policy. Refer to https://documentation.sailpoint.com/saas/help/pwd/policies.html for more information about password policies. 
+
+      In the Admin panel in IdentityNow, administrators can use the Password Mgmt dropdown menu to select Sync Groups. 
+      To create a sync group, administrators must provide a name, choose a password policy to be enforced across the sources in the sync group, and select the sources to include in the sync group. 
+
+      Administrators can also delete sync groups in IdentityNow, but they should know the following before they do: 
+
+      - Passwords related to the associated sources will become independent, so changing one will not change the others anymore. 
+
+      - Passwords for the sources' connected applications will also become independent. 
+
+      - Password policies assigned to the sync group are then assigned directly to the associated sources. 
+      To change the password policy for a source, administrators must edit it directly. 
+
+      Once the password sync group has been created, users can update the password for the group in Password Manager.
+
+      Refer to the following link for more information about password sync groups: 
+    externalDocs:
+      description: Learn more about password sync groups
+      url: https://documentation.sailpoint.com/saas/help/pwd/sync_grps.html
+  - name: Personal Access Tokens  
+    description: |
+      Use this API to implement personal access token (PAT) functionality. 
+      With this functionality in place, users can use PATs as an alternative to passwords for authentication in IdentityNow. 
+
+      PATs embed user information into the client ID and secret. 
+      This replaces the API clients' need to store and provide a username and password to establish a connection, improving IdentityNow organizations' integration security. 
+
+      In IdentityNow, users can do the following to create and manage their PATs: Select the dropdown menu under their names, select Preferences, and then select Personal Access Tokens. 
+      They must then provide a description about the token's purpose. 
+      They can then select 'Create Token' at the bottom of the page to generate and view the Secret and Client ID. 
+
+      Refer to the following link for more information about PATs: 
+    externalDocs:
+      description: Learn more about PATs
+      url: https://documentation.sailpoint.com/saas/help/common/generate_tokens.html.
+  - name: Public Identities Config
+    description: |
+      Use this API to implement public identity configuration functionality. 
+      With this functionality in place, administrators can make up to 5 identity attributes publicly visible so other non-administrator users can see the relevant information they need to make decisions. 
+      This can be helpful for access approvers, certification reviewers, managers viewing their direct reports' access, and source owners viewing their tasks.
+
+      By default, non-administrators can select an identity and view the following attributes: email, lifecycle state, and manager. 
+      However, it may be helpful for a non-administrator reviewer to see other identity attributes like department, region, title, etc.
+      Administrators can use this API to make those necessary identity attributes public to non-administrators. 
+
+      For example, a non-administrator deciding whether to approve another identity's request for access to the Workday application, whose access may be restricted to members of the HR department, would want to know whether the identity is a member of the HR department. 
+      If an administrator has used [Update Public Identity Config](https://developer.sailpoint.com/apis/beta/#operation/updatePublicIdentityConfig) to make the "department" attribute public, the approver can see the department and make a decision without requesting any more information. 
   - name: Requestable Objects
   - name: Role Insights
   - name: Roles
@@ -261,10 +563,10 @@ tags:
       | [Access Request Dynamic Approver](https://developer.sailpoint.com/triggers/available-event-triggers/access-request-dynamic-approval-event-trigger.html) | idn:access-request-dynamic-approver | REQUEST_RESPONSE |After an access request is submitted. Expects the subscriber to respond with the ID of an identity or workgroup to add to the approval workflow. | [Input Schema](#section/Access-Request-Dynamic-Approver-Event-Trigger-Input) - [Output Schema](#section/Access-Request-Dynamic-Approver-Event-Trigger-Output) |
       | [Access Request Decision](https://developer.sailpoint.com/triggers/available-event-triggers/access-request-postapproval-trigger.html) | idn:access-request-post-approval | FIRE_AND_FORGET | After an access request is approved. |[Input Schema](#section/Access-Request-Post-Approval-Event-Trigger-Input)|
       | [Access Request Submitted](https://developer.sailpoint.com/triggers/available-event-triggers/access-request-preapproval-event-trigger.html) | idn:access-request-pre-approval | REQUEST_RESPONSE | After an access request is submitted. Expects the subscriber to respond with an approval decision. | [Input Schema](#section/Access-Request-Pre-Approval-Event-Trigger-Input) - [Output Schema](#section/Access-Request-Pre-Approval-Event-Trigger-Output) |
-      | Account Aggregation Completed | idn:account-aggregation-completed | FIRE_AND_FORGET | After an account aggregation completed, terminated, failed. | [Input Schema](#section/Account-Aggregation-Completed-Event-Trigger-Input) |
+      | [Account Aggregation Completed](https://developer.sailpoint.com/triggers/available-event-triggers/account-aggregation-completed.html) | idn:account-aggregation-completed | FIRE_AND_FORGET | After an account aggregation completed, terminated, failed. | [Input Schema](#section/Account-Aggregation-Completed-Event-Trigger-Input) |
       | Account Attributes Changed | idn:account-attributes-changed | FIRE_AND_FORGET | After an account aggregation, and one or more account attributes have changed. | [Input Schema](#section/Account-Attributes-Changed-Event-Trigger-Input) |
       | Account Correlated | idn:account-correlated | FIRE_AND_FORGET | After an account is added to an identity. | [Input Schema](#section/Account-Correlated-Event-Trigger-Input) |
-      | [Accounts Collected for Aggregation](https://developer.sailpoint.com/triggers/available-event-triggers/account-aggregation-completed.html) |  idn:aggregation-accounts-collected | FIRE_AND_FORGET | New, changed, and deleted accounts have been gathered during an aggregation and are being processed. | [Input Schema](#section/Accounts-Collected-for-Aggregation-Event-Trigger-Input) |
+      | Accounts Collected for Aggregation |  idn:aggregation-accounts-collected | FIRE_AND_FORGET | New, changed, and deleted accounts have been gathered during an aggregation and are being processed. | [Input Schema](#section/Accounts-Collected-for-Aggregation-Event-Trigger-Input) |
       | Account Uncorrelated | idn:account-uncorrelated | FIRE_AND_FORGET | After an account is removed from an identity. | [Input Schema](#section/Account-Uncorrelated-Event-Trigger-Input)  |
       | Campaign Activated | idn:campaign-activated | FIRE_AND_FORGET | After a campaign is activated. | [Input Schema](#section/Campaign-Activated-Event-Trigger-Input) |
       | Campaign Ended | idn:campaign-ended | FIRE_AND_FORGET | After a campaign ends. | [Input Schema](#section/Campaign-Ended-Event-Trigger-Input) |
@@ -274,6 +576,9 @@ tags:
       | [Identity Created](https://developer.sailpoint.com/triggers/available-event-triggers/identity-created-event-trigger.html) | idn:identity-created | FIRE_AND_FORGET | After an identity is created. | [Input Schema](#section/Identity-Created-Event-Trigger-Input) |
       | [Provisioning Completed](https://developer.sailpoint.com/triggers/available-event-triggers/provisioning-action-completed-trigger.html) |  idn:post-provisioning | FIRE_AND_FORGET | After a provisioning action completed on a source. | [Input Schema](#section/Provisioning-Completed-Event-Trigger-Input) |
       | [Saved Search Complete](https://developer.sailpoint.com/triggers/available-event-triggers/saved-search-completed.html) |  idn:saved-search-complete | FIRE_AND_FORGET | After a scheduled search completed. | [Input Schema](#section/Saved-Search-Complete-Event-Trigger-Input) |
+      | [Source Created](https://developer.sailpoint.com/triggers/available-event-triggers/source-created-trigger.html) | idn:source-created | FIRE_AND_FORGET | After a source is created. | [Input Schema](#section/Source-Created-Event-Trigger-Input) |
+      | [Source Deleted](https://developer.sailpoint.com/triggers/available-event-triggers/source-deleted-trigger.html) | idn:source-deleted | FIRE_AND_FORGET | After a source is deleted. | [Input Schema](#section/Source-Deleted-Event-Trigger-Input) |
+      | [Source Updated](https://developer.sailpoint.com/triggers/available-event-triggers/source-updated-trigger.html) | idn:source-updated | FIRE_AND_FORGET | After configuration changes have been made to a source. | [Input Schema](#section/Source-Updated-Event-Trigger-Input) |
       | [VA Cluster Status Changed Event](https://developer.sailpoint.com/triggers/available-event-triggers/va-cluster-status-change-event-trigger.html) | idn:va-cluster-status-change | FIRE_AND_FORGET | After the status of a VA cluster has changed. | [Input Schema](#section/VA-Cluster-Status-Change-Event-Event-Trigger-Input) |
 
       ## Early Access Event Triggers
@@ -285,9 +590,6 @@ tags:
       | [Source Account Created](https://developer.sailpoint.com/triggers/early-access-event-triggers/source-account-created-trigger.html) | idn:source-account-created | FIRE_AND_FORGET | After a source account is created. | [Input Schema](#section/Source-Account-Created-Event-Trigger-Input) |
       | [Source Account Deleted](https://developer.sailpoint.com/triggers/early-access-event-triggers/source-account-deleted-trigger.html) | idn:source-account-deleted | FIRE_AND_FORGET | After a source account is deleted. | [Input Schema](#section/Source-Account-Deleted-Event-Trigger-Input) |
       | [Source Account Updated](https://developer.sailpoint.com/triggers/early-access-event-triggers/source-account-updated-trigger.html) | idn:source-account-updated | FIRE_AND_FORGET | After a source account is changed. | [Input Schema](#section/Source-Account-Updated-Event-Trigger-Input) |
-      | [Source Created](https://developer.sailpoint.com/triggers/early-access-event-triggers/source-created-trigger.html) | idn:source-created | FIRE_AND_FORGET | After a source is created. | [Input Schema](#section/Source-Created-Event-Trigger-Input) |
-      | [Source Deleted](https://developer.sailpoint.com/triggers/early-access-event-triggers/source-deleted-trigger.html) | idn:source-deleted | FIRE_AND_FORGET | After a source is deleted. | [Input Schema](#section/Source-Deleted-Event-Trigger-Input) |
-      | [Source Updated](https://developer.sailpoint.com/triggers/early-access-event-triggers/source-updated-trigger.html) | idn:source-updated | FIRE_AND_FORGET | After configuration changes have been made to a source. | [Input Schema](#section/Source-Updated-Event-Trigger-Input) |
 
     externalDocs:
       description: Getting started with event triggers
@@ -481,13 +783,13 @@ components:
         Learn more about how to find your `tokenUrl` and `authorizationUrl` [in our docs](https://developer.sailpoint.com/docs/authentication.html#finding-your-tenant-s-oauth-details)
       flows:
         clientCredentials:
-          tokenUrl: https://tenant.api.identitynow.com/oauth/token
+          tokenUrl: https://{tenant}.api.identitynow.com/oauth/token
           scopes: 
             'sp:scopes:default': 'default scope'
             'sp:scopes:all': 'access to all scopes'
         authorizationCode:
-          authorizationUrl: https://tenant.identitynow.com/oauth/authorize
-          tokenUrl: https://tenant.api.identitynow.com/oauth/token
+          authorizationUrl: https://{tenant}.identitynow.com/oauth/authorize
+          tokenUrl: https://{tenant}.api.identitynow.com/oauth/token
           scopes: 
             'sp:scopes:default': 'default scope'
             'sp:scopes:all': 'access to all scopes'
@@ -966,7 +1268,7 @@ paths:
     $ref: './beta/paths/source-connector-ping-cluster.yaml'
   /sources/{sourceId}/connector/test-configuration:
     $ref: './beta/paths/source-connector-test-configuration.yaml'
-  /sources/{sourceId}/connectors/source-config:
+  /sources/{id}/connectors/source-config:
     $ref: './beta/paths/source-connectors-source-config.yaml'
   /sources/{sourceId}/provisioning-policies:
     $ref: './v3/paths/provisioning-policies.yaml'

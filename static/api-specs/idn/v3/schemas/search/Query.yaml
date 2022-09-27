@@ -22,5 +22,5 @@ properties:
     example: 'America/Chicago'
   innerHit:
     description: >-
-      Inner Hit query object that will cause the specified nested type to be returned as the result matching the supplied query.
+      The innerHit query object returns a flattened list of results for the specified nested type.
     $ref: 'InnerHit.yaml'

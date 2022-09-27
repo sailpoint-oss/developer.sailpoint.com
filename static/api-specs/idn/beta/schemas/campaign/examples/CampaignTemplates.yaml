@@ -16,6 +16,7 @@
     filter:
       type: CAMPAIGN_FILTER
       id: e0adaae69852e8fe8b8a3d48e5ce757c
+      name: Test Manager Filter
     sunsetCommentsRequired: true
     sourceOwnerCampaignInfo: null
     searchCampaignInfo: null
@@ -51,6 +52,7 @@
     filter:
       type: CAMPAIGN_FILTER
       id: e0adaae69852e8fe8b8a3d48e5ce757c
+      name: Test Search Filter
     sunsetCommentsRequired: true
     sourceOwnerCampaignInfo: null
     searchCampaignInfo:
@@ -136,6 +138,7 @@
     filter:
       type: CAMPAIGN_FILTER
       id: e0adaae69852e8fe8b8a3d48e5ce757c
+      name: Test Source Owner Filter
     sunsetCommentsRequired: true
     sourceOwnerCampaignInfo:
       sourceIds:

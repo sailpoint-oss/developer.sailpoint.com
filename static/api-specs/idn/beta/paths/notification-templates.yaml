@@ -2,7 +2,7 @@ get:
   operationId: listNotificationTemplates
   tags:
     - Notifications
-  summary: List Notification Templates For Your Site
+  summary: List Notification Templates
   description: >-
     This lists the templates that you have modified for your site. Since this is a beta feature, it doesn't include all your modified templates.
   parameters:
@@ -26,6 +26,7 @@ get:
 
 
         **locale**: *eq*
+      example: 'medium eq "EMAIL"'
   responses:
     '200':
       description: >-
@@ -52,7 +53,11 @@ post:
     - Notifications
   summary: Create Notification Template
   description: >-
-    This creates a template for your site
+    This creates a template for your site. 
+    
+    
+    You can also use this endpoint to update a template.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/apis/beta/#operation/getNotificationTemplate) for a template you wish to update and paste it into the request body for this endpoint.  
+    Modify the fields you want to change and submit the POST request when ready.
   requestBody:
     required: true
     content:

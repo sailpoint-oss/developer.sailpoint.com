@@ -10,6 +10,8 @@ properties:
     example: 'source.name:\"Active Directory\"'
   type:
     description: >-
-      The nested type to use in the inner hits query.
+      The nested type to use in the inner hits query. 
+      The nested type [Nested Type](https://www.elastic.co/guide/en/elasticsearch/reference/current/nested.html) refers to a document "nested" within another document.
+      For example, an identity can have nested documents for access, accounts, and apps.
     type: string
     example: 'access'

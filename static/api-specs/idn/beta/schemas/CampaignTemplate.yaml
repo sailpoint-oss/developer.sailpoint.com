@@ -1,25 +1,35 @@
 type: object
+description: Campaign Template
 properties:
   id:
     type: string
+    description: Id of the campaign template
+    example: 2c9079b270a266a60170a277bb960008
   name:
     type: string
     description: This template's name. Has no bearing on generated campaigns' names.
+    example: Manager Campaign Template
   description:
     type: string
     description: This template's description. Has no bearing on generated campaigns' descriptions.
+    example: Template for the annual manager campaign.
   created:
     type: string
+    description: Creation date of Campaign Template
     readOnly: true
     format: date-time
+    example: '2020-03-05T22:44:00.364Z'
   modified:
     type: string
+    description: Modification date of Campaign Template
     readOnly: true
     format: date-time
+    example: '2020-03-05T22:52:09.969Z'
   scheduled:
     type: boolean
     readOnly: true
     description: Indicates if this campaign template has been scheduled.
+    example: false
   ownerRef:
     type : object
     description: >-
@@ -28,14 +38,22 @@ properties:
     properties:
       id:
         type: string
+        description: Id of the owner
+        example: 2c918086676d3e0601677611dbde220f
       type:
         type: string
         enum:
           - IDENTITY
+        description: Type of the owner
+        example: IDENTITY
       name:
         type: string
+        description: Name of the owner
+        example: Mister Manager
       email:
         type: string
+        description: Email of the owner
+        example: mr.manager@example.com
   deadlineDuration:
     type: string
     description: >-
@@ -43,6 +61,7 @@ properties:
       generates a campaign, the campaign's deadline will be the current date plus this duration. For example, if generation
       occurred on 2020-01-01 and this field was "P2W" (two weeks), the resulting campaign's deadline would be 2020-01-15
       (the current date plus 14 days).
+    example: P2W
   campaign:
     $ref: './Campaign.yaml'
 required:
@@ -51,25 +70,3 @@ required:
   - created
   - modified
   - campaign
-example:
-  id: 2c9079b270a266a60170a277bb960008
-  name: Manager Campaign Template
-  description: Template for the annual manager campaign.
-  created: '2020-03-05T22:44:00.364Z'
-  modified: '2020-03-05T22:52:09.969Z'
-  ownerRef:
-    type: IDENTITY
-    id: 2c918086676d3e0601677611dbde220f
-    email: mr.manager@example.com
-    name: Mister Manager
-  deadlineDuration: P2W
-  campaign:
-    name: "%Y Manager Campaign"
-    description: Everyone needs to be reviewed by their manager.
-    type: MANAGER
-    emailNotificationEnabled: true
-    autoRevokeAllowed: false
-    recommendationsEnabled: false
-    filter:
-      type: CAMPAIGN_FILTER
-      id: e0adaae69852e8fe8b8a3d48e5ce757c

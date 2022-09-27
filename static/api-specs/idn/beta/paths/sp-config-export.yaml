@@ -1,0 +1,130 @@
+post:
+  operationId: spConfigExport
+  security:
+    - oauth2: [sp:config:export]
+  tags:
+    - SP-Config
+  summary: Initiates Configuration Objects Export Job.
+  description: >-
+    This post will export objects from the tenant to a JSON configuration file.
+
+    Request will need the following security scope:
+
+    'sp:config:export'
+  requestBody:
+    description: Export options control what will be included in the export.
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          $ref: '../schemas/ExportPayload.yaml'
+        examples:
+          Export all objects available:
+            description: Export all object types available in IDN.
+            value:
+              {
+                "description": "Export all available objects",
+                "excludeTypes": [],
+                "includeTypes":
+                  ["SOURCE", "RULE", "TRIGGER_SUBSCRIPTION", "TRANSFORM", "IDENTITY_PROFILE"],
+                "objectOptions": {},
+              }
+          Export sources by ID:
+            description: Export only sources that match the IDs specified in the export options.
+            value:
+              {
+                "description": "Export sources by ID",
+                "excludeTypes": [],
+                "includeTypes": ["SOURCE"],
+                "objectOptions":
+                  {
+                    "SOURCE":
+                      {
+                        "includedIds":
+                          [
+                            "be9e116d-08e1-49fc-ab7f-fa585e96c9e4",
+                            "be9p119e-90e1-49pk-ac9f-fa576e96c9e4",
+                          ],
+                        "includedNames": [],
+                      },
+                  },
+              }
+          Export transforms by name:
+            description: Export only transforms that match the names specified in the export options.
+            value:
+              {
+                "description": "Export transforms by name",
+                "excludeTypes": [],
+                "includeTypes": ["TRANSFORM"],
+                "objectOptions":
+                  {
+                    "TRANSFORM":
+                      {
+                        "includedIds": [],
+                        "includedNames":
+                          [
+                            "Remove Diacritical Marks",
+                            "Common - Location Lookup",
+                          ],
+                      },
+                  },
+              }
+          Export trigger subscriptions triggers and transforms with custom options:
+            description: Export trigger subscriptions and transforms that match the export options.
+            value:
+              {
+                "description": "Export trigger subscriptions and transforms with custom filter options",
+                "excludeTypes": [],
+                "includeTypes": ["TRANSFORM", "TRIGGER_SUBSCRIPTION"],
+                "objectOptions":
+                  {
+                    "TRANSFORM":
+                      {
+                        "includedIds": [],
+                        "includedNames":
+                          [
+                            "Remove Diacritical Marks",
+                            "Common - Location Lookup",
+                          ],
+                      },
+                    "TRIGGER_SUBSCRIPTION":
+                      {
+                        "includedIds":
+                          [
+                            "be9e116d-08e1-49fc-ab7f-fa585e96c9e4",
+                            "be9p119e-90e1-49pk-ac9f-fa576e96c9e4",
+                          ],
+                        "includedNames":
+                          [
+                            "NGROK Test: fire and forget",
+                            "Manager Certification",
+                          ],
+                      },
+                  },
+              }
+  responses:
+    "202":
+      description: >-
+        Export job accepted and queued for processing.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/SpConfigJob.yaml"
+    "400":
+      description: |
+        Client Error - Returned if the request body is invalid.
+      content:
+        application/json:
+          schema:
+            $ref: "../../v3/schemas/ErrorResponseDto.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

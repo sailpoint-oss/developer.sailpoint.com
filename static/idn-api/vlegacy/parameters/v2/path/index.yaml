@@ -1,6 +1,0 @@
-name: index
-description: Search index to use (currently identities, entitlements, and events).
-schema:
-  type: string
-required: true
-in: path

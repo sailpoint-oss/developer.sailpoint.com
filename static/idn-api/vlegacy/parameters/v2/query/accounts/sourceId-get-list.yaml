@@ -1,6 +1,0 @@
-name: sourceId
-description: ID of a source for the Account list
-schema:
-  type: integer
-required: true
-in: query

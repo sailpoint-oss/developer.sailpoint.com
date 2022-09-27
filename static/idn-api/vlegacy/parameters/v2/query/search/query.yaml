@@ -1,7 +1,0 @@
-name: query
-description: Query using the [Elastic Search Query String syntax](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/query-dsl-query-string-query.html#query-string-syntax)
-  from the Query DSL.
-schema:
-  type: string
-required: true
-in: query

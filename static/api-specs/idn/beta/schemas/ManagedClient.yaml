@@ -1,0 +1,88 @@
+description: Managed Client
+type: object
+required:
+  - clientId
+  - clusterId
+  - description
+  - type
+properties:
+  id:
+    description: ManagedClient ID
+    readOnly: true
+    type: string
+    example: aClientId
+  alertKey:
+    description: ManagedClient alert key
+    readOnly: true
+    type: string
+    example: anAlertKey
+  apiGatewayBaseUrl:
+    description: ManagedClient gateway base url
+    readOnly: true
+    type: string
+    example: https://denali-xxx.api.cloud.sailpoint.com
+  ccId:
+    description: Previous CC ID to be used in data migration. (This field will be deleted after CC migration!)
+    type: integer
+    format: int64
+    example: 2248
+  clientId:
+    description: The client ID used in API management
+    type: string
+    example: aClientApiId
+  clusterId:
+    description: Cluster ID that the ManagedClient is linked to
+    type: string
+    example: aClusterId
+  cookbook:
+    description: VA cookbook
+    readOnly: true
+    type: string
+    example: va-cookbook-info
+  description:
+    description: ManagedClient description
+    type: string
+    example: A short description of the ManagedClient
+  ipAddress:
+    description: The public IP address of the ManagedClient
+    readOnly: true
+    type: string
+    example: 123.456.78.90
+  lastSeen:
+    description: When the ManagedClient was last seen by the server
+    readOnly: true
+    type: string
+    format: date-time
+    example: "2020-01-01T00:00:00.000000Z"
+  name:
+    description: ManagedClient name
+    type: string
+    example: aName
+  sinceLastSeen:
+    description: Milliseconds since the ManagedClient has polled the server
+    readOnly: true
+    type: string
+    example: 15000
+  status:
+    description: Status of the ManagedClient
+    readOnly: true
+    allOf:
+      - $ref: './ManagedClientStatusEnum.yaml'
+  type:
+    description: Type of the ManagedClient (VA, CCG)
+    type: string
+    example: VA
+  vaDownloadUrl:
+    description: ManagedClient VA download URL
+    readOnly: true
+    type: string
+    example: aUrl
+  vaVersion:
+    description: Version that the ManagedClient's VA is running
+    readOnly: true
+    type: string
+    example: va-megapod-useast1-610-1621372012
+  secret:
+    description: Client's apiKey
+    type: string
+    example: ef878e15eaa8c8d3e2fa52f41125e2a0eeadadc6a14f931a33ad3e1b62d56381

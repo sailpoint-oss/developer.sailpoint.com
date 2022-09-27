@@ -1,0 +1,68 @@
+type : object
+title: Slim Campaign
+required:
+  - name
+  - description
+  - type
+properties:
+  id:
+    type: string
+    readOnly: true
+    description: Id of the campaign
+    example: 2c9079b270a266a60170a2779fcb0007
+  name:
+    description: >-
+      The campaign name. If this object is part of a template, special formatting applies; see the
+      `/campaign-templates/{id}/generate` endpoint documentation for details.
+    type: string
+    example: Manager Campaign
+  description:
+    type: string
+    description: >-
+      The campaign description. If this object is part of a template, special formatting applies; see the
+      `/campaign-templates/{id}/generate` endpoint documentation for details.
+    example: Everyone needs to be reviewed by their manager
+  deadline:
+    type: string
+    format: date-time
+    description: The campaign's completion deadline.
+    example: '2020-03-15T10:00:01.456Z'
+  type:
+    type: string
+    description: The type of campaign. Could be extended in the future.
+    enum:
+      - MANAGER
+      - SOURCE_OWNER
+      - SEARCH
+      - ROLE_COMPOSITION
+    example: MANAGER
+  emailNotificationEnabled:
+    type: boolean
+    description: Enables email notification for this campaign
+    example: false
+  autoRevokeAllowed:
+    type: boolean
+    description: Allows auto revoke for this campaign
+    example: false
+  recommendationsEnabled:
+    type: boolean
+    description: >-
+      Enables IAI for this campaign. Accepts true even if the IAI product feature is off. If IAI is turned off
+      then campaigns generated from this template will indicate false. The real value will then be returned if
+      IAI is ever enabled for the org in the future.
+    example: true
+  status:
+    type: string
+    description: The campaign's current status.
+    readOnly: true
+    enum:
+      - PENDING
+      - STAGED
+      - CANCELING
+      - ACTIVATING
+      - ACTIVE
+      - COMPLETING
+      - COMPLETED
+      - ERROR
+      - ARCHIVED
+    example: ACTIVE

@@ -1,6 +1,0 @@
-name: taskResultIdOrName
-description: ID or name of a task.
-schema:
-  type: string
-required: true
-in: path

@@ -87,18 +87,10 @@ addReviewerBasedOnLabel:
         - philip-ellis-sp
       Plugins:
         - philip-ellis-sp
-###### Title Validator #################################################################################################
-verifyTitles:
-  titleRegexp: ^(feature|fix)\/\w+(-\w+)*$
-  alwaysUsePrTitle: true
-  validateEitherPrOrSingleCommitTitle: true
-  statusTitle: "PR Title Validator"
-  successMessage: "🎉 PR title validation successful! 🎉"
-  failureMessage: "❌ Wrong ${type} title: ${title} ❌"
 ##### Greetings ########################################################################################################
 # Comment to be posted to welcome users when they open their first PR
 firstPRWelcomeComment: >
-  🎉 Thanks for opening this pull request! We really appreciate contributors like you! 🙌
+  🎉 Thanks for opening this pull request! Please be sure to check out our contributing guidelines. 🙌
 
 # Comment to be posted to congratulate user on their first merged PR
 firstPRMergeComment: >
@@ -106,4 +98,4 @@ firstPRMergeComment: >
 
 # Comment to be posted to on first time issues
 firstIssueWelcomeComment: >
-  🎉 Thanks for opening your first issue here! Welcome to the community!
+  🎉 Thanks for opening your first issue here! Be sure to follow the issue template, and welcome to the community! 🙌

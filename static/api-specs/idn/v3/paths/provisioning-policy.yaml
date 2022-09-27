@@ -1,0 +1,215 @@
+get:
+  operationId: getProvisioningPolicy
+  tags:
+    - Sources
+  summary: Get Provisioning Policy by UsageType
+  description: >-
+    This end-point retrieves the ProvisioningPolicy with the specified usage on the specified Source in IdentityNow.
+
+    A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+  security:
+    - bearerAuth:
+        - idn:provisioning-policy:read
+  parameters:
+    - in: path
+      name: sourceId
+      required: true
+      schema:
+        type: string
+      description: The Source ID.
+      example: 2c9180835d191a86015d28455b4a2329
+    - in: path
+      name: usageType
+      required: true
+      schema:
+        $ref: '../schemas/UsageType.yaml'
+      description: The type of ProvisioningPolicy usage.
+      example: REGISTER
+  responses:
+    '200':
+      description: The requested ProvisioningPolicyDto was successfully retrieved.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ProvisioningPolicyDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+put:
+  operationId: replaceProvisioningPolicy
+  tags:
+    - Sources
+  summary: Update Provisioning Policy by UsageType
+  description: >-
+    This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow.
+
+    A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+  security:
+    - bearerAuth:
+        - idn:provisioning-policy:update
+  parameters:
+    - in: path
+      name: sourceId
+      required: true
+      schema:
+        type: string
+      description: The Source ID.
+      example: 2c9180835d191a86015d28455b4a2329
+    - in: path
+      name: usageType
+      required: true
+      schema:
+        $ref: '../schemas/UsageType.yaml'
+      description: The type of ProvisioningPolicy usage.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/ProvisioningPolicyDto.yaml'
+  responses:
+    '200':
+      description: The ProvisioningPolicyDto was successfully replaced.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ProvisioningPolicyDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+patch:
+  operationId: updateProvisioningPolicy
+  tags:
+    - Sources
+  summary: Partial update of Provisioning Policy
+  description: >-
+    This API selectively updates an existing Provisioning Policy using a JSONPatch payload.
+
+    A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+  security:
+    - bearerAuth:
+        - idn:provisioning-policy:update
+  parameters:
+    - in: path
+      name: sourceId
+      required: true
+      schema:
+        type: string
+      description: The Source id.
+      example: 2c9180835d191a86015d28455b4a2329
+    - in: path
+      name: usageType
+      required: true
+      schema:
+        $ref: '../schemas/UsageType.yaml'
+      description: The type of ProvisioningPolicy usage.
+  requestBody:
+    required: true
+    description: The JSONPatch payload used to update the schema.
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: '../schemas/JsonPatchOperation.yaml'
+        examples:
+          add-field:
+            summary: Add a field to the beginning of the list
+            value: [
+                {
+                    "op": "add",
+                    "path": "/fields/0",
+                    "value": {
+                        "name": "email",
+                        "transform": {
+                            "type": "identityAttribute",
+                            "attributes": {
+                                "name": "email"
+                            }
+                        },
+                        "attributes": {},
+                        "isRequired": false,
+                        "type": "string",
+                        "isMultiValued": false
+                    }
+                }
+            ]
+  responses:
+    '200':
+      description: The ProvisioningPolicyDto was successfully updated.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ProvisioningPolicyDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+delete:
+  operationId: deleteProvisioningPolicy
+  tags:
+    - Sources
+  summary: Delete Provisioning Policy by UsageType
+  description: >-
+    Deletes the provisioning policy with the specified usage on an application.
+
+    A token with API, or ORG_ADMIN authority is required to call this API.
+  security:
+    - bearerAuth:
+        - idn:provisioning-policy:delete
+  parameters:
+    - in: path
+      name: sourceId
+      required: true
+      schema:
+        type: string
+      description: The Source ID.
+      example: 2c9180835d191a86015d28455b4a2329
+    - in: path
+      name: usageType
+      required: true
+      schema:
+        $ref: '../schemas/UsageType.yaml'
+      description: The type of ProvisioningPolicy usage.
+  responses:
+    '204':
+      $ref: '../../v3/responses/204.yaml'
+      description: The ProvisioningPolicyDto was successfully deleted.
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

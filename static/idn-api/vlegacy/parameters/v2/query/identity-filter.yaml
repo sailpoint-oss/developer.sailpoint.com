@@ -1,6 +1,0 @@
-name: filters
-description: 'Search filters. Supported operator is ''EQ''. Supported attribute for
-  filtering is ‘permissions’. Example: ''permissions EQ "admin"''.'
-schema:
-  type: string
-in: query

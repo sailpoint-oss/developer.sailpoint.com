@@ -1,0 +1,37 @@
+type: object
+properties:
+  excludeTypes:
+    description: Object type names to be excluded from an sp-config export command.
+    type: array
+    items:
+      type: string
+      enum:
+      - SOURCE
+      - RULE
+      - TRIGGER_SUBSCRIPTION
+      - TRANSFORM
+      - IDENTITY_PROFILE
+      example: "SOURCE"
+  includeTypes:
+    description: Object type names to be included in an sp-config export command. IncludeTypes takes precedence over excludeTypes.
+    type: array
+    items:
+      type: string
+      enum:
+      - SOURCE
+      - RULE
+      - TRIGGER_SUBSCRIPTION
+      - TRANSFORM
+      - IDENTITY_PROFILE
+      example: "TRIGGER_SUBSCRIPTION"
+  objectOptions:
+    description: Additional options targeting specific objects related to each item in the includeTypes field
+    type: object
+    additionalProperties:
+      $ref: 'ObjectExportImportOptions.yaml'
+    example: {
+        "TRIGGER_SUBSCRIPTION": {
+          "includedIds": ["be9e116d-08e1-49fc-ab7f-fa585e96c9e4"],
+          "includedNames":["Test 2"]
+        }
+    }

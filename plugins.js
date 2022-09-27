@@ -41,7 +41,7 @@ module.exports = [
       docsPluginId: "idn",
       config: {
         idn_v3: {
-          specPath: "static/idn-api/sailpoint-api.v3.yaml",
+          specPath: "static/api-specs/idn/sailpoint-api.v3.yaml",
           outputDir: "products/idn/api/v3",
           sidebarOptions: {
             groupPathsBy: "tag",
@@ -49,7 +49,7 @@ module.exports = [
           },
         },
         idn_beta: {
-          specPath: "static/idn-api/sailpoint-api.beta.yaml",
+          specPath: "static/api-specs/idn/sailpoint-api.beta.yaml",
           outputDir: "products/idn/api/beta",
           sidebarOptions: {
             groupPathsBy: "tag",
@@ -66,7 +66,7 @@ module.exports = [
       docsPluginId: "iiq",
       config: {
         iiq: {
-          specPath: "static/iiq-api/swagger.json",
+          specPath: "static/api-specs/iiq/swagger.json",
           outputDir: "products/iiq/api",
           sidebarOptions: {
             groupPathsBy: "tag",

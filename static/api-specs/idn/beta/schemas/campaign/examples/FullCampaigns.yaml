@@ -1,0 +1,120 @@
+description: List of Campaigns that would result from specifying *detail* as FULL
+value:
+  - id: 078696a575e045c68d6722ccdb9f101d
+    name: Role Composition Campaign
+    description: A review done by a role owner.
+    deadline: 2020-12-25T06:00:00.468Z
+    type: ROLE_COMPOSITION
+    status: ERROR
+    emailNotificationEnabled: false
+    autoRevokeAllowed: false
+    recommendationsEnabled: false
+    created: 2022-08-02T20:29:51.065Z
+    modified: 2022-08-02T20:29:51.331Z
+    filter:
+      type: CAMPAIGN_FILTER
+      id: 0fbe863c063c4c88a35fd7f17e8a3df5
+      name: Test Role Composition Filter
+    sunsetCommentsRequired: true
+    sourceOwnerCampaignInfo: null
+    searchCampaignInfo: null
+    roleCompositionCampaignInfo:
+      remediatorRef:
+        type: IDENTITY
+        id: 7ec252acbd4245548bc25df22348cb75
+        name: SailPoint Support
+      reviewerId: null
+      reviewer: null
+      roleIds:
+        - b15d609fc5c8434b865fe552315fda8f
+      query: null
+      description: null
+    alerts:
+      - level: ERROR
+        localizations:
+          - locale: en
+            localeOrigin: DEFAULT
+            text: Composite criterion must have children non-composite criterion must not.
+    totalCertifications: 0
+    completedCertifications: 0
+    sourcesWithOrphanEntitlements: null
+  - id: 1be8fc1103914bf0a4e14e316b6a7b7c
+    name: Manager Review
+    description: A review of everyone's access by their manager.
+    deadline: 2020-12-25T06:00:00.468Z
+    type: MANAGER
+    status: STAGED
+    emailNotificationEnabled: false
+    autoRevokeAllowed: false
+    recommendationsEnabled: false
+    created: 2022-08-02T19:00:27.731Z
+    modified: 2022-08-02T19:00:34.391Z
+    filter:
+      type: CAMPAIGN_FILTER
+      id: 0fbe863c063c4c88a35fd7f17e8a3df5
+      name: Test Manager Filter
+    sunsetCommentsRequired: true
+    sourceOwnerCampaignInfo: null
+    searchCampaignInfo: null
+    roleCompositionCampaignInfo: null
+    alerts: null
+    totalCertifications: 5
+    completedCertifications: 0
+    sourcesWithOrphanEntitlements: []
+  - id: 7e1a731e3fb845cfbe58112ba4673ee4
+    name: Search Campaign
+    description: Search Campaign for Identities
+    deadline: 2022-07-26T15:42:44Z
+    type: SEARCH
+    status: ACTIVE
+    emailNotificationEnabled: false
+    autoRevokeAllowed: false
+    recommendationsEnabled: false
+    created: 2022-07-25T15:42:18.276Z
+    modified: 2022-07-25T15:42:53.718Z
+    filter:
+      type: CAMPAIGN_FILTER
+      id: 0fbe863c063c4c88a35fd7f17e8a3df5
+      name: Test Search Filter
+    sunsetCommentsRequired: true
+    sourceOwnerCampaignInfo: null
+    searchCampaignInfo:
+      type: IDENTITY
+      description: Example of Search Campaign
+      reviewer:
+        type: IDENTITY
+        id: 7ec252acbd4245548bc25df22348cb75
+        name: null
+      query: user
+      identityIds: null
+      accessConstraints: []
+    roleCompositionCampaignInfo: null
+    alerts: null
+    totalCertifications: 6
+    completedCertifications: 0
+    sourcesWithOrphanEntitlements: []
+  - id: ad3cf3dd50394b1bad646de4bc51b999
+    name: Source Owner Campaign
+    description: Example for Source Owner Campaign
+    deadline: 2022-08-10T17:09:02Z
+    type: SOURCE_OWNER
+    status: ACTIVE
+    emailNotificationEnabled: true
+    autoRevokeAllowed: false
+    recommendationsEnabled: false
+    created: 2022-07-27T17:04:19.027Z
+    modified: 2022-07-27T17:09:13.925Z
+    filter:
+      type: CAMPAIGN_FILTER
+      id: 0fbe863c063c4c88a35fd7f17e8a3df5
+      name: Test Source Owner Filter
+    sunsetCommentsRequired: true
+    sourceOwnerCampaignInfo:
+      sourceIds:
+        - 2c91808781fd5aea01821200dc88318e
+    searchCampaignInfo: null
+    roleCompositionCampaignInfo: null
+    alerts: null
+    totalCertifications: 2
+    completedCertifications: 0
+    sourcesWithOrphanEntitlements: []

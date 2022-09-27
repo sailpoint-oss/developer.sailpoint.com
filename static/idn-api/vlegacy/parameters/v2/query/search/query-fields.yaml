@@ -1,7 +1,0 @@
-name: queryFields
-description: List of query fields that the query should be restricted.
-schema:
-  type: array
-  items:
-    type: string
-in: query

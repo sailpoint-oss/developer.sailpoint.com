@@ -1,5 +1,0 @@
-type: object
-description: Dynamic schema, with no predefined attributes.
-properties:
-  attribute:
-    type: string

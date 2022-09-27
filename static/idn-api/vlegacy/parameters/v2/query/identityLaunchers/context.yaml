@@ -1,8 +1,0 @@
-name: context
-description: Context of launcher links to include. Specifying a mobile context will
-  provide links to mobile resources for the launcher if available.
-schema:
-  type: string
-  enum:
-    - mobile
-in: query

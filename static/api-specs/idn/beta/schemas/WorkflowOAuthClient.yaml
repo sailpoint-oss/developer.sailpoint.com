@@ -11,4 +11,4 @@ properties:
   url:
     type: string
     description: URL for the external trigger to invoke
-    example:  https://{tenant}.api.identitynow.com/beta/workflows/execute/external/c17bea3a-574d-453c-9e04-4365fbf5af0b
+    example:  https://tenant.api.identitynow.com/beta/workflows/execute/external/c17bea3a-574d-453c-9e04-4365fbf5af0b

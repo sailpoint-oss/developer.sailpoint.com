@@ -1169,7 +1169,7 @@
     },
     "/LaunchedWorkflows": {
       "get": {
-        "operationId": "LaunchedWorkflows",
+        "operationId": "LaunchedWorkflowsGet",
         "tags": [
           "LaunchedWorkflows"
         ],
@@ -2250,7 +2250,7 @@
     "/ServiceProviderConfig": {
       "description": "Schema for representing the service provider's configuration",
       "get": {
-        "operationId": "ServiceProviderConfig",
+        "operationId": "ServiceProviderConfigGet",
         "tags": [
           "ServiceProviderConfig"
         ],
@@ -2331,7 +2331,7 @@
     },
     "/TaskResults": {
       "get": {
-        "operationId": "TaskResults",
+        "operationId": "TaskResultsGet",
         "tags": [
           "TaskResults"
         ],
@@ -2959,7 +2959,7 @@
     },
     "/Workflows": {
       "get": {
-        "operationId": "Workflows",
+        "operationId": "WorkflowsGet",
         "tags": [
           "Workflows"
         ],

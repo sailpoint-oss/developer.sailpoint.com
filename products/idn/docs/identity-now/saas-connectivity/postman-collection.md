@@ -16,4 +16,4 @@ tags: ["Connectivity", "Postman"]
 Use the following Postman Collection file to run tests for each of the commands
 locally.
 
-[Postman Collection](../../../files/collection.json)
+[Postman Collection](./assets/SaaS_Connectivity.postman_collection)

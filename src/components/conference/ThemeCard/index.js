@@ -5,7 +5,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import ThemedImage from '@theme/ThemedImage';
 import { addDarkToFileName } from "../../../util/util";
 
-export default function ThemeCard({title, name, expertise, image}) {
+export default function ThemeCard({title, name, image}) {
   return (
     <div className={styles.card}>
     <div className={styles.cardFaceContainer}>

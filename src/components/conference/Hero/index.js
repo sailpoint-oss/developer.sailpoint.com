@@ -1,10 +1,39 @@
 import React from "react";
-import clsx from "clsx";
 import styles from "./styles.module.css";
-import Link from '@docusaurus/Link';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import ThemedImage from '@theme/ThemedImage';
+import { addDarkToFileName } from "../../../util/util";
+import { SliderButton } from '@typeform/embed-react'
 export default function ConferenceHero() {
+  const communication = '/conf/communication.svg'
+
   return (
-    <div>
+    <div className={styles.mainCard}>
+      <div>
+        <div className={styles.headerSection}>
+          <div className={styles.shipyardText}>
+            Shipyard
+          </div>
+          <div className={styles.yearTextBorder}>
+            <div className={styles.yearText}>
+              2023
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.comingSoonText}>
+          COMING SOON | AUSTIN, TX
+        </div>
+        <div className={styles.descriptionText}>
+          The conference for <span className={styles.extensible}>extensibility</span> on <span className={styles.sailpoint}>SailPoint</span> platforms.
+        </div>
+        <SliderButton id="gVCODdMc" className={styles.button}>
+            Learn More
+        </SliderButton >
+      </div>
+      <div className={styles.signUpSection}>
+        <ThemedImage className={styles.background} sources={{light: useBaseUrl(communication), dark: useBaseUrl(communication)}}></ThemedImage>
+      </div>
     </div>
   );
 }

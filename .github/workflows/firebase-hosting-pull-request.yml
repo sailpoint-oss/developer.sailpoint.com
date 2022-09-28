@@ -11,7 +11,7 @@ jobs:
       NODE_ENV: 'development'
     steps:
       - uses: actions/checkout@v2
-      - run: npm install && npm run docusaurus gen-api-docs all && npm run build
+      - run: npm install && npm run gen-api-docs-all && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'

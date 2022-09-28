@@ -1,0 +1,33 @@
+
+.gettingStartedText {
+    text-align: center;
+    color: var(--dev-text-color-cobalt);
+    margin: 50px auto 50px auto;
+    width: calc(100% - 100px);
+    max-width: 600px;
+  }
+  
+  .gettingStartedOne {
+    color: var(--dev-text-color-cobalt);
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 100%;
+    font-family: input-mono;;
+  }
+  
+  .gettingStartedThree {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  
+  .bold {
+    font-weight: bold;
+  }
+  
+  .gettingStartedCardIcon {
+    margin-bottom: 20px;
+    width: 80px;
+    height: 80px;
+  }

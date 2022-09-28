@@ -658,7 +658,7 @@ You can also view all of the active clients in the UI by going to
 4. If using an A[Authorization Code](#authorization-code-grant-flow) flow,
    verify the redirect URL(s) for your application match the `redirectUris`
    value in the client. You can check this using the
-   [oauth-clients endpoint](/idn/api/beta/list-oauth-client).
+   [oauth-clients endpoint](/idn/api/beta/list-oauth-clients).
 
 5. **Verify the OAuth 2.0 Calls**
 

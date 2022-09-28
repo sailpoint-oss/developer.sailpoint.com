@@ -61,8 +61,8 @@ All submitted rules must follow proper rule submission guidelines.
   - Check whether your rule follows SailPoint best practice guidance, and ensure that you have
     considered other product features first.
 - **Rule Quality**
-  - Rules must follow the [Rule Guidelines](../rule_guide#rule-guidelines)
-    and [Code Restrictions](../rule_guide#rule-code-restrictions)
+  - Rules must follow the [Rule Guidelines](../index.md#rule-guidelines)
+    and [Code Restrictions](../index.md#rule-code-restrictions)
   - Rules must be adequately tested prior to submission.
 - **Documentation**
   - Include detailed comments for non-obvious features in the configurations,

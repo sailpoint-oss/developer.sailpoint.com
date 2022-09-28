@@ -531,9 +531,9 @@ To verify your transform is working, create the transfrom through the REST API.
 To call the APIs for transforms, you need a personal access token and your
 tenant's name to provide with the request. For more information about how to get
 a personal access token, see
-[Personal Access Tokens](/idn/docs/getting-started/authentication#personal-access-tokens).
+[Personal Access Tokens](../../../../api/authentication.md#personal-access-tokens).
 For more information about how to get the name of your tenant, see
-[Finding Your Organization Tenant Name](/idn/docs/getting-started#finding-your-orgtenant-name).
+[Finding Your Organization Tenant Name](../../../../api/getting-started.md#find-your-tenant-name).
 
 ```bash
 curl --location --request POST 'https://{tenant}.api.identitynow.com/v3/transforms' \

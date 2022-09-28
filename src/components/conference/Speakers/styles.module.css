@@ -1,0 +1,21 @@
+.gridContainer {
+    display: grid;
+    place-content: center;
+    grid-template-columns:  repeat(auto-fit, minmax(190px, 1fr));
+    grid-gap: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+    background: var(--dev-card-background);
+    box-shadow: var(--dev-card-shadow);
+    border: 1px solid var(--dev-card-background);
+    border-radius: 40px;
+  }
+  
+  .center {
+    margin: 50px auto;
+    max-width: 1000px;
+  }
+
+  .main {
+    margin-top: 100px;
+  }

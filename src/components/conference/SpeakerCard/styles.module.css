@@ -1,0 +1,54 @@
+/* Getting Started Card */
+.card {
+  position:relative;
+  margin-top: 20px;
+  height: 200px;
+  /* UI Properties */
+  background: var(--dev-card-background);
+
+  opacity: 1;
+}
+
+
+.cardText {
+  position:absolute;
+  margin: 22px auto;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  width: 100%;
+  top: 116px;
+  left: 0;
+  color: var(--dev-text-color-normal);
+}
+
+.titleText {
+  position:absolute;
+  margin: 22px auto;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 400;
+  width: 100%;
+  letter-spacing: 2px;
+  top: 150px;
+  left: 0;
+  color: var(--dev-text-color-normal);
+}
+
+
+
+.cardFaceContainer {
+  width: 100%;
+  margin: 40px auto;
+  
+}
+
+.cardFace {
+  justify-content: center;
+  display: flex;
+  margin: auto;
+  height: 100px;
+  width: 100px;
+  
+}
+

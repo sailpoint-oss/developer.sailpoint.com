@@ -6,7 +6,7 @@ post:
   externalDocs:
     description: Learn more about search.
     url: https://documentation.sailpoint.com/saas/help/search/index.html
-  operationId: search
+  operationId: searchPost
   summary: "Perform Search"
   parameters:
   - $ref: '../parameters/offset.yaml'

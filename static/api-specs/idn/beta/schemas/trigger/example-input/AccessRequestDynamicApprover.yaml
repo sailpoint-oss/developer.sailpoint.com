@@ -9,7 +9,7 @@ properties:
   accessRequestId:
     type: string
     description: |
-      The unique ID of the access request object. Can be used with the [access request status endpoint](https://developer.sailpoint.com/apis/beta/#operation/listAccessRequestStatus) to get the status of the request.
+      The unique ID of the access request object. Can be used with the [access request status endpoint](https://developer.sailpoint.com/idn/api/beta/list-access-request-status) to get the status of the request.
     example: 4b4d982dddff4267ab12f0f1e72b5a6d
   requestedFor:
     allOf:

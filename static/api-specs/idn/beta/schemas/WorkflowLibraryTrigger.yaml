@@ -25,7 +25,7 @@ properties:
     description: Example trigger payload if applicable
     externalDocs:
       description: List of triggers and their input schemas
-      url: https://developer.sailpoint.com/triggers/available_event_triggers.html#request
+      url: https://developer.sailpoint.com/idn/docs/event-triggers/available
     example: 
       {
         "changes": [

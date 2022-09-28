@@ -201,7 +201,7 @@ tags:
 
       Refer to https://documentation.sailpoint.com/connectors/identitynow/landingpages/help/landingpages/identitynow_connectivity_landing.html for more information about the connectors available in IdentityNow. 
 
-      Refer to https://developer.sailpoint.com/docs/custom_connectors/overview.html for more information about the SaaS custom connectors that do not need VAs (virtual appliances) to communicate with their sources. 
+      Refer to https://developer.sailpoint.com/idn/docs/saas-connectivity for more information about the SaaS custom connectors that do not need VAs (virtual appliances) to communicate with their sources. 
 
       Refer to the following link for more information about using connectors in IdentityNow: 
     externalDocs:
@@ -213,9 +213,9 @@ tags:
       With this functionality in place, administrators can create custom password instructions to help users reset their passwords, change them, unlock their accounts, or recover their usernames. 
       This allows administrators to emphasize password policies or provide organization-specific instructions.
 
-      Administrators must first use [Update Password Org Config](https://developer.sailpoint.com/apis/beta/#operation/updatePasswordOrgConfig) to set `customInstructionsEnabled` to `true`. 
+      Administrators must first use [Update Password Org Config](https://developer.sailpoint.com/idn/api/beta/update-password-org-config) to set `customInstructionsEnabled` to `true`. 
 
-      Once they have enabled custom instructions, they can use [Create Custom Password Instructions](https://developer.sailpoint.com/apis/beta/#operation/createCustomPasswordInstructions) to create custom page content for the specific pageId they select. 
+      Once they have enabled custom instructions, they can use [Create Custom Password Instructions](https://developer.sailpoint.com/idn/api/beta/create-custom-password-instructions) to create custom page content for the specific pageId they select. 
 
       For example, an administrator can use the pageId forget-username:user-email to set the custom text for the case when users forget their usernames and must enter their emails. 
 
@@ -387,7 +387,7 @@ tags:
       
       Refer to this list https://docs.oracle.com/cd/E13214_01/wli/docs92/xref/xqisocodes.html to see all the available ISO 639-1 language codes and ISO 3166-1 country codes.
 
-      - Upload the .txt file to IdentityNow with [Update Password Dictionary](https://developer.sailpoint.com/apis/beta/#operation/updatePasswordDictionary). Uploading a new file always overwrites the previous dictionary file.
+      - Upload the .txt file to IdentityNow with [Update Password Dictionary](https://developer.sailpoint.com/idn/api/beta/update-password-dictionary). Uploading a new file always overwrites the previous dictionary file.
 
       Administrators can then specify which password policies check new passwords against the password dictionary by doing the following: In the Admin panel, they can use the Password Mgmt dropdown menu to select Policies, select the policy, and select the 'Prevent use of words in this site's password dictionary' checkbox beside it.
 
@@ -488,7 +488,7 @@ tags:
       Administrators can use this API to make those necessary identity attributes public to non-administrators. 
 
       For example, a non-administrator deciding whether to approve another identity's request for access to the Workday application, whose access may be restricted to members of the HR department, would want to know whether the identity is a member of the HR department. 
-      If an administrator has used [Update Public Identity Config](https://developer.sailpoint.com/apis/beta/#operation/updatePublicIdentityConfig) to make the "department" attribute public, the approver can see the department and make a decision without requesting any more information. 
+      If an administrator has used [Update Public Identity Config](https://developer.sailpoint.com/idn/api/beta/update-public-identity-config) to make the "department" attribute public, the approver can see the department and make a decision without requesting any more information. 
   - name: Requestable Objects
   - name: Role Insights
   - name: Roles
@@ -560,10 +560,10 @@ tags:
 
       | Name | ID | Type | Trigger condition | Schema(s) |
       |-|-|-|-|-|
-      | [Access Request Dynamic Approver](https://developer.sailpoint.com/triggers/available-event-triggers/access-request-dynamic-approval-event-trigger.html) | idn:access-request-dynamic-approver | REQUEST_RESPONSE |After an access request is submitted. Expects the subscriber to respond with the ID of an identity or workgroup to add to the approval workflow. | [Input Schema](#section/Access-Request-Dynamic-Approver-Event-Trigger-Input) - [Output Schema](#section/Access-Request-Dynamic-Approver-Event-Trigger-Output) |
-      | [Access Request Decision](https://developer.sailpoint.com/triggers/available-event-triggers/access-request-postapproval-trigger.html) | idn:access-request-post-approval | FIRE_AND_FORGET | After an access request is approved. |[Input Schema](#section/Access-Request-Post-Approval-Event-Trigger-Input)|
-      | [Access Request Submitted](https://developer.sailpoint.com/triggers/available-event-triggers/access-request-preapproval-event-trigger.html) | idn:access-request-pre-approval | REQUEST_RESPONSE | After an access request is submitted. Expects the subscriber to respond with an approval decision. | [Input Schema](#section/Access-Request-Pre-Approval-Event-Trigger-Input) - [Output Schema](#section/Access-Request-Pre-Approval-Event-Trigger-Output) |
-      | [Account Aggregation Completed](https://developer.sailpoint.com/triggers/available-event-triggers/account-aggregation-completed.html) | idn:account-aggregation-completed | FIRE_AND_FORGET | After an account aggregation completed, terminated, failed. | [Input Schema](#section/Account-Aggregation-Completed-Event-Trigger-Input) |
+      | [Access Request Dynamic Approval](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/access-request-dynamic-approval) | idn:access-request-dynamic-approver | REQUEST_RESPONSE |After an access request is submitted. Expects the subscriber to respond with the ID of an identity or workgroup to add to the approval workflow. | [Input Schema](#section/Access-Request-Dynamic-Approver-Event-Trigger-Input) - [Output Schema](#section/Access-Request-Dynamic-Approver-Event-Trigger-Output) |
+      | [Access Request Postapproval](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/access-request-postapproval) | idn:access-request-post-approval | FIRE_AND_FORGET | After an access request is approved. |[Input Schema](#section/Access-Request-Post-Approval-Event-Trigger-Input)|
+      | [Access Request Preapproval](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/access-request-preapproval) | idn:access-request-pre-approval | REQUEST_RESPONSE | After an access request is submitted. Expects the subscriber to respond with an approval decision. | [Input Schema](#section/Access-Request-Pre-Approval-Event-Trigger-Input) - [Output Schema](#section/Access-Request-Pre-Approval-Event-Trigger-Output) |
+      | [Account Aggregation Completed](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/account-aggregation-completed) | idn:account-aggregation-completed | FIRE_AND_FORGET | After an account aggregation completed, terminated, failed. | [Input Schema](#section/Account-Aggregation-Completed-Event-Trigger-Input) |
       | Account Attributes Changed | idn:account-attributes-changed | FIRE_AND_FORGET | After an account aggregation, and one or more account attributes have changed. | [Input Schema](#section/Account-Attributes-Changed-Event-Trigger-Input) |
       | Account Correlated | idn:account-correlated | FIRE_AND_FORGET | After an account is added to an identity. | [Input Schema](#section/Account-Correlated-Event-Trigger-Input) |
       | Accounts Collected for Aggregation |  idn:aggregation-accounts-collected | FIRE_AND_FORGET | New, changed, and deleted accounts have been gathered during an aggregation and are being processed. | [Input Schema](#section/Accounts-Collected-for-Aggregation-Event-Trigger-Input) |
@@ -572,33 +572,33 @@ tags:
       | Campaign Ended | idn:campaign-ended | FIRE_AND_FORGET | After a campaign ends. | [Input Schema](#section/Campaign-Ended-Event-Trigger-Input) |
       | Campaign Generated | idn:campaign-generated | FIRE_AND_FORGET | After a campaign finishes generating. | [Input Schema](#section/Campaign-Generated-Event-Trigger-Input) |
       | Certification Signed Off | idn:certification-signed-off | FIRE_AND_FORGET | After a certification is signed off by its reviewer. | [Input Schema](#section/Certification-Signed-Off-Event-Trigger-Input) |
-      | [Identity Attributes Changed](https://developer.sailpoint.com/triggers/available-event-triggers/identity-attribute-changed-event-trigger.html) | idn:identity-attributes-changed | FIRE_AND_FORGET | After One or more identity attributes changed. | [Input Schema](#section/Identity-Attributes-Changed-Event-Trigger-Input) |
-      | [Identity Created](https://developer.sailpoint.com/triggers/available-event-triggers/identity-created-event-trigger.html) | idn:identity-created | FIRE_AND_FORGET | After an identity is created. | [Input Schema](#section/Identity-Created-Event-Trigger-Input) |
-      | [Provisioning Completed](https://developer.sailpoint.com/triggers/available-event-triggers/provisioning-action-completed-trigger.html) |  idn:post-provisioning | FIRE_AND_FORGET | After a provisioning action completed on a source. | [Input Schema](#section/Provisioning-Completed-Event-Trigger-Input) |
-      | [Saved Search Complete](https://developer.sailpoint.com/triggers/available-event-triggers/saved-search-completed.html) |  idn:saved-search-complete | FIRE_AND_FORGET | After a scheduled search completed. | [Input Schema](#section/Saved-Search-Complete-Event-Trigger-Input) |
-      | [Source Created](https://developer.sailpoint.com/triggers/available-event-triggers/source-created-trigger.html) | idn:source-created | FIRE_AND_FORGET | After a source is created. | [Input Schema](#section/Source-Created-Event-Trigger-Input) |
-      | [Source Deleted](https://developer.sailpoint.com/triggers/available-event-triggers/source-deleted-trigger.html) | idn:source-deleted | FIRE_AND_FORGET | After a source is deleted. | [Input Schema](#section/Source-Deleted-Event-Trigger-Input) |
-      | [Source Updated](https://developer.sailpoint.com/triggers/available-event-triggers/source-updated-trigger.html) | idn:source-updated | FIRE_AND_FORGET | After configuration changes have been made to a source. | [Input Schema](#section/Source-Updated-Event-Trigger-Input) |
-      | [VA Cluster Status Changed Event](https://developer.sailpoint.com/triggers/available-event-triggers/va-cluster-status-change-event-trigger.html) | idn:va-cluster-status-change | FIRE_AND_FORGET | After the status of a VA cluster has changed. | [Input Schema](#section/VA-Cluster-Status-Change-Event-Event-Trigger-Input) |
+      | [Identity Attributes Changed](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/account-aggregation-completed) | idn:identity-attributes-changed | FIRE_AND_FORGET | After One or more identity attributes changed. | [Input Schema](#section/Identity-Attributes-Changed-Event-Trigger-Input) |
+      | [Identity Created](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/identity-created) | idn:identity-created | FIRE_AND_FORGET | After an identity is created. | [Input Schema](#section/Identity-Created-Event-Trigger-Input) |
+      | [Provisioning Action Completed](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/provisioning-action-completed) |  idn:post-provisioning | FIRE_AND_FORGET | After a provisioning action completed on a source. | [Input Schema](#section/Provisioning-Completed-Event-Trigger-Input) |
+      | [Saved Search Complete](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/saved-search-completed) |  idn:saved-search-complete | FIRE_AND_FORGET | After a scheduled search completed. | [Input Schema](#section/Saved-Search-Complete-Event-Trigger-Input) |
+      | [Source Created](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/source-created) | idn:source-created | FIRE_AND_FORGET | After a source is created. | [Input Schema](#section/Source-Created-Event-Trigger-Input) |
+      | [Source Deleted](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/source-deleted) | idn:source-deleted | FIRE_AND_FORGET | After a source is deleted. | [Input Schema](#section/Source-Deleted-Event-Trigger-Input) |
+      | [Source Updated](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/source-updated) | idn:source-updated | FIRE_AND_FORGET | After configuration changes have been made to a source. | [Input Schema](#section/Source-Updated-Event-Trigger-Input) |
+      | [VA Cluster Status Change](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/va-cluster-status-change) | idn:va-cluster-status-change | FIRE_AND_FORGET | After the status of a VA cluster has changed. | [Input Schema](#section/VA-Cluster-Status-Change-Event-Event-Trigger-Input) |
 
       ## Early Access Event Triggers
       Triggers that are in-development and not ready for production use.  Please contact support to enable these triggers in your tenant.
 
       | Name | ID | Type | Trigger condition | Schema(s) |
       |-|-|-|-|-|
-      | [Identity Deleted](https://developer.sailpoint.com/triggers/early-access-event-triggers/identity-deleted-event-trigger.html) | idn:identity-deleted | FIRE_AND_FORGET | After an identity is deleted. | [Input Schema](#section/Identity-Deleted-Event-Trigger-Input) |
-      | [Source Account Created](https://developer.sailpoint.com/triggers/early-access-event-triggers/source-account-created-trigger.html) | idn:source-account-created | FIRE_AND_FORGET | After a source account is created. | [Input Schema](#section/Source-Account-Created-Event-Trigger-Input) |
-      | [Source Account Deleted](https://developer.sailpoint.com/triggers/early-access-event-triggers/source-account-deleted-trigger.html) | idn:source-account-deleted | FIRE_AND_FORGET | After a source account is deleted. | [Input Schema](#section/Source-Account-Deleted-Event-Trigger-Input) |
-      | [Source Account Updated](https://developer.sailpoint.com/triggers/early-access-event-triggers/source-account-updated-trigger.html) | idn:source-account-updated | FIRE_AND_FORGET | After a source account is changed. | [Input Schema](#section/Source-Account-Updated-Event-Trigger-Input) |
+      | [Identity Deleted](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/identity-deleted) | idn:identity-deleted | FIRE_AND_FORGET | After an identity is deleted. | [Input Schema](#section/Identity-Deleted-Event-Trigger-Input) |
+      | [Source Account Created](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/source-account-created) | idn:source-account-created | FIRE_AND_FORGET | After a source account is created. | [Input Schema](#section/Source-Account-Created-Event-Trigger-Input) |
+      | [Source Account Deleted](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/source-account-deleted) | idn:source-account-deleted | FIRE_AND_FORGET | After a source account is deleted. | [Input Schema](#section/Source-Account-Deleted-Event-Trigger-Input) |
+      | [Source Account Updated](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/source-account-updated) | idn:source-account-updated | FIRE_AND_FORGET | After a source account is changed. | [Input Schema](#section/Source-Account-Updated-Event-Trigger-Input) |
 
     externalDocs:
       description: Getting started with event triggers
-      url: https://developer.sailpoint.com/triggers/event-triggers-overview.html
+      url: https://developer.sailpoint.com/idn/docs/event-triggers
   - name: Work Items
     description: Operations for retrieving and modifying details relating to Work Items.
   - name: Workflows
     description: |
-      Workflows allow administrators to create custom automation scripts directly within IdentityNow.  These automation scripts respond to [event triggers](https://developer.sailpoint.com/triggers/getting_started.html) and perform a series of actions to perform tasks that are either too cumbersome or not available in the IdentityNow UI.  Workflows can be configured via a graphical user interface within IdentityNow, or by creating and uploading a JSON formatted script to the Workflow service.  The Workflows API collection provides the necessary functionality to create, manage, and test your workflows via REST.
+      Workflows allow administrators to create custom automation scripts directly within IdentityNow.  These automation scripts respond to [event triggers](https://developer.sailpoint.com/idn/docs/event-triggers#how-to-get-started-with-event-triggers) and perform a series of actions to perform tasks that are either too cumbersome or not available in the IdentityNow UI.  Workflows can be configured via a graphical user interface within IdentityNow, or by creating and uploading a JSON formatted script to the Workflow service.  The Workflows API collection provides the necessary functionality to create, manage, and test your workflows via REST.
       
       Workflows is currently in Beta, and is not generally available to all customer tenants.  If you would like to participate in the beta program, please [submit an application](https://app.smartsheet.com/b/form/e758ab109dc649589f57b4b5c41d4373).  You must be a customer or partner to participate.
 
@@ -773,14 +773,14 @@ components:
     oauth2:
       type: oauth2
       description: |
-        OAuth2 Bearer token (JWT). See [IdentityNow REST API Authentication](https://developer.sailpoint.com/docs/authentication.html) for more information.
-        - Directions for generating a [personal access token](https://developer.sailpoint.com/docs/authentication.html#personal-access-tokens)
-        - Directions using [client credentials flow](https://developer.sailpoint.com/docs/authentication.html#client-credentials-grant-flow)
-        - Directions for using [authorization code flow](https://developer.sailpoint.com/docs/authentication.html#authorization-code-grant-flow)
+        OAuth2 Bearer token (JWT). See [IdentityNow REST API Authentication](https://developer.sailpoint.com/idn/api/authentication) for more information.
+        - Directions for generating a [personal access token](https://developer.sailpoint.com/idn/api/authentication#personal-access-tokens)
+        - Directions using [client credentials flow](https://developer.sailpoint.com/idn/api/authentication#client-credentials-grant-flow)
+        - Directions for using [authorization code flow](https://developer.sailpoint.com/idn/api/authentication#authorization-code-grant-flow)
 
-        Which authentication method should I choose?  See our [guide](https://developer.sailpoint.com/docs/authentication.html#which-oauth-2-0-grant-flow-should-i-use)
+        Which authentication method should I choose?  See our [guide](https://developer.sailpoint.com/idn/api/authentication#which-oauth-20-grant-flow-should-i-use)
       
-        Learn more about how to find your `tokenUrl` and `authorizationUrl` [in our docs](https://developer.sailpoint.com/docs/authentication.html#finding-your-tenant-s-oauth-details)
+        Learn more about how to find your `tokenUrl` and `authorizationUrl` [in our docs](https://developer.sailpoint.com/idn/api/authentication#find-your-tenants-oauth-details)
       flows:
         clientCredentials:
           tokenUrl: https://tenant.api.identitynow.com/oauth/token

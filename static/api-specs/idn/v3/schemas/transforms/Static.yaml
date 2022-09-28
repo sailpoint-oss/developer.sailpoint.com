@@ -9,6 +9,6 @@ properties:
     example: "string$variable"
     externalDocs:
       description: Static Transform Documentation 
-      url: https://developer.sailpoint.com/docs/transforms/transform_operations/operations/static.html
+      url: https://developer.sailpoint.com/idn/docs/transforms/operations/static
   requiresPeriodicRefresh:
     $ref: './RequiresPeriodicRefresh.yaml'

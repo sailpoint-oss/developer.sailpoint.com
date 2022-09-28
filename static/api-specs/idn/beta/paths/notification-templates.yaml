@@ -13,7 +13,7 @@ get:
       schema:
         type: string
       description: >-
-        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/docs/standard_collection_parameters.html)
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
 
 
         Filtering is supported for the following fields and operators:
@@ -56,7 +56,7 @@ post:
     This creates a template for your site. 
     
     
-    You can also use this endpoint to update a template.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/apis/beta/#operation/getNotificationTemplate) for a template you wish to update and paste it into the request body for this endpoint.  
+    You can also use this endpoint to update a template.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/idn/api/beta/get-notification-template) for a template you wish to update and paste it into the request body for this endpoint.  
     Modify the fields you want to change and submit the POST request when ready.
   requestBody:
     required: true

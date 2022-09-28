@@ -9,7 +9,7 @@
         that value will not be used.
 
 
-        See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/docs/standard_collection_parameters.html)
+        See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters)
         for more information.
       required: false
       example: true

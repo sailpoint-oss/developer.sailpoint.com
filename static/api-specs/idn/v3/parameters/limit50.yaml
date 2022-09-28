@@ -3,7 +3,7 @@
       description: >-
         Note that for this API the maximum value for limit is 50.
 
-        See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/docs/standard_collection_parameters.html)
+        See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters)
         for more information.
       required: false
       example: 50

@@ -10,8 +10,8 @@ post:
     has been submitted to IDN and is queued for processing.  Because this endpoint is asynchronous, it will not return an error
     if you submit duplicate access requests in quick succession, or you submit an access request for access that is already in progress, approved, or rejected.
     It is best practice to check for any existing access requests that reference the same access items before submitting a new access request.  This can
-    be accomplished by using the [access request status](https://developer.sailpoint.com/apis/v3/#operation/listAccessRequestStatus) or the [pending access request approvals](https://developer.sailpoint.com/apis/v3/#tag/Access-Request-Approvals) endpoints.  You can also
-    use the [search API](https://developer.sailpoint.com/apis/v3/#operation/search) to check the existing access items that an identity has before submitting
+    be accomplished by using the [access request status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) or the [pending access request approvals](https://developer.sailpoint.com/idn/api/v3/list-pending-approvals) endpoints.  You can also
+    use the [search API](https://developer.sailpoint.com/idn/api/v3/search) to check the existing access items that an identity has before submitting
     an access request to ensure you are not requesting access that is already granted.
   
     There are two types of access request:

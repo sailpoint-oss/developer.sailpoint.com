@@ -41,7 +41,7 @@ get:
     schema:
       type: string
     description: |
-      An expression used to constrain the result set using the filtering syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/docs/standard_collection_parameters.html).
+      An expression used to constrain the result set using the filtering syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results).
 
       Allowed filter properties: *owner.id*, *savedSearchId*
 

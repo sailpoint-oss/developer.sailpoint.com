@@ -198,7 +198,7 @@ tags:
       url: https://documentation.sailpoint.com/saas/help/common/generate_tokens.html.
   - name: Public Identities
     description: |
-      Use this API in conjunction with [Public Identites Config](https://developer.sailpoint.com/apis/v3/#tag/Public-Identities-Config) to enable non-administrators to view identities' publicly visible attributes. 
+      Use this API in conjunction with [Public Identites Config](https://developer.sailpoint.com/idn/api/v3/public-identities-config) to enable non-administrators to view identities' publicly visible attributes. 
       With this functionality in place, non-administrators can view identity attributes other than the default attributes (email, lifecycle state, and manager), depending on which identity attributes their organization administrators have made public. 
       This can be helpful for access approvers, certification reviewers, managers viewing their direct reports' access, and source owners viewing their tasks.
   - name: Public Identities Config
@@ -212,7 +212,7 @@ tags:
       Administrators can use this API to make those necessary identity attributes public to non-administrators. 
 
       For example, a non-administrator deciding whether to approve another identity's request for access to the Workday application, whose access may be restricted to members of the HR department, would want to know whether the identity is a member of the HR department. 
-      If an administrator has used [Update Public Identity Config](https://developer.sailpoint.com/apis/v3/#operation/updatePublicIdentityConfig) to make the "department" attribute public, the approver can see the department and make a decision without requesting any more information. 
+      If an administrator has used [Update Public Identity Config](https://developer.sailpoint.com/idn/api/v3/update-public-identity-config) to make the "department" attribute public, the approver can see the department and make a decision without requesting any more information. 
   - name: Requestable Objects
   - name: Saved Search
   - name: Scheduled Search
@@ -228,7 +228,7 @@ tags:
       of which users have made changes to the Transforms.
     externalDocs:
       description: Learn more about Building Transforms
-      url: https://developer.sailpoint.com/docs/transforms/building_transforms/building_transforms.html
+      url: https://developer.sailpoint.com/idn/docs/transforms
   - name: Work Items
 
 paths:
@@ -451,14 +451,14 @@ components:
     oauth2:
       type: oauth2
       description: |
-        OAuth2 Bearer token (JWT). See [IdentityNow REST API Authentication](https://developer.sailpoint.com/docs/authentication.html) for more information.
-        - Directions for generating a [personal access token](https://developer.sailpoint.com/docs/authentication.html#personal-access-tokens)
-        - Directions using [client credentials flow](https://developer.sailpoint.com/docs/authentication.html#client-credentials-grant-flow)
-        - Directions for using [authorization code flow](https://developer.sailpoint.com/docs/authentication.html#authorization-code-grant-flow)
+        OAuth2 Bearer token (JWT). See [IdentityNow REST API Authentication](https://developer.sailpoint.com/idn/api/authentication) for more information.
+        - Directions for generating a [personal access token](https://developer.sailpoint.com/idn/api/authentication#personal-access-tokens)
+        - Directions using [client credentials flow](https://developer.sailpoint.com/idn/api/authentication#client-credentials-grant-flow)
+        - Directions for using [authorization code flow](https://developer.sailpoint.com/idn/api/authentication#authorization-code-grant-flow)
 
-        Which authentication method should I choose?  See our [guide](https://developer.sailpoint.com/docs/authentication.html#which-oauth-2-0-grant-flow-should-i-use)
+        Which authentication method should I choose?  See our [guide](https://developer.sailpoint.com/idn/api/authentication#which-oauth-20-grant-flow-should-i-use)
       
-        Learn more about how to find your `tokenUrl` and `authorizationUrl` [in our docs](https://developer.sailpoint.com/docs/authentication.html#finding-your-tenant-s-oauth-details)
+        Learn more about how to find your `tokenUrl` and `authorizationUrl` [in our docs](https://developer.sailpoint.com/idn/api/authentication#find-your-tenants-oauth-details)
       flows:
         clientCredentials:
           tokenUrl: https://tenant.api.identitynow.com/oauth/token

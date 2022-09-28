@@ -58,7 +58,7 @@ get:
         format: comma-separated
       example: accountName,sourceId
       description: >-
-        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/docs/standard_collection_parameters.html#toc-hId-2058949)<br/><br/>
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)<br/><br/>
         Sorting is supported for the following fields: **id, accountName, sourceId, manager, firstName, lastName, email, phone, startDate, endDate, created, modified**
     - in: query
       name: filters
@@ -67,7 +67,7 @@ get:
         type: string
       example: sourceId eq "2c91808568c529c60168cca6f90c1313"
       description: >-
-        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/docs/standard_collection_parameters.html)<br/><br/>
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)<br/><br/>
         Filtering is supported for the following fields and operators:<br/><br/>
         **sourceId**: *eq* <br/><br/>
         *Example:* sourceId eq "2c91808568c529c60168cca6f90c1313"

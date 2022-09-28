@@ -7,7 +7,7 @@ sidebar_class_name: trim
 keywords: ["transforms", "operations", "trim"]
 description:
   Trim whitespaces from both the beginning and ending of input strings.
-slug: /docs/transforms/operations/substring
+slug: /docs/transforms/operations/trim
 tags: ["Transforms", "Transform Operations"]
 ---
 

@@ -461,13 +461,13 @@ components:
         Learn more about how to find your `tokenUrl` and `authorizationUrl` [in our docs](https://developer.sailpoint.com/docs/authentication.html#finding-your-tenant-s-oauth-details)
       flows:
         clientCredentials:
-          tokenUrl: https://{tenant}.api.identitynow.com/oauth/token
+          tokenUrl: https://tenant.api.identitynow.com/oauth/token
           scopes: 
             'sp:scopes:default': 'default scope'
             'sp:scopes:all': 'access to all scopes'
         authorizationCode:
-          authorizationUrl: https://{tenant}.identitynow.com/oauth/authorize
-          tokenUrl: https://{tenant}.api.identitynow.com/oauth/token
+          authorizationUrl: https://tenant.identitynow.com/oauth/authorize
+          tokenUrl: https://tenant.api.identitynow.com/oauth/token
           scopes: 
             'sp:scopes:default': 'default scope'
             'sp:scopes:all': 'access to all scopes'

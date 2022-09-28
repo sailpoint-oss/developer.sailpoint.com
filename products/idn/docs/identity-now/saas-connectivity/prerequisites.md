@@ -37,7 +37,6 @@ debugging, hints, code completion, and other helpful options.
 
 SailPoint provides a CLI tool to manage the connectors' lifecycles. To install
 and set up the CLI, follow the instructions in this repository's README file
-(TBD. This repository is not public yet):
 [SailPoint CLI on GitHub](https://github.com/sailpoint-oss/sp-connector-cli)
 
 ## Create New Project

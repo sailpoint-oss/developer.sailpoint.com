@@ -43,7 +43,7 @@ jobs:
         run: |
           export NODE_OPTIONS="--max_old_space_size=4096"
           npm install 
-          npm run docusaurus gen-api-docs all
+          npm run gen-api-docs-all
           npm run build
       - name: Deploy to GitHub Pages
         if: success()

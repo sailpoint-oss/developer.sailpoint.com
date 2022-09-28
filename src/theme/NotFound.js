@@ -21,7 +21,7 @@ export default function NotFound() {
               <p>
               Our docs and API specifications have recently moved—checkout the navbar at the top of this page to find their new home. If you can't find the document you're looking for, <a href="https://developer.sailpoint.com/discuss/docs-request" target="_blank" rel="noopener noreferrer">let us know</a>.
               </p>
-                <img height="60%" src="img/not-found/codey.png"/>
+                <img height="60%" src="../img/not-found/codey.png"/>
             </div>
           </div>
         </main>

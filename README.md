@@ -4,11 +4,15 @@
 ![Latest Releases][release-shield] ![Contributor Shield][contributor-shield]
 [![Deploy to Production](https://github.com/sailpoint-oss/developer.sailpoint.com/actions/workflows/build-and-deploy-prod-gh-pages.yml/badge.svg)](https://github.com/sailpoint-oss/developer.sailpoint.com/actions/workflows/build-and-deploy-prod-gh-pages.yml)
 
-[discourse-shield]: https://img.shields.io/discourse/topics?label=Discuss%20This%20Tool&server=https%3A%2F%2Fdeveloper.sailpoint.com%2Fdiscuss
+[discourse-shield]:
+  https://img.shields.io/discourse/topics?label=Discuss%20This%20Tool&server=https%3A%2F%2Fdeveloper.sailpoint.com%2Fdiscuss
 [discourse-url]: https://developer.sailpoint.com/discuss/
-[issues-shield]: https://img.shields.io/github/issues/sailpoint-oss/developer.sailpoint.com?label=Issues
-[release-shield]: https://img.shields.io/github/v/release/sailpoint-oss/developer.sailpoint.com?label=Current%20Release
-[contributor-shield]: https://img.shields.io/github/contributors/sailpoint-oss/developer.sailpoint.com?label=Contributors
+[issues-shield]:
+  https://img.shields.io/github/issues/sailpoint-oss/developer.sailpoint.com?label=Issues
+[release-shield]:
+  https://img.shields.io/github/v/release/sailpoint-oss/developer.sailpoint.com?label=Current%20Release
+[contributor-shield]:
+  https://img.shields.io/github/contributors/sailpoint-oss/developer.sailpoint.com?label=Contributors
 
 <!-- PROJECT LOGO -->
 <br />
@@ -27,16 +31,25 @@
 ## About The Project
 
 This repository contains the complete build, with assets, for everything seen on
-developer.sailpoint.com. The includes the homepage, all static elements,
-documentation, API specifications, et. al. The API specifications come in from a
-GitHub Action in another repository, but ultimately the API specifications used
-to generate this static site are those found in the `static` folder.
+developer.sailpoint.com. This includes the homepage, all static elements,
+_documentation_, API specifications, et. al. The API specifications come in from
+a GitHub Action in another repository, but ultimately the API specifications
+used to generate this static site are those found in the `static` folder.
 
-Please use GitHub issues to submit bugs or make feature requests.
+Please use GitHub
+[issues](https://github.com/sailpoint-oss/developer.sailpoint.com/issues) to
+[submit bugs](https://github.com/sailpoint-oss/developer.sailpoint.com/issues/new?assignees=&labels=&template=bug-report.md&title=%5BBug%5D+Your+Bug+Report+Here)
+or make
+[feature requests](https://github.com/sailpoint-oss/developer.sailpoint.com/issues/new?assignees=&labels=&template=feature-request.md&title=%5BFeature%5D+Your+Feature+Request+Here).
+
+If you'd like to contribute directly (which we encourage!) please read the
+contribution guidelines below, first!
 
 <!-- GETTING STARTED -->
 
 ## Getting Started
+
+If you want to build this project locally, follow the steps below.
 
 ### Prerequisites
 
@@ -49,35 +62,28 @@ npm install npm@latest -g
 ### Installation
 
 1. Clone the repo
+
    ```bash
    git clone https://github.com/sailpoint-oss/developer.sailpoint.com.git
    ```
-2. Install NPM packages
+
+2. Install the project's NPM packages
+
    ```bash
    npm install
    ```
-3. Generate the docs
+
+3. Generate the API docs. They are auto-generated, so we do not track them in
+   the repository and instead build them at runtime.
+
    ```bash
    npm run gen-api-docs-all
    ```
+
 4. Start the website
    ```bash
    npm run start
    ```
-
-### Running the Algolia crawler
-
-1. Setup a .env file inside the algolia folder
-   ```sh
-   APPLICATION_ID={APP_ID}
-   API_KEY={API_KEY}
-   ```
-2. Run the Algolia crawler using docker
-   ```
-   docker run -it --env-file=./algolia/.env -e "CONFIG=$(cat ./algolia/config.json | jq -r tostring)" algolia/docsearch-scraper
-   ```
-
-<!-- CONTACT -->
 
 ## Discuss
 
@@ -95,9 +101,10 @@ information.
 
 ## Contributing
 
-Before you contribute you must sign our CLA. Please also read our
-[contribution guidelines](./CONTRIBUTING.md) for all the details on
-contributing.
+Before you contribute you
+[must sign our CLA](https://cla-assistant.io/sailpoint-oss/developer.sailpoint.com).
+Please also read our [contribution guidelines](./CONTRIBUTING.md) for all the
+details on contributing.
 
 <!-- CODE OF CONDUCT -->
 

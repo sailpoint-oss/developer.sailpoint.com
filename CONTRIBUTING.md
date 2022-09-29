@@ -3,11 +3,11 @@
 We love your input! We want to make contributing to this project as easy and
 transparent as possible. Look below if you would like to:
 
-- [Report a bug](#report-bugs-using-our-repositorys-issueshttpsgithubcomsailpoint-ossdevelopersailpointcomissues)
-- [Make a feature request](#make-a-feature-request-using-our-repositorys-issueshttpsgithubcomsailpoint-ossdevelopersailpointcomissues)
-- [Submit a fix](#submit-a-fix)
-- [Submit a new feature](#submit-a-new-feature)
-- [Submit a general issue or ask a question](#discuss-submit-general-issue-or-ask-a-question)
+- [Report an issue](#reporting-issues)
+- [Make a feature request](#making-feature-requests)
+- [Submit a fix](#submitting-a-fix)
+- [Submit a new feature](#submitting-a-new-feature)
+- [Submit a general issue or ask a question](#discussing-general-issues-or-questions)
 
 # High-level Guidelines
 

@@ -47,6 +47,7 @@ module.exports = [
             groupPathsBy: "tag",
             categoryLinkSource: "tag",
           },
+          template: "api.mustache",
         },
         idn_beta: {
           specPath: "static/api-specs/idn/sailpoint-api.beta.yaml",
@@ -55,6 +56,7 @@ module.exports = [
             groupPathsBy: "tag",
             categoryLinkSource: "tag",
           },
+          template: "api.mustache",
         },
       },
     },
@@ -72,6 +74,7 @@ module.exports = [
             groupPathsBy: "tag",
             categoryLinkSource: "tag",
           },
+          template: "api.mustache",
         },
       },
     },

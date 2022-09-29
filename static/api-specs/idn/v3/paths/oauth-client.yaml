@@ -1,8 +1,7 @@
 get:
   operationId: getOauthClient
   # security:
-  #   - bearerAuth:
-  #       - 'idn:oathkeeper-client:read'
+  #   - oauth2: [idn:oathkeeper-client:read]
   tags:
     - OAuth Clients
   summary: Get OAuth Client
@@ -42,9 +41,7 @@ get:
 delete:
   operationId: deleteOauthClient
   # security:
-  #   - bearerAuth:
-  #       - 'idn:oathkeeper-client:delete'
-  #       - 'idn:oathkeeper-internal-client:delete'
+  #   - oauth2: [idn:oathkeeper-client:delete,idn:oathkeeper-internal-client:delete]
   tags:
     - OAuth Clients
   summary: Delete OAuth Client
@@ -81,8 +78,7 @@ delete:
 patch:
   operationId: patchOauthClient
   # security:
-  #   - bearerAuth:
-  #       - 'idn:oathkeeper-client:update'
+  #   - oauth2: [idn:oathkeeper-client:update]
   tags:
     - OAuth Clients
   summary: Patch OAuth Client

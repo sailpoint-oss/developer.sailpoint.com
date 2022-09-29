@@ -5,8 +5,7 @@ post:
   summary: Auth User Bulk Update
   description: Update up to 25 existing auth users in a batch.
   #  security:
-  #    - bearerAuth:
-  #        - 'sp:auth-user:update'
+  #    - oauth2: [sp:auth-user:update]
   requestBody:
     required: true
     description: |

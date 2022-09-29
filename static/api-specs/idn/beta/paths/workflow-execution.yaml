@@ -6,8 +6,7 @@ get:
   description: >-
     Get a single workflow execution.  Workflow executions are available for up to 2 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
   security:
-    - bearerAuth:
-        - sp:workflow:read
+    - oauth2: [sp:workflow:read]
   parameters:
     - name: id
       in: path

@@ -68,7 +68,5 @@ get:
       '500':
         $ref: '../../v3/responses/500.yaml'
     security:
-      - bearerAuth:
-        - 'idn:role:read'
-        - 'idn:role-checked:read'
+      - oauth2: [idn:role:read,idn:role-checked:read]
 

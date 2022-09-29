@@ -7,8 +7,7 @@ get:
     Returns the publicly visible attributes of an identity available to request approvers for Access Requests and Certification Campaigns. A token with ORG ADMIN authority is required to
     call this API.
   #security:
-  #  - bearerAuth:
-  #      - ORG_ADMIN
+  #  - oauth2: [ORG_ADMIN]
   responses:
     '200':
       description: Request succeeded.
@@ -33,8 +32,7 @@ put:
     Updates the publicly visible attributes of an identity available to request approvers for Access Requests and Certification Campaigns. A token with ORG ADMIN authority is required to
     call this API.
   #security:
-  #  - bearerAuth:
-  #      - ORG_ADMIN
+  #  - oauth2: [ORG_ADMIN]
   requestBody:
     required: true
     content:

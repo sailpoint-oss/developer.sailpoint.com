@@ -8,8 +8,7 @@ get:
     
     A token with ORG_ADMIN authority is required to call this API.
   security:
-    - bearerAuth:
-        - idn:account-list:read
+    - oauth2: [idn:account-list:read]
   parameters:
     - in: query
       name: detailLevel
@@ -125,8 +124,7 @@ post:
 
     A token with ORG_ADMIN authority is required to call this API.
   security:
-    - bearerAuth:
-        - idn:account:create
+    - oauth2: [idn:account:create]
   requestBody:
     required: true
     content:

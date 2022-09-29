@@ -6,8 +6,7 @@ get:
   description: >-
     This lists the workflow operators available to you
   security:
-    - bearerAuth:
-        - sp:workflow:read
+    - oauth2: [sp:workflow:read]
   responses:
     '200':
       description: >-

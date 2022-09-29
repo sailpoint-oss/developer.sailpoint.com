@@ -7,14 +7,7 @@ get:
     Gets campaigns and returns them in a list. Can provide increased level of detail for each campaign if provided
     the correct query.
  # security:
- #   - bearerAuth:
- #       - CERT_ADMIN
- #       - DASHBOARD
- #       - ORG_ADMIN
- #       - REPORT_ADMIN
- #       - ROLE_ADMIN
- #       - SOURCE_ADMIN
- #       - SOURCE_SUBADMIN
+ #   - oauth2: [CERT_ADMIN,DASHBOARD,ORG_ADMIN,REPORT_ADMIN,ROLE_ADMIN,SOURCE_ADMIN,SOURCE_SUBADMIN]
   parameters:
     - in: query
       name: detail
@@ -95,9 +88,7 @@ post:
   summary: Create a campaign
   description: Creates a new Certification Campaign with the information provided in the request body.
   #security:
-  #  - bearerAuth:
-  #      - ORG_ADMIN
-  #      - CERT_ADMIN
+  #  - oauth2: [ORG_ADMIN,CERT_ADMIN]
   requestBody:
     required: true
     content:

@@ -70,8 +70,7 @@ get:
     "500":
       $ref: '../../v3/responses/500.yaml'
   security:
-    - bearerAuth:
-      - 'idn:transforms-list:read'
+    - oauth2: [idn:transforms-list:read]
 post:
   tags:
     - Transforms
@@ -115,5 +114,4 @@ post:
     "500":
       $ref: '../../v3/responses/500.yaml'
   security:
-    - bearerAuth:
-        - 'idn:transforms:write'
+    - oauth2: [idn:transforms:write]

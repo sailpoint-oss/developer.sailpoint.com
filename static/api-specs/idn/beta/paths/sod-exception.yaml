@@ -4,8 +4,7 @@ get:
     - SOD Exception
   summary: Get SOD Exception By ID
   # security:
-  #   - bearerAuth:
-  #       - API
+  #   - oauth2: [API]
   description: >-
     This API returns the specified SOD exception.
 
@@ -40,8 +39,7 @@ patch:
     - SOD Exception
   summary: Update SOD Exception
   # security:
-  #   - bearerAuth:
-  #       - API
+  #   - oauth2: [API]
   description: >-
     This API allows updating SOD exception fields other than ["id", "created", "origin"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
@@ -97,8 +95,7 @@ delete:
     - SOD Exception
   summary: Delete SOD Exception by ID
   # security:
-  #   - bearerAuth:
-  #       - API
+  #   - oauth2: [API]
   description: >-
     This API deletes the specified SOD exception.
 

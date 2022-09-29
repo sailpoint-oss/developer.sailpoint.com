@@ -22,8 +22,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   # security:
-  #   - bearerAuth:
-  #       - 'sp:auth-org:read'
+  #   - oauth2: [sp:auth-org:read]
 post:
   operationId: createAuthOrgLockoutConfig
   tags:
@@ -63,8 +62,7 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   # security:
-  #   - bearerAuth:
-  #       - 'sp:auth-org:create'
+  #   - oauth2: [sp:auth-org:create]
 patch:
   operationId: patchAuthOrgLockoutConfig
   tags:
@@ -113,5 +111,4 @@ patch:
     '500':
       $ref: '../../v3/responses/500.yaml'
   # security:
-  #   - bearerAuth:
-  #       - 'sp:auth-org:update'
+  #   - oauth2: [sp:auth-org:update]

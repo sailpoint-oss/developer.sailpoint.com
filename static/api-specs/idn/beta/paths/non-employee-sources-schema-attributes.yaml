@@ -1,7 +1,7 @@
 get:
   operationId: getSchemaAttributes
   security:
-    - bearerAuth: []
+    - oauth2: []
   tags:
     - Non-Employee Lifecycle Management
   summary: List Schema Attributes Non-Employee Source
@@ -39,8 +39,7 @@ get:
 post:
   operationId: createSchemaAttribute
   # security:
-  #   - bearerAuth:
-  #       - 'idn:nesr:create'
+  #   - oauth2: [idn:nesr:create]
   tags:
     - Non-Employee Lifecycle Management
   summary: Create a new Schema Attribute for Non-Employee Source
@@ -87,8 +86,7 @@ post:
 delete:
   operationId: deleteSchemaAttributes
   # security:
-  #   - bearerAuth:
-  #       - 'idn:nesr:delete'
+  #   - oauth2: [idn:nesr:delete]
   tags:
     - Non-Employee Lifecycle Management
   summary: Delete all custom schema attributes for Non-Employee Source

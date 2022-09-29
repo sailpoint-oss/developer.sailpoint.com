@@ -1,7 +1,7 @@
 get:
   operationId: nonEmployeeSourceGet
   security:
-    - bearerAuth: []
+    - oauth2: []
   tags:
     - Non-Employee Lifecycle Management
   summary: Get a Non-Employee Source
@@ -39,8 +39,7 @@ get:
 patch:
   operationId: nonEmployeeSourcePatch
   # security:
-  #   - bearerAuth:
-  #     - 'idn:nesr:update'
+  #   - oauth2: [idn:nesr:update]
   tags:
     - Non-Employee Lifecycle Management
   summary: Patch a Non-Employee Source
@@ -92,8 +91,7 @@ patch:
 delete:
   operationId: nonEmployeeSourceDelete
   # security:
-  #   - bearerAuth:
-  #     - 'idn:nesr:delete'
+  #   - oauth2: [idn:nesr:delete]
   tags:
     - Non-Employee Lifecycle Management
   summary: Delete Non-Employee Source

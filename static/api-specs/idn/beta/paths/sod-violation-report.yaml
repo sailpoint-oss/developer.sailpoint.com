@@ -8,8 +8,7 @@ get:
 
     Requires role of ORG_ADMIN.
   # security:
-  #   - bearerAuth:
-  #       - ORG_ADMIN
+  #   - oauth2: [ORG_ADMIN]
   parameters:
     - in: path
       name: id

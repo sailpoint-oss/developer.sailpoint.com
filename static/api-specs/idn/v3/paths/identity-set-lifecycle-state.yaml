@@ -8,8 +8,7 @@ post:
 
     A token with ORG_ADMIN or API authority is required to call this API.
   security:
-    - bearerAuth:
-        - idn:identity-lifecycle-state:update
+    - oauth2: [idn:identity-lifecycle-state:update]
   parameters:
     - in: path
       name: identity-id

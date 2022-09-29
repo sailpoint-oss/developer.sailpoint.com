@@ -33,8 +33,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - bearerAuth:
-        - 'idn:managed-client:read'
+    - oauth2: [idn:managed-client:read]
 patch:
   tags:
     - Managed Clients
@@ -77,8 +76,7 @@ patch:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - bearerAuth:
-        - 'idn:managed-client:update'
+    - oauth2: [idn:managed-client:update]
 delete:
   operationId: deleteManagedClient
   tags:
@@ -109,5 +107,4 @@ delete:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - bearerAuth:
-        - 'idn:managed-client:delete'
+    - oauth2: [idn:managed-client:delete]

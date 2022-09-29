@@ -1,8 +1,7 @@
 get:
   operationId: listAuthoriztionCapabilities
   # security:
-  #   - bearerAuth:
-  #       - 'idn:authorization-model:read'
+  #   - oauth2: [idn:authorization-model:read]
   tags:
     - Authorization Model
   summary: List Authorization Model Capabilities

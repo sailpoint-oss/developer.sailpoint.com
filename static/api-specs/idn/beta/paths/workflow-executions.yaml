@@ -6,8 +6,7 @@ get:
   description: >-
     This lists the executions for a given workflow
   security:
-    - bearerAuth:
-        - sp:workflow:read
+    - oauth2: [sp:workflow:read]
   parameters:
     - name: id
       in: path

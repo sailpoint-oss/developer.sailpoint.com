@@ -38,8 +38,7 @@ get:
     "500":
       $ref: '../../v3/responses/500.yaml'
   security:
-    - bearerAuth:
-        - 'idn:transforms:read'
+    - oauth2: [idn:transforms:read]
 put:
   tags:
     - Transforms
@@ -97,8 +96,7 @@ put:
     "500":
       $ref: '../../v3/responses/500.yaml'
   security:
-    - bearerAuth:
-        - 'idn:transforms:write'
+    - oauth2: [idn:transforms:write]
 delete:
   tags:
     - Transforms
@@ -136,5 +134,4 @@ delete:
     "500":
       $ref: '../../v3/responses/500.yaml'
   security:
-    - bearerAuth:
-        - 'idn:transforms:delete'
+    - oauth2: [idn:transforms:delete]

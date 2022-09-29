@@ -4,8 +4,7 @@ post:
     - SOD Exception
   summary: Create SOD Exceptions in bulk
   # security:
-  #   - bearerAuth:
-  #       - API
+  #   - oauth2: [API]
   description: >-
     This API creates SOD exceptions in bulk.
 

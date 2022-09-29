@@ -1,7 +1,7 @@
 get:
   operationId: getSchemaAttribute
   security:
-    - bearerAuth: []
+    - oauth2: []
   tags:
     - Non-Employee Lifecycle Management
   summary: Get Schema Attribute Non-Employee Source
@@ -39,8 +39,7 @@ get:
 patch:
   operationId: patchSchemaAttribute
   # security:
-  #   - bearerAuth:
-  #       - 'idn:nesr:update'
+  #   - oauth2: [idn:nesr:update]
   tags:
     - Non-Employee Lifecycle Management
   summary: Patch a Schema Attribute for Non-Employee Source
@@ -96,8 +95,7 @@ patch:
 delete:
   operationId: deleteSchemaAttribute
   # security:
-  #   - bearerAuth:
-  #       - 'idn:nesr:delete'
+  #   - oauth2: [idn:nesr:delete]
   tags:
     - Non-Employee Lifecycle Management
   summary: Delete a Schema Attribute for Non-Employee Source

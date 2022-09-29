@@ -1,8 +1,7 @@
 get:
   operationId: spConfigImportDownload
   # security:
-  #   - bearerAuth:
-  #       - 'sp:config:import'
+  #   - oauth2: [sp:config:import]
   tags:
     - SP-Config
   summary: Download Result of Import Job

@@ -4,8 +4,7 @@ post:
     - SOD Policy
   summary: Create SOD Policy
   # security:
-  #   - bearerAuth:
-  #       - ORG_ADMIN
+  #   - oauth2: [ORG_ADMIN]
   description: >-
     This creates both General and Conflicting Access Based policy, with a limit of 50 entitlements for each (left & right) criteria for Conflicting Access Based SOD policy
 
@@ -208,8 +207,7 @@ get:
     - SOD Policy
   summary: List SOD Policies
   # security:
-  #   - bearerAuth:
-  #       - ORG_ADMIN
+  #   - oauth2: [ORG_ADMIN]
   description: >-
     This gets list of all SOD Policies.
 

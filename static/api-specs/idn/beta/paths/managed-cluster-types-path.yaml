@@ -36,8 +36,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - bearerAuth:
-        - 'idn:managed-cluster-types:read'
+    - oauth2: [idn:managed-cluster-types:read]
 patch:
   tags:
     - Managed Cluster Types
@@ -83,8 +82,7 @@ patch:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - bearerAuth:
-        - 'idn:managed-cluster-types:update'
+    - oauth2: [idn:managed-cluster-types:update]
 delete:
   operationId: deleteManagedClusterType
   tags:
@@ -118,5 +116,4 @@ delete:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - bearerAuth:
-        - 'idn:managed-cluster-types:delete'
+    - oauth2: [idn:managed-cluster-types:delete]

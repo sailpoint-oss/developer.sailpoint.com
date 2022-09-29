@@ -8,8 +8,7 @@ get:
     </br>
     A token with ORG_ADMIN authority is required to call this API.
   security:
-    - bearerAuth:
-      - idn:mfa-config:read
+    - oauth2: [idn:mfa-config:read]
   parameters:
     - in: path
       name: method

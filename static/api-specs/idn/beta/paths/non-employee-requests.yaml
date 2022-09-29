@@ -1,7 +1,7 @@
 post:
   operationId: nonEmployeeRequestCreation
   security:
-    - bearerAuth: []
+    - oauth2: []
   tags:
     - Non-Employee Lifecycle Management
   summary: Create Non-Employee Request
@@ -57,7 +57,7 @@ post:
 get:
   operationId: nonEmployeeRequestList
   security:
-    - bearerAuth: []
+    - oauth2: []
   tags:
     - Non-Employee Lifecycle Management
   summary: List Non-Employee Requests

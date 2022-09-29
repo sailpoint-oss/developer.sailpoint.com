@@ -1,7 +1,7 @@
 get:
   operationId: nonEmployeeApprovalSummary
   security:
-    - bearerAuth: [] 
+    - oauth2: []
   tags:
     - Non-Employee Lifecycle Management
   summary: Get Summary of Non-Employee Approval Requests

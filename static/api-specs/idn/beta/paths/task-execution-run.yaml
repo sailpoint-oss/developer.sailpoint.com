@@ -25,5 +25,4 @@ post:
     "403":
       $ref: '../../v3/responses/403.yaml'
   security:
-    - bearerAuth:
-        - 'idn:task-management:write'
+    - oauth2: [idn:task-management:write]

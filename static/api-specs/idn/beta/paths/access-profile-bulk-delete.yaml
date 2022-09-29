@@ -82,5 +82,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - bearerAuth:
-        - 'idn:access-profile:manage'
+    - oauth2: [idn:access-profile:manage]

@@ -6,9 +6,7 @@ post:
 
     Requires roles of ORG_ADMIN and API
   # security:
-  #   - bearerAuth:
-  #     - ORG_ADMIN
-  #     - API
+  #   - oauth2: [ORG_ADMIN,API]
   tags:
     - Rosetta message handling
   parameters:

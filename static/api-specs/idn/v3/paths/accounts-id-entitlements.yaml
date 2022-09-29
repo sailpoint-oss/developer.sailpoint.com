@@ -8,8 +8,7 @@ get:
   
     A token with ORG_ADMIN authority is required to call this API.
   security:
-    - bearerAuth:
-        - idn:account-entitlement:read
+    - oauth2: [idn:account-entitlement:read]
   parameters:
     - $ref: '../parameters/limit.yaml'
     - $ref: '../parameters/offset.yaml'

@@ -8,11 +8,7 @@ get:
 
     Requires roles of CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN
   # security:
-  #   - bearerAuth:
-  #       - CERT_ADMIN
-  #       - DASHBOARD
-  #       - ORG_ADMIN
-  #       - REPORT_ADMIN
+  #   - oauth2: [CERT_ADMIN,DASHBOARD,ORG_ADMIN,REPORT_ADMIN]
   parameters:
     - in: path
       name: id

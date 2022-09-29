@@ -34,9 +34,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - bearerAuth:
-        - 'idn:service-desk-admin:read'
-        - 'idn:service-desk-integration:read'
+    - oauth2: [idn:service-desk-admin:read,idn:service-desk-integration:read]
 
 put:
   tags:
@@ -81,9 +79,7 @@ put:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - bearerAuth:
-        - 'idn:service-desk-admin:write'
-        - 'idn:service-desk-integration:write'
+    - oauth2: [idn:service-desk-admin:write,idn:service-desk-integration:write]
 
 delete:
   tags:
@@ -117,9 +113,7 @@ delete:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - bearerAuth:
-        - 'idn:service-desk-admin:write'
-        - 'idn:service-desk-integration:write'
+    - oauth2: [idn:service-desk-admin:write,idn:service-desk-integration:write]
 
 patch:
   operationId: patchServiceDeskIntegration
@@ -170,6 +164,4 @@ patch:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - bearerAuth:
-        - 'idn:service-desk-admin:write'
-        - 'idn:service-desk-integration:write'
+    - oauth2: [idn:service-desk-admin:write,idn:service-desk-integration:write]

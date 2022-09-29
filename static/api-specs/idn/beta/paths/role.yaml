@@ -37,9 +37,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - bearerAuth:
-        - 'idn:role:read'
-        - 'idn:role-checked:read'
+    - oauth2: [idn:role:read,idn:role-checked:read]
 patch:
   operationId: patchRole
   tags:
@@ -192,9 +190,7 @@ patch:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - bearerAuth:
-        - 'idn:role:update'
-        - 'idn:role-checked:update'
+    - oauth2: [idn:role:update,idn:role-checked:update]
 delete:
   operationId: deleteRole
   tags:
@@ -240,6 +236,4 @@ delete:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - bearerAuth:
-        - 'idn:role:delete'
-        - 'idn:role-checked:delete'
+    - oauth2: [idn:role:delete,idn:role-checked:delete]

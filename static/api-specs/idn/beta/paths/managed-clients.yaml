@@ -43,8 +43,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - bearerAuth:
-        - 'idn:managed-client:read'
+    - oauth2: [idn:managed-client:read]
 post:
   tags:
     - Managed Clients
@@ -80,5 +79,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - bearerAuth:
-        - 'idn:managed-client:create'
+    - oauth2: [idn:managed-client:create]

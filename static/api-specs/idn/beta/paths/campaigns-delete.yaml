@@ -7,9 +7,7 @@ post:
     Deletes campaigns whose Ids are specified in the provided list of campaign Ids.
     Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.
 #  security:
-#    - bearerAuth:
-#        - CERT_ADMIN
-#        - ORG_ADMIN
+#    - oauth2: [CERT_ADMIN,ORG_ADMIN]
   requestBody:
     description: The ids of the campaigns to delete.
     required: true

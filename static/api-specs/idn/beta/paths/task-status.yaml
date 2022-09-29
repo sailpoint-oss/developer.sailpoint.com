@@ -29,8 +29,7 @@ get:
     "404":
       description: TaskStatus with the given id was not found.
   security:
-    - bearerAuth:
-        - 'idn:task-management:read'
+    - oauth2: [idn:task-management:read]
 patch:
   tags:
     - Task Management
@@ -67,5 +66,4 @@ patch:
     "404":
       $ref: '../../v3/responses/404.yaml'
   security:
-    - bearerAuth:
-        - 'idn:task-management:write'
+    - oauth2: [idn:task-management:write]

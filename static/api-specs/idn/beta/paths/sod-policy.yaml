@@ -8,8 +8,7 @@ get:
 
     Requires role of ORG_ADMIN.
   # security:
-  #   - bearerAuth:
-  #       - ORG_ADMIN
+  #   - oauth2: [ORG_ADMIN]
   parameters:
     - in: path
       name: id
@@ -132,8 +131,7 @@ put:
     - SOD Policy
   summary: Update SOD Policy By ID
   # security:
-  #   - bearerAuth:
-  #       - ORG_ADMIN
+  #   - oauth2: [ORG_ADMIN]
   description: >-
     This updates a specified SOD policy.
 
@@ -354,8 +352,7 @@ delete:
     - SOD Policy
   summary: Delete SOD Policy by ID
   # security:
-  #   - bearerAuth:
-  #       - ORG_ADMIN
+  #   - oauth2: [ORG_ADMIN]
   description: >-
     This deletes a specified SOD policy.
 
@@ -401,8 +398,7 @@ patch:
     Requires role of ORG_ADMIN.
 
   # security:
-  #   - bearerAuth:
-  #       - ORG_ADMIN
+  #   - oauth2: [ORG_ADMIN]
 
   parameters:
     - in: path

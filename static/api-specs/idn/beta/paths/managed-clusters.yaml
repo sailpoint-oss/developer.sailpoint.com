@@ -37,5 +37,4 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - bearerAuth:
-        - 'idn:managed-cluster:read'
+    - oauth2: [idn:managed-cluster:read]

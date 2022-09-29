@@ -34,6 +34,4 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - bearerAuth:
-        - 'idn:service-desk-admin:read'
-        - 'idn:service-desk-integration:read'
+    - oauth2: [idn:service-desk-admin:read,idn:service-desk-integration:read]

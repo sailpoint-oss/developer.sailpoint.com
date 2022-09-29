@@ -31,5 +31,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - bearerAuth:
-        - 'idn:connector-rule:read'
+    - oauth2: [idn:connector-rule:read]

@@ -12,8 +12,7 @@ get:
     - $ref: '../../v3/parameters/limit.yaml'
     - $ref: '../../v3/parameters/offset.yaml'
   security:
-    - bearerAuth:
-        - sp:workflow:read
+    - oauth2: [sp:workflow:read]
   responses:
     '200':
       description: >-

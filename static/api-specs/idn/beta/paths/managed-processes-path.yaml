@@ -36,8 +36,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - bearerAuth:
-        - 'idn:managed-process:read'
+    - oauth2: [idn:managed-process:read]
 patch:
   tags:
     - Managed Processes
@@ -83,8 +82,7 @@ patch:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - bearerAuth:
-        - 'idn:managed-process:update'
+    - oauth2: [idn:managed-process:update]
 delete:
   operationId: deleteManagedProcess
   tags:
@@ -118,5 +116,4 @@ delete:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - bearerAuth:
-        - 'idn:managed-process:delete'
+    - oauth2: [idn:managed-process:delete]

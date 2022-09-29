@@ -49,8 +49,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - bearerAuth:
-        - 'idn:managed-process:read'
+    - oauth2: [idn:managed-process:read]
 post:
   tags:
     - Managed Processes
@@ -89,5 +88,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - bearerAuth:
-        - 'idn:managed-process:create'
+    - oauth2: [idn:managed-process:create]

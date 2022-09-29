@@ -9,8 +9,7 @@ get:
 
     Any authenticated token can call this API.
   security:
-    - bearerAuth:
-      - idn:sod-policy:read
+    - oauth2: [idn:sod-policy:read]
   parameters:
     - in: path
       name: id

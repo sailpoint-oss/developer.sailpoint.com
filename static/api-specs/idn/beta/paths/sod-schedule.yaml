@@ -8,8 +8,7 @@ get:
 
     Requires a role of ORG_ADMIN
   # security:
-  #   - bearerAuth:
-  #       - ORG_ADMIN
+  #   - oauth2: [ORG_ADMIN]
   parameters:
     - in: path
       name: id
@@ -41,8 +40,7 @@ put:
     - SOD Policy
   summary: Update SOD Policy schedule
   # security:
-  #   - bearerAuth:
-  #       - ORG_ADMIN
+  #   - oauth2: [ORG_ADMIN]
   description: >-
     This updates schedule for a specified SOD policy.
 
@@ -84,8 +82,7 @@ delete:
     - SOD Policy
   summary: Delete SOD Policy Schedule
   # security:
-  #   - bearerAuth:
-  #       - ORG_ADMIN
+  #   - oauth2: [ORG_ADMIN]
   description: >-
     This deletes schedule for a specified SOD policy.
 

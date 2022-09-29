@@ -4,8 +4,7 @@ post:
     - SOD Exception
   summary: Create SOD Exception
   # security:
-  #   - bearerAuth:
-  #       - API
+  #   - oauth2: [API]
   description: >-
     This API creates a SOD exception.
 
@@ -39,8 +38,7 @@ get:
     - SOD Exception
   summary: List SOD Exceptions
   # security:
-  #   - bearerAuth:
-  #       - API
+  #   - oauth2: [API]
   description: >-
     This API returns a list of all SOD exceptions.
 

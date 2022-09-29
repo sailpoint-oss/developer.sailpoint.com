@@ -1,8 +1,7 @@
 get:
   operationId: nonEmployeeBulkUploadStatus
   # security:
-  #   - bearerAuth:
-  #       - 'idn:nesr:read'
+  #   - oauth2: [idn:nesr:read]
   tags:
     - Non-Employee Lifecycle Management
   summary: Obtain the status of bulk upload on the source

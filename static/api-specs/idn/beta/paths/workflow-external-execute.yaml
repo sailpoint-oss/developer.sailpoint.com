@@ -6,8 +6,7 @@ post:
   description: >-
     This endpoint allows a service outside of IdentityNow to initiate a workflow that uses the "External Trigger" step.  The external service will invoke this endpoint with the input data it wants to send to the workflow in the body.
   security:
-    - bearerAuth:
-        - sp:workflow:external-execute
+    - oauth2: [sp:workflow:external-execute]
   parameters:
     - name: id
       in: path

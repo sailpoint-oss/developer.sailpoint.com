@@ -4,8 +4,7 @@ post:
     - SOD Policy
   summary: Runs SOD Policy Violation Report
   # security:
-  #   - bearerAuth:
-  #       - ORG_ADMIN
+  #   - oauth2: [ORG_ADMIN]
   description: >-
     This invokes processing of violation report for given SOD Policy. If policy reports more than 5000 violations, the report returns with
     violation limit exceeded message.

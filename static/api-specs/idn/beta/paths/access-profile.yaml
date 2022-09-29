@@ -36,8 +36,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - bearerAuth:
-        - 'idn:access-profile:read'
+    - oauth2: [idn:access-profile:read]
 patch:
   operationId: patchAccessProfile
   tags:
@@ -129,8 +128,7 @@ patch:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - bearerAuth:
-        - 'idn:access-profile:manage'
+    - oauth2: [idn:access-profile:manage]
 delete:
   operationId: deleteAccessProfile
   tags:
@@ -192,6 +190,5 @@ delete:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - bearerAuth:
-        - 'idn:access-profile:manage'
+    - oauth2: [idn:access-profile:manage]
   

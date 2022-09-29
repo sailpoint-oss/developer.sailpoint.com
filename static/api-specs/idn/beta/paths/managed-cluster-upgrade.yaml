@@ -43,5 +43,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - bearerAuth:
-        - 'idn:managed-cluster:upgrade'
+    - oauth2: [idn:managed-cluster:upgrade]

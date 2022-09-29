@@ -6,8 +6,7 @@ post:
   description: >-
     Validate a workflow with an "External Trigger" can receive input.  The response includes the input that the workflow received, which can be used to validate that the input is intact when it reaches the workflow.
   security:
-    - bearerAuth:
-        - sp:workflow:external-execute
+    - oauth2: [sp:workflow:external-execute]
   parameters:
     - name: id
       in: path

@@ -31,8 +31,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   # security:
-  #   - bearerAuth:
-  #       - 'iai:configuration:read'    
+  #   - oauth2: [iai:configuration:read]
 put:
   operationId: updateConfiguration
   tags:
@@ -66,8 +65,7 @@ put:
     '500':
       $ref: '../../v3/responses/500.yaml'
   # security:
-  #   - bearerAuth:
-  #       - 'iai:configuration:update'    
+  #   - oauth2: [iai:configuration:update]
 delete:
   operationId: deleteConfiguration
   tags:
@@ -97,5 +95,4 @@ delete:
     '500':
       $ref: '../../v3/responses/500.yaml'
   # security:
-  #   - bearerAuth:
-  #       - 'iai:configuration:delete'
+  #   - oauth2: [iai:configuration:delete]

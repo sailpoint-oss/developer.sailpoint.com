@@ -49,9 +49,7 @@ patch:
   summary: Update a Campaign
   description: Allows updating individual fields on a campaign using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
   # security:
-  #   - bearerAuth:
-  #       - ORG_ADMIN
-  #       - CERT_ADMIN
+  #   - oauth2: [ORG_ADMIN,CERT_ADMIN]
   parameters:
     - in: path
       name: id

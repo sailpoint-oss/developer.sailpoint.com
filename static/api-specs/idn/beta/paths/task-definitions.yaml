@@ -43,5 +43,4 @@ get:
     "403":
       $ref: '../../v3/responses/403.yaml'
   security:
-    - bearerAuth:
-        - 'idn:task-definition:read'
+    - oauth2: [idn:task-definition:read]

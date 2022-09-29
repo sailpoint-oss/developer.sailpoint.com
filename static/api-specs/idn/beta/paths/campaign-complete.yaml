@@ -9,9 +9,7 @@ post:
 
     Requires roles of CERT_ADMIN and ORG_ADMIN
   # security:
-  #   - bearerAuth:
-  #       - CERT_ADMIN
-  #       - ORG_ADMIN
+  #   - oauth2: [CERT_ADMIN,ORG_ADMIN]
   requestBody:
     description:
       Optional. Default behavior is for the campaign to auto-approve upon completion,

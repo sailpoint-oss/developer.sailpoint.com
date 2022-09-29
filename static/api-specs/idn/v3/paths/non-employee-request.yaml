@@ -1,7 +1,7 @@
 get:
   operationId: nonEmployeeRequestGet
   security:
-    - bearerAuth: []
+    - oauth2: []
   tags:
     - Non-Employee Lifecycle Management
   summary: Get a Non-Employee Request
@@ -42,8 +42,7 @@ get:
 delete:
   operationId: nonEmployeeRequestDeletion
   # security:
-  #   - bearerAuth:
-  #     - 'idn:nesr:delete'
+  #   - oauth2: [idn:nesr:delete]
   tags:
     - Non-Employee Lifecycle Management
   summary: Delete Non-Employee Request

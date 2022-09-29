@@ -32,8 +32,7 @@ delete:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - bearerAuth:
-        - 'idn:identity-profile:delete'
+    - oauth2: [idn:identity-profile:delete]
 
 patch:
   operationId: updateIdentityProfile
@@ -54,8 +53,7 @@ patch:
 
     * modified
   security:
-    - bearerAuth:
-        - 'idn:identity-profile:update'
+    - oauth2: [idn:identity-profile:update]
   parameters:
     - in: path
       name: id

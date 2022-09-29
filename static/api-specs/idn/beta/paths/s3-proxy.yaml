@@ -12,8 +12,7 @@ get:
     is validated against the path query parameter.  A token with API authority is required to access this endpoint..
 
     security:
-      - bearerAuth:
-        - idn:s3-proxy:read
+      - oauth2: [idn:s3-proxy:read]
   parameters:
     - in: query
       name: path

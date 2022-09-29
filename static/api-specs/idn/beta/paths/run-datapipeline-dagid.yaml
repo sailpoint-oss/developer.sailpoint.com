@@ -40,5 +40,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   # security:
-  #   - bearerAuth:
-  #       - 'iai:data-pipeline:run'
+  #   - oauth2: [iai:data-pipeline:run]

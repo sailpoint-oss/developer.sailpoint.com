@@ -30,8 +30,7 @@ get:
     "404":
       $ref: '../../v3/responses/404.yaml'
   security:
-    - bearerAuth:
-        - 'idn:managed-cluster-log-config:read'
+    - oauth2: [idn:managed-cluster-log-config:read]
 put:
   tags:
     - Managed Clusters
@@ -69,5 +68,4 @@ put:
     "404":
       $ref: '../../v3/responses/404.yaml'
   security:
-    - bearerAuth:
-        - 'idn:managed-cluster-log-config:write'
+    - oauth2: [idn:managed-cluster-log-config:write]

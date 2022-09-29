@@ -1,8 +1,7 @@
 post:
   operationId: nonEmployeeSourcesCreation
   # security:
-  #   - bearerAuth:
-  #     - 'idn:nesr:create'
+  #   - oauth2: [idn:nesr:create]
   tags:
     - Non-Employee Lifecycle Management
   summary: Create Non-Employee Source
@@ -39,7 +38,7 @@ post:
 get:
   operationId: nonEmployeeSourcesList
   security:
-    - bearerAuth: []
+    - oauth2: []
   tags:
     - Non-Employee Lifecycle Management
   summary: List Non-Employee Sources

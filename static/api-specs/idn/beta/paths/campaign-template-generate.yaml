@@ -4,8 +4,7 @@ post:
     - Certification Campaigns
   summary: Generate a Campaign from Template
   # security:
-  #   - bearerAuth:
-  #     - ORG_ADMIN
+  #   - oauth2: [ORG_ADMIN]
   description: >-
     Generates a new campaign from a campaign template.
 

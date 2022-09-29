@@ -1,8 +1,7 @@
 get:
   operationId: spConfigImportJobStatus
   # security:
-  #   - bearerAuth:
-  #       - 'sp:config:import'
+  #   - oauth2: [sp:config:import]
   tags:
     - SP-Config
   summary: Get Status of Import Job

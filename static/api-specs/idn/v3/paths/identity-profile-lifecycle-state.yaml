@@ -8,8 +8,7 @@ get:
 
     A token with ORG_ADMIN or API authority is required to call this API.
   security:
-    - bearerAuth:
-        - idn:identity-profile-lifecycle-state:read
+    - oauth2: [idn:identity-profile-lifecycle-state:read]
   parameters:
     - in: path
       name: identity-profile-id
@@ -52,8 +51,7 @@ patch:
 
     A token with ORG_ADMIN or API authority is required to call this API.
   security:
-    - bearerAuth:
-        - idn:identity-profile-lifecycle-state:update
+    - oauth2: [idn:identity-profile-lifecycle-state:update]
   parameters:
     - in: path
       name: identity-profile-id
@@ -139,8 +137,7 @@ delete:
 
     A token with API, or ORG_ADMIN authority is required to call this API.
   security:
-    - bearerAuth:
-        - idn:identity-profile-lifecycle-state:delete
+    - oauth2: [idn:identity-profile-lifecycle-state:delete]
   parameters:
     - in: path
       name: identity-profile-id

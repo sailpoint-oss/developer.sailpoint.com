@@ -8,8 +8,7 @@ post:
 
     A token with API, or ORG_ADMIN authority is required to call this API.
   security:
-    - bearerAuth:
-        - idn:provisioning-policy-bulk:update
+    - oauth2: [idn:provisioning-policy-bulk:update]
   parameters:
     - in: path
       name: sourceId

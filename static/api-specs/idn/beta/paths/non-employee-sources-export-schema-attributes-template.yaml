@@ -1,8 +1,7 @@
 get:
   operationId: nonEmployeeExportSourceSchemaTemplate
   # security:
-  #   - bearerAuth:
-  #       - 'idn:nesr:read'
+  #   - oauth2: [idn:nesr:read]
   tags:
     - Non-Employee Lifecycle Management
   summary: Exports Source Schema Template

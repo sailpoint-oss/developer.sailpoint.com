@@ -1,8 +1,7 @@
 get:
   operationId: spConfigExportDownload
   # security:
-  #   - bearerAuth:
-  #       - 'sp:config:export'
+  #   - oauth2: [sp:config:export]
   tags:
     - SP-Config
   summary: Download Result of Export Job

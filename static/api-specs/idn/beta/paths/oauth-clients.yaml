@@ -1,8 +1,7 @@
 get:
   operationId: listOauthClients
   # security:
-  #   - bearerAuth:
-  #       - 'idn:oathkeeper-client-list:read'
+  #   - oauth2: [idn:oathkeeper-client-list:read]
   tags:
     - OAuth Clients
   summary: List OAuth Clients
@@ -34,9 +33,7 @@ get:
 post:
   operationId: createOauthClient
   # security:
-  #   - bearerAuth:
-  #       - 'idn:oathkeeper-client:create'
-  #       - 'idn:oathkeeper-internal-client:create'
+  #   - oauth2: [idn:oathkeeper-client:create,idn:oathkeeper-internal-client:create]
   tags:
     - OAuth Clients
   summary: Create OAuth Client

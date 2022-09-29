@@ -26,8 +26,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   # security:
-  #   - bearerAuth:
-  #       - 'sp:auth-org:read'
+  #   - oauth2: [sp:auth-org:read]
 patch:
   operationId: patchAuthOrgServiceProviderConfig
   tags:
@@ -121,5 +120,4 @@ patch:
     '500':
       $ref: '../../v3/responses/500.yaml'
   # security:
-  #   - bearerAuth:
-  #       - 'sp:auth-org:update'
+  #   - oauth2: [sp:auth-org:update]

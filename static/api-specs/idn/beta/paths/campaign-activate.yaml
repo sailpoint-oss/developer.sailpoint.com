@@ -8,9 +8,7 @@ post:
 
     Requires roles of CERT_ADMIN and ORG_ADMIN
   # security:
-  #   - bearerAuth:
-  #       - CERT_ADMIN
-  #       - ORG_ADMIN
+  #   - oauth2: [CERT_ADMIN,ORG_ADMIN]
   requestBody:
     description:
       Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00).

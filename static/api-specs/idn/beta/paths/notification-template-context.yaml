@@ -12,8 +12,7 @@ get:
 
     Requires the following security scope:  idn:notification-templates:read
   # security:
-  #   - bearerAuth:
-  #     - 'idn:notification-templates:read'
+  #   - oauth2: [idn:notification-templates:read]
 
   responses:
     '200':

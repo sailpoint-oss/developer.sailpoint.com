@@ -17,8 +17,7 @@ get:
         type: string
       example: ef38f94347e94562b5bb8424a56397d8
 #  security:
-#    - bearerAuth:
-#        - 'sp:auth-user:read'
+#    - oauth2: [sp:auth-user:read]
   responses:
     '200':
       description: The specified user's authentication system details.
@@ -46,8 +45,7 @@ patch:
   summary: Auth User Update - PATCH
   description: Update an existing user in the authentication system with a PATCH request.
 #  security:
-#    - bearerAuth:
-#        - 'sp:auth-user:update'
+#    - oauth2: [sp:auth-user:update]
   parameters:
     - in: path
       name: id
@@ -109,8 +107,7 @@ put:
   summary: Auth User Update - Overwrite
   description: Update an existing user in the authentication system by over overwriting the information with new information.
   #  security:
-  #    - bearerAuth:
-  #        - 'sp:auth-user:update'
+  #    - oauth2: [sp:auth-user:update]
   parameters:
     - in: path
       name: id
@@ -156,8 +153,7 @@ delete:
   summary: Delete an Auth User
   description: Delete an existing user in the authentication system.
   #  security:
-  #    - bearerAuth:
-  #        - 'sp:auth-user:delete'
+  #    - oauth2: [sp:auth-user:delete]
   parameters:
     - in: path
       name: id

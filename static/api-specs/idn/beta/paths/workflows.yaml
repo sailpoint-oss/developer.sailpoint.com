@@ -6,8 +6,7 @@ post:
   description: >-
     Create a new workflow with the desired trigger and steps specified in the request body.
   security:
-    - bearerAuth:
-        - sp:workflow:create
+    - oauth2: [sp:workflow:create]
   requestBody:
     required: true
     content:
@@ -133,8 +132,7 @@ get:
   description: >-
     List all workflows in the tenant.
   security:
-    - bearerAuth:
-        - sp:workflow:read
+    - oauth2: [sp:workflow:read]
   responses:
     '200':
       description: >-

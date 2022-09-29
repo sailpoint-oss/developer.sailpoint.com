@@ -4,8 +4,7 @@ post:
     - SOD Policy
   summary: Runs all policies for Org.
   # security:
-  #   - bearerAuth:
-  #       - ORG_ADMIN
+  #   - oauth2: [ORG_ADMIN]
   description: >-
     Runs multi policy report for the Org. If a policy reports more than 5000 violation, the report mentions Violation limit exceeded for that policy.
     If the request is empty, report will run for all policies. Otherwise, report will run only for the filtered policy list provided.

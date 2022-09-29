@@ -38,5 +38,4 @@ post:
       $ref: '../../v3/responses/500.yaml'
 
   security:
-    - bearerAuth:
-        - 'idn:segments:write'
+    - oauth2: [idn:segments:write]

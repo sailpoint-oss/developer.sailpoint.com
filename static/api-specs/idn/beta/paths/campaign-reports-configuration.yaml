@@ -9,9 +9,7 @@ get:
     Requires roles of CERT_ADMIN and ORG_ADMIN.
 
   # security:
-  #   - bearerAuth:
-  #       - CERT_ADMIN
-  #       - ORG_ADMIN
+  #   - oauth2: [CERT_ADMIN,ORG_ADMIN]
   responses:
     '200':
       description: Campaign Report Configuration
@@ -38,9 +36,7 @@ put:
     Requires roles CERT_ADMIN and ORG_ADMIN.
 
   # security:
-  #   - bearerAuth:
-  #       - CERT_ADMIN
-  #       - ORG_ADMIN
+  #   - oauth2: [CERT_ADMIN,ORG_ADMIN]
   requestBody:
     required: true
     description: Campaign Report Configuration

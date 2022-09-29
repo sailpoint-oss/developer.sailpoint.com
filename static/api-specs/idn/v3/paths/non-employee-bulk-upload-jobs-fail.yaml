@@ -1,7 +1,6 @@
 post:
   # security:
-  #   - bearerAuth:
-  #       - 'idn:helpdesk'
+  #   - oauth2: [idn:helpdesk]
   operationId: nonEmployeeBulkUploadJobFail
   tags:
     - Non-Employee Lifecycle Management

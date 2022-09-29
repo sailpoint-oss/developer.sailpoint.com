@@ -1,8 +1,7 @@
 get:
   operationId: nonEmployeeBulkUploadDetails
   # security:
-  #   - bearerAuth:
-  #       - 'idn:nesr:read'
+  #   - oauth2: [idn:nesr:read]
   tags:
     - Non-Employee Lifecycle Management
   summary: Details of bulk upload job on source

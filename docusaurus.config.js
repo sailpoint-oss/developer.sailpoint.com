@@ -7,7 +7,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const footer = require("./footer");
 const navbar = require("./navbar");
 const plugins = require("./plugins");
-const baseUrl = process.env.BASE_URL ?? "/";
+const baseUrl = "/";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {

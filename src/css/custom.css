@@ -106,6 +106,7 @@ font-display:auto;font-style:italic;font-weight:800;font-stretch:normal;
 
 
 :root {
+  color: #415364;
   --ifm-color-primary: #0033a1;
   --ifm-color-primary-dark: #002e91;
   --ifm-color-primary-darker: #002b89;
@@ -135,6 +136,7 @@ font-display:auto;font-style:italic;font-weight:800;font-stretch:normal;
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
+  color: #ffffff;
   --ifm-color-primary: #7ecfee;
   --ifm-color-primary-dark: #5ec3ea;
   --ifm-color-primary-darker: #4ebde8;

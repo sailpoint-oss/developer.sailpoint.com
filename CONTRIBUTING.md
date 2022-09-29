@@ -16,7 +16,7 @@ transparent as possible. Look below if you would like to:
 We use GitHub to host code, track issues and feature requests, and
 accept pull requests.
 
-## We Use [GitHub Flow](https://docs.github.com/en/get-started/quickstart/github-flow)
+## We Use GitHub Flow
 
 Pull requests are the best way to propose changes to the codebase, and
 [Github Flow](https://docs.github.com/en/get-started/quickstart/github-flow) is our preferred method of accepting pull requests.

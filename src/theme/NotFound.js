@@ -1,6 +1,8 @@
 import React from "react";
 import Translate, { translate } from "@docusaurus/Translate";
 import { PageMetadata } from "@docusaurus/theme-common";
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import ThemedImage from "@theme/ThemedImage";
 import Layout from "@theme/Layout";
 export default function NotFound() {
   return (
@@ -32,7 +34,13 @@ export default function NotFound() {
                 </a>
                 .
               </p>
-              <img height="60%" src="img/not-found/codey.png" />
+              <ThemedImage
+                height="60%"
+                sources={{
+                  light: useBaseUrl("img/not-found/codey.png"),
+                  dark: useBaseUrl("img/not-found/codey.png"),
+                }}
+              ></ThemedImage>
             </div>
           </div>
         </main>

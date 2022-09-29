@@ -17,7 +17,8 @@
     "gen-api-docs:version": "docusaurus gen-api-docs:version",
     "clean-api-docs:version": "docusaurus clean-api-docs:version",
     "gen-api-docs-all": "docusaurus gen-api-docs idn_v3 --plugin-id idn-api && docusaurus gen-api-docs idn_beta --plugin-id idn-api && docusaurus gen-api-docs iiq --plugin-id iiq-api",
-    "clean-api-docs-all": "docusaurus clean-api-docs idn_v3 --plugin-id idn-api && docusaurus clean-api-docs idn_beta --plugin-id idn-api && docusaurus clean-api-docs iiq --plugin-id iiq-api"
+    "clean-api-docs-all": "docusaurus clean-api-docs idn_v3 --plugin-id idn-api && docusaurus clean-api-docs idn_beta --plugin-id idn-api && docusaurus clean-api-docs iiq --plugin-id iiq-api",
+    "rebuild-docs": "npm run clean-api-docs-all && npm run gen-api-docs-all"
   },
   "dependencies": {
     "@docusaurus/core": "2.0.1",

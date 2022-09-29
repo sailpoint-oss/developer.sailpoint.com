@@ -7,11 +7,13 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const footer = require("./footer");
 const navbar = require("./navbar");
 const plugins = require("./plugins");
-const baseUrl = process.env.BASE_URL ?? '/';
+const baseUrl = process.env.BASE_URL ?? "/";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "SailPoint Developer Community",
+  tagline:
+    "The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.",
   url: "https://developer.sailpoint.com",
   baseUrl,
   favicon: "img/SailPoint-Logo-Icon.ico",

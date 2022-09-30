@@ -1,12 +1,17 @@
 openapi: 3.0.1
 info:
   title: IdentityNow V3 API
-  description: "Use these APIs to interact with the IdentityNow platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs."
+  description:
+    "Use these APIs to interact with the IdentityNow platform to achieve
+    repeatable, automated processes with greater scalability. We encourage you
+    to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers
+    using our APIs."
   termsOfService: https://developer.sailpoint.com/discuss/tos
   contact:
     name: Developer Relations
-    url: https://developer.sailpoint.com/discuss/api-help  
-  license: 
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
     name: MIT
     url: https://opensource.org/licenses/MIT
   version: 3.0.0
@@ -16,7 +21,8 @@ servers:
     variables:
       tenant:
         default: sailpoint
-        description: This is the name of your tenant, typically your company's name.
+        description:
+          This is the name of your tenant, typically your company's name.
 
 tags:
   - name: Access Request Approvals
@@ -24,7 +30,7 @@ tags:
       Use this API to implement and customize access request approval functionality. 
       With this functionality in place, administrators can delegate qualified users to review users' requests for access or managers' requests to revoke team members' access to applications, entitlements, or roles.      
       This enables more qualified users to review access requests and the others to spend their time on other tasks.  
-      
+
       In IdentityNow, users can request access to applications, entitlements, and roles, and managers can request that team members' access be revoked.   
       For applications and entitlements, administrators can set access profiles to require approval from the access profile owner, the application owner, the source owner, the requesting user's manager, or a governance group for access to be granted or revoked.   
       For roles, administrators can also set roles to allow access requests and require approval from the role owner, the requesting user's manager, or a governance group for access to be granted or revoked.   
@@ -36,19 +42,19 @@ tags:
       If the required approver approves the request and is the only reviewer required, IdentityNow grants or revokes access, based on the request.   
       If multiple reviewers are required, IdentityNow sends the request to the next reviewer in the queue, based on the access request configuration's approval reminder and escalation configuration.   
       The required approver can then view any completed access requests under the Reviewed tab.   
-      
-      Refer to the following link for more information about access request approvals:  
+
+      Refer to the following link for more information about access request approvals:
     externalDocs:
       description: Learn more about access request approvals
-      url: https://documentation.sailpoint.com/saas/help/requests/index.html  
+      url: https://documentation.sailpoint.com/saas/help/requests/index.html
   - name: Access Requests
     description: |
       Use this API to implement and customize access request functionality. 
       With this functionality in place, users can request access to applications, entitlements, or roles, and managers can request that team members' access be revoked.
       This allows users to get access to the tools they need quickly and securely, and it allows managers to take away access to those tools. 
-      
+
       IdentityNow's Access Request service allows end users to request access that requires approval before it can be granted to users and enables qualified users to review those requests and approve or deny them.
-      
+
       In the Request Center in IdentityNow, users can view available applications, roles, and entitlements and request access to them. 
       If the requested tools requires approval, the requests appear as 'Pending' under the My Requests tab until the required approver approves, rejects, or cancels them. 
 
@@ -56,7 +62,7 @@ tags:
 
       In My Team on the IdentityNow Home, managers can submit requests to revoke their team members' access. 
       They can use the My Requests tab under Request Center to track and/or cancel the requests.
-      
+
       Refer to the following link for more information about access requests:
     externalDocs:
       description: Learn more about access requests
@@ -76,7 +82,7 @@ tags:
 
       To view and edit source account statuses for an identity in IdentityNow, administrators can use the Identities drop-down menu, select Identity List, select the relevant identity, and select its Accounts tab. 
       Administrators can toggle an account's Actions to aggregate the account, enable/disable it, unlock it, or remove it from the identity. 
-      
+
       Accounts can have the following statuses: 
 
       - Enabled: The account is enabled. The user can access it.
@@ -89,10 +95,10 @@ tags:
 
       Administrators can select the source account to view its attributes, entitlements, and the last time the account's password was changed.
 
-      Refer to the following link for more information about accounts: 
+      Refer to the following link for more information about accounts:
     externalDocs:
       description: Learn more about accounts
-      url: https://documentation.sailpoint.com/saas/help/common/users/user_access.html 
+      url: https://documentation.sailpoint.com/saas/help/common/users/user_access.html
   - name: Account Activities
     description: |
       Use this API to implement account activity tracking functionality.
@@ -127,7 +133,7 @@ tags:
 
       - Password Change: These include password changes on sources.
 
-      Refer to the following link for more information about account activities: 
+      Refer to the following link for more information about account activities:
     externalDocs:
       description: Learn more about account activities
       url: https://documentation.sailpoint.com/saas/help/search/index.html
@@ -172,25 +178,25 @@ tags:
       An identity's lifecycle state can have four different statuses: the lifecycle state's status can be 'Active,' it can be 'Not Set,' it can be 'Not Valid,' or it 'Does Not Match Technical Name Case.' 
       See [Moving Identities into Lifecycle States](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html#moving-identities-into-lifecycle-states) for more information about these different lifecycle state statuses. 
 
-      Refer to the following link for more information about lifecycle states: 
+      Refer to the following link for more information about lifecycle states:
     externalDocs:
       description: Learn more about lifecycle states
-      url: https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html 
+      url: https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html
   - name: Identity Profiles
     description: |
       Use this API to implement identity profile functionality. 
       With this functionality in place, administrators can view identity profiles and their configurations. 
-      
+
       Identity profiles represent the configurations that can be applied to identities as a way of granting them a set of security and access, as well as defining the mappings between their identity attributes and their source attributes.  
 
       In IdentityNow, administrators can use the Identities drop-down menu and select Identity Profiles to view the list of identity profiles. 
       This list shows some details about each identity profile, along with its status. 
       They can select an identity profile to view its settings, its mappings between identity attributes and correlating source account attributes, and its provisioning settings. 
-      
-      Refer to the following link for more information about identity profiles: 
+
+      Refer to the following link for more information about identity profiles:
     externalDocs:
       description: Learn more about identity profiles
-      url: https://documentation.sailpoint.com/saas/help/setup/identity_profiles.html    
+      url: https://documentation.sailpoint.com/saas/help/setup/identity_profiles.html
   - name: Non-Employee Lifecycle Management
     description: |
       Use this API to implement non-employee lifecycle management functionality. 
@@ -253,11 +259,11 @@ tags:
       An organization may require some authentication for users to update their passwords. 
       Users may be required to answer security questions or use a third-party authenticator before they can confirm their updates. 
 
-      Refer to the following link for more information about password management: 
+      Refer to the following link for more information about password management:
     externalDocs:
       description: Learn more about password management
       url: https://documentation.sailpoint.com/saas/user-help/accounts/passwords.html
-  - name: Personal Access Tokens  
+  - name: Personal Access Tokens
     description: |
       Use this API to implement personal access token (PAT) functionality. 
       With this functionality in place, users can use PATs as an alternative to passwords for authentication in IdentityNow. 
@@ -269,7 +275,7 @@ tags:
       They must then provide a description about the token's purpose. 
       They can then select 'Create Token' at the bottom of the page to generate and view the Secret and Client ID. 
 
-      Refer to the following link for more information about PATs: 
+      Refer to the following link for more information about PATs:
     externalDocs:
       description: Learn more about PATs
       url: https://documentation.sailpoint.com/saas/help/common/generate_tokens.html
@@ -289,12 +295,12 @@ tags:
       Administrators can use this API to make those necessary identity attributes public to non-administrators. 
 
       For example, a non-administrator deciding whether to approve another identity's request for access to the Workday application, whose access may be restricted to members of the HR department, would want to know whether the identity is a member of the HR department. 
-      If an administrator has used [Update Public Identity Config](https://developer.sailpoint.com/apis/v3/#operation/updatePublicIdentityConfig) to make the "department" attribute public, the approver can see the department and make a decision without requesting any more information. 
+      If an administrator has used [Update Public Identity Config](https://developer.sailpoint.com/apis/v3/#operation/updatePublicIdentityConfig) to make the "department" attribute public, the approver can see the department and make a decision without requesting any more information.
   - name: Requestable Objects
     description: |
       Use this API to implement requestable object functionality. 
       With this functionality in place, administrators can determine which access items can be requested with the [Access Request APIs](https://developer.sailpoint.com/apis/v3/#tag/Access-Requests), along with their statuses. 
-      This can be helpful for administrators who are implementing and customizing access request functionality as a way of checking which items are requestable as they are created, assigned, and made available. 
+      This can be helpful for administrators who are implementing and customizing access request functionality as a way of checking which items are requestable as they are created, assigned, and made available.
   - name: Saved Search
   - name: Scheduled Search
   - name: Search
@@ -325,221 +331,221 @@ tags:
       The widget will list any work items they need to complete, and they can select the work item from the list to review its details. 
       When they complete the work item, they can select 'Mark Complete' to add it to their list of completed work items. 
 
-      Refer to the following link for more information about work items, like the different types of work items users may need to complete: 
+      Refer to the following link for more information about work items, like the different types of work items users may need to complete:
     externalDocs:
       description: Learn more about work items
       url: https://documentation.sailpoint.com/saas/user-help/task_manager.html
 paths:
   /access-requests:
-    $ref: './v3/paths/access-requests.yaml'
+    $ref: "./v3/paths/access-requests.yaml"
   /access-requests/cancel:
-    $ref: './v3/paths/access-request-cancel.yaml'
+    $ref: "./v3/paths/access-request-cancel.yaml"
   /access-request-config:
-    $ref: './v3/paths/access-request-config.yaml'
+    $ref: "./v3/paths/access-request-config.yaml"
   /access-request-status:
-    $ref: './v3/paths/access-request-status.yaml'  
+    $ref: "./v3/paths/access-request-status.yaml"
   /access-request-approvals/pending:
-    $ref: './v3/paths/pending-access-request-approvals.yaml'
+    $ref: "./v3/paths/pending-access-request-approvals.yaml"
   /access-request-approvals/completed:
-    $ref: './v3/paths/completed-access-request-approvals.yaml'
+    $ref: "./v3/paths/completed-access-request-approvals.yaml"
   /access-request-approvals/{approvalId}/approve:
-    $ref: './v3/paths/approve-access-request-approval.yaml'
+    $ref: "./v3/paths/approve-access-request-approval.yaml"
   /access-request-approvals/{approvalId}/reject:
-    $ref: './v3/paths/reject-access-request-approval.yaml'
+    $ref: "./v3/paths/reject-access-request-approval.yaml"
   /access-request-approvals/{approvalId}/forward:
-    $ref: './v3/paths/forward-access-request-approval.yaml'
+    $ref: "./v3/paths/forward-access-request-approval.yaml"
   /access-request-approvals/approval-summary:
-    $ref: './v3/paths/access-request-approval-summary.yaml'
+    $ref: "./v3/paths/access-request-approval-summary.yaml"
   /accounts:
-    $ref: './v3/paths/accounts.yaml'
+    $ref: "./v3/paths/accounts.yaml"
   /accounts/{id}:
-    $ref: './v3/paths/account.yaml'
+    $ref: "./v3/paths/account.yaml"
   /accounts/{id}/entitlements:
-    $ref: './v3/paths/accounts-id-entitlements.yaml'
+    $ref: "./v3/paths/accounts-id-entitlements.yaml"
   /accounts/{id}/reload:
-    $ref: './v3/paths/accounts-id-reload.yaml'
+    $ref: "./v3/paths/accounts-id-reload.yaml"
   /accounts/{id}/enable:
-    $ref: './v3/paths/accounts-id-enable.yaml'
+    $ref: "./v3/paths/accounts-id-enable.yaml"
   /accounts/{id}/disable:
-    $ref: './v3/paths/accounts-id-disable.yaml'
+    $ref: "./v3/paths/accounts-id-disable.yaml"
   /accounts/{id}/unlock:
-    $ref: './v3/paths/accounts-id-unlock.yaml'
+    $ref: "./v3/paths/accounts-id-unlock.yaml"
   /account-activities:
-    $ref: './v3/paths/account-activity-list.yaml'
+    $ref: "./v3/paths/account-activity-list.yaml"
   /account-activities/{id}:
-    $ref: './v3/paths/account-activity-get-one.yaml'
+    $ref: "./v3/paths/account-activity-get-one.yaml"
   /certifications:
-    $ref: './v3/paths/identity-certifications.yaml'
+    $ref: "./v3/paths/identity-certifications.yaml"
   /certifications/{id}:
-    $ref: './v3/paths/identity-certification.yaml'
+    $ref: "./v3/paths/identity-certification.yaml"
   /certifications/{id}/access-review-items:
-    $ref: './v3/paths/identity-certifications-access-review-items.yaml'
+    $ref: "./v3/paths/identity-certifications-access-review-items.yaml"
   /certifications/{id}/decide:
-    $ref: './v3/paths/identity-certifications-decide.yaml'
+    $ref: "./v3/paths/identity-certifications-decide.yaml"
   /certifications/{id}/reassign:
-    $ref: './v3/paths/identity-certifications-reassign.yaml'
+    $ref: "./v3/paths/identity-certifications-reassign.yaml"
   /certifications/{id}/sign-off:
-    $ref: './v3/paths/identity-certifications-sign-off.yaml'
+    $ref: "./v3/paths/identity-certifications-sign-off.yaml"
   /certifications/{id}/decision-summary:
-    $ref: './v3/paths/identity-certifications-decision-summary.yaml'
+    $ref: "./v3/paths/identity-certifications-decision-summary.yaml"
   /certifications/{id}/identity-summaries:
-    $ref: './v3/paths/identity-certifications-identity-summaries.yaml'
+    $ref: "./v3/paths/identity-certifications-identity-summaries.yaml"
   /certifications/{id}/access-summaries/{type}:
-    $ref: './v3/paths/identity-certifications-access-summaries.yaml'
+    $ref: "./v3/paths/identity-certifications-access-summaries.yaml"
   /certifications/{id}/identity-summary/{identitySummaryId}:
-    $ref: './v3/paths/identity-certifications-identity-summary.yaml'
+    $ref: "./v3/paths/identity-certifications-identity-summary.yaml"
   /identities/{identity-id}/set-lifecycle-state:
-    $ref: './v3/paths/identity-set-lifecycle-state.yaml'
+    $ref: "./v3/paths/identity-set-lifecycle-state.yaml"
   /identity-profiles/{identity-profile-id}/lifecycle-states:
-    $ref: './v3/paths/identity-profile-lifecycle-states.yaml'
+    $ref: "./v3/paths/identity-profile-lifecycle-states.yaml"
   /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}:
-    $ref: './v3/paths/identity-profile-lifecycle-state.yaml'
+    $ref: "./v3/paths/identity-profile-lifecycle-state.yaml"
   /identity-profiles:
-    $ref: './v3/paths/identity-profiles.yaml'
+    $ref: "./v3/paths/identity-profiles.yaml"
   /identity-profiles/export:
-    $ref: './v3/paths/identity-profiles-export.yaml'
+    $ref: "./v3/paths/identity-profiles-export.yaml"
   /identity-profiles/import:
-    $ref: './v3/paths/identity-profiles-import.yaml'
+    $ref: "./v3/paths/identity-profiles-import.yaml"
   /identity-profiles/{identity-profile-id}:
-    $ref: './v3/paths/identity-profile.yaml'
+    $ref: "./v3/paths/identity-profile.yaml"
   /identity-profiles/{identity-profile-id}/default-identity-attribute-config:
-    $ref: './v3/paths/identity-profile-default-config.yaml'
+    $ref: "./v3/paths/identity-profile-default-config.yaml"
   /non-employee-records:
-    $ref: './v3/paths/non-employee-records.yaml'
+    $ref: "./v3/paths/non-employee-records.yaml"
   /non-employee-records/{id}:
-    $ref: './v3/paths/non-employee-record.yaml'
+    $ref: "./v3/paths/non-employee-record.yaml"
   /non-employee-records/bulk-delete:
-    $ref: './v3/paths/non-employee-records-bulk-delete.yaml'
+    $ref: "./v3/paths/non-employee-records-bulk-delete.yaml"
   /non-employee-requests:
-    $ref: './v3/paths/non-employee-requests.yaml'
+    $ref: "./v3/paths/non-employee-requests.yaml"
   /non-employee-requests/{id}:
-    $ref: './v3/paths/non-employee-request.yaml'
+    $ref: "./v3/paths/non-employee-request.yaml"
   /non-employee-requests/summary/{requested-for}:
-    $ref: './v3/paths/non-employee-request-summary-get.yaml'
+    $ref: "./v3/paths/non-employee-request-summary-get.yaml"
   /non-employee-sources:
-    $ref: './v3/paths/non-employee-sources.yaml'
+    $ref: "./v3/paths/non-employee-sources.yaml"
   /non-employee-sources/{sourceId}:
-    $ref: './v3/paths/non-employee-source.yaml'
+    $ref: "./v3/paths/non-employee-source.yaml"
   /non-employee-sources/{id}/non-employees/download:
-    $ref: './v3/paths/non-employee-sources-export-non-employees.yaml'
+    $ref: "./v3/paths/non-employee-sources-export-non-employees.yaml"
   /non-employee-sources/{id}/non-employee-bulk-upload:
-    $ref: './v3/paths/non-employee-sources-bulk-upload-non-employees.yaml'
+    $ref: "./v3/paths/non-employee-sources-bulk-upload-non-employees.yaml"
   /non-employee-sources/{id}/non-employee-bulk-upload/status:
-    $ref: './v3/paths/non-employee-sources-bulk-upload-status.yaml'
+    $ref: "./v3/paths/non-employee-sources-bulk-upload-status.yaml"
   /non-employee-sources/{id}/schema-attributes-template/download:
-    $ref: './v3/paths/non-employee-sources-export-schema-attributes-template.yaml'
+    $ref: "./v3/paths/non-employee-sources-export-schema-attributes-template.yaml"
   /non-employee-approvals:
-    $ref: './v3/paths/non-employee-approval-list.yaml'
+    $ref: "./v3/paths/non-employee-approval-list.yaml"
   /non-employee-approvals/{id}:
-    $ref: './v3/paths/non-employee-approve-get.yaml'
+    $ref: "./v3/paths/non-employee-approve-get.yaml"
   /non-employee-approvals/{id}/approve:
-    $ref: './v3/paths/non-employee-approve-request.yaml'
+    $ref: "./v3/paths/non-employee-approve-request.yaml"
   /non-employee-approvals/{id}/reject:
-    $ref: './v3/paths/non-employee-reject-request.yaml'
+    $ref: "./v3/paths/non-employee-reject-request.yaml"
   /non-employee-approvals/summary/{requested-for}:
-    $ref: './v3/paths/non-employee-approval-summary.yaml'
+    $ref: "./v3/paths/non-employee-approval-summary.yaml"
   /non-employee-sources/{sourceId}/schema-attributes:
-    $ref: './v3/paths/non-employee-sources-schema-attributes.yaml'
+    $ref: "./v3/paths/non-employee-sources-schema-attributes.yaml"
   /non-employee-sources/{sourceId}/schema-attributes/{attributeId}:
-    $ref: './v3/paths/non-employee-sources-schema-attribute.yaml'
+    $ref: "./v3/paths/non-employee-sources-schema-attribute.yaml"
   /oauth-clients:
-    $ref: './v3/paths/oauth-clients.yaml'
+    $ref: "./v3/paths/oauth-clients.yaml"
   /oauth-clients/{id}:
-    $ref: './v3/paths/oauth-client.yaml'
+    $ref: "./v3/paths/oauth-client.yaml"
   /personal-access-tokens:
-    $ref: './v3/paths/personal-access-tokens.yaml'
+    $ref: "./v3/paths/personal-access-tokens.yaml"
   /personal-access-tokens/{id}:
-    $ref: './v3/paths/personal-access-token.yaml'
+    $ref: "./v3/paths/personal-access-token.yaml"
   /public-identities:
-    $ref: './v3/paths/public-identities.yaml'
+    $ref: "./v3/paths/public-identities.yaml"
   /public-identities-config:
-    $ref: './v3/paths/public-identities-config.yaml'
+    $ref: "./v3/paths/public-identities-config.yaml"
   /requestable-objects:
-    $ref: './v3/paths/requestable-object-list.yaml'
+    $ref: "./v3/paths/requestable-object-list.yaml"
   /saved-searches:
-    $ref: './v3/paths/saved-searches.yaml'
+    $ref: "./v3/paths/saved-searches.yaml"
   /saved-searches/{id}:
-    $ref: './v3/paths/saved-searches-id.yaml'
+    $ref: "./v3/paths/saved-searches-id.yaml"
   /saved-searches/{id}/execute:
-    $ref: './v3/paths/saved-searches-execute.yaml'
+    $ref: "./v3/paths/saved-searches-execute.yaml"
   /scheduled-searches:
-    $ref: './v3/paths/scheduled-searches.yaml'
+    $ref: "./v3/paths/scheduled-searches.yaml"
   /scheduled-searches/{id}:
-    $ref: './v3/paths/scheduled-searches-id.yaml'
+    $ref: "./v3/paths/scheduled-searches-id.yaml"
   /scheduled-searches/{id}/unsubscribe:
-    $ref: './v3/paths/scheduled-searches-unsubscribe.yaml'
+    $ref: "./v3/paths/scheduled-searches-unsubscribe.yaml"
   /search:
-    $ref: './v3/paths/search-post.yaml'
+    $ref: "./v3/paths/search-post.yaml"
   /search/count:
-    $ref: './v3/paths/search-count.yaml'
+    $ref: "./v3/paths/search-count.yaml"
   /search/aggregate:
-    $ref: './v3/paths/search-aggregate.yaml'
+    $ref: "./v3/paths/search-aggregate.yaml"
   /search/{index}/{id}:
-    $ref: './v3/paths/search-get.yaml'
+    $ref: "./v3/paths/search-get.yaml"
   /service-desk-integrations:
-    $ref: './v3/paths/service-desk-integrations.yaml'
+    $ref: "./v3/paths/service-desk-integrations.yaml"
   /service-desk-integrations/{id}:
-    $ref: './v3/paths/service-desk-integration.yaml'
+    $ref: "./v3/paths/service-desk-integration.yaml"
   /service-desk-integrations/types:
-    $ref: './v3/paths/service-desk-integration-types.yaml'
+    $ref: "./v3/paths/service-desk-integration-types.yaml"
   /service-desk-integrations/templates/{scriptName}:
-    $ref: './v3/paths/service-desk-integration-template.yaml'
+    $ref: "./v3/paths/service-desk-integration-template.yaml"
   /service-desk-integrations/status-check-configuration:
-    $ref: './v3/paths/service-desk-integration-configuration.yaml'
+    $ref: "./v3/paths/service-desk-integration-configuration.yaml"
   /query-password-info:
-    $ref: './v3/paths/query-password-info.yaml'
+    $ref: "./v3/paths/query-password-info.yaml"
   /set-password:
-    $ref: './v3/paths/set-password.yaml'
+    $ref: "./v3/paths/set-password.yaml"
   /password-change-status/{id}:
-    $ref: './v3/paths/password-change-status.yaml'
+    $ref: "./v3/paths/password-change-status.yaml"
   /sources:
-    $ref: './v3/paths/sources.yaml'
+    $ref: "./v3/paths/sources.yaml"
   /sources/{id}:
-    $ref: './v3/paths/source.yaml'
+    $ref: "./v3/paths/source.yaml"
   /sources/{sourceId}/provisioning-policies:
-    $ref: './v3/paths/provisioning-policies.yaml'
+    $ref: "./v3/paths/provisioning-policies.yaml"
   /sources/{sourceId}/provisioning-policies/{usageType}:
-    $ref: './v3/paths/provisioning-policy.yaml'
+    $ref: "./v3/paths/provisioning-policy.yaml"
   /sources/{sourceId}/provisioning-policies/bulk-update:
-    $ref: './v3/paths/provisioning-policies-bulk-update.yaml'
+    $ref: "./v3/paths/provisioning-policies-bulk-update.yaml"
   /sources/{sourceId}/schemas:
-    $ref: './v3/paths/schemas.yaml'
+    $ref: "./v3/paths/schemas.yaml"
   /sources/{sourceId}/schemas/{schemaId}:
-    $ref: './v3/paths/schema.yaml'
+    $ref: "./v3/paths/schema.yaml"
   /sources/{sourceId}/source-health:
-    $ref: './v3/paths/source-health.yaml'
+    $ref: "./v3/paths/source-health.yaml"
   /sources/{id}/schemas/accounts:
-    $ref: './v3/paths/source-accounts-schema.yaml'
+    $ref: "./v3/paths/source-accounts-schema.yaml"
   /sources/{id}/schemas/entitlements:
-    $ref: './v3/paths/source-entitlements-schema.yaml'
+    $ref: "./v3/paths/source-entitlements-schema.yaml"
   /sources/{sourceId}/upload-connector-file:
-    $ref: './v3/paths/source-upload-connector-file.yaml'
+    $ref: "./v3/paths/source-upload-connector-file.yaml"
   /transforms:
-    $ref: './v3/paths/transforms.yaml'
+    $ref: "./v3/paths/transforms.yaml"
   /transforms/{id}:
-    $ref: './v3/paths/transform.yaml'
+    $ref: "./v3/paths/transform.yaml"
   /work-items:
-    $ref: './v3/paths/work-items.yaml'
+    $ref: "./v3/paths/work-items.yaml"
   /work-items/completed:
-    $ref: './v3/paths/work-items-completed.yaml'
+    $ref: "./v3/paths/work-items-completed.yaml"
   /work-items/count:
-    $ref: './v3/paths/work-items-count.yaml'
+    $ref: "./v3/paths/work-items-count.yaml"
   /work-items/completed/count:
-    $ref: './v3/paths/work-items-completed-count.yaml'
+    $ref: "./v3/paths/work-items-completed-count.yaml"
   /work-items/summary:
-    $ref: './v3/paths/work-items-summary.yaml'
+    $ref: "./v3/paths/work-items-summary.yaml"
   /work-items/{id}:
-    $ref: './v3/paths/work-item.yaml'
+    $ref: "./v3/paths/work-item.yaml"
   /work-items/{id}/approve/{approvalItemId}:
-    $ref: './v3/paths/work-items-approve-approval-item.yaml'
+    $ref: "./v3/paths/work-items-approve-approval-item.yaml"
   /work-items/{id}/reject/{approvalItemId}:
-    $ref: './v3/paths/work-items-reject-approval-item.yaml'
+    $ref: "./v3/paths/work-items-reject-approval-item.yaml"
   /work-items/bulk-approve/{id}:
-    $ref: './v3/paths/work-items-bulk-approve-approval-item.yaml'
+    $ref: "./v3/paths/work-items-bulk-approve-approval-item.yaml"
   /work-items/bulk-reject/{id}:
-    $ref: './v3/paths/work-items-bulk-reject-approval-item.yaml'
+    $ref: "./v3/paths/work-items-bulk-reject-approval-item.yaml"
   /work-items/{id}/submit-account-selection:
-    $ref: './v3/paths/work-items-account-selection.yaml'
+    $ref: "./v3/paths/work-items-account-selection.yaml"
 
 security:
   - oauth2: []
@@ -555,121 +561,119 @@ components:
         - Directions for using [authorization code flow](https://developer.sailpoint.com/docs/authentication.html#authorization-code-grant-flow)
 
         Which authentication method should I choose?  See our [guide](https://developer.sailpoint.com/docs/authentication.html#which-oauth-2-0-grant-flow-should-i-use)
-      
+
         Learn more about how to find your `tokenUrl` and `authorizationUrl` [in our docs](https://developer.sailpoint.com/docs/authentication.html#finding-your-tenant-s-oauth-details)
       flows:
         clientCredentials:
-          tokenUrl: https://{tenant}.api.identitynow.com/oauth/token
-          scopes: 
-            'sp:scopes:default': 'default scope'
-            'sp:scopes:all': 'access to all scopes'
+          tokenUrl: https://tenant.api.identitynow.com/oauth/token
+          scopes:
+            "sp:scopes:default": "default scope"
+            "sp:scopes:all": "access to all scopes"
         authorizationCode:
-          authorizationUrl: https://{tenant}.identitynow.com/oauth/authorize
-          tokenUrl: https://{tenant}.api.identitynow.com/oauth/token
-          scopes: 
-            'sp:scopes:default': 'default scope'
-            'sp:scopes:all': 'access to all scopes'
+          authorizationUrl: https://tenant.identitynow.com/oauth/authorize
+          tokenUrl: https://tenant.api.identitynow.com/oauth/token
+          scopes:
+            "sp:scopes:default": "default scope"
+            "sp:scopes:all": "access to all scopes"
 
-# TODO: add the Entitlement, AccessProfile and Role models
-# and the other new models?
+  # TODO: add the Entitlement, AccessProfile and Role models
+  # and the other new models?
   schemas:
     AccessRequest:
-      $ref: './v3/schemas/AccessRequest.yaml'
+      $ref: "./v3/schemas/AccessRequest.yaml"
     AccessRequestItem:
-      $ref: './v3/schemas/AccessRequestItem.yaml'
+      $ref: "./v3/schemas/AccessRequestItem.yaml"
     AccessProfileDocument:
-      $ref: './v3/schemas/search/model/access/profile/AccessProfile.yaml'
+      $ref: "./v3/schemas/search/model/access/profile/AccessProfile.yaml"
     AccessProfileSummary:
-      $ref: './v3/schemas/search/model/access/AccessProfile.yaml'
+      $ref: "./v3/schemas/search/model/access/AccessProfile.yaml"
     AccessReviewReassignment:
-      $ref: './v3/schemas/ReviewReassign.yaml'
+      $ref: "./v3/schemas/ReviewReassign.yaml"
     Account:
-      $ref: './v3/schemas/Account.yaml'
+      $ref: "./v3/schemas/Account.yaml"
     AccountActivity:
-      $ref: './v3/schemas/AccountActivity.yaml'
+      $ref: "./v3/schemas/AccountActivity.yaml"
     AccountActivitySearchedItem:
-      $ref: './v3/schemas/search/model/account/activity/AccountActivity.yaml'
+      $ref: "./v3/schemas/search/model/account/activity/AccountActivity.yaml"
     AccountAttributes:
-      $ref: './v3/schemas/AccountAttributes.yaml'
-    AccountDocument: 
-      $ref: './v3/schemas/search/model/account/Account.yaml'
+      $ref: "./v3/schemas/AccountAttributes.yaml"
+    AccountDocument:
+      $ref: "./v3/schemas/search/model/account/Account.yaml"
     AccountsAsyncResult:
-      $ref: './v3/schemas/AccountsAsyncResult.yaml'
+      $ref: "./v3/schemas/AccountsAsyncResult.yaml"
     AccountToggleRequest:
-      $ref: './v3/schemas/AccountToggleRequest.yaml'
+      $ref: "./v3/schemas/AccountToggleRequest.yaml"
     AccountUnlockRequest:
-      $ref: './v3/schemas/AccountUnlockRequest.yaml'
-    Aggregation: 
-      $ref: './v3/schemas/search/model/aggregation/Aggregation.yaml'
+      $ref: "./v3/schemas/AccountUnlockRequest.yaml"
+    Aggregation:
+      $ref: "./v3/schemas/search/model/aggregation/Aggregation.yaml"
     ApprovalItems:
-      $ref: './v3/schemas/ApprovalItemDetails.yaml'
+      $ref: "./v3/schemas/ApprovalItemDetails.yaml"
     Campaign:
-      $ref: './v3/schemas/CampaignReference.yaml'
+      $ref: "./v3/schemas/CampaignReference.yaml"
     Certification:
-      $ref: './v3/schemas/IdentityCertificationDto.yaml'
+      $ref: "./v3/schemas/IdentityCertificationDto.yaml"
     CertificationReference:
-      $ref: './v3/schemas/CertificationReference.yaml'
-    EntitlementDocument: 
-      $ref: './v3/schemas/search/model/entitlement/Entitlement.yaml'
+      $ref: "./v3/schemas/CertificationReference.yaml"
+    EntitlementDocument:
+      $ref: "./v3/schemas/search/model/entitlement/Entitlement.yaml"
     EntitlementSummary:
-      $ref: './v3/schemas/search/model/access/Entitlement.yaml'
-    Event: 
-      $ref: './v3/schemas/search/model/event/Event.yaml'
-    IdentityDocument: 
-      $ref: './v3/schemas/search/model/identity/Identity.yaml'
+      $ref: "./v3/schemas/search/model/access/Entitlement.yaml"
+    Event:
+      $ref: "./v3/schemas/search/model/event/Event.yaml"
+    IdentityDocument:
+      $ref: "./v3/schemas/search/model/identity/Identity.yaml"
     IdentityProfile:
-      $ref: './v3/schemas/IdentityProfile.yaml'
-    IdentityReferenceWithNameAndEmail: 
-      $ref: './v3/schemas/IdentityReferenceWithNameAndEmail.yaml'
+      $ref: "./v3/schemas/IdentityProfile.yaml"
+    IdentityReferenceWithNameAndEmail:
+      $ref: "./v3/schemas/IdentityReferenceWithNameAndEmail.yaml"
     ProvisioningConfig:
-      $ref: './v3/schemas/ProvisioningConfig.yaml'
+      $ref: "./v3/schemas/ProvisioningConfig.yaml"
     ProvisioningPolicy:
-      $ref: './v3/schemas/ProvisioningPolicyDto.yaml'
+      $ref: "./v3/schemas/ProvisioningPolicyDto.yaml"
     QueuedCheckConfigDetails:
-      $ref: './v3/schemas/QueuedCheckConfigDetails.yaml'
+      $ref: "./v3/schemas/QueuedCheckConfigDetails.yaml"
     Reassignment:
-      $ref: './v3/schemas/Reassignment.yaml'
+      $ref: "./v3/schemas/Reassignment.yaml"
     ReassignmentReference:
-      $ref: './v3/schemas/ReassignReference.yaml'
+      $ref: "./v3/schemas/ReassignReference.yaml"
     RemediationItems:
-      $ref:  './v3/schemas/RemediationItemDetails.yaml'
+      $ref: "./v3/schemas/RemediationItemDetails.yaml"
     RequestableObject:
-      $ref: './v3/schemas/RequestableObject.yaml'
+      $ref: "./v3/schemas/RequestableObject.yaml"
     RequestableObjectType:
-      $ref: './v3/schemas/RequestableObjectType.yaml'
+      $ref: "./v3/schemas/RequestableObjectType.yaml"
     RequestableObjectRequestStatus:
-      $ref: './v3/schemas/RequestableObjectRequestStatus.yaml'
+      $ref: "./v3/schemas/RequestableObjectRequestStatus.yaml"
     Reviewer:
-      $ref: './v3/schemas/Reviewer.yaml'
+      $ref: "./v3/schemas/Reviewer.yaml"
     RoleDocument:
-      $ref: './v3/schemas/search/model/role/Role.yaml'
+      $ref: "./v3/schemas/search/model/role/Role.yaml"
     RoleSummary:
-      $ref: './v3/schemas/search/model/access/Role.yaml'
+      $ref: "./v3/schemas/search/model/access/Role.yaml"
     SearchDocument:
-      $ref: './v3/schemas/search/documents/SearchDocument.yaml'
+      $ref: "./v3/schemas/search/documents/SearchDocument.yaml"
     SavedSearch:
-      $ref: './v3/schemas/search/saved/SavedSearch.yaml'
+      $ref: "./v3/schemas/search/saved/SavedSearch.yaml"
     Schedule:
-      $ref: './v3/schemas/schedule/Schedule.yaml'
+      $ref: "./v3/schemas/schedule/Schedule.yaml"
     ScheduledSearch:
-      $ref: './v3/schemas/search/scheduled/ScheduledSearch.yaml'
+      $ref: "./v3/schemas/search/scheduled/ScheduledSearch.yaml"
     ServiceDeskIntegrationDto:
-      $ref: './v3/schemas/ServiceDeskIntegrationDto.yaml'
+      $ref: "./v3/schemas/ServiceDeskIntegrationDto.yaml"
     ServiceDeskIntegrationTemplateDto:
-      $ref: './v3/schemas/ServiceDeskIntegrationTemplateDto.yaml'
+      $ref: "./v3/schemas/ServiceDeskIntegrationTemplateDto.yaml"
     ServiceDeskIntegrationTemplateType:
-      $ref: './v3/schemas/ServiceDeskIntegrationTemplateType.yaml'
+      $ref: "./v3/schemas/ServiceDeskIntegrationTemplateType.yaml"
     Source:
-      $ref: './v3/schemas/Source.yaml'
+      $ref: "./v3/schemas/Source.yaml"
     SourceHealthDto:
-      $ref: './v3/schemas/SourceHealthDto.yaml'
+      $ref: "./v3/schemas/SourceHealthDto.yaml"
     Transform:
-      $ref: './v3/schemas/Transform.yaml'
+      $ref: "./v3/schemas/Transform.yaml"
     WorkItems:
-      $ref: './v3/schemas/WorkItems.yaml'
+      $ref: "./v3/schemas/WorkItems.yaml"
     WorkItemsCount:
-      $ref: './v3/schemas/WorkItemsCount.yaml'
+      $ref: "./v3/schemas/WorkItemsCount.yaml"
     WorkItemsSummary:
-      $ref: './v3/schemas/WorkItemsSummary.yaml'
-
-
+      $ref: "./v3/schemas/WorkItemsSummary.yaml"

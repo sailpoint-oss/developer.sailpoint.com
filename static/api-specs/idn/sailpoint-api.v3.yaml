@@ -111,17 +111,17 @@ tags:
 
       - Certification: These include actions removing an entitlement from an account on a source as a result of the entitlement's revocation during a certification.
 
-      - Cloud Automated <Lifecyclestate>: These include automated lifecycle state changes that result in a source account's correlated identity being assigned to a different lifecycle state. 
-      IdentityNow replaces the <Lifecyclestate> variable with the name of the lifecycle state it has moved the account's identity to. 
+      - Cloud Automated `Lifecyclestate`: These include automated lifecycle state changes that result in a source account's correlated identity being assigned to a different lifecycle state. 
+      IdentityNow replaces the `Lifecyclestate` variable with the name of the lifecycle state it has moved the account's identity to. 
 
       - Identity Attribute Update: These include updates to a source account's correlated identity attributes as the result of a provisioning action. 
-      When you update an identity attribute that also updates an identity's lifecycle state, the cloud automated <Lifecyclestate> event also displays.
+      When you update an identity attribute that also updates an identity's lifecycle state, the cloud automated `Lifecyclestate` event also displays.
       Account Activity does not include attribute updates that occur as a result of aggregation.
 
       - Identity Refresh: These include correlated identity refreshes that occur for an account on a source whenever the account's correlated identity profile gets a new role or updates. 
       These also include refreshes that occur whenever IdentityNow assigns an application to the account's correlated identity based on the application's being assigned to All Users From Source or Specific Users From Source. 
 
-      - Lifecycle State Refresh: These include the actions that took place when a lifecycle state changed. This event only occurs after a cloud automated <Lifecyclestate> change or a lifecycle state change. 
+      - Lifecycle State Refresh: These include the actions that took place when a lifecycle state changed. This event only occurs after a cloud automated `Lifecyclestate` change or a lifecycle state change. 
 
       - Lifecycle State Change: These include the account activities that result from an identity's manual assignment to a null lifecycle state.
 
@@ -163,7 +163,7 @@ tags:
       To maintain access across multiple lifecycle states, administrators must grant the access profiles in each lifecycle state. 
       For example, if an administrator wants users with the 'HR Employee' identity profile to maintain their building access in both the 'Active' and 'Leave of Absence' lifecycle states, the administrator must grant the access profile for that building access to both lifecycle states.
 
-      During scheduled refreshes, IdentityNow evaluates lifecycle states to determine whether their assigned identities have the access defined in the lifecycle states' access profiles. 
+      During scheduled refreshes, IdentityNow evaluates lifFecycle states to determine whether their assigned identities have the access defined in the lifecycle states' access profiles. 
       If the identities are missing access, IdentityNow provisions that access. 
 
       Administrators can also use the 'Provisioning' tab to configure email notifications for IdentityNow to send whenever an identity with that identity profile has a lifecycle state change. 

@@ -54,7 +54,7 @@ tags:
       - Multiple Account Options: Define the logic IdentityNow uses to provision access to an identity with multiple accounts on the source. 
 
 
-      Refer to the following link for more information about access profiles.
+      Refer to the following link for more information about access profiles:
     externalDocs:
       description: Learn more about access profiles
       url: https://documentation.sailpoint.com/saas/help/access/access-profiles.html    
@@ -76,7 +76,7 @@ tags:
       If multiple reviewers are required, IdentityNow sends the request to the next reviewer in the queue, based on the access request configuration's approval reminder and escalation configuration.   
       The required approver can then view any completed access requests under the Reviewed tab.     
       
-      Refer to the following link for more information about access request approvals.  
+      Refer to the following link for more information about access request approvals:  
     externalDocs:
       description: Learn more about access request approvals
       url: https://documentation.sailpoint.com/saas/help/requests/index.html  
@@ -96,7 +96,7 @@ tags:
       In My Team on the IdentityNow Home, managers can submit requests to revoke their team members' access. 
       They can use the My Requests tab under Request Center to track and/or cancel the requests.
       
-      Refer to the following link for more information about access requests.
+      Refer to the following link for more information about access requests:
     externalDocs:
       description: Learn more about access requests
       url: https://documentation.sailpoint.com/saas/user-help/requests/requesting_access.html
@@ -321,6 +321,46 @@ tags:
       description: Learn more about identity profiles
       url: https://documentation.sailpoint.com/saas/help/setup/identity_profiles.html
   - name: Lifecycle States
+    description: |
+      Use this API to implement and customize lifecycle state functionality.
+      With this functionality in place, administrators can view and configure custom lifecycle states for use across their organizations, which is key to controlling which users have access, when they have access, and the access they have.
+
+      A lifecycle state describes a user's status in a company. For example, two lifecycle states come by default with IdentityNow: 'Active' and 'Inactive.' 
+      When an active employee takes an extended leave of absence from a company, his or her lifecycle state may change to 'Inactive,' for security purposes. 
+      The inactive employee would lose access to all the applications, sources, and sensitive data during the leave of absence, but when the employee returns and becomes active again, all that access would be restored. 
+      This saves administrators the time that would otherwise be spent provisioning the employee's access to each individual tool, reviewing the employee's certification history, etc. 
+
+      Administrators must define the criteria for being in each lifecycle state, and they must define how IdentityNow manages users' access to apps and sources for each lifecycle state.
+
+      In IdentityNow, administrators can manage lifecycle states by going to Admin > Identities > Identity Profile, selecting the identity profile whose lifecycle states they want to manage, selecting the 'Provisioning' tab, and using the left panel to select the lifecycle state they want to modify. 
+
+      In the 'Provisioning' tab, administrators can make the following access changes to an identity profile's lifecycle state: 
+
+      - Enable/disable the lifecycle state for the identity profile.
+
+      - Enable/disable source accounts for the identity profile's lifecycle state.
+
+      - Add existing access profiles to grant to the identity profiles in that lifecycle state.
+
+      - Create a new access profile to grant to the identity profile in that lifecycle state.
+
+      Access profiles granted in a previous lifecycle state are automatically revoked when the identity moves to a new lifecycle state. 
+      To maintain access across multiple lifecycle states, administrators must grant the access profiles in each lifecycle state. 
+      For example, if an administrator wants users with the 'HR Employee' identity profile to maintain their building access in both the 'Active' and 'Leave of Absence' lifecycle states, the administrator must grant the access profile for that building access to both lifecycle states.
+
+      During scheduled refreshes, IdentityNow evaluates lifecycle states to determine whether their assigned identities have the access defined in the lifecycle states' access profiles. 
+      If the identities are missing access, IdentityNow provisions that access. 
+
+      Administrators can also use the 'Provisioning' tab to configure email notifications for IdentityNow to send whenever an identity with that identity profile has a lifecycle state change. 
+      See [Configuring Lifecycle State Notifications](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html#configuring-lifecycle-state-notifications) for more information on how to do so.
+
+      An identity's lifecycle state can have four different statuses: the lifecycle state's status can be 'Active,' it can be 'Not Set,' it can be 'Not Valid,' or it 'Does Not Match Technical Name Case.' 
+      See [Moving Identities into Lifecycle States](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html#moving-identities-into-lifecycle-states) for more information about these different lifecycle state statuses. 
+
+      Refer to the following link for more information about lifecycle states: 
+    externalDocs:
+      description: Learn more about lifecycle states
+      url: https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html 
   - name: Managed Clients
     description: Read and write operations for managing client data and statuses
   - name: Managed Clusters
@@ -328,6 +368,41 @@ tags:
   - name: MFA Configuration
     description: Configure and test multifactor authentication (MFA) methods
   - name: Non-Employee Lifecycle Management
+    description: |
+      Use this API to implement non-employee lifecycle management functionality. 
+      With this functionality in place, administrators can create non-employee records and configure them for use in their organizations. 
+      This allows organizations to provide secure access to non-employees and control that access. 
+
+      The 'non-employee' term refers to any consultant, contractor, intern, or other user in an organization who is not a full-time permanent employee. 
+      Organizations can track non-employees' access and activity in IdentityNow by creating and maintaining non-employee sources. 
+      Organizations can have a maximum of 50 non-employee sources. 
+
+      By using SailPoint's Non-Employee Lifecycle Management functionality, you agree to the following:
+
+      - SailPoint is not responsible for storing sensitive data. 
+      You may only add account attributes to non-employee identities that are necessary for business operations and are consistent with your contractual limitations on data that may be sent or stored in IdentityNow.
+
+      - You are responsible for regularly downloading your list of non-employee accounts for all the sources you create and storing this list of accounts in a managed location to maintain an authoritative system of record and backup data for these accounts.
+
+      To manage non-employees in IdentityNow, administrators must create a non-employee source and add accounts to the source. 
+
+      To create a non-employee source in IdentityNow, administrators must use the Admin panel to go to Connections > Sources.
+      They must then specify 'Non-Employee' in the 'Source Type' field. 
+      See [Creating a Non-Employee Source](https://documentation.sailpoint.com/saas/help/common/non-employee-mgmt.html#creating-a-non-employee-source) for more details about how to create non-employee sources.
+
+      To add accounts to a non-employee source in IdentityNow, administrators can select the non-employee source and add the accounts. 
+      They can also use the 'Manage Non-Employees' widget on their user dashboards to reach the list of sources and then select the non-employee source they want to add the accounts to. 
+
+      Administrators can either add accounts individually or in bulk. Each non-employee source can have a maximum of 20,000 accounts. 
+      To add accounts in bulk, they must select the 'Bulk Upload' option and upload a CSV file. 
+      See [Adding Accounts](https://documentation.sailpoint.com/saas/help/common/non-employee-mgmt.html#adding-accounts) for more details about how to add accounts to non-employee sources.
+
+      Once administrators have created the non-employee source and added accounts to it, they can create identity profiles to generate identities for the non-employee accounts and manage the non-employee identities the same way they would any other identities. 
+
+      Refer to the following link for more information about non-employee lifecycle management:
+    externalDocs:
+      description: Learn more about non-employee lifecycle management
+      url: https://documentation.sailpoint.com/saas/help/common/non-employee-mgmt.html
   - name: Notifications
   - name: OAuth Clients
   - name: Org Config
@@ -476,7 +551,7 @@ tags:
       Refer to the following link for more information about PATs: 
     externalDocs:
       description: Learn more about PATs
-      url: https://documentation.sailpoint.com/saas/help/common/generate_tokens.html.
+      url: https://documentation.sailpoint.com/saas/help/common/generate_tokens.html
   - name: Public Identities Config
     description: |
       Use this API to implement public identity configuration functionality. 
@@ -490,6 +565,10 @@ tags:
       For example, a non-administrator deciding whether to approve another identity's request for access to the Workday application, whose access may be restricted to members of the HR department, would want to know whether the identity is a member of the HR department. 
       If an administrator has used [Update Public Identity Config](https://developer.sailpoint.com/idn/api/beta/update-public-identity-config) to make the "department" attribute public, the approver can see the department and make a decision without requesting any more information. 
   - name: Requestable Objects
+    description: |
+      Use this API to implement requestable object functionality. 
+      With this functionality in place, administrators can determine which access items can be requested with the [Access Request APIs](https://developer.sailpoint.com/apis/v3/#tag/Access-Requests), along with their statuses. 
+      This can be helpful for administrators who are implementing and customizing access request functionality as a way of checking which items are requestable as they are created, assigned, and made available. 
   - name: Role Insights
   - name: Roles
     description: |
@@ -529,7 +608,7 @@ tags:
       - Access Requests: Configure roles to be requestable and establish an approval process for any requests that the role be granted or revoked. 
       Do not configure a role to be requestable without establishing a secure access request approval process for that role first. 
 
-      Refer to the following link for more information about roles.
+      Refer to the following link for more information about roles:
     externalDocs:
       description: Learn more about roles
       url: https://documentation.sailpoint.com/saas/help/provisioning/roles.html
@@ -595,14 +674,31 @@ tags:
       description: Getting started with event triggers
       url: https://developer.sailpoint.com/idn/docs/event-triggers
   - name: Work Items
-    description: Operations for retrieving and modifying details relating to Work Items.
+    description: |
+      Use this API to implement work item functionality. 
+      With this functionality in place, users can manage their work items (tasks). 
+
+      Work items refer to the tasks users see in IdentityNow's Task Manager. 
+      They can see the pending work items they need to complete, as well as the work items they have already completed. 
+      Task Manager lists the work items along with the involved sources, identities, accounts, and the timestamp when the work item was created. 
+      For example, a user may see a pending 'Create an Account' work item for the identity Fred.Astaire in GitHub for Fred's GitHub account, fred-astaire-sp. 
+      Once the user completes the work item, the work item will be listed with his or her other completed work items. 
+
+      To complete work items, users can use their dashboards and select the 'My Tasks' widget. 
+      The widget will list any work items they need to complete, and they can select the work item from the list to review its details. 
+      When they complete the work item, they can select 'Mark Complete' to add it to their list of completed work items. 
+
+      Refer to the following link for more information about work items, like the different types of work items users may need to complete: 
+    externalDocs:
+      description: Learn more about work items
+      url: https://documentation.sailpoint.com/saas/user-help/task_manager.html
   - name: Workflows
     description: |
       Workflows allow administrators to create custom automation scripts directly within IdentityNow.  These automation scripts respond to [event triggers](https://developer.sailpoint.com/idn/docs/event-triggers#how-to-get-started-with-event-triggers) and perform a series of actions to perform tasks that are either too cumbersome or not available in the IdentityNow UI.  Workflows can be configured via a graphical user interface within IdentityNow, or by creating and uploading a JSON formatted script to the Workflow service.  The Workflows API collection provides the necessary functionality to create, manage, and test your workflows via REST.
       
       Workflows is currently in Beta, and is not generally available to all customer tenants.  If you would like to participate in the beta program, please [submit an application](https://app.smartsheet.com/b/form/e758ab109dc649589f57b4b5c41d4373).  You must be a customer or partner to participate.
 
-      For more information about how to build a workflow in the visual builder in the IdentityNow UI, use the documentation in the following link:
+      Refer to the following link for more information about how to build a workflow in the visual builder in the IdentityNow UI:
     externalDocs:
       description: Workflow User Guide and Technical Documentation
       url: https://documentation.sailpoint.com/saas/help/workflows/workflow-basics.html

@@ -2,9 +2,10 @@
 .gettingStartedText {
     text-align: center;
     color: var(--dev-text-color-cobalt);
-    margin: 50px auto 50px auto;
+    margin: 160px auto 20px auto;
     width: calc(100% - 100px);
     max-width: 600px;
+    font-family: input-mono;
   }
   
   .gettingStartedOne {
@@ -18,7 +19,6 @@
   .gettingStartedThree {
     margin-top: 20px;
     font-size: 16px;
-    font-weight: 500;
   }
   
   
@@ -28,6 +28,7 @@
   
   .gettingStartedCardIcon {
     margin-bottom: 20px;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
+    filter: invert(62%) sepia(93%) saturate(289%) hue-rotate(156deg) brightness(93%) contrast(96%);
   }

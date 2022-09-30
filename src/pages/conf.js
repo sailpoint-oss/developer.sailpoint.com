@@ -19,9 +19,9 @@ export default function Conference() {
         <Waitlist></Waitlist>
         <Hero></Hero>
         <Theme></Theme>
-        <Speakers></Speakers>
+        {/* <Speakers></Speakers>
         <FAQ></FAQ>
-        <Sponsors></Sponsors>
+        <Sponsors></Sponsors> */}
       </main>
     </Layout>
   );

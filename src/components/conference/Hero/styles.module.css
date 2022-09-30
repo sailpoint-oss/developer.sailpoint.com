@@ -5,15 +5,12 @@
     grid-template-columns: 900px auto;
     align-content: center;
 }
-
-.background {
-    width: 760px;
-    height: 600px;
-}
+.center {
+    margin: 50px auto;
+    max-width: 1000px;
+  }
 
 .signUpSection {
-    min-width: 368px;
-    width: 368px;
     margin: 30px auto;
 }
 
@@ -21,8 +18,7 @@
     .signUpSection {
         display: none;
     }
-  }
-
+}
 
 
 .headerSection {
@@ -60,7 +56,7 @@
 .comingSoonText {
     color: var(--dev-text-color-cobalt);
     font-size: 22px;
-    font-family: input-mono;;
+    font-family: input-mono;
     letter-spacing: 5.5px;
     margin-top: -17px;
 }
@@ -69,6 +65,7 @@
     margin-top: 20px;
     color: var(--ifm-color-primary);
     font-size: 36px;
+    font-family: input-mono;
 }
 
 .extensible {
@@ -84,7 +81,7 @@
     .mainCard {
         display: none;
     }
-  }
+}
 
 .button {
 
@@ -95,12 +92,12 @@
     font-weight: bold;
     line-height: 100%;
     color: #df61ca;
-  
+    font-family: input-mono;
     /* Layout Properties */
     margin-top: 20px;
     width: 360px;
     height: 52px;
-    line-height: 52px;
+    line-height: 42px;
     /* UI Properties */
     background: transparent 0% 0% no-repeat padding-box;
     opacity: 1;

@@ -18,12 +18,16 @@ export default function ConferenceWaitlist() {
       </div>
 
       <div className={styles.signUpSection}>
-        <div className={styles.imageContainer}>
+        <div className={styles.sailpointImageContainer}>
           <ThemedImage className={styles.sailpointImage} sources={{light: useBaseUrl(sailpointImage), dark: useBaseUrl(addDarkToFileName(sailpointImage))}}></ThemedImage>
         </div>
         <div className={styles.imageContainer}>
         <ThemedImage className={styles.shipyardLogo} sources={{light: useBaseUrl(shipyardImage), dark: useBaseUrl(addDarkToFileName(shipyardImage))}}></ThemedImage>
         </div>
+        <div className={styles.comingSoon}>
+          Coming Soon | 2023
+        </div>
+
         <div className={styles.welcomeContainer}>
           Welcome
         </div >

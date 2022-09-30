@@ -84,8 +84,9 @@
 
 .welcomeText {
     width: 368px;
-    margin-top: 10px;
-    font-size: 14px;
+    margin-top: 60px;
+    font-size: 16px;
+    font-weight: 600;
     color: var(--ifm-color-primary);
 }
 

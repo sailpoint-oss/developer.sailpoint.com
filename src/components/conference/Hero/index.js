@@ -23,10 +23,10 @@ export default function ConferenceHero() {
         </div>
 
         <div className={styles.comingSoonText}>
-          COMING SOON
+          COMING SOON | First Half of 2023
         </div>
         <div className={styles.descriptionText}>
-          The conference for extensibility on SailPoint platforms.
+          The conference for developers on SailPoint platforms.
         </div>
 
           <SliderButton id="gVCODdMc" className={styles.button}>

@@ -12,7 +12,7 @@ export default function ThemeCard({title, name, image}) {
       <img className={styles.cardFace} src={useBaseUrl(image)}></img>
     </div>
     <div className={styles.cardText}>{name}</div>
-    <div className={styles.titleText}>{title}</div>
+    <div className={styles.titleText} dangerouslySetInnerHTML={{ __html: title }} ></div>
     </div>
   );
 }

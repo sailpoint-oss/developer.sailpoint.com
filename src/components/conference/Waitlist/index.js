@@ -25,14 +25,11 @@ export default function ConferenceWaitlist() {
         <ThemedImage className={styles.shipyardLogo} sources={{light: useBaseUrl(shipyardImage), dark: useBaseUrl(addDarkToFileName(shipyardImage))}}></ThemedImage>
         </div>
         <div className={styles.comingSoon}>
-          Coming Soon | 2023
+          Coming Soon | First Half of 2023
         </div>
 
-        <div className={styles.welcomeContainer}>
-          Welcome
-        </div >
         <div className={styles.welcomeText}>
-          Be the first to hear more about our innaugural conference for developers!
+        The conference for developers on SailPoint platforms.
         </div>
         {/* <div className={styles.emailText}>
           Email Address

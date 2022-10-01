@@ -5,10 +5,11 @@ import ThemedImage from '@theme/ThemedImage';
 import { addDarkToFileName } from "../../../util/util";
 import { SliderButton } from '@typeform/embed-react'
 export default function ConferenceHero() {
-  const communication = '/conf/communication.svg'
+  const communication = '/conf/codey-surfing-small.png'
 
   return (
-    <div className={styles.mainCard}>
+  <div className={styles.center}>
+   <div className={styles.mainCard}>
       <div>
         <div className={styles.headerSection}>
           <div className={styles.shipyardText}>
@@ -22,18 +23,19 @@ export default function ConferenceHero() {
         </div>
 
         <div className={styles.comingSoonText}>
-          COMING SOON | AUSTIN, TX
+          COMING SOON | First Half of 2023
         </div>
         <div className={styles.descriptionText}>
-          The conference for <span className={styles.extensible}>extensibility</span> on <span className={styles.sailpoint}>SailPoint</span> platforms.
+          The conference for developers on SailPoint platforms.
         </div>
-        <SliderButton id="gVCODdMc" className={styles.button}>
-            Learn More
-        </SliderButton >
-      </div>
-      <div className={styles.signUpSection}>
-        <ThemedImage className={styles.background} sources={{light: useBaseUrl(communication), dark: useBaseUrl(communication)}}></ThemedImage>
+
+          <SliderButton id="gVCODdMc" className={styles.button}>
+              Join the Waitlist
+          </SliderButton >
+
       </div>
     </div>
+    </div>
+ 
   );
 }

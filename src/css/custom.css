@@ -120,6 +120,8 @@ font-display:auto;font-style:italic;font-weight:800;font-stretch:normal;
   --dev-boarder-color-theme: black;
   --dev-text-color-normal: #415364;
 
+
+
   --dev-secondary-text:#415364;
 
   /*card css*/
@@ -169,6 +171,13 @@ font-display:auto;font-style:italic;font-weight:800;font-stretch:normal;
     content: var(--dev-sailpoint-small-logo);
   }
 }
+@media only screen and (max-width: 1043px) {
+  .navbar__item {
+    padding: 4px 8px;
+  }
+}
+
+
 
 
 .navbar__title {

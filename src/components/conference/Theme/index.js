@@ -4,22 +4,22 @@ import ThemeCard from '../ThemeCard'
 import styles from "./styles.module.css";
 export default function ConferenceTheme() {
   return (
-    <div>
+    <div className={styles.main}>
       <ConferenceTitle           
         description={"What can you expect at the upcoming conference?"}
         title={"What to Expect"}
-        image={"/conf/calendar-star.png"}>
+        image={"/conf/calendar-star-thin.svg"}>
       </ConferenceTitle>
       <div className={styles.center}>
         <div className={styles.gridContainer}>
-          <ThemeCard name={"DEEP DIVE"} title={"A deep dive into the SailPoint platform"} image={"/conf/webdev.svg"}></ThemeCard>
-          <ThemeCard name={"EXPERT ADVICE"}  title={"The world's leading identity management speakers"} image={"/conf/travel.svg"}></ThemeCard>
+          <ThemeCard title={"A deep dive into the extensibility offerings of SailPoint platforms"} image={"/conf/deep-dive.png"}></ThemeCard>
+          <ThemeCard title={"Hear from identity experts developing real world solutions"} image={"/conf/expert-advice.png"}></ThemeCard>
         </div>
       </div>
       <div className={styles.center}>
         <div className={styles.gridContainer}>
-          <ThemeCard name={"WORKSHOPS"}  title={"In-person classes and virtual tutorials"} image={"/conf/education.svg"}></ThemeCard>
-          <ThemeCard name={"VIRTUAL"}  title={"Attend the conference from home and get full access"} image={"/conf/leisure.svg"}></ThemeCard>
+          <ThemeCard title={"Shipyard is a hands-on conference, you will build something in almost every session"} image={"/conf/workshops.png"}></ThemeCard>
+          <ThemeCard title={"Shipyard will be all-virtual, open to everyone, and <b>at no cost<b>"} image={"/conf/virtual.png"}></ThemeCard>
         </div>
       </div>
     </div>

@@ -4,11 +4,18 @@
     grid-template-columns: 760px auto;
     align-content: center;
     margin-bottom: 80px;
+    font-family: input-mono;
 }
 
 .background {
     width: 760px;
     height: 600px;
+}
+
+
+.comingSoon {
+    padding-left: 20px;
+    color: var(--ifm-color-primary);
 }
 
 .learnDeployText {
@@ -32,7 +39,13 @@
         left: auto;
         top: 99px;
     }
-  }
+}
+
+@media only screen and (min-width: 980px) {
+    .mainCard {
+        display: none;
+    }
+}
 
 .signUpSection {
     min-width: 368px;
@@ -41,6 +54,9 @@
 }
 .imageContainer {
     text-align: center;
+}
+.sailpointImageContainer {
+    padding-left: 32px;
 }
 .shipyardLogo {
     margin-top: 10px;
@@ -59,17 +75,18 @@
 
 .welcomeContainer {
     text-align: center;
-    margin-top: 70px;
+    margin-top: 60px;
     font-size: 30px;
     color: var(--ifm-color-primary);
     font-weight: bold;
-    font-family: input-mono;;
+    font-family: input-mono;
 }
 
 .welcomeText {
     width: 368px;
-    margin-top: 10px;
-    font-size: 14px;
+    margin-top: 60px;
+    font-size: 16px;
+    font-weight: 600;
     color: var(--ifm-color-primary);
 }
 
@@ -102,7 +119,7 @@
     font-weight: bold;
     line-height: 100%;
     color: #df61ca;
-  
+    font-family: input-mono;
     /* Layout Properties */
     margin-top: 20px;
     width: 360px;

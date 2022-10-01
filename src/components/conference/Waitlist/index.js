@@ -57,7 +57,7 @@ export default function ConferenceWaitlist() {
           Email Address
         </div>
         <input className={styles.emailInput} type="text" id="fname" name="fname" placeholder="user.name@email.com"></input> */}
-        <SliderButton id="gVCODdMc" className={styles.button}>
+        <SliderButton id="DxKIYwdl" className={styles.button}>
           Join the Waitlist
         </SliderButton>
       </div>

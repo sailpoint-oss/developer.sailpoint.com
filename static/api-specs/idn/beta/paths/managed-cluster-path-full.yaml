@@ -23,10 +23,16 @@ get:
             $ref: '../schemas/ManagedCluster.yaml'
     "400":
       $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
     "403":
       $ref: '../../v3/responses/403.yaml'
     "404":
       $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
   security:
     - oauth2: [idn:managed-cluster:read]
 patch:
@@ -87,6 +93,14 @@ delete:
       required: true
       description: The Managed Cluster ID
       example: aClusterId
+    - in: query
+      name: removeClients
+      schema:
+        type: boolean
+        default: false
+      required: false
+      description: Flag to determine the need to delete a cluster with clients
+      example: false
   responses:
     '204':
       $ref: '../../v3/responses/204.yaml'

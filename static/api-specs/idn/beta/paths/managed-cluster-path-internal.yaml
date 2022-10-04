@@ -56,6 +56,14 @@ delete:
       required: true
       description: The Managed Cluster ID
       example: aClusterId
+    - in: query
+      name: removeClients
+      schema:
+        type: boolean
+        default: false
+      required: false
+      description: Flag to determine the need to delete a cluster with clients
+      example: false
   responses:
     '204':
       $ref: '../../v3/responses/204.yaml'

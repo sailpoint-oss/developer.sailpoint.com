@@ -405,6 +405,10 @@ tags:
       url: https://documentation.sailpoint.com/saas/help/common/non-employee-mgmt.html
   - name: Notifications
   - name: OAuth Clients
+    description: |
+      Use this API to implement OAuth client functionality.   
+      With this functionality in place, users with the appropriate security scopes can create and configure OAuth clients to use as a way to obtain authorization to use the IdentityNow REST API.
+      See [Authentication](https://developer.sailpoint.com/idn/api/authentication) for more information about OAuth and how it works with the IdentityNow REST API. 
   - name: Org Config
     description: Operations for managing org configuration settings (eg. time zone)
   - name: Password Configuration
@@ -567,7 +571,7 @@ tags:
   - name: Requestable Objects
     description: |
       Use this API to implement requestable object functionality. 
-      With this functionality in place, administrators can determine which access items can be requested with the [Access Request APIs](https://developer.sailpoint.com/apis/v3/#tag/Access-Requests), along with their statuses. 
+      With this functionality in place, administrators can determine which access items can be requested with the [Access Request APIs](https://developer.sailpoint.com/idn/api/beta/access-requests), along with their statuses. 
       This can be helpful for administrators who are implementing and customizing access request functionality as a way of checking which items are requestable as they are created, assigned, and made available. 
   - name: Role Insights
   - name: Roles
@@ -615,7 +619,31 @@ tags:
   - name: Search Attribute Configuration
   - name: Segments
   - name: Service Desk Integration
-    description: Operations for creating and accessing service desk integrations
+    description: |
+      Use this API to build an integration between IdentityNow and a service desk ITSM (IT service management) solution. 
+      Once an administrator builds this integration between IdentityNow and a service desk, users can use IdentityNow to raise and track tickets that are synchronized between IdentityNow and the service desk. 
+      
+      In IdentityNow, administrators can create a service desk integration (sometimes also called an SDIM, or Service Desk Integration Module) by going to Admin > Connections > Service Desk and selecting 'Create.'
+
+      To create a Generic Service Desk integration, for example, administrators must provide the required information on the General Settings page, the Connectivity and Authentication information, Ticket Creation information, Status Mapping information, and Requester Source information on the Configure page. 
+      See [Integrating SailPoint with Generic Service Desk](https://documentation.sailpoint.com/connectors/generic_sd/help/integrating_generic_service_desk/intro.html) for more information about the process of setting up a Generic Service Desk in IdentityNow.
+
+      Administrators can create various service desk integrations, all with their own nuances. 
+      The following service desk integrations are available: 
+
+      - [Atlassian Cloud Jira Service Management](https://documentation.sailpoint.com/connectors/atlassian/jira_cloud/help/integrating_jira_cloud/introduction.html)
+
+      - [Atlassian Server Jira Service Management](https://documentation.sailpoint.com/connectors/atlassian/jira_server/help/integrating_jira_server/introduction.html)
+
+      - [BMC Helix ITSM Service Desk](https://documentation.sailpoint.com/connectors/bmc/helix_ITSM_sd/help/integrating_bmc_helix_itsm_sd/intro.html)
+
+      - [BMC Helix Remedyforce Service Desk](https://documentation.sailpoint.com/connectors/bmc/helix_remedyforce_sd/help/integrating_bmc_helix_remedyforce_sd/intro.html)
+
+      - [Generic Service Desk](https://documentation.sailpoint.com/connectors/generic_sd/help/integrating_generic_service_desk/intro.html)
+
+      - [ServiceNow Service Desk](https://documentation.sailpoint.com/connectors/servicenow/sdim/help/integrating_servicenow_sdim/intro.html)
+
+      - [Zendesk Service Desk](https://documentation.sailpoint.com/connectors/zendesk/help/integrating_zendesk_sd/introduction.html)
   - name: SOD Policy
     description: Operations for Creating & Executing SOD (Seperation of Duties) policies
   - name: SOD Violations

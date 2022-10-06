@@ -24,7 +24,7 @@ making additional connections or call-outs is not allowed.
 
 Unlike cloud rules, connector rules do not have a rule review process and are
 directly editable with the
-[Connector Rule REST APIs](https://developer.sailpoint.com/apis/beta/#tag/Connector-Rule-Management).
+[Connector Rule REST APIs](https://developer.sailpoint.com/idn/api/beta/connector-rule-management).
 For more details, see [Configuration Process](#configuration-process).
 
 ## Supported Connector Rules
@@ -48,7 +48,7 @@ For more details, see [Configuration Process](#configuration-process).
 ## Configuration Process
 
 Connector Rules are directly editable with the
-[Connector Rule REST APIs](https://developer.sailpoint.com/apis/beta/#tag/Connector-Rule-Management),
+[Connector Rule REST APIs](https://developer.sailpoint.com/idn/api/beta/connector-rule-management),
 which provide ability to interact with rules directly.
 
 | Name                                                                                                  | Path                                  |

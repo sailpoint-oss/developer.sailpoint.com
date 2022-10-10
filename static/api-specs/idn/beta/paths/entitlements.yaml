@@ -112,9 +112,13 @@ get:
       explode: true
     - in: query
       name: cursor
+      deprecated: true
       schema:
         type: string
       description: >-
+        **WARNING: This parameter is deprecated and support will be removed in an upcoming release.**
+
+        
         This endpoint supports cursor-based pagination as an alternative to pagination using **limit** and **offset**.
         Use of cursors is optional but may deliver significantly better performance when paginating over large result
         sets, particularly when sorting is involved.

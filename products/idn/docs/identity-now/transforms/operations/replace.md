@@ -108,3 +108,4 @@ Output: "Thequickbrownfoxjumpedoverlazydogs"
 
 - [https://www.regular-expressions.info/replacetutorial.html](https://www.regular-expressions.info/replacetutorial.html)
 - [https://regex101.com/](https://regex101.com/)
+- [https://extendsclass.com/regex-tester.html](https://extendsclass.com/regex-tester.html)

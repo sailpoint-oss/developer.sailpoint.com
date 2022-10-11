@@ -110,7 +110,7 @@ to the event trigger with the following payload:
 ```
 
 If no identity or group should be added to a particular access request, then the
-subscribing service responds with empty object in below format:
+subscribing service responds with the following object:
 
 ```json
 {

@@ -2,12 +2,14 @@ type : object
 properties:
   id:
     type: string
+    description: The id of the review decision
     example: ef38f94347e94562b5bb8424a56397d8
   decision:
     $ref: './CertificationDecision.yaml'
   proposedEndDate:
     type: string
     format: date-time
+    example: '2017-07-11T18:45:37.098Z'
     description: The date at which a user's access should be taken away. Should only be set for `REVOKE` decisions.
   bulk:
     type: boolean

@@ -33,11 +33,14 @@ allOf:
         additionalProperties:
           type: string
         description: Attribute blob/bag for a non-employee.
+        example:
+          description: Auditing
       approvalStatus:
         $ref: './ApprovalStatus.yaml'
       comment:
         type: string
         description: comment of requester
+        example: approved
       completionDate:
         type: string
         format: date-time

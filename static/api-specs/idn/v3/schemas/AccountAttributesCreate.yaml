@@ -1,4 +1,4 @@
-type : object
+type: object
 required:
   - attributes
 properties:
@@ -11,8 +11,7 @@ properties:
       sourceId:
         type: string
         description: Target source to create an account
-        example:
-          34bfcbe116c9407464af37acbaf7a4dc
+        example: 34bfcbe116c9407464af37acbaf7a4dc
     additionalProperties:
       type: string
     example:

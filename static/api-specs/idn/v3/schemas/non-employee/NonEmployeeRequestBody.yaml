@@ -34,6 +34,8 @@ properties:
       type: string
       #maxItems: 10
     description: Attribute blob/bag for a non-employee, 10 attributes is the maximum size supported.
+    example:
+      description: Auditing
   startDate:
     type: string
     format: date-time

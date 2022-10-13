@@ -16,6 +16,10 @@ allOf:
         description: The 'attributes' property value is a map of attributes available for integrations using this Service Desk integration template.
         type: object
         additionalProperties: true
+        example: {
+          property: "value",
+          key: "value"
+        }
       provisioningConfig:
         description: The 'provisioningConfig' property specifies the configuration used to provision integrations using the template.
         $ref: './ProvisioningConfig.yaml'

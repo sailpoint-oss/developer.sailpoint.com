@@ -5,3 +5,4 @@ enum:
   - FAILURE
   - INCOMPLETE
   - PENDING
+example: SUCCESS

@@ -1,20 +1,25 @@
 description: Entitlement
 allOf:
-- $ref: '../base/BaseDocument.yaml'
-- $ref: 'BaseEntitlement.yaml'
-- type: object
-  properties:
-    modified:
-      $ref: '../base/DateTime.yaml'
-    synced:
-      $ref: '../base/DateTime.yaml'
-    displayName:
-      type: string
-    source:
-      $ref: '../base/Reference.yaml'
-    privileged:
-      type: boolean
-    identityCount:
-      type: integer
-    tags:
-      $ref: '../base/Tags.yaml'
+  - $ref: "../base/BaseDocument.yaml"
+  - $ref: "BaseEntitlement.yaml"
+  - type: object
+    properties:
+      modified:
+        $ref: "../base/DateTime.yaml"
+      synced:
+        $ref: "../base/DateTime.yaml"
+      displayName:
+        type: string
+        description: The display name of the entitlement
+        example: Admin
+      source:
+        $ref: "../base/Reference.yaml"
+      privileged:
+        type: boolean
+        example: false
+      identityCount:
+        type: integer
+        format: int32
+        example: 3
+      tags:
+        $ref: "../base/Tags.yaml"

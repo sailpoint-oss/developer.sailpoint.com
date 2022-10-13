@@ -1,5 +1,5 @@
 allOf:
-  - $ref: './BaseCommonDto.yaml'
+  - $ref: "./BaseCommonDto.yaml"
   - type: object
     description: Entitlement object that represents entitlement
     properties:
@@ -14,23 +14,32 @@ allOf:
       description:
         description: Entitlment description
         type: string
+        example: Active Directory DC
       attributes:
         description: Entitlement attributes
         type: object
+        additionalProperties: true
+        example:
+          GroupType: Security
+          sAMAccountName: Buyer
       sourceSchemaObjectType:
-        description: Schema objectType on the given application that maps to an Account Group
+        description:
+          Schema objectType on the given application that maps to an Account
+          Group
         type: string
         example: group
       privileged:
         description: Determines if this Entitlement is privileged.
         type: boolean
+        example: false
       cloudGoverned:
         description: Determines if this Entitlement is goverened in the cloud.
         type: boolean
+        example: false
       source:
-        $ref: './BaseReferenceDto.yaml'
+        $ref: "./BaseReferenceDto.yaml"
         description: Reference to the source this entitlment belongs to.
         example:
-          - type: 'SOURCE'
-            id: '2c9180835d191a86015d28455b4b232a'
-            name: 'HR Active Directory'
+          - type: "SOURCE"
+            id: "2c9180835d191a86015d28455b4b232a"
+            name: "HR Active Directory"

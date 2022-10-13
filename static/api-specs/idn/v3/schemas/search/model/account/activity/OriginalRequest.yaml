@@ -2,11 +2,15 @@ type: object
 properties:
   accountId:
     type: string
+    description: the account id
+    example: CN=Abby Smith,OU=Austin,OU=Americas,OU=Demo,DC=seri,DC=acme,DC=com
   attributeRequests:
     type: array
     items:
       $ref: 'AttributeRequest.yaml'
   op:
     type: string
+    description: the operation that was used
+    example: add
   source:
     $ref: '../Source.yaml'

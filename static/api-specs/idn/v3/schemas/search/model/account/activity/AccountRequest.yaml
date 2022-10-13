@@ -2,14 +2,18 @@ type: object
 properties:
   accountId:
     type: string
+    description: Unique ID of the account
+    example: "John.Doe"
   attributeRequests:
     type: array
     items:
-      $ref: 'AttributeRequest.yaml'
+      $ref: "AttributeRequest.yaml"
   op:
     type: string
+    example: Modify
+    description: The operation that was performed
   provisioningTarget:
-    $ref: '../Source.yaml'
+    $ref: "../Source.yaml"
   result:
     type: object
     properties:
@@ -17,9 +21,19 @@ properties:
         type: array
         items:
           type: string
+          example:
+            "[ConnectorError] [\n  {\n    \"code\":
+            \"unrecognized_keys\",\n    \"keys\":
+            [\n      \"groups\"\n    ],\n    \"path\": [],\n    \"message\":
+            \"Unrecognized key(s) in object: 'groups'\"\n  }\n] (requestId:
+            5e9d6df5-9b1b-47d9-9bf1-dc3a2893299e)"
       status:
         type: string
+        description: The status of the account request
+        example: failed
       ticketId:
         type: string
+        nullable: true
+        example: null
   source:
-    $ref: '../Source.yaml'
+    $ref: "../Source.yaml"

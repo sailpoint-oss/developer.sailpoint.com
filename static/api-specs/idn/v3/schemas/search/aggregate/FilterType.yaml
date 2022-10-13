@@ -6,3 +6,4 @@ type: string
 enum:
 - TERM
 default: TERM
+example: TERM

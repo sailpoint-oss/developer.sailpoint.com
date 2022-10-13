@@ -16,13 +16,17 @@ properties:
     type: string
     enum:
       - IDENTITY
+    description: The type of the reviewing identity.
+    example: IDENTITY
   created:
     nullable: true
     example: '2018-06-25T20:22:28.104Z'
     format: date-time
     type: string
+    description: The created date of the reviewing identity.
   modified:
     nullable: true
     example: '2018-06-25T20:22:28.104Z'
     format: date-time
     type: string
+    description: The modified date of the reviewing identity.

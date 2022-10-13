@@ -21,17 +21,23 @@ properties:
     example: "denali-cjh"
   isAuthoritative:
     type: boolean
+    example: false
+    description: Is the source authoritative
   isCluster:
     type: boolean
+    example: false
+    description: Is the source in a cluster
   hostname:
     type: string
     example: "megapod-useast1-secret-hostname.sailpoint.com"
+    description: source's hostname
   pod:
     type: string
     description: source's pod
     example: "megapod-useast1"
   iqServiceVersion:
     type: string
+    description: The version of the iqService
     example: "iqVersion123"
   status:
     type: string

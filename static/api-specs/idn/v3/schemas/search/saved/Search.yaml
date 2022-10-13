@@ -5,6 +5,7 @@ properties:
       Indicates if the saved search is public.
     type: boolean
     default: false
+    example: false
   created:
     description: |
         The date the saved search was initially created.

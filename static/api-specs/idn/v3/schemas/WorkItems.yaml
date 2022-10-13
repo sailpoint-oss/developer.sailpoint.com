@@ -24,10 +24,12 @@ properties:
     type: string
     format: 'date-time'
     example: '2017-07-11T18:45:37.098Z'
+    description: Time when the work item was created
   modified:
     type: string
     format: 'date-time'
     example: '2018-06-25T20:22:28.104Z'
+    description: Time when the work item was last updated
   description:
     type: string
     description: The description of the work item
@@ -48,8 +50,10 @@ properties:
     type: string
     format: 'date-time'
     example: '2018-10-19T13:49:37.385Z'
+    description: The time at which the work item completed
   numItems:
     type: integer
+    format: int32
     description: The number of items in the work item
     example: 19
   form:
@@ -59,5 +63,6 @@ properties:
     items: 
       type: string
     example: ["The work item ID that was specified was not found."]
+    description: An array of errors that ocurred during the work item
   
 

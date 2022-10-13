@@ -1,20 +1,27 @@
 allOf:
-- $ref: '../base/Reference.yaml'
-- type: object
-  properties:
-    description:
-      type: string
-    created:
-     $ref: '../base/DateTime.yaml'
-    modified:
-      $ref: '../base/DateTime.yaml'
-    synced:
-      $ref: '../base/DateTime.yaml'
-    enabled:
-      type: boolean
-    requestable:
-      type: boolean
-    requestCommentsRequired:
-      type: boolean
-    owner:
-      $ref: '../identity/Owner.yaml'
+  - $ref: "../base/Reference.yaml"
+  - type: object
+    properties:
+      description:
+        type: string
+        description: The description of the access item
+        example: "The admin role"
+      created:
+        $ref: "../base/DateTime.yaml"
+      modified:
+        $ref: "../base/DateTime.yaml"
+      synced:
+        $ref: "../base/DateTime.yaml"
+      enabled:
+        type: boolean
+        example: true
+      requestable:
+        type: boolean
+        example: true
+        description: Indicates if the access can be requested
+      requestCommentsRequired:
+        type: boolean
+        description: Indicates if comments are required when requesting access
+        example: false
+      owner:
+        $ref: "../identity/Owner.yaml"

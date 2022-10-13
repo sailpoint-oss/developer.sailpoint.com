@@ -5,21 +5,23 @@ get:
   summary: Accounts List
   description: >-
     This returns a list of accounts.  
-    
+
     A token with ORG_ADMIN authority is required to call this API.
   security:
     - oauth2: [idn:account-list:read]
   parameters:
-    - $ref: '../parameters/limit.yaml'
-    - $ref: '../parameters/offset.yaml'
-    - $ref: '../parameters/count.yaml'
+    - $ref: "../parameters/limit.yaml"
+    - $ref: "../parameters/offset.yaml"
+    - $ref: "../parameters/count.yaml"
     - in: query
       name: filters
       schema:
         type: string
       example: identityId eq "2c9180858082150f0180893dbaf44201"
       description: >-
-        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+        Filter results using the standard syntax described in [V3 API Standard
+        Collection
+        Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
 
 
         Filtering is supported for the following fields and operators:
@@ -41,25 +43,26 @@ get:
 
 
         **uncorrelated**: *eq*
+      required: false
   responses:
-    '200':
+    "200":
       description: List of account objects
       content:
         application/json:
           schema:
             type: array
             items:
-              $ref: '../schemas/Account.yaml'
-    '400':
-      $ref: '../responses/400.yaml'
-    '401':
-      $ref: '../responses/401.yaml'
-    '403':
-      $ref: '../responses/403.yaml'
-    '429':
-      $ref: '../responses/429.yaml'
-    '500':
-      $ref: '../responses/500.yaml'
+              $ref: "../schemas/Account.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"
 post:
   operationId: createAccount
   tags:
@@ -76,21 +79,21 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../schemas/AccountAttributesCreate.yaml'
+          $ref: "../schemas/AccountAttributesCreate.yaml"
   responses:
-    '202':
+    "202":
       description: Async task details
       content:
         application/json:
           schema:
-            $ref: '../schemas/AccountsAsyncResult.yaml'
-    '400':
-      $ref: '../responses/400.yaml'
-    '401':
-      $ref: '../responses/401.yaml'
-    '403':
-      $ref: '../responses/403.yaml'
-    '429':
-      $ref: '../responses/429.yaml'
-    '500':
-      $ref: '../responses/500.yaml'
+            $ref: "../schemas/AccountsAsyncResult.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"

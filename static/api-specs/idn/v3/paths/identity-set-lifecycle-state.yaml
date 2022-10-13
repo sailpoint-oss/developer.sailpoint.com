@@ -41,6 +41,8 @@ post:
                 type: string
                 example: 2c9180837ab5b716017ab7c6c9ef1e20
                 description: The ID of the IdentityRequest object that was generated when the workflow launches
+    '400':
+      $ref: '../responses/400.yaml'
     '401':
       $ref: '../responses/401.yaml'
     '403':

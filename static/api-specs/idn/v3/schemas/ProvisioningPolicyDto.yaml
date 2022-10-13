@@ -4,8 +4,12 @@ required:
 properties:
   name:
     type: string
+    description: the provisioning policy name
+    example: example provisioning policy for inactive identities
   description:
     type: string
+    description: the description of the provisioning policy
+    example: this provisioning policy creates access based on an identity going inactive
   usageType:
     $ref: '../schemas/UsageType.yaml'
   fields:

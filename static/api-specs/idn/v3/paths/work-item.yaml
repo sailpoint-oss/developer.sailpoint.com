@@ -12,6 +12,7 @@ get:
         type: string
       required: true
       description: ID of the work item.
+      example: 2c9180835d191a86015d28455b4a2329
   responses:
     '200':
       description: The work item with the given ID.

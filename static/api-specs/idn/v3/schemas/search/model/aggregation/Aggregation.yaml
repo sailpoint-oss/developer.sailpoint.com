@@ -1,19 +1,27 @@
 description: Aggregation
 allOf:
-- $ref: '../base/BaseDocument.yaml'
-- type: object
-  properties:
-    status:
-      type: string
-    duration:
-      type: integer
-    avgDuration:
-      type: integer
-    changedAccounts:
-      type: integer
-    nextScheduled:
-      $ref: '../base/DateTime.yaml'
-    startTime:
-      $ref: '../base/DateTime.yaml'
-    sourceOwner:
-      type: string
+  - $ref: "../base/BaseDocument.yaml"
+  - type: object
+    properties:
+      status:
+        type: string
+        example: Success
+      duration:
+        type: integer
+        format: int32
+        example: 20
+      avgDuration:
+        type: integer
+        format: int32
+        example: 20
+      changedAccounts:
+        type: integer
+        format: int32
+        example: 1
+      nextScheduled:
+        $ref: "../base/DateTime.yaml"
+      startTime:
+        $ref: "../base/DateTime.yaml"
+      sourceOwner:
+        type: string
+        description: "John Doe"

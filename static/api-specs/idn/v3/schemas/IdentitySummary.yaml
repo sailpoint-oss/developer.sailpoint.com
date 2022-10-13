@@ -17,3 +17,4 @@ properties:
   completed:
     type: boolean
     description: Indicates if all access items for this summary have been decided on
+    example: true

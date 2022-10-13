@@ -54,6 +54,7 @@ get:
       ```public eq true``` -- returns all public saved searches
 
       ```owner.id eq me or public eq true``` -- returns all of the current user's saved searches as well as all public saved searches belonging to other users in the current org
+    example: public eq true
   responses:
     '200':
       description: The list of requested saved searches.

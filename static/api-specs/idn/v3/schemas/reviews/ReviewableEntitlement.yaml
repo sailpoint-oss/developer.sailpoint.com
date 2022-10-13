@@ -55,6 +55,7 @@ properties:
   cloudGoverned:
     type: boolean
     description: True if the entitlement is cloud governed
+    example: false
   account:
     type: object
     nullable: true
@@ -82,6 +83,8 @@ properties:
       name:
         nullable: true
         type: string
+        description: The account name
+        example: Alison Ferguso
       created:
         nullable: true
         type: string

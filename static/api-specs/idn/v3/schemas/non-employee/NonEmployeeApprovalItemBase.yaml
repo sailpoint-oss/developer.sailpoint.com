@@ -18,9 +18,11 @@ properties:
     type: number
     description: Approval order
     example: 1
+    format: float
   comment:
     type: string
     description: comment of approver
+    example: I approve
   modified:
     type: string
     format: date-time

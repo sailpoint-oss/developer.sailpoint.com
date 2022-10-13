@@ -19,6 +19,7 @@ get:
 
 
         Sorting is supported for the following fields: **name**
+      example: name
     - name: filters
       in: query
       required: false
@@ -44,6 +45,7 @@ get:
 
 
         **cluster**: *eq, in*
+      example: name eq "John Doe"
     - $ref: '../../v3/parameters/count.yaml'
   responses:
     "200":

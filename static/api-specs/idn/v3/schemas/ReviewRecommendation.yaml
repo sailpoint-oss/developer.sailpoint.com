@@ -4,11 +4,16 @@ properties:
     type: string
     description: >-
       The recommendation from IAI at the time of the decision. This field will be null if no recommendation was made.
+    example: null
+    nullable: true
   reasons:
     type: array
     items:
       type: string
     description: A list of reasons for the recommendation.
+    example:
+      - Reason 1
+      - Reason 2
   timestamp:
     type: string
     format: date-time

@@ -6,7 +6,8 @@ post:
     - Non-Employee Lifecycle Management
   summary: Aggregate all accounts for a Non-Employee Source
   description: >-
-    This fetches all the non-employee records related to a non-employee source and publishes an aggregation event for each one.<br><br>
+    This fetches all the non-employee records related to a non-employee source
+    and publishes an aggregation event for each one.<br><br>
 
     Requires auth scope of 'idn:nesr:create'
   parameters:
@@ -17,18 +18,19 @@ post:
       required: true
       schema:
         type: string
+      example: e136567de87e4d029e60b3c3c55db56d
   responses:
-    '202':
-      $ref: '../responses/202.yaml'
-    '400':
-      $ref: '../responses/400.yaml'
-    '401':
-      $ref: '../responses/401.yaml'
-    '403':
-      $ref: '../responses/403.yaml'
-    '404':
-      $ref: '../responses/404.yaml'
-    '429':
-      $ref: '../responses/429.yaml'
-    '500':
-      $ref: '../responses/500.yaml'
+    "202":
+      $ref: "../responses/202.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "404":
+      $ref: "../responses/404.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"

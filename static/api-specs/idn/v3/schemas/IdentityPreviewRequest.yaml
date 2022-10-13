@@ -4,6 +4,7 @@ properties:
     type: string
     format: uuid
     example: 2c9180857893f12901789445619b0366
+    description: The Identity id
   identityAttributeConfig:
     type: array
     items:

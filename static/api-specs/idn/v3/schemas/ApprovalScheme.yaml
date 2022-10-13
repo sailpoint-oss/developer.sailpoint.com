@@ -6,4 +6,6 @@ enum:
   - ROLE_OWNER
   - ACCESS_PROFILE_OWNER
   - GOVERNANCE_GROUP
-description: Describes the individual or group that is responsible for an approval step.
+description:
+  Describes the individual or group that is responsible for an approval step.
+example: MANAGER

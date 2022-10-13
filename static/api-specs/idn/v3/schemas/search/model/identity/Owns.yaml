@@ -26,3 +26,4 @@ properties:
       $ref: '../base/Reference.yaml'
   fallbackApprover:
     type: boolean
+    example: false

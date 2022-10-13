@@ -1,18 +1,21 @@
-type : object
+type: object
 properties:
   forwarded:
     type: boolean
-    description: True if the request for this item was forwarded from one owner to another.
+    description:
+      True if the request for this item was forwarded from one owner to another.
+    example: false
   originalOwner:
-    $ref: './BaseReferenceDto.yaml'
+    $ref: "./BaseReferenceDto.yaml"
     description: >-
-      Base identity/workgroup reference object representing the original owner, if forwarded.
+      Base identity/workgroup reference object representing the original owner,
+      if forwarded.
   currentOwner:
-    $ref: './BaseReferenceDto.yaml'
+    $ref: "./BaseReferenceDto.yaml"
     description: >-
       Base reference of approver that will make decision.
   reviewedBy:
-    $ref: './BaseReferenceDto.yaml'
+    $ref: "./BaseReferenceDto.yaml"
     description: The identity who has reviewed the approval.
   modified:
     type: string
@@ -20,20 +23,23 @@ properties:
     description: Time at which item was modified.
     example: "2019-08-23T18:52:57.398Z"
   status:
-    $ref: './ManualWorkItemState.yaml'
+    $ref: "./ManualWorkItemState.yaml"
   scheme:
-    $ref: './ApprovalScheme.yaml'
+    $ref: "./ApprovalScheme.yaml"
   errorMessages:
     type: array
     items:
-      $ref: './ErrorMessageDto.yaml'
+      $ref: "./ErrorMessageDto.yaml"
     description: >-
       If the request failed, includes any error messages that were generated.
   comment:
     type: string
     description: Comment, if any, provided by the approver.
+    example: I approve this request
   removeDate:
     type: string
-    description: The date the role or access profile is no longer assigned to the specified identity.
-    format: 'date-time'
-    example: '2020-07-11T00:00:00Z'
+    description:
+      The date the role or access profile is no longer assigned to the specified
+      identity.
+    format: "date-time"
+    example: "2020-07-11T00:00:00Z"

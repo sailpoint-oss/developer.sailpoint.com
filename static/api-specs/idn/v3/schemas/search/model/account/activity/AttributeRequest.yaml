@@ -2,7 +2,13 @@ type: object
 properties:
   name:
     type: string
+    description: The attribute name
+    example: groups
   op:
     type: string
+    description: The operation to perform
+    example: Add
   value:
     type: string
+    description: The value of the attribute
+    example: "3203537556531076"

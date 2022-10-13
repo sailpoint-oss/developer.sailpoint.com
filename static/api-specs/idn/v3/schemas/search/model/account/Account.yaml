@@ -1,23 +1,33 @@
 description: Account
 allOf:
-- $ref: '../base/BaseDocument.yaml'
-- $ref: 'BaseAccount.yaml'
-- type: object
-  properties:
-    modified:
-      $ref: '../base/DateTime.yaml'
-    attributes:
-      type: object
-      description: "a map or dictionary of key/value pairs"
-    identity:
-      $ref: '../base/DisplayReference.yaml'
-    access:
-      type: array
-      items:
-        $ref: '../access/Entitlement.yaml'
-    entitlementCount:
-      type: integer
-    uncorrelated:
-      type: boolean
-    tags:
-      $ref: '../base/Tags.yaml'
+  - $ref: "../base/BaseDocument.yaml"
+  - $ref: "BaseAccount.yaml"
+  - type: object
+    properties:
+      modified:
+        $ref: "../base/DateTime.yaml"
+      attributes:
+        type: object
+        description: "a map or dictionary of key/value pairs"
+        additionalProperties: true
+        example:
+          firstName: John
+          lastName: Doe
+          displayName: John.Doe
+      identity:
+        $ref: "../base/DisplayReference.yaml"
+      access:
+        type: array
+        items:
+          $ref: "../access/Entitlement.yaml"
+      entitlementCount:
+        type: integer
+        description: The number of entitlements assigned to the account
+        format: int32
+        example: 2
+      uncorrelated:
+        type: boolean
+        description: Indicates if the account is not correlated to an identity
+        example: false
+      tags:
+        $ref: "../base/Tags.yaml"

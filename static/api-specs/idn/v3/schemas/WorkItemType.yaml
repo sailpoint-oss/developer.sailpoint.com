@@ -15,3 +15,5 @@ enum:
   - EVENT
   - MANUALACTION
   - TEST
+example: GENERIC
+description: The type of the work item

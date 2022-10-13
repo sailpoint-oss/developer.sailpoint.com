@@ -7,10 +7,11 @@ properties:
   name:
     type: string
     description: The name of the certification.
-    example: 'Certification Name'
+    example: "Certification Name"
   type:
     type: string
     enum:
       - CERTIFICATION
+    example: CERTIFICATION
   reviewer:
-    $ref: './Reviewer.yaml'
+    $ref: "./Reviewer.yaml"

@@ -6,10 +6,9 @@ properties:
   newOwnerId:
     type: string
     description: The Id of the new owner
-    example: Et quam massa maximus vivamus nisi ut urna tincidunt metus elementum erat
+    example: 2c91808568c529c60168cca6f90c1314
     minLength: 1
     maxLength: 255
-
   comment:
     type: string
     description: The comment provided by the forwarder

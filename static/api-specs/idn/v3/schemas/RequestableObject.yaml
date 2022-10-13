@@ -12,11 +12,13 @@ properties:
     type: string
     format: 'date-time'
     example: '2017-07-11T18:45:37.098Z'
+    description: The time when the requestable object was created
   modified:
     nullable: true
     type: string
     format: 'date-time'
     example: '2018-06-25T20:22:28.104Z'
+    description: The time when the requestable object was last modified
   description:
     type: string
     description: Description of the requestable object.
@@ -35,6 +37,7 @@ properties:
   requestCommentsRequired:
     type: boolean
     description: Whether the requester must provide comments when requesting the object.
+    example: false
 
 
 

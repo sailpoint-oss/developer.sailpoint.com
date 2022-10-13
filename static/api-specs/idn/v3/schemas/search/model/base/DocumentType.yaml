@@ -5,11 +5,12 @@ description: >-
   Additional values may be added in the future without notice.
 type: string
 enum:
-- accessprofile
-- accountactivity
-- account
-- aggregation
-- entitlement
-- event
-- identity
-- role
+  - accessprofile
+  - accountactivity
+  - account
+  - aggregation
+  - entitlement
+  - event
+  - identity
+  - role
+example: identity

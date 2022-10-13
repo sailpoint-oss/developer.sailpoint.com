@@ -15,6 +15,7 @@ get:
         type: string
       description: ID of the work item owner.
       required: false
+      example: 1211bcaa32112bcef6122adb21cef1ac
   responses:
     '200':
       description: List of work items

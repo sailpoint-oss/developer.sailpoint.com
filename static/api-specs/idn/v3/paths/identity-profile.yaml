@@ -23,6 +23,8 @@ get:
         application/json:
           schema:
             $ref: '../schemas/IdentityProfile.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
     '401':
       $ref: '../responses/401.yaml'
     '403':

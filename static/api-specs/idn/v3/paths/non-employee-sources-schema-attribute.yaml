@@ -14,12 +14,14 @@ get:
       schema:
         type: string
       required: true
+      example: ef38f94347e94562b5bb8424a56397d8
       description: The Schema Attribute Id (UUID)
     - in: path
       name: sourceId
       schema:
         type: string
       required: true
+      example: ef38f94347e94562b5bb8424a56397d8
       description: The Source id
   responses:
     '200':
@@ -28,6 +30,8 @@ get:
         application/json:
           schema:
             $ref: '../schemas/non-employee/NonEmployeeSchemaAttribute.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
     '401':
       $ref: '../responses/401.yaml'
     '403':

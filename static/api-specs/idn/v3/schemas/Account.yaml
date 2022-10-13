@@ -1,5 +1,5 @@
 allOf:
-  - $ref: './BaseCommonDto.yaml'
+  - $ref: "./BaseCommonDto.yaml"
   - type: object
     properties:
       sourceId:
@@ -10,23 +10,49 @@ allOf:
         example: 2c9180835d2e5168015d32f890ca1581
       attributes:
         type: object
+        additionalProperties: true
+        example:
+          firstName: "SailPoint"
+          lastName: "Support"
+          displayName: "SailPoint Support"
       authoritative:
         type: boolean
+        description: Indicates if this account is from an authoritative source
+        example: false
       description:
         type: string
+        description: A description of the account
+        nullable: true
+        example: null
       disabled:
         type: boolean
+        description: Indicates if the account is currently disabled
+        example: false
       locked:
         type: boolean
+        description: Indicates if the account is currently locked
+        example: false
       nativeIdentity:
         type: string
+        example: "552775"
       systemAccount:
         type: boolean
+        example: false
       uncorrelated:
         type: boolean
+        description: Indicates if this account is not correlated to an identity
+        example: false
       uuid:
         type: string
+        description:
+          The unique ID of the account as determined by the account schema
+        example: "slpt.support"
       manuallyCorrelated:
         type: boolean
+        description:
+          Indicates if the account has been manually correlated to an identity
+        example: false
       hasEntitlements:
         type: boolean
+        description: Indicates if the account has entitlements
+        example: true

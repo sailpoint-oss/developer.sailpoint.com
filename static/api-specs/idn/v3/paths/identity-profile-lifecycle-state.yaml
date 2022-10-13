@@ -16,12 +16,14 @@ get:
       required: true
       schema:
         type: string
+      example: ef38f94347e94562b5bb8424a56397d8
     - in: path
       name: lifecycle-state-id
       description: Lifecycle State ID
       required: true
       schema:
         type: string
+      example: ef38f94347e94562b5bb8424a56397d8
   responses:
     '200':
       description: The requested LifecycleState was successfully retrieved.

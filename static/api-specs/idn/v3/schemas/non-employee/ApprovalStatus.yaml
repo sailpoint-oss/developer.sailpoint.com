@@ -6,3 +6,4 @@ enum:
   - NOT_READY
   - CANCELLED
 description: Enum representing the non-employee request approval status
+example: APPROVED

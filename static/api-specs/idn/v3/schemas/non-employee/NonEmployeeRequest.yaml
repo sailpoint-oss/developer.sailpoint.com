@@ -33,6 +33,8 @@ allOf:
         additionalProperties:
           type: string
         description: Attribute blob/bag for a non-employee.
+        example:
+          description: Auditing
       approvalItems:
         description: List of approval item for the request
         type: array
@@ -43,6 +45,7 @@ allOf:
       comment:
         type: string
         description: comment of requester
+        example: approved
       completionDate:
         type: string
         format: date-time

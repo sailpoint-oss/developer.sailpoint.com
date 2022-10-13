@@ -3,5 +3,7 @@ allOf:
   - type: object
     properties:
       nonEmployeeCount:
-        type: number
+        type: integer
         description: Number of non-employee records associated with this source.
+        format: int32
+        example: 120

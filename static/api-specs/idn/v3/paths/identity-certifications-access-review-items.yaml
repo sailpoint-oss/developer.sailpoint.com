@@ -19,6 +19,7 @@ get:
     - $ref: '../parameters/offset.yaml'
     - $ref: '../parameters/count.yaml'
     - in: query
+      required: false
       name: filters
       schema:
         type: string
@@ -54,11 +55,14 @@ get:
 
 
         **accessProfile.sourceName**: *eq, sw*
+      example: id eq "ef38f94347e94562b5bb8424a56397d8"
     - in: query
       name: sorters
+      required: false
       schema:
         type: string
         format: comma-separated
+      example: access.name,-accessProfile.sourceName
       description: >-
         Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
 
@@ -66,8 +70,10 @@ get:
         Sorting is supported for the following fields: **identitySummary.name, access.name, access.type, entitlement.sourceName, accessProfile.sourceName**
     - in: query
       name: entitlements
+      required: false
       schema:
         type: string
+      example: identityEntitlement
       description:
         Filter results to view access review items that pertain to any of the specified comma-separated entitlement IDs.
 
@@ -75,8 +81,10 @@ get:
         An error will occur if this param is used with **access-profiles** or **roles** as only one of these query params can be used at a time.
     - in: query
       name: access-profiles
+      required: false
       schema:
         type: string
+      example: accessProfile1
       description:
         Filter results to view access review items that pertain to any of the specified comma-separated access-profle IDs.
 
@@ -84,8 +92,10 @@ get:
         An error will occur if this param is used with **entitlements** or **roles** as only one of these query params can be used at a time.
     - in: query
       name: roles
+      required: false
       schema:
         type: string
+      example: userRole
       description:
         Filter results to view access review items that pertain to any of the specified comma-separated role IDs.
 
@@ -100,6 +110,8 @@ get:
             type: array
             items:
               $ref: '../schemas/AccessReviewItem.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
     '401':
       $ref: '../responses/401.yaml'
     '403':

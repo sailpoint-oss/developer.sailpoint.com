@@ -1,24 +1,39 @@
 allOf:
-- $ref: '../base/Reference.yaml'
-- type: object
-  properties:
-    accountId:
-      type: string
-    source:
-      $ref: 'Source.yaml'
-    disabled:
-      type: boolean
-    locked:
-      type: boolean
-    privileged:
-      type: boolean
-    manuallyCorrelated:
-      type: boolean
-    passwordLastSet:
-      $ref: '../base/DateTime.yaml'
-    entitlementAttributes:
-      type: object
-      nullable: true
-      description: "a map or dictionary of key/value pairs"
-    created:
-      $ref: '../base/DateTime.yaml'
+  - $ref: "../base/Reference.yaml"
+  - type: object
+    properties:
+      accountId:
+        type: string
+        description: The ID of the account
+        example: "john.doe"
+      source:
+        $ref: "Source.yaml"
+      disabled:
+        type: boolean
+        description: Indicates if the account is disabled
+        example: false
+      locked:
+        type: boolean
+        description: Indicates if the account is locked
+        example: false
+      privileged:
+        type: boolean
+        example: false
+      manuallyCorrelated:
+        type: boolean
+        description:
+          Indicates if the account has been manually correlated to an identity
+        example: false
+      passwordLastSet:
+        $ref: "../base/DateTime.yaml"
+      entitlementAttributes:
+        type: object
+        nullable: true
+        description: "a map or dictionary of key/value pairs"
+        additionalProperties: true
+        example:
+          moderator: true
+          admin: true
+          trust_level: "4"
+      created:
+        $ref: "../base/DateTime.yaml"

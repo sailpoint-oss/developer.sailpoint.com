@@ -1,51 +1,66 @@
 description: AccountActivity
 allOf:
-- $ref: '../../base/BaseDocument.yaml'
-- type: object
-  properties:
-    action:
-      type: string
-    created:
-      $ref: '../../base/DateTime.yaml'
-    modified:
-      $ref: '../../base/DateTime.yaml'
-    stage:
-      type: string
-    origin:
-      type: string
-    status:
-      type: string
-    requester:
-      $ref: '../Source.yaml'
-    recipient:
-      $ref: '../Source.yaml'
-    trackingNumber:
-      type: string
-    errors:
-      type: array
-      items:
+  - $ref: "../../base/BaseDocument.yaml"
+  - type: object
+    properties:
+      action:
         type: string
-    warnings:
-      type: array
-      items:
+        description: The type of action that this activity performed
+        externalDocs:
+          description: Learn more about account activity action types
+          url: https://documentation.sailpoint.com/saas/help/search/searchable-fields.html#searching-account-activity-data
+        example: Identity Refresh.
+      created:
+        $ref: "../../base/DateTime.yaml"
+      modified:
+        $ref: "../../base/DateTime.yaml"
+      stage:
         type: string
-    approvals:
-      type: array
-      items:
-        $ref: 'Approval.yaml'
-    originalRequests:
-      type: array
-      items:
-        $ref: 'OriginalRequest.yaml'
-    expansionItems:
-      type: array
-      items:
-        $ref: 'ExpansionItem.yaml'
-    accountRequests:
-      type: array
-      items:
-        $ref: 'AccountRequest.yaml'
-    sources:
-      type: array
-      items:
+        description: The current stage of the activity
+        example: Completed
+      origin:
         type: string
+        nullable: true
+        example: null
+      status:
+        type: string
+        description: the current status of the activity
+        example: Complete
+      requester:
+        $ref: "../Source.yaml"
+      recipient:
+        $ref: "../Source.yaml"
+      trackingNumber:
+        type: string
+        example: 61aad0c9e8134eca89e76a35e0cabe3f
+      errors:
+        type: array
+        items:
+          type: string
+        nullable: true
+        example: null
+      warnings:
+        type: array
+        items:
+          type: string
+        nullable: true
+        example: null
+      approvals:
+        type: array
+        items:
+          $ref: "Approval.yaml"
+      originalRequests:
+        type: array
+        items:
+          $ref: "OriginalRequest.yaml"
+      expansionItems:
+        type: array
+        items:
+          $ref: "ExpansionItem.yaml"
+      accountRequests:
+        type: array
+        items:
+          $ref: "AccountRequest.yaml"
+      sources:
+        type: string
+        example: "smartsheet-test, airtable-v4, IdentityNow"

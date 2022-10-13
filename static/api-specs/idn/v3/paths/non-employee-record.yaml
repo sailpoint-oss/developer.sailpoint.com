@@ -19,22 +19,22 @@ get:
       schema:
         type: string
   responses:
-    '200':
+    "200":
       description: Non-Employee record object
       content:
         application/json:
           schema:
-            $ref: '../schemas/non-employee/NonEmployeeRecord.yaml'
-    '400':
-      $ref: '../responses/400.yaml'
-    '401':
-      $ref: '../responses/401.yaml'
-    '403':
-      $ref: '../responses/403.yaml'
-    '429':
-      $ref: '../responses/429.yaml'
-    '500':
-      $ref: '../responses/500.yaml'
+            $ref: "../schemas/non-employee/NonEmployeeRecord.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"
 put:
   operationId: nonEmployeeRecordUpdate
   security:
@@ -43,10 +43,12 @@ put:
     - Non-Employee Lifecycle Management
   summary: Update Non-Employee Record
   description: >-
-    This request will update a non-employee record.<br><br>
-    There are two contextual uses for this endpoint:<br>
-      1. The user has the role context of `idn:nesr:update`, in which case they update all available fields.<br>
-      2. The user is owner of the source, in this case they can only update the end date. 
+    This request will update a non-employee record.<br><br> There are two
+    contextual uses for this endpoint:<br>
+      1. The user has the role context of `idn:nesr:update`, in which case they
+    update all available fields.<br>
+      2. The user is owner of the source, in this case they can only update the
+    end date.
   parameters:
     - in: path
       name: id
@@ -57,31 +59,34 @@ put:
       schema:
         type: string
   requestBody:
-    description: Non-employee record creation request body. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
+    description:
+      Non-employee record creation request body. Attributes are restricted by
+      user type. Owner of source can update end date. Organization admins can
+      update all available fields.
     required: true
     content:
       application/json:
         schema:
-          $ref: '../schemas/non-employee/NonEmployeeRequestBody.yaml'
+          $ref: "../schemas/non-employee/NonEmployeeRequestBody.yaml"
   responses:
-    '200':
+    "200":
       description: An updated non-employee record.
       content:
         application/json:
           schema:
-            $ref: '../schemas/non-employee/NonEmployeeRecord.yaml'
-    '400':
-      $ref: '../responses/400.yaml'
-    '401':
-      $ref: '../responses/401.yaml'
-    '403':
-      $ref: '../responses/403.yaml'
-    '404':
-      $ref: '../responses/404.yaml'
-    '429':
-      $ref: '../responses/429.yaml'
-    '500':
-      $ref: '../responses/500.yaml'
+            $ref: "../schemas/non-employee/NonEmployeeRecord.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "404":
+      $ref: "../responses/404.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"
 patch:
   operationId: nonEmployeeRecordPatch
   security:
@@ -90,10 +95,12 @@ patch:
     - Non-Employee Lifecycle Management
   summary: Patch Non-Employee Record
   description: >-
-    This request will patch a non-employee record.<br><br>
-    There are two contextual uses for this endpoint:<br>
-      1. The user has the role context of `idn:nesr:update`, in which case they update all available fields.<br>
-      2. The user is owner of the source, in this case they can only update the end date. 
+    This request will patch a non-employee record.<br><br> There are two
+    contextual uses for this endpoint:<br>
+      1. The user has the role context of `idn:nesr:update`, in which case they
+    update all available fields.<br>
+      2. The user is owner of the source, in this case they can only update the
+    end date.
   parameters:
     - in: path
       name: id
@@ -104,37 +111,41 @@ patch:
       schema:
         type: string
   requestBody:
-    description: A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
+    description:
+      A list of non-employee update operations according to the [JSON
+      Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are
+      restricted by user type. Owner of source can update end date. Organization
+      admins can update all available fields.
     required: true
     content:
       application/json-patch+json:
         schema:
           type: array
           items:
-            $ref: '../schemas/JsonPatchOperation.yaml'
+            $ref: "../schemas/JsonPatchOperation.yaml"
         example:
-            - op: "replace"
-              path: "/endDate"
-              value: "2019-08-23T18:40:35.772Z"
+          - op: "replace"
+            path: "/endDate"
+            value: "2019-08-23T18:40:35.772Z"
   responses:
-    '200':
+    "200":
       description: A patched non-employee record.
       content:
         application/json:
           schema:
-            $ref: '../schemas/non-employee/NonEmployeeRecord.yaml'
-    '400':
-      $ref: '../responses/400.yaml'
-    '401':
-      $ref: '../responses/401.yaml'
-    '403':
-      $ref: '../responses/403.yaml'
-    '404':
-      $ref: '../responses/404.yaml'
-    '429':
-      $ref: '../responses/429.yaml'
-    '500':
-      $ref: '../responses/500.yaml'
+            $ref: "../schemas/non-employee/NonEmployeeRecord.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "404":
+      $ref: "../responses/404.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"
 delete:
   operationId: nonEmployeeRecordDelete
   # security:
@@ -156,15 +167,15 @@ delete:
       schema:
         type: string
   responses:
-    '204':
-      $ref: '../responses/204.yaml'
-    '400':
-      $ref: '../responses/400.yaml'
-    '401':
-      $ref: '../responses/401.yaml'
-    '403':
-      $ref: '../responses/403.yaml'
-    '429':
-      $ref: '../responses/429.yaml'
-    '500':
-      $ref: '../responses/500.yaml'
+    "204":
+      $ref: "../responses/204.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"

@@ -4,3 +4,5 @@ allOf:
   properties:
     type:
       type: string
+      example: Delimited File
+      description: the type of source returned

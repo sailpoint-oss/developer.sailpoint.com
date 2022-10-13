@@ -54,6 +54,7 @@ get:
       ```savedSearchId eq "6cc0945d-9eeb-4948-9033-72d066e1153e"``` -- returns scheduled searches that reference the specified saved search
 
       ```owner.id eq me or savedSearchId eq "6cc0945d-9eeb-4948-9033-72d066e1153e"``` -- returns all of the current user's scheduled searches as well as all scheduled searches that reference the specified saved search
+    example: savedSearchId eq "6cc0945d-9eeb-4948-9033-72d066e1153e"
   responses:
     '200':
       description: The list of requested scheduled searches.

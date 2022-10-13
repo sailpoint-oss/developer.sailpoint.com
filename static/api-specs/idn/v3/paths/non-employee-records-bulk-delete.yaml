@@ -6,8 +6,9 @@ post:
     - Non-Employee Lifecycle Management
   summary: Delete Multiple Non-Employee Records
   description: >-
-    This request will delete multiple non-employee records based on the non-employee ids provided.<br><br>
-    Requires role context of `idn:nesr:delete`
+    This request will delete multiple non-employee records based on the
+    non-employee ids provided.<br><br> Requires role context of
+    `idn:nesr:delete`
   requestBody:
     description: Non-Employee bulk delete request body.
     required: true
@@ -22,18 +23,19 @@ post:
               items:
                 type: string
                 format: uuid
+                example: e136567de87e4d029e60b3c3c55db56d
           required:
             - ids
   responses:
-    '204':
-      $ref: '../responses/204.yaml'
-    '400':
-      $ref: '../responses/400.yaml'
-    '401':
-      $ref: '../responses/401.yaml'
-    '403':
-      $ref: '../responses/403.yaml'
-    '429':
-      $ref: '../responses/429.yaml'
-    '500':
-      $ref: '../responses/500.yaml'
+    "204":
+      $ref: "../responses/204.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"

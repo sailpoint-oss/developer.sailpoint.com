@@ -17,3 +17,5 @@ enum:
   - DISABLE
   - UNLOCK
   - CHANGE_PASSWORD
+example: CREATE
+description: The type of ProvisioningPolicy usage.

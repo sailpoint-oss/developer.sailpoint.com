@@ -16,11 +16,13 @@ properties:
   privileged:
     type: boolean
     description: Indicates if the entitlement is a privileged entitlement
+    example: false
   owner:
     $ref: '../IdentityReferenceWithNameAndEmail.yaml'
   revocable:
     type: boolean
     description: Indicates whether the Role can be revoked or requested
+    example: false
   endDate:
     type: string
     format: 'date-time'

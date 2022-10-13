@@ -17,6 +17,7 @@ get:
       schema:
         type: string
       required: true
+      example: ef38f94347e94562b5bb8424a56397d8
       description: The Source id
   responses:
     '200':
@@ -28,6 +29,8 @@ get:
             items:
               $ref: '../schemas/non-employee/NonEmployeeSchemaAttribute.yaml'
             maxItems: 18
+    '400':
+      $ref: '../responses/400.yaml'
     '401':
       $ref: '../responses/401.yaml'
     '403':

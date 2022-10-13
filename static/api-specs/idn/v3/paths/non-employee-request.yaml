@@ -7,9 +7,10 @@ get:
   summary: Get a Non-Employee Request
   description: >-
     This gets a non-employee request.<br><br>
-    
+
     There are two contextual uses for this endpoint:<br>
-      1. The user has the role context of `idn:nesr:read`, in this case the user can get the non-employee request for any user.<br>
+      1. The user has the role context of `idn:nesr:read`, in this case the user
+    can get the non-employee request for any user.<br>
       2. The user must be the owner of the non-employee request.
   parameters:
     - in: path
@@ -21,24 +22,24 @@ get:
       schema:
         type: string
   responses:
-    '200':
+    "200":
       description: Non-Employee request object.
       content:
         application/json:
           schema:
-            $ref: '../schemas/non-employee/NonEmployeeRequest.yaml'
-    '400':
-      $ref: '../responses/400.yaml'
-    '401':
-      $ref: '../responses/401.yaml'
-    '403':
-      $ref: '../responses/403.yaml'
-    '404':
-      $ref: '../responses/404.yaml'
-    '429':
-      $ref: '../responses/429.yaml'
-    '500':
-      $ref: '../responses/500.yaml'
+            $ref: "../schemas/non-employee/NonEmployeeRequest.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "404":
+      $ref: "../responses/404.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"
 delete:
   operationId: nonEmployeeRequestDeletion
   # security:
@@ -48,7 +49,7 @@ delete:
   summary: Delete Non-Employee Request
   description: >-
     This request will delete a non-employee request.<br><br> 
-    
+
     Requires role context of `idn:nesr:delete`
   parameters:
     - in: path
@@ -59,18 +60,19 @@ delete:
       schema:
         type: string
         format: uuid
+      example: e136567de87e4d029e60b3c3c55db56d
   responses:
-    '204':
-      $ref: '../responses/204.yaml'
-    '400':
-      $ref: '../responses/400.yaml'
-    '401':
-      $ref: '../responses/401.yaml'
-    '403':
-      $ref: '../responses/403.yaml'
-    '404':
-      $ref: '../responses/404.yaml'
-    '429':
-      $ref: '../responses/429.yaml'
-    '500':
-      $ref: '../responses/500.yaml'
+    "204":
+      $ref: "../responses/204.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "404":
+      $ref: "../responses/404.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"

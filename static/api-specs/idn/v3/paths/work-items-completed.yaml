@@ -13,6 +13,7 @@ get:
       description: >-
         The id of the owner of the work item list being requested.  Either an admin, or the owning/current user must make this request.
       required: false
+      example: 1211bcaa32112bcef6122adb21cef1ac
     - $ref: '../../v3/parameters/limit.yaml'
     - $ref: '../../v3/parameters/offset.yaml'
     - $ref: '../../v3/parameters/count.yaml'

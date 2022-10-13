@@ -1,11 +1,11 @@
 # Replaced by ReviewItem.yaml
 # Cannot represent information from a Role Composition Certification Item
-type : object
+type: object
 properties:
   accessSummary:
-    $ref: './AccessSummary.yaml'
+    $ref: "./AccessSummary.yaml"
   identitySummary:
-    $ref: './CertificationIdentitySummary.yaml'
+    $ref: "./CertificationIdentitySummary.yaml"
   id:
     type: string
     description: The review item's id
@@ -17,8 +17,9 @@ properties:
   newAccess:
     type: boolean
     description: Indicates whether the review item is for new access to a source
+    example: false
   decision:
-    $ref: './CertificationDecision.yaml'
+    $ref: "./CertificationDecision.yaml"
   comments:
     nullable: true
     type: string

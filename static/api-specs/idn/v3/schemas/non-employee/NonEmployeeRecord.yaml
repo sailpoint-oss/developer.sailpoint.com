@@ -4,9 +4,11 @@ properties:
     type: string
     format: UUID
     description: Non-Employee record id.
+    example: ef38f94347e94562b5bb8424a56397d8
   accountName:
     type: string
     description: Requested identity account name.
+    example: Abby.Smith
   firstName:
     type: string
     description: Non-Employee's first name.
@@ -36,6 +38,8 @@ properties:
     additionalProperties:
       type: string
     description: Attribute blob/bag for a non-employee.
+    example:
+      description: Auditing
   startDate:
     type: string
     format: date-time

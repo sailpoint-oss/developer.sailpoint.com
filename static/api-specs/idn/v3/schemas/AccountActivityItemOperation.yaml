@@ -10,3 +10,4 @@ enum:
   - LOCK
   - REMOVE
 description: Represents an operation in an account activity item
+example: ADD

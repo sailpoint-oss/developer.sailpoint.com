@@ -6,12 +6,20 @@ allOf:
   properties:
     firstName:
       type: string
+      description: The first name of the identity
+      example: Carol
     lastName:
       type: string
+      description: The last name of the identity
+      example: Adams
     displayName:
       type: string
+      example: Carol.Adams
+      description: The display name of the identity
     email:
       type: string
+      description: The identity's primary email address
+      example: Carol.Adams@sailpointdemo.com
     created:
       $ref: '../base/DateTime.yaml'
     modified:
@@ -20,19 +28,29 @@ allOf:
       $ref: '../base/DateTime.yaml'
     phone:
       type: string
+      description: The phone number of the identity
+      example: "+1 440-527-3672"
     inactive:
       type: boolean
+      description: Indicates if the identity is inactive
+      example: false
     protected:
       type: boolean
+      example: false
     status:
       type: string
+      description: The identity's status in SailPoint
+      example: UNREGISTERED
     employeeNumber:
       type: string
+      example: 1a2a3d4e
     manager:
       $ref: '../base/DisplayReference.yaml'
       nullable: true
     isManager:
       type: boolean
+      description: Indicates if this identity is a manager of other identities
+      example: false
     identityProfile:
       $ref: '../base/Reference.yaml'
     source:
@@ -40,36 +58,60 @@ allOf:
     attributes:
       type: object
       description: "a map or dictionary of key/value pairs"
+      additionalProperties: true
+      example:
+        country: "US"
+        firstname: "Carol"
+        cloudStatus: "UNREGISTERED"
     processingState:
       type: string
       nullable: true
+      example: null
     processingDetails:
       $ref: 'ProcessingDetails.yaml'
       nullable: true
     accounts:
       type: array
+      description: List of accounts associated with the identity
       items:
         $ref: '../account/BaseAccount.yaml'
     accountCount:
       type: integer
+      description: Number of accounts associated with the identity
+      format: int32
+      example: 3
     apps:
       type: array
+      description: The list of applications the identity has access to
       items:
         $ref: 'App.yaml'
     appCount:
       type: integer
+      format: int32
+      description: The number of applications the identity has access to
+      example: 2
     access:
       type: array
+      description: The list of access items assigned to the identity
       items:
         $ref: 'Access.yaml'
     accessCount:
       type: integer
+      format: int32
+      description: The number of access items assigned to the identity
+      example: 5
     accessProfileCount:
       type: integer
+      description: The number of access profiles assigned to the identity
+      example: 1
     entitlementCount:
       type: integer
+      description: The number of entitlements assigned to the identity
+      example: 10
     roleCount:
       type: integer
+      description: The number of roles assigned to the identity
+      example: 1
     owns:
       $ref: 'Owns.yaml'
     tags:

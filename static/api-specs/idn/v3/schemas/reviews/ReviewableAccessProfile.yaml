@@ -15,9 +15,11 @@ properties:
   privileged:
     type: boolean
     description: Indicates if the entitlement is a privileged entitlement
+    example: false
   cloudGoverned:
     type: boolean
     description: True if the entitlement is cloud governed
+    example: false
   endDate:
     nullable: true
     type: string

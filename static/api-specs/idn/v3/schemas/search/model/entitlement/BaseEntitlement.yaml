@@ -1,10 +1,16 @@
 allOf:
-- $ref: '../base/Reference.yaml'
-- type: object
-  properties:
-    description:
-      type: string
-    attribute:
-      type: string
-    value:
-      type: string
+  - $ref: "../base/Reference.yaml"
+  - type: object
+    properties:
+      description:
+        type: string
+        description: A description of the entitlement
+        example: The admin privilege
+      attribute:
+        type: string
+        description: The name of the entitlement attribute
+        example: admin
+      value:
+        type: string
+        description: The value of the entitlement
+        example: "true"

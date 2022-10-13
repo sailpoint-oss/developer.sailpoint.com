@@ -1,37 +1,54 @@
 description: Event
 allOf:
-- $ref: '../base/BaseDocument.yaml'
-- type: object
-  properties:
-    created:
-      $ref: '../base/DateTime.yaml'
-    synced:
-      $ref: '../base/DateTime.yaml'
-    action:
-      type: string
-    type:
-      type: string
-    actor:
-      $ref: 'NameType.yaml'
-    target:
-      $ref: 'NameType.yaml'
-    stack:
-      type: string
-    trackingNumber:
-      type: string
-    ipAddress:
-      type: string
-    details:
-      type: string
-    attributes:
-      type: object
-    objects:
-      type: array
-      items:
+  - $ref: "../base/BaseDocument.yaml"
+  - type: object
+    properties:
+      created:
+        $ref: "../base/DateTime.yaml"
+      synced:
+        $ref: "../base/DateTime.yaml"
+      action:
         type: string
-    operation:
-      type: string
-    status:
-      type: string
-    technicalName:
-      type: string
+        description: The action that was performed
+        example: update
+      type:
+        type: string
+        description: The type of event
+        example: SYSTEM_CONFIG
+      actor:
+        $ref: "NameType.yaml"
+      target:
+        $ref: "NameType.yaml"
+      stack:
+        type: string
+        example: tpe
+      trackingNumber:
+        type: string
+        example: 63f891e0735f4cc8bf1968144a1e7440
+      ipAddress:
+        type: string
+        example: "52.52.97.85"
+      details:
+        type: string
+        example: 73b65dfbed1842548c207432a18c84b0
+      attributes:
+        type: object
+        additionalProperties: true
+        example:
+          pod: stg03-useast1
+          org: acme
+          sourceName: SailPoint
+      objects:
+        type: array
+        items:
+          type: string
+          example: AUTHENTICATION
+      operation:
+        type: string
+        example: REQUEST
+      status:
+        type: string
+        example: PASSED
+      technicalName:
+        type: string
+        example: AUTHENTICATION_REQUEST_PASSED

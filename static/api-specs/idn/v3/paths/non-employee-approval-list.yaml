@@ -7,55 +7,65 @@ get:
   summary: Get List of Non-Employee Approval Requests
   description: >-
     This gets a list of non-employee approval requests.<br><br>
-    
+
     There are two contextual uses for this endpoint:<br>
-      1. The user has the role context of `idn:nesr:read`, in which case they can list the approvals for any approver.<br>
-      2. The user owns the requested approval. 
+      1. The user has the role context of `idn:nesr:read`, in which case they
+    can list the approvals for any approver.<br>
+      2. The user owns the requested approval.
   parameters:
     - in: query
       name: requested-for
       schema:
         type: string
       description: >-
-        The identity for whom the request was made. *me* indicates the current user.
+        The identity for whom the request was made. *me* indicates the current
+        user.
       required: false
-    - $ref: '../parameters/limit.yaml'
-    - $ref: '../parameters/offset.yaml'
-    - $ref: '../parameters/count.yaml'
+      example: 2c91808280430dfb0180431a59440460
+    - $ref: "../parameters/limit.yaml"
+    - $ref: "../parameters/offset.yaml"
+    - $ref: "../parameters/count.yaml"
     - in: query
       name: filters
       schema:
         type: string
       description: >-
-        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407)<br/><br/>
+        Filter results using the standard syntax described in [V3 API Standard
+        Collection
+        Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407)<br/><br/>
         Filtering is supported for the following fields and operators:<br/><br/>
-        **approvalStatus**: *eq* <br/><br/>
-        *Example:* approvalStatus eq "PENDING"
+        **approvalStatus**: *eq* <br/><br/> *Example:* approvalStatus eq
+        "PENDING"
+      example: approvalStatus eq "Pending"
+      required: false
     - in: query
       name: sorters
       schema:
         type: string
         format: comma-separated
       description: >-
-        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407#toc-hId-2058949)<br/><br/>
+        Sort results using the standard syntax described in [V3 API Standard
+        Collection
+        Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407#toc-hId-2058949)<br/><br/>
         Sorting is supported for the following fields: **created, modified**
-
+      required: false
+      example: created
   responses:
-    '200':
+    "200":
       description: List of approval items.
       content:
         application/json:
           schema:
             type: array
             items:
-              $ref: '../schemas/non-employee/NonEmployeeApprovalItem.yaml'
-    '400':
-      $ref: '../responses/400.yaml'
-    '401':
-      $ref: '../responses/401.yaml'
-    '403':
-      $ref: '../responses/403.yaml'
-    '429':
-      $ref: '../responses/429.yaml'
-    '500':
-      $ref: '../responses/500.yaml'
+              $ref: "../schemas/non-employee/NonEmployeeApprovalItem.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"

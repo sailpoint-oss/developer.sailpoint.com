@@ -9,50 +9,57 @@ properties:
     example: 2c9180835d2e5168015d32f890ca1581
   created:
     type: string
-    format: 'date-time'
-    example: '2017-07-11T18:45:37.098Z'
+    format: "date-time"
+    example: "2017-07-11T18:45:37.098Z"
   modified:
     type: string
-    format: 'date-time'
-    example: '2018-06-25T20:22:28.104Z'
+    format: "date-time"
+    example: "2018-06-25T20:22:28.104Z"
   completed:
     type: string
-    format: 'date-time'
+    format: "date-time"
     nullable: true
-    example: '2018-10-19T13:49:37.385Z'
+    example: "2018-10-19T13:49:37.385Z"
   completionStatus:
-    $ref: './CompletionStatus.yaml'
+    $ref: "./CompletionStatus.yaml"
   type:
     type: string
     example: appRequest
   requesterIdentitySummary:
-    $ref: './IdentitySummary.yaml'
+    $ref: "./IdentitySummary.yaml"
   targetIdentitySummary:
-    $ref: './IdentitySummary.yaml'
+    $ref: "./IdentitySummary.yaml"
   errors:
     nullable: true
     type: array
-    items: 
+    items:
       type: string
-    example: ["sailpoint.connector.ConnectorException: java.lang.InterruptedException: Timeout waiting for response to message 0 from client 57a4ab97-ab3f-4aef-9fe2-0eaf15c73d26 after 60 seconds."]
+    example:
+      [
+        "sailpoint.connector.ConnectorException: java.lang.InterruptedException:
+        Timeout waiting for response to message 0 from client
+        57a4ab97-ab3f-4aef-9fe2-0eaf15c73d26 after 60 seconds.",
+      ]
   warnings:
     nullable: true
     type: array
-    items: 
+    items:
       type: string
     example: ["Some warning, another warning"]
   items:
     type: array
     items:
-      $ref: './AccountActivityItem.yaml'
+      $ref: "./AccountActivityItem.yaml"
   executionStatus:
-    $ref: './ExecutionStatus.yaml'
+    $ref: "./ExecutionStatus.yaml"
   clientMetadata:
     nullable: true
     type: object
     additionalProperties:
       type: string
     description: >-
-      Arbitrary key-value pairs, if any were included in the corresponding access request
-  
-
+      Arbitrary key-value pairs, if any were included in the corresponding
+      access request
+    example:
+      customKey1: custom value 1
+      customKey2: custom value 2

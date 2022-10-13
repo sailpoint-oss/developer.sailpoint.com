@@ -12,3 +12,4 @@ enum:
 - MIN
 - MAX
 default: UNIQUE_COUNT
+example: COUNT

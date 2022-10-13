@@ -26,16 +26,19 @@ properties:
       Indicates if the scheduled search is enabled.
     type: boolean
     default: false
+    example: false
   emailEmptyResults:
     description: |
       Indicates if email generation should not be suppressed if search returns no results.
     type: boolean
     default: false
+    example: false
   displayQueryDetails:
     description: |
       Indicates if the generated email should include the query and search results preview (which could include PII).
     type: boolean
     default: false
+    example: false
 required:
 - savedSearchId
 - schedule

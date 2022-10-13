@@ -5,6 +5,7 @@ properties:
     type: integer
     example: 1
     description: Version or object from the target service.
+    format: 'int32'
   self:
     $ref: '../schemas/BaseReferenceDto.yaml'
   object:

@@ -1446,6 +1446,10 @@ paths:
     $ref: './beta/paths/verified-from-addresses.yaml'
   /verified-from-addresses/{id}:
     $ref: './beta/paths/verified-from-address.yaml'
+  /dkim-attributes/{identities}:
+    $ref: './beta/paths/dkim-attributes.yaml'
+  /verify-domain-dkim:
+    $ref: './beta/paths/verify-domain-dkim.yaml'
   /sod-policies:
     $ref: './beta/paths/sod-policies.yaml'
   /sod-policies/{id}:

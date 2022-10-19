@@ -1,0 +1,37 @@
+get:
+  operationId: getDkimAttributes
+  tags:
+    - Notifications
+  summary: Get DKIM Attributes
+  description: >-
+    Retrieve DKIM (DomainKeys Identified Mail) attributes from a list of identities. Limit retrieval of 100 identities per call
+  parameters:
+    - in: query
+      name: identities
+      required: true
+      schema:
+        type: string
+        format: comma-separated
+      description: >-
+        Returns the DKIM attributes for each of the given identities
+      example:
+        bobsmith@sailpoint.com,alex.jordan@sailpoint.com
+  responses:
+    '200':
+      description: List of DKIM Attributes
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/DkimAttributesDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

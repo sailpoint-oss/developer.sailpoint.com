@@ -18,7 +18,8 @@ module.exports = {
         { to: "idn/docs", label: "IDN Documentation", className: "indent" },
         { to: "#", label: "Training", className: "navbar__section" },
         {
-          href: "https://university.sailpoint.com/Saba/Web_spf/NA10P1PRD075/guest/categorydetail/categ000000000003041/true/xxemptyxx/",
+          href:
+            "https://university.sailpoint.com/Saba/Web_spf/NA10P1PRD075/guest/categorydetail/categ000000000003041/true/xxemptyxx/",
           label: "IdentityNow Certifications",
           className: "indent",
         },
@@ -31,9 +32,12 @@ module.exports = {
       items: [
         { to: "#", label: "API Specifications", className: "navbar__section" },
         { to: "/iiq/api", label: "IIQ APIs", className: "indent" },
+        { to: "#", label: "Documentation", className: "navbar__section" },
+        { to: "iiq/docs", label: "IIQ Documentation", className: "indent" },
         { to: "#", label: "Training", className: "navbar__section" },
         {
-          href: "https://university.sailpoint.com/Saba/Web_spf/NA10P1PRD075/guest/categorydetail/categ000000000003042/true/xxemptyxx/",
+          href:
+            "https://university.sailpoint.com/Saba/Web_spf/NA10P1PRD075/guest/categorydetail/categ000000000003042/true/xxemptyxx/",
           label: "IdentityIQ Certifications",
           className: "indent",
         },
@@ -61,7 +65,8 @@ module.exports = {
       items: [
         {
           label: "Submit Support Ticket",
-          href: "https://support.sailpoint.com/hc/en-us/requests/new?ticket_form_id=360000629992",
+          href:
+            "https://support.sailpoint.com/hc/en-us/requests/new?ticket_form_id=360000629992",
         },
         { label: "Compass", href: "https://community.sailpoint.com" },
         { label: "Platform Status", href: "https://status.sailpoint.com/" },

@@ -61,7 +61,7 @@ The following describes in detail the different fields in the connector spec:
         IDN source configuration wizard before continuing.
       - **type:** The configuration items' types. The following types are valid:
         - text
-        - password
+        - secret
         - url
         - email
         - number

@@ -133,5 +133,5 @@ using the command line or a programming language. One tool is
 [Postman](https://www.postman.com/downloads/). SailPoint provides an official
 Postman workspace where our collections are always up to date with the latest
 API changes.
-[Click here](https://developer.sailpoint.com/discuss/t/official-identitynow-postman-workspace/6153/18)
+[Click here](https://developer.sailpoint.com/discuss/t/official-identitynow-postman-workspace/6153)
 to get started with our Postman workspace.

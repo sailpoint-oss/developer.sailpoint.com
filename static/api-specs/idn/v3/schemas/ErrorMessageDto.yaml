@@ -5,7 +5,7 @@ properties:
     description: The locale for the message text, a BCP 47 language tag.
     example: en-US
   localeOrigin:
-    $ref: "./LocaleOrigin.yaml"
+    $ref: "../../v3/schemas/LocaleOrigin.yaml"
   text:
     type: string
     description: Actual text of the error message in the indicated locale.

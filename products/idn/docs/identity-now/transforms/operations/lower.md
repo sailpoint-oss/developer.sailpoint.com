@@ -21,7 +21,15 @@ The lower transform only requires the transform's `type` and `name` attributes:
 ```json
 {
   "type": "lower",
-  "name": "Lower Transform"
+  "name": "Lower Transform",
+  "attributes": {
+    "input": {
+      "attributes": {
+        "value": "ACTIVE"
+      },
+      "type": "static"
+    }
+  }
 }
 ```
 
@@ -31,6 +39,7 @@ The lower transform only requires the transform's `type` and `name` attributes:
   - **type** - This must always be set to `lower`.
   - **name** - This is a required attribute for all transforms. It represents
     the name of the transform as it will appear in the UI's dropdown menus.
+  - **attributes** - This is a required attribute for all transforms. Meta-data about the transform. Values in this list are specific to the type of transform to be executed.
 - **Optional Attributes**
   - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether
     the transform logic should be reevaluated every evening as part of the

@@ -4,6 +4,13 @@ const sidebars = {
       type: "category",
       label: "IdentityNow",
       collapsible: false,
+      link: {
+        type: "generated-index",
+        title: "IdentityNow",
+        description: "Learn more about IdentityNow APIs",
+        slug: "/api/",
+        keywords: ["IDN", "API"],
+      },
       items: [
         {
           type: "doc",

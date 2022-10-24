@@ -130,9 +130,8 @@ permission to call an endpoint, you will receive the following response:
 
 There are several API tools that make exploring and testing APIs easier than
 using the command line or a programming language. One tool is
-[Postman](https://www.postman.com/downloads/). To import the SailPoint REST APIs
-into a tool like Postman, you must first download the REST specification.
-Navigate to the [V3 IDN APIs](/idn/api/v3) and select "Download OpenAPI
-specification". You can then import the JSON file in Postman by using the
-[import wizard](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/)
-within Postman.
+[Postman](https://www.postman.com/downloads/). SailPoint provides an official
+Postman workspace where our collections are always up to date with the latest
+API changes.
+[Click here](https://developer.sailpoint.com/discuss/t/official-identitynow-postman-workspace/6153)
+to get started with our Postman workspace.

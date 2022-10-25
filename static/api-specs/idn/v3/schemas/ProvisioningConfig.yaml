@@ -13,6 +13,7 @@ properties:
       $ref: '../../v3/schemas/BaseReferenceDto.yaml'
       default:
         type: SOURCE
+    example: []
   planInitializerScript:
     description: This is a reference to a plan initializer script.
     type: object

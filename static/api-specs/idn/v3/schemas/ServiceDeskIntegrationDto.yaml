@@ -56,3 +56,7 @@ allOf:
         $ref: '../../v3/schemas/BaseReferenceDto.yaml'
         default:
           type: RULE
+        example:
+          type: "RULE"
+          id: "2c918085708c274401708c2a8a760001"
+          name: "Example Rule"

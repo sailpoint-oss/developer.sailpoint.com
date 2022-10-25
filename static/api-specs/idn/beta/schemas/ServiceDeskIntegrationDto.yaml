@@ -15,6 +15,7 @@ allOf:
         description: Type of the Service Desk integration
         type: string
         default: ServiceNowSDIM
+        example: ServiceNowSDIM
       ownerRef:
         description: Reference to the identity that is the owner of this Service Desk integration
         $ref: '../../v3/schemas/BaseReferenceDto.yaml'
@@ -36,6 +37,9 @@ allOf:
         items:
           type: string
         deprecated: true
+        example:
+          - 2c9180835d191a86015d28455b4a2329
+          - 2c5680835d191a85765d28455b4a9823
       provisioningConfig:
         description: The 'provisioningConfig' property specifies the configuration used to provision integrations.
         $ref: './ProvisioningConfig.yaml'
@@ -43,8 +47,16 @@ allOf:
         description: Attributes of the Service Desk integration.  Validation constraints enforced by the implementation.
         type: object
         additionalProperties: true
+        example: {
+          property: "value",
+          key: "value"
+        }
       beforeProvisioningRule:
         description: Reference to beforeProvisioningRule for this Service Desk integration
         $ref: '../../v3/schemas/BaseReferenceDto.yaml'
         default:
           type: RULE
+        example:
+          type: "RULE"
+          id: "2c918085708c274401708c2a8a760001"
+          name: "Example Rule"

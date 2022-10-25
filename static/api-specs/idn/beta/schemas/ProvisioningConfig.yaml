@@ -5,6 +5,7 @@ properties:
     description: Specifies whether this configuration is used to manage provisioning requests for all sources from the org.  If true, no managedResourceRefs are allowed.
     type: boolean
     readOnly: true
+    example: true
   managedResourceRefs:
     description: References to sources for the Service Desk integration template.  May only be specified if universalManager is false.
     type: array
@@ -12,6 +13,7 @@ properties:
       $ref: '../../v3/schemas/BaseReferenceDto.yaml'
       default:
         type: SOURCE
+    example: []
   planInitializerScript:
     description: This is a reference to a plan initializer script.
     type: object
@@ -19,3 +21,4 @@ properties:
       source:
         description: This is a Rule that allows provisioning instruction changes.
         type: string
+        example: <rule code>

@@ -31,6 +31,10 @@ properties:
     description: >-
       Reference to a Rule that can do COMPLEX the correlation, should only be used when accountCorrelationConfig can't
       be used.
+    example:
+      type: "RULE"
+      id: "2c918085708c274401708c2a8a760001"
+      name: "Example Rule"
   managerCorrelationMapping:
     $ref: '../../v3/schemas/ManagerCorrelationMapping.yaml'
     description: >-
@@ -40,10 +44,18 @@ properties:
     $ref: '../../v3/schemas/BaseReferenceDto.yaml'
     description: >-
        Reference to the ManagerCorrelationRule, only used when a simple filter isn't sufficient.
+    example:
+      type: "RULE"
+      id: "2c918085708c274401708c2a8a760001"
+      name: "Example Rule"
   beforeProvisioningRule:
     $ref: '../../v3/schemas/BaseReferenceDto.yaml'
     description: >-
        Rule that runs on the CCG and allows for customization of provisioning plans before the connector is called.
+    example:
+      type: "RULE"
+      id: "2c918085708c274401708c2a8a760001"
+      name: "Example Rule"
   schemas:
     type: array
     items:

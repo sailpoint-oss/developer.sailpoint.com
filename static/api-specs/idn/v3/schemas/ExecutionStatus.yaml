@@ -1,4 +1,5 @@
 type: string
+description: The current state of execution.
 enum:
   - EXECUTING
   - VERIFYING

@@ -14,6 +14,7 @@ properties:
     description: Date and time item was requested
     example: "2017-07-11T18:45:37.098Z"
   approvalStatus:
+    nullable: true
     $ref: "./WorkItemState.yaml"
   provisioningStatus:
     $ref: "./ProvisioningState.yaml"
@@ -24,6 +25,7 @@ properties:
   reviewerComment:
     $ref: "./Comment.yaml"
   operation:
+    nullable: true
     $ref: "./AccountActivityItemOperation.yaml"
   attribute:
     type: string

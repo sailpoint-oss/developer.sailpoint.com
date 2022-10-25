@@ -35,16 +35,9 @@ get:
         with *requested-for* and *requested-by*.
       required: false
       example: 2c91808568c529c60168cca6f90c1313
-    - in: query
-      name: type
-      schema:
-        type: string
-      description: The type of account activity.
-      required: false
-      example: Identity Refresh
-    - $ref: "../../parameters/v3/limit.yaml"
-    - $ref: "../../parameters/v3/offset.yaml"
-    - $ref: "../../parameters/v3/count.yaml"
+    - $ref: "../../v3/parameters/limit.yaml"
+    - $ref: "../../v3/parameters/offset.yaml"
+    - $ref: "../../v3/parameters/count.yaml"
     - in: query
       name: filters
       schema:
@@ -52,13 +45,13 @@ get:
       description: >-
         Filter results using the standard syntax described in [V3 API Standard
         Collection
-        Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+        Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results).
 
 
         Filtering is supported for the following fields and operators:
 
 
-        **type**: *eq, in*
+        **type**: *eq, in* (See the `type` property in the response schema for possible values)
 
 
         **created**: *gt, lt, ge, le*
@@ -90,14 +83,14 @@ get:
           schema:
             type: array
             items:
-              $ref: "../../schemas/v3/AccountActivity.yaml"
+              $ref: "../../v3/schemas/AccountActivity.yaml"
     "400":
-      $ref: "../../responses/v3/400.yaml"
+      $ref: "../../v3/responses/400.yaml"
     "401":
-      $ref: "../../responses/v3/401.yaml"
+      $ref: "../../v3/responses/401.yaml"
     "403":
-      $ref: "../../responses/v3/403.yaml"
+      $ref: "../../v3/responses/403.yaml"
     "429":
-      $ref: "../../responses/v3/429.yaml"
+      $ref: "../../v3/responses/429.yaml"
     "500":
-      $ref: "../../responses/v3/500.yaml"
+      $ref: "../../v3/responses/500.yaml"

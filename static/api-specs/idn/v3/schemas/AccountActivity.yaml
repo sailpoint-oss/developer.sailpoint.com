@@ -2,20 +2,25 @@ type: object
 properties:
   id:
     type: string
-    description: Id of the account activity itself
+    description: Id of the account activity
     example: 2c9180835d2e5168015d32f890ca1581
   name:
     type: string
+    description: The name of the activity
     example: 2c9180835d2e5168015d32f890ca1581
   created:
+    description: When the activity was first created
     type: string
     format: "date-time"
     example: "2017-07-11T18:45:37.098Z"
   modified:
+    description: When the activity was last modified
     type: string
     format: "date-time"
     example: "2018-06-25T20:22:28.104Z"
+    nullable: true
   completed:
+    description: When the activity was completed
     type: string
     format: "date-time"
     nullable: true
@@ -23,14 +28,33 @@ properties:
   completionStatus:
     $ref: "./CompletionStatus.yaml"
   type:
-    type: string
+    nullable: true
+    type: string    
     example: appRequest
+    description: |
+      The type of action the activity performed.  Please see the following list of types.  This list may grow over time.
+
+      - CloudAutomated
+      - IdentityAttributeUpdate
+      - appRequest
+      - LifecycleStateChange
+      - AccountStateUpdate
+      - AccountAttributeUpdate
+      - CloudPasswordRequest
+      - Attribute Synchronization Refresh
+      - Certification
+      - Identity Refresh
+      - Lifecycle Change Refresh
+
+
+      [Learn more here](https://documentation.sailpoint.com/saas/help/search/searchable-fields.html#searching-account-activity-data).
   requesterIdentitySummary:
     $ref: "./IdentitySummary.yaml"
   targetIdentitySummary:
     $ref: "./IdentitySummary.yaml"
   errors:
     nullable: true
+    description: A list of error messages, if any, that were encountered.
     type: array
     items:
       type: string
@@ -42,12 +66,14 @@ properties:
       ]
   warnings:
     nullable: true
+    description: A list of warning messages, if any, that were encountered.
     type: array
     items:
       type: string
     example: ["Some warning, another warning"]
   items:
     type: array
+    description: Individual actions performed as part of this account activity
     items:
       $ref: "./AccountActivityItem.yaml"
   executionStatus:

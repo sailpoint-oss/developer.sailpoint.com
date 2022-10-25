@@ -2,6 +2,7 @@ type: string
 enum:
   - ACCESS_PROFILE
   - ROLE
+  - ENTITLEMENT
 description: >-
   Enum represented the currently supported requestable object types. Additional values may be added in the future
   without notice.

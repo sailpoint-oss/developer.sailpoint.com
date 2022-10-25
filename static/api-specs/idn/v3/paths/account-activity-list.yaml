@@ -2,7 +2,7 @@ get:
   operationId: listAccountActivities
   tags:
     - Account Activities
-  summary: Get a list of Account Activities
+  summary: List Account Activities
   description: >-
     This gets a collection of account activities that satisfy the given query
     parameters.
@@ -35,13 +35,6 @@ get:
         with *requested-for* and *requested-by*.
       required: false
       example: 2c91808568c529c60168cca6f90c1313
-    - in: query
-      name: type
-      schema:
-        type: string
-      description: The type of account activity.
-      required: false
-      example: Identity Refresh
     - $ref: "../parameters/limit.yaml"
     - $ref: "../parameters/offset.yaml"
     - $ref: "../parameters/count.yaml"
@@ -52,13 +45,17 @@ get:
       description: >-
         Filter results using the standard syntax described in [V3 API Standard
         Collection
-        Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+        Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results).
+
 
         Filtering is supported for the following fields and operators:
 
-        **type**: *eq, in*
+
+        **type**: *eq, in* (See the `type` property in the response schema for possible values)
+
 
         **created**: *gt, lt, ge, le*
+
 
         **modified**: *gt, lt, ge, le*
       example: type eq "Identity Refresh"

@@ -1,5 +1,6 @@
 nullable: true
 type: string
+description: The status after completion.
 enum:
   - SUCCESS
   - FAILURE

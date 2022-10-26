@@ -10,56 +10,141 @@ properties:
     description: Human-readable description of the source
     example: "This is the corporate directory."
   owner:
-    $ref: '../../v3/schemas/BaseReferenceDto.yaml'
     description: Reference to an owning Identity Object
+    type: object
+    properties:
+      type:
+        description: The type of object being referenced
+        type: string
+        enum:
+          - IDENTITY
+        example: IDENTITY
+      id:
+        type: string
+        description: ID of the identity
+        example: 2c91808568c529c60168cca6f90c1313
+      name:
+        type: string
+        description: Human-readable display name of the identity
+        example: MyName
   cluster:
-    $ref: '../../v3/schemas/BaseReferenceDto.yaml'
     description: Reference to the associated Cluster
-    example:
-      type: "CLUSTER"
-      id: "2c9180866166b5b0016167c32ef31a66"
-      name: "Corporate Cluster"
+    type: object
+    properties:
+      type:
+        description: The type of object being referenced
+        type: string
+        enum:
+          - CLUSTER
+        example: CLUSTER
+      id:
+        type: string
+        description: ID of the cluster
+        example: 2c9180866166b5b0016167c32ef31a66
+      name:
+        type: string
+        description: Human-readable display name of the cluster
+        example: Corporate Cluster
   accountCorrelationConfig:
-    $ref: '../../v3/schemas/BaseReferenceDto.yaml'
-    description: Reference to a Correlation Config object
-    example:
-      type: "ACCOUNT_CORRELATION_CONFIG"
-      id: "2c9180855d191c59015d28583727245a"
-      name: "Directory [source-62867] Account Correlation"
+    description: Reference to an Account Correlation Config object
+    type: object
+    properties:
+      type:
+        description: The type of object being referenced
+        type: string
+        enum:
+          - ACCOUNT_CORRELATION_CONFIG
+        example: ACCOUNT_CORRELATION_CONFIG
+      id:
+        type: string
+        description: ID of the account correlation config
+        example: 2c9180855d191c59015d28583727245a
+      name:
+        type: string
+        description: Human-readable display name of the account correlation config
+        example: Directory [source-62867] Account Correlation
   accountCorrelationRule:
-    $ref: '../../v3/schemas/BaseReferenceDto.yaml'
     description: >-
-      Reference to a Rule that can do COMPLEX the correlation, should only be used when accountCorrelationConfig can't
+      Reference to a Rule that can do COMPLEX correlation, should only be used when accountCorrelationConfig can't
       be used.
-    example:
-      type: "RULE"
-      id: "2c918085708c274401708c2a8a760001"
-      name: "Example Rule"
+    type: object
+    properties:
+      type:
+        description: The type of object being referenced
+        type: string
+        enum:
+          - RULE
+        example: RULE
+      id:
+        type: string
+        description: ID of the rule
+        example: 2c918085708c274401708c2a8a760001
+      name:
+        type: string
+        description: Human-readable display name of the rule
+        example: Example Rule
   managerCorrelationMapping:
     $ref: './ManagerCorrelationMapping.yaml'
     description: >-
       Filter Object used during manager correlation to match incoming manager values to an existing manager's
       Account/Identity
   managerCorrelationRule:
-    $ref: '../../v3/schemas/BaseReferenceDto.yaml'
     description: >-
-       Reference to the ManagerCorrelationRule, only used when a simple filter isn't sufficient.
-    example:
-      type: "RULE"
-      id: "2c918085708c274401708c2a8a760001"
-      name: "Example Rule"
+      Reference to the ManagerCorrelationRule, only used when a simple filter isn't sufficient.
+    type: object
+    properties:
+      type:
+        description: The type of object being referenced
+        type: string
+        enum:
+          - RULE
+        example: RULE
+      id:
+        type: string
+        description: ID of the rule
+        example: 2c918085708c274401708c2a8a760001
+      name:
+        type: string
+        description: Human-readable display name of the rule
+        example: Example Rule
   beforeProvisioningRule:
-    $ref: '../../v3/schemas/BaseReferenceDto.yaml'
     description: >-
-       Rule that runs on the CCG and allows for customization of provisioning plans before the connector is called.
-    example:
-      type: "RULE"
-      id: "2c918085708c274401708c2a8a760001"
-      name: "Example Rule"
+      Rule that runs on the CCG and allows for customization of provisioning plans before the connector is called.
+    type: object
+    properties:
+      type:
+        description: The type of object being referenced
+        type: string
+        enum:
+          - RULE
+        example: RULE
+      id:
+        type: string
+        description: ID of the rule
+        example: 2c918085708c274401708c2a8a760001
+      name:
+        type: string
+        description: Human-readable display name of the rule
+        example: Example Rule
   schemas:
     type: array
     items:
-      $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+      type: object
+      properties:
+        type:
+          description: The type of object being referenced
+          type: string
+          enum:
+            - CONNECTOR_SCHEMA
+          example: CONNECTOR_SCHEMA
+        id:
+          type: string
+          description: ID of the schema
+          example: 2c91808568c529c60168cca6f90c1777
+        name:
+          type: string
+          description: Human-readable display name of the schema
+          example: MySchema
     description: >-
       List of references to Schema objects
     example:
@@ -72,13 +157,31 @@ properties:
   passwordPolicies:
     type: array
     items:
-      $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+      type: object
+      properties:
+        type:
+          description: The type of object being referenced
+          type: string
+          enum:
+            - PASSWORD_POLICY
+          example: PASSWORD_POLICY
+        id:
+          type: string
+          description: ID of the policy
+          example: 2c91808568c529c60168cca6f90c1777
+        name:
+          type: string
+          description: Human-readable display name of the policy
+          example: My Password Policy
     description: >-
       List of references to the associated PasswordPolicy objects.
     example:
       - type: "PASSWORD_POLICY"
         id: "2c9180855d191c59015d291ceb053980"
         name: "Corporate Password Policy"
+      - type: "PASSWORD_POLICY"
+        id: "2c9180855d191c59015d291ceb057777"
+        name: "Vendor Password Policy"
   features:
     type: array
     description: >-
@@ -131,8 +234,23 @@ properties:
       When true indicates the source is referenced by an IdentityProfile.
     example: false
   managementWorkgroup:
-    $ref: '../../v3/schemas/BaseReferenceDto.yaml'
     description: Reference to Management Workgroup for this Source
+    type: object
+    properties:
+      type:
+        description: The type of object being referenced
+        type: string
+        enum:
+          - GOVERNANCE_GROUP
+        example: GOVERNANCE_GROUP
+      id:
+        type: string
+        description: ID of the management workgroup
+        example: 2c91808568c529c60168cca6f90c2222
+      name:
+        type: string
+        description: Human-readable display name of the management workgroup
+        example: My Management Workgroup
   healthy:
     type: boolean
     description: >-

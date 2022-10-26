@@ -12,20 +12,50 @@ allOf:
         type: string
         example: A very nice Service Desk integration
       type:
-        description: Type of the Service Desk integration
+        description: |
+          Service Desk integration types
+
+          - ServiceNowSDIM
+          - ServiceNow
         type: string
         default: ServiceNowSDIM
         example: ServiceNowSDIM
       ownerRef:
         description: Reference to the identity that is the owner of this Service Desk integration
-        $ref: '../../v3/schemas/BaseReferenceDto.yaml'
-        default:
-          type: IDENTITY
+        type: object
+        properties:
+          type:
+            description: The type of object being referenced
+            type: string
+            enum:
+              - IDENTITY
+            example: IDENTITY
+          id:
+            type: string
+            description: ID of the identity
+            example: 2c91808568c529c60168cca6f90c1313
+          name:
+            type: string
+            description: Human-readable display name of the identity
+            example: MyName
       clusterRef:
         description: Reference to the source cluster for this Service Desk integration
-        $ref: '../../v3/schemas/BaseReferenceDto.yaml'
-        default:
-          type: CLUSTER
+        type: object
+        properties:
+          type:
+            description: The type of object being referenced
+            type: string
+            enum:
+              - CLUSTER
+            example: CLUSTER
+          id:
+            type: string
+            description: ID of the cluster
+            example: 2c9180866166b5b0016167c32ef31a66
+          name:
+            type: string
+            description: Human-readable display name of the cluster
+            example: Corporate Cluster
       cluster:
         description: ID of the cluster for the Service Desk integration (replaced by clusterRef, retained for backward compatibility)
         type: string
@@ -53,10 +83,19 @@ allOf:
         }
       beforeProvisioningRule:
         description: Reference to beforeProvisioningRule for this Service Desk integration
-        $ref: '../../v3/schemas/BaseReferenceDto.yaml'
-        default:
-          type: RULE
-        example:
-          type: "RULE"
-          id: "2c918085708c274401708c2a8a760001"
-          name: "Example Rule"
+        type: object
+        properties:
+          type:
+            description: The type of object being referenced
+            type: string
+            enum:
+              - RULE
+            example: RULE
+          id:
+            type: string
+            description: ID of the rule
+            example: 2c91808568c529c60168cca6f90c1333
+          name:
+            type: string
+            description: Human-readable display name of the rule
+            example: Example Rule

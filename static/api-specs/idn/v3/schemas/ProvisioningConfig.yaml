@@ -10,10 +10,29 @@ properties:
     description: References to sources for the Service Desk integration template.  May only be specified if universalManager is false.
     type: array
     items:
-      $ref: '../../v3/schemas/BaseReferenceDto.yaml'
-      default:
-        type: SOURCE
-    example: []
+      type: object
+      properties:
+        type:
+          description: The type of object being referenced
+          type: string
+          enum:
+            - SOURCE
+          example: SOURCE
+        id:
+          type: string
+          description: ID of the source
+          example: 2c91808568c529c60168cca6f90c1313
+        name:
+          type: string
+          description: Human-readable display name of the source
+          example: My Source
+    example:
+      - type: "SOURCE"
+        id: "2c9180855d191c59015d291ceb051111"
+        name: "My Source 1"
+      - type: "SOURCE"
+        id: "2c9180855d191c59015d291ceb052222"
+        name: "My Source 2"
   planInitializerScript:
     description: This is a reference to a plan initializer script.
     type: object
@@ -21,4 +40,5 @@ properties:
       source:
         description: This is a Rule that allows provisioning instruction changes.
         type: string
-        example: <rule code>
+        example: |
+          <?xml version='1.0' encoding='UTF-8'?>\r\n<!DOCTYPE Rule PUBLIC \"sailpoint.dtd\" \"sailpoint.dtd\">\r\n<Rule name=\"Example Rule\" type=\"BeforeProvisioning\">\r\n  <Description>Before Provisioning Rule which changes disables and enables to a modify.</Description>\r\n  <Source><![CDATA[\r\nimport sailpoint.object.*;\r\nimport sailpoint.object.ProvisioningPlan.AccountRequest;\r\nimport sailpoint.object.ProvisioningPlan.AccountRequest.Operation;\r\nimport sailpoint.object.ProvisioningPlan.AttributeRequest;\r\nimport sailpoint.object.ProvisioningPlan;\r\nimport sailpoint.object.ProvisioningPlan.Operation;\r\n\r\nfor ( AccountRequest accountRequest : plan.getAccountRequests() ) {\r\n  if ( accountRequest.getOp().equals( ProvisioningPlan.ObjectOperation.Disable ) ) {\r\n    accountRequest.setOp( ProvisioningPlan.ObjectOperation.Modify );\r\n  }\r\n  if ( accountRequest.getOp().equals( ProvisioningPlan.ObjectOperation.Enable ) ) {\r\n    accountRequest.setOp( ProvisioningPlan.ObjectOperation.Modify );\r\n  }\r\n}\r\n\r\n  ]]></Source>

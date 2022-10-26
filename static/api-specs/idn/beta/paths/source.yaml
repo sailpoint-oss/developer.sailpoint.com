@@ -250,7 +250,22 @@ delete:
       content:
         application/json:
           schema:
-            $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+            type: object
+            properties:
+              type:
+                description: The type of object being referenced
+                type: string
+                enum:
+                  - TASK_RESULT
+                example: TASK_RESULT
+              id:
+                type: string
+                description: ID of the task result
+                example: 2c91808779ecf55b0179f720942f181a
+              name:
+                type: string
+                description: Human-readable display name of the task result (should be null/empty)
+                example: null
           examples:
             deleteSource: 
               summary: Response returned when deleting a source

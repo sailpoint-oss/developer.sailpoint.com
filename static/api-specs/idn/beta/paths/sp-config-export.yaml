@@ -17,7 +17,6 @@ post:
     content:
       application/json:
         schema:
-          type: object
           $ref: '../schemas/ExportPayload.yaml'
         examples:
           Export all objects available:

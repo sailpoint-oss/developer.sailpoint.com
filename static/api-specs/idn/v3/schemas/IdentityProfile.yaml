@@ -1,11 +1,12 @@
 allOf:
-- $ref: './BaseReferenceDto.yaml'
+- $ref: './BaseCommonDto.yaml'
 - type: object
   properties:
     description:
       type: string
       description: The description of the Identity Profile.
       example: My custom flat file profile
+      nullable: true
     owner:
       $ref: './BaseReferenceDto.yaml'
       description: The owner of the Identity Profile.

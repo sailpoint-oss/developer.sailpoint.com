@@ -56,6 +56,17 @@ module.exports = {
     },
     {
       type: "dropdown",
+      label: "Not A Developer?",
+      position: "right",
+      items: [
+        {
+          label: "Product Documentation",
+          href: "https://documentation.sailpoint.com",
+        },
+      ],
+    },
+    {
+      type: "dropdown",
       label: "Support",
       position: "right",
       items: [

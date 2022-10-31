@@ -28,7 +28,7 @@ properties:
       requestedAppId: 2c91808f7892918f0178b78da4a305a1
     description: >-
       Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on
-      associated APIs such as /account-activities.
+      associated APIs such as /account-activities and /access-request-status.
   removeDate:
     type: string
     description: |

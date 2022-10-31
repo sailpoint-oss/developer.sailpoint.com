@@ -13,9 +13,11 @@ properties:
     description: Type of requested object.
     example: ACCESS_PROFILE
   cancelledRequestDetails:
+    nullable: true
     $ref: './CancelledRequestDetails.yaml'
   errorMessages:
     type: array
+    nullable: true
     items:
       $ref: './ErrorMessageDtoList.yaml'
     description: List of list of localized error messages, if any, encountered during the approval/provisioning process.
@@ -28,6 +30,7 @@ properties:
     description: Approval details for each item.
   manualWorkItemDetails:
     type: array
+    nullable: true
     items:
       $ref: './ManualWorkItemDetails.yaml'
     description: Manual work items created for provisioning the item.
@@ -55,13 +58,17 @@ properties:
     description: The identity for whom the Access Request Status is requested for.
   requesterComment:
     $ref: './CommentDto.yaml'
+    nullable: true
     description: The requester's comment.
   sodViolationContext:
     $ref: './SodViolationContextCheckCompleted.yaml'
+    nullable: true
     description: The details of the SOD violations for the associated approval.
   provisioningDetails:
+    nullable: true
     $ref: './ProvisioningDetails.yaml'
   preApprovalTriggerDetails:
+    nullable: true
     $ref: './PreApprovalTriggerDetails.yaml'
   accessRequestPhases:
     type: array
@@ -75,6 +82,7 @@ properties:
   removeDate:
     type: string
     format: date-time
+    nullable: true
     description: When the role access is scheduled for removal.
     example: "2019-10-23T00:00:00.000Z"
   cancelable:
@@ -83,6 +91,18 @@ properties:
     example: true
   accessRequestId:
     type: string
-    format: uuid
+    format: string
     description: This is the account activity id.
     example: "ef38f94347e94562b5bb8424a56397d8"
+  clientMetadata:
+    nullable: true
+    type: object
+    additionalProperties:
+      type: string
+    description: >-
+      Arbitrary key-value pairs, if any were included in the corresponding access request
+    example:
+      {
+        "key1": "value1",
+        "key2": "value2"
+      }

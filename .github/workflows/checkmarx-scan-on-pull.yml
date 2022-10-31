@@ -20,7 +20,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on - runs on self-hosted runner
-    runs-on: self-hosted, prod-sec
+    runs-on: [self-hosted, prod-sec]
     
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it

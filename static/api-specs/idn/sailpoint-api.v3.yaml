@@ -43,10 +43,7 @@ tags:
       If multiple reviewers are required, IdentityNow sends the request to the next reviewer in the queue, based on the access request configuration's approval reminder and escalation configuration.   
       The required approver can then view any completed access requests under the Reviewed tab.   
 
-      Refer to the following link for more information about access request approvals:
-    externalDocs:
-      description: Learn more about access request approvals
-      url: https://documentation.sailpoint.com/saas/help/requests/index.html
+      Refer to [Access Requests](https://documentation.sailpoint.com/saas/help/requests/index.html) for more information about access request approvals.
   - name: Access Requests
     description: |
       Use this API to implement and customize access request functionality. 
@@ -63,10 +60,7 @@ tags:
       In My Team on the IdentityNow Home, managers can submit requests to revoke their team members' access. 
       They can use the My Requests tab under Request Center to track and/or cancel the requests.
 
-      Refer to the following link for more information about access requests:
-    externalDocs:
-      description: Learn more about access requests
-      url: https://documentation.sailpoint.com/saas/user-help/requests/requesting_access.html
+      Refer to [Requesting Access](https://documentation.sailpoint.com/saas/user-help/requests/requesting_access.html) for more information about access requests.
   - name: Accounts
     description: |
       Use this API to implement and customize account functionality.
@@ -95,10 +89,7 @@ tags:
 
       Administrators can select the source account to view its attributes, entitlements, and the last time the account's password was changed.
 
-      Refer to the following link for more information about accounts:
-    externalDocs:
-      description: Learn more about accounts
-      url: https://documentation.sailpoint.com/saas/help/common/users/user_access.html
+      Refer to [Managing User Accounts](https://documentation.sailpoint.com/saas/help/common/users/user_access.html#managing-user-accounts) for more information about accounts.
   - name: Account Activities
     description: |
       Use this API to implement account activity tracking functionality.
@@ -133,10 +124,7 @@ tags:
 
       - Password Change: These include password changes on sources.
 
-      Refer to the following link for more information about account activities:
-    externalDocs:
-      description: Learn more about account activities
-      url: https://documentation.sailpoint.com/saas/help/search/index.html
+      Refer to [Account Activity](https://documentation.sailpoint.com/saas/help/search/index.html#account-activity) for more information about account activities.
   - name: Certifications
     description: |
       Use this API to implement certification functionality. 
@@ -154,7 +142,7 @@ tags:
       Organization administrators or certification administrators can designate other IdentityNow users as certification reviewers. 
       Those reviewers can select the 'Certifications' tab to view any of the certifications they either need to review or have already reviewed under the 'Active' and 'Completed' tabs, respectively. 
 
-      When a certification campaign is in progress,certification reviewers will see certifications listed under 'Active,' where they can review the involved identities. 
+      When a certification campaign is in progress, certification reviewers will see certifications listed under 'Active,' where they can review the involved identities. 
       Under the 'Decision' column on the right, next to each access item, reviewers can select the checkmark to approve access, select the 'X' to revoke access, or they can toggle the 'More Options' menu to reassign the certification to another reviewer and provide a reason for reassignment in the form of a comment. 
 
       Once a reviewer has made decisions on all the certification's involved access items, he or she must select 'Sign Off' to complete the review process.
@@ -163,10 +151,7 @@ tags:
       Once all the reviewers have signed off, the certification campaign either completes or, if any reviewers decided to revoke access for any of the involved identities, it moves into a remediation phase. In the remediation phase, identities' entitlements are altered to remove any entitlements marked for revocation.
       In this situation, the certification campaign completes once all the remediation requests are completed. 
 
-      Refer to the following link for more information about certifications: 
-    externalDocs:
-      description: Learn more about certifications
-      url: https://documentation.sailpoint.com/saas/user-help/certifications.html
+      Refer to [Certifications](https://documentation.sailpoint.com/saas/user-help/certifications.html) for more information about certifications.
   - name: Certification Summaries
   - name: Lifecycle States
     description: |
@@ -178,7 +163,7 @@ tags:
       The inactive employee would lose access to all the applications, sources, and sensitive data during the leave of absence, but when the employee returns and becomes active again, all that access would be restored. 
       This saves administrators the time that would otherwise be spent provisioning the employee's access to each individual tool, reviewing the employee's certification history, etc. 
 
-      Administrators can create a variety of custom lifecycle states. See [Planning New Lifecycle States](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html#planning-new-lifecycle-states) for some custom lifecycle state ideas.
+      Administrators can create a variety of custom lifecycle states. Refer to [Planning New Lifecycle States](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html#planning-new-lifecycle-states) for some custom lifecycle state ideas.
 
       Administrators must define the criteria for being in each lifecycle state, and they must define how IdentityNow manages users' access to apps and sources for each lifecycle state.
 
@@ -202,15 +187,12 @@ tags:
       If the identities are missing access, IdentityNow provisions that access. 
 
       Administrators can also use the 'Provisioning' tab to configure email notifications for IdentityNow to send whenever an identity with that identity profile has a lifecycle state change. 
-      See [Configuring Lifecycle State Notifications](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html#configuring-lifecycle-state-notifications) for more information on how to do so.
+      Refer to [Configuring Lifecycle State Notifications](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html#configuring-lifecycle-state-notifications) for more information on how to do so.
 
       An identity's lifecycle state can have four different statuses: the lifecycle state's status can be 'Active,' it can be 'Not Set,' it can be 'Not Valid,' or it 'Does Not Match Technical Name Case.' 
-      See [Moving Identities into Lifecycle States](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html#moving-identities-into-lifecycle-states) for more information about these different lifecycle state statuses. 
+      Refer to [Moving Identities into Lifecycle States](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html#moving-identities-into-lifecycle-states) for more information about these different lifecycle state statuses. 
 
-      Refer to the following link for more information about lifecycle states:
-    externalDocs:
-      description: Learn more about lifecycle states
-      url: https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html
+      Refer to [Setting Up Lifecycle States](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html) for more information about lifecycle states.
   - name: Identity Profiles
     description: |
       Use this API to implement identity profile functionality. 
@@ -222,10 +204,7 @@ tags:
       This list shows some details about each identity profile, along with its status. 
       They can select an identity profile to view its settings, its mappings between identity attributes and correlating source account attributes, and its provisioning settings. 
 
-      Refer to the following link for more information about identity profiles:
-    externalDocs:
-      description: Learn more about identity profiles
-      url: https://documentation.sailpoint.com/saas/help/setup/identity_profiles.html
+      Refer to [Creating Identity Profiles](https://documentation.sailpoint.com/saas/help/setup/identity_profiles.html) for more information about identity profiles.
   - name: Non-Employee Lifecycle Management
     description: |
       Use this API to implement non-employee lifecycle management functionality. 
@@ -247,26 +226,23 @@ tags:
 
       To create a non-employee source in IdentityNow, administrators must use the Admin panel to go to Connections > Sources.
       They must then specify 'Non-Employee' in the 'Source Type' field. 
-      See [Creating a Non-Employee Source](https://documentation.sailpoint.com/saas/help/common/non-employee-mgmt.html#creating-a-non-employee-source) for more details about how to create non-employee sources.
+      Refer to [Creating a Non-Employee Source](https://documentation.sailpoint.com/saas/help/common/non-employee-mgmt.html#creating-a-non-employee-source) for more details about how to create non-employee sources.
 
       To add accounts to a non-employee source in IdentityNow, administrators can select the non-employee source and add the accounts. 
       They can also use the 'Manage Non-Employees' widget on their user dashboards to reach the list of sources and then select the non-employee source they want to add the accounts to. 
 
       Administrators can either add accounts individually or in bulk. Each non-employee source can have a maximum of 20,000 accounts. 
       To add accounts in bulk, they must select the 'Bulk Upload' option and upload a CSV file. 
-      See [Adding Accounts](https://documentation.sailpoint.com/saas/help/common/non-employee-mgmt.html#adding-accounts) for more details about how to add accounts to non-employee sources.
+      Refer to [Adding Accounts](https://documentation.sailpoint.com/saas/help/common/non-employee-mgmt.html#adding-accounts) for more details about how to add accounts to non-employee sources.
 
       Once administrators have created the non-employee source and added accounts to it, they can create identity profiles to generate identities for the non-employee accounts and manage the non-employee identities the same way they would any other identities. 
 
-      Refer to the following link for more information about non-employee lifecycle management:
-    externalDocs:
-      description: Learn more about non-employee lifecycle management
-      url: https://documentation.sailpoint.com/saas/help/common/non-employee-mgmt.html
+      Refer to [Managing Non-Employee Sources and Accounts](https://documentation.sailpoint.com/saas/help/common/non-employee-mgmt.html) for more information about non-employee lifecycle management.
   - name: OAuth Clients
     description: |
       Use this API to implement OAuth client functionality.   
       With this functionality in place, users with the appropriate security scopes can create and configure OAuth clients to use as a way to obtain authorization to use the IdentityNow REST API.
-      See [Authentication](https://developer.sailpoint.com/idn/api/authentication) for more information about OAuth and how it works with the IdentityNow REST API. 
+      Refer to [Authentication](https://developer.sailpoint.com/idn/api/authentication) for more information about OAuth and how it works with the IdentityNow REST API. 
   - name: Password Management
     description: |
       Use this API to implement password management functionality.  
@@ -292,10 +268,7 @@ tags:
       An organization may require some authentication for users to update their passwords. 
       Users may be required to answer security questions or use a third-party authenticator before they can confirm their updates. 
 
-      Refer to the following link for more information about password management:
-    externalDocs:
-      description: Learn more about password management
-      url: https://documentation.sailpoint.com/saas/user-help/accounts/passwords.html
+      Refer to [Managing Passwords](https://documentation.sailpoint.com/saas/user-help/accounts/passwords.html) for more information about password management.
   - name: Personal Access Tokens
     description: |
       Use this API to implement personal access token (PAT) functionality. 
@@ -308,10 +281,7 @@ tags:
       They must then provide a description about the token's purpose. 
       They can then select 'Create Token' at the bottom of the page to generate and view the Secret and Client ID. 
 
-      Refer to the following link for more information about PATs:
-    externalDocs:
-      description: Learn more about PATs
-      url: https://documentation.sailpoint.com/saas/help/common/generate_tokens.html
+      Refer to [Managing Personal Access Tokens](https://documentation.sailpoint.com/saas/help/common/generate_tokens.html) for more information about PATs.
   - name: Public Identities
     description: |
       Use this API in conjunction with [Public Identites Config](https://developer.sailpoint.com/idn/api/v3/public-identities-config) to enable non-administrators to view identities' publicly visible attributes. 
@@ -345,7 +315,7 @@ tags:
       In IdentityNow, administrators can create a service desk integration (sometimes also called an SDIM, or Service Desk Integration Module) by going to Admin > Connections > Service Desk and selecting 'Create.'
 
       To create a Generic Service Desk integration, for example, administrators must provide the required information on the General Settings page, the Connectivity and Authentication information, Ticket Creation information, Status Mapping information, and Requester Source information on the Configure page. 
-      See [Integrating SailPoint with Generic Service Desk](https://documentation.sailpoint.com/connectors/generic_sd/help/integrating_generic_service_desk/intro.html) for more information about the process of setting up a Generic Service Desk in IdentityNow.
+      Refer to [Integrating SailPoint with Generic Service Desk](https://documentation.sailpoint.com/connectors/generic_sd/help/integrating_generic_service_desk/intro.html) for more information about the process of setting up a Generic Service Desk in IdentityNow.
 
       Administrators can create various service desk integrations, all with their own nuances. 
       The following service desk integrations are available: 
@@ -370,9 +340,8 @@ tags:
       Transforms are a form of configurable objects which define an easy way to manipulate attribute data without having
       to write code. These endpoints don't require API calls to other resources, audit service is used for keeping track
       of which users have made changes to the Transforms.
-    externalDocs:
-      description: Learn more about Building Transforms
-      url: https://developer.sailpoint.com/docs/transforms/building_transforms/building_transforms.html
+
+      Refer to [Transforms](https://developer.sailpoint.com/idn/docs/transforms) for more information about transforms.
   - name: Work Items
     description: |
       Use this API to implement work item functionality. 
@@ -388,10 +357,7 @@ tags:
       The widget will list any work items they need to complete, and they can select the work item from the list to review its details. 
       When they complete the work item, they can select 'Mark Complete' to add it to their list of completed work items. 
 
-      Refer to the following link for more information about work items, like the different types of work items users may need to complete:
-    externalDocs:
-      description: Learn more about work items
-      url: https://documentation.sailpoint.com/saas/user-help/task_manager.html
+      Refer to [Task Manager](https://documentation.sailpoint.com/saas/user-help/task_manager.html) for more information about work items, including the different types of work items users may need to complete.
 paths:
   /access-requests:
     $ref: "./v3/paths/access-requests.yaml"

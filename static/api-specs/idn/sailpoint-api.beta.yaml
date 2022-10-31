@@ -53,11 +53,7 @@ tags:
       
       - Multiple Account Options: Define the logic IdentityNow uses to provision access to an identity with multiple accounts on the source. 
 
-
-      Refer to the following link for more information about access profiles:
-    externalDocs:
-      description: Learn more about access profiles
-      url: https://documentation.sailpoint.com/saas/help/access/access-profiles.html    
+      Refer to [Managing Access Profiles](https://documentation.sailpoint.com/saas/help/access/access-profiles.html) for more information about access profiles.  
   - name: Access Request Approvals
     description: |
       Use this API to implement and customize access request approval functionality. 
@@ -76,10 +72,7 @@ tags:
       If multiple reviewers are required, IdentityNow sends the request to the next reviewer in the queue, based on the access request configuration's approval reminder and escalation configuration.   
       The required approver can then view any completed access requests under the Reviewed tab.     
       
-      Refer to the following link for more information about access request approvals:  
-    externalDocs:
-      description: Learn more about access request approvals
-      url: https://documentation.sailpoint.com/saas/help/requests/index.html  
+      Refer to [Access Requests](https://documentation.sailpoint.com/saas/help/requests/index.html) for more information about access request approvals.
   - name: Access Requests
     description: |
       Use this API to implement and customize access request functionality. 
@@ -96,10 +89,7 @@ tags:
       In My Team on the IdentityNow Home, managers can submit requests to revoke their team members' access. 
       They can use the My Requests tab under Request Center to track and/or cancel the requests.
       
-      Refer to the following link for more information about access requests:
-    externalDocs:
-      description: Learn more about access requests
-      url: https://documentation.sailpoint.com/saas/user-help/requests/requesting_access.html
+      Refer to [Requesting Access](https://documentation.sailpoint.com/saas/user-help/requests/requesting_access.html) for more information about access requests.
   - name: Account Activities
     description: |
       Use this API to implement account activity tracking functionality.
@@ -134,10 +124,7 @@ tags:
 
       - Password Change: These include password changes on sources.
 
-      Refer to the following link for more information about account activities: 
-    externalDocs:
-      description: Learn more about account activities
-      url: https://documentation.sailpoint.com/saas/help/search/index.html
+      Refer to [Account Activity](https://documentation.sailpoint.com/saas/help/search/index.html#account-activity) for more information about account activities.
   - name: Account Aggregations
     description: |
       Use this API to implement account aggregation progress tracking functionality. 
@@ -149,10 +136,7 @@ tags:
       To view aggregation activity, administrators can select the Connections drop-down menu, select Sources, and select the relevant source, select its Import Data tab, and select Account Aggregation. 
       In Account Aggregation, administrators can view the account aggregations' statuses and details in the Account Activity Log.
 
-      Refer to the following link for more information about account aggregations: 
-    externalDocs:
-      description: Learn more about account aggregations
-      url: https://documentation.sailpoint.com/saas/help/accounts/loading_data.html
+      Refer to [Loading Account Data](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html) for more information about account aggregations.
   - name: Accounts
     description: |
       Use this API to implement and customize account functionality.
@@ -181,10 +165,7 @@ tags:
 
       Administrators can select the source account to view its attributes, entitlements, and the last time the account's password was changed.
 
-      Refer to the following link for more information about accounts: 
-    externalDocs:
-      description: Learn more about accounts
-      url: https://documentation.sailpoint.com/saas/help/common/users/user_access.html 
+      Refer to [Managing User Accounts](https://documentation.sailpoint.com/saas/help/common/users/user_access.html#managing-user-accounts) for more information about accounts.
   - name: Certification Campaigns
   - name: Certifications
   - name: Connector Rule Management
@@ -199,14 +180,11 @@ tags:
 
       In IdentityNow, administrators can use the Connections drop-down menu and select Sources to view the available source connectors. 
 
-      Refer to https://documentation.sailpoint.com/connectors/identitynow/landingpages/help/landingpages/identitynow_connectivity_landing.html for more information about the connectors available in IdentityNow. 
+      Refer to [IdentityNow Connectors](https://documentation.sailpoint.com/connectors/identitynow/landingpages/help/landingpages/identitynow_connectivity_landing.html) for more information about the connectors available in IdentityNow. 
 
-      Refer to https://developer.sailpoint.com/idn/docs/saas-connectivity for more information about the SaaS custom connectors that do not need VAs (virtual appliances) to communicate with their sources. 
+      Refer to [SaaS Connectivity](https://developer.sailpoint.com/idn/docs/saas-connectivity) for more information about the SaaS custom connectors that do not need VAs (virtual appliances) to communicate with their sources. 
 
-      Refer to the following link for more information about using connectors in IdentityNow: 
-    externalDocs:
-      description: Learn more about connectors
-      url: https://documentation.sailpoint.com/saas/help/sources/managing_sources.html
+      Refer to [Managing Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html) for more information about using connectors in IdentityNow.
   - name: Custom Password Instructions
     description: |
       Use this API to implement custom password instruction functionality.
@@ -219,10 +197,7 @@ tags:
 
       For example, an administrator can use the pageId forget-username:user-email to set the custom text for the case when users forget their usernames and must enter their emails. 
 
-      Refer to the following link for more information about creating custom password instructions: 
-    externalDocs:
-      description: Learn more about custom password instructions
-      url: https://documentation.sailpoint.com/saas/help/pwd/pwd_reset.html
+      Refer to [Creating Custom Instruction Text](https://documentation.sailpoint.com/saas/help/pwd/pwd_reset.html#creating-custom-instruction-text) for more information about creating custom password instructions.
   - name: Entitlements
     description: |
       Use this API to implement and customize entitlement functionality. 
@@ -271,12 +246,9 @@ tags:
       You cannot delete entitlements directly from IdentityNow. 
       Entitlements are deleted based on their inclusion in aggregations. 
       
-      Refer to https://documentation.sailpoint.com/saas/help/access/entitlements.html#deleting-entitlements more information about deleting entitlements.
+      Refer to [Deleting Entitlements](https://documentation.sailpoint.com/saas/help/access/entitlements.html#deleting-entitlements) more information about deleting entitlements.
       
-      Refer to the following link for more information about entitlements:
-    externalDocs:
-      description: Learn more about entitlements
-      url: https://documentation.sailpoint.com/saas/help/access/index.html
+      Refer to [Entitlements](https://documentation.sailpoint.com/saas/help/access/entitlements.html) for more information about entitlements.
   - name: IAI Access Request Recommendations
   - name: IAI Common Access
   - name: IAI Outliers
@@ -299,10 +271,7 @@ tags:
       They can then select the identity they want to manually synchronize and use the hamburger menu to select 'Synchronize Attributes.' 
       Doing so immediately begins the attribute synchronization and analyzes all accounts for the selected identity.
 
-      Refer to the following link for more information about synchronizing attributes: 
-    externalDocs:
-      description: Learn more about synchronizing attributes
-      url: https://documentation.sailpoint.com/saas/help/provisioning/attr_sync.html   
+      Refer to [Synchronizing Attributes](https://documentation.sailpoint.com/saas/help/provisioning/attr_sync.html) for more information about synchronizing attributes.
   - name: Identity History
   - name: Identity Profiles
     description: |
@@ -316,10 +285,7 @@ tags:
       This list shows some details about each identity profile, along with its status. They can select an identity profile to view and modify its settings, its mappings between identity attributes and correlating source account attributes, and its provisioning settings. 
       Administrators can also use this page to create new identity profiles or delete existing ones. 
       
-      Refer to the following link for more information about identity profiles: 
-    externalDocs:
-      description: Learn more about identity profiles
-      url: https://documentation.sailpoint.com/saas/help/setup/identity_profiles.html
+      Refer to [Creating Identity Profiles](https://documentation.sailpoint.com/saas/help/setup/identity_profiles.html) for more information about identity profiles.
   - name: Lifecycle States
     description: |
       Use this API to implement and customize lifecycle state functionality.
@@ -352,15 +318,12 @@ tags:
       If the identities are missing access, IdentityNow provisions that access. 
 
       Administrators can also use the 'Provisioning' tab to configure email notifications for IdentityNow to send whenever an identity with that identity profile has a lifecycle state change. 
-      See [Configuring Lifecycle State Notifications](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html#configuring-lifecycle-state-notifications) for more information on how to do so.
+      Refer to [Configuring Lifecycle State Notifications](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html#configuring-lifecycle-state-notifications) for more information on how to do so.
 
       An identity's lifecycle state can have four different statuses: the lifecycle state's status can be 'Active,' it can be 'Not Set,' it can be 'Not Valid,' or it 'Does Not Match Technical Name Case.' 
-      See [Moving Identities into Lifecycle States](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html#moving-identities-into-lifecycle-states) for more information about these different lifecycle state statuses. 
+      Refer to [Moving Identities into Lifecycle States](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html#moving-identities-into-lifecycle-states) for more information about these different lifecycle state statuses. 
 
-      Refer to the following link for more information about lifecycle states: 
-    externalDocs:
-      description: Learn more about lifecycle states
-      url: https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html 
+      Refer to [Setting Up Lifecycle States](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html) for more information about lifecycle states.
   - name: Managed Clients
     description: Read and write operations for managing client data and statuses
   - name: Managed Clusters
@@ -388,27 +351,24 @@ tags:
 
       To create a non-employee source in IdentityNow, administrators must use the Admin panel to go to Connections > Sources.
       They must then specify 'Non-Employee' in the 'Source Type' field. 
-      See [Creating a Non-Employee Source](https://documentation.sailpoint.com/saas/help/common/non-employee-mgmt.html#creating-a-non-employee-source) for more details about how to create non-employee sources.
+      Refer to [Creating a Non-Employee Source](https://documentation.sailpoint.com/saas/help/common/non-employee-mgmt.html#creating-a-non-employee-source) for more details about how to create non-employee sources.
 
       To add accounts to a non-employee source in IdentityNow, administrators can select the non-employee source and add the accounts. 
       They can also use the 'Manage Non-Employees' widget on their user dashboards to reach the list of sources and then select the non-employee source they want to add the accounts to. 
 
       Administrators can either add accounts individually or in bulk. Each non-employee source can have a maximum of 20,000 accounts. 
       To add accounts in bulk, they must select the 'Bulk Upload' option and upload a CSV file. 
-      See [Adding Accounts](https://documentation.sailpoint.com/saas/help/common/non-employee-mgmt.html#adding-accounts) for more details about how to add accounts to non-employee sources.
+      Refer to [Adding Accounts](https://documentation.sailpoint.com/saas/help/common/non-employee-mgmt.html#adding-accounts) for more details about how to add accounts to non-employee sources.
 
       Once administrators have created the non-employee source and added accounts to it, they can create identity profiles to generate identities for the non-employee accounts and manage the non-employee identities the same way they would any other identities. 
 
-      Refer to the following link for more information about non-employee lifecycle management:
-    externalDocs:
-      description: Learn more about non-employee lifecycle management
-      url: https://documentation.sailpoint.com/saas/help/common/non-employee-mgmt.html
+      Refer to [Managing Non-Employee Sources and Accounts](https://documentation.sailpoint.com/saas/help/common/non-employee-mgmt.html) for more information about non-employee lifecycle management.
   - name: Notifications
   - name: OAuth Clients
     description: |
       Use this API to implement OAuth client functionality.   
       With this functionality in place, users with the appropriate security scopes can create and configure OAuth clients to use as a way to obtain authorization to use the IdentityNow REST API.
-      See [Authentication](https://developer.sailpoint.com/idn/api/authentication) for more information about OAuth and how it works with the IdentityNow REST API. 
+      Refer to [Authentication](https://developer.sailpoint.com/idn/api/authentication) for more information about OAuth and how it works with the IdentityNow REST API. 
   - name: Org Config
     description: Operations for managing org configuration settings (eg. time zone)
   - name: Password Configuration
@@ -418,10 +378,7 @@ tags:
 
       These configurations include details like custom password instructions, as well as digit token length and duration. 
 
-      Refer to the following link for more information about organization password configuration functionality: 
-    externalDocs:
-      description: Learn more about organization password configurations
-      url: https://documentation.sailpoint.com/saas/help/pwd/pwd_reset.html
+      Refer to [Configuring User Authentication for Password Resets](https://documentation.sailpoint.com/saas/help/pwd/pwd_reset.html) for more information about organization password configuration functionality.
   - name: Password Dictionary
     description: |
       Use this API to implement password dictionary functionality.  
@@ -470,10 +427,7 @@ tags:
 
       Administrators can then specify which password policies check new passwords against the password dictionary by doing the following: In the Admin panel, they can use the Password Mgmt dropdown menu to select Policies, select the policy, and select the 'Prevent use of words in this site's password dictionary' checkbox beside it.
 
-      Refer to the following link for more information about password dictionaries: 
-    externalDocs:
-      description: Learn more about password dictionaries
-      url: https://documentation.sailpoint.com/saas/help/pwd/adv_config.html
+      Refer to [Configuring Advanced Password Management Options](https://documentation.sailpoint.com/saas/help/pwd/adv_config.html) for more information about password dictionaries.
   - name: Password Management
     description: |
       Use this API to implement password management functionality.  
@@ -499,10 +453,7 @@ tags:
       An organization may require some authentication for users to update their passwords. 
       Users may be required to answer security questions or use a third-party authenticator before they can confirm their updates. 
 
-      Refer to the following link for more information about password management: 
-    externalDocs:
-      description: Learn more about password management
-      url: https://documentation.sailpoint.com/saas/user-help/accounts/passwords.html
+      Refer to [Managing Passwords](https://documentation.sailpoint.com/saas/user-help/accounts/passwords.html) for more information about password management.
   - name: Password Sync Groups
     description: |
       Use this API to implement password sync group functionality. 
@@ -518,9 +469,9 @@ tags:
 
       - At least two direct connect sources connected to IdentityNow and configured for Password Management.
 
-      - Each authentication source in a sync group must have at least one application. Refer to https://documentation.sailpoint.com/saas/help/pwd/adv_config.html for more information about adding applications to sources.
+      - Each authentication source in a sync group must have at least one application. Refer to [Adding and Resetting Application Passwords](https://documentation.sailpoint.com/saas/help/pwd/adv_config.html#adding-and-resetting-application-passwords) for more information about adding applications to sources.
 
-      - At least one password policy. Refer to https://documentation.sailpoint.com/saas/help/pwd/policies.html for more information about password policies. 
+      - At least one password policy. Refer to [Managing Password Policies](https://documentation.sailpoint.com/saas/help/pwd/policies.html) for more information about password policies. 
 
       In the Admin panel in IdentityNow, administrators can use the Password Mgmt dropdown menu to select Sync Groups. 
       To create a sync group, administrators must provide a name, choose a password policy to be enforced across the sources in the sync group, and select the sources to include in the sync group. 
@@ -536,10 +487,7 @@ tags:
 
       Once the password sync group has been created, users can update the password for the group in Password Manager.
 
-      Refer to the following link for more information about password sync groups: 
-    externalDocs:
-      description: Learn more about password sync groups
-      url: https://documentation.sailpoint.com/saas/help/pwd/sync_grps.html
+      Refer to [Managing Password Sync Groups](https://documentation.sailpoint.com/saas/help/pwd/sync_grps.html) for more information about password sync groups.
   - name: Personal Access Tokens  
     description: |
       Use this API to implement personal access token (PAT) functionality. 
@@ -552,10 +500,7 @@ tags:
       They must then provide a description about the token's purpose. 
       They can then select 'Create Token' at the bottom of the page to generate and view the Secret and Client ID. 
 
-      Refer to the following link for more information about PATs: 
-    externalDocs:
-      description: Learn more about PATs
-      url: https://documentation.sailpoint.com/saas/help/common/generate_tokens.html
+      Refer to [Managing Personal Access Tokens](https://documentation.sailpoint.com/saas/help/common/generate_tokens.html) for more information about PATs.
   - name: Public Identities Config
     description: |
       Use this API to implement public identity configuration functionality. 
@@ -612,10 +557,7 @@ tags:
       - Access Requests: Configure roles to be requestable and establish an approval process for any requests that the role be granted or revoked. 
       Do not configure a role to be requestable without establishing a secure access request approval process for that role first. 
 
-      Refer to the following link for more information about roles:
-    externalDocs:
-      description: Learn more about roles
-      url: https://documentation.sailpoint.com/saas/help/provisioning/roles.html
+      Refer to [Working with Roles](https://documentation.sailpoint.com/saas/help/provisioning/roles.html) for more information about roles.
   - name: Search Attribute Configuration
   - name: Segments
   - name: Service Desk Integration
@@ -626,7 +568,7 @@ tags:
       In IdentityNow, administrators can create a service desk integration (sometimes also called an SDIM, or Service Desk Integration Module) by going to Admin > Connections > Service Desk and selecting 'Create.'
 
       To create a Generic Service Desk integration, for example, administrators must provide the required information on the General Settings page, the Connectivity and Authentication information, Ticket Creation information, Status Mapping information, and Requester Source information on the Configure page. 
-      See [Integrating SailPoint with Generic Service Desk](https://documentation.sailpoint.com/connectors/generic_sd/help/integrating_generic_service_desk/intro.html) for more information about the process of setting up a Generic Service Desk in IdentityNow.
+      Refer to [Integrating SailPoint with Generic Service Desk](https://documentation.sailpoint.com/connectors/generic_sd/help/integrating_generic_service_desk/intro.html) for more information about the process of setting up a Generic Service Desk in IdentityNow.
 
       Administrators can create various service desk integrations, all with their own nuances. 
       The following service desk integrations are available: 
@@ -698,9 +640,7 @@ tags:
       | [Source Account Deleted](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/source-account-deleted) | idn:source-account-deleted | FIRE_AND_FORGET | After a source account is deleted. | [Input Schema](#section/Source-Account-Deleted-Event-Trigger-Input) |
       | [Source Account Updated](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/source-account-updated) | idn:source-account-updated | FIRE_AND_FORGET | After a source account is changed. | [Input Schema](#section/Source-Account-Updated-Event-Trigger-Input) |
 
-    externalDocs:
-      description: Getting started with event triggers
-      url: https://developer.sailpoint.com/idn/docs/event-triggers
+      Refer to [Event Triggers](https://developer.sailpoint.com/idn/docs/event-triggers/) for more information about event triggers.
   - name: Work Items
     description: |
       Use this API to implement work item functionality. 
@@ -716,20 +656,14 @@ tags:
       The widget will list any work items they need to complete, and they can select the work item from the list to review its details. 
       When they complete the work item, they can select 'Mark Complete' to add it to their list of completed work items. 
 
-      Refer to the following link for more information about work items, like the different types of work items users may need to complete: 
-    externalDocs:
-      description: Learn more about work items
-      url: https://documentation.sailpoint.com/saas/user-help/task_manager.html
+      Refer to [Task Manager](https://documentation.sailpoint.com/saas/user-help/task_manager.html) for more information about work items, including the different types of work items users may need to complete.
   - name: Workflows
     description: |
       Workflows allow administrators to create custom automation scripts directly within IdentityNow.  These automation scripts respond to [event triggers](https://developer.sailpoint.com/idn/docs/event-triggers#how-to-get-started-with-event-triggers) and perform a series of actions to perform tasks that are either too cumbersome or not available in the IdentityNow UI.  Workflows can be configured via a graphical user interface within IdentityNow, or by creating and uploading a JSON formatted script to the Workflow service.  The Workflows API collection provides the necessary functionality to create, manage, and test your workflows via REST.
       
       Workflows is currently in Beta, and is not generally available to all customer tenants.  If you would like to participate in the beta program, please [submit an application](https://app.smartsheet.com/b/form/e758ab109dc649589f57b4b5c41d4373).  You must be a customer or partner to participate.
 
-      Refer to the following link for more information about how to build a workflow in the visual builder in the IdentityNow UI:
-    externalDocs:
-      description: Workflow User Guide and Technical Documentation
-      url: https://documentation.sailpoint.com/saas/help/workflows/workflow-basics.html
+      Refer to [Creating and Managing Workflows] for more information about how to build workflows in the visual builder in the IdentityNow UI.
   - name: Event Trigger Models
     x-displayName: Trigger Models
     description: |

@@ -1,14 +1,32 @@
 allOf:
 - $ref: './BaseCommonDto.yaml'
 - type: object
+  required:
+    - authoritativeSource
   properties:
     description:
       type: string
       description: The description of the Identity Profile.
       example: My custom flat file profile
     owner:
-      $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+      type: object
       description: The owner of the Identity Profile.
+      nullable: true
+      properties:
+        type:
+          type: string
+          enum:
+            - IDENTITY
+          description: Type of the object to which this reference applies
+          example: IDENTITY
+        id:
+          type: string
+          description: ID of the object to which this reference applies
+          example: 2c9180835d191a86015d28455b4b232a
+        name:
+          type: string
+          description: Human-readable display name of the object to which this reference applies
+          example: William Wilson
     priority:
       type: integer
       format: int64

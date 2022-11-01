@@ -16,7 +16,12 @@ module.exports = {
         { to: "/idn/api/beta", label: "Beta APIs", className: "indent" },
         { to: "#", label: "Documentation", className: "navbar__section" },
         { to: "idn/docs", label: "IDN Documentation", className: "indent" },
-        { to: "#", label: "Training", className: "navbar__section" },
+        { to: "#", label: "External Links", className: "navbar__section" },
+        {
+          href: "https://documentation.sailpoint.com",
+          label: "Product Documentation",
+          className: "indent",
+        },
         {
           href: "https://university.sailpoint.com/Saba/Web_spf/NA10P1PRD075/guest/categorydetail/categ000000000003041/true/xxemptyxx/",
           label: "IdentityNow Certifications",
@@ -31,7 +36,12 @@ module.exports = {
       items: [
         { to: "#", label: "API Specifications", className: "navbar__section" },
         { to: "/iiq/api", label: "IIQ APIs", className: "indent" },
-        { to: "#", label: "Training", className: "navbar__section" },
+        { to: "#", label: "External Links", className: "navbar__section" },
+        {
+          href: "https://documentation.sailpoint.com",
+          label: "Product Documentation",
+          className: "indent",
+        },
         {
           href: "https://university.sailpoint.com/Saba/Web_spf/NA10P1PRD075/guest/categorydetail/categ000000000003042/true/xxemptyxx/",
           label: "IdentityIQ Certifications",

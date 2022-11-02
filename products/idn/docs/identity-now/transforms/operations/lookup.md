@@ -72,9 +72,7 @@ transform involves a `table` entry of key-value pairs:
 
 ## Examples
 
-This transform tries to map a telephone area code to a city in Texas. If there
-is no provided area code in one of the provided four values, the
-transform will return the default value of `Unknown Area".
+If there is no area code in the four provided values, the transform will return the default value, "Unknown Area."
 
 **Transform Request Body**:
 

@@ -57,7 +57,7 @@ transform involves a `table` entry of key-value pairs:
     string the transform returns if it matches the key.
 
     :::tip
-    A default key must be specified otherwise an error will be returned
+    A default key must be specified. Otherwise, an error will be returned
     if there are no matching values in your table.
     :::
 
@@ -71,10 +71,7 @@ transform involves a `table` entry of key-value pairs:
     configured with the UI.
 
 ## Examples
-
-This transform tries to map a telephone area code to a city in Texas. If there
-is no provided area code in one of the provided four values, the
-transform will return the default value of `Unknown Area".
+This transform tries to map a telephone area code to a city in Texas. If there is no area code in the four provided values, the transform will return the default value of "Unknown Area."
 
 **Transform Request Body**:
 

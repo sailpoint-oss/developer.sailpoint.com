@@ -21,7 +21,7 @@ default value.
 :::note Other Considerations
 
 - If the input does not match any key value within the table and no default
-  value is provided, the transform returns null.
+  value is provided, the transform will return an error.
 
 :::
 
@@ -55,10 +55,11 @@ transform involves a `table` entry of key-value pairs:
   - **table** - This is a JSON object of key-value pairs. The key is the string
     the transform tries to match to the input, and the value is the output
     string the transform returns if it matches the key.
-    > **Note** This is a use for the optional default key value here: if none of
-    > the three countries in the earlier example matches the input string, the
-    > transform returns "Unknown Region" for the attribute mapped to this
-    > transform.
+
+    :::tip
+    A default key must be specified otherwise an error will be returned
+    if there are no matching values in your table.
+    :::
 
 - **Optional Attributes**
   - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether
@@ -71,9 +72,9 @@ transform involves a `table` entry of key-value pairs:
 
 ## Examples
 
-This transform tries to map a telephone area code to a city in Texas. There is
-no default entry in the table map, so the transform returns null if there is no
-provided area code that is not one of the provided four values.
+This transform tries to map a telephone area code to a city in Texas. If there
+is no provided area code in one of the provided four values, the
+transform will return the default value of `Unknown Area".
 
 **Transform Request Body**:
 
@@ -84,7 +85,8 @@ provided area code that is not one of the provided four values.
       "512": "Austin",
       "281": "Houston",
       "214": "Dallas",
-      "210": "San Antonio"
+      "210": "San Antonio",
+      "default": "Unknown Area"
     }
   },
   "type": "lookup",

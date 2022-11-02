@@ -71,8 +71,7 @@ transform involves a `table` entry of key-value pairs:
     configured with the UI.
 
 ## Examples
-
-If there is no area code in the four provided values, the transform will return the default value, "Unknown Area."
+This transform tries to map a telephone area code to a city in Texas. If there is no area code in the four provided values, the transform will return the default value of "Unknown Area."
 
 **Transform Request Body**:
 

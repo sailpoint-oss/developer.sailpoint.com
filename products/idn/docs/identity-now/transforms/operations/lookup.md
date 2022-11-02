@@ -57,7 +57,7 @@ transform involves a `table` entry of key-value pairs:
     string the transform returns if it matches the key.
 
     :::tip
-    A default key must be specified otherwise an error will be returned
+    A default key must be specified. Otherwise, an error will be returned
     if there are no matching values in your table.
     :::
 

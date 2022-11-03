@@ -42,4 +42,5 @@ value:
     emailNotificationEnabled: false
     autoRevokeAllowed: false
     recommendationsEnabled: false
+    correlatedStatus: CORRELATED
   

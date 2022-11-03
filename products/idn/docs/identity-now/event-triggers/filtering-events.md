@@ -43,8 +43,15 @@ matching your filter criteria.
 
 ## Constructing a Filter
 
-Filters are constructed using a
-[Goessner JSONpath expression](https://goessner.net/articles/JsonPath/).
+Event trigger filters are constructed using a **Jayway** JSONpath expression.  See the following tables for a list of operators that can be used in a trigger filter.
+
+:::info Update
+
+SailPont's Workflow tool uses **Goessner** JSONpath when selecting variables to use in actions and operators.  Please read the [Goessner](https://goessner.net/articles/JsonPath/) documentation to learn more about the supported operators.  
+
+Although variable selection in Workflows users Goessner, the trigger filter field in Workflows still follows the Jayway operators listed below.
+
+:::
 
 ### Expressions
 

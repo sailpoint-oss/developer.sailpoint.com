@@ -78,7 +78,11 @@ const config = {
 
   plugins: plugins,
 
-  themes: ["docusaurus-theme-openapi-docs"],
+  markdown: {
+    mermaid: true,
+  },
+
+  themes: ["docusaurus-theme-openapi-docs", "@docusaurus/theme-mermaid"],
 };
 
 module.exports = config;

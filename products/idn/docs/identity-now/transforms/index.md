@@ -22,7 +22,14 @@ Transforms are configurable objects that define easy ways to manipulate
 attribute data without requiring you to write code. Transforms are configurable
 building blocks with sets of inputs and outputs:
 
-![What are Transforms 1](./img/what_are_transforms_1.png)
+<div align="center">
+
+```mermaid
+flowchart LR
+  id1(Input) ====> id2[Transform] ====> id3([Output])
+```
+
+</div>
 
 Because there is no code to write, an administrator can configure these by using
 a JSON object structure and uploading them into IdentityNow using
@@ -46,14 +53,28 @@ For example, a [Lower transform](./operations/lower.md) transforms any input
 text strings into lowercase versions as output. So if the input were `Foo`, the
 lowercase output of the transform would be `foo`:
 
-![How Transforms Work 1](./img/how_transforms_work_1.png)
+<div align="center">
+
+```mermaid
+flowchart LR
+  id1(Foo) ====> id2[Lower Transform] ====> id3(foo)
+```
+
+</div>
 
 There are other types of transforms too. For example, an
 [E.164 Phone transform](./operations/e164-phone.md) transforms any input phone
 number strings into an E.164 formatted version as output. So if the input were
 `(512) 346-2000`, the output would be `+1 5123462000`:
 
-![How Transforms Work 2](./img/how_transforms_work_2.png)
+<div align="center">
+
+```mermaid
+flowchart LR
+  id1("(512) 346-2000") ====> id2[E.164 Transform] ====> id3(+1 5123462000)
+```
+
+</div>
 
 ### Multiple Transform Inputs
 
@@ -63,7 +84,15 @@ specify more than one input. For example, the
 strings together. If `Foo` and `Bar` were inputs, the transformed output would
 be `FooBar`:
 
-![How Transforms Work 3](./img/how_transforms_work_3.png)
+<div align="center">
+
+```mermaid
+flowchart LR
+  id1(Foo) ====> id2[Concat Transform] ====> id3(FooBar)
+  id4(Bar) ====> id2[Concat Transform]
+```
+
+</div>
 
 ### Complex Nested Transforms
 
@@ -77,7 +106,15 @@ input to another [Lower transform](./operations/lower.md). If the inputs `Foo`
 and `Bar` were passed into the transforms, the ultimate output would be
 `foobar`, concatenated and in lowercase.
 
-![How Transforms Work 4](./img/how_transforms_work_4.png)
+<div align="center">
+
+```mermaid
+flowchart LR
+  id1(Foo) ====> id2[Concat Transform] ====> id3[Lower Transform] ====> id4(foobar)
+  id5(Bar) ====> id2[Concat Transform]
+```
+
+</div>
 
 There is no hard limit for the number of transforms that can be nested. However,
 the more transforms applied, the more complex the nested transform will be,
@@ -96,7 +133,15 @@ Replace transform, which replaces certain strings with replacement text, were
 added, and the transform were configured to replace `Bar` with `Baz` the output
 would be added as an input to the Concat and Lower transforms:
 
-![Configuring Transform Behavior 1](./img/configuring_transform_behavior_1.png)
+<div align="center">
+
+```mermaid
+flowchart LR
+  id1(Foo) ====> id2[Concat Transform] ====> id3[Lower Transform] ====> id4(foobaz)
+  id5(Bar) ====> id6[Replace Transform\n Bar:Baz] ====> id2[Concat Transform]
+```
+
+</div>
 
 The output of the Replace transform would be `Baz` which is then passed as an
 input to the Concat transform along with `Foo` producing an output of `FooBaz`.

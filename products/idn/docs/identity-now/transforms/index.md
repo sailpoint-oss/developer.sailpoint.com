@@ -57,7 +57,7 @@ lowercase output of the transform would be `foo`:
 
 ```mermaid
 flowchart LR
-  id1(Foo) ====> id2[Lower Transform] ====> id3(foo)
+  id1(Foo) ====> id2[Lower\nTransform] ====> id3(foo)
 ```
 
 </div>
@@ -71,7 +71,7 @@ number strings into an E.164 formatted version as output. So if the input were
 
 ```mermaid
 flowchart LR
-  id1("(512) 346-2000") ====> id2[E.164 Transform] ====> id3(+1 5123462000)
+  id1("(512) 346-2000") ====> id2[E.164\nTransform] ====> id3(+1 5123462000)
 ```
 
 </div>
@@ -88,8 +88,8 @@ be `FooBar`:
 
 ```mermaid
 flowchart LR
-  id1(Foo) ====> id2[Concat Transform] ====> id3(FooBar)
-  id4(Bar) ====> id2[Concat Transform]
+  id1(Foo) ====> id2[Concat\nTransform] ====> id3(FooBar)
+  id4(Bar) ====> id2[Concat\nTransform]
 ```
 
 </div>
@@ -110,8 +110,8 @@ and `Bar` were passed into the transforms, the ultimate output would be
 
 ```mermaid
 flowchart LR
-  id1(Foo) ====> id2[Concat Transform] ====> id3[Lower Transform] ====> id4(foobar)
-  id5(Bar) ====> id2[Concat Transform]
+  id1(Foo) ====> id2[Concat\nTransform] ====> id3[Lower\nTransform] ====> id4(foobar)
+  id5(Bar) ====> id2[Concat\nTransform]
 ```
 
 </div>
@@ -137,8 +137,8 @@ would be added as an input to the Concat and Lower transforms:
 
 ```mermaid
 flowchart LR
-  id1(Foo) ====> id2[Concat Transform] ====> id3[Lower Transform] ====> id4(foobaz)
-  id5(Bar) ====> id6[Replace Transform\n Bar:Baz] ====> id2[Concat Transform]
+  id1(Foo) ====> id2[Concat\nTransform] ====> id3[Lower\nTransform] ====> id4(foobaz)
+  id5(Bar) ====> id6[Replace Transform\n Bar:Baz] ====> id2[Concat\nTransform]
 ```
 
 </div>

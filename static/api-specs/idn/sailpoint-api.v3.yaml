@@ -131,12 +131,12 @@ tags:
       With this functionality in place, administrators and designated certification reviewers can review users' access certifications and decide whether to approve access, revoke it, or reassign the review to another reviewer. 
       Implementing certifications improves organizations' data security by reducing inappropriate access through a distributed review process and helping them satisfy audit and regulatory requirements. 
 
-      A certification refers to IdentityNow's mechanism for reviewing user's access to entitlements (sets of permissions) and approving or removing that access. 
+      A certification refers to IdentityNow's mechanism for reviewing a user's access to entitlements (sets of permissions) and approving or removing that access. 
       These serve as a way of showing that a user's access has been reviewed and approved. 
       Multiple certifications by different reviewers are often required to approve a user's access. 
       A set of multiple certifications is called a certification campaign.
 
-      For example, an organization may use a Manager Certification as a way of showing that a user's access has been reviewed and approved by his or her manager, or if the certification is part of a campaign, that the user's access has been reviewed and approved by multiple managers. 
+      For example, an organization may use a Manager Certification as a way of showing that a user's access has been reviewed and approved by their manager, or if the certification is part of a campaign, that the user's access has been reviewed and approved by multiple managers. 
       Once this certification has been completed, IdentityNow  would provision all the access the user needs, nothing more. 
 
       Organization administrators or certification administrators can designate other IdentityNow users as certification reviewers. 
@@ -153,6 +153,21 @@ tags:
 
       Refer to [Certifications](https://documentation.sailpoint.com/saas/user-help/certifications.html) for more information about certifications.
   - name: Certification Summaries
+    description: |
+      Use this API to implement certification summary functionality. 
+      With this functionality in place, administrators and designated certification reviewers can review summaries of identity certification campaigns and draw conclusions about the campaigns' scope, security, and effectiveness. 
+      Implementing certification summary functionality improves organizations' ability to review their [certifications](https://documentation.sailpoint.com/saas/user-help/certifications.html) and helps them satisfy audit and regulatory requirements by enabling them to trace access changes and the decisions made in their review processes. 
+
+      A certification refers to IdentityNow's mechanism for reviewing a user's access to entitlements (sets of permissions) and approving or removing that access. 
+      These certifications serve as a way of showing that a user's access has been reviewed and approved. 
+      Multiple certifications by different reviewers are often required to approve a user's access. 
+      A set of multiple certifications is called a certification campaign. 
+
+      For example, an organization may use a Manager Certification as a way of showing that a user's access has been reviewed and approved by their manager, or if the certification is part of a campaign, that the user's access has been reviewed and approved by multiple managers. 
+      Once this certification has been completed, IdentityNow  would provision all the access the user needs, nothing more. 
+
+      Certification summaries provide information about identity certification campaigns such as the identities involved, the number of decisions made, and the access changed. 
+      For example, an administrator or designated certification reviewer can examine the Manager Certification campaign to get an overview of how many entitlement decisions are made in that campaign as opposed to role decisions, which identities would be affected by changes to the campaign, and how those identities' access would be affected.  
   - name: Lifecycle States
     description: |
       Use this API to implement and customize lifecycle state functionality.

@@ -17,32 +17,9 @@ get:
       required: true
       description: The account id
       example: ef38f94347e94562b5bb8424a56397d8
-    - in: query
-      name: count
-      description: >-
-        If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned
-        if *limit* and *offset* were ignored(total count).
-      required: false
-      schema:
-        type: boolean
-        default: false
-    - in: query
-      name: limit
-      description: Max number of results to return.
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 250
-        default: 250
-    - in: query
-      name: offset
-      description: Offset into the full result set. Usually specified with *limit* to paginate through the results.
-      required: false
-      schema:
-        type: integer
-        minimum: 0
-        default: 0
+    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/count.yaml'
   responses:
     '200':
       description: An array of account entitlements
@@ -51,7 +28,7 @@ get:
           schema:
             type: array
             items:
-              $ref: '../schemas/EntitlementDto.yaml'
+              $ref: '../schemas/Entitlement.yaml'
     '400':
       $ref: '../../v3/responses/400.yaml'
     '401':

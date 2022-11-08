@@ -27,7 +27,7 @@ jobs:
     - uses: actions/checkout@v3
     
     - name: Checkmarx CxFlow Action
-      run: java -jar $env:cxflow --spring.config.location=$env:cxflowyml --scan
+      run: java -jar $env:cxflow --spring.config.location=$env:cxflowyml --scan --f=. --incremental=true --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.head_ref }} --merge-id=${{ github.event.number }} --cx-team=CxServer/SAILPOINT --cx-project=SAILPOINT-${{ github.event.repository.name }}
       #working-directory: ${{ env.WORKDIR }}
       
     - name: Upload SARIF file

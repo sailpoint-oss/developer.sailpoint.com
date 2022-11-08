@@ -81,7 +81,7 @@ comparison evaluates to `false`.
 - **Optional Attributes**
   - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether
     the transform logic should be reevaluated every evening as part of the
-    identity refresh process.
+    identity refresh process. The default value is `false`.
 
 ## Examples
 

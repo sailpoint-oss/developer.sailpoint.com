@@ -8,6 +8,14 @@ properties:
     type: string
     description: The name of the personal access token. Cannot be the same as other personal access tokens owned by a user.
     example: "NodeJS Integration"
+  scope:
+    type: array
+    nullable: true
+    items:
+      type: string
+      default: "sp:scopes:all"
+    description: Scopes of the personal  access token.
+    example: [ "demo:personal-access-token-scope:first", "demo:personal-access-token-scope:second" ]
   owner:
     $ref: '../../v3/schemas/BaseReferenceDto.yaml'
     description: Details about the owner of the personal access token.
@@ -19,5 +27,6 @@ properties:
 required:
   - id
   - name
+  - scope
   - owner
   - created

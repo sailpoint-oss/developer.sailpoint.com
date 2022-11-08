@@ -1,0 +1,36 @@
+# This workflow implements Checkmarx scanning on pull requests.
+# CxFlow is invoked on ProdSec server to submit source to Checkmarx and return a SARIF file with results.
+# Severity filtering done on the server (CxFlow yml) - currently set to HIGH only
+#
+
+name: CxFlow-Pull-Scan
+
+# Controls when the action will run. Triggers the workflow on push or pull request events but only for the master branch
+on:
+  pull_request:
+    types: [opened, reopened, synchronize] #Types specify which pull request events will trigger the workflow. For more events refer Github Actions documentation.
+    branches:
+    - master
+    - main
+  # allows for manual execution
+  workflow_dispatch:
+  
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel - this job is specifically configured to use the Checkmarx CxFlow Action
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on - runs on self-hosted runner
+    runs-on: [self-hosted, prod-sec]
+    
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v3
+    
+    - name: Checkmarx CxFlow Action
+      run: java -jar $env:cxflow --scan  --spring.config.location=$env:cxflowyml --f=. --incremental=true --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.head_ref }} --merge-id=${{ github.event.number }} --cx-project=${{ github.event.repository.name }}
+      #working-directory: ${{ env.WORKDIR }}
+      
+    - name: Upload SARIF file
+      uses: github/codeql-action/upload-sarif@v2
+      with:
+        sarif_file: cx.sarif

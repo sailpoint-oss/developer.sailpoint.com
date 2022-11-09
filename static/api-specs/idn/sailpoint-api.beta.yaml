@@ -1202,6 +1202,8 @@ paths:
     $ref: './beta/paths/outlier-summaries-latest.yaml'
   /outliers:
     $ref: './beta/paths/outliers.yaml'
+  /outliers/{outlierId}/contributing-features:
+    $ref: './beta/paths/outliers-contributing-features.yaml'
   /outliers/ignore:
     $ref: './beta/paths/outliers-ignore.yaml'
   /outliers/unignore:

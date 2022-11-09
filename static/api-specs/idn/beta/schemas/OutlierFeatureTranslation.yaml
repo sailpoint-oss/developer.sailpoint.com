@@ -1,0 +1,6 @@
+type: object
+properties:
+  displayName:
+    $ref: ./TranslationMessage.yaml
+  description:
+    $ref: ./TranslationMessage.yaml

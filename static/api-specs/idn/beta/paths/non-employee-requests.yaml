@@ -1,7 +1,7 @@
 post:
   operationId: nonEmployeeRequestCreation
   security:
-    - oauth2: []
+    - oauth2: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
   summary: Create Non-Employee Request
@@ -57,7 +57,7 @@ post:
 get:
   operationId: nonEmployeeRequestList
   security:
-    - oauth2: []
+    - oauth2: [idn:nelm:read]
   tags:
     - Non-Employee Lifecycle Management
   summary: List Non-Employee Requests

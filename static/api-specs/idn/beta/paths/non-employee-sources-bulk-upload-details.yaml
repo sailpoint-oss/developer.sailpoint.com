@@ -1,7 +1,7 @@
 get:
   operationId: nonEmployeeBulkUploadDetails
-  # security:
-  #   - oauth2: [idn:nesr:read]
+  security:
+    - oauth2: [idn:nelm:read]
   tags:
     - Non-Employee Lifecycle Management
   summary: Details of bulk upload job on source
@@ -13,6 +13,7 @@ get:
     This is for internal use only.
   parameters:
     - in: path
+      example: "2c918085842e69ae018432d22ccb212f"
       name: id
       description: >-
         Source ID (UUID)

@@ -1,7 +1,7 @@
 get:
   operationId: nonEmployeeSourceGet
   security:
-    - oauth2: []
+    - oauth2: [idn:nelm:read]
   tags:
     - Non-Employee Lifecycle Management
   summary: Get a Non-Employee Source
@@ -35,8 +35,8 @@ get:
       $ref: '../../v3/responses/500.yaml'
 patch:
   operationId: nonEmployeeSourcePatch
-  # security:
-  #   - oauth2: [idn:nesr:update]
+  security:
+    - oauth2: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
   summary: Patch a Non-Employee Source
@@ -90,8 +90,8 @@ patch:
       $ref: '../../v3/responses/500.yaml'
 delete:
   operationId: nonEmployeeSourceDelete
-  # security:
-  #   - oauth2: [idn:nesr:delete]
+  security:
+    - oauth2: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
   summary: Delete Non-Employee Source

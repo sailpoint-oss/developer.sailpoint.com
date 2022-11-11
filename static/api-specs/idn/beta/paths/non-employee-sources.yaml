@@ -1,7 +1,7 @@
 post:
   operationId: nonEmployeeSourcesCreation
-  # security:
-  #   - oauth2: [idn:nesr:create]
+  security:
+    - oauth2: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
   summary: Create Non-Employee Source
@@ -38,7 +38,7 @@ post:
 get:
   operationId: nonEmployeeSourcesList
   security:
-    - oauth2: []
+    - oauth2: [idn:nelm:read]
   tags:
     - Non-Employee Lifecycle Management
   summary: List Non-Employee Sources

@@ -1,7 +1,7 @@
 post:
   operationId: nonEmployeeRecordsBulkUpload
-  # security:
-  #   - oauth2: [idn:nesr:create]
+  security:
+    - oauth2: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
   summary: Imports, or Updates, Non-Employee Records

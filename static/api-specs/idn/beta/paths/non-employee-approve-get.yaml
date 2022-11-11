@@ -1,7 +1,7 @@
 get:
   operationId: nonEmployeeApprovalGet
   security:
-    - oauth2: []
+    - oauth2: [idn:nelm:read]
   tags:
     - Non-Employee Lifecycle Management
   summary: Get a non-employee approval item detail
@@ -10,12 +10,14 @@ get:
   parameters:
     - in: path
       name: id
+      example: "ac10d20a-841e-1e7d-8184-32d2e22c0179"
       description: >-
         Non-Employee approval item id (UUID)
       required: true
       schema:
         type: string
     - in: query
+      example: "include-detail=false"
       name: include-detail
       description: >-
         The object nonEmployeeRequest will not be included detail when set to false. *Default value is true*

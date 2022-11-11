@@ -1,6 +1,6 @@
 post:
-  # security:
-  #   - oauth2: [idn:helpdesk]
+  security:
+   - oauth2: [idn:nelm:manage]
   operationId: nonEmployeeBulkUploadJobFail
   tags:
     - Non-Employee Lifecycle Management

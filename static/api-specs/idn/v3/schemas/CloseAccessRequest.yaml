@@ -5,7 +5,6 @@ required:
 properties:
   accessRequestIds:
     type: array
-    required: true
     description: Access Request IDs for the requests to be closed. Accepts 1-500 Identity Request IDs per request.
     items:
       type: string

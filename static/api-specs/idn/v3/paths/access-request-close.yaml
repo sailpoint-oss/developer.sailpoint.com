@@ -38,6 +38,6 @@ post:
     '403':
       $ref: '../responses/403.yaml'
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: '../responses/429.yaml'
     '500':
       $ref: '../responses/500.yaml'

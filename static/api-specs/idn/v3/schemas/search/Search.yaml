@@ -2,7 +2,7 @@ type : object
 properties:
   indices:
     description: >-
-      The names of the Elasticsearch indices in which to search.
+      The names of the Elasticsearch indices in which to search. If none are provided, then all indices will be searched.
     externalDocs:
       description: Learn more about search indices here.
       url: https://documentation.sailpoint.com/saas/help/search/searchable-fields.html
@@ -101,6 +101,3 @@ properties:
     additionalProperties:
       $ref: '../filter/Filter.yaml'
     example: {}
-      
-required:
-- indices

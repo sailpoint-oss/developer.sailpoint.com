@@ -25,11 +25,13 @@ properties:
     description: A description of the API Client
     example: An API client used for the authorization_code, refresh_token, and client_credentials flows
   accessTokenValiditySeconds:
-    type: string
+    type: integer
+    format: int32
     description: The number of seconds an access token generated for this API Client is valid for
     example: 750
   refreshTokenValiditySeconds:
-    type: string
+    type: integer
+    format: int32
     description: The number of seconds a refresh token generated for this API Client is valid for
     example: 86400
   redirectUris:
@@ -37,13 +39,13 @@ properties:
     items:
       type: string
     description: A list of the approved redirect URIs used with the authorization_code flow
-    example: ["http://localhost:12345"]
+    example: [ "http://localhost:12345" ]
   grantTypes:
     type: array
     items:
       $ref: '../schemas/GrantType.yaml'
     description: A list of OAuth 2.0 grant types this API Client can be used with
-    example: ["AUTHORIZATION_CODE", "CLIENT_CREDENTIALS", "REFRESH_TOKEN"]
+    example: [ "AUTHORIZATION_CODE", "CLIENT_CREDENTIALS", "REFRESH_TOKEN" ]
   accessType:
     $ref: '../schemas/AccessType.yaml'
     description: The access type (online or offline) of this API Client
@@ -78,6 +80,14 @@ properties:
     format: 'date-time'
     description: The date and time, down to the millisecond, when the API Client was last updated
     example: '2018-06-25T20:22:28.104Z'
+  scope:
+    type: array
+    nullable: true
+    items:
+      type: string
+      default: "sp:scopes:all"
+    description: Scopes of the API Client.
+    example: [ "demo:api-client-scope:first", "demo:api-client-scope:second" ]
 required:
   - id
   - secret
@@ -97,3 +107,4 @@ required:
   - claimsSupported
   - created
   - modified
+  - scope

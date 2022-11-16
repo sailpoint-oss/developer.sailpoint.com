@@ -17,7 +17,7 @@ get:
       name: id
       description: >-
         Non-Employee request id (UUID)
-      example: ef38f94347e94562b5bb8424a56397d8
+      example: "ac110005-7156-1150-8171-5b292e3e0084"
       required: true
       schema:
         type: string
@@ -60,7 +60,7 @@ delete:
       schema:
         type: string
         format: uuid
-      example: e136567de87e4d029e60b3c3c55db56d
+      example: "ac110005-7156-1150-8171-5b292e3e0084"
   responses:
     "204":
       $ref: "../responses/204.yaml"

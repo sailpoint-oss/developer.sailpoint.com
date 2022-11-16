@@ -16,6 +16,14 @@ allOf:
         format: date-time
         description: Modified time of the campaign
         example: '2020-03-03T22:20:12.674Z'
+      correlatedStatus:
+        description: >-
+          The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated.
+          An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source).
+        enum:
+          - "CORRELATED"
+          - "UNCORRELATED"
+        example: CORRELATED
       filter:
         type: object
         description: >-

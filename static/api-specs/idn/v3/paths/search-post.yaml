@@ -59,7 +59,8 @@ post:
         X-Total-Count:
           schema:
             type: integer
-          description: The total result count (returned only if the *count* parameter is specified as *true*).    
+          description: The total result count (returned only if the *count* parameter is specified as *true*).
+          example: 30    
     '400':
       $ref: '../responses/400.yaml'
     '401':

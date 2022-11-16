@@ -48,18 +48,23 @@ properties:
     type: array
     description: The attribute definitions which form the schema.
     items:
-        $ref: './AttributeDefinition.yaml'
+      $ref: './AttributeDefinition.yaml'
     example: [
         {
             name: "sAMAccountName",
-            type: "string",
+            type: "STRING",
             isMultiValued: false,
             isEntitlement: false,
             isGroup: false
         },
         {
             name: "memberOf",
-            type: "string",
+            type: "STRING",
+            schema: {
+              type: "CONNECTOR_SCHEMA",
+              id: "2c9180887671ff8c01767b4671fc7d60",
+              name: "group"
+            },
             description: "Group membership",
             isMultiValued: true,
             isEntitlement: true,

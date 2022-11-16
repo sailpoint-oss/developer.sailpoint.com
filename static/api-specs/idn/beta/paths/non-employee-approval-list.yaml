@@ -1,7 +1,7 @@
 get:
   operationId: nonEmployeeApprovalList
   security:
-    - oauth2: []
+    - oauth2: [idn:nelm:read]
   tags:
     - Non-Employee Lifecycle Management
   summary: Get List of Non-Employee Approval Requests
@@ -9,6 +9,7 @@ get:
     This gets a list of non-employee approval requests.
   parameters:
     - in: query
+      example: "ac10d20a-841e-1e7d-8184-32d2e22c0179"
       name: requested-for
       schema:
         type: string
@@ -19,6 +20,7 @@ get:
     - $ref: '../../v3/parameters/offset.yaml'
     - $ref: '../../v3/parameters/count.yaml'
     - in: query
+      example: "filters=approvalStatus eq 'PENDING'"
       name: filters
       schema:
         type: string
@@ -28,6 +30,7 @@ get:
         **approvalStatus**: *eq* <br/><br/>
         *Example:* approvalStatus eq "PENDING"
     - in: query
+      example: "sorters=-created"
       name: sorters
       schema:
         type: string

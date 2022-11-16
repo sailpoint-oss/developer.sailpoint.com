@@ -22,3 +22,9 @@ allOf:
         format: date-time
         description: When the request was created.
         example: "2019-08-23T18:40:35.772Z"
+      nonEmployeeCount:
+        nullable: true
+        type: integer
+        description: The number of non-employee records on all sources that *requested-for* user manages.
+        example: 2
+        format: int32

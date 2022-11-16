@@ -6,3 +6,4 @@ enum:
   - INT
   - BOOLEAN
 description: The underlying type of the value which an AttributeDefinition represents.
+example: STRING

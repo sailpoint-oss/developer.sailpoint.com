@@ -97,14 +97,11 @@ JSONPath operators provide more options to filter JSON structures.
 Developing a filter can be faster when you use a tool like an online
 [JSONpath editor](https://jsonpath.herokuapp.com/). These tools can provide
 quick feedback on your filter, allowing you to focus on the exact filter
-expression you want before testing it in IdentityNow. Be aware, however, that
-these online tools may have subtle differences compared with SailPoint's
-implementation of Goessner JSONpath. Always test your JSONpath filter in
-IdentityNow before using it in production.
+expression you want before testing it on a trigger.
 
 Start by opening a [JSONpath editor](https://jsonpath.herokuapp.com/) in your
 browser. Make sure that the correct implementation is selected if there is more
-than one option. You can then paste in an example trigger input and start
+than one option.  In the case of event trigger filters, you will want to select the **Jayway** option. You can then paste in an example trigger input and start
 crafting your JSONpath expression.
 
 ![JSONPath editor](./img/jsonpath-editor.png)

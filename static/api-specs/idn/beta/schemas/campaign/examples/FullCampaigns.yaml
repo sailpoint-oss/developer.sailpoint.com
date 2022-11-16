@@ -118,3 +118,4 @@ value:
     totalCertifications: 2
     completedCertifications: 0
     sourcesWithOrphanEntitlements: []
+    correlatedStatus: CORRELATED

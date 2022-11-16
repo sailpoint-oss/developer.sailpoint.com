@@ -14,6 +14,7 @@ post:
         type: string
       required: true
       description: The identity campaign certification ID
+      example: 'ef38f94347e94562b5bb8424a56397d8'
   requestBody:
     required: true
     content:

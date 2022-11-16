@@ -1,7 +1,7 @@
 get:
   operationId: nonEmployeeRequestGet
   security:
-    - oauth2: []
+    - oauth2: [idn:nelm:read]
   tags:
     - Non-Employee Lifecycle Management
   summary: Get a Non-Employee Request
@@ -37,8 +37,8 @@ get:
       $ref: '../../v3/responses/500.yaml'
 delete:
   operationId: nonEmployeeRequestDeletion
-  # security:
-  #   - oauth2: [idn:nesr:delete]
+  security:
+    - oauth2: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
   summary: Delete Non-Employee Request

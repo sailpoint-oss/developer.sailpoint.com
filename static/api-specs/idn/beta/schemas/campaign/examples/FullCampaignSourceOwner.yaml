@@ -24,4 +24,5 @@ value:
   totalCertifications: 0
   completedCertifications: 0
   sourcesWithOrphanEntitlements: null
+  correlatedStatus: CORRELATED
   

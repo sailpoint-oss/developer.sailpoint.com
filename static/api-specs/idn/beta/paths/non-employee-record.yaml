@@ -1,7 +1,7 @@
 get:
   operationId: nonEmployeeRecordGet
-  # security:
-  #   - oauth2: [idn:nesr:read]
+  security:
+    - oauth2: [idn:nelm:read]
   tags:
     - Non-Employee Lifecycle Management
   summary: Get a Non-Employee Record
@@ -41,7 +41,7 @@ get:
 put:
   operationId: nonEmployeeRecordUpdate
   security:
-    - oauth2: []
+    - oauth2: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
   summary: Update Non-Employee Record
@@ -84,7 +84,7 @@ put:
 patch:
   operationId: nonEmployeeRecordPatch
   security:
-    - oauth2: []
+    - oauth2: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
   summary: Patch Non-Employee Record
@@ -132,8 +132,8 @@ patch:
       $ref: '../../v3/responses/500.yaml'
 delete:
   operationId: nonEmployeeRecordDelete
-  # security:
-  #   - oauth2: [idn:nesr:delete]
+  security:
+    - oauth2: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
   summary: Delete Non-Employee Record

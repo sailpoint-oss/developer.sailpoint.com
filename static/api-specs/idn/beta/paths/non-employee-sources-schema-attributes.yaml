@@ -11,6 +11,7 @@ get:
                any custom attributes. At most, a total of 18 attributes will be returned.
   parameters:
     - in: path
+      example: "2c918085842e69ae018432d22ccb212f"
       name: sourceId
       schema:
         type: string
@@ -23,9 +24,19 @@ get:
         application/json:
           schema:
             type: array
+            example: [{
+              "type": "TEXT",
+              "label": "string",
+              "technicalName": "string",
+              "helpText": "string",
+              "placeholder": "string",
+              "required": true
+            }]
             items:
               $ref: '../schemas/NonEmployeeSchemaAttribute.yaml'
             maxItems: 18
+    '400':
+      $ref: '../../v3/responses/400.yaml'
     '401':
       $ref: '../../v3/responses/401.yaml'
     '403':
@@ -38,8 +49,8 @@ get:
       $ref: '../../v3/responses/500.yaml'
 post:
   operationId: createSchemaAttribute
-  # security:
-  #   - oauth2: [idn:nesr:create]
+  security:
+    - oauth2: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
   summary: Create a new Schema Attribute for Non-Employee Source
@@ -85,8 +96,8 @@ post:
       $ref: '../../v3/responses/500.yaml'
 delete:
   operationId: deleteSchemaAttributes
-  # security:
-  #   - oauth2: [idn:nesr:delete]
+  security:
+    - oauth2: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
   summary: Delete all custom schema attributes for Non-Employee Source

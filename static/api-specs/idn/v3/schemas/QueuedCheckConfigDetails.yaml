@@ -7,8 +7,8 @@ properties:
   provisioningStatusCheckIntervalMinutes:
     description: interval in minutes between status checks
     type: string
-    example: 30
+    example: "30"
   provisioningMaxStatusCheckDays:
     description: maximum number of days to check
     type: string
-    example: 2
+    example: "2"

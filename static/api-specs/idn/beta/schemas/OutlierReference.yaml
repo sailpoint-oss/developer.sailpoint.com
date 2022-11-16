@@ -23,3 +23,8 @@ properties:
     format: float
     description: The outlier score determined by the detection engine ranging from 0..1
     example: 0.92   
+  features:
+    type: array
+    description: List of feature objects and their values for the outlier
+    items:
+      $ref: ./OutlierFeatureReference.yaml

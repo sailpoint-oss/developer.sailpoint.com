@@ -17,13 +17,13 @@ properties:
     description: The value of this configuration is a string name of the attribute to use when determining the ordering of returned accounts when there are multiple entries
     example: created
   accountSortDescending:
-    type: string
+    type: boolean
     description: >-
       The value of this configuration is a boolean (true/false). Controls the order of the sort when there are multiple accounts.
       If not defined, the transform will default to false (ascending order)
     example: false
   accountReturnFirstLink:
-    type: string
+    type: boolean
     description: >-
       The value of this configuration is a boolean (true/false). Controls which account to source a value from for an attribute. 
       If this flag is set to true, the transform returns the value from the first account in the list, even if it is null. If it is set to false, the transform returns the first non-null value.

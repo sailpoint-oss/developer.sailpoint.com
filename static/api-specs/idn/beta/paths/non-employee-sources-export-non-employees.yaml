@@ -1,7 +1,7 @@
 get:
   operationId: nonEmployeeRecordsExport
-  # security:
-  #   - oauth2: [idn:nesr:read]
+  security:
+    - oauth2: [idn:nelm:read]
   tags:
     - Non-Employee Lifecycle Management
   summary: Exports Non-Employee Records to CSV
@@ -13,6 +13,7 @@ get:
     'idn:nesr:read'
   parameters:
     - in: path
+      example: "2c918085842e69ae018432d22ccb212f"
       name: id
       description: >-
         Source Id (UUID)

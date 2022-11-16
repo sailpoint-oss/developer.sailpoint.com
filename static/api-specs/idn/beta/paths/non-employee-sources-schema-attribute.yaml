@@ -1,19 +1,21 @@
 get:
   operationId: getSchemaAttribute
   security:
-    - oauth2: []
+    - oauth2: [idn:nelm:read]
   tags:
     - Non-Employee Lifecycle Management
   summary: Get Schema Attribute Non-Employee Source
   description: This API gets a schema attribute by Id for the specified Non-Employee SourceId.
   parameters:
     - in: path
+      example: "2c918085842e69ae018432d22ccb212f"
       name: attributeId
       schema:
         type: string
       required: true
       description: The Schema Attribute Id (UUID)
     - in: path
+      example: "2c918085842e69ae018432d22ccb212f"
       name: sourceId
       schema:
         type: string
@@ -24,8 +26,12 @@ get:
       description: The Schema Attribute
       content:
         application/json:
+          example: |
+            id,system,modified,created,type,label,technicalName,helpText,placeholder,required
           schema:
             $ref: '../schemas/NonEmployeeSchemaAttribute.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
     '401':
       $ref: '../../v3/responses/401.yaml'
     '403':
@@ -36,8 +42,8 @@ get:
       $ref: '../../v3/responses/500.yaml'
 patch:
   operationId: patchSchemaAttribute
-  # security:
-  #   - oauth2: [idn:nesr:update]
+  security:
+    - oauth2: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
   summary: Patch a Schema Attribute for Non-Employee Source
@@ -95,8 +101,8 @@ patch:
       $ref: '../../v3/responses/500.yaml'
 delete:
   operationId: deleteSchemaAttribute
-  # security:
-  #   - oauth2: [idn:nesr:delete]
+  security:
+    - oauth2: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
   summary: Delete a Schema Attribute for Non-Employee Source

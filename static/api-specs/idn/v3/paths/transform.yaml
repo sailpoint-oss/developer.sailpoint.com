@@ -59,6 +59,7 @@ put:
       explode: false
       schema:
         type: string
+      example: 2cd78adghjkja34jh2b1hkjhasuecd
   requestBody:
     description: >-
       The updated transform object (must include "name", "type", and "attributes" fields).
@@ -118,6 +119,7 @@ delete:
       explode: false
       schema:
         type: string
+      example: 2cd78adghjkja34jh2b1hkjhasuecd
   responses:
     "204":
       $ref: '../../v3/responses/204.yaml'

@@ -13,5 +13,6 @@ allOf:
         $ref: '../../entitlement/BaseEntitlement.yaml'
     entitlementCount:
       type: integer
+      example: 5
     tags:
       $ref: '../../base/Tags.yaml'

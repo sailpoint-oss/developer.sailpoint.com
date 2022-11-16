@@ -6,6 +6,8 @@ properties:
     example: sAMAccountName
   type:
     $ref: "./AttributeDefinitionType.yaml"
+    description: The type of the attribute.
+    example: STRING
   schema:
     description: A reference to the schema on the source to the attribute values map to.
     type: object

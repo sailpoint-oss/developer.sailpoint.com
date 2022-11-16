@@ -33,12 +33,10 @@ properties:
         $ref: 'Column.yaml'
     example:
       identity:
-      - field: 'displayName'
-        header: 'Display Name'
-      - field: 'email'
-        header: 'Work Email'
-      - field: 'attributes.cloudLifecycleState'
-        header: 'Lifecycle State'
+        - field: 'displayName'
+          header: 'Display Name'
+        - field: 'e-mail'
+          header: 'Work Email'
   query:
     description: |
       The search query using Elasticsearch [Query String Query](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/query-dsl-query-string-query.html#query-string) syntax from the Query DSL.

@@ -4,7 +4,7 @@ properties:
     type: string
     format: UUID
     description: Non-Employee request id.
-    example: ef38f94347e94562b5bb8424a56397d8
+    example: "ac110005-7156-1150-8171-5b292e3e0084"
   requester:
     $ref: './NonEmployeeIdentityReferenceWithId.yaml'
     example:

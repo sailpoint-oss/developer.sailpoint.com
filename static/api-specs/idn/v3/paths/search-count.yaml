@@ -22,6 +22,7 @@ post:
           description: The total result count.
           schema:
             type: integer
+          example: 5
     '400':
       $ref: '../responses/400.yaml'
     '403':

@@ -13,9 +13,9 @@ properties:
   details:
     type: object
     description: Message details if any, in key:value pairs.
-    additionalProperties:
-      type: object
-    example: { "details": "message details" }
+    additionalProperties: true
+    example: 
+      details: message details
 required:
   - key
   - text

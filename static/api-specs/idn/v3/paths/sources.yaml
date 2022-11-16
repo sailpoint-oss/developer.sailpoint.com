@@ -125,6 +125,7 @@ post:
       schema:
         type: boolean
       required: false
+      example: false
   requestBody:
     required: true
     content:

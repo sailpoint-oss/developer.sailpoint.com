@@ -10,10 +10,10 @@ post:
     The number of entitlements to update is limited to 50 items maximum.
 
 
-    The JsonPatch update follows the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.<br/>
-    allowed operations :<br/>
-    **{ "op": "replace", "path": "/privileged", "value": boolean }** <br/>
-    **{ "op": "replace", "path": "/requestable","value": boolean }** <br/>
+    The JsonPatch update follows the [JSON
+    Patch](https://tools.ietf.org/html/rfc6902) standard. allowed operations :
+    **{ "op": "replace", "path": "/privileged", "value": boolean }**  **{ "op":
+    "replace", "path": "/requestable","value": boolean }** 
 
 
     A token with ORG_ADMIN or API authority is required to call this API.
@@ -22,17 +22,17 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../schemas/EntitlementBulkUpdateRequest.yaml'
+          $ref: "../schemas/EntitlementBulkUpdateRequest.yaml"
   responses:
-    '204':
-      $ref: '../../v3/responses/204.yaml'
-    '400':
-      $ref: '../../v3/responses/400.yaml'
-    '401':
-      $ref: '../../v3/responses/401.yaml'
-    '403':
-      $ref: '../../v3/responses/403.yaml'
-    '429':
-      $ref: '../../v3/responses/429.yaml'
-    '500':
-      $ref: '../../v3/responses/500.yaml'
+    "204":
+      $ref: "../../v3/responses/204.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

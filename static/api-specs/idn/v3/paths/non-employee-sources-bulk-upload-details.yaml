@@ -6,9 +6,9 @@ get:
     - Non-Employee Lifecycle Management
   summary: Details of bulk upload job on source
   description: |
-    This API returns the details of the newest bulk upload job for the specified source.<br><br>
+    This API returns the details of the newest bulk upload job for the specified source.
 
-    Requires role context of `idn:nesr:read`<br><br>
+    Requires role context of `idn:nesr:read`
 
     This is for internal use only.
   parameters:

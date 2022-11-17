@@ -6,8 +6,8 @@ post:
     - Non-Employee Lifecycle Management
   summary: Approve a Non-Employee Request
   description: >-
-    Approves a non-employee approval request and notifies the next
-    approver.<br><br> The current user must be the requested approver.
+    Approves a non-employee approval request and notifies the next approver. The
+    current user must be the requested approver.
   parameters:
     - in: path
       name: id

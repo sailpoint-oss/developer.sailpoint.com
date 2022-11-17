@@ -13,20 +13,20 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../schemas/NonEmployeeRequestBody.yaml'
+          $ref: "../schemas/NonEmployeeRequestBody.yaml"
   responses:
-    '200':
+    "200":
       description: Non-Employee request creation object
       content:
         application/json:
           schema:
-            $ref: '../schemas/NonEmployeeRequest.yaml'
-    '400':
+            $ref: "../schemas/NonEmployeeRequest.yaml"
+    "400":
       description: Client Error - Returned if the request body is invalid.
       content:
         application/json:
           schema:
-            $ref: '../../v3/schemas/ErrorResponseDto.yaml'
+            $ref: "../../v3/schemas/ErrorResponseDto.yaml"
           examples:
             400.1 Bad Request Content:
               description: Response for bad request content
@@ -45,15 +45,17 @@ post:
                 messages:
                   - locale: en
                     localeOrigin: REQUEST
-                    text: Unable to create Non-Employee because the accountName "existed" is already being used.
-    '401':
-      $ref: '../../v3/responses/401.yaml'
-    '403':
-      $ref: '../../v3/responses/403.yaml'
-    '429':
-      $ref: '../../v3/responses/429.yaml'
-    '500':
-      $ref: '../../v3/responses/500.yaml'
+                    text:
+                      Unable to create Non-Employee because the accountName
+                      "existed" is already being used.
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"
 get:
   operationId: nonEmployeeRequestList
   security:
@@ -64,9 +66,9 @@ get:
   description: >-
     This gets a list of non-employee requests.
   parameters:
-    - $ref: '../../v3/parameters/limit.yaml'
-    - $ref: '../../v3/parameters/offset.yaml'
-    - $ref: '../../v3/parameters/count.yaml'
+    - $ref: "../../v3/parameters/limit.yaml"
+    - $ref: "../../v3/parameters/offset.yaml"
+    - $ref: "../../v3/parameters/count.yaml"
     - in: query
       name: requested-for
       required: true
@@ -74,7 +76,8 @@ get:
         type: string
       example: me
       description: >-
-        The identity for whom the request was made. *me* indicates the current user.
+        The identity for whom the request was made. *me* indicates the current
+        user.
     - in: query
       name: sorters
       required: false
@@ -83,8 +86,12 @@ get:
         format: comma-separated
       example: approvalStatus,firstName
       description: >-
-        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)<br/><br/>
-        Sorting is supported for the following fields: **created, approvalStatus, firstName, lastName, email, phone, accountName, startDate, endDate**
+        Sort results using the standard syntax described in [V3 API Standard
+        Collection
+        Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+        Sorting is supported for the following fields: **created,
+        approvalStatus, firstName, lastName, email, phone, accountName,
+        startDate, endDate**
     - in: query
       name: filters
       required: false
@@ -92,26 +99,28 @@ get:
         type: string
       example: sourceId eq "2c91808568c529c60168cca6f90c1313"
       description: >-
-        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)<br/><br/>
-        Filtering is supported for the following fields and operators:<br/><br/>
-        **sourceId**: *eq* <br/><br/>
-        *Example:* sourceId eq "2c91808568c529c60168cca6f90c1313"
+        Filter results using the standard syntax described in [V3 API Standard
+        Collection
+        Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+        Filtering is supported for the following fields and operators:
+        **sourceId**: *eq*  *Example:* sourceId eq
+        "2c91808568c529c60168cca6f90c1313"
   responses:
-    '200':
+    "200":
       description: List of non-employee request objects.
       content:
         application/json:
           schema:
             type: array
             items:
-              $ref: '../schemas/NonEmployeeRequest.yaml'
-    '400':
-      $ref: '../../v3/responses/400.yaml'
-    '401':
-      $ref: '../../v3/responses/401.yaml'
-    '403':
-      $ref: '../../v3/responses/403.yaml'
-    '429':
-      $ref: '../../v3/responses/429.yaml'
-    '500':
-      $ref: '../../v3/responses/500.yaml'
+              $ref: "../schemas/NonEmployeeRequest.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

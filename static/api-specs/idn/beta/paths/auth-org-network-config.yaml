@@ -4,23 +4,23 @@ get:
     - Auth Org Configuration
   summary: Get the org's auth org network configuration.
   description: >-
-    This API returns the details of an org's network auth configuration. </br>
+    This API returns the details of an org's network auth configuration.
     Requires security scope of: 'sp:auth-org:read'
   responses:
-    '200':
+    "200":
       description: Network configuration for the tenant's auth org.
       content:
         application/json:
           schema:
-            $ref: '../schemas/NetworkConfiguration.yaml'
-    '401':
-      $ref: '../../v3/responses/401.yaml'
-    '403':
-      $ref: '../../v3/responses/403.yaml'
-    '404':
-      $ref: '../../v3/responses/404.yaml'
-    '500':
-      $ref: '../../v3/responses/500.yaml'
+            $ref: "../schemas/NetworkConfiguration.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"
   # security:
   #   - oauth2: [sp:auth-org:read]
 post:
@@ -29,37 +29,38 @@ post:
     - Auth Org Configuration
   summary: Create the org's auth org network configuration.
   description: >-
-    This API returns the details of an org's network auth configuration. </br>
+    This API returns the details of an org's network auth configuration.
     Requires security scope of: 'sp:auth-org:create'
   requestBody:
     required: true
     description: >-
-      Network configuration creation request body. </br>
-      </br>
-      The following constraints ensure the request body conforms to certain logical guidelines, which are:
-        1. Each string element in the range array must be a valid ip address or ip subnet mask.
-        2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
+      Network configuration creation request body.   The following constraints
+      ensure the request body conforms to certain logical guidelines, which are:
+        1. Each string element in the range array must be a valid ip address or
+      ip subnet mask.
+        2. Each string element in the geolocation array must be 2 characters,
+      and they can only be uppercase letters.
     content:
       application/json:
         schema:
-          $ref: '../schemas/NetworkConfiguration.yaml'
+          $ref: "../schemas/NetworkConfiguration.yaml"
   responses:
-    '200':
+    "200":
       description: Network configuration for the tenant.
       content:
         application/json:
           schema:
-            $ref: '../schemas/NetworkConfiguration.yaml'
-    '400':
-      $ref: '../../v3/responses/400.yaml'
-    '401':
-      $ref: '../../v3/responses/401.yaml'
-    '403':
-      $ref: '../../v3/responses/403.yaml'
-    '404':
-      $ref: '../../v3/responses/404.yaml'
-    '500':
-      $ref: '../../v3/responses/500.yaml'
+            $ref: "../schemas/NetworkConfiguration.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"
   # security:
   #   - oauth2: [sp:auth-org:create]
 patch:
@@ -68,22 +69,26 @@ patch:
     - Auth Org Configuration
   summary: Update the org's auth org network configuration
   description: >-
-    This API updates an existing network configuration for an org using PATCH </br>
-    Requires security scope of:  'sp:auth-org:update'
+    This API updates an existing network configuration for an org using PATCH
+     Requires security scope of:  'sp:auth-org:update'
   requestBody:
     required: true
     description: >-
-      A list of auth org network configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.<br/>
-      <br/>
-      Ensures that the patched Network Config conforms to certain logical guidelines, which are:
-        1. Each string element in the range array must be a valid ip address or ip subnet mask.
-        2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
+      A list of auth org network configuration update operations according to
+      the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+
+      Ensures that the patched Network Config conforms to certain logical
+      guidelines, which are:
+        1. Each string element in the range array must be a valid ip address or
+      ip subnet mask.
+        2. Each string element in the geolocation array must be 2 characters,
+      and they can only be uppercase letters.
     content:
       application/json-patch+json:
         schema:
           type: array
           items:
-            $ref: '../schemas/JsonPatchOperation.yaml'
+            $ref: "../schemas/JsonPatchOperation.yaml"
         example:
           - op: "replace"
             path: "/whitelisted"
@@ -92,21 +97,21 @@ patch:
             path: "/geolocation"
             value: ["AF", "HN", "ES"]
   responses:
-    '200':
+    "200":
       description: Updated Auth Org network configuration.
       content:
         application/json:
           schema:
-            $ref: '../schemas/NetworkConfiguration.yaml'
-    '400':
-      $ref: '../../v3/responses/400.yaml'
-    '401':
-      $ref: '../../v3/responses/401.yaml'
-    '403':
-      $ref: '../../v3/responses/403.yaml'
-    '404':
-      $ref: '../../v3/responses/404.yaml'
-    '500':
-      $ref: '../../v3/responses/500.yaml'
+            $ref: "../schemas/NetworkConfiguration.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"
   # security:
   #   - oauth2: [sp:auth-org:update]

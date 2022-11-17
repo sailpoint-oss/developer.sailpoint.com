@@ -17,24 +17,24 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../schemas/NonEmployeeSourceRequestBody.yaml'
+          $ref: "../schemas/NonEmployeeSourceRequestBody.yaml"
   responses:
-    '200':
+    "200":
       description: Created non-employee source.
       content:
         application/json:
           schema:
-            $ref: '../schemas/NonEmployeeSourceWithCloudExternalId.yaml'
-    '400':
-      $ref: '../../v3/responses/400.yaml'
-    '401':
-      $ref: '../../v3/responses/401.yaml'
-    '403':
-      $ref: '../../v3/responses/403.yaml'
-    '429':
-      $ref: '../../v3/responses/429.yaml'
-    '500':
-      $ref: '../../v3/responses/500.yaml'
+            $ref: "../schemas/NonEmployeeSourceWithCloudExternalId.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"
 get:
   operationId: nonEmployeeSourcesList
   security:
@@ -45,9 +45,9 @@ get:
   description: >-
     This gets a list of non-employee sources.
   parameters:
-    - $ref: '../../v3/parameters/limit.yaml'
-    - $ref: '../../v3/parameters/offset.yaml'
-    - $ref: '../../v3/parameters/count.yaml'
+    - $ref: "../../v3/parameters/limit.yaml"
+    - $ref: "../../v3/parameters/offset.yaml"
+    - $ref: "../../v3/parameters/count.yaml"
     - in: query
       required: true
       name: requested-for
@@ -55,7 +55,8 @@ get:
       schema:
         type: string
       description: >-
-        The identity for whom the request was made. *me* indicates the current user.
+        The identity for whom the request was made. *me* indicates the current
+        user.
     - in: query
       required: true
       name: non-employee-count
@@ -63,7 +64,8 @@ get:
       schema:
         type: boolean
       description: >-
-        The flag to determine whether return a non-employee count associate with source.
+        The flag to determine whether return a non-employee count associate with
+        source.
     - in: query
       name: sorters
       required: false
@@ -72,24 +74,26 @@ get:
         format: comma-separated
       example: name,created
       description: >-
-        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)<br/><br/>
+        Sort results using the standard syntax described in [V3 API Standard
+        Collection
+        Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
         Sorting is supported for the following fields: **name, created**
   responses:
-    '200':
+    "200":
       description: List of non-employee sources objects.
       content:
         application/json:
           schema:
             type: array
             items:
-              $ref: '../schemas/NonEmployeeSourceWithNECount.yaml'
-    '400':
-      $ref: '../../v3/responses/400.yaml'
-    '401':
-      $ref: '../../v3/responses/401.yaml'
-    '403':
-      $ref: '../../v3/responses/403.yaml'
-    '429':
-      $ref: '../../v3/responses/429.yaml'
-    '500':
-      $ref: '../../v3/responses/500.yaml'
+              $ref: "../schemas/NonEmployeeSourceWithNECount.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

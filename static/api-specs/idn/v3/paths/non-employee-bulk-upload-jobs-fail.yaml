@@ -7,16 +7,16 @@ post:
   summary: Fail Bulk Upload
   description: |
     This API does not stop the job. It flags the job as failed. The job continues to run if it was 
-    running when the API was invoked.<br><br>
+    running when the API was invoked.
 
     Before you submit this request, verify the transaction is actually failed in Kibana. When 
-    the NON_EMPLOYEE_CREATE_PASSED events have stopped, then the job is completed. <br><br>
+    the NON_EMPLOYEE_CREATE_PASSED events have stopped, then the job is completed. 
 
     Important: This API does not stop the job, it flags the job as failed. The job continues to run if 
     the it was running when the API was invoked. If invoked while the transaction is still running, 
-    other jobs are allowed to start but the second job to start will fail. <br><br>
+    other jobs are allowed to start but the second job to start will fail. 
 
-    Requires role context of `idn:nesr:update`. <br><br>
+    Requires role context of `idn:nesr:update`. 
 
     This is for internal use only.
   parameters:

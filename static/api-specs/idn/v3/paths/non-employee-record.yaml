@@ -6,7 +6,7 @@ get:
     - Non-Employee Lifecycle Management
   summary: Get a Non-Employee Record
   description: >-
-    This gets a non-employee record.<br><br>
+    This gets a non-employee record.
 
     Requires role context of `idn:nesr:read`
   parameters:
@@ -43,10 +43,10 @@ put:
     - Non-Employee Lifecycle Management
   summary: Update Non-Employee Record
   description: >-
-    This request will update a non-employee record.<br><br> There are two
-    contextual uses for this endpoint:<br>
+    This request will update a non-employee record. There are two contextual
+    uses for this endpoint:
       1. The user has the role context of `idn:nesr:update`, in which case they
-    update all available fields.<br>
+    update all available fields.
       2. The user is owner of the source, in this case they can only update the
     end date.
   parameters:
@@ -95,10 +95,10 @@ patch:
     - Non-Employee Lifecycle Management
   summary: Patch Non-Employee Record
   description: >-
-    This request will patch a non-employee record.<br><br> There are two
-    contextual uses for this endpoint:<br>
+    This request will patch a non-employee record. There are two contextual uses
+    for this endpoint:
       1. The user has the role context of `idn:nesr:update`, in which case they
-    update all available fields.<br>
+    update all available fields.
       2. The user is owner of the source, in this case they can only update the
     end date.
   parameters:
@@ -154,7 +154,7 @@ delete:
     - Non-Employee Lifecycle Management
   summary: Delete Non-Employee Record
   description: >-
-    This request will delete a non-employee record.<br><br>
+    This request will delete a non-employee record.
 
     Requires role context of `idn:nesr:delete`
   parameters:

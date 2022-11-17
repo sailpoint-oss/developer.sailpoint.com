@@ -7,7 +7,7 @@ post:
   summary: Aggregate all accounts for a Non-Employee Source
   description: >-
     This fetches all the non-employee records related to a non-employee source
-    and publishes an aggregation event for each one.<br><br>
+    and publishes an aggregation event for each one.
 
     Requires auth scope of 'idn:nesr:create'
   parameters:

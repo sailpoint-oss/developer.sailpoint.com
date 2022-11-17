@@ -6,12 +6,11 @@ get:
     - Non-Employee Lifecycle Management
   summary: Get Summary of Non-Employee Approval Requests
   description: >-
-    This request will retrieve a summary of non-employee approval
-    requests.<br><br> There are two contextual uses for the `requested-for` path
-    parameter:<br>
+    This request will retrieve a summary of non-employee approval requests.
+    There are two contextual uses for the `requested-for` path parameter:
       1. The user has the role context of `idn:nesr:read`, in which case he or
     she may request a summary of all non-employee approval requests assigned to
-    a particular approver by passing in that approver's id.<br>
+    a particular approver by passing in that approver's id.
       2. The current user is an approver, in which case "me" should be provided
     as the `requested-for` value. This will provide the approver with a summary
     of the approval items assigned to him or her.

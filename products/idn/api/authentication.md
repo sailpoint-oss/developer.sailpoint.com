@@ -26,7 +26,24 @@ IdentityNow and get an `access_token`. This `access_token` will need to be
 provided in the `Authorization` header of each API request. The steps of the
 flow are as follows:
 
-![Flow](./img/http-client-identity-now.png)
+<div align="center">
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant H as HTTP Client
+    participant I as IdentityNow
+
+    H->>I: Access Token Request
+    I->>H: Access Token Response
+
+    loop Until token expires
+    H->>I: API Request + Access Token
+    I->>H: IdentityNow API Response
+    end
+```
+
+</div>
 
 1. **Access Token Request** - The HTTP client (a script, application, Postman,
    cURL, etc.) makes a request to IdentityNow to get an `access_token`. The
@@ -285,7 +302,25 @@ grant types. The redirect URLs must also match the list in the client as well:
 
 ### Authorization Flow
 
-![Flow](./img/user-web-app-identity-now.png)
+<div align="center">
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant U as User
+    participant W as Web App
+    participant I as IdentityNow
+
+    U->>W: Click login link
+    W->>I: Authorization request to https://{tenant}.identitynow.com/oauth/authorize
+    I->>U: Redirect to login prompt
+    U->>I: Authentication
+    I->>W: Authorization code granted
+    W->>I: Authorization code to https://{tenant}.api.identitynow.com/oauth/token
+    I->>W: JWT access token granted
+```
+
+</div>
 
 1. The user clicks the login link on a web app.
 

@@ -65,8 +65,8 @@ get:
     - Non-Employee Lifecycle Management
   summary: List Non-Employee Requests
   description: >-
-    This gets a list of non-employee requests. There are two contextual uses for
-    the `requested-for` path parameter:
+    This gets a list of non-employee requests. There are two contextual
+    uses for the `requested-for` path parameter:
       1. The user has the role context of `idn:nesr:read`, in which case he or
     she may request a list non-employee requests assigned to a particular
     account manager by passing in that manager's id.

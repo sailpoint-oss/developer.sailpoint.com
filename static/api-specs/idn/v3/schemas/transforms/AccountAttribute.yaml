@@ -47,11 +47,11 @@ properties:
       include the source and identity, and any subsequent expressions will be
       combined in an AND operation to the existing search criteria.
 
-
-      Only certain searchable attributes are available:  - `nativeIdentity` -
-      the Account ID  - `displayName` - the Account Name  - `entitlements` - a
-      boolean value to determine if the account has entitlements
-    example: '!(nativeIdentity.startsWith("*DELETED*"))'
+      Only certain searchable attributes are available: 
+      - `nativeIdentity` - the Account ID 
+      - `displayName` - the Account Name 
+      - `entitlements` - a boolean value to determine if the account has entitlements
+    example: "!(nativeIdentity.startsWith(\"*DELETED*\"))"
   accountPropertyFilter:
     type: string
     description: >-

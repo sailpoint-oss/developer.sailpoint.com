@@ -46,7 +46,7 @@ patch:
     - Non-Employee Lifecycle Management
   summary: Patch a Non-Employee Source
   description: >-
-    patch a non-employee source. (partial update)  Patchable field: **name,
+    patch a non-employee source. (partial update) <br/> Patchable field: **name,
     description, approvers, accountManagers** Requires role context of
     `idn:nesr:update`.
   parameters:
@@ -105,8 +105,8 @@ delete:
     - Non-Employee Lifecycle Management
   summary: Delete Non-Employee Source
   description: >-
-    This request will delete a non-employee source. Requires role context of
-    `idn:nesr:delete`.
+    This request will delete a non-employee source. Requires role
+    context of `idn:nesr:delete`.
   parameters:
     - in: path
       name: sourceId

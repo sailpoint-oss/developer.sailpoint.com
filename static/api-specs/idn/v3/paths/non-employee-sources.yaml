@@ -6,8 +6,7 @@ post:
     - Non-Employee Lifecycle Management
   summary: Create Non-Employee Source
   description: >-
-    This request will create a non-employee source. Requires role context of
-    `idn:nesr:create`
+    This request will create a non-employee source. Requires role context of `idn:nesr:create`
   requestBody:
     description: Non-Employee source creation request body.
     required: true

@@ -5,12 +5,13 @@ delete:
   summary: Delete Personal Access Token
   description: >-
     This deletes a personal access token 
-
-    Any of the following rights are required to access this resource: 
-      idn:my-personal-access-tokens:delete
-      idn:all-personal-access-tokens:delete
-      idn:managed-personal-access-tokens:delete
-
+    
+    Any of the following rights are required to access this resource:
+    
+      - idn:my-personal-access-tokens:delete
+      - idn:all-personal-access-tokens:delete
+      - idn:managed-personal-access-tokens:delete
+    
   parameters:
     - in: path
       name: id

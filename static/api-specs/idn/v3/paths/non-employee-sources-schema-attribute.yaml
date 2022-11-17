@@ -109,7 +109,7 @@ delete:
   tags:
     - Non-Employee Lifecycle Management
   summary: Delete a Schema Attribute for Non-Employee Source
-  description: |
+  description: | 
     This end-point deletes a specific schema attribute for a non-employee source.
     Requires role context of `idn:nesr:delete`
   parameters:

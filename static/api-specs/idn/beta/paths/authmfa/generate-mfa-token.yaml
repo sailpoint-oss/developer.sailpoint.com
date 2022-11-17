@@ -4,23 +4,18 @@ post:
     - Auth MFA
   summary: Generate a special token for calling sp-mfa /totp/** APIs
   description: >-
-    Generates an MFA token and establishes an unverified MFA-on-login context
-    state.  Callable by either an internal service or an authenticated user. 
-
-    When called by an internal service, the calling service must present the
-    target user's external id as the requestedFor value. 
-
-    When called by an authenticated user, the proxying service must present "me"
-    as the the requestedFor value. 
-
-    The following rights are required to access this endpoint:
-    sp:mfa-token-all:create, sp:mfa-token-self:create 
-
-    If an external id is presented as the request body's requestedFor value, the
-    caller must possess the sp:mfa-token-all:create right. 
-
-    This implies that an internal service is obtaining an MFA token on behalf of
-    a user.
+    Generates an MFA token and establishes an unverified MFA-on-login context state. 
+    Callable by either an internal service or an authenticated user. 
+    
+    When called by an internal service, the calling service must present the target user's external id as the requestedFor value. 
+    
+    When called by an authenticated user, the proxying service must present "me" as the the requestedFor value. 
+    
+    The following rights are required to access this endpoint: sp:mfa-token-all:create, sp:mfa-token-self:create 
+    
+    If an external id is presented as the request body's requestedFor value, the caller must possess the sp:mfa-token-all:create right. 
+    
+    This implies that an internal service is obtaining an MFA token on behalf of a user.
   requestBody:
     description: Request body containing requestedFor value.
     required: true

@@ -19,7 +19,6 @@ get:
       required: true
       description: >-
         The name of the MFA method.
-
         The currently supported method name is okta-verify.
   responses:
     "200":

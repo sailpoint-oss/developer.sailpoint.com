@@ -41,12 +41,10 @@ get:
     - Non-Employee Lifecycle Management
   summary: List Non-Employee Records
   description: >-
-    This gets a list of non-employee records. There are two contextual uses for
-    this endpoint:
-      1. The user has the role context of `idn:nesr:read`, in which case they
-    can get a list of all of the non-employees.
-      2. The user is an account manager, in which case they can get a list of
-    the non-employees that they manage.
+    This gets a list of non-employee records.
+    There are two contextual uses for this endpoint:
+      1. The user has the role context of `idn:nesr:read`, in which case they can get a list of all of the non-employees.
+      2. The user is an account manager, in which case they can get a list of the non-employees that they manage.
   parameters:
     - $ref: "../parameters/limit.yaml"
     - $ref: "../parameters/offset.yaml"

@@ -43,8 +43,8 @@ put:
     - Non-Employee Lifecycle Management
   summary: Update Non-Employee Record
   description: >-
-    This request will update a non-employee record. There are two contextual
-    uses for this endpoint:
+    This request will update a non-employee record. There are two
+    contextual uses for this endpoint:
       1. The user has the role context of `idn:nesr:update`, in which case they
     update all available fields.
       2. The user is owner of the source, in this case they can only update the
@@ -95,8 +95,8 @@ patch:
     - Non-Employee Lifecycle Management
   summary: Patch Non-Employee Record
   description: >-
-    This request will patch a non-employee record. There are two contextual uses
-    for this endpoint:
+    This request will patch a non-employee record. There are two
+    contextual uses for this endpoint:
       1. The user has the role context of `idn:nesr:update`, in which case they
     update all available fields.
       2. The user is owner of the source, in this case they can only update the

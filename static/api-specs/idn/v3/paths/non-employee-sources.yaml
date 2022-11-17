@@ -6,32 +6,31 @@ post:
     - Non-Employee Lifecycle Management
   summary: Create Non-Employee Source
   description: >-
-    This request will create a non-employee source.<br><br>
-    Requires role context of `idn:nesr:create`
+    This request will create a non-employee source. Requires role context of `idn:nesr:create`
   requestBody:
     description: Non-Employee source creation request body.
     required: true
     content:
       application/json:
         schema:
-          $ref: '../schemas/non-employee/NonEmployeeSourceRequestBody.yaml'
+          $ref: "../schemas/non-employee/NonEmployeeSourceRequestBody.yaml"
   responses:
-    '200':
+    "200":
       description: Created non-employee source.
       content:
         application/json:
           schema:
-            $ref: '../schemas/non-employee/NonEmployeeSourceWithCloudExternalId.yaml'
-    '400':
-      $ref: '../responses/400.yaml'
-    '401':
-      $ref: '../responses/401.yaml'
-    '403':
-      $ref: '../responses/403.yaml'
-    '429':
-      $ref: '../responses/429.yaml'
-    '500':
-      $ref: '../responses/500.yaml'
+            $ref: "../schemas/non-employee/NonEmployeeSourceWithCloudExternalId.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"
 get:
   operationId: nonEmployeeSourcesList
   security:
@@ -40,14 +39,18 @@ get:
     - Non-Employee Lifecycle Management
   summary: List Non-Employee Sources
   description: >-
-    This gets a list of non-employee sources.<br><br>
-    There are two contextual uses for the requested-for path parameter: <br>
-      1. The user has the role context of `idn:nesr:read`, in which case he or she may request a list sources assigned to a particular account manager by passing in that manager's id.<br>
-      2. The current user is an account manager, in which case "me" should be provided as the `requested-for` value. This will provide the user with a list of the sources that he or she owns.
+    This gets a list of non-employee sources. There are two contextual uses for
+    the requested-for path parameter: 
+      1. The user has the role context of `idn:nesr:read`, in which case he or
+    she may request a list sources assigned to a particular account manager by
+    passing in that manager's id.
+      2. The current user is an account manager, in which case "me" should be
+    provided as the `requested-for` value. This will provide the user with a
+    list of the sources that he or she owns.
   parameters:
-    - $ref: '../parameters/limit.yaml'
-    - $ref: '../parameters/offset.yaml'
-    - $ref: '../parameters/count.yaml'
+    - $ref: "../parameters/limit.yaml"
+    - $ref: "../parameters/offset.yaml"
+    - $ref: "../parameters/count.yaml"
     - in: query
       name: requested-for
       required: true
@@ -55,7 +58,8 @@ get:
         type: string
       example: me
       description: >-
-        The identity for whom the request was made. *me* indicates the current user.
+        The identity for whom the request was made. *me* indicates the current
+        user.
     - in: query
       name: non-employee-count
       required: false
@@ -63,7 +67,8 @@ get:
       schema:
         type: boolean
       description: >-
-        The flag to determine whether return a non-employee count associate with source.
+        The flag to determine whether return a non-employee count associate with
+        source.
     - in: query
       name: sorters
       required: false
@@ -72,24 +77,26 @@ get:
         format: comma-separated
       example: "name,created"
       description: >-
-        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407#toc-hId-2058949)<br/><br/>
+        Sort results using the standard syntax described in [V3 API Standard
+        Collection
+        Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407#toc-hId-2058949)
         Sorting is supported for the following fields: **name, created**
   responses:
-    '200':
+    "200":
       description: List of non-employee sources objects.
       content:
         application/json:
           schema:
             type: array
             items:
-              $ref: '../schemas/non-employee/NonEmployeeSourceWithNECount.yaml'
-    '400':
-      $ref: '../responses/400.yaml'
-    '401':
-      $ref: '../responses/401.yaml'
-    '403':
-      $ref: '../responses/403.yaml'
-    '429':
-      $ref: '../responses/429.yaml'
-    '500':
-      $ref: '../responses/500.yaml'
+              $ref: "../schemas/non-employee/NonEmployeeSourceWithNECount.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"

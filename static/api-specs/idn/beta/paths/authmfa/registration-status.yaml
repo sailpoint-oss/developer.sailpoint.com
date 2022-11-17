@@ -4,10 +4,10 @@ get:
     - Auth MFA
   summary: Determine whether the user is registered for MFA
   description: >-
-    Gives the caller an indication of whether or not the user associated with the <code>externalId</code> path param is registered for MFA. </br>
-    </br>
-    The following right is necessary to access this endpoint: <code>sp:mfa-login-registration:read</code>. </br>
-    </br>
+    Gives the caller an indication of whether or not the user associated with the `externalId` path param is registered for MFA. 
+    
+    The following right is necessary to access this endpoint: `sp:mfa-login-registration:read`. 
+    
     It is also assumed that the caller has previously verified that the user is associated with an auth profile that has MFA enabled.
   parameters:
     - in: path
@@ -18,17 +18,17 @@ get:
       description: The user's external ID
       example: 2c9180867b50d088017b554662fb281e
   responses:
-    '200':
+    "200":
       description: Response indicating that the user is registered for MFA.
       content:
         application/json:
           schema:
-            $ref: '../../schemas/MfaRegistrationResponse.yaml'
-    '401':
-      $ref: '../../../v3/responses/401.yaml'
-    '403':
-      $ref: '../../../v3/responses/403.yaml'
-    '429':
-      $ref: '../../../v3/responses/429.yaml'
-    '500':
-      $ref: '../../../v3/responses/500.yaml'
+            $ref: "../../schemas/MfaRegistrationResponse.yaml"
+    "401":
+      $ref: "../../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../../v3/responses/403.yaml"
+    "429":
+      $ref: "../../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../../v3/responses/500.yaml"

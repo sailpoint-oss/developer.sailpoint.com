@@ -5,7 +5,6 @@ get:
   summary: Get configuration of a MFA method
   description: >-
     This API returns the configuration of a given MFA method.
-    </br>
     A token with ORG_ADMIN authority is required to call this API.
   security:
     - oauth2: [idn:mfa-config:read]
@@ -18,32 +17,31 @@ get:
       required: true
       description: >-
         The name of the MFA method.
-        </br>
         The currently supported method name is okta-verify.
   responses:
-    '200':
+    "200":
       description: MFA configuration of a given method.
       content:
         application/json:
           schema:
-            $ref: '../schemas/MfaConfig.yaml'
+            $ref: "../schemas/MfaConfig.yaml"
           example:
             {
-                "enabled": true,
-                "host": "www.example.com",
-                "accessKey": "dk778Y3QlA5UqocYpdU3rEkzrK2D497y",
-                "identityAttribute": "email"
+              "enabled": true,
+              "host": "www.example.com",
+              "accessKey": "dk778Y3QlA5UqocYpdU3rEkzrK2D497y",
+              "identityAttribute": "email",
             }
-    '400':
-      $ref: '../../v3/responses/400.yaml'
-    '401':
-      $ref: '../../v3/responses/401.yaml'
-    '403':
-      $ref: '../../v3/responses/403.yaml'
-    '429':
-      $ref: '../../v3/responses/429.yaml'
-    '500':
-      $ref: '../../v3/responses/500.yaml'
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"
 
 put:
   operationId: setMFAConfig
@@ -52,7 +50,6 @@ put:
   summary: Set configuration of a MFA method
   description: >-
     This API sets the configuration of a given MFA method.
-    </br>
     A token with ORG_ADMIN authority is required to call this API.
   security:
     - oauth2: [idn:mfa-config:write]
@@ -65,42 +62,41 @@ put:
       required: true
       description: >-
         The name of the MFA method.
-        </br>
         The currently supported method name is okta-verify.
   requestBody:
     required: true
     content:
       application/json:
         schema:
-          $ref: '../schemas/MfaConfig.yaml'
+          $ref: "../schemas/MfaConfig.yaml"
         example:
-            {
-                "enabled": true,
-                "host": "www.example.com",
-                "accessKey": "dk778Y3QlA5UqocYpdU3rEkzrK2D497y",
-                "identityAttribute": "email"
-            }
+          {
+            "enabled": true,
+            "host": "www.example.com",
+            "accessKey": "dk778Y3QlA5UqocYpdU3rEkzrK2D497y",
+            "identityAttribute": "email",
+          }
   responses:
-    '200':
+    "200":
       description: MFA configuration of a given method.
       content:
         application/json:
           schema:
-            $ref: '../schemas/MfaConfig.yaml'
+            $ref: "../schemas/MfaConfig.yaml"
           example:
             {
-                "enabled": true,
-                "host": "www.example.com",
-                "accessKey": "dk778Y3QlA5UqocYpdU3rEkzrK2D497y",
-                "identityAttribute": "email"
+              "enabled": true,
+              "host": "www.example.com",
+              "accessKey": "dk778Y3QlA5UqocYpdU3rEkzrK2D497y",
+              "identityAttribute": "email",
             }
-    '400':
-      $ref: '../../v3/responses/400.yaml'
-    '401':
-      $ref: '../../v3/responses/401.yaml'
-    '403':
-      $ref: '../../v3/responses/403.yaml'
-    '429':
-      $ref: '../../v3/responses/429.yaml'
-    '500':
-      $ref: '../../v3/responses/500.yaml'
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

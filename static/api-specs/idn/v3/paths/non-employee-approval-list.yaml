@@ -6,11 +6,11 @@ get:
     - Non-Employee Lifecycle Management
   summary: Get List of Non-Employee Approval Requests
   description: >-
-    This gets a list of non-employee approval requests.<br><br>
+    This gets a list of non-employee approval requests.
 
-    There are two contextual uses for this endpoint:<br>
+    There are two contextual uses for this endpoint:
       1. The user has the role context of `idn:nesr:read`, in which case they
-    can list the approvals for any approver.<br>
+    can list the approvals for any approver.
       2. The user owns the requested approval.
   parameters:
     - in: query
@@ -32,10 +32,9 @@ get:
       description: >-
         Filter results using the standard syntax described in [V3 API Standard
         Collection
-        Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407)<br/><br/>
-        Filtering is supported for the following fields and operators:<br/><br/>
-        **approvalStatus**: *eq* <br/><br/> *Example:* approvalStatus eq
-        "PENDING"
+        Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407)
+        Filtering is supported for the following fields and operators:
+        **approvalStatus**: *eq*  *Example:* approvalStatus eq "PENDING"
       example: approvalStatus eq "Pending"
       required: false
     - in: query
@@ -46,7 +45,7 @@ get:
       description: >-
         Sort results using the standard syntax described in [V3 API Standard
         Collection
-        Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407#toc-hId-2058949)<br/><br/>
+        Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407#toc-hId-2058949)
         Sorting is supported for the following fields: **created, modified**
       required: false
       example: created

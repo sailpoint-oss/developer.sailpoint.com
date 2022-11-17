@@ -22,16 +22,18 @@ properties:
     example: "en"
   subject:
     type: string
-    example: "You have $numberOfPendingTasks $taskTasks to complete in ${__global.productName}."
+    example:
+      "You have $numberOfPendingTasks $taskTasks to complete in
+      ${__global.productName}."
   header:
     type: string
-    example: "Dear $__recipient.name,<br/>"
+    example: "Dear $__recipient.name,"
   body:
     type: string
     example: "Please go to the task manager"
   footer:
     type: string
-    example: "<br/>Thanks,<br/> The $__global.productName Team<br/>"
+    example: "Thanks, The $__global.productName Team"
   from:
     type: string
     example: "$__global.emailFromAddress"
@@ -40,7 +42,8 @@ properties:
     example: "$__global.emailFromAddress"
   description:
     type: string
-    example: "Daily digest - sent if number of outstanding tasks for task owner > 0"
+    example:
+      "Daily digest - sent if number of outstanding tasks for task owner > 0"
   id:
     type: string
     example: "c17bea3a-574d-453c-9e04-4365fbf5af0b"
@@ -53,7 +56,8 @@ properties:
   modified:
     type: string
     format: date-time
-    description: The time when this template was last modified. This is auto-generated.
+    description:
+      The time when this template was last modified. This is auto-generated.
     example: "2020-01-01T00:00:00.000000Z"
 required:
   - key

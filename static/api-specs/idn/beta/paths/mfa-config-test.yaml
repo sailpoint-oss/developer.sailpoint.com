@@ -4,8 +4,9 @@ get:
     - MFA Configuration
   summary: Test configuration of a MFA method
   description: >-
-    This API validates that the configuration is valid and will properly authenticate with the MFA provider identified by the method path parameter.
-    </br>
+    This API validates that the configuration is valid and will properly
+    authenticate with the MFA provider identified by the method path parameter.
+
     A token with ORG_ADMIN authority is required to call this API.
   security:
     - oauth2: [idn:mfa-config:read]
@@ -18,27 +19,22 @@ get:
       required: true
       description: >-
         The name of the MFA method.
-        </br>
         The currently supported method name is okta-verify.
   responses:
-    '200':
+    "200":
       description: The result of configuration test for the MFA provider.
       content:
         application/json:
           schema:
-            $ref: '../schemas/MfaConfigTestResponse.yaml'
-          example:
-            {
-                "state": "SUCCESS",
-                "error": null
-            }
-    '400':
-      $ref: '../../v3/responses/400.yaml'
-    '401':
-      $ref: '../../v3/responses/401.yaml'
-    '403':
-      $ref: '../../v3/responses/403.yaml'
-    '429':
-      $ref: '../../v3/responses/429.yaml'
-    '500':
-      $ref: '../../v3/responses/500.yaml'
+            $ref: "../schemas/MfaConfigTestResponse.yaml"
+          example: { "state": "SUCCESS", "error": null }
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

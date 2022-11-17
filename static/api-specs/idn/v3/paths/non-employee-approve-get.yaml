@@ -6,10 +6,10 @@ get:
     - Non-Employee Lifecycle Management
   summary: Get a non-employee approval item detail
   description: >-
-    Gets a non-employee approval item detail.<br><br> There are two contextual
-    uses for this endpoint:<br>
+    Gets a non-employee approval item detail. There are two contextual uses for
+    this endpoint:
       1. The user has the role context of `idn:nesr:read`, in which case they
-    can get any approval.<br>
+    can get any approval.
       2. The user owns the requested approval.
   parameters:
     - in: path

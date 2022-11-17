@@ -6,33 +6,33 @@ post:
     - Non-Employee Lifecycle Management
   summary: Create Non-Employee Record
   description: >-
-    This request will create a non-employee record.<br><br>
+    This request will create a non-employee record.
 
-    Requires role context of `idn:nesr:create` 
+    Requires role context of `idn:nesr:create`
   requestBody:
     description: Non-Employee record creation request body.
     required: true
     content:
       application/json:
         schema:
-          $ref: '../schemas/non-employee/NonEmployeeRequestBody.yaml'
+          $ref: "../schemas/non-employee/NonEmployeeRequestBody.yaml"
   responses:
-    '200':
+    "200":
       description: Created non-employee record.
       content:
         application/json:
           schema:
-            $ref: '../schemas/non-employee/NonEmployeeRecord.yaml'
-    '400':
-      $ref: '../responses/400.yaml'
-    '401':
-      $ref: '../responses/401.yaml'
-    '403':
-      $ref: '../responses/403.yaml'
-    '429':
-      $ref: '../responses/429.yaml'
-    '500':
-      $ref: '../responses/500.yaml'
+            $ref: "../schemas/non-employee/NonEmployeeRecord.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"
 get:
   operationId: nonEmployeeRecordList
   security:
@@ -41,14 +41,14 @@ get:
     - Non-Employee Lifecycle Management
   summary: List Non-Employee Records
   description: >-
-    This gets a list of non-employee records.<br><br>
-    There are two contextual uses for this endpoint:<br>
-      1. The user has the role context of `idn:nesr:read`, in which case they can get a list of all of the non-employees.<br>
+    This gets a list of non-employee records.
+    There are two contextual uses for this endpoint:
+      1. The user has the role context of `idn:nesr:read`, in which case they can get a list of all of the non-employees.
       2. The user is an account manager, in which case they can get a list of the non-employees that they manage.
   parameters:
-    - $ref: '../parameters/limit.yaml'
-    - $ref: '../parameters/offset.yaml'
-    - $ref: '../parameters/count.yaml'
+    - $ref: "../parameters/limit.yaml"
+    - $ref: "../parameters/offset.yaml"
+    - $ref: "../parameters/count.yaml"
     - in: query
       name: sorters
       required: false
@@ -57,8 +57,12 @@ get:
         format: comma-separated
       example: accountName,sourceId
       description: >-
-        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407#toc-hId-2058949)<br/><br/>
-        Sorting is supported for the following fields: **id, accountName, sourceId, manager, firstName, lastName, email, phone, startDate, endDate, created, modified**
+        Sort results using the standard syntax described in [V3 API Standard
+        Collection
+        Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407#toc-hId-2058949)
+        Sorting is supported for the following fields: **id, accountName,
+        sourceId, manager, firstName, lastName, email, phone, startDate,
+        endDate, created, modified**
     - in: query
       name: filters
       required: false
@@ -66,26 +70,28 @@ get:
         type: string
       example: sourceId eq "2c91808568c529c60168cca6f90c1313"
       description: >-
-        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407)<br/><br/>
-        Filtering is supported for the following fields and operators:<br/><br/>
-        **sourceId**: *eq* <br/><br/>
-        *Example:* sourceId eq "2c91808568c529c60168cca6f90c1313"
+        Filter results using the standard syntax described in [V3 API Standard
+        Collection
+        Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407)
+        Filtering is supported for the following fields and operators:
+        **sourceId**: *eq*  *Example:* sourceId eq
+        "2c91808568c529c60168cca6f90c1313"
   responses:
-    '200':
+    "200":
       description: Non-Employee record objects
       content:
         application/json:
           schema:
             type: array
             items:
-              $ref: '../schemas/non-employee/NonEmployeeRecord.yaml'
-    '400':
-      $ref: '../responses/400.yaml'
-    '401':
-      $ref: '../responses/401.yaml'
-    '403':
-      $ref: '../responses/403.yaml'
-    '429':
-      $ref: '../responses/429.yaml'
-    '500':
-      $ref: '../responses/500.yaml'
+              $ref: "../schemas/non-employee/NonEmployeeRecord.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"

@@ -66,14 +66,14 @@ Put the resulting zip file in the `dist` folder.
 ### Create Connector In Your Org
 
 Before uploading the zip file, you must create an entry for the connector in
-your IdentityNow org. Run `sp conn create "my-project"` to create a connector
+your IdentityNow org. Run `sail conn create "my-project"` to create a connector
 entry.
 
 The response to this command contains a connector ID you can use to manage this
 connector.
 
 ```bash
-$ sp conn create "example-connector"
+$ sail conn create "example-connector"
 +--------------------------------------+----------------------------+
 |                  ID                  |           ALIAS            |
 +--------------------------------------+----------------------------+
@@ -84,11 +84,11 @@ $ sp conn create "example-connector"
 Run the following command to retrieve the connector ID at any time:
 
 ```
-sp conn list
+sail conn list
 ```
 
 ```bash
-$ sp conn list
+$ sail conn list
 +--------------------------------------+----------------------------+
 |                  ID                  |           ALIAS            |
 +--------------------------------------+----------------------------+
@@ -100,11 +100,11 @@ $ sp conn list
 ### Upload Connector Zip File to IdentityNow
 
 Run
-`sp conn upload -c [connectorID | connectorAlias] -f dist/[connector filename].zip`
+`sail conn upload -c [connectorID | connectorAlias] -f dist/[connector filename].zip`
 to upload the zip file built from the previous step to IdentityNow.
 
 ```bash
-$ sp conn upload -c example-connector -f dist/example-connector-0.1.0.zip
+$ sail conn upload -c example-connector -f dist/example-connector-0.1.0.zip
 +--------------------------------------+---------+
 |             CONNECTOR ID             | VERSION |
 +--------------------------------------+---------+
@@ -114,11 +114,11 @@ $ sp conn upload -c example-connector -f dist/example-connector-0.1.0.zip
 
 The first version upload of connector zip file also creates the `latest` tag,
 pointing to the latest version of the connector file. After uploading the
-connector bundle zip file, you can run `sp conn tags list -c example-connector`
+connector bundle zip file, you can run `sail conn tags list -c example-connector`
 to see the connector tags.
 
 ```bash
-$ sp conn tags list -c example-connector
+$ sail conn tags list -c example-connector
 +--------------------------------------+----------+----------------+
 |                  ID                  | TAG NAME | ACTIVE VERSION |
 +--------------------------------------+----------+----------------+
@@ -152,13 +152,13 @@ Next, invoke the command using the connector ID and config.json. For example,
 this command invokes std:account:list command on the connector:
 
 ```
-sp connectors invoke account-list -c example-connector -p config.json
+sail connectors invoke account-list -c example-connector -p config.json
 ```
 
 You will receive a list of JSON objects for each account the connector contains.
 
 ```bash
-$ sp connectors invoke account-list -c example-connector -p config.json
+$ sail connectors invoke account-list -c example-connector -p config.json
 2022/06/29 11:06:07 Running "std:account:list" with "{}"
 {"key":{"simple":{"id":"john.doe"}},"disabled":false,"locked":false,"attributes":{"id":"john.doe","displayName":"John Doe","entitlements":["administrator","sailpoint"]}}
 ```

@@ -13,10 +13,10 @@ tags: ["Connectivity"]
 
 ## Printing Logs with the CLI
 
-Fetch logs from IDN by issuing the `sp conn logs` command:
+Fetch logs from IDN by issuing the `sail conn logs` command:
 
 ```bash
-$ sp conn logs
+$ sail conn logs
 
 [2022-07-14T11:04:24.276-04:00] ERROR | connectorMessage ▶︎ {"commandType":"std:test-connection","invocationId":"49213a1c-0ba5-48f4-bceb-b6b5b0ec18d5","message":"Connector error ConnectorError: unable to connect, check your connection parameters and API key\n    at /app/index.js:1:441187\n    at runMicrotasks (\u003canonymous\u003e)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n    at async /app/index.js:1:441923\n    at async Connector._exec (/app/index.js:1:5872)\n    at async /usr/bin/index.js:1:77407 {\n  type: 'generic'\n}\n","requestId":"cca732a2-084d-4433-9bd5-ed22fa397d8d","version":2}
 [2022-07-14T11:04:24.310-04:00] INFO  | commandOutcome   ▶︎ {"commandType":"std:test-connection","completed":true,"elapsed":62,"error":"[ConnectorError] unable to connect, check your connection parameters and API key","message":"command failed","requestId":"cca732a2-084d-4433-9bd5-ed22fa397d8d","version":2}
@@ -28,14 +28,14 @@ $ sp conn logs
 [2022-07-14T11:04:24.941-04:00] INFO  | commandOutcome   ▶︎ {"commandType":"std:test-connection","completed":true,"elapsed":49,"message":"command completed","requestId":"cca732a2-084d-4433-9bd5-ed22fa397d8d","version":8}
 ```
 
-To tail the logs to see output as it happens, execute the `sp conn logs tail`
+To tail the logs to see output as it happens, execute the `sail conn logs tail`
 command.
 
 It can also be helpful to execute the logs command along with grep to filter
 your results to a specific connector or text:
 
 ```bash
-$ sp conn logs | grep 'connector version 29'
+$ sail conn logs | grep 'connector version 29'
 [2022-07-14T11:04:24.442-04:00] INFO  | invokeCommand    ▶︎ Command execution started : std:test-connection, for connector version 29.
 ```
 
@@ -62,11 +62,11 @@ export const connector = async () => {
 
 ```
 
-When you run the `sp conn logs` command, you will see the following in the
+When you run the `sail conn logs` command, you will see the following in the
 output:
 
 ```bash
-$ sp conn logs tail
+$ sail conn logs tail
 
 [2022-07-14T11:23:05.418-04:00] INFO  | connectorMessage ▶︎ {"commandType":"std:test-connection","invocationId":"e5c73502-2c03-4b22-aa0d-5b67655e8f2d","message":"testing connector logging\n","requestId":"93370aa663d94bebb509bf5661f18650","version":9}
 [2022-07-14T11:23:06.085-04:00] INFO  | commandOutcome   ▶︎ {"commandType":"std:test-connection","completed":true,"elapsed":1071,"message":"command completed","requestId":"93370aa663d94bebb509bf5661f18650","version":9}
@@ -195,7 +195,7 @@ we log the `accounts` in the following code snippet:
 which results in the following log output:
 
 ```bash
-$ sp conn logs
+$ sail conn logs
 
 [2022-07-14T11:19:29.368-04:00] INFO  | invokeCommand    ▶︎ Command invocation complete : std:account:list, for connector version: 8. Elapsed time 111.836542ms
 [2022-07-14T11:19:30.629-04:00] INFO  | connectorMessage ▶︎ {"0":{"airtableId":"recdUN76q9KibYMir","department":"sailpoint admins","displayName":"****","email":"****","enabled":true,"entitlments":["administrator","sailpoint"],"firstName":"****","id":"****","lastName":"****","locked":false},"1":{"airtableId":"recXJEzpeySmtlIOF","department":"external","displayName":"****","email":"****","enabled":true,"entitlments":["administrator"],"firstName":"****","id":"****","lastName":"****","locked":false},"2":{"airtableId":"recnsv3VJ1K4k867v","department":"external","displayName":"****","email":"****","enabled":true,"entitlments":[""],"firstName":"****","id":"****","lastName":"****","locked":false},"commandType":"std:account:list","connectorName":"Airtable","invocationId":"541bcc2f-1d42-4c78-b201-de3ea46552e0","message":"fetched the following accounts from Airtable","requestId":"379a8a4510944daf9d02b51a29ae863e","version":8}

@@ -44,7 +44,7 @@ and set up the CLI, follow the instructions in this repository's README file
 To create an empty connector project, run the following command:
 
 ```bash
-sp conn init my-first-project
+sail conn init my-first-project
 ```
 
 The CLI init command creates a new folder with your project name in the location

@@ -103,6 +103,6 @@ shown in the following image:
 
 ## Debug in IdentityNow
 
-You can use the `sp conn logs` command to gain insight into how your connector
+You can use the `sail conn logs` command to gain insight into how your connector
 is performing while running in IDN. See the section on logging for more
 information.

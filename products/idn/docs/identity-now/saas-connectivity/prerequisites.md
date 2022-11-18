@@ -37,14 +37,14 @@ debugging, hints, code completion, and other helpful options.
 
 SailPoint provides a CLI tool to manage the connectors' lifecycles. To install
 and set up the CLI, follow the instructions in this repository's README file
-[SailPoint CLI on GitHub](https://github.com/sailpoint-oss/sp-connector-cli)
+[SailPoint CLI on GitHub](https://github.com/sailpoint-oss/sailpoint-cli)
 
 ## Create New Project
 
 To create an empty connector project, run the following command:
 
 ```bash
-sp conn init my-first-project
+sail conn init my-first-project
 ```
 
 The CLI init command creates a new folder with your project name in the location

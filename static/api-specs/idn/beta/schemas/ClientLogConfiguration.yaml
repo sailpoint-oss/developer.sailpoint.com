@@ -13,7 +13,6 @@ properties:
     type: integer
     format: int32
     example: 120
-    default: 240
     minimum: 5
     maximum: 1440
   expiration:

@@ -1,0 +1,51 @@
+.headerContainer {
+    display: grid;
+    margin-left: 50px;
+    margin-bottom: 50px;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    place-content: center;
+    margin-right: 40px;
+}
+
+.headerContent {
+    position:relative;
+    margin-top: 20px;
+    height: 100px;
+}
+
+
+.stageButtonsContainer {
+    display: grid;
+    margin-left: 50px;
+    margin-bottom: 50px;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    place-content: center;
+    margin-right: 40px;
+    max-width: 500px;
+}
+
+.stageButtonsContent {
+    position:relative;
+    margin-top: 20px;
+    height: 100px;
+}
+
+
+
+.stageContainer {
+    display: grid;
+    margin-left: 50px;
+    margin-bottom: 50px;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    place-content: center;
+    margin-right: 40px;
+}
+
+.stageContent {
+    position:relative;
+    margin-top: 20px;
+    height: 100px;
+}

@@ -5,9 +5,8 @@ import ThemedImage from "@theme/ThemedImage";
 import { addDarkToFileName } from "../../../util/util";
 import { SliderButton } from "@typeform/embed-react";
 export default function ConferenceWaitlist() {
-  const background = "/conf/Shipyard-WaveBackground.png";
+  const background = "/conf/WaveBackground.png";
   const learnBuildDeploy = "/conf/LearnBuildDeploy-Light.png";
-  const shipyardImage = "/conf/SailPoint-Shipyard-DeveloperConference-Logo.png";
   const sailpointImage = "/img/SailPoint-Logo-RGB-Color.png";
 
   return (
@@ -39,16 +38,7 @@ export default function ConferenceWaitlist() {
             }}
           ></ThemedImage>
         </div>
-        <div className={styles.imageContainer}>
-          <ThemedImage
-            className={styles.shipyardLogo}
-            sources={{
-              light: useBaseUrl(shipyardImage),
-              dark: useBaseUrl(addDarkToFileName(shipyardImage)),
-            }}
-          ></ThemedImage>
-        </div>
-        <div className={styles.comingSoon}>Coming Soon | Q1 2023</div>
+        <div className={styles.comingSoon}>fffff Soon | Q1 2023</div>
 
         <div className={styles.welcomeText}>
           The conference for developers on SailPoint platforms.

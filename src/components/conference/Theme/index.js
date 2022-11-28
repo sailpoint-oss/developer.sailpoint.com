@@ -18,8 +18,8 @@ export default function ConferenceTheme() {
       </div>
       <div className={styles.center}>
         <div className={styles.gridContainer}>
-          <ThemeCard title={"Shipyard is a hands-on conference, you will build something in almost every session"} image={"/conf/workshops.png"}></ThemeCard>
-          <ThemeCard title={"Shipyard will be all-virtual, open to everyone, and <b>at no cost<b>"} image={"/conf/virtual.png"}></ThemeCard>
+          <ThemeCard title={"Developer Days is a hands-on conference, you will build something in almost every session"} image={"/conf/workshops.png"}></ThemeCard>
+          <ThemeCard title={"Developer Days will be all-virtual, open to everyone, and <b>at no cost<b>"} image={"/conf/virtual.png"}></ThemeCard>
         </div>
       </div>
     </div>

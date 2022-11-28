@@ -25,7 +25,7 @@
     top: 425px;
 }
 
-@media only screen and (max-width: 1324px) {
+/* @media only screen and (max-width: 1324px) {
     .mainCard {
         grid-template-columns: auto;
     }
@@ -39,31 +39,26 @@
         left: auto;
         top: 99px;
     }
-}
+} */
 
-@media only screen and (min-width: 980px) {
+/* @media only screen and (min-width: 980px) {
     .mainCard {
         display: none;
     }
-}
+} */
 
 .signUpSection {
     min-width: 368px;
     width: 368px;
     margin: 30px auto;
 }
+
 .imageContainer {
     text-align: center;
 }
+
 .sailpointImageContainer {
     padding-left: 32px;
-}
-.shipyardLogo {
-    margin-top: 10px;
-    width: 368px;
-    height: 75px;
-    top: 50%;
-    left: 50%;
 }
 
 .sailpointImage {

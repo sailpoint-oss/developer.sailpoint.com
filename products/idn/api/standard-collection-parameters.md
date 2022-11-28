@@ -5,31 +5,26 @@ pagination_label: Standard Collection Parameters
 sidebar_label: Standard Collection Parameters
 sidebar_position: 3
 sidebar_class_name: standardCollectionParameters
-keywords: ["standard collection parameters"]
-description:
-  Many endpoints in the IdentityNow API support a generic syntax for paginating,
-  filtering and sorting the results.
-tags: ["Standard Collection Parameters"]
+keywords: ['standard collection parameters']
+description: Many endpoints in the IdentityNow API support a generic syntax for paginating, filtering and sorting the results.
+tags: ['Standard Collection Parameters']
 ---
 
-Many endpoints in the IdentityNow API support a generic syntax for paginating,
-filtering and sorting the results. A collection endpoint has the following
-characteristics:
+Many endpoints in the IdentityNow API support a generic syntax for paginating, filtering and sorting the results. A collection endpoint has the following characteristics:
 
 - The HTTP verb is always GET.
 - The last component in the URL is a plural noun (ex. `/v3/public-identities`).
-- The return value from a successful request is always an array of JSON objects.
-  This array may be empty if there are no results.
+- The return value from a successful request is always an array of JSON objects. This array may be empty if there are no results.
 
 ## Paginating Results
 
 Use the following optional query parameters to achieve pagination:
 
-| Name     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Default | Constraints                          |
-| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------------------------------------ |
-| `limit`  | Integer specifying the maximum number of records to return in a single API call. If it is not specified, a default limit is used.                                                                                                                                                                                                                                                                                                                                                                    | `250`   | Maxiumum of 250 records per page     |
-| `offset` | Integer specifying the offset of the first result from the beginning of the collection. The **offset** value is record-based, not page-based, and the index starts at 0. For example, **offset=0** and **limit=20** returns records 0-19, but **offset=1** and **limit=20** returns records 1-20.                                                                                                                                                                                                    | `0`     | Between 0 and the last record index. |
-| `count`  | Boolean indicating whether a total count is returned, factoring in any filter parameters, in the **X-Total-Count** response header. The value is the total size of the collection that would be returned if **limit** and **offset** were ignored. For example, if the total number of records is 1000, then count=true would return 1000 in the **X-Total-Count** header. Because requesting a total count can have performance impact, do not send **count=true** if that value is not being used. | `false` | Must be `true` or `false`            |
+| Name | Description | Default | Constraints |
+| --- | --- | --- | --- |
+| `limit` | Integer specifying the maximum number of records to return in a single API call. If it is not specified, a default limit is used. | `250` | Maxiumum of 250 records per page |
+| `offset` | Integer specifying the offset of the first result from the beginning of the collection. The **offset** value is record-based, not page-based, and the index starts at 0. For example, **offset=0** and **limit=20** returns records 0-19, but **offset=1** and **limit=20** returns records 1-20. | `0` | Between 0 and the last record index. |
+| `count` | Boolean indicating whether a total count is returned, factoring in any filter parameters, in the **X-Total-Count** response header. The value is the total size of the collection that would be returned if **limit** and **offset** were ignored. For example, if the total number of records is 1000, then count=true would return 1000 in the **X-Total-Count** header. Because requesting a total count can have performance impact, do not send **count=true** if that value is not being used. | `false` | Must be `true` or `false` |
 
 Examples:
 
@@ -39,10 +34,7 @@ Examples:
 
 ## Filtering Results
 
-Any collection with a `filters` parameter supports filtering. This means that an
-item is only included in the returned array if the filters expression evaluates
-to true for that item. Check the available request parameters for the collection
-endpoint you are using to see if it supports filtering.
+Any collection with a `filters` parameter supports filtering. This means that an item is only included in the returned array if the filters expression evaluates to true for that item. Check the available request parameters for the collection endpoint you are using to see if it supports filtering.
 
 ### Data Types
 
@@ -51,51 +43,46 @@ Filter expressions are applicable to fields of the following types:
 - Numeric
 - Boolean: either **true** or **false**
 - Strings. Enumerated values are a special case of this.
-- Date-time. In V3, all date time values are in ISO-8601 format, as specified in
-  [RFC 3339 - Date and Time on the Internet: Timestamps](https://tools.ietf.org/html/rfc3339).
+- Date-time. In V3, all date time values are in ISO-8601 format, as specified in [RFC 3339 - Date and Time on the Internet: Timestamps](https://tools.ietf.org/html/rfc3339).
 
 ### Filter Syntax
 
-The V3 filter syntax is similar to, but not exactly the same as, that specified
-by the SCIM standard. These are some key differences:
+The V3 filter syntax is similar to, but not exactly the same as, that specified by the SCIM standard. These are some key differences:
 
 - A slightly different set of supported operators
-- Case-sensitivity of operators. All V3 filter operators are in lowercase;
-  specifying "EQ" instead of "eq" is not allowed.
+- Case-sensitivity of operators. All V3 filter operators are in lowercase; specifying "EQ" instead of "eq" is not allowed.
 
 ### Primitive Operators
 
 These filter operators apply directly to fields and their values:
 
-| Operator | Description                                                                                                                     | Example                                                                                            |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `ca`     | True if the collection-valued field contains all the listed values.                                                             | groups ca ("Venezia","Firenze")                                                                    |
-| `co`     | True if the value of the field contains the specified value as a substring.(Applicable to string-valued fields only.)           | name co "Rajesh"                                                                                   |
-| `eq`     | True if the value of the field indicated by the first operand is equal to the value specified by the second operand.            | identitySummary.id eq "2c9180846e85e4b8016eafeba20c1314"                                           |
-| `ge`     | True if the value of the field indicated by the first operand is greater or equal to the value specified by the second operand. | daysUntilEscalation ge 7 name ge "Genaro"                                                          |
-| `gt`     | True if the value of the field indicated by the first operand is greater than the value specified by the second operand.        | daysUntilEscalation gt 7 name gt "Genaro" created gt 2018-12-18T23:05:55Z                          |
-| `in`     | True if the field value is in the list of values.                                                                               | accountActivityItemId in ("2c9180846b0a0583016b299f210c1314","2c9180846b0a0581016b299e82560c1314") |
-| `le`     | True if the value of the field indicated by the first operand is less or equal to the value specified by the second operand.    | daysUntilEscalation le 7 name le "Genaro"                                                          |
-| `lt`     | True if the value of the field indicated by the first operand is less than the value specified by the second operand.           | daysUntilEscalation lt 7 name lt "Genaro" created lt 2018-12-18T23:05:55Z                          |
-| `ne`     | True if the value of the field indicated by the first operand is not equal to the value specified by the second operand.        | type ne "ROLE"                                                                                     |
-| `pr`     | True if the field is present, that is, not null.                                                                                | pr accountRequestInfo                                                                              |
-| `sw`     | True if the value of the field starts with the specified value.(Applicable to string-valued fields only.)                       | name sw "Rajesh"                                                                                   |
+| Operator | Description | Example |
+| --- | --- | --- |
+| `ca` | True if the collection-valued field contains all the listed values. | groups ca ("Venezia","Firenze") |
+| `co` | True if the value of the field contains the specified value as a substring.(Applicable to string-valued fields only.) | name co "Rajesh" |
+| `eq` | True if the value of the field indicated by the first operand is equal to the value specified by the second operand. | identitySummary.id eq "2c9180846e85e4b8016eafeba20c1314" |
+| `ge` | True if the value of the field indicated by the first operand is greater or equal to the value specified by the second operand. | daysUntilEscalation ge 7 name ge "Genaro" |
+| `gt` | True if the value of the field indicated by the first operand is greater than the value specified by the second operand. | daysUntilEscalation gt 7 name gt "Genaro" created gt 2018-12-18T23:05:55Z |
+| `in` | True if the field value is in the list of values. | accountActivityItemId in ("2c9180846b0a0583016b299f210c1314","2c9180846b0a0581016b299e82560c1314") |
+| `le` | True if the value of the field indicated by the first operand is less or equal to the value specified by the second operand. | daysUntilEscalation le 7 name le "Genaro" |
+| `lt` | True if the value of the field indicated by the first operand is less than the value specified by the second operand. | daysUntilEscalation lt 7 name lt "Genaro" created lt 2018-12-18T23:05:55Z |
+| `ne` | True if the value of the field indicated by the first operand is not equal to the value specified by the second operand. | type ne "ROLE" |
+| `pr` | True if the field is present, that is, not null. | pr accountRequestInfo |
+| `sw` | True if the value of the field starts with the specified value.(Applicable to string-valued fields only.) | name sw "Rajesh" |
 
 ### Composite Operators
 
 These operators are applied to other filter expressions:
 
-| Operator | Description                                            | Example                                |
-| -------- | ------------------------------------------------------ | -------------------------------------- |
-| `and`    | True if both the filter-valued operands are true.      | startDate gt 2018 and name sw "Genaro" |
-| `not`    | True if the filter-valued operand is false.            | not groups ca ("Venezia","Firenze")    |
-| `or`     | True if either of the filter-valued operands are true. | startDate gt 2018 or name sw "Genaro"  |
+| Operator | Description | Example |
+| --- | --- | --- |
+| `and` | True if both the filter-valued operands are true. | startDate gt 2018 and name sw "Genaro" |
+| `not` | True if the filter-valued operand is false. | not groups ca ("Venezia","Firenze") |
+| `or` | True if either of the filter-valued operands are true. | startDate gt 2018 or name sw "Genaro" |
 
 ### Escaping Special Characters in a Filter
 
-Certain characters must be escaped before they can be used in a filter
-expression. For example, the following filter expression attempting to find all
-sources with the name `#Employees` will produce a 400 error:
+Certain characters must be escaped before they can be used in a filter expression. For example, the following filter expression attempting to find all sources with the name `#Employees` will produce a 400 error:
 
 `/v3/sources?filters=name eq "#Employees"`
 
@@ -103,13 +90,11 @@ To properly escape this filter, do the following:
 
 `/v3/sources?filters=name eq "%23Employees"`
 
-If you are searching for a string containing double quotes, use the following
-escape sequence:
+If you are searching for a string containing double quotes, use the following escape sequence:
 
 `/v3/sources/?filters=name eq "\"Employees\""`
 
-The following table lists the special characters that are incompatible with
-`filters` and how to escape them.
+The following table lists the special characters that are incompatible with `filters` and how to escape them.
 
 | Character | Escape Sequence |
 | --------- | --------------- |
@@ -121,68 +106,38 @@ The following table lists the special characters that are incompatible with
 
 ### Known Limitations
 
-Although filter expressions are a very general mechanism, individual API
-endpoints will only support filtering on a specific set of fields that are
-relevant to that endpoint, and will frequently only support a subset of
-operations for each field. For example, an endpoint might allow filtering on the
-name field but not support use of the co operator on that field. Consult the
-documentation for each API endpoint to determine what fields and operators can
-be used. Attempts to use an unsupported filter expression will result in a 400
-Bad Request response.
+Although filter expressions are a very general mechanism, individual API endpoints will only support filtering on a specific set of fields that are relevant to that endpoint, and will frequently only support a subset of operations for each field. For example, an endpoint might allow filtering on the name field but not support use of the co operator on that field. Consult the documentation for each API endpoint to determine what fields and operators can be used. Attempts to use an unsupported filter expression will result in a 400 Bad Request response.
 
 Examples:
 
 - `/v3/public-identities?filters=email eq "john.doe@example.com"`
 - `/v3/public-identities?filters=firstname sw "john" or email sw "joe"`
-- `not prop1 eq val1 or prop2 eq val2 and prop3 eq val3` is equivalent to
-  `(not (prop1 eq val1)) or ((prop2 eq val2) and (prop3 eq val3))`
-- `not (prop1 eq val1 or prop2 eq val2) and prop3 eq val3` is equivalent to
-  `(not ((prop1 eq val1) or (prop2 eq val2))) and (prop3 eq val3)`
+- `not prop1 eq val1 or prop2 eq val2 and prop3 eq val3` is equivalent to `(not (prop1 eq val1)) or ((prop2 eq val2) and (prop3 eq val3))`
+- `not (prop1 eq val1 or prop2 eq val2) and prop3 eq val3` is equivalent to `(not ((prop1 eq val1) or (prop2 eq val2))) and (prop3 eq val3)`
 
 :::info
 
-- Spaces in URLs must be escaped with `%20`. Most programming languages,
-  frameworks, libraries, and tools will do this for you, but some won't. In the
-  event that your tool doesn't escape spaces, you will need to format your query
-  as `/v3/public-identities?filters=email%20eq%20"john.doe@example.com"`
+- Spaces in URLs must be escaped with `%20`. Most programming languages, frameworks, libraries, and tools will do this for you, but some won't. In the event that your tool doesn't escape spaces, you will need to format your query as `/v3/public-identities?filters=email%20eq%20"john.doe@example.com"`
 
-- You must escape spaces in URLs with `%20`. Most programming languages,
-  frameworks, libraries, and tools do this for you, but some do not. In the
-  event that your tool does not escape spaces, you must format your query as
-  `/v3/public-identities?filters=email%20eq%20"john.doe@example.com"`
+- You must escape spaces in URLs with `%20`. Most programming languages, frameworks, libraries, and tools do this for you, but some do not. In the event that your tool does not escape spaces, you must format your query as `/v3/public-identities?filters=email%20eq%20"john.doe@example.com"`
 
-- Unless explicitly noted otherwise, strings are compared lexicographically.
-  Most comparisons are not case sensitive. Any situations where the comparisons
-  are case sensitive will be called out.
+- Unless explicitly noted otherwise, strings are compared lexicographically. Most comparisons are not case sensitive. Any situations where the comparisons are case sensitive will be called out.
 
-- Date-times are compared temporally; an earlier date-time is less than a later
-  date-time.
+- Date-times are compared temporally; an earlier date-time is less than a later date-time.
 
-- The usual precedence and associativity of the composite operators applies,
-  with **not** having higher priority than **and**, which in turn has higher
-  priority than **or**. You can use parentheses to override this precedence.
+- The usual precedence and associativity of the composite operators applies, with **not** having higher priority than **and**, which in turn has higher priority than **or**. You can use parentheses to override this precedence.
 
 :::
 
 ### Sorting Results
 
-Result sorting is supported with the standard `sorters` parameter. Its syntax is
-a set of comma-separated field names. You may optionally prefix each field name
-with a "-" character, indicating that the sort is descending based on the value
-of that field. Otherwise, the sort is ascending.
+Result sorting is supported with the standard `sorters` parameter. Its syntax is a set of comma-separated field names. You may optionally prefix each field name with a "-" character, indicating that the sort is descending based on the value of that field. Otherwise, the sort is ascending.
 
-For example, to sort primarily by **type** in ascending order, and secondarily
-by **modified date** in descending order, use `sorters=type,-modified`
+For example, to sort primarily by **type** in ascending order, and secondarily by **modified date** in descending order, use `sorters=type,-modified`
 
 ## Putting it all Together
 
-Pagination, filters, and sorters can be mixed and match to achieve the desired
-output for a given collection endpoint. Here are some examples:
+Pagination, filters, and sorters can be mixed and match to achieve the desired output for a given collection endpoint. Here are some examples:
 
-- `/v3/public-identities?limit=20&filters=firstname eq "john"&sorters=-name`
-  returns the first 20 identities that have a first name of John and are sorted
-  in descending order by full name.
-- `/v3/account-activities?limit=10&offset=2&sorters=-created` sorts the results
-  by descending created time, so the most recent activities appear first. The
-  limit and offset returns the 3rd page of this sorted response with 10 records
-  displayed.
+- `/v3/public-identities?limit=20&filters=firstname eq "john"&sorters=-name` returns the first 20 identities that have a first name of John and are sorted in descending order by full name.
+- `/v3/account-activities?limit=10&offset=2&sorters=-created` sorts the results by descending created time, so the most recent activities appear first. The limit and offset returns the 3rd page of this sorted response with 10 records displayed.

@@ -5,8 +5,6 @@
   justify-content: center;
 }
 
-
-
 .gettingStartedText {
   margin-top: 50px;
   margin-left: 50px;
@@ -32,11 +30,9 @@
   font-weight: 500;
 }
 
-
 .bold {
   font-weight: bold;
 }
-
 
 /* Getting Started Card container */
 .gridContainer {
@@ -59,8 +55,6 @@
   margin-right: 50px;
 }
 
-
-
 @media only screen and (max-width: 1178px) {
   .carousel {
     margin-top: 0px;
@@ -77,7 +71,7 @@
   }
   .mainCard {
     grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
-      /* UI Properties */
+    /* UI Properties */
     background: var(--main-hero-card-background);
     box-shadow: var(--dev-card-shadow);
     border: 1px solid var(--dev-card-background);

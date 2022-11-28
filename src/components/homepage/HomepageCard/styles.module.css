@@ -1,6 +1,6 @@
 /* Getting Started Card */
 .card {
-  position:relative;
+  position: relative;
   margin-top: 20px;
   height: 200px;
   /* UI Properties */
@@ -9,17 +9,16 @@
   border: 1px solid var(--dev-card-background);
   border-radius: 40px;
   opacity: 1;
-
 }
 
 .card:hover {
   cursor: pointer;
   top: -2px;
-  box-shadow: var(--dev-card-selected)
+  box-shadow: var(--dev-card-selected);
 }
 
 .cardText {
-  position:absolute;
+  position: absolute;
   margin: 20px;
   font-size: 16px;
   font-weight: 500;
@@ -29,7 +28,7 @@
 }
 
 .cardIcon {
-  position:absolute;
+  position: absolute;
   margin: 20px;
   top: 0;
   left: 0;
@@ -37,7 +36,7 @@
 }
 
 .cardArrow {
-  position:absolute;
+  position: absolute;
   margin: 20px;
   bottom: 25px;
   right: 0;
@@ -45,14 +44,13 @@
 }
 
 .product {
-  position:absolute;
+  position: absolute;
   margin: 20px;
   font-size: 12px;
   font-weight: 500;
   width: 120px;
   bottom: 50px;
   left: 0;
-  
 }
 
 .idn {
@@ -60,5 +58,5 @@
 }
 
 .iiq {
-  color: #60b359
+  color: #60b359;
 }

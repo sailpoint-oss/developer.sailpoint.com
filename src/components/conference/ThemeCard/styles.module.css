@@ -1,6 +1,6 @@
 /* Getting Started Card */
 .card {
-  position:relative;
+  position: relative;
   margin-top: 20px;
   height: 493px;
   min-width: 330px;
@@ -12,9 +12,8 @@
   opacity: 1;
 }
 
-
 .cardText {
-  position:absolute;
+  position: absolute;
   margin: 22px auto;
   text-align: center;
   font-size: 24px;
@@ -22,14 +21,14 @@
   width: 100%;
   top: 36px;
   left: 0;
-  color: #CC27B0;
+  color: #cc27b0;
   font-family: input-mono;
 }
 
 .titleText {
-  position:absolute;
+  position: absolute;
   margin: 22px auto;
-  padding: 0px calc(15%); 
+  padding: 0px calc(15%);
   text-align: center;
   font-size: 16px;
   font-weight: 400;
@@ -40,8 +39,6 @@
   color: var(--ifm-color-primary);
   font-family: input-mono;
 }
-
-
 
 .cardFaceContainer {
   width: 100%;
@@ -57,4 +54,3 @@
   height: 264px;
   width: 264px;
 }
-

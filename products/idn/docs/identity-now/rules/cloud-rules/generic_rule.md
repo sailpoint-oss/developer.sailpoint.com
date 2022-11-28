@@ -4,10 +4,10 @@ title: Generic Rule
 pagination_label: Generic Rule
 sidebar_label: Generic Rule
 sidebar_class_name: Generic Rule
-keywords: ["cloud", "rules", "generic"]
+keywords: ['cloud', 'rules', 'generic']
 description: This rule performs transforms.
 slug: /docs/rules/cloud-rules/generic-rule
-tags: ["Rules"]
+tags: ['Rules']
 ---
 
 ## Overview
@@ -16,26 +16,23 @@ This rule performs transforms.
 
 ## Execution
 
-- **Cloud Execution** - This rule executes in the IdentityNow cloud, and it has
-  read-only access to IdentityNow data models, but it does not have access to
-  on-premise sources or connectors.
-- **Logging** - Logging statements are currently only visible to SailPoint
-  personnel.
+- **Cloud Execution** - This rule executes in the IdentityNow cloud, and it has read-only access to IdentityNow data models, but it does not have access to on-premise sources or connectors.
+- **Logging** - Logging statements are currently only visible to SailPoint personnel.
 
 ![Rule Execution](../img/cloud_execution.png)
 
 ## Input
 
-| Argument | Type                         | Purpose                                                                                                                                                                                                                                                                |
-| -------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| log      | org.apache.log4j.Logger      | Logger to log statements. _Note: This executes in the cloud, and logging is currently not exposed to anyone other than SailPoint._                                                                                                                                    |
-| idn      | sailpoint.server.IdnRuleUtil | Provides a read-only starting point for using the SailPoint API. From this passed reference, the rule can interrogate the IdentityNow data model including identities or account information via helper methods as described in [IdnRuleUtil](../idn_rule_utility.md). |
+| Argument | Type | Purpose |
+| --- | --- | --- |
+| log | org.apache.log4j.Logger | Logger to log statements. _Note: This executes in the cloud, and logging is currently not exposed to anyone other than SailPoint._ |
+| idn | sailpoint.server.IdnRuleUtil | Provides a read-only starting point for using the SailPoint API. From this passed reference, the rule can interrogate the IdentityNow data model including identities or account information via helper methods as described in [IdnRuleUtil](../idn_rule_utility.md). |
 
 ## Output
 
-| Argument | Type             | Purpose                                                      |
-| -------- | ---------------- | ------------------------------------------------------------ |
-| value    | java.lang.Object | Value returned for the account attribute, typically a string. |
+| Argument | Type | Purpose |
+| --- | --- | --- |
+| value | java.lang.Object | Value returned for the account attribute, typically a string. |
 
 ## Template
 
@@ -54,8 +51,7 @@ This rule performs transforms.
 
 ## Example - Name Normalizer
 
-This rule normalizes any names into normal names capitaliztion. For
-example: JOHN DOE -> John Doe.
+This rule normalizes any names into normal names capitaliztion. For example: JOHN DOE -> John Doe.
 
 ```java
 <?xml version='1.0' encoding='UTF-8'?>

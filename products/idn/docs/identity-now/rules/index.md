@@ -13,16 +13,16 @@ tags: ["Rules"]
 
 ## Overview
 
-In SailPoint solutions, rules serve as a flexible configuration framework 
+In SailPoint solutions, rules serve as a flexible configuration framework
 implementers can leverage to preform complex or advanced configurations. Though
-rules allow some advanced flexibility, you must take special considerations when 
+rules allow some advanced flexibility, you must take special considerations when
 you are deciding to implement rules.
 
 ## Rule Execution
 
-IdentityNow is a multi-tenant cloud solution, and its architecture varies differently 
-from other SailPoint products like IdentityIQ. Therefore, the way rules execute within 
-IdentityNow reflects the architectural design considerations the platform was built on. 
+IdentityNow is a multi-tenant cloud solution, and its architecture varies differently
+from other SailPoint products like IdentityIQ. Therefore, the way rules execute within
+IdentityNow reflects the architectural design considerations the platform was built on.
 These considerations determine the rule's limitations.
 
 There are two primary places where you can execute rules:
@@ -34,21 +34,21 @@ There are two primary places where you can execute rules:
 
 ![Rule Execution](./img/rule_execution.png)
 
-**Cloud-Executed Rules** or **Cloud Rules** typically only perform a 
-specific function, such as calculating attribute values. 
+**Cloud-Executed Rules** or **Cloud Rules** typically only perform a
+specific function, such as calculating attribute values.
 Many of these rules may be able to query the IdentityNow
 data-model in a read-only fashion, but they do not have the ability to
 commit transactions, save objects, etc.
 
-Because these rules execute in a multi-tenant cloud environment, they have a restricted context, 
+Because these rules execute in a multi-tenant cloud environment, they have a restricted context,
 and they are closely scrutinized to ensure that they execute in an efficient and secure manner.
 
 For more details, see [Cloud Rules](./cloud-rules/index.md).
 
 **Connector-Executed Rules** or **Connector Rules** are rules executed
-in the IdentityNow virtual appliance, and they are often an extension connector itself. 
-The rules are commonly used for performing complex connector-related functions, 
-so they are specific to only certain connectors. Because these rules execute in the virtual appliance, 
+in the IdentityNow virtual appliance, and they are often an extension connector itself.
+The rules are commonly used for performing complex connector-related functions,
+so they are specific to only certain connectors. Because these rules execute in the virtual appliance,
 they do not have access to query the IdentityNow data model or fetch information from
 IdentityNow. They rely instead on contextual information sent from IdentityNow.
 Connector-executed rules may also have managed connections supplied in their
@@ -61,19 +61,19 @@ For more details, see the [Connector Rules](./connector-rules/index.md).
 
 Though IdentityNow shares some common functionality with other SailPoint
 products like IdentityIQ, the same rules are not necessarily supported,
-nor do they necessarily execute the same way or with the same context and variables. 
+nor do they necessarily execute the same way or with the same context and variables.
 SailPoint recommends that you become familiar with which rules execute with which
 products, as well as the nuances in their execution contexts.
 
-From a SailPoint support perspective, rules are considered configurations. 
-SailPoint supports the underlying platform but not the rule configurations themselves. 
-Any problems with the way rules are implemented or run over time are the responsibilities 
+From a SailPoint support perspective, rules are considered configurations.
+SailPoint supports the underlying platform but not the rule configurations themselves.
+Any problems with the way rules are implemented or run over time are the responsibilities
 the customer or implementer must manage. SailPoint's IdentityNow Expert Services need hours to
 cover any rule configuration work (e.g., creating rules, best practices reviews,
 application to your IdentityNow environment, and promotion between sandbox &
 prod environments). Contact your Customer Success Manager with any questions.
-While rules allow some advanced flexibility, you must consider these support implications 
-when you are deciding whether to implement rules. Consider rule usage a last resort, and 
+While rules allow some advanced flexibility, you must consider these support implications
+when you are deciding whether to implement rules. Consider rule usage a last resort, and
 use IdentityNow features instead whenever you can.
 
 ## Rule Guidelines

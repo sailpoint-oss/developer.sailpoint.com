@@ -16,7 +16,7 @@ tags: ["Rules"]
 
 ## Overview
 
-This rule calculates and returns an identity attribute for a specific identity. 
+This rule calculates and returns an identity attribute for a specific identity.
 This rule is also known as a "complex" rule on the identity profile.
 
 ## Execution
@@ -33,15 +33,15 @@ This rule is also known as a "complex" rule on the identity profile.
 
 | Argument | Type                         | Purpose                                                                                                                                                                                                                                                                |
 | -------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| log      | org.apache.log4j.Logger      | Logger to log statements. _Note: This executes in the cloud, and logging is currently not exposed to anyone other than SailPoint._                                                                                                                                    |
+| log      | org.apache.log4j.Logger      | Logger to log statements. _Note: This executes in the cloud, and logging is currently not exposed to anyone other than SailPoint._                                                                                                                                     |
 | idn      | sailpoint.server.IdnRuleUtil | Provides a read-only starting point for using the SailPoint API. From this passed reference, the rule can interrogate the IdentityNow data model including identities or account information via helper methods as described in [IdnRuleUtil](../idn_rule_utility.md). |
-| identity | sailpoint.object.Identity    | Reference to identity object representing the identity being calculated.                                                                                                                                                                                            |
-| oldValue | java.lang.Object             | Attribute value for the identity attribute before the rule runs.                                                                                                                                                                                                        |
+| identity | sailpoint.object.Identity    | Reference to identity object representing the identity being calculated.                                                                                                                                                                                               |
+| oldValue | java.lang.Object             | Attribute value for the identity attribute before the rule runs.                                                                                                                                                                                                       |
 
 ## Output
 
-| Argument       | Type             | Purpose                                   |
-| -------------- | ---------------- | ----------------------------------------- |
+| Argument       | Type             | Purpose                                    |
+| -------------- | ---------------- | ------------------------------------------ |
 | attributeValue | java.lang.Object | Value returned for the identity attribute. |
 
 ## Template

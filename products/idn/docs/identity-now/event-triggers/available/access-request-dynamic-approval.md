@@ -117,7 +117,7 @@ subscribing service responds with the following object:
   "id": "",
   "name": "",
   "type": ""
- }
+}
 ```
 
 ## Additional Information and Links

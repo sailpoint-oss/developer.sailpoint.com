@@ -6,8 +6,7 @@ sidebar_label: Debugging
 sidebar_position: 2
 sidebar_class_name: debugging
 keywords: ["connectivity", "connectors", "debugging"]
-description:
-  An easy way to debug locally is to use console.log() to print debug
+description: An easy way to debug locally is to use console.log() to print debug
   information to your console.
 slug: /docs/saas-connectivity/in-depth/debugging
 tags: ["Connectivity"]

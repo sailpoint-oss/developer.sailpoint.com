@@ -1,11 +1,9 @@
-
 .gettingStartedText {
   text-align: center;
 
   margin: 150px auto 50px auto;
   width: calc(100% - 100px);
   max-width: 600px;
-
 }
 
 .gettingStartedOne {
@@ -21,7 +19,6 @@
   font-weight: 500;
 }
 
-
 .bold {
   font-weight: bold;
 }
@@ -35,20 +32,18 @@
 .button:hover {
   cursor: pointer;
   top: -2px;
-  box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
   background-color: #c552ae10;
   color: #cc27b0;
 }
 
 .button {
-
   text-decoration: none;
   text-align: center;
   margin: 10px auto;
   font-size: 20px;
   font-weight: bold;
   line-height: 100%;
-
 
   /* Layout Properties */
   width: 259px;

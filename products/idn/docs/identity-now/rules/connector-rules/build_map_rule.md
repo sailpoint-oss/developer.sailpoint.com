@@ -5,8 +5,7 @@ pagination_label: BuildMap Rule
 sidebar_label: BuildMap Rule
 sidebar_class_name: buildMapRule
 keywords: ["cloud", "rules"]
-description:
-  This rule manipulates raw input data provided by the
+description: This rule manipulates raw input data provided by the
   rows and columns in a file and builds a map from the incoming data.
 slug: /docs/rules/connector-rules/buildmap-rule
 tags: ["Rules"]
@@ -20,7 +19,7 @@ This rule manipulates raw input data provided by the rows and columns in a file 
 
 ## Execution
 
-- **Connector Execution** - This rule executes within the virtual appliance. It 
+- **Connector Execution** - This rule executes within the virtual appliance. It
   may offer special abilities to perform connector-related functions, and it may
   offer managed connections to sources.
 - **Logging** - Logging statements are viewable within the ccg.log on the
@@ -30,12 +29,12 @@ This rule manipulates raw input data provided by the rows and columns in a file 
 
 ## Input
 
-| Argument    | Type                         | Purpose                                                                                        |
-| ----------- | ---------------------------- | ---------------------------------------------------------------------------------------------- |
-| col         | java.util.List               | Ordered list of the column names from the file’s header records or specified columns list.   |
+| Argument    | Type                         | Purpose                                                                                     |
+| ----------- | ---------------------------- | ------------------------------------------------------------------------------------------- |
+| col         | java.util.List               | Ordered list of the column names from the file’s header records or specified columns list.  |
 | record      | java.util.List               | Ordered list of the values for the current record, parsed based on the specified delimiter. |
-| application | System.Collections.Hashtable | Map of the application configuration.                                                          |
-| schema      | sailpoint.object.Schema      | Reference to the schema object for the delimited file source being read.                     |
+| application | System.Collections.Hashtable | Map of the application configuration.                                                       |
+| schema      | sailpoint.object.Schema      | Reference to the schema object for the delimited file source being read.                    |
 
 ## Template
 

@@ -13,8 +13,8 @@ tags: ["Rules"]
 
 ## Overview
 
-**Cloud-Executed Rules** or **Cloud Rules** typically only perform a 
-specific function, such as calculating attribute values. 
+**Cloud-Executed Rules** or **Cloud Rules** typically only perform a
+specific function, such as calculating attribute values.
 Cloud Rules all execute within the SailPoint cloud and offer access to
 objects and data, but they do not offer any sort of externalized
 connectivity.
@@ -36,7 +36,7 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
 To ensure maximum compatibility, platform integrity, and security, SailPoint has
 instantiated a review process to ensure that any submitted Cloud Rules meet SailPoint
-requirements and that they do not contain code that can harm the system. 
+requirements and that they do not contain code that can harm the system.
 The review process also checks the rules to verify their intended purposes and use cases.
 
 In this process, SailPoint does _not check_ whether the rule executes correctly
@@ -46,7 +46,7 @@ an integrity check on the rule itself.
 ## Submitting for Rule Review
 
 To submit your Cloud Rule for review, approval, and inclusion in the
-SailPoint platform, submit them with 
+SailPoint platform, submit them with
 [SailPoint Professional Services](https://www.sailpoint.com/services/professional/).
 If you need help writing and testing rules, Professional Services can help you with
 that process as well. Make sure your contact information is up to date,
@@ -141,7 +141,7 @@ Once you have submitted your rule and you are in the review process, remember th
   help SailPoint improve the process or identify a need for clarity in its policies. If
   you still disagree with the outcome, let SailPoint know and someone can look into it.
 - **Changes:** Rule changes or modifications to meet guidelines are not the reviewer's
-  responsibility. They are the responsibility of the person(s) submitting the rule. 
+  responsibility. They are the responsibility of the person(s) submitting the rule.
   Reviewers may give advice, examples, etc. to
   help, but doing so does not guarantee a solution. You should test the rules with the changes
   before resubmission.

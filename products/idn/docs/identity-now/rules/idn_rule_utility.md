@@ -116,13 +116,13 @@ curl --location -g --request POST 'https://{tenant}.api.identitynow.com/beta/acc
 
 Aggregation only processes new and/or changed accounts for many sources.
 If an account is unchanged, an aggregation will not seed the new attribute or its value for this account.
-Therefore, it is mandatory that a non-optimized aggregation be performed when an account 
+Therefore, it is mandatory that a non-optimized aggregation be performed when an account
 search configuration is created/modified for each source involved in that configuration.
 
 :::
 
 If this source has already been aggregated before the account search
-configuration was created, a non-optimized aggregation must now be performed 
+configuration was created, a non-optimized aggregation must now be performed
 to seed the new attribute data for all existing accounts.
 
 At this point, the configuration exists to promote attributes on any new/changed
@@ -221,7 +221,7 @@ implementations involves binding it to the Create Profile. This results in
 the rule's being used to generate/check the values used during new account
 provisioning.
 
-When a `Generator` is selected for the `distinguishedName` attribute, a rule that invokes the provided library methods can be selected. 
+When a `Generator` is selected for the `distinguishedName` attribute, a rule that invokes the provided library methods can be selected.
 This is an example of such a scenario:
 
 Through a lifecycle state change, an account needs to be provisioned to an

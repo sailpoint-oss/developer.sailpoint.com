@@ -5,8 +5,7 @@ pagination_label: JDBC Provision Rule
 sidebar_label: JDBC Provision Rule
 sidebar_class_name: jdbcProvisionRule
 keywords: ["cloud", "rules", "jdbc"]
-description:
-  This rule performs provisioning actions from a provisioning
+description: This rule performs provisioning actions from a provisioning
   plan provided by a supplied JDBC connection. These actions typically issue SQL commands, such
   as insert, update, select, and delete.
 slug: /docs/rules/connector-rules/jdbc-provisioning-rule
@@ -15,12 +14,12 @@ tags: ["Rules"]
 
 ## Overview
 
-This rule performs provisioning actions from a provisioning plan provided by a supplied JDBC connection. 
+This rule performs provisioning actions from a provisioning plan provided by a supplied JDBC connection.
 These actions typically issue SQL commands, such as insert, update, select, and delete.
 
 ## Execution
 
-- **Connector Execution** - This rule executes within the virtual appliance. It 
+- **Connector Execution** - This rule executes within the virtual appliance. It
   may offer special abilities to perform connector-related functions, and it may
   offer managed connections to sources.
 - **Logging** - Logging statements are viewable within the ccg.log on the
@@ -30,17 +29,17 @@ These actions typically issue SQL commands, such as insert, update, select, and 
 
 ## Input
 
-| Argument    | Type                              | Purpose                                                                   |
-| ----------- | --------------------------------- | ------------------------------------------------------------------------- |
+| Argument    | Type                              | Purpose                                                                  |
+| ----------- | --------------------------------- | ------------------------------------------------------------------------ |
 | connection  | java.sql.Connection               | Reference to the current SQL connection.                                 |
-| plan        | sailpoint.object.ProvisioningPlan | Provisioning plan containing the provisioning request(s).                  |
-| application | sailpoint.object.Application      | Attribute value for the identity attribute before the rule runs.            |
+| plan        | sailpoint.object.ProvisioningPlan | Provisioning plan containing the provisioning request(s).                |
+| application | sailpoint.object.Application      | Attribute value for the identity attribute before the rule runs.         |
 | schema      | sailpoint.object.Schema           | Reference to the schema object for the delimited file source being read. |
 
 ## Output
 
-| Argument | Type                                | Purpose                                                                                                     |
-| -------- | ----------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| Argument | Type                                | Purpose                                                                                                 |
+| -------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | result   | sailpoint.object.ProvisioningResult | ProvisioningResult object containing the provisioning request's status (success, failure, retry, etc.). |
 
 ## Template

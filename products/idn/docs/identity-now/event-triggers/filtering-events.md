@@ -43,11 +43,11 @@ matching your filter criteria.
 
 ## Constructing a Filter
 
-Event trigger filters are constructed using a **Jayway** JSONpath expression.  See the following tables for a list of operators that can be used in a trigger filter.
+Event trigger filters are constructed using a **Jayway** JSONpath expression. See the following tables for a list of operators that can be used in a trigger filter.
 
 :::info Update
 
-SailPont's Workflow tool uses **Goessner** JSONpath when selecting variables to use in actions and operators.  Please read the [Goessner](https://goessner.net/articles/JsonPath/) documentation to learn more about the supported operators.  
+SailPont's Workflow tool uses **Goessner** JSONpath when selecting variables to use in actions and operators. Please read the [Goessner](https://goessner.net/articles/JsonPath/) documentation to learn more about the supported operators.
 
 Although variable selection in Workflows users Goessner, the trigger filter field in Workflows still follows the Jayway operators listed below.
 
@@ -101,7 +101,7 @@ expression you want before testing it on a trigger.
 
 Start by opening a [JSONpath editor](https://jsonpath.herokuapp.com/) in your
 browser. Make sure that the correct implementation is selected if there is more
-than one option.  In the case of event trigger filters, you will want to select the **Jayway** option. You can then paste in an example trigger input and start
+than one option. In the case of event trigger filters, you will want to select the **Jayway** option. You can then paste in an example trigger input and start
 crafting your JSONpath expression.
 
 ![JSONPath editor](./img/jsonpath-editor.png)

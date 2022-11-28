@@ -30,14 +30,14 @@ This rule associates or correlates an account to an identity, based on complex l
 
 | Argument | Type                            | Purpose                                                                                                                                                                                                                                                                |
 | -------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| log      | org.apache.log4j.Logger         | Logger to log statements. _Note: This executes in the cloud, and logging is currently not exposed to anyone other than SailPoint._                                                                                                                                    |
+| log      | org.apache.log4j.Logger         | Logger to log statements. _Note: This executes in the cloud, and logging is currently not exposed to anyone other than SailPoint._                                                                                                                                     |
 | idn      | sailpoint.server.IdnRuleUtil    | Provides a read-only starting point for using the SailPoint API. From this passed reference, the rule can interrogate the IdentityNow data model including identities or account information via helper methods as described in [IdnRuleUtil](../idn_rule_utility.md). |
-| account  | sailpoint.object.ResourceObject | Read-only representation of account data that has been aggregated. Use this as a basis to determine correlation linkages with a specific identity.                                                                                                              |
+| account  | sailpoint.object.ResourceObject | Read-only representation of account data that has been aggregated. Use this as a basis to determine correlation linkages with a specific identity.                                                                                                                     |
 
 ## Output
 
-| Argument  | Type          | Purpose                                                                                                                                                                 |
-| --------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Argument  | Type          | Purpose                                                                                                                                                               |
+| --------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | returnMap | java.util.Map | Map object containing a reference to the identity attributes to correlate to. These should contain both `identityAttributeName` and `identityAttributeValue` as keys. |
 
 ## Template

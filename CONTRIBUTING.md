@@ -34,7 +34,7 @@ covers the project.
 
 # Reporting Issues
 
-We use GitHub issues to track bugs publicly.  If you see an issue with the site, please [report it here](https://github.com/sailpoint-oss/developer.sailpoint.com/issues/new?assignees=&labels=&template=bug-report.md&title=%5BBug%5D+Your+Bug+Report+Here);
+We use GitHub issues to track bugs publicly. If you see an issue with the site, please [report it here](https://github.com/sailpoint-oss/developer.sailpoint.com/issues/new?assignees=&labels=&template=bug-report.md&title=%5BBug%5D+Your+Bug+Report+Here);
 
 Our maintainers _love_ thorough bug reports. **Great bug reports** tend to have:
 

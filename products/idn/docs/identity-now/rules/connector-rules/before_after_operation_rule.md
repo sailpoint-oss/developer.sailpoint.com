@@ -5,8 +5,7 @@ pagination_label: Before and After Operations
 sidebar_label: Before and After Rule Operations
 sidebar_class_name: beforeAndAfterRuleOperations
 keywords: ["cloud", "rules"]
-description:
-  This rule executes PowerShell commands on the IQService component
+description: This rule executes PowerShell commands on the IQService component
   after a source account has an operation performed on it.
 slug: /docs/rules/connector-rules/before-and-after-rule-operations
 tags: ["Rules"]
@@ -31,7 +30,7 @@ The following operations can be performed on a source:
 
 ## Execution
 
-- **Connector Execution** - This rule executes within the virtual appliance. It 
+- **Connector Execution** - This rule executes within the virtual appliance. It
   may offer special abilities to perform connector-related functions, and it may
   offer managed connections to sources.
 - **Logging** - Logging statements are viewable within the ccg.log on the
@@ -41,10 +40,10 @@ The following operations can be performed on a source:
 
 ## Input
 
-| Argument    | Type                                   | Purpose                                                                   |
-| ----------- | -------------------------------------- | ------------------------------------------------------------------------- |
-| Application | System.Collections.Hashtable           | Map of the application configuration.                                     |
-| Request     | SailPoint.Utils.objects.AccountRequest | Reference to the account request provisioning instructions.             |
+| Argument    | Type                                   | Purpose                                                                    |
+| ----------- | -------------------------------------- | -------------------------------------------------------------------------- |
+| Application | System.Collections.Hashtable           | Map of the application configuration.                                      |
+| Request     | SailPoint.Utils.objects.AccountRequest | Reference to the account request provisioning instructions.                |
 | Result      | SailPoint.Utils.objects.ServiceResult  | Reference to the provisioning result that can be manipulated if necessary. |
 
 ## Architecture Best Practices

@@ -28,13 +28,13 @@ This rule performs transforms.
 
 | Argument | Type                         | Purpose                                                                                                                                                                                                                                                                |
 | -------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| log      | org.apache.log4j.Logger      | Logger to log statements. _Note: This executes in the cloud, and logging is currently not exposed to anyone other than SailPoint._                                                                                                                                    |
+| log      | org.apache.log4j.Logger      | Logger to log statements. _Note: This executes in the cloud, and logging is currently not exposed to anyone other than SailPoint._                                                                                                                                     |
 | idn      | sailpoint.server.IdnRuleUtil | Provides a read-only starting point for using the SailPoint API. From this passed reference, the rule can interrogate the IdentityNow data model including identities or account information via helper methods as described in [IdnRuleUtil](../idn_rule_utility.md). |
 
 ## Output
 
-| Argument | Type             | Purpose                                                      |
-| -------- | ---------------- | ------------------------------------------------------------ |
+| Argument | Type             | Purpose                                                       |
+| -------- | ---------------- | ------------------------------------------------------------- |
 | value    | java.lang.Object | Value returned for the account attribute, typically a string. |
 
 ## Template

@@ -1,0 +1,21 @@
+# Default
+node_modules
+build
+coverage
+.pcakage-lock.json
+*.min.*
+
+# Auto-generated Docs
+/products/arm/api
+/products/idn/api/v3
+/products/idn/api/beta
+/products/iiq/api
+
+# Logs
+*.log*
+
+# Docusaurus
+.docusaurus
+
+# API Specs
+/static/api-specs

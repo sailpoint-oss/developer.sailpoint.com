@@ -1,3 +1,5 @@
+
+/* positioning of content */
 .headerContainer {
     display: grid;
     margin-left: 50px;
@@ -15,25 +17,45 @@
 }
 
 
+/* agenda speakers faq buttons containers */
+.buttonsContainer {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 80px 80px 80px;
+    place-content: center;
+
+}
+
+.buttonsContent {
+    position:relative;
+    margin-top: 0px;
+    height: 40px;
+}
+
+
+/* stage buttons containers */
+
+.center {
+    margin: 20px auto;
+    max-width: 1000px;
+  }
+
 .stageButtonsContainer {
     display: grid;
-    margin-left: 50px;
-    margin-bottom: 50px;
     grid-gap: 20px;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     place-content: center;
-    margin-right: 40px;
-    max-width: 500px;
+    text-align: center;
 }
 
 .stageButtonsContent {
     position:relative;
     margin-top: 20px;
-    height: 100px;
+    height: 30px;
 }
 
 
-
+/* Actual stage containers */
 .stageContainer {
     display: grid;
     margin-left: 50px;
@@ -49,3 +71,101 @@
     margin-top: 20px;
     height: 100px;
 }
+
+
+
+
+
+
+
+/* initial header */
+.headerText {
+    color: var(--dev-text-color-cobalt);
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 100%;
+}
+
+.timeText {
+    margin: 8px 0px;
+    color: #0071ce;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.speakerText {
+    color: var(--dev-text-color-cobalt);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+
+
+
+
+/* agenda speakers and faq buttons */
+
+.button {
+    text-decoration: none;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 100%;
+    /* Layout Properties */
+    width: 80px;
+    height: 35px;
+    line-height: 35px;
+    /* UI Properties */
+    background: transparent 0% 0% no-repeat padding-box;
+    opacity: 1;
+    background-color: #c552ae10;
+    box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+    /* border: 2px solid #df61ca; */
+    border-radius: 5px;
+    color: #cc27b0;
+  }
+
+  .button:hover {
+    cursor: pointer;
+    top: -4px;
+    box-shadow: 0 4px 5px rgba(0,0,0,0.4);
+    background-color: #c552ae31;
+    color: #cc27b0;
+  }
+
+
+
+
+
+  
+/* stage buttons */
+
+.stageButton {
+    text-decoration: none;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 100%;
+    /* Layout Properties */
+    width: 130px;
+    height: 40px;
+    line-height: 40px;
+    /* UI Properties */
+    background: transparent 0% 0% no-repeat padding-box;
+    opacity: 1;
+    background-color: #c552ae10;
+    box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+    /* border: 2px solid #df61ca; */
+    border-radius: 5px;
+    color: #cc27b0;
+  }
+
+  .stageButton:hover {
+    cursor: pointer;
+    top: -4px;
+    box-shadow: 0 4px 5px rgba(0,0,0,0.4);
+    background-color: #c552ae31;
+    color: #cc27b0;
+  }

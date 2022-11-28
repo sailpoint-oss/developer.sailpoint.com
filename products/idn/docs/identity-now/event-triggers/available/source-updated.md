@@ -4,19 +4,17 @@ title: Source Updated
 pagination_label: Source Updated
 sidebar_label: Source Updated
 sidebar_class_name: sourceUpdated
-keywords: ["event", "trigger", "source", "updated", "available"]
+keywords: ['event', 'trigger', 'source', 'updated', 'available']
 description: Fires after a source is updated.
 slug: /docs/event-triggers/triggers/source-updated
-tags: ["Event Triggers", "Available Event Triggers", "Fire and Forget"]
+tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 ---
 
 ## Event Context
 
-Source Updated events occur when configuration changes are made to a source.
-Some uses cases for this trigger include the following:
+Source Updated events occur when configuration changes are made to a source. Some uses cases for this trigger include the following:
 
-- Provide evidence to show auditors connector logic and sources are not
-  manipulated outside of proper change control processes.
+- Provide evidence to show auditors connector logic and sources are not manipulated outside of proper change control processes.
 - Trigger review of an updated source.
 
 This is an example input from this trigger:

@@ -5,10 +5,10 @@ pagination_label: Connector Commands
 sidebar_label: Connector Commands
 sidebar_position: 7
 sidebar_class_name: connectorCommands
-keywords: ["connectivity", "connector", "commands"]
+keywords: ['connectivity', 'connector', 'commands']
 description: All commands available to implement in a SaaS Connector.
 slug: /docs/saas-connectivity/connector-commands
-tags: ["Connectivity"]
+tags: ['Connectivity']
 ---
 
 Below you will find all of commands available to implement in a SaaS Connector.

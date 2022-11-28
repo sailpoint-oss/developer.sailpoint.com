@@ -4,30 +4,23 @@ title: Source Account Deleted
 pagination_label: Source Account Deleted
 sidebar_label: Source Account Deleted
 sidebar_class_name: sourceAccountDeleted
-keywords: ["event", "trigger", "source", "account", "deleted", "early access"]
+keywords: ['event', 'trigger', 'source', 'account', 'deleted', 'early access']
 description: Fires after a source account is deleted.
 slug: /docs/event-triggers/triggers/source-account-deleted
-tags: ["Event Triggers", "Early Access Event Triggers", "Fire and Forget"]
+tags: ['Event Triggers', 'Early Access Event Triggers', 'Fire and Forget']
 ---
 
 :::info
 
-This is an early access event trigger. Please contact support to have it enabled
-in your tenant.
+This is an early access event trigger. Please contact support to have it enabled in your tenant.
 
 :::
 
 ## Event Context
 
-Source Account Deleted events occur whenever an account is deleted from its
-source during an account aggregation operation. The account may have been
-manually removed or deleted as the result of a provisioning event. The trigger
-cannot determine whether the account deletion happened on a source or in
-IdentityNow. It omits events related to IdentityNow accounts, such as the
-IdentityNow Admin.
+Source Account Deleted events occur whenever an account is deleted from its source during an account aggregation operation. The account may have been manually removed or deleted as the result of a provisioning event. The trigger cannot determine whether the account deletion happened on a source or in IdentityNow. It omits events related to IdentityNow accounts, such as the IdentityNow Admin.
 
-Use this event trigger to watch for deletions of authoritative accounts, such as
-an account deleted on Workday.
+Use this event trigger to watch for deletions of authoritative accounts, such as an account deleted on Workday.
 
 This is an example input from this trigger:
 

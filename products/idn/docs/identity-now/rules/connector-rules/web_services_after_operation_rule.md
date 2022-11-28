@@ -4,10 +4,10 @@ title: Web Services After Operation Rule
 pagination_label: Web Services After Operation Rule
 sidebar_label: Web Services After Operation Rule
 sidebar_class_name: webServicesAfterOperationRule
-keywords: ["cloud", "rules", "webservices"]
+keywords: ['cloud', 'rules', 'webservices']
 description: This rule calculates attributes after a web-service operation call.
 slug: /docs/rules/connector-rules/webservices-after-provisioning-rule
-tags: ["Rules"]
+tags: ['Rules']
 ---
 
 ## Overview
@@ -16,28 +16,25 @@ This rule calculates attributes after a web-service operation call.
 
 ## Execution
 
-- **Connector Execution** - This rule executes within the virtual appliance. It
-  may offer special abilities to perform connector-related functions, and it may
-  offer managed connections to sources.
-- **Logging** - Logging statements are viewable within the ccg.log on the
-  virtual appliance, and they are viewable by SailPoint personnel.
+- **Connector Execution** - This rule executes within the virtual appliance. It may offer special abilities to perform connector-related functions, and it may offer managed connections to sources.
+- **Logging** - Logging statements are viewable within the ccg.log on the virtual appliance, and they are viewable by SailPoint personnel.
 
 ![Rule Execution](../img/connector_execution.png)
 
 ## Input
 
-| Argument                | Type                                              | Purpose                                                                                                                                                                                                                         |
-| ----------------------- | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| application             | sailpoint.object.Application                      | Application whose data file is being processed.                                                                                                                                                                                 |
-| processedResponseObject | List<Map<String, Object>>                         | List of map (account/group). The map contains a key, the identityAttribute of the application schema, and a value, all the account/group attributes (schema) passed by the connector after parsing the respective API response. |
-| requestEndPoint         | sailpoint.connector.webservices.EndPoint          | Current request information. It contains the header, body, context url, method type, response attribute map, successful response code.                                                                                          |
-| restClient              | sailpoint.connector.webservices.WebServicesClient | WebServicesClient (HttpClient) object that enables the user to call the Web Services API target system.                                                                                                                         |
-| rawResponseObject       | String                                            | String object that holds the raw response returned from the target system, which can be in JSON or XML form.                                                                                                                    |
+| Argument | Type | Purpose |
+| --- | --- | --- |
+| application | sailpoint.object.Application | Application whose data file is being processed. |
+| processedResponseObject | List<Map<String, Object>> | List of map (account/group). The map contains a key, the identityAttribute of the application schema, and a value, all the account/group attributes (schema) passed by the connector after parsing the respective API response. |
+| requestEndPoint | sailpoint.connector.webservices.EndPoint | Current request information. It contains the header, body, context url, method type, response attribute map, successful response code. |
+| restClient | sailpoint.connector.webservices.WebServicesClient | WebServicesClient (HttpClient) object that enables the user to call the Web Services API target system. |
+| rawResponseObject | String | String object that holds the raw response returned from the target system, which can be in JSON or XML form. |
 
 ## Output
 
-| Argument                  | Type          | Purpose                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| ------------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Argument | Type | Purpose |
+| --- | --- | --- |
 | updatedAccountOrGroupList | java.util.Map | `Map` object returned from the After Operation Rule. It may contain any or all of the following: an updated list of account / group resource objects, identified by key `data`/ attribute values to be updated into application by the connector state map identified by key `connectorStateMap`. Each resource (account/group) object is of type `Map`, which contains the **key-value** pair. The **key** represents the schema attribute name, and the **value** represents the account/group attribute value. |
 
 ## Template

@@ -92,10 +92,13 @@ addReviewerBasedOnLabel:
 firstPRWelcomeComment: >
   🎉 Thanks for opening this pull request! Please be sure to check out our contributing guidelines. 🙌
 
+
 # Comment to be posted to congratulate user on their first merged PR
 firstPRMergeComment: >
   🎉 Awesome work, congrats on your first merged pull request! 🙌
 
+
 # Comment to be posted to on first time issues
 firstIssueWelcomeComment: >
   🎉 Thanks for opening your first issue here! Be sure to follow the issue template, and welcome to the community! 🙌
+

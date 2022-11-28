@@ -4,11 +4,10 @@ title: JDBC BuildMap Rule
 pagination_label: JDBC BuildMap Rule
 sidebar_label: JDBC BuildMap Rule
 sidebar_class_name: jdbcBuildMapRule
-keywords: ["cloud", "rules"]
-description: This rule manipulates raw input data provided by the
-  rows and columns in a file and builds a map from the incoming data.
+keywords: ['cloud', 'rules']
+description: This rule manipulates raw input data provided by the rows and columns in a file and builds a map from the incoming data.
 slug: /docs/rules/connector-rules/jdbc-buildmap-rule
-tags: ["Rules"]
+tags: ['Rules']
 ---
 
 ## Overview
@@ -17,29 +16,26 @@ This rule manipulates raw input data provided by the rows and columns in a file 
 
 ## Execution
 
-- **Connector Execution** - This rule executes within the virtual appliance. It
-  may offer special abilities to perform connector-related functions, and it may
-  offer managed connections to sources.
-- **Logging** - Logging statements are viewable within the ccg.log on the
-  virtual appliance, and they are viewable by SailPoint personnel.
+- **Connector Execution** - This rule executes within the virtual appliance. It may offer special abilities to perform connector-related functions, and it may offer managed connections to sources.
+- **Logging** - Logging statements are viewable within the ccg.log on the virtual appliance, and they are viewable by SailPoint personnel.
 
 ![Rule Execution](../img/connector_execution.png)
 
 ## Input
 
-| Argument    | Type                         | Purpose                                                                                                       |
-| ----------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| result      | java.sql.ResultSet           | Current ResultSet from the JDBC Connector.                                                                    |
-| connection  | java.sql.Connection          | Reference to the current SQL connection.                                                                      |
-| state       | java.util.Map                | Map that can be used to store and share data between executions of this rule during a single aggregation run. |
-| application | sailpoint.object.Application | Attribute value of the identity attribute before the rule runs.                                               |
-| schema      | sailpoint.object.Schema      | Reference to the schema object for the delimited file source being read.                                      |
+| Argument | Type | Purpose |
+| --- | --- | --- |
+| result | java.sql.ResultSet | Current ResultSet from the JDBC Connector. |
+| connection | java.sql.Connection | Reference to the current SQL connection. |
+| state | java.util.Map | Map that can be used to store and share data between executions of this rule during a single aggregation run. |
+| application | sailpoint.object.Application | Attribute value of the identity attribute before the rule runs. |
+| schema | sailpoint.object.Schema | Reference to the schema object for the delimited file source being read. |
 
 ## Output
 
-| Argument | Type         | Purpose                                                                |
-| -------- | ------------ | ---------------------------------------------------------------------- |
-| map      | java.utl.Map | Map of names/values representing a row of data from the JDBC resource. |
+| Argument | Type | Purpose |
+| --- | --- | --- |
+| map | java.utl.Map | Map of names/values representing a row of data from the JDBC resource. |
 
 ## Template
 

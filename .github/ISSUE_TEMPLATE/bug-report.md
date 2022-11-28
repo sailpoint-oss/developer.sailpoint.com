@@ -1,9 +1,9 @@
 ---
 name: Bug Report
 about: Create a report to help us improve.
-title: "[Bug] Your Bug Report Here"
-labels: ""
-assignees: ""
+title: '[Bug] Your Bug Report Here'
+labels: ''
+assignees: ''
 ---
 
 **Describe the bug** A clear and concise description of what the bug is.
@@ -15,8 +15,7 @@ assignees: ""
 3. Scroll down to '....'
 4. See error
 
-**Expected behavior** A clear and concise description of what you expected to
-happen.
+**Expected behavior** A clear and concise description of what you expected to happen.
 
 **Actual behavior** A clear and concise description of what actually happens.
 

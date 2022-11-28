@@ -10,7 +10,7 @@ get:
 
     Request will require the following security scope:
 
-    - 'idn:oathkeeper-client-list:read'
+    - sp:oauth-client:manage
   responses:
     '200':
       description: List of OAuth clients.
@@ -42,8 +42,7 @@ post:
 
     Request will require the following security scope:
 
-    - 'idn:oathkeeper-client:create'
-    - 'idn:oathkeeper-internal-client:create'
+    - sp:oauth-client:manage
   requestBody:
     required: true
     content:

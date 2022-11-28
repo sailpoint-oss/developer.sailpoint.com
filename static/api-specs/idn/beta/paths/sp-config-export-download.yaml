@@ -8,9 +8,10 @@ get:
   description: >-
     This gets export file resulting from the export job with the requested id and downloads it to a file.
 
-    Request will need the following security scope:
+    Request will need one of the following security scopes:
 
-    'sp:config:export'
+    - sp:config:read
+    - sp:config:manage
   parameters:
     - in: path
       name: id

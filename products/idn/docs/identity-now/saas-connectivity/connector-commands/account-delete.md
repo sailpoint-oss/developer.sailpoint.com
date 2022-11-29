@@ -3,10 +3,10 @@ id: account-delete
 title: Account Delete
 pagination_label: Account Delete
 sidebar_label: Account Delete
-keywords: ["connectivity", "connectors", "account delete"]
+keywords: ['connectivity', 'connectors', 'account delete']
 description: Remove account from a source.
 slug: /docs/saas-connectivity/commands/account-delete
-tags: ["Connectivity", "Connector Command"]
+tags: ['Connectivity', 'Connector Command']
 ---
 
 | Input/Output |       Data Type        |
@@ -35,16 +35,9 @@ tags: ["Connectivity", "Connector Command"]
 
 ## Description
 
-The account delete command sends one attribute from IDN, the identity to delete.
-This can be passed to your connector to delete the account from the source
-system.
+The account delete command sends one attribute from IDN, the identity to delete. This can be passed to your connector to delete the account from the source system.
 
-Enable account delete in IDN through a BeforeProvisioning rule. The connector
-honors whichever operation the provisioning plan sends. For more information,
-see the
-[documentation](https://community.sailpoint.com/t5/IdentityNow-Articles/IdentityNow-Rule-Guide/ta-p/76665)
-and an
-[example implementation](https://community.sailpoint.com/t5/IdentityNow-Wiki/IdentityNow-Rule-Guide-Before-Provisioning-Rule/ta-p/77415).
+Enable account delete in IDN through a BeforeProvisioning rule. The connector honors whichever operation the provisioning plan sends. For more information, see the [documentation](https://community.sailpoint.com/t5/IdentityNow-Articles/IdentityNow-Rule-Guide/ta-p/76665) and an [example implementation](https://community.sailpoint.com/t5/IdentityNow-Wiki/IdentityNow-Rule-Guide-Before-Provisioning-Rule/ta-p/77415).
 
 The following snippet shows an example of account delete command implementation:
 

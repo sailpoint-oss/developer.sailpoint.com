@@ -1,11 +1,11 @@
-import React from "react";
-import styles from "./styles.module.css";
-import useBaseUrl from "@docusaurus/useBaseUrl";
-import ThemedImage from "@theme/ThemedImage";
-import { addDarkToFileName } from "../../../util/util";
-import { SliderButton } from "@typeform/embed-react";
+import React from 'react';
+import styles from './styles.module.css';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import ThemedImage from '@theme/ThemedImage';
+import {addDarkToFileName} from '../../../util/util';
+import {SliderButton} from '@typeform/embed-react';
 export default function ConferenceHero() {
-  const communication = "/conf/codey-surfing-small.png";
+  const communication = '/conf/codey-surfing-small.png';
 
   return (
     <div className={styles.center}>

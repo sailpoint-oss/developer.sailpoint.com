@@ -1,24 +1,24 @@
 .mainCard {
-    margin: 10px 100px;
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: 900px auto;
-    align-content: center;
+  margin: 10px 100px;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 900px auto;
+  align-content: center;
 }
 
 .center {
-    margin: 50px auto;
-    max-width: 1000px;
-  }
+  margin: 50px auto;
+  max-width: 1000px;
+}
 
 .signUpSection {
-    margin: 30px auto;
+  margin: 30px auto;
 }
 
 .headerSection {
-    display: grid;
-    grid-gap: 0px;
-    grid-template-columns: 517px 330px;
+  display: grid;
+  grid-gap: 0px;
+  grid-template-columns: 517px 330px;
 }
 
 .conferenceText {
@@ -44,42 +44,41 @@
 }
 
 .extensible {
-    font-size: 48px;
-    font-weight: bold;
+  font-size: 48px;
+  font-weight: bold;
 }
 
 .sailpoint {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .button {
+  text-decoration: none;
+  text-align: center;
+  margin: 10px auto;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 100%;
+  color: #df61ca;
+  font-family: input-mono;
+  /* Layout Properties */
+  margin-top: 20px;
+  width: 360px;
+  height: 52px;
+  line-height: 42px;
+  /* UI Properties */
+  background: transparent 0% 0% no-repeat padding-box;
+  opacity: 1;
 
-    text-decoration: none;
-    text-align: center;
-    margin: 10px auto;
-    font-size: 20px;
-    font-weight: bold;
-    line-height: 100%;
-    color: #df61ca;
-    font-family: input-mono;
-    /* Layout Properties */
-    margin-top: 20px;
-    width: 360px;
-    height: 52px;
-    line-height: 42px;
-    /* UI Properties */
-    background: transparent 0% 0% no-repeat padding-box;
-    opacity: 1;
-  
-    box-shadow: 0px 20px 60px #00000015;
-    border: 2px solid #df61ca;
-    border-radius: 5px;
-  }
-  
-  .button:hover {
-    cursor: pointer;
-    top: -2px;
-    box-shadow: 0 4px 5px rgba(0,0,0,0.2);
-    background-color: #c552ae10;
-    color: #cc27b0;
-  }
+  box-shadow: 0px 20px 60px #00000015;
+  border: 2px solid #df61ca;
+  border-radius: 5px;
+}
+
+.button:hover {
+  cursor: pointer;
+  top: -2px;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  background-color: #c552ae10;
+  color: #cc27b0;
+}

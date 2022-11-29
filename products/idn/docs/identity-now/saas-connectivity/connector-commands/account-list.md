@@ -3,10 +3,10 @@ id: account-list
 title: Account List
 pagination_label: Account List
 sidebar_label: Account List
-keywords: ["connectivity", "connectors", "account list"]
+keywords: ['connectivity', 'connectors', 'account list']
 description: Aggregate all accounts from the source into IdentityNow.
 slug: /docs/saas-connectivity/commands/account-list
-tags: ["Connectivity", "Connector Command"]
+tags: ['Connectivity', 'Connector Command']
 ---
 
 | Input/Output |      Data Type       |
@@ -39,24 +39,13 @@ tags: ["Connectivity", "Connector Command"]
 
 ## Description
 
-The account list command aggregates all accounts from the target source into
-IdentityNow. IDN calls this command during a manual or scheduled account
-aggregation.
+The account list command aggregates all accounts from the target source into IdentityNow. IDN calls this command during a manual or scheduled account aggregation.
 
 ![Account List](./img/account_list_idn.png)
 
 ## Implementation
 
-For you to be able to implement this endpoint, the web service must expose an
-API for listing user accounts and entitlements (i.e. roles or groups).
-Sometimes, a target source’s API has a single endpoint providing all the
-attributes and entitlements a source account contains. However, some APIs may
-break these attributes and entitlements into separate API endpoints, requiring
-you to make multiple calls to gather all an account's necessary data. The
-following code from
-[airtable.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/airtable.ts)
-shows the necessary steps to create a complete account from the various
-endpoints the API offers:
+For you to be able to implement this endpoint, the web service must expose an API for listing user accounts and entitlements (i.e. roles or groups). Sometimes, a target source’s API has a single endpoint providing all the attributes and entitlements a source account contains. However, some APIs may break these attributes and entitlements into separate API endpoints, requiring you to make multiple calls to gather all an account's necessary data. The following code from [airtable.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/airtable.ts) shows the necessary steps to create a complete account from the various endpoints the API offers:
 
 ```javascript
 async getAllAccounts(): Promise<AirtableAccount[]> {
@@ -74,9 +63,7 @@ async getAllAccounts(): Promise<AirtableAccount[]> {
 }
 ```
 
-The following code snippet from
-[index.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/index.ts)
-shows how to register the account list command on the connector object:
+The following code snippet from [index.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/index.ts) shows how to register the account list command on the connector object:
 
 ```javascript
 export const connector = async () => {
@@ -98,9 +85,7 @@ export const connector = async () => {
 ...
 ```
 
-IDN expects each user in the target source to be converted into a format IDN
-understands. The specific attributes the web service returns depend on what your
-source provides.
+IDN expects each user in the target source to be converted into a format IDN understands. The specific attributes the web service returns depend on what your source provides.
 
 ```javascript
 public toStdAccountListOutput(): StdAccountListOutput {
@@ -125,9 +110,7 @@ private buildStandardObject(): StdAccountListOutput | StdAccountCreateOutput | S
 }
 ```
 
-The result of the account list command is not an array of objects but several
-individual objects. This is the format IDN expects, so if you see something like
-the following result while testing, it is normal:
+The result of the account list command is not an array of objects but several individual objects. This is the format IDN expects, so if you see something like the following result while testing, it is normal:
 
 ```javascript
 {

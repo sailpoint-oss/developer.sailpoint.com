@@ -4,27 +4,21 @@ title: Base64 Decode
 pagination_label: Base64 Decode
 sidebar_label: Base64 Decode
 sidebar_class_name: base64Decode
-keywords: ["transforms", "operations", "base64", "decode"]
+keywords: ['transforms', 'operations', 'base64', 'decode']
 description: Render base64 data in its original binary format.
 slug: /docs/transforms/operations/base64-decode
-tags: ["Transforms", "Transform Operations"]
+tags: ['Transforms', 'Transform Operations']
 ---
 
 ## Overview
 
-Base64 is mostly used to encode binary data like images so that the data can be
-represented as a string within HTML, email, or other text documents. Base64 is
-also commonly used to encode data that can be unsupported or damaged during
-transfer, storage, or output.
+Base64 is mostly used to encode binary data like images so that the data can be represented as a string within HTML, email, or other text documents. Base64 is also commonly used to encode data that can be unsupported or damaged during transfer, storage, or output.
 
-The base64 decode transform allows you to take incoming data that has been
-encoded using a Base64-based text encoding scheme and render the data in its
-original binary format.
+The base64 decode transform allows you to take incoming data that has been encoded using a Base64-based text encoding scheme and render the data in its original binary format.
 
 :::note Other Considerations
 
-- If the input to the Base64 decode transform is null, the transform returns a
-  null value.
+- If the input to the Base64 decode transform is null, the transform returns a null value.
 
 :::
 
@@ -43,18 +37,13 @@ The base64 decode transform only requires the `type` and `name` attributes:
 
 - **Required Attributes**
   - **type** - This must be set to `base64Decode`.
-  - **name** - This is a required attribute for all transforms. It represents
-    the name of the transform as it will appear in the UI's dropdown menus.
+  - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
 - **Optional Attributes**
-  - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether
-    the transform logic should be reevaluated every evening as part of the
-    identity refresh process.
+  - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether the transform logic should be reevaluated every evening as part of the identity refresh process.
 
 ## Examples
 
-This example takes the incoming attribute configured in the identity profile
-attribute UI, assumes it is a Base64 encoded string, and returns its original
-binary value.
+This example takes the incoming attribute configured in the identity profile attribute UI, assumes it is a Base64 encoded string, and returns its original binary value.
 
 Input:
 
@@ -81,8 +70,7 @@ Output:
 
 <p>&nbsp;</p>
 
-This example takes the incoming attribute configured in the identity profile
-attribute UI, assumes it is a Base64 encoded string, and returns it as an image.
+This example takes the incoming attribute configured in the identity profile attribute UI, assumes it is a Base64 encoded string, and returns it as an image.
 
 Input:
 

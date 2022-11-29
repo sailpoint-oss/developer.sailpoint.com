@@ -1,10 +1,10 @@
 .mainCard {
   margin: 10px 100px;
-  display: grid;
   grid-gap: 20px;
   grid-template-columns: 900px auto;
   align-content: center;
 }
+
 .center {
   margin: 50px auto;
   max-width: 1000px;
@@ -14,57 +14,26 @@
   margin: 30px auto;
 }
 
-@media only screen and (max-width: 1324px) {
-  .signUpSection {
-    display: none;
-  }
-}
-
-.headerSection {
-  display: grid;
-  grid-gap: 0px;
-  grid-template-columns: 517px 330px;
-}
-
-.shipyardText {
-  margin-top: 70px;
-  font-size: 100px;
-  color: var(--dev-text-color-cobalt);
-  font-family: input-mono;
-}
-
-.yearText {
-  color: var(--dev-text-color-cobalt);
-  font-size: 100px;
-  font-family: input-mono;
-  font-weight: bold;
-}
-
-.yearTextBorder {
-  margin-top: 70px;
-  width: 330px;
-  height: 149px;
-  /* UI Properties */
-  border: 4px solid var(--dev-text-color-cobalt);
-  border-radius: 45px;
-  opacity: 1;
-  line-height: 149px;
-  text-align: center;
+.conferenceText {
+    margin-top: 70px;
+    font-size: 55px;
+    color: var(--dev-text-color-cobalt);
+    font-family: input-mono;
 }
 
 .comingSoonText {
-  color: var(--dev-text-color-cobalt);
-  font-size: 22px;
-  font-family: input-mono;
-  letter-spacing: 5.5px;
-  margin-top: -17px;
+    color: var(--dev-text-color-cobalt);
+    font-size: 20px;
+    font-family: input-mono;
+    letter-spacing: 5.5px;
+    margin-top: -17px;
 }
 
 .descriptionText {
-  margin-top: 20px;
-  color: var(--ifm-color-primary);
-  font-size: 36px;
-  font-family: input-mono;
+    margin-top: 27px;
+    color: var(--ifm-color-primary);
+    font-size: 36px;
+    font-family: input-mono;
 }
 
 .extensible {
@@ -74,12 +43,6 @@
 
 .sailpoint {
   font-weight: 600;
-}
-
-@media only screen and (max-width: 980px) {
-  .mainCard {
-    display: none;
-  }
 }
 
 .button {
@@ -111,4 +74,29 @@
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
   background-color: #c552ae10;
   color: #cc27b0;
+}
+
+@media screen and (max-width: 550px) {
+  .mainCard {
+    margin: 10px 20px;
+    grid-gap: 20px;
+    grid-template-columns: 900px auto;
+    align-content: center;
+  }
+
+  .conferenceText {
+    margin-top: 70px;
+    margin-bottom: 30px;
+    line-height: 60px;
+    font-size: 45px;
+    color: var(--dev-text-color-cobalt);
+    font-family: input-mono;
+  }
+
+  .descriptionText {
+    margin-top: 27px;
+    color: var(--ifm-color-primary);
+    font-size: 25px;
+    font-family: input-mono;
+  }
 }

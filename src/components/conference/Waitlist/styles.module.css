@@ -24,45 +24,40 @@
   top: 425px;
 }
 
-@media only screen and (max-width: 1324px) {
-  .mainCard {
-    grid-template-columns: auto;
-  }
-  .background {
-    width: 100%;
-    height: 265px;
-  }
-  .learnDeployText {
-    height: 187px;
-    right: 50px;
-    left: auto;
-    top: 99px;
-  }
-}
+/* @media only screen and (max-width: 1324px) {
+    .mainCard {
+        grid-template-columns: auto;
+    }
+    .background {
+        width: 100%;
+        height: 265px;
+    }
+    .learnDeployText {
+        height: 187px;
+        right: 50px;
+        left: auto;
+        top: 99px;
+    }
+} */
 
-@media only screen and (min-width: 980px) {
-  .mainCard {
-    display: none;
-  }
-}
+/* @media only screen and (min-width: 980px) {
+    .mainCard {
+        display: none;
+    }
+} */
 
 .signUpSection {
   min-width: 368px;
   width: 368px;
   margin: 30px auto;
 }
+
 .imageContainer {
   text-align: center;
 }
+
 .sailpointImageContainer {
   padding-left: 32px;
-}
-.shipyardLogo {
-  margin-top: 10px;
-  width: 368px;
-  height: 75px;
-  top: 50%;
-  left: 50%;
 }
 
 .sailpointImage {

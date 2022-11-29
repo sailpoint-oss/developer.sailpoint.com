@@ -1,3 +1,21 @@
+# This workflow executes Checkmarx scans (SAST & SCA) on pull requests. It runs in a self-hosted actions runner
+# hosted in AWS. The flow has 3 parts: 1) start the ec2 runner instance 2) carry out the scans via CxFlow and 
+# 3) stop the ec2 runner instance. It uses the following GitHub secrets:
+#           AWS_EC2_INSTANCE_ID
+#           AWS_ACCESS_KEY_ID
+#           AWS_SECRET_ACCESS_KEY
+#           AWS_REGION
+#           CHECKMARX_URL
+#           CHECKMARX_USERNAME
+#           CHECKMARX_PASSWORD
+#           CHECKMARX_URL
+#           CHECKMARX_CLIENT_SECRET
+#           SCA_USERNAME
+#           SCA_PASSWORD
+#
+# To change the severity threshold, modify the --cx-flow.filter-severity parameter in the CxFlow job below
+
+
 name: CheckMarx Scan on Pull Request
 on: [pull_request, workflow_dispatch]
   

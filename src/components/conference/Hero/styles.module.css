@@ -1,6 +1,5 @@
 .mainCard {
   margin: 10px 100px;
-  display: grid;
   grid-gap: 20px;
   grid-template-columns: 900px auto;
   align-content: center;
@@ -13,12 +12,6 @@
 
 .signUpSection {
   margin: 30px auto;
-}
-
-.headerSection {
-  display: grid;
-  grid-gap: 0px;
-  grid-template-columns: 517px 330px;
 }
 
 .conferenceText {
@@ -81,4 +74,29 @@
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
   background-color: #c552ae10;
   color: #cc27b0;
+}
+
+@media screen and (max-width: 550px) {
+  .mainCard {
+    margin: 10px 20px;
+    grid-gap: 20px;
+    grid-template-columns: 900px auto;
+    align-content: center;
+  }
+
+  .conferenceText {
+    margin-top: 70px;
+    margin-bottom: 30px;
+    line-height: 60px;
+    font-size: 45px;
+    color: var(--dev-text-color-cobalt);
+    font-family: input-mono;
+  }
+
+  .descriptionText {
+    margin-top: 27px;
+    color: var(--ifm-color-primary);
+    font-size: 25px;
+    font-family: input-mono;
+  }
 }

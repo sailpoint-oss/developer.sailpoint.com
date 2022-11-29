@@ -2,6 +2,8 @@ import React from "react";
 import clsx from "clsx";
 import styles from "./styles.module.css";
 import Link from "@docusaurus/Link";
+import WidgetBot from '@widgetbot/react-embed'
+import Room from "../room";
 export default function Main() {
   return (
     <div>
@@ -40,10 +42,7 @@ export default function Main() {
         </div>
 
       </div>
-      <div className={styles.stageContainer}>
-          <div className={styles.stageContent}>Video Player</div>
-          <div className={styles.stageContent}>Chat Window</div>
-        </div>
+      <Room></Room>
     </div>
   );
 }

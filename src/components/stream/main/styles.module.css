@@ -36,16 +36,18 @@
 /* stage buttons containers */
 
 .center {
-    margin: 20px auto;
-    max-width: 1000px;
+
+    max-width: 480px;
   }
 
 .stageButtonsContainer {
     display: grid;
-    grid-gap: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    place-content: center;
-    text-align: center;
+
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    grid-gap: 10px;
+    margin-left: 40px;
+    margin-right: 40px;
+
 }
 
 .stageButtonsContent {
@@ -53,27 +55,6 @@
     margin-top: 20px;
     height: 30px;
 }
-
-
-/* Actual stage containers */
-.stageContainer {
-    display: grid;
-    margin-left: 50px;
-    margin-bottom: 50px;
-    grid-gap: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    place-content: center;
-    margin-right: 40px;
-}
-
-.stageContent {
-    position:relative;
-    margin-top: 20px;
-    height: 100px;
-}
-
-
-
 
 
 
@@ -153,12 +134,10 @@
     height: 40px;
     line-height: 40px;
     /* UI Properties */
-    background: transparent 0% 0% no-repeat padding-box;
-    opacity: 1;
-    background-color: #c552ae10;
-    box-shadow: 0 4px 5px rgba(0,0,0,0.2);
-    /* border: 2px solid #df61ca; */
-    border-radius: 5px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: -5.0934px -5.0934px 15.2802px rgba(255, 255, 255, 0.5), 5.0934px 5.0934px 15.2802px rgba(136, 160, 183, 0.25);
+    border-radius: 20.3736px;
     color: #cc27b0;
   }
 
@@ -169,3 +148,15 @@
     background-color: #c552ae31;
     color: #cc27b0;
   }
+
+  .stageButton:disabled {
+    background: #FFFFFF;
+    box-shadow: inset -5.0934px -5.0934px 15.2802px rgba(255, 255, 255, 0.5), inset 5.0934px 5.0934px 15.2802px rgba(136, 160, 183, 0.25);
+    border-radius: 20.3736px;
+  }
+
+  @media only screen and (max-width: 628px) {
+    .stageButton {
+        width: auto;
+      }
+}

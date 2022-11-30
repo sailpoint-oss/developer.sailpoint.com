@@ -5,12 +5,19 @@
     margin-left: 20px;
     margin-bottom: 50px;
     grid-gap: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
     place-content: center;
     margin-right: 20px;
 }
 
-.stageContent {
+.videoContent {
+    position:relative;
+    margin-top: 20px;
+    width: -webkit-fill-available;
+    position: relative;
+    padding-bottom: 56.25%;
+}
+.discordContent {
     position:relative;
     margin-top: 20px;
     width: -webkit-fill-available;
@@ -23,4 +30,39 @@
     position: absolute;
     width: 100%;
     height: 100%;
+}
+.discord {
+    border: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+@media only screen and (max-width: 1150px) {
+    .discordContent {
+        padding-bottom: 600px;
+    }
+    .videoContent {
+        padding-bottom: 200px;
+    }
+    .video {
+        border: none;
+        position: absolute;
+        width: 100%;
+        height: 200px;
+    }
+}
+@media only screen and (max-width: 796px) {
+    .discordContent {
+        padding-bottom: 600px;
+    }
+    .videoContent {
+        padding-bottom: 56.25%;
+    }
+    .video {
+        border: none;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
 }

@@ -22,9 +22,13 @@
     display: grid;
     grid-gap: 20px;
     grid-template-columns: 80px 80px 80px;
-    place-content: center;
-
+    place-content: end;
 }
+@media only screen and (max-width: 628px) {
+    .buttonsContainer {
+        place-content: center;
+      }
+    }
 
 .buttonsContent {
     position:relative;
@@ -49,6 +53,14 @@
     margin-right: 40px;
 
 }
+@media only screen and (max-width: 628px) {
+    .stageButtonsContainer {
+        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+        grid-gap: 10px;
+        margin-left: 40px;
+        margin-right: 40px;
+      }
+    }
 
 .stageButtonsContent {
     position:relative;
@@ -159,4 +171,4 @@
     .stageButton {
         width: auto;
       }
-}
+    }

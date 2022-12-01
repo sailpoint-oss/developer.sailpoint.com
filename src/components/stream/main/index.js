@@ -5,15 +5,19 @@ import Link from "@docusaurus/Link";
 import WidgetBot from '@widgetbot/react-embed'
 import Modal from 'react-modal';
 import Room from "../room";
+import FAQ from "../faq";
 
 const customStyles = {
   content: {
-    top: '50%',
+    top: '20%',
     left: '50%',
     right: 'auto',
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
+    background: '#FFFFFF',
+    boxShadow: '2px 3px 10px rgba(0, 0, 0, 0.25)',
+    borderRadius: '20px',
   },
 };
 export default function Main() {
@@ -25,7 +29,7 @@ export default function Main() {
     setIsOpen(true);
   }
   function afterOpenModal() {
-    subtitle.style.color = '#f00';
+    //subtitle.style.color = '#f00';
   }
 
   function closeModal() {
@@ -75,12 +79,16 @@ export default function Main() {
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Example Modal"
+        className={styles.modal}
+        contentLabel="FAQ"
       >
-        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
-        <button onClick={closeModal}>close</button>
-        <div>I am a modal</div>
+        <FAQ        
+          description={
+            "if you stil can't find what you are looking for, reach out to us on our discussion board"
+          }
+          title={"Frequently Asked Questions"}
+          image={"/homepage/person-head.png"} ></FAQ>
+        <button className={styles.modalButton} onClick={closeModal}>Close</button>
       </Modal>
     </div>
   );

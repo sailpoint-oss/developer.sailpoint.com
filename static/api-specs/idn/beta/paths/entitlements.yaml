@@ -110,36 +110,6 @@ get:
       required: false
       style: form
       explode: true
-    - in: query
-      name: cursor
-      deprecated: true
-      schema:
-        type: string
-      description: >-
-        **WARNING: This parameter is deprecated and support will be removed in an upcoming release.**
-
-        
-        This endpoint supports cursor-based pagination as an alternative to pagination using **limit** and **offset**.
-        Use of cursors is optional but may deliver significantly better performance when paginating over large result
-        sets, particularly when sorting is involved.
-
-
-        To obtain an initial cursor value, the initial request must be made with **offset=0** and **count=false**, or
-        by omitting those parameters. Other query parameters may be specified on the initial request, to specify
-        filtering and sorting for example. The response to this initial request will provide a cursor value in the
-        **Slpt-Cursor** response header. Thereafter, passing in the last returned value of **Slpt-Cursor** as the value
-        of the **cursor** parameter on the following request will return the next page of results, and so on. The end of
-        the result set is signalled when a request returns without providing a value for **Slpt-Cursor**.
-
-
-        The **cursor** param is generally incompatible with other parameters; the second and subsequent requests should
-        only pass that parameter and no others. A 400 Bad Request will be returned if any incompatible parameter values
-        are passed along with the **cursor**.
-
-
-        Cursors expire after 15 minutes; a 400 Bad Request is returned if an expired value is provided for **cursor**.
-      example: 9602877a-1c11-4c02-a399-7273ea2158da
-      required: false
   responses:
     '200':
       description: List of entitlements

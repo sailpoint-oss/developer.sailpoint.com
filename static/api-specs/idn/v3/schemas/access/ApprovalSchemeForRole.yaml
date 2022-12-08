@@ -21,6 +21,7 @@ properties:
     example: GOVERNANCE_GROUP
   approverId:
     type: string
+    nullable: true
     description: Id of the specific approver, used only when approverType is GOVERNANCE_GROUP
     example: 46c79819-a69f-49a2-becb-12c971ae66c6
   

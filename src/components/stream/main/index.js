@@ -18,9 +18,31 @@ export default function Main() {
 
 
   const [isConnected, setIsConnected] = useState(socket.connected);
-  const [lastSpeaker, setLastSpeaker] = useState(null);
+  const [lastSpeaker, setLastSpeaker] = useState(
+    {
+      main: {
+          presenter: "JANE DOE, ENGINEERING MANAGER",
+          timeFrame: "3:15 - 4:15 PM",
+          topic: "Let's talk platform"
+      },
+      idn: {
+          presenter: "JANE DOE, ENGINEERING MANAGER",
+          timeFrame: "3:15 - 4:15 PM",
+          topic: "Let's talk IDN platform"
+      },
+      iiq: {
+          presenter: "JANE DOE, ENGINEERING MANAGER",
+          timeFrame: "3:15 - 4:15 PM",
+          topic: "Let's talk IIQ platform"
+      }
+  }
+  );
+  const [stage, setStage] = useState('main');
+
 
   
+
+//setting socket here
  useEffect(() => {
   console.log("Creating effect");
    socket.on("connect", () => {
@@ -33,7 +55,7 @@ export default function Main() {
    });
 
    socket.on("speaker", (msg) => {
-    console.log("recieved message")
+    console.log("received message")
     setLastSpeaker(msg);
   })
 
@@ -47,9 +69,16 @@ export default function Main() {
 
 
 
-
-
-
+ // setting stage here
+ function changeToMainStage() {
+  setStage('main')
+}
+function changeToIDNStage() {
+  setStage('idn')
+}
+function changeToIIQStage() {
+  setStage('iiq')
+}
 
 
   Modal.setAppElement('#__docusaurus');
@@ -69,9 +98,9 @@ export default function Main() {
     <div>
       <div className={styles.headerContainer}>
         <div className={styles.headerContent}>
-          <div className={styles.headerText}>{lastSpeaker?.main.topic}</div>
-          <div className={styles.timeText}>{lastSpeaker?.main.timeFrame}</div>
-          <div className={styles.speakerText}>{lastSpeaker?.main.presenter}</div>
+          <div className={styles.headerText}>{lastSpeaker?.[stage].topic}</div>
+          <div className={styles.timeText}>{lastSpeaker?.[stage].timeFrame}</div>
+          <div className={styles.speakerText}>{lastSpeaker?.[stage].presenter}</div>
         </div>
 
         <div className={styles.headerContent}>
@@ -97,13 +126,13 @@ export default function Main() {
       <div className={styles.center}>
         <div className={styles.stageButtonsContainer}>
           <div className={styles.stageButtonsContent}>
-            <div className={styles.stageButton}>Main Stage</div>
+            <div className={styles.stageButton}  onClick={changeToMainStage}>Main Stage</div>
           </div>
           <div className={styles.stageButtonsContent}>
-            <div className={styles.stageButton}>IdentityNow</div>
+            <div className={styles.stageButton}  onClick={changeToIDNStage}>IdentityNow</div>
           </div>
           <div className={styles.stageButtonsContent}>
-            <div className={styles.stageButton}>IdentityIQ</div>
+            <div className={styles.stageButton} onClick={changeToIIQStage}>IdentityIQ</div>
           </div>
         </div>
       </div>

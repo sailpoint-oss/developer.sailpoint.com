@@ -28,3 +28,17 @@
     font-size: 16px;
     font-weight: 500;
   }
+
+  .faqContent{
+    max-height: 300px;
+    overflow-y: auto;
+}
+  
+  .faqQuestion {
+    font-weight: bold
+  }
+
+  .faqAnswer {
+    margin-left: 20px;
+    margin-bottom: 5px;
+  }

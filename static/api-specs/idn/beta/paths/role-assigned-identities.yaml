@@ -35,7 +35,7 @@ get:
           **email**: *eq, sw*
 
 
-          **name**: *eq, sw*
+          **name**: *eq, sw, co*
         example: name sw Joe
       - in: query
         name: sorters

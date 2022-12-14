@@ -146,9 +146,10 @@
     height: 40px;
     line-height: 40px;
     /* UI Properties */
-    background: #FFFFFF;
+    background: transparent 0% 0% no-repeat padding-box;
+    background-color: #c552ae10;
     border: 1px solid rgba(0, 0, 0, 0.05);
-    box-shadow: -5.0934px -5.0934px 15.2802px rgba(255, 255, 255, 0.5), 5.0934px 5.0934px 15.2802px rgba(136, 160, 183, 0.25);
+    box-shadow: 0 4px 5px rgba(0,0,0,0.2);
     border-radius: 20.3736px;
     color: #cc27b0;
   }
@@ -157,7 +158,7 @@
     cursor: pointer;
     top: -4px;
     box-shadow: 0 4px 5px rgba(0,0,0,0.4);
-    background-color: #dae1e9;
+    background-color: #c552ae31;
     color: #cc27b0;
   }
 
@@ -177,7 +178,8 @@
 
     .modal {
         position: absolute;
-        top: 33%;
+        margin-top: 50px;
+        top: 50%;
         left: 50%;
         right: auto;
         bottom: auto;
@@ -190,10 +192,10 @@
     }
 
     .modalButton {
-        border: 1px solid #005BC0;
+        border: 1px solid var(--ifm-color-primary);
         box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.12);
         border-radius: 24px;
-        color: #005BC0;
+        color: var(--ifm-color-primary);
         margin: 10px;
         padding: 10px;
         text-align: center;

@@ -4,7 +4,7 @@
 
 .gettingStartedText {
     text-align: center;
-    margin: 150px auto 50px auto;
+    margin: 50px auto 50px auto;
     width: calc(100% - 100px);
     max-width: 600px;
   
@@ -30,7 +30,8 @@
   }
 
   .faqContent{
-    max-height: 300px;
+    height: calc(100vh - 530px);
+
     overflow-y: auto;
 }
   

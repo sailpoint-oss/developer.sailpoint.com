@@ -1,0 +1,60 @@
+.agenda {
+    margin: 20px
+}
+
+.gettingStartedText {
+    text-align: center;
+    margin: 50px auto 50px auto;
+    width: calc(100% - 100px);
+    max-width: 600px;
+  
+  }
+
+  .gettingStartedCardIcon {
+    margin-bottom: 20px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .gettingStartedOne {
+    color: var(--ifm-color-primary);
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 100%;
+  }
+
+  .gettingStartedThree {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .agendaContent{
+    height: calc(100vh - 530px);
+
+    overflow-y: auto;
+}
+  
+  .agendaQuestion {
+    font-weight: bold
+  }
+
+  .agendaAnswer {
+    margin-left: 20px;
+    margin-bottom: 5px;
+  }
+
+  .dayHeader {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .dayContent {
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+    border-radius: 20.3736px;
+    padding: 20px;
+    margin: 20px;
+    list-style-position: inside;
+  }

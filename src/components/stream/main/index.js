@@ -6,6 +6,8 @@ import WidgetBot from '@widgetbot/react-embed'
 import Modal from 'react-modal';
 import Room from "../room";
 import FAQ from "../faq";
+import Agenda from "../agenda"
+import Speakers from "../speakers";
 import { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 
@@ -13,7 +15,9 @@ import io from 'socket.io-client';
 const socket = io("http://localhost:4202");
 
 export default function Main() {
-  const [modalIsOpen, setIsOpen] = React.useState(false);
+  const [faqModalIsOpen, setFaqIsOpen] = React.useState(false);
+  const [agendaModalIsOpen, setAgendaIsOpen] = React.useState(false);
+  const [speakersModalIsOpen, setSpeakerIsOpen] = React.useState(false);
   let subtitle;
 
 
@@ -83,15 +87,28 @@ function changeToIIQStage() {
 
   Modal.setAppElement('#__docusaurus');
 
-  function openModal() {
-    setIsOpen(true);
-  }
-  function afterOpenModal() {
-    //subtitle.style.color = '#f00';
+  function openFaqModal() {
+    setFaqIsOpen(true);
   }
 
-  function closeModal() {
-    setIsOpen(false);
+  function closeFaqModal() {
+    setFaqIsOpen(false);
+  }
+
+  function openAgendaModal() {
+    setAgendaIsOpen(true);
+  }
+
+  function closeAgendaModal() {
+    setAgendaIsOpen(false);
+  }
+
+  function openSpeakersModal() {
+    setSpeakerIsOpen(true);
+  }
+
+  function closeSpeakersModal() {
+    setSpeakerIsOpen(false);
   }
 
   return (
@@ -106,17 +123,17 @@ function changeToIIQStage() {
         <div className={styles.headerContent}>
           <div className={styles.buttonsContainer}>
             <div className={styles.buttonsContent}>
-              <div className={styles.button} onClick={openModal}>
+              <div className={styles.button} onClick={openAgendaModal}>
                 Agenda
               </div>
             </div>
             <div className={styles.buttonsContent}>
-              <div className={styles.button} onClick={openModal}>
+              <div className={styles.button} onClick={openSpeakersModal}>
                 Speakers
               </div>
             </div>
             <div className={styles.buttonsContent}>
-              <div className={styles.button} onClick={openModal}>
+              <div className={styles.button} onClick={openFaqModal}>
                 FAQ
               </div>
             </div>
@@ -139,9 +156,8 @@ function changeToIIQStage() {
       {/* <Room></Room> */}
 
       <Modal
-        isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
-        onRequestClose={closeModal}
+        isOpen={faqModalIsOpen}
+        onRequestClose={closeFaqModal}
         className={styles.modal}
         contentLabel="FAQ"
       >
@@ -150,9 +166,46 @@ function changeToIIQStage() {
             "if you stil can't find what you are looking for, reach out to us on our discussion board"
           }
           title={"Frequently Asked Questions"}
-          image={"/homepage/person-head.png"}
+          image={"/homepage/discuss.png"}
         ></FAQ>
-        <button className={styles.modalButton} onClick={closeModal}>
+        <button className={styles.modalButton} onClick={closeFaqModal}>
+          Close
+        </button>
+      </Modal>
+
+      <Modal
+        isOpen={agendaModalIsOpen}
+        onRequestClose={closeAgendaModal}
+        className={styles.modal}
+        contentLabel="Agenda"
+      >
+        <Agenda
+          description={
+            "The agenda for the 3 conference days are below. If you have any questions about the agenda, reach out via the discussion forum."
+          }
+          title={"Agenda"}
+          image={"/homepage/team.png"}
+        ></Agenda>
+        <button className={styles.modalButton} onClick={closeAgendaModal}>
+          Close
+        </button>
+      </Modal>
+
+
+      <Modal
+        isOpen={speakersModalIsOpen}
+        onRequestClose={closeSpeakersModal}
+        className={styles.modal}
+        contentLabel="Speakers"
+      >
+        <Speakers
+          description={
+            "Here are the awesome speakers we have lined up for Developer Days 2022"
+          }
+          title={"Speakers"}
+          image={"/homepage/person-head.png"}
+        ></Speakers>
+        <button className={styles.modalButton} onClick={closeSpeakersModal}>
           Close
         </button>
       </Modal>

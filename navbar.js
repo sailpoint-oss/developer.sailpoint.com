@@ -57,7 +57,7 @@ module.exports = {
     {
       position: 'left',
       label: 'Ideas',
-      to: 'https://developer-sailpoint.ideas.aha.io/',
+      to: 'https://ideas.sailpoint.com',
     },
     {
       position: 'left',

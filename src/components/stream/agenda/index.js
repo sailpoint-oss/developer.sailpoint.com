@@ -22,17 +22,17 @@ export default function Agenda({title, image, description}) {
   let day1 = agenda?.day1.map((item, index)=> {
     return (
       <div>
-        <li className={styles.agendaQuestion} key={index}>{item?.time}</li>
-        <div className={styles.agendaAnswer} key={index}>{item?.event}</div>
+        <li className={styles.agendaQuestion} key={index}>{item?.eventName}</li>
+        <div className={styles.agendaAnswer} key={index}>{new Date(item?.startTime).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) + " - " + new Date(item?.endTime).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</div>
       </div>
       )
     })
     let day2 = agenda?.day2.map((item, index)=> {
       return (
         <div>
-          <li className={styles.agendaQuestion} key={index}>{item?.time}</li>
-          <div className={styles.agendaAnswer} key={index}>{item?.event}</div>
-        </div>
+        <li className={styles.agendaQuestion} key={index}>{item?.eventName}</li>
+        <div className={styles.agendaAnswer} key={index}>{new Date(item?.startTime).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) + " - " + new Date(item?.endTime).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</div>
+      </div>
         )
       })
 

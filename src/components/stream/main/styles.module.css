@@ -132,6 +132,7 @@
 
 
 
+
   
 /* stage buttons */
 
@@ -156,6 +157,13 @@
 
   .stageButton:hover {
     cursor: pointer;
+    top: -4px;
+    box-shadow: 0 4px 5px rgba(0,0,0,0.4);
+    background-color: #c552ae31;
+    color: #cc27b0;
+  }
+
+  .stageButtonActive {
     top: -4px;
     box-shadow: 0 4px 5px rgba(0,0,0,0.4);
     background-color: #c552ae31;

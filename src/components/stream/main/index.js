@@ -12,6 +12,7 @@ import { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 
 
+
 const socket = io("http://localhost:4202");
 
 export default function Main() {
@@ -24,24 +25,33 @@ export default function Main() {
   const [isConnected, setIsConnected] = useState(socket.connected);
   const [lastSpeaker, setLastSpeaker] = useState(
     {
-      main: {
-          presenter: "JANE DOE, ENGINEERING MANAGER",
-          timeFrame: "3:15 - 4:15 PM",
-          topic: "Let's talk platform"
-      },
-      idn: {
-          presenter: "JANE DOE, ENGINEERING MANAGER",
-          timeFrame: "3:15 - 4:15 PM",
-          topic: "Let's talk IDN platform"
-      },
-      iiq: {
-          presenter: "JANE DOE, ENGINEERING MANAGER",
-          timeFrame: "3:15 - 4:15 PM",
-          topic: "Let's talk IIQ platform"
-      }
+      "idn": {
+        "stage": "idn",
+        "active": true,
+        "presenter": "Philip Ellis",
+        "startTime": "2023-03-16T19:00:00.000Z",
+        "endTime": "2023-03-16T19:30:00.000Z",
+        "topic": "SaaS Connectivity, Create your first connector"
+    },
+    "iiq": {
+        "stage": "iiq",
+        "active": true,
+        "presenter": "Colin McKibben",
+        "startTime": "2023-03-16T13:00:00.000Z",
+        "endTime": "2023-03-16T19:00:00.000Z",
+        "topic": "How to migrate from IIQ to IDN"
+    },
+    "main": {
+        "stage": "main",
+        "active": true,
+        "presenter": "Jordan Violets",
+        "startTime": "2023-03-16T14:00:00.000Z",
+        "endTime": "2023-03-16T14:30:00.000Z",
+        "topic": "Welcome to Developer Days 2022"
+    }
   }
   );
-  const [stage, setStage] = useState('main');
+  const [stage, setStage] = useState({stage: 'main', videoSource: 'https://www.youtube.com/embed/dVGhO6vSCT8'});
 
 
   
@@ -75,13 +85,13 @@ export default function Main() {
 
  // setting stage here
  function changeToMainStage() {
-  setStage('main')
+  setStage({stage: 'main', videoSource: 'https://www.youtube.com/embed/dVGhO6vSCT8'})
 }
 function changeToIDNStage() {
-  setStage('idn')
+  setStage({stage: 'idn', videoSource: 'https://www.youtube.com/embed/N-JG8xjpKaI'})
 }
 function changeToIIQStage() {
-  setStage('iiq')
+  setStage({stage: 'iiq', videoSource: 'https://www.youtube.com/embed/dVGhO6vSCT8'})
 }
 
 
@@ -110,14 +120,16 @@ function changeToIIQStage() {
   function closeSpeakersModal() {
     setSpeakerIsOpen(false);
   }
-
+  const mainSelectedClass = stage.stage === 'main' ? styles.stageButtonActive : '';
+  const iiqSelectedClass = stage.stage === 'iiq' ? styles.stageButtonActive : '';
+  const idnSelectedClass = stage.stage === 'idn' ? styles.stageButtonActive : '';
   return (
     <div>
       <div className={styles.headerContainer}>
         <div className={styles.headerContent}>
-          <div className={styles.headerText}>{lastSpeaker?.[stage].topic}</div>
-          <div className={styles.timeText}>{lastSpeaker?.[stage].timeFrame}</div>
-          <div className={styles.speakerText}>{lastSpeaker?.[stage].presenter}</div>
+          <div className={styles.headerText}>{lastSpeaker?.[stage.stage].topic}</div>
+          <div className={styles.timeText}>{new Date(lastSpeaker?.[stage.stage].startTime).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) + " - " + new Date(lastSpeaker?.[stage.stage].endTime).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</div>
+          <div className={styles.speakerText}>{lastSpeaker?.[stage.stage].presenter}</div>
         </div>
 
         <div className={styles.headerContent}>
@@ -143,17 +155,17 @@ function changeToIIQStage() {
       <div className={styles.center}>
         <div className={styles.stageButtonsContainer}>
           <div className={styles.stageButtonsContent}>
-            <div className={styles.stageButton}  onClick={changeToMainStage}>Main Stage</div>
+            <div className={`${styles.stageButton} ${mainSelectedClass}`}  onClick={changeToMainStage}>Main Stage</div>
           </div>
           <div className={styles.stageButtonsContent}>
-            <div className={styles.stageButton}  onClick={changeToIDNStage}>IdentityNow</div>
+            <div className={`${styles.stageButton} ${idnSelectedClass}`}  onClick={changeToIDNStage}>IdentityNow</div>
           </div>
           <div className={styles.stageButtonsContent}>
-            <div className={styles.stageButton} onClick={changeToIIQStage}>IdentityIQ</div>
+            <div className={`${styles.stageButton} ${iiqSelectedClass}`} onClick={changeToIIQStage}>IdentityIQ</div>
           </div>
         </div>
       </div>
-      {/* <Room></Room> */}
+      <Room videoSource={stage.videoSource}></Room>
 
       <Modal
         isOpen={faqModalIsOpen}

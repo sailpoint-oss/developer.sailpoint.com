@@ -36,10 +36,11 @@
 }
   
   .speakerTitle {
-    font-weight: bold
+    margin-left: 20px;
+    margin-bottom: 5px;
+    
   }
 
   .speakerName {
-    margin-left: 20px;
-    margin-bottom: 5px;
+    font-weight: bold
   }

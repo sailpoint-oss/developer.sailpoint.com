@@ -78,7 +78,7 @@ properties:
     type: array
     items:
       type: string
-      example: "+id"
+      example: ["displayName","+id"]
 
   searchAfter:
     description: >-
@@ -88,7 +88,7 @@ properties:
 
       This is used to expand the Elasticsearch limit of 10K records by shifting the 10K window to begin at this value.
       
-      It is recommended that you always include the ID of the object in addition to an other fields on this parameter in order to ensure you don't get duplicate results while paging.
+      It is recommended that you always include the ID of the object in addition to any other fields on this parameter in order to ensure you don't get duplicate results while paging.
 
       For example, when searching for identities, if you are sorting by displayName you will also want to include ID, for example ["displayName", "id"]. 
       

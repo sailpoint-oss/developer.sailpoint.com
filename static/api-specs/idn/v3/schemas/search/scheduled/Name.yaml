@@ -9,4 +9,5 @@ properties:
     description: |
       The description of the scheduled search.
     type: string
+    nullable: true
     example: 'Daily disabled accounts'

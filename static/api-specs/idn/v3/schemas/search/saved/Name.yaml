@@ -9,4 +9,5 @@ properties:
     description: |
       The description of the saved search.
     type: string
+    nullable: true
     example: 'Disabled accounts'

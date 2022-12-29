@@ -87,12 +87,18 @@ properties:
       This parameter consists of the last values of the sorted fields in the current record set.
 
       This is used to expand the Elasticsearch limit of 10K records by shifting the 10K window to begin at this value.
+      
+      It is recommended that you always include the ID of the object in addition to an other fields on this parameter in order to ensure you don't get duplicate results while paging.
 
-      For example, when searching for identities, if the last idenitity ID in the search result is 2c91808375d8e80a0175e1f88a575221, then using that ID in this property will start a new search after this identity.
+      For example, when searching for identities, if you are sorting by displayName you will also want to include ID, for example ["displayName", "id"]. 
+      
+      If the last identity ID in the search result is 2c91808375d8e80a0175e1f88a575221 and the last displayName is "John Doe", then using that displayName and ID will start a new search after this identity.
+      
+      The searchAfter value will look like ["John Doe","2c91808375d8e80a0175e1f88a575221"]
     type: array
     items:
       type: string
-      example: "2c91808375d8e80a0175e1f88a575221"
+      example: ["John Doe","2c91808375d8e80a0175e1f88a575221"]
 
   filters:
     description: >-

@@ -20,7 +20,7 @@ properties:
     type: array
     items:
       $ref: '../Index.yaml'
-    example: [ 'identities' ]
+    example: ['identities']
   columns:
     description: |
       The columns to be returned (specifies the order in which they will be presented) for each document type.
@@ -46,6 +46,7 @@ properties:
     description: |
       The fields to be searched against in a multi-field query.
     type: array
+    nullable: true
     items:
       type: string
     example: [ 'disabled' ]

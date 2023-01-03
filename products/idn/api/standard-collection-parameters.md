@@ -32,6 +32,14 @@ Examples:
 - GET `/v3/public-identities?limit=20&offset=4`
 - GET `/v3/public-identities?count=true`
 
+:::INFO
+
+Pagination will only work on the first 10,000 records.  Therefore, the `limit` and `offset` cannot exceed 10,000 (ex. **offset=9751** and **limit=250**).  
+
+The 10,000 record limit is based on the filter and sorter criteria being used.  For example, if a request to get all accounts on a source would result in 100,000 records being returned, then pagination will only be able to return first 10,000 accounts.  You won't be able to retrieve any record above 10,000.  If a request to get all accounts on a source **created after a certain date** would result in 9,000 records being returned, then pagination will be able to return all of the records since the query results in less than 10,000 records.
+
+:::
+
 ## Filtering Results
 
 Any collection with a `filters` parameter supports filtering. This means that an item is only included in the returned array if the filters expression evaluates to true for that item. Check the available request parameters for the collection endpoint you are using to see if it supports filtering.

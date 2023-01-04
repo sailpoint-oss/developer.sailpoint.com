@@ -125,22 +125,16 @@ export default function Main() {
   function changeToMainStage() {
     setStage({
       stage: "main",
-      videoSource: {
-        playbackId: "https://www.youtube.com/embed/dVGhO6vSCT8",
-        envKey: "",
-      },
     });
   }
   function changeToIDNStage() {
     setStage({
       stage: "idn",
-      videoSource: "https://www.youtube.com/embed/N-JG8xjpKaI",
     });
   }
   function changeToIIQStage() {
     setStage({
       stage: "iiq",
-      videoSource: "https://www.youtube.com/embed/dVGhO6vSCT8",
     });
   }
 
@@ -245,7 +239,7 @@ export default function Main() {
         </button>
       </div>
 
-      <Room videoSource={streamData.videoSource[stage.stage]}></Room>
+      <Room videoSource={streamData.stages[stage.stage]}></Room>
 
       <Modal
         isOpen={faqModalIsOpen}

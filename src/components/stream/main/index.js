@@ -192,7 +192,10 @@ export default function Main() {
               ).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
           </div>
           <div className={styles.speakerText}>
-            {streamData?.stages[stage.stage].presenter}
+            {streamData?.stages[stage.stage].speaker}
+          </div>
+          <div className={styles.speakerText}>
+            {streamData?.stages[stage.stage].speakerDetails?.title}
           </div>
           {/* <p className="whitespace-nowrap">
             {streamCountFormatter.format(streamData.connectionCounts.total) +

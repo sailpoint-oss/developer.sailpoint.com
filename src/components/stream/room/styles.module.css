@@ -1,43 +1,39 @@
+.stageContentVideo {
+  flex-grow: 1;
+  aspect-ratio: 16/9;
+  border-radius: 7px;
+  overflow: hidden;
+}
 
 @media screen and (max-width: 1000px) {
   /* Actual stage containers */
   .stageContainer {
-    margin-top: 1em;
-    gap: 12px;
+    /* margin-top: 1em; */
+    padding: 0.5%;
+    gap: 2px;
     height: 100%;
     display: flex;
     flex-direction: column;
   }
 
   .stageContentChat {
-    height: 400px;
-  }
-
-  .stageContentVideo {
+    min-height: 300px;
     flex-grow: 1;
-    aspect-ratio: 16/9;
   }
 }
 
 @media screen and (min-width: 1000px) {
   /* Actual stage containers */
   .stageContainer {
-    margin-top: 1em;
     padding: 0.5%;
     gap: 0.5%;
     flex-grow: 1;
     height: 100%;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
   }
 
   .stageContentChat {
     min-width: 30%;
-  }
-
-  .stageContentVideo {
-    flex-grow: 1;
-    aspect-ratio: 16/9;
   }
 }

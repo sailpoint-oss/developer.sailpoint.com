@@ -6,7 +6,7 @@ sidebar_label: Authorization
 sidebar_position: 3
 sidebar_class_name: authorization
 keywords: ['authorization','scope','permission']
-description: A guide on how to restrict the level of access each API token has.
+description: A guide on how to restrict an API token's level of access.
 slug: /api/authorization
 tags: ['Authorization','Scopes','Permissions']
 ---
@@ -15,7 +15,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 
 ## Overview
 
-Authorization and authentication are two related concepts that help secure APIs.  Authentication is the act of verifying a user's identity, while authorization is the act of validating that the user has permission to access a given resource.  When making an API request, the server will authenticate the caller by checking the validity of the access token that was sent with the request.  If the token is valid, then the server will check if the user is authorized to perform the desired operation on the resource.  If a user is authenticated and authorized, the server will fulfill the request.
+Authorization and authentication are two related concepts that help secure APIs. Authentication is the act of verifying a user's identify. Authorization is the act of validating the user's permission to access a given resource. When a user sends an API request, the server authenticates the user by checking the validity of the access token sent with the request. If the token is valid, the server checks whether the user is authorized to perform the desired operation on the resource. If the user is both authenticated and authorized, the server fulfills the request. 
 
 <div align="center">
 
@@ -41,55 +41,57 @@ sequenceDiagram
 
 ## User Level Permissions
 
-The first step to managing user access to the API is through [user level access](https://documentation.sailpoint.com/saas/help/common/users/user_level_matrix.html).  User levels are coarse access controls on the API that restrict access based on predefined, functional roles.  Each user level grants access to a subset of APIs that allow the user to perform their role, with the Admin role granting access to all APIs.  User levels are intended to facilitate secure access to the IdentityNow user interface, where each role has just enough permission to access the pages needed to perform their day-to-day tasks.  User levels are typically granted through the UI, [following the procedures from this document](https://documentation.sailpoint.com/saas/help/common/users/grant_remove_user_levels.html).  
+To manage user access to the API, you must first define [user level access](https://documentation.sailpoint.com/saas/help/common/users/user_level_matrix.html). User levels are coarse access controls on the API that restrict access based on predefined functional roles. Each user level grants access to a subset of APIs that allow the user to perform their role, with the **Admin** role granting access to all APIs. User levels facilitate secure access to the IdentityNow UI (User Interface), where each role grants the user only enough permission to access the pages necessary to perform their tasks. User levels are typically granted through the UI, [following the procedures from this document](https://documentation.sailpoint.com/saas/help/common/users/grant_remove_user_levels.html).  
 
 :::caution
 
-There is also an [API that can set an identity's user level](https://developer.sailpoint.com/discuss/t/assign-identitynow-admin-roles-via-api/1874/4), but this is a v1 API with no guaranteed support.  Use at your own risk!
+There is an [API that can set an identity's user level](https://developer.sailpoint.com/discuss/t/assign-identitynow-admin-roles-via-api/1874/4), but it is a v1 API with no guaranteed support. Use it at your own risk!
 
 :::
 
-Although user levels can be used to limit access to API integrations, their rigidity and broad scope makes them difficult to configure for integrations that may only need access to a few endpoints.  In the next section, we will learn about scopes, which can be used to refine and limit the access of an API integration at a more granular level than user levels are capable of.
+You can use user levels to limit access to API integrations, but their rigidity and broad scopes makes them difficult to configure for integrations that may only need access to a few endpoints. The next section covers scopes, which you can use to refine and limit an API integration's access at a more granular level than you can with user levels. 
 
 ## Scopes
 
-Scopes are granular permissions that can be added to OAuth credentials to create a token that has the least level of privilege needed to fulfill its function.  Unlike user levels, which apply to any OAuth credentials created by a user, scopes can be unique to each OAuth credential, allowing a single user to have multiple credentials with different privileges that support unique use cases and software applications.  The advantage to using scopes in this manner is that if any one of the credentials are compromised by a bad actor, then the actor can only perform the limited set of operations defined by the scopes of the credential, greatly reducing the damage that can be done.
+Scopes are granular permissions you can add to OAuth credentials to create a token that has the least level of privilege needed to fulfill its function. Unlike user levels, which apply to any OAuth credentials created by a user, scopes can be unique to each OAuth credential. This allows a single user to have multiple credentials with different privileges that support unique use cases and software applications. Using scopes is beneficial to security - if a bad actor compromises any one of the credentials, the bad actor can only perform the limited set of operations defined by the credential's scopes, significantly reducing the potential damage that can be done. 
 
-Scopes contain one or more rights, which are low level permissions that grant access to individual endpoints.  This means that a single scope, like `idn:access-request:manage`, can grant access to several API endpoints.  In order to determine which scopes are needed for a credential, it is necessary to first identify which endpoints the credential will need to invoke.  The API specification for each endpoint will indicate which scope is needed to call the endpoint.  By following this approach, you can curate a list of scopes that will need to be applied to the credential in order to call the necessary endpoints. TODO: link to section that shows this process in detail.
+Scopes contain one or more rights, low level permissions that grant access to individual endpoints. This means that a single scope, like `idn:access-request:manage`, can grant access to multiple API endpoints. To determine which scopes a credential neededs, you must first identify which endpoints the credential needs to invoke. Each endpoint's API specification indicates which scope is necessary to call the endpoint. You can use this approach to curate a list of scopes that must be applied to the credential to call the necessary endpoints. TODO: link to section that shows this process in detail.
 
-By default, each OAuth credential will have the scope `sp:scopes:all`, which allows access to all of the rights associated with a user or system’s capabilities.  For example, the **Cert Admin** user level only has access to subset of APIs needed to perform the role, most notably the certification APIs, while the **Admin** user level has access to all APIs.  Applying the scope `sp:scopes:all` to either user level will automatically grant them access to the full set of APIs appropriate for their [user level](https://documentation.sailpoint.com/saas/help/common/users/user_level_matrix.html).  Alternatively, `sp:scopes:default` is the least privileged scope that only grants access to endpoints that require no authorization, such as [list public identities](https://developer.sailpoint.com/idn/api/v3/get-public-identities).
+By default, each OAuth credential has the scope, `sp:scopes:all`, which grants access to all the rights appropriate for the [user level](https://documentation.sailpoint.com/saas/help/common/users/user_level_matrix.html). For example, a user with the **Admin** user level has access to all APIs, so `sp:scopes:all` grants **Admin** users access to all APIs. A user with the **Cert Admin** user level, however, has access to only a subset of APIs necessary to perform their role, most notably the certification APIs, so `sp:scopes:all` grants **Cert Admin** users access to only that subset of APIs. 
 
-Scopes are additive, which means the final right set is the intersection of all the rights granted by the scopes that are assigned to an OAuth credential, excluding any rights that fall outside of the user level.  Each scope that is added to the OAuth credential will build up the permission set for that credential, incrementally increasing access to the API.  If an OAuth credential is granted `sp:scopes:all`, then any additional scope is ignored, since `sp:scopes:all` already contains the complete set of rights available to the user level.  
+Alternatively, `sp:scopes:default` is the least privileged scope that only grants access to endpoints that require no authorization at all, such as [list public identities](https://developer.sailpoint.com/idn/api/v3/get-public-identities).
+
+Scopes are additive, which means the final right set is the intersection of all the rights granted by the scopes assigned to an OAuth credential, excluding any rights that fall outside of the user level. Each scope added to an OAuth credential builds up the credential's permission set, incrementally increasing access to the API.  If an OAuth credential has `sp:scopes:all` granted, then any additional scope is ignored because `sp:scopes:all` already contains the complete set of rights available to the user level.  
 
 :::tip
 
-Since scopes can only grant access to APIs that are a part of the rights included in a user level, it is often easier to assign the Admin user level to the user first and then apply scopes to the OAuth credentials to limit the access.
+Because scopes can only grant access to APIs that are a part of the rights included in a user level, it is often easier to assign the **Admin** user level to the user first and then apply scopes to the OAuth credentials to limit the access.
 
 :::
 
-### Identifying Authorization Needed for an Endpoint
+### Identifying Necessary Authorization for an Endpoint
 
-Each endpoint document specifies how to authorize with the endpoint in the **Authorization** dropdown, which is located on the right side column below the endpoint path.  Clicking on **Authorization** will expand the dropdown menu that shows the details of how to authorize with the endpoint.  The following image shows the authorization details of the [list access profiles](https://developer.sailpoint.com/idn/api/beta/list-access-profiles) endpoint.
+Each endpoint document specifies how to authorize with the endpoint in the **Authorization** dropdown, which is located on the right side column below the endpoint path. Selecting **Authorization** expands the dropdown menu showing the details of how to authorize with the endpoint. The following image shows the authorization details of the [List Access Profiles](https://developer.sailpoint.com/idn/api/beta/list-access-profiles) endpoint.
 
 ![Authorization Dropdown](./img/authorization/authorization-dropdown.png)
 
-- **type**: the type of authorization method supported for this endpoint.  SailPoint uses the [OAuth2 standard](./authentication.md#oauth-20) for all of the V3/Beta APIs.
-- **flow**: One or more OAuth flows that are supported by the endpoint.  A token only needs to be generated by one of the flows to be valid.  See [authentication details](./authentication.md#authentication-details) for more information on the available flows.
-- **scopes**: A list of scopes needed to access the endpoint.  A token only needs one of the listed scopes to authorize with the endpoint.  When possible, choose the least privileged scope.  Scopes that end in `read` can only retrieve data, while scopes that end in `manage` can retrieve, modify, and delete data.
+- **type**: The type of authorization method supported for this endpoint. SailPoint uses the [OAuth2 standard](./authentication.md#oauth-20) for all the V3/Beta APIs.
+- **flow**: One or more OAuth flows supported by the endpoint. A token only needs to be generated by one flow to be valid. Refer to [Authentication Details](./authentication.md#authentication-details) for more information about the available flows.
+- **scopes**: A list of scopes necessary to access the endpoint. A token only needs one of the scopes to authorize with the endpoint. When possible, choose the least privileged scope. Scopes ending in `read` can only retrieve data. Scopes ending in `manage` can retrieve, modify, and delete data.
 
 :::info
 
-SailPoint is working on defining scopes for every endpoint, but you may encounter a scenario where you need access to an endpoint that doesn't yet have a scope.  Until a scope is defined for the endpoint, you may have to assign `sp:scopes:all` to make sure your credentials can access the necessary endpoints.  Once all of the endpoints required for your use case have scopes defined, you can create a new credential with the proper scopes in place.
+SailPoint is working to define scopes for every endpoint, but you may encounter a scenario where you need access to an endpoint that does not yet have a scope defined. Until a scope is defined for the endpoint, you can assign `sp:scopes:all` to ensure that your credentials can access the necessary endpoints. Once all of the endpoints necessary for your use case have scopes defined, you can create a new credential with the appropriate scopes in place.
 
 :::
 
-### Assigning Scopes via the UI
+### Assigning Scopes with the UI
 
 TODO: Ask Jennifer Mitchel if the UI docs are ready.
 
-### Assigning Scopes via the API
+### Assigning Scopes with the API
 
-[Personal access tokens](https://developer.sailpoint.com/idn/api/v3/create-personal-access-token) and [OAuth clients](https://developer.sailpoint.com/idn/api/v3/create-oauth-client) can be created programmatically via the API.  The request body for each API endpoint allows the caller to specify a list of scopes to be applied to the credentials.  If the `scope` property is omitted from the request body, then `sp:scopes:all` will be granted to the credentials.  If you attempt to add a scope that is outside the permissions of the [target user's level](#user-level-permissions), then the request will succeed but it will not include the offending scope.  Please see below for an example of generating a personal access token with the `idn:access-request:manage` and `idn:nelm:manage` scopes.
+You can create PATs ([personal access tokens](https://developer.sailpoint.com/idn/api/v3/create-personal-access-token)) and [OAuth clients](https://developer.sailpoint.com/idn/api/v3/create-oauth-client) programmatically with the API. The request body for each API endpoint allows the caller to specify a list of scopes to be applied to the credentials. If the `scope` property is omitted from the request body, then `sp:scopes:all` is granted to the credentials. If you try to add a scope outside the permissions of the [target user's level](#user-level-permissions), the request still succeeds, but it excludes the offending scope. The following example shows how to generate a personal access token with the `idn:access-request:manage` and `idn:nelm:manage` scopes.
 
 POST <https://{tenant}.api.identitynow.com/v3/personal-access-tokens>
 
@@ -105,7 +107,7 @@ Request Body
 }
 ```
 
-This request will produce the following response, indicating that the scopes were successfully applied to the PAT.
+This request produces the following response, indicating that the scopes were successfully applied to the PAT.
 
 ```json
 {

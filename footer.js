@@ -106,5 +106,5 @@ module.exports = {
     srcDark: 'img/SailPoint-Developer-Community-Inverse-Lockup.png',
     href: 'https://developer.sailpoint.com',
   },
-  copyright: `Copyright © ${new Date().getFullYear()} SailPoint Technologies, Inc. All Rights Reserved.`,
+  copyright: `Copyright © ${new Date().getFullYear()} SailPoint Technologies, Inc. All Rights Reserved.`, // Updated with now private copyright info
 };

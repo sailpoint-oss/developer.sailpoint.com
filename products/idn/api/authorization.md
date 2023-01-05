@@ -89,7 +89,7 @@ TODO: Ask Jennifer Mitchel if the UI docs are ready.
 
 ### Assigning Scopes via the API
 
-[Personal access tokens](https://developer.sailpoint.com/idn/api/v3/create-personal-access-token) and [OAuth clients](https://developer.sailpoint.com/idn/api/v3/create-oauth-client) can be created programmatically via the API.  The request body for each API endpoint allows the caller to specify a list of scopes to be applied to the credentials.  If the `scope` property is omitted from the request body, then `sp:scopes:all` will be granted to the credentials.  If you attempt to add a scope that is outside the permissions of the [target user's level](#user-level-permissions), then the request will succeed but it will not include the offending scope.  Please see below for an example of generating a personal access token with the `idn:access-request:manage` and `idn:nelm:manage` scopes.
+[Personal access tokens](https://developer.sailpoint.com/idn/api/v3/create-personal-access-token) and [OAuth clients](https://developer.sailpoint.com/idn/api/v3/create-oauth-client) can be created programmatically via the API.  The request body for each API endpoint allows the caller to specify a list of scopes to be applied to the credentials.  If the `scope` property is omitted from the request body, then `sp:scopes:all` will be granted to the credentials.  Please see below for an example of generating a personal access token with the `idn:access-request:manage` and `idn:nelm:manage` scopes.
 
 POST <https://{tenant}.api.identitynow.com/v3/personal-access-tokens>
 
@@ -124,3 +124,9 @@ This request will produce the following response, indicating that the scopes wer
     }
 }
 ```
+
+:::caution
+
+If you attempt to add a scope that is outside the permissions of the [target user's level](#user-level-permissions), then the request will still succeed and include the invalid scope in the credentials.  However, any token generated with these credentials will **not** include the rights of the invalid scope.  This isn't an issue when assigning scopes via the user interface, as the UI will only show scopes available to the current user.
+
+:::

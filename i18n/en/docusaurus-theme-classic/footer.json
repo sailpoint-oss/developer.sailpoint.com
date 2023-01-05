@@ -88,7 +88,7 @@
     "description": "The label of footer link with label=Terms & Conditions linking to https://developet.sailpoint.com"
   },
   "copyright": {
-    "message": "Copyright © 2022 SailPoint Technologies Holdings, Inc. All Rights Reserved.",
+    "message": "Copyright © 2023 SailPoint Technologies, Inc. All Rights Reserved.",
     "description": "The footer copyright"
   }
 }

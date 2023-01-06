@@ -53,19 +53,19 @@ You can use user levels to limit access to API integrations, but their rigidity 
 
 ## Scopes
 
-Scopes are granular permissions you can add to OAuth credentials to create a token that has the least level of privilege needed to fulfill its function. Unlike user levels, which apply to any OAuth credentials created by a user, scopes can be unique to each OAuth credential. This allows a single user to have multiple credentials with different privileges that support unique use cases and software applications. Using scopes is beneficial to security - if a bad actor compromises any one of the credentials, the bad actor can only perform the limited set of operations defined by the credential's scopes, significantly reducing the potential damage that can be done.
+Scopes are granular permissions you can add to personal access tokens (PATs) to create a token that has the least level of privilege needed to fulfill its function. Unlike user levels, which apply to any PATs created by a user, scopes can be unique to each PAT. This allows a single user to have multiple credentials with different privileges that support unique use cases and software applications. Using scopes is beneficial to security - if a bad actor compromises any one of the credentials, the bad actor can only perform the limited set of operations defined by the credential's scopes, significantly reducing the potential damage that can be done.
 
 Scopes contain one or more rights, low level permissions that grant access to individual endpoints. This means that a single scope, like `idn:access-request:manage`, can grant access to multiple API endpoints. To determine which scopes a credential needs, you must first identify which endpoints the credential needs to invoke. Each endpoint's API specification indicates which scope is necessary to call the endpoint. You can use this approach to curate a list of scopes that must be applied to the credential to call the necessary endpoints.  [Learn more about how to find an API's required scopes here](#identifying-necessary-authorization-for-an-endpoint).
 
-By default, each OAuth credential has the scope, `sp:scopes:all`, which grants access to all the rights appropriate for the [user level](https://documentation.sailpoint.com/saas/help/common/users/user_level_matrix.html). For example, a user with the **Admin** user level has access to all APIs, so `sp:scopes:all` grants **Admin** users access to all APIs. A user with the **Cert Admin** user level, however, has access to only a subset of APIs necessary to perform their role, most notably the certification APIs, so `sp:scopes:all` grants **Cert Admin** users access to only that subset of APIs.
+By default, each PAT has the scope, `sp:scopes:all`, which grants access to all the rights appropriate for the [user level](https://documentation.sailpoint.com/saas/help/common/users/user_level_matrix.html). For example, a user with the **Admin** user level has access to all APIs, so `sp:scopes:all` grants **Admin** users access to all APIs. A user with the **Cert Admin** user level, however, has access to only a subset of APIs necessary to perform their role, most notably the certification APIs, so `sp:scopes:all` grants **Cert Admin** users access to only that subset of APIs.
 
 Alternatively, `sp:scopes:default` is the least privileged scope that only grants access to endpoints that require no authorization at all, such as [list public identities](https://developer.sailpoint.com/idn/api/v3/get-public-identities).
 
-Scopes are additive, which means the final right set is the intersection of all the rights granted by the scopes assigned to an OAuth credential, excluding any rights that fall outside of the user level. Each scope added to an OAuth credential builds up the credential's permission set, incrementally increasing access to the API.  If an OAuth credential has `sp:scopes:all` granted, then any additional scope is ignored because `sp:scopes:all` already contains the complete set of rights available to the user level.  
+Scopes are additive, which means the final right set is the intersection of all the rights granted by the scopes assigned to a PAT, excluding any rights that fall outside of the user level. Each scope added to an PAT builds up the credential's permission set, incrementally increasing access to the API.  If a PAT has `sp:scopes:all` granted, then any additional scope is ignored because `sp:scopes:all` already contains the complete set of rights available to the user level.  
 
 :::tip
 
-Because scopes can only grant access to APIs that are a part of the rights included in a user level, it is often easier to assign the **Admin** user level to the user first and then apply scopes to the OAuth credentials to limit the access.
+Because scopes can only grant access to APIs that are a part of the rights included in a user level, it is often easier to assign the **Admin** user level to the user first and then apply scopes to the PAT to limit the access.
 
 :::
 
@@ -87,11 +87,11 @@ SailPoint is working to define scopes for every endpoint, but you may encounter 
 
 ### Assigning Scopes with the UI
 
-When you create a personal access token or OAuth credentials in the UI, you can apply scopes to the token or credentials. More information on how to do this will be added in the near future.
+When you create a personal access token (PAT) in the UI, you can apply scopes to the token or credentials. More information on how to do this will be added in the near future.
 
 ### Assigning Scopes with the API
 
-You can create PATs ([personal access tokens](https://developer.sailpoint.com/idn/api/v3/create-personal-access-token)) and [OAuth clients](https://developer.sailpoint.com/idn/api/v3/create-oauth-client) programmatically with the API. The request body for each API endpoint allows the caller to specify a list of scopes to be applied to the credentials. If the `scope` property is omitted from the request body, then `sp:scopes:all` is granted to the credentials. The following example shows how to generate a personal access token with the `idn:access-request:manage` and `idn:nelm:manage` scopes.
+You can create PATs ([personal access tokens](https://developer.sailpoint.com/idn/api/v3/create-personal-access-token)) programmatically with the API. The request body for the API endpoint allows the caller to specify a list of scopes to be applied to the PAT. If the `scope` property is omitted from the request body, then `sp:scopes:all` is granted to the credentials. The following example shows how to generate a personal access token with the `idn:access-request:manage` and `idn:nelm:manage` scopes.
 
 POST <https://{tenant}.api.identitynow.com/v3/personal-access-tokens>
 

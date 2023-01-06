@@ -1,5 +1,4 @@
-import React, { useEffect, useRef } from "react";
-import mux from "mux-embed";
+import React, { useEffect, useRef, useState } from "react";
 import MuxPlayer from "@mux/mux-player-react";
 import clsx from "clsx";
 import styles from "./styles.module.css";
@@ -7,26 +6,12 @@ import Link from "@docusaurus/Link";
 import WidgetBot from "@widgetbot/react-embed";
 
 export default function Room({ videoSource }) {
-  const videoRef = useRef(null);
+  console.log(videoSource);
+  const [test, setTest] = useState();
 
   useEffect(() => {
-    if (videoRef.current) {
-      const initTime = mux.utils.now();
-
-      console.log(videoSource);
-
-      mux.monitor(videoRef.current, {
-        debug: false,
-        data: {
-          env_key: videoSource.muxEnvironmentKey, // required
-          // Metadata fields
-          player_name: "Main Player", // any arbitrary string you want to use to identify this player
-          player_init_time: initTime,
-          // ...
-        },
-      });
-    }
-  }, [videoRef]);
+    setTest(test);
+  }, [videoSource.topic]);
 
   return (
     <div className={styles.stageContainer}>
@@ -34,6 +19,14 @@ export default function Room({ videoSource }) {
         <MuxPlayer
           streamType="live"
           playbackId={videoSource.muxPlaybackId}
+          envKey={videoSource.muxEnvironmentKey}
+          metadata={{
+            player_name: "SailPoint Developer Community - Developer Days",
+            video_id: videoSource.id,
+            video_title: `${videoSource.speaker} - ${videoSource.topic}`,
+            viewer_user_id: "Test User ID",
+            autoPlay: true,
+          }}
           className="h-full !rounded"
           autoPlay
         />

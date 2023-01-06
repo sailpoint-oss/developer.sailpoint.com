@@ -57,26 +57,26 @@ export default function Agenda({ title, image, description }) {
       </div>
     );
   });
-  // let day3 = agenda?.day3.map((item, index) => {
-  //   return (
-  //     <div>
-  //       <li className={styles.agendaQuestion} key={index}>
-  //         {item?.topic}
-  //       </li>
-  //       <div className={styles.agendaAnswer} key={index}>
-  //         {new Date(item?.startTime).toLocaleTimeString([], {
-  //           hour: "2-digit",
-  //           minute: "2-digit",
-  //         }) +
-  //           " - " +
-  //           new Date(item?.endTime).toLocaleTimeString([], {
-  //             hour: "2-digit",
-  //             minute: "2-digit",
-  //           })}
-  //       </div>
-  //     </div>
-  //   );
-  // });
+  let day3 = agenda?.day3.map((item, index) => {
+    return (
+      <div>
+        <li className={styles.agendaQuestion} key={index}>
+          {item?.topic}
+        </li>
+        <div className={styles.agendaAnswer} key={index}>
+          {new Date(item?.startTime).toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+          }) +
+            " - " +
+            new Date(item?.endTime).toLocaleTimeString([], {
+              hour: "2-digit",
+              minute: "2-digit",
+            })}
+        </div>
+      </div>
+    );
+  });
 
   return (
     <div className={styles.agenda}>
@@ -99,8 +99,8 @@ export default function Agenda({ title, image, description }) {
         <ul className={styles.dayContent}>{day1}</ul>
         <div className={styles.dayHeader}>Day 2</div>
         <ul className={styles.dayContent}>{day2}</ul>
-        {/* <div className={styles.dayHeader}>Day 3</div>
-        <ul className={styles.dayContent}>{day3}</ul> */}
+        <div className={styles.dayHeader}>Day 3</div>
+        <ul className={styles.dayContent}>{day3}</ul>
       </div>
     </div>
   );

@@ -19,72 +19,37 @@ export default function Main() {
   const [faqModalIsOpen, setFaqIsOpen] = React.useState(false);
   const [agendaModalIsOpen, setAgendaIsOpen] = React.useState(false);
   const [speakersModalIsOpen, setSpeakerIsOpen] = React.useState(false);
-  const [surveyModalIsOpen,  setSurveyIsOpen] = React.useState(false);
+  const [surveyModalIsOpen, setSurveyIsOpen] = React.useState(false);
   let subtitle;
 
   const [isConnected, setIsConnected] = useState(socket.connected);
-  // const [connectionCount, setConnectionCount] = useState(0);
-  // const [streamData,.stagessetstreamData].stages= useState({
-  //   idn: {
-  //     stage: "idn",
-  //     active: true,
-  //     presenter: "Philip Ellis",
-  //     startTime: "2023-03-16T19:00:00.000Z",
-  //     endTime: "2023-03-16T19:30:00.000Z",
-  //     topic: "SaaS Connectivity, Create your first connector",
-  //   },
-  //   iiq: {
-  //     stage: "iiq",
-  //     active: true,
-  //     presenter: "Colin McKibben",
-  //     startTime: "2023-03-16T13:00:00.000Z",
-  //     endTime: "2023-03-16T19:00:00.000Z",
-  //     topic: "How to migrate from IIQ to IDN",
-  //   },
-  //   main: {
-  //     stage: "main",
-  //     active: true,
-  //     presenter: "Jordan Violet",
-  //     startTime: "2023-03-16T14:00:00.000Z",
-  //     endTime: "2023-03-16T14:30:00.000Z",
-  //     topic: "Welcome to Developer Days 2022",
-  //   },
-  // });
 
   const [streamData, setStreamData] = useState({
     connectionCounts: { total: 12, idn: 2, iiq: 3 },
     stages: {
-      idn: {
+      IDN: {
         stage: "idn",
         active: true,
-        presenter: "Philip Ellis",
+        speaker: "Philip Ellis",
         startTime: "2023-03-16T19:00:00.000Z",
         endTime: "2023-03-16T19:30:00.000Z",
         topic: "SaaS Connectivity, Create your first connector",
       },
-      iiq: {
+      IIQ: {
         stage: "iiq",
         active: true,
-        presenter: "Colin McKibben",
+        speaker: "Colin McKibben",
         startTime: "2023-03-16T13:00:00.000Z",
         endTime: "2023-03-16T19:00:00.000Z",
         topic: "How to migrate from IIQ to IDN",
       },
-      // main: {
-      //   stage: "main",
-      //   active: true,
-      //   presenter: "Jordan Violet",
-      //   startTime: "2023-03-16T14:00:00.000Z",
-      //   endTime: "2023-03-16T14:30:00.000Z",
-      //   topic: "Welcome to Developer Days 2022",
-      // },
     },
     videoSource: {
-      idn: {
+      IDN: {
         playbackId: "8eovb9oQzltDEG02e7MwE1aBwLj00HBeKm3VbsZbvcWB4",
         env_key: "j4iije0sv1ih8shgurfp3ldkq",
       },
-      iiq: {
+      IIQ: {
         playbackId: "DN6LQtQ5fi016Xliw4lurST62ZAmVyDHqdFPisrY00WDI",
         env_key: "6i0s80sskn2ri0661uqi5oesq",
       },
@@ -92,7 +57,7 @@ export default function Main() {
     },
   });
   const [stage, setStage] = useState({
-    stage: "idn",
+    stage: "IDN",
     videoSource: "https://www.youtube.com/embed/dVGhO6vSCT8",
   });
 
@@ -132,12 +97,12 @@ export default function Main() {
   }
   function changeToIDNStage() {
     setStage({
-      stage: "idn",
+      stage: "IDN",
     });
   }
   function changeToIIQStage() {
     setStage({
-      stage: "iiq",
+      stage: "IIQ",
     });
   }
 
@@ -177,16 +142,16 @@ export default function Main() {
   const mainSelectedClass =
     stage.stage === "main" ? styles.stageButtonActive : "";
   const iiqSelectedClass =
-    stage.stage === "iiq" ? styles.stageButtonActive : "";
+    stage.stage === "IIQ" ? styles.stageButtonActive : "";
   const idnSelectedClass =
-    stage.stage === "idn" ? styles.stageButtonActive : "";
+    stage.stage === "IDN" ? styles.stageButtonActive : "";
   return (
     <div>
       <div className="px-4 py-6 my-2 flex flex-col md:flex-row justify-between gap-4">
         <div className="">
           <div className="flex flex-row">
             <img
-              src="https://www.w3schools.com/howto/img_avatar.png"
+              src={streamData?.stages[stage.stage].speakerDetails?.image}
               className="rounded-full w-12 h-12"
             ></img>
             <div className={`${styles.headerText} my-auto pl-4`}>
@@ -321,12 +286,12 @@ export default function Main() {
         className={styles.modal}
         contentLabel="Survey"
       >
-        <Survey
-          id={"gVCODdMc"}
-        ></Survey>
-        <button className={styles.modalButton} onClick={closeSurveyModal}>
-          Close
-        </button>
+        <div className="m-8 md:w-[50vw] md:h-[50vh] w-[80vw] h-[80vh]">
+          <Survey className="w-full" id={"ka0jgXBw"}></Survey>
+          <button className={styles.modalButton} onClick={closeSurveyModal}>
+            Close
+          </button>
+        </div>
       </Modal>
     </div>
   );

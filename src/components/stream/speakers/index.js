@@ -11,6 +11,7 @@ export default function Speakers({ title, image, description }) {
 
   const getSpeakers = async () => {
     const data = await getSpeaker();
+    console.log(data);
     setSpeakers(data);
   };
   React.useEffect(() => {
@@ -19,14 +20,23 @@ export default function Speakers({ title, image, description }) {
 
   let itemsList = speakers.map((item, index) => {
     return (
-      <div>
-        <li className="text-xl font-bold" key={index}>
-          {item?.name}
-        </li>
-        <div className={styles.speakerTitle} key={index}>
-          {item?.title}
+      <a target="_blank" rel="noreferrer" href={item?.link}>
+        <div className="card_src-components-homepage-TeamCard-styles-module !h-fit p-4 flex flex-row gap-2">
+          <img
+            className="!h-16 !w-16 rounded-full"
+            src={item?.image}
+            key={`${index}-image`}
+          ></img>
+          <div>
+            <p className="text-xl font-bold" key={`${index}-name`}>
+              {item?.name}
+            </p>
+            <p className="" key={`${index}-title`}>
+              {item?.title}
+            </p>
+          </div>
         </div>
-      </div>
+      </a>
     );
   });
 
@@ -47,7 +57,7 @@ export default function Speakers({ title, image, description }) {
         ></div>
       </div>
 
-      <ul className="p-8">{itemsList}</ul>
+      <ul className="p-8 flex flex-col gap-1">{itemsList}</ul>
     </div>
   );
 }

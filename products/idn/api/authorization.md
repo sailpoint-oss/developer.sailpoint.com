@@ -87,7 +87,7 @@ SailPoint is working to define scopes for every endpoint, but you may encounter 
 
 ### Assigning Scopes with the UI
 
-Scopes can be applied to credentials When creating a personal access token or OAuth credentials via the user interface.  More information on how to do this will be added in the near future.
+When you create a personal access token or OAuth credentials in the UI (User Interface), you can apply scopes to the token or credentials. More information on how to do this will be added in the near future.
 
 ### Assigning Scopes with the API
 
@@ -129,6 +129,6 @@ This request produces the following response, indicating that the scopes were su
 
 :::caution
 
-If you attempt to add a scope that is outside the permissions of the [target user's level](#user-level-permissions), then the request will still succeed and include the invalid scope in the credentials.  However, any token generated with these credentials will **not** include the rights of the invalid scope.  This isn't an issue when assigning scopes via the user interface, as the UI will only show scopes available to the current user.
+If you attempt to add a scope that is outside the permissions of the [target user's level](#user-level-permissions), the request will still succeed and include the invalid scope in the credentials. However, any token generated with these credentials will **not** include the rights of the invalid scope.  This is not an issue when you apply scopes with the UI - the UI only shows scopes available to the current user.
 
 :::

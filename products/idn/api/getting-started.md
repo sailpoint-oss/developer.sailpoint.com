@@ -63,28 +63,6 @@ There is a rate limit of 100 requests per `access_token` per 10 seconds for V3 A
 
 - **Retry-After**: {seconds to wait before rate limit resets}
 
-## Authorization
-
-Each API resource requires a specific level of authorization attached to your `access_token`. You can view these levels of authorization in the [user level access matrix](https://documentation.sailpoint.com/saas/help/common/users/user_level_matrix.html). Review the authorization constraints for each API endpoint to understand the user level needed to invoke the endpoint. Tokens generated outside of a user context, like the [Client Credentials](./authentication.md#client-credentials-grant-flow) grant type, are limited in the endpoints that it can call. If your token does not have permission to call an endpoint, you will receive the following response:
-
-**HTTP Status Code**: 403 Forbidden
-
-**Response Body**:
-
-```json
-{
-  "detailCode": "403 Forbidden",
-  "trackingId": "fca9eb2227514d6d90cd4a1d1cdc255c",
-  "messages": [
-    {
-      "locale": "en-US",
-      "localeOrigin": "DEFAULT",
-      "text": "The server understood the request but refuses to authorize it."
-    }
-  ]
-}
-```
-
 ## API Tools
 
 There are several API tools that make exploring and testing APIs easier than using the command line or a programming language. One tool is [Postman](https://www.postman.com/downloads/). SailPoint provides an official Postman workspace where our collections are always up to date with the latest API changes. [Click here](https://developer.sailpoint.com/discuss/t/official-identitynow-postman-workspace/6153) to get started with our Postman workspace.

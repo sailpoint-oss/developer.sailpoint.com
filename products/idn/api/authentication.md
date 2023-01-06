@@ -6,7 +6,7 @@ sidebar_label: Authentication
 sidebar_position: 2
 sidebar_class_name: authentication
 keywords: ['authentication']
-description: The quickest way to authenticate and start using SailPoint APIs is to generate a personal access token.
+description: A guide on how to generate API credentials to authenticate to SailPoint's APIs.
 slug: /api/authentication
 tags: ['Authentication']
 ---
@@ -269,7 +269,7 @@ The query parameters in the OAuth 2.0 token request for the Authorization Code g
 | --- | --- |
 | `grant_type` | Set to `authorization_code` for the authorization code grant type. |
 | `client_id` | This is the client ID for the API client (e.g. `b61429f5-203d-494c-94c3-04f54e17bc5c`). This can be generated at `https://{tenant}.identitynow.com/ui/admin/#admin:global:security:apimanagementpanel` |
-| `client_secret ` | This is the client secret for the API client (e.g. `c924417c85b19eda40e171935503d8e9747ca60ddb9b48ba4c6bb5a7145fb6c5`). This can be generated at `https://{tenant}.identitynow.com/ui/admin/#admin:global:security:apimanagementpanel` |
+| `client_secret` | This is the client secret for the API client (e.g. `c924417c85b19eda40e171935503d8e9747ca60ddb9b48ba4c6bb5a7145fb6c5`). This can be generated at `https://{tenant}.identitynow.com/ui/admin/#admin:global:security:apimanagementpanel` |
 | `code` | This is a code returned by `/oauth/authorize`. |
 | `redirect_uri` | This is a URL of the application to redirect to once the token has been granted. |
 

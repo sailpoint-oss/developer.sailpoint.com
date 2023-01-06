@@ -41,11 +41,11 @@ sequenceDiagram
 
 ## User Level Permissions
 
-To manage user access to the API, you must first define [user level access](https://documentation.sailpoint.com/saas/help/common/users/user_level_matrix.html). User levels are coarse access controls on the API that restrict access based on predefined functional roles. Each user level grants access to a subset of APIs that allow the user to perform their role, with the **Admin** role granting access to all APIs. User levels facilitate secure access to the IdentityNow UI (User Interface), where each role grants the user only enough permission to access the pages necessary to perform their tasks. User levels are typically granted through the UI, [following the procedures from this document](https://documentation.sailpoint.com/saas/help/common/users/grant_remove_user_levels.html).  
+To manage user access to the API, you must first define [user level access](https://documentation.sailpoint.com/saas/help/common/users/user_level_matrix.html). User levels are coarse access controls on the API that restrict access based on predefined functional roles. Each user level grants access to a subset of APIs that allow the user to perform their role, with the **Admin** role granting access to all APIs. User levels facilitate secure access to the IdentityNow user interface (UI), where each role grants the user only enough permission to access the pages necessary to perform their tasks. User levels are typically granted through the UI, [following the procedures from this document](https://documentation.sailpoint.com/saas/help/common/users/grant_remove_user_levels.html).  
 
 :::caution
 
-There is an [API that can set an identity's user level](https://developer.sailpoint.com/discuss/t/assign-identitynow-admin-roles-via-api/1874/4), but it is a v1 API with no guaranteed support. Use it at your own risk!
+There is an [API that can set an identity's user level](https://developer.sailpoint.com/discuss/t/assign-identitynow-admin-roles-via-api/1874/4), but it is a V1 API with no guaranteed support. Use it at your own risk!
 
 :::
 
@@ -53,7 +53,7 @@ You can use user levels to limit access to API integrations, but their rigidity 
 
 ## Scopes
 
-Scopes are granular permissions you can add to personal access tokens (PATs) to create a token that has the least level of privilege needed to fulfill its function. Unlike user levels, which apply to any PATs created by a user, scopes can be unique to each PAT. This allows a single user to have multiple credentials with different privileges that support unique use cases and software applications. Using scopes is beneficial to security - if a bad actor compromises any one of the credentials, the bad actor can only perform the limited set of operations defined by the credential's scopes, significantly reducing the potential damage that can be done.
+Scopes are granular permissions you can add to personal access tokens (PATs) to create tokens with the lowest level of privilege necessary to fulfill their functions. Unlike user levels, which apply to any PATs created by a user, scopes can be unique to each PAT. This allows a single user to have multiple credentials with different privileges that support unique use cases and software applications. Using scopes is beneficial to security - if a bad actor compromises any one of the credentials, the bad actor can only perform the limited set of operations defined by the credential's scopes, significantly reducing the potential damage that can be done.
 
 Scopes contain one or more rights, low level permissions that grant access to individual endpoints. This means that a single scope, like `idn:access-request:manage`, can grant access to multiple API endpoints. To determine which scopes a credential needs, you must first identify which endpoints the credential needs to invoke. Each endpoint's API specification indicates which scope is necessary to call the endpoint. You can use this approach to curate a list of scopes that must be applied to the credential to call the necessary endpoints.  [Learn more about how to find an API's required scopes here](#identifying-necessary-authorization-for-an-endpoint).
 
@@ -87,11 +87,11 @@ SailPoint is working to define scopes for every endpoint, but you may encounter 
 
 ### Assigning Scopes with the UI
 
-When you create a personal access token (PAT) in the UI, you can apply scopes to the token or credentials. More information on how to do this will be added in the near future.
+When you create a PAT in the UI, you can apply scopes to the token. More information on how to do this will be added in the near future.
 
 ### Assigning Scopes with the API
 
-You can create PATs ([personal access tokens](https://developer.sailpoint.com/idn/api/v3/create-personal-access-token)) programmatically with the API. The request body for the API endpoint allows the caller to specify a list of scopes to be applied to the PAT. If the `scope` property is omitted from the request body, then `sp:scopes:all` is granted to the credentials. The following example shows how to generate a personal access token with the `idn:access-request:manage` and `idn:nelm:manage` scopes.
+You can [create PATs](https://developer.sailpoint.com/idn/api/v3/create-personal-access-token) programmatically with the API. The request body for the endpoint allows the caller to specify a list of scopes to be applied to the PAT. If the `scope` property is omitted from the request body, then `sp:scopes:all` is granted to the credentials. The following example shows how to generate a PAT with the `idn:access-request:manage` and `idn:nelm:manage` scopes.
 
 POST <https://{tenant}.api.identitynow.com/v3/personal-access-tokens>
 

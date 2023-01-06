@@ -17,7 +17,7 @@ export default function Agenda({ title, image, description }) {
     getAgendas();
   }, []);
 
-  let day1 = agenda?.day1.map((item, index) => {
+  let day1 = agenda?.day1?.map((item, index) => {
     return (
       <div>
         <li className={styles.agendaQuestion} key={index}>
@@ -37,7 +37,7 @@ export default function Agenda({ title, image, description }) {
       </div>
     );
   });
-  let day2 = agenda?.day2.map((item, index) => {
+  let day2 = agenda?.day2?.map((item, index) => {
     return (
       <div>
         <li className={styles.agendaQuestion} key={index}>
@@ -57,7 +57,7 @@ export default function Agenda({ title, image, description }) {
       </div>
     );
   });
-  let day3 = agenda?.day3.map((item, index) => {
+  let day3 = agenda?.day3?.map((item, index) => {
     return (
       <div>
         <li className={styles.agendaQuestion} key={index}>

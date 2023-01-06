@@ -28,20 +28,22 @@ export default function Main() {
     connectionCounts: { total: 12, idn: 2, iiq: 3 },
     stages: {
       IDN: {
-        stage: "idn",
+        stage: "IDN",
         active: true,
         speaker: "Philip Ellis",
         startTime: "2023-03-16T19:00:00.000Z",
         endTime: "2023-03-16T19:30:00.000Z",
         topic: "SaaS Connectivity, Create your first connector",
+        typeformId: "ka0jgXBw"
       },
       IIQ: {
-        stage: "iiq",
+        stage: "IIQ",
         active: true,
         speaker: "Colin McKibben",
         startTime: "2023-03-16T13:00:00.000Z",
         endTime: "2023-03-16T19:00:00.000Z",
         topic: "How to migrate from IIQ to IDN",
+        typeformId: "ka0jgXBw"
       },
     },
     videoSource: {
@@ -80,10 +82,29 @@ export default function Main() {
       console.log(data);
     });
 
+    socket.on("idn-survey", (data) => {
+      console.log("incoming Data");
+      console.log(stage.stage)
+      if (stage.stage === 'IDN') {
+        setSurveyIsOpen(true);
+      }
+      console.log(data);
+    });
+
+    socket.on("iiq-survey", (data) => {
+      console.log("incoming Data");
+      if (stage.stage === 'IIQ') {
+        setSurveyIsOpen(true);
+      }
+      console.log(data);
+    });
+
     return () => {
       socket.off("connect");
       socket.off("disconnect");
       socket.off("stream");
+      socket.off("iiq-survey");
+      socket.off("idn-survey");
     };
   }, []);
 
@@ -151,27 +172,27 @@ export default function Main() {
         <div className="">
           <div className="flex flex-row">
             <img
-              src={streamData?.stages[stage.stage].speakerDetails?.image}
+              src={streamData?.stages[stage.stage]?.speakerDetails?.image}
               className="rounded-full w-12 h-12"
             ></img>
             <div className={`${styles.headerText} my-auto pl-4`}>
-              {streamData?.stages[stage.stage].topic}
+              {streamData?.stages[stage.stage]?.topic}
             </div>
           </div>
           <div className={styles.timeText}>
             {new Date(
-              streamData?.stages[stage.stage].startTime
+              streamData?.stages[stage.stage]?.startTime
             ).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) +
               " - " +
               new Date(
-                streamData?.stages[stage.stage].endTime
+                streamData?.stages[stage.stage]?.endTime
               ).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
           </div>
           <div className={styles.speakerText}>
-            {streamData?.stages[stage.stage].speaker}
+            {streamData?.stages[stage.stage]?.speaker}
           </div>
           <div className={styles.speakerText}>
-            {streamData?.stages[stage.stage].speakerDetails?.title}
+            {streamData?.stages[stage.stage]?.speakerDetails?.title}
           </div>
           {/* <p className="whitespace-nowrap">
             {streamCountFormatter.format(streamData.connectionCounts.total) +
@@ -224,7 +245,7 @@ export default function Main() {
         </button>
       </div>
 
-      <Room videoSource={streamData.stages[stage.stage]}></Room>
+      <Room videoSource={streamData?.stages[stage.stage]}></Room>
 
       <Modal
         isOpen={faqModalIsOpen}
@@ -287,7 +308,7 @@ export default function Main() {
         contentLabel="Survey"
       >
         <div className="m-8 md:w-[50vw] md:h-[50vh] w-[80vw] h-[80vh]">
-          <Survey className="w-full" id={"ka0jgXBw"}></Survey>
+          <Survey className="w-full" id={streamData?.stages[stage.stage]?.typeformId}></Survey>
           <button className={styles.modalButton} onClick={closeSurveyModal}>
             Close
           </button>

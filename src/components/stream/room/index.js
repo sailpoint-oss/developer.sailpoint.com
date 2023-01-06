@@ -11,19 +11,19 @@ export default function Room({ videoSource }) {
 
   useEffect(() => {
     setTest(test);
-  }, [videoSource.topic]);
+  }, [videoSource?.topic]);
 
   return (
     <div className={styles.stageContainer}>
       <div className={styles.stageContentVideo}>
         <MuxPlayer
           streamType="live"
-          playbackId={videoSource.muxPlaybackId}
-          envKey={videoSource.muxEnvironmentKey}
+          playbackId={videoSource?.muxPlaybackId}
+          envKey={videoSource?.muxEnvironmentKey}
           metadata={{
             player_name: "SailPoint Developer Community - Developer Days",
-            video_id: videoSource.id,
-            video_title: `${videoSource.speaker} - ${videoSource.topic}`,
+            video_id: videoSource?.id,
+            video_title: `${videoSource?.speaker} - ${videoSource?.topic}`,
             viewer_user_id: "Test User ID",
             autoPlay: true,
           }}

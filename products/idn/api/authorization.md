@@ -87,7 +87,7 @@ SailPoint is working to define scopes for every endpoint, but you may encounter 
 
 ### Assigning Scopes with the UI
 
-When you create a personal access token or OAuth credentials in the UI (User Interface), you can apply scopes to the token or credentials. More information on how to do this will be added in the near future.
+When you create a personal access token or OAuth credentials in the UI, you can apply scopes to the token or credentials. More information on how to do this will be added in the near future.
 
 ### Assigning Scopes with the API
 

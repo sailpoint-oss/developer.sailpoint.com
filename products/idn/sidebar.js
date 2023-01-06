@@ -15,6 +15,10 @@ const sidebars = {
         },
         {
           type: 'doc',
+          id: 'api/authorization',
+        },
+        {
+          type: 'doc',
           id: 'api/standard-collection-parameters',
         },
         {

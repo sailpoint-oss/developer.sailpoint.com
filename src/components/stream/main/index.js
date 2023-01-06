@@ -8,8 +8,10 @@ import Room from "../room";
 import FAQ from "../faq";
 import Agenda from "../agenda";
 import Speakers from "../speakers";
+import Survey from "../survey";
 import { useState, useEffect } from "react";
 import io from "socket.io-client";
+import { SliderButton } from "@typeform/embed-react";
 
 const socket = io("http://localhost:4202");
 
@@ -17,6 +19,7 @@ export default function Main() {
   const [faqModalIsOpen, setFaqIsOpen] = React.useState(false);
   const [agendaModalIsOpen, setAgendaIsOpen] = React.useState(false);
   const [speakersModalIsOpen, setSpeakerIsOpen] = React.useState(false);
+  const [surveyModalIsOpen,  setSurveyIsOpen] = React.useState(false);
   let subtitle;
 
   const [isConnected, setIsConnected] = useState(socket.connected);
@@ -163,6 +166,14 @@ export default function Main() {
   function closeSpeakersModal() {
     setSpeakerIsOpen(false);
   }
+
+  function openSurveyModal() {
+    setSurveyIsOpen(true);
+  }
+
+  function closeSurveyModal() {
+    setSurveyIsOpen(false);
+  }
   const mainSelectedClass =
     stage.stage === "main" ? styles.stageButtonActive : "";
   const iiqSelectedClass =
@@ -221,6 +232,12 @@ export default function Main() {
               onClick={openFaqModal}
             >
               FAQ
+            </div>
+            <div
+              className="border-[color:var(--ifm-color-primary)] md:grow border-2 hover:bg-[color:var(--ifm-color-primary)] hover:text-white text-[color:var(--ifm-color-primary)] text-center font-bold py-2 px-4 rounded"
+              onClick={openSurveyModal}
+            >
+              Survey
             </div>
           </div>
         </div>
@@ -294,6 +311,20 @@ export default function Main() {
           image={"/homepage/person-head.png"}
         ></Speakers>
         <button className={styles.modalButton} onClick={closeSpeakersModal}>
+          Close
+        </button>
+      </Modal>
+
+      <Modal
+        isOpen={surveyModalIsOpen}
+        onRequestClose={closeSurveyModal}
+        className={styles.modal}
+        contentLabel="Survey"
+      >
+        <Survey
+          id={"gVCODdMc"}
+        ></Survey>
+        <button className={styles.modalButton} onClick={closeSurveyModal}>
           Close
         </button>
       </Modal>

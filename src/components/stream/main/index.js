@@ -63,6 +63,20 @@ export default function Main() {
     videoSource: "https://www.youtube.com/embed/dVGhO6vSCT8",
   });
 
+  useEffect(() => {
+    socket.on("survey", (data) => {
+      console.log(data)
+      console.log(stage.stage)
+      if (stage.stage === data) {
+        setSurveyIsOpen(true);
+      }
+    });
+
+    return () => {
+      socket.off("survey");
+    };
+  }, [stage]);
+
   //setting socket here
   useEffect(() => {
     console.log("Creating effect");
@@ -82,29 +96,12 @@ export default function Main() {
       console.log(data);
     });
 
-    socket.on("idn-survey", (data) => {
-      console.log("incoming Data");
-      console.log(stage.stage)
-      if (stage.stage === 'IDN') {
-        setSurveyIsOpen(true);
-      }
-      console.log(data);
-    });
 
-    socket.on("iiq-survey", (data) => {
-      console.log("incoming Data");
-      if (stage.stage === 'IIQ') {
-        setSurveyIsOpen(true);
-      }
-      console.log(data);
-    });
 
     return () => {
       socket.off("connect");
       socket.off("disconnect");
       socket.off("stream");
-      socket.off("iiq-survey");
-      socket.off("idn-survey");
     };
   }, []);
 
@@ -200,7 +197,7 @@ export default function Main() {
           </p> */}
         </div>
         <div>
-          <div className="flex flex-row gap-2 w-full md:justify-between">
+          <div className="cursor-pointer flex flex-row gap-2 w-full md:justify-between">
             <div
               className="border-[color:var(--ifm-color-primary)] md:grow border-2 hover:bg-[color:var(--ifm-color-primary)] hover:text-white text-[color:var(--ifm-color-primary)] text-center font-bold py-2 px-4 rounded"
               onClick={openAgendaModal}
@@ -208,19 +205,19 @@ export default function Main() {
               Agenda
             </div>
             <div
-              className="border-[color:var(--ifm-color-primary)] md:grow border-2 hover:bg-[color:var(--ifm-color-primary)] hover:text-white text-[color:var(--ifm-color-primary)] text-center font-bold py-2 px-4 rounded"
+              className="cursor-pointer border-[color:var(--ifm-color-primary)] md:grow border-2 hover:bg-[color:var(--ifm-color-primary)] hover:text-white text-[color:var(--ifm-color-primary)] text-center font-bold py-2 px-4 rounded"
               onClick={openSpeakersModal}
             >
               Speakers
             </div>
             <div
-              className="border-[color:var(--ifm-color-primary)] md:grow border-2 hover:bg-[color:var(--ifm-color-primary)] hover:text-white text-[color:var(--ifm-color-primary)] text-center font-bold py-2 px-4 rounded"
+              className="cursor-pointer border-[color:var(--ifm-color-primary)] md:grow border-2 hover:bg-[color:var(--ifm-color-primary)] hover:text-white text-[color:var(--ifm-color-primary)] text-center font-bold py-2 px-4 rounded"
               onClick={openFaqModal}
             >
               FAQ
             </div>
             <div
-              className="border-[color:var(--ifm-color-primary)] md:grow border-2 hover:bg-[color:var(--ifm-color-primary)] hover:text-white text-[color:var(--ifm-color-primary)] text-center font-bold py-2 px-4 rounded"
+              className="cursor-pointer border-[color:var(--ifm-color-primary)] md:grow border-2 hover:bg-[color:var(--ifm-color-primary)] hover:text-white text-[color:var(--ifm-color-primary)] text-center font-bold py-2 px-4 rounded"
               onClick={openSurveyModal}
             >
               Survey

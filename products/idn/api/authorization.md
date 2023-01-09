@@ -15,7 +15,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 
 ## Overview
 
-Authorization and authentication are two related concepts that help secure APIs. Authentication is the act of verifying a user's identify. Authorization is the act of validating the user's permission to access a given resource. When a user sends an API request, the server authenticates the user by checking the validity of the access token sent with the request. If the token is valid, the server checks whether the user is authorized to perform the desired operation on the resource. If the user is both authenticated and authorized, the server fulfills the request.
+Authorization and authentication are two related concepts that help secure APIs. Authentication is the act of verifying a user's identity. Authorization is the act of validating the user's permission to access a given resource. When a user sends an API request, the server authenticates the user by checking the validity of the access token sent with the request. If the token is valid, the server checks whether the user is authorized to perform the desired operation on the resource. If the user is both authenticated and authorized, the server fulfills the request.
 
 <div align="center">
 

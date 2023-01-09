@@ -71,7 +71,7 @@ module.exports = {
       items: [
         {
           label: 'Submit Support Ticket',
-          href: 'https://support.sailpoint.com/hc/en-us/requests/new?ticket_form_id=360000629992',
+          href: 'https://support.sailpoint.com/csm?id=sc_cat_item&sys_id=a78364e81bec151050bcc8866e4bcb5c&referrer=popular_items',
         },
         {label: 'Compass', href: 'https://community.sailpoint.com'},
         {label: 'Platform Status', href: 'https://status.sailpoint.com/'},

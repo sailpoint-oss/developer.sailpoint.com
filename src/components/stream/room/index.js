@@ -34,7 +34,7 @@ export default function Room({ videoSource }) {
       <WidgetBot
         className={styles.stageContentChat}
         server="1039765757011165194"
-        channel="1047378402556002384"
+        channel="1039765757556428882"
       ></WidgetBot>
     </div>
   );

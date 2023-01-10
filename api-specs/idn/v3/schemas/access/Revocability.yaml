@@ -1,0 +1,8 @@
+type: object
+properties:
+  approvalSchemes:
+    type: array
+    description: List describing the steps in approving the revocation request
+    items:
+      $ref: './ApprovalScheme.yaml'
+

@@ -1,0 +1,67 @@
+title: Identity Attributes Changed
+type: object
+required:
+- identity
+- changes
+properties:
+  identity:
+    required:
+    - id
+    - type
+    - name
+    allOf:
+    - $ref: '../../../../v3/schemas/BaseReferenceDto.yaml'
+    description: The identity who's attributes changed.
+    properties:
+      type:
+        enum:
+        - "IDENTITY"
+        example: "IDENTITY"
+        description: The type of object that is referenced
+  changes:
+    description: A list of one or more identity attributes that changed on the identity.
+    type: array
+    items:
+      type: object
+      required:
+      - attribute
+      properties:
+        attribute:
+          type: string
+          description: The name of the identity attribute that changed.
+          example: department
+        oldValue:
+          description: The value of the identity attribute before it changed.
+          nullable: true
+          example: sales
+          oneOf:
+          - type: string
+          - type: boolean
+          - type: array
+            items:
+              type: string
+          - type: object
+            nullable: true
+            additionalProperties:
+              oneOf:
+              - type: string
+              - type: number
+              - type: integer
+              - type: boolean
+        newValue:
+          description: The value of the identity attribute after it changed.
+          example: marketing
+          oneOf:
+          - type: string
+          - type: boolean
+          - type: array
+            items:
+              type: string
+          - type: object
+            nullable: true
+            additionalProperties:
+              oneOf:
+              - type: string
+              - type: number
+              - type: integer
+              - type: boolean  

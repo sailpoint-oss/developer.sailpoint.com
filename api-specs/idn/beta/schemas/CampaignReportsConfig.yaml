@@ -1,0 +1,10 @@
+type : object
+title: Campaign Reports Configuration
+properties:
+  identityAttributeColumns:
+    type: array
+    items:
+      type: string
+    example:
+      - firstname
+      - lastname

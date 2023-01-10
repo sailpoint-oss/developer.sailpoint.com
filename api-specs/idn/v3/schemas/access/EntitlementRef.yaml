@@ -1,0 +1,16 @@
+type: object
+properties:
+    id:
+      type: string
+      description: The ID of the Entitlement
+      example: 2c91809773dee32014e13e122092014e
+    type:
+      type: string
+      enum:
+        - ENTITLEMENT
+      description: The type of the Entitlement, will always be ENTITLEMENT
+      example: ENTITLEMENT
+    name:
+      type: string
+      description: The display name of the Entitlement
+      example: "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local"

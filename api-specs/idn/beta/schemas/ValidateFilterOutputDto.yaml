@@ -1,0 +1,5 @@
+type: object
+properties:
+  isValid:
+    type: boolean
+    description: True if specified filter expression is valid against the input, false otherwise.

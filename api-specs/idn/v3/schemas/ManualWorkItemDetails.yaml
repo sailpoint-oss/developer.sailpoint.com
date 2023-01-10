@@ -1,0 +1,21 @@
+type : object
+properties:
+  forwarded:
+    type: boolean
+    description: True if the request for this item was forwarded from one owner to another.
+    example: true
+  originalOwner:
+    $ref: './BaseReferenceDto.yaml'
+    description: >-
+      Base identity/workgroup reference object representing the original owner, if forwarded.
+  currentOwner:
+    $ref: './BaseReferenceDto.yaml'
+    description: >-
+      Base reference of approver that will make decision.
+  modified:
+    type: string
+    format: date-time
+    description: Time at which item was modified.
+    example: "2019-08-23T18:52:57.398Z"
+  status:
+    $ref: './ManualWorkItemState.yaml'

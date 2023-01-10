@@ -1,0 +1,35 @@
+type: object
+required:
+- id
+- name
+- type
+- campaignType
+- description
+properties:
+  id:
+    type: string
+    description: The unique ID of the campaign.
+    example: ef38f94347e94562b5bb8424a56397d8
+  name:
+    type: string
+    description: The name of the campaign.
+    example: 'Campaign Name'
+  type:
+    type: string
+    enum:
+    - CAMPAIGN
+    description: The type of object that is being referenced.
+    example: CAMPAIGN
+  campaignType:
+    type: string
+    enum:
+    - MANAGER
+    - SOURCE_OWNER
+    - SEARCH
+    description: The type of the campaign.
+    example: MANAGER
+  description:
+    type: string
+    description: The description of the campaign set by the admin who created it.
+    nullable: true
+    example: 'A description of the campaign'

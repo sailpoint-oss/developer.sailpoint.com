@@ -1,0 +1,35 @@
+post:
+  operationId: verifyDomainDkim
+  tags:
+    - Notifications
+  summary: Verify domain address via DKIM
+  description: >-
+    Create a domain to be verified via DKIM (DomainKeys Identified Mail)
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/DomainAddressDto.yaml'
+  responses:
+    '200':
+      description: List of DKIM tokens
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: string
+          example: ["uq1m3jjk25ckd3whl4n7y46c56r5l6aq","u7pm38jky9ckdawhlsn7y4dcj6f5lpgq","uhpm3jjkjjckdkwhlqn7yw6cjer5tpay"]
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '405':
+      $ref: '../../v3/responses/405.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

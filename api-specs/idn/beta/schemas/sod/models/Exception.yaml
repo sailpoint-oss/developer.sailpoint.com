@@ -1,0 +1,46 @@
+type: object
+properties:
+  id:
+    type: string
+    nullable: true
+    example: "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde"
+  created:
+    type: string
+    nullable: true
+    format: date-time
+    description: The time when this SOD exception is created.
+    example: "2020-01-01T00:00:00.000Z"
+  modified:
+    type: string
+    nullable: true
+    format: date-time
+    description: The time when this SOD exception is modified.
+    example: "2020-01-01T00:00:00.000Z"
+  sodPolicy:
+    $ref: '../../../../v3/schemas/BaseReferenceDto.yaml'
+    example: "00fc6afc-af1d-43af-b350-8d632f4c56ca"
+  identity:
+    $ref: '../../../../v3/schemas/BaseReferenceDto.yaml'
+  start:
+    type: string
+    format: date-time
+    description: The earliest date-time when this SOD exception is applicable.
+    example: "2020-01-01T00:00:00.000Z"
+  end:
+    type: string
+    format: date-time
+    description: The last date-time when this SOD exception is applicable.
+    example: "2020-01-02T00:00:00.000Z"
+  businessJustification:
+    type: string
+    description: The business justification for the exception.
+    example: "Bob (the accountant) is on vacation, Bill needs access to accounting data this week."
+  mitigatingControl:
+    type: string
+    description: The mitigating control for the exception.
+    example: "The manager will audit Bill's changes this week."
+  accessCriteria:
+    $ref: './ExceptionAccessCriteria.yaml'
+    nullable: false
+  origin:
+    $ref: '../../../../v3/schemas/BaseReferenceDto.yaml'

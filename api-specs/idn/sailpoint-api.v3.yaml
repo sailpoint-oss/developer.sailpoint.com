@@ -1,0 +1,838 @@
+openapi: 3.0.1
+info:
+  title: IdentityNow V3 API
+  description:
+    "Use these APIs to interact with the IdentityNow platform to achieve
+    repeatable, automated processes with greater scalability. We encourage you
+    to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers
+    using our APIs."
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: 3.0.0
+servers:
+  - url: https://{tenant}.api.identitynow.com/v3
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description:
+          This is the name of your tenant, typically your company's name.
+
+tags:
+  - name: Access Request Approvals
+    description: |
+      Use this API to implement and customize access request approval functionality. 
+      With this functionality in place, administrators can delegate qualified users to review users' requests for access or managers' requests to revoke team members' access to applications, entitlements, or roles.      
+      This enables more qualified users to review access requests and the others to spend their time on other tasks.  
+
+      In IdentityNow, users can request access to applications, entitlements, and roles, and managers can request that team members' access be revoked.   
+      For applications and entitlements, administrators can set access profiles to require approval from the access profile owner, the application owner, the source owner, the requesting user's manager, or a governance group for access to be granted or revoked.   
+      For roles, administrators can also set roles to allow access requests and require approval from the role owner, the requesting user's manager, or a governance group for access to be granted or revoked.   
+      If the administrator designates a governance group as the required approver, any governance group member can approve the requests.
+         
+      When a user submits an access request, IdentityNow sends the first required approver in the queue an email notification, based on the access request configuration's approval and reminder escalation configuration.
+
+      In Approvals in IdentityNow, required approvers can view pending access requests under the Requested tab and approve or deny them, or the approvers can reassign the requests to different reviewers for approval.   
+      If the required approver approves the request and is the only reviewer required, IdentityNow grants or revokes access, based on the request.   
+      If multiple reviewers are required, IdentityNow sends the request to the next reviewer in the queue, based on the access request configuration's approval reminder and escalation configuration.   
+      The required approver can then view any completed access requests under the Reviewed tab.   
+
+      Refer to [Access Requests](https://documentation.sailpoint.com/saas/help/requests/index.html) for more information about access request approvals.
+  - name: Access Requests
+    description: |
+      Use this API to implement and customize access request functionality. 
+      With this functionality in place, users can request access to applications, entitlements, or roles, and managers can request that team members' access be revoked.
+      This allows users to get access to the tools they need quickly and securely, and it allows managers to take away access to those tools. 
+
+      IdentityNow's Access Request service allows end users to request access that requires approval before it can be granted to users and enables qualified users to review those requests and approve or deny them.
+
+      In the Request Center in IdentityNow, users can view available applications, roles, and entitlements and request access to them. 
+      If the requested tools requires approval, the requests appear as 'Pending' under the My Requests tab until the required approver approves, rejects, or cancels them. 
+
+      Users can use My Requests to track and/or cancel the requests.
+
+      In My Team on the IdentityNow Home, managers can submit requests to revoke their team members' access. 
+      They can use the My Requests tab under Request Center to track and/or cancel the requests.
+
+      Refer to [Requesting Access](https://documentation.sailpoint.com/saas/user-help/requests/requesting_access.html) for more information about access requests.
+  - name: Accounts
+    description: |
+      Use this API to implement and customize account functionality.
+      With this functionality in place, administrators can manage users' access across sources in IdentityNow. 
+
+      In IdentityNow, an account refers to a user's account on a supported source.
+      This typically includes a unique identifier for the user, a unique password, a set of permissions associated with the source and a set of attributes. IdentityNow loads accounts through the creation of sources in IdentityNow.
+
+      Administrators can correlate users' identities with the users' accounts on the different sources they use. 
+      This allows IdentityNow to govern the access of identities and all their correlated accounts securely and cohesively. 
+
+      To view the accounts on a source and their correlated identities, administrators can use the Connections drop-down menu, select Sources, select the relevant source, and select its Account tab. 
+
+      To view and edit source account statuses for an identity in IdentityNow, administrators can use the Identities drop-down menu, select Identity List, select the relevant identity, and select its Accounts tab. 
+      Administrators can toggle an account's Actions to aggregate the account, enable/disable it, unlock it, or remove it from the identity. 
+
+      Accounts can have the following statuses: 
+
+      - Enabled: The account is enabled. The user can access it.
+
+      - Disabled: The account is disabled, and the user cannot access it, but the identity is not disabled in IdentityNow. This can occur when an administrator disables the account or when the user's lifecycle state changes. 
+
+      - Locked: The account is locked. This may occur when someone has entered an incorrect password for the account too many times.
+
+      - Pending: The account is currently updating. This status typically lasts seconds. 
+
+      Administrators can select the source account to view its attributes, entitlements, and the last time the account's password was changed.
+
+      Refer to [Managing User Accounts](https://documentation.sailpoint.com/saas/help/common/users/user_access.html#managing-user-accounts) for more information about accounts.
+  - name: Account Activities
+    description: |
+      Use this API to implement account activity tracking functionality.
+      With this functionality in place, users can track source account activity in IdentityNow, which greatly improves traceability in the system. 
+
+      An account activity refers to a log of each action performed on a source account. This is useful for auditing the changes performed on an account throughout its life. 
+      In IdentityNow's Search, users can search for account activities and select the activity's row to get an overview of the activity's account action and view its progress, its involved sources, and its most basic metadata, such as the identity requesting the option and the recipient. 
+
+      Account activity includes most actions IdentityNow completes on source accounts. Users can search in IdentityNow for the following account action types: 
+
+      - Access Request: These include any access requests the source account is involved in. 
+
+      - Account Attribute Updates: These include updates to a single attribute on an account on a source. 
+
+      - Account State Update: These include locking or unlocking actions on an account on a source. 
+
+      - Certification: These include actions removing an entitlement from an account on a source as a result of the entitlement's revocation during a certification.
+
+      - Cloud Automated `Lifecyclestate`: These include automated lifecycle state changes that result in a source account's correlated identity being assigned to a different lifecycle state. 
+      IdentityNow replaces the `Lifecyclestate` variable with the name of the lifecycle state it has moved the account's identity to. 
+
+      - Identity Attribute Update: These include updates to a source account's correlated identity attributes as the result of a provisioning action. 
+      When you update an identity attribute that also updates an identity's lifecycle state, the cloud automated `Lifecyclestate` event also displays.
+      Account Activity does not include attribute updates that occur as a result of aggregation.
+
+      - Identity Refresh: These include correlated identity refreshes that occur for an account on a source whenever the account's correlated identity profile gets a new role or updates. 
+      These also include refreshes that occur whenever IdentityNow assigns an application to the account's correlated identity based on the application's being assigned to All Users From Source or Specific Users From Source. 
+
+      - Lifecycle State Refresh: These include the actions that took place when a lifecycle state changed. This event only occurs after a cloud automated `Lifecyclestate` change or a lifecycle state change. 
+
+      - Lifecycle State Change: These include the account activities that result from an identity's manual assignment to a null lifecycle state.
+
+      - Password Change: These include password changes on sources.
+
+      Refer to [Account Activity](https://documentation.sailpoint.com/saas/help/search/index.html#account-activity) for more information about account activities.
+  - name: Certifications
+    description: |
+      Use this API to implement certification functionality. 
+      With this functionality in place, administrators and designated certification reviewers can review users' access certifications and decide whether to approve access, revoke it, or reassign the review to another reviewer. 
+      Implementing certifications improves organizations' data security by reducing inappropriate access through a distributed review process and helping them satisfy audit and regulatory requirements. 
+
+      A certification refers to IdentityNow's mechanism for reviewing a user's access to entitlements (sets of permissions) and approving or removing that access. 
+      These serve as a way of showing that a user's access has been reviewed and approved. 
+      Multiple certifications by different reviewers are often required to approve a user's access. 
+      A set of multiple certifications is called a certification campaign.
+
+      For example, an organization may use a Manager Certification as a way of showing that a user's access has been reviewed and approved by their manager, or if the certification is part of a campaign, that the user's access has been reviewed and approved by multiple managers. 
+      Once this certification has been completed, IdentityNow  would provision all the access the user needs, nothing more. 
+
+      Organization administrators or certification administrators can designate other IdentityNow users as certification reviewers. 
+      Those reviewers can select the 'Certifications' tab to view any of the certifications they either need to review or have already reviewed under the 'Active' and 'Completed' tabs, respectively. 
+
+      When a certification campaign is in progress, certification reviewers will see certifications listed under 'Active,' where they can review the involved identities. 
+      Under the 'Decision' column on the right, next to each access item, reviewers can select the checkmark to approve access, select the 'X' to revoke access, or they can toggle the 'More Options' menu to reassign the certification to another reviewer and provide a reason for reassignment in the form of a comment. 
+
+      Once a reviewer has made decisions on all the certification's involved access items, he or she must select 'Sign Off' to complete the review process.
+      Doing so converts the certification into read-only status, preventing any further changes to the review decisions and deleting the work item (task) from the reviewer's list of work items. 
+
+      Once all the reviewers have signed off, the certification campaign either completes or, if any reviewers decided to revoke access for any of the involved identities, it moves into a remediation phase. In the remediation phase, identities' entitlements are altered to remove any entitlements marked for revocation.
+      In this situation, the certification campaign completes once all the remediation requests are completed. 
+
+      Refer to [Certifications](https://documentation.sailpoint.com/saas/user-help/certifications.html) for more information about certifications.
+  - name: Certification Summaries
+    description: |
+      Use this API to implement certification summary functionality. 
+      With this functionality in place, administrators and designated certification reviewers can review summaries of identity certification campaigns and draw conclusions about the campaigns' scope, security, and effectiveness. 
+      Implementing certification summary functionality improves organizations' ability to review their [certifications](https://documentation.sailpoint.com/saas/user-help/certifications.html) and helps them satisfy audit and regulatory requirements by enabling them to trace access changes and the decisions made in their review processes. 
+
+      A certification refers to IdentityNow's mechanism for reviewing a user's access to entitlements (sets of permissions) and approving or removing that access. 
+      These certifications serve as a way of showing that a user's access has been reviewed and approved. 
+      Multiple certifications by different reviewers are often required to approve a user's access. 
+      A set of multiple certifications is called a certification campaign. 
+
+      For example, an organization may use a Manager Certification as a way of showing that a user's access has been reviewed and approved by their manager, or if the certification is part of a campaign, that the user's access has been reviewed and approved by multiple managers. 
+      Once this certification has been completed, IdentityNow  would provision all the access the user needs, nothing more. 
+
+      Certification summaries provide information about identity certification campaigns such as the identities involved, the number of decisions made, and the access changed. 
+      For example, an administrator or designated certification reviewer can examine the Manager Certification campaign to get an overview of how many entitlement decisions are made in that campaign as opposed to role decisions, which identities would be affected by changes to the campaign, and how those identities' access would be affected.  
+  - name: Lifecycle States
+    description: |
+      Use this API to implement and customize lifecycle state functionality.
+      With this functionality in place, administrators can create and configure custom lifecycle states for use across their organizations, which is key to controlling which users have access, when they have access, and the access they have.
+
+      A lifecycle state describes a user's status in a company. For example, two lifecycle states come by default with IdentityNow: 'Active' and 'Inactive.' 
+      When an active employee takes an extended leave of absence from a company, his or her lifecycle state may change to 'Inactive,' for security purposes. 
+      The inactive employee would lose access to all the applications, sources, and sensitive data during the leave of absence, but when the employee returns and becomes active again, all that access would be restored. 
+      This saves administrators the time that would otherwise be spent provisioning the employee's access to each individual tool, reviewing the employee's certification history, etc. 
+
+      Administrators can create a variety of custom lifecycle states. Refer to [Planning New Lifecycle States](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html#planning-new-lifecycle-states) for some custom lifecycle state ideas.
+
+      Administrators must define the criteria for being in each lifecycle state, and they must define how IdentityNow manages users' access to apps and sources for each lifecycle state.
+
+      In IdentityNow, administrators can manage lifecycle states by going to Admin > Identities > Identity Profile, selecting the identity profile whose lifecycle states they want to manage, selecting the 'Provisioning' tab, and using the left panel to either select the lifecycle state they want to modify or create a new lifecycle state. 
+
+      In the 'Provisioning' tab, administrators can make the following access changes to an identity profile's lifecycle state: 
+
+      - Enable/disable the lifecycle state for the identity profile.
+
+      - Enable/disable source accounts for the identity profile's lifecycle state.
+
+      - Add existing access profiles to grant to the identity profiles in that lifecycle state.
+
+      - Create a new access profile to grant to the identity profile in that lifecycle state.
+
+      Access profiles granted in a previous lifecycle state are automatically revoked when the identity moves to a new lifecycle state. 
+      To maintain access across multiple lifecycle states, administrators must grant the access profiles in each lifecycle state. 
+      For example, if an administrator wants users with the 'HR Employee' identity profile to maintain their building access in both the 'Active' and 'Leave of Absence' lifecycle states, the administrator must grant the access profile for that building access to both lifecycle states.
+
+      During scheduled refreshes, IdentityNow evaluates lifFecycle states to determine whether their assigned identities have the access defined in the lifecycle states' access profiles. 
+      If the identities are missing access, IdentityNow provisions that access. 
+
+      Administrators can also use the 'Provisioning' tab to configure email notifications for IdentityNow to send whenever an identity with that identity profile has a lifecycle state change. 
+      Refer to [Configuring Lifecycle State Notifications](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html#configuring-lifecycle-state-notifications) for more information on how to do so.
+
+      An identity's lifecycle state can have four different statuses: the lifecycle state's status can be 'Active,' it can be 'Not Set,' it can be 'Not Valid,' or it 'Does Not Match Technical Name Case.' 
+      Refer to [Moving Identities into Lifecycle States](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html#moving-identities-into-lifecycle-states) for more information about these different lifecycle state statuses. 
+
+      Refer to [Setting Up Lifecycle States](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html) for more information about lifecycle states.
+  - name: Identity Profiles
+    description: |
+      Use this API to implement identity profile functionality. 
+      With this functionality in place, administrators can view identity profiles and their configurations. 
+
+      Identity profiles represent the configurations that can be applied to identities as a way of granting them a set of security and access, as well as defining the mappings between their identity attributes and their source attributes.  
+
+      In IdentityNow, administrators can use the Identities drop-down menu and select Identity Profiles to view the list of identity profiles. 
+      This list shows some details about each identity profile, along with its status. 
+      They can select an identity profile to view its settings, its mappings between identity attributes and correlating source account attributes, and its provisioning settings. 
+
+      Refer to [Creating Identity Profiles](https://documentation.sailpoint.com/saas/help/setup/identity_profiles.html) for more information about identity profiles.
+  - name: Non-Employee Lifecycle Management
+    description: |
+      Use this API to implement non-employee lifecycle management functionality. 
+      With this functionality in place, administrators can create non-employee records and configure them for use in their organizations. 
+      This allows organizations to provide secure access to non-employees and control that access. 
+
+      The 'non-employee' term refers to any consultant, contractor, intern, or other user in an organization who is not a full-time permanent employee. 
+      Organizations can track non-employees' access and activity in IdentityNow by creating and maintaining non-employee sources. 
+      Organizations can have a maximum of 50 non-employee sources. 
+
+      By using SailPoint's Non-Employee Lifecycle Management functionality, you agree to the following:
+
+      - SailPoint is not responsible for storing sensitive data. 
+      You may only add account attributes to non-employee identities that are necessary for business operations and are consistent with your contractual limitations on data that may be sent or stored in IdentityNow.
+
+      - You are responsible for regularly downloading your list of non-employee accounts for all the sources you create and storing this list of accounts in a managed location to maintain an authoritative system of record and backup data for these accounts.
+
+      To manage non-employees in IdentityNow, administrators must create a non-employee source and add accounts to the source. 
+
+      To create a non-employee source in IdentityNow, administrators must use the Admin panel to go to Connections > Sources.
+      They must then specify 'Non-Employee' in the 'Source Type' field. 
+      Refer to [Creating a Non-Employee Source](https://documentation.sailpoint.com/saas/help/common/non-employee-mgmt.html#creating-a-non-employee-source) for more details about how to create non-employee sources.
+
+      To add accounts to a non-employee source in IdentityNow, administrators can select the non-employee source and add the accounts. 
+      They can also use the 'Manage Non-Employees' widget on their user dashboards to reach the list of sources and then select the non-employee source they want to add the accounts to. 
+
+      Administrators can either add accounts individually or in bulk. Each non-employee source can have a maximum of 20,000 accounts. 
+      To add accounts in bulk, they must select the 'Bulk Upload' option and upload a CSV file. 
+      Refer to [Adding Accounts](https://documentation.sailpoint.com/saas/help/common/non-employee-mgmt.html#adding-accounts) for more details about how to add accounts to non-employee sources.
+
+      Once administrators have created the non-employee source and added accounts to it, they can create identity profiles to generate identities for the non-employee accounts and manage the non-employee identities the same way they would any other identities. 
+
+      Refer to [Managing Non-Employee Sources and Accounts](https://documentation.sailpoint.com/saas/help/common/non-employee-mgmt.html) for more information about non-employee lifecycle management.
+  - name: OAuth Clients
+    description: |
+      Use this API to implement OAuth client functionality.   
+      With this functionality in place, users with the appropriate security scopes can create and configure OAuth clients to use as a way to obtain authorization to use the IdentityNow REST API.
+      Refer to [Authentication](https://developer.sailpoint.com/idn/api/authentication) for more information about OAuth and how it works with the IdentityNow REST API. 
+  - name: Password Management
+    description: |
+      Use this API to implement password management functionality.  
+      With this functionality in place, users can manage their identity passwords for all their applications.
+
+      In IdentityNow, users can select their names in the upper right corner of the page and use the drop-down menu to select Password Manager. 
+      Password Manager lists the user's identity's applications, possibly grouped to share passwords. 
+      Users can then select 'Change Password' to update their passwords. 
+
+      Grouping passwords allows users to update their passwords more broadly, rather than requiring them to update each password individually. 
+      Password Manager may list the applications and sources in the following groups:
+
+      - Password Group: This refers to a group of applications that share a password. 
+      For example, a user can use the same password for Google Drive, Google Mail, and YouTube. 
+      Updating the password for the password group updates the password for all its included applications.
+
+      - Multi-Application Source: This refers to a source with multiple applications that share a password. 
+      For example, a user can have a source, G Suite, that includes the Google Calendar, Google Drive, and Google Mail applications. 
+      Updating the password for the multi-application source updates the password for all its included applications. 
+
+      - Applications: These are applications that do not share passwords with other applications.
+
+      An organization may require some authentication for users to update their passwords. 
+      Users may be required to answer security questions or use a third-party authenticator before they can confirm their updates. 
+
+      Refer to [Managing Passwords](https://documentation.sailpoint.com/saas/user-help/accounts/passwords.html) for more information about password management.
+  - name: Personal Access Tokens
+    description: |
+      Use this API to implement personal access token (PAT) functionality. 
+      With this functionality in place, users can use PATs as an alternative to passwords for authentication in IdentityNow. 
+
+      PATs embed user information into the client ID and secret. 
+      This replaces the API clients' need to store and provide a username and password to establish a connection, improving IdentityNow organizations' integration security. 
+
+      In IdentityNow, users can do the following to create and manage their PATs: Select the dropdown menu under their names, select Preferences, and then select Personal Access Tokens. 
+      They must then provide a description about the token's purpose. 
+      They can then select 'Create Token' at the bottom of the page to generate and view the Secret and Client ID. 
+
+      Refer to [Managing Personal Access Tokens](https://documentation.sailpoint.com/saas/help/common/generate_tokens.html) for more information about PATs.
+  - name: Public Identities
+    description: |
+      Use this API in conjunction with [Public Identites Config](https://developer.sailpoint.com/idn/api/v3/public-identities-config) to enable non-administrators to view identities' publicly visible attributes. 
+      With this functionality in place, non-administrators can view identity attributes other than the default attributes (email, lifecycle state, and manager), depending on which identity attributes their organization administrators have made public. 
+      This can be helpful for access approvers, certification reviewers, managers viewing their direct reports' access, and source owners viewing their tasks.
+  - name: Public Identities Config
+    description: |
+      Use this API to implement public identity configuration functionality. 
+      With this functionality in place, administrators can make up to 5 identity attributes publicly visible so other non-administrator users can see the relevant information they need to make decisions. 
+      This can be helpful for approvers making approvals, certification reviewers, managers viewing their direct reports' access, and source owners viewing their tasks.
+
+      By default, non-administrators can select an identity and view the following attributes: email, lifecycle state, and manager. 
+      However, it may be helpful for a non-administrator reviewer to see other identity attributes like department, region, title, etc.
+      Administrators can use this API to make those necessary identity attributes public to non-administrators. 
+
+      For example, a non-administrator deciding whether to approve another identity's request for access to the Workday application, whose access may be restricted to members of the HR department, would want to know whether the identity is a member of the HR department. 
+      If an administrator has used [Update Public Identity Config](https://developer.sailpoint.com/idn/api/v3/update-public-identity-config) to make the "department" attribute public, the approver can see the department and make a decision without requesting any more information.
+  - name: Requestable Objects
+    description: |
+      Use this API to implement requestable object functionality. 
+      With this functionality in place, administrators can determine which access items can be requested with the [Access Request APIs](https://developer.sailpoint.com/idn/api/v3/access-requests), along with their statuses. 
+      This can be helpful for administrators who are implementing and customizing access request functionality as a way of checking which items are requestable as they are created, assigned, and made available.
+  - name: Saved Search
+    description: |
+      Use this API to implement saved search functionality. 
+      With saved search functionality in place, users can save search queries and then view those saved searches, as well as rerun them. 
+
+      Search queries in IdentityNow can grow very long and specific, which can make reconstructing them difficult or tedious, so it can be especially helpful to save search queries. 
+      It also opens the possibility to configure IdentityNow to run the saved queries on a schedule, which is essential to detecting user information and access changes throughout an organization's tenant and across all its sources. 
+      Refer to [Scheduled Search](https://developer.sailpoint.com/idn/api/v3/scheduled-search) for more information about running saved searches on a schedule. 
+      
+      In IdentityNow, users can save searches under a name, and then they can access that saved search and run it again when they want. 
+
+      Refer to [Managing Saved Searches](https://documentation.sailpoint.com/saas/help/search/saved-searches.html) for more information about saving searches and using them. 
+  - name: Scheduled Search
+    description: |
+      Use this API to implement scheduled search functionality. 
+      With scheduled search functionality in place, users can run saved search queries on their tenants on a schedule, and IdentityNow emails them the search results. 
+      Users can also share these search results with other users by email by adding those users as subscribers, or those users can subscribe themselves. 
+
+      One of the greatest benefits of saving searches is the ability to run those searches on a schedule. 
+      This is essential for organizations to constantly detect any changes to user information or access throughout their tenants and across all their sources. 
+      For example, the manager Amanda Ross can schedule a saved search "manager.name:amanda.ross AND attributes.location:austin" on a schedule to regularly stay aware of changes with the Austin employees reporting to her.
+      IdentityNow emails her the search results when the search runs, so she can work on other tasks instead of actively running this search.
+      
+      In IdentityNow, scheduling a search involves a subscription. 
+      Users can create a subscription for a saved search and schedule it to run daily, weekly, or monthly (you can only use one schedule option at a time). 
+      The user can add other identities as subscribers so when the scheduled search runs, the subscribers and the user all receive emails. 
+      
+      By default, subscriptions exclude detailed results from the emails, for security purposes. 
+      Including detailed results about user access in an email may expose sensitive information.
+      However, the subscription creator can choose to include the information in the emails.  
+
+      By default, IdentityNow sends emails to the subscribers even when the searches do not return new results. 
+      However, the subscription creator can choose to suppress these empty emails. 
+
+      Users can also subscribe to saved searches that already have existing subscriptions so they receive emails when the searches run. 
+      A saved search can have up to 10 subscriptions configured at a time. 
+
+      The subscription creator can enable, disable, or delete the subscription. 
+
+      Refer to [Subscribing to Saved Searches](https://documentation.sailpoint.com/saas/help/search/saved-searches.html#subscribing-to-saved-searches) for more information about scheduling searches and subscribing to them.
+  - name: Search
+    description: |
+      Use this API to implement search functionality. 
+      With search functionality in place, users can search their tenants for nearly any information from throughout their organizations. 
+
+      IdentityNow enables organizations to store user data from across all their connected sources and manage the users' access, so the ability to query and filter that data is essential.  
+      Its search goes through all those sources and finds the results quickly and specifically. 
+
+      The search query is flexible - it can be very broad or very narrow. 
+      The search only returns results for searchable objects it is filtering for. 
+      The following objects are searchable: identities, roles, access profiles, entitlements, events, and account activities. 
+      By default, no filter is applied, so a search for "Ad" returns both the identity "Adam.Archer" as well as the role "Administrator."
+
+      Users can further narrow their results by using IdentityNow's specific syntax and punctuation to structure their queries. 
+      For example, the query "attributes.location:austin AND NOT manager.name:amanda.ross" returns all results associated with the Austin location, but it excludes those associated with the manager Amanda Ross.
+      Refer to [Building a Search Query](https://documentation.sailpoint.com/saas/help/search/building-query.html) for more information about how to construct specific search queries. 
+
+      Refer to [Using Search](https://documentation.sailpoint.com/saas/help/search/index.html) for more information about IdentityNow's search and its different possibilities. 
+
+      The search feature uses Elasticsearch as a datastore and query engine. 
+      The power of Elasticsearch makes this feature suitable for ad-hoc reporting.
+      However, data from the operational databases (ex. identities, roles, events, etc) has to be ingested into Elasticsearch. 
+      This ingestion process introduces a latency from when the operational data is created to when it is available in search. 
+      Depending on the system load, this can take a few seconds to a few minutes. 
+      Please keep this latency in mind when you use search. 
+
+  - name: Service Desk Integration
+    description: |
+      Use this API to build an integration between IdentityNow and a service desk ITSM (IT service management) solution. 
+      Once an administrator builds this integration between IdentityNow and a service desk, users can use IdentityNow to raise and track tickets that are synchronized between IdentityNow and the service desk. 
+      
+      In IdentityNow, administrators can create a service desk integration (sometimes also called an SDIM, or Service Desk Integration Module) by going to Admin > Connections > Service Desk and selecting 'Create.'
+
+      To create a Generic Service Desk integration, for example, administrators must provide the required information on the General Settings page, the Connectivity and Authentication information, Ticket Creation information, Status Mapping information, and Requester Source information on the Configure page. 
+      Refer to [Integrating SailPoint with Generic Service Desk](https://documentation.sailpoint.com/connectors/generic_sd/help/integrating_generic_service_desk/intro.html) for more information about the process of setting up a Generic Service Desk in IdentityNow.
+
+      Administrators can create various service desk integrations, all with their own nuances. 
+      The following service desk integrations are available: 
+
+      - [Atlassian Cloud Jira Service Management](https://documentation.sailpoint.com/connectors/atlassian/jira_cloud/help/integrating_jira_cloud/introduction.html)
+
+      - [Atlassian Server Jira Service Management](https://documentation.sailpoint.com/connectors/atlassian/jira_server/help/integrating_jira_server/introduction.html)
+
+      - [BMC Helix ITSM Service Desk](https://documentation.sailpoint.com/connectors/bmc/helix_ITSM_sd/help/integrating_bmc_helix_itsm_sd/intro.html)
+
+      - [BMC Helix Remedyforce Service Desk](https://documentation.sailpoint.com/connectors/bmc/helix_remedyforce_sd/help/integrating_bmc_helix_remedyforce_sd/intro.html)
+
+      - [Generic Service Desk](https://documentation.sailpoint.com/connectors/generic_sd/help/integrating_generic_service_desk/intro.html)
+
+      - [ServiceNow Service Desk](https://documentation.sailpoint.com/connectors/servicenow/sdim/help/integrating_servicenow_sdim/intro.html)
+
+      - [Zendesk Service Desk](https://documentation.sailpoint.com/connectors/zendesk/help/integrating_zendesk_sd/introduction.html)  
+  - name: Sources
+    description: |
+      Use this API to implement and customize source functionality. 
+      With source functionality in place, organizations can use IdentityNow to connect their various sources and user data sets and manage access across all those different sources in a secure, scalable way. 
+
+      [Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html) refer to the IdentityNow representations for external applications, databases, and directory management systems that maintain their own sets of users, like Dropbox, GitHub, and Workday, for example.
+      Organizations may use hundreds, if not thousands, of different source systems, and any one employee within an organization likely has a different user record on each source, often with different permissions on many of those records. 
+      Connecting these sources to IdentityNow makes it possible to manage user access across them all.
+      Then, if a new hire starts at an organization, IdentityNow can grant the new hire access to all the sources they need.
+      If an employee moves to a new department and needs access to new sources but no longer needs access to others, IdentityNow can grant the necessary access and revoke the unnecessary access for all the employee's various sources. 
+      If an employee leaves the company, IdentityNow can revoke access to all the employee's various source accounts immediately. 
+      These are just a few examples of the many ways that source functionality makes identity governance easier, more efficient, and more secure. 
+
+      In IdentityNow, administrators can create configure, manage, and edit sources, and they can designate other users as source admins to be able to do so.
+      They can also designate users as source sub-admins, who can perform the same source actions but only on sources associated with their governance groups.
+      Admins go to Connections > Sources to see a list of the existing source representations in their organizations. 
+      They can create new sources or select existing ones. 
+
+      To create a new source, the following must be specified: Source Name, Description, Source Owner, and Connection Type.
+      Refer to [Configuring a Source](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html#configuring-a-source) for more information about the source configuration process. 
+      
+      IdentityNow connects with its sources either by a direct communication with the source server (connection information specific to the source must be provided) or a flat file feed, a CSV file containing all the relevant information about the accounts to be loaded in.
+      Different sources use different connectors to share data with IdentityNow, and each connector's setup process is specific to that connector. 
+      SailPoint has built a number of connectors to come out of the box and connect to the most common sources, and SailPoint actively maintains these connectors.
+      Refer to [IdentityNow Connectors](https://documentation.sailpoint.com/connectors/identitynow/landingpages/help/landingpages/identitynow_connectivity_landing.html) for more information about these SailPoint supported connectors. 
+      Refer to the following links for more information about two useful connectors: 
+
+      - [JDBC Connector](https://documentation.sailpoint.com/connectors/jdbc/help/integrating_jdbc/introduction.html): This customizable connector an directly connect to databases that support JDBC (Java Database Connectivity).
+
+      - [Web Services Connector](https://documentation.sailpoint.com/connectors/webservices/help/integrating_webservices/introduction.html): This connector can directly connect to databases that support Web Services. 
+
+      Refer to [SaaS Connectivity](https://developer.sailpoint.com/idn/docs/saas-connectivity) for more information about SailPoint's new connectivity framework that makes it easy to build and manage custom connectors to SaaS sources. 
+
+      When admins select existing sources, they can view the following information about the source:
+
+      - Associated connections (any associated identity profiles, apps, or references to the source in a transform).
+
+      - Associated user accounts. These accounts are linked to their identities - this provides a more complete picture of each user's access across sources.
+
+      - Associated entitlements (sets of access rights on sources).
+
+      - Associated access profiles (groupings of entitlements). 
+
+      The user account data and the entitlements update with each data aggregation from the source. 
+      Organizations generally run scheduled, automated data aggregations to ensure that their data is always in sync between their sources and their IdentityNow tenants so an access change on a source is detected quickly in IdentityNow.
+      Admins can view a history of these aggregations, and they can also run manual imports. 
+      Refer to [Loading Account Data](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html) for more information about manual and scheduled aggregations. 
+
+      Admins can also make changes to determine which user account data IdentityNow collects from the source and how it correlates that account data with identity data. 
+      To define which account attributes the source shares with IdentityNow, admins can edit the account schema on the source.
+      Refer to [Managing Source Account Schemas](https://documentation.sailpoint.com/saas/help/accounts/schema.html) for more information about source account schemas and how to edit them. 
+      To define the mapping between the source account attributes and their correlating identity attributes, admins can edit the correlation configuration on the source. 
+      Refer to [Assigning Source Accounts to Identities](https://documentation.sailpoint.com/saas/help/accounts/correlation.html) for more information about this correlation process between source accounts and identities.
+
+      Admins can also delete sources, but they must first ensure that the sources no longer have any active connections: the source must not be associated with any identity profile or any app, and it must not be referenced by any transform.
+      Refer to [Deleting Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html#deleting-sources) for more information about deleting sources. 
+
+      Well organized, mappped out connections between sources and IdentityNow are essential to achieving comprehensive identity access governance across all the source systems organizations need. 
+      Refer to [Managing Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html) for more information about all the different things admins can do with sources once they are connected. 
+  - name: Transforms
+    description: |
+      The purpose of this API is to expose functionality for the manipulation of Transform objects.
+      Transforms are a form of configurable objects which define an easy way to manipulate attribute data without having
+      to write code. These endpoints don't require API calls to other resources, audit service is used for keeping track
+      of which users have made changes to the Transforms.
+
+      Refer to [Transforms](https://developer.sailpoint.com/idn/docs/transforms) for more information about transforms.
+  - name: Work Items
+    description: |
+      Use this API to implement work item functionality. 
+      With this functionality in place, users can manage their work items (tasks). 
+
+      Work items refer to the tasks users see in IdentityNow's Task Manager. 
+      They can see the pending work items they need to complete, as well as the work items they have already completed. 
+      Task Manager lists the work items along with the involved sources, identities, accounts, and the timestamp when the work item was created. 
+      For example, a user may see a pending 'Create an Account' work item for the identity Fred.Astaire in GitHub for Fred's GitHub account, fred-astaire-sp. 
+      Once the user completes the work item, the work item will be listed with his or her other completed work items. 
+
+      To complete work items, users can use their dashboards and select the 'My Tasks' widget. 
+      The widget will list any work items they need to complete, and they can select the work item from the list to review its details. 
+      When they complete the work item, they can select 'Mark Complete' to add it to their list of completed work items. 
+
+      Refer to [Task Manager](https://documentation.sailpoint.com/saas/user-help/task_manager.html) for more information about work items, including the different types of work items users may need to complete.
+paths:
+  /access-requests:
+    $ref: "./v3/paths/access-requests.yaml"
+  /access-requests/cancel:
+    $ref: "./v3/paths/access-request-cancel.yaml"
+  /access-request-config:
+    $ref: "./v3/paths/access-request-config.yaml"
+  /access-request-status:
+    $ref: "./v3/paths/access-request-status.yaml"
+  /access-request-approvals/pending:
+    $ref: "./v3/paths/pending-access-request-approvals.yaml"
+  /access-request-approvals/completed:
+    $ref: "./v3/paths/completed-access-request-approvals.yaml"
+  /access-request-approvals/{approvalId}/approve:
+    $ref: "./v3/paths/approve-access-request-approval.yaml"
+  /access-request-approvals/{approvalId}/reject:
+    $ref: "./v3/paths/reject-access-request-approval.yaml"
+  /access-request-approvals/{approvalId}/forward:
+    $ref: "./v3/paths/forward-access-request-approval.yaml"
+  /access-request-approvals/approval-summary:
+    $ref: "./v3/paths/access-request-approval-summary.yaml"
+  /accounts:
+    $ref: "./v3/paths/accounts.yaml"
+  /accounts/{id}:
+    $ref: "./v3/paths/account.yaml"
+  /accounts/{id}/entitlements:
+    $ref: "./v3/paths/accounts-id-entitlements.yaml"
+  /accounts/{id}/reload:
+    $ref: "./v3/paths/accounts-id-reload.yaml"
+  /accounts/{id}/enable:
+    $ref: "./v3/paths/accounts-id-enable.yaml"
+  /accounts/{id}/disable:
+    $ref: "./v3/paths/accounts-id-disable.yaml"
+  /accounts/{id}/unlock:
+    $ref: "./v3/paths/accounts-id-unlock.yaml"
+  /account-activities:
+    $ref: "./v3/paths/account-activity-list.yaml"
+  /account-activities/{id}:
+    $ref: "./v3/paths/account-activity-get-one.yaml"
+  /certifications:
+    $ref: "./v3/paths/identity-certifications.yaml"
+  /certifications/{id}:
+    $ref: "./v3/paths/identity-certification.yaml"
+  /certifications/{id}/access-review-items:
+    $ref: "./v3/paths/identity-certifications-access-review-items.yaml"
+  /certifications/{id}/decide:
+    $ref: "./v3/paths/identity-certifications-decide.yaml"
+  /certifications/{id}/reassign:
+    $ref: "./v3/paths/identity-certifications-reassign.yaml"
+  /certifications/{id}/sign-off:
+    $ref: "./v3/paths/identity-certifications-sign-off.yaml"
+  /certifications/{id}/decision-summary:
+    $ref: "./v3/paths/identity-certifications-decision-summary.yaml"
+  /certifications/{id}/identity-summaries:
+    $ref: "./v3/paths/identity-certifications-identity-summaries.yaml"
+  /certifications/{id}/access-summaries/{type}:
+    $ref: "./v3/paths/identity-certifications-access-summaries.yaml"
+  /certifications/{id}/identity-summary/{identitySummaryId}:
+    $ref: "./v3/paths/identity-certifications-identity-summary.yaml"
+  /identities/{identity-id}/set-lifecycle-state:
+    $ref: "./v3/paths/identity-set-lifecycle-state.yaml"
+  /identity-profiles/{identity-profile-id}/lifecycle-states:
+    $ref: "./v3/paths/identity-profile-lifecycle-states.yaml"
+  /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}:
+    $ref: "./v3/paths/identity-profile-lifecycle-state.yaml"
+  /identity-profiles:
+    $ref: "./v3/paths/identity-profiles.yaml"
+  /identity-profiles/export:
+    $ref: "./v3/paths/identity-profiles-export.yaml"
+  /identity-profiles/import:
+    $ref: "./v3/paths/identity-profiles-import.yaml"
+  /identity-profiles/{identity-profile-id}:
+    $ref: "./v3/paths/identity-profile.yaml"
+  /identity-profiles/{identity-profile-id}/default-identity-attribute-config:
+    $ref: "./v3/paths/identity-profile-default-config.yaml"
+  /non-employee-records:
+    $ref: "./v3/paths/non-employee-records.yaml"
+  /non-employee-records/{id}:
+    $ref: "./v3/paths/non-employee-record.yaml"
+  /non-employee-records/bulk-delete:
+    $ref: "./v3/paths/non-employee-records-bulk-delete.yaml"
+  /non-employee-requests:
+    $ref: "./v3/paths/non-employee-requests.yaml"
+  /non-employee-requests/{id}:
+    $ref: "./v3/paths/non-employee-request.yaml"
+  /non-employee-requests/summary/{requested-for}:
+    $ref: "./v3/paths/non-employee-request-summary-get.yaml"
+  /non-employee-sources:
+    $ref: "./v3/paths/non-employee-sources.yaml"
+  /non-employee-sources/{sourceId}:
+    $ref: "./v3/paths/non-employee-source.yaml"
+  /non-employee-sources/{id}/non-employees/download:
+    $ref: "./v3/paths/non-employee-sources-export-non-employees.yaml"
+  /non-employee-sources/{id}/non-employee-bulk-upload:
+    $ref: "./v3/paths/non-employee-sources-bulk-upload-non-employees.yaml"
+  /non-employee-sources/{id}/non-employee-bulk-upload/status:
+    $ref: "./v3/paths/non-employee-sources-bulk-upload-status.yaml"
+  /non-employee-sources/{id}/schema-attributes-template/download:
+    $ref: "./v3/paths/non-employee-sources-export-schema-attributes-template.yaml"
+  /non-employee-approvals:
+    $ref: "./v3/paths/non-employee-approval-list.yaml"
+  /non-employee-approvals/{id}:
+    $ref: "./v3/paths/non-employee-approve-get.yaml"
+  /non-employee-approvals/{id}/approve:
+    $ref: "./v3/paths/non-employee-approve-request.yaml"
+  /non-employee-approvals/{id}/reject:
+    $ref: "./v3/paths/non-employee-reject-request.yaml"
+  /non-employee-approvals/summary/{requested-for}:
+    $ref: "./v3/paths/non-employee-approval-summary.yaml"
+  /non-employee-sources/{sourceId}/schema-attributes:
+    $ref: "./v3/paths/non-employee-sources-schema-attributes.yaml"
+  /non-employee-sources/{sourceId}/schema-attributes/{attributeId}:
+    $ref: "./v3/paths/non-employee-sources-schema-attribute.yaml"
+  /oauth-clients:
+    $ref: "./v3/paths/oauth-clients.yaml"
+  /oauth-clients/{id}:
+    $ref: "./v3/paths/oauth-client.yaml"
+  /personal-access-tokens:
+    $ref: "./v3/paths/personal-access-tokens.yaml"
+  /personal-access-tokens/{id}:
+    $ref: "./v3/paths/personal-access-token.yaml"
+  /public-identities:
+    $ref: "./v3/paths/public-identities.yaml"
+  /public-identities-config:
+    $ref: "./v3/paths/public-identities-config.yaml"
+  /requestable-objects:
+    $ref: "./v3/paths/requestable-object-list.yaml"
+  /saved-searches:
+    $ref: "./v3/paths/saved-searches.yaml"
+  /saved-searches/{id}:
+    $ref: "./v3/paths/saved-searches-id.yaml"
+  /saved-searches/{id}/execute:
+    $ref: "./v3/paths/saved-searches-execute.yaml"
+  /scheduled-searches:
+    $ref: "./v3/paths/scheduled-searches.yaml"
+  /scheduled-searches/{id}:
+    $ref: "./v3/paths/scheduled-searches-id.yaml"
+  /scheduled-searches/{id}/unsubscribe:
+    $ref: "./v3/paths/scheduled-searches-unsubscribe.yaml"
+  /search:
+    $ref: "./v3/paths/search-post.yaml"
+  /search/count:
+    $ref: "./v3/paths/search-count.yaml"
+  /search/aggregate:
+    $ref: "./v3/paths/search-aggregate.yaml"
+  /search/{index}/{id}:
+    $ref: "./v3/paths/search-get.yaml"
+  /service-desk-integrations:
+    $ref: "./v3/paths/service-desk-integrations.yaml"
+  /service-desk-integrations/{id}:
+    $ref: "./v3/paths/service-desk-integration.yaml"
+  /service-desk-integrations/types:
+    $ref: "./v3/paths/service-desk-integration-types.yaml"
+  /service-desk-integrations/templates/{scriptName}:
+    $ref: "./v3/paths/service-desk-integration-template.yaml"
+  /service-desk-integrations/status-check-configuration:
+    $ref: "./v3/paths/service-desk-integration-configuration.yaml"
+  /query-password-info:
+    $ref: "./v3/paths/query-password-info.yaml"
+  /set-password:
+    $ref: "./v3/paths/set-password.yaml"
+  /password-change-status/{id}:
+    $ref: "./v3/paths/password-change-status.yaml"
+  /sources:
+    $ref: "./v3/paths/sources.yaml"
+  /sources/{id}:
+    $ref: "./v3/paths/source.yaml"
+  /sources/{sourceId}/provisioning-policies:
+    $ref: "./v3/paths/provisioning-policies.yaml"
+  /sources/{sourceId}/provisioning-policies/{usageType}:
+    $ref: "./v3/paths/provisioning-policy.yaml"
+  /sources/{sourceId}/provisioning-policies/bulk-update:
+    $ref: "./v3/paths/provisioning-policies-bulk-update.yaml"
+  /sources/{sourceId}/schemas:
+    $ref: "./v3/paths/schemas.yaml"
+  /sources/{sourceId}/schemas/{schemaId}:
+    $ref: "./v3/paths/schema.yaml"
+  /sources/{sourceId}/source-health:
+    $ref: "./v3/paths/source-health.yaml"
+  /sources/{id}/schemas/accounts:
+    $ref: "./v3/paths/source-accounts-schema.yaml"
+  /sources/{id}/schemas/entitlements:
+    $ref: "./v3/paths/source-entitlements-schema.yaml"
+  /sources/{sourceId}/upload-connector-file:
+    $ref: "./v3/paths/source-upload-connector-file.yaml"
+  /transforms:
+    $ref: "./v3/paths/transforms.yaml"
+  /transforms/{id}:
+    $ref: "./v3/paths/transform.yaml"
+  /work-items:
+    $ref: "./v3/paths/work-items.yaml"
+  /work-items/completed:
+    $ref: "./v3/paths/work-items-completed.yaml"
+  /work-items/count:
+    $ref: "./v3/paths/work-items-count.yaml"
+  /work-items/completed/count:
+    $ref: "./v3/paths/work-items-completed-count.yaml"
+  /work-items/summary:
+    $ref: "./v3/paths/work-items-summary.yaml"
+  /work-items/{id}:
+    $ref: "./v3/paths/work-item.yaml"
+  /work-items/{id}/approve/{approvalItemId}:
+    $ref: "./v3/paths/work-items-approve-approval-item.yaml"
+  /work-items/{id}/reject/{approvalItemId}:
+    $ref: "./v3/paths/work-items-reject-approval-item.yaml"
+  /work-items/bulk-approve/{id}:
+    $ref: "./v3/paths/work-items-bulk-approve-approval-item.yaml"
+  /work-items/bulk-reject/{id}:
+    $ref: "./v3/paths/work-items-bulk-reject-approval-item.yaml"
+  /work-items/{id}/submit-account-selection:
+    $ref: "./v3/paths/work-items-account-selection.yaml"
+
+security:
+  - oauth2: []
+
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: |
+        OAuth2 Bearer token (JWT). See [IdentityNow REST API Authentication](https://developer.sailpoint.com/idn/api/authentication) for more information.
+        - Directions for generating a [personal access token](https://developer.sailpoint.com/idn/api/authentication#personal-access-tokens)
+        - Directions using [client credentials flow](https://developer.sailpoint.com/idn/api/authentication#client-credentials-grant-flow)
+        - Directions for using [authorization code flow](https://developer.sailpoint.com/idn/api/authentication#authorization-code-grant-flow)
+
+        Which authentication method should I choose?  See our [guide](https://developer.sailpoint.com/idn/api/authentication#which-oauth-20-grant-flow-should-i-use)
+
+        Learn more about how to find your `tokenUrl` and `authorizationUrl` [in our docs](https://developer.sailpoint.com/idn/api/authentication#find-your-tenants-oauth-details)
+      flows:
+        clientCredentials:
+          tokenUrl: https://tenant.api.identitynow.com/oauth/token
+          scopes:
+            "sp:scopes:default": "default scope"
+            "sp:scopes:all": "access to all scopes"
+        authorizationCode:
+          authorizationUrl: https://tenant.identitynow.com/oauth/authorize
+          tokenUrl: https://tenant.api.identitynow.com/oauth/token
+          scopes:
+            "sp:scopes:default": "default scope"
+            "sp:scopes:all": "access to all scopes"
+
+  # TODO: add the Entitlement, AccessProfile and Role models
+  # and the other new models?
+  schemas:
+    AccessRequest:
+      $ref: "./v3/schemas/AccessRequest.yaml"
+    AccessRequestItem:
+      $ref: "./v3/schemas/AccessRequestItem.yaml"
+    AccessProfileDocument:
+      $ref: "./v3/schemas/search/model/access/profile/AccessProfile.yaml"
+    AccessProfileSummary:
+      $ref: "./v3/schemas/search/model/access/AccessProfile.yaml"
+    AccessReviewReassignment:
+      $ref: "./v3/schemas/ReviewReassign.yaml"
+    Account:
+      $ref: "./v3/schemas/Account.yaml"
+    AccountActivity:
+      $ref: "./v3/schemas/AccountActivity.yaml"
+    AccountActivitySearchedItem:
+      $ref: "./v3/schemas/search/model/account/activity/AccountActivity.yaml"
+    AccountAttributes:
+      $ref: "./v3/schemas/AccountAttributes.yaml"
+    AccountDocument:
+      $ref: "./v3/schemas/search/model/account/Account.yaml"
+    AccountsAsyncResult:
+      $ref: "./v3/schemas/AccountsAsyncResult.yaml"
+    AccountToggleRequest:
+      $ref: "./v3/schemas/AccountToggleRequest.yaml"
+    AccountUnlockRequest:
+      $ref: "./v3/schemas/AccountUnlockRequest.yaml"
+    Aggregation:
+      $ref: "./v3/schemas/search/model/aggregation/Aggregation.yaml"
+    ApprovalItems:
+      $ref: "./v3/schemas/ApprovalItemDetails.yaml"
+    Campaign:
+      $ref: "./v3/schemas/CampaignReference.yaml"
+    Certification:
+      $ref: "./v3/schemas/IdentityCertificationDto.yaml"
+    CertificationReference:
+      $ref: "./v3/schemas/CertificationReference.yaml"
+    EntitlementDocument:
+      $ref: "./v3/schemas/search/model/entitlement/Entitlement.yaml"
+    EntitlementSummary:
+      $ref: "./v3/schemas/search/model/access/Entitlement.yaml"
+    Event:
+      $ref: "./v3/schemas/search/model/event/Event.yaml"
+    IdentityDocument:
+      $ref: "./v3/schemas/search/model/identity/Identity.yaml"
+    IdentityProfile:
+      $ref: "./v3/schemas/IdentityProfile.yaml"
+    IdentityReferenceWithNameAndEmail:
+      $ref: "./v3/schemas/IdentityReferenceWithNameAndEmail.yaml"
+    ProvisioningConfig:
+      $ref: "./v3/schemas/ProvisioningConfig.yaml"
+    ProvisioningPolicy:
+      $ref: "./v3/schemas/ProvisioningPolicyDto.yaml"
+    QueuedCheckConfigDetails:
+      $ref: "./v3/schemas/QueuedCheckConfigDetails.yaml"
+    Reassignment:
+      $ref: "./v3/schemas/Reassignment.yaml"
+    ReassignmentReference:
+      $ref: "./v3/schemas/ReassignReference.yaml"
+    RemediationItems:
+      $ref: "./v3/schemas/RemediationItemDetails.yaml"
+    RequestableObject:
+      $ref: "./v3/schemas/RequestableObject.yaml"
+    RequestableObjectType:
+      $ref: "./v3/schemas/RequestableObjectType.yaml"
+    RequestableObjectRequestStatus:
+      $ref: "./v3/schemas/RequestableObjectRequestStatus.yaml"
+    Reviewer:
+      $ref: "./v3/schemas/Reviewer.yaml"
+    RoleDocument:
+      $ref: "./v3/schemas/search/model/role/Role.yaml"
+    RoleSummary:
+      $ref: "./v3/schemas/search/model/access/Role.yaml"
+    SearchDocument:
+      $ref: "./v3/schemas/search/documents/SearchDocument.yaml"
+    SavedSearch:
+      $ref: "./v3/schemas/search/saved/SavedSearch.yaml"
+    Schedule:
+      $ref: "./v3/schemas/schedule/Schedule.yaml"
+    ScheduledSearch:
+      $ref: "./v3/schemas/search/scheduled/ScheduledSearch.yaml"
+    ServiceDeskIntegrationDto:
+      $ref: "./v3/schemas/ServiceDeskIntegrationDto.yaml"
+    ServiceDeskIntegrationTemplateDto:
+      $ref: "./v3/schemas/ServiceDeskIntegrationTemplateDto.yaml"
+    ServiceDeskIntegrationTemplateType:
+      $ref: "./v3/schemas/ServiceDeskIntegrationTemplateType.yaml"
+    Source:
+      $ref: "./v3/schemas/Source.yaml"
+    SourceHealthDto:
+      $ref: "./v3/schemas/SourceHealthDto.yaml"
+    Transform:
+      $ref: "./v3/schemas/Transform.yaml"
+    WorkItems:
+      $ref: "./v3/schemas/WorkItems.yaml"
+    WorkItemsCount:
+      $ref: "./v3/schemas/WorkItemsCount.yaml"
+    WorkItemsSummary:
+      $ref: "./v3/schemas/WorkItemsSummary.yaml"

@@ -1,0 +1,6 @@
+type: array
+items:
+  type: string
+example:
+- 'TAG_1'
+- 'TAG_2'

@@ -1,0 +1,43 @@
+post:
+  operationId: closeAccessRequest
+  tags:
+    - Access Requests
+  summary: Close Access Request
+  description: |
+    This endpoint closes access requests that are stuck in a pending state. It can be used throughout a request's lifecycle (even after the approval state, unlike <a href="https://developer.sailpoint.com/idn/api/v3/cancel-access-request">Cancel Access Request</a>). A token with ORG_ADMIN authority is required.
+    
+    To find pending access requests via the UI, navigate to Search and use this query: status: Pending AND "Access Request". Use the Column Chooser to select "Tracking Number," and the Download button to export a CSV containing the Tracking Numbers.
+    
+    To find pending access requests via the API, use <a href="https://developer.sailpoint.com/idn/api/v3/list-account-activities">List Account Activities</a>.
+    
+    Input the ids from either source
+    
+    To track the status of endpoint requests, navigate to Search and use this query: name:"Close Identity Requests". Search will include "Close Identity Requests Started" audits when requests are initiated, and "Close Identity Requests Completed" audits when requests are completed. The completion audit will list the Identity Request IDs that finished in error.
+    
+    This API triggers the <a href="https://developer.sailpoint.com/idn/docs/event-triggers/triggers/provisioning-action-completed">Provisioning Action Completed</a> event trigger for each access request that is closed.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/CloseAccessRequest.yaml'
+        example:
+          {
+            "accessRequestIds": ["2c90ad2a70ace7d50170acf22ca90010"],
+            "executionStatus":"Terminated",
+            "completionStatus":"Failure",
+            "message": "The IdentityNow Administrator manually closed this request."
+          }
+  responses:
+    '202':
+      $ref: '../responses/202.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

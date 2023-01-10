@@ -1,0 +1,19 @@
+type : object
+properties:
+  access:
+    $ref: './CommonAccessItemAccess.yaml'
+    description: common access item
+  status:
+    type: string
+    description: CONFIRMED or DENIED
+  lastUpdated:
+    type: string
+    readOnly: true
+    format: date-time
+  reviewedByUser:
+    type: boolean
+    description: true if user has confirmed or denied status
+  lastReviewed:
+    type: string
+    readOnly: true
+    format: date-time

@@ -1,0 +1,9 @@
+type : object
+properties:
+  id:
+    type: string
+    description: Id of the potential role
+  name:
+    type: string
+    description: Name of the potential role
+

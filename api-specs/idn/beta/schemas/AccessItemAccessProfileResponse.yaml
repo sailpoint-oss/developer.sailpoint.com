@@ -1,0 +1,38 @@
+type: object
+properties:
+  accessType:
+    type: string
+    example: accessProfile
+    description: the access item type. accessProfile in this case
+  id:
+    type: string
+    example: 2c918087763e69d901763e72e97f006f
+    description: the access item id
+  name:
+    type: string
+    example: sample
+    description: the access profile name
+  sourceName:
+    type: string
+    example: DataScienceDataset
+    description: the name of the source
+  sourceId:
+    type: string
+    example: 2793o32dwd
+    description: the id of the source
+  description:
+    type: string
+    example: AccessProfile - Workday/Citizenship access
+    description: the description for the access profile
+  displayName:
+    type: string
+    example: Dr. Arden Rogahn MD
+    description: the display name of the identity
+  entitlementCount:
+    type: string
+    example: 12
+    description: the number of entitlements the access profile will create  
+  appDisplayName:
+    type: string
+    example: AppName
+    description: the name of app

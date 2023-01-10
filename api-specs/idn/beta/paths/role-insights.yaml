@@ -1,0 +1,44 @@
+get:
+  operationId: getRoleInsights
+  summary: Get role insights
+  tags:
+    - Role Insights
+  description: >-
+    This method returns detailed role insights for each role.
+  parameters:
+    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/count.yaml'
+    - name: sorters
+      in: query
+      description: sort by numberOfUpdates, identitiesWithAccess, totalNumberOfIdentities (default- ascending)
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string
+    - name: filters
+      in: query
+      description: Filter parameter(s) by "starts with" for the name, ownerName and description.
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Succeeded. Returns a list of roles with information about insights for each role.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/RoleInsight.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

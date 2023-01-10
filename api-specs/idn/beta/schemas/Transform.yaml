@@ -1,0 +1,38 @@
+type: object
+description: >-
+    DTO for representing an internally- or customer-defined transform.
+required:
+  - name
+  - type
+  - attributes
+properties:
+  id:
+    type: string
+    readOnly: true
+    description: >-
+      Unique ID of this transform
+    example: 2cd78adghjkja34jh2b1hkjhasuecd
+  name:
+    type: string
+    readOnly: true
+    description: >-
+      Unique name of this transform
+    example: Timestamp To Date
+  type:
+    type: string
+    readOnly: true
+    description: >-
+      The transform type (see [Transformations in IdentityNow Using Seaspray](https://community.sailpoint.com/docs/DOC-4629)).
+    example: concat
+  attributes:
+    type: object
+    description: >-
+      Meta-data about the transform. Values in this list are specific to the type of transform to be executed.
+    additionalProperties: true
+    example: { "inputFormat": "MMM dd yyyy, HH:mm:ss.SSS", "outputFormat": "yyyy/dd/MM" }
+  internal:
+    type: boolean
+    readOnly: true
+    description: >-
+      Indicates whether this is an internal SailPoint-created transform or a customer-created transform
+    example: false

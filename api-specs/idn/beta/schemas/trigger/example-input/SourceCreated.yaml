@@ -1,0 +1,45 @@
+title: Source Created
+type: object
+required:
+- id
+- name
+- type
+- created
+- connector
+- actor
+properties:
+  id:
+    type: string
+    description: The unique ID of the source.
+    example: 2c9180866166b5b0016167c32ef31a66
+  name:
+    type: string
+    description: Human friendly name of the source.
+    example: Test source
+  type:
+    type: string
+    description: The connection type.
+    example: DIRECT_CONNECT
+  created:
+    type: string
+    format: date-time
+    description: The date and time the source was created.
+    example: "2021-03-29T22:01:50.474Z"
+  connector:
+    type: string
+    description: The connector type used to connect to the source.
+    example: active-directory
+  actor:
+    required:
+    - id
+    - name
+    - type
+    allOf:
+    - $ref: '../../../../v3/schemas/BaseReferenceDto.yaml'
+    description: The identity that created the source.
+    properties:
+      type:
+        enum:
+        - "IDENTITY"
+        example: "IDENTITY"
+        description: The type of object that is referenced

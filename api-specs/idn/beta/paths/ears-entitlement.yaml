@@ -1,0 +1,145 @@
+get:
+  operationId: getEntitlement
+  tags:
+    - Entitlements
+  summary: Get an Entitlement
+  description: >-
+    This API returns an Entitlement by its ID.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: Entitlement Id
+      example: 2c91808874ff91550175097daaec161c
+  responses:
+    '200':
+      description: An Entitlement
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Entitlement.yaml'
+          example:
+            {
+              "sourceSchemaObjectType": "group",
+              "attribute": "memberOf",
+              "attributes": {
+                "GroupType": "Security",
+                "sAMAccountName": "LauncherTestGroup1",
+                "GroupScope": "Global",
+                "objectguid": "{01a6e70b-9705-4155-a5c6-492a9bcc8c64}",
+                "objectSid": "S-1-5-21-3585869415-1648031554-2909195034-1633",
+                "cn": "LauncherTestGroup1",
+                "msDS-PrincipalName": "AUTOMATIONAD\\LauncherTestGroup1"
+              },
+              "value": "CN=LauncherTestGroup1,OU=LauncherTestOrg,OU=slpt-automation,DC=TestAutomationAD,DC=local",
+              "description": "some description",
+              "privileged": false,
+              "cloudGoverned": false,
+              "source": {
+                "type": "SOURCE",
+                "id": "2c9180877504c40e0175097d5ce707c8",
+                "name": "EndToEnd-ADSource"
+              },
+              "id": "2c91808c74ff913f0175097daa9d59cd",
+              "name": "LauncherTestGroup1",
+              "created": "2020-10-08T18:33:52.029Z",
+              "modified": "2021-01-19T16:53:35.707Z"
+            }
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+patch:
+  operationId: patchEntitlement
+  tags:
+    - Entitlements
+  summary: Patch a specified Entitlement
+  description: >-
+    This API updates an existing Entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
+
+
+    The following fields are patchable:
+    **requestable**, **privileged**, **segments**
+
+
+    A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
+  parameters:
+    - name: id
+      in: path
+      description: ID of the Entitlement to patch
+      required: true
+      schema:
+        type: string
+        example: 2c91808a7813090a017814121e121518
+  requestBody:
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: '../schemas/JsonPatchOperation.yaml'
+          example: [
+            {
+              "op": "replace",
+              "path": "/requestable",
+              "value": true
+            }
+          ]
+        examples:
+          Make an Entitlement Requestable and Privileged in One Call:
+            description: This example shows how multiple fields may be updated with a single patch call.
+            value:
+              [
+                {
+                  "op": "replace",
+                  "path": "/requestable",
+                  "value": true
+                },
+                {
+                  "op": "replace",
+                  "path": "/privileged",
+                  "value": true
+                }
+              ]
+
+          Assign an Entitlement to a Segment:
+            description: >-
+              This example illustrates the use of patch to assign an Entitlement to a Segment by adding the Segment's ID to the
+              Entitlement's segments array.
+            value:
+              [
+                {
+                  "op": "add",
+                  "path": "/segments/-",
+                  "value": "f7b1b8a3-5fed-4fd4-ad29-82014e137e19"
+                }
+              ]
+  responses:
+    '200':
+      description: Responds with the Entitlement as updated.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Entitlement.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

@@ -1,0 +1,8 @@
+type: object
+properties:
+  previousStatus:
+    type: string
+    description: previoys status of the account (LOCKED, DISABLED or ENABLED)
+  newStatus:
+    type: string
+    description: new status of the account (LOCKED, DISABLED or ENABLED)

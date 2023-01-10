@@ -1,0 +1,8 @@
+type: string
+enum:
+  - EMAIL
+  - SMS
+  - PHONE
+  - SLACK
+  - TEAMS
+

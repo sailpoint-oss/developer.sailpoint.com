@@ -1,0 +1,8 @@
+type: object
+properties:
+  identity:
+    $ref: '../schemas/BaseReferenceDto.yaml'
+  previewAttributes:
+    type: array
+    items:
+      $ref: './IdentityAttributePreview.yaml'

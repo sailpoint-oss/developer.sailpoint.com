@@ -1,0 +1,13 @@
+type: object
+properties:
+  id:
+    type: string
+  email:
+    type: string
+    example: "sender@example.com"
+  verificationStatus:
+    type: string
+    enum:
+      - PENDING
+      - SUCCESS
+      - FAILED

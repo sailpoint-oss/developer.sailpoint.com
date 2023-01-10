@@ -1,0 +1,15 @@
+type: object
+allOf:
+- type: object
+  properties:
+    id:
+      description: |
+        The saved search ID.
+      type: string
+      example: '0de46054-fe90-434a-b84e-c6b3359d0c64'
+    owner:
+      description: |
+          The owner of the saved search.
+      $ref: ../model/base/TypedReference.yaml
+- $ref: 'Name.yaml'
+- $ref: 'Search.yaml'

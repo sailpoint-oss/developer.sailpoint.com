@@ -1,0 +1,36 @@
+get:
+  operationId: summarize
+  tags:
+    - IAI Raw Objects
+  summary: List Objects summarized
+  description: This API returns a list of Objects summarized.
+  parameters:
+    - in: query
+      name: dataSourceId
+      schema:
+        type: string
+      description: Indicates for which dataSourceId to summarize objects
+      example: 28da7f68-e1ed-460e-986d-520d594f174c
+      required: false
+  responses:
+    '200':
+      description: List of object summarize
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../beta/schemas/TypeSummary.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - bearerAuth:
+        - 'iai:objects:read'

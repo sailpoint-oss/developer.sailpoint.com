@@ -1,0 +1,39 @@
+type: object
+properties:
+  name:
+    type: string
+    description: Subscription name.
+    example: "Access request subscription"
+  description:
+    type: string
+    description: Subscription description.
+    example: "Access requested to site xyz"
+  type:
+    $ref: './SubscriptionType.yaml'
+  responseDeadline:
+    type: string
+    description: Deadline for completing REQUEST_RESPONSE trigger invocation, represented in ISO-8601 duration format.
+    example: "PT1H"
+    default: "PT1H"
+  httpConfig:
+    description: Config required if HTTP subscription type is used.
+    $ref: './HttpConfig.yaml'
+  eventBridgeConfig:
+    description: Config required if EVENTBRIDGE subscription type is used. 
+    $ref: './EventBridgeConfig.yaml'
+  enabled:
+    type: boolean
+    description: >-
+      Whether subscription should receive real-time trigger invocations or not.
+
+
+      Test trigger invocations are always enabled regardless of this option.
+    default: true
+    example: true
+  filter:
+    type: string
+    description: JSONPath filter to conditionally invoke trigger when expression evaluates to true.
+    example: '$[?($.identityId == "201327fda1c44704ac01181e963d463c")]'
+    externalDocs:
+      description: JSONPath filter documentation
+      url: https://developer.sailpoint.com/idn/docs/event-triggers/filtering-events

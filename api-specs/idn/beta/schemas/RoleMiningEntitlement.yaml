@@ -1,0 +1,34 @@
+type : object
+properties:
+  entitlementRef:
+    $ref: './RoleMiningEntitlementRef.yaml'
+    description: Details about the entitlement
+  name:
+    type: string
+    description: Name of the entitlement
+  applicationName:
+    type: string
+    description: Application name of the entitlement
+  identityCount:
+    type: integer
+    description: The number of identities with this entitlement in a role.
+    example: 45
+  popularity:
+    type: integer
+    description: The % popularity of this entitlement in a role.
+    example: 65
+  popularityInOrg:
+    type: integer
+    description: TThe % popularity of this entitlement in the org.
+    example: 35
+example:
+  entitlementRef: {
+    id: "2c9180877212632a017228d5a796292b",
+    name: "entitlement.10",
+    description: "Read access"
+  }
+  name: "Administrator"
+  applicationName: "Slack"
+  identityCount: "8"
+  popularity: "65"
+  popularityInOrg: "35"

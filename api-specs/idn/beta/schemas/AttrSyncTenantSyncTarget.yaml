@@ -1,0 +1,14 @@
+
+type: object
+properties:
+  source:
+    $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+    description: Reference to the source which is the target of the attribute synchronization
+    example:
+      - type: 'SOURCE'
+        id: '2c9180835d191a86015d28455b4b232a'
+        name: 'HR Active Directory'
+  attribute:
+    type: string
+    description: Name of the source account attribute to which the identity attribute values should be synchronized
+    example: mail

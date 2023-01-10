@@ -1,0 +1,6 @@
+type: object
+properties:
+  leftCriteria:
+    $ref: './AccessCriteria.yaml'
+  rightCriteria:
+    $ref: './AccessCriteria.yaml'

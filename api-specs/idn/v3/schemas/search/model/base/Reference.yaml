@@ -1,0 +1,8 @@
+type: object
+properties:
+  id:
+    type: string
+    example: '2c91808568c529c60168cca6f90c1313'
+  name:
+    type: string
+    example: 'John Doe'

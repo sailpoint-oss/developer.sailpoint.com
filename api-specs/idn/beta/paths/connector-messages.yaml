@@ -1,0 +1,58 @@
+post:
+  operationId: processConnectorMessage
+  summary: Route a connector message to the requested message handler.
+  description: >-
+    Used by internal services to process connector messages.
+
+    Requires roles of ORG_ADMIN and API
+  # security:
+  #   - oauth2: [ORG_ADMIN,API]
+  tags:
+    - Rosetta message handling
+  parameters:
+    - in: path
+      name: clusterId
+      schema:
+        type: string
+      required: true
+      description: The id of the cluster responsible for processing the message.
+      example: ef38f94347e94562b5bb8424a56397d8
+    - in: path
+      name: messageType
+      schema:
+        type: string
+        enum:
+          - aggregate
+          - check-status
+          - diagnostics
+          - discover-schema
+          - do-health-check
+          - get-object
+          - passthrough-authentication
+          - provision
+          - streaming-aggregation
+          - test-connection
+      required: true
+      description: >-
+        The message type to be invoked. Each message type has its own arguments and responses
+        that are defined in the documentation for each connector type (i.e., Active directory,
+        RACF, SAP, Etc). The connector being used is defined by the source the message is
+        being invoked for defined by the message's applicationId.
+        Note - Additional message types may be added in the future.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/ConnectorMessage.yaml'
+  responses:
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

@@ -1,0 +1,6 @@
+type: string
+enum:
+  - TEXT
+  - DATE
+  - IDENTITY
+description: Enum representing the type of data a schema attribute accepts.

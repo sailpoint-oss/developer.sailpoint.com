@@ -1,0 +1,151 @@
+type : object
+properties:
+  type:
+    type: string
+    description: >-
+      Determines the overall schedule cadence. In general, all time period fields smaller than the chosen type
+      can be configured. For example, a DAILY schedule can have 'hours' set, but not 'days'; a WEEKLY schedule
+      can have both 'hours' and 'days' set.
+    enum:
+      - DAILY
+      - WEEKLY
+      - MONTHLY
+      - ANNUALLY
+      - CALENDAR
+  months:
+    type: object
+    description: |
+      Specifies which months of a schedule are active. Only valid for ANNUALLY schedule types. Examples:
+
+      On February and March:
+      * type LIST
+      * values "2", "3"
+
+      Every 3 months, starting in January (quarterly):
+      * type LIST
+      * values "1"
+      * interval 3
+
+      Every two months between July and December:
+      * type RANGE
+      * values "7", "12"
+      * interval 2
+    properties:
+      type:
+        type: string
+        enum:
+          - LIST
+          - RANGE
+      values:
+        type: array
+        items:
+          type: string
+      interval:
+        type: integer
+    required:
+      - type
+      - values
+  days:
+    type: object
+    description: |
+      Specifies which day(s) a schedule is active for. This is required for all schedule types except DAILY.
+      The "values" field holds different data depending on the type of schedule:
+      * WEEKLY: days of the week (1-7)
+      * MONTHLY: days of the month (1-31, L, L-1...)
+      * ANNUALLY: if the "months" field is also set: days of the month (1-31, L, L-1...); otherwise: ISO-8601 dates without year ("--12-31")
+      * CALENDAR: ISO-8601 dates ("2020-12-31")
+
+      Note that CALENDAR only supports the LIST type, and ANNUALLY does not support the RANGE type when provided
+      with ISO-8601 dates without year.
+
+      Examples:
+
+      On Sundays:
+      * type LIST
+      * values "1"
+
+      The second to last day of the month:
+      * type LIST
+      * values "L-1"
+
+      From the 20th to the last day of the month:
+      * type RANGE
+      * values "20", "L"
+
+      Every March 2nd:
+      * type LIST
+      * values "--03-02"
+
+      On March 2nd, 2021:
+      * type: LIST
+      * values "2021-03-02"
+    properties:
+      type:
+        type: string
+        enum:
+          - LIST
+          - RANGE
+      values:
+        type: array
+        items:
+          type: string
+      interval:
+        type: integer
+    required:
+      - type
+      - values
+  hours:
+    type: object
+    description: |
+      Specifies which hour(s) a schedule is active for. Examples:
+
+      Every three hours starting from 8AM, inclusive:
+      * type LIST
+      * values "8"
+      * interval 3
+
+      During business hours:
+      * type RANGE
+      * values "9", "5"
+
+      At 5AM, noon, and 5PM:
+      * type LIST
+      * values "5", "12", "17"
+    properties:
+      type:
+        type: string
+        enum:
+          - LIST
+          - RANGE
+      values:
+        type: array
+        items:
+          type: string
+      interval:
+        type: integer
+    required:
+      - type
+      - values
+  expiration:
+    type: string
+    format: date-time
+    description: >-
+      Specifies the time after which this schedule will no longer occur.
+  timeZoneId:
+    type: string
+    description: >-
+      The time zone to use when running the schedule. For instance, if the schedule is a DAILY schedule
+      that runs at 1AM, and this field is set to "CST", the schedule will run at 1AM CST.
+required:
+  - type
+  - hours
+example:
+  type: MONTHLY
+  hours:
+    type: LIST
+    values:
+      - "0"
+  days:
+    type: LIST
+    values:
+      - "1"

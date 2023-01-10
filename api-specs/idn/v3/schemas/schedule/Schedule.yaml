@@ -1,0 +1,41 @@
+type: object
+description: |
+  The schedule information.
+properties:
+  type:
+    $ref: 'ScheduleType.yaml'
+  months:
+    $ref: Selector.yaml
+    description: 'The months selected.'
+  days:
+    description: |
+        The days selected.
+    example:
+        type: 'LIST'
+        values:
+        - 'MON'
+        - 'WED'
+        - 'FRI'
+    $ref: Selector.yaml
+  hours:
+    description: |
+        The hours selected.
+    example:
+      type: 'RANGE'
+      values:
+      - '9'
+      - '18'
+      interval: 3
+    $ref: Selector.yaml
+  expiration:
+    description: |
+        The schedule expiration date. Latest possible expiration date is '2038-01-19T03:14:07+0000'
+    $ref: ../search/model/base/DateTime.yaml
+  timeZoneId:
+    description: |
+      The ID of the time zone for the schedule.
+    type: string
+    example: 'GMT-06:00'
+required:
+- type
+- hours

@@ -1,0 +1,20 @@
+type: object
+allOf:
+- $ref: 'Name.yaml'
+- $ref: 'Schedule.yaml'
+- type: object
+  properties:
+    id:
+      description: |
+        The scheduled search ID.
+      type: string
+      example: '0de46054-fe90-434a-b84e-c6b3359d0c64'
+    owner:
+      description: |
+          The owner of the scheduled search.
+      $ref: ../model/base/TypedReference.yaml
+    ownerId:
+      description: The ID of the scheduled search owner
+      type: string
+      example: 2c9180867624cbd7017642d8c8c81f67
+

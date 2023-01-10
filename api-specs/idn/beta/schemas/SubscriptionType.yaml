@@ -1,0 +1,6 @@
+type: string
+description: Subscription type. **NOTE** If type is EVENTBRIDGE, then eventBridgeConfig is required. If type is HTTP, then httpConfig is required.
+enum:
+  - HTTP
+  - EVENTBRIDGE
+example: HTTP

@@ -1,0 +1,34 @@
+description: Definition of a type of task, used to invoke tasks
+required:
+  - arguments
+  - description
+  - executor
+  - id
+  - uniqueName
+  - parentName
+type: object
+properties:
+  id:
+    description: System-generated unique ID of the TaskDefinition
+    type: string
+    example: id12345
+  uniqueName:
+    description: Name of the TaskDefinition
+    type: string
+    example: Big Task
+  description:
+    description: Description of the TaskDefinition
+    type: string
+    example: A Really Big Task
+  parentName:
+    description: Name of the parent of the TaskDefinition
+    type: string
+    example: Parent Task
+  executor:
+    description: Executor of the TaskDefinition
+    type: string
+    example: Big Task
+  arguments:
+    description: Formal parameters of the TaskDefinition, without values
+    type: object
+    additionalProperties: true

@@ -1,0 +1,20 @@
+type: object
+nullable: true
+properties:
+    type:
+        type: string
+        description: The type can only be IDENTITY. This is read-only
+        example: IDENTITY
+    id:
+        type: string
+        description: Identity id.
+        example: 5168015d32f890ca15812c9180835d2e
+    name:
+        type: string
+        description: Human-readable display name of identity. This is read-only
+        example: "Alison Ferguso"
+    email:
+        type: string
+        description: Email address of identity. This is read-only
+        example: "alison.ferguso@identitysoon.com"
+

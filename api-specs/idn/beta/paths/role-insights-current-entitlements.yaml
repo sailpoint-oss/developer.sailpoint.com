@@ -1,0 +1,40 @@
+get:
+  operationId: getRoleInsightsCurrentEntitlements
+  summary: Get current entitlement for a role
+  tags:
+    - Role Insights
+  description: >-
+    This endpoint gets the entitlements for a role. The term "current" is to distinguish from the entitlement(s) an insight might recommend adding.
+  parameters:
+    - in: path
+      name: insightId
+      schema:
+        type: string
+      required: true
+      description: The role insight id
+      example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
+    - in: query
+      name: filters
+      description: Filter parameter(s) by "starts with" for the name and description.
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Succeeded. Returns a list of current or pre-existing entitlements for a role.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/RoleInsightsEntitlement.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

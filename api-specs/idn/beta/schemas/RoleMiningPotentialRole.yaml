@@ -1,0 +1,44 @@
+type: object
+properties:
+  createDate:
+    description: The creation date for a potential role
+    type: array
+    items:
+      type: string
+  entitlementCount:
+    type: integer
+    description: The number of entitlements in a potential role.
+    example: 25
+  excludedEntitlements:
+    description: The list of entitlement ids to be excluded.
+    type: array
+    items:
+      type: string
+  id:
+    type: string
+    description: Id of the potential role
+  identityCount:
+    type: integer
+    description: The number of identities in a potential role.
+    example: 25
+  identityDistribution:
+    description: Identity attribute distribution
+    type: array
+    items:
+      $ref: './RoleMiningIdentityDistribution.yaml'
+  identityIds:
+    description: The list of ids in a potential role.
+    type: array
+    items:
+      type: string
+  modifiedDate:
+    description: The modified date for a potential role
+    type: array
+    items:
+      type: string
+  name:
+    type: string
+    description: Name of the potential role
+  type:
+    $ref: './iai/RoleMiningRoleType.yaml'
+    description: Role mining potential type

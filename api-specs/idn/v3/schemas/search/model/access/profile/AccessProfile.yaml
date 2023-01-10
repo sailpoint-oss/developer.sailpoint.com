@@ -1,0 +1,18 @@
+description: >- 
+  This is more of a complete representation of an access profile.  
+allOf:
+- $ref: '../../base/BaseDocument.yaml'
+- $ref: '../BaseAccess.yaml'
+- type: object
+  properties:
+    source:
+      $ref: '../../base/Reference.yaml'
+    entitlements:
+      type: array
+      items:
+        $ref: '../../entitlement/BaseEntitlement.yaml'
+    entitlementCount:
+      type: integer
+      example: 5
+    tags:
+      $ref: '../../base/Tags.yaml'

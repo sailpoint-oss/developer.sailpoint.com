@@ -1,46 +1,80 @@
 .faq {
-    margin: 20px
+  margin: 20px;
 }
 
 .gettingStartedText {
-    text-align: center;
-    margin: 50px auto 50px auto;
-    width: calc(100% - 100px);
-    max-width: 600px;
-  
-  }
-
-  .gettingStartedCardIcon {
-    margin-bottom: 20px;
-    width: 50px;
-    height: 50px;
-  }
-
-  .gettingStartedOne {
-    color: var(--ifm-color-primary);
-    font-size: 30px;
-    font-weight: bold;
-    line-height: 100%;
-  }
-
-  .gettingStartedThree {
-    margin-top: 20px;
-    font-size: 16px;
-    font-weight: 500;
-  }
-
-  .speakerContent{
-    height: calc(100vh - 530px);
-
-    overflow-y: auto;
+  text-align: center;
+  margin: 50px auto 50px auto;
+  width: calc(100% - 100px);
+  max-width: 600px;
 }
-  
-  .speakerTitle {
-    margin-left: 20px;
-    margin-bottom: 5px;
-    
-  }
 
-  .speakerName {
-    font-weight: bold
-  }
+.gettingStartedCardIcon {
+  margin-bottom: 20px;
+  width: 50px;
+  height: 50px;
+}
+
+.gettingStartedOne {
+  color: var(--ifm-color-primary);
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 100%;
+}
+
+.gettingStartedThree {
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.speakerContent {
+  height: calc(100vh - 530px);
+
+  overflow-y: auto;
+}
+
+.speakerTitle {
+  margin-left: 20px;
+  margin-bottom: 5px;
+}
+
+.speakerName {
+  font-weight: bold;
+}
+
+.modal {
+  position: absolute;
+  margin-top: 10px;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  background-color: var(--dev-card-background);
+  max-height: 100%;
+}
+
+.modalButton {
+  border: 1px solid var(--ifm-color-primary);
+  box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.12);
+  border-radius: 24px;
+  color: var(--ifm-color-primary);
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  width: 120px;
+
+  background-color: #ffffff31;
+}
+
+.modalButton:hover {
+  cursor: pointer;
+  top: -4px;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.4);
+  background-color: #dae1e9;
+  color: #005fc4;
+}

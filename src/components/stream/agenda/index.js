@@ -1,15 +1,15 @@
-import React from "react";
-import clsx from "clsx";
-import styles from "./styles.module.css";
-import Link from "@docusaurus/Link";
-import useBaseUrl from "@docusaurus/useBaseUrl";
-import Modal from "react-modal";
-import { addDarkToFileName } from "../../../util/util";
-import ThemedImage from "@theme/ThemedImage";
-import { getAgenda } from "../../../services/StreamService";
-export default function Agenda({ title, image, description, speakers }) {
+import React from 'react';
+import clsx from 'clsx';
+import styles from './styles.module.css';
+import Link from '@docusaurus/Link';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import Modal from 'react-modal';
+import {addDarkToFileName} from '../../../util/util';
+import ThemedImage from '@theme/ThemedImage';
+import {getAgenda} from '../../../services/StreamService';
+export default function Agenda({title, image, description, speakers}) {
   const [agendaModalIsOpen, setAgendaIsOpen] = React.useState(false);
-  const [agenda, setAgenda] = React.useState({ day1: [], day2: [] });
+  const [agenda, setAgenda] = React.useState({day1: [], day2: []});
 
   function openAgendaModal() {
     setAgendaIsOpen(true);
@@ -31,36 +31,33 @@ export default function Agenda({ title, image, description, speakers }) {
   let day1 = agenda?.day1?.map((item, index) => {
     return (
       <div
-        className={`${styles.dayContent} hover:-translate-y-1 hover:!shadow-2xl grow flex flex-row justify-start gap-2 overflow-hidden h-[139px]`}
-      >
+        className={`${styles.dayContent} hover:-translate-y-1 hover:!shadow-2xl grow flex flex-row justify-start gap-2 overflow-hidden h-[139px]`}>
         <div className="flex flex-col justify-center">
           <p className="font-bold text-xl">
             {new Date(item?.startTime).toLocaleTimeString([], {
-              hour: "2-digit",
-              minute: "2-digit",
+              hour: '2-digit',
+              minute: '2-digit',
             })}
           </p>
         </div>
         <div className="grow border-l-4">
           <div
             className={`${styles.agendaAnswer} flex flex-row gap-2`}
-            key={`${index}-answer`}
-          >
+            key={`${index}-answer`}>
             <p className="text-lg font-medium">{item?.topic}</p>
           </div>
 
-          <li className="" key={`${index}-question`}>
+          <div className="" key={`${index}-question`}>
             <div className="flex flex-row pl-8 pr-16 gap-4 justify-between">
               {item.speakers.map((speakerId, index) => {
                 const speaker = speakers.filter(
-                  (obj) => obj.id === speakerId
+                  (obj) => obj.id === speakerId,
                 )[0];
 
                 return (
                   <div
                     className="flex flex-row gap-2"
-                    key={`${item?.topic}-speaker-${index}`}
-                  >
+                    key={`${item?.topic}-speaker-${index}`}>
                     <img
                       className="w-16 h-16 rounded-full"
                       src={speaker?.image}
@@ -73,7 +70,7 @@ export default function Agenda({ title, image, description, speakers }) {
                 );
               })}
             </div>
-          </li>
+          </div>
         </div>
       </div>
     );
@@ -81,21 +78,19 @@ export default function Agenda({ title, image, description, speakers }) {
   let day2 = agenda?.day2?.map((item, index) => {
     return (
       <div
-        className={`${styles.dayContent} hover:-translate-y-1 hover:!shadow-2xl grow flex flex-row justify-start gap-2 overflow-hidden h-[139px]`}
-      >
+        className={`${styles.dayContent} hover:-translate-y-1 hover:!shadow-2xl grow flex flex-row justify-start gap-2 overflow-hidden h-[139px]`}>
         <div className="flex flex-col justify-center">
           <p className="font-bold text-xl">
             {new Date(item?.startTime).toLocaleTimeString([], {
-              hour: "2-digit",
-              minute: "2-digit",
+              hour: '2-digit',
+              minute: '2-digit',
             })}
           </p>
         </div>
         <div className="grow border-l-4">
           <div
             className={`${styles.agendaAnswer} flex flex-row gap-2`}
-            key={`${index}-answer`}
-          >
+            key={`${index}-answer`}>
             <p className="text-lg font-medium">{item?.topic}</p>
           </div>
 
@@ -103,14 +98,13 @@ export default function Agenda({ title, image, description, speakers }) {
             <div className="flex flex-row pl-8 pr-16 gap-4 justify-between">
               {item.speakers.map((speakerId, index) => {
                 const speaker = speakers.filter(
-                  (obj) => obj.id === speakerId
+                  (obj) => obj.id === speakerId,
                 )[0];
 
                 return (
                   <div
                     className="flex flex-row gap-2"
-                    key={`${item?.topic}-speaker-${index}`}
-                  >
+                    key={`${item?.topic}-speaker-${index}`}>
                     <img
                       className="w-16 h-16 rounded-full"
                       src={speaker?.image}
@@ -131,21 +125,19 @@ export default function Agenda({ title, image, description, speakers }) {
   let day3 = agenda?.day3?.map((item, index) => {
     return (
       <div
-        className={`${styles.dayContent} hover:-translate-y-1 hover:!shadow-2xl grow flex flex-row justify-start gap-2 overflow-hidden h-[139px]`}
-      >
+        className={`${styles.dayContent} hover:-translate-y-1 hover:!shadow-2xl grow flex flex-row justify-start gap-2 overflow-hidden h-[139px]`}>
         <div className="flex flex-col justify-center">
           <p className="font-bold text-xl">
             {new Date(item?.startTime).toLocaleTimeString([], {
-              hour: "2-digit",
-              minute: "2-digit",
+              hour: '2-digit',
+              minute: '2-digit',
             })}
           </p>
         </div>
         <div className="grow border-l-4">
           <div
             className={`${styles.agendaAnswer} flex flex-row gap-2`}
-            key={`${index}-answer`}
-          >
+            key={`${index}-answer`}>
             <p className="text-lg font-medium">{item?.topic}</p>
           </div>
 
@@ -153,14 +145,13 @@ export default function Agenda({ title, image, description, speakers }) {
             <div className="flex flex-row pl-8 pr-16 gap-4 justify-between">
               {item.speakers.map((speakerId, index) => {
                 const speaker = speakers.filter(
-                  (obj) => obj.id === speakerId
+                  (obj) => obj.id === speakerId,
                 )[0];
 
                 return (
                   <div
                     className="flex flex-row gap-2"
-                    key={`${item?.topic}-speaker-${index}`}
-                  >
+                    key={`${item?.topic}-speaker-${index}`}>
                     <img
                       className="w-16 h-16 rounded-full"
                       src={speaker?.image}
@@ -183,16 +174,14 @@ export default function Agenda({ title, image, description, speakers }) {
     <div>
       <button
         className="cursor-pointer border-[color:var(--ifm-color-primary)] md:grow border-2 hover:bg-[color:var(--ifm-color-primary)] hover:text-white text-[color:var(--ifm-color-primary)] text-center font-bold py-2 px-4 rounded"
-        onClick={openAgendaModal}
-      >
+        onClick={openAgendaModal}>
         Agenda
       </button>
       <Modal
         isOpen={agendaModalIsOpen}
         onRequestClose={closeAgendaModal}
         className={styles.modal}
-        contentLabel="Agenda"
-      >
+        contentLabel="Agenda">
         <div className="">
           <div className={styles.gettingStartedText}>
             <ThemedImage
@@ -200,13 +189,11 @@ export default function Agenda({ title, image, description, speakers }) {
               sources={{
                 light: useBaseUrl(image),
                 dark: useBaseUrl(addDarkToFileName(image)),
-              }}
-            ></ThemedImage>
+              }}></ThemedImage>
             <div className={styles.gettingStartedOne}>{title}</div>
             <div
               className={styles.gettingStartedThree}
-              dangerouslySetInnerHTML={{ __html: description }}
-            ></div>
+              dangerouslySetInnerHTML={{__html: description}}></div>
           </div>
           <div className="md:h-[50vh] w-full h-[40vh] overflow-auto p-4 gap-2 flex flex-col">
             <div className="border-b-4 pb-4">

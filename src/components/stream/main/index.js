@@ -1,7 +1,6 @@
 import React, {useRef} from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
-// import './styles.css';
 import Link from '@docusaurus/Link';
 import WidgetBot from '@widgetbot/react-embed';
 import Modal from 'react-modal';
@@ -196,13 +195,15 @@ export default function Main() {
         <button
           className={`${styles.stageButton} ${idnSelectedClass} px-4 min-w-[140px]`}
           onClick={changeToIDNStage}>
-          <p className="text-lg whitespace-nowrap">IdentityNow</p>
+          <p className="text-lg whitespace-nowrap my-0">IdentityNow</p>
         </button>
 
         <button
           className={`${styles.stageButton} ${iiqSelectedClass} px-4 min-w-[140px]`}
           onClick={changeToIIQStage}>
-          <p className="text-lg text-center whitespace-nowrap">IdentityIQ</p>
+          <p className="text-lg text-center whitespace-nowrap my-0">
+            IdentityIQ
+          </p>
         </button>
       </div>
 

@@ -11,6 +11,69 @@
 @tailwind components;
 @tailwind utilities;
 
+p {
+  @apply my-4;
+}
+
+blockquote,
+figure {
+  @apply my-4 mx-10;
+}
+
+hr {
+  @apply border;
+}
+
+h1 {
+  @apply text-4xl font-bold my-2;
+}
+
+h2 {
+  @apply text-2xl font-bold my-3;
+}
+
+h3 {
+  @apply text-lg font-bold my-4;
+}
+
+h4 {
+  @apply text-base font-bold my-5;
+}
+
+h5 {
+  @apply text-sm font-bold my-6;
+}
+
+h6 {
+  @apply text-xs font-bold my-10;
+}
+
+ul,
+menu {
+  @apply list-disc my-1 pl-10;
+}
+
+ol {
+  @apply list-decimal my-4 pl-10;
+}
+
+ul,
+ol,
+menu,
+dl {
+  margin: 0;
+}
+
+a.breadcrumbs__link {
+  padding: 0 !important;
+  margin: auto;
+}
+
+span.breadcrumbs__link {
+  padding: 10px !important;
+  margin: auto;
+}
+
 @import url('https://p.typekit.net/p.css?s=1&k=hbq4agn&ht=tk&f=30490.30491.30492.30493.30494.30495.30496.30497.30498.30499.30500.30501.30502.30503&a=87767056&app=typekit&e=css');
 
 @font-face {
@@ -421,149 +484,5 @@ html[data-theme='dark'] .theme-admonition-note {
   background-color: #474748;
 }
 
-.unreset {
-  a {
-    @apply text-blue-700 underline;
-  }
-  p {
-    @apply my-4;
-  }
-
-  blockquote,
-  figure {
-    @apply my-4 mx-10;
-  }
-
-  hr {
-    @apply border;
-  }
-
-  h1 {
-    @apply text-4xl font-bold my-2;
-  }
-
-  h2 {
-    @apply text-2xl font-bold my-3;
-  }
-
-  h3 {
-    @apply text-lg font-bold my-4;
-  }
-
-  h4 {
-    @apply text-base font-bold my-5;
-  }
-
-  h5 {
-    @apply text-sm font-bold my-6;
-  }
-
-  h6 {
-    @apply text-xs font-bold my-10;
-  }
-
-  article,
-  aside,
-  nav,
-  section {
-    h1 {
-      @apply text-2xl font-bold my-3;
-    }
-
-    article,
-    aside,
-    nav,
-    section {
-      h1 {
-        @apply text-lg font-bold my-4;
-      }
-
-      article,
-      aside,
-      nav,
-      section {
-        h1 {
-          @apply text-base font-bold my-5;
-        }
-
-        article,
-        aside,
-        nav,
-        section {
-          h1 {
-            @apply text-sm font-bold my-6;
-          }
-
-          article,
-          aside,
-          nav,
-          section {
-            h1 {
-              @apply text-xs font-bold my-10;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  ul,
-  menu {
-    @apply list-disc my-1 pl-10;
-  }
-
-  ol {
-    @apply list-decimal my-4 pl-10;
-  }
-
-  ul,
-  ol {
-    ul {
-      list-style-type: circle;
-    }
-
-    ul,
-    ol {
-      ul {
-        list-style-type: square;
-      }
-    }
-  }
-
-  dd {
-    @apply pl-10;
-  }
-
-  dl {
-    @apply my-4;
-  }
-
-  ul,
-  ol,
-  menu,
-  dl {
-    ul,
-    ol,
-    menu,
-    dl {
-      margin: 0;
-    }
-  }
-
-  legend {
-    @apply py-0 px-1;
-  }
-
-  fieldset {
-    @apply my-0 mx-1 pt-0 px-1 pb-2;
-  }
-
-  b,
-  strong {
-    font-weight: bold;
-  }
-
-  pre {
-    @apply my-4;
-  }
+ul {
 }

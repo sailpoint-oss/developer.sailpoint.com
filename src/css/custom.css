@@ -249,11 +249,11 @@
   --ifm-medium-logo: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 1770 1000"><circle cx="500" cy="500" r="500"/><ellipse ry="475" rx="250" cy="501" cx="1296"/><ellipse cx="1682" cy="502" rx="88" ry="424"/></svg>');
   --dev-sailpoint-small-logo: url('../../static/img/SailPoint-Logo-RGB-Color.png');
 
-  --ifm-font-family-base: "Poppins";
+  --ifm-font-family-base: 'Poppins';
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme="dark"] {
+[data-theme='dark'] {
   color: #ffffff;
   --ifm-color-primary: #7ecfee;
   --ifm-color-primary-dark: #5ec3ea;
@@ -419,4 +419,151 @@ html[data-theme='dark'] .footer {
 
 html[data-theme='dark'] .theme-admonition-note {
   background-color: #474748;
+}
+
+.unreset {
+  a {
+    @apply text-blue-700 underline;
+  }
+  p {
+    @apply my-4;
+  }
+
+  blockquote,
+  figure {
+    @apply my-4 mx-10;
+  }
+
+  hr {
+    @apply border;
+  }
+
+  h1 {
+    @apply text-4xl font-bold my-2;
+  }
+
+  h2 {
+    @apply text-2xl font-bold my-3;
+  }
+
+  h3 {
+    @apply text-lg font-bold my-4;
+  }
+
+  h4 {
+    @apply text-base font-bold my-5;
+  }
+
+  h5 {
+    @apply text-sm font-bold my-6;
+  }
+
+  h6 {
+    @apply text-xs font-bold my-10;
+  }
+
+  article,
+  aside,
+  nav,
+  section {
+    h1 {
+      @apply text-2xl font-bold my-3;
+    }
+
+    article,
+    aside,
+    nav,
+    section {
+      h1 {
+        @apply text-lg font-bold my-4;
+      }
+
+      article,
+      aside,
+      nav,
+      section {
+        h1 {
+          @apply text-base font-bold my-5;
+        }
+
+        article,
+        aside,
+        nav,
+        section {
+          h1 {
+            @apply text-sm font-bold my-6;
+          }
+
+          article,
+          aside,
+          nav,
+          section {
+            h1 {
+              @apply text-xs font-bold my-10;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  ul,
+  menu {
+    @apply list-disc my-1 pl-10;
+  }
+
+  ol {
+    @apply list-decimal my-4 pl-10;
+  }
+
+  ul,
+  ol {
+    ul {
+      list-style-type: circle;
+    }
+
+    ul,
+    ol {
+      ul {
+        list-style-type: square;
+      }
+    }
+  }
+
+  dd {
+    @apply pl-10;
+  }
+
+  dl {
+    @apply my-4;
+  }
+
+  ul,
+  ol,
+  menu,
+  dl {
+    ul,
+    ol,
+    menu,
+    dl {
+      margin: 0;
+    }
+  }
+
+  legend {
+    @apply py-0 px-1;
+  }
+
+  fieldset {
+    @apply my-0 mx-1 pt-0 px-1 pb-2;
+  }
+
+  b,
+  strong {
+    font-weight: bold;
+  }
+
+  pre {
+    @apply my-4;
+  }
 }

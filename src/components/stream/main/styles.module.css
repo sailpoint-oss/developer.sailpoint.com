@@ -79,13 +79,6 @@
   letter-spacing: 2px;
 }
 
-.speakerText {
-  color: var(--dev-text-color-cobalt);
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 2px;
-}
-
 /* agenda speakers and faq buttons */
 
 .button {

@@ -30,10 +30,10 @@ export default function FAQ({ title, image, description }) {
   let itemsList = faqs.map((item, index) => {
     return (
       <div>
-        <li className={styles.faqQuestion} key={index}>
+        <li className={styles.faqQuestion} key={`${index}-question`}>
           {item?.question}
         </li>
-        <div className="px-8 pb-4" key={index}>
+        <div className="px-8 pb-4" key={`${index}-answer`}>
           {item?.answer}
         </div>
       </div>

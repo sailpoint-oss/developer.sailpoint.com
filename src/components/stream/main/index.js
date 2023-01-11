@@ -12,6 +12,7 @@ import Survey from "../survey";
 import { useState, useEffect } from "react";
 import io from "socket.io-client";
 import { SliderButton } from "@typeform/embed-react";
+import { getSpeaker } from "../../../services/StreamService";
 
 const socket = io("https://developer-community-backend.herokuapp.com");
 
@@ -56,6 +57,19 @@ export default function Main() {
     stage: "IDN",
   });
 
+  const [speakers, setSpeakers] = React.useState([]);
+
+  const getSpeakers = async () => {
+    const data = await getSpeaker();
+    console.log("Speaker Data");
+    console.log(data);
+    setSpeakers(data);
+  };
+
+  React.useEffect(() => {
+    getSpeakers();
+  }, []);
+
   //setting socket here
   useEffect(() => {
     console.log("Creating effect");
@@ -95,6 +109,12 @@ export default function Main() {
 
   Modal.setAppElement("#__docusaurus");
 
+  const eventSpeakers = streamData?.stages[stage.stage]?.speakers?.map(
+    (speakerId, index) => {
+      return speakers.filter((obj) => obj.id === speakerId)[0];
+    }
+  );
+
   const mainSelectedClass =
     stage.stage === "main" ? styles.stageButtonActive : "";
   const iiqSelectedClass =
@@ -105,15 +125,10 @@ export default function Main() {
     <div>
       <div className="px-2 md:px-4 py-6 my-2 flex flex-col md:flex-row justify-between gap-4">
         <div className="">
-          <div className="flex flex-row">
-            <img
-              src={streamData?.stages[stage.stage]?.speakerDetails?.image}
-              className="rounded-full w-12 h-12"
-            ></img>
-            <div className={`${styles.headerText} my-auto pl-4`}>
-              {streamData?.stages[stage.stage]?.topic}
-            </div>
+          <div className={`${styles.headerText} my-auto`}>
+            {streamData?.stages[stage.stage]?.topic}
           </div>
+
           <div className={styles.timeText}>
             {new Date(
               streamData?.stages[stage.stage]?.startTime
@@ -123,11 +138,24 @@ export default function Main() {
                 streamData?.stages[stage.stage]?.endTime
               ).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
           </div>
-          <div className={styles.speakerText}>
-            {streamData?.stages[stage.stage]?.speaker}
-          </div>
-          <div className={styles.speakerText}>
-            {streamData?.stages[stage.stage]?.speakerDetails?.title}
+          <div className="flex flex-row flex-wrap gap-8">
+            {eventSpeakers?.map((spkr) => {
+              return (
+                <div className="flex flex-row gap-2">
+                  <img src={spkr?.image} className="rounded-full w-12 h-12" />
+                  <div className="flex flex-col justify-center">
+                    <div className={`${styles.speakerText} font-bold text-lg`}>
+                      {spkr?.name}
+                    </div>
+                    <div
+                      className={`${styles.speakerText} font-semibold text-base whitespace-nowrap`}
+                    >
+                      {spkr?.title}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
         <div>
@@ -138,6 +166,7 @@ export default function Main() {
               }
               title={"Agenda"}
               image={"/homepage/team.png"}
+              speakers={speakers}
             ></Agenda>
 
             <FAQ
@@ -154,6 +183,7 @@ export default function Main() {
               }
               title={"Speakers"}
               image={"/homepage/person-head.png"}
+              speakers={speakers}
             ></Speakers>
 
             <Survey

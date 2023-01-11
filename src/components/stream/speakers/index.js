@@ -6,10 +6,8 @@ import useBaseUrl from "@docusaurus/useBaseUrl";
 import Modal from "react-modal";
 import { addDarkToFileName } from "../../../util/util";
 import ThemedImage from "@theme/ThemedImage";
-import { getSpeaker } from "../../../services/StreamService";
-export default function Speakers({ title, image, description }) {
+export default function Speakers({ title, image, description, speakers }) {
   const [speakersModalIsOpen, setSpeakerIsOpen] = React.useState(false);
-  const [speakers, setSpeakers] = React.useState([]);
 
   function openSpeakersModal() {
     setSpeakerIsOpen(true);
@@ -18,15 +16,6 @@ export default function Speakers({ title, image, description }) {
   function closeSpeakersModal() {
     setSpeakerIsOpen(false);
   }
-
-  const getSpeakers = async () => {
-    const data = await getSpeaker();
-    console.log(data);
-    setSpeakers(data);
-  };
-  React.useEffect(() => {
-    getSpeakers();
-  }, []);
 
   let itemsList = speakers.map((item, index) => {
     return (
@@ -89,9 +78,11 @@ export default function Speakers({ title, image, description }) {
             {itemsList}
           </ul>
         </div>
-        <button className={styles.modalButton} onClick={closeSpeakersModal}>
-          Close
-        </button>
+        <div className="flex flex-row justify-end">
+          <button className={styles.modalButton} onClick={closeSpeakersModal}>
+            Close
+          </button>
+        </div>
       </Modal>
     </div>
   );

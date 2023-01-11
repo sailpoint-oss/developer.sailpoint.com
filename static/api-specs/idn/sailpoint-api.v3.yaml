@@ -320,8 +320,71 @@ tags:
       With this functionality in place, administrators can determine which access items can be requested with the [Access Request APIs](https://developer.sailpoint.com/idn/api/v3/access-requests), along with their statuses. 
       This can be helpful for administrators who are implementing and customizing access request functionality as a way of checking which items are requestable as they are created, assigned, and made available.
   - name: Saved Search
+    description: |
+      Use this API to implement saved search functionality. 
+      With saved search functionality in place, users can save search queries and then view those saved searches, as well as rerun them. 
+
+      Search queries in IdentityNow can grow very long and specific, which can make reconstructing them difficult or tedious, so it can be especially helpful to save search queries. 
+      It also opens the possibility to configure IdentityNow to run the saved queries on a schedule, which is essential to detecting user information and access changes throughout an organization's tenant and across all its sources. 
+      Refer to [Scheduled Search](https://developer.sailpoint.com/idn/api/v3/scheduled-search) for more information about running saved searches on a schedule. 
+      
+      In IdentityNow, users can save searches under a name, and then they can access that saved search and run it again when they want. 
+
+      Refer to [Managing Saved Searches](https://documentation.sailpoint.com/saas/help/search/saved-searches.html) for more information about saving searches and using them. 
   - name: Scheduled Search
+    description: |
+      Use this API to implement scheduled search functionality. 
+      With scheduled search functionality in place, users can run saved search queries on their tenants on a schedule, and IdentityNow emails them the search results. 
+      Users can also share these search results with other users by email by adding those users as subscribers, or those users can subscribe themselves. 
+
+      One of the greatest benefits of saving searches is the ability to run those searches on a schedule. 
+      This is essential for organizations to constantly detect any changes to user information or access throughout their tenants and across all their sources. 
+      For example, the manager Amanda Ross can schedule a saved search "manager.name:amanda.ross AND attributes.location:austin" on a schedule to regularly stay aware of changes with the Austin employees reporting to her.
+      IdentityNow emails her the search results when the search runs, so she can work on other tasks instead of actively running this search.
+      
+      In IdentityNow, scheduling a search involves a subscription. 
+      Users can create a subscription for a saved search and schedule it to run daily, weekly, or monthly (you can only use one schedule option at a time). 
+      The user can add other identities as subscribers so when the scheduled search runs, the subscribers and the user all receive emails. 
+      
+      By default, subscriptions exclude detailed results from the emails, for security purposes. 
+      Including detailed results about user access in an email may expose sensitive information.
+      However, the subscription creator can choose to include the information in the emails.  
+
+      By default, IdentityNow sends emails to the subscribers even when the searches do not return new results. 
+      However, the subscription creator can choose to suppress these empty emails. 
+
+      Users can also subscribe to saved searches that already have existing subscriptions so they receive emails when the searches run. 
+      A saved search can have up to 10 subscriptions configured at a time. 
+
+      The subscription creator can enable, disable, or delete the subscription. 
+
+      Refer to [Subscribing to Saved Searches](https://documentation.sailpoint.com/saas/help/search/saved-searches.html#subscribing-to-saved-searches) for more information about scheduling searches and subscribing to them.
   - name: Search
+    description: |
+      Use this API to implement search functionality. 
+      With search functionality in place, users can search their tenants for nearly any information from throughout their organizations. 
+
+      IdentityNow enables organizations to store user data from across all their connected sources and manage the users' access, so the ability to query and filter that data is essential.  
+      Its search goes through all those sources and finds the results quickly and specifically. 
+
+      The search query is flexible - it can be very broad or very narrow. 
+      The search only returns results for searchable objects it is filtering for. 
+      The following objects are searchable: identities, roles, access profiles, entitlements, events, and account activities. 
+      By default, no filter is applied, so a search for "Ad" returns both the identity "Adam.Archer" as well as the role "Administrator."
+
+      Users can further narrow their results by using IdentityNow's specific syntax and punctuation to structure their queries. 
+      For example, the query "attributes.location:austin AND NOT manager.name:amanda.ross" returns all results associated with the Austin location, but it excludes those associated with the manager Amanda Ross.
+      Refer to [Building a Search Query](https://documentation.sailpoint.com/saas/help/search/building-query.html) for more information about how to construct specific search queries. 
+
+      Refer to [Using Search](https://documentation.sailpoint.com/saas/help/search/index.html) for more information about IdentityNow's search and its different possibilities. 
+
+      The search feature uses Elasticsearch as a datastore and query engine. 
+      The power of Elasticsearch makes this feature suitable for ad-hoc reporting.
+      However, data from the operational databases (ex. identities, roles, events, etc) has to be ingested into Elasticsearch. 
+      This ingestion process introduces a latency from when the operational data is created to when it is available in search. 
+      Depending on the system load, this can take a few seconds to a few minutes. 
+      Please keep this latency in mind when you use search. 
+
   - name: Service Desk Integration
     description: |
       Use this API to build an integration between IdentityNow and a service desk ITSM (IT service management) solution. 
@@ -349,6 +412,64 @@ tags:
 
       - [Zendesk Service Desk](https://documentation.sailpoint.com/connectors/zendesk/help/integrating_zendesk_sd/introduction.html)  
   - name: Sources
+    description: |
+      Use this API to implement and customize source functionality. 
+      With source functionality in place, organizations can use IdentityNow to connect their various sources and user data sets and manage access across all those different sources in a secure, scalable way. 
+
+      [Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html) refer to the IdentityNow representations for external applications, databases, and directory management systems that maintain their own sets of users, like Dropbox, GitHub, and Workday, for example.
+      Organizations may use hundreds, if not thousands, of different source systems, and any one employee within an organization likely has a different user record on each source, often with different permissions on many of those records. 
+      Connecting these sources to IdentityNow makes it possible to manage user access across them all.
+      Then, if a new hire starts at an organization, IdentityNow can grant the new hire access to all the sources they need.
+      If an employee moves to a new department and needs access to new sources but no longer needs access to others, IdentityNow can grant the necessary access and revoke the unnecessary access for all the employee's various sources. 
+      If an employee leaves the company, IdentityNow can revoke access to all the employee's various source accounts immediately. 
+      These are just a few examples of the many ways that source functionality makes identity governance easier, more efficient, and more secure. 
+
+      In IdentityNow, administrators can create configure, manage, and edit sources, and they can designate other users as source admins to be able to do so.
+      They can also designate users as source sub-admins, who can perform the same source actions but only on sources associated with their governance groups.
+      Admins go to Connections > Sources to see a list of the existing source representations in their organizations. 
+      They can create new sources or select existing ones. 
+
+      To create a new source, the following must be specified: Source Name, Description, Source Owner, and Connection Type.
+      Refer to [Configuring a Source](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html#configuring-a-source) for more information about the source configuration process. 
+      
+      IdentityNow connects with its sources either by a direct communication with the source server (connection information specific to the source must be provided) or a flat file feed, a CSV file containing all the relevant information about the accounts to be loaded in.
+      Different sources use different connectors to share data with IdentityNow, and each connector's setup process is specific to that connector. 
+      SailPoint has built a number of connectors to come out of the box and connect to the most common sources, and SailPoint actively maintains these connectors.
+      Refer to [IdentityNow Connectors](https://documentation.sailpoint.com/connectors/identitynow/landingpages/help/landingpages/identitynow_connectivity_landing.html) for more information about these SailPoint supported connectors. 
+      Refer to the following links for more information about two useful connectors: 
+
+      - [JDBC Connector](https://documentation.sailpoint.com/connectors/jdbc/help/integrating_jdbc/introduction.html): This customizable connector an directly connect to databases that support JDBC (Java Database Connectivity).
+
+      - [Web Services Connector](https://documentation.sailpoint.com/connectors/webservices/help/integrating_webservices/introduction.html): This connector can directly connect to databases that support Web Services. 
+
+      Refer to [SaaS Connectivity](https://developer.sailpoint.com/idn/docs/saas-connectivity) for more information about SailPoint's new connectivity framework that makes it easy to build and manage custom connectors to SaaS sources. 
+
+      When admins select existing sources, they can view the following information about the source:
+
+      - Associated connections (any associated identity profiles, apps, or references to the source in a transform).
+
+      - Associated user accounts. These accounts are linked to their identities - this provides a more complete picture of each user's access across sources.
+
+      - Associated entitlements (sets of access rights on sources).
+
+      - Associated access profiles (groupings of entitlements). 
+
+      The user account data and the entitlements update with each data aggregation from the source. 
+      Organizations generally run scheduled, automated data aggregations to ensure that their data is always in sync between their sources and their IdentityNow tenants so an access change on a source is detected quickly in IdentityNow.
+      Admins can view a history of these aggregations, and they can also run manual imports. 
+      Refer to [Loading Account Data](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html) for more information about manual and scheduled aggregations. 
+
+      Admins can also make changes to determine which user account data IdentityNow collects from the source and how it correlates that account data with identity data. 
+      To define which account attributes the source shares with IdentityNow, admins can edit the account schema on the source.
+      Refer to [Managing Source Account Schemas](https://documentation.sailpoint.com/saas/help/accounts/schema.html) for more information about source account schemas and how to edit them. 
+      To define the mapping between the source account attributes and their correlating identity attributes, admins can edit the correlation configuration on the source. 
+      Refer to [Assigning Source Accounts to Identities](https://documentation.sailpoint.com/saas/help/accounts/correlation.html) for more information about this correlation process between source accounts and identities.
+
+      Admins can also delete sources, but they must first ensure that the sources no longer have any active connections: the source must not be associated with any identity profile or any app, and it must not be referenced by any transform.
+      Refer to [Deleting Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html#deleting-sources) for more information about deleting sources. 
+
+      Well organized, mappped out connections between sources and IdentityNow are essential to achieving comprehensive identity access governance across all the source systems organizations need. 
+      Refer to [Managing Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html) for more information about all the different things admins can do with sources once they are connected. 
   - name: Transforms
     description: |
       The purpose of this API is to expose functionality for the manipulation of Transform objects.

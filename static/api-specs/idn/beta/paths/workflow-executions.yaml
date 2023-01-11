@@ -4,7 +4,7 @@ get:
     - Workflows
   summary: List Workflow Executions
   description: >-
-    This lists the executions for a given workflow
+    This lists the executions for a given workflow. Workflow executions are available for up to 90 days before being archived.
   security:
     - oauth2: [sp:workflow:read]
   parameters:

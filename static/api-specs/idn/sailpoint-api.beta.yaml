@@ -605,6 +605,64 @@ tags:
   - name: SOD Violations
     description: Operations for Predicting SOD (Seperation of Duties) violations
   - name: Sources
+    description: |
+      Use this API to implement and customize source functionality. 
+      With source functionality in place, organizations can use IdentityNow to connect their various sources and user data sets and manage access across all those different sources in a secure, scalable way. 
+
+      [Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html) refer to the IdentityNow representations for external applications, databases, and directory management systems that maintain their own sets of users, like Dropbox, GitHub, and Workday, for example.
+      Organizations may use hundreds, if not thousands, of different source systems, and any one employee within an organization likely has a different user record on each source, often with different permissions on many of those records. 
+      Connecting these sources to IdentityNow makes it possible to manage user access across them all.
+      Then, if a new hire starts at an organization, IdentityNow can grant the new hire access to all the sources they need.
+      If an employee moves to a new department and needs access to new sources but no longer needs access to others, IdentityNow can grant the necessary access and revoke the unnecessary access for all the employee's various sources. 
+      If an employee leaves the company, IdentityNow can revoke access to all the employee's various source accounts immediately. 
+      These are just a few examples of the many ways that source functionality makes identity governance easier, more efficient, and more secure. 
+
+      In IdentityNow, administrators can create configure, manage, and edit sources, and they can designate other users as source admins to be able to do so.
+      They can also designate users as source sub-admins, who can perform the same source actions but only on sources associated with their governance groups.
+      Admins go to Connections > Sources to see a list of the existing source representations in their organizations. 
+      They can create new sources or select existing ones. 
+
+      To create a new source, the following must be specified: Source Name, Description, Source Owner, and Connection Type.
+      Refer to [Configuring a Source](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html#configuring-a-source) for more information about the source configuration process. 
+      
+      IdentityNow connects with its sources either by a direct communication with the source server (connection information specific to the source must be provided) or a flat file feed, a CSV file containing all the relevant information about the accounts to be loaded in.
+      Different sources use different connectors to share data with IdentityNow, and each connector's setup process is specific to that connector. 
+      SailPoint has built a number of connectors to come out of the box and connect to the most common sources, and SailPoint actively maintains these connectors.
+      Refer to [IdentityNow Connectors](https://documentation.sailpoint.com/connectors/identitynow/landingpages/help/landingpages/identitynow_connectivity_landing.html) for more information about these SailPoint supported connectors. 
+      Refer to the following links for more information about two useful connectors: 
+
+      - [JDBC Connector](https://documentation.sailpoint.com/connectors/jdbc/help/integrating_jdbc/introduction.html): This customizable connector an directly connect to databases that support JDBC (Java Database Connectivity).
+
+      - [Web Services Connector](https://documentation.sailpoint.com/connectors/webservices/help/integrating_webservices/introduction.html): This connector can directly connect to databases that support Web Services. 
+
+      Refer to [SaaS Connectivity](https://developer.sailpoint.com/idn/docs/saas-connectivity) for more information about SailPoint's new connectivity framework that makes it easy to build and manage custom connectors to SaaS sources. 
+
+      When admins select existing sources, they can view the following information about the source:
+
+      - Associated connections (any associated identity profiles, apps, or references to the source in a transform).
+
+      - Associated user accounts. These accounts are linked to their identities - this provides a more complete picture of each user's access across sources.
+
+      - Associated entitlements (sets of access rights on sources).
+
+      - Associated access profiles (groupings of entitlements). 
+
+      The user account data and the entitlements update with each data aggregation from the source. 
+      Organizations generally run scheduled, automated data aggregations to ensure that their data is always in sync between their sources and their IdentityNow tenants so an access change on a source is detected quickly in IdentityNow.
+      Admins can view a history of these aggregations, and they can also run manual imports. 
+      Refer to [Loading Account Data](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html) for more information about manual and scheduled aggregations. 
+
+      Admins can also make changes to determine which user account data IdentityNow collects from the source and how it correlates that account data with identity data. 
+      To define which account attributes the source shares with IdentityNow, admins can edit the account schema on the source.
+      Refer to [Managing Source Account Schemas](https://documentation.sailpoint.com/saas/help/accounts/schema.html) for more information about source account schemas and how to edit them. 
+      To define the mapping between the source account attributes and their correlating identity attributes, admins can edit the correlation configuration on the source. 
+      Refer to [Assigning Source Accounts to Identities](https://documentation.sailpoint.com/saas/help/accounts/correlation.html) for more information about this correlation process between source accounts and identities.
+
+      Admins can also delete sources, but they must first ensure that the sources no longer have any active connections: the source must not be associated with any identity profile or any app, and it must not be referenced by any transform.
+      Refer to [Deleting Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html#deleting-sources) for more information about deleting sources. 
+
+      Well organized, mappped out connections between sources and IdentityNow are essential to achieving comprehensive identity access governance across all the source systems organizations need. 
+      Refer to [Managing Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html) for more information about all the different things admins can do with sources once they are connected. 
   - name: SP-Config
     description: Import and export configuration for some objects between tenants.
   - name: Tagged Objects

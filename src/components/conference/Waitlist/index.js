@@ -1,14 +1,20 @@
-import React from "react";
-import styles from "./styles.module.css";
-import useBaseUrl from "@docusaurus/useBaseUrl";
-import ThemedImage from "@theme/ThemedImage";
-import { addDarkToFileName } from "../../../util/util";
-import { SliderButton } from "@typeform/embed-react";
+import React from 'react';
+import styles from './styles.module.css';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import ThemedImage from '@theme/ThemedImage';
+import {addDarkToFileName} from '../../../util/util';
+import {SliderButton} from '@typeform/embed-react';
 export default function ConferenceWaitlist() {
-  const background = "/conf/Shipyard-WaveBackground.png";
+<<<<<<< HEAD
+  const background = "/conf/WaveBackground.png";
   const learnBuildDeploy = "/conf/LearnBuildDeploy-Light.png";
-  const shipyardImage = "/conf/SailPoint-Shipyard-DeveloperConference-Logo.png";
   const sailpointImage = "/img/SailPoint-Logo-RGB-Color.png";
+=======
+  const background = '/conf/Shipyard-WaveBackground.png';
+  const learnBuildDeploy = '/conf/LearnBuildDeploy-Light.png';
+  const shipyardImage = '/conf/SailPoint-Shipyard-DeveloperConference-Logo.png';
+  const sailpointImage = '/img/SailPoint-Logo-RGB-Color.png';
+>>>>>>> main
 
   return (
     <div className={styles.mainCard}>
@@ -18,15 +24,13 @@ export default function ConferenceWaitlist() {
           sources={{
             light: useBaseUrl(background),
             dark: useBaseUrl(background),
-          }}
-        ></ThemedImage>
+          }}></ThemedImage>
         <ThemedImage
           className={styles.learnDeployText}
           sources={{
             light: useBaseUrl(learnBuildDeploy),
             dark: useBaseUrl(learnBuildDeploy),
-          }}
-        ></ThemedImage>
+          }}></ThemedImage>
       </div>
 
       <div className={styles.signUpSection}>
@@ -36,20 +40,9 @@ export default function ConferenceWaitlist() {
             sources={{
               light: useBaseUrl(sailpointImage),
               dark: useBaseUrl(addDarkToFileName(sailpointImage)),
-            }}
-          ></ThemedImage>
-        </div>
-        <div className={styles.imageContainer}>
-          <ThemedImage
-            className={styles.shipyardLogo}
-            sources={{
-              light: useBaseUrl(shipyardImage),
-              dark: useBaseUrl(addDarkToFileName(shipyardImage)),
-            }}
-          ></ThemedImage>
+            }}></ThemedImage>
         </div>
         <div className={styles.comingSoon}>Coming Soon | Q1 2023</div>
-
         <div className={styles.welcomeText}>
           The conference for developers on SailPoint platforms.
         </div>

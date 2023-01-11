@@ -1,6 +1,6 @@
 /* Getting Started Card */
 .card {
-  position:relative;
+  position: relative;
   margin-top: 20px;
   height: 300px;
   /* UI Properties */
@@ -14,11 +14,11 @@
 .card:hover {
   cursor: pointer;
   top: -2px;
-  box-shadow: var(--dev-card-selected)
+  box-shadow: var(--dev-card-selected);
 }
 
 .cardText {
-  position:absolute;
+  position: absolute;
   margin: 22px;
   font-size: 16px;
   font-weight: 500;
@@ -28,7 +28,7 @@
 }
 
 .linkText {
-  position:absolute;
+  position: absolute;
   margin: 15px 45px 15px 25px;
   font-size: 18px;
   font-weight: 700;
@@ -38,7 +38,7 @@
 }
 
 .linkSolvedText {
-  position:absolute;
+  position: absolute;
   margin: 15px 45px;
   font-size: 18px;
   font-weight: 700;
@@ -48,7 +48,7 @@
 }
 
 .cardIcon {
-  position:absolute;
+  position: absolute;
   margin: 20px;
   top: 20px;
   left: 0;
@@ -56,25 +56,23 @@
 }
 
 .cardArrow {
-  position:absolute;
+  position: absolute;
   margin: 20px;
   bottom: 20px;
   right: 0;
   width: 20px;
-  
 }
 
 .cardViews {
-  position:absolute;
+  position: absolute;
   margin: 15px;
   right: 0px;
   top: 0;
   width: 30px;
 }
 
-
 .cardLikes {
-  position:absolute;
+  position: absolute;
   margin: 15px;
   right: 45px;
   top: 0;
@@ -82,7 +80,7 @@
 }
 
 .cardSolved {
-  position:absolute;
+  position: absolute;
   margin: 0px;
   right: 132px;
   top: 18px;
@@ -91,16 +89,15 @@
 
 .cardDiscuss {
   display: none;
-  position:absolute;
+  position: absolute;
   margin: 0px;
   left: 12px;
   bottom: 57px;
   width: 28px;
 }
 
-
 .cardEye {
-  position:absolute;
+  position: absolute;
   margin: 20px;
   right: 25px;
   top: 0;
@@ -108,7 +105,7 @@
 }
 
 .cardLiked {
-  position:absolute;
+  position: absolute;
   margin: 16px;
   right: 75px;
   top: 0;
@@ -122,14 +119,14 @@
 }
 
 .tags {
-  position:absolute;
+  position: absolute;
   margin: 20px;
   width: 230px;
   bottom: 50px;
   left: 0;
 
   display: grid;
-  grid-template-columns:  max-content max-content max-content;
+  grid-template-columns: max-content max-content max-content;
   grid-gap: 10px;
 }
 
@@ -138,5 +135,5 @@
 }
 
 .iiq {
-  color: #60b359
+  color: #60b359;
 }

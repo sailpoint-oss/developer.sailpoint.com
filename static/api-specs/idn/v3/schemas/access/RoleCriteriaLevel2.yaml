@@ -1,4 +1,5 @@
 type: object
+nullable: true
 description: Defines STANDARD type Role membership
 properties:
     operation:
@@ -7,6 +8,7 @@ properties:
         $ref: './RoleCriteriaKey.yaml'
     stringValue:
         type: string
+        nullable: true
         description: >-
             String value to test the Identity attribute, Account attribute, or Entitlement specified in the key w/r/t
             the specified operation. If this criteria is a leaf node, that is, if the operation is one of

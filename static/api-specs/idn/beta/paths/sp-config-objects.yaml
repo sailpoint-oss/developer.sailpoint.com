@@ -9,9 +9,10 @@ get:
     This gets the list of object configurations which are known to the tenant export/import service.
     Object configurations that contain "importUrl" and "exportUrl" are available for export/import.
 
-    Request will need the following security scope:
+    Request will need one of the following security scopes:
 
-    'sp:config:export'
+    - sp:config:read
+    - sp:config:manage
   responses:
     '200':
       description: >-

@@ -7,12 +7,13 @@ get:
     This gets a collection of personal access tokens associated with the optional `owner-id`. 
     query parameter. If the `owner-id` query parameter is omitted, all personal access tokens 
     for a tenant will be retrieved, but the caller must have the 'idn:all-personal-access-tokens:read' right. 
+
+    Request will require one of the following security scopes:
     
-    Any of the following rights are required to access this resource:
-    
-      - idn:my-personal-access-tokens:read
-      - idn:all-personal-access-tokens:read
-      - idn:managed-personal-access-tokens:read
+      - sp:my-personal-access-tokens:read
+      - sp:my-personal-access-tokens:manage
+      - sp:all-personal-access-tokens:read
+      - sp:all-personal-access-tokens:manage
     
   parameters:
     - in: query
@@ -57,12 +58,11 @@ post:
   summary: Create Personal Access Token
   description: >-
     This creates a personal access token. 
-    
-    Any of the following rights are required to access this resource:
-    
-      - idn:my-personal-access-tokens:create
-      - idn:all-personal-access-tokens:create
-      - idn:managed-personal-access-tokens:create
+
+    Request will require one of the following security scopes:
+
+      - sp:my-personal-access-tokens:manage
+      - sp:all-personal-access-tokens:manage
     
   requestBody:
     description: Name and scope of personal access token.

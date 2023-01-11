@@ -3,10 +3,10 @@ id: account-read
 title: Account Read
 pagination_label: Account Read
 sidebar_label: Account Read
-keywords: ["connectivity", "connectors", "account read"]
+keywords: ['connectivity', 'connectors', 'account read']
 description: Aggregate a single account from the source into IdentityNow.
 slug: /docs/saas-connectivity/commands/account-read
-tags: ["Connectivity", "Connector Command"]
+tags: ['Connectivity', 'Connector Command']
 ---
 
 | Input/Output |      Data Type       |
@@ -49,18 +49,13 @@ tags: ["Connectivity", "Connector Command"]
 
 ## Description
 
-The account read command aggregates a single account from the target source into
-IdentityNow. IDN can call this command during a “one-off” account refresh, which
-you can trigger by aggregating an individual account in IDN.
+The account read command aggregates a single account from the target source into IdentityNow. IDN can call this command during a “one-off” account refresh, which you can trigger by aggregating an individual account in IDN.
 
 ![Account Read](./img/account_read_idn.png)
 
 ## Implementation
 
-Implementation of account read is similar to account list's implementation,
-except the code only needs to get one account, not all the accounts. The
-following snippet is from
-[airtable.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/airtable.ts):
+Implementation of account read is similar to account list's implementation, except the code only needs to get one account, not all the accounts. The following snippet is from [airtable.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/airtable.ts):
 
 ```javascript
 async getAccount(identity: SimpleKeyType | CompoundKeyType): Promise<AirtableAccount> {
@@ -88,14 +83,9 @@ async getAccount(identity: SimpleKeyType | CompoundKeyType): Promise<AirtableAcc
 }
 ```
 
-One special case of this command is the `NotFound` type. On line 20, if an
-account is not found, the `ConnectorError` is thrown with the
-`ConnectorErrorType.NotFound` type. This tells IDN the account does not exist,
-and IDN then triggers the account create logic to generate the account.
+One special case of this command is the `NotFound` type. On line 20, if an account is not found, the `ConnectorError` is thrown with the `ConnectorErrorType.NotFound` type. This tells IDN the account does not exist, and IDN then triggers the account create logic to generate the account.
 
-The following code snippet from
-[index.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/index.ts)
-shows how to register the account read command on the connector object:
+The following code snippet from [index.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/index.ts) shows how to register the account read command on the connector object:
 
 ```javascript
 // Connector must be exported as module property named connector

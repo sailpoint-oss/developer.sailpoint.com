@@ -19,6 +19,13 @@ get:
       schema:
         type: string
         example: include-translation-messages=
+    - in: path
+      example: "2c918085842e69ae018432d22ccb212f"
+      name: outlierId
+      schema:
+        type: string
+      required: true
+      description: The outlier id
     - in: query
       name: sorters
       required: false

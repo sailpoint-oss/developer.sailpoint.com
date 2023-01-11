@@ -49,6 +49,7 @@ properties:
     example: 10
   referenceExtractors:
     type: array
+    nullable: true
     description: >-
       List of json paths within an exported object of this type that represent references that need to be resolved.
     items:

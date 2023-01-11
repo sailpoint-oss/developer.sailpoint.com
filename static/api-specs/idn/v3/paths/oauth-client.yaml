@@ -10,7 +10,8 @@ get:
 
     Request will require the following security scope:
 
-    - 'idn:oathkeeper-client:read'
+    - sp:oauth-client:manage
+    - sp:oauth-client:read
   parameters:
     - in: path
       name: id
@@ -50,8 +51,7 @@ delete:
 
     Request will require the following security scopes:
 
-    - 'idn:oathkeeper-client:delete'
-    - 'idn:oathkeeper-internal-client:delete'
+    - sp:oauth-client:manage
   parameters:
     - in: path
       name: id
@@ -87,7 +87,7 @@ patch:
 
     Request will require a security scope of
 
-    'idn:oathkeeper-client:update'
+    - sp:oauth-client:manage
   parameters:
     - in: path
       name: id

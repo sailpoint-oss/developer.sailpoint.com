@@ -4,21 +4,19 @@ title: Random Alphanumeric
 pagination_label: Random Alphanumeric
 sidebar_label: Random Alphanumeric
 sidebar_class_name: randomAlphanumeric
-keywords: ["transforms", "operations", "random alphanumeric"]
+keywords: ['transforms', 'operations', 'random alphanumeric']
 description: Generate a random string of any length.
 slug: /docs/transforms/operations/random-alphanumeric
-tags: ["Transforms", "Transform Operations"]
+tags: ['Transforms', 'Transform Operations']
 ---
 
 ## Overview
 
-Use the random alphanumeric transform to generate a random string of any length,
-comprising both numbers and letters (both lowercase and uppercase).
+Use the random alphanumeric transform to generate a random string of any length, comprising both numbers and letters (both lowercase and uppercase).
 
 ## Transform Structure
 
-The random alphanumeric transform only requires the standard `type` and `name`
-attributes:
+The random alphanumeric transform only requires the standard `type` and `name` attributes:
 
 ```json
 {
@@ -32,24 +30,18 @@ attributes:
 - **Required Attributes**
 
   - **type** - This must always be set to `randomAlphaNumeric`.
-  - **name** - This is a required attribute for all transforms. It represents
-    the name of the transform as it will appear in the UI's dropdown menus.
+  - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
 
 - **Optional Attributes**
-  - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether
-    the transform logic should be reevaluated every evening as part of the
-    identity refresh process.
-  - **length** - This is the integer value specifying the required size/number
-    of characters the random string must contain.
+  - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether the transform logic should be reevaluated every evening as part of the identity refresh process.
+  - **length** - This is the integer value specifying the required size/number of characters the random string must contain.
     - This value must be a positive number and cannot be blank.
     - If no length is provided, the transform defaults to a value of 32.
-    - Due to identity attribute data constraints, the maximum allowable value is
-      450 characters.
+    - Due to identity attribute data constraints, the maximum allowable value is 450 characters.
 
 ## Examples
 
-Since no explicit length is provided, this transform generates a 32-character
-random string, such as "VtPeE9WL56lMTlvfjr02KXqS3KtgDSuk".
+Since no explicit length is provided, this transform generates a 32-character random string, such as "VtPeE9WL56lMTlvfjr02KXqS3KtgDSuk".
 
 **Transform Request Body**:
 

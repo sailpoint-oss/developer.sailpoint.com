@@ -41,61 +41,64 @@ labelPRBasedOnFilePath:
 ##### Reviewer #########################################################################################################
 addReviewerBasedOnLabel:
   labels:
-      Docs:
-        - james-haytko-sp
-      IdentityNow:
-        - colin-mckibben-sp
-      IdentityIQ:
-        - colin-mckibben-sp
-      Event Trigger Docs:
-        - colin-mckibben-sp
-      SaaS Connectivity Docs:
-        - philip-ellis-sp
-      Transform Docs:
-        - tyler-mairose-sp
-      Rules Docs:
-        - tyler-mairose-sp
-      SaaS Configuration Docs:
-        - colin-mckibben-sp
-      Introduction Doc:
-        - jordan-violet-sp
-        - colin-mckibben-sp
-        - tyler-mairose-sp
-        - james-haytko-sp
-        - philip-ellis-sp
-      Pages:
-        - philip-ellis-sp
-      Components:
-        - philip-ellis-sp
-      CSS:
-        - philip-ellis-sp
-      Swizzled Components:
-        - philip-ellis-sp
-        - jordan-violet-sp
-      Sidebar:
-        - philip-ellis-sp
-      Docusaurus Config:
-        - philip-ellis-sp
-      Footer:
-        - jordan-violet-sp
-        - philip-ellis-sp
-      Navbar:
-        - jordan-violet-sp
-        - colin-mckibben-sp
-        - tyler-mairose-sp
-        - james-haytko-sp
-        - philip-ellis-sp
-      Plugins:
-        - philip-ellis-sp
+    Docs:
+      - james-haytko-sp
+    IdentityNow:
+      - colin-mckibben-sp
+    IdentityIQ:
+      - colin-mckibben-sp
+    Event Trigger Docs:
+      - colin-mckibben-sp
+    SaaS Connectivity Docs:
+      - philip-ellis-sp
+    Transform Docs:
+      - tyler-mairose-sp
+    Rules Docs:
+      - tyler-mairose-sp
+    SaaS Configuration Docs:
+      - colin-mckibben-sp
+    Introduction Doc:
+      - jordan-violet-sp
+      - colin-mckibben-sp
+      - tyler-mairose-sp
+      - james-haytko-sp
+      - philip-ellis-sp
+    Pages:
+      - philip-ellis-sp
+    Components:
+      - philip-ellis-sp
+    CSS:
+      - philip-ellis-sp
+    Swizzled Components:
+      - philip-ellis-sp
+      - jordan-violet-sp
+    Sidebar:
+      - philip-ellis-sp
+    Docusaurus Config:
+      - philip-ellis-sp
+    Footer:
+      - jordan-violet-sp
+      - philip-ellis-sp
+    Navbar:
+      - jordan-violet-sp
+      - colin-mckibben-sp
+      - tyler-mairose-sp
+      - james-haytko-sp
+      - philip-ellis-sp
+    Plugins:
+      - philip-ellis-sp
 ##### Greetings ########################################################################################################
 # Comment to be posted to welcome users when they open their first PR
 firstPRWelcomeComment: >
   🎉 Thanks for opening this pull request! Please be sure to check out our contributing guidelines. 🙌
 
+
 # Comment to be posted to congratulate user on their first merged PR
 firstPRMergeComment: >
   🎉 Awesome work, congrats on your first merged pull request! 🙌
 
+
 # Comment to be posted to on first time issues
 firstIssueWelcomeComment: >
   🎉 Thanks for opening your first issue here! Be sure to follow the issue template, and welcome to the community! 🙌
+

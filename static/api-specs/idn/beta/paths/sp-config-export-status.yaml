@@ -8,9 +8,10 @@ get:
   description: >-
     This gets the status of the export job identified by the id parameter.
 
-    Request will need the following security scope:
+    Request will need one of the following security scopes:
 
-    'sp:config:export'
+    - sp:config:read
+    - sp:config:manage
   parameters:
     - in: path
       name: id

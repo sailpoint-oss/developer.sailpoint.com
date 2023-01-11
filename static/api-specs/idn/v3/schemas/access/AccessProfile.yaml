@@ -11,6 +11,7 @@ properties:
     example: Employee-database-read-write
   description:
     type: string
+    nullable: true
     description: Information about the Access Profile
     example: Collection of entitlements to read/write the employee database
   created:
@@ -48,13 +49,16 @@ properties:
     example: true
   accessRequestConfig:
     $ref: './Requestability.yaml'
+    nullable: true
     description: Access request configuration for this object
   revocationRequestConfig:
     $ref: './Revocability.yaml'
+    nullable: true
     description: >-
       Revocation request configuration for this object.
   segments:
     type: array
+    nullable: true
     items:
       type: string
     description: List of IDs of segments, if any, to which this Access Profile is assigned.

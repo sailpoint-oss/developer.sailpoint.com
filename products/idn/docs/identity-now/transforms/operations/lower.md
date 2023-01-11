@@ -4,10 +4,10 @@ title: Lower
 pagination_label: Lower
 sidebar_label: Lower
 sidebar_class_name: lower
-keywords: ["transforms", "operations", "lower"]
+keywords: ['transforms', 'operations', 'lower']
 description: Convert an input string into all lowercase letters.
 slug: /docs/transforms/operations/lower
-tags: ["Transforms", "Transform Operations"]
+tags: ['Transforms', 'Transform Operations']
 ---
 
 ## Overview
@@ -29,16 +29,10 @@ The lower transform only requires the transform's `type` and `name` attributes:
 
 - **Required Attributes**
   - **type** - This must always be set to `lower`.
-  - **name** - This is a required attribute for all transforms. It represents
-    the name of the transform as it will appear in the UI's dropdown menus.
+  - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
 - **Optional Attributes**
-  - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether
-    the transform logic should be reevaluated every evening as part of the
-    identity refresh process.
-  - **input** - This is an optional attribute that can explicitly define the
-    input data passed into the transform logic. If no input is provided, the
-    transform takes its input from the source and attribute combination
-    configured with the UI.
+  - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether the transform logic should be reevaluated every evening as part of the identity refresh process.
+  - **input** - This is an optional attribute that can explicitly define the input data passed into the transform logic. If no input is provided, the transform takes its input from the source and attribute combination configured with the UI.
 
 ![Lowercase Transform Input Screenshot](./img/lower_transform_input.png)
 
@@ -72,8 +66,7 @@ Output:"active"
 
 <p>&nbsp;</p>
 
-This transform takes in the input "All-Access" and produces "all-access" as the
-output.
+This transform takes in the input "All-Access" and produces "all-access" as the output.
 
 ```bash
 Input:"All-Access"

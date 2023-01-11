@@ -5,31 +5,19 @@ pagination_label: Test, Build, and Deploy
 sidebar_label: Test, Build, and Deploy
 sidebar_position: 2
 sidebar_class_name: testBuildDeploy
-keywords: ["connectivity", "connectors", "test", "build", "deploy"]
-description:
-  As you implement command handlers, you must test them. The connector SDK
-  provides some utility methods to locally run your connector to test, build,
-  and deploy.
+keywords: ['connectivity', 'connectors', 'test', 'build', 'deploy']
+description: As you implement command handlers, you must test them. The connector SDK provides some utility methods to locally run your connector to test, build, and deploy.
 slug: /docs/saas-connectivity/test-build-deploy
-tags: ["Connectivity"]
+tags: ['Connectivity']
 ---
 
 ## Testing Your Connector
 
-You can use the following Postman Collection file to locally run tests for each
-of the commands.
+You can use the following Postman Collection file to locally run tests for each of the commands.
 
 [Postman Collection](./assets/SaaS_Connectivity.postman_collection)
 
-As you implement command handlers, you must test them. The connector SDK
-provides some utility methods to locally run your connector. To start, run
-`npm run dev` within the connector project folder. This script locally starts an
-Express server on port 3000, which can be used to invoke a command against the
-connector. You do not need to restart this process after making changes to
-connector code. Once the Express server is started, you can send `POST` requests
-to `localhost:3000` and test your command handlers. For example, you can run
-`POST localhost:3000` with the following payload to run the stdAccountRead
-handler method.
+As you implement command handlers, you must test them. The connector SDK provides some utility methods to locally run your connector. To start, run `npm run dev` within the connector project folder. This script locally starts an Express server on port 3000, which can be used to invoke a command against the connector. You do not need to restart this process after making changes to connector code. Once the Express server is started, you can send `POST` requests to `localhost:3000` and test your command handlers. For example, you can run `POST localhost:3000` with the following payload to run the stdAccountRead handler method.
 
 ```json
 {
@@ -43,34 +31,25 @@ handler method.
 }
 ```
 
-- **type:** The command handler’s name. It also refers to the operation being
-  performed.
+- **type:** The command handler’s name. It also refers to the operation being performed.
 - **input:** Input to provide to the command handler.
-- **config:** The configuration values required to test locally. A `token` value
-  is not required, but the default project specifies `token`, so you must
-  include it in your request to begin.
+- **config:** The configuration values required to test locally. A `token` value is not required, but the default project specifies `token`, so you must include it in your request to begin.
 
 ## Create and Upload Connector Bundle
 
-Follow these steps to use the CLI to package a connector bundle, create it in
-your IdentityNow org, and upload it to IdentityNow.
+Follow these steps to use the CLI to package a connector bundle, create it in your IdentityNow org, and upload it to IdentityNow.
 
 ### Package Connector Files
 
-You must compress the files in the connector project into a zip file before
-uploading them to IdentityNow.
+You must compress the files in the connector project into a zip file before uploading them to IdentityNow.
 
-Use the CLI to run `npm run pack-zip` to build and package the connector bundle.
-Put the resulting zip file in the `dist` folder.
+Use the CLI to run `npm run pack-zip` to build and package the connector bundle. Put the resulting zip file in the `dist` folder.
 
 ### Create Connector In Your Org
 
-Before uploading the zip file, you must create an entry for the connector in
-your IdentityNow org. Run `sail conn create "my-project"` to create a connector
-entry.
+Before uploading the zip file, you must create an entry for the connector in your IdentityNow org. Run `sail conn create "my-project"` to create a connector entry.
 
-The response to this command contains a connector ID you can use to manage this
-connector.
+The response to this command contains a connector ID you can use to manage this connector.
 
 ```bash
 $ sail conn create "example-connector"
@@ -99,9 +78,7 @@ $ sail conn list
 
 ### Upload Connector Zip File to IdentityNow
 
-Run
-`sail conn upload -c [connectorID | connectorAlias] -f dist/[connector filename].zip`
-to upload the zip file built from the previous step to IdentityNow.
+Run `sail conn upload -c [connectorID | connectorAlias] -f dist/[connector filename].zip` to upload the zip file built from the previous step to IdentityNow.
 
 ```bash
 $ sail conn upload -c example-connector -f dist/example-connector-0.1.0.zip
@@ -112,10 +89,7 @@ $ sail conn upload -c example-connector -f dist/example-connector-0.1.0.zip
 +--------------------------------------+---------+
 ```
 
-The first version upload of connector zip file also creates the `latest` tag,
-pointing to the latest version of the connector file. After uploading the
-connector bundle zip file, you can run `sail conn tags list -c example-connector`
-to see the connector tags.
+The first version upload of connector zip file also creates the `latest` tag, pointing to the latest version of the connector file. After uploading the connector bundle zip file, you can run `sail conn tags list -c example-connector` to see the connector tags.
 
 ```bash
 $ sail conn tags list -c example-connector
@@ -128,16 +102,11 @@ $ sail conn tags list -c example-connector
 
 ## Test Your Connector in IdentityNow
 
-Follow these steps to test a connector bundle in both IdentityNow and the
-IdentityNow user interface (UI).
+Follow these steps to test a connector bundle in both IdentityNow and the IdentityNow user interface (UI).
 
 ### Test Your Connector Bundle In IdentityNow
 
-The connector CLI provides ways to test invoking commands with any connector
-upload version. Before running a command, create a file, **config.json**, in the
-root project folder. Include any configuration items required to interact with
-the target web service in this file, such as API token, username, password,
-organization, version, etc. The following snippet is an example:
+The connector CLI provides ways to test invoking commands with any connector upload version. Before running a command, create a file, **config.json**, in the root project folder. Include any configuration items required to interact with the target web service in this file, such as API token, username, password, organization, version, etc. The following snippet is an example:
 
 ```json
 {
@@ -145,11 +114,9 @@ organization, version, etc. The following snippet is an example:
 }
 ```
 
-This file is required and requires at least one key value even if your connector
-does not require anything.
+This file is required and requires at least one key value even if your connector does not require anything.
 
-Next, invoke the command using the connector ID and config.json. For example,
-this command invokes std:account:list command on the connector:
+Next, invoke the command using the connector ID and config.json. For example, this command invokes std:account:list command on the connector:
 
 ```
 sail connectors invoke account-list -c example-connector -p config.json
@@ -165,14 +132,10 @@ $ sail connectors invoke account-list -c example-connector -p config.json
 
 > ⚠️ Sensitive information!
 >
-> Ensure that you add config.json to your .gitignore file so you do not
-> accidentally store secrets in your code repository.
+> Ensure that you add config.json to your .gitignore file so you do not accidentally store secrets in your code repository.
 
 ## Test Your Connector from IdentityNow UI
 
-Go to your IdentityNow org’s source section. Create a source from the connector
-you just uploaded. This connector will display in the dropdown list:
-**example-connector (tag: latest)**
+Go to your IdentityNow org’s source section. Create a source from the connector you just uploaded. This connector will display in the dropdown list: **example-connector (tag: latest)**
 
-After creating a source, you can to test connection, aggregate account, etc.
-from the IdentityNow UI.
+After creating a source, you can to test connection, aggregate account, etc. from the IdentityNow UI.

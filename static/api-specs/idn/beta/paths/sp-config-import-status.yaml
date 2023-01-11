@@ -10,7 +10,7 @@ get:
 
     Request will need the following security scope:
 
-    'sp:config:import'
+    - sp:config:manage
   parameters:
     - in: path
       name: id

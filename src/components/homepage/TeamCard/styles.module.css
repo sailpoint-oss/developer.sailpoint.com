@@ -1,6 +1,6 @@
 /* Getting Started Card */
 .card {
-  position:relative;
+  position: relative;
   margin-top: 20px;
   height: 300px;
   /* UI Properties */
@@ -14,12 +14,11 @@
 .card:hover {
   cursor: pointer;
   top: -2px;
-  box-shadow: var(--dev-card-selected)
-  
+  box-shadow: var(--dev-card-selected);
 }
 
 .cardText {
-  position:absolute;
+  position: absolute;
   margin: 22px auto;
   text-align: center;
   font-size: 16px;
@@ -31,7 +30,7 @@
 }
 
 .titleText {
-  position:absolute;
+  position: absolute;
   margin: 22px auto;
   text-align: center;
   font-size: 10px;
@@ -44,7 +43,7 @@
 }
 
 .expertiseText {
-  position:absolute;
+  position: absolute;
   margin: 22px auto;
   text-align: center;
   font-size: 10px;
@@ -54,11 +53,11 @@
   top: 160px;
   left: 0;
   color: var(--ifm-color-primary);
-  padding: 30px
+  padding: 30px;
 }
 
 .cardArrow {
-  position:absolute;
+  position: absolute;
   margin: 20px;
   bottom: 5px;
   right: 0;
@@ -77,4 +76,3 @@
   height: 80px;
   width: 80px;
 }
-

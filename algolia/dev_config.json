@@ -26,8 +26,6 @@
       "tags": ["IDN Documentation"]
     },
 
-
-
     {
       "url": "https://developer.sailpoint.com/idn/api/getting-started",
       "selectors_key": "api_v3",
@@ -49,8 +47,6 @@
       "tags": ["IDN API Documenation"]
     },
 
-
-
     {
       "url": "https://developer.sailpoint.com/idn/api/v3",
       "selectors_key": "api_v3",
@@ -68,14 +64,12 @@
     }
   ],
   "js_render": false,
-  "sitemap_urls": [
-    "https://developer.sailpoint.com/sitemap.xml"
-  ],
+  "sitemap_urls": ["https://developer.sailpoint.com/sitemap.xml"],
   "sitemap_alternate_links": true,
   "stop_urls": [],
   "selectors": {
-    "default" : {
-      "lvl0" : {
+    "default": {
+      "lvl0": {
         "selector": "(//ul[contains(@class,'menu__list')]//a[contains(@class, 'menu__link menu__link--sublist menu__link--active')]/text() | //nav[contains(@class, 'navbar')]//a[contains(@class, 'navbar__link--active')]/text())[1]",
         "type": "xpath",
         "global": true,
@@ -96,7 +90,7 @@
       "text": "article p, article li, article td:last-child"
     },
     "api_v3": {
-      "lvl0" : {
+      "lvl0": {
         "selector": "(//ul[contains(@class,'menu__list')]//a[contains(@class, 'menu__link menu__link--sublist menu__link--active')]/text() | //nav[contains(@class, 'navbar')]//a[contains(@class, 'navbar__link--active')]/text())[1]",
         "type": "xpath",
         "global": true,
@@ -116,7 +110,7 @@
       "text": "article p, article li, article td:last-child"
     },
     "api_iiq": {
-      "lvl0" : {
+      "lvl0": {
         "selector": "(//ul[contains(@class,'menu__list')]//a[contains(@class, 'menu__link menu__link--sublist menu__link--active')]/text() | //nav[contains(@class, 'navbar')]//a[contains(@class, 'navbar__link--active')]/text())[1]",
         "type": "xpath",
         "global": true,
@@ -135,8 +129,6 @@
       "lvl6": "article h6",
       "text": "article p, article li, article td:last-child"
     }
-
-
   },
   "strip_chars": " .,;:#",
   "custom_settings": {
@@ -158,8 +150,6 @@
       "type"
     ]
   },
-  "conversation_id": [
-    "1090805758"
-  ],
+  "conversation_id": ["1090805758"],
   "nb_hits": 8687
 }

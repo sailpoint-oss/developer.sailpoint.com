@@ -41,8 +41,6 @@ sequenceDiagram
 
 ## User Level Permissions
 
-[User levels](https://documentation.sailpoint.com/saas/help/common/users/user_level_matrix.html) are a set of predefined access controls that limit access to the user interface (UI).  The least privileged user level is the "user", which can perform basic tasks in IDN like viewing available access items and requesting access.  The most privileged user level is the "admin", which can perform any action.  User levels work by only granting access to the set of APIs needed by each user level to perform their functional role, with the "admin" user level having access to every API.
-
 When managing a user's access to the API, you must first assign the target user an appropriate [user level](https://documentation.sailpoint.com/saas/help/common/users/user_level_matrix.html).  It is important to choose the correct user level as it will place a boundary on which APIs a user can call, which also affects the areas and functions of the UI they have access to.  For example, if a user is in charge of creating reports for auditing requirements, consider granting them the "Report Admin" user level.
 
 User levels are typically granted through the UI, [following the procedures from this document](https://documentation.sailpoint.com/saas/help/common/users/grant_remove_user_levels.html).
@@ -57,7 +55,7 @@ User levels act as the first line of defense by applying a rigid boundary around
 
 ## Scopes
 
-Scopes are granular permissions you can add to personal access tokens (PATs) to create tokens with the least privilege necessary to fulfill their functions. User levels place a broad border around the APIs a token has access to, while scopes allow each token to specify which endpoints within the user level it needs.  Scopes allow an API user to have multiple tokens with different privileges that support unique use cases and software applications. Using scopes is beneficial to security - if a bad actor compromises any one of the tokens, the bad actor can only perform the limited set of operations defined by the token's scopes, significantly reducing the potential damage that can be done.  Therefore, it is recommended that all users apply scopes to each PAT they create in order to reduce the impact of stolen credentials.
+Scopes are granular permissions you can add to personal access tokens (PATs) to create tokens with the least privilege necessary to fulfill their functions. User levels place a broad border around the APIs a token has access to, while scopes can further limit the set of endpoints a token can call.  Scopes allow an API user to have multiple tokens with different privileges that support unique use cases and software applications. Using scopes is beneficial to security - if a bad actor compromises any one of the tokens, the bad actor can only perform the limited set of operations defined by the token's scopes, significantly reducing the potential damage that can be done.  Therefore, it is recommended that all users apply scopes to each PAT they create in order to reduce the impact of stolen credentials.
 
 Scopes contain one or more rights, which are low level permissions that grant access to individual endpoints. This means that a single scope, like `idn:access-request:manage`, can grant access to multiple API endpoints. To determine which scopes a PAT needs, you must first identify which endpoints the PAT needs to invoke. Each endpoint's API specification indicates which scope is necessary to call the endpoint. You can use this approach to curate a list of scopes that must be applied to the credential to call the necessary endpoints.  [Learn more about how to find an API's required scopes here](#identifying-necessary-authorization-for-an-endpoint).
 
@@ -72,7 +70,7 @@ Scopes are additive, which means the final right set is the intersection of all 
 If the API requirements for the personal access token exceed the scopes allowed by the user's assigned user level, then the following options may be considered.
 
 - Re-evaluate the user's responsibilities compared to their user level.  It is possible that their user level is no longer appropriate for the functions they need to perform, and a more permissive user level may be necessary.
-- If the required access is a one-off need for a specific use case, then consider generating a PAT with the required scopes from a different user and sharing the credentials.  This could be a dedicated service account designated for one-off applications.  The downside of this approach is that it becomes more difficult to audit API access, as the user now has a PAT that is not tied to their user account.
+- If the required access is a one-off need for a specific use case, then consider generating a PAT with the required scopes from a different user and sharing the credentials.  This could be a dedicated service account designated for one-off applications.  The downside of this approach is that it becomes more difficult to attribute an API call to a specific user, as the user now has a PAT that is not tied to their user account.
 
 :::
 

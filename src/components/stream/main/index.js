@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
 import Link from '@docusaurus/Link';
@@ -11,7 +11,6 @@ import Speakers from '../speakers';
 import Survey from '../survey';
 import {useState, useEffect} from 'react';
 import io from 'socket.io-client';
-import {SliderButton} from '@typeform/embed-react';
 import {getSpeaker} from '../../../services/StreamService';
 
 const socket = io('https://developer-community-backend.herokuapp.com');

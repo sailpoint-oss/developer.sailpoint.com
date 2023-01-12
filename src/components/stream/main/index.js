@@ -123,104 +123,95 @@ export default function Main() {
     stage.stage === 'IDN' ? styles.stageButtonActive : '';
 
   return (
-      
-        <div className={styles.main}>
-          <div className="px-2 md:px-4 py-6 my-2 flex flex-col md:flex-row justify-between gap-4">
-            <div className="">
-              <div className={`${styles.headerText} my-auto`}>
-                {streamData?.stages[stage.stage]?.topic}
-              </div>
+    <div className={styles.main}>
+      <div className="px-2 md:px-4 py-6 my-2 flex flex-col md:flex-row justify-between gap-4">
+        <div className="">
+          <div className={`${styles.headerText} my-auto`}>
+            {streamData?.stages[stage.stage]?.topic}
+          </div>
 
-              <div className={styles.timeText}>
-                {new Date(
-                  streamData?.stages[stage.stage]?.startTime,
-                ).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'}) +
-                  ' - ' +
-                  new Date(
-                    streamData?.stages[stage.stage]?.endTime,
-                  ).toLocaleTimeString([], {
-                    hour: '2-digit',
-                    minute: '2-digit',
-                  })}
-              </div>
-              <div className="flex flex-row flex-wrap gap-8">
-                {eventSpeakers?.map((spkr) => {
-                  return (
-                    <div className="flex flex-row gap-2">
-                      <img
-                        src={spkr?.image}
-                        className="rounded-full w-12 h-12"
-                      />
-                      <div className="flex flex-col justify-center">
-                        <div
-                          className={`${styles.speakerText} font-bold text-lg`}>
-                          {spkr?.name}
-                        </div>
-                        <div
-                          className={`${styles.speakerText} font-semibold text-base whitespace-nowrap`}>
-                          {spkr?.title}
-                        </div>
-                      </div>
+          <div className={styles.timeText}>
+            {new Date(
+              streamData?.stages[stage.stage]?.startTime,
+            ).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'}) +
+              ' - ' +
+              new Date(
+                streamData?.stages[stage.stage]?.endTime,
+              ).toLocaleTimeString([], {
+                hour: '2-digit',
+                minute: '2-digit',
+              })}
+          </div>
+          <div className="flex flex-row flex-wrap gap-8">
+            {eventSpeakers?.map((spkr) => {
+              return (
+                <div className="flex flex-row gap-2">
+                  <img src={spkr?.image} className="rounded-full w-12 h-12" />
+                  <div className="flex flex-col justify-center">
+                    <div className={`${styles.speakerText} font-bold text-lg`}>
+                      {spkr?.name}
                     </div>
-                  );
-                })}
-              </div>
-            </div>
-            <div>
-              <div className="flex flex-row gap-1 md:gap-2 w-full justify-center md:justify-between">
-                <Agenda
-                  description={
-                    'The agenda for the 3 conference days are below. If you have any questions about the agenda, reach out via the discussion forum.'
-                  }
-                  title={'Agenda'}
-                  image={'/homepage/team.png'}
-                  speakers={speakers}></Agenda>
-
-                <FAQ
-                  description={
-                    "if you stil can't find what you are looking for, reach out to us on our discussion board"
-                  }
-                  title={'Frequently Asked Questions'}
-                  image={'/homepage/discuss.png'}></FAQ>
-
-                <Speakers
-                  description={
-                    'Here are the awesome speakers we have lined up for Developer Days 2022'
-                  }
-                  title={'Speakers'}
-                  image={'/homepage/person-head.png'}
-                  speakers={speakers}></Speakers>
-                  <Survey
-                    className="w-full"
-                    id={streamData?.stages[stage.stage]?.typeformId}
-                    stage={stage}
-                    socket={socket}></Survey>
-
-              </div>
-            </div>
+                    <div
+                      className={`${styles.speakerText} font-semibold text-base whitespace-nowrap`}>
+                      {spkr?.title}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
-
-          <div className="flex flex-row justify-center md:justify-start py-1 md:py-0 px-[0.5%] w-full gap-[0.5%]">
-            <button
-              className={`${styles.stageButton} ${idnSelectedClass} px-4 min-w-[140px]`}
-              onClick={changeToIDNStage}>
-              <p className="text-lg whitespace-nowrap my-0">IdentityNow</p>
-            </button>
-
-            <button
-              className={`${styles.stageButton} ${iiqSelectedClass} px-4 min-w-[140px]`}
-              onClick={changeToIIQStage}>
-              <p className="text-lg text-center whitespace-nowrap my-0">
-                IdentityIQ
-              </p>
-            </button>
-          </div>
-          <BrowserOnly>
-            {() => {
-              <Room videoSource={streamData?.stages[stage.stage]}></Room>
-            }}
-          </BrowserOnly>
         </div>
-      
+        <div>
+          <div className="flex flex-row gap-1 md:gap-2 w-full justify-center md:justify-between">
+            <Agenda
+              description={
+                'The agenda for the 3 conference days are below. If you have any questions about the agenda, reach out via the discussion forum.'
+              }
+              title={'Agenda'}
+              image={'/homepage/team.png'}
+              speakers={speakers}></Agenda>
+
+            <FAQ
+              description={
+                "if you stil can't find what you are looking for, reach out to us on our discussion board"
+              }
+              title={'Frequently Asked Questions'}
+              image={'/homepage/discuss.png'}></FAQ>
+
+            <Speakers
+              description={
+                'Here are the awesome speakers we have lined up for Developer Days 2022'
+              }
+              title={'Speakers'}
+              image={'/homepage/person-head.png'}
+              speakers={speakers}></Speakers>
+            <Survey
+              className="w-full"
+              id={streamData?.stages[stage.stage]?.typeformId}
+              stage={stage}
+              socket={socket}></Survey>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex flex-row justify-center md:justify-start py-1 md:py-0 px-[0.5%] w-full gap-[0.5%]">
+        <button
+          className={`${styles.stageButton} ${idnSelectedClass} px-4 min-w-[140px]`}
+          onClick={changeToIDNStage}>
+          <p className="text-lg whitespace-nowrap my-0">IdentityNow</p>
+        </button>
+
+        <button
+          className={`${styles.stageButton} ${iiqSelectedClass} px-4 min-w-[140px]`}
+          onClick={changeToIIQStage}>
+          <p className="text-lg text-center whitespace-nowrap my-0">
+            IdentityIQ
+          </p>
+        </button>
+      </div>
+      <BrowserOnly>
+        {() => <Room videoSource={streamData?.stages[stage.stage]}></Room>}
+      </BrowserOnly>
+    </div>
   );
 }

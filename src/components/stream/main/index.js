@@ -12,9 +12,10 @@ import Survey from '../survey';
 import {useState, useEffect} from 'react';
 import {getSpeaker} from '../../../services/StreamService';
 import BrowserOnly from '@docusaurus/BrowserOnly';
+import io from 'socket.io-client';
 
 export default function Main() {
-  let socket;
+  const socket = io('https://developer-community-backend.herokuapp.com');
   const [isConnected, setIsConnected] = useState(false);
 
   const [streamData, setStreamData] = useState({
@@ -70,8 +71,6 @@ export default function Main() {
 
   //setting socket here
   useEffect(() => {
-    const io = require('socket.io-client');
-    socket = io('https://developer-community-backend.herokuapp.com');
     console.log('Creating effect');
     socket.on('connect', () => {
       console.log('Socket Connect');
@@ -169,27 +168,29 @@ export default function Main() {
               }
               title={'Agenda'}
               image={'/homepage/team.png'}
-              speakers={speakers}></Agenda>
-
+              speakers={speakers}
+            />
             <FAQ
               description={
                 "if you stil can't find what you are looking for, reach out to us on our discussion board"
               }
               title={'Frequently Asked Questions'}
-              image={'/homepage/discuss.png'}></FAQ>
-
+              image={'/homepage/discuss.png'}
+            />
             <Speakers
               description={
                 'Here are the awesome speakers we have lined up for Developer Days 2022'
               }
               title={'Speakers'}
               image={'/homepage/person-head.png'}
-              speakers={speakers}></Speakers>
+              speakers={speakers}
+            />
             <Survey
               className="w-full"
               id={streamData?.stages[stage.stage]?.typeformId}
               stage={stage}
-              socket={socket}></Survey>
+              socket={socket}
+            />
           </div>
         </div>
       </div>

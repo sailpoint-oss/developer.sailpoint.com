@@ -5,17 +5,19 @@ import Modal from "react-modal";
 export default function Survey({ id, stage, socket }) {
   const [surveyModalIsOpen, setSurveyIsOpen] = React.useState(false);
   useEffect(() => {
-    socket.on("survey", (data) => {
-      console.log(data);
-      console.log(stage.stage);
-      if (stage.stage === data) {
-        setSurveyIsOpen(true);
-      }
-    });
+    if (socket) {
+      socket.on("survey", (data) => {
+        console.log(data);
+        console.log(stage.stage);
+        if (stage.stage === data) {
+          setSurveyIsOpen(true);
+        }
+      });
+      return () => {
+        socket.off("survey");
+      };
+    }
 
-    return () => {
-      socket.off("survey");
-    };
   }, [stage]);
 
   function openSurveyModal() {

@@ -123,8 +123,7 @@ export default function Main() {
     stage.stage === 'IDN' ? styles.stageButtonActive : '';
 
   return (
-    <BrowserOnly>
-      {() => {
+      
         <div className={styles.main}>
           <div className="px-2 md:px-4 py-6 my-2 flex flex-col md:flex-row justify-between gap-4">
             <div className="">
@@ -191,12 +190,12 @@ export default function Main() {
                   title={'Speakers'}
                   image={'/homepage/person-head.png'}
                   speakers={speakers}></Speakers>
+                  <Survey
+                    className="w-full"
+                    id={streamData?.stages[stage.stage]?.typeformId}
+                    stage={stage}
+                    socket={socket}></Survey>
 
-                <Survey
-                  className="w-full"
-                  id={streamData?.stages[stage.stage]?.typeformId}
-                  stage={stage}
-                  socket={socket}></Survey>
               </div>
             </div>
           </div>
@@ -216,10 +215,12 @@ export default function Main() {
               </p>
             </button>
           </div>
-
-          <Room videoSource={streamData?.stages[stage.stage]}></Room>
-        </div>;
-      }}
-    </BrowserOnly>
+          <BrowserOnly>
+            {() => {
+              <Room videoSource={streamData?.stages[stage.stage]}></Room>
+            }}
+          </BrowserOnly>
+        </div>
+      
   );
 }

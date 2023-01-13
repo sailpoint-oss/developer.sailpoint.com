@@ -74,6 +74,10 @@ span.breadcrumbs__link {
   margin: auto;
 }
 
+.tf-v1-iframe-wrapper {
+  @apply !w-[50vw] !h-[50vh];
+}
+
 @import url('https://p.typekit.net/p.css?s=1&k=hbq4agn&ht=tk&f=30490.30491.30492.30493.30494.30495.30496.30497.30498.30499.30500.30501.30502.30503&a=87767056&app=typekit&e=css');
 
 @font-face {

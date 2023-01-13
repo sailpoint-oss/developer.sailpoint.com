@@ -21,6 +21,7 @@ export default function FAQ({title, image, description}) {
 
   const getFaqs = async () => {
     const data = await getFAQ();
+    if (!Array.isArray(data)) data = [];
     setFaqs(data);
   };
   React.useEffect(() => {

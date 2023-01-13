@@ -34,13 +34,11 @@ Examples:
 
 ## Paginating Search Queries
 
-The [search API](https://developer.sailpoint.com/idn/api/v3/search) in IdentityNow leverages [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/elasticsearch-intro.html) functionality, which returns a maximum of 10,000 records by default. However, you can page through more than 10,000 records by using the "searchAfter" property.
+The [search API](https://developer.sailpoint.com/idn/api/v3/search) in IdentityNow leverages [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/elasticsearch-intro.html) functionality, which returns a maximum of 10,000 records by default. However, you can page more than 10,000 records by using the "searchAfter" property.
 
 The `searchAfter` capability provides the ability to page on sorted field values, instead of offset paging. For example, if you sort by ID and page 100 records at a time, you can take the 1st page of 100 records, pass the last ID from that record set into your next search, and the next search will return the next 100 records after that ID. You continue that pattern of using the last value passed into `searchAfter` until the end of the result set. This allows you to page past the 10,000 record limit until you reach the final record.
 
-Here is more information and an example of a Search API call with `searchAfter` paging:
-
-**Required properties for paginating search results:**
+**Required Properties for Paginating Search Results**
 
 |**Property**|Description|
 | --- | --- |
@@ -50,7 +48,7 @@ Here is more information and an example of a Search API call with `searchAfter` 
 
 ### Example of Paginating Search Results
 
-The first query will get the first set of results.  The default limit for search is 10,000, which is different than other collection endpoints.  For the purposes of this example, we set it to 100 to make it easy to see how pagination works.  Paginating search queries also requires the `sort` property to be set to `id`.
+Here is an example of a search API call with `searchAfter` paging. The first query will get the first set of results. The default limit for search is 10,000, which is different from other collection endpoints. For this example, the query is set to page 100 records at a time. Paginating search queries also requires the `sort` property to be set to `id`.
 
 **POST** <https://{tenant}.api.identitynow.com/v3/search?limit=100&count=true>
 
@@ -68,7 +66,7 @@ The first query will get the first set of results.  The default limit for search
 }
 ```
 
-This query will return 100 records.  To get the next 100 records, find the `id` of the last record and use it in the `searchAfter` property of the next query.
+This query will return 100 records. To get the next 100 records, find the last record's `id` and use it in the next query's `searchAfter` property.
 
 **POST** <https://{tenant}.api.identitynow.com/v3/search?limit=100&count=true>
 
@@ -87,7 +85,7 @@ This query will return 100 records.  To get the next 100 records, find the `id` 
 }
 ```
 
-This will get the next 100 records in the search query.  Repeat this process until no more records are returned.
+This will get the next 100 records in the search query. Repeat this process until no more records return.
 
 ## Filtering Results
 

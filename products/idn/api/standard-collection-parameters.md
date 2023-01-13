@@ -32,7 +32,7 @@ Examples:
 - GET `/v3/public-identities?limit=20&offset=4`
 - GET `/v3/public-identities?count=true`
 
-### Using searchAfter to Page Over 10,000 Records
+### Paging with searchAfter
 
 Search in IdentityNow leverages [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/elasticsearch-intro.html) functionality, which only allows you to page through up to 10,000 records, by default. However, you can page through more than 10,000 records by using the "searchAfter" syntax. 
 

@@ -27,8 +27,8 @@ Use this rule to modify a provisioning plan as provisioning is sent out. Do not 
 | --- | --- | --- |
 | log | org.apache.log4j.Logger | Logger to log statements. _Note: This executes in the cloud, and logging is currently not exposed to anyone other than SailPoint._ |
 | idn | sailpoint.server.IdnRuleUtil | Provides a read-only starting point for using the SailPoint API. From this passed reference, the rule can interrogate the IdentityNow data model including identities or account information via helper methods as described in [IdnRuleUtil](../idn_rule_utility.md). |
-| plan | sailpoint.object.ProvisioningPlan | Reference to identity object representing the identity being calculated. |
-| application | java.lang.Object | Attribute value for the identity attribute before the rule runs. |
+| plan | sailpoint.object.ProvisioningPlan | A set of provisioning instructions which are sent to the source connectors. |
+| application | sailpoint.object.Application | A read-only reference to application object that represents the source to which provisioning is being done. |
 
 ## Output
 

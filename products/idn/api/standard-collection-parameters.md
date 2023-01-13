@@ -32,6 +32,39 @@ Examples:
 - GET `/v3/public-identities?limit=20&offset=4`
 - GET `/v3/public-identities?count=true`
 
+### Using searchAfter to Page Over 10,000 Records
+
+Search in IdentityNow leverages Elasticsearch functionality, which only allows you to page through up to 10,000 records, by default. However, you can page through more than 10,000 records by using the "searchAfter" syntax. 
+
+The searchAfter capability provides the ability to page on sorted field values, instead of offset paging. For example, if you sort by ID and page 100 records at a time, you can take the 1st page of 100 records, pass the last ID from that record set into your next search, and the next search will return the next 100 records after that ID. You continue that pattern of using the last value passed into searchAfter until the end of the result set. This allows you to page past the 10,000 record limit until you reach the final record.
+
+Here is more information and an example of a Search API call with searchAfter paging:
+
+**Search JSON Body (main body):**
+
+|**Indices**|List<String>|List of Indices the Search Applies To|
+| --- | --- | --- |
+|**queryType**|String|This field should be SAILPOINT, which is the query string format the IdentityNow Search UI search box uses. DSL is also supported, but it is for advanced use. (SAILPOINT is the default.)|
+|**query**|Query JSON|The Query JSON object. Refer to the following Query JSON Object table for details. (This is required for the SAILPOINT query type.)|
+|**sort**|List<String>|The array list of the fields to sort by. This is required if you are using the searchAfter approach. You can use -fieldName for descending searches (optional). |
+|**searchAfter**|List<String>|You can use this instead of offset to get past the 10,000 paging result record limit, passing the last value(s) of your sort fields from the previous result set into the next result set until you get the total number of results or the end of results (optional).|
+|**queryResultFilter**|JSON map|Allows the user to filter the query result objects by specifying a list of fields to include or exclude from the results JSON (optional). You can use **includes**, the list of field names, including wildcards, to be included in the document result model, and **excludes**, the list of field names, including wildcards, to be excluded from the document result model. Example:{ "includes": [ "obj1.*", "obj2.*" ], "excludes": [ "*.description" ]}|
+
+**Query JSON Object:**
+
+|**query**|String|This is where you pass the query string used in the IdentityNow Search UI search box (required).|
+| --- | --- | --- |
+|**fields**|List<String>|The list of field names to restrict the search provided in query (optional).|
+|**timeZone**|String|The time zone to be applied to any range query related to dates (optional).|
+
+Examples using searchAfter:
+
+**POST** https://[ *orgname-api.identitynow.com* ](http://orgname-api.identitynow.com)/v3/search?limit=100&count=true { "indices":["identities"], "queryType":"SAILPOINT", "query":{ "query":"*" }, "sort":["id"], "searchAfter":["2c9180835d38ca0c015d606b50851b1e"] }
+
+**POST** https://[ *orgname-api.identitynow.com* ](http://orgname-api.identitynow.com)/v3/search?limit=100&count=true { "indices":["identities"], "queryType":"SAILPOINT", "query":{ "query":"name:Joe AND [source.name](http://source.name):\"flat file\"" }, "sort":["id"], "searchAfter":["2c9180835d38ca0c015d606b50851b1e"] }
+
+The results will be an array of JSONs of the objects matching the search. The search will also return **X-Total-Count** in the header with the total number of results because the count=true parameter was passed.
+
 ## Filtering Results
 
 Any collection with a `filters` parameter supports filtering. This means that an item is only included in the returned array if the filters expression evaluates to true for that item. Check the available request parameters for the collection endpoint you are using to see if it supports filtering.

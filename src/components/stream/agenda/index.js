@@ -84,9 +84,9 @@ export default function Agenda({title, image, description, speakers}) {
     return obj.stage === filterSelection || obj.allStages === true;
   };
 
-  let day1 = agenda?.day1?.filter(sessionFilter).map(processSessions);
-  let day2 = agenda?.day2?.filter(sessionFilter).map(processSessions);
-  let day3 = agenda?.day3?.filter(sessionFilter).map(processSessions);
+  let day1 = agenda?.day1?.filter(sessionFilter)?.map(processSessions);
+  let day2 = agenda?.day2?.filter(sessionFilter)?.map(processSessions);
+  let day3 = agenda?.day3?.filter(sessionFilter)?.map(processSessions);
 
   return (
     <div>

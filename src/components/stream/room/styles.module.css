@@ -17,7 +17,12 @@
   }
 
   .stageContentChat {
-    min-height: 300px;
+    min-height: 720px;
+    flex-grow: 1;
+  }
+
+  .stageContentChat > iframe {
+    min-height: 720px;
     flex-grow: 1;
   }
 }

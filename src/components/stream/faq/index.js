@@ -27,7 +27,7 @@ export default function FAQ({title, image, description}) {
     getFaqs();
   }, []);
 
-  let itemsList = faqs.map((item, index) => {
+  let itemsList = faqs?.map((item, index) => {
     return (
       <div key={`${index}-qa`}>
         <div className={styles.faqQuestion} key={`${index}-question`}>

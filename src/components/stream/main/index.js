@@ -1,22 +1,23 @@
-import React from 'react';
-import clsx from 'clsx';
+import React, {useRef} from 'react';
 import styles from './styles.module.css';
-import Link from '@docusaurus/Link';
-import WidgetBot from '@widgetbot/react-embed';
+
 import Modal from 'react-modal';
-import Room from '../room';
-import FAQ from '../faq';
 import Agenda from '../agenda';
+import FAQ from '../faq';
+import Room from '../room';
 import Speakers from '../speakers';
-import Survey from '../survey';
-import {useState, useEffect} from 'react';
-import {getSpeaker} from '../../../services/StreamService';
+
 import BrowserOnly from '@docusaurus/BrowserOnly';
+import {PopupButton} from '@typeform/embed-react';
+import {useEffect, useState} from 'react';
 import io from 'socket.io-client';
+import {getSpeaker} from '../../../services/StreamService';
+
+const socket = io('https://developer-community-backend.herokuapp.com');
 
 export default function Main() {
-  const socket = io('https://developer-community-backend.herokuapp.com');
   const [isConnected, setIsConnected] = useState(false);
+  const typeformRef = useRef(null);
 
   const [streamData, setStreamData] = useState({
     connectionCounts: {total: 12, idn: 2, iiq: 3},
@@ -88,10 +89,17 @@ export default function Main() {
       console.log(data);
     });
 
+    socket.on('survey', (data) => {
+      if (stage?.stage === data) {
+        typeformRef?.current?.children[1].click();
+      }
+    });
+
     return () => {
       socket.off('connect');
       socket.off('disconnect');
       socket.off('stream');
+      socket.off('survey');
     };
   }, []);
 
@@ -108,38 +116,39 @@ export default function Main() {
 
   Modal.setAppElement('#__docusaurus');
 
-  const eventSpeakers = streamData?.stages[stage.stage]?.speakers?.map(
+  const eventSpeakers = streamData?.stages[stage?.stage]?.speakers?.map(
     (speakerId, index) => {
       return speakers.filter((obj) => obj.id === speakerId)[0];
     },
   );
 
-  const mainSelectedClass =
-    stage.stage === 'main' ? styles.stageButtonActive : '';
   const iiqSelectedClass =
-    stage.stage === 'IIQ' ? styles.stageButtonActive : '';
+    stage?.stage === 'IIQ' ? styles.stageButtonActive : '';
   const idnSelectedClass =
-    stage.stage === 'IDN' ? styles.stageButtonActive : '';
+    stage?.stage === 'IDN' ? styles.stageButtonActive : '';
 
   return (
     <div className={styles.main}>
       <div className="px-2 md:px-4 py-6 my-2 flex flex-col md:flex-row justify-between gap-4">
         <div className="">
           <div className={`${styles.headerText} my-auto`}>
-            {streamData?.stages[stage.stage]?.topic}
+            {streamData?.stages[stage?.stage]?.topic}
           </div>
 
           <div className={styles.timeText}>
-            {new Date(
-              streamData?.stages[stage.stage]?.startTime,
-            ).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'}) +
-              ' - ' +
+            {streamData?.stages[stage?.stage]?.startTime &&
               new Date(
-                streamData?.stages[stage.stage]?.endTime,
-              ).toLocaleTimeString([], {
-                hour: '2-digit',
-                minute: '2-digit',
-              })}
+                streamData?.stages[stage?.stage]?.startTime,
+              ).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})}
+            {(streamData?.stages[stage?.stage]?.endTime &&
+              `-` +
+                new Date(
+                  streamData?.stages[stage?.stage]?.endTime,
+                ).toLocaleTimeString([], {
+                  hour: '2-digit',
+                  minute: '2-digit',
+                })) ||
+              null}
           </div>
           <div className="flex flex-row flex-wrap gap-8">
             {eventSpeakers?.map((spkr) => {
@@ -185,11 +194,15 @@ export default function Main() {
               image={'/homepage/person-head.png'}
               speakers={speakers}
             />
-            <Survey
-              id={streamData?.stages[stage.stage]?.typeformId}
-              stage={stage}
-              socket={socket}
-            />
+
+            <div ref={typeformRef}>
+              <PopupButton
+                autoClose
+                id={streamData?.stages[stage?.stage]?.typeformId}
+                className="cursor-pointer border-[color:var(--ifm-color-primary)] md:grow border-2 hover:bg-[color:var(--ifm-color-primary)] hover:text-white text-[color:var(--ifm-color-primary)] text-center font-bold py-2 px-4 rounded">
+                Survey
+              </PopupButton>
+            </div>
           </div>
         </div>
       </div>
@@ -210,7 +223,7 @@ export default function Main() {
         </button>
       </div>
       <BrowserOnly>
-        {() => <Room videoSource={streamData?.stages[stage.stage]}></Room>}
+        {() => <Room videoSource={streamData?.stages[stage?.stage]}></Room>}
       </BrowserOnly>
     </div>
   );

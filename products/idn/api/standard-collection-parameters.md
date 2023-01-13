@@ -34,7 +34,7 @@ Examples:
 
 ### Using searchAfter to Page Over 10,000 Records
 
-Search in IdentityNow leverages Elasticsearch functionality, which only allows you to page through up to 10,000 records, by default. However, you can page through more than 10,000 records by using the "searchAfter" syntax. 
+Search in IdentityNow leverages [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/elasticsearch-intro.html) functionality, which only allows you to page through up to 10,000 records, by default. However, you can page through more than 10,000 records by using the "searchAfter" syntax. 
 
 The searchAfter capability provides the ability to page on sorted field values, instead of offset paging. For example, if you sort by ID and page 100 records at a time, you can take the 1st page of 100 records, pass the last ID from that record set into your next search, and the next search will return the next 100 records after that ID. You continue that pattern of using the last value passed into searchAfter until the end of the result set. This allows you to page past the 10,000 record limit until you reach the final record.
 

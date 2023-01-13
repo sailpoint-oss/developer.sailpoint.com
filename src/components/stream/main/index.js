@@ -186,7 +186,6 @@ export default function Main() {
               speakers={speakers}
             />
             <Survey
-              className="w-full"
               id={streamData?.stages[stage.stage]?.typeformId}
               stage={stage}
               socket={socket}

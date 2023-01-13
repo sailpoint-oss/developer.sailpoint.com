@@ -120,7 +120,7 @@ export default function Agenda({title, image, description, speakers}) {
           </div>
           <div className="p-2 md:flex md:flex-row md:justify-end">
             <select
-              className="w-full md:w-fit px-4 py-2 bg-slate-200 rounded-xl"
+              className="w-full md:w-fit px-4 py-2 rounded-xl"
               onChange={(evt) => setFilterSelection(evt.target.value)}>
               <option value={''}>Both</option>
               <option value={'IDN'}>IDN</option>

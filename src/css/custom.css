@@ -74,6 +74,10 @@ span.breadcrumbs__link {
   margin: auto;
 }
 
+.ReactModal__Overlay {
+  z-index: 9999;
+}
+
 .tf-v1-iframe-wrapper {
   @apply !w-[50vw] !h-[50vh];
 }

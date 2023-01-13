@@ -9,7 +9,7 @@ import ThemedImage from '@theme/ThemedImage';
 import {getAgenda} from '../../../services/StreamService';
 export default function Agenda({title, image, description, speakers}) {
   const [agendaModalIsOpen, setAgendaIsOpen] = React.useState(false);
-  const [filterSelection, setFilterSelection] = React.useState('');
+  const [filterSelection, setFilterSelection] = React.useState('IDN');
 
   const [agenda, setAgenda] = React.useState({day1: [], day2: []});
 
@@ -80,7 +80,7 @@ export default function Agenda({title, image, description, speakers}) {
   }
 
   const sessionFilter = (obj) => {
-    if (filterSelection === '') return true;
+    if (obj.hidden === true) return false;
     return obj.stage === filterSelection;
   };
 
@@ -118,28 +118,37 @@ export default function Agenda({title, image, description, speakers}) {
               className={`${styles.gettingStartedThree} text-center px-4`}
               dangerouslySetInnerHTML={{__html: description}}></div>
           </div>
-          <div className="p-2 md:flex md:flex-row md:justify-end">
-            <select
-              className="w-full md:w-fit px-4 py-2 rounded-xl"
-              onChange={(evt) => setFilterSelection(evt.target.value)}>
-              <option value={''}>Both</option>
-              <option value={'IDN'}>IDN</option>
-              <option value={'IIQ'}>IIQ</option>
-            </select>
+          <div className="flex flex-row justify-center px-4 gap-4">
+            <button
+              className={`cursor-pointer border-[color:var(--ifm-color-primary)] md:grow border-2 hover:bg-[color:var(--ifm-color-primary)] hover:text-white text-[color:var(--ifm-color-primary)] text-center font-bold py-2 px-4 rounded !rounded-b-none grow`}
+              onClick={() => {
+                setFilterSelection('IDN');
+              }}>
+              IDN
+            </button>
+            <button
+              className={`cursor-pointer border-[color:var(--ifm-color-primary)] md:grow border-2 hover:bg-[color:var(--ifm-color-primary)] hover:text-white text-[color:var(--ifm-color-primary)] text-center font-bold py-2 px-4 rounded !rounded-b-none grow`}
+              onClick={() => {
+                setFilterSelection('IIQ');
+              }}>
+              IIQ
+            </button>
           </div>
-          <div className="md:h-[50vh] w-full h-[40vh] overflow-auto p-4 gap-2 flex flex-col">
-            <div className="border-b-4 pb-4">
+          <div className="md:h-[50vh] w-full h-[40vh] overflow-auto px-4 pb-4 gap-2 flex flex-col">
+            <div className="pb-4">
               <div className={`${styles.dayHeader} py-8`}>Day 1</div>
               <div className="flex flex-col gap-2">{day1}</div>
             </div>
-            <div className="border-b-4 pb-4">
+            <div className="border-t-4 pb-4">
               <div className={`${styles.dayHeader} py-8`}>Day 2</div>
               <div className="flex flex-col gap-2">{day2}</div>
             </div>
-            <div className="border-b-4 pb-4">
-              <div className={`${styles.dayHeader} py-8`}>Day 3</div>
-              <div className="flex flex-col gap-2">{day3}</div>
-            </div>
+            {day3?.length > 0 && (
+              <div className="border-t-4 pb-4">
+                <div className={`${styles.dayHeader} py-8`}>Day 3</div>
+                <div className="flex flex-col gap-2">{day3}</div>
+              </div>
+            )}
           </div>
         </div>
         <div className="flex flex-row justify-end">

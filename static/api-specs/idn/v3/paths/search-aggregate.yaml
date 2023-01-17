@@ -2,7 +2,10 @@ post:
   tags:
   - Search
   description: >-
-    Performs a search query aggregation and returns aggregation result.
+    Performs a search query aggregation and returns the aggregation result.
+    By default, you can page a maximum of 10,000 search result records. 
+    To page past 10,000 records, you can use searchAfter paging. 
+    Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement searchAfter paging. 
   operationId: searchAggregate
   summary: "Perform a Search Query Aggregation"
   parameters:
@@ -54,5 +57,11 @@ post:
           example: 5
     '400':
       $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
     '403':
       $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

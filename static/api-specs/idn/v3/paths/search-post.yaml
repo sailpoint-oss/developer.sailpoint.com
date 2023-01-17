@@ -3,6 +3,9 @@ post:
   - Search
   description: >-
     Performs a search with the provided query and returns a matching result collection.
+    By default, you can page a maximum of 10,000 search result records. 
+    To page past 10,000 records, you can use searchAfter paging. 
+    Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement searchAfter paging. 
   externalDocs:
     description: Learn more about search.
     url: https://documentation.sailpoint.com/saas/help/search/index.html

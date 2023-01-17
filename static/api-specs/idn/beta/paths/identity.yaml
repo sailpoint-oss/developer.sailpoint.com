@@ -1,11 +1,10 @@
 head:
-  operationId: identityExistsById
+  operationId: identityExists
   tags:
     - Identities
   summary: Check if identity exists
   description: >-
-    The API returns successful response if the requested identity exists and not found error if it doesn`t.
-    A token with ORG_ADMIN authority is required to call this API.
+    This API returns successful response if the requested identity exists and not found error if it doesn`t.
   parameters:
     - in: path
       name: identityId
@@ -15,18 +14,58 @@ head:
       description: Identity Id
       example: ef38f94347e94562b5bb8424a56397d8
   responses:
-    '204':
+    "204":
       description: If an identity with the passed identityId exists.
-    '401':
-      $ref: '../../v3/responses/401.yaml'
-    '403':
-      $ref: '../../v3/responses/403.yaml'
-    '404':
-      $ref: '../../v3/responses/404.yaml'
-    '429':
-      $ref: '../../v3/responses/429.yaml'
-    '500':
-      $ref: '../../v3/responses/500.yaml'
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"
+
+get:
+  operationId: getIdentity
+  tags:
+    - Identities
+  summary: Identity Details
+  description: >-
+    This API returns a single identity using the Identity ID.
+  security:
+    - bearerAuth:
+        - "idn:identity:read"
+  parameters:
+    - in: path
+      name: identityId
+      schema:
+        type: string
+      required: true
+      description: Identity Id
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    "200":
+      description: An identity object
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/Identity.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"
 
 delete:
   operationId: deleteIdentity
@@ -35,7 +74,9 @@ delete:
   summary: Deletes an identity.
   description: >-
     The API returns successful response if the requested identity was deleted.
-    A token with ORG_ADMIN authority is required to call this API.
+  security:
+    - bearerAuth:
+        - "idn:identity:delete"
   parameters:
     - in: path
       name: identityId
@@ -45,25 +86,25 @@ delete:
       description: Identity Id
       example: ef38f94347e94562b5bb8424a56397d8
   responses:
-    '204':
-      $ref: '../../v3/responses/204.yaml'
-    '400':
+    "204":
+      $ref: "../../v3/responses/204.yaml"
+    "400":
       description: >-
-        Client Error - Returned if the request body is invalid. It may indicate that the specified identity is marked as protected and cannot be deleted.
+        Client Error - Returned if the request is invalid. It may indicate that the specified identity is marked as protected and cannot be deleted.
       content:
         application/json:
           schema:
-            $ref: '../../v3/schemas/ErrorResponseDto.yaml'
-    '401':
-      $ref: '../../v3/responses/401.yaml'
-    '403':
-      $ref: '../../v3/responses/403.yaml'
-    '404':
-      $ref: '../../v3/responses/404.yaml'
-    '429':
-      $ref: '../../v3/responses/429.yaml'
-    '500':
-      $ref: '../../v3/responses/500.yaml'
+            $ref: "../../v3/schemas/ErrorResponseDto.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"
 
 patch:
   operationId: patchIdentity
@@ -74,9 +115,12 @@ patch:
     Allows updating individual fields on an Identity using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
     This endpoint is internal only and not intended to be moved to V3.
     When HEAD and DELETE endpoints are moved to V3 we will need to separate this entity and keep PATCH in beta only.
+  security:
+    - bearerAuth:
+        - "idn:identity-internal:update"
   parameters:
     - in: path
-      name: id
+      name: identityId
       schema:
         type: string
       required: true
@@ -100,22 +144,22 @@ patch:
             path: "/internalCloudStatus"
             value: "UNREGISTERED"
   responses:
-    '200':
+    "200":
       description: >-
         Indicates the PATCH operation succeeded, and returns the identity's new representation.
       content:
         application/json:
           schema:
-            $ref: '../../beta/schemas/InternalIdentityDto.yaml'
-    '400':
-      $ref: '../../v3/responses/400.yaml'
-    '401':
-      $ref: '../../v3/responses/401.yaml'
-    '403':
-      $ref: '../../v3/responses/403.yaml'
-    '404':
-      $ref: '../../v3/responses/404.yaml'
-    '429':
-      $ref: '../../v3/responses/429.yaml'
-    '500':
-      $ref: '../../v3/responses/500.yaml'
+            $ref: "../../beta/schemas/InternalIdentityDto.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

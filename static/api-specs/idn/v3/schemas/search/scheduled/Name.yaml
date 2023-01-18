@@ -5,6 +5,7 @@ properties:
       The name of the scheduled search.
     type: string
     example: 'Daily disabled accounts'
+    nullable: true
   description:
     description: |
       The description of the scheduled search.

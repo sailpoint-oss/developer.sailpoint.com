@@ -4,7 +4,7 @@ module.exports = {
   corePlugins: {
     preflight: true,
   },
-  content: ['./src/pages/*.js', './src/components/stream/**/*.js'],
+  content: ['./src/pages/**/*.js', './src/components/stream/**/*.js'],
   theme: {
     extend: {},
   },

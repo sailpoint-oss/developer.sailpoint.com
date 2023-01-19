@@ -29,11 +29,11 @@ export default function Speakers({title, image, description, speakers}) {
             className="!h-16 !w-16 rounded-full"
             src={item?.image}
             key={`${index}-image`}></img>
-          <div className="flex flex-col gap-2">
-            <p className="text-xl font-bold m-0" key={`${index}-name`}>
+          <div className="flex flex-col justify-center">
+            <p className="text-xl font-bold !m-0" key={`${index}-name`}>
               {item?.name}
             </p>
-            <p className="m-0" key={`${index}-title`}>
+            <p className="!m-0" key={`${index}-title`}>
               {item?.title}
             </p>
           </div>

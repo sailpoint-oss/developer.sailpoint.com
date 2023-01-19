@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
 import Link from '@docusaurus/Link';
@@ -9,74 +9,28 @@ import ThemedImage from '@theme/ThemedImage';
 import {getAgenda} from '../../../services/StreamService';
 export default function Agenda({title, image, description, speakers}) {
   const [agendaModalIsOpen, setAgendaIsOpen] = React.useState(false);
+  const [agenda, setAgenda] = useState({
+    day1: [],
+    day2: [],
+    day3: [],
+  });
   const [filterSelection, setFilterSelection] = React.useState('IDN');
+  const [loading, setLoading] = useState(true);
 
-  const [agenda, setAgenda] = React.useState({day1: [], day2: []});
-
-  function openAgendaModal() {
-    setAgendaIsOpen(true);
-  }
-
-  function closeAgendaModal() {
-    setAgendaIsOpen(false);
-  }
-
-  const getAgendas = async () => {
-    const data = await getAgenda();
-    console.log(data);
-    setAgenda(data);
+  const dates = {
+    day1: new Date('2023-03-07').toLocaleDateString([], {dateStyle: 'full'}),
+    day2: new Date('2023-03-08').toLocaleDateString([], {dateStyle: 'full'}),
+    day3: new Date('2023-03-09').toLocaleDateString([], {dateStyle: 'full'}),
   };
-  React.useEffect(() => {
-    getAgendas();
-  }, []);
 
-  function processSessions(item, index) {
-    return (
-      <div
-        className={`${styles.dayContent} hover:!shadow-2xl grow flex flex-col md:flex-row justify-start md:gap-2 md:h-[171px] overflow-hidden`}
-        key={`day-${item.day}-${index}`}>
-        <div className="flex flex-col justify-center">
-          <p className="font-bold md:text-xl md:text-center m-0">
-            {new Date(item?.startTime).toLocaleTimeString([], {
-              hour: '2-digit',
-              minute: '2-digit',
-            })}
-          </p>
-        </div>
-        <div className="grow md:border-l-4">
-          <div
-            className={`${styles.agendaAnswer} flex flex-row gap-2`}
-            key={`${index}-answer`}>
-            <p className="text-lg font-medium">{item?.topic}</p>
-          </div>
+  function formatSpeaker(id) {
+    return speakers?.filter((spkr) => spkr.id === id)[0];
+  }
 
-          <div className="" key={`${index}-question`}>
-            <div className="flex flex-row flex-wrap md:flex-nowrap pl-4 md:pl-8 md:pr-16 gap-8 justify-start">
-              {item.speakers.map((speakerId, index) => {
-                const speaker = speakers.filter(
-                  (obj) => obj.id === speakerId,
-                )[0];
-
-                return (
-                  <div
-                    className="flex flex-row gap-2"
-                    key={`${item?.topic}-speaker-${index}`}>
-                    <img
-                      className="!w-16 !h-16 rounded-full"
-                      src={speaker?.image}
-                    />
-                    <div className="flex flex-col justify-center">
-                      <p className="m-0">{speaker?.name}</p>
-                      <p className="m-0 text-xs">{speaker?.title}</p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </div>
-    );
+  function diff_minutes(dt2, dt1) {
+    var diff = (dt2.getTime() - dt1.getTime()) / 1000;
+    diff /= 60;
+    return Math.abs(Math.round(diff));
   }
 
   const sessionFilter = (obj) => {
@@ -84,23 +38,27 @@ export default function Agenda({title, image, description, speakers}) {
     return obj.stage === filterSelection;
   };
 
-  let day1 = agenda?.day1?.filter(sessionFilter)?.map(processSessions);
-  let day2 = agenda?.day2?.filter(sessionFilter)?.map(processSessions);
-  let day3 = agenda?.day3?.filter(sessionFilter)?.map(processSessions);
+  useEffect(async () => {
+    const tempAgenda = await getAgenda();
+    setAgenda(tempAgenda);
+    console.log(tempAgenda);
+    setLoading(false);
+    console.log('Done Loading');
+  }, []);
 
   return (
     <div>
       <button
         className="cursor-pointer border-[color:var(--ifm-color-primary)] md:grow border-2 hover:bg-[color:var(--ifm-color-primary)] hover:text-white text-[color:var(--ifm-color-primary)] text-center font-bold py-2 px-4 rounded"
-        onClick={openAgendaModal}>
+        onClick={() => setAgendaIsOpen(true)}>
         Agenda
       </button>
       <Modal
         isOpen={agendaModalIsOpen}
-        onRequestClose={closeAgendaModal}
+        onRequestClose={() => setAgendaIsOpen(false)}
         className={styles.modal}
         contentLabel="Agenda">
-        <div className="py-2">
+        <div className="">
           <div className={`!m-0 flex flex-col justify-center`}>
             <div className="flex flex-row justify-center">
               <ThemedImage
@@ -118,41 +76,146 @@ export default function Agenda({title, image, description, speakers}) {
               className={`${styles.gettingStartedThree} text-center px-4`}
               dangerouslySetInnerHTML={{__html: description}}></div>
           </div>
-          <div className="flex flex-row justify-center px-4 gap-4">
+          <div className="flex flex-row gap-2 justify-center">
             <button
-              className={`cursor-pointer border-[color:var(--ifm-color-primary)] md:grow border-2 hover:bg-[color:var(--ifm-color-primary)] hover:text-white text-[color:var(--ifm-color-primary)] text-center font-bold py-2 px-4 rounded !rounded-b-none grow`}
-              onClick={() => {
-                setFilterSelection('IDN');
-              }}>
+              className={`rounded  p-2  hover:scale-[.90] w-[50px] border-2 ${
+                filterSelection === 'IDN'
+                  ? 'border-[#cc27b0] bg-[#cc27b0] text-white'
+                  : 'border-slate-600'
+              }`}
+              onClick={() => setFilterSelection('IDN')}>
               IDN
             </button>
             <button
-              className={`cursor-pointer border-[color:var(--ifm-color-primary)] md:grow border-2 hover:bg-[color:var(--ifm-color-primary)] hover:text-white text-[color:var(--ifm-color-primary)] text-center font-bold py-2 px-4 rounded !rounded-b-none grow`}
-              onClick={() => {
-                setFilterSelection('IIQ');
-              }}>
+              className={`rounded  p-2  hover:scale-[.90] w-[50px] border-2 ${
+                filterSelection === 'IIQ'
+                  ? 'border-[#cc27b0] bg-[#cc27b0] text-white'
+                  : 'border-slate-600'
+              }`}
+              onClick={() => setFilterSelection('IIQ')}>
               IIQ
             </button>
           </div>
-          <div className="md:h-[50vh] w-full h-[40vh] overflow-auto px-4 pb-4 gap-2 flex flex-col">
-            <div className="pb-4">
-              <div className={`${styles.dayHeader} py-8`}>Day 1</div>
-              <div className="flex flex-col gap-2">{day1}</div>
-            </div>
-            <div className="border-t-4 pb-4">
-              <div className={`${styles.dayHeader} py-8`}>Day 2</div>
-              <div className="flex flex-col gap-2">{day2}</div>
-            </div>
-            {day3?.length > 0 && (
-              <div className="border-t-4 pb-4">
-                <div className={`${styles.dayHeader} py-8`}>Day 3</div>
-                <div className="flex flex-col gap-2">{day3}</div>
-              </div>
+          <div className="my-2 md:h-[50vh] md:w-[70vw] h-[60vh] overflow-auto p-4 gap-2 flex flex-col">
+            {loading && (
+              <>
+                <div className="flex flex-row justify-center">
+                  <p className="text-center">Loading...</p>
+                </div>
+              </>
+            )}
+            {!loading && (
+              <>
+                {['Day 1', 'Day 2', 'Day 3'].map((label) => {
+                  const day = label.replace(' ', '').toLowerCase();
+                  const sessions = agenda[day]?.filter(sessionFilter);
+
+                  if (sessions.length > 0)
+                    return (
+                      <div key={day} className="p-2 flex flex-col ">
+                        <p className="text-center">
+                          {label} - {dates[day]}
+                        </p>
+                        <div className="flex flex-col gap-2">
+                          {sessions.map((session) => {
+                            return (
+                              <>
+                                <div className="flex flex-row gap-4">
+                                  <div className="hidden lg:flex flex-col justify-center">
+                                    <p className="whitespace-nowrap">
+                                      {new Date(
+                                        session?.startTime,
+                                      ).toLocaleTimeString([], {
+                                        hour: '2-digit',
+                                        minute: '2-digit',
+                                        timeZoneName: 'short',
+                                      })}
+                                    </p>
+                                  </div>
+                                  <div
+                                    key={session.title}
+                                    className="flex flex-col bg-[#0033a1] border-l-8 text-white border-[#54c0e8] rounded-lg p-4 grow hover:scale-[1.04] transform-gpu transition-all">
+                                    <div className="flex flex-col">
+                                      <div className="lg:hidden">
+                                        <p className="whitespace-nowrap">
+                                          {new Date(
+                                            session?.startTime,
+                                          ).toLocaleTimeString([], {
+                                            hour: '2-digit',
+                                            minute: '2-digit',
+                                            timeZoneName: 'short',
+                                          })}
+                                        </p>
+                                      </div>
+                                      <div className="flex flex-row">
+                                        <div className="flex flex-col grow">
+                                          <div className="flex flex-row gap-2">
+                                            <p className="!m-0 text-2xl">
+                                              {session?.topic}
+                                            </p>
+                                            {/* <p className="!m-0 text-gray-200/50 my-auto">
+                                  - {session?.stage}
+                                </p> */}
+                                          </div>
+                                          <div className="flex flex-col">
+                                            {session?.speakers?.map((spkr) => {
+                                              const speaker =
+                                                formatSpeaker(spkr);
+                                              return (
+                                                <div
+                                                  key={spkr}
+                                                  className="flex flex-row gap-2 text-slate-300/50">
+                                                  {/* <img
+                                        className="w-16 h-16 rounded-full"
+                                        src={speaker?.image}
+                                      /> */}
+
+                                                  <p className="my-auto text-xl">
+                                                    {speaker?.name} -{' '}
+                                                    {speaker?.title}
+                                                  </p>
+                                                </div>
+                                              );
+                                            })}
+                                          </div>
+                                        </div>
+                                        <div className="hidden lg:flex flex-col justify-center font-medium pr-8">
+                                          <p className="!m-0 text-center">
+                                            {diff_minutes(
+                                              new Date(session?.endTime),
+                                              new Date(session?.startTime),
+                                            )}
+                                          </p>
+                                          <p className="!m-0">min</p>
+                                        </div>
+                                      </div>
+                                      <div className="lg:hidden">
+                                        <p className="!m-0">
+                                          {diff_minutes(
+                                            new Date(session?.endTime),
+                                            new Date(session?.startTime),
+                                          )}{' '}
+                                          min
+                                        </p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    );
+                })}
+              </>
             )}
           </div>
         </div>
         <div className="flex flex-row justify-end">
-          <button className={styles.modalButton} onClick={closeAgendaModal}>
+          <button
+            className={styles.modalButton}
+            onClick={() => setAgendaIsOpen(false)}>
             Close
           </button>
         </div>

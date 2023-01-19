@@ -9,13 +9,11 @@ properties:
     - $ref: ../model/base/DateTime.yaml
     description: The date the scheduled search was initially created.
     readOnly: true
-    nullable: false
   modified:
     allOf:
     - $ref: ../model/base/DateTime.yaml
     description: The last date the scheduled search was modified.
     readOnly: true
-    nullable: false
   schedule:
     $ref: '../../schedule/Schedule.yaml'
   recipients:

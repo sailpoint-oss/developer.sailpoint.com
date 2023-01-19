@@ -494,3 +494,131 @@ html[data-theme='dark'] .theme-admonition-note {
 
 ul {
 }
+
+@layer utilities {
+  .sp-text-h1 {
+    @apply sp-text-[48px] sm:sp-text-[66px] sp-font-semibold sp-font-sans sp-m-0 sp-mb-4 sp-leading-[1.1] sm:sp-leading-[1.1];
+  }
+  .sp-text-h2 {
+    @apply sp-text-[35px] sm:sp-text-[50px] sp-font-semibold sp-font-sans sp-m-0 sm:sp-mb-6 sp-mb-4 sp-leading-[1.2];
+  }
+  .sp-text-h3 {
+    @apply sp-text-[28px] sm:sp-text-[40px] sp-font-semibold sp-font-sans sp-mb-6 sp-leading-[1.2];
+  }
+  .sp-text-h4 {
+    @apply sp-text-[21px] sm:sp-text-[28px] sp-font-semibold sp-font-sans sp-m-0 sp-mb-2 sm:sp-mb-4 sp-leading-[1.4] md:sp-leading-[1.2];
+  }
+  .sp-text-h5 {
+    @apply sp-text-lg sm:sp-text-[21px] sp-font-semibold sp-font-sans sp-m-0 sp-mb-4 sp-leading-[1.6] sm:sp-leading-[1.2];
+  }
+  .sp-text-h6 {
+    @apply sp-text-base sm:sp-text-lg sp-font-medium sp-font-sans sp-m-0 sp-mb-2 sp-leading-[1.6];
+  }
+  .sp-text-longform {
+    @apply sp-text-base sp-text-[18px] md:sp-text-[20px] sp-font-normal sp-font-sans sp-m-0 sp-mb-2 sp-leading-[1.75];
+  }
+  .sp-subhead-lg {
+    @apply sp-text-lg sm:sp-text-[21px] sp-font-normal sp-font-sans sp-m-0 sp-mb-4;
+  }
+  .sp-subhead {
+    @apply sp-text-base sm:sp-text-lg sp-font-normal sp-font-sans sp-m-0 sp-mb-4;
+  }
+  .sp-eyebrow {
+    @apply sp-text-xs sm:sp-text-sm sp-font-semibold sp-font-sans sp-uppercase sp-m-0 sp-mb-4;
+    line-height: 0.875rem;
+    letter-spacing: 2px;
+  }
+  .sp-stats-lg {
+    @apply sp-font-bold sp-font-sans sp-pb-4 sp-my-0 sp-font-semibold;
+    @apply sp-text-5xl #{!important};
+    @apply lg:sp-text-[120px] #{!important};
+  }
+  p {
+    @apply sp-text-base sm:sp-text-lg sp-font-normal sp-font-sans sp-m-0 sp-mb-4;
+  }
+  .sp-body-med {
+    @apply sp-text-base sp-font-normal sp-font-sans sp-pb-4 sp-my-0;
+  }
+  .sp-body-sm {
+    @apply sp-text-sm sp-font-normal sp-font-sans sp-pb-4 sp-my-0;
+  }
+}
+
+@layer components {
+  .sp-btn {
+    @apply sp-text-base sp-cursor-pointer sp-leading-6 sp-font-semibold sp-outline-offset-0 sp-normal-case sp-no-underline sp-rounded sp-border sp-border-transparent sp-px-4 sp-py-[11px]
+    focus-visible:sp-outline focus-visible:sp-outline-[1.5px] focus-visible:sp-outline-offset-2;
+    transition: none; // TODO:
+    display: inline-block; // TODO:
+
+    &-default {
+      @apply sp-bg-blue sp-text-white
+      hover:sp-bg-blue-dark hover:sp-text-white
+      focus-visible:sp-text-white focus:sp-text-white visited:sp-text-white focus-visible:sp-outline-blue
+      active:sp-elevate active:sp-text-white;
+    }
+    &--blue {
+      @extend .sp-btn-default;
+
+      &-alt {
+        @apply sp-bg-white sp-text-blue sp-border sp-border-transparent hover:sp-text-blue hover:sp-border-blue focus-visible:sp-text-blue focus:sp-text-blue visited:sp-text-blue focus-visible:sp-outline-blue active:sp-outline active:sp-outline-1 active:sp-outline-blue active:sp-elevate active:sp-text-blue;
+      }
+    }
+    &--hotpink {
+      @apply sp-bg-hotpink sp-text-white sp-border sp-border-transparent hover:sp-bg-hotpink-dark hover:sp-text-white focus-visible:sp-text-white focus:sp-text-white visited:sp-text-white focus-visible:sp-outline-hotpink active:sp-elevate active:sp-text-white;
+
+      &-alt {
+        @apply sp-bg-white sp-text-hotpink sp-border sp-border-transparent hover:sp-border-hotpink hover:sp-text-hotpink focus-visible:sp-text-hotpink focus:sp-text-hotpink visited:sp-text-hotpink focus-visible:sp-outline-hotpink active:sp-elevate active:sp-text-hotpink;
+      }
+    }
+    &--outline {
+      @apply sp-border sp-text-blue sp-border-blue focus-visible:sp-outline-blue active:sp-elevate  hover:sp-text-white hover:sp-bg-blue focus-visible:sp-text-white active:sp-text-white focus-visible:sp-bg-blue visited:sp-text-blue;
+
+      &-alt {
+        @apply sp-text-white sp-border-white hover:sp-text-blue hover:sp-bg-white hover:sp-border-blue visited:sp-text-white focus:sp-text-blue focus:sp-outline-blue focus:sp-bg-white focus-visible:sp-text-blue focus-visible:sp-bg-white active:sp-border-blue active:sp-elevate;
+      }
+    }
+    &--arrow {
+      padding: 14px 8px 16px 8px;
+      @apply sp-text-blue sp-leading-4 hover:sp-underline hover:sp-text-blue focus-visible:sp-underline focus-visible:sp-text-blue focus:sp-text-blue focus-visible:sp-outline-blue focus-visible:sp-bg-blue focus-visible:sp-bg-opacity-5;
+
+      i.fas {
+        margin-left: 0.5rem;
+      }
+
+      &-alt {
+        padding: 14px 8px 16px 8px;
+        @apply sp-text-white sp-leading-4 hover:sp-underline hover:sp-text-white  focus-visible:sp-text-white focus:sp-text-white visited:sp-text-white focus-visible:sp-outline-white focus-visible:sp-bg-transparent focus-visible:sp-underline;
+
+        i.fas {
+          margin-left: 0.5rem;
+        }
+      }
+    }
+
+    &--icon {
+      // modifies above/existing to allow flexibility between colors
+    }
+  }
+}
+
+@layer utilities {
+  .sp-elevate {
+    /* elevate */
+    box-shadow: 0px 4px 16px 0px rgba(65, 83, 100, 0.08);
+  }
+
+  .sp-disabled {
+    &.sp-btn {
+      @apply sp-outline-none sp-text-darkgray sp-bg-lightgray sp-opacity-60 sp-pointer-events-none;
+      &--outline,
+      &--outline-alt {
+        @apply sp-border sp-border-lightgray sp-bg-transparent;
+      }
+      &--arrow,
+      &--arrow-alt {
+        @apply sp-bg-transparent sp-no-underline;
+      }
+    }
+  }
+}

@@ -18,6 +18,7 @@ properties:
           - 'MON'
           - 'WED'
           - 'FRI'
+      nullable: true
   hours:
     allOf:
     - $ref: Selector.yaml

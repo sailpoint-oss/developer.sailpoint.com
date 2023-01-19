@@ -1,17 +1,13 @@
 get:
   operationId: getOauthClient
-  # security:
-  #   - oauth2: [idn:oathkeeper-client:read]
+  security:
+    - oauth2: [sp:oauth-client:manage, sp:oauth-client:read]
   tags:
     - OAuth Clients
   summary: Get OAuth Client
   description: >-
     This gets details of an OAuth client.
 
-    Request will require the following security scope:
-
-    - sp:oauth-client:manage
-    - sp:oauth-client:read
   parameters:
     - in: path
       name: id
@@ -41,17 +37,14 @@ get:
       $ref: '../../v3/responses/500.yaml'
 delete:
   operationId: deleteOauthClient
-  # security:
-  #   - oauth2: [idn:oathkeeper-client:delete,idn:oathkeeper-internal-client:delete]
+  security:
+    - oauth2: [sp:oauth-client:manage]
   tags:
     - OAuth Clients
   summary: Delete OAuth Client
   description: >-
     This deletes an OAuth client.
 
-    Request will require the following security scopes:
-
-    - sp:oauth-client:manage
   parameters:
     - in: path
       name: id
@@ -77,8 +70,8 @@ delete:
       $ref: '../../v3/responses/500.yaml'
 patch:
   operationId: patchOauthClient
-  # security:
-  #   - oauth2: [idn:oathkeeper-client:update]
+  security:
+    - oauth2: [sp:oauth-client:manage]
   tags:
     - OAuth Clients
   summary: Patch OAuth Client

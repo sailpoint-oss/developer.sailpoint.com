@@ -32,6 +32,61 @@ Examples:
 - GET `/v3/public-identities?limit=20&offset=4`
 - GET `/v3/public-identities?count=true`
 
+## Paginating Search Queries
+
+The [search API](https://developer.sailpoint.com/idn/api/v3/search) in IdentityNow leverages [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/elasticsearch-intro.html) functionality, which returns a maximum of 10,000 records by default. However, you can page more than 10,000 records by using the "searchAfter" property.
+
+The `searchAfter` capability provides the ability to page on sorted field values, instead of offset paging. For example, if you sort by ID and page 100 records at a time, you can take the 1st page of 100 records, pass the last ID from that record set into your next search, and the next search will return the next 100 records after that ID. You continue that pattern of using the last value passed into `searchAfter` until the end of the result set. This allows you to page past the 10,000 record limit until you reach the final record.
+
+**Required Properties for Paginating Search Results**
+
+|**Property**|Description|
+| --- | --- |
+|**query**|The Query JSON object. Refer to the following Query JSON Object table for details.|
+|**sort**|The array list of the fields to sort by. This is required if you are using the `searchAfter` approach. You can use `-fieldName` for descending searches (optional).|
+|**searchAfter**|You can use this instead of offset to get past the 10,000 paging result record limit, passing the last value(s) of your sort fields from the previous result set into the next result set until you get the total number of results or the end of results (optional).|
+
+### Example of Paginating Search Results
+
+Here is an example of a search API call with `searchAfter` paging. The first query will get the first set of results. The default limit for search is 10,000, which is different from other collection endpoints. For this example, the query is set to page 100 records at a time. Paginating search queries also requires the `sort` property to be set to `id`.
+
+**POST** <https://{tenant}.api.identitynow.com/v3/search?limit=100&count=true>
+
+```json
+{
+    "indices": [
+        "identities"
+    ],
+    "query": {
+        "query": "*"
+    },
+    "sort": [
+        "id"
+    ]
+}
+```
+
+This query will return 100 records. To get the next 100 records, find the last record's `id` and use it in the next query's `searchAfter` property.
+
+**POST** <https://{tenant}.api.identitynow.com/v3/search?limit=100&count=true>
+
+```json
+{
+    "indices": [
+        "identities"
+    ],
+    "query": {
+        "query": "*"
+    },
+    "sort": [
+        "id"
+    ],
+    "searchAfter": ["2c9180835d38ca0c015d606b50851b1e"]
+}
+```
+
+This will get the next 100 records in the search query. Repeat this process until no more records return.
+
 ## Filtering Results
 
 Any collection with a `filters` parameter supports filtering. This means that an item is only included in the returned array if the filters expression evaluates to true for that item. Check the available request parameters for the collection endpoint you are using to see if it supports filtering.

@@ -1,66 +1,52 @@
 # The Identity DTO returned by the v3 identities APIs
-type: object
-title: IdentityDto
-properties:
-  id:
-    type: string
-    readOnly: true
-    example: '6c9079b270a266a60170a2779fcb0006'
-  name:
-    type: string
-    description: The name of the identity
-    example: 'brandin.gray'
-  displayName:
-    type: string
-    description: The display name of the identity
-    example: 'Brandin Gray'
-  emailAddress:
-    type: string
-    description: The email address of the identity
-    example: 'sender@example.com'
-  processingState:
-    type: string
-    nullable: true
-    description: The processing state of the identity
-    enum:
-      -ERROR
-  identityStatus:
-    type: string
-    description: The identity's status in the system
-    enum:
-      - UNREGISTERED,
-        - REGISTERED,
-        - PENDING,
-        - WARNING,
-        - DISABLED,
-        - ACTIVE,
-        - DEACTIVATED,
-        - TERMINATED,
-        - ERROR,
-        - LOCKED
-  managerId:
-    type: string
-    nullable: true
-    description: The identity ID of the user marked as this identity's manager
-    example: 2c9079b270a266a60170a2779fcb0007
-  isManager:
-    type: boolean
-    description: Whether this identity is marked as the manager of another identity
-    example: true
-  lastRefresh:
-    type: string
-    format: date-time
-    description: The last time the identity was refreshed by the system
-    example: '2020-11-22T15:42:31.123Z'
-  created:
-    type: string
-    format: date-time
-    description: When this identity was created
-    example: '2020-12-1T18:40:35.772Z'
-  modified:
-    type: string
-    format: date-time
-    description: When this identity was last modified or updated
-  attributes:
-    type: object
-    description: A map the identity attributes for the identity
+allOf:
+  - $ref: './BaseCommonDto.yaml'
+  - type: object
+    title: IdentityDto
+    properties:
+      alias:
+        type: string
+        description: Alternate unique identifier for the identity
+        example: 'walter.white'
+      emailAddress:
+        type: string
+        description: The email address of the identity
+        example: 'sender@example.com'
+      processingState:
+        type: string
+        nullable: true
+        description: The processing state of the identity
+        enum:
+          - ERROR
+          - OK
+        example: ERROR
+      identityStatus:
+        type: string
+        description: The identity's status in the system
+        enum:
+          - UNREGISTERED
+          - REGISTERED
+          - PENDING
+          - WARNING
+          - DISABLED
+          - ACTIVE
+          - DEACTIVATED
+          - TERMINATED
+          - ERROR
+          - LOCKED
+        example: LOCKED
+      managerRef:
+        $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+      isManager:
+        type: boolean
+        description: Whether this identity is a manager of another identity
+        example: true
+      lastRefresh:
+        type: string
+        format: date-time
+        description: The last time the identity was refreshed by the system
+        example: '2020-11-22T15:42:31.123Z'
+      attributes:
+        type: object
+        description: A map with the identity attributes for the identity
+        example: '{"uid":"Walter White","firstname":"walter","cloudStatus":"UNREGISTERED","displayName":"Walter White","identificationNumber":"942","lastSyncDate":1470348809380,"email":"walter@gmail.com","lastname":"white"}'

@@ -28,3 +28,8 @@ properties:
     type: array
     items:
       $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+  excludeBackup:
+    description: By default, every import will first export all existing objects supported by sp-config as a backup before the import is attempted. If excludeBackup is true, the backup will not be performed.
+    type: boolean
+    default: false
+    example: "false"

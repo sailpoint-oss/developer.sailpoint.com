@@ -2,9 +2,9 @@ post:
   tags:
   - Search
   description: >-
-    Performs a search with provided query and returns count of results in the X-Total-Count header.
+    Performs a search with a provided query and returns the count of results in the X-Total-Count header.
   operationId: searchCount
-  summary: "Count the number of Documents satisfying a Query"
+  summary: "Count Documents Satisfying a Query"
   requestBody:
     content:
       application/json:
@@ -25,5 +25,11 @@ post:
           example: 5
     '400':
       $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
     '403':
       $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

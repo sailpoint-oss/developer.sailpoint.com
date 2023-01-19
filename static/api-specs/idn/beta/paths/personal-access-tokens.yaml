@@ -1,19 +1,14 @@
 get:
   operationId: listPersonalAccessTokens
+  security:
+    - oauth2: [sp:my-personal-access-tokens:read, sp:my-personal-access-tokens:manage, sp:all-personal-access-tokens:read, sp:all-personal-access-tokens:manage]
   tags:
     - Personal Access Tokens
   summary: List Personal Access Tokens
   description: >-
     This gets a collection of personal access tokens associated with the optional `owner-id`. 
     query parameter. If the `owner-id` query parameter is omitted, all personal access tokens 
-    for a tenant will be retrieved, but the caller must have the 'idn:all-personal-access-tokens:read' right. 
-
-    Request will require one of the following security scopes:
-
-      - sp:my-personal-access-tokens:read
-      - sp:my-personal-access-tokens:manage
-      - sp:all-personal-access-tokens:read
-      - sp:all-personal-access-tokens:manage
+    for a tenant will be retrieved, but the caller must have the 'idn:all-personal-access-tokens:read' right.
     
   parameters:
     - in: query
@@ -53,16 +48,13 @@ get:
       $ref: "../../v3/responses/500.yaml"
 post:
   operationId: createPersonalAccessToken
+  security:
+    - oauth2: [ sp:my-personal-access-tokens:manage, sp:all-personal-access-tokens:manage ]
   tags:
     - Personal Access Tokens
   summary: Create Personal Access Token
   description: >-
-    This creates a personal access token. 
-
-    Request will require one of the following security scopes:
-
-      - sp:my-personal-access-tokens:manage
-      - sp:all-personal-access-tokens:manage
+    This creates a personal access token.
     
   requestBody:
     description: Name and scope of personal access token.

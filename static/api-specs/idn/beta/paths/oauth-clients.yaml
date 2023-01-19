@@ -1,16 +1,13 @@
 get:
   operationId: listOauthClients
-  # security:
-  #   - oauth2: [idn:oathkeeper-client-list:read]
+  security:
+    - oauth2: [sp:oauth-client:manage]
   tags:
     - OAuth Clients
   summary: List OAuth Clients
   description: >-
     This gets a list of OAuth clients.
 
-    Request will require the following security scope:
-
-    - sp:oauth-client:manage
   responses:
     '200':
       description: List of OAuth clients.
@@ -32,17 +29,14 @@ get:
       $ref: '../../v3/responses/500.yaml'
 post:
   operationId: createOauthClient
-  # security:
-  #   - oauth2: [idn:oathkeeper-client:create,idn:oathkeeper-internal-client:create]
+  security:
+    - oauth2: [sp:oauth-client:manage]
   tags:
     - OAuth Clients
   summary: Create OAuth Client
   description: >-
     This creates an OAuth client.
 
-    Request will require the following security scope:
-
-    - sp:oauth-client:manage
   requestBody:
     required: true
     content:

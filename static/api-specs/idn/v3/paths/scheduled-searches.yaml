@@ -13,6 +13,119 @@ post:
           allOf:
           - $ref: '../schemas/search/scheduled/Name.yaml'
           - $ref: '../schemas/search/scheduled/Schedule.yaml'
+        examples:
+          Daily Search:
+            description: A search that executes each day at a 9 AM
+            value:
+              {
+                "savedSearchId": "9c620e13-cd33-4804-a13d-403bd7bcdbad",
+                "schedule": {
+                    "type": "DAILY",
+                    "hours": {
+                        "type": "LIST",
+                        "values": [
+                            "9"
+                        ]
+                    }
+                },
+                "recipients": [
+                    {
+                        "type": "IDENTITY",
+                        "id": "2c9180867624cbd7017642d8c8c81f67"
+                    }
+                ]
+              }
+          Weekly Search:
+            description: A search that executes each week on select days and times
+            value:
+              {
+                "savedSearchId": "9c620e13-cd33-4804-a13d-403bd7bcdbad",
+                "schedule": {
+                    "type": "WEEKLY",
+                    "days": {
+                      "type": "LIST",
+                      "values": [
+                        "MON",
+                        "TUE",
+                        "WED",
+                        "THU",
+                        "FRI",
+                        "SAT",
+                        "SUN"
+                      ]
+                    },
+                    "hours": {
+                        "type": "LIST",
+                        "values": [
+                            "9"
+                        ]
+                    }
+                },
+                "recipients": [
+                    {
+                        "type": "IDENTITY",
+                        "id": "2c9180867624cbd7017642d8c8c81f67"
+                    }
+                ]
+              }
+          Monthly Search:
+            description: A search that executes each month on select days and times
+            value:
+              {
+                "savedSearchId": "9c620e13-cd33-4804-a13d-403bd7bcdbad",
+                "schedule": {
+                    "type": "MONTHLY",
+                    "days": {
+                      "type": "LIST",
+                      "values": [
+                        "1",
+                        "7",
+                        "14",
+                        "L"
+                      ]
+                    },
+                    "hours": {
+                        "type": "LIST",
+                        "values": [
+                            "9"
+                        ]
+                    }
+                },
+                "recipients": [
+                    {
+                        "type": "IDENTITY",
+                        "id": "2c9180867624cbd7017642d8c8c81f67"
+                    }
+                ]
+              }
+          Calendar Search:
+            description: A search that executes on specific calendar days
+            value:
+              {
+                "savedSearchId": "9c620e13-cd33-4804-a13d-403bd7bcdbad",
+                "schedule": {
+                    "type": "CALENDAR",
+                    "days": {
+                        "type": "LIST",
+                        "values": [
+                            "2023-01-22",
+                            "2023-02-22"
+                        ]
+                    },
+                    "hours": {
+                        "type": "LIST",
+                        "values": [
+                            "9"
+                        ]
+                    }
+                },
+                "recipients": [
+                    {
+                        "type": "IDENTITY",
+                        "id": "2c9180867624cbd7017642d8c8c81f67"
+                    }
+                ]
+              }
     required: true
   responses:
     '201':
@@ -23,14 +136,22 @@ post:
             $ref: '../schemas/search/scheduled/ScheduledSearch.yaml'
     '400':
       $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
     '403':
       $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
 get:
   tags:
     - Scheduled Search
   description: |
     Returns a list of scheduled searches.
-  summary: Return a list of scheduled searches
+  summary: List scheduled searches
   operationId: scheduledSearchList
   parameters:
   - $ref: '../parameters/offset.yaml'
@@ -72,5 +193,13 @@ get:
           example: 5
     '400':
       $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
     '403':
       $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

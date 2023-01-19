@@ -28,5 +28,9 @@ properties:
             }
           }
         }
+  exportJobId:
+    type: string
+    description: If a backup was performed before the import, this will contain the jobId of the backup job. This id can be used to retrieve the json file of the backup export.
+    example: "be9e116d-08e1-49fc-ab7f-fa585e96c9e4"
 required:
   - results

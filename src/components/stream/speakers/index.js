@@ -17,7 +17,12 @@ export default function Speakers({title, image, description, speakers}) {
     setSpeakerIsOpen(false);
   }
 
-  let itemsList = speakers.map((item, index) => {
+  const speakerFilter = (obj) => {
+    if (obj.name === 'Speaker Coming Soon') return false;
+    return true;
+  };
+
+  let itemsList = speakers.filter(speakerFilter).map((item, index) => {
     return (
       <a
         target="_blank"
@@ -25,10 +30,14 @@ export default function Speakers({title, image, description, speakers}) {
         href={item?.link}
         key={`${index}-link`}>
         <div className="card_src-components-homepage-TeamCard-styles-module !h-fit p-4 flex flex-row gap-2">
-          <img
-            className="!h-16 !w-16 rounded-full"
-            src={item?.image}
-            key={`${index}-image`}></img>
+          {item?.image && (
+            <img
+              className="!h-16 !w-16 rounded-full"
+              src={item?.image}
+              key={`${index}-image`}
+            />
+          )}
+
           <div className="flex flex-col justify-center">
             <p className="text-xl font-bold !m-0" key={`${index}-name`}>
               {item?.name}

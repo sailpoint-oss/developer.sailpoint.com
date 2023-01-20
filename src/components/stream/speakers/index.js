@@ -37,7 +37,6 @@ export default function Speakers({title, image, description, speakers}) {
               key={`${index}-image`}
             />
           )}
-
           <div className="flex flex-col justify-center">
             <p className="text-xl font-bold !m-0" key={`${index}-name`}>
               {item?.name}

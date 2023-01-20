@@ -12,24 +12,23 @@ export default function Room({videoSource}) {
     setTest(test);
   }, [videoSource?.topic]);
 
-  const placeholdervideo = 'placeholdervideo';
+  const staticVideo = '/img/developer_days_placeholder_video.mov';
+  const placeholderVideo = 'placeholdervideo';
 
   return (
     <div className={`${styles.stageContainer}`}>
       <div className={styles.stageContentVideo}>
         <MuxPlayer
           src={
-            videoSource?.muxPlaybackId === placeholdervideo
-              ? '/img/blurred_intro.mov'
-              : ''
+            videoSource?.muxPlaybackId === placeholderVideo ? staticVideo : null
           }
           loop={true}
           autoPlay={true}
           streamType={
-            videoSource?.muxPlaybackId === placeholdervideo ? null : 'live'
+            videoSource?.muxPlaybackId === placeholderVideo ? null : 'live'
           }
           playbackId={
-            videoSource?.muxPlaybackId === placeholdervideo
+            videoSource?.muxPlaybackId === placeholderVideo
               ? ''
               : videoSource?.muxPlaybackId
           }

@@ -289,7 +289,7 @@ span.breadcrumbs__link {
 }
 
 :root {
-  font-family: Poppins;
+  font-family: Poppins !important;
 }
 
 :root {

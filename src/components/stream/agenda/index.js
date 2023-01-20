@@ -70,14 +70,11 @@ export default function Agenda({title, image, description, speakers}) {
                 }}
               />
             </div>
-            <div className={`${styles.gettingStartedOne} text-center`}>
+            <div className={`${styles.gettingStartedOne} text-center py-4`}>
               {title}
             </div>
-            <div
-              className={`${styles.gettingStartedThree} text-center px-4`}
-              dangerouslySetInnerHTML={{__html: description}}></div>
           </div>
-          <div className="md:h-[50vh] xl:w-[90vw] h-[60vh] overflow-auto p-4">
+          <div className="md:h-[50vh] xl:w-[90vw] h-[75vh] overflow-auto p-4">
             <AgendaContent
               speakers={speakers}
               agenda={agenda}

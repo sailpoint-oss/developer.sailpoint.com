@@ -83,7 +83,7 @@ export default function Agenda({title, image, description, speakers}) {
                   ? 'border-[#cc27b0] bg-[#cc27b0] text-white'
                   : 'border-slate-600'
               }`}
-              onClick={() => setFilterSelection('IDN')}>
+              onClick={() => setFilterSelection('IdentityNow')}>
               IDN
             </button>
             <button
@@ -92,7 +92,7 @@ export default function Agenda({title, image, description, speakers}) {
                   ? 'border-[#cc27b0] bg-[#cc27b0] text-white'
                   : 'border-slate-600'
               }`}
-              onClick={() => setFilterSelection('IIQ')}>
+              onClick={() => setFilterSelection('IdentityIQ')}>
               IIQ
             </button>
           </div>

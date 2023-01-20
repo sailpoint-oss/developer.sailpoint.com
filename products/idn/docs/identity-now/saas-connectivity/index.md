@@ -17,7 +17,7 @@ SaaS Connectivity is a cloud based connector runtime that makes developing and d
 
 Connectors are the bridges between the SailPoint Identity Now (IDN) SaaS platform and the source systems that IDN needs to communicate with and aggregate data from. An example of a source system IDN may need to communicate with would be an Oracle HR system or GitHub. In these cases, IDN synchronizes data between systems to ensure account entitlements and state are correct through the organization.
 
-## Why Are We Introducing a New Connector
+## Why We Are Introducing a New Connector
 
 VA connectors always communicate with external sources through the Virtual Appliance (VA) as seen in the diagram below:
 
@@ -32,3 +32,10 @@ The new Cloud connectors work differently - they run on the IDN platform instead
 ![New Connectivity](./img/new_connectivity_diagram.png)
 
 With this process, you can run an entire IDN instance without a VA. The new connector also includes a CLI tool to manage cloud connectors and an SDK to create custom connectors. Because it is simpler to create a custom connector, you can create specific connectors for a variety of sources, and the connectors' configuration can be much simpler. For example, you can now configure a formerly complicated webservice connector by providing two parameters (Base URL and API Key) in a custom cloud connector.
+
+:::caution Important
+
+Make sure that you implement a form of version control or regular backup process for your connectors.
+You cannot recover the source code from IDN because it gets sent to IDN as a compiled and minified JavaScript (JS) bundle that cannot be easily expanded into its original source code structure. 
+
+:::

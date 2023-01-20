@@ -39,9 +39,3 @@ To keep your workspace in sync with updates to our public collection, perform th
 2. If there are no new changes, then you are up to date. If there *are* new changes, the screen will look like the following image. Just select the 'Pull changes' button, and that's it!
 
 ![image|666x500, 75%](./img/diff-changes.png)
-
-## How to Contribute
-
-Let us know if you find any bugs or have any ideas for improvement in the developer forum.
-
-<https://developer.sailpoint.com/discuss/t/official-identitynow-postman-workspace/6153>

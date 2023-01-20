@@ -151,7 +151,9 @@ export default function AgendaContent({
                                       /> */}
 
                                             <p className="my-auto text-xl">
-                                              {speaker?.name} - {speaker?.title}
+                                              {speaker?.name}
+                                              {speaker?.title &&
+                                                ` - ${speaker.title}`}
                                             </p>
                                           </div>
                                         );

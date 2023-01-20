@@ -12,14 +12,27 @@ export default function Room({videoSource}) {
     setTest(test);
   }, [videoSource?.topic]);
 
+  const placeholdervideo = 'placeholdervideo';
+
   return (
     <div className={`${styles.stageContainer}`}>
       <div className={styles.stageContentVideo}>
         <MuxPlayer
+          src={
+            videoSource?.muxPlaybackId === placeholdervideo
+              ? '/img/blurred_intro.mov'
+              : ''
+          }
           loop={true}
           autoPlay={true}
-          streamType="live"
-          playbackId={videoSource?.muxPlaybackId}
+          streamType={
+            videoSource?.muxPlaybackId === placeholdervideo ? null : 'live'
+          }
+          playbackId={
+            videoSource?.muxPlaybackId === placeholdervideo
+              ? ''
+              : videoSource?.muxPlaybackId
+          }
           envKey={videoSource?.muxEnvironmentKey}
           metadata={{
             player_name: 'SailPoint Developer Community - Developer Days',

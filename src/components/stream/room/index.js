@@ -6,7 +6,6 @@ import Link from '@docusaurus/Link';
 import WidgetBot from '@widgetbot/react-embed';
 
 export default function Room({videoSource}) {
-  console.log(videoSource);
   const [test, setTest] = useState();
 
   useEffect(() => {
@@ -14,9 +13,11 @@ export default function Room({videoSource}) {
   }, [videoSource?.topic]);
 
   return (
-    <div className={styles.stageContainer}>
+    <div className={`${styles.stageContainer}`}>
       <div className={styles.stageContentVideo}>
         <MuxPlayer
+          loop={true}
+          autoPlay={true}
           streamType="live"
           playbackId={videoSource?.muxPlaybackId}
           envKey={videoSource?.muxEnvironmentKey}
@@ -28,7 +29,6 @@ export default function Room({videoSource}) {
             autoPlay: true,
           }}
           className="h-full !rounded"
-          autoPlay
         />
       </div>
       <WidgetBot

@@ -289,6 +289,10 @@ span.breadcrumbs__link {
 }
 
 :root {
+  font-family: Poppins;
+}
+
+:root {
   color: #415364;
   --ifm-color-primary: #0033a1;
   --ifm-color-primary-dark: #002e91;

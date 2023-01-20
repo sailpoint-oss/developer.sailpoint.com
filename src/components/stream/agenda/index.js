@@ -7,6 +7,7 @@ import Modal from 'react-modal';
 import {addDarkToFileName} from '../../../util/util';
 import ThemedImage from '@theme/ThemedImage';
 import {getAgenda} from '../../../services/StreamService';
+import AgendaContent from '../../agenda/agenda';
 export default function Agenda({title, image, description, speakers}) {
   const [agendaModalIsOpen, setAgendaIsOpen] = React.useState(false);
   const [agenda, setAgenda] = useState({
@@ -76,140 +77,12 @@ export default function Agenda({title, image, description, speakers}) {
               className={`${styles.gettingStartedThree} text-center px-4`}
               dangerouslySetInnerHTML={{__html: description}}></div>
           </div>
-          <div className="flex flex-row gap-2 justify-center">
-            <button
-              className={`rounded  p-2  hover:scale-[.90] w-[50px] border-2 ${
-                filterSelection === 'IDN'
-                  ? 'border-[#cc27b0] bg-[#cc27b0] text-white'
-                  : 'border-slate-600'
-              }`}
-              onClick={() => setFilterSelection('IdentityNow')}>
-              IDN
-            </button>
-            <button
-              className={`rounded  p-2  hover:scale-[.90] w-[50px] border-2 ${
-                filterSelection === 'IIQ'
-                  ? 'border-[#cc27b0] bg-[#cc27b0] text-white'
-                  : 'border-slate-600'
-              }`}
-              onClick={() => setFilterSelection('IdentityIQ')}>
-              IIQ
-            </button>
-          </div>
-          <div className="my-2 md:h-[50vh] md:w-[70vw] h-[60vh] overflow-auto p-4 gap-2 flex flex-col">
-            {loading && (
-              <>
-                <div className="flex flex-row justify-center">
-                  <p className="text-center">Loading...</p>
-                </div>
-              </>
-            )}
-            {!loading && (
-              <>
-                {['Day 1', 'Day 2', 'Day 3'].map((label) => {
-                  const day = label.replace(' ', '').toLowerCase();
-                  const sessions = agenda[day]?.filter(sessionFilter);
-
-                  if (sessions.length > 0)
-                    return (
-                      <div key={day} className="p-2 flex flex-col ">
-                        <p className="text-center">
-                          {label} - {dates[day]}
-                        </p>
-                        <div className="flex flex-col gap-2">
-                          {sessions.map((session) => {
-                            return (
-                              <>
-                                <div className="flex flex-row gap-4">
-                                  <div className="hidden lg:flex flex-col justify-center">
-                                    <p className="whitespace-nowrap">
-                                      {new Date(
-                                        session?.startTime,
-                                      ).toLocaleTimeString([], {
-                                        hour: '2-digit',
-                                        minute: '2-digit',
-                                        timeZoneName: 'short',
-                                      })}
-                                    </p>
-                                  </div>
-                                  <div
-                                    key={session.title}
-                                    className="flex flex-col bg-[#0033a1] border-l-8 text-white border-[#54c0e8] rounded-lg p-4 grow hover:scale-[1.04] transform-gpu transition-all">
-                                    <div className="flex flex-col">
-                                      <div className="lg:hidden">
-                                        <p className="whitespace-nowrap">
-                                          {new Date(
-                                            session?.startTime,
-                                          ).toLocaleTimeString([], {
-                                            hour: '2-digit',
-                                            minute: '2-digit',
-                                            timeZoneName: 'short',
-                                          })}
-                                        </p>
-                                      </div>
-                                      <div className="flex flex-row">
-                                        <div className="flex flex-col grow">
-                                          <div className="flex flex-row gap-2">
-                                            <p className="!m-0 text-2xl">
-                                              {session?.topic}
-                                            </p>
-                                            {/* <p className="!m-0 text-gray-200/50 my-auto">
-                                  - {session?.stage}
-                                </p> */}
-                                          </div>
-                                          <div className="flex flex-col">
-                                            {session?.speakers?.map((spkr) => {
-                                              const speaker =
-                                                formatSpeaker(spkr);
-                                              return (
-                                                <div
-                                                  key={spkr}
-                                                  className="flex flex-row gap-2 text-slate-300/50">
-                                                  {/* <img
-                                        className="w-16 h-16 rounded-full"
-                                        src={speaker?.image}
-                                      /> */}
-
-                                                  <p className="my-auto text-xl">
-                                                    {speaker?.name} -{' '}
-                                                    {speaker?.title}
-                                                  </p>
-                                                </div>
-                                              );
-                                            })}
-                                          </div>
-                                        </div>
-                                        <div className="hidden lg:flex flex-col justify-center font-medium pr-8">
-                                          <p className="!m-0 text-center">
-                                            {diff_minutes(
-                                              new Date(session?.endTime),
-                                              new Date(session?.startTime),
-                                            )}
-                                          </p>
-                                          <p className="!m-0">min</p>
-                                        </div>
-                                      </div>
-                                      <div className="lg:hidden">
-                                        <p className="!m-0">
-                                          {diff_minutes(
-                                            new Date(session?.endTime),
-                                            new Date(session?.startTime),
-                                          )}{' '}
-                                          min
-                                        </p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </>
-                            );
-                          })}
-                        </div>
-                      </div>
-                    );
-                })}
-              </>
-            )}
+          <div className="md:h-[50vh] xl:w-[90vw] h-[60vh] overflow-auto p-4">
+            <AgendaContent
+              speakers={speakers}
+              agenda={agenda}
+              loading={loading}
+            />
           </div>
         </div>
         <div className="flex flex-row justify-end">

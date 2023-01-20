@@ -99,7 +99,7 @@ export default function AgendaContent({
                         <>
                           <div className="flex flex-row gap-4 justify-center">
                             <div className="hidden lg:flex flex-col justify-center">
-                              <p className="whitespace-nowrap">
+                              <p className="w-[105px] whitespace-nowrap">
                                 {new Date(
                                   session?.startTime,
                                 ).toLocaleTimeString([], {

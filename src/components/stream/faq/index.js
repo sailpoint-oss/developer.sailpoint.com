@@ -7,6 +7,7 @@ import Modal from 'react-modal';
 import {addDarkToFileName} from '../../../util/util';
 import ThemedImage from '@theme/ThemedImage';
 import {getFAQ} from '../../../services/StreamService';
+import FAQContent from '../../faq/faq';
 export default function FAQ({title, image, description}) {
   const [faqModalIsOpen, setFaqIsOpen] = React.useState(false);
   const [faqs, setFaqs] = React.useState([]);
@@ -65,9 +66,8 @@ export default function FAQ({title, image, description}) {
             className={styles.gettingStartedThree}
             dangerouslySetInnerHTML={{__html: description}}></div>
         </div>
-
-        <div className="md:h-[50vh] w-full h-[40vh] overflow-auto p-4 gap-2 flex flex-col">
-          {itemsList}
+        <div className="md:h-[50vh] xl:w-[90vw] h-[45vh] overflow-auto p-4">
+          <FAQContent />
         </div>
         <div className="flex flex-row justify-end">
           <button className={styles.modalButton} onClick={closeFaqModal}>

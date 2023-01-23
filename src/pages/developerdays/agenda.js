@@ -5,7 +5,7 @@ import {getAgenda, getSpeaker} from '../../services/StreamService';
 import {flushSync} from 'react-dom';
 import AgendaContent from '../../components/agenda/agenda';
 
-export default function Stream() {
+export default function Agenda() {
   const {siteConfig} = useDocusaurusContext();
   const [agenda, setAgenda] = useState({
     day1: [],

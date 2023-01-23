@@ -11,7 +11,11 @@ jobs:
       NODE_ENV: 'development'
     steps:
       - uses: actions/checkout@v2
-      - run: npm ci && npm run gen-api-docs-all && npm run build
+      - run: |
+          export NODE_OPTIONS="--max_old_space_size=4096"
+          npm ci 
+          npm run gen-api-docs-all 
+          npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'

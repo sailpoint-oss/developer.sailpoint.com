@@ -26,7 +26,7 @@ export default function Home() {
           image={'/homepage/person-head.png'}
           buttonText={'Explore our platform'}
         />
-        <HomepageTrainingGuides></HomepageTrainingGuides>
+        <HomepageTrainingGuides />
         <HomepageBasics
           description={
             'The SailPoint Developer Forums are a great place to find solutions to common development problems.'
@@ -36,7 +36,7 @@ export default function Home() {
           image={'/homepage/discuss.png'}
           buttonText={'Join the Discussion'}
         />
-        <HomepageDiscuss></HomepageDiscuss>
+        <HomepageDiscuss />
         <HomepageBasics
           description={
             "The Developer Relations team is responsible for creating a better developer experience on our platform. Click on someone to reach out to them, or <a href='https://developer.sailpoint.com/discuss/new-message?groupname=developer_relations/'>contact our team directly</a>."
@@ -45,7 +45,7 @@ export default function Home() {
           image={'/homepage/team.png'}
           buttonText={''}
         />
-        <HomepageTeam></HomepageTeam>
+        <HomepageTeam />
       </main>
     </Layout>
   );

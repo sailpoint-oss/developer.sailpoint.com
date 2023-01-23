@@ -84,7 +84,7 @@ export default function AgendaContent({
             const day = label.replace(' ', '').toLowerCase();
             const sessions = agenda[day]?.filter(sessionFilter);
 
-            if (sessions.length > 0)
+            if (sessions?.length > 0)
               return (
                 <div key={day} className="p-2 flex flex-col">
                   <div className="flex flex-row justify-center gap-4">

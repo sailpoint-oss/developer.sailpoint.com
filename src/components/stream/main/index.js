@@ -18,6 +18,7 @@ const socket = io('https://developer-community-backend.herokuapp.com');
 export default function Main() {
   const [isConnected, setIsConnected] = useState(false);
   const typeformRef = useRef(null);
+  const typeformEntryRef = useRef(null);
 
   const [streamData, setStreamData] = useState({
     connectionCounts: {total: 12, idn: 2, iiq: 3},
@@ -70,6 +71,10 @@ export default function Main() {
     getSpeakers();
   }, []);
 
+  React.useEffect(() => {
+    openLoginPage()
+  }, []);
+
   //setting socket here
   useEffect(() => {
     console.log('Creating effect');
@@ -112,6 +117,19 @@ export default function Main() {
     setStage({
       stage: 'IIQ',
     });
+  }
+
+  function openLoginPage() {
+    setTimeout(() => {
+      console.log("clicking login button")
+      var GivenDate = '2023-03-01';
+      var CurrentDate = new Date();
+      GivenDate = new Date(GivenDate);
+      let pop_status = localStorage.getItem('entry-status');
+      if(!pop_status && GivenDate < CurrentDate){
+        typeformEntryRef?.current?.children[1].click();
+      }
+    }, 1000);
   }
 
   Modal.setAppElement('#__docusaurus');
@@ -225,6 +243,27 @@ export default function Main() {
       <BrowserOnly>
         {() => <Room videoSource={streamData?.stages[stage?.stage]}></Room>}
       </BrowserOnly>
+
+      <div ref={typeformEntryRef}>
+        <PopupButton
+          autoClose
+          id="ttJ2elA3"
+          onSubmit={() => {
+            console.log("setting login status")
+            localStorage.setItem('entry-status',1);
+          }}
+          onClose={() => {
+            openLoginPage()
+          }}
+          onReady={() => {
+            console.log("typefrom is ready")
+            const elem = document.getElementsByClassName('tf-v1-close')
+            elem[0].style.display = "none"
+          }}
+          className="typeformPopup hidden cursor-pointer border-[color:var(--ifm-color-primary)] md:grow border-2 hover:bg-[color:var(--ifm-color-primary)] hover:text-white text-[color:var(--ifm-color-primary)] text-center font-bold py-2 px-4 rounded">
+          Survey
+        </PopupButton>
+      </div>
     </div>
   );
 }

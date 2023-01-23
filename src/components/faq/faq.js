@@ -12,7 +12,13 @@ export default function FAQContent() {
   }, []);
 
   let itemsList = faqs?.map((item, index) => {
-    return <Accordion title={item?.question} content={item?.answer} />;
+    return (
+      <Accordion
+        key={item?.question}
+        title={item?.question}
+        content={item?.answer}
+      />
+    );
   });
 
   return <div className="p-4 gap-2 flex flex-col">{itemsList}</div>;

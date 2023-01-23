@@ -60,21 +60,19 @@ export default function Agenda({title, image, description, speakers}) {
         className={styles.modal}
         contentLabel="Agenda">
         <div className="">
-          <div className={`!m-0 flex flex-col justify-center`}>
-            <div className="flex flex-row justify-center">
-              <ThemedImage
-                className={`w-16 h-16`}
-                sources={{
-                  light: useBaseUrl(image),
-                  dark: useBaseUrl(addDarkToFileName(image)),
-                }}
-              />
-            </div>
-            <div className={`${styles.gettingStartedOne} text-center py-4`}>
-              {title}
-            </div>
+          <div className={styles.gettingStartedText}>
+            <ThemedImage
+              className={styles.gettingStartedCardIcon}
+              sources={{
+                light: useBaseUrl(image),
+                dark: useBaseUrl(addDarkToFileName(image)),
+              }}></ThemedImage>
+            <div className={styles.gettingStartedOne}>{title}</div>
+            <div
+              className={styles.gettingStartedThree}
+              dangerouslySetInnerHTML={{__html: description}}></div>
           </div>
-          <div className="md:h-[50vh] xl:w-[90vw] h-[75vh] overflow-auto p-4">
+          <div className="md:h-[50vh] xl:w-[90vw] h-[45vh] overflow-auto p-4">
             <AgendaContent
               speakers={speakers}
               agenda={agenda}

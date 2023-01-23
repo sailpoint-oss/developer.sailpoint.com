@@ -25,7 +25,7 @@ export default function AgendaContent({
   };
 
   function formatSpeaker(id) {
-    return speakers?.filter((spkr) => spkr.id === id)[0];
+    return speakers?.filter((spkr) => spkr?.id === id)[0];
   }
 
   function diff_minutes(dt2, dt1) {
@@ -35,8 +35,8 @@ export default function AgendaContent({
   }
 
   const sessionFilter = (obj) => {
-    if (obj.hidden === true) return false;
-    return obj.stage === filterSelection;
+    if (obj?.hidden === true) return false;
+    return obj?.stage === filterSelection;
   };
 
   const iiqSelectedClass =
@@ -81,7 +81,7 @@ export default function AgendaContent({
       {!loading && (
         <>
           {['Day 1', 'Day 2', 'Day 3'].map((label) => {
-            const day = label.replace(' ', '').toLowerCase();
+            const day = label?.replace(' ', '')?.toLowerCase();
             const sessions = agenda[day]?.filter(sessionFilter);
 
             if (sessions?.length > 0)
@@ -110,7 +110,7 @@ export default function AgendaContent({
                               </p>
                             </div>
                             <div
-                              key={session.title}
+                              key={session?.title}
                               className={`flex flex-col border-l-8 grow md:grow-0 text-white rounded-lg p-4 md:!w-[834px] hover:scale-[1.04] transform-gpu transition-all border-[#54c0e8] bg-[#0033a1]`}>
                               <div className="flex flex-col">
                                 <div className="lg:hidden">

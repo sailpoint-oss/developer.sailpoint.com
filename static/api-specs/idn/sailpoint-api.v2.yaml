@@ -441,7 +441,7 @@ paths:
       tags:
         - Governance Groups
       summary: List Work Groups
-      description: This API returns the details for a single account based on the ID
+      description: This API returns a list of work groups
       security:
         - oauth2: []
       responses:
@@ -582,6 +582,14 @@ paths:
       description: This API returns the details for a single workgroup based on the ID
       security:
         - oauth2: []
+      parameters:
+        - in: path
+          name: workgroupId
+          schema:
+            type: string
+          required: true
+          description: The workgroup ID
+          example: ef38f94347e94562b5bb8424a56397d8
       responses:
         '200':
           description: Workgroup object
@@ -630,7 +638,6 @@ paths:
                       name:
                         type: string
                         example: philip.ellis
-
     patch:
       operationId: updateWorkgroup
       tags:
@@ -639,6 +646,14 @@ paths:
       description: This API updates and returns the details for a single workgroup based on the ID
       security:
         - oauth2: []
+      parameters:
+        - in: path
+          name: workgroupId
+          schema:
+            type: string
+          required: true
+          description: The workgroup ID
+          example: ef38f94347e94562b5bb8424a56397d8
       requestBody:
         description: Work group to modify.
         required: true
@@ -716,6 +731,14 @@ paths:
       description: This API deletes a single workgroup based on the ID
       security:
         - oauth2: []
+      parameters:
+        - in: path
+          name: workgroupId
+          schema:
+            type: string
+          required: true
+          description: The workgroup ID
+          example: ef38f94347e94562b5bb8424a56397d8
       responses:
         '204':
           description: Empty response on successful deletion
@@ -730,6 +753,14 @@ paths:
       description: This API returns the members of a work group
       security:
         - oauth2: []
+      parameters:
+        - in: path
+          name: workgroupId
+          schema:
+            type: string
+          required: true
+          description: The workgroup ID
+          example: ef38f94347e94562b5bb8424a56397d8
       responses:
         '200':
           description: List of work group member objects
@@ -764,6 +795,14 @@ paths:
       description: This API allows you to modify the members of a work group
       security:
           - oauth2: []
+      parameters:
+        - in: path
+          name: workgroupId
+          schema:
+            type: string
+          required: true
+          description: The workgroup ID
+          example: ef38f94347e94562b5bb8424a56397d8
       requestBody:
         description: Add/Remove workgroup member ids.
         required: true
@@ -796,6 +835,14 @@ paths:
       description: This API returns the connections of a work group
       security:
         - oauth2: []
+      parameters:
+        - in: path
+          name: workgroupId
+          schema:
+            type: string
+          required: true
+          description: The workgroup ID
+          example: ef38f94347e94562b5bb8424a56397d8
       responses:
         '200':
           description: List of work group connection objects

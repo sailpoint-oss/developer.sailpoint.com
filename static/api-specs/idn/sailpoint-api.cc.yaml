@@ -1,0 +1,482 @@
+openapi: 3.0.0
+info:
+  title: IdentityNow cc (private) APIs
+  version: 1.0.0
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description:
+          This is the name of your tenant, typically your company's name.
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: |
+        OAuth2 Bearer token (JWT). See [IdentityNow REST API Authentication](https://developer.sailpoint.com/idn/api/authentication) for more information.
+        - Directions for generating a [personal access token](https://developer.sailpoint.com/idn/api/authentication#personal-access-tokens)
+        - Directions using [client credentials flow](https://developer.sailpoint.com/idn/api/authentication#client-credentials-grant-flow)
+        - Directions for using [authorization code flow](https://developer.sailpoint.com/idn/api/authentication#authorization-code-grant-flow)
+
+        Which authentication method should I choose?  See our [guide](https://developer.sailpoint.com/idn/api/authentication#which-oauth-20-grant-flow-should-i-use)
+
+        Learn more about how to find your `tokenUrl` and `authorizationUrl` [in our docs](https://developer.sailpoint.com/idn/api/authentication#find-your-tenants-oauth-details)
+      flows:
+        clientCredentials:
+          tokenUrl: https://tenant.api.identitynow.com/oauth/token
+          scopes:
+            "sp:scopes:default": "default scope"
+            "sp:scopes:all": "access to all scopes"
+        authorizationCode:
+          authorizationUrl: https://tenant.identitynow.com/oauth/authorize
+          tokenUrl: https://tenant.api.identitynow.com/oauth/token
+          scopes:
+            "sp:scopes:default": "default scope"
+            "sp:scopes:all": "access to all scopes"
+tags:
+  - name: Accounts
+  - name: Applications
+  - name: Connectors
+  - name: User
+  - name: Sources > Aggregation
+  - name: Sources > Accounts
+  - name: System
+paths:
+  /cc/api/account/list:
+    get:
+      tags:
+        - Accounts
+      summary: List Accounts
+      operationId: listAccounts
+      security:
+        - oauth2: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /cc/api/account/remove/:id:
+    post:
+      tags:
+        - Accounts
+      summary: Remove Account
+      operationId: removeAccount
+      security:
+        - oauth2: []
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          example: 12345
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /cc/api/app:
+    get:
+      tags:
+        - Applications
+      summary: List Applications
+      operationId: listApplications
+      security:
+        - oauth2: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /cc/api/app/get/:id:
+    get:
+      tags:
+        - Applications
+      summary: Get Single Application
+      operationId: GetApplication
+      security:
+        - oauth2: []
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          example: 12345
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /cc/api/app/getAccessProfiles/:id:
+    get:
+      tags:
+        - Applications
+      summary: Get Access Profiles for Application
+      operationId: GetApplicationAccessProfiles
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          example: 12345
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /cc/api/app/create:
+    post:
+      tags:
+        - Applications
+      summary: Create Application
+      operationId: CreateApplication
+      security:
+        - oauth2: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: 'My App'
+                description:
+                  type: string
+                  format: 'This is my application'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /cc/api/app/update/:id:
+    post:
+      tags:
+        - Applications
+      summary: Update Application
+      operationId: UpdateApplication
+      security:
+        - oauth2: []
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          example: 12345
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+                  format: 'This is my application'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /cc/api/app/delete/:id:
+    post:
+      tags:
+        - Applications
+      summary: Delete Application
+      operationId: DeleteApplication
+      security:
+        - oauth2: []
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          example: 12345
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /cc/api/connector/list:
+    get:
+      tags:
+        - Connectors
+      summary: List Connectors
+      operationId: listConnectors
+      security:
+        - oauth2: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /cc/api/connector/create:
+    post:
+      tags:
+        - Connectors
+      summary: Create Connector
+      operationId: createConnector
+      security:
+        - oauth2: []
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: My Connector
+                description:
+                  type: string
+                  example: My Connector
+                className:
+                  type: string
+                  example: sailpoint.connector.OpenConnectorAdapter
+                directConnect:
+                  type: boolean
+                  example: 'true'
+                status:
+                  type: string
+                  example: released
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/x-www-form-urlencoded
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /cc/api/connector/delete/{id}:
+    post:
+      tags:
+        - Connectors
+      summary: Delete Connector
+      operationId: deleteConnector
+      security:
+        - oauth2: []
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /cc/api/connector/export/{id}:
+    get:
+      tags:
+        - Connectors
+      summary: Export Connector Config
+      operationId: exportConnectorConfig
+      security:
+        - oauth2: []
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /cc/api/connector/import/{id}:
+    post:
+      tags:
+        - Connectors
+      summary: Import Connector Config
+      operationId: importConnectorConfig
+      security:
+        - oauth2: []
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  description: This is the connector config zip bundle which gets uploaded.
+                  format: binary
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /cc/api/user/updatePermissions:
+    post:
+      tags:
+        - User
+      summary: Update User Permissions
+      operationId: updateUserPermissions
+      security:
+        - oauth2: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ids:
+                  type: string
+                  example: '71624,71625'
+                isAdmin:
+                  type: string
+                  description: Indicates if user should be an IDN Admin.  "0" for false, "1" for true.
+                  example: "1"
+                adminType:
+                  type: string
+                  enum:
+                    - ADMIN
+                    - CERT_ADMIN
+                    - HELPDESK
+                    - REPORT_ADMIN
+                    - ROLE_ADMIN
+                    - ROLE_SUBADMIN
+                    - SOURCE_ADMIN
+                    - SOURCE_SUBADMIN
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /cc/api/source/loadAccounts/{id}:
+    post:
+      tags:
+        - Sources > Aggregation
+      summary: Account Aggregation (File)
+      operationId: loadAccounts
+      security:
+        - oauth2: []
+      description: >-
+        Aggregates a delimited file for the given source.  This only works for
+        file-based sources.
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                disableOptimization:
+                  type: boolean
+                  example: 'true'
+                file:
+                  type: string
+                  format: binary
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/x-www-form-urlencoded
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /cc/api/source/exportAccountFeed/{id}:
+    get:
+      tags:
+        - Sources > Accounts
+      summary: Export Account Feed
+      operationId: exportAccountFeed
+      security:
+        - oauth2: []
+      description: Exports a CSV of the accounts for a particular source.
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /cc/api/system/refreshIdentities:
+    post:
+      tags:
+        - System
+      summary: Refresh Identities
+      operationId: refreshIdentities
+      security:
+        - oauth2: []
+      description: >-
+        This kicks off an identity refresh for a specified set of identity
+        attributes.  This can be a long running process.  IdentityNow has
+        pre-scheduled versions of this task at set intervals and events already,
+        so only run this when directed by SailPoint.
+
+
+        _Note: If the identities specified by the filter do not exist, a full
+        identity refresh will be run.  Use with caution._
+
+
+        Refresh Arguments:
+
+
+        | Key                   |
+        Description                                        |
+
+        |-----------------------|----------------------------------------------------|
+
+        | correlateEntitlements | Analyzes entitlements, access profiles, and
+        roles. |
+
+        | promoteAttributes     | Calculates identity
+        attributes.                    |
+
+        | refreshManagerStatus  | Calculates manager correlation and manager
+        status. |
+
+        | synchronizeAttributes | Performs attribute sync
+        provisioning.              |
+
+        | pruneIdentities       | Removes any identities which don't have
+        accounts.  |
+
+        | provision             | Provisions any assigned roles or access
+        profiles.  |
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              type: string
+              example: >-
+                "{\n   \"filter\" : \"uid == \\\"1219028\\\"\",\n  
+                \"refreshArgs\" : {\n     \"correlateEntitlements\" :
+                \"true\",\n     \"promoteAttributes\" : \"true\",\n    
+                \"refreshManagerStatus\" : \"false\",\n    
+                \"synchronizeAttributes\" : \"false\",\n     \"pruneIdentities\"
+                : \"false\",\n     \"provision\" : \"true\"\n   }\n}"
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}

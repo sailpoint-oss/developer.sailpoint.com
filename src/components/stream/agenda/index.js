@@ -15,29 +15,7 @@ export default function Agenda({title, image, description, speakers}) {
     day2: [],
     day3: [],
   });
-  const [filterSelection, setFilterSelection] = React.useState('IDN');
   const [loading, setLoading] = useState(true);
-
-  const dates = {
-    day1: new Date('2023-03-07').toLocaleDateString([], {dateStyle: 'full'}),
-    day2: new Date('2023-03-08').toLocaleDateString([], {dateStyle: 'full'}),
-    day3: new Date('2023-03-09').toLocaleDateString([], {dateStyle: 'full'}),
-  };
-
-  function formatSpeaker(id) {
-    return speakers?.filter((spkr) => spkr.id === id)[0];
-  }
-
-  function diff_minutes(dt2, dt1) {
-    var diff = (dt2.getTime() - dt1.getTime()) / 1000;
-    diff /= 60;
-    return Math.abs(Math.round(diff));
-  }
-
-  const sessionFilter = (obj) => {
-    if (obj.hidden === true) return false;
-    return obj.stage === filterSelection;
-  };
 
   useEffect(async () => {
     const tempAgenda = await getAgenda();
@@ -60,21 +38,19 @@ export default function Agenda({title, image, description, speakers}) {
         className={styles.modal}
         contentLabel="Agenda">
         <div className="">
-          <div className={`!m-0 flex flex-col justify-center`}>
-            <div className="flex flex-row justify-center">
-              <ThemedImage
-                className={`w-16 h-16`}
-                sources={{
-                  light: useBaseUrl(image),
-                  dark: useBaseUrl(addDarkToFileName(image)),
-                }}
-              />
-            </div>
-            <div className={`${styles.gettingStartedOne} text-center py-4`}>
-              {title}
-            </div>
+          <div className={styles.gettingStartedText}>
+            <ThemedImage
+              className={styles.gettingStartedCardIcon}
+              sources={{
+                light: useBaseUrl(image),
+                dark: useBaseUrl(addDarkToFileName(image)),
+              }}></ThemedImage>
+            <div className={styles.gettingStartedOne}>{title}</div>
+            <div
+              className={styles.gettingStartedThree}
+              dangerouslySetInnerHTML={{__html: description}}></div>
           </div>
-          <div className="md:h-[50vh] xl:w-[90vw] h-[75vh] overflow-auto p-4">
+          <div className="md:h-[50vh] xl:w-[90vw] h-[45vh] overflow-auto p-4">
             <AgendaContent
               speakers={speakers}
               agenda={agenda}

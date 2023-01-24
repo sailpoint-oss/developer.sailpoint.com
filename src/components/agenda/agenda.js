@@ -13,19 +13,19 @@ export default function AgendaContent({
   const [filterSelection, setFilterSelection] = React.useState('IDN');
 
   const dates = {
-    day1: new Date('2023-03-07').toLocaleDateString([], {
+    day1: new Date('03/07/2023').toLocaleDateString([], {
       dateStyle: 'full',
     }),
-    day2: new Date('2023-03-08').toLocaleDateString([], {
+    day2: new Date('03/08/2023').toLocaleDateString([], {
       dateStyle: 'full',
     }),
-    day3: new Date('2023-03-09').toLocaleDateString([], {
+    day3: new Date('03/09/2023').toLocaleDateString([], {
       dateStyle: 'full',
     }),
   };
 
   function formatSpeaker(id) {
-    return speakers?.filter((spkr) => spkr.id === id)[0];
+    return speakers?.filter((spkr) => spkr?.id === id)[0];
   }
 
   function diff_minutes(dt2, dt1) {
@@ -35,8 +35,8 @@ export default function AgendaContent({
   }
 
   const sessionFilter = (obj) => {
-    if (obj.hidden === true) return false;
-    return obj.stage === filterSelection;
+    if (obj?.hidden === true) return false;
+    return obj?.stage === filterSelection;
   };
 
   const iiqSelectedClass =
@@ -81,10 +81,10 @@ export default function AgendaContent({
       {!loading && (
         <>
           {['Day 1', 'Day 2', 'Day 3'].map((label) => {
-            const day = label.replace(' ', '').toLowerCase();
+            const day = label?.replace(' ', '')?.toLowerCase();
             const sessions = agenda[day]?.filter(sessionFilter);
 
-            if (sessions.length > 0)
+            if (sessions?.length > 0)
               return (
                 <div key={day} className="p-2 flex flex-col">
                   <div className="flex flex-row justify-center gap-4">
@@ -99,7 +99,7 @@ export default function AgendaContent({
                         <>
                           <div className="flex flex-row gap-4 justify-center">
                             <div className="hidden lg:flex flex-col justify-center">
-                              <p className="w-[105px] whitespace-nowrap">
+                              <p className="w-[105px] whitespace-nowrap font-bold">
                                 {new Date(
                                   session?.startTime,
                                 ).toLocaleTimeString([], {
@@ -110,7 +110,7 @@ export default function AgendaContent({
                               </p>
                             </div>
                             <div
-                              key={session.title}
+                              key={session?.title}
                               className={`flex flex-col border-l-8 grow md:grow-0 text-white rounded-lg p-4 md:!w-[834px] hover:scale-[1.04] transform-gpu transition-all border-[#54c0e8] bg-[#0033a1]`}>
                               <div className="flex flex-col">
                                 <div className="lg:hidden">
@@ -171,7 +171,7 @@ export default function AgendaContent({
                                   </div>
                                 </div>
                                 <div className="lg:hidden">
-                                  <p className="!m-0">
+                                  <p className="!m-0 font-bold">
                                     {diff_minutes(
                                       new Date(session?.endTime),
                                       new Date(session?.startTime),

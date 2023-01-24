@@ -13,13 +13,13 @@ export default function AgendaContent({
   const [filterSelection, setFilterSelection] = React.useState('IDN');
 
   const dates = {
-    day1: new Date('2023-03-07').toLocaleDateString([], {
+    day1: new Date('03/07/2023').toLocaleDateString([], {
       dateStyle: 'full',
     }),
-    day2: new Date('2023-03-08').toLocaleDateString([], {
+    day2: new Date('03/08/2023').toLocaleDateString([], {
       dateStyle: 'full',
     }),
-    day3: new Date('2023-03-09').toLocaleDateString([], {
+    day3: new Date('03/09/2023').toLocaleDateString([], {
       dateStyle: 'full',
     }),
   };
@@ -99,7 +99,7 @@ export default function AgendaContent({
                         <>
                           <div className="flex flex-row gap-4 justify-center">
                             <div className="hidden lg:flex flex-col justify-center">
-                              <p className="w-[105px] whitespace-nowrap">
+                              <p className="w-[105px] whitespace-nowrap font-bold">
                                 {new Date(
                                   session?.startTime,
                                 ).toLocaleTimeString([], {
@@ -171,7 +171,7 @@ export default function AgendaContent({
                                   </div>
                                 </div>
                                 <div className="lg:hidden">
-                                  <p className="!m-0">
+                                  <p className="!m-0 font-bold">
                                     {diff_minutes(
                                       new Date(session?.endTime),
                                       new Date(session?.startTime),

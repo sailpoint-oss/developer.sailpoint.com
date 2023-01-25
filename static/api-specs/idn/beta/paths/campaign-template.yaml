@@ -11,6 +11,7 @@ get:
         type: string
       required: true
       description: The desired campaign template's ID.
+      example: 2c9180835d191a86015d28455b4a2329
   responses:
     '200':
       description: The data for the campaign matching the given ID.
@@ -27,6 +28,8 @@ get:
               $ref: '../schemas/campaign/examples/CampaignTemplateSourceOwner.yaml'
             RoleComposition:
               $ref: '../schemas/campaign/examples/CampaignTemplateRoleComposition.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
     '401':
       $ref: '../../v3/responses/401.yaml'
     '403':
@@ -59,7 +62,6 @@ patch:
       The following fields are patchable:
       * name
       * description
-      * ownerRef
       * deadlineDuration
       * campaign (all fields that are allowed during create)
     content:
@@ -122,6 +124,8 @@ delete:
     '204':
       $ref: '../../v3/responses/204.yaml'
       description: The Source was successfully deleted.
+    '400':
+      $ref: '../../v3/responses/400.yaml'
     '404':
       $ref: '../../v3/responses/404.yaml'
     '401':

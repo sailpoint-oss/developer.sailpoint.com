@@ -9,6 +9,8 @@ properties:
     type: string
     description: the name of the rule
     example: WebServiceBeforeOperationRule
+    minLength: 1
+    maxLength: 128
   description:
     type: string
     description: a description of the rule's purpose
@@ -58,3 +60,4 @@ properties:
   attributes:
     type: object
     description: a map of string to objects
+    example: {}

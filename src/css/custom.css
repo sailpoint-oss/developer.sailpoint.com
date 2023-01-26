@@ -7,72 +7,10 @@
 /* You can override the default Infima variables here. */
 
 /* Tailwind directives */
-@tailwind base;
+/* Commented out to stop the CSS Reset on the standard documentation pages */
+/* @tailwind base; */
 @tailwind components;
 @tailwind utilities;
-
-p {
-  @apply my-4;
-}
-
-blockquote,
-figure {
-  @apply my-4 mx-10;
-}
-
-hr {
-  @apply border;
-}
-
-h1 {
-  @apply text-4xl font-bold my-2;
-}
-
-h2 {
-  @apply text-2xl font-bold my-3;
-}
-
-h3 {
-  @apply text-lg font-bold my-4;
-}
-
-h4 {
-  @apply text-base font-bold my-5;
-}
-
-h5 {
-  @apply text-sm font-bold my-6;
-}
-
-h6 {
-  @apply text-xs font-bold my-10;
-}
-
-ul,
-menu {
-  @apply list-disc my-1 pl-10;
-}
-
-ol {
-  @apply list-decimal my-4 pl-10;
-}
-
-ul,
-ol,
-menu,
-dl {
-  margin: 0;
-}
-
-a.breadcrumbs__link {
-  padding: 0 !important;
-  margin: auto;
-}
-
-span.breadcrumbs__link {
-  padding: 10px !important;
-  margin: auto;
-}
 
 .ReactModal__Overlay {
   z-index: 9999;

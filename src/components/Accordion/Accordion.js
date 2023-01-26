@@ -11,7 +11,7 @@ export default function Accordion({
       <div className="flex flex-col gap-2">
         <button
           onClick={() => setOpen(!open)}
-          className={`flex flex-col ${Styles.accordion} text-white overflow-hidden rounded-2xl`}>
+          className={`flex flex-col ${Styles.accordion} text-white overflow-hidden rounded-2xl border-none p-0`}>
           <div className="flex flex-row justify-between p-4 w-full">
             <p className="!my-0 text-start">{title}</p>
             <div className="flex flex-col">

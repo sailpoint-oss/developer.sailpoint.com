@@ -50,10 +50,10 @@ export default function AgendaContent({
         <button
           className={`${
             styles.stageButton
-          } rounded hover:scale-[.90] border-2 px-2 ${
+          } border-solid rounded border-2 px-2 ${
             filterSelection === 'IDN'
               ? 'border-[#cc27b0] bg-[#cc27b0] text-white'
-              : 'border-slate-600'
+              : 'border-slate-600 bg-transparent'
           }`}
           onClick={() => setFilterSelection('IDN')}>
           IdentityNow
@@ -61,10 +61,10 @@ export default function AgendaContent({
         <button
           className={`${
             styles.stageButton
-          } rounded hover:scale-[.90] border-2 px-2 ${
+          } border-solid rounded border-2 px-2 ${
             filterSelection === 'IIQ'
               ? 'border-[#cc27b0] bg-[#cc27b0] text-white'
-              : 'border-slate-600 !bg-none'
+              : 'border-slate-600 bg-transparent'
           }`}
           onClick={() => setFilterSelection('IIQ')}>
           IdentityIQ
@@ -111,7 +111,7 @@ export default function AgendaContent({
                             </div>
                             <div
                               key={session?.title}
-                              className={`flex flex-col border-l-8 grow md:grow-0 text-white rounded-lg p-4 md:!w-[834px] hover:scale-[1.04] transform-gpu transition-all border-[#54c0e8] bg-[#0033a1]`}>
+                              className={`${styles.agendaDiv} flex flex-col border-l-8 grow md:grow-0 text-white rounded-lg p-4 md:!w-[834px] transform-gpu transition-all border-[#54c0e8] bg-[#0033a1]`}>
                               <div className="flex flex-col">
                                 <div className="lg:hidden">
                                   <p className="whitespace-nowrap">

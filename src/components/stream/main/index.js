@@ -72,7 +72,7 @@ export default function Main() {
   }, []);
 
   React.useEffect(() => {
-    openLoginPage()
+    openLoginPage();
   }, []);
 
   //setting socket here
@@ -121,12 +121,12 @@ export default function Main() {
 
   function openLoginPage() {
     setTimeout(() => {
-      console.log("clicking login button")
+      console.log('clicking login button');
       var GivenDate = '2023-03-01';
       var CurrentDate = new Date();
       GivenDate = new Date(GivenDate);
       let pop_status = localStorage.getItem('entry-status');
-      if(!pop_status && GivenDate < CurrentDate){
+      if (!pop_status && GivenDate < CurrentDate) {
         typeformEntryRef?.current?.children[1].click();
       }
     }, 1000);
@@ -217,7 +217,7 @@ export default function Main() {
               <PopupButton
                 autoClose
                 id={streamData?.stages[stage?.stage]?.typeformId}
-                className="cursor-pointer border-[color:var(--ifm-color-primary)] md:grow border-2 hover:bg-[color:var(--ifm-color-primary)] hover:text-white text-[color:var(--ifm-color-primary)] text-center font-bold py-2 px-4 rounded">
+                className="cursor-pointer border-[var(--ifm-color-primary)] md:grow border-2 hover:bg-[color:var(--ifm-color-primary)] border-solid hover:text-white text-[color:var(--ifm-color-primary)] text-center font-bold bg-transparent py-2 px-4 rounded">
                 Survey
               </PopupButton>
             </div>
@@ -227,13 +227,13 @@ export default function Main() {
 
       <div className="flex flex-row justify-center md:justify-start py-1 md:py-0 px-[0.5%] w-full gap-[0.5%]">
         <button
-          className={`${styles.stageButton} ${idnSelectedClass} px-4 min-w-[140px]`}
+          className={`${styles.stageButton} ${idnSelectedClass} border-solid px-4 min-w-[140px]`}
           onClick={changeToIDNStage}>
           <p className="text-lg whitespace-nowrap my-0">IdentityNow</p>
         </button>
 
         <button
-          className={`${styles.stageButton} ${iiqSelectedClass} px-4 min-w-[140px]`}
+          className={`${styles.stageButton} ${iiqSelectedClass} border-solid px-4 min-w-[140px]`}
           onClick={changeToIIQStage}>
           <p className="text-lg text-center whitespace-nowrap my-0">
             IdentityIQ
@@ -249,16 +249,16 @@ export default function Main() {
           autoClose
           id="ttJ2elA3"
           onSubmit={() => {
-            console.log("setting login status")
-            localStorage.setItem('entry-status',1);
+            console.log('setting login status');
+            localStorage.setItem('entry-status', 1);
           }}
           onClose={() => {
-            openLoginPage()
+            openLoginPage();
           }}
           onReady={() => {
-            console.log("typefrom is ready")
-            const elem = document.getElementsByClassName('tf-v1-close')
-            elem[0].style.display = "none"
+            console.log('typefrom is ready');
+            const elem = document.getElementsByClassName('tf-v1-close');
+            elem[0].style.display = 'none';
           }}
           className="typeformPopup hidden cursor-pointer border-[color:var(--ifm-color-primary)] md:grow border-2 hover:bg-[color:var(--ifm-color-primary)] hover:text-white text-[color:var(--ifm-color-primary)] text-center font-bold py-2 px-4 rounded">
           Survey

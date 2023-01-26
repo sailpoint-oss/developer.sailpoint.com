@@ -28,7 +28,7 @@ export default function Agenda({title, image, description, speakers}) {
   return (
     <div>
       <button
-        className="cursor-pointer border-[color:var(--ifm-color-primary)] md:grow border-2 hover:bg-[color:var(--ifm-color-primary)] hover:text-white text-[color:var(--ifm-color-primary)] text-center font-bold py-2 px-4 rounded"
+        className="cursor-pointer border-[color:var(--ifm-color-primary)] md:grow border-2 hover:bg-[color:var(--ifm-color-primary)] hover:text-white text-[color:var(--ifm-color-primary)] border-solid bg-transparent text-center font-bold py-2 px-4 rounded"
         onClick={() => setAgendaIsOpen(true)}>
         Agenda
       </button>
@@ -50,7 +50,7 @@ export default function Agenda({title, image, description, speakers}) {
               className={styles.gettingStartedThree}
               dangerouslySetInnerHTML={{__html: description}}></div>
           </div>
-          <div className="md:h-[50vh] xl:w-[90vw] h-[45vh] overflow-auto p-4">
+          <div className="md:h-[50vh] sm:w-[90vw] h-[45vh] overflow-auto p-4">
             <AgendaContent
               speakers={speakers}
               agenda={agenda}

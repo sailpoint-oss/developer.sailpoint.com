@@ -45,7 +45,7 @@ export default function FAQ({title, image, description}) {
   return (
     <div>
       <button
-        className="cursor-pointer border-[color:var(--ifm-color-primary)] md:grow border-2 hover:bg-[color:var(--ifm-color-primary)] hover:text-white text-[color:var(--ifm-color-primary)] text-center font-bold py-2 px-4 rounded"
+        className="cursor-pointer border-[color:var(--ifm-color-primary)] md:grow border-2 hover:bg-[color:var(--ifm-color-primary)] hover:text-white text-[color:var(--ifm-color-primary)] border-solid text-center bg-transparent font-bold py-2 px-4 rounded"
         onClick={openFaqModal}>
         FAQ
       </button>
@@ -66,7 +66,7 @@ export default function FAQ({title, image, description}) {
             className={styles.gettingStartedThree}
             dangerouslySetInnerHTML={{__html: description}}></div>
         </div>
-        <div className="md:h-[50vh] xl:w-[90vw] h-[45vh] overflow-auto p-4">
+        <div className="md:h-[50vh] sm:w-[90vw] h-[45vh] overflow-auto p-4">
           <FAQContent />
         </div>
         <div className="flex flex-row justify-end">

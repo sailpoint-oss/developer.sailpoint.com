@@ -184,7 +184,7 @@ Examples:
 
 :::
 
-### Sorting Results
+## Sorting Results
 
 Result sorting is supported with the standard `sorters` parameter. Its syntax is a set of comma-separated field names. You may optionally prefix each field name with a "-" character, indicating that the sort is descending based on the value of that field. Otherwise, the sort is ascending.
 

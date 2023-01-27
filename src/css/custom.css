@@ -436,3 +436,11 @@ html[data-theme='dark'] .theme-admonition-note {
 
 ul {
 }
+
+.button.button--secondary {
+  color: white;
+}
+
+.badge--secondary {
+  color: white;
+}

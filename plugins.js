@@ -70,9 +70,9 @@ module.exports = [
       docsPluginId: 'iiq',
       config: {
         iiq: {
-          specPath: 'static/api-specs/iiq/swagger.json',
+          specPath: 'static/api-specs/iiq/sailpoint-api.iiq.yaml',
           outputDir: 'products/iiq/api',
-          downloadUrl: 'https://raw.githubusercontent.com/sailpoint-oss/api-specs/main/iiq/sailpoint-api.iiq.json',
+          downloadUrl: 'https://raw.githubusercontent.com/sailpoint-oss/api-specs/main/iiq/sailpoint-api.iiq.yaml',
           sidebarOptions: {
             groupPathsBy: 'tag',
             categoryLinkSource: 'tag',

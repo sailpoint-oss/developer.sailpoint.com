@@ -27,7 +27,7 @@ Event trigger filters are constructed using a **Jayway** JSONpath expression. Se
 
 SailPont's Workflow tool uses **Goessner** JSONpath when selecting variables to use in actions and operators. Please read the [Goessner](https://goessner.net/articles/JsonPath/) documentation to learn more about the supported operators.
 
-Although variable selection in Workflows users Goessner, the trigger filter field in Workflows still follows the Jayway operators listed below.
+Although variable selection in Workflows uses Goessner, the trigger filter field in Workflows still follows the Jayway operators listed below.
 
 :::
 

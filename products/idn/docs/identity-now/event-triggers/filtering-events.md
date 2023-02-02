@@ -33,7 +33,7 @@ Although variable selection in Workflows uses Goessner, the trigger filter field
 
 ### Expressions
 
-JSONPath expressions specify a path to an element or array of elements in a JSON structure. Expressions are used to select data in a JSON structure to check for the existence of attributes or to narrow down the data where the filter logic is applied.
+Expressions specify a path to an element or array of elements in a JSON structure. Expressions are used to select data in a JSON structure to check for the existence of attributes or to narrow down the data where the filter logic is applied.
 
 | Expression | Description | Example |
 | --- | --- | --- |
@@ -50,9 +50,17 @@ JSONPath expressions specify a path to an element or array of elements in a JSON
 | ?() | **Filter expression** - Applies a filter expression. | $[?($.identity.name == "john.doe")] |
 | () | **Script expression** - Applies a script expression. | $.changes[(@.length-1)] |
 
+### Functions
+
+Functions can be invoked at the tail end of a path - the input to a function is the output of the path expression. The function output is dictated by the function itself.
+
+| Function | Description | Output type | Example |
+| --- | --- | --- | --- |
+| length() | Provides the length of an array | Integer | $[?($.changes.length() >= 3)] |
+
 ### Operators
 
-JSONPath operators provide more options to filter JSON structures.
+Operators provide more options to filter JSON structures.
 
 | Operator | Description | Example |
 | --- | --- | --- |
@@ -62,6 +70,13 @@ JSONPath operators provide more options to filter JSON structures.
 | >= | **Greater than or equal to** - Evaluates to `true` if the left operand is greater than or equal to the right operand. | $[?($.attributes.created >= '2020-04-27T16:48:33.597Z')] |
 | < | **Less than** - Evaluates to `true` if the left operand is less than the right operand. | $[?($.attributes.created < '2020-04-27T16:48:33.200Z')] |
 | <= | **Less than or equal to** - Evaluates to `true` if the left operand is less than or equal to the right operand. | $[?($.attributes.created <= '2020-04-27T16:48:33.200Z')] |
+| =~ | **Regular expression** - Evaluates to `true` if the left operand matches the regular expression. | $.changes[?(@.attribute == "department" && @.newValue =~ /US.*Support/i)] |
+| in | **In** - Evaluates to `true` if the left operand exists in the list of values on the right. | $.changes[?(@.attribute == 'department' && @.newValue in ['sales','engineering'])] |
+| nin | **Not in** - Evaluates to `true` if the left operand **does not** exist in the list of values on the right. | $.changes[?(@.attribute == 'department' && @.newValue nin ['sales','engineering'])] |
+| subsetof | **Subset of** - Evaluates to `true` if the left operand is a subset of the right. | $[?($.warnings subsetof ['Account skipped','Invalid account'])] |
+| anyof | **Any of** - Evaluates to `true` if the left operand has an intersection with the right. | $[?($.warnings anyof ['Account skipped','Invalid account'])] |
+| noneof | **None of** - Evaluates to `true` if the left operand **does not** have an intersection with the right. | $[?($.warnings anyof ['Account skipped','Invalid account'])] |
+| size | **Size** - Evaluates to `true` if the size of the left (array or string) matches the right. | $[?($.warnings size 1] |
 | && | Logical **AND** operator that evaluates `true` only if both conditions are `true`. | $.changes[?(@.attribute == "cloudLifecycleState" && @.newValue == "terminated")] |
 | ! | **Not** - Negates the boolean expression. | $.identity.attributes[?(!@.alternateEmail)] |
 | \|\| | Logical **OR** operator that evaluates `true` if at least one condition is `true`. | $.changes[?(@.attribute == "cloudLifecycleState" \|\| @.attribute == "department")] |

@@ -71,8 +71,12 @@ Operators provide more options to filter JSON structures.
 | < | **Less than** - Evaluates to `true` if the left operand is less than the right operand. | $[?($.attributes.created < '2020-04-27T16:48:33.200Z')] |
 | <= | **Less than or equal to** - Evaluates to `true` if the left operand is less than or equal to the right operand. | $[?($.attributes.created <= '2020-04-27T16:48:33.200Z')] |
 | =~ | **Regular expression** - Evaluates to `true` if the left operand matches the regular expression. | $.changes[?(@.attribute == "department" && @.newValue =~ /US.*Support/i)] |
-| in | **Regular expression** - Evaluates to `true` if the left operand exists in the list of values on the right. | $.changes[?(@.attribute == 'department' && @.newValue in ['sales','engineering'])] |
-| nin | **Regular expression** - Evaluates to `true` if the left operand **does not** exist in the list of values on the right. | $.changes[?(@.attribute == 'department' && @.newValue nin ['sales','engineering'])] |
+| in | **In** - Evaluates to `true` if the left operand exists in the list of values on the right. | $.changes[?(@.attribute == 'department' && @.newValue in ['sales','engineering'])] |
+| nin | **Not in** - Evaluates to `true` if the left operand **does not** exist in the list of values on the right. | $.changes[?(@.attribute == 'department' && @.newValue nin ['sales','engineering'])] |
+| subsetof | **Subset of** - Evaluates to `true` if the left operand is a subset of the right. | $[?($.warnings subsetof ['Account skipped','Invalid account'])] |
+| anyof | **Any of** - Evaluates to `true` if the left operand has an intersection with the right. | $[?($.warnings anyof ['Account skipped','Invalid account'])] |
+| noneof | **None of** - Evaluates to `true` if the left operand **does not** have an intersection with the right. | $[?($.warnings anyof ['Account skipped','Invalid account'])] |
+| size | **Size** - Evaluates to `true` if the size of the left (array or string) matches the right. | $[?($.warnings size 1] |
 | && | Logical **AND** operator that evaluates `true` only if both conditions are `true`. | $.changes[?(@.attribute == "cloudLifecycleState" && @.newValue == "terminated")] |
 | ! | **Not** - Negates the boolean expression. | $.identity.attributes[?(!@.alternateEmail)] |
 | \|\| | Logical **OR** operator that evaluates `true` if at least one condition is `true`. | $.changes[?(@.attribute == "cloudLifecycleState" \|\| @.attribute == "department")] |

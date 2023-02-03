@@ -35,7 +35,7 @@ The developer site pulls the API specifications from a separate repository where
 
 ## Documentation Standard Practices
 
-We have a number of documentation standard practices, some of which are necessary for quality, and some of which are just stylistic choices we've made. We'll always accept good documentation, even if it doesn't necessarily follow all these standards, but we will either edit the contribution or request edits from you before we accept it. You can use the following list as a reference for some reasons we may edit your contribution: 
+We have a number of documentation standard practices, some of which are necessary for quality, and some of which are just stylistic choices we've made. We'll always accept good documentation, even if it doesn't necessarily follow all these standards, but we'll either edit the contribution or request edits from you before we accept it. You can use the following list as a reference for some reasons we may edit your contribution: 
 
 - Use [active voice](https://developers.google.com/style/voice) whenever possible.
 - Use [present tense](https://developers.google.com/style/tense) whenever possible.

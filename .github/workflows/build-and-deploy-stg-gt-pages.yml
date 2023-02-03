@@ -46,6 +46,7 @@ jobs:
           aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
           aws-region: us-east-1
 
+      # push these files to AWS
       - name: Copy files to the test website with the AWS CLI
         run: |
           aws s3 sync ./build s3://spt-developer

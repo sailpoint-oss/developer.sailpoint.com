@@ -12,12 +12,12 @@ export default function ConferenceHero() {
       <div className={styles.mainCard}>
         <div>
             <div className={styles.conferenceText}>Developer Days</div>
-          <div className={styles.comingSoonText}>COMING SOON | Q1 2023</div>
+          <div className={styles.comingSoonText}>March 7th-9th, 2023</div>
           <div className={styles.descriptionText}>
             The conference for developers on SailPoint platforms.
           </div>
           <SliderButton id="gVCODdMc" className={styles.button}>
-            Join the Waitlist!
+            Register today!
           </SliderButton>
         </div>
       </div>

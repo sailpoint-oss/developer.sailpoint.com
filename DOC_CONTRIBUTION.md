@@ -44,6 +44,8 @@ We have a number of documentation standard practices, some of which are necessar
 - Avoid wordiness. 
 - Use [common contractions](https://learn.microsoft.com/en-us/style-guide/word-choice/use-contractions). 
 - Use [prepositions where they feel natural](https://developers.google.com/style/prepositions).
+- Define [new terms](https://developers.google.com/tech-writing/one/words#define_new_or_unfamiliar_terms) when you introduce them. 
+- Use [terms consistently](https://developers.google.com/tech-writing/one/words#use_terms_consistently). 
 - Use complete sentences, except in lists and field descriptions. 
 - Avoid using [ambiguous pronouns](https://developers.google.com/style/pronouns#ambiguous-pronoun-references).
 - Avoid [dangling and misplaced modifiers](https://learn.microsoft.com/en-us/style-guide/grammar/dangling-misplaced-modifiers). 

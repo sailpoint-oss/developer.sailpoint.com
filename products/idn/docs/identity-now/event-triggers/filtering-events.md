@@ -84,9 +84,7 @@ Operators provide more options to filter JSON structures.
 
 ### Developing Filters
 
-Developing a filter can be faster when you use a tool like an online [JSONpath editor](https://jsonpath.herokuapp.com/). These tools can provide quick feedback on your filter, allowing you to focus on the exact filter expression you want before testing it on a trigger.
-
-Start by opening a [JSONpath editor](https://jsonpath.herokuapp.com/) in your browser. Make sure that the correct implementation is selected if there is more than one option. In the case of event trigger filters, you will want to select the **Jayway** option. You can then paste in an example trigger input and start crafting your JSONpath expression.
+Developing a filter can be faster when you use a tool like an online [JSONpath editor](https://www.javainuse.com/jsonpath). These tools can provide quick feedback on your filter, allowing you to focus on the exact filter expression you want before testing it on a trigger.  Just paste an example of your event trigger input and start crafting an expression to see its result.
 
 ![JSONPath editor](./img/jsonpath-editor.png)
 

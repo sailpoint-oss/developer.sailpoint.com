@@ -16,4 +16,4 @@ properties:
     items:
       $ref: "AttributeRequest.yaml"
   source:
-    $ref: "../Source.yaml"
+    $ref: "../AccountSource.yaml"

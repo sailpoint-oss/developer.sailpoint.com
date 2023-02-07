@@ -19,7 +19,7 @@ allOf:
       access:
         type: array
         items:
-          $ref: "../access/Entitlement.yaml"
+          $ref: "../access/AccessProfileEntitlement.yaml"
       entitlementCount:
         type: integer
         description: The number of entitlements assigned to the account

@@ -11,8 +11,8 @@ post:
       application/json:
         schema:
           allOf:
-          - $ref: '../schemas/search/saved/Name.yaml'
-          - $ref: '../schemas/search/saved/Search.yaml'
+          - $ref: '../schemas/search/saved/SavedSearchName.yaml'
+          - $ref: '../schemas/search/saved/SavedSearchDetail.yaml'
     required: true
   responses:
     '201':

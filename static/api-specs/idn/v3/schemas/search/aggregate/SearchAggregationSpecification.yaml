@@ -5,4 +5,4 @@ allOf:
     subAggregation:
       description: >-
           Aggregation to be performed on the result of the parent bucket aggregation.
-      $ref: 'Aggregation-2.yaml'
+      $ref: 'SubSearchAggregationSpecification.yaml'

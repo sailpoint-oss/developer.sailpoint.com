@@ -9,7 +9,7 @@ properties:
     type: string
     example: 'Entitlements'
   type:
-    $ref: 'FilterType.yaml'
+    $ref: 'SearchFilterType.yaml'
   field:
     description: |
       The search field to apply the filter to.

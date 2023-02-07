@@ -11,8 +11,8 @@ post:
       application/json:
         schema:
           allOf:
-          - $ref: '../schemas/search/scheduled/Name.yaml'
-          - $ref: '../schemas/search/scheduled/Schedule.yaml'
+          - $ref: '../schemas/search/scheduled/ScheduledSearchName.yaml'
+          - $ref: '../schemas/search/scheduled/SearchSchedule.yaml'
         examples:
           Daily Search:
             description: A search that executes each day at a 9 AM

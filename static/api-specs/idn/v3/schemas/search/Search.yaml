@@ -69,7 +69,7 @@ properties:
   aggregations:
     description: |
       The aggregation’s specifications, such as the groupings and calculations to be performed.
-    $ref: 'aggregate/Aggregation.yaml'
+    $ref: 'aggregate/SearchAggregationSpecification.yaml'
 
   sort:
     description: >-

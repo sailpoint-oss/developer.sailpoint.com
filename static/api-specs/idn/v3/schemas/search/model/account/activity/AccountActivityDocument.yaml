@@ -27,9 +27,9 @@ allOf:
         description: the current status of the activity
         example: Complete
       requester:
-        $ref: "../Source.yaml"
+        $ref: "../AccountSource.yaml"
       recipient:
-        $ref: "../Source.yaml"
+        $ref: "../AccountSource.yaml"
       trackingNumber:
         type: string
         example: 61aad0c9e8134eca89e76a35e0cabe3f

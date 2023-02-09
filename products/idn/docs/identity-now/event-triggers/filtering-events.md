@@ -23,14 +23,6 @@ Network bandwidth and processing power come at a cost, especially when you are u
 
 Event trigger filters are constructed using a **Jayway** JSONpath expression. See the following tables for a list of operators that can be used in a trigger filter.
 
-:::info Update
-
-SailPont's Workflow tool uses **Goessner** JSONpath when selecting variables to use in actions and operators. Please read the [Goessner](https://goessner.net/articles/JsonPath/) documentation to learn more about the supported operators.
-
-Although variable selection in Workflows uses Goessner, the trigger filter field in Workflows still follows the Jayway operators listed below.
-
-:::
-
 ### Expressions
 
 Expressions specify a path to an element or array of elements in a JSON structure. Expressions are used to select data in a JSON structure to check for the existence of attributes or to narrow down the data where the filter logic is applied.

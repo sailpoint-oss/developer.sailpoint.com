@@ -1,5 +1,5 @@
 get:
-  operationId: getTaggedObjectByTypeAndId
+  operationId: getTaggedObject
   tags:
     - Tagged Objects
   summary: Get Tagged Object
@@ -42,7 +42,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
 put:
-  operationId: updateTaggedObjectByTypeAndId
+  operationId: updateTaggedObject
   tags:
     - Tagged Objects
   summary: Update Tagged Object
@@ -90,7 +90,7 @@ put:
     '500':
       $ref: '../../v3/responses/500.yaml'
 delete:
-  operationId: deleteTaggedObjectByTypeAndId
+  operationId: deleteTaggedObject
   tags:
     - Tagged Objects
   summary: Delete Tagged Object

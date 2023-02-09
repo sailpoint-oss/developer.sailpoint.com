@@ -1,5 +1,5 @@
 post:
-  operationId: roleMiningSessions
+  operationId: createRoleMiningSessions
   summary: Create a role mining session
   tags:
     - IAI Role Mining

@@ -1,5 +1,5 @@
 post:
-  operationId: rejectRequest
+  operationId: rejectAccessRequest
   summary: Rejects an access request approval.
   tags:
     - Access Request Approvals

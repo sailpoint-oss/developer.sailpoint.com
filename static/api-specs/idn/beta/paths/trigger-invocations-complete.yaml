@@ -1,5 +1,5 @@
 post:
-  operationId: completeInvocation
+  operationId: completeTriggerInvocation
   tags:
     - Triggers
   summary: Complete Trigger Invocation

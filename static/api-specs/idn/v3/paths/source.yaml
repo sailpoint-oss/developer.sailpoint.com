@@ -35,7 +35,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
 put:
-  operationId: replaceSource
+  operationId: putSource
   tags:
     - Sources
   summary: Update Source (Full)
@@ -273,7 +273,6 @@ delete:
               value: {"type": "TASK_RESULT", "id": "2c91808779ecf55b0179f720942f181a", "name": null}
       links:
         GetTaskStatusById:
-          operationId: getTaskStatus
           parameters:
             id: '$response.body#/id'
           description: >

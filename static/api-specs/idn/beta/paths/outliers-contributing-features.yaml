@@ -1,5 +1,5 @@
 get:
-  operationId: getOutliersContributingFeatures
+  operationId: getPeerGroupOutliersContributingFeatures
   tags:
     - IAI Outliers
   summary: IAI Get an Identity Outlier's Contibuting Features

@@ -4,7 +4,7 @@ put:
   description: |
     Updates an existing scheduled search.
   summary: Update an existing Scheduled Search
-  operationId: scheduledSearchUpdate
+  operationId: updateScheduledSearch
   parameters:
   - $ref: '../parameters/path/search/id.yaml'
   requestBody:
@@ -38,7 +38,7 @@ get:
     - Scheduled Search
   description: Returns the specified scheduled search.
   summary: Get a Scheduled Search
-  operationId: scheduledSearchGet
+  operationId: getScheduledSearch
   parameters:
   - $ref: '../parameters/path/search/id.yaml'
   responses:
@@ -65,7 +65,7 @@ delete:
     - Scheduled Search
   description: |
     Deletes the specified scheduled search.
-  operationId: scheduledSearchDelete
+  operationId: deleteScheduledSearch
   summary: Delete a Scheduled Search
   parameters:
   - $ref: '../parameters/path/search/id.yaml'

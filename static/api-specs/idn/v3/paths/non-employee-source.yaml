@@ -1,5 +1,5 @@
 get:
-  operationId: nonEmployeeSourceGet
+  operationId: getNonEmployeeSource
   security:
     - oauth2: []
   tags:
@@ -39,7 +39,7 @@ get:
     "500":
       $ref: "../responses/500.yaml"
 patch:
-  operationId: nonEmployeeSourcePatch
+  operationId: patchNonEmployeeSource
   # security:
   #   - oauth2: [idn:nesr:update]
   tags:
@@ -98,7 +98,7 @@ patch:
     "500":
       $ref: "../responses/500.yaml"
 delete:
-  operationId: nonEmployeeSourceDelete
+  operationId: deleteNonEmployeeSource
   # security:
   #   - oauth2: [idn:nesr:delete]
   tags:

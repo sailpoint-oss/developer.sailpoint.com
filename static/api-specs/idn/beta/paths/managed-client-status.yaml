@@ -3,7 +3,7 @@ get:
     - Managed Clients
   summary: Get a specified Managed Client Status.
   description: Retrieve Managed Client Status by ID.
-  operationId: getClientStatus
+  operationId: getManagedClientStatus
   parameters:
     - name: id
       in: path
@@ -45,7 +45,7 @@ post:
     - Managed Clients
   summary: Handle a status request from a client
   description: Update a status detail passed in from the client
-  operationId: updateStatus
+  operationId: updateManagedClientStatus
   parameters:
     - name: id
       in: path

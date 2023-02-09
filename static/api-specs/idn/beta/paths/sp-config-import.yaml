@@ -1,5 +1,5 @@
 post:
-  operationId: spConfigImport
+  operationId: importSpConfig
   # security:
   #   - oauth2: [sp:config:import]
   tags:

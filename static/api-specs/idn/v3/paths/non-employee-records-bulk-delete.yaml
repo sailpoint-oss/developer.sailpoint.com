@@ -1,5 +1,5 @@
 post:
-  operationId: nonEmployeeRecordBulkDelete
+  operationId: deleteNonEmployeeRecordsInBulk
   # security:
   #   - oauth2: [idn:nesr:delete]
   tags:

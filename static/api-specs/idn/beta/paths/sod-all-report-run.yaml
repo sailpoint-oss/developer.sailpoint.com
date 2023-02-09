@@ -1,5 +1,5 @@
 post:
-  operationId: runAllPoliciesForOrg
+  operationId: runSodAllPoliciesForOrg
   tags:
     - SOD Policy
   summary: Runs all policies for Org.

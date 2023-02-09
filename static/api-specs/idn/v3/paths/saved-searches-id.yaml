@@ -5,7 +5,7 @@ put:
     Updates an existing saved search.
   summary: |
     Updates an existing saved search
-  operationId: savedSearchUpdate
+  operationId: updateSavedSearch
   parameters:
   - $ref: '../parameters/path/search/id.yaml'
   requestBody:
@@ -32,7 +32,7 @@ get:
   description: |
     Returns the specified saved search.
   summary: Return a saved search by ID
-  operationId: savedSearchGet
+  operationId: getSavedSearch
   parameters:
   - $ref: '../parameters/path/search/id.yaml'
   responses:
@@ -50,7 +50,7 @@ delete:
   description: |
     Deletes the specified saved search.
   summary: Delete a document by ID
-  operationId: savedSearchDelete
+  operationId: deleteSavedSearch
   parameters:
   - $ref: '../parameters/path/search/id.yaml'
   responses:

@@ -1,5 +1,5 @@
 post:
-  operationId: bulkDeleteAccessProfiles
+  operationId: deleteAccessProfilesInBulk
   summary: Delete Access Profile(s)
   tags:
     - Access Profiles

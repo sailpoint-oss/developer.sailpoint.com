@@ -1,5 +1,5 @@
 post:
-  operationId: nonEmployeeRejectRequest
+  operationId: rejectNonEmployeeRequest
   security:
     - oauth2: []
   tags:

@@ -1,5 +1,5 @@
 get:
-  operationId: listInvocationStatus
+  operationId: listTriggerInvocationStatus
   tags:
     - Triggers
   summary: List Latest Invocation Statuses

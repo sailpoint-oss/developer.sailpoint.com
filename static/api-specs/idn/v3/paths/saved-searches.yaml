@@ -4,7 +4,7 @@ post:
   description: |
     Creates a new saved search.
   summary: Create a saved search
-  operationId: savedSearchCreate
+  operationId: createSavedSearch
   requestBody:
     description: The saved search to persist.
     content:
@@ -31,7 +31,7 @@ get:
   description: |
     Returns a list of saved searches.
   summary: Return a list of Saved Searches
-  operationId: savedSearchList
+  operationId: listSavedSearches
   parameters:
   - $ref: '../parameters/offset.yaml'
   - $ref: '../parameters/limit.yaml'

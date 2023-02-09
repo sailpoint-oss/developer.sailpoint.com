@@ -1,5 +1,5 @@
 get:
-  operationId: getStartDate
+  operationId: getIdentityStartDate
   tags:
     - Identity History
   summary: Gets the start date of the identity

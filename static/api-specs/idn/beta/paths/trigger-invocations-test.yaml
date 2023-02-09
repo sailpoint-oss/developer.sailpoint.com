@@ -1,5 +1,5 @@
 post:
-  operationId: startTestInvocation
+  operationId: startTestTriggerInvocation
   tags:
     - Triggers
   summary: Start a Test Invocation

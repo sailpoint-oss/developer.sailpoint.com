@@ -1,5 +1,5 @@
 post:
-  operationId: testConfiguration
+  operationId: testSourceConfiguration
   tags:
     - Sources
   summary: Test configuration for the source connector

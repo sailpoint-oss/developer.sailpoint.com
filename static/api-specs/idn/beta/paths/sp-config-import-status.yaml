@@ -1,5 +1,5 @@
 get:
-  operationId: spConfigImportJobStatus
+  operationId: importSpConfigJobStatus
   # security:
   #   - oauth2: [sp:config:import]
   tags:

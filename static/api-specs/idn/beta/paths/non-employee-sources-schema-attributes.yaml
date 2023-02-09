@@ -1,5 +1,5 @@
 get:
-  operationId: getSchemaAttributes
+  operationId: getNonEmployeeSourceSchemaAttributes
   security:
     - oauth2: []
   tags:
@@ -48,7 +48,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
 post:
-  operationId: createSchemaAttribute
+  operationId: createNonEmployeeSourceSchemaAttributes
   security:
     - oauth2: [idn:nelm:manage]
   tags:
@@ -95,7 +95,7 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
 delete:
-  operationId: deleteSchemaAttributes
+  operationId: deleteNonEmployeeSourceSchemaAttributes
   security:
     - oauth2: [idn:nelm:manage]
   tags:

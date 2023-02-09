@@ -1,6 +1,6 @@
 
 get:
-  operationId: getSchema
+  operationId: getSourceSchema
   tags:
     - Sources
   summary: Get Source Schema by ID
@@ -41,7 +41,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
 put:
-  operationId: replaceSchema
+  operationId: putSourceSchema
   tags:
     - Sources
   summary: Update Source Schema (Full)
@@ -97,7 +97,7 @@ put:
     '500':
       $ref: '../../v3/responses/500.yaml'
 patch:
-  operationId: updateSchema
+  operationId: updateSourceSchema
   tags:
     - Sources
   summary: Update Source Schema (Partial)
@@ -193,7 +193,7 @@ patch:
     '500':
       $ref: '../../v3/responses/500.yaml'
 delete:
-  operationId: deleteSchema
+  operationId: deleteSourceSchema
   tags:
     - Sources
   summary: Delete Source Schema by ID

@@ -1,5 +1,5 @@
 post:
-  operationId: commonAccessBulkUpdateStatus
+  operationId: updateCommonAccessStatusInBulk
   summary: Bulk update common access status
   tags:
     - IAI Common Access

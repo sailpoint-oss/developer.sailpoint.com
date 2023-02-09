@@ -35,7 +35,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
 put:
-  operationId: replaceSource
+  operationId: putSource
   tags:
     - Sources
   summary: Update Source (Full)

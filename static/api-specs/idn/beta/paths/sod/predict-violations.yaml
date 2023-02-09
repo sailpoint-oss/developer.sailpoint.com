@@ -1,5 +1,5 @@
 post:
-  operationId: predictViolations
+  operationId: predictSodViolations
   tags:
     - SOD Violations
   summary: Predict SOD violations for the given identity if they were granted the given access.

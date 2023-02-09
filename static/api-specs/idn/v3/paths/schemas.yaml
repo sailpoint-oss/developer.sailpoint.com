@@ -1,6 +1,6 @@
 
 get:
-  operationId: listSchemas
+  operationId: listSourceSchemas
   tags:
     - Sources
   summary: List Schemas on a Source
@@ -45,7 +45,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
 post:
-  operationId: createSchema
+  operationId: createSourceSchema
   tags:
     - Sources
   summary: Create Schema on a Source 

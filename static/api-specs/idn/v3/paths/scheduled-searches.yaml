@@ -4,7 +4,7 @@ post:
   description: |
     Creates a new scheduled search.
   summary: Create a new scheduled search
-  operationId: scheduledSearchCreate
+  operationId: createScheduledSearch
   requestBody:
     description: The scheduled search to persist.
     content:
@@ -152,7 +152,7 @@ get:
   description: |
     Returns a list of scheduled searches.
   summary: List scheduled searches
-  operationId: scheduledSearchList
+  operationId: listScheduledSearch
   parameters:
   - $ref: '../parameters/offset.yaml'
   - $ref: '../parameters/limit.yaml'

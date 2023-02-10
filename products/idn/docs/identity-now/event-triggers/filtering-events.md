@@ -129,7 +129,7 @@ To validate a filter using the UI, subscribe to a new event trigger or edit an e
 
 ### Validating Filters Using the API
 
-You can validate a trigger filter by using the [validate filter](/idn/api/beta/validate-filter) API endpoint. You must escape any double quotes, as seen in the example payload in the API description. Also, you must provide a sample input for the validation engine to run against. It is best to use the input example included in the input/output schemas for the event trigger you want to apply your filter to. Refer to [this table](/idn/api/beta/triggers#available-event-triggers) to find the schema of your event trigger. This is an example request:
+You can validate a trigger filter by using the [validate filter](/idn/api/beta/validate-subscription-filter) API endpoint. You must escape any double quotes, as seen in the example payload in the API description. Also, you must provide a sample input for the validation engine to run against. It is best to use the input example included in the input/output schemas for the event trigger you want to apply your filter to. Refer to [this table](/idn/api/beta/triggers#available-event-triggers) to find the schema of your event trigger. This is an example request:
 
 ```text
 POST https://{tenant}.api.identitynow.com/beta/trigger-subscriptions/validate-filter
@@ -181,4 +181,4 @@ If SailPoint accepts your trigger filter, you must test whether it actually work
 
 Once you fire off a test event, monitor your webhook.site webpage for an incoming event. If the filter matches the test input, you will an event come in. If the filter does not match the input, then it will nott fire. Test both scenarios to make sure your filter is not always evaluating to `true`, and that it will indeed evaluate to `false` under the correct circumstances. For example, the filter `$[?($.identity.name contains "john")]` will match the test event for Identity Attributes Changed and you will see an event in webhook.site, but you also want to make sure that `$[?($.identity.name contains "archer")]` doesn't fire because the test input is always the same.
 
-If you want to control the test input to validate your filter against a more robust set of data, use the [test invocation](/idn/api/beta/start-test-invocation) API endpoint.
+If you want to control the test input to validate your filter against a more robust set of data, use the [test invocation](/idn/api/beta/start-test-trigger-invocation) API endpoint.

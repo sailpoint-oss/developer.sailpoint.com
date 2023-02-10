@@ -25,7 +25,7 @@ In this guide, you will learn how to use [IdentityNow's Transform REST APIs](/id
 
 To call the APIs for transforms, you need a personal access token and your tenant's name to provide with the request. For more information about how to get a personal access token, see [Personal Access Tokens](../../../../api/authentication.md#personal-access-tokens). For more information about how to get the name of your tenant, see [Finding Your Organization Tenant Name](../../../../api/getting-started.md#finding-your-orgtenant-name).
 
-Before you create your first custom transform, see what transforms are already in the tenant. You can get this information by calling the [List Transforms API](/idn/api/v3/get-transforms-list).
+Before you create your first custom transform, see what transforms are already in the tenant. You can get this information by calling the [List Transforms API](/idn/api/v3/list-transforms).
 
 ```bash
 curl --location --request GET 'https://{tenant}.api.identitynow.com/v3/transforms' --header 'Authorization: Bearer {token}'

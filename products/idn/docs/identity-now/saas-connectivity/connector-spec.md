@@ -19,7 +19,7 @@ The connector spec file tells IDN how the connector should interact with IDN. It
 
 To see a sample spec file, see this link: [connector-spec.json](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/connector-spec.json)
 
-## Description of Fields
+## Field Descriptions
 
 The following describes in detail the different fields in the connector spec:
 

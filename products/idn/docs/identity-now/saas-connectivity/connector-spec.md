@@ -39,7 +39,7 @@ The following describes in detail the different fields in the connector spec:
     - **sectionHelpMessage:** A description about the section that can help the user understand its purpose and how to fill out the fields.
       - **key:** The configuration item's name as the code references it.
       - **label:** The configuration item's name as it displays in the UI.
-      - **required** (Optional): Set to 'false' by default. Valid values are 'true' or 'false.' You must populate required configuration items in the IDN source configuration wizard before continuing.
+      - **required** (Optional): Set to 'false' by default. Valid values are `true` or `false`. You must populate required configuration items in the IDN source configuration wizard before continuing.
       - **type:** The configuration items' types. The following types are valid:
         - text
         - secret
@@ -53,7 +53,7 @@ The following describes in detail the different fields in the connector spec:
   - **identityAttribute:** Identifies the attribute (defined below) used to map to `Account ID` in the IdentityNow account schema. This must be a globally unique identifier, such as email address, employee ID, etc.
   - **groupAttribute:** Identifies the attribute used to map accounts to entitlements. For example, a web service can define `groups` that users are members of, and the `groups` grant entitlements to each user. In this case, **groupAttribute** is “groups,” and there is also an account attribute called “groups”.
   - **attributes:** One or more attributes that map to a user’s attribute on the target source. Each attribute defines the following:
-    - **name:** The attribute’s name as it appears in IDN.
+    - **name:** The attribute’s name as it displays in IDN.
     - **type:** The attribute’s type. The following values are possible: `string`, `boolean`, `long`, and `int`.
     - **description:** A helpful description of the attribute. This is useful to source owners when they're trying to understand the account schema.
     - **managed:** This indicates whether the entitlements are manageable through IDN or read-only.

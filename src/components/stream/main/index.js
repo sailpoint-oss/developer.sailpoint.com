@@ -20,45 +20,46 @@ export default function Main() {
   const typeformRef = useRef(null);
   const typeformEntryRef = useRef(null);
 
-  const [streamData, setStreamData] = useState({
-    connectionCounts: {total: 12, idn: 2, iiq: 3},
-    stages: {
-      IDN: {
-        stage: 'IDN',
-        active: true,
-        speaker: 'Philip Ellis',
-        startTime: '2023-03-16T19:00:00.000Z',
-        endTime: '2023-03-16T19:30:00.000Z',
-        topic: 'SaaS Connectivity, Create your first connector',
-        typeformId: 'ka0jgXBw',
-      },
-      IIQ: {
-        stage: 'IIQ',
-        active: true,
-        speaker: 'Colin McKibben',
-        startTime: '2023-03-16T13:00:00.000Z',
-        endTime: '2023-03-16T19:00:00.000Z',
-        topic: 'How to migrate from IIQ to IDN',
-        typeformId: 'ka0jgXBw',
-      },
+  const BackupStageData = {
+    IDN: {
+      day: '1',
+      topic: 'Conference Starting 03.07.23',
+      startTime: '2023-03-07T14:00:00.000Z',
+      endTime: '2023-03-07T15:00:00.000Z',
+      stage: 'IDN',
+      active: true,
+      speakers: [],
+      id: 'reciq5lGqHOyl1Zzy',
+      muxPlaybackId: 'placeholdervideo',
+      muxEnvironmentKey: 'j4iije0sv1ih8shgurfp3ldkq',
+      typeformId: 'RlYAvjZo',
+      surveyDisplayed: false,
+      allStages: false,
+      hidden: true,
     },
-    videoSource: {
-      IDN: {
-        playbackId: '8eovb9oQzltDEG02e7MwE1aBwLj00HBeKm3VbsZbvcWB4',
-        env_key: 'j4iije0sv1ih8shgurfp3ldkq',
-      },
-      IIQ: {
-        playbackId: 'DN6LQtQ5fi016Xliw4lurST62ZAmVyDHqdFPisrY00WDI',
-        env_key: '6i0s80sskn2ri0661uqi5oesq',
-      },
-      // backup: { playbackId: "", env_key: "" },
+    IIQ: {
+      day: '1',
+      topic: 'Conference Starting 03.07.23',
+      startTime: '2023-03-07T14:00:00.000Z',
+      endTime: '2023-03-07T15:00:00.000Z',
+      stage: 'IIQ',
+      active: true,
+      speakers: [],
+      id: 'reciq5lGqHOyl1Zzy',
+      muxPlaybackId: 'placeholdervideo',
+      muxEnvironmentKey: 'j4iije0sv1ih8shgurfp3ldkq',
+      typeformId: 'RlYAvjZo',
+      surveyDisplayed: false,
+      allStages: false,
+      hidden: true,
     },
-  });
-  const [stage, setStage] = useState({
-    stage: 'IDN',
-  });
+  };
 
+  const [stages, setStages] = useState(BackupStageData);
+  const [stage, setStage] = useState('IDN');
   const [speakers, setSpeakers] = React.useState([]);
+
+  function PopulateStages(stages) {}
 
   const getSpeakers = async () => {
     const data = await getSpeaker();
@@ -90,12 +91,25 @@ export default function Main() {
 
     socket.on('stream', (data) => {
       console.log('incoming Data');
-      setStreamData(data);
       console.log(data);
+
+      if (data?.stages?.IDN) {
+        if (Object.keys(data.stages?.IDN).length <= 0) {
+          data.stages.IDN = BackupStageData.IDN;
+        }
+      }
+
+      if (data?.stages?.IIQ) {
+        if (Object.keys(data.stages?.IIQ).length <= 0) {
+          data.stages.IIQ = BackupStageData.IIQ;
+        }
+      }
+
+      setStages(data.stages);
     });
 
     socket.on('survey', (data) => {
-      if (stage?.stage === data) {
+      if (stage === data) {
         typeformRef?.current?.children[1].click();
       }
     });
@@ -134,35 +148,30 @@ export default function Main() {
 
   Modal.setAppElement('#__docusaurus');
 
-  const eventSpeakers = streamData?.stages[stage?.stage]?.speakers?.map(
-    (speakerId, index) => {
-      return speakers.filter((obj) => obj.id === speakerId)[0];
-    },
-  );
+  const eventSpeakers = stages[stage]?.speakers?.map((speakerId, index) => {
+    return speakers.filter((obj) => obj.id === speakerId)[0];
+  });
 
-  const iiqSelectedClass =
-    stage?.stage === 'IIQ' ? styles.stageButtonActive : '';
-  const idnSelectedClass =
-    stage?.stage === 'IDN' ? styles.stageButtonActive : '';
+  const iiqSelectedClass = stage === 'IIQ' ? styles.stageButtonActive : '';
+  const idnSelectedClass = stage === 'IDN' ? styles.stageButtonActive : '';
 
   return (
     <div className={styles.main}>
       <div className="px-2 md:px-4 py-6 my-2 flex flex-col md:flex-row justify-between gap-4">
         <div className="">
           <div className={`${styles.headerText} my-auto`}>
-            {streamData?.stages[stage?.stage]?.topic}
+            {stages[stage]?.topic}
           </div>
 
           <div className={styles.timeText}>
-            {streamData?.stages[stage?.stage]?.startTime &&
-              new Date(
-                streamData?.stages[stage?.stage]?.startTime,
-              ).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})}
-            {(streamData?.stages[stage?.stage]?.endTime &&
+            {stages[stage]?.startTime &&
+              new Date(stages[stage]?.startTime).toLocaleTimeString([], {
+                hour: '2-digit',
+                minute: '2-digit',
+              })}
+            {(stages[stage]?.endTime &&
               `-` +
-                new Date(
-                  streamData?.stages[stage?.stage]?.endTime,
-                ).toLocaleTimeString([], {
+                new Date(stages[stage]?.endTime).toLocaleTimeString([], {
                   hour: '2-digit',
                   minute: '2-digit',
                 })) ||
@@ -199,7 +208,7 @@ export default function Main() {
             />
             <FAQ
               description={
-                "if you stil can't find what you are looking for, reach out to us on our discussion board"
+                "if you still can't find what you are looking for, reach out to us on our discussion board"
               }
               title={'Frequently Asked Questions'}
               image={'/homepage/discuss.png'}
@@ -216,7 +225,7 @@ export default function Main() {
             <div ref={typeformRef}>
               <PopupButton
                 autoClose
-                id={streamData?.stages[stage?.stage]?.typeformId}
+                id={stages[stage]?.typeformId || 'RlYAvjZo'}
                 className="cursor-pointer border-[var(--ifm-color-primary)] md:grow border-2 hover:bg-[color:var(--ifm-color-primary)] border-solid hover:text-white text-[color:var(--ifm-color-primary)] text-center font-bold bg-transparent py-2 px-4 rounded">
                 Survey
               </PopupButton>
@@ -241,7 +250,7 @@ export default function Main() {
         </button>
       </div>
       <BrowserOnly>
-        {() => <Room videoSource={streamData?.stages[stage?.stage]}></Room>}
+        {() => <Room videoSource={stages[stage]}></Room>}
       </BrowserOnly>
 
       <div ref={typeformEntryRef}>

@@ -1,0 +1,9 @@
+type : object
+properties:
+  identityIds:
+    description: The ids of the identities for which enable/disable accounts.
+    type: array
+    items:
+      type: string
+    example:
+      ["2c91808384203c2d018437e631158308", "2c9180858082150f0180893dbaf553fe"]

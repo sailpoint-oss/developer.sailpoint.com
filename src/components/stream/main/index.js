@@ -78,16 +78,6 @@ export default function Main() {
 
   let registration;
 
-  const browser = useIsBrowser;
-
-  getRegistration().then((resp) => {
-    if (browser) {
-      registration = resp;
-      console.log('Loading Registration:', registration);
-      openLoginPage();
-    }
-  });
-
   const getSpeakers = async () => {
     const data = await getSpeaker();
     console.log('Speaker Data');
@@ -99,7 +89,8 @@ export default function Main() {
     getSpeakers();
   }, []);
 
-  React.useEffect(() => {
+  React.useEffect(async () => {
+    registration = await getRegistration();
     openLoginPage();
   }, []);
 

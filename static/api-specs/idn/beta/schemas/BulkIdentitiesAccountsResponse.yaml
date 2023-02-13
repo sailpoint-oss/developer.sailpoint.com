@@ -1,0 +1,17 @@
+type: object
+description: Bulk response object.
+properties:
+  id:
+    type: string
+    description: Identifier of bulk request item.
+    example: 2c9180858082150f0180893dbaf553fe
+  statusCode:
+    type: integer
+    format: int32
+    description: Response status value.
+    example: 404
+  message:
+    type: string
+    description: Status containing additional context information about failures.
+    example: Referenced identity "2c9180858082150f0180893dbaf553fe" was not found.
+

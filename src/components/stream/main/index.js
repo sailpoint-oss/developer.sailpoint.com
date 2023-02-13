@@ -177,10 +177,18 @@ export default function Main() {
                 })) ||
               null}
           </div>
+          {stages[stage]?.topicLink && (
+            <div className="py-2">
+              <a href={stages[stage]?.topicLink}>
+                Discuss this topic in the Developer Community
+              </a>
+            </div>
+          )}
+
           <div className="flex flex-row flex-wrap gap-8">
             {eventSpeakers?.map((spkr) => {
               return (
-                <div className="flex flex-row gap-2">
+                <div key={spkr?.name} className="flex flex-row gap-2">
                   <img src={spkr?.image} className="rounded-full w-12 h-12" />
                   <div className="flex flex-col justify-center">
                     <div className={`${styles.speakerText} font-bold text-lg`}>

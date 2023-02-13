@@ -8,10 +8,10 @@ import Room from '../room';
 import Speakers from '../speakers';
 
 import BrowserOnly from '@docusaurus/BrowserOnly';
-import {PopupButton} from '@typeform/embed-react';
 import {useEffect, useState} from 'react';
 import io from 'socket.io-client';
 import {
+  getRegistration,
   getSpeaker,
   submitAttendance,
   submitSurvey,
@@ -74,6 +74,13 @@ export default function Main() {
   const [name, setName] = useState('');
   const [title, setTitle] = useState('');
   const [company, setCompany] = useState('');
+
+  let registration;
+  getRegistration().then((resp) => {
+    registration = resp;
+    console.log('Loading Registration:', registration);
+    openLoginPage();
+  });
 
   const getSpeakers = async () => {
     const data = await getSpeaker();
@@ -146,11 +153,8 @@ export default function Main() {
   function openLoginPage() {
     setTimeout(() => {
       console.log('opening login page');
-      var GivenDate = '2023-03-01';
-      var CurrentDate = new Date();
-      GivenDate = new Date(GivenDate);
       let pop_status = localStorage.getItem('entry-status');
-      if (!pop_status && GivenDate < CurrentDate) {
+      if (!pop_status && registration) {
         setLoginOpen(true);
       }
     }, 1000);

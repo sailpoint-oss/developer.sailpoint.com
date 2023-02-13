@@ -27,6 +27,15 @@ export async function getSpeaker() {
   }
 }
 
+export async function getRegistration() {
+  try {
+    const response = await fetch(URL + '/registration');
+    return await response.json();
+  } catch (error) {
+    return [];
+  }
+}
+
 export async function submitSurvey(session, rating, feedback) {
   var myHeaders = new Headers();
   myHeaders.append('Content-Type', 'application/json');

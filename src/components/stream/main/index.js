@@ -339,100 +339,105 @@ export default function Main() {
         </button>
       </div>
       <BrowserOnly>
-        {() => <Room videoSource={stages[stage]}></Room>}
+        {() => (
+          <>
+            <Room videoSource={stages[stage]}></Room>
+            <Modal
+              isOpen={loginOpen}
+              onRequestClose={openLoginPage}
+              className={styles.modal}
+              contentLabel="Survey">
+              <div className="md:h-[50vh] sm:w-[90vw] h-[45vh] overflow-auto p-4">
+                <div className="h-full flex flex-row justify-center w-full">
+                  <ul className="flex flex-col justify-center gap-6 m-0 px-8 list-none">
+                    <li>
+                      <label>
+                        What is your email address?
+                        {validationError === true && (
+                          <p class="text-red-500 my-0 pl-2">
+                            Error Validating Email
+                          </p>
+                        )}
+                        <input
+                          className="max-w-full w-[420px] resize-none block p-2.5 font-[poppins] text-gray-900  rounded-lg border focus:ring-blue-500 focus:border-blue-500 placeholder:text-[color:var(--ifm-color-primary)]"
+                          placeholder="Email"
+                          onInput={(e) => {
+                            setEmail(e.target.value);
+                          }}
+                        />
+                      </label>
+                    </li>
+                    <li>
+                      <label>
+                        What name shall we address you by?
+                        <input
+                          className="max-w-full w-[420px] resize-none block p-2.5 font-[poppins] text-gray-900  rounded-lg border focus:ring-blue-500 focus:border-blue-500 placeholder:text-[color:var(--ifm-color-primary)]"
+                          placeholder="Name"
+                          onInput={(e) => {
+                            setName(e.target.value);
+                          }}
+                        />
+                      </label>
+                    </li>
+                    <li>
+                      <label>
+                        What title are you most often addressed by?
+                        <select
+                          className="max-w-full w-[420px] resize-none block p-2.5 font-[poppins] rounded-lg border focus:ring-blue-500 focus:border-blue-500 placeholder:text-[color:var(--ifm-color-primary)]"
+                          placeholder="Title"
+                          onChange={(e) => {
+                            setTitle(e.target.value);
+                          }}
+                          defaultValue="select">
+                          <option disabled>select</option>
+                          <option>Developer</option>
+                          <option>Architect</option>
+                          <option>Solutions</option>
+                          <option>Consultant</option>
+                          <option>Director</option>
+                          <option>SVP/VP</option>
+                          <option>CEO</option>
+                        </select>
+                      </label>
+                    </li>
+                    <li>
+                      <label>
+                        What company are you joining on behalf of today?
+                        <input
+                          className="max-w-full w-[420px] resize-none block p-2.5 font-[poppins] text-gray-900  rounded-lg border focus:ring-blue-500 focus:border-blue-500 placeholder:text-[color:var(--ifm-color-primary)]"
+                          placeholder="Company"
+                          onInput={(e) => {
+                            setCompany(e.target.value);
+                          }}
+                        />
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="flex flex-row justify-end">
+                <button
+                  className={styles.modalButton}
+                  onClick={async () => {
+                    const validated = await submitAttendance(
+                      email,
+                      name,
+                      title,
+                      company,
+                    );
+                    if (validated) {
+                      setLoginOpen(false);
+                    } else {
+                      setvalidationError(true);
+                    }
+                  }}>
+                  Submit
+                </button>
+              </div>
+            </Modal>
+          </>
+        )}
       </BrowserOnly>
-
-      <Modal
-        isOpen={loginOpen}
-        onRequestClose={openLoginPage}
-        className={styles.modal}
-        contentLabel="Survey">
-        <div className="md:h-[50vh] sm:w-[90vw] h-[45vh] overflow-auto p-4">
-          <div className="h-full flex flex-row justify-center w-full">
-            <ul className="flex flex-col justify-center gap-6 m-0 px-8 list-none">
-              <li>
-                <label>
-                  What is your email address?
-                  {validationError === true && (
-                    <p class="text-red-500 my-0 pl-2">Error Validating Email</p>
-                  )}
-                  <input
-                    className="max-w-full w-[420px] resize-none block p-2.5 font-[poppins] text-gray-900  rounded-lg border focus:ring-blue-500 focus:border-blue-500 placeholder:text-[color:var(--ifm-color-primary)]"
-                    placeholder="Email"
-                    onInput={(e) => {
-                      setEmail(e.target.value);
-                    }}
-                  />
-                </label>
-              </li>
-              <li>
-                <label>
-                  What name shall we address you by?
-                  <input
-                    className="max-w-full w-[420px] resize-none block p-2.5 font-[poppins] text-gray-900  rounded-lg border focus:ring-blue-500 focus:border-blue-500 placeholder:text-[color:var(--ifm-color-primary)]"
-                    placeholder="Name"
-                    onInput={(e) => {
-                      setName(e.target.value);
-                    }}
-                  />
-                </label>
-              </li>
-              <li>
-                <label>
-                  What title are you most often addressed by?
-                  <select
-                    className="max-w-full w-[420px] resize-none block p-2.5 font-[poppins] rounded-lg border focus:ring-blue-500 focus:border-blue-500 placeholder:text-[color:var(--ifm-color-primary)]"
-                    placeholder="Title"
-                    onChange={(e) => {
-                      setTitle(e.target.value);
-                    }}
-                    defaultValue="select">
-                    <option disabled>select</option>
-                    <option>Developer</option>
-                    <option>Architect</option>
-                    <option>Solutions</option>
-                    <option>Consultant</option>
-                    <option>Director</option>
-                    <option>SVP/VP</option>
-                    <option>CEO</option>
-                  </select>
-                </label>
-              </li>
-              <li>
-                <label>
-                  What company are you joining on behalf of today?
-                  <input
-                    className="max-w-full w-[420px] resize-none block p-2.5 font-[poppins] text-gray-900  rounded-lg border focus:ring-blue-500 focus:border-blue-500 placeholder:text-[color:var(--ifm-color-primary)]"
-                    placeholder="Company"
-                    onInput={(e) => {
-                      setCompany(e.target.value);
-                    }}
-                  />
-                </label>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="flex flex-row justify-end">
-          <button
-            className={styles.modalButton}
-            onClick={async () => {
-              const validated = await submitAttendance(
-                email,
-                name,
-                title,
-                company,
-              );
-              if (validated) {
-                setLoginOpen(false);
-              } else {
-                setvalidationError(true);
-              }
-            }}>
-            Submit
-          </button>
-        </div>
-      </Modal>
     </div>
   );
 }

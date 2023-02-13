@@ -1,5 +1,5 @@
 get:
-  operationId: nonEmployeeBulkUploadStatus
+  operationId: getNonEmployeeBulkUploadStatus
   # security:
   #   - oauth2: [idn:nesr:read]
   tags:

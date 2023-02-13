@@ -1,5 +1,5 @@
 get:
-    operationId: listAccessProfileEntitlements
+    operationId: getAccessProfileEntitlements
     tags:
       - Access Profiles
     summary: List Access Profile's Entitlements

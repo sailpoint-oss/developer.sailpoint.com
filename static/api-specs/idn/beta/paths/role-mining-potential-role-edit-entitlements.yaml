@@ -1,5 +1,5 @@
 post:
-  operationId: editEntitlementsPotentialRole
+  operationId: updateEntitlementsPotentialRole
   summary: Edit entitlements for a potential role to exclude some entitlements
   tags:
     - IAI Role Mining

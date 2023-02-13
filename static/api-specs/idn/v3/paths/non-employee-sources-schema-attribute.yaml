@@ -1,5 +1,5 @@
 get:
-  operationId: getSchemaAttribute
+  operationId: getNonEmployeeSchemaAttribute
   security:
     - oauth2: []
   tags:
@@ -42,7 +42,7 @@ get:
     "500":
       $ref: "../responses/500.yaml"
 patch:
-  operationId: patchSchemaAttribute
+  operationId: patchNonEmployeeSchemaAttribute
   # security:
   #   - oauth2: [idn:nesr:update]
   tags:
@@ -103,7 +103,7 @@ patch:
     "500":
       $ref: "../responses/500.yaml"
 delete:
-  operationId: deleteSchemaAttribute
+  operationId: deleteNonEmployeeSchemaAttribute
   # security:
   #   - oauth2: [idn:nesr:delete]
   tags:

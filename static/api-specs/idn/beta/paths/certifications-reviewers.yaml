@@ -1,5 +1,5 @@
 get:
-  operationId: listReviewers
+  operationId: listCertificationReviewers
   tags:
     - Certifications
   summary: List of Reviewers for the certification

@@ -1,5 +1,5 @@
 get:
-  operationId: spConfigObjects
+  operationId: listSpConfigObjects
   security:
     - oauth2: [sp:config:export]
   tags:

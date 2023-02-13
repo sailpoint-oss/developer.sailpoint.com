@@ -35,7 +35,6 @@ patch:
     - Task Management
   summary: Update task status by task ID
   description: Update a current TaskStatus for a task by task ID.
-  operationId: updateTaskStatus
   parameters:
     - name: id
       in: path

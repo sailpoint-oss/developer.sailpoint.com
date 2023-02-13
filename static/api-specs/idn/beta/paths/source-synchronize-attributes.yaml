@@ -1,5 +1,5 @@
 post:
-  operationId: synchronizeAttributesForSource
+  operationId: syncAttributesForSource
   tags:
     - Sources
   summary: Synchronize single source attributes.

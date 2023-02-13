@@ -34,8 +34,8 @@ allOf:
       example: 2c9180867624cbd7017642d8c8c81f67
       readOnly: true
       deprecated: true
-- $ref: 'Name.yaml'
-- $ref: 'Schedule.yaml'
+- $ref: 'ScheduledSearchName.yaml'
+- $ref: 'SearchSchedule.yaml'
 required:
 - id
 - owner

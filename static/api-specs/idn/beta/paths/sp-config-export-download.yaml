@@ -1,5 +1,5 @@
 get:
-  operationId: spConfigExportDownload
+  operationId: exportSpConfigDownload
   # security:
   #   - oauth2: [sp:config:export]
   tags:

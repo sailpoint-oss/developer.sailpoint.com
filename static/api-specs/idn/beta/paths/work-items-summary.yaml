@@ -1,5 +1,5 @@
 get:
-  operationId: summaryWorkItems
+  operationId: getWorkItemsSummary
   tags:
     - Work Items
   summary: Work Items Summary

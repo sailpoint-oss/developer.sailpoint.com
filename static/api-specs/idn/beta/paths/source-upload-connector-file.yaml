@@ -1,5 +1,5 @@
 post:
-  operationId: uploadConnectorFile
+  operationId: uploadSourceConnectorFile
   tags:
     - Sources
   summary: Upload connector file to source

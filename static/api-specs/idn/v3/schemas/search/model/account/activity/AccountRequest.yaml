@@ -13,7 +13,7 @@ properties:
     example: Modify
     description: The operation that was performed
   provisioningTarget:
-    $ref: "../Source.yaml"
+    $ref: "../AccountSource.yaml"
   result:
     type: object
     properties:
@@ -36,4 +36,4 @@ properties:
         nullable: true
         example: null
   source:
-    $ref: "../Source.yaml"
+    $ref: "../AccountSource.yaml"

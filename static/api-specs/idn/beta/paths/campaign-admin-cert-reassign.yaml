@@ -1,5 +1,5 @@
 post:
-  operationId: adminReassign
+  operationId: reassignCampaign
   tags:
     - Certification Campaigns
   summary: Reassign Certifications

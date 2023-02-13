@@ -3,7 +3,7 @@ post:
   tags:
     - Auth User
   summary: Auth User Bulk Update
-  description: Update up to 25 existing auth users in a batch.
+  description: Update up to 100 existing auth users in a batch.
   #  security:
   #    - oauth2: [sp:auth-user:update]
   requestBody:

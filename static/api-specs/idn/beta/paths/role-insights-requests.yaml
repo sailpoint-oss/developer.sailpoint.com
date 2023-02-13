@@ -1,5 +1,5 @@
 post:
-  operationId: roleInsightsRequests
+  operationId: createRoleInsightRequests
   summary: A request to generate insights for roles
   tags:
     - Role Insights

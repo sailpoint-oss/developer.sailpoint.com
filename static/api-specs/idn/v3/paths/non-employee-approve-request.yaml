@@ -1,5 +1,5 @@
 post:
-  operationId: nonEmployeeApproveRequest
+  operationId: approveNonEmployeeRequest
   security:
     - oauth2: []
   tags:

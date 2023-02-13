@@ -1,5 +1,5 @@
 post:
-  operationId: approveRequest
+  operationId: approveAccessRequest
   summary: Approves an access request approval.
   tags:
     - Access Request Approvals

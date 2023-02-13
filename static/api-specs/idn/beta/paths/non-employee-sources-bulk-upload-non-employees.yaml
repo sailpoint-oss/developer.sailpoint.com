@@ -1,5 +1,5 @@
 post:
-  operationId: nonEmployeeRecordsBulkUpload
+  operationId: uploadNonEmployeeRecordsInBulk
   security:
     - oauth2: [idn:nelm:manage]
   tags:

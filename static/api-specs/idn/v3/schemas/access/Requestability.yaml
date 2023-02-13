@@ -12,5 +12,5 @@ properties:
     type: array
     description: List describing the steps in approving the request
     items:
-      $ref: './ApprovalScheme.yaml'
+      $ref: './AccessProfileApprovalScheme.yaml'
 

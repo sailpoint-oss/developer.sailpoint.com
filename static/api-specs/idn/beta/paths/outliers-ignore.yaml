@@ -1,5 +1,5 @@
 post:
-  operationId: ignoreOutliers
+  operationId: ignoreIdentityOutliers
   tags:
     - IAI Outliers
   summary: IAI Identity Outliers Ignore

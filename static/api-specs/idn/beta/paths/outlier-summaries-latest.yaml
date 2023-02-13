@@ -1,5 +1,5 @@
 get:
-  operationId: getLatestOutlierSnapshots
+  operationId: getLatestIdentityOutlierSnapshots
   tags:
     - IAI Outliers
   summary: IAI Identity Outliers Latest Summary

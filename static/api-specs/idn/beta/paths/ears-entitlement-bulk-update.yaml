@@ -1,5 +1,5 @@
 post:
-  operationId: entitlementsBulkUpdate
+  operationId: updateEntitlementsInBulk
   tags:
     - Entitlements
   summary: Bulk update an entitlement list

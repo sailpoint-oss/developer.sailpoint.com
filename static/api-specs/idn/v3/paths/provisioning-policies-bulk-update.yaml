@@ -1,5 +1,5 @@
 post:
-  operationId: bulkUpdateProvisioningPolicies
+  operationId: updateProvisioningPoliciesInBulk
   tags:
     - Sources
   summary: Bulk Update Provisioning Policies

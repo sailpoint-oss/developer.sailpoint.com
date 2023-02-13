@@ -1,5 +1,5 @@
 get:
-  operationId: getOutliers
+  operationId: getPeerGroupOutliers
   tags:
     - IAI Peer Group Strategies
   summary: Identity Outliers List

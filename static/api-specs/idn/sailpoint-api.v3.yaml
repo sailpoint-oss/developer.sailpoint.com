@@ -743,9 +743,9 @@ components:
     AccessRequestItem:
       $ref: "./v3/schemas/AccessRequestItem.yaml"
     AccessProfileDocument:
-      $ref: "./v3/schemas/search/model/access/profile/AccessProfile.yaml"
+      $ref: "./v3/schemas/search/model/access/profile/AccessProfileDocument.yaml"
     AccessProfileSummary:
-      $ref: "./v3/schemas/search/model/access/AccessProfile.yaml"
+      $ref: "./v3/schemas/search/model/access/AccessProfileSummary.yaml"
     AccessReviewReassignment:
       $ref: "./v3/schemas/ReviewReassign.yaml"
     Account:
@@ -753,11 +753,11 @@ components:
     AccountActivity:
       $ref: "./v3/schemas/AccountActivity.yaml"
     AccountActivitySearchedItem:
-      $ref: "./v3/schemas/search/model/account/activity/AccountActivity.yaml"
+      $ref: "./v3/schemas/search/model/account/activity/AccountActivityDocument.yaml"
     AccountAttributes:
       $ref: "./v3/schemas/AccountAttributes.yaml"
     AccountDocument:
-      $ref: "./v3/schemas/search/model/account/Account.yaml"
+      $ref: "./v3/schemas/search/model/account/AccountDocument.yaml"
     AccountsAsyncResult:
       $ref: "./v3/schemas/AccountsAsyncResult.yaml"
     AccountToggleRequest:
@@ -765,7 +765,7 @@ components:
     AccountUnlockRequest:
       $ref: "./v3/schemas/AccountUnlockRequest.yaml"
     Aggregation:
-      $ref: "./v3/schemas/search/model/aggregation/Aggregation.yaml"
+      $ref: "./v3/schemas/search/model/aggregation/AggregationDocument.yaml"
     ApprovalItems:
       $ref: "./v3/schemas/ApprovalItemDetails.yaml"
     Campaign:
@@ -775,13 +775,13 @@ components:
     CertificationReference:
       $ref: "./v3/schemas/CertificationReference.yaml"
     EntitlementDocument:
-      $ref: "./v3/schemas/search/model/entitlement/Entitlement.yaml"
+      $ref: "./v3/schemas/search/model/entitlement/EntitlementDocument.yaml"
     EntitlementSummary:
-      $ref: "./v3/schemas/search/model/access/Entitlement.yaml"
+      $ref: "./v3/schemas/search/model/access/AccessProfileEntitlement.yaml"
     Event:
-      $ref: "./v3/schemas/search/model/event/Event.yaml"
+      $ref: "./v3/schemas/search/model/event/EventDocument.yaml"
     IdentityDocument:
-      $ref: "./v3/schemas/search/model/identity/Identity.yaml"
+      $ref: "./v3/schemas/search/model/identity/IdentityDocument.yaml"
     IdentityProfile:
       $ref: "./v3/schemas/IdentityProfile.yaml"
     IdentityReferenceWithNameAndEmail:
@@ -807,9 +807,9 @@ components:
     Reviewer:
       $ref: "./v3/schemas/Reviewer.yaml"
     RoleDocument:
-      $ref: "./v3/schemas/search/model/role/Role.yaml"
+      $ref: "./v3/schemas/search/model/role/RoleDocument.yaml"
     RoleSummary:
-      $ref: "./v3/schemas/search/model/access/Role.yaml"
+      $ref: "./v3/schemas/search/model/access/AccessProfileRole.yaml"
     SearchDocument:
       $ref: "./v3/schemas/search/documents/SearchDocument.yaml"
     SavedSearch:

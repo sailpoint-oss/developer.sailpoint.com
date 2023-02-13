@@ -1,5 +1,5 @@
 post:
-  operationId: checkConnection
+  operationId: testSourceConnection
   tags:
     - Sources
   summary: Check connection for the source connector.

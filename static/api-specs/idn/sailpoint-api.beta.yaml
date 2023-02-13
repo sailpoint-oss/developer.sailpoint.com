@@ -1072,6 +1072,14 @@ paths:
     $ref: './beta/paths/accounts-id-disable.yaml'
   /accounts/{id}/unlock:
     $ref: './beta/paths/accounts-id-unlock.yaml'
+  /identities-accounts/{id}/enable:
+    $ref: './beta/paths/identity-accounts-id-enable.yaml'
+  /identities-accounts/{id}/disable:
+    $ref: './beta/paths/identity-accounts-id-disable.yaml'
+  /identities-accounts/enable:
+    $ref: './beta/paths/identities-accounts-enable.yaml'
+  /identities-accounts/disable:
+    $ref: './beta/paths/identities-accounts-disable.yaml'
   /accounts/search-attribute-config:
     $ref: './beta/paths/searchAttributeConfig.yaml'
   /accounts/search-attribute-config/{name}:

@@ -44,7 +44,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
 put:
-  operationId: replaceProvisioningPolicy
+  operationId: putProvisioningPolicy
   tags:
     - Sources
   summary: Update Provisioning Policy by UsageType

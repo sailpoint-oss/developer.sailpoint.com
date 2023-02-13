@@ -1,5 +1,5 @@
 get:
-  operationId: approvalSummary
+  operationId: getAccessRequestApprovalSummary
   summary: Get the number of access-requests-approvals
   tags:
     - Access Request Approvals

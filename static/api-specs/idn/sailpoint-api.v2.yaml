@@ -444,6 +444,39 @@ paths:
       description: This API returns a list of work groups
       security:
         - oauth2: []
+      parameters:
+        - in: query
+          name: limit
+          description: >-
+            Max number of results to return
+          required: false
+          example: 250
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+            maximum: 250
+            default: 250
+        - in: query
+          name: offset
+          description: >-
+            Offset into the full result set. Usually specified with *limit* to paginate through the results.
+          required: false
+          example: 0
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+            default: 0
+        - in: query
+          name: filters
+          schema:
+            type: string
+          description: >-
+            Filter results using the following syntax.
+
+            [{property:name, value: "Tyler", operation: EQ}]
+          required: false
       responses:
         '200':
           description: List of work group objects
@@ -761,6 +794,37 @@ paths:
           required: true
           description: The workgroup ID
           example: ef38f94347e94562b5bb8424a56397d8
+        - in: query
+          name: limit
+          description: >-
+            Max number of results to return
+          required: false
+          example: 250
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+            maximum: 250
+            default: 250
+        - in: query
+          name: offset
+          description: >-
+            Offset into the full result set. Usually specified with *limit* to paginate through the results.
+          required: false
+          example: 0
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+            default: 0
+        - in: query
+          name: filters
+          schema:
+            type: string
+          description: >-
+            Filter results using the following syntax.
+
+            [{property:name, value: "Tyler", operation: EQ}]
       responses:
         '200':
           description: List of work group member objects

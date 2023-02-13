@@ -3,7 +3,7 @@ get:
     - Service Desk Integration
   summary: List existing Service Desk Integrations
   description: Get a list of ServiceDeskIntegrationDto for existing Service Desk Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-  operationId: getServiceDeskIntegrationList
+  operationId: getServiceDeskIntegrations
   parameters:
     - $ref: '../../v3/parameters/offset.yaml'
     - $ref: '../../v3/parameters/limit.yaml'

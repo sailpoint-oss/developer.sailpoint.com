@@ -23,14 +23,6 @@ Network bandwidth and processing power come at a cost, especially when you are u
 
 Event trigger filters are constructed using a **Jayway** JSONpath expression. See the following tables for a list of operators that can be used in a trigger filter.
 
-:::info Update
-
-SailPont's Workflow tool uses **Goessner** JSONpath when selecting variables to use in actions and operators. Please read the [Goessner](https://goessner.net/articles/JsonPath/) documentation to learn more about the supported operators.
-
-Although variable selection in Workflows uses Goessner, the trigger filter field in Workflows still follows the Jayway operators listed below.
-
-:::
-
 ### Expressions
 
 Expressions specify a path to an element or array of elements in a JSON structure. Expressions are used to select data in a JSON structure to check for the existence of attributes or to narrow down the data where the filter logic is applied.
@@ -84,9 +76,7 @@ Operators provide more options to filter JSON structures.
 
 ### Developing Filters
 
-Developing a filter can be faster when you use a tool like an online [JSONpath editor](https://jsonpath.herokuapp.com/). These tools can provide quick feedback on your filter, allowing you to focus on the exact filter expression you want before testing it on a trigger.
-
-Start by opening a [JSONpath editor](https://jsonpath.herokuapp.com/) in your browser. Make sure that the correct implementation is selected if there is more than one option. In the case of event trigger filters, you will want to select the **Jayway** option. You can then paste in an example trigger input and start crafting your JSONpath expression.
+Developing a filter can be faster when you use a tool like an online [JSONpath editor](https://www.javainuse.com/jsonpath). These tools can provide quick feedback on your filter, allowing you to focus on the exact filter expression you want before testing it on a trigger.  Just paste an example of your event trigger input and start crafting an expression to see its result.
 
 ![JSONPath editor](./img/jsonpath-editor.png)
 
@@ -139,7 +129,7 @@ To validate a filter using the UI, subscribe to a new event trigger or edit an e
 
 ### Validating Filters Using the API
 
-You can validate a trigger filter by using the [validate filter](/idn/api/beta/validate-filter) API endpoint. You must escape any double quotes, as seen in the example payload in the API description. Also, you must provide a sample input for the validation engine to run against. It is best to use the input example included in the input/output schemas for the event trigger you want to apply your filter to. Refer to [this table](/idn/api/beta/triggers#available-event-triggers) to find the schema of your event trigger. This is an example request:
+You can validate a trigger filter by using the [validate filter](/idn/api/beta/validate-subscription-filter) API endpoint. You must escape any double quotes, as seen in the example payload in the API description. Also, you must provide a sample input for the validation engine to run against. It is best to use the input example included in the input/output schemas for the event trigger you want to apply your filter to. Refer to [this table](/idn/api/beta/triggers#available-event-triggers) to find the schema of your event trigger. This is an example request:
 
 ```text
 POST https://{tenant}.api.identitynow.com/beta/trigger-subscriptions/validate-filter
@@ -191,4 +181,4 @@ If SailPoint accepts your trigger filter, you must test whether it actually work
 
 Once you fire off a test event, monitor your webhook.site webpage for an incoming event. If the filter matches the test input, you will an event come in. If the filter does not match the input, then it will nott fire. Test both scenarios to make sure your filter is not always evaluating to `true`, and that it will indeed evaluate to `false` under the correct circumstances. For example, the filter `$[?($.identity.name contains "john")]` will match the test event for Identity Attributes Changed and you will see an event in webhook.site, but you also want to make sure that `$[?($.identity.name contains "archer")]` doesn't fire because the test input is always the same.
 
-If you want to control the test input to validate your filter against a more robust set of data, use the [test invocation](/idn/api/beta/start-test-invocation) API endpoint.
+If you want to control the test input to validate your filter against a more robust set of data, use the [test invocation](/idn/api/beta/start-test-trigger-invocation) API endpoint.

@@ -1,5 +1,5 @@
 get:
-  operationId: getSodPolicyById
+  operationId: getSodPolicy
   tags:
     - SOD Policy
   summary: Get SOD Policy By ID
@@ -126,7 +126,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
 put:
-  operationId: updatePolicyById
+  operationId: updateSodPolicy
   tags:
     - SOD Policy
   summary: Update SOD Policy By ID
@@ -347,7 +347,7 @@ put:
     '500':
       $ref: '../../v3/responses/500.yaml'
 delete:
-  operationId: deleteSodPolicyById
+  operationId: deleteSodPolicy
   tags:
     - SOD Policy
   summary: Delete SOD Policy by ID

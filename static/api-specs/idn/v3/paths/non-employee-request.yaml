@@ -1,5 +1,5 @@
 get:
-  operationId: nonEmployeeRequestGet
+  operationId: getNonEmployeeRequest
   security:
     - oauth2: []
   tags:
@@ -41,7 +41,7 @@ get:
     "500":
       $ref: "../responses/500.yaml"
 delete:
-  operationId: nonEmployeeRequestDeletion
+  operationId: deleteNonEmployeeRequest
   # security:
   #   - oauth2: [idn:nesr:delete]
   tags:

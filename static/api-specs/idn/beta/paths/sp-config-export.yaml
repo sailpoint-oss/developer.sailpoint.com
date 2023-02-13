@@ -1,5 +1,5 @@
 post:
-  operationId: spConfigExport
+  operationId: exportSpConfig
   security:
     - oauth2: [sp:config:export]
   tags:

@@ -16,6 +16,7 @@ import {
   submitAttendance,
   submitSurvey,
 } from '../../../services/StreamService';
+import useIsBrowser from '@docusaurus/useIsBrowser';
 
 const socket = io('https://developer-community-backend.herokuapp.com');
 
@@ -76,10 +77,15 @@ export default function Main() {
   const [company, setCompany] = useState('');
 
   let registration;
+
+  const browser = useIsBrowser;
+
   getRegistration().then((resp) => {
-    registration = resp;
-    console.log('Loading Registration:', registration);
-    openLoginPage();
+    if (browser) {
+      registration = resp;
+      console.log('Loading Registration:', registration);
+      openLoginPage();
+    }
   });
 
   const getSpeakers = async () => {

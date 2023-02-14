@@ -1,7 +1,6 @@
 import md5 from 'crypto-js/md5';
 
-export const URL = 'https://developer-community-backend-de.herokuapp.com';
-
+export const URL = 'https://developer-community-backend.herokuapp.com';
 
 export async function getFAQ() {
   try {

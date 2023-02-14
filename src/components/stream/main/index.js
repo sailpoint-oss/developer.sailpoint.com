@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React from 'react';
 import styles from './styles.module.css';
 
 import Modal from 'react-modal';
@@ -15,15 +15,13 @@ import {
   getSpeaker,
   submitAttendance,
   submitSurvey,
+  URL,
 } from '../../../services/StreamService';
-import useIsBrowser from '@docusaurus/useIsBrowser';
 
-const socket = io('https://developer-community-backend.herokuapp.com');
+const socket = io(URL);
 
 export default function Main() {
   const [isConnected, setIsConnected] = useState(false);
-  const typeformRef = useRef(null);
-  const typeformEntryRef = useRef(null);
 
   const BackupStageData = {
     IDN: {

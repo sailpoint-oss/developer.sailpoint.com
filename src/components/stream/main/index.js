@@ -6,6 +6,7 @@ import Agenda from '../agenda';
 import FAQ from '../faq';
 import Room from '../room';
 import Speakers from '../speakers';
+import md5 from 'crypto-js/md5';
 
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import {useEffect, useState} from 'react';
@@ -68,13 +69,13 @@ export default function Main() {
   const [hover, setHover] = useState(0);
   const [feedback, setFeedback] = useState('');
 
-  const [validationError, setvalidationError] = useState(false);
+  const [emailValidationError, setEmailValidationError] = useState(false);
+  const [starValidationError, setStarValidationError] = useState(false);
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [title, setTitle] = useState('');
   const [company, setCompany] = useState('');
-
-  let registration;
+  const [userID, setUserID] = useState('Unregistered User');
 
   const getSpeakers = async () => {
     const data = await getSpeaker();
@@ -88,8 +89,10 @@ export default function Main() {
   }, []);
 
   React.useEffect(async () => {
-    registration = await getRegistration();
-    openLoginPage();
+    console.log('Starting Registration');
+    const reg = await getRegistration();
+    console.log(reg);
+    openLoginPage(reg);
   }, []);
 
   //setting socket here
@@ -124,12 +127,6 @@ export default function Main() {
       setStages(data.stages);
     });
 
-    socket.on('survey', (data) => {
-      if (stage === data) {
-        setSurveyOpen(true);
-      }
-    });
-
     return () => {
       socket.off('connect');
       socket.off('disconnect');
@@ -138,18 +135,35 @@ export default function Main() {
     };
   }, []);
 
+  useEffect(() => {
+    socket.on('survey', (data) => {
+      if (stage === data) {
+        setSurveyOpen(true);
+      }
+    });
+    return () => {
+      socket.off('survey');
+    };
+  }, [stage]);
+
   function changeToIDNStage() {
     setStage('IDN');
+    console.log('Changing Stage');
   }
   function changeToIIQStage() {
     setStage('IIQ');
+    console.log('Changing Stage');
   }
 
-  function openLoginPage() {
+  function openLoginPage(reg) {
     setTimeout(() => {
       console.log('opening login page');
       let pop_status = localStorage.getItem('entry-status');
-      if (!pop_status && registration) {
+      console.log(pop_status);
+      console.log(reg);
+      setUserID(pop_status);
+      if (!pop_status && reg) {
+        console.log('open');
         setLoginOpen(true);
       }
     }, 1000);
@@ -264,7 +278,13 @@ export default function Main() {
                         <p className="my-0">
                           How valuable was the session "{stages[stage]?.topic}"
                           to you?
+                          {starValidationError === true && (
+                            <p class="text-red-500 my-0 pl-2">
+                              Rating is required
+                            </p>
+                          )}
                         </p>
+
                         <div className="py-4">
                           {[...Array(5)].map((star, index) => {
                             index += 1;
@@ -292,7 +312,7 @@ export default function Main() {
                           this session to know?
                         </p>
                         <textarea
-                          className="max-w-full w-full h-40 resize-none block p-2.5 font-[poppins] text-gray-900  rounded-lg border focus:ring-blue-500 focus:border-blue-500 placeholder:text-[color:var(--ifm-color-primary)]"
+                          className="max-w-full w-full h-40 resize-none block p-2.5 font-[poppins] rounded-lg border focus:ring-blue-500 focus:border-blue-500 placeholder:text-[color:var(--ifm-color-primary)]"
                           placeholder="Write your thoughts here..."
                           onInput={(e) => {
                             setFeedback(e.target.value);
@@ -305,9 +325,17 @@ export default function Main() {
                 <div className="flex flex-row justify-end">
                   <button
                     className={styles.modalButton}
-                    onClick={() => {
-                      submitSurvey(stages[stage].id, rating, feedback);
-                      setSurveyOpen(false);
+                    onClick={async () => {
+                      const validated = await submitSurvey(
+                        stages[stage].id,
+                        rating,
+                        feedback,
+                      );
+                      if (validated != false) {
+                        setSurveyOpen(false);
+                      } else {
+                        setStarValidationError(true);
+                      }
                     }}>
                     Submit
                   </button>
@@ -334,105 +362,100 @@ export default function Main() {
         </button>
       </div>
       <BrowserOnly>
-        {() => (
-          <>
-            <Room videoSource={stages[stage]}></Room>
-            <Modal
-              isOpen={loginOpen}
-              onRequestClose={openLoginPage}
-              className={styles.modal}
-              contentLabel="Survey">
-              <div className="md:h-[50vh] sm:w-[90vw] h-[45vh] overflow-auto p-4">
-                <div className="h-full flex flex-row justify-center w-full">
-                  <ul className="flex flex-col justify-center gap-6 m-0 px-8 list-none">
-                    <li>
-                      <label>
-                        What is your email address?
-                        {validationError === true && (
-                          <p class="text-red-500 my-0 pl-2">
-                            Error Validating Email
-                          </p>
-                        )}
-                        <input
-                          className="max-w-full w-[420px] resize-none block p-2.5 font-[poppins] text-gray-900  rounded-lg border focus:ring-blue-500 focus:border-blue-500 placeholder:text-[color:var(--ifm-color-primary)]"
-                          placeholder="Email"
-                          onInput={(e) => {
-                            setEmail(e.target.value);
-                          }}
-                        />
-                      </label>
-                    </li>
-                    <li>
-                      <label>
-                        What name shall we address you by?
-                        <input
-                          className="max-w-full w-[420px] resize-none block p-2.5 font-[poppins] text-gray-900  rounded-lg border focus:ring-blue-500 focus:border-blue-500 placeholder:text-[color:var(--ifm-color-primary)]"
-                          placeholder="Name"
-                          onInput={(e) => {
-                            setName(e.target.value);
-                          }}
-                        />
-                      </label>
-                    </li>
-                    <li>
-                      <label>
-                        What title are you most often addressed by?
-                        <select
-                          className="max-w-full w-[420px] resize-none block p-2.5 font-[poppins] rounded-lg border focus:ring-blue-500 focus:border-blue-500 placeholder:text-[color:var(--ifm-color-primary)]"
-                          placeholder="Title"
-                          onChange={(e) => {
-                            setTitle(e.target.value);
-                          }}
-                          defaultValue="select">
-                          <option disabled>select</option>
-                          <option>Developer</option>
-                          <option>Architect</option>
-                          <option>Solutions</option>
-                          <option>Consultant</option>
-                          <option>Director</option>
-                          <option>SVP/VP</option>
-                          <option>CEO</option>
-                        </select>
-                      </label>
-                    </li>
-                    <li>
-                      <label>
-                        What company are you joining on behalf of today?
-                        <input
-                          className="max-w-full w-[420px] resize-none block p-2.5 font-[poppins] text-gray-900  rounded-lg border focus:ring-blue-500 focus:border-blue-500 placeholder:text-[color:var(--ifm-color-primary)]"
-                          placeholder="Company"
-                          onInput={(e) => {
-                            setCompany(e.target.value);
-                          }}
-                        />
-                      </label>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div className="flex flex-row justify-end">
-                <button
-                  className={styles.modalButton}
-                  onClick={async () => {
-                    const validated = await submitAttendance(
-                      email,
-                      name,
-                      title,
-                      company,
-                    );
-                    if (validated) {
-                      setLoginOpen(false);
-                    } else {
-                      setvalidationError(true);
-                    }
-                  }}>
-                  Submit
-                </button>
-              </div>
-            </Modal>
-          </>
-        )}
+        {() => <Room userID={userID} videoSource={stages[stage]}></Room>}
       </BrowserOnly>
+      <Modal
+        isOpen={loginOpen}
+        onRequestClose={openLoginPage}
+        className={styles.modal}
+        contentLabel="Survey">
+        <div className="md:h-[50vh] sm:w-[90vw] h-[45vh] overflow-auto p-4">
+          <div className="h-full flex flex-row justify-center w-full">
+            <ul className="flex flex-col justify-center gap-6 m-0 px-8 list-none">
+              <li>
+                <label>
+                  What is your email address?
+                  {emailValidationError === true && (
+                    <p class="text-red-500 my-0 pl-2">Error Validating Email</p>
+                  )}
+                  <input
+                    className="max-w-full w-[420px] resize-none block p-2.5 font-[poppins]  rounded-lg border focus:ring-blue-500 focus:border-blue-500 placeholder:text-[color:var(--ifm-color-primary)]"
+                    placeholder="Email"
+                    onInput={(e) => {
+                      setEmail(e.target.value);
+                    }}
+                  />
+                </label>
+              </li>
+              <li>
+                <label>
+                  What name shall we address you by?
+                  <input
+                    className="max-w-full w-[420px] resize-none block p-2.5 font-[poppins]  rounded-lg border focus:ring-blue-500 focus:border-blue-500 placeholder:text-[color:var(--ifm-color-primary)]"
+                    placeholder="Name"
+                    onInput={(e) => {
+                      setName(e.target.value);
+                    }}
+                  />
+                </label>
+              </li>
+              <li>
+                <label>
+                  What title are you most often addressed by?
+                  <select
+                    className="max-w-full w-[420px] resize-none block p-2.5 font-[poppins] rounded-lg border focus:ring-blue-500 focus:border-blue-500 placeholder:text-[color:var(--ifm-color-primary)]"
+                    placeholder="Title"
+                    onChange={(e) => {
+                      setTitle(e.target.value);
+                    }}
+                    defaultValue="select">
+                    <option disabled>select</option>
+                    <option>Developer</option>
+                    <option>Architect</option>
+                    <option>Solutions</option>
+                    <option>Consultant</option>
+                    <option>Director</option>
+                    <option>SVP/VP</option>
+                    <option>CEO</option>
+                  </select>
+                </label>
+              </li>
+              <li>
+                <label>
+                  What company are you joining on behalf of today?
+                  <input
+                    className="max-w-full w-[420px] resize-none block p-2.5 font-[poppins] rounded-lg border focus:ring-blue-500 focus:border-blue-500 placeholder:text-[color:var(--ifm-color-primary)]"
+                    placeholder="Company"
+                    onInput={(e) => {
+                      setCompany(e.target.value);
+                    }}
+                  />
+                </label>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="flex flex-row justify-end">
+          <button
+            className={styles.modalButton}
+            onClick={async () => {
+              const validated = await submitAttendance(
+                email,
+                name,
+                title,
+                company,
+              );
+              if (validated != false) {
+                setUserID(validated);
+                setLoginOpen(false);
+              } else {
+                setEmailValidationError(true);
+              }
+            }}>
+            Submit
+          </button>
+        </div>
+      </Modal>
     </div>
   );
 }

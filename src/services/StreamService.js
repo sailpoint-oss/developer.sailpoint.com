@@ -1,4 +1,6 @@
-export const URL = 'https://developer-community-backend.herokuapp.com';
+import md5 from 'crypto-js/md5';
+
+export const URL = 'https://developer-community-backend-de.herokuapp.com';
 
 export async function getFAQ() {
   try {
@@ -37,6 +39,7 @@ export async function getRegistration() {
 }
 
 export async function submitSurvey(session, rating, feedback) {
+  if (rating < 1) return false;
   var myHeaders = new Headers();
   myHeaders.append('Content-Type', 'application/json');
 
@@ -51,10 +54,20 @@ export async function submitSurvey(session, rating, feedback) {
     redirect: 'follow',
   };
 
-  fetch(URL + '/survey', requestOptions)
-    .then((response) => response.text())
-    .then((result) => console.log(result))
-    .catch((error) => console.log('error', error));
+  const response = await fetch(URL + '/survey', requestOptions).catch(
+    (error) => {
+      console.log('error', error);
+      return false;
+    },
+  );
+
+  const validated = await response.text();
+
+  if (validated) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 export async function submitAttendance(email, name, title, company) {
@@ -85,8 +98,9 @@ export async function submitAttendance(email, name, title, company) {
 
     if (validated) {
       console.log('setting login status');
-      localStorage.setItem('entry-status', 1);
-      return true;
+      const uuid = md5(email);
+      localStorage.setItem('entry-status', uuid);
+      return uuid;
     } else {
       return false;
     }

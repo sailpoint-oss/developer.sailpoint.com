@@ -17,7 +17,7 @@ import {
   submitSurvey,
 } from '../../../services/StreamService';
 
-const socket = io('https://developer-community-backend.herokuapp.com');
+const socket = io('https://developer-community-backend-de.herokuapp.com');
 
 export default function Main() {
   const [isConnected, setIsConnected] = useState(false);

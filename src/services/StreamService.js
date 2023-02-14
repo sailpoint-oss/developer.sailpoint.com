@@ -1,4 +1,4 @@
-const URL = 'https://developer-community-backend.herokuapp.com';
+const URL = 'https://developer-community-backend-de.herokuapp.com';
 
 export async function getFAQ() {
   try {

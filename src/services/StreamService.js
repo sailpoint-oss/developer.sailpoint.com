@@ -35,7 +35,7 @@ export async function getRegistration() {
     const response = await fetch(URL + '/registration');
     return await response.json();
   } catch (error) {
-    return [];
+    return false;
   }
 }
 

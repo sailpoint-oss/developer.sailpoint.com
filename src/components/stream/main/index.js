@@ -6,8 +6,10 @@ import Agenda from '../agenda';
 import FAQ from '../faq';
 import Room from '../room';
 import Speakers from '../speakers';
-import md5 from 'crypto-js/md5';
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import {addDarkToFileName} from '../../../util/util';
+import ThemedImage from '@theme/ThemedImage';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import {useEffect, useState} from 'react';
 import io from 'socket.io-client';
@@ -135,10 +137,18 @@ export default function Main() {
     };
   }, []);
 
+  function openSurvey() {
+    setFeedback('');
+    setRating(0);
+    setHover(0);
+    setStarValidationError(false);
+    setSurveyOpen(true);
+  }
+
   useEffect(() => {
     socket.on('survey', (data) => {
       if (stage === data) {
-        setSurveyOpen(true);
+        openSurvey();
       }
     });
     return () => {
@@ -180,7 +190,7 @@ export default function Main() {
 
   return (
     <div className={styles.main}>
-      <div className="px-2 md:px-4 py-6 my-2 flex flex-col md:flex-row justify-between gap-4">
+      <div className="px-2 md:px-4 py-2 flex flex-col lg:flex-row justify-between gap-4">
         <div className="">
           <div className={`${styles.headerText} my-auto`}>
             {stages[stage]?.topic}
@@ -202,13 +212,16 @@ export default function Main() {
           </div>
           {stages[stage]?.topicLink && (
             <div className="py-2">
-              <a href={stages[stage]?.topicLink}>
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href={stages[stage]?.topicLink}>
                 Discuss this topic in the Developer Community
               </a>
             </div>
           )}
 
-          <div className="flex flex-row flex-wrap gap-8">
+          <div className="flex flex-row flex-wrap gap-8 py-2">
             {eventSpeakers?.map((spkr) => {
               return (
                 <div key={spkr?.name} className="flex flex-row gap-2">
@@ -226,9 +239,26 @@ export default function Main() {
               );
             })}
           </div>
+
+          <div className="flex flex-row md:justify-start justify-center gap-2 py-2">
+            <button
+              className={`${styles.stageButton} ${idnSelectedClass} !scale-90 border-solid px-4 min-w-[140px]`}
+              onClick={changeToIDNStage}>
+              <p className="text-lg whitespace-nowrap my-0">IdentityNow</p>
+            </button>
+
+            <button
+              className={`${styles.stageButton} ${iiqSelectedClass} border-solid px-4 min-w-[140px]`}
+              onClick={changeToIIQStage}>
+              <p className="text-lg text-center whitespace-nowrap my-0">
+                IdentityIQ
+              </p>
+            </button>
+          </div>
         </div>
-        <div>
-          <div className="flex flex-row gap-1 md:gap-2 w-full justify-center md:justify-between">
+
+        <div className="flex flex-col gap-2">
+          <div className="flex flex-row gap-1 md:gap-2 w-full justify-center lg:justify-between">
             <Agenda
               description={
                 'The agenda for the 3 conference days are below. If you have any questions about the agenda, reach out via the discussion forum.'
@@ -256,7 +286,7 @@ export default function Main() {
             <div>
               <button
                 className="cursor-pointer border-[color:var(--ifm-color-primary)] md:grow border-2 hover:bg-[color:var(--ifm-color-primary)] hover:text-white text-[color:var(--ifm-color-primary)] border-solid text-center bg-transparent font-bold py-2 px-4 rounded"
-                onClick={() => setSurveyOpen(true)}>
+                onClick={() => openSurvey()}>
                 Survey
               </button>
               <Modal
@@ -264,63 +294,70 @@ export default function Main() {
                 onRequestClose={() => setSurveyOpen(false)}
                 className={styles.modal}
                 contentLabel="Survey">
-                <div className="md:h-[50vh] sm:w-[90vw] h-[45vh] overflow-auto p-4">
-                  <div className="h-full flex flex-col">
-                    <div className="flex flex-row justify-end">
-                      <button
-                        onClick={() => setSurveyOpen(false)}
-                        className="bg-transparent border-none">
-                        <p className="text-2xl my-auto">X</p>
-                      </button>
-                    </div>
-                    <ol className="flex flex-col grow justify-center gap-12 m-0 px-8">
-                      <li>
-                        <p className="my-0">
-                          How valuable was the session "{stages[stage]?.topic}"
-                          to you?
-                          {starValidationError === true && (
-                            <p class="text-red-500 my-0 pl-2">
-                              Rating is required
-                            </p>
-                          )}
-                        </p>
-
-                        <div className="py-4">
-                          {[...Array(5)].map((star, index) => {
-                            index += 1;
-                            return (
-                              <button
-                                key={index}
-                                className={`cursor-pointer bg-transparent border-none outline-none ${
-                                  index <= (hover || rating)
-                                    ? 'text-yellow-400'
-                                    : 'text-gray-200'
-                                }
-                                `}
-                                onClick={() => setRating(index)}
-                                onMouseEnter={() => setHover(index)}
-                                onMouseLeave={() => setHover(rating)}>
-                                <span className="text-3xl">&#9733;</span>
-                              </button>
-                            );
-                          })}
-                        </div>
-                      </li>
-                      <li>
-                        <p>
-                          Is there anything else you'd like the presenter(s) of
-                          this session to know?
-                        </p>
-                        <textarea
-                          className="max-w-full w-full h-40 resize-none block p-2.5 font-[poppins] rounded-lg border focus:ring-blue-500 focus:border-blue-500 placeholder:text-[color:var(--ifm-color-primary)]"
-                          placeholder="Write your thoughts here..."
-                          onInput={(e) => {
-                            setFeedback(e.target.value);
-                          }}
-                        />
-                      </li>
-                    </ol>
+                <div className="md:h-[50vh] w-full h-[40vh] overflow-auto p-4 gap-2 flex flex-col">
+                  <div className="flex flex-row justify-end">
+                    <button
+                      onClick={() => setSurveyOpen(false)}
+                      className="bg-transparent border-none">
+                      <p className="text-2xl my-auto">X</p>
+                    </button>
                   </div>
+                  <div className={styles.gettingStartedText}>
+                    <div className={styles.gettingStartedOne}>Survey</div>
+                    <div
+                      className={styles.gettingStartedThree}
+                      dangerouslySetInnerHTML={{
+                        __html:
+                          'We want to hear from you, Let us know what you think!',
+                      }}></div>
+                  </div>
+                  <ol className="flex flex-col grow justify-center gap-12 m-0 px-8">
+                    <li>
+                      <p className="my-0">
+                        How valuable was the session "{stages[stage]?.topic}" to
+                        you?
+                        {starValidationError === true && (
+                          <p class="text-red-500 my-0 pl-2">
+                            Rating is required
+                          </p>
+                        )}
+                      </p>
+
+                      <div className="py-4">
+                        {[...Array(5)].map((star, index) => {
+                          index += 1;
+                          return (
+                            <button
+                              key={index}
+                              className={`cursor-pointer bg-transparent border-none outline-none ${
+                                index <= (hover || rating)
+                                  ? 'text-yellow-400'
+                                  : 'text-gray-200'
+                              }
+                                `}
+                              onClick={() => setRating(index)}
+                              onMouseEnter={() => setHover(index)}
+                              onMouseLeave={() => setHover(rating)}>
+                              <span className="text-3xl">&#9733;</span>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </li>
+                    <li>
+                      <p>
+                        Is there anything else you'd like the presenter(s) of
+                        this session to know?
+                      </p>
+                      <textarea
+                        className="max-w-full w-full h-40 resize-none block p-2.5 font-[poppins] rounded-lg border focus:ring-blue-500 focus:border-blue-500 placeholder:text-[color:var(--ifm-color-primary)]"
+                        placeholder="Write your thoughts here..."
+                        onInput={(e) => {
+                          setFeedback(e.target.value);
+                        }}
+                      />
+                    </li>
+                  </ol>
                 </div>
                 <div className="flex flex-row justify-end">
                   <button
@@ -346,21 +383,6 @@ export default function Main() {
         </div>
       </div>
 
-      <div className="flex flex-row justify-center md:justify-start py-1 md:py-0 px-[0.5%] w-full gap-[0.5%]">
-        <button
-          className={`${styles.stageButton} ${idnSelectedClass} border-solid px-4 min-w-[140px]`}
-          onClick={changeToIDNStage}>
-          <p className="text-lg whitespace-nowrap my-0">IdentityNow</p>
-        </button>
-
-        <button
-          className={`${styles.stageButton} ${iiqSelectedClass} border-solid px-4 min-w-[140px]`}
-          onClick={changeToIIQStage}>
-          <p className="text-lg text-center whitespace-nowrap my-0">
-            IdentityIQ
-          </p>
-        </button>
-      </div>
       <BrowserOnly>
         {() => <Room userID={userID} videoSource={stages[stage]}></Room>}
       </BrowserOnly>
@@ -369,9 +391,12 @@ export default function Main() {
         onRequestClose={openLoginPage}
         className={styles.modal}
         contentLabel="Survey">
-        <div className="md:h-[50vh] sm:w-[90vw] h-[45vh] overflow-auto p-4">
+        <div className="md:h-[70vh] overflow-auto p-4">
           <div className="h-full flex flex-row justify-center w-full">
             <ul className="flex flex-col justify-center gap-6 m-0 px-8 list-none">
+              <li>
+                <p>Registration</p>
+              </li>
               <li>
                 <label>
                   What is your email address?
@@ -379,7 +404,7 @@ export default function Main() {
                     <p class="text-red-500 my-0 pl-2">Error Validating Email</p>
                   )}
                   <input
-                    className="max-w-full w-[420px] resize-none block p-2.5 font-[poppins]  rounded-lg border focus:ring-blue-500 focus:border-blue-500 placeholder:text-[color:var(--ifm-color-primary)]"
+                    className="max-w-full md:w-[420px] w-[200px]  resize-none block p-2.5 font-[poppins]  rounded-lg border focus:ring-blue-500 focus:border-blue-500 placeholder:text-[color:var(--ifm-color-primary)]"
                     placeholder="Email"
                     onInput={(e) => {
                       setEmail(e.target.value);
@@ -391,7 +416,7 @@ export default function Main() {
                 <label>
                   What name shall we address you by?
                   <input
-                    className="max-w-full w-[420px] resize-none block p-2.5 font-[poppins]  rounded-lg border focus:ring-blue-500 focus:border-blue-500 placeholder:text-[color:var(--ifm-color-primary)]"
+                    className="max-w-full md:w-[420px] w-[200px] resize-none block p-2.5 font-[poppins]  rounded-lg border focus:ring-blue-500 focus:border-blue-500 placeholder:text-[color:var(--ifm-color-primary)]"
                     placeholder="Name"
                     onInput={(e) => {
                       setName(e.target.value);
@@ -403,7 +428,7 @@ export default function Main() {
                 <label>
                   What title are you most often addressed by?
                   <select
-                    className="max-w-full w-[420px] resize-none block p-2.5 font-[poppins] rounded-lg border focus:ring-blue-500 focus:border-blue-500 placeholder:text-[color:var(--ifm-color-primary)]"
+                    className="max-w-full md:w-[420px] w-[200px] resize-none block p-2.5 font-[poppins] rounded-lg border focus:ring-blue-500 focus:border-blue-500 placeholder:text-[color:var(--ifm-color-primary)]"
                     placeholder="Title"
                     onChange={(e) => {
                       setTitle(e.target.value);
@@ -412,8 +437,7 @@ export default function Main() {
                     <option disabled>select</option>
                     <option>Developer</option>
                     <option>Architect</option>
-                    <option>Solutions</option>
-                    <option>Consultant</option>
+                    <option>Solutions Consultant</option>
                     <option>Director</option>
                     <option>SVP/VP</option>
                     <option>CEO</option>
@@ -424,7 +448,7 @@ export default function Main() {
                 <label>
                   What company are you joining on behalf of today?
                   <input
-                    className="max-w-full w-[420px] resize-none block p-2.5 font-[poppins] rounded-lg border focus:ring-blue-500 focus:border-blue-500 placeholder:text-[color:var(--ifm-color-primary)]"
+                    className="max-w-full md:w-[420px] w-[200px] resize-none block p-2.5 font-[poppins] rounded-lg border focus:ring-blue-500 focus:border-blue-500 placeholder:text-[color:var(--ifm-color-primary)]"
                     placeholder="Company"
                     onInput={(e) => {
                       setCompany(e.target.value);

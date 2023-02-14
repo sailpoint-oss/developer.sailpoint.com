@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React from 'react';
 import styles from './styles.module.css';
 
 import Modal from 'react-modal';
@@ -6,23 +6,23 @@ import Agenda from '../agenda';
 import FAQ from '../faq';
 import Room from '../room';
 import Speakers from '../speakers';
+import md5 from 'crypto-js/md5';
 
 import BrowserOnly from '@docusaurus/BrowserOnly';
-import {PopupButton} from '@typeform/embed-react';
 import {useEffect, useState} from 'react';
 import io from 'socket.io-client';
 import {
+  getRegistration,
   getSpeaker,
   submitAttendance,
   submitSurvey,
+  URL,
 } from '../../../services/StreamService';
 
-const socket = io('https://developer-community-backend-de.herokuapp.com');
+const socket = io(URL);
 
 export default function Main() {
   const [isConnected, setIsConnected] = useState(false);
-  const typeformRef = useRef(null);
-  const typeformEntryRef = useRef(null);
 
   const BackupStageData = {
     IDN: {
@@ -69,11 +69,13 @@ export default function Main() {
   const [hover, setHover] = useState(0);
   const [feedback, setFeedback] = useState('');
 
-  const [validationError, setvalidationError] = useState(false);
+  const [emailValidationError, setEmailValidationError] = useState(false);
+  const [starValidationError, setStarValidationError] = useState(false);
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [title, setTitle] = useState('');
   const [company, setCompany] = useState('');
+  const [userID, setUserID] = useState('Unregistered User');
 
   const getSpeakers = async () => {
     const data = await getSpeaker();
@@ -86,8 +88,11 @@ export default function Main() {
     getSpeakers();
   }, []);
 
-  React.useEffect(() => {
-    openLoginPage();
+  React.useEffect(async () => {
+    console.log('Starting Registration');
+    const reg = await getRegistration();
+    console.log(reg);
+    openLoginPage(reg);
   }, []);
 
   //setting socket here
@@ -122,12 +127,6 @@ export default function Main() {
       setStages(data.stages);
     });
 
-    socket.on('survey', (data) => {
-      if (stage === data) {
-        setSurveyOpen(true);
-      }
-    });
-
     return () => {
       socket.off('connect');
       socket.off('disconnect');
@@ -136,21 +135,35 @@ export default function Main() {
     };
   }, []);
 
+  useEffect(() => {
+    socket.on('survey', (data) => {
+      if (stage === data) {
+        setSurveyOpen(true);
+      }
+    });
+    return () => {
+      socket.off('survey');
+    };
+  }, [stage]);
+
   function changeToIDNStage() {
     setStage('IDN');
+    console.log('Changing Stage');
   }
   function changeToIIQStage() {
     setStage('IIQ');
+    console.log('Changing Stage');
   }
 
-  function openLoginPage() {
+  function openLoginPage(reg) {
     setTimeout(() => {
       console.log('opening login page');
-      var GivenDate = '2023-03-01';
-      var CurrentDate = new Date();
-      GivenDate = new Date(GivenDate);
       let pop_status = localStorage.getItem('entry-status');
-      if (!pop_status && GivenDate < CurrentDate) {
+      console.log(pop_status);
+      console.log(reg);
+      setUserID(pop_status);
+      if (!pop_status && reg) {
+        console.log('open');
         setLoginOpen(true);
       }
     }, 1000);
@@ -265,7 +278,13 @@ export default function Main() {
                         <p className="my-0">
                           How valuable was the session "{stages[stage]?.topic}"
                           to you?
+                          {starValidationError === true && (
+                            <p class="text-red-500 my-0 pl-2">
+                              Rating is required
+                            </p>
+                          )}
                         </p>
+
                         <div className="py-4">
                           {[...Array(5)].map((star, index) => {
                             index += 1;
@@ -293,7 +312,7 @@ export default function Main() {
                           this session to know?
                         </p>
                         <textarea
-                          className="max-w-full w-full h-40 resize-none block p-2.5 font-[poppins] text-gray-900  rounded-lg border focus:ring-blue-500 focus:border-blue-500 placeholder:text-[color:var(--ifm-color-primary)]"
+                          className="max-w-full w-full h-40 resize-none block p-2.5 font-[poppins] rounded-lg border focus:ring-blue-500 focus:border-blue-500 placeholder:text-[color:var(--ifm-color-primary)]"
                           placeholder="Write your thoughts here..."
                           onInput={(e) => {
                             setFeedback(e.target.value);
@@ -306,9 +325,17 @@ export default function Main() {
                 <div className="flex flex-row justify-end">
                   <button
                     className={styles.modalButton}
-                    onClick={() => {
-                      submitSurvey(stages[stage].id, rating, feedback);
-                      setSurveyOpen(false);
+                    onClick={async () => {
+                      const validated = await submitSurvey(
+                        stages[stage].id,
+                        rating,
+                        feedback,
+                      );
+                      if (validated != false) {
+                        setSurveyOpen(false);
+                      } else {
+                        setStarValidationError(true);
+                      }
                     }}>
                     Submit
                   </button>
@@ -335,9 +362,8 @@ export default function Main() {
         </button>
       </div>
       <BrowserOnly>
-        {() => <Room videoSource={stages[stage]}></Room>}
+        {() => <Room userID={userID} videoSource={stages[stage]}></Room>}
       </BrowserOnly>
-
       <Modal
         isOpen={loginOpen}
         onRequestClose={openLoginPage}
@@ -349,11 +375,11 @@ export default function Main() {
               <li>
                 <label>
                   What is your email address?
-                  {validationError === true && (
+                  {emailValidationError === true && (
                     <p class="text-red-500 my-0 pl-2">Error Validating Email</p>
                   )}
                   <input
-                    className="max-w-full w-[420px] resize-none block p-2.5 font-[poppins] text-gray-900  rounded-lg border focus:ring-blue-500 focus:border-blue-500 placeholder:text-[color:var(--ifm-color-primary)]"
+                    className="max-w-full w-[420px] resize-none block p-2.5 font-[poppins]  rounded-lg border focus:ring-blue-500 focus:border-blue-500 placeholder:text-[color:var(--ifm-color-primary)]"
                     placeholder="Email"
                     onInput={(e) => {
                       setEmail(e.target.value);
@@ -365,7 +391,7 @@ export default function Main() {
                 <label>
                   What name shall we address you by?
                   <input
-                    className="max-w-full w-[420px] resize-none block p-2.5 font-[poppins] text-gray-900  rounded-lg border focus:ring-blue-500 focus:border-blue-500 placeholder:text-[color:var(--ifm-color-primary)]"
+                    className="max-w-full w-[420px] resize-none block p-2.5 font-[poppins]  rounded-lg border focus:ring-blue-500 focus:border-blue-500 placeholder:text-[color:var(--ifm-color-primary)]"
                     placeholder="Name"
                     onInput={(e) => {
                       setName(e.target.value);
@@ -398,7 +424,7 @@ export default function Main() {
                 <label>
                   What company are you joining on behalf of today?
                   <input
-                    className="max-w-full w-[420px] resize-none block p-2.5 font-[poppins] text-gray-900  rounded-lg border focus:ring-blue-500 focus:border-blue-500 placeholder:text-[color:var(--ifm-color-primary)]"
+                    className="max-w-full w-[420px] resize-none block p-2.5 font-[poppins] rounded-lg border focus:ring-blue-500 focus:border-blue-500 placeholder:text-[color:var(--ifm-color-primary)]"
                     placeholder="Company"
                     onInput={(e) => {
                       setCompany(e.target.value);
@@ -419,10 +445,11 @@ export default function Main() {
                 title,
                 company,
               );
-              if (validated) {
+              if (validated != false) {
+                setUserID(validated);
                 setLoginOpen(false);
               } else {
-                setvalidationError(true);
+                setEmailValidationError(true);
               }
             }}>
             Submit

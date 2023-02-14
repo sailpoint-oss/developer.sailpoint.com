@@ -5,12 +5,14 @@ import styles from './styles.module.css';
 import Link from '@docusaurus/Link';
 import WidgetBot from '@widgetbot/react-embed';
 
-export default function Room({videoSource}) {
+export default function Room({videoSource, userID}) {
   const [test, setTest] = useState();
 
   useEffect(() => {
     setTest(test);
   }, [videoSource?.topic]);
+
+  console.log(userID);
 
   const staticVideo = '/img/developer_days_placeholder_video.mov';
   const placeholderVideo = 'placeholdervideo';
@@ -36,8 +38,8 @@ export default function Room({videoSource}) {
           metadata={{
             player_name: 'SailPoint Developer Community - Developer Days',
             video_id: videoSource?.id,
-            video_title: `${videoSource?.speaker} - ${videoSource?.topic}`,
-            viewer_user_id: 'Test User ID',
+            video_title: `${videoSource?.id} - ${videoSource?.topic}`,
+            viewer_user_id: userID,
             autoPlay: true,
           }}
           className="h-full !rounded"

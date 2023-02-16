@@ -464,7 +464,7 @@ export default function Main() {
             className={styles.modalButton}
             onClick={async () => {
               const validated = await submitAttendance(
-                email,
+                email.toLowerCase(),
                 name,
                 title,
                 company,

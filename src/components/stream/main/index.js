@@ -294,7 +294,7 @@ export default function Main() {
                 onRequestClose={() => setSurveyOpen(false)}
                 className={styles.modal}
                 contentLabel="Survey">
-                <div className="md:h-[50vh] w-full h-[40vh] overflow-auto p-4 gap-2 flex flex-col">
+                <div className="h-[60vh] w-full overflow-auto p-4 gap-2 flex flex-col">
                   <div className="flex flex-row justify-end">
                     <button
                       onClick={() => setSurveyOpen(false)}

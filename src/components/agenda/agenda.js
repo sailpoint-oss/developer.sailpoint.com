@@ -130,9 +130,6 @@ export default function AgendaContent({
                                       <p className="!m-0 text-2xl">
                                         {session?.topic}
                                       </p>
-                                      {/* <p className="!m-0 text-gray-200/50 my-auto">
-                                  - {session?.stage}
-                                </p> */}
                                     </div>
                                     <div className="flex flex-col">
                                       {session?.speakers?.map((spkr) => {
@@ -145,11 +142,6 @@ export default function AgendaContent({
                                                 ? 'text-slate-300/50'
                                                 : 'text-slate-300/50'
                                             }`}>
-                                            {/* <img
-                                        className="w-16 h-16 rounded-full"
-                                        src={speaker?.image}
-                                      /> */}
-
                                             <p className="my-auto text-xl">
                                               {speaker?.name}
                                               {speaker?.title &&
@@ -160,14 +152,29 @@ export default function AgendaContent({
                                       })}
                                     </div>
                                   </div>
-                                  <div className="hidden lg:flex flex-col justify-center font-medium pr-8">
-                                    <p className="!m-0 text-center">
-                                      {diff_minutes(
-                                        new Date(session?.endTime),
-                                        new Date(session?.startTime),
-                                      )}
-                                    </p>
-                                    <p className="!m-0">min</p>
+
+                                  <div className="flex flex-col justify-center font-medium pr-6 gap-2">
+                                    {session?.topicLink && (
+                                      <a
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        href={session?.topicLink}
+                                        className="h-8 w-8">
+                                        <img
+                                          className="h-8 w-8 bg-transparent hover:animate-pulse"
+                                          src="/homepage/discourse-icon.png"
+                                        />
+                                      </a>
+                                    )}
+                                    <div className="hidden lg:inline">
+                                      <p className="!m-0 text-center">
+                                        {diff_minutes(
+                                          new Date(session?.endTime),
+                                          new Date(session?.startTime),
+                                        )}
+                                      </p>
+                                      <p className="!m-0">min</p>
+                                    </div>
                                   </div>
                                 </div>
                                 <div className="lg:hidden">

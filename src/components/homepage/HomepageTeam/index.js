@@ -12,31 +12,42 @@ export default function HomepageTeam() {
             'https://developer.sailpoint.com/discuss/u/colin_mckibben/summary'
           }
           name={'Colin McKibben'}
-          title={'DEVELOPER ADVOCATE'}
-          expertise={'API, WORKFLOWS, EVENT TRIGGERS'}
-          image={'/homepage/colin-mckibben.png'}></TeamCard>
+          title={'Lead Developer Advocate'.toUpperCase()}
+          expertise={'APIs, WORKFLOWS, EVENT TRIGGERS'}
+          image={'/homepage/colin-mckibben.png'}
+        />
+        <TeamCard
+          link={'https://developer.sailpoint.com/discuss/u/lukehagar/summary'}
+          name={'Luke Hagar'}
+          title={'Senior Developer Advocate'.toUpperCase()}
+          expertise={'DEVELOPER TOOLS, APIs, IAM'}
+          image={'/homepage/lukehagar.png'}
+        />
         <TeamCard
           link={
             'https://developer.sailpoint.com/discuss/u/tyler_mairose/summary'
           }
           name={'Tyler Mairose'}
-          title={'DEVELOPER ADVOCATE'}
+          title={'Staff Software Engineer'.toUpperCase()}
           expertise={'RULES, TRANSFORMS'}
-          image={'/homepage/tyler-mairose.png'}></TeamCard>
+          image={'/homepage/tyler-mairose.png'}
+        />
         <TeamCard
           link={
             'https://developer.sailpoint.com/discuss/u/philip-ellis/summary'
           }
           name={'Philip Ellis'}
-          title={'DEVELOPER ADVOCATE'}
+          title={'Lead Software Engineer'.toUpperCase()}
           expertise={'DEVELOPER TOOLS, SAAS CONNECTIVITY'}
-          image={'/homepage/phil-ellis.png'}></TeamCard>
+          image={'/homepage/phil-ellis.png'}
+        />
         <TeamCard
           link={'https://developer.sailpoint.com/discuss/u/jthaytko/summary'}
           name={'James Haytko'}
-          title={'TECHNICAL WRITER'}
+          title={'Technical Writer'.toUpperCase()}
           expertise={'DEVELOPER DOCUMENTATION'}
-          image={'/homepage/james-haytko.png'}></TeamCard>
+          image={'/homepage/james-haytko.png'}
+        />
       </div>
     </div>
   );

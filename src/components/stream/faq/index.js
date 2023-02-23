@@ -45,7 +45,7 @@ export default function FAQ({title, image, description}) {
   return (
     <div>
       <button
-        className="cursor-pointer border-[color:var(--ifm-color-primary)] md:grow border-2 hover:bg-[color:var(--ifm-color-primary)] hover:text-white text-[color:var(--ifm-color-primary)] border-solid text-center bg-transparent font-bold py-2 px-4 rounded"
+        className="cursor-pointer border-[color:var(--ifm-color-primary)] md:grow border-2 hover:bg-[color:var(--ifm-color-primary)] hover:text-white text-[color:var(--ifm-color-primary)] border-solid text-center bg-transparent py-2 px-4 rounded"
         onClick={openFaqModal}>
         FAQ
       </button>

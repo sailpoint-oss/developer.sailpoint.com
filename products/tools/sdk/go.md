@@ -6,14 +6,14 @@ sidebar_label: Go SDK
 sidebar_position: 1
 sidebar_class_name: gosdk
 keywords: ['go', 'golang', 'sdk']
-description: Learn how to use the Go SDK in this guide. 
+description: Learn how to use the Golang SDK in this guide. 
 slug: /products/tools/sdk 
 tags: ['SDK']
 ---
 
 ## Start using the Go SDK
 
-Learn how to use the Go SDK in this guide. The Go SDK has some pre-built code examples you can use to build tools that can interact with IDN.
+Learn how to use the Golang SDK in this guide. The Go SDK has some pre-built code examples you can use to build tools that can interact with IDN.
 
 The Go SDK includes examples you can use to implement the following functionality:
 

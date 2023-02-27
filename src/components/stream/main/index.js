@@ -276,7 +276,7 @@ export default function Main() {
             />
             <Speakers
               description={
-                'Here are the awesome speakers we have lined up for Developer Days 2022'
+                'Here are the awesome speakers we have lined up for Developer Days 2023'
               }
               title={'Speakers'}
               image={'/homepage/person-head.png'}

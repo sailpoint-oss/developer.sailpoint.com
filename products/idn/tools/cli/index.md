@@ -7,7 +7,7 @@ sidebar_position: 1
 sidebar_class_name: cli
 keywords: ['cli']
 description: Learn how to use the SailPoint CLI in this guide. 
-slug: /products/tools/cli
+slug: /tools/cli
 tags: ['CLI']
 ---
 
@@ -61,7 +61,7 @@ Then make sure you can run the `sail` command.
 sail
 ```
 
- <img src="./assets/img/vhs/MacOSAndLinux.gif" alt="linux make gif">
+[Linux Make Gif](./assets/img/vhs/MacOSAndLinux.gif)
 
 To manually install the CLI on **Windows**, open PowerShell as an administrator, navigate to the project directory, and run
 this command:
@@ -108,7 +108,7 @@ If you are using a **PAT**, run this command:
 sail configure pat
 ```
 
-<img src="./assets/img/vhs/configure/configure-pat.gif" alt="configure PAT">
+[configure PAT](./assets/img/vhs/configure/configure-pat.gif)
 
 If you are using an **OAuth client**, run this command: 
 
@@ -116,7 +116,7 @@ If you are using an **OAuth client**, run this command:
 sail configure oauth
 ```
 
-<img src="./assets/img/vhs/configure/configure-oauth.gif" alt="configure OAuth">
+[configure OAuth](./assets/img/vhs/configure/configure-oauth.gif)
 
 ### Manual configuration
 

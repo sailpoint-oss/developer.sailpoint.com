@@ -23,7 +23,7 @@ sail transform list
 
 This will produce a table of the available transforms.
 
-<img src="./../../assets/img/vhs/transform/transform-list.gif" alt="transform list">
+[transform list](./../../assets/img/vhs/transform/transform-list.gif)
 
 ## Download transforms
 
@@ -33,7 +33,7 @@ Run the following command to download all of the transforms in your tenant and s
 sail transform download -d transform_files
 ```
 
-<img src="./../../assets/img/vhs/transform/transform-download.gif" alt="transform download">
+[transform download](./../../assets/img/vhs/transform/transform-download.gif)
 
 This command will overwrite any existing files with the same name, so take care when running this in a directory that has modified transforms that have not yet been saved.
 

@@ -50,6 +50,15 @@ module.exports = {
       ],
     },
     {
+      type: 'dropdown',
+      label: 'SecZetta',
+      position: 'left',
+      items: [
+        {to: '#', label: 'API Specifications', className: 'navbar__section'},
+        {to: 'https://sample.seczetta.com/api/v1/', label: 'V1 APIs', className: 'indent'}
+      ],
+    },
+    {
       position: 'left',
       label: 'Blog',
       to: 'https://medium.com/sailpointengineering',

@@ -41,7 +41,7 @@ sail transform list
 
 This command produces a table of available transforms. 
 
-[transform list](./../../assets/img/vhs/transform/transform-list.gif)
+![Transform List](/products/idn/tools/cli/assets/img/vhs/transform-list.gif)
 
 ## Download transforms
 
@@ -53,7 +53,7 @@ sail transform download -d transform_files
 
 By default, this command will save the files in the current working directory. Use the `-d` flag to specify a path to an output directory.
 
-[transform download](./../../assets/img/vhs/transform/transform-download.gif)
+![Transform Download](/products/idn/tools/cli/assets/img/vhs/transform-download.gif)
 
 This command will overwrite any existing files with the same name, so be careful when you run this in a directory that has transforms that have been modified but not yet saved. 
 

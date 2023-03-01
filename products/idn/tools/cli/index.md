@@ -15,6 +15,8 @@ tags: ['CLI']
 
 Learn how to use the SailPoint command line interface (CLI) in this guide. You can use the CLI to interact with IDN and the rest of SailPoint's SaaS platform in a programmatic way. You can use the CLI to perform many functions you would have otherwise used Postman or custom scripts to perform before, and you can perform them directly on the command line with minimal setup. 
 
+![Sail](./assets/img/vhs/Sail.gif)
+
 ## Contents
 
 - [Requirements](#requirements)
@@ -47,15 +49,13 @@ MacOS users can use [Homebrew](https://brew.sh/) to install the CLI. Run these c
 brew tap sailpoint-oss/tap && brew install sailpoint-cli
 ```
 
-![Brew Install](/products/idn/tools/cli/assets/img/vhs/brewinstall.gif)
-
 Then make sure you can run the `sail` command.
 
 ### Manual Installation
 
 To manually install the CLI on **Linux and MacOS**, open your terminal app, navigate to the project directory, and run the `make install` command.
 
-![Linux Make Gif](/products/idn/tools/cli/assets/img/vhs/MacOSAndLinux.gif)
+![Linux Make Gif](./assets/img/vhs/MacOSAndLinux.gif)
 
 Then make sure you can run the `sail` command.
 
@@ -106,7 +106,7 @@ You can then provide your tenant URL and base URL.
 
 Then run the `sail configure` command. You can then provide your PAT client ID and client secret. 
 
-![Configure PAT](/products/idn/tools/cli/assets/img/vhs/configure-pat.gif)
+![Configure PAT](./assets/img/vhs/configure-pat.gif)
 
 Once you have provided your client ID and client secret, your CLI is configured. 
 

@@ -19,7 +19,7 @@ The `connectors` command is a CLI interface for the SaaS Connectivity platform. 
 
 ## Commands 
 
-To create, manage, and test SaaS connectors, you can use these commands: 
+To create, manage, and test SaaS connectors with the CLI, you can use these commands: 
 
 - [Init project](#init-project)
 - [Create connector](#create-connector)

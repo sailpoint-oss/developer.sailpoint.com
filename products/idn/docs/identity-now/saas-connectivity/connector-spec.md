@@ -43,12 +43,18 @@ The following describes in detail the different fields in the connector spec:
       - **required** (Optional): Set to 'false' by default. Valid values are 'true' or 'false.' You must populate required configuration items in the IDN source configuration wizard before continuing.
       - **type:** The configuration items' types. The following types are valid:
         - text
-        - secret
-        - url
-        - email
         - number
+        - secret
+        - textarea
+        - secrettextarea
         - checkbox
-        - json
+        - url
+        - radio
+        - select
+        - toggle
+        - list
+        - keyValue
+        - cardList
 - **accountSchema:** The schema for an account in IDN populated by data from the source.
   - **displayAttribute:** Identifies the attribute (defined below) used to map to `Account Name` in the IdentityNow account schema. This should be a unique value even though it is not required because the connector will use this value to correlate accounts in IDN to accounts in the source system.
   - **identityAttribute:** Identifies the attribute (defined below) used to map to `Account ID` in the IdentityNow account schema. This must be a globally unique identifier, such as email address, employee ID, etc.

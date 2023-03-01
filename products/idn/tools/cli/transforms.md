@@ -41,8 +41,6 @@ sail transform list
 
 This command produces a table of available transforms. 
 
-![Transform List](/products/idn/tools/cli/assets/img/vhs/transform-list.gif)
-
 ## Download transforms
 
 To download all the transforms in your tenant and save them as `json` files on your computer, run the following command. By default, this command will save the files in the current working directory. Use the `-d` flag to specify a path to an output directory.

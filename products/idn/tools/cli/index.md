@@ -15,8 +15,6 @@ tags: ['CLI']
 
 Learn how to use the SailPoint command line interface (CLI) in this guide. You can use the CLI to interact with IDN and the rest of SailPoint's SaaS platform in a programmatic way. You can use the CLI to perform many functions you would have otherwise used Postman or custom scripts to perform before, and you can perform them directly on the command line with minimal setup. 
 
-![CLI Sail Gif](/products/idn/tools/cli/assets/img/vhs/Sail.gif)
-
 ## Contents
 
 - [Requirements](#requirements)

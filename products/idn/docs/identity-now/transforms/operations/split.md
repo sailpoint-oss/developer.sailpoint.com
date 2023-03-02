@@ -43,7 +43,7 @@ In addition to the standard `type` and `name` attributes, the split transform re
   - **throws** - This boolean (true/false) value indicates whether an exception is thrown and returned as an output when an index is out of bounds with the resulting array (i.e., the provided `index` value is larger than the size of the array).
     - true - The transform returns "IndexOutOfBoundsException".
     - false - The transform returns null.
-    - If no throws value is provided, the transform default to false and returns a null.
+    - If no throws value is provided, the transform will default to true and returns an "IndexOutOfBoundsException".
 
 ## Examples
 

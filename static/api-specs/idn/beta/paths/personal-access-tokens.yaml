@@ -27,6 +27,22 @@ get:
         type: string
         default: null
         example: 2c9180867b50d088017b554662fb281e
+    - in: query
+      name: filters
+      required: false
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard
+        Collection
+        Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **lastUsed**: *le, isnull*
+      example: lastUsed le 2023-02-05T10:59:27.214Z
   responses:
     "200":
       description: List of personal access tokens.

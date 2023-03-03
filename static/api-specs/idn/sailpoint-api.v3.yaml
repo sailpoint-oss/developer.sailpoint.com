@@ -25,6 +25,42 @@ servers:
           This is the name of your tenant, typically your company's name.
 
 tags:
+  - name: Access Profiles
+    description: |
+      Use this API to implement and customize access profile functionality. 
+      With this functionality in place, administrators can create access profiles and configure them for use throughout IdentityNow, enabling users to get the access they need quickly and securely.
+      
+      Access profiles group entitlements, which represent access rights on sources. 
+
+      For example, an Active Directory source in IdentityNow can have multiple entitlements: the first, 'Employees,' may represent the access all employees have at the organization, and a second, 'Developers,' may represent the access all developers have at the organization.
+      
+      An administrator can then create a broader set of access in the form of an access profile, 'AD Developers' grouping the 'Employees' entitlement with the 'Developers' entitlement.
+      
+      When users only need Active Directory employee access, they can request access to the 'Employees' entitlement.
+      
+      When users need both Active Directory employee and developer access, they can request access to the 'AD Developers' access profile.
+      
+      Access profiles are the most important units of access in IdentityNow. IdentityNow uses access profiles in many features, including the following:
+      
+      - Provisioning: When you use the Provisioning Service, lifecycle states and roles both grant access to users in the form of access profiles.
+      
+      - Certifications: You can approve or revoke access profiles in certification campaigns, just like entitlements. 
+      
+      - Access Requests: You can assign access profiles to applications, and when a user requests access to the app associated with an access profile and someone approves the request, access is granted to both the application and its associated access profile.
+
+      - Roles: You can group one or more access profiles into a role to quickly assign access items based on an identity's role. 
+      
+      In IdentityNow, administrators can use the Access drop-down menu and select Access Profiles to view, configure, and delete existing access profiles, as well as create new ones. 
+      Administrators can enable and disable an access profile, and they can also make the following configurations: 
+      
+      - Manage Entitlements: Manage the profile's access by adding and removing entitlements. 
+      
+      - Access Requests: Configure access profiles to be requestable and establish an approval process for any requests that the access profile be granted or revoked. 
+      Do not configure an access profile to be requestable without first establishing a secure access request approval process for the access profile.
+      
+      - Multiple Account Options: Define the logic IdentityNow uses to provision access to an identity with multiple accounts on the source. 
+
+      Refer to [Managing Access Profiles](https://documentation.sailpoint.com/saas/help/access/access-profiles.html) for more information about access profiles.
   - name: Access Request Approvals
     description: |
       Use this API to implement and customize access request approval functionality. 
@@ -319,6 +355,45 @@ tags:
       Use this API to implement requestable object functionality. 
       With this functionality in place, administrators can determine which access items can be requested with the [Access Request APIs](https://developer.sailpoint.com/idn/api/v3/access-requests), along with their statuses. 
       This can be helpful for administrators who are implementing and customizing access request functionality as a way of checking which items are requestable as they are created, assigned, and made available.
+  - name: Roles
+    description: |
+      Use this API to implement and customize role functionality.
+      With this functionality in place, administrators can create roles and configure them for use throughout IdentityNow. 
+      IdentityNow can use established criteria to automatically assign the roles to qualified users. This enables users to get all the access they need quickly and securely and administrators to spend their time on other tasks.
+
+      Entitlements represent the most granular level of access in IdentityNow. 
+      Access profiles represent the next level and often group entitlements. 
+      Roles represent the broadest level of access and often group access profiles. 
+
+      For example, an Active Directory source in IdentityNow can have multiple entitlements: the first, 'Employees,' may represent the access all employees have at the organization, and a second, 'Developers,' may represent the access all developers have at the organization.
+      
+      An administrator can then create a broader set of access in the form of an access profile, 'AD Developers' grouping the 'Employees' entitlement with the 'Developers' entitlement.
+      
+      An administrator can then create an even broader set of access in the form of a role grouping the 'AD Developers' access profile with another profile, 'GitHub Developers,' grouping entitlements for the GitHub source.
+      
+      When users only need Active Directory employee access, they can request access to the 'Employees' entitlement.
+      
+      When users need both Active Directory employee and developer access, they can request access to the 'AD Developers' access profile.
+      
+      When users need both the 'AD Developers' access profile and the 'GitHub Developers' access profile, they can request access to the role grouping both. 
+      
+      Roles often represent positions within organizations. 
+      For example, an organization's accountant can access all the tools the organization's accountants need with the 'Accountant' role. 
+      If the accountant switches to engineering, a qualified member of the organization can quickly revoke the accountant's 'Accountant' access and grant access to the 'Engineer' role instead, granting access to all the tools the organization's engineers need.
+
+      In IdentityNow, adminstrators can use the Access drop-down menu and select Roles to view, configure, and delete existing roles, as well as create new ones. 
+      Administrators can enable and disable the role, and they can also make the following configurations: 
+
+      - Manage Access: Manage the role's access by adding or removing access profiles.
+
+      - Define Assignment: Define the criteria IdentityNow uses to assign the role to identities. 
+      Use the first option, 'Standard Criteria,' to provide specific criteria for assignment like specific account attributes, entitlements, or identity attributes. 
+      Use the second, 'Identity List,' to specify the identities for assignment.
+
+      - Access Requests: Configure roles to be requestable and establish an approval process for any requests that the role be granted or revoked. 
+      Do not configure a role to be requestable without establishing a secure access request approval process for that role first. 
+
+      Refer to [Working with Roles](https://documentation.sailpoint.com/saas/help/provisioning/roles.html) for more information about roles.
   - name: Saved Search
     description: |
       Use this API to implement saved search functionality. 
@@ -495,6 +570,14 @@ tags:
 
       Refer to [Task Manager](https://documentation.sailpoint.com/saas/user-help/task_manager.html) for more information about work items, including the different types of work items users may need to complete.
 paths:
+  /access-profiles:
+    $ref: './v3/paths/access-profiles.yaml'
+  /access-profiles/{id}:
+    $ref: './v3/paths/access-profile.yaml'
+  /access-profiles/bulk-delete:
+    $ref: './v3/paths/access-profile-bulk-delete.yaml'
+  /access-profiles/{id}/entitlements:
+    $ref: './v3/paths/access-profile-entitlements.yaml'
   /access-requests:
     $ref: "./v3/paths/access-requests.yaml"
   /access-requests/cancel:
@@ -621,6 +704,12 @@ paths:
     $ref: "./v3/paths/public-identities-config.yaml"
   /requestable-objects:
     $ref: "./v3/paths/requestable-object-list.yaml"
+  /roles:
+    $ref: './v3/paths/roles.yaml'
+  /roles/{id}:
+    $ref: './v3/paths/role.yaml'
+  /roles/{id}/assigned-identities:
+    $ref: './v3/paths/role-assigned-identities.yaml'
   /saved-searches:
     $ref: "./v3/paths/saved-searches.yaml"
   /saved-searches/{id}:

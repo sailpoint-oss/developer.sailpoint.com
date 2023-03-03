@@ -242,7 +242,7 @@ export default function Main() {
 
           <div className="flex flex-row md:justify-start justify-center gap-2 py-2">
             <button
-              className={`${styles.stageButton} ${idnSelectedClass} !scale-90 border-solid px-4 min-w-[140px]`}
+              className={`${styles.stageButton} ${idnSelectedClass} border-solid px-4 min-w-[140px]`}
               onClick={changeToIDNStage}>
               <p className="text-lg whitespace-nowrap my-0">IdentityNow</p>
             </button>
@@ -276,7 +276,7 @@ export default function Main() {
             />
             <Speakers
               description={
-                'Here are the awesome speakers we have lined up for Developer Days 2022'
+                'Here are the awesome speakers we have lined up for Developer Days 2023'
               }
               title={'Speakers'}
               image={'/homepage/person-head.png'}
@@ -395,7 +395,7 @@ export default function Main() {
           <div className="h-full flex flex-row justify-center w-full">
             <ul className="flex flex-col justify-center gap-6 m-0 px-8 list-none">
               <li>
-                <p>Registration</p>
+                <p>Tell us a little bit about yourself...</p>
               </li>
               <li>
                 <label>
@@ -436,11 +436,12 @@ export default function Main() {
                     defaultValue="select">
                     <option disabled>select</option>
                     <option>Developer</option>
+                    <option>IAM/Security Engineer</option>
                     <option>Architect</option>
-                    <option>Solutions Consultant</option>
                     <option>Director</option>
                     <option>SVP/VP</option>
-                    <option>CEO</option>
+                    <option>CxO</option>
+                    <option>Other</option>
                   </select>
                 </label>
               </li>

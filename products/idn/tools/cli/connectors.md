@@ -29,6 +29,7 @@ To create, manage, and test SaaS connectors with the CLI, you can run these comm
 - [Invoke command](#invoke-command)
 - [List connectors](#list-connectors)
 - [Update connector](#update-connector)
+- [Validate connector]
 - [Delete connector](#delete-connector)
 - [Manage tags](#manage-tags)
 - [Get logs](#get-logs)
@@ -96,6 +97,18 @@ To change a connector's alias, run this command:
 ```shell
 sail conn update -c [connectorID] -a [newConnectorAlias]
 ```
+
+### Validate a connector
+
+You can use the CLI to validate your connector's behavior. The validate command runs integration tests against your connector to ensure all the basic functionality works. 
+
+To validate a connector's behavior, run this command: 
+
+```shell
+sail conn validate [connectorID]
+```
+
+You can pass in a `-r` flag to run the command as read-only, or you can run a full suite of read/write tests. 
 
 ## Delete connector
 

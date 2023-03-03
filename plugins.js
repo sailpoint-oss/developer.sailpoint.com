@@ -5,8 +5,8 @@ module.exports = [
       redirects: [
         // /docs/oldDoc -> /docs/newDoc
         {
-          to: '/conf',
-          from: '/developerdays',
+          to: '/developerdays',
+          from: '/conf',
         },
       ],
     },

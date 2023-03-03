@@ -22,16 +22,16 @@ The Go SDK includes the following functionality:
 	- The following V2 APIs are available: 
 		| Collection | Endpoint | 
 		| --- | --- | 
-		| Workgroups | GET Workgroup<br>PATCH Workgroup<br>DELETE Workgroup<br>GET Workgroups<br>POST Workgroups<br>GET Workgroup Members<br>POST Workgroup Members<br>GET Workgroup Connections<br>POST Bulk Delete Workgroups | 
-		| Organizations | GET Organization <br>PATCH Organization | 
+		| Workgroups | GET Workgroup, PATCH Workgroup, DELETE Workgroup, GET Workgroups, POST Workgroups, GET Workgroup Members, POST Workgroup Members, GET Workgroup Connections, POST Bulk Delete Workgroups | 
+		| Organizations | GET Organization, PATCH Organization | 
 	- The following CC APIs are available: 
 		| Collection | Endpoint | 
 		| --- | --- | 
-		| Accounts | GET Accounts<br>POST Remove Account | 
-		| Applications | GET Applications<br>GET Application<br>POST Application<br>POST Update Application<br>POST Delete Application<br>GET Application Access Profiles | 
-		| Connectors | GET Connectors<br>POST Connector<br>POST Delete Connector<br>GET Export Connector<br>POST Import Connector | 
+		| Accounts | GET Accounts, POST Remove Account | 
+		| Applications | GET Applications, GET Application, POST Application, POST Update Application, POST Delete Application, GET Application Access Profiles | 
+		| Connectors | GET Connectors, POST Connector, POST Delete Connector, GET Export Connector, POST Import Connector | 
 		| User | POST Update User Permissions | 
-		| Sources | POST Account Aggregation<br>GET Export Account Feed | 
+		| Sources | POST Account Aggregation, GET Export Account Feed | 
 		| System | POST Refresh Identities | 
 
 - [Search](#search): You can use IDN's search. To learn more about IDN's search, refer to [Search](https://documentation.sailpoint.com/saas/help/search/index.html).

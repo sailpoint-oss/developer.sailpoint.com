@@ -436,11 +436,12 @@ export default function Main() {
                     defaultValue="select">
                     <option disabled>select</option>
                     <option>Developer</option>
+                    <option>IAM/Security Engineer</option>
                     <option>Architect</option>
-                    <option>Solutions Consultant</option>
                     <option>Director</option>
                     <option>SVP/VP</option>
-                    <option>CEO</option>
+                    <option>CxO</option>
+                    <option>Other</option>
                   </select>
                 </label>
               </li>

@@ -15,7 +15,7 @@ tags: ['SDK']
 
 Learn how to use the Golang SDK in this guide. The Go SDK has some pre-built code examples you can use to build tools that can interact with IdentityNow (IDN).
 
-The Go SDK includes examples you can use to implement the following functionality:
+The Go SDK includes the following functionality:
 
 - [APIs](#apis): 
 	- All [V3](https://developer.sailpoint.com/idn/api/v3) and [Beta](https://developer.sailpoint.com/idn/api/beta) APIs are available.
@@ -105,33 +105,54 @@ You can use any of the following ways to do so:
 One way to create a configuration file is to create a "config.yaml" file in your project and specify the following information in it: 
 
 ```yaml
-authtype: pat # You can use either "pat" or "oauth." Both methods can be configured at the same time, but only one is active at a time.
-debug: false # Setting "debug" to "true" results in more verbose output.
-oauth: # All OAuth specific configuration information
-authurl: https://example.identitynow.com/oauth/authorize
-baseurl: https://example.api.identitynow.com
-clientid: example-client-id
-clientsecret: ""
-redirect:
-    path: /callback
-    port: 3000
-tenant: example
-token:
-    accesstoken: example-access-token
-    expiry: example-token-expiry-date
-tokenurl: https://example.api.identitynow.com/oauth/token
-pat: # All Personal Access Token specific configuration information
-tenant: example
-baseurl: https://{tenant}.api.identitynow.com
-tokenurl: https://{tenant}.api.identitynow.com/oauth/token
-clientsecret: your client secret 
-clientid: your client id 
-token:
-    accesstoken: your pat
-    expiry: your pat expiry date
+activeenvironment: example # the key that identifies the currently active environment
+authtype: pat # currently only pat and pipeline are supported if the ENV VAR SAIL_AUTH_TYPE is configured to "pipeline" it will override this value
+customexporttemplatespath: "" # the path to the users custom export templates file if one is provided
+customsearchtemplatespath: "" # the path to the users custom search templates file if one is provided
+debug: false # the debug setting  
+environments: # the configured environments  
+  example:
+    baseurl: https://example.api.identitynow.com
+    pat:
+      accesstoken: example-access-token
+      clientid: example-client-id
+      clientsecret: example-client-secret
+      expiry: example-access-token-expiry
+    tenanturl: https://example.identitynow.com
 ```
 
-You must specify your baseurl, tokenurl, clientsecret, and clientid for your desired authentication type so the SDK can authenticate with the SailPoint APIs. You can set up both authentication types at once, but only one is active at a time. 
+You must specify the following information: 
+- `activeenvironment`: This key identifies the current active environment the SDK is connecting to. This environment name refers to your IDN tenant name. In the example, the key is "example". You must also make sure the environment name listed under `environments` matches the `activeenvironment`. 
+- `authtype`: The authentication type. Currently only "pat" and "pipeline" are supported. Configuring ENV VAR SAIL_AUTH_TYPE to "pipeline" overrides this value. In the example, the authentication type is "pat". You must also make sure the authentication type listed under the environment name "example" matches the `authtype`. 
+- `baseurl` and `tenanturl`: These refer to your IDN tenant URL. 
+- `clientsecret`: The PAT's client secret. 
+- `clientid`: The PAT's client ID. 
+
+Here's an example: 
+
+```yaml
+activeenvironment: devrel # the key that identifies the currently active environment
+authtype: pat # currently only pat and pipeline are supported if the ENV VAR SAIL_AUTH_TYPE is configured to "pipeline" it will override this value
+customexporttemplatespath: "" # the path to the users custom export templates file if one is provided
+customsearchtemplatespath: "" # the path to the users custom search templates file if one is provided
+debug: false # the debug setting  
+environments: # the configured environments 
+  example:
+    baseurl: https://devrel.api.identitynow.com
+    pat:
+      accesstoken: example-access-token
+      clientid: g0567b766b413b22c05c66e75d532f1b
+      clientsecret: cabd0e950a7230b63c1ff45be33fb22065b382b6251a73c61177a8bb5482fcc7
+      expiry: example-access-token-expiry
+    tenanturl: https://devrel.identitynow.com
+```
+
+You can also specify this optional information: 
+- `customexporttemplatespath`: Specifies the folder path to save your custom export templates file in. 
+- `customsearchtemplatespath`: Specifies the folder path to save your custom search templates file in.
+- `debug`: The debug setting. By default, it's set to "false".
+- `accesstoken`: The PAT's name. 
+- `expiry`: The PAT's expiry date.
 
 #### CLI assisted configuration 
 Another way to create a configuration file is to use the SailPoint CLI. To learn how to use the SailPoint CLI to create a configuration file, refer to [Assisted Configuration](https://github.com/sailpoint-oss/sailpoint-cli#manual-configuration).
@@ -141,23 +162,23 @@ You can also store your configuration in environment variables.
 
 On **Linux/Mac**, export the following environment variables:
 ```shell
-export SAIL_BASEURL=https://{tenant}.api.identitynow.com
-export SAIL_TOKENURL=https://{tenant}.api.identitynow.com/oauth/token
-export SAIL_CLIENTID={clientID}
-export SAIL_CLIENTSECRET={clientSecret}
+export SAIL_BASE_URL=https://{tenant}.api.identitynow.com
+export SAIL_CLIENT_ID={clientID}
+export SAIL_CLIENT_SECRET={clientSecret}
 ```
 To get your environment variables to persist across terminal sessions, add these exports to your shell profile, something like `~/.bash_profile`.
 On **Windows PowerShell**, run the following commands: 
 ```powershell
-$env:SAIL_BASEURL = 'https://{tenant}.api.identitynow.com'
-$env:SAIL_TOKENURL = 'https://{tenant}.api.identitynow.com/oauth/token'
-$env:SAIL_CLIENTID = '{clientID}'
-$env:SAIL_CLIENTSECRET = '{clientSecret}'
+$env:SAIL_BASE_URL=https://{tenant}.api.identitynow.com
+$env:SAIL_CLIENT_ID={clientID}
+$env:SAIL_CLIENT_SECRET={clientSecret}
 ```
-To get your environment variables to persist across PowerShell sessions, use this command instead: 
+To get your environment variables to persist across PowerShell sessions, use these commands instead: 
 
 ```powershell
-[System.Environment]::SetEnvironmentVariable('SAIL_BASEURL','https://{tenant}.api.identitynow.com')
+[System.Environment]::SetEnvironmentVariable('SAIL_BASE_URL','https://{tenant}.api.identitynow.com')
+[System.Environment]::SetEnvironmentVariable('SAIL_CLIENT_ID','{clientID}')
+[System.Environment]::SetEnvironmentVariable('SAIL_CLIENT_SECRET','clientSecret}')
 ```
 
 ### Install the SDK
@@ -234,7 +255,7 @@ resp, r, err := apiClient.V3.AccountsApi.ListAccounts(ctx).Execute()
 
 You can edit the messages produced for successful responses as well as errors in the following lines by editing the messages enclosed in the quotes. 
 
-### Paginating results
+### Pagination
 The SDK has a built-in pagination function you can use to automatically call and collect responses from the APIs that support pagination. Use this syntax to call it: 
 
 ```go

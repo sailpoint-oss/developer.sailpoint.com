@@ -15,6 +15,7 @@ tags: ['SDK']
 
 Learn how to use the Powershell SDK in this guide. The Powershell SDK has some pre-built code examples you can use to build tools that can interact with IdentityNow (IDN).
 
+The Powershell SDK includes the following functionality: 
 - [APIs](#apis):
 	- All [V3](https://developer.sailpoint.com/idn/api/v3) and [Beta](https://developer.sailpoint.com/idn/api/beta) APIs are available.
 	- The following V2 APIs are available: 
@@ -142,29 +143,6 @@ const createTransform = async () => {
 ```
 ### Transform pagination
 
-```typescript
-const getPaginatedTransforms = async () => {
 
-    
-    let apiConfig = new Configuration()
-    apiConfig.retriesConfig = {
-        retries: 4,
-        retryDelay: axiosRetry.exponentialDelay,
-        onRetry(retryCount, error, requestConfig) {
-            console.log(`retrying due to request error, try number ${retryCount}`)
-        },
-    }
-    let api = new TransformsApi(apiConfig)
-    
-    const val = await Paginator.paginate(api, api.listTransforms, {limit: 250}, 100)
-
-    console.log(val.data.length)
-
-}
-
-
-
-getPaginatedTransforms()
-```
 
 

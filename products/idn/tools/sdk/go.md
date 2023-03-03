@@ -8,7 +8,7 @@ sidebar_class_name: gosdk
 keywords: ['go', 'golang', 'sdk']
 description: Learn how to use the Golang SDK in this guide. 
 slug: /tools/sdk/go
-tags: ['SDK']
+tags: ['SDK', 'Software Development Kit']
 ---
 
 ## Start using the Go SDK

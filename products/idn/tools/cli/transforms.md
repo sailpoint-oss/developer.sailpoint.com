@@ -3,7 +3,7 @@ id: cli-transforms
 title: CLI Transforms
 pagination_label: CLI Transforms
 sidebar_label: CLI Transforms
-sidebar_position: 3
+sidebar_position: 6
 sidebar_class_name: cli-transforms
 keywords: ['cli', 'cli transforms', 'transforms']
 description: Learn about the CLI commands you can use to create, manage, and test transforms in this guide. 
@@ -15,7 +15,9 @@ tags: ['CLI']
 
 Learn about the CLI commands you can use to create, manage, and test transforms in this guide. 
 
-The `transforms` command makes it easy to create, manage, and test transforms. For more information about transforms, refer to [Transforms](https://developer.sailpoint.com/idn/docs/transforms). 
+In IdentityNow (IDN), you can use transforms to manipulate attribute data without writing any code. For more information about transforms, refer to [Transforms](https://developer.sailpoint.com/idn/docs/transforms). 
+
+With the `transforms` command, it's it easy to create, manage, and test transforms in the CLI. 
 
 ## Commands
 

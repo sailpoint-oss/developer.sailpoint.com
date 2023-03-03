@@ -6,20 +6,22 @@ sidebar_label: CLI Connectors
 sidebar_position: 2
 sidebar_class_name: cli-connectors
 keywords: ['cli', 'cli connectors', 'connectors']
-description: Learn about the CLI commands you can use to create, manage, and test connectors in this guide. 
+description: Learn how to use the CLI to create, manage, and test SaaS connectors in this guide.
 slug: /tools/cli/connectors
 tags: ['CLI']
 ---
 
 ## Connectors
 
-Learn about the CLI commands you can use to create, manage, and test connectors in this guide. 
+Learn how to use the CLI to create, manage, and test SaaS connectors in this guide.
 
-The `connectors` command is a CLI interface for the SaaS Connectivity platform. The CLI is the best way to create, manage, and test SaaS connectors within your tenant. For more information about SaaS Connectivity, refer to the [SaaS Connectivity](https://developer.sailpoint.com/idn/docs/saas-connectivity) guide. 
+You can use SaaS connectors to serve as bridges between your IdentityNow (IDN) tenant and other source systems without the use of a Virtual Appliance (VA). For more information about the SaaS connectors, refer to the [SaaS Connectivity](https://developer.sailpoint.com/idn/docs/saas-connectivity) guide. 
+
+The `connectors` command is a CLI interface for the SaaS Connectivity platform. The CLI is the best way to create, manage, and test SaaS connectors within your tenant. 
 
 ## Commands 
 
-To create, manage, and test SaaS connectors with the CLI, you can use these commands: 
+To create, manage, and test SaaS connectors with the CLI, you can run these commands: 
 
 - [Init project](#init-project)
 - [Create connector](#create-connector)

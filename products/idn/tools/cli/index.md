@@ -188,6 +188,9 @@ Run the `sail` command for an overview of the available commands and flags. You 
 
 The following commands are available.: 
 - `connectors`: This command is a CLI interface for the SaaS Connectivity platform. The CLI is the best way to create and manage SaaS connectors within your tenant. For more information about the `connectors` command, refer to the CLI [Connectors guide](https://developer.sailpoint.com/idn/tools/cli/connectors). For more information about the SaaS Connectivity platform, refer to [SaaS Connectivity](https://developer.sailpoint.com/idn/docs/saas-connectivity). 
+- `search`: Run this command to access IDN search functionality within the CLI. For more information about the `search` command, refer to the CLI [Search guide](https://developer.sailpoint.com/idn/tools/cli/search). For more information about search in IDN, refer to [Search](https://developer.sailpoint.com/idn/api/v3/search).
+- `set`: 
+- `spconfig`: 
 - `transforms`: This command is a CLI interface that makes it easy to create, manage, and test transforms. For more information about the `transforms` command, refer to the CLI [Transforms guide](https://developer.sailpoint.com/idn/tools/cli/transforms). For more information about transforms, refer to [Transforms](https://developer.sailpoint.com/idn/docs/transforms). 
 
 ## GitHub

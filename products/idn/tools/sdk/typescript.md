@@ -3,7 +3,7 @@ id: typescript-sdk
 title: TypeScript SDK
 pagination_label: TypeScript SDK
 sidebar_label: TypeScript
-sidebar_position: 3
+sidebar_position: 4
 sidebar_class_name: typescriptsdk
 keywords: ['tsc', 'typescript', 'sdk']
 description: Learn how to use the TypeScript SDK in this guide.

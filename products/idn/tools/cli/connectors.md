@@ -2,7 +2,7 @@
 id: cli-connectors
 title: CLI Connectors
 pagination_label: CLI Connectors
-sidebar_label: CLI Connectors
+sidebar_label: Connectors
 sidebar_position: 2
 sidebar_class_name: cli-connectors
 keywords: ['cli', 'cli connectors', 'connectors']

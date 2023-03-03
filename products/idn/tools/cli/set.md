@@ -2,7 +2,7 @@
 id: cli-set
 title: cli-set
 pagination_label: CLI-Set
-sidebar_label: CLI-Set
+sidebar_label: Set
 sidebar_position: 4
 sidebar_class_name: cli
 keywords: ['cli', 'set']

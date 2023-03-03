@@ -2,7 +2,7 @@
 id: cli-transforms
 title: CLI Transforms
 pagination_label: CLI Transforms
-sidebar_label: CLI Transforms
+sidebar_label: Transforms
 sidebar_position: 6
 sidebar_class_name: cli-transforms
 keywords: ['cli', 'cli transforms', 'transforms']

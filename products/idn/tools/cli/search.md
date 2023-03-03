@@ -2,7 +2,7 @@
 id: cli-search
 title: cli-search
 pagination_label: CLI-Search
-sidebar_label: CLI-Search
+sidebar_label: Search
 sidebar_position: 3
 sidebar_class_name: cli
 keywords: ['cli', 'search']

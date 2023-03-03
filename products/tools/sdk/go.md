@@ -240,7 +240,7 @@ Read further to learn more about the following functionality:
 - [Paginating search results](#paginating-search-results)
 - [Transforms](#transforms)
 
-### APIs
+### API
 You can manipulate the example API request to call different APIs and write different messages for the users. 
 
 In this line, you can make changes to the API you're calling: 
@@ -292,7 +292,7 @@ To find out whether an endpoint supports pagination, refer to its documentation.
 
 ### Search 
 
-To try using the IDN [search functionality](https://developer.sailpoint.com/idn/api/v3/search-post) along with pagination, copy this code into your sdk.go file following the main code:
+To try using the IDN [search functionality](https://developer.sailpoint.com/idn/api/v3/search-post) along with pagination, copy this code into your "sdk.go" file following the main code:
 
 ```go
 func getSearchResults(ctx context.Context, apiClient *sailpoint.APIClient) {

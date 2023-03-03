@@ -318,7 +318,6 @@ getPaginatedTransforms()
 ```
 This example lists the available transforms in your IDN tenant, including the "Test Transform" from earlier. It returns the default max of 250 transforms, 100 at a time. You can change the transformpagination by changing "100" and "250", respectively. 
 
-
 ## Get started
 
 You can use this SDK to build new tools that extend your IDN platform and improve experiences across your organization. Use this guide to get started, and if you have questions, don't hesitate to reach out on the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss! 

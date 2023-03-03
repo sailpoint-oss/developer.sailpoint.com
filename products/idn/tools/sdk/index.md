@@ -1,17 +1,17 @@
 ---
 id: sdk
-title: SDK
-pagination_label: SDK
-sidebar_label: SDK
+title: SDKs
+pagination_label: SDKs
+sidebar_label: SDKs
 sidebar_position: 1
 sidebar_class_name: sdk
 keywords: ['sdk']
 description: Learn how to use the Golang SDK in this guide. 
 slug: /tools/sdk
-tags: ['SDK', 'Software Development Kit']
+tags: ['SDK']
 ---
 
-## SDK
+## SDKs
 
 A SailPoint software development kit (SDK) makes it easy to access the SailPoint API and extend your IDN platform. 
 

@@ -18,8 +18,8 @@ export default function Room({videoSource, userID}) {
   const placeholderVideo = 'placeholdervideo';
 
   return (
-    <div className={`${styles.stageContainer}`}>
-      <div className={styles.stageContentVideo}>
+    <div className="flex lg:flex-row flex-col gap-[.3%] h-full p-[.3%]">
+      <div className="lg:w-[60%] w-full overflow-hidden rounded-lg">
         <MuxPlayer
           src={
             videoSource?.muxPlaybackId === placeholderVideo ? staticVideo : null
@@ -42,11 +42,11 @@ export default function Room({videoSource, userID}) {
             viewer_user_id: userID,
             autoPlay: true,
           }}
-          className="h-full !rounded"
+          className="aspect-video h-full"
         />
       </div>
       <WidgetBot
-        className={styles.stageContentChat}
+        className="w-full lg:w-[40%] grow lg:h-auto h-[720px]"
         server="1039765757011165194"
         channel="1039765757556428882"
       />

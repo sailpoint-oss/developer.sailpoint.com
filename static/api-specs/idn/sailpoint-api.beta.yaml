@@ -732,10 +732,8 @@ tags:
   - name: Workflows
     description: |
       Workflows allow administrators to create custom automation scripts directly within IdentityNow.  These automation scripts respond to [event triggers](https://developer.sailpoint.com/idn/docs/event-triggers#how-to-get-started-with-event-triggers) and perform a series of actions to perform tasks that are either too cumbersome or not available in the IdentityNow UI.  Workflows can be configured via a graphical user interface within IdentityNow, or by creating and uploading a JSON formatted script to the Workflow service.  The Workflows API collection provides the necessary functionality to create, manage, and test your workflows via REST.
-      
-      Workflows is currently in Beta, and is not generally available to all customer tenants.  If you would like to participate in the beta program, please [submit an application](https://app.smartsheet.com/b/form/e758ab109dc649589f57b4b5c41d4373).  You must be a customer or partner to participate.
 
-      Refer to [Creating and Managing Workflows] for more information about how to build workflows in the visual builder in the IdentityNow UI.
+      Refer to [Creating and Managing Workflows](https://documentation.sailpoint.com/saas/help/workflows/workflow-basics.html) for more information about how to build workflows in the visual builder in the IdentityNow UI.
   - name: Event Trigger Models
     x-displayName: Trigger Models
     description: |

@@ -10,7 +10,7 @@
   .stageContainer {
     /* margin-top: 1em; */
     padding: 0.5%;
-    gap: 2px;
+    gap: 8px;
     height: 100%;
     display: flex;
     flex-direction: column;

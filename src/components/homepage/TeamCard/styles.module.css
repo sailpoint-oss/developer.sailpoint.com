@@ -3,6 +3,7 @@
   position: relative;
   margin-top: 20px;
   height: 300px;
+  width: 220px;
   /* UI Properties */
   background: var(--dev-card-background);
   box-shadow: var(--dev-card-shadow);
@@ -70,6 +71,7 @@
 }
 
 .cardFace {
+  border-radius: 9999px;
   justify-content: center;
   display: flex;
   margin: auto;

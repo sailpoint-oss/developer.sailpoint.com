@@ -2,18 +2,18 @@
 id: go-sdk
 title: Go SDK
 pagination_label: Go SDK
-sidebar_label: Go SDK
+sidebar_label: Golang
 sidebar_position: 1
 sidebar_class_name: gosdk
 keywords: ['go', 'golang', 'sdk']
 description: Learn how to use the Golang SDK in this guide. 
-slug: /products/tools/sdk 
+slug: /tools/sdk/go
 tags: ['SDK']
 ---
 
 ## Start using the Go SDK
 
-Learn how to use the Golang SDK in this guide. The Go SDK has some pre-built code examples you can use to build tools that can interact with IDN.
+Learn how to use the Golang SDK in this guide. The Go SDK has some pre-built code examples you can use to build tools that can interact with IdentityNow (IDN).
 
 The Go SDK includes examples you can use to implement the following functionality:
 
@@ -58,6 +58,7 @@ To set up your Go SDK, follow these steps:
 3. [Configure the SDK](#configure-the-sdk)
 4. [Install the SDK](#install-the-sdk)
 5. [Run the example request](#run-the-example-api-request)
+
 ### Create a Go module for the SDK
  Use the `go mod init github.com/github-repo-name/projectname` command to create your project. This command creates a "go.mod" file in your project. This "go.mod" file defines your Go module's properties, including its dependencies on other modules and on versions of Go. The "go.mod" file will list your Go module's module path and your current version of Go. 
 

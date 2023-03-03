@@ -16,6 +16,8 @@ module.exports = {
         {to: '/idn/api/beta', label: 'Beta APIs', className: 'indent'},
         {to: '#', label: 'Documentation', className: 'navbar__section'},
         {to: 'idn/docs', label: 'IDN Documentation', className: 'indent'},
+        {to: '#', label: 'Tools', className: 'navbar__section'},
+        {to: 'idn/tools/sdk', label: 'SDK', className: 'indent'},
         {to: '#', label: 'External Links', className: 'navbar__section'},
         {
           href: 'https://documentation.sailpoint.com',

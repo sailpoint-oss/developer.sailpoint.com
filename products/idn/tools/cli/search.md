@@ -22,11 +22,9 @@ In IdentityNow (IDN), you can search across all the sources connected to your te
 To use the CLI to search your IDN tenant, you can use these commands: 
 
 - [Query](#query)
-    - [[Indices](#indices)
-    - [Sort](#sort)
-    - Output Types
-    - Folder Path
+    - [Flags](#flags)
 - [Template](#template)
+    - [Flags](#flags-1)
 
 ### Query
 
@@ -43,39 +41,20 @@ For example, running this command would return all identities starting with the 
 sail search query "name:a*" -indices identities 
 ```
 
-#### Indices
+#### Flags
 
-To specify the indices you want to search, use the `-indices` flag. The following indices are searchable: identities, roles, access profiles, entitlements, events, and account activities. 
-
+You can add these flags to the `query` command: 
+- `indices`: Use this flag to specify the indices you want to search. The following indices are searchable: identities, roles, access profiles, entitlements, events, and account activities. 
 The earlier example shows how to specify a single index in a search query. You can also search multiple indices. For example, running this command would return all identities and access profiles starting with the letter "a":
-
-```shell
-sail search query "name:a*" -indices identities -indices accessprofiles
-```
-
-#### Sort
-
-To specify the sort strings your search query uses, use the `-sort` flag. For example, running this command would sort search results by starting with the letter "a" first by the `name` attribute in ascending order and then the `created` attribute in descending order, as indicated by the `-` prefix:
-
-```shell
-sail search query "name:a*" -indices identities -sort name -sort "-created" 
-```
-
-#### Output Types
-
-To specify the output data type, use the `-outputTypes` flag. Currently only `csv` and `json` types are supported. In this example, running this command would return search results in a `json` output: 
-
-```shell
-sail search query "name:a*" -indicies identities -outputTypes json
-```
-
-#### Folder Path
-
-To specify the folder path you want to save the search results in, use the `-folderPath` flag. For example, running this command would save search results to "./local/folder/path": 
-
-```shell
-sail search query "name:a*" -indicies identities -folderPath ./local/folder/path
-```
+    ```shell
+    sail search query "name:a*" -indices identities -indices accessprofiles
+    ```
+- `sort`: Use this flag to specify the sort strings your search query uses. You can also specify multiple sorting criteria. For example, running this command would sort search results by starting with the letter "a" first by the `name` attribute in ascending order and then the `created` attribute in descending order, as indicated by the `-` prefix: 
+    ```shell
+    sail search query "name:a*" -indices identities -sort name -sort "-created" 
+    ```
+- `outputTypes`: Use this flag to specify the output data type. This example shows how running this command would return search results in a `json` output. Currently only `csv` and `json` are supported.
+- `folderPath`: Use this flag to specify the folder path you want to save the search results in. If the directory doesn't exist, the CLI creates it. The default folder path is the current working directory. 
 
 ### Template 
 
@@ -90,20 +69,18 @@ For example, if you had a template, "all-provisioning-events-90-days," which pro
 sail search template all-provisioning-events-90-days
 ```
 
-#### Output Types
+#### Flags
 
-To specify the output data type, use the `-outputTypes` flag. Currently only `csv` and `json` types are supported. In this example, running this command would return search results in a `json` output: 
-
-```shell
-sail search template all-provisioning-events-90-days -outputTypes json
-```
-
-#### Folder Path
-
-To specify the folder path you want to save the search results in, use the `-folderPath` flag. For example, running this command would save search results to "./local/folder/path": 
-
-```shell
-sail search template all-provisioning-events-90-days -folderPath ./local/folder/path
-```
+You can add these flags to your `template` command: 
+- `outputTypes`: Use this flag to specify the output data type. In this example, running this command would return search results in a `json` output: 
+    ```shell
+    sail search template all-provisioning-events-90-days -outputTypes json
+    ```
+    Currently only `csv` and `json` are supported.
+- `folderPath`: Use this flag to specify the folder path you want to save the search results in. For example, running this command would save search results to "./local/folder/path": 
+    ```shell
+    sail search template all-provisioning-events-90-days -folderPath ./local/folder/path
+    ```
+    If the directory doesn't exist, the CLI creates it. The default folder path is the current working directory. 
 
 

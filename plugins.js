@@ -1,5 +1,17 @@
 module.exports = [
   [
+    '@docusaurus/plugin-client-redirects',
+    {
+      redirects: [
+        // /docs/oldDoc -> /docs/newDoc
+        {
+          to: '/conf',
+          from: '/developerdays',
+        },
+      ],
+    },
+  ],
+  [
     '@docusaurus/plugin-content-docs',
     {
       id: 'idn',

@@ -1,21 +1,21 @@
 ---
 id: powershell-sdk
-title: Powershell SDK
-pagination_label: Powershell SDK
-sidebar_label: Powershell
+title: PowerShell SDK
+pagination_label: PowerShell SDK
+sidebar_label: PowerShell
 sidebar_position: 3
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'sdk']
-description: Learn how to use the Powershell SDK in this guide.
+description: Learn how to use the PowerShell SDK in this guide.
 slug: /tools/sdk/powershell
 tags: ['SDK']
 ---
 
-## Start using the Powershell SDK
+## Start using the PowerShell SDK
 
-Learn how to use the Powershell SDK in this guide. The Powershell SDK has some pre-built code examples you can use to build tools that can interact with IdentityNow (IDN).
+Learn how to use the PowerShell SDK in this guide. The PowerShell SDK has some pre-built code examples you can use to learn how to build tools that can interact with IdentityNow (IDN).
 
-The Powershell SDK includes the following functionality: 
+The PowerShell SDK includes the following functionality: 
 - [APIs](#apis): 
 	- All [V3](https://developer.sailpoint.com/idn/api/v3) and [Beta](https://developer.sailpoint.com/idn/api/beta) APIs are available.
 	- The following V2 APIs are available: 
@@ -41,7 +41,7 @@ The Powershell SDK includes the following functionality:
 
 ## Requirements
 
-You need the following to use the Powershell SDK:
+You need the following to use the PowerShell SDK:
 
 - Your tenant name in IDN. To learn how to find it, refer to [Getting Started](https://developer.sailpoint.com/idn/api/getting-started#find-your-tenant-name). The SDK will use this tenant name to connect to your IDN instance. 
 
@@ -49,100 +49,303 @@ You need the following to use the Powershell SDK:
 
 ## Setup
 
-To set up your Powershell SDK, follow these steps:
+To set up your PowerShell SDK, follow these steps: 
 
-## Other functionality
+1. [Install the SDK](#install-the-sdk)
+2. [Configure the SDK](#configure-the-sdk)
+3. [Get the default configuration](#get-the-default-configuration)
 
-Once you are configured and you have your SDK running, you can start trying out the SDK's other functionality. 
+### Install the SDK 
 
-Read further to learn more about the following functionality: 
-- [APIs](#apis)
-- [Pagination](#pagination)
+Install the SDK with this command: 
+```PowerShell
+Install-Module -Name PSSailpoint
+```
+This command installs the SailPoint PowerShell SDK modules. You will be prompted to confirm that you are sure you want to install the modules from 'PSGallery'. Enter "A" to say "Yes to All". 
+
+If you already have a version of the PowerShell SDK installed, you can install a new version side-by-side with it by adding the `-Force` parameter to the end of your `Install-Module` commmand. 
+
+### Configure the SDK
+To configure the SDK, create a configuration file or save your configuration as environment variables. 
+You can use any of the following ways to do so: 
+
+#### Manual Configuration
+
+One way to create a configuration file is to create a "config.yaml" file in your project and specify the following information in it: 
+
+```yaml
+activeenvironment: example # the key that identifies the currently active environment
+authtype: pat # currently only pat and pipeline are supported if the ENV VAR SAIL_AUTH_TYPE is configured to "pipeline" it will override this value
+customexporttemplatespath: "" # the path to the users custom export templates file if one is provided
+customsearchtemplatespath: "" # the path to the users custom search templates file if one is provided
+debug: false # the debug setting  
+environments: # the configured environments  
+  example:
+    baseurl: https://example.api.identitynow.com
+    pat:
+      accesstoken: example-access-token
+      clientid: example-client-id
+      clientsecret: example-client-secret
+      expiry: example-access-token-expiry
+    tenanturl: https://example.identitynow.com
+```
+
+You must specify the following information: 
+- `activeenvironment`: This key identifies the current active environment the SDK is connecting to. This environment name refers to your IDN tenant name. In the example, the key is "example". You must also make sure the environment name listed under `environments` matches the `activeenvironment`. 
+- `authtype`: The authentication type. Currently only "pat" and "pipeline" are supported. Configuring ENV VAR SAIL_AUTH_TYPE to "pipeline" overrides this value. In the example, the authentication type is "pat". You must also make sure the authentication type listed under the environment name "example" matches the `authtype`. 
+- `baseurl` and `tenanturl`: These refer to your IDN tenant URL. 
+- `clientsecret`: The PAT's client secret. 
+- `clientid`: The PAT's client ID. 
+
+Here's an example: 
+
+```yaml
+activeenvironment: devrel # the key that identifies the currently active environment
+authtype: pat # currently only pat and pipeline are supported if the ENV VAR SAIL_AUTH_TYPE is configured to "pipeline" it will override this value
+customexporttemplatespath: "" # the path to the users custom export templates file if one is provided
+customsearchtemplatespath: "" # the path to the users custom search templates file if one is provided
+debug: false # the debug setting  
+environments: # the configured environments 
+  example:
+    baseurl: https://devrel.api.identitynow.com
+    pat:
+      accesstoken: example-access-token
+      clientid: g0567b766b413b22c05c66e75d532f1b
+      clientsecret: cabd0e950a7230b63c1ff45be33fb22065b382b6251a73c61177a8bb5482fcc7
+      expiry: example-access-token-expiry
+    tenanturl: https://devrel.identitynow.com
+```
+
+You can also specify this optional information: 
+- `customexporttemplatespath`: Specifies the folder path to save your custom export templates file in. 
+- `customsearchtemplatespath`: Specifies the folder path to save your custom search templates file in.
+- `debug`: The debug setting. By default, it's set to "false".
+- `accesstoken`: The PAT's name. 
+- `expiry`: The PAT's expiry date.
+
+Save your "config.yaml" file in a folder called ".sailpoint" in your home directory. The SDK will look for this file here when you use PowerShell to get the default configuration. 
+
+#### CLI assisted configuration 
+Another way to create a configuration file is to use the SailPoint CLI. To learn how to use the SailPoint CLI to create a configuration file, refer to [Assisted Configuration](https://github.com/sailpoint-oss/sailpoint-cli#manual-configuration).
+
+#### Environment variable configuration 
+You can also store your configuration in environment variables. 
+
+On **Linux/Mac**, export the following environment variables:
+```shell
+export SAIL_BASE_URL=https://{tenant}.api.identitynow.com
+export SAIL_CLIENT_ID={clientID}
+export SAIL_CLIENT_SECRET={clientSecret}
+```
+
+To get your environment variables to persist across terminal sessions, add these exports to your shell profile, something like `~/.bash_profile`.
+On **Windows PowerShell**, run the following commands: 
+```PowerShell
+$env:SAIL_BASE_URL=https://{tenant}.api.identitynow.com
+$env:SAIL_CLIENT_ID={clientID}
+$env:SAIL_CLIENT_SECRET={clientSecret}
+```
+To get your environment variables to persist across PowerShell sessions, use these commands instead: 
+```PowerShell
+[System.Environment]::SetEnvironmentVariable('SAIL_BASE_URL','https://{tenant}.api.identitynow.com')
+[System.Environment]::SetEnvironmentVariable('SAIL_CLIENT_ID','{clientID}')
+[System.Environment]::SetEnvironmentVariable('SAIL_CLIENT_SECRET','clientSecret}')
+```
+### Get the default configuration
+
+If you manually created the "config.yaml" file, you can get the default configuration for your SDK in PowerShell. To get the default configuration, run this command: 
+```PowerShell
+Get-DefaultConfiguration
+```
+This command will look for your "config.yaml" file to get your authentication information. Your "config.yaml" file should be located in a folder called ".sailpoint" in your home directory, like in folder path example: "c:\users\adam.archer/.sailpoint\config.yaml"
+
+When this command is successful, the SDK displays your configuration information. 
+
+If the command is unsuccessful, the SDK outputs this message: "Configuration file not found at {folder path}. Please provide a configuration file or configure using PowerShell environment variables." 
+
+To resolve this error, find the configuration file and copy it into the correct the specified folder path and run `Get-DefaultConfiguration` again. 
+
+## Run an example request
+
+Once your SDK is installed and configured, you can start accessing the SDK's different functionalities. The SDK includes some prebuilt examples you can copy into your PowerShell instance to start learning how to use the SDK. 
+
+Use the examples to learn how to do the following: 
+- [Run an API request](#run-an-api-request)
+  - [Paginate results]
 - [Search](#search)
-- [Search pagination](#search-pagination)
-- [Transforms](#transforms)
+  - [Paginate search results]
+- [Transform](#transforms)
 
-### APIs
+### Run an API request
 
-### Pagination
+To start using the API, you can copy this example request into your PowerShell instance: 
 
-```typescript
-const getPaginatedAccounts = async () => {
+```PowerShell
+$Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored. Because requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+$Filters = 'sourceId eq "f4e73766efdf4dc6acdeed179606d694"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **identityId**: *eq*  **name**: *eq, in*  **nativeIdentity**: *eq, in*  **sourceId**: *eq, in*  **uncorrelated**: *eq* (optional)
 
+# Accounts List
+try {
     
-    let apiConfig = new Configuration()
-    apiConfig.retriesConfig = {
-        retries: 4,
-        retryDelay: axiosRetry.exponentialDelay,
-        onRetry(retryCount, error, requestConfig) {
-            console.log(`retrying due to request error, try number ${retryCount}`)
-        },
-    }
-    let api = new AccountsApi(apiConfig)
-    
-    const val = await Paginator.paginate(api, api.listAccounts, {limit: 100}, 10)
+    Get-Accounts -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters
 
-    console.log(val)
-
+} catch {
+    Write-Host $_
+    Write-Host ("Exception occurred when calling Invoke-ListAccounts: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
+This example calls the Accounts API to list the accounts in your tenant that have the sourceId ""f4e73766efdf4dc6acdeed179606d694"". 
+
+To narrow the results you return and define how many you can return, you can specify these parameters: 
+- `$Limit`: The maximum number of records to return per request. The default is 250. 
+- `$Offset`: The number of the first record to return with the request. The default is 0. 
+- `$Count`: This boolean, if enabled, populates the *X-Total-Count* response header with the number of results that would be returned if `limit` and `offset` were ignored. Because requesting a total count can have a performance impact, it's not recommended to enable `$count` if you aren't using it.
+- `$Filters`: You can filter results using the standard syntax described in [Filtering Results](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results). Filtering is supported for the following fields and operators:  `id`: `eq, in`  `identityId`: `eq`  `name`: `eq, in`  `nativeIdentity`: `eq, in`  `sourceId`: `eq, in`  `uncorrelated`: `eq` 
+
+In the API request example, the limit is set to 250, the count is set to true, and the filters are set to filter for only accounts associated with the source with the ID "f4e73766efdf4dc6acdeed179606d694". 
+
+#### Paginate results
+
+You can paginate your API or transform requests' results by using the syntax shown in this example: 
+
+```PowerShell
+$Parameters = @{
+    "Filters" = 'name co "Andrew"'
+}
+
+# Accounts List
+try {
+
+    Invoke-Paginate -Function "Get-Accounts" -Increment 250 -Limit 1000 -InitialOffset 0 -Parameters $Parameters
+
+} catch {
+    Write-Host $_
+    Write-Host ("Exception occurred when calling {1}: {0}" -f ($_.ErrorDetails | ConvertFrom-Json), "Get-Accounts")
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+This example gets accounts named "Andrew" from your tenant. It can get a maximum of 1000 accounts, the `Limit`, it can get 250 accounts per page, the `Increment`, starting from the first record, the `initialOffset` of 0. 
+
+To paginate the results, you can specify these parameters: 
+-`Increment`: The number of records to return per page. 
+-`Limit`: The maximum number of records to return per request. The default is 250. 
+-`Offset`: The number of the first record to return with the request. The default is 0. 
+
+To find out whether an endpoint supports pagination, refer to its documentation. Any API supporting pagination lists the optional query parameters detailed in [Paginating Results](https://developer.sailpoint.com/idn/api/standard-collection-parameters/#paginating-results).
 
 ### Search
 
-```typescript
-const search = async () => {
-    let apiConfig = new Configuration()
-    let api = new SearchApi(apiConfig)
-    let search: Search = {
-        indices: [
-            "identities"
-        ],
-        query: {
-            query: "*"
-        },
-        sort: ["-name"]
-	}
-    const val = await Paginator.paginateSearchApi(api, search, 100, 1000)
+To start using the SDK to search IDN, you can copy this example into your PowerShell instance: 
 
-    for (const result of val.data) {
-        const castedResult: IdentityDocument = result
-        console.log(castedResult.name)
-    }
-    
+```PowerShell
+$Json = @"
+{
+	"indices": [
+		"identities"
+	],
+	"query": {
+		"query": "\"john.doe\"",
+		"fields": [
+		"name"
+		]
+	}
+	}
+"@
+
+$Search = ConvertFrom-JsonToSearch -Json $Json
+
+try {
+    Search-Post -Search $Search
+} catch {
+    Write-Host ("Exception occurred when calling Search-Post: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
 
-### Search pagination
+This example request uses the [Post Search V3 API endpoint](https://developer.sailpoint.com/idn/api/v3/search-post) to search your tenant for identities with the name "john.doe". 
 
-```typescript
-const val = await Paginator.paginateSearchApi(api, search, 100, 1000)
+#### Paginate search results
+
+To paginate search results, use the syntax shown in this example: 
+
+```PowerShell
+$JSON = @"
+{
+	"indices": [
+		"identities"
+	],
+	"query": {
+		"query": "*",
+		"fields": [
+		"name"
+		]
+	},
+	"sort": [
+		"-displayName"
+	]
+	}
+"@
+
+$Search = ConvertFrom-JsonToSearch -Json $JSON
+
+try {
+
+    Invoke-PaginateSearch -Increment 50 -Limit 10000 -Search $Search
+
+} catch {
+    Write-Host $_
+    Write-Host ("Exception occurred when calling {1}: {0}" -f ($_.ErrorDetails | ConvertFrom-Json), "Paginate-Search")
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
 ```
 
-### Transforms
+This example searches your IDN tenant for all identities and sorts them by their `displayName` in descending order. The search returns a maximum of 1000 records, the `Limit`, and 50 records per page, the `Increment`.  
 
-```typescript
-const createTransform = async () => {
+To paginate the search results, you can specify these parameters: 
+-`Increment`: The number of records to return per page. 
+-`Limit`: The maximum number of records to return per request. The default is 250. 
+-`Offset`: The number of the first record to return with the request. The default is 0. 
 
-    let apiConfig = new Configuration()
-    let api = new TransformsApi(apiConfig)
-    let transform: TransformsApiCreateTransformRequest = 
-    {
-        transform:
-        {
-            name: "Test Transform",
-            type: "dateFormat",
-            attributes: {
-                inputFormat: "MMM dd yyyy, HH:mm:ss.SSS",
-                outputFormat: "yyyy/dd/MM"
-            }
+### Transform 
+
+To start using the SDK to create, manage, and delete transforms, you can copy this example into your PowerShell instance: 
+
+```PowerShell
+# Create transform
+$JSON = @"
+{
+    "name": "New Transform",
+    "type": "lookup",
+    "attributes" : {
+        "table" : {
+            "USA": "Americas",
+            "FRA": "EMEA",
+            "AUS": "APAC",
+            "default": "Unknown Region"
         }
     }
-    const val = await api.createTransform(transform)
-    console.log(val)
+}
+"@
+
+$Transform = ConvertFrom-JsonToTransform -Json $JSON
+
+ try {
+    New-Transform -Transform $Transform
+} catch {
+    Write-Host ("Exception occurred when calling New-Transform: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
-### Transform pagination
 
+This example creates a new [Lookup](https://developer.sailpoint.com/idn/docs/transforms/operations/lookup) transform named "New Transform" in your IDN tenant. The transform takes input 3-letter country codes and transforms them into their regions. 
+
+## Get started
+
+You can use this SDK to build new tools that extend your IDN platform and improve experiences across your organization. Use this guide to get started, and if you have questions, don't hesitate to reach out on the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss! 
 
 
 

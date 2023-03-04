@@ -13,7 +13,7 @@ tags: ['SDK', 'Software Development Kit']
 
 ## Start using the Go SDK
 
-Learn how to use the Golang SDK in this guide. The Go SDK has some pre-built code examples you can use to build tools that can interact with IdentityNow (IDN).
+Learn how to use the Golang SDK in this guide. The Go SDK has some pre-built code examples you can use to learn how to build tools that can interact with IdentityNow (IDN).
 
 The Go SDK includes the following functionality:
 
@@ -57,7 +57,6 @@ To set up your Go SDK, follow these steps:
 2. [Create a Go application for the SDK](#create-a-go-application-for-the-sdk)
 3. [Configure the SDK](#configure-the-sdk)
 4. [Install the SDK](#install-the-sdk)
-5. [Run the example request](#run-the-example-api-request)
 
 ### Create a Go module for the SDK
  Use the `go mod init github.com/github-repo-name/projectname` command to create your project. This command creates a "go.mod" file in your project. This "go.mod" file defines your Go module's properties, including its dependencies on other modules and on versions of Go. The "go.mod" file will list your Go module's module path and your current version of Go. 
@@ -184,10 +183,22 @@ To get your environment variables to persist across PowerShell sessions, use the
 ### Install the SDK
 Install the SDK with the `go mod tidy` command. Using `go mod tidy` downloads the required dependencies from the source files and updates the "go.mod" file to match those dependencies.
 
-### Run the example API request
-Run the example request with the `go run sdk.go` command.
+## Run an example request
 
-You can use this example request as a model for how to call APIs and configure your error messages: 
+Once your SDK is installed and configured, you can start accessing the SDK's different functionalities. The SDK includes some prebuilt examples you can copy into your PowerShell instance to start learning how to use the SDK. 
+
+Use the examples to learn how to do the following: 
+- [Run an API request](#run-an-api-request)
+  - [Paginate results](#paginate-results)
+- [Search](#search)
+  - [Paginate search results](#paginate-search-results)
+- [Transform](#transforms)
+
+Run an example request with the `go run sdk.go` command.
+
+### Run an API request
+
+To start using the API, you can copy this example request into your "sdk.go" file: 
 
 ```go
 package main
@@ -229,18 +240,6 @@ resp, r, err := apiClient.V3.AccountsApi.ListAccounts(ctx).Execute()
 - To call a different API collection, change `AccountsApi` to another collection, like `SourcesApi`, for example. 
 - To call a different endpoint, change `ListAcounts` to another endpoint, like `GetAccountEntitlements`, for example.
 
-## Other functionality
-
-Once you are configured and you have your SDK running, you can start trying out the SDK's other functionality. 
-
-Read further to learn more about the following functionality: 
-- [APIs](#apis)
-- [Paginating results](#paginating-results)
-- [Search](#search)
-- [Paginating search results](#paginating-search-results)
-- [Transforms](#transforms)
-
-### API
 You can manipulate the example API request to call different APIs and write different messages for the users. 
 
 In this line, you can make changes to the API you're calling: 
@@ -255,8 +254,9 @@ resp, r, err := apiClient.V3.AccountsApi.ListAccounts(ctx).Execute()
 
 You can edit the messages produced for successful responses as well as errors in the following lines by editing the messages enclosed in the quotes. 
 
-### Pagination
-The SDK has a built-in pagination function you can use to automatically call and collect responses from the APIs that support pagination. Use this syntax to call it: 
+### Paginate results
+
+The SDK has a built-in pagination function you can use to automatically call and collect responses from the APIs that support pagination. Use the syntax shown in this example to call it: 
 
 ```go
 import (
@@ -353,7 +353,7 @@ search.Indices = append(search.Indices, "identities")
 
 In this example, the `"identities"` string represents an unmarshalled JSON. Changing `append(search.Indices, "identities")` to `append(search.Indices, "access profiles")` does the same thing editing the `searchString` JSON does.
 
-### Paginating search results
+### Paginate search results
 The search example includes the syntax you can use to paginate search results. Edit this line to configure the search result pagination: 
 
 ```go
@@ -364,11 +364,9 @@ The first value refers to the `initialOffset`, the starting number for the resul
 
 For example, changing the first number to `21`, the second to `20`, and the third to `40` would configure the search to return records 21 to 40 and then stop. 
 
-### Transforms
+### Transform
 
-Transforms refer to configurable objects you can use to manipulate data without using code. The SDK includes all the transforms SailPoint has created. To learn more about the transforms that are available, refer to [Operations](https://developer.sailpoint.com/idn/docs/transforms/operations). To learn more about transforms and how to write your own, refer to [Transforms](https://developer.sailpoint.com/idn/docs/transforms)
-
-To try using the IDN [transform functionality](https://developer.sailpoint.com/idn/api/v3/transforms), copy this code into your "sdk.go" file: 
+To start using the SDK to create, manage, and delete transforms, you can copy this example into your "sdk.go" file: 
 
 ```go
 func getTransformResults(ctx context.Context, apiClient *sailpoint.APIClient) {

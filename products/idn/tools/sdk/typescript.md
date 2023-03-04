@@ -13,7 +13,7 @@ tags: ['SDK']
 
 ## Start using the TypeScript SDK
 
-Learn how to use the TypeScript SDK in this guide. The TypeScript SDK has some pre-built code examples you can use to build tools that can interact with IdentityNow (IDN).
+Learn how to use the TypeScript SDK in this guide. The TypeScript SDK has some pre-built code examples you can use to learn how to build tools that can interact with IdentityNow (IDN).
 
 The TypeScript SDK includes the following functionality: 
 - [APIs](#apis): 
@@ -169,9 +169,20 @@ To get your environment variables to persist across PowerShell sessions, use the
 [System.Environment]::SetEnvironmentVariable('SAIL_CLIENT_SECRET','clientSecret}')
 ```
 
-## Run the example transform request
+## Run an example request
 
-To get started, you can copy this example request into your "index.ts" file: 
+Once your SDK is installed and configured, you can start accessing the SDK's different functionalities. The SDK includes some prebuilt examples you can copy into your PowerShell instance to start learning how to use the SDK. 
+
+Use the examples to learn how to do the following: 
+- [Transform](#transform)
+- [Run an API request](#run-an-api-request)
+    - [Paginate results](#paginate-results)
+- [Search](#search)
+  - [Paginate search results](#paginate-search-results)
+
+### Transform
+
+To get start using the SDK to create, manage, and delete transforms, you can copy this example request into your "index.ts" file: 
 ```typescript
 import { Configuration, TransformsApi, TransformsApiCreateTransformRequest} from "sailpoint-api-client"
 
@@ -204,17 +215,7 @@ To compile the file, first run the `tsc src/index.ts` command. This command crea
 
 To run the SDK, run the `node src/index.js` command. This command sends the request and outputs a confirmation that your new transform has been created in IDN. This transform will then be available in your IDN tenant. 
 
-## Other functionality
-
-Once you are configured and you have your SDK running, you can start trying out the SDK's other functionality. 
-
-Read further to learn more about the following functionality: 
-- [API](#api)
-- [Pagination](#pagination)
-- [Search](#search)
-- [Transforms](#transforms)
-
-### API
+### Run an API request
 
 One of the most useful functionalities of the SDK is your ability to call the SailPoint API. 
 
@@ -243,9 +244,11 @@ This example calls the `AccountsApi` and uses the `listAccounts` endpoint to lis
 
 To make sure that your SDK is connecting to the APIs you need, you can specify the API within the curly brackets in `import {}` at the top of the "index.ts" file. In this example, you could add `AccountsApi` and `AccountsApiCreateAccountRequest` to add the functionality to create accounts as well as transforms. 
 
-### Pagination
+#### Paginate results
 
 The earlier example listing accounts in your tenant also has pagination implemented. By default, your requests will return a maximum of 250 records. To return more, you must implement pagination. To learn more about pagination, refer to [Paginating Results](https://developer.sailpoint.com/idn/api/standard-collection-parameters/#paginating-results). 
+
+You can use the SDK to implement pagination for your API, search, and transform requests' results. 
 
 The pagination is implemented in this line: 
 ```typescript
@@ -254,6 +257,8 @@ const val = await Paginator.paginate(api, api.listAccounts, {limit: 100}, 10)
 The `limit` specifies the total number of results you can return, 100. The following unlabeled number, 10, refers to the `increment`, the number of records per page. For example, changing the `limit` to 50 and the following "10" to 5 would change the request to return a total of 50 records, 5 at a time. 
 
 You can also provide an `initialOffset` value to specify the record number to start the request on. For example, you can provide add `{initialOffset: 11}` to start getting accounts from 11 instead of 0. 
+
+To find out whether an endpoint supports pagination, refer to its documentation. Any API supporting pagination lists the optional query parameters detailed in [Paginating Results](https://developer.sailpoint.com/idn/api/standard-collection-parameters/#paginating-results).
 
 ### Search 
 
@@ -286,37 +291,6 @@ This example returns 1000 identities, 100 at a time, and sorts them in descendin
 The two main ways you can manipulate this example are to change the `indices` or the `query`. If you add `"access profiles"` to the indices, and the SDK will search access profiles too. If you change the query to "a*", the search will return all records starting with the letter "a". 
 
 You can also change the sorting logic in the brackets next to `sort`. 
-
-### Transforms 
-
-Transforms refer to configurable objects you can use to manipulate data without using code. The SDK includes all the transforms SailPoint has created. To learn more about the transforms that are available, refer to [Operations](https://developer.sailpoint.com/idn/docs/transforms/operations). To learn more about transforms and how to write your own, refer to [Transforms](https://developer.sailpoint.com/idn/docs/transforms). This documentation includes many examples you can use as a starting point.
-
-This example shows a transform with pagination implemented: 
-```typescript
-const getPaginatedTransforms = async () => {
-
-    
-    let apiConfig = new Configuration()
-    apiConfig.retriesConfig = {
-        retries: 4,
-        retryDelay: axiosRetry.exponentialDelay,
-        onRetry(retryCount, error, requestConfig) {
-            console.log(`retrying due to request error, try number ${retryCount}`)
-        },
-    }
-    let api = new TransformsApi(apiConfig)
-    
-    const val = await Paginator.paginate(api, api.listTransforms, {limit: 250}, 100)
-
-    console.log(val.data.length)
-
-}
-
-
-
-getPaginatedTransforms()
-```
-This example lists the available transforms in your IDN tenant, including the "Test Transform" from earlier. It returns the default max of 250 transforms, 100 at a time. You can change the transformpagination by changing "100" and "250", respectively. 
 
 ## Get started
 

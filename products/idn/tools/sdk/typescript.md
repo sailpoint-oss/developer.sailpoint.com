@@ -16,14 +16,16 @@ tags: ['SDK']
 Learn how to use the TypeScript SDK in this guide. The TypeScript SDK has some pre-built code examples you can use to learn how to build tools that can interact with IdentityNow (IDN).
 
 The TypeScript SDK includes the following functionality: 
-- [APIs](#apis): 
+- [APIs](#run-an-api-request): 
 	- All [V3](https://developer.sailpoint.com/idn/api/v3) and [Beta](https://developer.sailpoint.com/idn/api/beta) APIs are available.
 	- The following V2 APIs are available: 
+
 		| Collection | Endpoint | 
 		| --- | --- | 
 		| Workgroups | GET Workgroup, PATCH Workgroup, DELETE Workgroup, GET Workgroups, POST Workgroups, GET Workgroup Members, POST Workgroup Members, GET Workgroup Connections, POST Bulk Delete Workgroups | 
 		| Organizations | GET Organization, PATCH Organization | 
 	- The following CC APIs are available: 
+
 		| Collection | Endpoint | 
 		| --- | --- | 
 		| Accounts | GET Accounts, POST Remove Account | 
@@ -35,9 +37,9 @@ The TypeScript SDK includes the following functionality:
 
 - [Search](#search): You can use IDN's search. To learn more about IDN's search, refer to [Search](https://documentation.sailpoint.com/saas/help/search/index.html).
 
-- [Transforms](#transforms): You can use transforms, configurable JSON objects that define easy ways to manipulate attribute data without your needing to write any code. To learn more about IDN's transforms, refer to [Transforms](https://developer.sailpoint.com/idn/docs/transforms).
+- [Transforms](#transform): You can use transforms, configurable JSON objects that define easy ways to manipulate attribute data without your needing to write any code. To learn more about IDN's transforms, refer to [Transforms](https://developer.sailpoint.com/idn/docs/transforms).
 
-- [Pagination](#pagination): You can use the SDK's pre-built pagination functionality to paginate the responses to your SDK requests. To learn more about pagination, refer to [Paginating Results](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results).
+- [Pagination](#paginate-results): You can use the SDK's pre-built pagination functionality to paginate the responses to your SDK requests. To learn more about pagination, refer to [Paginating Results](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results).
 
 ## Requirements
 

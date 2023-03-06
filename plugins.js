@@ -12,8 +12,8 @@ module.exports = [
           from: '/docs',
         },
         {
-          to: '/idn/tools/cli',
-          from: '/idn/tools',
+          to: '/cli',
+          from: '/tools',
         },
       ],
     },

@@ -15,6 +15,8 @@ tags: ['CLI']
 
 Learn how to use the SailPoint command line interface (CLI) in this guide. You can use the CLI to interact with IDN and the rest of SailPoint's SaaS platform in a programmatic way. You can use the CLI to perform many functions you would have otherwise used Postman or custom scripts to perform before, and you can perform them directly on the command line with minimal setup. 
 
+![Sail](./assets/img/vhs/Sail.gif)
+
 ## Contents
 
 - [Requirements](#requirements)
@@ -31,37 +33,31 @@ Learn how to use the SailPoint command line interface (CLI) in this guide. You c
 
 ## Requirements
 
-- Golang version 1.18 or above. You can download it [here](https://go.dev/dl/). You can use `go version` to check your version. 
+- Golang version 1.18 or above. You can download it [here](https://go.dev/dl/). You can run `go version` to check your version. 
 
 ## Installation
 
 There are two ways to install the SailPoint CLI: you can use a package manager for the OS of your choice, or you can manually install it.
 
-Prebuilt binaries for OS X, Windows, and Linux are provided in the [releases](https://github.com/sailpoint-oss/sailpoint-cli/releases) section.
+Prebuilt binaries for OS X, Windows, and Linux are provided in [Releases](https://github.com/sailpoint-oss/sailpoint-cli/releases).
 
 ### Homebrew
 
-MacOS users can use [Homebrew](https://brew.sh/) to install the CLI. Run this command in your terminal:
+MacOS users can use [Homebrew](https://brew.sh/) to install the CLI. Run these commands in your terminal:
 
 ```sh
-brew install sailpoint-oss/homebrew-sailpoint-oss/sailpoint-cli
-```
-
-### Manual Installation
-
-To manually install the CLI on **Linux and MacOS**, open your terminal app, navigate to the project directory, and run this command:
-
-```shell
-make install
+brew tap sailpoint-oss/tap && brew install sailpoint-cli
 ```
 
 Then make sure you can run the `sail` command.
 
-```shell
-sail
-```
+### Manual Installation
 
-[Linux Make Gif](./assets/img/vhs/MacOSAndLinux.gif)
+To manually install the CLI on **Linux and MacOS**, open your terminal app, navigate to the project directory, and run the `make install` command.
+
+![Linux Make Gif](./assets/img/vhs/MacOSAndLinux.gif)
+
+Then make sure you can run the `sail` command.
 
 To manually install the CLI on **Windows**, open PowerShell as an administrator, navigate to the project directory, and run
 this command:
@@ -76,7 +72,7 @@ Then add this directory to the system PATH parameter:
 C:\Program Files\sailpoint
 ```
 
-You can find instructions on how to do this [here](https://medium.com/@kevinmarkvi/how-to-add-executables-to-your-path-in-windows-5ffa4ce61a53).
+You can find instructions on how to do so [here](https://medium.com/@kevinmarkvi/how-to-add-executables-to-your-path-in-windows-5ffa4ce61a53).
 You only need to do this the first time you install the CLI.
 
 After setting your environment variable, close all instances of your PowerShell
@@ -92,31 +88,27 @@ sail
 To configure the CLI to connect and authenticate to your IDN tenant, you must do the following:
 
 - Find your tenant name. To learn how to find it, refer to [Getting Started](https://developer.sailpoint.com/idn/api/getting-started#find-your-tenant-name). The CLI will use this tenant name to connect to your IDN instance. 
-- Choose an authentication method:
-  - PAT: Create a personal access token (PAT). Make sure to note the "client ID" and "client secret." The CLI needs this information to authenticate successfully. To learn how to create a PAT, refer to [Personal Access Tokens](https://developer.sailpoint.com/idn/api/authentication#personal-access-tokens). 
-  - OAuth: Create an OAuth client. Make sure to to note the "client ID" and "client secret," as well as the "redirect port" and "redirect path." The CLI needs all this information to authenticate successfully. To learn how to create an OAuth client, refer to [Authentication Details](https://developer.sailpoint.com/idn/api/authentication/#authentication-details). 
+- Create a personal access token (PAT). Make sure to note the "client ID" and "client secret." The CLI needs this information to authenticate successfully. To learn how to create a PAT, refer to [Personal Access Tokens](https://developer.sailpoint.com/idn/api/authentication#personal-access-tokens). 
 
 ### Assisted configuration
 
-Once you have created the authentication method, you can use the `configure` command for your chosen method to configure the CLI for your tenant. 
+Once you have created the PAT, you can use the `configure` command to configure the CLI for your tenant. 
 
 This command creates a configuration file in your home directory to store your tenant's connection details.
 
-If you are using a **PAT**, run this command: 
+To configure the CLI with your PAT, first run the `sail environment {name}` like this example:
 
 ```shell
-sail configure pat
+sail environment example
 ```
 
-[configure PAT](./assets/img/vhs/configure/configure-pat.gif)
+You can then provide your tenant URL and base URL. 
 
-If you are using an **OAuth client**, run this command: 
+Then run the `sail configure` command. You can then provide your PAT client ID and client secret. 
 
-```shell
-sail configure oauth
-```
+![Configure PAT](./assets/img/vhs/configure-pat.gif)
 
-[configure OAuth](./assets/img/vhs/configure/configure-oauth.gif)
+Once you have provided your client ID and client secret, your CLI is configured. 
 
 ### Manual configuration
 
@@ -141,30 +133,20 @@ These commands will create a `config.yaml` file you can use to set your environm
 The `config.yaml` file must contain the following information:
 
 ```yaml
-authtype: pat # Can be either pat or oauth, both methods can be configured, with only one being active at a time.
-debug: false # Setting debug to true, will result in more verbose output
-oauth: # All OAuth specific configuration information
-  authurl: https://example.identitynow.com/oauth/authorize
-  baseurl: https://example.api.identitynow.com
-  clientid: example-client-id
-  clientsecret: ""
-  redirect:
-    path: /callback
-    port: 3000
-  tenant: example
-  token:
-    accesstoken: example-access-token
-    expiry: example-token-expiry-date
-  tokenurl: https://example.api.identitynow.com/oauth/token
-pat: # All Personal Access Token specific configuration information
-  tenant: example
-  baseurl: https://example.api.identitynow.com
-  tokenurl: https://example.api.identitynow.com/oauth/token
-  clientsecret: example-client-secret
-  clientid: example-client-id
-  token:
-    accesstoken: example-access-token
-    expiry: example-token-expiry-date
+activeenvironment: example # The key identifying the current active environment.
+authtype: pat # Currently only "pat" and "pipeline" are supported. If the ENV VAR SAIL_AUTH_TYPE is configured to "pipeline", it will override this value.
+customexporttemplatespath: "" # The path to the user's custom export templates file, if it's provided
+customsearchtemplatespath: "" # The path to the user's custom search templates file, if it's provided
+debug: false # The CLI's debug setting
+environments: # The CLI's configured environments
+  example:
+    baseurl: https://example.api.identitynow.com
+    pat:
+      accesstoken: example-access-token
+      clientid: example-client-id
+      clientsecret: example-client-secret
+      expiry: example-access-token-expiry
+    tenanturl: https://example.identitynow.com
 ```
 You can copy the example into your `config.yaml` file. You must specify your baseurl, tokenurl, clientsecret, and clientid and any other necessary information for your chosen authentication method. 
 
@@ -172,31 +154,32 @@ You can have both authentication methods configured at once, but only one can be
 
 #### Environment variable configuration 
 
-You can also store your configuration in environment variables. 
-On **Linux/Mac**, open your terminal app and run these commands to export the following environment variables:
+You can also store your configuration in environment variables. This can be useful when you are using the CLI in an automated environment like a continuous integration and continuous deployment (CI/CD) pipeline. In these types of scenarios, consuming the cconfiguration from environment variables would be easier than creating the configuration file. 
+
+To export the environment variables on **Linux/Mac**, open your terminal app and run these commands:
 
 ```shell
-export SAIL_BASEURL=https://{tenant}.api.identitynow.com
-export SAIL_TOKENURL=https://{tenant}.api.identitynow.com/oauth/token
-export SAIL_CLIENTID={clientID}
-export SAIL_CLIENTSECRET={clientSecret}
+export SAIL_BASE_URL=https://{tenant}.api.identitynow.com
+export SAIL_CLIENT_ID={clientID}
+export SAIL_CLIENT_SECRET={clientSecret}
 ```
 
 To get your environment variables to persist across terminal sessions, add these exports to your shell profile, something like `~/.bash_profile`.
 
-On **Windows**, run Powershell as an administrator and run the following commands: 
+To store your configuration in environment variables on **Windows**, run Powershell as an administrator and run these commands: 
 
 ```powershell
-$env:SAIL_BASEURL = 'https://{tenant}.api.identitynow.com'
-$env:SAIL_TOKENURL = 'https://{tenant}.api.identitynow.com/oauth/token'
-$env:SAIL_CLIENTID = '{clientID}'
-$env:SAIL_CLIENTSECRET = '{clientSecret}'
+$env:SAIL_BASE_URL=https://{tenant}.api.identitynow.com
+$env:SAIL_CLIENT_ID={clientID}
+$env:SAIL_CLIENT_SECRET={clientSecret}
 ```
 
 To get your environment variables to persist across PowerShell sessions, run this command instead: 
 
 ```powershell
-[System.Environment]::SetEnvironmentVariable('SAIL_BASEURL','https://{tenant}.api.identitynow.com')
+[System.Environment]::SetEnvironmentVariable('SAIL_BASE_URL','https://{tenant}.api.identitynow.com')
+[System.Environment]::SetEnvironmentVariable('SAIL_CLIENT_ID','{clientID}')
+[System.Environment]::SetEnvironmentVariable('SAIL_CLIENT_SECRET','clientSecret}')
 ```
 
 ## Usage
@@ -205,6 +188,9 @@ Run the `sail` command for an overview of the available commands and flags. You 
 
 The following commands are available.: 
 - `connectors`: This command is a CLI interface for the SaaS Connectivity platform. The CLI is the best way to create and manage SaaS connectors within your tenant. For more information about the `connectors` command, refer to the CLI [Connectors guide](https://developer.sailpoint.com/idn/tools/cli/connectors). For more information about the SaaS Connectivity platform, refer to [SaaS Connectivity](https://developer.sailpoint.com/idn/docs/saas-connectivity). 
+- `search`: Run this command to access IDN search functionality within the CLI. For more information about the `search` command, refer to the CLI [Search guide](https://developer.sailpoint.com/idn/tools/cli/search). For more information about search in IDN, refer to [Search](https://developer.sailpoint.com/idn/api/v3/search).
+- `set`: 
+- `spconfig`: 
 - `transforms`: This command is a CLI interface that makes it easy to create, manage, and test transforms. For more information about the `transforms` command, refer to the CLI [Transforms guide](https://developer.sailpoint.com/idn/tools/cli/transforms). For more information about transforms, refer to [Transforms](https://developer.sailpoint.com/idn/docs/transforms). 
 
 ## GitHub

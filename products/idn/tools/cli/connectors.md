@@ -1,6 +1,27 @@
-# Connectors
+---
+id: cli-connectors
+title: CLI Connectors
+pagination_label: CLI Connectors
+sidebar_label: Connectors
+sidebar_position: 2
+sidebar_class_name: cli-connectors
+keywords: ['cli', 'cli connectors', 'connectors']
+description: Learn how to use the CLI to create, manage, and test SaaS connectors in this guide.
+slug: /tools/cli/connectors
+tags: ['CLI']
+---
 
-The `connectors` command is a CLI interface for the SaaS Connectivity Platform.  This CLI is the best way to create and manage SaaS connectors within your IdentityNow tenant.  Please [read our saas connectivity guide](https://developer.sailpoint.com/idn/docs/saas-connectivity) for more information.
+## Connectors
+
+Learn how to use the CLI to create, manage, and test SaaS connectors in this guide.
+
+You can use SaaS connectors to serve as bridges between your IdentityNow (IDN) tenant and other source systems without the use of a Virtual Appliance (VA). For more information about the SaaS connectors, refer to the [SaaS Connectivity](https://developer.sailpoint.com/idn/docs/saas-connectivity) guide. 
+
+The `connectors` command is a CLI interface for the SaaS Connectivity platform. The CLI is the best way to create, manage, and test SaaS connectors within your tenant. 
+
+## Commands 
+
+To create, manage, and test SaaS connectors with the CLI, you can run these commands: 
 
 - [Init project](#init-project)
 - [Create connector](#create-connector)
@@ -8,83 +29,98 @@ The `connectors` command is a CLI interface for the SaaS Connectivity Platform. 
 - [Invoke command](#invoke-command)
 - [List connectors](#list-connectors)
 - [Update connector](#update-connector)
+- [Validate connector](#validate-a-connector)
 - [Delete connector](#delete-connector)
 - [Manage tags](#manage-tags)
 - [Get logs](#get-logs)
 
-## Init project
+### Init project
 
-To initialize a new connector project, use the following command.
+To initialize a connector project, run this command: 
 
 ```shell
 sail conn init [connectorProjectName]
 ```
 
-This command will create a folder in your current working directory with the same name as `connectorProjectName`.  All of the necessary files needed to create a connector will be included in this folder.  See [creating a new project](https://developer.sailpoint.com/idn/docs/saas-connectivity/prerequisites#create-new-project) for more information.
+This command creates a folder named `connectorProjectName` in your working directory. The folder includes all the files necessary to create a connector. For more information about initiating a connector project, refer to the [Create new project](https://developer.sailpoint.com/idn/docs/saas-connectivity/prerequisites/#create-new-project) section of the SaaS Connectivity documentation. 
 
-## Create connector
+### Create connector
 
-To create a connector entry in your IdentityNow tenant, run the following command.
+To create a connector entry in your IDN tenant, run this command:
 
 ```shell
 sail conn create [connectorAlias]
 ```
 
-This will register your connector and give it a unique ID.  See [creating a connector in your org](https://developer.sailpoint.com/idn/docs/saas-connectivity/test-build-deploy#create-and-upload-connector-bundle) for more information.
+This command registers your connector and gives it a unique ID. For more information about creating a connector in your tenant, refer to the [Create connector in your org](https://developer.sailpoint.com/idn/docs/saas-connectivity/test-build-deploy#create-connector-in-your-org) section of the SaaS Connectivity documentation. 
 
-## Upload connector
+### Upload connector
 
-To upload a connector to your IdentityNow tenant, package the connector into a zip file by running `npm run pack-zip` in the project directory and then run the following command.
+To upload a connector to your IDN tenant, run `npm run pack-zip` in the project directory to package the connector into a zip file. Then run this command:
 
 ```shell
 sail conn upload -c [connectorID | connectorAlias] -f connector.zip
 ```
 
-The project files must be packaged before uploading.  Please see [creating a connector](https://developer.sailpoint.com/idn/docs/saas-connectivity/test-build-deploy#create-and-upload-connector-bundle) for information on how to package and upload a connector.
+You must package the project files before you upload them. For more information about how to package and upload connectors, refer to the [Create and upload connector bundle](https://developer.sailpoint.com/idn/docs/saas-connectivity/test-build-deploy/#create-and-upload-connector-bundle) section of the SaaS Connectivity documentation. 
 
-## Invoke command
+### Invoke command
 
-To test commands, like `test-connection`, `account-list`, and `entitlement-list`, run the following command.
+To test connector commands, like `test-connection`, `account-list`, and `entitlement-list`, run this command:
 
 ```shell
 sail conn invoke [command] -c [connectorID | connectorAlias] -p [config.json] -v [version]
 ```
 
-The entitlement commands require an additional flag (`-t [entitlementType]`).  For example.
+For more information about the different available connector commands, refer to [Connector Commands](https://developer.sailpoint.com/idn/docs/saas-connectivity/connector-commands).
+
+The entitlement commands require an additional flag (`-t [entitlementType]`), like this example: 
 
 ```shell
 sail conn invoke entitlement-list -t [entitlementType] -c [connectorID | connectorAlias] -p [config.json] -v [version]
 ```
 
-See [testing your connection in IdentityNow](https://developer.sailpoint.com/idn/docs/saas-connectivity/test-build-deploy#test-your-connector-in-identitynow) for more information on invoking commands.
+For more information about invoking commands, refer to the [Test your connector in IdentityNow](https://developer.sailpoint.com/idn/docs/saas-connectivity/test-build-deploy#test-your-connector-in-identitynow) section of the SaaS Connectivity documentation. 
 
-## List connectors
+### List connectors
 
-To get a list of connectors in your tenant, run the following command.
+To get a list of connectors in your tenant, run this command:
 
 ```shell
 sail conn list
 ```
 
-## Update connector
+### Update connector
 
-To change the alias of a connector, run the following command.
+To change a connector's alias, run this command:
 
 ```shell
 sail conn update -c [connectorID] -a [newConnectorAlias]
 ```
 
+### Validate a connector
+
+You can use the CLI to validate your connector's behavior. The validate command runs integration tests against your connector to ensure all the basic functionality works. 
+
+To validate a connector's behavior, run this command: 
+
+```shell
+sail conn validate -c [connectorID]
+```
+
+You can pass in a `-r` flag to run the command as read-only, or you can run a full suite of read/write tests. 
+
 ## Delete connector
 
-To delete a connector, run the following command.
+To delete a connector, run this command:
 
 ```shell
 sail conn delete -c [connectorID]
 ```
 
-## Manage tags
+### Manage tags
 
-Tags allow you to create multiple instances of your connector that can be used in IdentityNow.  The `latest` tag is created by default and is the primary instance, typically used for production purposes.  Tags are similar to branches in a version control system, like git or CVS.  You can create a tag for actively developing the connector, or for any other purpose you see fit.
+You can use tags to create multiple instances of your connector that can be used in IDN. The `latest` tag is created by default and is the primary instance, typically used for production purposes. Tags are similar to branches in a version control system, like git or CVS. You can create a tag for actively developing the connector, or for any other purpose you want. 
 
 A common pattern is to create a `development` tag on a connector from a specific version, like the latest version.
 
@@ -92,48 +128,48 @@ A common pattern is to create a `development` tag on a connector from a specific
 sail conn tags create -c [connectorID | connectorAlias] -n [tagName] -v [version]
 ```
 
-As the connector is developed and the version number increases, update the `development` tag to point to the latest version.  This leaves the `latest` tag on a stable version while you make changes to your connector on the unstable `development` tag.
+As the connector is developed and the version number increases, update the `development` tag to point to the latest version. Doing so leaves the `latest` tag on a stable version while you make changes to your connector on the unstable `development` tag.
 
 ```shell
 sail conn tags update -c [connectorID | connectorAlias] -n [tagName] -v [version]
 ```
 
-You can test the connector in IdentityNow by selecting the instance of your connector with the `development` tag, which will use whatever version you point to with the update command.
+You can test the connector in IDN by selecting the connector instance with the `development` tag. The CLI will use the version you point to with the update command.
 
-To see all of the tags of the connector and what version they point to, run the following command.
+To see a connector's tags and the versions they point to, run this command:
 
 ```shell
 sail conn tags list -c [connectorID | connectorAlias]
 ```
 
-Once you are satisfied with the changes you made to the `develop` tag, you can point your `latest` tag to the new stable version.
+When you are satisfied with the changes you made to the `develop` tag, you can point your `latest` tag to the new stable version.
 
-## Get logs
+### Get logs
 
-The following logging commands will get all logs for all connectors.
+To get all logs for all connectors, run these logging commands:
 
-To get a dump of logs, run the following command.
+To get a dump of logs, run this command:
 
 ```shell
 sail conn logs
 ```
 
-To get the output of logs in realtime, run the following command.
+To get the output of logs in realtime, run this command:
 
 ```shell
 sail conn logs tail
 ```
 
-To filter the logs to a specific connector, use a utility like `grep`.
+To filter the logs to a specific connector, use a utility like `grep`, like how it's used in this example: 
 
 ```shell
 sail conn logs | grep 'connector version 29'
 ```
 
-To get detailed logging statistics on each connector, run the following command.
+To get detailed logging statistics on each connector, run this command:
 
 ```shell
 sail conn stats
 ```
 
-See our [connector logging docs](https://developer.sailpoint.com/idn/docs/saas-connectivity/in-depth/logging) for more information on logging.
+For more information about connector logging, refer to [Logging](https://developer.sailpoint.com/idn/docs/saas-connectivity/in-depth/logging/).

@@ -1,6 +1,6 @@
 ---
 id: cli-search
-title: cli-search
+title: Search
 pagination_label: CLI-Search
 sidebar_label: Search
 sidebar_position: 3

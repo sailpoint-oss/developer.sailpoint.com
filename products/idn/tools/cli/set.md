@@ -1,6 +1,6 @@
 ---
 id: cli-set
-title: cli-set
+title: Set
 pagination_label: CLI-Set
 sidebar_label: Set
 sidebar_position: 4

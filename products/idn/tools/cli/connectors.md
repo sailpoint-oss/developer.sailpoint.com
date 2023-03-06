@@ -1,6 +1,6 @@
 ---
 id: cli-connectors
-title: CLI Connectors
+title: Connectors
 pagination_label: CLI Connectors
 sidebar_label: Connectors
 sidebar_position: 2

@@ -1,6 +1,6 @@
 ---
 id: cli-spconfig
-title: cli-spconfig
+title: SP Config
 pagination_label: CLI-SPConfig
 sidebar_label: SPConfig
 sidebar_position: 5

@@ -49,6 +49,7 @@ export default function Room({videoSource, userID}) {
         className="w-full lg:w-[40%] grow lg:h-auto h-[720px]"
         server="1039765757011165194"
         channel="1039765757556428882"
+        shard="https://e-sp.widgetbot.co"
       />
     </div>
   );

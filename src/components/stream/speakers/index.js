@@ -29,7 +29,7 @@ export default function Speakers({title, image, description, speakers}) {
         rel="noreferrer"
         href={item?.link}
         key={`${index}-link`}>
-        <div className="card_src-components-homepage-TeamCard-styles-module !h-fit p-4 flex flex-row gap-2">
+        <div className="!h-fit p-4 flex flex-row gap-2">
           {item?.image && (
             <img
               className="!h-16 !w-16 rounded-full"

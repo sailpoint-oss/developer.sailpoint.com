@@ -395,7 +395,7 @@ export default function Main() {
           <div className="h-full flex flex-row justify-center w-full">
             <ul className="flex flex-col justify-center gap-6 m-0 px-8 list-none">
               <li>
-                <p>Registration</p>
+                <p>Tell us a little bit about yourself...</p>
               </li>
               <li>
                 <label>

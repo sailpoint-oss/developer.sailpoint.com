@@ -7,10 +7,6 @@ module.exports = [
           to: '/developerdays',
           from: '/conf',
         },
-        {
-          to: '/',
-          from: '/docs',
-        },
       ],
     },
   ],

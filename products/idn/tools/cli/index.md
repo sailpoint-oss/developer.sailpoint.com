@@ -6,23 +6,26 @@ sidebar_label: CLI
 sidebar_position: 1
 sidebar_class_name: cli
 keywords: ['cli']
-description: Learn how to use the SailPoint CLI in this guide. 
+description: The SailPoint CLI is a terminal-based tool you can use to interact with your IDN tenant. 
 slug: /tools/cli
 tags: ['CLI']
 ---
 
 ## Start using the CLI
 
-Learn how to use the SailPoint command line interface (CLI) in this guide. You can use the CLI to interact with IDN and the rest of SailPoint's SaaS platform in a programmatic way. You can use the CLI to perform many functions you would have otherwise used Postman or custom scripts to perform before, and you can perform them directly on the command line with minimal setup. 
+The SailPoint CLI is a terminal-based tool you can use to to interact with your IdentityNow (IDN) tenant. The CLI provides a text-based environment you can use to run operations known as "commands" to interact with your tenant however you want. 
+
+You can use the CLI to perform many functions you would have otherwise used Postman or custom scripts to perform before. For example, you can use the CLI to call the SailPoint APIs to do whatever you want in your IDN tenant, and you can do all this directly on the command line, with minimal setup.
+
+Learn how to use the SailPoint command line interface (CLI) in this guide.
 
 ![Sail](./assets/img/vhs/Sail.gif)
 
 ## Contents
 
 - [Requirements](#requirements)
-- [Installation](#installation)
+- [Get the CLI](#get-the-cli)
   - [Homebrew](#homebrew)
-  - [Manual Installation](#manual-installation)
 - [Configuration](#configuration)
   - [Assisted configuration](#assisted-configuration)
   - [Manual configuration](#manual-configuration)
@@ -35,11 +38,9 @@ Learn how to use the SailPoint command line interface (CLI) in this guide. You c
 
 - Golang version 1.18 or above. You can download it [here](https://go.dev/dl/). You can run `go version` to check your version. 
 
-## Installation
+## Get the CLI
 
-There are two ways to install the SailPoint CLI: you can use a package manager for the OS of your choice, or you can manually install it.
-
-Prebuilt binaries for OS X, Windows, and Linux are provided in [Releases](https://github.com/sailpoint-oss/sailpoint-cli/releases).
+To install the SailPoint CLI: use a package manager for the OS of your choice. Prebuilt binaries for OS X, Windows, and Linux are provided in [Releases](https://github.com/sailpoint-oss/sailpoint-cli/releases).
 
 ### Homebrew
 
@@ -50,38 +51,6 @@ brew tap sailpoint-oss/tap && brew install sailpoint-cli
 ```
 
 Then make sure you can run the `sail` command.
-
-### Manual Installation
-
-To manually install the CLI on **Linux and MacOS**, open your terminal app, navigate to the project directory, and run the `make install` command.
-
-![Linux Make Gif](./assets/img/vhs/MacOSAndLinux.gif)
-
-Then make sure you can run the `sail` command.
-
-To manually install the CLI on **Windows**, open PowerShell as an administrator, navigate to the project directory, and run
-this command:
-
-```bash
-go build -o "C:\Program Files\sailpoint\sail.exe"
-```
-
-Then add this directory to the system PATH parameter: 
-
-```
-C:\Program Files\sailpoint
-```
-
-You can find instructions on how to do so [here](https://medium.com/@kevinmarkvi/how-to-add-executables-to-your-path-in-windows-5ffa4ce61a53).
-You only need to do this the first time you install the CLI.
-
-After setting your environment variable, close all instances of your PowerShell
-or Command Prompt, open a new instance, and make sure you can run the `sail`
-command.
-
-```shell
-sail
-```
 
 ## Configuration
 
@@ -189,9 +158,9 @@ Run the `sail` command for an overview of the available commands and flags. You 
 The following commands are available.: 
 - `connectors`: This command is a CLI interface for the SaaS Connectivity platform. The CLI is the best way to create and manage SaaS connectors within your tenant. For more information about the `connectors` command, refer to the CLI [Connectors guide](https://developer.sailpoint.com/idn/tools/cli/connectors). For more information about the SaaS Connectivity platform, refer to [SaaS Connectivity](https://developer.sailpoint.com/idn/docs/saas-connectivity). 
 - `search`: Run this command to access IDN search functionality within the CLI. For more information about the `search` command, refer to the CLI [Search guide](https://developer.sailpoint.com/idn/tools/cli/search). For more information about search in IDN, refer to [Search](https://developer.sailpoint.com/idn/api/v3/search).
-- `set`: 
-- `spconfig`: 
-- `transforms`: This command is a CLI interface that makes it easy to create, manage, and test transforms. For more information about the `transforms` command, refer to the CLI [Transforms guide](https://developer.sailpoint.com/idn/tools/cli/transforms). For more information about transforms, refer to [Transforms](https://developer.sailpoint.com/idn/docs/transforms). 
+- `set`: Run this command to configure your CLI settings. For more information about the `set` command, refer to the CLI [Set guide](https://developer.sailpoint.com/idn/tools/cli/set)
+- `spconfig`: Run this command to access IDN SP Config functionaly. For more information about the `spconfig` command, refer to the CLI [SPConfig guide](https://developer.sailpoint.com/idn/tools/cli/spconfig). For more information about SPConfig, refer to the [SPConfig Beta API documentation](https://developer.sailpoint.com/idn/api/beta/sp-config). 
+- `transform`: This command is a CLI interface that makes it easy to create, manage, and test transforms. For more information about the `transform` command, refer to the CLI [Transforms guide](https://developer.sailpoint.com/idn/tools/cli/transforms). For more information about transforms, refer to [Transforms](https://developer.sailpoint.com/idn/docs/transforms). 
 
 ## GitHub
 

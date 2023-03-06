@@ -15,6 +15,8 @@ tags: ['SDK', 'Software Development Kit']
 
 Learn how to use the Golang SDK in this guide. The Go SDK has some pre-built code examples you can use to learn how to build tools that can interact with IdentityNow (IDN).
 
+You can find the SDK and its examples in its GitHub repo [here](https://github.com/sailpoint-oss/golang-sdk).
+
 The Go SDK includes the following functionality:
 
 - [APIs](#run-an-api-request): 

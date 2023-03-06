@@ -15,6 +15,8 @@ tags: ['SDK']
 
 Learn how to use the PowerShell SDK in this guide. The PowerShell SDK has some pre-built code examples you can use to learn how to build tools that can interact with IdentityNow (IDN).
 
+You can find the SDK and its examples in its GitHub repo [here](https://github.com/sailpoint-oss/powershell-sdk).
+
 The PowerShell SDK includes the following functionality: 
 - [APIs](#run-an-api-request): 
 	- All [V3](https://developer.sailpoint.com/idn/api/v3) and [Beta](https://developer.sailpoint.com/idn/api/beta) APIs are available.

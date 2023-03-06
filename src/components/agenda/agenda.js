@@ -13,13 +13,13 @@ export default function AgendaContent({
   const [filterSelection, setFilterSelection] = React.useState('IDN');
 
   const dates = {
-    day1: new Date('03/07/2023').toLocaleDateString([], {
+    day1: new Date('March 7, 2023 09:10:00').toLocaleDateString([], {
       dateStyle: 'full',
     }),
-    day2: new Date('03/08/2023').toLocaleDateString([], {
+    day2: new Date('March 8, 2023 09:10:00').toLocaleDateString([], {
       dateStyle: 'full',
     }),
-    day3: new Date('03/09/2023').toLocaleDateString([], {
+    day3: new Date('March 9, 2023 09:10:00').toLocaleDateString([], {
       dateStyle: 'full',
     }),
   };

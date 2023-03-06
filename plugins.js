@@ -12,7 +12,7 @@ module.exports = [
           from: '/docs',
         },
         {
-          to: '/tools/cli',
+          to: '/idn/tools/cli',
           from: '/idn/tools',
         },
       ],

@@ -51,7 +51,7 @@ module.exports = {
     },
     {
       type: 'dropdown',
-      label: 'SecZetta',
+      label: 'Non-Employee Risk Management',
       position: 'left',
       items: [
         {to: '#', label: 'API Specifications', className: 'navbar__section'},

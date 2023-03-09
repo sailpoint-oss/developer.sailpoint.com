@@ -3,7 +3,6 @@ module.exports = [
     '@docusaurus/plugin-client-redirects',
     {
       redirects: [
-        // /docs/oldDoc -> /docs/newDoc
         {
           to: '/developerdays',
           from: '/conf',

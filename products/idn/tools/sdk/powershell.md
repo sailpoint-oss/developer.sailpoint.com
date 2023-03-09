@@ -19,7 +19,7 @@ You can find the SDK and its examples in its GitHub repo [here](https://github.c
 
 The PowerShell SDK includes the following functionality: 
 - [APIs](#run-an-api-request): 
-	- All [V3](https://developer.sailpoint.com/idn/api/v3) and [Beta](https://developer.sailpoint.com/idn/api/beta) APIs are available.
+	- All [V3](/idn/api/v3) and [Beta](/idn/api/beta) APIs are available.
 	- The following V2 APIs are available: 
 
 		| Collection | Endpoint | 
@@ -37,16 +37,16 @@ The PowerShell SDK includes the following functionality:
 		| Sources | POST Account Aggregation, GET Export Account Feed | 
 		| System | POST Refresh Identities | 
 - [Search](#search): You can use IDN's search. To learn more about IDN's search, refer to [Search](https://documentation.sailpoint.com/saas/help/search/index.html).
-- [Transforms](#transform): You can use transforms, configurable JSON objects that define easy ways to manipulate attribute data without your needing to write any code. To learn more about IDN's transforms, refer to [Transforms](https://developer.sailpoint.com/idn/docs/transforms).
-- [Pagination](#paginate-results): You can use the SDK's pre-built pagination functionality to paginate the responses to your SDK requests. To learn more about pagination, refer to [Paginating Results](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results).
+- [Transforms](#transform): You can use transforms, configurable JSON objects that define easy ways to manipulate attribute data without your needing to write any code. To learn more about IDN's transforms, refer to [Transforms](/idn/docs/transforms).
+- [Pagination](#paginate-results): You can use the SDK's pre-built pagination functionality to paginate the responses to your SDK requests. To learn more about pagination, refer to [Paginating Results](/idn/api/standard-collection-parameters#paginating-results).
 
 ## Requirements
 
 You need the following to use the PowerShell SDK:
 
-- Your tenant name in IDN. To learn how to find it, refer to [Getting Started](https://developer.sailpoint.com/idn/api/getting-started#find-your-tenant-name). The SDK will use this tenant name to connect to your IDN instance. 
+- Your tenant name in IDN. To learn how to find it, refer to [Getting Started](/idn/api/getting-started#find-your-tenant-name). The SDK will use this tenant name to connect to your IDN instance. 
 
-- A PAT with a client secret and ID. To learn how to create one in IDN, refer to [Personal Access Tokens](https://developer.sailpoint.com/idn/api/authentication#personal-access-tokens). The SDK will use this PAT to authenticate with the SailPoint APIs. 
+- A PAT with a client secret and ID. To learn how to create one in IDN, refer to [Personal Access Tokens](/idn/api/authentication#personal-access-tokens). The SDK will use this PAT to authenticate with the SailPoint APIs. 
 
 ## Setup
 
@@ -204,7 +204,7 @@ To narrow the results you return and define how many you can return, you can spe
 - `$Limit`: The maximum number of records to return per request. The default is 250. 
 - `$Offset`: The number of the first record to return with the request. The default is 0. 
 - `$Count`: This boolean, if enabled, populates the *X-Total-Count* response header with the number of results that would be returned if `limit` and `offset` were ignored. Because requesting a total count can have a performance impact, it's not recommended to enable `$count` if you aren't using it.
-- `$Filters`: You can filter results using the standard syntax described in [Filtering Results](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results). Filtering is supported for the following fields and operators:  `id`: `eq, in`  `identityId`: `eq`  `name`: `eq, in`  `nativeIdentity`: `eq, in`  `sourceId`: `eq, in`  `uncorrelated`: `eq` 
+- `$Filters`: You can filter results using the standard syntax described in [Filtering Results](/idn/api/standard-collection-parameters#filtering-results). Filtering is supported for the following fields and operators:  `id`: `eq, in`  `identityId`: `eq`  `name`: `eq, in`  `nativeIdentity`: `eq, in`  `sourceId`: `eq, in`  `uncorrelated`: `eq` 
 
 In the API request example, the limit is set to 250, the count is set to true, and the filters are set to filter for only accounts associated with the source with the ID "f4e73766efdf4dc6acdeed179606d694". 
 
@@ -236,7 +236,7 @@ To paginate the results, you can specify these parameters:
 -`Limit`: The maximum number of records to return per request. The default is 250. 
 -`Offset`: The number of the first record to return with the request. The default is 0. 
 
-To find out whether an endpoint supports pagination, refer to its documentation. Any API supporting pagination lists the optional query parameters detailed in [Paginating Results](https://developer.sailpoint.com/idn/api/standard-collection-parameters/#paginating-results).
+To find out whether an endpoint supports pagination, refer to its documentation. Any API supporting pagination lists the optional query parameters detailed in [Paginating Results](/idn/api/standard-collection-parameters/#paginating-results).
 
 ### Search
 
@@ -267,7 +267,7 @@ try {
 }
 ```
 
-This example request uses the [Post Search V3 API endpoint](https://developer.sailpoint.com/idn/api/v3/search-post) to search your tenant for identities with the name "john.doe". 
+This example request uses the [Post Search V3 API endpoint](/idn/api/v3/search-post) to search your tenant for identities with the name "john.doe". 
 
 #### Paginate search results
 
@@ -342,7 +342,7 @@ $Transform = ConvertFrom-JsonToTransform -Json $JSON
 }
 ```
 
-This example creates a new [Lookup](https://developer.sailpoint.com/idn/docs/transforms/operations/lookup) transform named "New Transform" in your IDN tenant. The transform takes input 3-letter country codes and transforms them into their regions. 
+This example creates a new [Lookup](/idn/docs/transforms/operations/lookup) transform named "New Transform" in your IDN tenant. The transform takes input 3-letter country codes and transforms them into their regions. 
 
 ## Get started
 

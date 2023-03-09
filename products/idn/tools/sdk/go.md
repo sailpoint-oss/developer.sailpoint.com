@@ -20,7 +20,7 @@ You can find the SDK and its examples in its GitHub repo [here](https://github.c
 The Go SDK includes the following functionality:
 
 - [APIs](#run-an-api-request): 
-	- All [V3](https://developer.sailpoint.com/idn/api/v3) and [Beta](https://developer.sailpoint.com/idn/api/beta) APIs are available.
+	- All [V3](/idn/api/v3) and [Beta](/idn/api/beta) APIs are available.
 	- The following V2 APIs are available: 
 
 		| Collection | Endpoint | 
@@ -38,8 +38,8 @@ The Go SDK includes the following functionality:
 		| Sources | POST Account Aggregation, GET Export Account Feed | 
 		| System | POST Refresh Identities | 
 - [Search](#search): You can use IDN's search. To learn more about IDN's search, refer to [Search](https://documentation.sailpoint.com/saas/help/search/index.html).
-- [Transforms](#transform): You can use transforms, configurable JSON objects that define easy ways to manipulate attribute data without your needing to write any code. To learn more about IDN's transforms, refer to [Transforms](https://developer.sailpoint.com/idn/docs/transforms).
-- [Pagination](#paginate-results): You can use the SDK's pre-built pagination functionality to paginate the responses to your SDK requests. To learn more about pagination, refer to [Paginating Results](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results).
+- [Transforms](#transform): You can use transforms, configurable JSON objects that define easy ways to manipulate attribute data without your needing to write any code. To learn more about IDN's transforms, refer to [Transforms](/idn/docs/transforms).
+- [Pagination](#paginate-results): You can use the SDK's pre-built pagination functionality to paginate the responses to your SDK requests. To learn more about pagination, refer to [Paginating Results](/idn/api/standard-collection-parameters#paginating-results).
 
 ## Requirements
 
@@ -47,9 +47,9 @@ You need the following to use the Go SDK:
 
 - Golang version 1.18 or above. You can download it [here](https://go.dev/dl/). You can use `go version` to check your version. 
 
-- Your tenant name in IDN. To learn how to find it, refer to [Getting Started](https://developer.sailpoint.com/idn/api/getting-started#find-your-tenant-name). The SDK will use this tenant name to connect to your IDN instance. 
+- Your tenant name in IDN. To learn how to find it, refer to [Getting Started](/idn/api/getting-started#find-your-tenant-name). The SDK will use this tenant name to connect to your IDN instance. 
 
-- A PAT with a client secret and ID. To learn how to create one in IDN, refer to [Personal Access Tokens](https://developer.sailpoint.com/idn/api/authentication#personal-access-tokens). The SDK will use this PAT to authenticate with the SailPoint APIs. 
+- A PAT with a client secret and ID. To learn how to create one in IDN, refer to [Personal Access Tokens](/idn/api/authentication#personal-access-tokens). The SDK will use this PAT to authenticate with the SailPoint APIs. 
 
 ## Setup
 
@@ -93,7 +93,7 @@ func main() {
 
 }
 ```
-You'll be able to use this code example to run the application. The application will call the [Accounts List](https://developer.sailpoint.com/idn/api/v3/list-accounts) V3 API endpoint to get the accounts in your tenant and return the first account it finds. 
+You'll be able to use this code example to run the application. The application will call the [Accounts List](/idn/api/v3/list-accounts) V3 API endpoint to get the accounts in your tenant and return the first account it finds. 
 
 Your project should now have both a "go.mod" file and an "sdk.go" file. 
 
@@ -229,7 +229,7 @@ func main() {
 }
 ```
 
-The example API request calls the SailPoint [Accounts List](https://developer.sailpoint.com/idn/api/v3/list-accounts) V3 API endpoint to get the accounts in your tenant and returns the first account it finds. 
+The example API request calls the SailPoint [Accounts List](/idn/api/v3/list-accounts) V3 API endpoint to get the accounts in your tenant and returns the first account it finds. 
 
 In this line, you can make changes to the API you're calling: 
 
@@ -289,11 +289,11 @@ func main() {
 
 ```
 
-To find out whether an endpoint supports pagination, refer to its documentation. Any API supporting pagination lists the optional query parameters detailed in [Paginating Results](https://developer.sailpoint.com/idn/api/standard-collection-parameters/#paginating-results).
+To find out whether an endpoint supports pagination, refer to its documentation. Any API supporting pagination lists the optional query parameters detailed in [Paginating Results](/idn/api/standard-collection-parameters/#paginating-results).
 
 ### Search 
 
-To try using the IDN [search functionality](https://developer.sailpoint.com/idn/api/v3/search-post) along with pagination, copy this code into your "sdk.go" file following the main code:
+To try using the IDN [search functionality](/idn/api/v3/search-post) along with pagination, copy this code into your "sdk.go" file following the main code:
 
 ```go
 func getSearchResults(ctx context.Context, apiClient *sailpoint.APIClient) {
@@ -381,7 +381,7 @@ func getTransformResults(ctx context.Context, apiClient *sailpoint.APIClient) {
 }
 ```
 
-This example calls the [List Transforms](https://developer.sailpoint.com/idn/api/v3/list-transforms) V3 API endpoint to get the transforms in your tenant and list the results for the first transform it finds, along with the transform inputs and outputs. 
+This example calls the [List Transforms](/idn/api/v3/list-transforms) V3 API endpoint to get the transforms in your tenant and list the results for the first transform it finds, along with the transform inputs and outputs. 
 
 ## Get started
 

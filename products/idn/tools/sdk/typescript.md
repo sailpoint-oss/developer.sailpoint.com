@@ -19,7 +19,7 @@ You can find the SDK and its examples in its GitHub repo [here](https://github.c
 
 The TypeScript SDK includes the following functionality: 
 - [APIs](#run-an-api-request): 
-	- All [V3](https://developer.sailpoint.com/idn/api/v3) and [Beta](https://developer.sailpoint.com/idn/api/beta) APIs are available.
+	- All [V3](/idn/api/v3) and [Beta](/idn/api/beta) APIs are available.
 	- The following V2 APIs are available: 
 
 		| Collection | Endpoint | 
@@ -39,9 +39,9 @@ The TypeScript SDK includes the following functionality:
 
 - [Search](#search): You can use IDN's search. To learn more about IDN's search, refer to [Search](https://documentation.sailpoint.com/saas/help/search/index.html).
 
-- [Transforms](#transform): You can use transforms, configurable JSON objects that define easy ways to manipulate attribute data without your needing to write any code. To learn more about IDN's transforms, refer to [Transforms](https://developer.sailpoint.com/idn/docs/transforms).
+- [Transforms](#transform): You can use transforms, configurable JSON objects that define easy ways to manipulate attribute data without your needing to write any code. To learn more about IDN's transforms, refer to [Transforms](/idn/docs/transforms).
 
-- [Pagination](#paginate-results): You can use the SDK's pre-built pagination functionality to paginate the responses to your SDK requests. To learn more about pagination, refer to [Paginating Results](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results).
+- [Pagination](#paginate-results): You can use the SDK's pre-built pagination functionality to paginate the responses to your SDK requests. To learn more about pagination, refer to [Paginating Results](/idn/api/standard-collection-parameters#paginating-results).
 
 ## Requirements
 
@@ -49,9 +49,9 @@ You need the following to use the TypeScript SDK:
 
 - TypeScript. To learn how to download it and set it up, go [here](https://www.typescriptlang.org/download). 
 
-- Your tenant name in IDN. To learn how to find it, refer to [Getting Started](https://developer.sailpoint.com/idn/api/getting-started#find-your-tenant-name). The SDK will use this tenant name to connect to your IDN instance. 
+- Your tenant name in IDN. To learn how to find it, refer to [Getting Started](/idn/api/getting-started#find-your-tenant-name). The SDK will use this tenant name to connect to your IDN instance. 
 
-- A PAT with a client secret and ID. To learn how to create one in IDN, refer to [Personal Access Tokens](https://developer.sailpoint.com/idn/api/authentication#personal-access-tokens). The SDK will use this PAT to authenticate with the SailPoint APIs. 
+- A PAT with a client secret and ID. To learn how to create one in IDN, refer to [Personal Access Tokens](/idn/api/authentication#personal-access-tokens). The SDK will use this PAT to authenticate with the SailPoint APIs. 
 
 ## Setup
 
@@ -250,7 +250,7 @@ To make sure that your SDK is connecting to the APIs you need, you can specify t
 
 #### Paginate results
 
-The earlier example listing accounts in your tenant also has pagination implemented. By default, your requests will return a maximum of 250 records. To return more, you must implement pagination. To learn more about pagination, refer to [Paginating Results](https://developer.sailpoint.com/idn/api/standard-collection-parameters/#paginating-results). 
+The earlier example listing accounts in your tenant also has pagination implemented. By default, your requests will return a maximum of 250 records. To return more, you must implement pagination. To learn more about pagination, refer to [Paginating Results](/idn/api/standard-collection-parameters/#paginating-results). 
 
 You can use the SDK to implement pagination for your API, search, and transform requests' results. 
 
@@ -262,11 +262,11 @@ The `limit` specifies the total number of results you can return, 100. The follo
 
 You can also provide an `initialOffset` value to specify the record number to start the request on. For example, you can provide add `{initialOffset: 11}` to start getting accounts from 11 instead of 0. 
 
-To find out whether an endpoint supports pagination, refer to its documentation. Any API supporting pagination lists the optional query parameters detailed in [Paginating Results](https://developer.sailpoint.com/idn/api/standard-collection-parameters/#paginating-results).
+To find out whether an endpoint supports pagination, refer to its documentation. Any API supporting pagination lists the optional query parameters detailed in [Paginating Results](/idn/api/standard-collection-parameters/#paginating-results).
 
 ### Search 
 
-To try using the IDN [search functionality](https://developer.sailpoint.com/idn/api/v3/search-post) along with pagination, copy this code into your "index.ts" file:
+To try using the IDN [search functionality](/idn/api/v3/search-post) along with pagination, copy this code into your "index.ts" file:
 
 ```typescript
 const search = async () => {

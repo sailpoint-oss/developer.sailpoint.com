@@ -15,7 +15,7 @@ tags: ['CLI']
 
 Learn about the CLI commands you can use to create, manage, and test transforms in this guide. 
 
-In IdentityNow (IDN), you can use transforms to manipulate attribute data without writing any code. For more information about transforms, refer to [Transforms](https://developer.sailpoint.com/idn/docs/transforms). 
+In IdentityNow (IDN), you can use transforms to manipulate attribute data without writing any code. For more information about transforms, refer to [Transforms](/idn/docs/transforms). 
 
 With the `transforms` command, it's it easy to create, manage, and test transforms in the CLI. 
 
@@ -87,7 +87,7 @@ You can preview both transforms with [explicit input](#explicit-input) and trans
 
 Transforms that use "explicit input" have direct references in their specifications to the account attributes the transforms will apply to. These transforms require additional flags: 
 
-- `-i` The identity profile ID to use for the preview. You can find the ID of the identity profile you are interested in by using the [Identity Profiles List](https://developer.sailpoint.com/idn/api/v3/list-identity-profiles) endpoint.
+- `-i` The identity profile ID to use for the preview. You can find the ID of the identity profile you are interested in by using the [Identity Profiles List](/idn/api/v3/list-identity-profiles) endpoint.
 - `-a` The name of the identity attribute to apply the transform to. This depends on the identity profile's available attributes.
 
 To preview an "explicit" input transform, run your command like this example: 

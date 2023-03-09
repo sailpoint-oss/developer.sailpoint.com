@@ -15,7 +15,7 @@ tags: ['CLI']
 
 Learn how to use the CLI to search your IDN tenant in this guide. 
 
-In IdentityNow (IDN), you can search across all the sources connected to your tenant and return virtually any information you have access to. The `search` command allows you to access IDN search functionality within the CLI. For more information about the `search` command, refer to the CLI [Search guide](https://developer.sailpoint.com/idn/tools/cli/search). For more information about search in IDN, refer to [Search](https://developer.sailpoint.com/idn/api/v3/search).
+In IdentityNow (IDN), you can search across all the sources connected to your tenant and return virtually any information you have access to. The `search` command allows you to access IDN search functionality within the CLI. For more information about the `search` command, refer to the CLI [Search guide](/idn/tools/cli/search). For more information about search in IDN, refer to [Search](idn/api/v3/search).
 
 ## Commands 
 

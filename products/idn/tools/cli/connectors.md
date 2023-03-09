@@ -15,7 +15,7 @@ tags: ['CLI']
 
 Learn how to use the CLI to create, manage, and test SaaS connectors in this guide.
 
-You can use SaaS connectors to serve as bridges between your IdentityNow (IDN) tenant and other source systems without the use of a Virtual Appliance (VA). For more information about the SaaS connectors, refer to the [SaaS Connectivity](https://developer.sailpoint.com/idn/docs/saas-connectivity) guide. 
+You can use SaaS connectors to serve as bridges between your IdentityNow (IDN) tenant and other source systems without the use of a Virtual Appliance (VA). For more information about the SaaS connectors, refer to the [SaaS Connectivity](/idn/docs/saas-connectivity) guide. 
 
 The `connectors` command is a CLI interface for the SaaS Connectivity platform. The CLI is the best way to create, manage, and test SaaS connectors within your tenant. 
 
@@ -42,7 +42,7 @@ To initialize a connector project, run this command:
 sail conn init [connectorProjectName]
 ```
 
-This command creates a folder named `connectorProjectName` in your working directory. The folder includes all the files necessary to create a connector. For more information about initiating a connector project, refer to the [Create new project](https://developer.sailpoint.com/idn/docs/saas-connectivity/prerequisites/#create-new-project) section of the SaaS Connectivity documentation. 
+This command creates a folder named `connectorProjectName` in your working directory. The folder includes all the files necessary to create a connector. For more information about initiating a connector project, refer to the [Create new project](/idn/docs/saas-connectivity/prerequisites/#create-new-project) section of the SaaS Connectivity documentation. 
 
 ### Create connector
 
@@ -52,7 +52,7 @@ To create a connector entry in your IDN tenant, run this command:
 sail conn create [connectorAlias]
 ```
 
-This command registers your connector and gives it a unique ID. For more information about creating a connector in your tenant, refer to the [Create connector in your org](https://developer.sailpoint.com/idn/docs/saas-connectivity/test-build-deploy#create-connector-in-your-org) section of the SaaS Connectivity documentation. 
+This command registers your connector and gives it a unique ID. For more information about creating a connector in your tenant, refer to the [Create connector in your org](/idn/docs/saas-connectivity/test-build-deploy#create-connector-in-your-org) section of the SaaS Connectivity documentation. 
 
 ### Upload connector
 
@@ -62,7 +62,7 @@ To upload a connector to your IDN tenant, run `npm run pack-zip` in the project 
 sail conn upload -c [connectorID | connectorAlias] -f connector.zip
 ```
 
-You must package the project files before you upload them. For more information about how to package and upload connectors, refer to the [Create and upload connector bundle](https://developer.sailpoint.com/idn/docs/saas-connectivity/test-build-deploy/#create-and-upload-connector-bundle) section of the SaaS Connectivity documentation. 
+You must package the project files before you upload them. For more information about how to package and upload connectors, refer to the [Create and upload connector bundle](/idn/docs/saas-connectivity/test-build-deploy/#create-and-upload-connector-bundle) section of the SaaS Connectivity documentation. 
 
 ### Invoke command
 
@@ -72,7 +72,7 @@ To test connector commands, like `test-connection`, `account-list`, and `entitle
 sail conn invoke [command] -c [connectorID | connectorAlias] -p [config.json] -v [version]
 ```
 
-For more information about the different available connector commands, refer to [Connector Commands](https://developer.sailpoint.com/idn/docs/saas-connectivity/connector-commands).
+For more information about the different available connector commands, refer to [Connector Commands](/idn/docs/saas-connectivity/connector-commands).
 
 The entitlement commands require an additional flag (`-t [entitlementType]`), like this example: 
 
@@ -80,7 +80,7 @@ The entitlement commands require an additional flag (`-t [entitlementType]`), li
 sail conn invoke entitlement-list -t [entitlementType] -c [connectorID | connectorAlias] -p [config.json] -v [version]
 ```
 
-For more information about invoking commands, refer to the [Test your connector in IdentityNow](https://developer.sailpoint.com/idn/docs/saas-connectivity/test-build-deploy#test-your-connector-in-identitynow) section of the SaaS Connectivity documentation. 
+For more information about invoking commands, refer to the [Test your connector in IdentityNow](/idn/docs/saas-connectivity/test-build-deploy#test-your-connector-in-identitynow) section of the SaaS Connectivity documentation. 
 
 ### List connectors
 
@@ -172,4 +172,4 @@ To get detailed logging statistics on each connector, run this command:
 sail conn stats
 ```
 
-For more information about connector logging, refer to [Logging](https://developer.sailpoint.com/idn/docs/saas-connectivity/in-depth/logging/).
+For more information about connector logging, refer to [Logging](/idn/docs/saas-connectivity/in-depth/logging/).

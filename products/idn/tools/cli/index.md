@@ -59,8 +59,8 @@ Then make sure you can run the `sail` command.
 
 To configure the CLI to connect and authenticate to your IDN tenant, you must do the following:
 
-- Find your tenant name. To learn how to find it, refer to [Getting Started](https://developer.sailpoint.com/idn/api/getting-started#find-your-tenant-name). The CLI will use this tenant name to connect to your IDN instance.
-- Create a personal access token (PAT). Make sure to note the "client ID" and "client secret." The CLI needs this information to authenticate successfully. To learn how to create a PAT, refer to [Personal Access Tokens](https://developer.sailpoint.com/idn/api/authentication#personal-access-tokens).
+- Find your tenant name. To learn how to find it, refer to [Getting Started](/idn/api/getting-started#find-your-tenant-name). The CLI will use this tenant name to connect to your IDN instance.
+- Create a personal access token (PAT). Make sure to note the "client ID" and "client secret." The CLI needs this information to authenticate successfully. To learn how to create a PAT, refer to [Personal Access Tokens](/idn/api/authentication#personal-access-tokens).
 
 ### Assisted configuration
 
@@ -161,11 +161,11 @@ Run the `sail` command for an overview of the available commands and flags. You 
 
 The following commands are available.:
 
-- `connectors`: This command is a CLI interface for the SaaS Connectivity platform. The CLI is the best way to create and manage SaaS connectors within your tenant. For more information about the `connectors` command, refer to the CLI [Connectors guide](https://developer.sailpoint.com/idn/tools/cli/connectors). For more information about the SaaS Connectivity platform, refer to [SaaS Connectivity](https://developer.sailpoint.com/idn/docs/saas-connectivity).
-- `search`: Run this command to access IDN search functionality within the CLI. For more information about the `search` command, refer to the CLI [Search guide](https://developer.sailpoint.com/idn/tools/cli/search). For more information about search in IDN, refer to [Search](https://developer.sailpoint.com/idn/api/v3/search).
-- `set`: Run this command to configure your CLI settings. For more information about the `set` command, refer to the CLI [Set guide](https://developer.sailpoint.com/idn/tools/cli/set)
-- `spconfig`: Run this command to access IDN SP Config functionaly. For more information about the `spconfig` command, refer to the CLI [SPConfig guide](https://developer.sailpoint.com/idn/tools/cli/spconfig). For more information about SPConfig, refer to the [SPConfig Beta API documentation](https://developer.sailpoint.com/idn/api/beta/sp-config).
-- `transform`: This command is a CLI interface that makes it easy to create, manage, and test transforms. For more information about the `transform` command, refer to the CLI [Transforms guide](/idn/tools/cli/transforms). For more information about transforms, refer to [Transforms](https://developer.sailpoint.com/idn/docs/transforms).
+- `connectors`: This command is a CLI interface for the SaaS Connectivity platform. The CLI is the best way to create and manage SaaS connectors within your tenant. For more information about the `connectors` command, refer to the CLI [Connectors guide](/idn/tools/cli/connectors). For more information about the SaaS Connectivity platform, refer to [SaaS Connectivity](/idn/docs/saas-connectivity).
+- `search`: Run this command to access IDN search functionality within the CLI. For more information about the `search` command, refer to the CLI [Search guide](/idn/tools/cli/search). For more information about search in IDN, refer to [Search](/idn/api/v3/search).
+- `set`: Run this command to configure your CLI settings. For more information about the `set` command, refer to the CLI [Set guide](/idn/tools/cli/set)
+- `spconfig`: Run this command to access IDN SP Config functionaly. For more information about the `spconfig` command, refer to the CLI [SPConfig guide](/idn/tools/cli/spconfig). For more information about SPConfig, refer to the [SPConfig Beta API documentation](/idn/api/beta/sp-config).
+- `transform`: This command is a CLI interface that makes it easy to create, manage, and test transforms. For more information about the `transform` command, refer to the CLI [Transforms guide](/idn/tools/cli/transforms). For more information about transforms, refer to [Transforms](/idn/docs/transforms).
 
 ## GitHub
 

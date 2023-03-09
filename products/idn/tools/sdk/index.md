@@ -18,6 +18,6 @@ A SailPoint software development kit (SDK) makes it easy to access the SailPoint
 In addition to the APIs, each SDK includes SaaS connector, IDN search, and transform functionality. Each SDK also includes prebuilt examples you can use to learn how to get started. 
 
 Try one of these SDKs to get started: 
-- [Go SDK](https://developer.sailpoint.com/idn/tools/sdk/go)
-- [Powershell SDK](https://developer.sailpoint.com/idn/tools/sdk/powershell)
-- [TypeScript SDK](https://developer.sailpoint.com/idn/tools/sdk/typescript)
+- [Go SDK](/idn/tools/sdk/go)
+- [Powershell SDK](/idn/tools/sdk/powershell)
+- [TypeScript SDK](/idn/tools/sdk/typescript)

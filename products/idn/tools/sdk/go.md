@@ -74,7 +74,7 @@ import (
     "fmt"
     "os"
 
-    sailpoint "github.com/sailpoint-oss/golang-sdk/sdk-output"
+    sailpoint "github.com/sailpoint-oss/golang-sdk"
  )
 
 func main() {
@@ -209,7 +209,7 @@ import (
     "fmt"
     "os"
 
-    sailpoint "github.com/sailpoint-oss/golang-sdk/sdk-output"
+    sailpoint "github.com/sailpoint-oss/golang-sdk"
  )
 
 func main() {
@@ -265,9 +265,9 @@ import (
 	"fmt"
 	"os"
 
-	sailpoint "github.com/sailpoint-oss/golang-sdk/sdk-output"
+	sailpoint "github.com/sailpoint-oss/golang-sdk"
 	// You must import the v3 library so the SDK is aware of the sailpointsdk.Account struct.
-	sailpointsdk "github.com/sailpoint-oss/golang-sdk/sdk-output/v3"
+	sailpointsdk "github.com/sailpoint-oss/golang-sdk/v3"
 )
 
 func main() {

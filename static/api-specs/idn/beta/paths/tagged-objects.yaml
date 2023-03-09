@@ -1,5 +1,7 @@
 get:
   operationId: listTaggedObjects
+  security:
+    - oauth2: [ idn:tag:read, idn:tag:manage ]
   tags:
     - Tagged Objects
   summary: List Tagged Objects
@@ -51,6 +53,8 @@ get:
       $ref: '../../v3/responses/500.yaml'
 post:
   operationId: addTagToObject
+  security:
+    - oauth2: [ idn:tag:manage ]
   tags:
     - Tagged Objects
   summary: Add Tag to Object

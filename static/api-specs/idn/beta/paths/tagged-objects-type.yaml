@@ -1,5 +1,7 @@
 get:
   operationId: listTaggedObjectsByType
+  security:
+    - oauth2: [ idn:tag:read, idn:tag:manage ]
   tags:
     - Tagged Objects
   summary: List Tagged Objects

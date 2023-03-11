@@ -4,8 +4,8 @@ module.exports = [
     {
       redirects: [
         {
-          to: '/developerdays',
-          from: '/conf',
+          to: '/',
+          from: ['/conf', '/developerdays', '/developerdays/agenda'],
         },
       ],
     },

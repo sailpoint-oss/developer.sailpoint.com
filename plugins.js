@@ -4,7 +4,7 @@ module.exports = [
     {
       redirects: [
         {
-          to: 'https://developer.sailpoint.com/discuss/t/thank-you-for-attending-developer-days-2023/9356',
+          to: '/discuss/t/thank-you-for-attending-developer-days-2023/9356',
           from: ['/conf', '/developerdays'],
         },
       ],

@@ -5,7 +5,7 @@ module.exports = [
       redirects: [
         {
           to: '/',
-          from: ['/conf', '/developerdays'],
+          from: ['/conf', '/developerdays', '/developerdays/agenda'],
         },
       ],
     },

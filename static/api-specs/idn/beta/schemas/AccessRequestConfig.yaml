@@ -1,0 +1,14 @@
+type: object
+properties:
+  requestCommentRequired:
+    type: boolean
+    description: If the request comment is required when the user request the entitlement
+    example: true
+  denialCommentRequired:
+    type: boolean
+    description: If the denial comment is required when the approver denies the request
+    example: true
+  approvalSchemes:
+    type: array
+    items:
+      $ref: './ApprovalScheme.yaml'

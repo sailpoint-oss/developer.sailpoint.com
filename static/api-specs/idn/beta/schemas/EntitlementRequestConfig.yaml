@@ -1,0 +1,6 @@
+type: object
+properties:
+  accessRequestConfig:
+    $ref: './AccessRequestConfig.yaml'
+  revocationRequestConfig:
+    $ref: './RevocationRequestConfig.yaml'

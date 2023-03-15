@@ -1,0 +1,15 @@
+type: object
+properties:
+  approverId:
+    type: string
+    description: The id of the approver
+    example: "46c79819-a69f-49a2-becb-12c971ae66c6"
+  approverType:
+    type: string
+    enum:
+      - ENTITLEMENT_OWNER
+      - SOURCE_OWNER
+      - MANAGER
+      - GOVERNANCE_GROUP
+    description: The type of approver
+    example: "GOVERNANCE_GROUP"

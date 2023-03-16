@@ -45,26 +45,6 @@ get:
                     "approverId": "46c79819-a69f-49a2-becb-12c971ae66c6"
                   }
                 ]
-              },
-              "revocationRequestConfig": {
-                "approvalSchemes": [
-                  {
-                    "approverType": "ENTITLEMENT_OWNER",
-                    "approverId": null
-                  },
-                  {
-                    "approverType": "SOURCE_OWNER",
-                    "approverId": null
-                  },
-                  {
-                    "approverType": "MANAGER",
-                    "approverId": null
-                  },
-                  {
-                    "approverType": "GOVERNANCE_GROUP",
-                    "approverId": "46c79819-a69f-49a2-becb-12c971ae66c6"
-                  }
-                ]
               }
             }
     '400':
@@ -91,7 +71,7 @@ put:
   parameters:
     - name: id
       in: path
-      description: ID of the Entitlement to replace
+      description: Entitlement ID
       required: true
       schema:
         type: string
@@ -114,26 +94,6 @@ put:
               "accessRequestConfig": {
                 "requestCommentRequired": true,
                 "denialCommentRequired": true,
-                "approvalSchemes": [
-                  {
-                    "approverType": "ENTITLEMENT_OWNER",
-                    "approverId": null
-                  },
-                  {
-                    "approverType": "SOURCE_OWNER",
-                    "approverId": null
-                  },
-                  {
-                    "approverType": "MANAGER",
-                    "approverId": null
-                  },
-                  {
-                    "approverType": "GOVERNANCE_GROUP",
-                    "approverId": "46c79819-a69f-49a2-becb-12c971ae66c6"
-                  }
-                ]
-              },
-              "revocationRequestConfig": {
                 "approvalSchemes": [
                   {
                     "approverType": "ENTITLEMENT_OWNER",

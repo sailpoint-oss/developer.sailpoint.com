@@ -103,3 +103,9 @@ private buildStandardObject(): StdEntitlementReadOutput | StdEntitlementListOutp
     }
 }
 ```
+:::caution Important
+
+IdentityNow will throw a connection timeout error if your connector does not respond within 3 minutes. There there are also memory limitations when aggregating data. In order to prevent large memory utilization or timeout errors, data should be sent to IdentityNow as it is retrieved from your source system. For more details and an example, see here: [Connector Timeouts](../in-depth/connector-timeouts.md)
+
+
+:::

@@ -23,7 +23,7 @@ VA connectors always communicate with external sources through the Virtual Appli
 
 ![Old Connectivity](./img/old_connectivity_diagram.png)
 
-VA connectors can be disadvantageous because you need an on-prem virtual appliance to have any external connectivity with them, even when that connectivity is a SaaS service like Salesforce.com.
+VA connectors can have disadvantages in certain situations because you need an on-prem virtual appliance to have any external connectivity with them, even when that connectivity is a SaaS service like Salesforce.com.
 
 It is also challenging to create a custom connector in the VA Connector framework. Therefore, there are generic connectors available such as flat file, JDBC and webservice connectors. These options provide flexibility in configuring almost any source, but this configuration can be complex. For example, when you create a JDBC connector, you must use SQL to define the data model.
 
@@ -32,6 +32,10 @@ The new Cloud connectors work differently - they run on the IDN platform instead
 ![New Connectivity](./img/new_connectivity_diagram.png)
 
 With this process, you can run an entire IDN instance without a VA. The new connector also includes a CLI tool to manage cloud connectors and an SDK to create custom connectors. Because it is simpler to create a custom connector, you can create specific connectors for a variety of sources, and the connectors' configuration can be much simpler. For example, you can now configure a formerly complicated webservice connector by providing two parameters (Base URL and API Key) in a custom cloud connector.
+
+With both SaaS connectivity and traditional VA connectivity in place, you can have the best of both worlds. Below is a new diagram showing both of them working together to leverage both on-prem and cloud based sources.
+
+![SaaS Connectivity and On Prem](./img/new_connectivity_diagram_both.png)
 
 :::caution Important
 

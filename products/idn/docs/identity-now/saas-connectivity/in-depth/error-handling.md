@@ -43,6 +43,25 @@ export class AirtableClient {
     }
 ```
 
+## Not Found Error Type
+
+The connector SDK offers a special error type of "Not Found". This error will signal to IdentityNow that the specific account is not in the source system, and in the case where it should be in the source system, IdentityNow will then call the connector ```std:account:create``` command to create the account. An example of this in pracice can be found below:
+
+```javascript
+.stdAccountUpdate(async (context: Context, input: StdAccountUpdateInput, res: Response<StdAccountUpdateOutput>) => {
+    const account = await myClient.getAccount(input.identity)
+    if (!account) {
+        // account was not found, but identity now has the account and expects it to be there! 
+        // Send an error message to IdentityNow so the account is automatically created
+        if (!account) {
+            throw new ConnectorError("account is not found", ConnectorErrorType.NotFound)
+        }
+    }
+
+    ... perform normal account update logic below
+
+```
+
 ## Custom Errors
 
 You can also create custom errors and use them in your code to give more meaningful and specific responses to error states. For example, when you are configuring your connector, it is recommended that you throw an `InvalidConfigurationError` instead of a generic ConnectorError. To do this, create the custom error:
@@ -56,7 +75,7 @@ import {ConnectorError, ConnectorErrorType} from '@sailpoint/connector-sdk';
  * Thrown when an application missing configuration during initialization
  */
 
-export class InvalidConfigurationError extends ConnectorError {
+export class InvalidConfigurationException extends ConnectorError {
   /**
    * Constructor
    * @param message Error message
@@ -64,7 +83,7 @@ export class InvalidConfigurationError extends ConnectorError {
    */
   constructor(message: string, type?: ConnectorErrorType) {
     super(message, type);
-    this.name = 'InvalidConfigurationError';
+    this.name = 'InvalidConfigurationException';
   }
 }
 ```
@@ -74,7 +93,7 @@ Then throw the error in your code:
 [airtable.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/airtable.ts)
 
 ```javascript
-import { InvalidConfigurationError } from "./errors/invalid-configuration-error"
+import { InvalidConfigurationException } from "./errors/invalid-configuration-error"
 
 export class AirtableClient {
     private readonly airTableBase: Airtable.Base
@@ -82,10 +101,10 @@ export class AirtableClient {
         // Fetch necessary properties from config.
         // Following properties actually do not exist in the config -- it just serves as an example.
         if (config.apiKey == null) {
-            throw new InvalidConfigurationError('token must be provided from config')
+            throw new InvalidConfigurationException('token must be provided from config')
         }
         if (config.airtableBase == null) {
-            throw new InvalidConfigurationError('airtableBase base id needed')
+            throw new InvalidConfigurationException('airtableBase base id needed')
         }
         Airtable.configure({apiKey: config.apiKey})
         this.airTableBase = Airtable.base(config.airtableBase)
@@ -95,3 +114,23 @@ export class AirtableClient {
 
 }
 ```
+
+## Recommended custom exceptions and examples of when to use
+
+#### InvalidConfigurationException
+- During any operation if connector requires certain configuration to connect to the managed-system which is not provided or is faulty. This could happen before sending a request to the managed system
+
+#### InsufficientPermissionException
+- During any operation if connector gets a known Managed System exception indicating lack of permission
+
+#### InvalidRequestException
+- During any operation when the connector is creating messages to be sent to the managed system, but it fails to create a message. This could happen before sending a request to the managed system.
+
+#### ObjectAlreadyExistsException
+- During provisioning operation of type create(only) the connector is trying to create an entity on the managed system but the same entity is already existing on the managed system.
+
+#### InvalidResponseException
+- During aggregation or in the getObject when the connector is unable to parse a data received from Managed System. If something fails, when converting managed system response to ResourceObject.
+
+#### TimeoutException
+- This is intended for cases in which the connector receives timeout related error/exception from the managed system.

@@ -21,7 +21,8 @@ async getAccounts(res: Response<StdAccountListOutput>): Promise<boolean> {
     // each page will be called recursively until there are no more records to fetch, at which case the promise is fulfilled
     ).eachPage((records, fetchNextPage) => {
         for (let record of records) {
-            // this is the part that sends the data to IdentityNow. Since eachPage is called with just 10 records, if there are 100 records total, we would send data back to IDN in 10 sets of 10 records.
+            // this is the part that sends the data to IdentityNow. Since eachPage is called with just 10 records, 
+            // if there are 100 records total, we would send data back to IDN in 10 sets of 10 records.
             res.send({
                 identity: record.id,
                 attributes: {

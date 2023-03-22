@@ -104,4 +104,4 @@ Note: Testing the account update command for removing entitlements using this me
 
 ## Handling an account that is not found
 
-In the case where the account is not found in the source system, IdentityNow can recreate the account by utilizing the ```ConnectorErrorType.NotFound``` error type. For details and implementation, see [Error Handling](../in-depth/error-handling.md#not-found-error-type)
+If an account can't be found in the source system, IDN can recreate the account by using the ```ConnectorErrorType.NotFound``` error type. For details and implementation, refer to [Error Handling](../in-depth/error-handling.md#not-found-error-type).

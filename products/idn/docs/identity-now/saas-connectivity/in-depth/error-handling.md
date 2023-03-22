@@ -6,12 +6,12 @@ sidebar_label: Error Handling
 sidebar_position: 3
 sidebar_class_name: errorHandling
 keywords: ['connectivity', 'connectors', 'error handling']
-description: Any time code can fail due to validation issues, connectivity or configuration errors, handle the error and provide information back to the user about what went wrong.
+description: If the code fails due to validation issues, connectivity, or configuration errors, you can handle the error and provide the user with information about what went wrong.
 slug: /docs/saas-connectivity/in-depth/error-handling
 tags: ['Connectivity']
 ---
 
-Any time code can fail due to validation issues, connectivity or configuration errors, handle the error and provide information back to the user about what went wrong. If you handle your errors properly, it will be easier to debug and pinpoint what happened in your connector when something goes wrong.
+If the code fails due to validation issues, connectivity or configuration errors, you can handle the error and provide the user with information about what went wrong. Properly handled errors make it easier to debug and identify what happened in your connector when something goes wrong.
 
 ## Connector Errors
 
@@ -45,7 +45,9 @@ export class AirtableClient {
 
 ## Not Found Error Type
 
-The connector SDK offers a special error type of "Not Found". This error will signal to IdentityNow that the specific account is not in the source system, and in the case where it should be in the source system, IdentityNow will then call the connector ```std:account:create``` command to create the account. An example of this in pracice can be found below:
+The connector SDK offers a special error type of "Not Found". This error signals to IDN that the specific account is not in the source system. If the account should be in the source system, IDN will then call the connector ```std:account:create``` command to create the account. 
+
+Here is an example: 
 
 ```javascript
 .stdAccountUpdate(async (context: Context, input: StdAccountUpdateInput, res: Response<StdAccountUpdateOutput>) => {
@@ -115,22 +117,22 @@ export class AirtableClient {
 }
 ```
 
-## Recommended custom exceptions and examples of when to use
+## Recommended custom exceptions and examples of when to use them
 
 #### InvalidConfigurationException
-- During any operation if connector requires certain configuration to connect to the managed-system which is not provided or is faulty. This could happen before sending a request to the managed system
+- Use this exception during any operation if the connector requires a certain configuration to connect to the managed-system, but the configuration is either faulty or not provided. This could happen before sending a request to the managed system.
 
 #### InsufficientPermissionException
-- During any operation if connector gets a known Managed System exception indicating lack of permission
+- Use this exception during any operation if the connector gets a known managed system exception indicating a lack of permission. 
 
 #### InvalidRequestException
-- During any operation when the connector is creating messages to be sent to the managed system, but it fails to create a message. This could happen before sending a request to the managed system.
+- Use this exception during any operation if the connector is creating messages to be sent to the managed system but is failing to create a message. This could happen before sending a request to the managed system.
 
 #### ObjectAlreadyExistsException
-- During provisioning operation of type create(only) the connector is trying to create an entity on the managed system but the same entity is already existing on the managed system.
+- Use this exception during the provisioning operation of the type create(only) if the connector is trying to create an entity that already exists on the managed system.
 
 #### InvalidResponseException
-- During aggregation or in the getObject when the connector is unable to parse a data received from Managed System. If something fails, when converting managed system response to ResourceObject.
+- Use this exception during aggregation or in the getObject when the connector is unable to parse data received from managed system. This could happen if something fails when converting a managed system response to a ResourceObject.
 
 #### TimeoutException
-- This is intended for cases in which the connector receives timeout related error/exception from the managed system.
+- This is intended for cases in which the connector receives timeout related error/exceptions from the managed system.

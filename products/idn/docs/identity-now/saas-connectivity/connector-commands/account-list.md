@@ -65,7 +65,7 @@ async getAllAccounts(): Promise<AirtableAccount[]> {
 
 :::caution Important
 
-IdentityNow will throw a connection timeout error if your connector does not respond within 3 minutes. There there are also memory limitations when aggregating data. In order to prevent large memory utilization or timeout errors, data should be sent to IdentityNow as it is retrieved from your source system. For more details and an example, see here: [Connector Timeouts](../in-depth/connector-timeouts.md)
+IDN will throw a connection timeout error if your connector doesn't respond within 3 minutes, and there are memory limitations involved with aggregating data. To prevent large memory utilization or timeout errors, you should set up your connectors to send data to IDN as it's retrieved from your source system. For more details and an example, refer to [Connector Timeouts](../in-depth/connector-timeouts.md).
 
 :::
 
@@ -77,7 +77,7 @@ export const connector = async () => {
     // Get connector source config
     const config = await readConfig()
 
-    // Use the vendor SDK, or implement own client as necessary, to initialize a client
+    // Use the vendor SDK or implement own client as necessary to initialize a client
     const airtable = new AirtableClient(config)
 
     return createConnector()

@@ -6,12 +6,14 @@ sidebar_label: Connector Timeouts
 sidebar_position: 1.2
 sidebar_class_name: connectorTimeouts
 keywords: ['connectivity', 'connectors', 'timeout']
-description: IdentityNow will throw an error if your connector does not send a response in 3 minutes. For connector commands that might take longer than 3 minutes, make sure to send data at regular intervals to prevent a timeout
+description: IdentityNow will throw an error if your connector does not send a response in 3 minutes. For connector commands that might take longer than 3 minutes, make sure to send data at regular intervals to prevent a timeout.
 slug: /docs/saas-connectivity/in-depth/connector-timeouts
 tags: ['Connectivity']
 ---
 
-IdentityNow SaaS Connectivity connectors will send a timeout error if the connector does not send a response in 3 minutes. If a connector is sending thousands of records, then the process of fetching the records will likely exceed this timeout limit, and you can also run into other issues with memory utilization if you are trying to store all those records in memory before sending them to IdentityNow. In order to prevent this, it is recommended to paginate through your source data and send data back on regular intervals. Below is one example of how this can be done.
+An IdentityNow SaaS Connectivity connector will send a timeout error if it doesn't send a response within 3 minutes. If the connector is sending thousands of records, the record fetching process will likely exceed this timeout limit. If you are storing all those records in memory before sending them to IDN, you can run into memory utilization issues. To prevent these issues, you should paginate through your source data and send the data back in regular intervals. 
+
+This is an example of how to set up this pagination: 
 
 ```javascript
 async getAccounts(res: Response<StdAccountListOutput>): Promise<boolean> {

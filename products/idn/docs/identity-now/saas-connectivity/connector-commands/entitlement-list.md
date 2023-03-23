@@ -103,3 +103,8 @@ private buildStandardObject(): StdEntitlementReadOutput | StdEntitlementListOutp
     }
 }
 ```
+:::caution Important
+
+IDN will throw a connection timeout error if your connector doesn't respond within 3 minutes, and there are memory limitations involved with aggregating data. To prevent large memory utilization or timeout errors, you should set up your connectors to send data to IDN as it's retrieved from your source system. For more details and an example, refer to [Connector Timeouts](../in-depth/connector-timeouts.md).
+
+:::

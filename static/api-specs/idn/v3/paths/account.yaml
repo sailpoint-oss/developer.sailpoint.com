@@ -8,7 +8,7 @@ get:
 
     A token with ORG_ADMIN authority is required to call this API.
   security:
-    - oauth2: [idn:account:read]
+    - oauth2: [idn:accounts:read]
   parameters:
     - in: path
       name: id
@@ -58,7 +58,7 @@ patch:
 
     A token with ORG_ADMIN authority is required to call this API.
   security:
-    - oauth2: [idn:account:update]
+    - oauth2: [idn:accounts:manage]
   parameters:
     - in: path
       name: id
@@ -111,7 +111,7 @@ put:
     >**NOTE: The PUT Account API is designated only for Delimited File
     sources.**
   security:
-    - oauth2: [idn:account:update]
+    - oauth2: [idn:accounts:manage]
   parameters:
     - in: path
       name: id
@@ -158,7 +158,7 @@ delete:
 
     A token with ORG_ADMIN authority is required to call this API.
   security:
-    - oauth2: [idn:account:delete]
+    - oauth2: [idn:accounts:manage]
   parameters:
     - in: path
       name: id

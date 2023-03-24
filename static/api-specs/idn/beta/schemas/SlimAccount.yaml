@@ -10,6 +10,7 @@ allOf:
         format: uuid
         description: Unique ID from the owning source
         example: '2c9180857893f12901789445619b0366'
+        nullable: true
       nativeIdentity:
         type: string
         description: The native identifier of the account
@@ -18,6 +19,7 @@ allOf:
         type: string
         description: The description for the account
         example: 'Brandin Gray the CEO of Silly Inc.'
+        nullable: true
       disabled:
         type: boolean
         description: Whether the account is disabled

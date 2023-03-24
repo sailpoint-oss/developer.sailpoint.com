@@ -55,3 +55,6 @@ flows:
       'idn:transforms:delete': Right to delete transforms
       'idn:transforms:usage': Right to check whether a transform is referenced elsewhere
       idn:source-connector:write: Right to configure source-connectors
+      mlops:feature-data:read: Right to retrieve data from the feature store
+      mlops:feature-data:write: Right to update data in the feature store
+

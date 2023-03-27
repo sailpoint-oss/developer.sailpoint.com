@@ -1,0 +1,8 @@
+type: string
+enum:
+  - MANUAL_REASSIGNMENT
+  - AUTOMATIC_REASSIGNMENT
+  - AUTO_ESCALATION
+  - SELF_REVIEW_DELEGATION
+description: Type of approval reassignment.
+example: MANUAL_REASSIGNMENT

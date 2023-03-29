@@ -5,6 +5,8 @@ get:
   summary: Get an Entitlement
   description: >-
     This API returns an Entitlement by its ID.
+  security:
+    - oauth2: ['idn:entitlement:read']
   parameters:
     - in: path
       name: id
@@ -42,6 +44,11 @@ get:
                 "id": "2c9180877504c40e0175097d5ce707c8",
                 "name": "EndToEnd-ADSource"
               },
+              "owner": {
+                "id": "2a2fdacc-a5e3-45f1-8bf7-970cfbb8fec2",
+                "name": "governance group1",
+                "type": "GOVERNANCE_GROUP"
+              },
               "id": "2c91808c74ff913f0175097daa9d59cd",
               "name": "LauncherTestGroup1",
               "created": "2020-10-08T18:33:52.029Z",
@@ -69,10 +76,16 @@ patch:
 
 
     The following fields are patchable:
-    **requestable**, **privileged**, **segments**
+    **requestable**, **privileged**, **segments**, **owner**.
+
+
+    When patching owner only owner type and owner id need to be provided. Owner name is optional and it won't be
+    modified. If it is provided, it should correspond to the real name.
 
 
     A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
+  security:
+    - oauth2: ['idn:entitlement:update']
   parameters:
     - name: id
       in: path
@@ -122,6 +135,21 @@ patch:
                   "op": "add",
                   "path": "/segments/-",
                   "value": "f7b1b8a3-5fed-4fd4-ad29-82014e137e19"
+                }
+              ]
+          Assign a owner to an entitlement:
+            description: >-
+              This example illustrates the use of patch to assign a owner to an entitlement by adding the owner's
+              info to the entitlement.
+            value:
+              [
+                {
+                  "op": "add",
+                  "path": "/owner",
+                  "value": {
+                    "type": "GOVERNANCE_GROUP",
+                    "id": "2a2fdacc-a5e3-45f1-8bf7-970cfbb8fec2"
+                  }
                 }
               ]
   responses:

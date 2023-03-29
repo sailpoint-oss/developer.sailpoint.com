@@ -57,4 +57,7 @@ flows:
       idn:source-connector:write: Right to configure source-connectors
       mlops:feature-data:read: Right to retrieve data from the feature store
       mlops:feature-data:write: Right to update data in the feature store
-
+      idn:entitlement:read: Right to read entitlements
+      idn:entitlement:update: Right to update entitlements
+      idn:entitlement:create: Right to create entitlements
+      idn:entitlement:delete: Right to delete entitlements

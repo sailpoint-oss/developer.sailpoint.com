@@ -1,0 +1,18 @@
+type: object
+description: Simplified DTO for the owner object of the entitlement
+properties:
+  id:
+    type: string
+    description: The owner id for the entitlement
+    example: '2a2fdacc-a5e3-45f1-8bf7-970cfbb8fec2'
+  name:
+    type: string
+    description: The owner name for the entitlement
+    example: 'governance group 1'
+  type:
+    type: string
+    enum:
+      - IDENTITY
+      - GOVERNANCE_GROUP
+    description: The type of the owner
+    example: 'GOVERNANCE_GROUP'

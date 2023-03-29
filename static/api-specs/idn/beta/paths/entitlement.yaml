@@ -5,6 +5,8 @@ post:
   summary: Creates an entitlement
   description: >-
     This internal endpoint creates an entitlement using the given entitlement payload
+  security:
+    - oauth2: ['idn:entitlement:create']
   requestBody:
     required: true
     content:

@@ -2,7 +2,6 @@ allOf:
   - $ref: '../BaseCommonDto.yaml'
   - type: object
     description: Entitlement object that represents entitlement
-
     properties:
       attribute:
         description: Name of the entitlement attribute
@@ -74,21 +73,6 @@ allOf:
             type: string
             description: SOURCE (added because exists in Entitlement V3)
             example: SOURCE
-      owner:
-        type: object
-        properties:
-          id:
-            type: string
-            description: Object reference id
-            example: 2b86153b97a94abc936c8a11b106aaf8
-          value:
-            type: string
-            description: Object reference name
-            example: accountant
-          uuid:
-            type: string
-            description: owner uuid identifier reference
-            example: 2b86153b-97a9-4abc-936c-8a11b106aaf8
       hash:
         type: string
         description: Read-only calculated hash value of an entitlement
@@ -133,3 +117,5 @@ allOf:
         type: string
         description: Segment status (GLOBAL/LOCAL)
         example: GLOBAL
+      owner:
+        $ref: './OwnerReferenceDto.yaml'

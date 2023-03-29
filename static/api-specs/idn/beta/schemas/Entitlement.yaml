@@ -57,10 +57,6 @@ properties:
         type: string
         description: The source name
         example: ODS-AD-Source
-    example:
-      - type: 'SOURCE'
-        id: '2c9180835d191a86015d28455b4b232a'
-        name: 'HR Active Directory'
   attributes:
     type: object
     description: A map of free-form key-value pairs from the source system
@@ -80,3 +76,5 @@ properties:
     type: array
     items:
       $ref: './PermissionDto.yaml'
+  owner:
+    $ref: '../schemas/gov-entitlement/OwnerReferenceDto.yaml'

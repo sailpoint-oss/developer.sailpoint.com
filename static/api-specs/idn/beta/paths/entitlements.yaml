@@ -3,6 +3,8 @@ get:
   tags:
     - Entitlements
   summary: Gets a list of entitlements.
+  security:
+    - oauth2: ['idn:entitlement:read']
   description: >-
     This API returns a list of entitlements.
 

@@ -45,9 +45,9 @@ get:
                 "name": "EndToEnd-ADSource"
               },
               "owner": {
-                "id": "2a2fdacc-a5e3-45f1-8bf7-970cfbb8fec2",
-                "name": "governance group1",
-                "type": "GOVERNANCE_GROUP"
+                "id": "2c9180858315595501831958427e5424",
+                "name": "Addie Smith",
+                "type": "IDENTITY"
               },
               "id": "2c91808c74ff913f0175097daa9d59cd",
               "name": "LauncherTestGroup1",
@@ -149,6 +149,21 @@ patch:
                   "value": {
                     "type": "GOVERNANCE_GROUP",
                     "id": "2a2fdacc-a5e3-45f1-8bf7-970cfbb8fec2"
+                  }
+                }
+              ]
+          Replace a owner for an entitlement:
+            description: >-
+              This example illustrates the use of patch to replace a new owner to an entitlement by replacing the new
+              owner's info to the entitlement.
+            value:
+              [
+                {
+                  "op": "replace",
+                  "path": "/owner",
+                  "value": {
+                    "type": "IDENTITY",
+                    "id": "2c9180858315595501831958427e5424"
                   }
                 }
               ]

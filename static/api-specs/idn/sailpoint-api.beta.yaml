@@ -1148,6 +1148,8 @@ paths:
     $ref: './beta/paths/ears-entitlement-children.yaml'
   /entitlements/bulk-update:
     $ref: './beta/paths/ears-entitlement-bulk-update.yaml'
+  /entitlements/{id}/entitlement-request-config:
+    $ref: "./beta/paths/entitlement-request-config.yaml"
   /generate-password-reset-token/digit:
     $ref: './beta/paths/password-reset-digit-token.yaml'
   /historical-identities:
@@ -1428,6 +1430,8 @@ paths:
     $ref: './beta/paths/source-upload-connector-file.yaml'
   /sources/{id}/synchronize-attributes:
     $ref: './beta/paths/source-synchronize-attributes.yaml'
+  /sources/{id}/entitlement-request-config:
+    $ref: './beta/paths/sources-entitlement-request-config.yaml'
   /tagged-objects:
     $ref: './beta/paths/tagged-objects.yaml'
   /tagged-objects/{type}:

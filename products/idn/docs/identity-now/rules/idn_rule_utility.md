@@ -500,6 +500,23 @@ String value, String sortAttribute)
     */
     public int countIdentitiesBySearchableIdentityAttribute(String attributeName, String operation, String value)
 }
+
+    /**
+    * Use this method to call LDAP type connectors to look for 
+    * unique values. The method calls the connector with a specific search filter
+    * based on the attributeName and value passed into this method.
+    * Any returned value is considered non-unique.
+    * 
+    * @param identityNameOrId The name or ID of the identity you are using
+    * @param applicationNameOrId The name or ID of the source you are targeting
+    * @param attributeName The name of the attribute you want to validate
+    * @param attributeValue The value of the attribute you want to validate
+    * 
+    * @return true if the value is unique AND false otherwise. If the application or identity can't be found an
+    * IllegalStateException will be thrown.
+    * 
+    */
+    public boolean isUniqueLDAPValue(String identityNameOrId, String applicationNameOrId, String attributeName, String attributeValue)
 ```
 
 ## Example Usage

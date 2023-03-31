@@ -24,7 +24,7 @@ Each IDN API version is broken out into a separate collection within the workspa
 | cc/private API | [![Run in Postman](./img/button.svg)](https://god.gw.postman.com/run-collection/23226990-4ec40b38-cdac-44bf-a07c-8606895d2233?action=collection%2Ffork&collection-url=entityId%3D23226990-4ec40b38-cdac-44bf-a07c-8606895d2233%26entityType%3Dcollection%26workspaceId%3D80af54be-a333-4712-af5e-41aa9eccbdd0) |
 | SaaS Connectivity | [![Run in Postman](./img/button.svg)](https://god.gw.postman.com/run-collection/23226990-a0b5c429-d8dd-4fe2-a4a2-eb7ff85322ef?action=collection%2Ffork&collection-url=entityId%3D23226990-a0b5c429-d8dd-4fe2-a4a2-eb7ff85322ef%26entityType%3Dcollection%26workspaceId%3D80af54be-a333-4712-af5e-41aa9eccbdd0) |
 
-## Get collection updates
+## Update your collections
 
 SailPoint is often making improvements to the IDN API collections. To keep your workspace in sync with updates to one of SailPoint's public collections, hover over the collection, select the ellipse to the righ, and select 'Pull changes'. 
 

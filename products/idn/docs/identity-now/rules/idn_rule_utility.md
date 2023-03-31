@@ -503,8 +503,8 @@ String value, String sortAttribute)
 
     /**
     * Use this method to call LDAP type connectors to look for 
-    * unique values. The method calls the connector with a specific search filter
-    * based on the attributeName and value passed into this method.
+    * unique values. This method calls the connector with a specific search filter
+    * based on the attributeName and value passed into the method.
     * Any returned value is considered non-unique.
     * 
     * @param identityNameOrId The name or ID of the identity you are using
@@ -512,7 +512,7 @@ String value, String sortAttribute)
     * @param attributeName The name of the attribute you want to validate
     * @param attributeValue The value of the attribute you want to validate
     * 
-    * @return true if the value is unique AND false otherwise. If the application or identity can't be found an
+    * @return true if the value is unique AND false otherwise. If the application or identity can't be found, an
     * IllegalStateException will be thrown.
     * 
     */

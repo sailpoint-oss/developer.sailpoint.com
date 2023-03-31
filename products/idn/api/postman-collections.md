@@ -10,7 +10,7 @@ description: How to run the APIs in Postman.
 tags: ['postman']
 ---
 
-[Postman](https://www.postman.com/) is a platform you can use to design, build, test, and iterate your APIs. Postman users and teams can create public workspaces they can use to make it easy to access their API collections and get started. SailPoint maintains a [public workspace for the IdentityNow API collections](https://www.postman.com/sailpoint/workspace/identitynow). You can use this workspace to access all the IDN API collections and stay up to date. 
+[Postman](https://www.postman.com/) is a platform you can use to design, build, test, and iterate your APIs. Postman users and teams can create public workspaces they can use to make it easy to access their API collections and environments and get started. SailPoint maintains a [public workspace for the IdentityNow API collections](https://www.postman.com/sailpoint/workspace/identitynow). You can use this workspace to access all the IDN API collections and stay up to date. 
 
 ## Run in Postman
 
@@ -33,6 +33,25 @@ SailPoint is often making improvements to the IDN API collections. To keep your 
 If there are no changes, you're up to date. If there are changes, the screen lists the changes you're pulling, as shown in the following image. Select 'Pull changes' again to pull them in. Then you're up to date!
 
 ![image|666x500, 75%](./img/diff-changes.png)
+
+## Update your environment
+
+The SailPoint workspace also provides an environment, a set of variables you can use in your requests. SailPoint also makes improvements to this environment to add new capabilities to the workspace. You may want to keep your own environment. If so, you can pull the environment changes the same you did with the collection updates. 
+
+You will need these variables in your own Postman environment: 
+
+:::caution 
+
+Do not include your baseURL in your variables. 
+
+:::
+
+| Environment Variable | Required | Description | 
+| ----------- | ----------- | ----------- |
+| tenant | Yes | Your IDN tenant, typically your company's name |
+| clientId | Yes | The client ID for the API client or personal access token |
+| clientSecret | Yes | The client secret for the API client or personal access token |
+| domain | No | This optional field is only necessary for those who have a domain in their API URL that isn't "identitynow". |
 
 :::tip
 

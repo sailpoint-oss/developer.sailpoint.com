@@ -26,6 +26,10 @@ const sidebars = {
           id: 'api/rate-limit',
         },
         {
+          type: 'doc',
+          id: 'api/postman-collections',
+        },
+        {
           type: 'category',
           label: 'V3 APIs',
           link: {

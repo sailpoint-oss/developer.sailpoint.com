@@ -14,7 +14,7 @@ tags: ['postman']
 
 ## Run in Postman
 
-Each IDN API version is broken out into a separate collection within the workspace. The following table lists the available IDN API collections. To import a collection into your workspace, select the 'Run in Postman' button for your desired version. Doing so automatically syncs the collection with the one in your workspace. 
+Each IDN API version is broken out into a separate collection within the workspace. The following table lists the available IDN API collections. To import a collection into your workspace, select the 'Run in Postman' button for your desired version. Doing so forks the collection into your workspace. 
 
 | API | Postman Collection |
 |------|----------------------------|
@@ -24,17 +24,21 @@ Each IDN API version is broken out into a separate collection within the workspa
 | cc/private API | [![Run in Postman](./img/button.svg)](https://god.gw.postman.com/run-collection/23226990-4ec40b38-cdac-44bf-a07c-8606895d2233?action=collection%2Ffork&collection-url=entityId%3D23226990-4ec40b38-cdac-44bf-a07c-8606895d2233%26entityType%3Dcollection%26workspaceId%3D80af54be-a333-4712-af5e-41aa9eccbdd0) |
 | SaaS Connectivity | [![Run in Postman](./img/button.svg)](https://god.gw.postman.com/run-collection/23226990-a0b5c429-d8dd-4fe2-a4a2-eb7ff85322ef?action=collection%2Ffork&collection-url=entityId%3D23226990-a0b5c429-d8dd-4fe2-a4a2-eb7ff85322ef%26entityType%3Dcollection%26workspaceId%3D80af54be-a333-4712-af5e-41aa9eccbdd0) |
 
+You can also fork a collection by selecting the ellipses to the right of the collection and selecting 'Create a fork.'
+
+When you fork the collection, it is recommended that you check the 'Watch original collection' checkbox to get notifications when there are changes to the collection. You can then pull the changes to merge them and stay up to date.
+
 ## Update your collections
 
-SailPoint is often making improvements to the IDN API collections. To keep your workspace in sync with updates to one of SailPoint's public collections, hover over the collection, select the ellipse to the righ, and select 'Pull changes'. 
+SailPoint is often making improvements to the IDN API collections. To keep your workspace in sync with updates to one of SailPoint's public collections, select the ellipse to the right of the collection, and select 'Pull changes'. 
 
-If there are no changes, you're up to date. If there are changes, the screen lists the changes you're pulling. Select 'Pull changes' again to pull them in. Then you're up to date!
+If there are no changes, you're up to date. If there are changes, the screen lists the changes you're pulling. Select 'Pull changes' again to pull them in.
 
 ## Configure your environment
 
-The SailPoint workspace provides an environment, a set of variables you can use in your requests, that you can fork and pull changes from the same way you can with collections. 
+The SailPoint workspace provides an environment, a set of variables you can use in your requests, that you can fork and pull changes from to stay up to date the same way you can with collections. 
 
-To access the IDN APIs, you must specify these variables in your Postman environment:
+To send API requests in Postman, you must authenticate to the APIs. To authenticate to the APIs, you must specify these variables in your Postman environment:
 
 | Environment Variable | Required | Description | 
 | ----------- | ----------- | ----------- |
@@ -45,7 +49,7 @@ To access the IDN APIs, you must specify these variables in your Postman environ
 
 :::caution 
 
-Do not include your baseURL in your variables. 
+Don't specify your baseUrl in your environment variables. When you fork an API collection, the baseUrl is automatically set as https://{{tenant}}.api.{{domain}}.com. Setting your baseURl in your environment variables may interfere with this process. 
 
 :::
 

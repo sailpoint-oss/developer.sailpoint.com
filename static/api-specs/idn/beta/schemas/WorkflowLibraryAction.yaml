@@ -18,6 +18,10 @@ properties:
     description: One or more inputs that the action accepts
     items:
       $ref: './WorkflowLibraryFormFields.yaml'
+  isDynamicSchema:
+      type: boolean
+      description: Determines whether the dynamic output schema is returned in place of the action's output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields.
+      example: false
   outputSchema:
     type: object
     description: Defines the output schema, if any, that this action produces.

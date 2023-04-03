@@ -20,6 +20,10 @@ properties:
     type: string
     description: Trigger Description
     example: One or more identity attributes changed.
+  isDynamicSchema:
+    type: boolean
+    description: Determines whether the dynamic output schema is returned in place of the action's output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields.
+    example: false
   inputExample:
     type: object
     description: Example trigger payload if applicable

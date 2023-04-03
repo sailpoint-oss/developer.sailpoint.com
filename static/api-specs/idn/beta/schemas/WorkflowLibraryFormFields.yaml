@@ -27,4 +27,18 @@ properties:
       - number
       - json
       - checkbox
+      - jsonpath
+      - select
+      - multiType
+      - duration
+      - toggle
+      - identityPicker
+      - governanceGroupPicker
+      - string
+      - number
+      - object
+      - array
+      - secret
+      - url
+      - keyValuePairs
     example: text

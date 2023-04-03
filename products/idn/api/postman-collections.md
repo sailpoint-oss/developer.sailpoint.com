@@ -28,23 +28,13 @@ Each IDN API version is broken out into a separate collection within the workspa
 
 SailPoint is often making improvements to the IDN API collections. To keep your workspace in sync with updates to one of SailPoint's public collections, hover over the collection, select the ellipse to the righ, and select 'Pull changes'. 
 
-![image|230x500, 75%](./img/pull-changes.png)
+If there are no changes, you're up to date. If there are changes, the screen lists the changes you're pulling. Select 'Pull changes' again to pull them in. Then you're up to date!
 
-If there are no changes, you're up to date. If there are changes, the screen lists the changes you're pulling, as shown in the following image. Select 'Pull changes' again to pull them in. Then you're up to date!
+## Configure your environment
 
-![image|666x500, 75%](./img/diff-changes.png)
+The SailPoint workspace provides an environment, a set of variables you can use in your requests, that you can fork and pull changes from the same way you can with collections. 
 
-## Update your environment
-
-The SailPoint workspace also provides an environment, a set of variables you can use in your requests. SailPoint also makes improvements to this environment to add new capabilities to the workspace. You may want to keep your own environment. If so, you can pull the environment changes the same you did with the collection updates. 
-
-You will need these variables in your own Postman environment: 
-
-:::caution 
-
-Do not include your baseURL in your variables. 
-
-:::
+To access the IDN APIs, you must specify these variables in your Postman environment:
 
 | Environment Variable | Required | Description | 
 | ----------- | ----------- | ----------- |
@@ -52,6 +42,14 @@ Do not include your baseURL in your variables.
 | clientId | Yes | The client ID for the API client or personal access token |
 | clientSecret | Yes | The client secret for the API client or personal access token |
 | domain | No | This optional field is only necessary for those who have a domain in their API URL that isn't "identitynow". |
+
+:::caution 
+
+Do not include your baseURL in your variables. 
+
+:::
+
+Once you have configured your environment, you can start using Postman with all the endpoints provided in the collections. 
 
 :::tip
 

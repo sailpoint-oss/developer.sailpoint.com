@@ -28,14 +28,14 @@ get:
               "attribute": "memberOf",
               "attributes": {
                 "GroupType": "Security",
-                "sAMAccountName": "LauncherTestGroup1",
+                "sAMAccountName": "LauncherTest1",
                 "GroupScope": "Global",
                 "objectguid": "{01a6e70b-9705-4155-a5c6-492a9bcc8c64}",
                 "objectSid": "S-1-5-21-3585869415-1648031554-2909195034-1633",
-                "cn": "LauncherTestGroup1",
-                "msDS-PrincipalName": "AUTOMATIONAD\\LauncherTestGroup1"
+                "cn": "LauncherTest1",
+                "msDS-PrincipalName": "AUTOMATIONAD\\LauncherTest1"
               },
-              "value": "CN=LauncherTestGroup1,OU=LauncherTestOrg,OU=slpt-automation,DC=TestAutomationAD,DC=local",
+              "value": "CN=LauncherTest1,OU=LauncherTestOrg,OU=slpt-automation,DC=TestAutomationAD,DC=local",
               "description": "some description",
               "privileged": false,
               "cloudGoverned": false,
@@ -50,7 +50,7 @@ get:
                 "type": "IDENTITY"
               },
               "id": "2c91808c74ff913f0175097daa9d59cd",
-              "name": "LauncherTestGroup1",
+              "name": "LauncherTest1",
               "created": "2020-10-08T18:33:52.029Z",
               "modified": "2021-01-19T16:53:35.707Z"
             }
@@ -79,8 +79,8 @@ patch:
     **requestable**, **privileged**, **segments**, **owner**.
 
 
-    When patching owner only owner type and owner id need to be provided. Owner name is optional and it won't be
-    modified. If it is provided, it should correspond to the real name.
+    When patching owner, only owner type and owner id need to be provided. Owner name is optional and it won't be
+    modified. If it is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.
 
 
     A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
@@ -147,8 +147,8 @@ patch:
                   "op": "add",
                   "path": "/owner",
                   "value": {
-                    "type": "GOVERNANCE_GROUP",
-                    "id": "2a2fdacc-a5e3-45f1-8bf7-970cfbb8fec2"
+                    "type": "IDENTITY",
+                    "id": "2c9180858315595501831958427e5424"
                   }
                 }
               ]

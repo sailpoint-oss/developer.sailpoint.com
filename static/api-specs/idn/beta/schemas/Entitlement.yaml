@@ -7,7 +7,7 @@ properties:
   name:
     type: string
     description: The entitlement name
-    example: "LauncherTestGroup2"
+    example: "LauncherTest2"
   attribute:
     type: string
     description: The entitlement attribute name
@@ -15,7 +15,7 @@ properties:
   value:
     type: string
     description: The value of the entitlement
-    example: "CN=LauncherTestGroup2,OU=LauncherTestOrg,OU=slpt-automation,DC=TestAutomationAD,DC=local"
+    example: "CN=LauncherTest2,OU=LauncherTestOrg,OU=slpt-automation,DC=TestAutomationAD,DC=local"
   sourceSchemaObjectType:
     type: string
     description: The object type of the entitlement from the source schema
@@ -23,7 +23,7 @@ properties:
   description:
     type: string
     description: The description of the entitlement
-    example: "CN=LauncherTestGroup2,OU=LauncherTestOrg,OU=slpt-automation,DC=TestAutomationAD,DC=local"
+    example: "CN=LauncherTest2,OU=LauncherTestOrg,OU=slpt-automation,DC=TestAutomationAD,DC=local"
   privileged:
     type: boolean
     description: True if the entitlement is privileged

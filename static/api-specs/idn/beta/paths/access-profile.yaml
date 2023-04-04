@@ -153,22 +153,6 @@ delete:
         type: string
         example: 2c91808a7813090a017814121919ecca
   responses:
-    '202':
-      description: Accepted - Returned if the request was successfully accepted into the system.
-                 **This response is deprecated and will be replaced by a 204 no content response.
-                   Please see the developer community announcement for more information.
-                   https://developer.sailpoint.com/discuss/t/breaking-changes-to-beta-delete-access-profile-and-delete-role/8452**
-      content:
-        application/json:
-          schema:
-            $ref: '../../v3/schemas/BaseReferenceDto.yaml'
-            description: A DTO with a TaskResult reference of the delete job
-          example:
-            {
-              "type": "TASK_RESULT",
-              "id": "ff8080817e8cc815017e8ce4b6910003",
-              "name": null
-            }
     '204':
       $ref: "../../v3/responses/204.yaml"
     '400':

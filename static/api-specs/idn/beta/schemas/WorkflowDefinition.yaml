@@ -20,7 +20,7 @@ properties:
         },
         "nextStep": "success",
         "selectResult": null,
-        "type": "action"
+        "type": "ACTION"
       },
       "success": {
         "type": "success"

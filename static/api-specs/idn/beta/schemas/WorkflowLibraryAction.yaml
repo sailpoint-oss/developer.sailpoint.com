@@ -9,6 +9,10 @@ properties:
     type: string
     description: Action Name
     example: "Create Certification Campaign"
+  type:
+    type: string
+    description: Action type
+    example: "ACTION"
   description:
     type: string
     description: Action Description

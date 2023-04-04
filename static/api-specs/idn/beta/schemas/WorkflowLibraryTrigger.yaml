@@ -27,6 +27,7 @@ properties:
   inputExample:
     type: object
     description: Example trigger payload if applicable
+    nullable: true
     externalDocs:
       description: List of triggers and their input schemas
       url: https://developer.sailpoint.com/idn/docs/event-triggers/available
@@ -65,6 +66,7 @@ properties:
       }
   formFields:
     type: array
+    nullable: true
     description: One or more inputs that the trigger accepts
     example: []
     items:

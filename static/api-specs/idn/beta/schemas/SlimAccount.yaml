@@ -40,6 +40,10 @@ allOf:
         type: string
         description: The ID of the source for which this account belongs
         example: 2c9180835d2e5168015d32f890ca1581
+      sourceName:
+        type: string
+        description: The name of the source
+        example: Large Source
       identityId:
         type: string
         description: The ID of the identity for which this account is correlated to if not uncorrelated

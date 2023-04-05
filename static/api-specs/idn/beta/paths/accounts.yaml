@@ -56,7 +56,7 @@ get:
       content:
         application/json:
           schema:
-            type: object
+            type: array
             items:
               oneOf:
                 - $ref: '../schemas/SlimAccount.yaml'

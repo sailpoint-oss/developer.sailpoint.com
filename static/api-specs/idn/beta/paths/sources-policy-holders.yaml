@@ -1,3 +1,42 @@
+get:
+  operationId: listPasswordPolicyHoldersOnSource
+  tags:
+    - Sources
+  summary: Lists password policy exceptions
+  description: >-
+    This end-point gets the password policy exceptions associated with a specified source.
+  parameters:
+    - in: path
+      name: sourceId
+      schema:
+        type: string
+      required: true
+      description: The Source id
+      example: 8c190e6787aa4ed9a90bd9d5344523fb
+  responses:
+    '200':
+      description: List of Password Policy Exceptions for the specified Source
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/PasswordPolicyHoldersDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - oauth2: [idn:password-policy:read]
+
 patch:
   operationId: updatePasswordPolicyHolders
   tags:

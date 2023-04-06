@@ -364,7 +364,7 @@ tags:
       
       Refer to this list https://docs.oracle.com/cd/E13214_01/wli/docs92/xref/xqisocodes.html to see all the available ISO 639-1 language codes and ISO 3166-1 country codes.
 
-      - Upload the .txt file to IdentityNow with [Update Password Dictionary](https://developer.sailpoint.com/idn/api/beta/update-password-dictionary). Uploading a new file always overwrites the previous dictionary file.
+      - Upload the .txt file to IdentityNow with [Update Password Dictionary](https://developer.sailpoint.com/idn/api/v3/update-password-dictionary). Uploading a new file always overwrites the previous dictionary file.
 
       Administrators can then specify which password policies check new passwords against the password dictionary by doing the following: In the Admin panel, they can use the Password Mgmt dropdown menu to select Policies, select the policy, and select the 'Prevent use of words in this site's password dictionary' checkbox beside it.
 

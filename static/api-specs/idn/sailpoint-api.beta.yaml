@@ -1279,7 +1279,7 @@ paths:
   /outliers/export:
     $ref: './beta/paths/outliers-export.yaml'
   /password-dictionary:
-    $ref: './beta/paths/password-dictionary.yaml'
+    $ref: './v3/paths/password-dictionary.yaml'
   /query-password-info:
     $ref: './beta/paths/query-password-info.yaml'
   /set-password:

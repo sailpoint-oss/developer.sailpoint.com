@@ -1504,6 +1504,8 @@ paths:
     $ref: './beta/paths/work-items-summary.yaml'
   /work-items/{id}:
     $ref: './beta/paths/work-item.yaml'
+  /work-items/{id}/forward:
+    $ref: './beta/paths/work-item-forward.yaml'
   /work-items/{id}/approve/{approvalItemId}:
     $ref: './beta/paths/work-items-approve-approval-item.yaml'
   /work-items/{id}/reject/{approvalItemId}:

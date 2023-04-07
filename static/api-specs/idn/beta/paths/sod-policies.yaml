@@ -2,15 +2,15 @@ post:
   operationId: createSodPolicy
   tags:
     - SOD Policy
-  summary: Create SOD Policy
+  summary: Create SOD policy
   # security:
   #   - oauth2: [ORG_ADMIN]
   description: >-
     This creates both General and Conflicting Access Based policy, with a limit
     of 50 entitlements for each (left & right) criteria for Conflicting Access
-    Based SOD policy
+    Based SOD policy.
 
-    Requires role of ORG_ADMIN
+    Requires role of ORG_ADMIN.
   requestBody:
     required: true
     content:
@@ -233,11 +233,11 @@ get:
   operationId: listSodPolicies
   tags:
     - SOD Policy
-  summary: List SOD Policies
+  summary: List SOD policies
   # security:
   #   - oauth2: [ORG_ADMIN]
   description: >-
-    This gets list of all SOD Policies.
+    This gets list of all SOD policies.
 
     Requires role of ORG_ADMIN
   parameters:
@@ -262,7 +262,7 @@ get:
       required: false
   responses:
     "200":
-      description: List of all SOD Policies.
+      description: List of all SOD policies.
       content:
         application/json:
           schema:

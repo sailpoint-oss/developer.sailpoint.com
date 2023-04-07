@@ -2,11 +2,11 @@ post:
   operationId: runSodPolicy
   tags:
     - SOD Policy
-  summary: Runs SOD Policy Violation Report
+  summary: Runs SOD policy violation report
   # security:
   #   - oauth2: [ORG_ADMIN]
   description: >-
-    This invokes processing of violation report for given SOD Policy. If policy reports more than 5000 violations, the report returns with
+    This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with
     violation limit exceeded message.
 
     Requires role of ORG_ADMIN.
@@ -16,7 +16,7 @@ post:
       schema:
         type: string
       required: true
-      description: The ID of the SOD Policy to run.
+      description: The SOD policy ID to run.
       example: ef38f94347e94562b5bb8424a56397d8
   responses:
     '200':

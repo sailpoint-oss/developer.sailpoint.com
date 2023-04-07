@@ -2,7 +2,7 @@ get:
   operationId: getSodPolicy
   tags:
     - SOD Policy
-  summary: Get SOD Policy By ID
+  summary: Get SOD policy by ID
   description: >-
     This gets specified SOD policy.
 
@@ -129,7 +129,7 @@ put:
   operationId: updateSodPolicy
   tags:
     - SOD Policy
-  summary: Update SOD Policy By ID
+  summary: Update SOD policy by ID
   # security:
   #   - oauth2: [ORG_ADMIN]
   description: >-
@@ -240,7 +240,7 @@ put:
               }
   responses:
     '200':
-      description: SOD Policy by ID.
+      description: SOD Policy by ID
       content:
         application/json:
           schema:
@@ -350,7 +350,7 @@ delete:
   operationId: deleteSodPolicy
   tags:
     - SOD Policy
-  summary: Delete SOD Policy by ID
+  summary: Delete SOD policy by ID
   # security:
   #   - oauth2: [ORG_ADMIN]
   description: >-
@@ -370,7 +370,7 @@ delete:
       schema:
         type: boolean
         default: true
-      description: whether this is soft delete i.e. logical true or hard delete
+      description: Indicates whether this is a soft delete (logical true) or a hard delete.
       required: false
   responses:
     '204':
@@ -391,11 +391,13 @@ patch:
   operationId: patchSodPolicy
   tags:
     - SOD Policy
-  summary: Update a SOD Policy
+  summary: Patch a SOD policy
   description: >-
     Allows updating SOD Policy fields other than ["id","created","creatorId","policyQuery","type"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
   
     Requires role of ORG_ADMIN.
+
+    This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception. 
 
   # security:
   #   - oauth2: [ORG_ADMIN]
@@ -406,7 +408,7 @@ patch:
       schema:
         type: string
       required: true
-      description: The ID of the SOD Policy being modified.
+      description: The ID of the SOD policy being modified.
       example: 2c9180835d191a86015d28455b4a2329
   requestBody:
     required: true

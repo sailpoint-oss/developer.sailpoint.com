@@ -4,14 +4,14 @@ get:
     - SOD Policy
   summary: Get multi-report run task status
   description: >-
-    This gets status for a violation report for all policy run.
+    This endpoint gets the status for a violation report for all policy run.
 
     Requires role of ORG_ADMIN.
   # security:
   #   - oauth2: [ORG_ADMIN]
   responses:
     '200':
-      description: Status of the violation report run task for all policy run
+      description: Status of the violation report run task for all policy run.
       content:
         application/json:
           schema:

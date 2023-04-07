@@ -2,9 +2,9 @@ get:
   operationId: getEntitlement
   tags:
     - Entitlements
-  summary: Get an Entitlement
+  summary: Get an entitlement
   description: >-
-    This API returns an Entitlement by its ID.
+    This API returns an entitlement by its ID.
   security:
     - oauth2: ['idn:entitlement:read']
   parameters:
@@ -13,11 +13,11 @@ get:
       schema:
         type: string
       required: true
-      description: Entitlement Id
+      description: The entitlement ID
       example: 2c91808874ff91550175097daaec161c
   responses:
     '200':
-      description: An Entitlement
+      description: An entitlement
       content:
         application/json:
           schema:
@@ -70,17 +70,17 @@ patch:
   operationId: patchEntitlement
   tags:
     - Entitlements
-  summary: Patch a specified Entitlement
+  summary: Patch an entitlement
   description: >-
-    This API updates an existing Entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
+    This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 
 
     The following fields are patchable:
     **requestable**, **privileged**, **segments**, **owner**.
 
 
-    When patching owner, only owner type and owner id need to be provided. Owner name is optional and it won't be
-    modified. If it is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.
+    When you're patching owner, only owner type and owner id must be provided. Owner name is optional, and it won't be
+    modified. If the owner name is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.
 
 
     A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
@@ -89,7 +89,7 @@ patch:
   parameters:
     - name: id
       in: path
-      description: ID of the Entitlement to patch
+      description: ID of the entitlement to patch
       required: true
       schema:
         type: string
@@ -109,7 +109,7 @@ patch:
             }
           ]
         examples:
-          Make an Entitlement Requestable and Privileged in One Call:
+          Make an entitlement requestable and privileged in one call:
             description: This example shows how multiple fields may be updated with a single patch call.
             value:
               [
@@ -125,10 +125,10 @@ patch:
                 }
               ]
 
-          Assign an Entitlement to a Segment:
+          Assign an entitlement to a segment:
             description: >-
-              This example illustrates the use of patch to assign an Entitlement to a Segment by adding the Segment's ID to the
-              Entitlement's segments array.
+              This example shows how to use patch to assign an entitlement to a segment by adding the segment's ID to the
+              entitlement's segments array.
             value:
               [
                 {
@@ -137,9 +137,9 @@ patch:
                   "value": "f7b1b8a3-5fed-4fd4-ad29-82014e137e19"
                 }
               ]
-          Assign a owner to an entitlement:
+          Assign an owner to an entitlement:
             description: >-
-              This example illustrates the use of patch to assign a owner to an entitlement by adding the owner's
+              This example shows how to use patch to assign an owner to an entitlement by adding the owner's
               info to the entitlement.
             value:
               [
@@ -152,9 +152,9 @@ patch:
                   }
                 }
               ]
-          Replace a owner for an entitlement:
+          Replace an owner for an entitlement:
             description: >-
-              This example illustrates the use of patch to replace a new owner to an entitlement by replacing the new
+              This example shows how to use patch to replace an entitlement's owner by replacing the
               owner's info to the entitlement.
             value:
               [
@@ -169,7 +169,7 @@ patch:
               ]
   responses:
     '200':
-      description: Responds with the Entitlement as updated.
+      description: Responds with the entitlement as updated.
       content:
         application/json:
           schema:

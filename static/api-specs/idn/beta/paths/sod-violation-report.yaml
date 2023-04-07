@@ -4,7 +4,7 @@ get:
     - SOD Policy
   summary: Get SOD violation report status
   description: >-
-    This gets status for a violation report run task invoked already.
+    This gets the status for a violation report run task that has already been invoked.
 
     Requires role of ORG_ADMIN.
   # security:

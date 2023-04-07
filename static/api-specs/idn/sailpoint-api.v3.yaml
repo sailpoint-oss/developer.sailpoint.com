@@ -369,6 +369,40 @@ tags:
       Administrators can then specify which password policies check new passwords against the password dictionary by doing the following: In the Admin panel, they can use the Password Mgmt dropdown menu to select Policies, select the policy, and select the 'Prevent use of words in this site's password dictionary' checkbox beside it.
 
       Refer to [Configuring Advanced Password Management Options](https://documentation.sailpoint.com/saas/help/pwd/adv_config.html) for more information about password dictionaries.
+  - name: Password Sync Groups
+    description: |
+      Use this API to implement password sync group functionality. 
+      With this functionality in place, administrators can group sources into password sync groups so that all their applications share the same password. 
+      This allows users to update the password for all the applications in a sync group if they want, rather than updating each password individually. 
+
+      A password sync group is a group of applications that shares a password. 
+      Administrators create these groups by grouping the applications' sources. 
+      For example, an administrator can group the ActiveDirectory, GitHub, and G Suite sources together so that all those sources' applications can also be grouped to share a password. 
+      A user can then update his or her password for ActiveDirectory, GitHub, Gmail, Google Drive, and Google Calendar all at once, rather then updating each one individually.
+
+      The following are required for administrators to create a password sync group in IdentityNow: 
+
+      - At least two direct connect sources connected to IdentityNow and configured for Password Management.
+
+      - Each authentication source in a sync group must have at least one application. Refer to [Adding and Resetting Application Passwords](https://documentation.sailpoint.com/saas/help/pwd/adv_config.html#adding-and-resetting-application-passwords) for more information about adding applications to sources.
+
+      - At least one password policy. Refer to [Managing Password Policies](https://documentation.sailpoint.com/saas/help/pwd/policies.html) for more information about password policies. 
+
+      In the Admin panel in IdentityNow, administrators can use the Password Mgmt dropdown menu to select Sync Groups. 
+      To create a sync group, administrators must provide a name, choose a password policy to be enforced across the sources in the sync group, and select the sources to include in the sync group. 
+
+      Administrators can also delete sync groups in IdentityNow, but they should know the following before they do: 
+
+      - Passwords related to the associated sources will become independent, so changing one will not change the others anymore. 
+
+      - Passwords for the sources' connected applications will also become independent. 
+
+      - Password policies assigned to the sync group are then assigned directly to the associated sources. 
+      To change the password policy for a source, administrators must edit it directly. 
+
+      Once the password sync group has been created, users can update the password for the group in Password Manager.
+
+      Refer to [Managing Password Sync Groups](https://documentation.sailpoint.com/saas/help/pwd/sync_grps.html) for more information about password sync groups.
   - name: Personal Access Tokens
     description: |
       Use this API to implement personal access token (PAT) functionality. 
@@ -743,6 +777,8 @@ paths:
     $ref: "./v3/paths/oauth-clients.yaml"
   /oauth-clients/{id}:
     $ref: "./v3/paths/oauth-client.yaml"
+  /password-sync-groups:
+    $ref: './v3/paths/password-sync-groups.yaml'
   /personal-access-tokens:
     $ref: "./v3/paths/personal-access-tokens.yaml"
   /personal-access-tokens/{id}:

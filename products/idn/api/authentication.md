@@ -324,8 +324,6 @@ You must pass this information along with the OAuth 2.0 token request:
 
 You can pass the information in your request header, your request body, and your request's query parameters, which display in the request URL.
 
-Here is an example request to generate an `access_token` using Client Credentials.
-
 ```bash
 curl -X POST \
  'https://{tenant}.api.identitynow.com/oauth/token?grant_type=client_credentials&client_id={client_id}&client_secret={client_secret}' \
@@ -333,6 +331,8 @@ curl -X POST \
 ```
 
 2. IdentityNow validates the token request and submits a response. If successful, the response will contain a JWT access token.
+
+Here is an example request to generate an `access_token` using Client Credentials.
 
 Once you have the JWT access token, you can pass the token as a basic "Authorization" header in your requests using the OAuth endpoints. 
 

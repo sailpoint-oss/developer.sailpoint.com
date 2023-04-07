@@ -322,17 +322,20 @@ You must pass this information along with the OAuth 2.0 token request:
 | `client_id` | This is the API client's ID (e.g. `b61429f5-203d-494c-94c3-04f54e17bc5c`). You can generate this ID at `https://{tenant}.identitynow.com/ui/admin/#admin:global:security:apimanagementpanel`, or you can generate it when you create a PAT. |
 | `client_secret` | This is the API client's secret describing (e.g. `c924417c85b19eda40e171935503d8e9747ca60ddb9b48ba4c6bb5a7145fb6c5`). You can generate this secret at `https://{tenant}.identitynow.com/ui/admin/#admin:global:security:apimanagementpanel`, or you can generate it when you create a PAT. |
 
-You can pass the information in your request header, your request body, and your request's query parameters, which display in the request URL.
+You can pass the information in your request header, your request body, or your request's query parameters, which display in the request URL.
+
+Here is an example request to generate an `access_token` passing client credentials in the body.
 
 ```bash
-curl -X POST \
- 'https://{tenant}.api.identitynow.com/oauth/token?grant_type=client_credentials&client_id={client_id}&client_secret={client_secret}' \
- -H 'cache-control: no-cache'
+curl --location 'https://Ptenant}.api.identitynow.com/oauth/token' \
+--header 'Authorization;' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'grant_type=client_credentials' \
+--data-urlencode 'client_id={client_id}' \
+--data-urlencode 'client_secret={client_secret}'
 ```
 
 2. IdentityNow validates the token request and submits a response. If successful, the response will contain a JWT access token.
-
-Here is an example request to generate an `access_token` using Client Credentials.
 
 Once you have the JWT access token, you can pass the token as a basic "Authorization" header in your requests using the OAuth endpoints. 
 

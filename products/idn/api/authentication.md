@@ -314,11 +314,11 @@ This is the overall authorization flow:
 POST https://{tenant}.api.identitynow.com/oauth/token
 ```
   
-The request includes the client credential information passed in the request body, as shown in this screenshot from Postman: 
+The request includes the client credential information passed in the request body, as shown in this example using [Postman](https://www.getpostman.com): 
 
 ![OAuth Client Credentials Form Data](/products/idn/api/img/authentication/oauth-client-credentials-form-data.png)
 
-This example shows how to pass the information with form-data in the request body in Postman. You can also use these options to pass in the information: 
+This example shows how to pass the information with form-data in the request body. You can also use these options to pass in the information: 
 
 - Use x-www-form-urlencoded data to pass in the client credential information in the request body. 
 - Use query parameters to pass the information in the request URL. The request URL will look like this: 
@@ -335,7 +335,7 @@ The OAuth 2.0 token request must include this information:
 | `client_id` | This is the API client's ID (e.g. `b61429f5-203d-494c-94c3-04f54e17bc5c`). You can generate this ID at `https://{tenant}.identitynow.com/ui/admin/#admin:global:security:apimanagementpanel`, or you can generate it when you create a PAT. |
 | `client_secret` | This is the API client's secret describing (e.g. `c924417c85b19eda40e171935503d8e9747ca60ddb9b48ba4c6bb5a7145fb6c5`). You can generate this secret at `https://{tenant}.identitynow.com/ui/admin/#admin:global:security:apimanagementpanel`, or you can generate it when you create a PAT. |
 
-This example request passes client credentials in the body as form-data to generate an access token.
+This example cURL command passes client credentials in the body as form-data to generate an access token.
 
 ```bash
 curl --location 'https://{tenant}.api.identitynow.com/oauth/token' \

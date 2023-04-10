@@ -31,7 +31,7 @@ put:
     - Service Desk Integration
   summary: Update the time check configuration of queued SDIM tickets
   description: Update the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-  operationId: updateManagedClientStatusCheckDetails
+  operationId: updateStatusCheckDetails
   requestBody:
     description: the modified time check configuration
     content:

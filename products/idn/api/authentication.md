@@ -316,7 +316,7 @@ POST https://{tenant}.api.identitynow.com/oauth/token
   
 The request includes the client credential information passed in the request body, as shown in this example using [Postman](https://www.getpostman.com): 
 
-![OAuth Client Credentials Form Data](/products/idn/api/img/authentication/oauth-client-credentials-form-data.png)
+![OAuth Client Credentials Form Data](./img/authentication/oauth-client-credentials-form-data.png)
 
 This example shows how to pass the information with form-data in the request body. You can also use these options to pass in the information: 
 

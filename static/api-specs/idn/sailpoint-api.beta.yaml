@@ -1287,7 +1287,7 @@ paths:
   /password-change-status/{id}:
     $ref: './beta/paths/password-change-status.yaml'
   /password-sync-groups:
-    $ref: './beta/paths/password-sync-groups.yaml'
+    $ref: './v3/paths/password-sync-groups.yaml'
   /password-sync-groups/{id}:
     $ref: './beta/paths/password-sync-group.yaml'
   /password-org-config:

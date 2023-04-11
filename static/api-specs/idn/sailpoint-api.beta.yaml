@@ -1289,7 +1289,7 @@ paths:
   /password-sync-groups:
     $ref: './v3/paths/password-sync-groups.yaml'
   /password-sync-groups/{id}:
-    $ref: './beta/paths/password-sync-group.yaml'
+    $ref: './v3/paths/password-sync-group.yaml'
   /password-org-config:
     $ref: './beta/paths/password-org-config.yaml'
   /peer-group-strategies/{strategy}/identity-outliers:

@@ -779,6 +779,8 @@ paths:
     $ref: "./v3/paths/oauth-client.yaml"
   /password-sync-groups:
     $ref: './v3/paths/password-sync-groups.yaml'
+  /password-sync-groups/{id}:
+    $ref: './v3/paths/password-sync-group.yaml'
   /personal-access-tokens:
     $ref: "./v3/paths/personal-access-tokens.yaml"
   /personal-access-tokens/{id}:

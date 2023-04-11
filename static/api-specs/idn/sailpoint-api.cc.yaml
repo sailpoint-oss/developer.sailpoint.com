@@ -413,6 +413,31 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /cc/api/cluster/update/:
+    post:
+      tags:
+        - Cluster
+      summary: Update Cluster
+      operationId: updateCluster
+      security:
+        - oauth2: []
+      description: Updates a Managed Cluster.
+      parameters:
+        - name: id
+          in: body
+          schema:
+            type: string
+          required: true
+        - name: gmtOffset
+          in: body
+          schema:
+            type: string
+          required: false
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /cc/api/system/refreshIdentities:
     post:
       tags:

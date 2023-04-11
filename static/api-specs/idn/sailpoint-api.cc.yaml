@@ -421,24 +421,24 @@ paths:
       operationId: updateCluster
       security:
         - oauth2: []
-      description: Updates a Managed Cluster.	
-			requestBody:
+      description: Updates a Managed Cluster.
+      requestBody:
         description: body to update the managed cluster with
         required: true
         content:
           application/json:
-						schema:
-							type: object
-							properties:
-								  id:
-                    description: The ID of the cluster to update
-    								type: string
-    								example: "1092"
-  								gmtOffset: 
-                    description: The GMT offset for the timezone the cluster operates with
-    								type: string
-    								example: "-6"
-       responses:
+            schema:
+              type: object
+              properties:
+                id:
+                  description: The ID of the cluster to update
+                  type: string
+                  example: "1092"
+                gmtOffset:
+                  description: The GMT offset for the timezone the cluster operates with
+                  type: string
+                  example: "-6"
+      responses:
         '200':
           description: Successful response
           content:

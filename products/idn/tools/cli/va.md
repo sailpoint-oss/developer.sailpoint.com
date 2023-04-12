@@ -21,14 +21,15 @@ For more information about VAs, refer to the [Virtual Appliance Reference Guide]
 ## Commands
 
 To use the CLI to interact with VAs connected to your tenant, run these commands: 
-- [Collect]
-    - [Flags]
-    - [Example]
-- [Parse]
-    - [Flags]
-    - [Example]
-- [Update]
-    - [Flags]
+- [Collect](#collect)
+    - [Flags](#flags)
+    - [Example](#example)
+- [Parse](#parse)
+    - [Flags](#flags-1)
+    - [Example](#example-1)
+- [Update](#update)
+    - [Flags](#flags-2)
+    - [Example](#example-2)
 
 ### Collect 
 
@@ -107,3 +108,10 @@ sail va update {VA IP address} {flags}
 You can add these flags to the `update` command:
 - `-h, --help`: View the command's help with examples within the CLI.
 
+#### Example
+
+Here is an example command: 
+
+```shell
+sail va update 10.10.10.10 10.10.10.11 
+```

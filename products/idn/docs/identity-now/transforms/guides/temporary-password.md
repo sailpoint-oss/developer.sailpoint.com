@@ -26,7 +26,7 @@ For an initial (temporary) password, set a static value driven off a formula tha
 - The user's two-digit start month comes next (from the user's hire date).
 - The last part of the password is a static string: "RstP\*!7".
 
-## Create the Example Source from a Deliminated file
+## Create the Example Source from a delimited file
 
 This is the CSV file you will upload to create your source for testing this transform:
 

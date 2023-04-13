@@ -19,9 +19,9 @@ This rule manipulates raw input data provided by the rows and columns in a file 
 ## Execution
 
 - **Connector Execution** - This rule executes within the virtual appliance. It may offer special abilities to perform connector-related functions, and it may offer managed connections to sources.
-- **Logging** - Logging statements are viewable within the ccg.log on the virtual appliance, and they are viewable by SailPoint personnel.
+- **Logging** - Logging statements are viewable within the cloud and they are viewable by SailPoint personnel.
 
-![Rule Execution](../img/connector_execution.png)
+![Rule Execution](../img/cloud_execution.png)
 
 ## Input
 

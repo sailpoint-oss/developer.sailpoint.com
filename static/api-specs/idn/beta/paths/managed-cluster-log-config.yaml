@@ -1,13 +1,13 @@
 get:
   tags:
     - Managed Clusters
-  summary: get ManagedCluster Log Configuration for a specified cluster
-  description: Get log configuration for a managed cluster.
+  summary: Get managed cluster's log configuration
+  description: Get managed cluster's log configuration. 
   operationId: getClientLogConfiguration
   parameters:
     - name: id
       in: path
-      description: ID of the ManagedCluster to get log configuration for
+      description: ID of ManagedCluster to get log configuration for
       required: true
       style: simple
       explode: false
@@ -16,7 +16,7 @@ get:
         example: aClusterId
   responses:
     "200":
-      description: ManagedCluster log configuration matching the given cluster ID
+      description: Log configuration of ManagedCluster matching given cluster ID
       content:
         application/json:
           schema:
@@ -25,22 +25,28 @@ get:
               $ref: '../schemas/ClientLogConfiguration.yaml'
     "400":
       $ref: '../../v3/responses/400.yaml'
+    "401":
+      $ref: '../../v3/responses/401.yaml'  
     "403":
       $ref: '../../v3/responses/403.yaml'
     "404":
       $ref: '../../v3/responses/404.yaml'
+    "429":
+      $ref: '../../v3/responses/429.yaml'  
+    "500":
+      $ref: '../../v3/responses/500.yaml'  
   security:
     - oauth2: [idn:managed-cluster-log-config:read]
 put:
   tags:
     - Managed Clusters
-  summary: Update log configuration for a specified cluster.
-  description: Update log configuration for a managed cluster.
+  summary: Update managed cluster's log configuration
+  description: Update managed cluster's log configuration
   operationId: updateClientLogConfiguration
   parameters:
     - name: id
       in: path
-      description: ID of the ManagedCluster to update log configuration for
+      description: ID of ManagedCluster to update log configuration for
       required: true
       style: simple
       explode: false
@@ -48,7 +54,7 @@ put:
         type: string
         example: aClusterId
   requestBody:
-    description: ClientLogConfiguration for the given ManagedCluster
+    description: ClientLogConfiguration for given ManagedCluster
     content:
       application/json:
         schema:
@@ -56,16 +62,22 @@ put:
     required: true
   responses:
     "200":
-      description: Responds with updated ClientLogConfiguration for the given ManagedCluster.
+      description: Responds with updated ClientLogConfiguration for given ManagedCluster
       content:
         application/json:
           schema:
             $ref: '../schemas/ClientLogConfiguration.yaml'
     "400":
       $ref: '../../v3/responses/400.yaml'
+    "401":
+      $ref: '../../v3/responses/401.yaml'  
     "403":
       $ref: '../../v3/responses/403.yaml'
     "404":
       $ref: '../../v3/responses/404.yaml'
+    "429":
+      $ref: '../../v3/responses/429.yaml'  
+    "500":
+      $ref: '../../v3/responses/500.yaml'  
   security:
     - oauth2: [idn:managed-cluster-log-config:write]

@@ -1180,6 +1180,10 @@ paths:
     $ref: './beta/paths/historical-identity-compare-type.yaml'
   /identities/{identityId}/synchronize-attributes:
     $ref: './beta/paths/identity-synchronize-attributes.yaml'
+  /identities:
+    $ref: './beta/paths/identities.yaml'
+  /identities/{id}:  
+    $ref: './beta/paths/identity.yaml'
   /identity-profiles:
     $ref: './beta/paths/identity-profiles.yaml'
   /identity-profiles/bulk-delete:

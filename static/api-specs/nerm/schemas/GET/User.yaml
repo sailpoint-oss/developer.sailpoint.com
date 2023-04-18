@@ -1,0 +1,37 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+    readonly: true
+  uid:
+    type: string
+    minLength: 32
+    maxLength: 32
+    readonly: true
+  name:
+    type: string
+  email:
+    type: string
+    format: email
+  type:
+    type: string
+    enum: [NeprofileUser, NeaccessUser]
+    default: NeprofileUser
+  title:
+    type: string
+  status:
+    type: string
+    enum: [Active, Disabled]
+  login:
+    type: string
+  last_login:
+    type: string
+    format: date-time
+    readOnly: true
+  cookies_accepted_at:
+    type: string
+    format: date-time
+    readOnly: true
+  preferred_language:
+    type: string

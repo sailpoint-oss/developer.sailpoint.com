@@ -1,0 +1,46 @@
+get:
+  summary: Get roles
+  operationId: getRoles
+  description: This endpoint can retrieve roles from NERM. Optionally you can provide parameters to filter results.
+  tags:
+    - roles
+  parameters:
+    - $ref: "../parameters/query/query.yaml"
+    - $ref: "../parameters/query/metadata.yaml"
+  responses:
+    '200':
+      $ref: "../responses/Roles_Meta.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+post:
+  summary: Create multiple new roles
+  operationId: postRoles
+  description: Create multiple new users
+  tags:
+    - roles
+  requestBody:
+    $ref: "../requestBodies/POST/Roles.yaml"
+  responses:
+    '200':
+      $ref: "../responses/RolesJob.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+patch:
+  summary: Update multiple roles
+  operationId: patchRoles
+  description: Update multiple users
+  tags:
+    - roles
+  requestBody:
+    $ref: "../requestBodies/PATCH/Roles.yaml"
+  responses:
+    '200':
+      $ref: "../responses/RolesJob.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

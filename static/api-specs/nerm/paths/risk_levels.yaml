@@ -1,0 +1,17 @@
+get:
+  summary: Get risk level data in bulk
+  operationId: getRiskLevels
+  description: This endpoint can retrieve risk level data in bulk from Lifecycle
+  tags:
+    - risk levels
+  parameters:
+    - $ref: "../parameters/query/query.yaml"
+    - $ref: "../parameters/query/label.yaml"
+    - $ref: "../parameters/query/metadata.yaml"
+  responses:
+    '200':
+      $ref: "../responses/RiskLevels_Meta.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

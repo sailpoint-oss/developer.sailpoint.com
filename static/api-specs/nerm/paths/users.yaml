@@ -1,0 +1,51 @@
+get:
+  summary: Get users
+  operationId: getUsers
+  description: This endpoint can retrieve users from Lifecycle or you can search for users using parameters
+  tags:
+    - users
+  parameters:
+    - $ref: "../parameters/query/query.yaml"
+    - $ref: "../parameters/query/name.yaml"
+    - $ref: "../parameters/query/login.yaml"
+    - $ref: "../parameters/query/title.yaml"
+    - $ref: "../parameters/query/status.yaml"
+    - $ref: "../parameters/query/email.yaml"
+    - $ref: "../parameters/query/metadata.yaml"
+  responses:
+    '200':
+      $ref: "../responses/Users_Meta.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+post:
+  summary: Create multiple new users
+  operationId: postUsers
+  description: Create multiple new users
+  tags:
+    - users
+  requestBody:
+    $ref: "../requestBodies/POST/Users.yaml"
+  responses:
+    '200':
+      $ref: "../responses/UsersJob.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+patch:
+  summary: Update multiple users
+  operationId: patchUsers
+  description: Update multiple users
+  tags:
+    - users
+  requestBody:
+    $ref: "../requestBodies/PATCH/Users.yaml"
+  responses:
+    '200':
+      $ref: "../responses/UsersJob.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

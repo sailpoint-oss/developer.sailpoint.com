@@ -1,0 +1,7 @@
+name: run
+in: query
+description: Will run the created/updated workflow session if successful
+required: false
+schema:
+  type: boolean
+  default: false

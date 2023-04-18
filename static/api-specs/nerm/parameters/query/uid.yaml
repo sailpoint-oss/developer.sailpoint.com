@@ -1,0 +1,8 @@
+name: uid
+in: query
+description: Workflow session uid for filtering
+required: false
+schema:
+  type: string
+  minLength: 32
+  maxLength: 32

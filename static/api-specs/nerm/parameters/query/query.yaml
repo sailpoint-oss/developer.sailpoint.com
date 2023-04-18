@@ -1,0 +1,18 @@
+name: query
+in: query
+description: Allows for pagination and sorting.
+required: false
+schema:
+  type: object
+  properties:
+    limit:
+      type: integer
+      example: 100
+    offset:
+      type: integer
+      example: 50
+    order:
+      type: string
+      example: created_at
+style: deepObject
+explode: true

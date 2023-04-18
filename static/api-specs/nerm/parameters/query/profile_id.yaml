@@ -1,0 +1,7 @@
+name: profile_id
+in: query
+description: Profile ID to filter by
+required: false
+schema:
+  type: string
+  format: uuid

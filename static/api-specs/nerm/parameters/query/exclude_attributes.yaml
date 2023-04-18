@@ -1,0 +1,7 @@
+name: exclude_attributes
+in: query
+description: Allows for optimization by not returning the associated attribute data for the returned profiles
+required: false
+schema:
+  type: boolean
+  default: false

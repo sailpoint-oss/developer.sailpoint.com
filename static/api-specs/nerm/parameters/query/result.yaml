@@ -1,0 +1,7 @@
+name: result
+in: query
+description: ID Proofing Result to filter by
+required: false
+schema:
+  type: string
+  enum: [pass, fail]

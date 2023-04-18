@@ -1,0 +1,14 @@
+type: object
+properties:
+  type:
+    type: string
+    required: true
+    enum: [ProfileStatusRule]
+  comparison_operator:
+    type: string
+    required: true
+    enum: ['==', '!=']
+  value:
+    type: string
+    required: true
+    enum: [Active, Inactive, Leave of absence, Terminated]

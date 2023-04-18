@@ -1,0 +1,7 @@
+name: manager_id
+in: query
+description: The ID of a user for filtering
+required: false
+schema:
+  type: string
+  format: uuid

@@ -1,0 +1,31 @@
+type: object
+properties:
+  name:
+    type: string
+    required: true
+  email:
+    type: string
+    format: email
+    required: true
+  type:
+    type: string
+    enum: ['NeprofileUser', 'NeaccessUser']
+    default: NeprofileUser
+  profile_id:
+    type: string
+    format: uuid
+  title:
+    type: string
+  status:
+    type: string
+    enum: [Active, Disabled]
+    required: true
+  login:
+    type: string
+    required: true
+  admin:
+    type: boolean
+    default: false
+  group_strings:
+    type: string
+    example: "Administrator_group,Developer_group"

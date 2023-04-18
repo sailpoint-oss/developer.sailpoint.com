@@ -1,0 +1,54 @@
+type: object
+properties:
+  name:
+    type: string
+  bypass_dup_protection:
+    type: boolean
+    default: false
+  archived:
+    type: boolean
+    default: false
+  permitted_role_ids:
+    type: array
+    items: 
+      type: string
+      format: uuid
+  profile_type_dup_attributes:
+    type: array
+    items: 
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        uid:
+          type: string
+          minLength: 32
+          maxLength: 32
+        profile_type_id:
+          type: string
+          format: uuid
+        ne_attribute_id:
+          type: string
+          format: uuid
+  profile_type_namings:
+    type: array
+    items: 
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        uid:
+          type: string
+          minLength: 32
+          maxLength: 32
+        profile_type_id:
+          type: string
+          format: uuid
+        ne_attribute_id:
+          type: string
+          format: uuid
+        order:
+          type: integer
+          minimum: 0

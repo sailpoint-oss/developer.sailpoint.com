@@ -1,0 +1,9 @@
+required: true
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        workflow_session:
+          type: object
+          $ref: "../../schemas/PATCH/WorkflowSession.yaml"

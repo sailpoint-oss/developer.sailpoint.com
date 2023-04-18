@@ -1,0 +1,7 @@
+name: status
+in: query
+description: status value for filtering
+required: false
+schema:
+  type: string
+  enum: [Active, Inactive, On Leave, Terminated]

@@ -1,0 +1,13 @@
+post:
+  summary: Create a user-profile contributor relationship
+  operationId: postUserProfile
+  description: Create a user-profile contributor relationship
+  tags:
+    - user profiles
+  requestBody:
+    $ref: "../requestBodies/POST/UserProfile.yaml"
+  responses:
+    '200':
+      $ref: "../responses/UserProfile.yaml"
+    '405':
+      $ref: "../responses/InvalidInput.yaml"

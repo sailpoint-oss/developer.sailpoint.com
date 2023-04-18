@@ -1,0 +1,15 @@
+post:
+  summary: Create a profile type
+  operationId: postProfileType
+  description: Create a profile type
+  tags:
+    - profile types
+  requestBody:
+    $ref: "../requestBodies/POST/ProfileType.yaml"
+  responses:
+    '200':
+      $ref: "../responses/ProfileType.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

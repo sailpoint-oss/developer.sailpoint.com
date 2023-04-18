@@ -1,0 +1,7 @@
+name: role_id
+in: query
+description: The ID of a role for filtering
+required: false
+schema:
+  type: string
+  format: uuid

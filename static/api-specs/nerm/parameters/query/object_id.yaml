@@ -1,0 +1,7 @@
+name: object_id
+in: query
+description: ID of an object for filtering. Used along with object_type
+required: false
+schema:
+  type: string
+  format: uuid

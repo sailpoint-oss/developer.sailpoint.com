@@ -1,0 +1,19 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+    readOnly: true
+  uid:
+    type: string
+    minLength: 32
+    maxLength: 32
+    readOnly: true
+  label:
+    type: string
+  points:
+    type: number
+    multipleOf: 0.01
+  order:
+    type: integer
+    minimum: 0

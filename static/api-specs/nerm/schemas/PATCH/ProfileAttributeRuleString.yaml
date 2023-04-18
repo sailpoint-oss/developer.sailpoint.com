@@ -1,0 +1,34 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+    readOnly: true
+  uid:
+    type: string
+    minLength: 32
+    maxLength: 32
+    readOnly: true
+  type:
+    type: string
+    required: true
+    enum: [ProfileAttributeRule]
+  condition_object_type:
+    type: string
+    required: true
+    enum: [TextFieldAttribute, TextAreaAttribute]
+  condition_object_id:
+    type: string
+    required: true
+    format: uuid
+  comparison_operator:
+    type: string
+    required: true
+    enum: ['==', '!=', '>', '<', 'start_with?', 'end_with?', 'include?']
+  value:
+    type: string
+    required: true
+    example: Some value
+  _destroy:
+    type: boolean
+    default: false

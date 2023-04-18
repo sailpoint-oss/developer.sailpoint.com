@@ -1,0 +1,70 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+    readOnly: true
+  uid:
+    type: string
+    minLength: 32
+    maxLength: 32
+    readOnly: true
+  label:
+    type: string
+  description:
+    type: string
+  tool_tip:
+    type: string
+  crypt:
+    type: boolean
+  archived:
+    type: boolean
+  archived_on:
+    type: string
+    format: date-time
+    readOnly: true
+  created_at:
+    type: string
+    format: date-time
+    readOnly: true
+  updated_at:
+    type: string
+    format: date-time
+    readOnly: true
+  date_format:
+    type: string
+    enum: [mm/dd/yyyy, mm-dd-yyyy, dd/mm/yyyy, dd-mm-yyyy, yyyy/mm/dd, yyyy-mm-dd]
+  selectable_status:
+    type: string
+  risk_score_setting:
+    type: string
+  risk_type:
+    type: string
+  ownership_driver:
+    type: boolean
+  allow_multiple_selections:
+    type: boolean
+  filtered_by_ne_attribute:
+    type: boolean
+  filtering_ne_attribute_id:
+    type: string
+    format: uuid
+  ne_attribute_filter_id:
+    type: string
+    format: uuid
+  reverse_association_attribute_id:
+    type: string
+    format: uuid
+  profile_type_id:
+    type: string
+    format: uuid
+  legacy_id:
+    type: integer
+  tmp_created_at:
+    type: string
+    format: date-time
+    readOnly: true
+  tmp_updated_at:
+    type: string
+    format: date-time
+    readOnly: true

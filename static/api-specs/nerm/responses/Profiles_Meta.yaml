@@ -1,0 +1,12 @@
+description: Expected response to a valid request
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        profiles:
+          type: array
+          items:
+            $ref: '../schemas/GET/Profile.yaml'
+        _metadata:
+          $ref: '../schemas/Metadata.yaml'

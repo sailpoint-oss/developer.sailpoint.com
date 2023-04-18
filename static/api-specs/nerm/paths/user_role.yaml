@@ -1,0 +1,15 @@
+post:
+  summary: Assign a new role to a user
+  operationId: postUserRole
+  description: Assign a new role to a user
+  tags:
+    - user roles
+  requestBody:
+    $ref: "../requestBodies/POST/UserRole.yaml"
+  responses:
+    '200':
+      $ref: "../responses/UserRole.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

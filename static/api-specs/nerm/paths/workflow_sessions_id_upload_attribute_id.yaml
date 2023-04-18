@@ -1,0 +1,34 @@
+get:
+  summary: Retrieves the URL of an attachment attribute value from a workflow session
+  operationId: getWorkflowSessionUpload
+  description: Retrieves the URL of an attachment attribute value from a workflow session
+  tags:
+    - workflow sessions
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+    - $ref: "../parameters/path/attribute_id.yaml"
+  responses:
+    '200':
+      $ref: "../responses/Url.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+post:
+  summary: Uploads a new attachment attribute value to a workflow session
+  operationId: postWorkflowSessionUpload
+  description: Uploads a new attachment attribute value to a workflow session
+  tags:
+    - workflow sessions
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+    - $ref: "../parameters/path/attribute_id.yaml"
+  requestBody:
+    $ref: "../requestBodies/POST/File.yaml"
+  responses:
+    '200':
+      $ref: "../responses/Url.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

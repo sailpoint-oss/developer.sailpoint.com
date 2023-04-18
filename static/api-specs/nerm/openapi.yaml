@@ -1,0 +1,119 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: SecZetta Lifecycle API
+  description: The Lifecycle API can be used to access and modify various resources in your environment.
+  license:
+    name: MIT
+paths:
+# Users
+  /user:
+    $ref: "./paths/user.yaml"
+  /users:
+    $ref: "./paths/users.yaml"
+  /users/{id}:
+    $ref: "./paths/users_id.yaml"
+  /users/{id}/avatar:
+    $ref: "./paths/users_id_avatar.yaml"
+# User Manager Relationships
+  /user_manager:
+    $ref: "./paths/user_manager.yaml"
+  /user_managers:
+    $ref: "./paths/user_managers.yaml"
+  /user_managers/{id}:
+    $ref: "./paths/user_managers_id.yaml"
+# Roles
+  /roles:
+    $ref: "./paths/roles.yaml"
+  /role:
+    $ref: "./paths/role.yaml"
+  /roles/{id}:
+    $ref: "./paths/roles_id.yaml"
+# User Roles
+  /user_role:
+    $ref: "./paths/user_role.yaml"
+  /user_roles:
+    $ref: "./paths/user_roles.yaml"
+  /user_roles/{id}:
+    $ref: "./paths/user_roles_id.yaml"
+  /user_role/{id}:
+    $ref: "./paths/user_role_id.yaml"
+# Attributes
+  /ne_attributes:
+    $ref: "./paths/ne_attributes.yaml"
+  /ne_attributes/{id}:
+    $ref: "./paths/ne_attributes_id.yaml"
+  /ne_attribute_option:
+    $ref: "./paths/ne_attribute_option.yaml"
+  /ne_attribute_options:
+    $ref: "./paths/ne_attribute_options.yaml"
+  /ne_attribute_options/{id}:
+    $ref: "./paths/ne_attribute_options_id.yaml"
+# Profile Types
+  /profile_type:
+    $ref: "./paths/profile_type.yaml"
+  /profile_types:
+    $ref: "./paths/profile_types.yaml"
+  /profile_types/{id}:
+    $ref: "./paths/profile_types_id.yaml"
+# Profiles
+  /profile:
+    $ref: "./paths/profile.yaml"
+  /profiles:
+    $ref: "./paths/profiles.yaml"
+  /profiles/{id}:
+    $ref: "./paths/profiles_id.yaml"
+  /profiles/{id}/upload/{attribute_id}:
+    $ref: "./paths/profiles_id_upload_attribute_id.yaml"
+  /profiles/{id}/avatar:
+    $ref: "./paths/profiles_id_avatar.yaml"
+# Risk Scores
+  /risk_scores:
+    $ref: "./paths/risk_scores.yaml"
+  /risk_scores/{id}:
+    $ref: "./paths/risk_scores_id.yaml"
+# Risk Levels
+  /risk_levels:
+    $ref: "./paths/risk_levels.yaml"
+  /risk_levels/{id}:
+    $ref: "./paths/risk_levels_id.yaml"
+# User Contributor Relationships
+  /user_profile:
+    $ref: "./paths/user_profile.yaml"
+  /user_profiles:
+    $ref: "./paths/user_profiles.yaml"
+  /user_profiles/{id}:
+    $ref: "./paths/user_profiles_id.yaml"
+  /user_profile/{id}:
+    $ref: "./paths/user_profile_id.yaml"
+# Role Contributor Relationships
+  /role_profile:
+    $ref: "./paths/role_profile.yaml"
+  /role_profiles:
+    $ref: "./paths/role_profiles.yaml"
+  /role_profiles/{id}:
+    $ref: "./paths/role_profiles_id.yaml"
+  /role_profile/{id}:
+    $ref: "./paths/role_profile_id.yaml"
+# Workflow Sessions
+  /workflow_sessions:
+    $ref: "./paths/workflow_sessions.yaml"
+  /workflow_sessions/{id}:
+    $ref: "./paths/workflow_sessions_id.yaml"
+  /workflow_sessions/{id}/upload/{attribute_id}:
+    $ref: "./paths/workflow_sessions_id_upload_attribute_id.yaml"
+# Identity Proofing Results
+  /identity_proofing_results:
+    $ref: "./paths/identity_proofing_results.yaml"
+# Advanced Search
+  /advanced_search:
+    $ref: "./paths/advanced_search.yaml"
+  /advanced_search/run:
+    $ref: "./paths/advanced_search_run.yaml"
+  /advanced_search/{id}:
+    $ref: "./paths/advanced_search_id.yaml"
+  /advanced_search/{id}/run:
+    $ref: "./paths/advanced_search_id_run.yaml"
+# Jobs
+  /job_status:
+    $ref: "./paths/job_status.yaml"

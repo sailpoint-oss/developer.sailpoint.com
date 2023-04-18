@@ -1,0 +1,22 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+    readOnly: true
+  uid:
+    type: string
+    minLength: 32
+    maxLength: 32
+    readOnly: true
+  type:
+    type: string
+    required: true
+    enum: [ProfileTypeRule]
+  comparison_operator:
+    type: string
+    enum: ['==', '!=']
+  value:
+    type: string
+    format: uuid
+  

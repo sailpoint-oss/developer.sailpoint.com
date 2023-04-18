@@ -1,0 +1,15 @@
+get:
+  summary: Get identity proofing result data in bulk
+  operationId: getIdentityProofingResults
+  description: This endpoint can retrieve identity proofing result data in bulk from Lifecycle
+  tags:
+    - identity proofing results
+  parameters:
+    - $ref: "../parameters/query/query.yaml"
+    - $ref: "../parameters/query/profile_id.yaml"
+    - $ref: "../parameters/query/workflow_session_id.yaml"
+    - $ref: "../parameters/query/result.yaml"
+    - $ref: "../parameters/query/metadata.yaml"
+  responses:
+    '200':
+      $ref: "../responses/IdentityProofingResults.yaml"

@@ -1,0 +1,47 @@
+get:
+  summary: Find option based attribute value by id
+  operationId: getAttributeOption
+  description: Info for a specific option based attribute value
+  tags:
+    - attribute options
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  responses:
+    '200':
+      $ref: "../responses/AttributeOption.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+patch:
+  summary: Update a option based attribute value by id
+  operationId: patchAttributeOption
+  description: Update a option based attribute value by id
+  tags:
+    - attribute options
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  requestBody:
+    $ref: "../requestBodies/PATCH/AttributeOption.yaml"
+  responses:
+    '200':
+      $ref: "../responses/AttributeOption.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+delete:
+  summary: Delete a option based attribute value by id
+  operationId: deleteAttributeOption
+  description: Delete a option based attribute value by id
+  tags:
+    - attribute options
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  responses:
+    '200':
+      $ref: "../responses/DeleteConfirmation.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

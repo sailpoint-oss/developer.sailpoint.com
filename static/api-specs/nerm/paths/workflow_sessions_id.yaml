@@ -1,0 +1,33 @@
+get:
+  summary: Find workflow session by id
+  operationId: getWorkflowSession
+  description: Find workflow session by id
+  tags:
+    - workflow sessions
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  responses:
+    '200':
+      $ref: "../responses/WorkflowSession.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+patch:
+  summary: Update a workflow session by id
+  operationId: patchWorkflowSession
+  description: Update a workflow session by id
+  tags:
+    - workflow sessions
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+    - $ref: "../parameters/query/run.yaml"
+  requestBody:
+    $ref: "../requestBodies/PATCH/WorkflowSession.yaml"
+  responses:
+    '200':
+      $ref: "../responses/WorkflowSession.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

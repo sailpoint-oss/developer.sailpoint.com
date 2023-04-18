@@ -1,0 +1,13 @@
+post:
+  summary: Create a role-profile contributor relationship
+  operationId: postRoleProfile
+  description: Create a role-profile contributor relationship
+  tags:
+    - role profiles
+  requestBody:
+    $ref: "../requestBodies/POST/RoleProfile.yaml"
+  responses:
+    '200':
+      $ref: "../responses/RoleProfile.yaml"
+    '405':
+      $ref: "../responses/InvalidInput.yaml"

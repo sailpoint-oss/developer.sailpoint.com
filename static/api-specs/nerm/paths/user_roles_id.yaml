@@ -1,0 +1,32 @@
+get:
+  summary: Find user role pairing by id
+  operationId: getUserRole
+  description: Info for a specific user role pairing
+  tags:
+    - user roles
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  responses:
+    '200':
+      $ref: "../responses/UserRole.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+patch:
+  summary: Update a user role pairing by id
+  operationId: patchUserRole
+  description: Update a user role pairing by id
+  tags:
+    - user roles
+  requestBody:
+    $ref: "../requestBodies/PATCH/UserRole.yaml"
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  responses:
+    '200':
+      $ref: "../responses/UserRole.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

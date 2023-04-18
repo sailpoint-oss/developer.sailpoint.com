@@ -1,0 +1,7 @@
+name: attribute_id
+in: path
+description: The id of the attachment attribute
+required: true
+schema:
+  type: string
+  format: uuid

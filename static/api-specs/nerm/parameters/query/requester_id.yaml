@@ -1,0 +1,7 @@
+name: requester_id
+in: query
+description: Requester ID for filtering
+required: false
+schema:
+  type: string
+  format: uuid

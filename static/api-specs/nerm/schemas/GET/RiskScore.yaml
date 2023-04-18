@@ -1,0 +1,35 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+    readOnly: true
+  uid:
+    type: string
+    minLength: 32
+    maxLength: 32
+    readOnly: true
+  object_id:
+    type: string
+    format: uuid
+  object_type:
+    type: string
+    enum: [Profile, WorkflowSession]
+  overall_score:
+    type: number
+    multipleOf: 0.01
+  overall_risk_level_id:
+    type: string
+    format: uuid
+  impact_score:
+    type: number
+    multipleOf: 0.01
+  impact_risk_level_id:
+    type: string
+    format: uuid
+  probability_score:
+    type: number
+    multipleOf: 0.01
+  probability_risk_level_id:
+    type: string
+    format: uuid

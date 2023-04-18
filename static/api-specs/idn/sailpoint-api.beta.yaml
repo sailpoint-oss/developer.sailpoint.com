@@ -1295,7 +1295,7 @@ paths:
   /password-sync-groups/{id}:
     $ref: './v3/paths/password-sync-group.yaml'
   /password-org-config:
-    $ref: './beta/paths/password-org-config.yaml'
+    $ref: './v3/paths/password-org-config.yaml'
   /peer-group-strategies/{strategy}/identity-outliers:
     $ref: './beta/paths/peer-group-strategies.yaml'
   /personal-access-tokens:

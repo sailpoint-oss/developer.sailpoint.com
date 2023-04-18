@@ -294,6 +294,14 @@ tags:
       Use this API to implement OAuth client functionality.   
       With this functionality in place, users with the appropriate security scopes can create and configure OAuth clients to use as a way to obtain authorization to use the IdentityNow REST API.
       Refer to [Authentication](https://developer.sailpoint.com/idn/api/authentication) for more information about OAuth and how it works with the IdentityNow REST API. 
+  - name: Password Configuration
+    description: |
+      Use this API to implement organization password configuration functionality. 
+      With this functionality in place, organization administrators can create organization-specific password configurations. 
+
+      These configurations include details like custom password instructions, as well as digit token length and duration. 
+
+      Refer to [Configuring User Authentication for Password Resets](https://documentation.sailpoint.com/saas/help/pwd/pwd_reset.html) for more information about organization password configuration functionality.
   - name: Password Management
     description: |
       Use this API to implement password management functionality.  
@@ -835,6 +843,8 @@ paths:
     $ref: "./v3/paths/password-change-status.yaml"
   /password-dictionary:
     $ref: './v3/paths/password-dictionary.yaml'
+  /password-org-config:
+    $ref: './v3/paths/password-org-config.yaml'
   /sources:
     $ref: "./v3/paths/sources.yaml"
   /sources/{id}:

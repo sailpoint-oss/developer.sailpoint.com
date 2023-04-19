@@ -157,15 +157,16 @@ To get your environment variables to persist across PowerShell sessions, run thi
 
 ## Usage
 
-Run the `sail` command for an overview of the available commands and flags. You can use the `-h` flag with any available command to see additional available options for each command:
+Run the `sail` command for an overview of available commands and flags. You can use the `-h` flag with any command to see additional options for each command:
 
-The following commands are available.:
+These commands are available:
 
-- `connectors`: This command is a CLI interface for the SaaS Connectivity platform. The CLI is the best way to create and manage SaaS connectors within your tenant. For more information about the `connectors` command, refer to the CLI [Connectors guide](/idn/tools/cli/connectors). For more information about the SaaS Connectivity platform, refer to [SaaS Connectivity](/idn/docs/saas-connectivity).
-- `search`: Run this command to access IDN search functionality within the CLI. For more information about the `search` command, refer to the CLI [Search guide](/idn/tools/cli/search). For more information about search in IDN, refer to [Search](/idn/api/v3/search).
-- `set`: Run this command to configure your CLI settings. For more information about the `set` command, refer to the CLI [Set guide](/idn/tools/cli/set)
-- `spconfig`: Run this command to access IDN SP Config functionaly. For more information about the `spconfig` command, refer to the CLI [SPConfig guide](/idn/tools/cli/spconfig). For more information about SPConfig, refer to the [SPConfig Beta API documentation](/idn/api/beta/sp-config).
-- `transform`: This command is a CLI interface that makes it easy to create, manage, and test transforms. For more information about the `transform` command, refer to the CLI [Transforms guide](/idn/tools/cli/transforms). For more information about transforms, refer to [Transforms](/idn/docs/transforms).
+- `connectors`: This command is a CLI interface for the SaaS Connectivity platform. The CLI is the best way to create and manage SaaS connectors within your tenant. For more information about the `connectors` command, refer to the CLI [Connectors guide](/idn/tools/cli/connectors). 
+- `search`: Run this command to access IDN search functionality within the CLI. For more information about the `search` command, refer to the CLI [Search guide](/idn/tools/cli/search). 
+- `set`: Run this command to configure your CLI settings. For more information about the `set` command, refer to the CLI [Set guide](/idn/tools/cli/set).
+- `spconfig`: Run this command to access IDN SP Config functionality. For more information about the `spconfig` command, refer to the CLI [SPConfig guide](/idn/tools/cli/spconfig). 
+- `transform`: This command is a CLI interface that makes it easy to create, manage, and test transforms. For more information about the `transform` command, refer to the CLI [Transforms guide](/idn/tools/cli/transforms). 
+- `va`: Run this command to access VAs connected to your tenant. For more information about the `va` command, refer to the CLI [VA guide](/idn/tools/cli/va).
 
 ## GitHub
 

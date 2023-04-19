@@ -10,6 +10,7 @@ description: Helpful videos on using SaaS connectivity
 slug: /docs/saas-connectivity/videos
 tags: ['Connectivity']
 ---
+import Video from '@site/src/components/Video';
 
 ## Videos
 
@@ -18,3 +19,5 @@ During our 2023 Developer Days Conference, we created several connectivity video
  - [Roadmap and Introduction](https://www.youtube.com/watch?v=6FGkKj6aKko)
  - [Building a Complete Connector Walkthrough](https://www.youtube.com/watch?v=KB1jdE09lE4)
  - [SDKs in practice](https://www.youtube.com/watch?v=UWeokOXuAuk)
+
+<Video source="https://www.youtube.com/embed/KB1jdE09lE4"></Video>

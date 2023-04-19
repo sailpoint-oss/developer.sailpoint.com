@@ -18,9 +18,11 @@ properties:
     example: 'Zampa'
   active:
     type: boolean
+    default: true
     description: indicates if an identity is active or not
     example: true      
   deletedDate:
     type: string
+    nullable: true
     description: the date when the identity was deleted
     example: '2007-03-01T13:00:00.000Z'

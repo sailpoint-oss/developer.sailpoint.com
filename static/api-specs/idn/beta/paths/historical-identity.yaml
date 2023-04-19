@@ -1,11 +1,14 @@
 get:
-  operationId: getIdentity
+  operationId: getHistoricalIdentity
   tags:
     - Identity History
-  summary: Gets the most recent snapshot of a specific identity
+  summary: Get latest snapshot of identity
   description: >-
     This method retrieves a specified identity
-    Requires authorization scope of 'idn:identity-history:read' 
+    Requires authorization scope of 'idn:identity-history:read'
+  security:
+    - oauth2:
+      - "idn:identity-history:read"    
   parameters:
     - in: path
       name: id
@@ -27,5 +30,7 @@ get:
       $ref: '../../v3/responses/401.yaml'
     '403':
       $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
     '500':
       $ref: '../../v3/responses/500.yaml'

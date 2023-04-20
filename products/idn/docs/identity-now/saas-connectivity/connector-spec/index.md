@@ -49,12 +49,12 @@ The following describes in detail the different fields in the connector spec:
         - secrettextarea
         - checkbox
         - url
-        - radio
-        - select
+        - [radio](./connector-spec/radio)
+        - [select](./connector-spec/select)
         - toggle
-        - list
-        - keyValue
-        - cardList
+        - [list](./connector-spec/list)
+        - [keyValue](./connector-spec/key-value)
+        - [cardList](./connector-spec/card)
 - **accountSchema:** The schema for an account in IDN populated by data from the source.
   - **displayAttribute:** Identifies the attribute (defined below) used to map to `Account Name` in the IdentityNow account schema. This should be a unique value even though it is not required because the connector will use this value to correlate accounts in IDN to accounts in the source system.
   - **identityAttribute:** Identifies the attribute (defined below) used to map to `Account ID` in the IdentityNow account schema. This must be a globally unique identifier, such as email address, employee ID, etc.

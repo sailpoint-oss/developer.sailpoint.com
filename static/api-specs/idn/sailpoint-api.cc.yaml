@@ -71,6 +71,7 @@ paths:
           schema:
             type: string
           example: 12345
+          required: true
       responses:
         '200':
           description: Successful response
@@ -103,6 +104,7 @@ paths:
           schema:
             type: string
           example: 12345
+          required: true
       responses:
         '200':
           description: Successful response
@@ -120,6 +122,7 @@ paths:
           schema:
             type: string
           example: 12345
+          required: true
       responses:
         '200':
           description: Successful response
@@ -164,6 +167,7 @@ paths:
           schema:
             type: string
           example: 12345
+          required: true
       requestBody:
         content:
           application/json:
@@ -192,6 +196,7 @@ paths:
           schema:
             type: string
           example: 12345
+          required: true
       responses:
         '200':
           description: Successful response

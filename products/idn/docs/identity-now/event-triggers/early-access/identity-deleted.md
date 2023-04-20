@@ -26,7 +26,8 @@ Identity deleted event will occur when an identity meets all of the following re
 - Not an owner of a role, access profile, application, source, or taskResult
 - Not an owner or requester of a workItem
 - Not a protected account or manager
-- No assigned capabilities
+- No assigned capabilities (ex. not an assigned cert reviewer)
+- Not involved in any active certification as a target (its access is not being certified)
 
 After accounts are aggregated and the identity refresh process finds an identity that meets the above criteria, the associated identity is deleted from IdentityNow. For more information, see [Configuring Correlation](https://community.sailpoint.com/t5/Connectors/Configuring-Correlation/ta-p/74045). The Identity deleted event contains any identity attributes as they are configured in the identity profile. For more information, see [Mapping Identity Profiles](https://community.sailpoint.com/t5/Admin-Help/Mapping-Identity-Profiles/ta-p/77877).
 

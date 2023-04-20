@@ -38,9 +38,10 @@ With both SaaS connectivity and traditional VA connectivity in place, you can ha
 
 ![SaaS Connectivity and On Prem](./img/new_connectivity_diagram_both.png)
 
-:::caution Important
+## Connectivity Encryption
 
-Make sure that you implement a form of version control or regular backup process for your connectors.
-You cannot recover the source code from IDN because it gets sent to IDN as a compiled and minified JavaScript (JS) bundle that cannot be easily expanded into its original source code structure. 
+Any direct connectors that specify a Virtual Appliance use [Zero Knowledge Encryption](https://community.sailpoint.com/t5/Lighthouse/Protecting-Sensitive-Data-with-Zero-Knowledge-Encryption/ta-p/79657?attachment-id=452) schemes with a RSA 2048-bit asymmetric key pair, with private key on the VA for decryption and public key in the cloud (as part of the VA cluster) for encryption.
 
-:::
+SaaS connectors cannot operate in the same way as they do not communicate through a VA cluster.  Despite this, the asymmetric keypair scheme is still leveraged for SaaS connectors - the keystore simply resides in the cloud instead of on the VA. This keystore is not accessible by any API or source code, and there is also regular rotation of those keypairs through our DevOps-owned processes to ensure that security is maintained to SailPoint standards. Whenever storing secret data, use the ```secret``` or ```secrettextarea``` field types.
+
+

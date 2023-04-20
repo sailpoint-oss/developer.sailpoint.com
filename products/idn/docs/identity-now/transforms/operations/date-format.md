@@ -53,7 +53,11 @@ The date format transform takes whatever value provided as the input, parses the
     - If no inputFormat is provided, the transform assumes that it is in [ISO8601 format](https://en.wikipedia.org/wiki/ISO_8601).
   - **outputFormat** - This string value indicates either the explicit SimpleDateFormat or the built-in named format that the data is formatted into.
     - If no outputFormat is provided, the transform assumes that it is in [ISO8601 format](https://en.wikipedia.org/wiki/ISO_8601).
-  - **input** - This is an optional attribute that can explicitly define the input data passed into the transform logic. If no input is provided, the transform takes its input from the source and attribute combination configured with the UI. This transform does not currently support the "now" keyword as an input value. 
+  - **input** - This is an optional attribute that can explicitly define the input data passed into the transform logic. If no input is provided, the transform takes its input from the source and attribute combination configured with the UI. 
+
+:::note Important
+This transform does not currently support the "now" keyword as an input value. 
+:::
 
 ## Examples
 

@@ -57,7 +57,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /cc/api/account/remove/:id:
+  /cc/api/account/remove/{id}:
     post:
       tags:
         - Accounts
@@ -76,7 +76,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /cc/api/app:
+  /cc/api/app/list:
     get:
       tags:
         - Applications
@@ -89,7 +89,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /cc/api/app/get/:id:
+  /cc/api/app/get/{id}:
     get:
       tags:
         - Applications
@@ -108,7 +108,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /cc/api/app/getAccessProfiles/:id:
+  /cc/api/app/getAccessProfiles/{id}:
     get:
       tags:
         - Applications
@@ -150,7 +150,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /cc/api/app/update/:id:
+  /cc/api/app/update/{id}:
     post:
       tags:
         - Applications
@@ -178,7 +178,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /cc/api/app/delete/:id:
+  /cc/api/app/delete/{id}:
     post:
       tags:
         - Applications

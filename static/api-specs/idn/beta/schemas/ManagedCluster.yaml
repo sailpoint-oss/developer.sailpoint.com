@@ -74,14 +74,17 @@ properties:
     type: string
     example: NORMAL
   publicKeyCertificate:
+    nullable: true
     description: Public key certificate
     type: string
     example: -----BEGIN CERTIFICATE-----TCCAb2gAwIBAgIBADANBgkqhkiG9w0BAQsFADAuMQ0wCwYDVQQD-----END CERTIFICATE-----
   publicKeyThumbprint:
+    nullable: true
     description: Public key thumbprint
     type: string
     example: obc6pLiulGbtZ
   publicKey:
+    nullable: true
     description: Public key
     type: string
     example: -----BEGIN PUBLIC KEY-----jANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3WgnsxP52MDgBTfHR+5n4-----END PUBLIC KEY-----

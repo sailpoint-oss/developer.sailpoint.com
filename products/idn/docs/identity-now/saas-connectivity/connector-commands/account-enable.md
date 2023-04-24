@@ -30,6 +30,7 @@ tags: ['Connectivity', 'Connector Command']
 
 ```javascript
 {
+    "identity": "john.doe",
     "key": {
         "simple": {
             "id": "john.doe"

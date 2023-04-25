@@ -89,7 +89,148 @@ paths:
         '200':
           description: Successful response
           content:
-            application/json: {}
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    appId:
+                      type: string
+                    serviceId:
+                      type: string
+                    serviceAppId:
+                      type: string
+                    name:
+                      type: string
+                    description:
+                      type: string
+                    appCenterEnabled:
+                      type: boolean
+                    provisionRequestEnabled:
+                      type: boolean
+                    controlType:
+                      type: string
+                    mobile:
+                      type: boolean
+                    privateApp:
+                      type: boolean
+                    scriptName:
+                      type: string
+                    status:
+                      type: string
+                    icon:
+                      type: string
+                    health:
+                      type: object
+                      properties:
+                        status:
+                          type: string
+                        lastChanged:
+                          type: string
+                        since:
+                          type: number
+                        healthy:
+                          type: boolean
+                    enableSso:
+                      type: boolean
+                    ssoMethod:
+                      type: string
+                    hasLinks:
+                      type: boolean
+                    hasAutomations:
+                      type: boolean
+                    stepUpAuthData:
+                      type: object
+                    stepUpAuthType:
+                      type: string
+                    usageAnalytics:
+                      type: boolean
+                    usageCertRequired:
+                      type: boolean
+                    usageCertText:
+                      type: object
+                    launchpadEnabled:
+                      type: boolean
+                    passwordManaged:
+                      type: boolean
+                    owner:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        name:
+                          type: string
+                    dateCreated:
+                      type: number
+                    lastUpdated:
+                      type: number
+                    defaultAccessProfile:
+                      type: object
+                    service:
+                      type: string
+                    selectedSsoMethod:
+                      type: string
+                    supportedSsoMethods:
+                      type: number
+                    offNetworkBlockedRoles:
+                      type: object
+                    supportedOffNetwork:
+                      type: string
+                    accountServiceId:
+                      type: number
+                    launcherCount:
+                      type: number
+                    accountServiceName:
+                      type: string
+                    accountServiceExternalId:
+                      type: string
+                    accountServiceMatchAllAccounts:
+                      type: boolean
+                    externalId:
+                      type: string
+                    accountServiceUseForPasswordManagement:
+                      type: boolean
+                    accountServicePolicyId:
+                      type: string
+                    accountServicePolicyName:
+                      type: string
+                    requireStrongAuthn:
+                      type: boolean
+                    accountServicePolicies:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          policyId:
+                            type: string
+                          policyName:
+                            type: string
+                          selectors:
+                            type: object
+                    xsdVersion:
+                      type: string
+                    appProfiles:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          id:
+                            type: number
+                          filename:
+                            type: string
+                          createdBy:
+                            type: string
+                          dateCreated:
+                            type: string
+                          xsdVersion:
+                            type: string
+                    passwordServiceId:
+                      type: number
+                    accessProfileIds:
+                      type: object
   /cc/api/app/get/{id}:
     get:
       tags:
@@ -109,7 +250,146 @@ paths:
         '200':
           description: Successful response
           content:
-            application/json: {}
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  appId:
+                    type: string
+                  serviceId:
+                    type: string
+                  serviceAppId:
+                    type: string
+                  name:
+                    type: string
+                  description:
+                    type: string
+                  appCenterEnabled:
+                    type: boolean
+                  provisionRequestEnabled:
+                    type: boolean
+                  controlType:
+                    type: string
+                  mobile:
+                    type: boolean
+                  privateApp:
+                    type: boolean
+                  scriptName:
+                    type: string
+                  status:
+                    type: string
+                  icon:
+                    type: string
+                  health:
+                    type: object
+                    properties:
+                      status:
+                        type: string
+                      lastChanged:
+                        type: string
+                      since:
+                        type: number
+                      healthy:
+                        type: boolean
+                  enableSso:
+                    type: boolean
+                  ssoMethod:
+                    type: string
+                  hasLinks:
+                    type: boolean
+                  hasAutomations:
+                    type: boolean
+                  stepUpAuthData:
+                    type: object
+                  stepUpAuthType:
+                    type: string
+                  usageAnalytics:
+                    type: boolean
+                  usageCertRequired:
+                    type: boolean
+                  usageCertText:
+                    type: object
+                  launchpadEnabled:
+                    type: boolean
+                  passwordManaged:
+                    type: boolean
+                  owner:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      name:
+                        type: string
+                  dateCreated:
+                    type: number
+                  lastUpdated:
+                    type: number
+                  defaultAccessProfile:
+                    type: object
+                  service:
+                    type: string
+                  selectedSsoMethod:
+                    type: string
+                  supportedSsoMethods:
+                    type: number
+                  offNetworkBlockedRoles:
+                    type: object
+                  supportedOffNetwork:
+                    type: string
+                  accountServiceId:
+                    type: number
+                  launcherCount:
+                    type: number
+                  accountServiceName:
+                    type: string
+                  accountServiceExternalId:
+                    type: string
+                  accountServiceMatchAllAccounts:
+                    type: boolean
+                  externalId:
+                    type: string
+                  accountServiceUseForPasswordManagement:
+                    type: boolean
+                  accountServicePolicyId:
+                    type: string
+                  accountServicePolicyName:
+                    type: string
+                  requireStrongAuthn:
+                    type: boolean
+                  accountServicePolicies:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        policyId:
+                          type: string
+                        policyName:
+                          type: string
+                        selectors:
+                          type: object
+                  xsdVersion:
+                    type: string
+                  appProfiles:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: number
+                        filename:
+                          type: string
+                        createdBy:
+                          type: string
+                        dateCreated:
+                          type: string
+                        xsdVersion:
+                          type: string
+                  passwordServiceId:
+                    type: number
+                  accessProfileIds:
+                    type: object
   /cc/api/app/getAccessProfiles/{id}:
     get:
       tags:
@@ -359,6 +639,223 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /cc/api/user/get/{id}:
+    get:
+      tags:
+        - User
+      summary: Get Single Identity
+      operationId: GetIdentity
+      security:
+        - oauth2: []
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          example: 5433236
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  alias:
+                    type: string
+                  uid:
+                    type: string
+                  name:
+                    type: string
+                  displayName:
+                    type: string
+                  uuid:
+                    type: string
+                  encryptionKey:
+                    type: object
+                  encryptionCheck:
+                    type: object
+                  status:
+                    type: string
+                  pending:
+                    type: boolean
+                  passwordResetSinceLastLogin:
+                    type: boolean
+                  usageCertAttested:
+                    type: object
+                  userFlags:
+                    type: object
+                  enabled:
+                    type: boolean
+                  altAuthVia:
+                    type: string
+                  altAuthViaIntegrationData:
+                    type: object
+                  kbaAnswers:
+                    type: number
+                  disablePasswordReset:
+                    type: boolean
+                  ptaSourceId:
+                    type: object
+                  supportsPasswordPush:
+                    type: boolean
+                  attributes:
+                    type: object
+                  externalId:
+                    type: string
+                  role:
+                    type: array
+                    items:
+                      type: object
+                  phone:
+                    type: object
+                  email:
+                    type: string
+                  personalEmail:
+                    type: object
+                  employeeNumber:
+                    type: object
+                  riskScore:
+                    type: number
+                  featureFlags:
+                    type: object
+                  feature:
+                    type: array
+                    items:
+                      type: string
+                  orgEncryptionKey:
+                    type: string
+                  orgEncryptionKeyId:
+                    type: string
+                  meta:
+                    type: object
+                  org:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      scriptName:
+                        type: string
+                      mode:
+                        type: string
+                      numQuestions:
+                        type: number
+                      status:
+                        type: string
+                      maxRegisteredUsers:
+                        type: number
+                      pod:
+                        type: string
+                      pwdResetPersonalPhone:
+                        type: boolean
+                      pwdResetPersonalEmail:
+                        type: boolean
+                      pwdResetKba:
+                        type: boolean
+                      pwdResetEmail:
+                        type: boolean
+                      pwdResetDuo:
+                        type: boolean
+                      pwdResetPhoneMask:
+                        type: boolean
+                      authErrorText:
+                        type: object
+                      strongAuthKba:
+                        type: boolean
+                      strongAuthPersonalPhone:
+                        type: boolean
+                      strongAuthPersonalEmail:
+                        type: boolean
+                      integrations:
+                        type: array
+                        items:
+                          type: object
+                      productName:
+                        type: string
+                      kbaReqForAuthn:
+                        type: number
+                      kbaReqAnswers:
+                        type: number
+                      lockoutAttemptThreshold:
+                        type: number
+                      lockoutTimeMinutes:
+                        type: number
+                      usageCertRequired:
+                        type: boolean
+                      adminStrongAuthRequired:
+                        type: boolean
+                      enableExternalPasswordChange:
+                        type: boolean
+                      enablePasswordReplay:
+                        type: boolean
+                      enableAutomaticPasswordReplay:
+                        type: boolean
+                      notifyAuthenticationSettingChange:
+                        type: boolean
+                      netmasks:
+                        type: object
+                      countryCodes:
+                        type: object
+                      whiteList:
+                        type: boolean
+                      usernameEmptyText:
+                        type: object
+                      usernameLabel:
+                        type: object
+                      enableAutomationGeneration:
+                        type: boolean
+                      emailTestMode:
+                        type: boolean
+                      emailTestAddress:
+                        type: string
+                      orgType:
+                        type: string
+                      passwordReplayState:
+                        type: string
+                      systemNotificationConfig:
+                        type: string
+                      redirectPatterns:
+                        type: string
+                      maxClusterDebugHours:
+                        type: string
+                      brandName:
+                        type: string
+                      logo:
+                        type: object
+                      emailFromAddress:
+                        type: object
+                      standardLogoUrl:
+                        type: object
+                      narrowLogoUrl:
+                        type: object
+                      actionButtonColor:
+                        type: string
+                      activeLinkColor:
+                        type: string
+                      navigationColor:
+                        type: string
+                  stepUpAuth:
+                    type: boolean
+                  bxInstallPrompted:
+                    type: boolean
+                  federatedLogin:
+                    type: boolean
+                  auth:
+                    type: object
+                    properties:
+                      service:
+                        type: string
+                      encryption:
+                        type: string
+                  onNetwork:
+                    type: boolean
+                  onTrustedGeo:
+                    type: boolean
+                  loginUrl:
+                    type: string
   /cc/api/source/loadAccounts/{id}:
     post:
       tags:

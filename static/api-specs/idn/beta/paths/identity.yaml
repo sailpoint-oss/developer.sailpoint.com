@@ -10,7 +10,7 @@ get:
       - "idn:identity:read"
   parameters:
     - in: path
-      name: identityId
+      name: id
       schema:
         type: string
       required: true
@@ -48,7 +48,7 @@ delete:
         - "idn:identity:delete"
   parameters:
     - in: path
-      name: identityId
+      name: id
       schema:
         type: string
       required: true

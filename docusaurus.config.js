@@ -67,11 +67,6 @@ const config = {
         defaultMode: 'light',
         respectPrefersColorScheme: true,
       },
-      announcementBar: {
-        id: 'announcementBar_1',
-        content:
-          'Our Forum is currently experiencing an authentication outage, the service provider is currently working on the issue',
-      },
       navbar: navbar,
       footer: footer,
       prism: {

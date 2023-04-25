@@ -38,6 +38,8 @@ The following describes in detail the different fields in the connector spec:
     - **type:** This is always "section" - it indicates a new section on the page
     - **sectionTitle:** The large text title that will display for the section.
     - **sectionHelpMessage:** A description about the section that can help the user understand what it is used for and how to fill out the fields
+    - **docLinkLabel:** An optional field that is the text that displays next to documentation help link.
+    - **docLink:** The optional link that the docLinkLabel will direct to if clicked.
       - **key:** The name of the configuration item as it is referenced in code.
       - **label:** The name of the configuration item as it appears in the UI.
       - **required** (Optional): Set to 'false' by default. Valid values are 'true' or 'false.' You must populate required configuration items in the IDN source configuration wizard before continuing.

@@ -1,7 +1,7 @@
 get:
   tags:
     - Managed Clients
-  summary: Get a specified Managed Client Status.
+  summary: Specified Managed Client Status.
   description: Retrieve Managed Client Status by ID.
   operationId: getManagedClientStatus
   parameters:
@@ -43,7 +43,7 @@ get:
 post:
   tags:
     - Managed Clients
-  summary: Handle a status request from a client
+  summary: Handle status request from client
   description: Update a status detail passed in from the client
   operationId: updateManagedClientStatus
   parameters:
@@ -80,4 +80,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:managed-client-status:update]
+    - oauth2: [idn:managed-client-status:manage]

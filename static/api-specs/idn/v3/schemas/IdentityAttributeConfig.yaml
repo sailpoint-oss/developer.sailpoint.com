@@ -5,6 +5,7 @@ properties:
   enabled:
     description: The backend will only promote values if the profile/mapping is enabled.
     type: boolean
+    default: false
     example: true
   attributeTransforms:
     type: array

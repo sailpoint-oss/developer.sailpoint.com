@@ -9,4 +9,5 @@ properties:
     nullable: true
     description: The password to authenticate. On response, this field is set to null as to not return secrets.
     example: null
+nullable: true
 description: Config required if BASIC_AUTH is used.

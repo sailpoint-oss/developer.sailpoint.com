@@ -20,7 +20,7 @@ properties:
     type: boolean
     default: true
     description: indicates if an identity is active or not
-    example: true      
+    example: true
   deletedDate:
     type: string
     nullable: true

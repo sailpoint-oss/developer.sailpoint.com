@@ -6,7 +6,7 @@ get:
   description: >-
     This API returns an entitlement by its ID.
   security:
-    - oauth2: ['idn:entitlement:read']
+    - oauth2: [idn:entitlement:read, idn:entitlement:manage]
   parameters:
     - in: path
       name: id
@@ -85,7 +85,7 @@ patch:
 
     A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
   security:
-    - oauth2: ['idn:entitlement:update']
+    - oauth2: [idn:entitlement:manage]
   parameters:
     - name: id
       in: path

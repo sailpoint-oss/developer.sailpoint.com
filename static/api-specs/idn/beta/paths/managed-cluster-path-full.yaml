@@ -34,7 +34,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:managed-cluster:read]
+    - oauth2: [idn:remote-client:read, idn:remote-client:manage]
 patch:
   tags:
     - Managed Clusters
@@ -77,7 +77,7 @@ patch:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:managed-cluster:update]
+    - oauth2: [idn:remote-client:manage]
 delete:
   operationId: deleteManagedCluster
   tags:
@@ -116,4 +116,4 @@ delete:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:managed-cluster:delete]
+    - oauth2: [idn:remote-client:manage]

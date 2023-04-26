@@ -6,7 +6,7 @@ post:
   description: >-
     Use this API to cancel a running workflow execution.
   security:
-    - oauth2: [sp:workflow:execute]
+    - oauth2: [sp:workflow-execute:external]
   parameters:
     - name: id
       in: path

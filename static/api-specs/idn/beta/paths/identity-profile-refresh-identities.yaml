@@ -2,7 +2,7 @@ post:
   operationId: refreshIdentityProfile
   tags:
     - Identity Profiles
-  summary: Refreshes all the identities under this profile
+  summary: Refreshes all identities under profile
   description: >-
     This refreshes all identities under the profile
 
@@ -33,6 +33,6 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:identity-profile:refresh]
+    - oauth2: [idn:identity-profile:manage]
 
 

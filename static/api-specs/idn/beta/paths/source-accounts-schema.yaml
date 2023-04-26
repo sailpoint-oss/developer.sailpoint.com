@@ -30,7 +30,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:source-schema:read]
+    - oauth2: [idn:source-schema:read, idn:source-schema:manage]
 post:
   tags:
     - Sources
@@ -74,4 +74,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:source-schema:update]
+    - oauth2: [idn:source-schema:manage]

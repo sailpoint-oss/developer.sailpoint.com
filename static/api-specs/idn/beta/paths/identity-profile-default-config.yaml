@@ -2,7 +2,7 @@ get:
   operationId: getDefaultIdentityAttributeConfig
   tags:
     - Identity Profiles
-  summary: Gets the default identity attribute config
+  summary: Default identity attribute config
   description: >-
     This returns the default identity attribute config
 
@@ -36,6 +36,6 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:identity-profile-default-mapping:read]
+    - oauth2: [idn:identity-profile:manage]
 
 

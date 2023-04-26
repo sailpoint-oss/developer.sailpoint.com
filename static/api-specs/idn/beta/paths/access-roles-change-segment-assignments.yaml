@@ -2,7 +2,7 @@ post:
   operationId: accessRolesChangeSegmentAssignments
   tags:
     - Segments
-  summary: Change Segment assignments for roles and access-profiles only.
+  summary: Change Segment assignments.
   description: >-
     This API allows to change the Segment assignments for roles and access-profiles.
 
@@ -38,4 +38,4 @@ post:
       $ref: '../../v3/responses/500.yaml'
 
   security:
-    - oauth2: [idn:segments:write]
+    - oauth2: [idn:segments:manage]

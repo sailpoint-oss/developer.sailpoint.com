@@ -2,6 +2,7 @@ description: ConnectorRuleResponse
 allOf:
   - $ref: './ConnectorRuleCreateRequest.yaml'
   - type: object
+    nullable: true
     required:
       - id
       - created
@@ -16,5 +17,6 @@ allOf:
         example: '021-07-22T15:59:23Z'
       modified:
         type: string
+        nullable: true
         description: an ISO 8601 UTC timestamp when this rule was last modified
         example: '021-07-22T15:59:23Z'

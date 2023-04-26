@@ -4,7 +4,7 @@
 get:
   tags:
     - Task Management
-  summary: Retrieves a task definition summary by task definition ID
+  summary: Retrieves a task definition summary
   description: Get a specified TaskDefinitionSummary.
   operationId: getTaskDefinitionSummary
   parameters:
@@ -24,12 +24,20 @@ get:
         application/json:
           schema:
             $ref: '../schemas/TaskDefinitionSummary.yaml'
+    "400":
+      $ref: '../../v3/responses/400.yaml'
+    "401":
+      $ref: '../../v3/responses/401.yaml'
     "403":
       $ref: '../../v3/responses/403.yaml'
     "404":
       $ref: '../../v3/responses/404.yaml'
+    "429":
+      $ref: '../../v3/responses/429.yaml'
+    "500":
+      $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:task-definition:read]
+    - oauth2: [idn:task-definition:read, idn:task-definition:manage]
 patch:
   tags:
     - Task Management
@@ -61,9 +69,15 @@ patch:
             $ref: '../schemas/TaskDefinitionSummary.yaml'
     "400":
       $ref: '../../v3/responses/400.yaml'
+    "401":
+      $ref: '../../v3/responses/401.yaml'
     "403":
       $ref: '../../v3/responses/403.yaml'
     "404":
       $ref: '../../v3/responses/404.yaml'
+    "429":
+      $ref: '../../v3/responses/429.yaml'
+    "500":
+      $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:task-definition:write]
+    - oauth2: [idn:task-definition:manage]

@@ -12,14 +12,13 @@ properties:
     description: >-
       Url and query parameters to be used to resolve this type of object by Id.
   resolveByNameUrl:
-    $ref: './SpConfigUrl.yaml'
+    type: array
+    items:
+      $ref: './SpConfigUrl.yaml'
     description: >-
       Url and query parameters to be used to resolve this type of object by name.
   exportUrl:
-    type: string
-    description: >-
-      Url to export this type of object.
-    example: ets://trigger-subscriptions/export
+    $ref: './SpConfigUrl.yaml'
   exportRight:
     type: string
     description: >-
@@ -32,10 +31,7 @@ properties:
       Pagination limit imposed by the target service for this object type.
     example: 10
   importUrl:
-    type: string
-    description: >-
-      Url to import this type of object.
-    example: ets://trigger-subscriptions/import
+    $ref: './SpConfigUrl.yaml'
   importRight:
     type: string
     description: >-
@@ -57,6 +53,7 @@ properties:
     example: ["$.owner"]
   signatureRequired:
     type: boolean
+    default: false
     description: >-
       If true, this type of object will be JWS signed and cannot be modified before import.
     example: false

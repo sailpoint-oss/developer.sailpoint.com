@@ -8,7 +8,7 @@ get:
 
     A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
   security:
-    - oauth2: [idn:provisioning-policy:read]
+    - oauth2: [idn:provisioning-policy:read, idn:provisioning-policy-source:read, idn:provisioning-policy:manage, idn:provisioning-policy-source-admin-operations:manage]
   parameters:
     - in: path
       name: sourceId
@@ -53,7 +53,7 @@ put:
 
     A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
   security:
-    - oauth2: [idn:provisioning-policy:update]
+    - oauth2: [idn:provisioning-policy:manage, idn:provisioning-policy-source-admin-operations:manage]
   parameters:
     - in: path
       name: sourceId
@@ -178,7 +178,7 @@ delete:
 
     A token with API, or ORG_ADMIN authority is required to call this API.
   security:
-    - oauth2: [idn:provisioning-policy:delete]
+    - oauth2: [idn:provisioning-policy:manage]
   parameters:
     - in: path
       name: sourceId

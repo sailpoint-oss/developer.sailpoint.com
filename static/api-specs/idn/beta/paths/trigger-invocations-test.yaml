@@ -53,5 +53,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2:
-        - 'idn:trigger-service-invocation-test:create'
+    - oauth2: [sp:trigger-service-invocation-status:manage]

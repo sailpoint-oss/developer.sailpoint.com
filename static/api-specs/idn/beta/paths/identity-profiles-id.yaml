@@ -23,8 +23,12 @@ delete:
           schema:
             $ref: '../../v3/schemas/BaseReferenceDto.yaml'
             description: A DTO with a TaskResult reference of the delete job
+    '400':
+      $ref: '../../v3/responses/400.yaml'
     '401':
       $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
     '404':
       $ref: '../../v3/responses/404.yaml'
     '429':
@@ -32,7 +36,7 @@ delete:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:identity-profile:delete]
+    - oauth2: [idn:identity-profile:manage]
 
 patch:
   operationId: updateIdentityProfile
@@ -53,7 +57,7 @@ patch:
 
     * modified
   security:
-    - oauth2: [idn:identity-profile:update]
+    - oauth2: [idn:identity-profile:manage]
   parameters:
     - in: path
       name: id

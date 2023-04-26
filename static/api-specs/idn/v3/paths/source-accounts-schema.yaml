@@ -46,7 +46,7 @@ post:
     To retrieve the file to modify and upload, log into Identity Now. 
     
 
-    Click **Admin** -> **Connections** -> **Sources** -> **`<SourceName>`** -> **Import Data** -> **Account Schema** -> **Options** -> **Download Schema**
+    Click **Admin** -> **Connections** -> **Sources** -> **`{SourceName}`** -> **Import Data** -> **Account Schema** -> **Options** -> **Download Schema**
 
     
     >**NOTE: This API is designated only for Delimited File sources.**
@@ -87,4 +87,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:source-schema:update]
+    - oauth2: [idn:source-schema:manage]

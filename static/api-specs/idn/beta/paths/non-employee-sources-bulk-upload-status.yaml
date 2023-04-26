@@ -4,13 +4,10 @@ get:
     - oauth2: [idn:nelm:read]
   tags:
     - Non-Employee Lifecycle Management
-  summary: Obtain the status of bulk upload on the source
+  summary: Bulk upload status on source
   description: |
     The nonEmployeeBulkUploadStatus API returns the status of the newest bulk upload job for the specified source.
 
-    Request will need the following scope:
-
-    'idn:nesr:read'
   parameters:
     - in: path
       example: "2c918085842e69ae018432d22ccb212f"

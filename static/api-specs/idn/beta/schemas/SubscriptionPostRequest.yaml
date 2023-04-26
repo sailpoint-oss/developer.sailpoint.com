@@ -1,8 +1,8 @@
 type: object
 required:
-- triggerId
-- type
-- name
+  - triggerId
+  - type
+  - name
 properties:
   name:
     type: string

@@ -4,17 +4,17 @@ post:
     - oauth2: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
-  summary: Aggregate all accounts for a Non-Employee Source
+  summary: Aggregate all Non-Employee Source accounts
   description: >-
     This fetches all the non-employee records related to a non-employee source and publishes an aggregation event for each one.
 
-    Requires auth scope of 'idn:nesr:create'
   parameters:
     - in: path
       name: sourceId
       description: >-
         Non-Employee sourceId
       required: true
+      example: 2c91808b6ef1d43e016efba0ce470904
       schema:
         type: string
   responses:

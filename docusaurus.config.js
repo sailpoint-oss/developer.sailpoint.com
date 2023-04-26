@@ -16,7 +16,6 @@ const config = {
     'The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.',
   url: 'https://developer.sailpoint.com',
   baseUrl,
-  trailingSlash: true,
   favicon: 'img/SailPoint-Logo-Icon.ico',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',

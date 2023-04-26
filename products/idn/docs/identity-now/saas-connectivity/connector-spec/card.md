@@ -4,17 +4,17 @@ title: Card
 pagination_label: Card
 sidebar_label: Card
 keywords: ['connectivity', 'connectors','connector-spec', 'card']
-description: Details on using the Card item
+description: Details on using the card item
 slug: /docs/saas-connectivity/connector-spec/card
 tags: ['Connectivity', 'Connector Spec']
 ---
 
-## How to use the Card type in the connector spec
-You can use the card type to specify cards that allow a user to add/copy/delete and enter submenu to make changes to more details about the card.
+## How to use the card type in the connector spec
+You can use the `card` type to specify cards that allow users to add/copy/delete and enter a subMenu to make changes to more card details.
 
-When creating a card, you need to specify the fields that are used in the card subMenu that will generate the title and subtitle as shown below.
+When you create a card, you must specify the fields the cardSubMenu will use to generate the title and subtitle, as shown in the following example. 
 
-In this example, clicking on the ```Add table``` button will open a dialog and the values entered for the ```Table Information``` and ```Airtable Id``` will populate the cards ```title``` and ```subtitle```.
+In this example, clicking the ```Add table``` button opens a dialog, and the values entered for the ```Table Information``` and ```Airtable Id``` will populate the cards ```title``` and ```subtitle```.
 
 ### Example card item type
 

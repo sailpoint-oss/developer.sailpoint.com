@@ -9,8 +9,10 @@ slug: /docs/saas-connectivity/connector-spec/radio
 tags: ['Connectivity', 'Connector Spec']
 ---
 
-## How to use the Radio type in the connector spec
-You can use the radio type to create radio buttons for users to interact with to select from a predefined set of values. An example of implementing this is below
+## How to use the radio type in the connector spec
+You can use the `Rrdio` type to create radio buttons for users to interact with to select from a predefined set of values. 
+
+This is an example implementation:
 
 ### Example radio item type
 
@@ -34,9 +36,9 @@ You can use the radio type to create radio buttons for users to interact with to
 ```
 ![radio input type](../img/radio.png)
 
-You can also create dependencies on other fields so they are hidden until the selection is made. This same type of dependency can be built into any field and linked via the parentKey/parentValue fields.
+You can also create dependencies on other fields so they are hidden until the selection is made. This same type of dependency can be built into any field and linked by using the parentKey/parentValue fields.
 
-### Example dependency on above select field
+### Example dependency on earlier select field
 
 ```javascript
 {

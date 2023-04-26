@@ -65,7 +65,7 @@ module.exports = {
     {
       position: 'left',
       label: 'Discuss',
-      to: 'https://developer.sailpoint.com/discuss',
+      to: 'https://developer.sailpoint.com/discuss/',
     },
     {
       type: 'dropdown',

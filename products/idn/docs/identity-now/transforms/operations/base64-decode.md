@@ -5,6 +5,7 @@ pagination_label: Base64 Decode
 sidebar_label: Base64 Decode
 sidebar_class_name: base64Decode
 keywords: ['transforms', 'operations', 'base64', 'decode']
+description: Base64 is mostly used to encode binary data like images so that the data can be represented as a string within HTML, email, or other text documents. Base64 is also commonly used to encode data that can be unsupported or damaged during transfer, storage, or output.
 slug: /docs/transforms/operations/base64-decode
 tags: ['Transforms', 'Transform Operations']
 ---

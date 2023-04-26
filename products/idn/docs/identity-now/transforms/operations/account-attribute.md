@@ -5,6 +5,7 @@ pagination_label: Account Attribute
 sidebar_label: Account Attribute
 sidebar_class_name: accountAttribute
 keywords: ['transforms', 'operations', 'account', 'attribute']
+description: Use the account attribute transform to look up an account for a particular source on an identity and return a specific attribute value from that account.
 slug: /docs/transforms/operations/account-attribute
 tags: ['Transforms', 'Transform Operations']
 ---

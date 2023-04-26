@@ -5,6 +5,7 @@ pagination_label: Name Normalizer
 sidebar_label: Name Normalizer
 sidebar_class_name: nameNormalizer
 keywords: ['transforms', 'operations', 'name normalizer']
+description: Use the name normalizer transform to clean or standardize the spelling of strings coming in from source systems. The most common use for this transform is for names and other proper nouns, but the transform is not necessarily limited to those data elements.
 slug: /docs/transforms/operations/name-normalizer
 tags: ['Transforms', 'Transform Operations']
 ---

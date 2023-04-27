@@ -17,7 +17,7 @@ tags: ['Rules']
 This rule manipulates raw input data provided by the rows and columns in a file and builds a map from the incoming data.
 
 :::info
-This rule runs in the cloud, however it is truly a connector rule as it executes against the DelimitedFileConnector.
+This rule runs in the cloud, but it's really a connector rule because it executes against the DelimitedFileConnector.
 :::
 
 ## Execution

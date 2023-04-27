@@ -22,7 +22,7 @@ This rule runs in the cloud, however it is truly a connector rule as it executes
 
 ## Execution
 
-- **Cloud Execution** - This rule executes in the IdentityNow cloud, and it has read-only access to IdentityNow data models, but it does not have access to on-premise sources or connectors.
+- **Cloud Execution** - This rule executes in the IdentityNow cloud and it has read-only access to IdentityNow data models, but it doesn't have access to on-premise sources or connectors.
 - **Logging** - Logging statements are currently only visible to SailPoint personnel.
 
 ![Rule Execution](../img/cloud_execution.png)

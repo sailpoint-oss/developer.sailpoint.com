@@ -6,7 +6,7 @@ sidebar_label: BuildMap Rule
 sidebar_class_name: buildMapRule
 keywords: ['cloud', 'rules']
 description: This rule manipulates raw input data provided by the rows and columns in a file and builds a map from the incoming data.
-slug: /docs/rules/connector-rules/buildmap-rule
+slug: /docs/rules/cloud-rules/buildmap-rule
 tags: ['Rules']
 ---
 
@@ -16,12 +16,16 @@ tags: ['Rules']
 
 This rule manipulates raw input data provided by the rows and columns in a file and builds a map from the incoming data.
 
+:::info
+This rule runs in the cloud, but it's really a connector rule because it executes against the DelimitedFileConnector.
+:::
+
 ## Execution
 
-- **Connector Execution** - This rule executes within the virtual appliance. It may offer special abilities to perform connector-related functions, and it may offer managed connections to sources.
-- **Logging** - Logging statements are viewable within the ccg.log on the virtual appliance, and they are viewable by SailPoint personnel.
+- **Cloud Execution** - This rule executes in the IdentityNow cloud and it has read-only access to IdentityNow data models, but it doesn't have access to on-premise sources or connectors.
+- **Logging** - Logging statements are currently only visible to SailPoint personnel.
 
-![Rule Execution](../img/connector_execution.png)
+![Rule Execution](../img/cloud_execution.png)
 
 ## Input
 

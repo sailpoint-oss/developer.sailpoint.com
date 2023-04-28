@@ -1,10 +1,13 @@
 get:
-  operationId: listIdentities
+  operationId: listHistoricalIdentities
   summary: Lists all the identities
   description: >-
     This gets the list of identities for the customer. This list end point does not support count=true request param. The total 
     count of identities would never be returned even if the count param is specified in the request
-    Requires authorization scope of 'idn:identity-history:read' 
+    Requires authorization scope of 'idn:identity-history:read'
+  security:
+    - oauth2:
+      - "idn:identity-history:read" 
   tags:
     - Identity History
   parameters:
@@ -37,11 +40,13 @@ get:
             type: array
             items:
               $ref: '../schemas/IdentityListItem.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
     '401':
       $ref: '../../v3/responses/401.yaml'
     '403':
       $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
     '500':
       $ref: '../../v3/responses/500.yaml'
-  security:
-    - bearerAuth : []

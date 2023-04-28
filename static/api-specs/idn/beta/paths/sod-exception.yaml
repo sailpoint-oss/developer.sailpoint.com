@@ -2,7 +2,7 @@ get:
   operationId: getSodExceptionById
   tags:
     - SOD Exception
-  summary: Get SOD Exception By ID
+  summary: Get SOD exception by ID
   # security:
   #   - oauth2: [API]
   description: >-
@@ -37,7 +37,7 @@ patch:
   operationId: patchExceptionById
   tags:
     - SOD Exception
-  summary: Update SOD Exception
+  summary: Update SOD exception
   # security:
   #   - oauth2: [API]
   description: >-
@@ -56,7 +56,7 @@ patch:
   requestBody:
     required: true
     description: |
-      A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+      A list of SOD policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
       The following fields are patchable:
       * policyId
@@ -93,7 +93,7 @@ delete:
   operationId: deleteSodExceptionById
   tags:
     - SOD Exception
-  summary: Delete SOD Exception by ID
+  summary: Delete SOD exception by ID
   # security:
   #   - oauth2: [API]
   description: >-
@@ -107,7 +107,7 @@ delete:
       schema:
         type: string
       required: true
-      description: The ID of the SOD Exception to delete.
+      description: The ID of the SOD exception to delete.
       example: ef38f94347e94562b5bb8424a56397d8
   responses:
     '204':

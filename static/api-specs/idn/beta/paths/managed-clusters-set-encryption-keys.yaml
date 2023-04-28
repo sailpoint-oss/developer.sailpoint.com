@@ -1,7 +1,7 @@
 post:
   tags:
     - Managed Clusters
-  summary: Set new encryption keys for a Managed Cluster
+  summary: New encryption keys for ManagedCluster
   description: >-
     Set new encryption keys for a Managed Cluster
 
@@ -43,4 +43,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:managed-cluster:update]
+    - oauth2: [idn:remote-client:manage]

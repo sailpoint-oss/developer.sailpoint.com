@@ -45,8 +45,10 @@ properties:
     $ref: './CommentDto.yaml'
     description: The requester's comment.
   reviewerComment:
-    $ref: './CommentDto.yaml'
+    allOf:
+      - $ref: './CommentDto.yaml'
     description: The approval's reviewer's comment.
+    nullable: true
   previousReviewersComments:
     type: array
     items:
@@ -69,6 +71,7 @@ properties:
     description: The date the role or access profile is no longer assigned to the specified identity.
     format: 'date-time'
     example: '2020-07-11T00:00:00Z'
+    nullable: true
   removeDateUpdateRequested:
     type: boolean
     description: If true, then the request was to change the remove date or sunset date.
@@ -78,6 +81,7 @@ properties:
     description: The remove date or sunset date that was assigned at the time of the request.
     format: 'date-time'
     example: '2020-07-11T00:00:00Z'
+    nullable: true
   sodViolationContext:
     $ref: './SodViolationContextCheckCompleted.yaml'
     description: The details of the SOD violations for the associated approval.

@@ -18,6 +18,7 @@ properties:
     example: false
   type:
     description: The type of the form field
+    nullable: true
     enum:
       - text
       - textarea
@@ -27,4 +28,18 @@ properties:
       - number
       - json
       - checkbox
+      - jsonpath
+      - select
+      - multiType
+      - duration
+      - toggle
+      - identityPicker
+      - governanceGroupPicker
+      - string
+      - object
+      - array
+      - secret
+      - keyValuePairs
+      - emailPicker
+      - advancedToggle
     example: text

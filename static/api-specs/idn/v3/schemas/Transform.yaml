@@ -17,6 +17,8 @@ properties:
     description: >-
       Unique name of this transform
     example: Timestamp To Date
+    minLength: 1
+    maxLength: 50
   type:
     type: string
     description: >-

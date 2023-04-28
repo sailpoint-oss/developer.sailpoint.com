@@ -1,0 +1,6 @@
+type: object
+properties:
+  approvalSchemes:
+    type: array
+    items:
+      $ref: './ApprovalScheme.yaml'

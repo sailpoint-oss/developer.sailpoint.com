@@ -1,5 +1,5 @@
 post:
-  operationId: nonEmployeeRecordCreation
+  operationId: createNonEmployeeRecord
   security:
     - oauth2: [idn:nelm:manage]
   tags:
@@ -37,7 +37,7 @@ post:
     "500":
       $ref: "../../v3/responses/500.yaml"
 get:
-  operationId: nonEmployeeRecordList
+  operationId: listNonEmployeeRecords
   security:
     - oauth2: [idn:nelm:read]
   tags:

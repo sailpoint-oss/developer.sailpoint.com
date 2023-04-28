@@ -6,7 +6,7 @@ post:
   description: >-
     Create a new workflow with the desired trigger and steps specified in the request body.
   security:
-    - oauth2: [sp:workflow:create]
+    - oauth2: [sp:workflow:manage]
   requestBody:
     required: true
     content:

@@ -5,6 +5,10 @@ properties:
     readOnly: true
     description: the id of the Source
     example: "2c91808568c529c60168cca6f90c1324"
+  name:
+    type: string
+    description: Human-readable name of the source
+    example: My Source
   description:
     type: string
     description: Human-readable description of the source
@@ -282,3 +286,7 @@ properties:
     type: string
     description: The connector implementstion id
     example: "delimited-file"
+required:
+  - name
+  - owner
+  - connector

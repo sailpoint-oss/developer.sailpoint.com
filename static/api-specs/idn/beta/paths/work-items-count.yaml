@@ -1,5 +1,5 @@
 get:
-  operationId: countWorkItems
+  operationId: getCountWorkItems
   tags:
     - Work Items
   summary: Count Work Items

@@ -4,15 +4,15 @@ post:
   description: |
     Creates a new saved search.
   summary: Create a saved search
-  operationId: savedSearchCreate
+  operationId: createSavedSearch
   requestBody:
     description: The saved search to persist.
     content:
       application/json:
         schema:
           allOf:
-          - $ref: '../schemas/search/saved/Name.yaml'
-          - $ref: '../schemas/search/saved/Search.yaml'
+          - $ref: '../schemas/search/saved/SavedSearchName.yaml'
+          - $ref: '../schemas/search/saved/SavedSearchDetail.yaml'
     required: true
   responses:
     '201':
@@ -31,7 +31,7 @@ get:
   description: |
     Returns a list of saved searches.
   summary: Return a list of Saved Searches
-  operationId: savedSearchList
+  operationId: listSavedSearches
   parameters:
   - $ref: '../parameters/offset.yaml'
   - $ref: '../parameters/limit.yaml'

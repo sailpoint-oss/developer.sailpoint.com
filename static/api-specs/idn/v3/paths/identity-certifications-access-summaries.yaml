@@ -36,7 +36,7 @@ get:
         type: string
       example: access.id eq "ef38f94347e94562b5bb8424a56397d8"
       description: >-
-        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki-API-Standard-Collection-Parameters/ta-p/156407)
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
 
 
         Filtering is supported for the following fields and operators:

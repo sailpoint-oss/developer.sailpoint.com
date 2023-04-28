@@ -1,0 +1,19 @@
+type: object
+properties:
+  approvalSchemes:
+    type: array
+    description: Ordered list of approval steps for the access request. Empty when no approval is required.
+    items:
+      $ref: './EntitlementApprovalScheme.yaml'
+  requestCommentRequired:
+    type: boolean
+    description: If the requester must provide a comment during access request.
+    default: false
+    example: true
+  denialCommentRequired:
+    type: boolean
+    description: If the reviewer must provide a comment when denying the access request.
+    default: false
+    example: false
+
+

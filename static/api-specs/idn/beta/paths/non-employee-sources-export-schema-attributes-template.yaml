@@ -1,5 +1,5 @@
 get:
-  operationId: nonEmployeeExportSourceSchemaTemplate
+  operationId: exportNonEmployeeSourceSchemaTemplate
   security:
     - oauth2: [idn:nelm:read]
   tags:

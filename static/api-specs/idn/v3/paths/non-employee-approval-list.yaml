@@ -1,5 +1,5 @@
 get:
-  operationId: nonEmployeeApprovalList
+  operationId: listNonEmployeeApprovals
   security:
     - oauth2: []
   tags:

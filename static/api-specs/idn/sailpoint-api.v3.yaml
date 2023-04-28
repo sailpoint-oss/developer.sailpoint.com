@@ -25,6 +25,42 @@ servers:
           This is the name of your tenant, typically your company's name.
 
 tags:
+  - name: Access Profiles
+    description: |
+      Use this API to implement and customize access profile functionality. 
+      With this functionality in place, administrators can create access profiles and configure them for use throughout IdentityNow, enabling users to get the access they need quickly and securely.
+      
+      Access profiles group entitlements, which represent access rights on sources. 
+
+      For example, an Active Directory source in IdentityNow can have multiple entitlements: the first, 'Employees,' may represent the access all employees have at the organization, and a second, 'Developers,' may represent the access all developers have at the organization.
+      
+      An administrator can then create a broader set of access in the form of an access profile, 'AD Developers' grouping the 'Employees' entitlement with the 'Developers' entitlement.
+      
+      When users only need Active Directory employee access, they can request access to the 'Employees' entitlement.
+      
+      When users need both Active Directory employee and developer access, they can request access to the 'AD Developers' access profile.
+      
+      Access profiles are the most important units of access in IdentityNow. IdentityNow uses access profiles in many features, including the following:
+      
+      - Provisioning: When you use the Provisioning Service, lifecycle states and roles both grant access to users in the form of access profiles.
+      
+      - Certifications: You can approve or revoke access profiles in certification campaigns, just like entitlements. 
+      
+      - Access Requests: You can assign access profiles to applications, and when a user requests access to the app associated with an access profile and someone approves the request, access is granted to both the application and its associated access profile.
+
+      - Roles: You can group one or more access profiles into a role to quickly assign access items based on an identity's role. 
+      
+      In IdentityNow, administrators can use the Access drop-down menu and select Access Profiles to view, configure, and delete existing access profiles, as well as create new ones. 
+      Administrators can enable and disable an access profile, and they can also make the following configurations: 
+      
+      - Manage Entitlements: Manage the profile's access by adding and removing entitlements. 
+      
+      - Access Requests: Configure access profiles to be requestable and establish an approval process for any requests that the access profile be granted or revoked. 
+      Do not configure an access profile to be requestable without first establishing a secure access request approval process for the access profile.
+      
+      - Multiple Account Options: Define the logic IdentityNow uses to provision access to an identity with multiple accounts on the source. 
+
+      Refer to [Managing Access Profiles](https://documentation.sailpoint.com/saas/help/access/access-profiles.html) for more information about access profiles.
   - name: Access Request Approvals
     description: |
       Use this API to implement and customize access request approval functionality. 
@@ -258,6 +294,14 @@ tags:
       Use this API to implement OAuth client functionality.   
       With this functionality in place, users with the appropriate security scopes can create and configure OAuth clients to use as a way to obtain authorization to use the IdentityNow REST API.
       Refer to [Authentication](https://developer.sailpoint.com/idn/api/authentication) for more information about OAuth and how it works with the IdentityNow REST API. 
+  - name: Password Configuration
+    description: |
+      Use this API to implement organization password configuration functionality. 
+      With this functionality in place, organization administrators can create organization-specific password configurations. 
+
+      These configurations include details like custom password instructions, as well as digit token length and duration. 
+
+      Refer to [Configuring User Authentication for Password Resets](https://documentation.sailpoint.com/saas/help/pwd/pwd_reset.html) for more information about organization password configuration functionality.
   - name: Password Management
     description: |
       Use this API to implement password management functionality.  
@@ -284,6 +328,89 @@ tags:
       Users may be required to answer security questions or use a third-party authenticator before they can confirm their updates. 
 
       Refer to [Managing Passwords](https://documentation.sailpoint.com/saas/user-help/accounts/passwords.html) for more information about password management.
+  - name: Password Dictionary
+    description: |
+      Use this API to implement password dictionary functionality.  
+      With this functionality in place, administrators can create password dictionaries to prevent users from using certain words or characters in their passwords. 
+
+      A password dictionary is a list of words or characters that users are prevented from including in their passwords. 
+      This can help protect users from themselves and force them to create passwords that are not easy to break. 
+
+      A password dictionary must meet the following requirements to for the API to handle them correctly: 
+
+      - It must be in .txt format.
+
+      - All characters must be UTF-8 characters. 
+
+      - Each line must contain a single word or character with no spaces or whitespace characters.
+
+      - It must contain at least one line other than the locale string.
+
+      - Each line must not exceed 128 characters.
+
+      - The file must not exceed 2500 lines. 
+
+      Administrators should also consider the following when they create their dictionaries: 
+
+      - Lines starting with a # represent comments.
+
+      - All words in the password dictionary are case-insensitive. 
+      For example, adding the word "password" to the dictionary also disallows the following: PASSWORD, Password, and PassWord.
+
+      - The dictionary uses substring matching. 
+      For example, adding the word "spring" to the dictionary also disallows the following: Spring124, 345SprinG, and 8spring.
+      Users can then select 'Change Password' to update their passwords. 
+
+      Administrators must do the following to create a password dictionary: 
+
+      - Create the text file that will contain the prohibited password values.
+
+      - If the dictionary is not in English, they must add a locale string to the top line: locale:`languageCode`_`countryCode`
+
+      The languageCode value refers to the language's 2-letter ISO 639-1 code.
+      The countryCode value refers to the country's 2-letter ISO 3166-1 code.
+      
+      Refer to this list https://docs.oracle.com/cd/E13214_01/wli/docs92/xref/xqisocodes.html to see all the available ISO 639-1 language codes and ISO 3166-1 country codes.
+
+      - Upload the .txt file to IdentityNow with [Update Password Dictionary](https://developer.sailpoint.com/idn/api/v3/update-password-dictionary). Uploading a new file always overwrites the previous dictionary file.
+
+      Administrators can then specify which password policies check new passwords against the password dictionary by doing the following: In the Admin panel, they can use the Password Mgmt dropdown menu to select Policies, select the policy, and select the 'Prevent use of words in this site's password dictionary' checkbox beside it.
+
+      Refer to [Configuring Advanced Password Management Options](https://documentation.sailpoint.com/saas/help/pwd/adv_config.html) for more information about password dictionaries.
+  - name: Password Sync Groups
+    description: |
+      Use this API to implement password sync group functionality. 
+      With this functionality in place, administrators can group sources into password sync groups so that all their applications share the same password. 
+      This allows users to update the password for all the applications in a sync group if they want, rather than updating each password individually. 
+
+      A password sync group is a group of applications that shares a password. 
+      Administrators create these groups by grouping the applications' sources. 
+      For example, an administrator can group the ActiveDirectory, GitHub, and G Suite sources together so that all those sources' applications can also be grouped to share a password. 
+      A user can then update his or her password for ActiveDirectory, GitHub, Gmail, Google Drive, and Google Calendar all at once, rather then updating each one individually.
+
+      The following are required for administrators to create a password sync group in IdentityNow: 
+
+      - At least two direct connect sources connected to IdentityNow and configured for Password Management.
+
+      - Each authentication source in a sync group must have at least one application. Refer to [Adding and Resetting Application Passwords](https://documentation.sailpoint.com/saas/help/pwd/adv_config.html#adding-and-resetting-application-passwords) for more information about adding applications to sources.
+
+      - At least one password policy. Refer to [Managing Password Policies](https://documentation.sailpoint.com/saas/help/pwd/policies.html) for more information about password policies. 
+
+      In the Admin panel in IdentityNow, administrators can use the Password Mgmt dropdown menu to select Sync Groups. 
+      To create a sync group, administrators must provide a name, choose a password policy to be enforced across the sources in the sync group, and select the sources to include in the sync group. 
+
+      Administrators can also delete sync groups in IdentityNow, but they should know the following before they do: 
+
+      - Passwords related to the associated sources will become independent, so changing one will not change the others anymore. 
+
+      - Passwords for the sources' connected applications will also become independent. 
+
+      - Password policies assigned to the sync group are then assigned directly to the associated sources. 
+      To change the password policy for a source, administrators must edit it directly. 
+
+      Once the password sync group has been created, users can update the password for the group in Password Manager.
+
+      Refer to [Managing Password Sync Groups](https://documentation.sailpoint.com/saas/help/pwd/sync_grps.html) for more information about password sync groups.
   - name: Personal Access Tokens
     description: |
       Use this API to implement personal access token (PAT) functionality. 
@@ -319,6 +446,45 @@ tags:
       Use this API to implement requestable object functionality. 
       With this functionality in place, administrators can determine which access items can be requested with the [Access Request APIs](https://developer.sailpoint.com/idn/api/v3/access-requests), along with their statuses. 
       This can be helpful for administrators who are implementing and customizing access request functionality as a way of checking which items are requestable as they are created, assigned, and made available.
+  - name: Roles
+    description: |
+      Use this API to implement and customize role functionality.
+      With this functionality in place, administrators can create roles and configure them for use throughout IdentityNow. 
+      IdentityNow can use established criteria to automatically assign the roles to qualified users. This enables users to get all the access they need quickly and securely and administrators to spend their time on other tasks.
+
+      Entitlements represent the most granular level of access in IdentityNow. 
+      Access profiles represent the next level and often group entitlements. 
+      Roles represent the broadest level of access and often group access profiles. 
+
+      For example, an Active Directory source in IdentityNow can have multiple entitlements: the first, 'Employees,' may represent the access all employees have at the organization, and a second, 'Developers,' may represent the access all developers have at the organization.
+      
+      An administrator can then create a broader set of access in the form of an access profile, 'AD Developers' grouping the 'Employees' entitlement with the 'Developers' entitlement.
+      
+      An administrator can then create an even broader set of access in the form of a role grouping the 'AD Developers' access profile with another profile, 'GitHub Developers,' grouping entitlements for the GitHub source.
+      
+      When users only need Active Directory employee access, they can request access to the 'Employees' entitlement.
+      
+      When users need both Active Directory employee and developer access, they can request access to the 'AD Developers' access profile.
+      
+      When users need both the 'AD Developers' access profile and the 'GitHub Developers' access profile, they can request access to the role grouping both. 
+      
+      Roles often represent positions within organizations. 
+      For example, an organization's accountant can access all the tools the organization's accountants need with the 'Accountant' role. 
+      If the accountant switches to engineering, a qualified member of the organization can quickly revoke the accountant's 'Accountant' access and grant access to the 'Engineer' role instead, granting access to all the tools the organization's engineers need.
+
+      In IdentityNow, adminstrators can use the Access drop-down menu and select Roles to view, configure, and delete existing roles, as well as create new ones. 
+      Administrators can enable and disable the role, and they can also make the following configurations: 
+
+      - Manage Access: Manage the role's access by adding or removing access profiles.
+
+      - Define Assignment: Define the criteria IdentityNow uses to assign the role to identities. 
+      Use the first option, 'Standard Criteria,' to provide specific criteria for assignment like specific account attributes, entitlements, or identity attributes. 
+      Use the second, 'Identity List,' to specify the identities for assignment.
+
+      - Access Requests: Configure roles to be requestable and establish an approval process for any requests that the role be granted or revoked. 
+      Do not configure a role to be requestable without establishing a secure access request approval process for that role first. 
+
+      Refer to [Working with Roles](https://documentation.sailpoint.com/saas/help/provisioning/roles.html) for more information about roles.
   - name: Saved Search
     description: |
       Use this API to implement saved search functionality. 
@@ -398,9 +564,9 @@ tags:
       Administrators can create various service desk integrations, all with their own nuances. 
       The following service desk integrations are available: 
 
-      - [Atlassian Cloud Jira Service Management](https://documentation.sailpoint.com/connectors/atlassian/jira_cloud/help/integrating_jira_cloud/introduction.html)
+      - [Atlassian Cloud Jira Service Management](https://documentation.sailpoint.com/connectors/atlassian/jira_cloud/help/integrating_jira_cloud_sd/introduction.html)
 
-      - [Atlassian Server Jira Service Management](https://documentation.sailpoint.com/connectors/atlassian/jira_server/help/integrating_jira_server/introduction.html)
+      - [Atlassian Server Jira Service Management](https://documentation.sailpoint.com/connectors/atlassian/jira_server/help/integrating_jira_server_sd/introduction.html)
 
       - [BMC Helix ITSM Service Desk](https://documentation.sailpoint.com/connectors/bmc/helix_ITSM_sd/help/integrating_bmc_helix_itsm_sd/intro.html)
 
@@ -495,6 +661,14 @@ tags:
 
       Refer to [Task Manager](https://documentation.sailpoint.com/saas/user-help/task_manager.html) for more information about work items, including the different types of work items users may need to complete.
 paths:
+  /access-profiles:
+    $ref: './v3/paths/access-profiles.yaml'
+  /access-profiles/{id}:
+    $ref: './v3/paths/access-profile.yaml'
+  /access-profiles/bulk-delete:
+    $ref: './v3/paths/access-profile-bulk-delete.yaml'
+  /access-profiles/{id}/entitlements:
+    $ref: './v3/paths/access-profile-entitlements.yaml'
   /access-requests:
     $ref: "./v3/paths/access-requests.yaml"
   /access-requests/cancel:
@@ -611,6 +785,10 @@ paths:
     $ref: "./v3/paths/oauth-clients.yaml"
   /oauth-clients/{id}:
     $ref: "./v3/paths/oauth-client.yaml"
+  /password-sync-groups:
+    $ref: './v3/paths/password-sync-groups.yaml'
+  /password-sync-groups/{id}:
+    $ref: './v3/paths/password-sync-group.yaml'
   /personal-access-tokens:
     $ref: "./v3/paths/personal-access-tokens.yaml"
   /personal-access-tokens/{id}:
@@ -621,6 +799,12 @@ paths:
     $ref: "./v3/paths/public-identities-config.yaml"
   /requestable-objects:
     $ref: "./v3/paths/requestable-object-list.yaml"
+  /roles:
+    $ref: './v3/paths/roles.yaml'
+  /roles/{id}:
+    $ref: './v3/paths/role.yaml'
+  /roles/{id}/assigned-identities:
+    $ref: './v3/paths/role-assigned-identities.yaml'
   /saved-searches:
     $ref: "./v3/paths/saved-searches.yaml"
   /saved-searches/{id}:
@@ -657,6 +841,10 @@ paths:
     $ref: "./v3/paths/set-password.yaml"
   /password-change-status/{id}:
     $ref: "./v3/paths/password-change-status.yaml"
+  /password-dictionary:
+    $ref: './v3/paths/password-dictionary.yaml'
+  /password-org-config:
+    $ref: './v3/paths/password-org-config.yaml'
   /sources:
     $ref: "./v3/paths/sources.yaml"
   /sources/{id}:
@@ -743,9 +931,9 @@ components:
     AccessRequestItem:
       $ref: "./v3/schemas/AccessRequestItem.yaml"
     AccessProfileDocument:
-      $ref: "./v3/schemas/search/model/access/profile/AccessProfile.yaml"
+      $ref: "./v3/schemas/search/model/access/profile/AccessProfileDocument.yaml"
     AccessProfileSummary:
-      $ref: "./v3/schemas/search/model/access/AccessProfile.yaml"
+      $ref: "./v3/schemas/search/model/access/AccessProfileSummary.yaml"
     AccessReviewReassignment:
       $ref: "./v3/schemas/ReviewReassign.yaml"
     Account:
@@ -753,11 +941,11 @@ components:
     AccountActivity:
       $ref: "./v3/schemas/AccountActivity.yaml"
     AccountActivitySearchedItem:
-      $ref: "./v3/schemas/search/model/account/activity/AccountActivity.yaml"
+      $ref: "./v3/schemas/search/model/account/activity/AccountActivityDocument.yaml"
     AccountAttributes:
       $ref: "./v3/schemas/AccountAttributes.yaml"
     AccountDocument:
-      $ref: "./v3/schemas/search/model/account/Account.yaml"
+      $ref: "./v3/schemas/search/model/account/AccountDocument.yaml"
     AccountsAsyncResult:
       $ref: "./v3/schemas/AccountsAsyncResult.yaml"
     AccountToggleRequest:
@@ -765,7 +953,7 @@ components:
     AccountUnlockRequest:
       $ref: "./v3/schemas/AccountUnlockRequest.yaml"
     Aggregation:
-      $ref: "./v3/schemas/search/model/aggregation/Aggregation.yaml"
+      $ref: "./v3/schemas/search/model/aggregation/AggregationDocument.yaml"
     ApprovalItems:
       $ref: "./v3/schemas/ApprovalItemDetails.yaml"
     Campaign:
@@ -775,13 +963,13 @@ components:
     CertificationReference:
       $ref: "./v3/schemas/CertificationReference.yaml"
     EntitlementDocument:
-      $ref: "./v3/schemas/search/model/entitlement/Entitlement.yaml"
+      $ref: "./v3/schemas/search/model/entitlement/EntitlementDocument.yaml"
     EntitlementSummary:
-      $ref: "./v3/schemas/search/model/access/Entitlement.yaml"
+      $ref: "./v3/schemas/search/model/access/AccessProfileEntitlement.yaml"
     Event:
-      $ref: "./v3/schemas/search/model/event/Event.yaml"
+      $ref: "./v3/schemas/search/model/event/EventDocument.yaml"
     IdentityDocument:
-      $ref: "./v3/schemas/search/model/identity/Identity.yaml"
+      $ref: "./v3/schemas/search/model/identity/IdentityDocument.yaml"
     IdentityProfile:
       $ref: "./v3/schemas/IdentityProfile.yaml"
     IdentityReferenceWithNameAndEmail:
@@ -807,9 +995,9 @@ components:
     Reviewer:
       $ref: "./v3/schemas/Reviewer.yaml"
     RoleDocument:
-      $ref: "./v3/schemas/search/model/role/Role.yaml"
+      $ref: "./v3/schemas/search/model/role/RoleDocument.yaml"
     RoleSummary:
-      $ref: "./v3/schemas/search/model/access/Role.yaml"
+      $ref: "./v3/schemas/search/model/access/AccessProfileRole.yaml"
     SearchDocument:
       $ref: "./v3/schemas/search/documents/SearchDocument.yaml"
     SavedSearch:

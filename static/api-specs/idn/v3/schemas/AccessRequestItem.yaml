@@ -37,6 +37,7 @@ properties:
       * The current SLA for the deprovisioning is 24 hours.
       * This date can be modified to either extend or decrease the duration of access item assignments for the specified identity.
       * Currently it is not supported for entitlements.
+      * If sunset date for role or access profile specified, removeDate cannot be established. This rule doesn't apply for entitlements.
 
     format: 'date-time'
     example: '2020-07-11T21:23:15.000Z'

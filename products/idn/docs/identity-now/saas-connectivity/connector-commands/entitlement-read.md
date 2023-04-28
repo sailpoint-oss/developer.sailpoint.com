@@ -24,6 +24,7 @@ At this time Entitlement Read is not triggered from IDN for any specific workflo
 
 ```javascript
 {
+    "identity": "john.doe",
     "key": {
         "simple": {
             "id": "john.doe"
@@ -37,6 +38,7 @@ At this time Entitlement Read is not triggered from IDN for any specific workflo
 
 ```javascript
 {
+    "identity": "john.doe",
     "key": {
         "simple": {
             "id": "administrator"

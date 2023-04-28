@@ -4,6 +4,7 @@ properties:
     type: boolean
     description: If the profile or mapping is enabled
     example: true
+    default: true
   attributeTransforms:
     type: array
     items:

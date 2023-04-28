@@ -36,4 +36,4 @@ get:
     '500':
       $ref: '../responses/500.yaml'
   security:
-    - oauth2: [idn:identity-profile-default-mapping:read]
+    - oauth2: [idn:identity-profile:manage]

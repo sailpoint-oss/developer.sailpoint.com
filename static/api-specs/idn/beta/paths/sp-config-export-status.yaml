@@ -1,5 +1,5 @@
 get:
-  operationId: spConfigExportJobStatus
+  operationId: exportSpConfigJobStatus
   # security:
   #   - oauth2: [sp:config:export]
   tags:

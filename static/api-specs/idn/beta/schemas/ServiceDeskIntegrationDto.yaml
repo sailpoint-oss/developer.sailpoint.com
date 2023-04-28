@@ -21,39 +21,35 @@ allOf:
         default: ServiceNowSDIM
         example: ServiceNowSDIM
       ownerRef:
+        allOf:
+          - $ref: '../../v3/schemas/BaseReferenceDto.yaml'
         description: Reference to the identity that is the owner of this Service Desk integration
-        type: object
         properties:
           type:
             description: The type of object being referenced
-            type: string
             enum:
               - IDENTITY
             example: IDENTITY
           id:
-            type: string
             description: ID of the identity
             example: 2c91808568c529c60168cca6f90c1313
           name:
-            type: string
             description: Human-readable display name of the identity
             example: MyName
       clusterRef:
+        allOf:
+          - $ref: '../../v3/schemas/BaseReferenceDto.yaml'
         description: Reference to the source cluster for this Service Desk integration
-        type: object
         properties:
           type:
             description: The type of object being referenced
-            type: string
             enum:
               - CLUSTER
             example: CLUSTER
           id:
-            type: string
             description: ID of the cluster
             example: 2c9180866166b5b0016167c32ef31a66
           name:
-            type: string
             description: Human-readable display name of the cluster
             example: Corporate Cluster
       cluster:
@@ -82,20 +78,18 @@ allOf:
           key: "value"
         }
       beforeProvisioningRule:
+        allOf:
+          - $ref: '../../v3/schemas/BaseReferenceDto.yaml'
         description: Reference to beforeProvisioningRule for this Service Desk integration
-        type: object
         properties:
           type:
             description: The type of object being referenced
-            type: string
             enum:
               - RULE
             example: RULE
           id:
-            type: string
             description: ID of the rule
             example: 2c91808568c529c60168cca6f90c1333
           name:
-            type: string
             description: Human-readable display name of the rule
             example: Example Rule

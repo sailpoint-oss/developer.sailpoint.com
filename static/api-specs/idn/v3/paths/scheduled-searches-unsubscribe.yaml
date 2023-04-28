@@ -3,7 +3,7 @@ post:
     - Scheduled Search
   description: |
     Unsubscribes a recipient from the specified scheduled search.
-  operationId: scheduledSearchUnsubscribe
+  operationId: unsubscribeScheduledSearch
   summary: Unsubscribe a recipient from Scheduled Search
   parameters:
   - $ref: '../parameters/path/search/id.yaml'

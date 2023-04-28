@@ -1,5 +1,5 @@
 get:
-  operationId: getEvents
+  operationId: getHistoricalIdentityEvents
   tags:
     - Identity History
   summary: Lists all events for the given identity

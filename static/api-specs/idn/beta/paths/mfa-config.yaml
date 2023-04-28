@@ -2,12 +2,12 @@ get:
   operationId: getMFAConfig
   tags:
     - MFA Configuration
-  summary: Get configuration of a MFA method
+  summary: Configuration of a MFA method
   description: >-
     This API returns the configuration of a given MFA method.
     A token with ORG_ADMIN authority is required to call this API.
   security:
-    - oauth2: [idn:mfa-config:read]
+    - oauth2: [idn:mfa-configuration:read, idn:mfa-configuration:manage]
   parameters:
     - in: path
       name: method
@@ -47,12 +47,12 @@ put:
   operationId: setMFAConfig
   tags:
     - MFA Configuration
-  summary: Set configuration of a MFA method
+  summary: Set MFA method configuration
   description: >-
     This API sets the configuration of a given MFA method.
     A token with ORG_ADMIN authority is required to call this API.
   security:
-    - oauth2: [idn:mfa-config:write]
+    - oauth2: [idn:mfa-configuration:manage]
   parameters:
     - in: path
       name: method

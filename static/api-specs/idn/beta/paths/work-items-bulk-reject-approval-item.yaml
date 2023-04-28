@@ -1,5 +1,5 @@
 post:
-  operationId: bulkRejectApprovalItem
+  operationId: rejectApprovalItemsInBulk
   tags:
     - Work Items
   summary: Bulk reject Approval Items

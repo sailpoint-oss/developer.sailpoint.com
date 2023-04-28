@@ -1,5 +1,5 @@
 post:
-  operationId: forwardRequest
+  operationId: forwardAccessRequest
   summary: Forwards an access request approval to a new owner.
   tags:
     - Access Request Approvals

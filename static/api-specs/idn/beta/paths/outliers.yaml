@@ -1,5 +1,5 @@
 get:
-  operationId: getOutliers
+  operationId: getIdentityOutliers
   tags:
     - IAI Outliers
   summary: IAI Get Identity Outliers

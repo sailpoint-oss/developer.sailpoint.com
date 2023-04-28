@@ -1,0 +1,40 @@
+type: object
+properties:
+  minNumIdentitiesInPotentialRole:
+    type: integer
+    description: Minimum number of identities in a potential role
+    example: 20
+    format: int32
+  name:
+    type: string
+    description: The session's saved name
+    example: "Saved RM Session - 07/10"
+  pruneThreshold:
+    type: integer
+    description: The prune threshold to be used or null to calculate prescribedPruneThreshold
+    example: 5
+    format: int32
+  saved:
+    type: boolean
+    description: The session's saved status
+    example: true
+  scope:
+    $ref: './RoleMiningSessionScope.yaml'
+    description: The scope of identities for this role mining session
+    example: {
+      identityIds: [ ],
+      criteria: "source.name:DataScienceDataset",
+      attributeFilterCriteria: {
+        displayName: { untranslated: "Location: Miami" },
+        ariaLabel: { untranslated: "Location: Miami" },
+        data: {
+          displayName: { translateKey: "IDN.IDENTITY_ATTRIBUTES.LOCATION" },
+          name: "location",
+          operator: "EQUALS",
+          values: [ "Miami" ]
+        }
+      }
+    }
+  type:
+    $ref: './iai/RoleMiningRoleType.yaml'
+    description: Role mining potential type

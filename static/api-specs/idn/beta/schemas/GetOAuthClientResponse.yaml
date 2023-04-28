@@ -80,6 +80,12 @@ properties:
     format: 'date-time'
     description: The date and time, down to the millisecond, when the API Client was last updated
     example: '2018-06-25T20:22:28.104Z'
+  lastUsed:
+    type: string
+    nullable: true
+    format: 'date-time'
+    description: The date and time, down to the millisecond, when this API Client was last used to generate an access token. This timestamp does not get updated on every API Client usage, but only once a day. This property can be useful for identifying which API Clients are no longer actively used and can be removed.
+    example: '2017-07-11T18:45:37.098Z'
   scope:
     type: array
     nullable: true

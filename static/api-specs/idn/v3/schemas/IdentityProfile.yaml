@@ -52,6 +52,7 @@ allOf:
           example: HR Active Directory
     identityRefreshRequired:
       type: boolean
+      default: false
       description: True if a identity refresh is needed. Typically triggered when a change on the source has been made.
       example: true
     identityCount:
@@ -66,4 +67,5 @@ allOf:
     hasTimeBasedAttr:
       description: Indicates the value of requiresPeriodicRefresh attribute for the Identity Profile.
       type: boolean
+      default: false
       example: true

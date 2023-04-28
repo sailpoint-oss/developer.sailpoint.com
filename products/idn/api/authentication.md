@@ -283,9 +283,9 @@ curl -X POST \
 
 ### Client Credentials Grant Flow
 
-Further Reading: [https://oauth.net/2/grant-types/client-credentials/](https://oauth.net/2/grant-types/client-credentials/)
+Clients use the 'Client Credentials' grant type to obtain access tokens without user context. This is probably the simplest authentication flow, but it has a drawback: API endpoints that require [user level permissions](https://documentation.sailpoint.com/saas/help/common/users/user_level_matrix.html) will not work with them. 
 
-This grant type is used by clients to obtain an access token outside the context of a user. This is probably the simplest authentication flow, but comes with a major drawback; API endpoints that require [user level permissions](https://documentation.sailpoint.com/saas/help/common/users/user_level_matrix.html) will not work. [Personal Access Tokens](#personal-access-tokens) are a form of Client Credentials that have a user context, so they do not share this drawback. However, the APIs that can be invoked with a personal access token depend on the permissions of the user that generated it.
+[Personal access tokens](#personal-access-tokens) are client credentials that have user context, so the API endpoints requiring user level permissions do work with them. The endpoints a personal access token (PAT) can be used to invoke depend on the permissions of the user who generated it. 
 
 An OAuth 2.0 client using the Client Credentials flow must have `CLIENT_CREDENTIALS` as one of its grantTypes:
 
@@ -304,33 +304,52 @@ An OAuth 2.0 client using the Client Credentials flow must have `CLIENT_CREDENTI
 }
 ```
 
-[Personal Access Tokens](#personal-access-tokens) are implicly granted a `CLIENT_CREDENTIALS` grant type.
+PATs are implicitly granted the `CLIENT_CREDENTIALS` grant type.
 
-The overall authorization flow looks like this:
+This is the overall authorization flow:
 
-1. The client submits an **OAuth 2.0 Token Request** to IdentityNow in the form:
-
+1. The client first submits an OAuth 2.0 token request to IDN in this form:
+  
 ```text
-POST https://{tenant}.api.identitynow.com/oauth/token?grant_type=client_credentials&client_id={client-id}&client_secret={client-secret}
+POST https://{tenant}.api.identitynow.com/oauth/token
 ```
+  
+The request includes the client credential information passed in the request body, as shown in this example using [Postman](https://www.getpostman.com): 
 
-2. IdentityNow validates the token request and submits a response. If successful, the response will contain a JWT access token.
+![OAuth Client Credentials Form Data](./img/authentication/oauth-client-credentials-form-data.png)
 
-The query parameters in the OAuth 2.0 Token Request for the Client Credentials grant are as follows:
+This example shows how to pass the information with form-data in the request body. You can also use these options to pass in the information: 
+
+- Use x-www-form-urlencoded data to pass in the client credential information in the request body. 
+- Use query parameters to pass the information in the request URL. The request URL will look like this: 
+  ```text
+  https://{tenant}.api.identitynow.com/oauth/token?grant_type=client_credentials&client_id={{clientId}}&client_secret={{clientSecret}}
+  ```
+- If you are using Postman, you can use the 'Authorization' tab to pass in the client credentials. If you use this option, you must also specify the access token URL: https://{tenant}.api.identitynow.com/oauth/token
+
+The OAuth 2.0 token request must include this information: 
 
 | Key | Description |
 | --- | --- |
-| `grant_type` | Set to `CLIENT_CREDENTIALS` for the authorization code grant type. |
-| `client_id` | This is the client ID describing for the API client (e.g. `b61429f5-203d-494c-94c3-04f54e17bc5c`). This can be generated at `https://{tenant}.identitynow.com/ui/admin/#admin:global:security:apimanagementpanel` or by [creating a personal access token](#personal-access-tokens). |
-| `client_secret` | This is the client secret describing for the API client (e.g. `c924417c85b19eda40e171935503d8e9747ca60ddb9b48ba4c6bb5a7145fb6c5`). This can be generated at `https://{tenant}.identitynow.com/ui/admin/#admin:global:security:apimanagementpanel` or by [creating a personal access token](#personal-access-tokens). |
+| `grant_type` | This is set to `CLIENT_CREDENTIALS` for the authorization code grant type. |
+| `client_id` | This is the API client's ID (e.g. `b61429f5-203d-494c-94c3-04f54e17bc5c`). You can generate this ID at `https://{tenant}.identitynow.com/ui/admin/#admin:global:security:apimanagementpanel`, or you can generate it when you create a PAT. |
+| `client_secret` | This is the API client's secret describing (e.g. `c924417c85b19eda40e171935503d8e9747ca60ddb9b48ba4c6bb5a7145fb6c5`). You can generate this secret at `https://{tenant}.identitynow.com/ui/admin/#admin:global:security:apimanagementpanel`, or you can generate it when you create a PAT. |
 
-Here is an example request to generate an `access_token` using Client Credentials.
+This example cURL command passes client credentials in the body as form-data to generate an access token:
 
 ```bash
-curl -X POST \
- 'https://{tenant}.api.identitynow.com/oauth/token?grant_type=client_credentials&client_id={client_id}&client_secret={client_secret}' \
- -H 'cache-control: no-cache'
+curl --location 'https://{tenant}.api.identitynow.com/oauth/token' \
+--header 'scope: sp:scope:all' \
+--form 'grant_type="client_credentials"' \
+--form 'client_id="{clientId}"' \
+--form 'client_secret="{clientSecret}"'
 ```
+
+2. IdentityNow validates the token request and responds. A successful response will contain a JWT access token.
+
+Once you have the JWT access token, you can pass the token as a basic "Authorization" header in your requests using the OAuth endpoints. 
+
+To learn more about the OAuth client credentials grant flow, refer [here](https://oauth.net/2/grant-types/client-credentials/). 
 
 ### Refresh Token Grant Flow
 

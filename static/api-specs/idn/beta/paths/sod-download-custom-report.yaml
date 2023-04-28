@@ -4,7 +4,7 @@ get:
     - SOD Policy
   summary: Download custom violation report
   description: >-
-    This allows to download a specified named violation report  for given report reference.
+    This allows to download a specified named violation report for a given report reference.
 
     Requires role of ORG_ADMIN.
   # security:
@@ -26,7 +26,7 @@ get:
       example: custom-name
   responses:
     '200':
-      description: Returns zip file with given custom name that contains the violation report file
+      description: Returns the zip file with given custom name that contains the violation report file.
       content:
         application/zip:
           schema:

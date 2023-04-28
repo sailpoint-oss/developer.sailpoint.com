@@ -4,7 +4,7 @@ post:
   description: |
     Executes the specified saved search.
   summary: Execute a saved search by ID
-  operationId: savedSearchExecute
+  operationId: executeSavedSearch
   parameters:
   - $ref: '../parameters/path/search/id.yaml'
   requestBody:

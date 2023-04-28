@@ -7,7 +7,7 @@ get:
 
     A token with transforms-list read authority is required to call this API.
 
-  operationId: getTransformsList
+  operationId: listTransforms
   parameters:
     - $ref: '../../v3/parameters/offset.yaml'
     - $ref: '../../v3/parameters/limit.yaml'
@@ -70,7 +70,7 @@ get:
     "500":
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:transforms-list:read]
+    - oauth2: [idn:transform:read]
 post:
   tags:
     - Transforms
@@ -114,4 +114,4 @@ post:
     "500":
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:transforms:write]
+    - oauth2: [idn:transform:update]

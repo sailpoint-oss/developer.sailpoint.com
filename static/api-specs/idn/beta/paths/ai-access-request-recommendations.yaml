@@ -1,5 +1,5 @@
 get:
-  operationId: accessRequestRecommendations
+  operationId: getAccessRequestRecommendations
   tags:
     - IAI Access Request Recommendations
   summary: Identity Access Request Recommendations

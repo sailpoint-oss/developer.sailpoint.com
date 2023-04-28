@@ -17,7 +17,9 @@
 
 
 name: CheckMarx Scan on Pull Request
-on: pull_request
+on: 
+  #pull_request:
+  workflow_dispatch:
   
 jobs:
   start-runner:

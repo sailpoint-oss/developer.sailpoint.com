@@ -2,7 +2,7 @@ post:
   operationId: violationCheck
   tags:
     - SOD Policy
-  summary: Check SOD Violations
+  summary: Check SOD violations
   description: >-
     This API initiates a SOD policy verification asynchronously.
 
@@ -38,7 +38,7 @@ post:
           }
   responses:
     '202':
-      description: Request id with a timestamp
+      description: Request ID with a timestamp.
       content:
         application/json:
           schema:

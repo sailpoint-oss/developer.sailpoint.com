@@ -1,0 +1,8 @@
+.accordion {
+  background: linear-gradient(
+    145deg,
+    rgba(0, 51, 161, 1) 40%,
+    rgba(0, 79, 181, 1) 65%,
+    rgba(0, 113, 206, 1) 100%
+  );
+}

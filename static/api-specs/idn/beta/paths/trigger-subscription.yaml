@@ -88,8 +88,7 @@ put:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2:
-        - 'idn:trigger-service-subscriptions:update'
+    - oauth2: [sp:trigger-service-subscriptions:manage]
 
 patch:
   operationId: patchSubscription
@@ -138,8 +137,7 @@ patch:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2:
-        - 'idn:trigger-service-subscriptions:update'
+    - oauth2: [sp:trigger-service-subscriptions:manage]
 
 delete:
   operationId: deleteSubscription
@@ -172,5 +170,4 @@ delete:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2:
-        - 'idn:trigger-service-subscriptions:delete'
+    - oauth2: [sp:trigger-service-subscriptions:manage]

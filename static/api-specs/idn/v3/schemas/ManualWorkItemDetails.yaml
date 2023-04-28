@@ -19,3 +19,9 @@ properties:
     example: "2019-08-23T18:52:57.398Z"
   status:
     $ref: './ManualWorkItemState.yaml'
+  forwardHistory:
+    type: array
+    items:
+      $ref: './ApprovalForwardHistory.yaml'
+    description: >-
+      The history of approval forward action.

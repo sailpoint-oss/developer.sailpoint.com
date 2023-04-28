@@ -1,5 +1,5 @@
 get:
-  operationId: getSegmentById
+  operationId: getSegment
   tags:
     - Segments
   summary: Get a Segment by its ID
@@ -34,7 +34,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
 delete:
-  operationId: deleteSegmentById
+  operationId: deleteSegment
   tags:
     - Segments
   summary: Delete Segment by ID

@@ -3,13 +3,13 @@ properties:
   comments:
     type: array
     items:
-      $ref: "Comment.yaml"
+      $ref: "ApprovalComment.yaml"
   created:
     $ref: "../../base/DateTime.yaml"
   modified:
     $ref: "../../base/DateTime.yaml"
   owner:
-    $ref: "../Source.yaml"
+    $ref: "../AccountSource.yaml"
   result:
     type: string
     description: The result of the approval

@@ -1,0 +1,222 @@
+/* positioning of content */
+.headerContainer {
+  display: grid;
+  margin-left: 50px;
+  margin-bottom: 50px;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  place-content: center;
+  margin-right: 40px;
+}
+
+.headerContent {
+  position: relative;
+  margin-top: 20px;
+  height: 100px;
+}
+
+/* agenda speakers faq buttons containers */
+.buttonsContainer {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 80px 80px 80px;
+  place-content: end;
+}
+@media only screen and (max-width: 628px) {
+  .buttonsContainer {
+    place-content: center;
+  }
+}
+
+.buttonsContent {
+  position: relative;
+  margin-top: 0px;
+  height: 40px;
+}
+
+/* stage buttons containers */
+
+.center {
+  max-width: 480px;
+}
+
+.stageButtonsContainer {
+  /* display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  grid-gap: 10px; */
+  margin-left: 40px;
+  margin-right: 40px;
+}
+@media only screen and (max-width: 628px) {
+  .stageButtonsContainer {
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    grid-gap: 10px;
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+}
+
+.stageButtonsContent {
+  position: relative;
+  margin-top: 20px;
+  height: 30px;
+}
+
+/* initial header */
+.headerText {
+  color: var(--dev-text-color-cobalt);
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 100%;
+}
+
+.timeText {
+  margin: 8px 0px;
+  color: var(--dev-text-color-secondary);
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+/* agenda speakers and faq buttons */
+
+.button {
+  text-decoration: none;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 100%;
+  /* Layout Properties */
+  width: 80px;
+  height: 35px;
+  line-height: 35px;
+  /* UI Properties */
+  background: transparent 0% 0% no-repeat padding-box;
+  opacity: 1;
+  background-color: #c552ae10;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  /* border: 2px solid #df61ca; */
+  border-radius: 5px;
+  color: #cc27b0;
+}
+
+.button:hover {
+  cursor: pointer;
+  top: -4px;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.4);
+  background-color: #c552ae31;
+  color: #cc27b0;
+}
+
+/* stage buttons */
+
+.stageButton {
+  text-decoration: none;
+  text-align: center;
+  font-size: 16px;
+  line-height: 100%;
+  /* Layout Properties */
+  width: 130px;
+  height: 40px;
+  line-height: 40px;
+  /* UI Properties */
+  background: transparent 0% 0% no-repeat padding-box;
+  background-color: #0071ce;
+  /* border: 1px solid #dae1e9; */
+  /* box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2); */
+  border-radius: 20.3736px;
+  color: #dae1e9;
+}
+
+.stageButton:hover {
+  cursor: pointer;
+  transform: scale(1.03);
+  /* top: -4px;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.4);
+  background-color: #c552ae31;
+  color: #cc27b0; */
+}
+
+.stageButtonActive {
+  top: -4px;
+  box-shadow: 0 7px 7px rgba(0, 0, 0, 0.4);
+  background-color: #0033a1 !important;
+  color: #dae1e9 !important;
+  border: 1px solid #dae1e9;
+}
+
+.stageButton:disabled {
+  background: #ffffff;
+  box-shadow: inset -5.0934px -5.0934px 15.2802px rgba(255, 255, 255, 0.5),
+    inset 5.0934px 5.0934px 15.2802px rgba(136, 160, 183, 0.25);
+  border-radius: 20.3736px;
+}
+
+@media only screen and (max-width: 628px) {
+  .stageButton {
+    width: auto;
+  }
+}
+
+.modal {
+  position: absolute;
+  margin-top: 50px;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  background-color: var(--dev-card-background);
+  max-height: 100%;
+}
+
+.modalButton {
+  border: 1px solid var(--ifm-color-primary);
+  box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.12);
+  border-radius: 24px;
+  color: var(--ifm-color-primary);
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  width: 120px;
+
+  background-color: #ffffff31;
+}
+
+.modalButton:hover {
+  cursor: pointer;
+  top: -4px;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.4);
+  background-color: #dae1e9;
+  color: #005fc4;
+}
+
+.gettingStartedText {
+  text-align: center;
+  margin: 50px auto 50px auto;
+  width: calc(100% - 100px);
+  max-width: 600px;
+}
+
+.gettingStartedCardIcon {
+  margin-bottom: 20px;
+  width: 50px;
+  height: 50px;
+}
+
+.gettingStartedOne {
+  color: var(--ifm-color-primary);
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 100%;
+}
+
+.gettingStartedThree {
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 500;
+}

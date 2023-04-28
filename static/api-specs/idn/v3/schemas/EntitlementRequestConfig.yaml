@@ -18,8 +18,8 @@ properties:
     type: string
     description: |
       Approval schemes for granting entitlement request. This can be empty if no approval is needed.
-      Multiple schemes must be comma-separated. The valid schemes are "sourceOwner", "manager" and "workgroup:{id}".
+      Multiple schemes must be comma-separated. The valid schemes are "entitlementOwner", "sourceOwner", "manager" and "workgroup:{id}".
       Multiple workgroups (governance groups) can be used.
     default: sourceOwner
     example:
-        "sourceOwner, manager, workgroup:2c918084660f45d6016617daa9210584"
+        "entitlementOwner, sourceOwner, manager, workgroup:2c918084660f45d6016617daa9210584"

@@ -6,7 +6,7 @@ post:
   description: >-
     Create OAuth client ID, client secret, and callback URL for use in an external trigger.  External triggers will need this information to generate an access token to authenticate to the callback URL and submit a trigger payload that will initiate the workflow.
   security:
-    - oauth2: [sp:workflow:update]
+    - oauth2: [sp:workflow:manage]
   parameters:
     - name: id
       in: path

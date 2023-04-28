@@ -1,5 +1,5 @@
 get:
-  operationId: nonEmployeeRecordGet
+  operationId: getNonEmployeeRecord
   security:
     - oauth2: [idn:nelm:read]
   tags:
@@ -7,10 +7,6 @@ get:
   summary: Get a Non-Employee Record
   description: >-
     This gets a non-employee record.
-
-    Request will require the following scope:
-
-    'idn:nesr:read'
 
   parameters:
     - in: path
@@ -39,7 +35,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
 put:
-  operationId: nonEmployeeRecordUpdate
+  operationId: updateNonEmployeeRecord
   security:
     - oauth2: [idn:nelm:manage]
   tags:
@@ -53,6 +49,7 @@ put:
       description: >-
         Non-employee record id (UUID)
       required: true
+      example: 2c91808b6ef1d43e016efba0ce470904
       schema:
         type: string
   requestBody:
@@ -82,7 +79,7 @@ put:
     '500':
       $ref: '../../v3/responses/500.yaml'
 patch:
-  operationId: nonEmployeeRecordPatch
+  operationId: patchNonEmployeeRecord
   security:
     - oauth2: [idn:nelm:manage]
   tags:
@@ -96,6 +93,7 @@ patch:
       description: >-
         Non-employee record id (UUID)
       required: true
+      example: 2c91808b6ef1d43e016efba0ce470904
       schema:
         type: string
   requestBody:
@@ -131,7 +129,7 @@ patch:
     '500':
       $ref: '../../v3/responses/500.yaml'
 delete:
-  operationId: nonEmployeeRecordDelete
+  operationId: deleteNonEmployeeRecord
   security:
     - oauth2: [idn:nelm:manage]
   tags:
@@ -140,15 +138,13 @@ delete:
   description: >-
     This request will delete a non-employee record.
 
-    Request will require the following security scope:
-
-    'idn:nesr:delete'
   parameters:
     - in: path
       name: id
       description: >-
         Non-Employee record id (UUID)
       required: true
+      example: 2c91808b6ef1d43e016efba0ce470904
       schema:
         type: string
   responses:

@@ -1,5 +1,5 @@
 get:
-  operationId: nonEmployeeApprovalSummary
+  operationId: getNonEmployeeApprovalSummary
   security:
     - oauth2: []
   tags:

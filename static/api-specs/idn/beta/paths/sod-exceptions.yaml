@@ -2,7 +2,7 @@ post:
   operationId: createSodException
   tags:
     - SOD Exception
-  summary: Create SOD Exception
+  summary: Create SOD exception
   # security:
   #   - oauth2: [API]
   description: >-
@@ -36,7 +36,7 @@ get:
   operationId: listSodExceptions
   tags:
     - SOD Exception
-  summary: List SOD Exceptions
+  summary: List SOD exceptions
   # security:
   #   - oauth2: [API]
   description: >-

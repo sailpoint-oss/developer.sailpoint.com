@@ -167,6 +167,72 @@ tags:
 
       Refer to [Managing User Accounts](https://documentation.sailpoint.com/saas/help/common/users/user_access.html#managing-user-accounts) for more information about accounts.
   - name: Certification Campaigns
+    description: |
+      Use this API to implement certification campaign functionality.
+      With this functionality in place, administrators can create, customize, and manage certification campaigns for their organizations' use. 
+      Certification campaigns provide IdentityNow (IDN) users with an interactive review process they can use to identify and verify access to systems. 
+      Campaigns help organizations reduce risk of inappropriate access and satisfy audit requirements. 
+
+      A certification refers to IDN's mechanism for reviewing a user's access to entitlements (sets of permissions) and approving or removing that access. 
+      These certifications serve as a way of showing that a user's access has been reviewed and approved. 
+      Multiple certifications by different reviewers are often required to approve a user's access. 
+      A set of multiple certifications is called a certification campaign. 
+
+      For example, an organization may use a Manager Certification campaign as a way of showing that a user's access has been reviewed and approved by multiple managers. 
+      Once this campaign has been completed, IDN would provision all the access the user needs, nothing more. 
+
+      IDN provides two simple campaign types users can create without using search queries, Manager and Source Owner campaigns:
+
+      You can create these types of campaigns without using any search queries in IDN: 
+      
+      - ManagerCampaign: IDN provides this campaign type as a way to ensure that an identity's access is certified by their managers. 
+      You only need to provide a name and description to create one. 
+      
+      - Source Owner Campaign: IDN provides this campaign type as a way to ensure that an identity's access to a source is certified by its source owners. 
+      You only need to provide a name and description to create one. 
+      You can specify the sources whose owners you want involved or just run it across all sources. 
+
+      For more information about these campaign types, refer to [Starting a Manager or Source Owner Campaign](https://documentation.sailpoint.com/saas/help/certs/starting_campaign.html).
+
+      One useful way to create certification campaigns in IDN is to use a specific search and then run a campaign on the results returned by that search. 
+      This allows you to be much more specific about whom you are certifying in your campaigns and what access you are certifying in your campaigns. 
+      For example, you can search for all identities who are managed by "Amanda.Ross" and also have the access to the "Accounting" role and then run a certification campaign based on that search to ensure that the returned identities are appropriately certified. 
+      
+      You can use IDN search queries to create these types of campaigns: 
+
+      - Identities: Use this campaign type to review and revoke access items for specific identities. 
+      You can either build a search query and create a campaign certifying all identities returned by that query, or you can search for individual identities and add those identities to the certification campaign. 
+
+      - Access Items: Use this campaign type to review and revoke a set of roles, access profiles, or entitlements from the identities that have them. 
+      You can either build a search query and create a campaign certifying all access items returned by that query, or you can search for individual access items and add those items to the certification campaign. 
+
+      - Role Composition: Use this campaign type to review a role's composition, including its title, description, and membership criteria. 
+      You can either build a search query and create a campaign certifying all roles returned by that query, or you can search for individual roles and add those roles to the certification campaign. 
+
+      - Uncorrelated Accounts: Use this campaign type to certify source accounts that aren't linked to an authoritative identity in IDN. 
+      You can use this campaign type to view all the uncorrelated accounts for a source and certify them. 
+
+      For more information about search-based campaigns, refer to [Starting a Campaign from Search](https://documentation.sailpoint.com/saas/help/certs/starting_search_campaign.html).
+
+      Once you have generated your campaign, it becomes available for preview. 
+      An administrator can review the campaign and make changes, or if it's ready and accurate, activate it. 
+      
+      Once the campaign is active, organization administrators or certification administrators can designate other IDN users as certification reviewers. 
+      Those reviewers can view any of the certifications they either need to review (active) or have already reviewed (completed).
+
+      When a certification campaign is in progress, certification reviewers see the listed active certifications whose involved identities they can review. 
+      Reviewers can then make decisions to grant or revoke access, as well as reassign the ceritifcation to another reviewer. If the reviewer chooses this option, they must provide a reason for reassignment in the form of a comment.
+
+      Once a reviewer has made decisions on all the certification's involved access items, he or she must "Sign Off" to complete the review process.
+      Doing so converts the certification into read-only status, preventing any further changes to the review decisions and deleting the work item (task) from the reviewer's list of work items. 
+
+      Once all the reviewers have signed off, the certification campaign either completes or, if any reviewers decided to revoke access for any of the involved identities, it moves into a remediation phase. 
+      In the remediation phase, identities' entitlements are altered to remove any entitlements marked for revocation.
+      In this situation, the certification campaign completes once all the remediation requests are completed. 
+
+      The end of a certification campaign is determined by its deadline, its completion status, or by an administrator's decision. 
+
+      For more information about certifications and certification campaigns, refer to [Certifications](https://documentation.sailpoint.com/saas/user-help/certifications.html).
   - name: Certifications
     description: |
       Use this API to implement certification functionality.
@@ -181,7 +247,7 @@ tags:
       Once this certification has been completed, IdentityNow  would provision all the access the user needs, nothing more. 
 
       This API enables administrators and reviewers to get useful information about certifications at a high level, such as the reviewers involved, and at a more granular level, such as the permissions affected by changes to entitlements within those certifications. 
-      It also provides the useful ability to reassign identities and items within certifications to other reviewers, rather than [reassigning the entire certifications themselves](https://developer.sailpoint.com/idn/api/beta/admin-reassign). 
+      It also provides the useful ability to reassign identities and items within certifications to other reviewers, rather than [reassigning the entire certifications themselves](https://developer.sailpoint.com/idn/api/beta/reassign-identity-certs-async). 
   - name: Connector Rule Management
   - name: Connectors
     description: |
@@ -587,9 +653,9 @@ tags:
       Administrators can create various service desk integrations, all with their own nuances. 
       The following service desk integrations are available: 
 
-      - [Atlassian Cloud Jira Service Management](https://documentation.sailpoint.com/connectors/atlassian/jira_cloud/help/integrating_jira_cloud/introduction.html)
+      - [Atlassian Cloud Jira Service Management](https://documentation.sailpoint.com/connectors/atlassian/jira_cloud/help/integrating_jira_cloud_sd/introduction.html)
 
-      - [Atlassian Server Jira Service Management](https://documentation.sailpoint.com/connectors/atlassian/jira_server/help/integrating_jira_server/introduction.html)
+      - [Atlassian Server Jira Service Management](https://documentation.sailpoint.com/connectors/atlassian/jira_server/help/integrating_jira_server_sd/introduction.html)
 
       - [BMC Helix ITSM Service Desk](https://documentation.sailpoint.com/connectors/bmc/helix_ITSM_sd/help/integrating_bmc_helix_itsm_sd/intro.html)
 
@@ -732,10 +798,8 @@ tags:
   - name: Workflows
     description: |
       Workflows allow administrators to create custom automation scripts directly within IdentityNow.  These automation scripts respond to [event triggers](https://developer.sailpoint.com/idn/docs/event-triggers#how-to-get-started-with-event-triggers) and perform a series of actions to perform tasks that are either too cumbersome or not available in the IdentityNow UI.  Workflows can be configured via a graphical user interface within IdentityNow, or by creating and uploading a JSON formatted script to the Workflow service.  The Workflows API collection provides the necessary functionality to create, manage, and test your workflows via REST.
-      
-      Workflows is currently in Beta, and is not generally available to all customer tenants.  If you would like to participate in the beta program, please [submit an application](https://app.smartsheet.com/b/form/e758ab109dc649589f57b4b5c41d4373).  You must be a customer or partner to participate.
 
-      Refer to [Creating and Managing Workflows] for more information about how to build workflows in the visual builder in the IdentityNow UI.
+      Refer to [Creating and Managing Workflows](https://documentation.sailpoint.com/saas/help/workflows/workflow-basics.html) for more information about how to build workflows in the visual builder in the IdentityNow UI.
   - name: Event Trigger Models
     x-displayName: Trigger Models
     description: |
@@ -1072,6 +1136,14 @@ paths:
     $ref: './beta/paths/accounts-id-disable.yaml'
   /accounts/{id}/unlock:
     $ref: './beta/paths/accounts-id-unlock.yaml'
+  /identities-accounts/{id}/enable:
+    $ref: './beta/paths/identity-accounts-id-enable.yaml'
+  /identities-accounts/{id}/disable:
+    $ref: './beta/paths/identity-accounts-id-disable.yaml'
+  /identities-accounts/enable:
+    $ref: './beta/paths/identities-accounts-enable.yaml'
+  /identities-accounts/disable:
+    $ref: './beta/paths/identities-accounts-disable.yaml'
   /accounts/search-attribute-config:
     $ref: './beta/paths/searchAttributeConfig.yaml'
   /accounts/search-attribute-config/{name}:
@@ -1142,6 +1214,8 @@ paths:
     $ref: './beta/paths/ears-entitlement-children.yaml'
   /entitlements/bulk-update:
     $ref: './beta/paths/ears-entitlement-bulk-update.yaml'
+  /entitlements/{id}/entitlement-request-config:
+    $ref: "./beta/paths/entitlement-request-config.yaml"
   /generate-password-reset-token/digit:
     $ref: './beta/paths/password-reset-digit-token.yaml'
   /historical-identities:
@@ -1172,6 +1246,10 @@ paths:
     $ref: './beta/paths/historical-identity-compare-type.yaml'
   /identities/{identityId}/synchronize-attributes:
     $ref: './beta/paths/identity-synchronize-attributes.yaml'
+  /identities:
+    $ref: './beta/paths/identities.yaml'
+  /identities/{id}:  
+    $ref: './beta/paths/identity.yaml'
   /identity-profiles:
     $ref: './beta/paths/identity-profiles.yaml'
   /identity-profiles/bulk-delete:
@@ -1271,7 +1349,7 @@ paths:
   /outliers/export:
     $ref: './beta/paths/outliers-export.yaml'
   /password-dictionary:
-    $ref: './beta/paths/password-dictionary.yaml'
+    $ref: './v3/paths/password-dictionary.yaml'
   /query-password-info:
     $ref: './beta/paths/query-password-info.yaml'
   /set-password:
@@ -1279,11 +1357,11 @@ paths:
   /password-change-status/{id}:
     $ref: './beta/paths/password-change-status.yaml'
   /password-sync-groups:
-    $ref: './beta/paths/password-sync-groups.yaml'
+    $ref: './v3/paths/password-sync-groups.yaml'
   /password-sync-groups/{id}:
-    $ref: './beta/paths/password-sync-group.yaml'
+    $ref: './v3/paths/password-sync-group.yaml'
   /password-org-config:
-    $ref: './beta/paths/password-org-config.yaml'
+    $ref: './v3/paths/password-org-config.yaml'
   /peer-group-strategies/{strategy}/identity-outliers:
     $ref: './beta/paths/peer-group-strategies.yaml'
   /personal-access-tokens:
@@ -1422,6 +1500,8 @@ paths:
     $ref: './beta/paths/source-upload-connector-file.yaml'
   /sources/{id}/synchronize-attributes:
     $ref: './beta/paths/source-synchronize-attributes.yaml'
+  /sources/{id}/entitlement-request-config:
+    $ref: './beta/paths/sources-entitlement-request-config.yaml'
   /tagged-objects:
     $ref: './beta/paths/tagged-objects.yaml'
   /tagged-objects/{type}:
@@ -1494,6 +1574,8 @@ paths:
     $ref: './beta/paths/work-items-summary.yaml'
   /work-items/{id}:
     $ref: './beta/paths/work-item.yaml'
+  /work-items/{id}/forward:
+    $ref: './beta/paths/work-item-forward.yaml'
   /work-items/{id}/approve/{approvalItemId}:
     $ref: './beta/paths/work-items-approve-approval-item.yaml'
   /work-items/{id}/reject/{approvalItemId}:

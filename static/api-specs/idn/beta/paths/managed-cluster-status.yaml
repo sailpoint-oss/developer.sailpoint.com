@@ -1,7 +1,7 @@
 get:
   tags:
     - Managed Clusters
-  summary: Get a specified Managed Cluster Status.
+  summary: Specified Managed Cluster Status.
   description: Retrieve Managed Cluster Status by ID.
   operationId: getManagedClusterStatus
   parameters:
@@ -32,4 +32,4 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:managed-cluster-status:read]
+    - oauth2: [idn:remote-client:read, idn:remote-client:manage]

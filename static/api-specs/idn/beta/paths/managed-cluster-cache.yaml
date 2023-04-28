@@ -12,16 +12,19 @@ delete:
       schema:
         type: string
       description: The cluster pod. Required
+      example: cluster_pod
     - in: query
       name: org
       schema:
         type: string
       description: The cluster org. Required if the cluster id was set.
+      example: cluster_org
     - in: query
       name: clusterId
       schema:
         type: string
       description: The cluster id
+      example: 8c190e6787aa4ed9a90bd9d5344523fb
   responses:
     '202':
       description: Accepted. Delete request accepted and is in progress.
@@ -39,4 +42,4 @@ delete:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:managed-cluster:delete]
+    - oauth2: [idn:remote-client:manage]

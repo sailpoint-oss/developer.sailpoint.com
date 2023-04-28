@@ -1,7 +1,7 @@
 get:
   tags:
     - Service Desk Integration
-  summary: Get a Service Desk integration by ID
+  summary: Get a Service Desk integration
   description: Get an existing Service Desk integration by ID.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
   operationId: getServiceDeskIntegration
   parameters:
@@ -39,7 +39,7 @@ get:
 put:
   tags:
     - Service Desk Integration
-  summary: Update a Service Desk integration by ID
+  summary: Update a Service Desk integration
   description: Update an existing Service Desk integration by ID with updated value in JSON form as the request body.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
   operationId: updateServiceDeskIntegration
   parameters:
@@ -79,12 +79,12 @@ put:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:service-desk-admin:write,idn:service-desk-integration:write]
+    - oauth2: [idn:service-desk-admin:manage,idn:service-desk-integration:manage]
 
 delete:
   tags:
     - Service Desk Integration
-  summary: Delete a Service Desk integration by ID
+  summary: Delete a Service Desk integration
   description: Delete an existing Service Desk integration by ID.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
   operationId: deleteServiceDeskIntegration
   parameters:
@@ -113,13 +113,13 @@ delete:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:service-desk-admin:write,idn:service-desk-integration:write]
+    - oauth2: [idn:service-desk-admin:manage,idn:service-desk-integration:manage]
 
 patch:
   operationId: patchServiceDeskIntegration
   tags:
     - Service Desk Integration
-  summary: Service Desk Integration Update - PATCH
+  summary: Service Desk Integration Update PATCH
   description: Update an existing ServiceDeskIntegration by ID with a PATCH request.
   parameters:
     - name: id
@@ -164,4 +164,4 @@ patch:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:service-desk-admin:write,idn:service-desk-integration:write]
+    - oauth2: [idn:service-desk-admin:manage,idn:service-desk-integration:manage]

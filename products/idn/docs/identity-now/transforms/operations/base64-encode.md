@@ -90,8 +90,3 @@ iVBORw0KGgoAAAANSUhEUgAACUsAAAMPCAMAAADR/Oa6AAAAM1BMVEX///8BIWkBIWkBIWkBIWkBIWkB
   "name": "Base64 Encode Transform"
 }
 ```
-
-## References
-
-- [https://developer.mozilla.org/en-US/docs/Glossary/Base64](https://developer.mozilla.org/en-US/docs/Glossary/Base64)
-- [https://en.wikipedia.org/wiki/Base64](https://en.wikipedia.org/wiki/Base64)

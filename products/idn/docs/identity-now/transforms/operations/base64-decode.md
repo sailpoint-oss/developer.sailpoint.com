@@ -89,7 +89,3 @@ Output: ![SailPoint Logo](./img/sailpoint_logo.png)
 }
 ```
 
-## References
-
-- [https://developer.mozilla.org/en-US/docs/Glossary/Base64](https://developer.mozilla.org/en-US/docs/Glossary/Base64)
-- [https://en.wikipedia.org/wiki/Base64](https://en.wikipedia.org/wiki/Base64)

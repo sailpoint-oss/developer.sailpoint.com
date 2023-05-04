@@ -17,7 +17,7 @@ Use the date compare transform to compare two dates and, depending on the compar
 :::note Other Considerations
 
 - In addition to explicit date values, the transform recognizes the "now" keyword that always evaluates to the exact date and time when the transform is evaluating.
-- All dates **must** be in [ISO8601 format](https://en.wikipedia.org/wiki/ISO_8601) in order for the date compare transform to evaluate properly.
+- All dates **must** be in ISO8601 format in order for the date compare transform to evaluate properly.
 
 :::
 

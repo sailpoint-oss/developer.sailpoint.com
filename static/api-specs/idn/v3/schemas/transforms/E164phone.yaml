@@ -10,7 +10,7 @@ properties:
       If defaultRegion is not provided, it will take US as the default country.
       
       
-      The format of the country code should be in [ISO 3166-1 alpha-2 format](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+      The format of the country code should be in ISO 3166-1 alpha-2 format
     example: 'US'
   requiresPeriodicRefresh:
     $ref: './RequiresPeriodicRefresh.yaml'

@@ -50,9 +50,9 @@ The date format transform takes whatever value provided as the input, parses the
 - **Optional Attributes**
   - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether the transform logic should be reevaluated every evening as part of the identity refresh process.
   - **inputFormat** - This string value indicates either the explicit SimpleDateFormat or the built-in named format of the incoming data.
-    - If no inputFormat is provided, the transform assumes that it is in [ISO8601 format](https://en.wikipedia.org/wiki/ISO_8601).
+    - If no inputFormat is provided, the transform assumes that it is in ISO8601 format.
   - **outputFormat** - This string value indicates either the explicit SimpleDateFormat or the built-in named format that the data is formatted into.
-    - If no outputFormat is provided, the transform assumes that it is in [ISO8601 format](https://en.wikipedia.org/wiki/ISO_8601).
+    - If no outputFormat is provided, the transform assumes that it is in ISO8601 format.
   - **input** - This is an optional attribute that can explicitly define the input data passed into the transform logic. If no input is provided, the transform takes its input from the source and attribute combination configured with the UI. 
 
 :::note Important

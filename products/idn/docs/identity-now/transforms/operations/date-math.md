@@ -14,12 +14,12 @@ tags: ['Transforms', 'Transform Operations']
 
 Use the date math transform to add, subtract, and round components of a timestamp's incoming value. It also allows you to work with a referential value of "now" to run operations against the current date and time instead of a fixed value.
 
-The output format for the DateMath transform is "yyyy-MM-dd'T'HH:mm". When you use this transform inside another transform (e.g., [dateCompare](./date-compare.md)), make sure to convert to [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) first.ADFJKL|:
+The output format for the DateMath transform is "yyyy-MM-dd'T'HH:mm". When you use this transform inside another transform (e.g., [dateCompare](./date-compare.md)), make sure to convert to ISO8601 first.ADFJKL|:
 
 
 :::note Other Considerations
 
-- The input datetime value must always be in [ISO8601 format](https://en.wikipedia.org/wiki/ISO_8601), in UTC time zone:
+- The input datetime value must always be in ISO8601 format, in UTC time zone:
 
 - Use this format: "yyyy-MM-dd'T'HH:mm:ss.SSSZ", i.e., "2020-10-28T12:00:00.000Z".
 - The dateFormat transform can help get data into this format.
@@ -32,7 +32,7 @@ The output format for the DateMath transform is "yyyy-MM-dd'T'HH:mm". When you u
 
 ## Transform Structure
 
-The date math transform takes the input value and executes addition, subtraction and/or rounding operations to that value based on an `expression` configuration value. As indicated earlier, the input datetime must be in [ISO8601 format](https://en.wikipedia.org/wiki/ISO_8601). The `expression` value leverages the following abbreviations to indicate which date or time component to evaluate:
+The date math transform takes the input value and executes addition, subtraction and/or rounding operations to that value based on an `expression` configuration value. As indicated earlier, the input datetime must be in ISO8601 format. The `expression` value leverages the following abbreviations to indicate which date or time component to evaluate:
 
 > - "y" - year
 > - "M" - month
@@ -113,7 +113,7 @@ This transform takes the current date, subtracts five days from it, and rounds d
 
 <p>&nbsp;</p>
 
-This transform takes the `startDate` attribute from a user's record in the "HR Source," converts it from its native format to an [ISO8601-formatted](https://en.wikipedia.org/wiki/ISO_8601) string, and then adds twelve hours to it. The final value is then rounded up to the next second.
+This transform takes the `startDate` attribute from a user's record in the "HR Source," converts it from its native format to an ISO8601-formatted string, and then adds twelve hours to it. The final value is then rounded up to the next second.
 
 **Transform Request Body**:
 
@@ -146,7 +146,7 @@ This transform takes the `startDate` attribute from a user's record in the "HR S
 
 <p>&nbsp;</p>
 
-This transform take the `HIREDATE` from Workday and converts it to [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) to be used in the Date Math transform. The Date Math transform then creates a new Date of `HIREDATE + 1`. Since that is then outputted in the format "yyyy-MM-dd'T'HH:mm", you can then use it in a [dateFormat](/idn/docs/transforms/operations/date-format) transform to give a WIN32 formatted date.
+This transform take the `HIREDATE` from Workday and converts it to ISO8601 to be used in the Date Math transform. The Date Math transform then creates a new Date of `HIREDATE + 1`. Since that is then outputted in the format "yyyy-MM-dd'T'HH:mm", you can then use it in a [dateFormat](/idn/docs/transforms/operations/date-format) transform to give a WIN32 formatted date.
 
 **Transform Request Body**:
 

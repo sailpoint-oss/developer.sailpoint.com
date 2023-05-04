@@ -14,7 +14,7 @@ tags: ['Transforms', 'Transform Operations']
 
 Use the date math transform to add, subtract, and round components of a timestamp's incoming value. It also allows you to work with a referential value of "now" to run operations against the current date and time instead of a fixed value.
 
-The output format for the DateMath transform is "yyyy-MM-dd'T'HH:mm". When you use this transform inside another transform (e.g., [dateCompare](./date-compare.md)), make sure to convert to [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) first.ADFJKL|:
+The output format for the DateMath transform is "yyyy-MM-dd'T'HH:mm". When you use this transform inside another transform (e.g., [dateCompare](./date-compare.md)), make sure to convert to [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) first.
 
 
 :::note Other Considerations

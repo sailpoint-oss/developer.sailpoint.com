@@ -26,7 +26,7 @@ flowchart LR
 
 </div>
 
-Because there is no code to write, an administrator can configure these by using a JSON object structure and uploading them into IdentityNow using [IdentityNow's Transform REST APIs](/idn/api/v3/transforms).
+Because there is no code to write, an administrator can configure these by using a JSON object structure and uploading them into IdentityNow using IdentityNow's Transform REST APIs.
 
 :::info
 
@@ -233,7 +233,7 @@ These can be configured in IdentityNow by going to **Admin** > **Sources** > (A 
 
 You can select the installed, available transforms from this interface. Alternately, you can add more complex transforms with REST APIs.
 
-In the following example, we can call the [Create Provisioning Policy API](/idn/api/v3/create-provisioning-policy) to create a full name field using the first and last name identity attributes.
+In the following example, we can call the Create Provisioning Policy API to create a full name field using the first and last name identity attributes.
 
 ```bash
 curl --location --request POST 'https://{tenant}.api.identitynow.com/v3/sources/{source_id}/provisioning-policies' \
@@ -302,7 +302,7 @@ curl --location --request POST 'https://{tenant}.api.identitynow.com/v3/sources/
 }'
 ```
 
-For more information on the IdentityNow REST API endpoints used to managed transform objects in APIs, refer to [IdentityNow Transform REST APIs](/idn/api/v3/transforms).
+For more information on the IdentityNow REST API endpoints used to managed transform objects in APIs, refer to IdentityNow Transform REST APIs.
 
 :::tip
 

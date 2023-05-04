@@ -306,7 +306,7 @@ For more information on the IdentityNow REST API endpoints used to managed trans
 
 :::tip
 
-For details about authentication against REST APIs, refer to the [authentication docs](../../../api/authentication.md).
+For details about authentication against REST APIs, refer to the authentication docs.
 
 :::
 

@@ -6,8 +6,10 @@ properties:
     example: accountAttribute
   attributes:
     type: object
-    additionalProperties:
-      type: object
+    nullable: true
+    additionalProperties: true
+#      type: object
+#      nullable: true
     description: >-
       Arbitrary key-value pairs to store any metadata for the object
     example: {

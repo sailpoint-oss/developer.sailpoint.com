@@ -26,12 +26,13 @@ properties:
     example: concat
   attributes:
     type: object
+    nullable: true
     description: >-
       Meta-data about the transform. Values in this list are specific to the type of transform to be executed.
-    additionalProperties: true
     example: { "inputFormat": "MMM dd yyyy, HH:mm:ss.SSS", "outputFormat": "yyyy/dd/MM" }
   internal:
     type: boolean
+    default: false
     readOnly: true
     description: >-
       Indicates whether this is an internal SailPoint-created transform or a customer-created transform

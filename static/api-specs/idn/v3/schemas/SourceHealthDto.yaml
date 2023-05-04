@@ -10,6 +10,7 @@ properties:
     type: string
     description: >-
       Specifies the type of system being managed e.g. Active Directory, Workday, etc..
+      If you are creating a Delimited File source, you must set the `provisionasCsv` query parameter to `true`. 
     example: "OpenLDAP - Direct"
   name:
     type: string

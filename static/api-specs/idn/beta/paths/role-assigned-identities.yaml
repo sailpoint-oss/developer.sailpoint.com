@@ -2,7 +2,7 @@ get:
     operationId: getRoleAssignedIdentities
     tags:
       - Roles
-    summary: Get a list of Identities assigned a Role
+    summary: Identities assigned a Role
     parameters:
       - in: path
         name: id
@@ -68,5 +68,5 @@ get:
       '500':
         $ref: '../../v3/responses/500.yaml'
     security:
-      - oauth2: [idn:role:read,idn:role-checked:read]
+      - oauth2: [idn:role-unchecked:read, idn:role-unchecked:manage, idn:role-checked:manage, idn:role-checked:read]
 

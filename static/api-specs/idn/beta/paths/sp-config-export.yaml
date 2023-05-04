@@ -1,17 +1,13 @@
 post:
   operationId: exportSpConfig
   security:
-    - oauth2: [sp:config:export]
+    - oauth2: [sp:config:read, sp:config:manage]
   tags:
     - SP-Config
   summary: Initiates Configuration Objects Export Job.
   description: >-
     This post will export objects from the tenant to a JSON configuration file.
 
-    Request will need one of the following security scopes:
-
-    - sp:config:read
-    - sp:config:manage
   requestBody:
     description: Export options control what will be included in the export.
     required: true

@@ -58,5 +58,4 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2:
-        - 'idn:trigger-service-subscriptions:read'
+    - oauth2: [sp:trigger-service-subscriptions:read]

@@ -77,8 +77,7 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2:
-        - 'idn:trigger-service-subscriptions:create'
+    - oauth2: [sp:trigger-service-subscriptions:manage]
   
 get:
   operationId: listSubscriptions
@@ -194,5 +193,4 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2:
-        - 'idn:trigger-service-subscriptions:read'
+    - oauth2: [sp:trigger-service-subscriptions:read]

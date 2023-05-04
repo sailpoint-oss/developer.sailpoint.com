@@ -17,6 +17,7 @@ get:
       explode: false
       schema:
         type: string
+      example: 2c9180835d2e5168015d32f890ca1581
   responses:
     "200":
       description: Transform with the given ID
@@ -24,12 +25,20 @@ get:
         application/json:
           schema:
             $ref: '../schemas/Transform.yaml'
+    "400":
+      $ref: '../../v3/responses/400.yaml'
+    "401":
+      $ref: '../../v3/responses/401.yaml'
     "403":
       $ref: '../../v3/responses/403.yaml'
     "404":
       $ref: '../../v3/responses/404.yaml'
+    "429":
+      $ref: '../../v3/responses/429.yaml'
+    "500":
+      $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:transforms:read]
+    - oauth2: [idn:transform:read, idn:transform:manage]
 put:
   tags:
     - Transforms
@@ -50,6 +59,7 @@ put:
       explode: false
       schema:
         type: string
+      example: 2c9180835d2e5168015d32f890ca1581
   requestBody:
     description: >-
       The updated transform object (must include "name", "type", and "attributes" fields).
@@ -76,12 +86,18 @@ put:
             internal: false
     "400":
       $ref: '../../v3/responses/400.yaml'
+    "401":
+      $ref: '../../v3/responses/401.yaml'
     "403":
       $ref: '../../v3/responses/403.yaml'
     "404":
       $ref: '../../v3/responses/404.yaml'
+    "429":
+      $ref: '../../v3/responses/429.yaml'
+    "500":
+      $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:transforms:write]
+    - oauth2: [idn:transform:manage]
 delete:
   tags:
     - Transforms
@@ -101,12 +117,21 @@ delete:
       explode: false
       schema:
         type: string
+      example: 2c9180835d2e5168015d32f890ca1581
   responses:
     "204":
       $ref: '../../v3/responses/204.yaml'
+    "400":
+      $ref: '../../v3/responses/400.yaml'
+    "401":
+      $ref: '../../v3/responses/401.yaml'
     "403":
       $ref: '../../v3/responses/403.yaml'
     "404":
       $ref: '../../v3/responses/404.yaml'
+    "429":
+      $ref: '../../v3/responses/429.yaml'
+    "500":
+      $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:transforms:delete]
+    - oauth2: [idn:transform:manage]

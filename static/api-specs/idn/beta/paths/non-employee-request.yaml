@@ -43,18 +43,14 @@ delete:
     - Non-Employee Lifecycle Management
   summary: Delete Non-Employee Request
   description: >-
-    This request will delete a non-employee request.  
-    
-    Request will require the following scope:
-    
-    'idn:nesr:delete'
-
+    This request will delete a non-employee request.
   parameters:
     - in: path
       name: id
       description: >-
         Non-Employee request id in the UUID format
       required: true
+      example: 2c91808b6ef1d43e016efba0ce470904
       schema:
         type: string
         format: uuid

@@ -8,7 +8,7 @@ get:
     
     A token with ORG_ADMIN authority is required to call this API.
   security:
-    - oauth2: [idn:accounts:read]
+    - oauth2: [idn:accounts:read, idn:accounts:manage]
   parameters:
     - in: query
       name: detailLevel
@@ -56,14 +56,15 @@ get:
       content:
         application/json:
           schema:
-            type: array
-            items:
-              oneOf:
-                - $ref: '../schemas/SlimAccount.yaml'
-                - $ref: '../schemas/FullAccount.yaml'
-
+            oneOf:
+              - type: array
+                items:
+                  $ref: '../schemas/SlimAccount.yaml'
+              - type: array
+                items:
+                  $ref: '../schemas/FullAccount.yaml'
           examples:
-            Slim Accounts:
+            SlimAccounts:
               description: List of slim accounts that would result with *detailLevel = SLIM*
               value:
                 - "attributes": null
@@ -83,7 +84,7 @@ get:
                   "uuid": "{e4218fa4-da52-4bb0-aa41-d2dcc08a7ad8}"
 
 
-            Full Accounts:
+            FullAccounts:
               description: List of slim accounts that would result with *detailLevel = FULL*  or not specifying it
               value:
                 - "attributes": null

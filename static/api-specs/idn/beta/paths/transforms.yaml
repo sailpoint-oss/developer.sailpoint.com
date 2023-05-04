@@ -31,6 +31,7 @@ get:
         **internal**: *eq*
 
         **name**: *eq*, *sw*
+      example: name eq ExampleTransformName123
       required: false
       style: form
       explode: true
@@ -56,10 +57,18 @@ get:
               type: substring
               attributes: { "begin": 0, "end": 3 }
               internal: true
+    "400":
+      $ref: '../../v3/responses/400.yaml'
+    "401":
+      $ref: '../../v3/responses/401.yaml'
     "403":
       $ref: '../../v3/responses/403.yaml'
+    "429":
+      $ref: '../../v3/responses/429.yaml'
+    "500":
+      $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:transforms-list:read]
+    - oauth2: [idn:transform:read, idn:transform:manage]
 post:
   tags:
     - Transforms
@@ -91,7 +100,13 @@ post:
             $ref: '../schemas/Transform.yaml'
     "400":
       $ref: '../../v3/responses/400.yaml'
+    "401":
+      $ref: '../../v3/responses/401.yaml'
     "403":
       $ref: '../../v3/responses/403.yaml'
+    "429":
+      $ref: '../../v3/responses/429.yaml'
+    "500":
+      $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:transforms:write]
+    - oauth2: [idn:transform:manage]

@@ -44,15 +44,13 @@ patch:
     patch a non-employee source. (Partial Update)  Patchable field: **name,
     description, approvers, accountManagers**
 
-    Request will require the following security scope:
-
-    'idn:nesr:update'
   parameters:
     - in: path
       name: sourceId
       description: >-
         Source Id
       required: true
+      example: 2c91808b6ef1d43e016efba0ce470904
       schema:
         type: string
   requestBody:
@@ -104,15 +102,13 @@ delete:
   description: >-
     This request will delete a non-employee source.
 
-    Request will require the following security scope:
-
-    'idn:nesr:delete'
   parameters:
     - in: path
       name: sourceId
       description: >-
         Source Id
       required: true
+      example: 2c91808b6ef1d43e016efba0ce470904
       schema:
         type: string
   responses:

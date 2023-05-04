@@ -1,5 +1,5 @@
 # The Slim version of the Account DTO containing only data from the Account object
-type: object
+#type: object
 title: Slim Account
 allOf:
   - $ref: './BaseCommonDto.yaml'
@@ -51,3 +51,8 @@ allOf:
       attributes:
         type: object
         description: A map containing attributes associated with the account
+        additionalProperties: true
+        example:
+          firstName: "SailPoint"
+          lastName: "Support"
+          displayName: "SailPoint Support"

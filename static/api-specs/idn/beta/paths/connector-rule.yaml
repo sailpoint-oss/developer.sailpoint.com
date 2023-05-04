@@ -17,6 +17,7 @@ get:
       explode: false
       schema:
         type: string
+      example: 8c190e6787aa4ed9a90bd9d5344523fb
   responses:
     '200':
       description: Connector rule with the given ID
@@ -24,12 +25,20 @@ get:
         application/json:
           schema:
             $ref: '../schemas/ConnectorRuleResponse.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
     '403':
       $ref: '../../v3/responses/403.yaml'
     '404':
       $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:connector-rule:read]
+    - oauth2: [idn:rule-management-connector:read, idn:rule-management-connector:manage]
 
 put:
   tags:
@@ -51,6 +60,7 @@ put:
       explode: false
       schema:
         type: string
+      example: 8c190e6787aa4ed9a90bd9d5344523fb
   requestBody:
     description: >-
       The connector rule with updated data
@@ -67,6 +77,8 @@ put:
             $ref: '../schemas/ConnectorRuleResponse.yaml'
     '400':
       $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
     '403':
       $ref: '../../v3/responses/403.yaml'
     '404':
@@ -76,7 +88,7 @@ put:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:connector-rule:write]
+    - oauth2: [idn:rule-management-connector:manage]
 
 delete:
   tags:
@@ -97,9 +109,14 @@ delete:
       explode: false
       schema:
         type: string
+      example: 8c190e6787aa4ed9a90bd9d5344523fb
   responses:
     '204':
       $ref: '../../v3/responses/204.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
     '403':
       $ref: '../../v3/responses/403.yaml'
     '404':
@@ -109,5 +126,5 @@ delete:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:connector-rule:write]
+    - oauth2: [idn:rule-management-connector:manage]
 

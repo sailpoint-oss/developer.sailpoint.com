@@ -1,16 +1,13 @@
 get:
   operationId: exportNonEmployeeRecords
   security:
-    - oauth2: [idn:nelm:read]
+    - oauth2: [idn:nelm:read, idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
   summary: Exports Non-Employee Records to CSV
   description: >-
     This requests a CSV download for all non-employees from a provided source.
 
-    Request will need the following security scope:
-
-    'idn:nesr:read'
   parameters:
     - in: path
       example: "2c918085842e69ae018432d22ccb212f"

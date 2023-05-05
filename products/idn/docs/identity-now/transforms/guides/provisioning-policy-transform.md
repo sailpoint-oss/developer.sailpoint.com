@@ -13,15 +13,15 @@ tags: ['Transforms', 'Guides', 'Provisioning', 'Policies']
 
 ## Overview
 
-In this guide, you will learn how to use [IdentityNow's Transforms](/idn/api/v3/transforms) in a provisioning policy to a source. This could be useful if you need to hide the attribute in your identity attribute list but still need the attribute during provisioning.
+In this guide, you will learn how to use [IdentityNow's Transforms](/idn/api/v3/transforms) in a provisioning policy for a source. This can be useful if you need to hide the attribute in your identity attribute list but still need the attribute during provisioning.
 
-## Create Provisioning Policy
+## Create provisioning policy
 
-The create provisioning policy is used when a new user is granted access to a source and needs to be provisioned on that source. You can define your custom attributes that you wish to be created during the provisioning process. You can use transforms to modify the data before sending it to the source.
+Use the Create provisioning policy for new users who have been granted access to a source and need to be provisioned on that source. You can define the custom attributes you want to create during the provisioning process. You can use transforms to modify the data before sending it to the source.
 
-First, lets call the [GET Provisioning Policy API](/idn/api/v3/get-provisioning-policy) for the source you would like to add your transform to.
+First, call the [Get Provisioning Policy API](/idn/api/v3/get-provisioning-policy) for the source you want to add your transform to.
 
-An example response for the CREATE provisioning policy of a source.
+This is an example create provisioning policy response for a source:
 
 ```json
 {
@@ -129,12 +129,12 @@ An example response for the CREATE provisioning policy of a source.
 }
 ```
 
-## The Transform to Add to CREATE Policy
+## Add to the Create policy 
 
 This transform concatenates the identityAttributes `firstName`, `lastName`, the two digit month of the `hireDate` and the static string `Rt4e!` to form a temporaryPassword.
 
 :::caution
-You must use the identityAttribute type when writing transforms in provisioning policies. The accountAttribute type will not work during provisioning.
+You must use the `identityAttribute` type when you're writing transforms in provisioning policies. The `accountAttribute` type won't work during provisioning.
 :::
 
 ```json
@@ -185,7 +185,7 @@ You must use the identityAttribute type when writing transforms in provisioning 
 }
 ```
 
-Lets assume the following values for the given attributes, this would create the temporaryPassword attribute as `johndoe12Rt4e!`.
+If you assume the given attributes have the following values, this transform would create the temporaryPassword attribute as `johndoe12Rt4e!`.
 
 | Identity Attribute | Value      |
 | ------------------ | ---------- |
@@ -193,11 +193,11 @@ Lets assume the following values for the given attributes, this would create the
 | lastName           | doe        |
 | hireDate           | 2023-12-13 |
 
-## Adding the transform to your existing policy
+## Add the transform to your existing policy
 
-Upload your complete CREATE provisioning policy using the [CREATE Provisioning Policy API](/idn/api/v3/create-provisioning-policy) or use the [UPDATE Provisioning Policy API](/idn/api/v3/put-provisioning-policy) to update an existing provisioning policy.
+Upload your complete CREATE provisioning policy by using the [Create Provisioning Policy API](/idn/api/v3/create-provisioning-policy), or use the [Update Provisioning Policy API](/idn/api/v3/put-provisioning-policy) to update an existing provisioning policy.
 
-The full policy with the new attribute added.
+This is the example response with the full policy, along with the new attribute: 
 
 ```json
 {
@@ -352,4 +352,4 @@ The full policy with the new attribute added.
 
 ## Next Steps
 
-For more information on all available transforms, see [Transform Operations](/idn/docs/transforms/operations). If you are having trouble with creating your transform in provisioning policies, reach out to us with your question in the [Developer Community Forum](https://developer.sailpoint.com/discuss/)!
+For more information on all available transforms, refer to [Transform Operations](/idn/docs/transforms/operations). If you're having trouble creating your transform in provisioning policies, reach out with your question in the [Developer Community Forum](https://developer.sailpoint.com/discuss/)!

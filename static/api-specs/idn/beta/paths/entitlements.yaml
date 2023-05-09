@@ -108,6 +108,10 @@ get:
 
 
         **requestable**: *eq*
+
+        **created**: *gt, lt, ge, le*
+
+        **modified**: *gt, lt, ge, le*
       example: attribute eq "memberOf"
       required: false
       style: form

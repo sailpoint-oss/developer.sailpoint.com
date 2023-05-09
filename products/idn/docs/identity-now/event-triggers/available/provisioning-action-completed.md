@@ -50,7 +50,7 @@ This is an example input from this trigger:
         "type": "SOURCE",
         "name": "Corporate Active Directory"
       },
-      "accountId": "CN=Chewy.Bacca,ou=hardcorefigter,ou=wookies,dc=starwars,dc=com",
+      "accountId": "CN=Rob.Robertson,ou=csm,ou=sales,dc=helpco,dc=com",
       "accountOperation": "Modify",
       "provisioningResult": "SUCCESS",
       "provisioningTarget": "Corp AD",
@@ -58,7 +58,7 @@ This is an example input from this trigger:
       "attributeRequests": [
         {
           "attributeName": "memberOf",
-          "attributeValue": "CN=jedi,DC=starwars,DC=com",
+          "attributeValue": "CN=sales,DC=helpco,DC=com",
           "operation": "Add"
         }
       ]

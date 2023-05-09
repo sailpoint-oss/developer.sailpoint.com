@@ -6,14 +6,14 @@ sidebar_label: SPConfig
 sidebar_position: 7
 sidebar_class_name: cli-template-spconfig
 keywords: ['cli', 'template', 'spconfig']
-description: Learn about the CLI commands you can use to interact with VAs in this guide.
+description: Learn about the SPConfig template commands you can use to import and export configurations from the CLI. 
 slug: /tools/cli/templates/spconfig
 tags: ['CLI']
 ---
 
-Use SPConfig templates to perform complex import and export operations with IdentityNow configurations
+Use SPConfig templates to perform complex import and export operations with IdentityNow (IDN) configurations.
 
-This is an example of a template file with one SPConfig templated populated
+This is an example of a template file with one SPConfig template populated:
 
 ```json
 [
@@ -37,7 +37,7 @@ This is an example of a template file with one SPConfig templated populated
 ]
 ```
 
-This is the anatomy of a SPConfig template
+This is the SPConfig template anatomy:
 
 ```json
 
@@ -45,7 +45,9 @@ This is the anatomy of a SPConfig template
         "name": "all-objects",
 ```
 
-The search template name that displays in the template list when you run `sail spconfig template`.
+This is the SPConfig template's name. 
+
+The SPConfig template name displays in the template list when you run `sail spconfig template`.
 
 You can also provide this name as an argument: `sail spconfig template all-objects`
 
@@ -53,7 +55,7 @@ You can also provide this name as an argument: `sail spconfig template all-objec
         "description": "Export all available objects",
 ```
 
-The spconfig template description that displays below the template name
+This is the SPConfig template's description. 
 
 in the `sail spconfig template` list
 
@@ -67,7 +69,7 @@ Use variables to dynamically populate values in the following content during com
         "exportBody": {
 ```
 
-The below object matches that detailed in the [API docs](https://developer.sailpoint.com/idn/api/beta/export-sp-config)
+The following object matches that detailed in the [API docs](https://developer.sailpoint.com/idn/api/beta/export-sp-config)
 
 ```json
         "description": "Export all available objects",

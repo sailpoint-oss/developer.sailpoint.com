@@ -550,7 +550,7 @@ tags:
       This ingestion process introduces a latency from when the operational data is created to when it is available in search. 
       Depending on the system load, this can take a few seconds to a few minutes. 
       Please keep this latency in mind when you use search. 
-
+  - name: Segments
   - name: Service Desk Integration
     description: |
       Use this API to build an integration between IdentityNow and a service desk ITSM (IT service management) solution. 
@@ -825,6 +825,10 @@ paths:
     $ref: "./v3/paths/search-aggregate.yaml"
   /search/{index}/{id}:
     $ref: "./v3/paths/search-get.yaml"
+  /segments:
+    $ref: "./v3/paths/segments.yaml"
+  /segments/{id}:
+    $ref: "./v3/paths/segment.yaml"
   /service-desk-integrations:
     $ref: "./v3/paths/service-desk-integrations.yaml"
   /service-desk-integrations/{id}:

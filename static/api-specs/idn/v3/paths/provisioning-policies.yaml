@@ -46,6 +46,10 @@ post:
   description: >-
     This API generates a create policy/template based on field value transforms. This API is intended for use when
     setting up JDBC Provisioning type sources, but it will also work on other source types.
+    
+    Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
+    
+    Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
 
     A token with ORG_ADMIN authority is required to call this API.
   security:

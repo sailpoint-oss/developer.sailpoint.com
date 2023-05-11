@@ -1,5 +1,5 @@
 # The Slim version of the Account DTO containing only data from the Account object
-#type: object
+type: object
 title: Slim Account
 allOf:
   - $ref: './BaseCommonDto.yaml'

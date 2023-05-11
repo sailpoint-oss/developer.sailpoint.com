@@ -1,6 +1,6 @@
 # The Full version of the Account DTO which contains data stored on the DB objects
 # other than just the Account object
-#type: object
+type: object
 title: Full Account
 allOf:
   - $ref: './SlimAccount.yaml'

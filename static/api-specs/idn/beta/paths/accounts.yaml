@@ -56,13 +56,11 @@ get:
       content:
         application/json:
           schema:
-            oneOf:
-              - type: array
-                items:
-                  $ref: '../schemas/SlimAccount.yaml'
-              - type: array
-                items:
-                  $ref: '../schemas/FullAccount.yaml'
+            type: array
+            items:
+              oneOf:
+                - $ref: '../schemas/SlimAccount.yaml'
+                - $ref: '../schemas/FullAccount.yaml'
           examples:
             SlimAccounts:
               description: List of slim accounts that would result with *detailLevel = SLIM*

@@ -576,7 +576,9 @@ tags:
 
       - [ServiceNow Service Desk](https://documentation.sailpoint.com/connectors/servicenow/sdim/help/integrating_servicenow_sdim/intro.html)
 
-      - [Zendesk Service Desk](https://documentation.sailpoint.com/connectors/zendesk/help/integrating_zendesk_sd/introduction.html)  
+      - [Zendesk Service Desk](https://documentation.sailpoint.com/connectors/zendesk/help/integrating_zendesk_sd/introduction.html)
+  - name: SOD Policy
+    description: Operations for Creating & Executing SOD (Seperation of Duties) policies
   - name: Sources
     description: |
       Use this API to implement and customize source functionality. 
@@ -849,6 +851,8 @@ paths:
     $ref: './v3/paths/password-dictionary.yaml'
   /password-org-config:
     $ref: './v3/paths/password-org-config.yaml'
+  /sod-policies:
+    $ref: './v3/paths/sod-policies.yaml'
   /sources:
     $ref: "./v3/paths/sources.yaml"
   /sources/{id}:

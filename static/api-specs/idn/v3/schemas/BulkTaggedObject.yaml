@@ -1,0 +1,24 @@
+type: object
+properties:
+  objectRefs:
+    type: array
+    items:
+      $ref: '../../v3/schemas/TaggedObjectDto.yaml'
+  tags:
+    type: array
+    items:
+      type: string
+    description: Label to be applied to an Object
+    example: [ "BU_FINANCE", "PCI" ]
+  operation:
+    type: string
+    enum:
+      - APPEND
+      - MERGE
+    default: APPEND
+    description: >-
+      If APPEND, tags are appended to the list of tags for the object. A 400 error is returned if this would add duplicate tags to the object.
+
+
+      If MERGE, tags are merged with the existing tags. Duplicate tags are silently ignored.
+    example: MERGE

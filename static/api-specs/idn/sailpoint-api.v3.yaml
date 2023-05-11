@@ -638,6 +638,7 @@ tags:
 
       Well organized, mappped out connections between sources and IdentityNow are essential to achieving comprehensive identity access governance across all the source systems organizations need. 
       Refer to [Managing Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html) for more information about all the different things admins can do with sources once they are connected. 
+  - name: Tagged Objects
   - name: Transforms
     description: |
       The purpose of this API is to expose functionality for the manipulation of Transform objects.
@@ -875,6 +876,16 @@ paths:
     $ref: "./v3/paths/source-entitlements-schema.yaml"
   /sources/{sourceId}/upload-connector-file:
     $ref: "./v3/paths/source-upload-connector-file.yaml"
+  /tagged-objects:
+    $ref: "./v3/paths/tagged-objects.yaml"
+  /tagged-objects/{type}:
+    $ref: "./v3/paths/tagged-objects-type.yaml"
+  /tagged-objects/{type}/{id}:
+    $ref: "./v3/paths/tagged-object.yaml"
+  /tagged-objects/bulk-add:
+    $ref: "./v3/paths/bulk-add-tagged-objects.yaml"
+  /tagged-objects/bulk-remove:
+    $ref: "./v3/paths/bulk-remove-tagged-objects.yaml"
   /transforms:
     $ref: "./v3/paths/transforms.yaml"
   /transforms/{id}:

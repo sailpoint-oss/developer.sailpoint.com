@@ -3,7 +3,7 @@ id: standard-collection-parameters
 title: Standard Collection Parameters
 pagination_label: Standard Collection Parameters
 sidebar_label: Standard Collection Parameters
-sidebar_position: 4
+sidebar_position: 5
 sidebar_class_name: standardCollectionParameters
 keywords: ['standard collection parameters']
 description: Many endpoints in the IdentityNow API support a generic syntax for paginating, filtering and sorting the results.

@@ -3,18 +3,18 @@ id: postman-collections
 title: Postman Collections
 pagination_label: Postman Collections
 sidebar_label: Postman Collections
-sidebar_position: 6
+sidebar_position: 7
 sidebar_class_name: postmanCollections
 keywords: ['postman']
 description: How to run the APIs in Postman.
 tags: ['postman']
 ---
 
-[Postman](https://www.postman.com/) is a platform you can use to design, build, test, and iterate your APIs. Postman users and teams can create public workspaces they can use to make it easy to access their API collections and environments and get started. SailPoint maintains a [public workspace for the IdentityNow API collections](https://www.postman.com/sailpoint/workspace/identitynow). You can use this workspace to access all the IDN API collections and stay up to date. 
+[Postman](https://www.postman.com/) is a platform you can use to design, build, test, and iterate your APIs. Postman users and teams can create public workspaces they can use to make it easy to access their API collections and environments and get started. SailPoint maintains a [public workspace for the IdentityNow API collections](https://www.postman.com/sailpoint/workspace/identitynow). You can use this workspace to access all the IDN API collections and stay up to date.
 
 ## Run in Postman
 
-Each IDN API version is broken out into a separate collection within the workspace. The following table lists the available IDN API collections. To import a collection into your workspace, select the 'Run in Postman' button for your desired version. Doing so forks the collection into your workspace. 
+Each IDN API version is broken out into a separate collection within the workspace. The following table lists the available IDN API collections. To import a collection into your workspace, select the 'Run in Postman' button for your desired version. Doing so forks the collection into your workspace.
 
 | API | Postman Collection |
 |------|----------------------------|
@@ -30,30 +30,30 @@ When you fork the collection, it is recommended that you check the 'Watch origin
 
 ## Update your collections
 
-SailPoint is often making improvements to the IDN API collections. To keep your workspace in sync with updates to one of SailPoint's public collections, select the ellipse to the right of the collection, and select 'Pull changes'. 
+SailPoint is often making improvements to the IDN API collections. To keep your workspace in sync with updates to one of SailPoint's public collections, select the ellipse to the right of the collection, and select 'Pull changes'.
 
 If there are no changes, you're up to date. If there are changes, the screen lists the changes you're pulling. Select 'Pull changes' again to pull them in.
 
 ## Configure your environment
 
-The SailPoint workspace provides an environment, a set of variables you can use in your requests, that you can fork and pull changes from to stay up to date the same way you can with collections. 
+The SailPoint workspace provides an environment, a set of variables you can use in your requests, that you can fork and pull changes from to stay up to date the same way you can with collections.
 
 To send API requests in Postman, you must authenticate to the APIs. To authenticate to the APIs, you must specify these variables in your Postman environment:
 
-| Environment Variable | Required | Description | 
+| Environment Variable | Required | Description |
 | ----------- | ----------- | ----------- |
 | tenant | Yes | Your IDN tenant, typically your company's name |
 | clientId | Yes | The client ID for the API client or personal access token |
 | clientSecret | Yes | The client secret for the API client or personal access token |
 | domain | No | This optional field is only necessary for those who have a domain in their API URL that isn't "identitynow". |
 
-:::caution 
+:::caution
 
-Don't specify your baseUrl in your environment variables. When you fork an API collection, the baseUrl is automatically set as https://{{tenant}}.api.{{domain}}.com. Setting your baseURl in your environment variables may interfere with this process. 
+Don't specify your baseUrl in your environment variables. When you fork an API collection, the baseUrl is automatically set as <https://{{tenant}}.api.{{domain}}.com>. Setting your baseURl in your environment variables may interfere with this process.
 
 :::
 
-Once you have configured your environment, you can start using Postman with all the endpoints provided in the collections. 
+Once you have configured your environment, you can start using Postman with all the endpoints provided in the collections.
 
 :::tip
 

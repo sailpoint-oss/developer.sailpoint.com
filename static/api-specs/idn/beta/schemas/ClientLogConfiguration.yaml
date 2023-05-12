@@ -28,7 +28,7 @@ properties:
     $ref: './StandardLevel.yaml'
   logLevels:
     description: Map of log level by key. The keys are logging classes, and the values are logging levels. To see the available connectors and their logging classes, refer to the "Logging Classes" table in [Enabling Connector Logging in IdentityNow](https://community.sailpoint.com/t5/IdentityNow-Articles/Enabling-Connector-Logging-in-IdentityNow/ta-p/188107).
-    example: '{
+    example: {
         "sailpoint.connector.ADLDAPConnector": "TRACE"
-    }'
+    }
     $ref: './LogLevelSpec.yaml'

@@ -20,9 +20,7 @@ get:
       content:
         application/json:
           schema:
-            type: array
-            items:
-              $ref: '../schemas/ClientLogConfiguration.yaml'
+            $ref: '../schemas/ClientLogConfiguration.yaml'
     "400":
       $ref: '../../v3/responses/400.yaml'
     "401":
@@ -42,7 +40,7 @@ put:
     - Managed Clusters
   summary: Update managed cluster's log configuration
   description: Update managed cluster's log configuration
-  operationId: updateClientLogConfiguration
+  operationId: putClientLogConfiguration
   parameters:
     - name: id
       in: path

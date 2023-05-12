@@ -21,6 +21,7 @@ Any authoritative source can be used to create and manage service accounts, with
 ### Create a Delimited File Source
 
 Create a new delimited file source and name it "Service Accounts". Then, navigate to the "Account Schema" section and modify the schema as follows.  You can add additional attributes if desired, but these four are good to start with.
+
 ![account schema](./img/service-accounts/account-schema.png)
 
 ### Creating Service Accounts

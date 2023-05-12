@@ -1,7 +1,7 @@
 post:
-  operationId: uploadNonEmployeeRecordsInBulk
-  # security:
-  #   - oauth2: [idn:nesr:create]
+  operationId: importNonEmployeeRecordsInBulk
+  security:
+    - oauth2: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
   summary: Imports, or Updates, Non-Employee Records
@@ -18,9 +18,6 @@ post:
         type: string
       example: e136567de87e4d029e60b3c3c55db56d
   requestBody:
-    description:
-      The form-data "name" attribute for the file content must be "data". See
-      the schema specification.
     content:
       multipart/form-data:
         schema:
@@ -28,19 +25,9 @@ post:
           properties:
             data:
               type: string
-              format: base64
+              format: binary
           required:
             - data
-        example:
-          {
-            data:
-              "accountName,firstName,lastName,phone,email,manager,startDate,endDate
-              Jon.Smith, Jon, Smith, 555-555-5555, jon@jon.doe.nope.com, Jim
-              Smith, 2020-04-05T08:00:00-10:00, 2020-08-07T19:00:00-10:00
-              William.Chaffin, William, Chaffin, 555-555-5555,
-              william@chaffins.nope.com, Bertram Chaffin,
-              2020-04-05T08:00:00-10:00, 2020-08-07T19:00:00-10:00",
-          }
   responses:
     "202":
       description: >-

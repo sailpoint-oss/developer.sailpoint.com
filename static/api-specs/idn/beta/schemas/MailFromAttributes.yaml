@@ -1,0 +1,23 @@
+type: object
+properties:
+  id:
+    type: string
+    example: BobSmith@sailpoint.com
+    description: The identity or domain address
+  mxRecord:
+    type: string
+    example: 10 feedback-smtp.us-east-1.amazonses.com
+    description: MX record that is required in customer's DNS to allow the domain to receive bounce and complaint notifications that email providers send you
+  txtRecord:
+    type: string
+    example: v=spf1 include:amazonses.com ~all
+    description: TXT record that is required in customer's DNS in order to prove that Amazon SES is authorized to send email from your domain
+  mailFromDomainStatus:
+    type: string
+    enum:
+    - PENDING
+    - SUCCESS
+    - FAILED
+    example: PENDING
+    description: The current status of the MAIL FROM verification
+description: MAIL FROM attributes for a domain / identity

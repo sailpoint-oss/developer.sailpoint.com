@@ -1314,6 +1314,10 @@ paths:
     $ref: './beta/paths/managed-cluster-log-config.yaml'
   /managed-clusters:
     $ref: './beta/paths/managed-clusters.yaml'
+  /mail-from-attributes:
+    $ref: './beta/paths/mail-from-attributes.yaml'
+  /mail-from-attribute/{id}:
+    $ref: './beta/paths/mail-from-attribute.yaml'
   /mfa/{method}/config:
     $ref: './beta/paths/mfa-config.yaml'
   /mfa/{method}/test:
@@ -1538,10 +1542,8 @@ paths:
     $ref: './beta/paths/verified-from-addresses.yaml'
   /verified-from-addresses/{id}:
     $ref: './beta/paths/verified-from-address.yaml'
-  /dkim-attributes/{identities}:
-    $ref: './beta/paths/dkim-attributes.yaml'
-  /verify-domain-dkim:
-    $ref: './beta/paths/verify-domain-dkim.yaml'
+  /verified-domains:
+    $ref: './beta/paths/verified-domains.yaml'
   /sod-policies:
     $ref: './beta/paths/sod-policies.yaml'
   /sod-policies/{id}:

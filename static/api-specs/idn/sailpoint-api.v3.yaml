@@ -579,6 +579,8 @@ tags:
       - [Zendesk Service Desk](https://documentation.sailpoint.com/connectors/zendesk/help/integrating_zendesk_sd/introduction.html)
   - name: SOD Policy
     description: Operations for Creating & Executing SOD (Seperation of Duties) policies
+  - name: SOD Violations
+    description: Operations for Predicting SOD (Seperation of Duties) violations
   - name: Sources
     description: |
       Use this API to implement and customize source functionality. 
@@ -858,6 +860,12 @@ paths:
     $ref: './v3/paths/sod-policy.yaml'
   /sod-policies/{id}/schedule:
     $ref: './v3/paths/sod-schedule.yaml'
+  /sod-policies/{id}/violation-report/run:
+    $ref: './v3/paths/sod-report-run.yaml'
+  /sod-policies/{id}/violation-report:
+    $ref: './v3/paths/sod-violation-report.yaml'
+  /sod-violation-report-status/{reportResultId}:
+    $ref: './v3/paths/sod-violation-report-status.yaml'
   /sources:
     $ref: "./v3/paths/sources.yaml"
   /sources/{id}:

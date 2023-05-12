@@ -19,6 +19,10 @@ const sidebars = {
         },
         {
           type: 'doc',
+          id: 'api/service-accounts',
+        },
+        {
+          type: 'doc',
           id: 'api/standard-collection-parameters',
         },
         {

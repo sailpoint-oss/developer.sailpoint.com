@@ -3,7 +3,7 @@ id: rate-limit
 title: Rate Limiting
 pagination_label: Rate Limiting
 sidebar_label: Rate Limiting
-sidebar_position: 5
+sidebar_position: 6
 sidebar_class_name: rateLimit
 keywords: ['rate limit']
 description: There is a rate limit of 100 requests per access_token per 10 seconds for V3 API calls through the API gateway.

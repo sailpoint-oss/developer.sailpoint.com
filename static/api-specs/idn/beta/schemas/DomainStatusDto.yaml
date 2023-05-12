@@ -14,6 +14,8 @@ properties:
     description: DKIM is enabled for this domain
   dkimTokens:
     type: array
+    items:
+      type: string
     example: ["token1", "token2", "token3"]
     description: DKIM tokens required for authentication
   dkimVerificationStatus:

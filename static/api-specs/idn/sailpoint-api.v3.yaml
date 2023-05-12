@@ -856,6 +856,8 @@ paths:
     $ref: './v3/paths/sod-policies.yaml'
   /sod-policies/{id}:
     $ref: './v3/paths/sod-policy.yaml'
+  /sod-policies/{id}/schedule:
+    $ref: './v3/paths/sod-schedule.yaml'
   /sources:
     $ref: "./v3/paths/sources.yaml"
   /sources/{id}:

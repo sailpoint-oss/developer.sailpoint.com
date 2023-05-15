@@ -1,0 +1,28 @@
+get:
+  security:
+    - oauth2: [idn:sod-policy:read]
+  operationId: getArmConfig
+  tags:
+    - SOD Violations
+  summary: Expose just the ARM config
+  description: >-
+    This API expose just the ARM config from Tenaya (Org Config Service) for UI.
+  responses:
+    '200':
+      description: Org config with ARM data.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/PublicOrgConfigArmData.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

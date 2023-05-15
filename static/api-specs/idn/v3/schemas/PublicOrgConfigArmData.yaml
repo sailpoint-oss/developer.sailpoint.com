@@ -1,0 +1,14 @@
+type : object
+description: >-
+  Arm Data for the org configuration.
+properties:
+  armCustomerId:
+    type: string
+    description: ARM Customer ID
+    nullable: true
+    example: DE38E75A-5FF6-4A65-5DC7-08D64426B09E
+  armSsoUrl:
+    type: string
+    description: ARM SSO URL
+    nullable: true
+    example: https://your-arm-sso-url

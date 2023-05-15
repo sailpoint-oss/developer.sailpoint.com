@@ -874,6 +874,14 @@ paths:
     $ref: "./v3/paths/sod-violations-check.yaml"
   /sod-violations/config:
     $ref: "./v3/paths/sod-violations-config.yaml"
+  /sod-violation-report/run:
+    $ref: './v3/paths/sod-all-report-run.yaml'
+  /sod-violation-report:
+    $ref: './v3/paths/sod-all-report-status.yaml'
+  /sod-violation-report/{reportResultId}/download:
+    $ref: './v3/paths/sod-download-default-report.yaml'
+  /sod-violation-report/{reportResultId}/download/{fileName}:
+    $ref: './v3/paths/sod-download-custom-report.yaml'
   /sources:
     $ref: "./v3/paths/sources.yaml"
   /sources/{id}:

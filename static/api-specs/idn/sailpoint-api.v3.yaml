@@ -854,6 +854,10 @@ paths:
     $ref: './v3/paths/password-dictionary.yaml'
   /password-org-config:
     $ref: './v3/paths/password-org-config.yaml'
+  /sod-exceptions:
+    $ref: "./v3/paths/sod-exceptions.yaml"
+  /sod-exceptions/{id}:
+    $ref: "./v3/paths/sod-exception.yaml"
   /sod-policies:
     $ref: './v3/paths/sod-policies.yaml'
   /sod-policies/{id}:

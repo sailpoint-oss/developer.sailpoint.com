@@ -1,0 +1,7 @@
+type: object
+properties:
+  exceptionCount:
+    type: string
+    nullable: false
+    description: Count of the exceptions
+    example: "5"

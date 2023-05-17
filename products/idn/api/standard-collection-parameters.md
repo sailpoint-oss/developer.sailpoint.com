@@ -174,6 +174,8 @@ Examples:
 
 - Spaces in URLs must be escaped with `%20`. Most programming languages, frameworks, libraries, and tools will do this for you, but some won't. In the event that your tool doesn't escape spaces, you will need to format your query as `/v3/public-identities?filters=email%20eq%20"john.doe@example.com"`
 
+- Double quotes may need to be escaped with `%22`. Most programming languages, frameworks, libraries, and tools will do this for you, but some won't. In the event that your tool doesn't escape quotes, you will need to format your query as `/v3/public-identities?filters=email%20eq%20%22john.doe@example.com%22`
+
 - You must escape spaces in URLs with `%20`. Most programming languages, frameworks, libraries, and tools do this for you, but some do not. In the event that your tool does not escape spaces, you must format your query as `/v3/public-identities?filters=email%20eq%20"john.doe@example.com"`
 
 - Unless explicitly noted otherwise, strings are compared lexicographically. Most comparisons are not case sensitive. Any situations where the comparisons are case sensitive will be called out.

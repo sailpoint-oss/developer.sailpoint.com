@@ -8,3 +8,14 @@ export async function getTopPosts() {
     return [];
   }
 }
+
+export async function getBlogPosts() {
+  try {
+    const response = await fetch(
+      'https://developer.sailpoint.com/discuss/search.json?q=category:blog',
+    );
+    return await response.json();
+  } catch (error) {
+    return [];
+  }
+}

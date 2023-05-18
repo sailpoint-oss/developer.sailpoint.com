@@ -858,6 +858,8 @@ paths:
     $ref: "./v3/paths/sod-exceptions.yaml"
   /sod-exceptions/{id}:
     $ref: "./v3/paths/sod-exception.yaml"
+  /sod-exceptions/bulk-create:
+    $ref: "./v3/paths/sod-exceptions-bulk-create.yaml"
   /sod-policies:
     $ref: './v3/paths/sod-policies.yaml'
   /sod-policies/{id}:

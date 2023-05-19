@@ -1,0 +1,74 @@
+/* Getting Started Card */
+.card {
+  position: relative;
+  margin-top: 20px;
+  height: 400px;
+  /* UI Properties */
+  background: var(--dev-card-background);
+  box-shadow: var(--dev-card-shadow);
+  border: 1px solid var(--dev-card-background);
+  border-radius: 40px;
+  opacity: 1;
+}
+
+.card:hover {
+  cursor: pointer;
+  top: -2px;
+  box-shadow: var(--dev-card-selected);
+}
+
+.cardText {
+  position: absolute;
+  margin: 22px;
+  min-width: 170px;
+  top: 10px;
+  left: 0;
+}
+
+.cardName {
+  position: absolute;
+  margin: 22px;
+  min-width: 170px;
+  bottom: 0px;
+  left: 80px;
+}
+.cardTitle {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.cardBody {
+  font-size: 16px;
+  font-weight: 500;
+  top: 10px;
+  left: 0;
+}
+
+
+.tag {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--dev-secondary-text);
+}
+
+.tags {
+  position: absolute;
+  margin: 0px;
+  width: 230px;
+  top: 10px;
+  left: 20px;
+
+  display: grid;
+  grid-template-columns: max-content max-content max-content;
+  grid-gap: 10px;
+}
+
+.cardFace {
+  position: absolute;
+  border-radius: 9999px;
+  bottom: 10px;
+  left: 10px;
+  margin: auto;
+  height: 80px;
+  width: 80px;
+}

@@ -40,6 +40,7 @@ allOf:
       isManager:
         type: boolean
         description: Whether this identity is a manager of another identity
+        default: false
         example: true
       lastRefresh:
         type: string
@@ -50,3 +51,6 @@ allOf:
         type: object
         description: A map with the identity attributes for the identity
         example: '{"uid":"Walter White","firstname":"walter","cloudStatus":"UNREGISTERED","displayName":"Walter White","identificationNumber":"942","lastSyncDate":1470348809380,"email":"walter@gmail.com","lastname":"white"}'
+      lifecycleState:
+        $ref: '../../v3/schemas/LifecycleStateDto.yaml'
+        description: Lifecycle state details that include lifecycle state name and whether this lifecycle state has been set manually

@@ -58,7 +58,13 @@ module.exports = {
       position: 'left',
       items: [
         {to: '#', label: 'API Specifications', className: 'navbar__section'},
-        {to: '/nerm/api', label: 'NERM APIs', className: 'indent'}
+        {to: '/nerm/api', label: 'NERM APIs', className: 'indent'},
+        {to: '#', label: 'External Links', className: 'navbar__section'},
+        {
+          href: 'https://documentation.sailpoint.com',
+          label: 'Product Documentation',
+          className: 'indent',
+        }
       ]
     },
     {

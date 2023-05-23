@@ -23,50 +23,17 @@ export default function BlogCards() {
   if (ans) {
     return (
       <div className={styles.center}>
-
         <div className={styles.gridContainer}>
-          <BlogCard
-            excerpt={ans[0].excerpt}
-            name={ans[0].name}
-            tags={ans[0].tags}
-            link={ans[0].link}
-            title={ans[0].title}
-            image={ans[0].image}></BlogCard>
-          <BlogCard
-            excerpt={ans[1].excerpt}
-            name={ans[1].name}
-            tags={ans[1].tags}
-            link={ans[1].link}
-            title={ans[1].title}
-            image={ans[1].image}></BlogCard>
-          <BlogCard
-            excerpt={ans[0].excerpt}
-            name={ans[0].name}
-            tags={ans[0].tags}
-            link={ans[0].link}
-            title={ans[0].title}
-            image={ans[0].image}></BlogCard>
-          <BlogCard
-            excerpt={ans[1].excerpt}
-            name={ans[1].name}
-            tags={ans[1].tags}
-            link={ans[1].link}
-            title={ans[1].title}
-            image={ans[1].image}></BlogCard>
-          <BlogCard
-            excerpt={ans[0].excerpt}
-            name={ans[0].name}
-            tags={ans[0].tags}
-            link={ans[0].link}
-            title={ans[0].title}
-            image={ans[0].image}></BlogCard>
-          <BlogCard
-            excerpt={ans[1].excerpt}
-            name={ans[1].name}
-            tags={ans[1].tags}
-            link={ans[1].link}
-            title={ans[1].title}
-            image={ans[1].image}></BlogCard>
+
+          {ans.map(function(a, index){
+            return <BlogCard
+            excerpt={a.excerpt}
+            name={a.name}
+            tags={a.tags}
+            link={a.link}
+            title={a.title}
+            image={a.image}></BlogCard>
+          })}
         </div>
       </div>
     );

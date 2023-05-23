@@ -32,6 +32,7 @@ export default function BlogCards() {
             tags={a.tags}
             link={a.link}
             title={a.title}
+            views={a.views}
             image={a.image}></BlogCard>
           })}
         </div>

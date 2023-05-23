@@ -10,12 +10,22 @@ export default function BlogCard({
   tags,
   image,
   excerpt,
-  name
+  name,
+  views
 }) {
 
   return (
     <Link to={link}>
       <div className={styles.card}>
+
+        <span className={styles.cardData}>
+          <img className={styles.cardEye} src={useBaseUrl('/blog/eye-regular.svg')}></img>
+          <span className={styles.cardDataTextAlign}><div>100</div></span>
+          <span className={styles.cardDataText}>100</span>
+          <img className={styles.cardComment} src={useBaseUrl('/blog/comment-light.svg')}></img>
+          <span className={styles.cardDataTextAlign}><div>8</div></span>
+          <span className={styles.cardDataText}>8</span>
+        </span>
 
         <img className={styles.cardFace} src={useBaseUrl(image)}></img>
         <div className={styles.cardText}>

@@ -2,17 +2,19 @@ import React from 'react';
 import styles from './styles.module.css';
 import BlogCard from '../BlogCard';
 
-import {getBlogPosts} from '../../../services/DiscourseService';
+import {getBlogPosts, getTopic} from '../../../services/DiscourseService';
 export default function BlogCards() {
   const [ans, setAns] = React.useState();
 
   const getPosts = async () => {
     const data = await getBlogPosts();
-    console.log(data)
-    const resultset = [
-      getPostList(data, 0),
-      getPostList(data, 1),
-    ];
+    console.log(data.topics)
+    const resultset = []
+    let i = 0;
+    for (const topic of data.topics) {
+      resultset.push(await getPostList(topic))
+      i++
+    }
     setAns(resultset);
   };
 
@@ -33,6 +35,7 @@ export default function BlogCards() {
             link={a.link}
             title={a.title}
             views={a.views}
+            replies={a.replies}
             image={a.image}></BlogCard>
           })}
         </div>
@@ -43,21 +46,24 @@ export default function BlogCards() {
   }
 }
 
-function getPostList(posts, index) {
+async function getPostList(topic) {
+  const fullTopic = await getTopic(topic.id);
+  console.log(fullTopic)
   return {
-    name: posts.posts[index].name,
-    excerpt: styleExcerpt(posts.topics[index].excerpt),
-    image: getavatarURL(posts.posts[index].avatar_template),
-    tags: posts.topics[index].tags,
+    name: fullTopic.details.created_by.name,
+    excerpt: styleExcerpt(topic.excerpt),
+    image: getavatarURL(fullTopic.details.created_by.avatar_template),
+    tags: topic.tags,
     link:
       'https://developer.sailpoint.com/discuss/t/' +
-      posts.topics[index].slug +
+      topic.slug +
       '/' +
-      posts.topics[index].id,
-    title: posts.topics[index].title,
-    views: posts.topics[index].views,
-    liked: posts.topics[index].like_count,
-    solution: posts.topics[index].has_accepted_answer,
+      topic.id,
+    title: topic.title,
+    views: fullTopic.views,
+    liked: topic.like_count,
+    replies: fullTopic.posts_count,
+    solution: topic.has_accepted_answer,
   };
 }
 

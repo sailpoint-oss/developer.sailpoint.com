@@ -19,3 +19,14 @@ export async function getBlogPosts() {
     return [];
   }
 }
+
+export async function getTopic(id) {
+  try {
+    const response = await fetch(
+      'https://developer.sailpoint.com/discuss/t/' + id + '.json',
+    );
+    return await response.json();
+  } catch (error) {
+    return [];
+  }
+}

@@ -1,125 +1,163 @@
 package sailpoint.object;
 
-import java.util.Map;
+import java.util.List;
 
-/**
- * Definition of a User interface available to Rule implementors.
- */
-public interface Identity {
+public class Identity {
 
     /**
-     * Get the internal name of the User.
-     * @return the internal name
+     * Get the calling Identity as a string
+     * @return The string representation of the Identity
      */
-    String getName();
+    public String toString() {
+        return "identityString";
+    }
 
     /**
-     * Get the display name of the identity
-     * @return The displayName
+     * Get the calling Identity Id
+     * @return The string Id of the Identity
      */
-    String getDisplayName();
+    public String getId() {
+        return "id";
+    }
 
     /**
-     * Get the internal unique identifier.
-     * @return The id
+     * Get the calling Identity name
+     * @return The string name of the Identity
      */
-    String getId();
+    public String getName() {
+        return "identityName";
+    }
 
     /**
-     * Get the first name of the User.
-     * @return The FirstName
+     * Get's the calling Identities Manager Object
+     * @return The manager's Identity Object
      */
-    String getFirstName();
+    public Identity getManager() {
+        return new Identity();
+    }
 
     /**
-     * Get the last name of the User.
-     * @return The LastName
+     * Get true/false if the Identity is a manager
+     * @return true/false is the Identity a manager
      */
-    String getLastName();
+    public boolean getManagerStatus() {
+        return false;
+    }
 
     /**
-     * Get the phone of the User.
-     * @return The phone
+     * Get a list of links that the Identity is connected to
+     * @return List of Link Objects
      */
-    String getPhone();
+    public List<Link> getLinks() {
+        return new List<Link>();
+    }
 
     /**
-     * Get the work phone of the User.
-     * @return The work phone
+     * Get a list of Bundle Objects of the assigned Roles of the Identity
+     * @return List of Bundle Objects
      */
-    String getWorkPhone();
+    public List<Bundle> getAssignedRoles() {
+        return new List<Bundle>();
+    }
+
+
+    public List<Bundle> getBundles() {
+        return new List<Bundle>();
+    }
+
+    public List<EntitlementGroup> getExceptions(List<Application> apps) {
+        return new List<EntitlementGroup>();
+    }
+
+    public Attributes<String, Object> getAttributes() {
+        return new Attributes<String, Object>();
+    }
+
+
+    public boolean isCorrelated() {
+        return false;
+    }
 
     /**
-     * Get the personal email of the User.
-     * @return The personal email address
+     * Get the first name of the Identity
+     * @return the first name as a String
      */
-    String getPersonalEmail();
+    public String getFirstname() {
+        return "name";
+    }
 
     /**
-     * Get the work email of the User.
-     * @return The work email
+     * Get the last name of the Identity
+     * @return the last name as a String
      */
-    String getEmail();
+    public String getLastname() {
+        return "name";
+    }
 
     /**
-     * Get the current lifecycle state of the User.
-     * @return The lifecycle state
+     * Get the full name of the Identity
+     * @return the full name as a String
      */
-    String getLifecycleState();
+    public String getFullName() {
+        return "fullName";
+    }
 
     /**
-     * Get the raw attributes of the User.
-     *
-     * @return The map attributes derived from attribute promotion.
+     * Get the display name of the Identity
+     * @return the display name as a String
      */
-    Map<String, Object> getAttributes();
+    public String getDisplayName() {
+        return "displayName";
+    }
+
+    public String getDisplayableName() {
+        return "displayableName";
+    }
 
     /**
-     * Get the uid of the USer;
-     * @return The Uid
+     * Get the email of the Identity
+     * @return the email as a String
      */
-    String getUid();
+    public String getEmail() {
+        return "email";
+    }
+
+    public boolean isInactive() {
+        return false;
+    }
 
     /**
-     * Check to see if the current user has reports and is a manager.
-     * @return true if the User is a manager, false otherwise
+     * Get the attribute value given the name of the attribute
+     * @param name The name of the attribute to get on an Identity.
+     *             Examples include: manager, administrator, bundles, assignedRoles, capabilities, rights, workgroups, managerStatus, lastRefresh, correlated
+     * @return the attribute Object
      */
-    boolean isManager();
+    public Object getAttribute(String name) {
+        return new Object();
+    }
 
     /**
-     * The internal ID of the manager for this User.
-     * @return The internal ID of the manager
+     * Get the attribute value as a string given the name of the attribute on the Identity.
+     * @param name
+     * @return the attribute value as a string
      */
-    String getManagerId();
+    public String getStringAttribute(String name) {
+        return "attributeValue";
+    }
 
-    /**
-     * Gets the name of the user's manager.
-     * @return The name of the manager
-     */
-    String getManagerName();
 
-    /**
-     * Get the country of the user
-     * @return The country
-     */
-    String getCountry();
+    public Link getLink(Application res) {
+        return new Link();
+    }
 
-    /**
-     * Get the user's employee number;
-     * @return The employee number
-     */
-    String getEmployeeNumber();
+    public Bundle getAssignedRole(String id) {
+        return new Bundle();
+    }
+    public List<RoleAssignment> getRoleAssignments() {
+        return new List<RoleAssignment>();
+    }
 
-    /**
-     * Get the user's specified attribute as a string
-     * @return The attribute string
-     */
-    String getStringAttribute(String attributeName);
-
-    /**
-     * Get the user's specified attribute as an object
-     * @return The attribute object
-     */
-    Object getAttribute(String attributeName);
-
+    public String getType() {
+        return "type";
+    }
 }

@@ -133,8 +133,10 @@ There are three main components of a transform object:
 
 3. `attributes` - This specifies any attributes or configurations for controlling how the transform works. As mentioned earlier in [Configuring Transform Behavior](#configuring-transform-behavior), each transform type has different sets of attributes available.
 
-:::warn
+:::caution
+
 When uploading a transform to IdentityNow it cannot exceed 400KB.
+
 :::
 
 ## Template Engine

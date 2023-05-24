@@ -133,6 +133,10 @@ There are three main components of a transform object:
 
 3. `attributes` - This specifies any attributes or configurations for controlling how the transform works. As mentioned earlier in [Configuring Transform Behavior](#configuring-transform-behavior), each transform type has different sets of attributes available.
 
+:::warn
+When uploading a transform to IdentityNow it cannot exceed 400KB.
+:::
+
 ## Template Engine
 
 Seaspray ships with the Apache Velocity template engine that allows a transform to reference, transform, and render values passed into the transform context. Every string value in a Seaspray transform can contain templated text and will run through the template engine.

@@ -730,7 +730,7 @@ paths:
     $ref: "./v3/paths/identity-certifications-identity-summaries.yaml"
   /certifications/{id}/access-summaries/{type}:
     $ref: "./v3/paths/identity-certifications-access-summaries.yaml"
-  /certifications/{id}/identity-summary/{identitySummaryId}:
+  /certifications/{id}/identity-summaries/{identitySummaryId}:
     $ref: "./v3/paths/identity-certifications-identity-summary.yaml"
   /identities/{identity-id}/set-lifecycle-state:
     $ref: "./v3/paths/identity-set-lifecycle-state.yaml"

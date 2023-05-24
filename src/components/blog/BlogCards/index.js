@@ -26,17 +26,19 @@ export default function BlogCards() {
     return (
       <div className={styles.center}>
         <div className={styles.gridContainer}>
-
           {ans.map(function(a, index){
-            return <BlogCard
+            return <BlogCard 
+            key={a.link}
+            id={index + a.link}
             excerpt={a.excerpt}
             name={a.name}
             tags={a.tags}
             link={a.link}
+            image={a.image}
             title={a.title}
             views={a.views}
             replies={a.replies}
-            image={a.image}></BlogCard>
+            creatorImage={a.creatorImage}></BlogCard>
           })}
         </div>
       </div>
@@ -52,8 +54,9 @@ async function getPostList(topic) {
   return {
     name: fullTopic.details.created_by.name,
     excerpt: styleExcerpt(topic.excerpt),
-    image: getavatarURL(fullTopic.details.created_by.avatar_template),
+    creatorImage: getavatarURL(fullTopic.details.created_by.avatar_template),
     tags: topic.tags,
+    image: fullTopic.image_url,
     link:
       'https://developer.sailpoint.com/discuss/t/' +
       topic.slug +

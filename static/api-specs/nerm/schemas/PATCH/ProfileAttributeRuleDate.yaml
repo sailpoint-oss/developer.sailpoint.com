@@ -1,47 +1,70 @@
 type: object
 properties:
   id:
+    description: the id
     type: string
     format: uuid
     readOnly: true
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   uid:
+    description: the uid
     type: string
     minLength: 32
     maxLength: 32
     readOnly: true
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   type:
+    description: the type
     type: string
     required: true
     enum: [ProfileAttributeRule]
+    example: ProfileAttributeRule
   condition_object_type:
+    description: The condition_object_type
     type: string
     required: true
     enum: [DateAttribute]
+    example: DateAttribute
   condition_object_id:
+    description: The condition_object_id
     type: string
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   secondary_attribute_type:
+    description: the secondary attribute type
     type: string
     enum: [DateAttribute]
+    example: DateAttribute
   secondary_attribute_id:
+    description: The secondary attribute id
     type: string
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   comparison_operator:
+    description: The operator to use for comparison
     type: string
     enum: ['>', '<', 'after', 'before']
+    example: <
   value:
+    description: The value
     type: string
     required: true
     enum: ['Today', '<uid>']
+    example: Today
   secondary_value:
+    description: The secondary value
     type: string
     enum: ['after', 'before']
+    example: after
   tertiary_value:
+    description: The tertiary value
     type: string
     example: 30
   _destroy:
+    description: should this be destroyed
     type: boolean
     default: false
+    example: false
 
 
 

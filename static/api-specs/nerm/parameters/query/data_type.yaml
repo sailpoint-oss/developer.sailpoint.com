@@ -5,3 +5,4 @@ required: false
 schema:
   type: string
   enum: [text field, text area, drop-down, radio buttons, check boxes, date, tags, attachment, profile select, profile search, owner select, owner search, contributor select, contributor search]
+example: radio buttons

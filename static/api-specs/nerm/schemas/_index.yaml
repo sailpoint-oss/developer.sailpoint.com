@@ -32,5 +32,9 @@ ConditionRulesAttribute-ProfileTypeRule:
   $ref: './GET/ProfileTypeRule.yaml'
 ConditionRulesAttribute-ProfileStatusRule:
   $ref: './GET/ProfileStatusRule.yaml'
-ConditionRulesAttribute-ProfileAttributeRule:
-  $ref: './GET/ProfileAttributeRule.yaml'
+ConditionRulesAttribute-ProfileAttributeRuleDate:
+  $ref: './GET/ProfileAttributeRuleDate.yaml'
+ConditionRulesAttribute-ProfileAttributeRuleId:
+  $ref: './GET/ProfileAttributeRuleId.yaml'
+ConditionRulesAttribute-ProfileAttributeRuleString:
+  $ref: './GET/ProfileAttributeRuleString.yaml'

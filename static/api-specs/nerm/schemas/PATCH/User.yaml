@@ -1,31 +1,50 @@
 type: object
 properties:
   id:
+    description: The id
     type: string
     format: uuid
     required: true
     writeOnly: true
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   name:
+    description: The name
     type: string
+    example: myusername
   email:
+    description: The email
     type: string
     format: email
+    example: test@sailpoint.com
   type:
+    description: The type
     type: string
     enum: [NeprofileUser, NeaccessUser]
     default: NeprofileUser
+    example: NeprofileUser
   profile_id:
+    description: The profile_id
     type: string
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   title:
+    description: The title
     type: string
+    example: mytitle
   status:
+    description: The status
     type: string
     enum: [Active, Disabled]
+    example: Active
   login:
+    description: The login
     type: string
+    example: mylogin
   admin:
+    description: Is the user an admin
     type: boolean
+    example: false
   group_strings:
+    description: The group strings (used in roles later on)
     type: string
     example: "Administrator_group,Developer_group"

@@ -4,3 +4,15 @@ properties:
     type: array
     items:
       $ref: '../GET/User.yaml'
+    example:
+      - id: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+        uid: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+        name: bob
+        email: example@sailpoint.com
+        type: NeprofileUser
+        title: mytitle
+        status: Active
+        login: bob
+        last_login: "2023-05-01T09:12:28Z"
+        cookies_accepted_at: "2023-05-01T09:12:28Z"
+        preferred_language: en-US

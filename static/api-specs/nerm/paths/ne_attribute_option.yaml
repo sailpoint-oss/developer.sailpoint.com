@@ -3,7 +3,7 @@ post:
   operationId: postAttributeOption
   description: Add a value to an option based attribute
   tags:
-    - attribute options
+    - Attribute Options
   requestBody:
     $ref: "../requestBodies/POST/AttributeOption.yaml"
   responses:

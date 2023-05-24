@@ -1,6 +1,13 @@
 type: object
 properties:
   roles:
+    description: the list of roles
     type: array
     items:
       $ref: '../GET/Role.yaml'
+    example:
+      - id: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+        uid: "sponsors_role"
+        name: "Sponsors"
+        groups:
+          - "ad_group_name"

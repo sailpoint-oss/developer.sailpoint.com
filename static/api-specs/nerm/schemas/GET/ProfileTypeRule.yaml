@@ -1,22 +1,32 @@
 type: object
 properties:
   id:
+    description: The id
     type: string
     format: uuid
     readOnly: true
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   uid:
+    description: The uuid
     type: string
     minLength: 32
     maxLength: 32
     readOnly: true
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   type:
+    description: The type
     type: string
     required: true
     enum: [ProfileTypeRule]
+    example: ProfileTypeRule
   comparison_operator:
+    description: The comparison operator
     type: string
     enum: ['==', '!=']
+    example: ==
   value:
+    description: The value
     type: string
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   

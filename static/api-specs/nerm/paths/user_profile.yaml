@@ -3,7 +3,7 @@ post:
   operationId: postUserProfile
   description: Create a user-profile contributor relationship
   tags:
-    - user profiles
+    - User Profiles
   requestBody:
     $ref: "../requestBodies/POST/UserProfile.yaml"
   responses:

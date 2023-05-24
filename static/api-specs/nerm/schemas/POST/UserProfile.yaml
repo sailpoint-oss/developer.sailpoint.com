@@ -1,14 +1,22 @@
 type: object
 properties:
   user_id:
+    description: The user id
     type: string
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   profile_id:
+    description: the profile id
     type: string
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   ne_attribute_id:
+    description: The ne_attribute_id
     type: string
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   relationship_type:
+    description:  the relationship type
     type: string
     enum: [owner, contributor]
+    example: owner

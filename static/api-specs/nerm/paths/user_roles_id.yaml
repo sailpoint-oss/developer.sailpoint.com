@@ -3,7 +3,7 @@ get:
   operationId: getUserRole
   description: Info for a specific user role pairing
   tags:
-    - user roles
+    - User Roles
   parameters:
     - $ref: "../parameters/path/id.yaml"
   responses:
@@ -18,7 +18,7 @@ patch:
   operationId: patchUserRole
   description: Update a user role pairing by id
   tags:
-    - user roles
+    - User Roles
   requestBody:
     $ref: "../requestBodies/PATCH/UserRole.yaml"
   parameters:

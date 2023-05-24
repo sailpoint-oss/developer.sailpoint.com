@@ -1,14 +1,25 @@
 type: object
 properties:
   limit:
+    description: The limit
     type: integer
+    format: int32
+    example: 50
   offset:
+    description: The offset
     type: integer
+    format: int32
+    example: 100
   total:
+    description: The total
     type: integer
+    format: int32
+    example: 10000
   next:
+    description: The link to the next page of data
     type: string
     example: /endpoint?limit=10&offset=60
   previous:
+    description: The link to the previous page of data
     type: string
     example: /endpoint?limit=10&offset=40

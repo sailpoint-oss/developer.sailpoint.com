@@ -1,32 +1,49 @@
 type: object
 properties:
   id:
+    description: the id
     type: string
     format: uuid
     readOnly: true
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   uid:
+    description: the uid
     type: string
     minLength: 32
     maxLength: 32
     readOnly: true
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   name:
+    description: the name
     type: string
+    example: my profile
   profile_type_id:
+    description: The profile type id
     type: string
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   status:
+    description: the status
     type: string
     enum: [Active, Inactive, On Leave, Terminated]
+    example: Active
   id_proofing_status:
+    description: the id profing status
     type: string
     enum: [pending, pass, fail]
+    example: pending
   created_at:
+    description: the created at time
     type: string
     format: date-time
+    example: 2023-05-01T09:12:28Z
   updated_at:
+    description: the updated at time
     type: string
     format: date-time
+    example: 2023-05-01T09:12:28Z
   attributes:
+    description: the attributes
     type: object
     additionalProperties:
       type: string

@@ -1,17 +1,25 @@
 type: object
 properties:
   id:
+    description: the id
     type: string
     format: uuid
     readOnly: true
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   uid:
+    description: the uid
     type: string
     minLength: 32
     maxLength: 32
     readOnly: true
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   user_id:
+    description: the user id
     type: string
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   manager_id:
+    description: the manager id
     type: string
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e

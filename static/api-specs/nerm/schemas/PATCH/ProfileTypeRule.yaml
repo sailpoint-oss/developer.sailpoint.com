@@ -1,20 +1,30 @@
 type: object
 properties:
   id:
+    description: the id
     type: string
     format: uuid
     readOnly: true
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   type:
+    description: the type
     type: string
     required: true
     enum: [ProfileTypeRule]
+    example: ProfileTypeRule
   comparison_operator:
+    description: The operator to use for comparison
     type: string
     enum: ['==', '!=']
+    example: ==
   value:
+    description: The value to use in the comparison
     type: string
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   _destroy:
+    description: Should this Profile type rule be destroyed?
     type: boolean
     default: false
+    example: false
   

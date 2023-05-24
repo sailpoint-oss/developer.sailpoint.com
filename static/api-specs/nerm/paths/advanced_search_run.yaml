@@ -3,7 +3,7 @@ post:
   operationId: runAdvancedSearch
   description: Run an advanced search for profiles, without saving the query
   tags:
-    - advanced search
+    - Advanced Search
   parameters:
     - $ref: "../parameters/query/query.yaml"
   requestBody:

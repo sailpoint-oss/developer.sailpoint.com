@@ -1,18 +1,26 @@
 type: object
 properties:
   type:
+    description: The type
     type: string
     required: true
     enum: [RiskRule]
+    example: RiskRule
   comparison_operator:
+    description: The operator to use for comparison
     type: string
     enum: ['==', '>', '<']
+    example: ==
   value:
+    description: The value to use
     type: string
     summary: id of the Risk Level being compared against
     required: true
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   secondary_value:
+    description: The secondary value to use
     type: string
     required: true
     enum: [OverallRisk]
+    example: OverallRisk

@@ -3,7 +3,7 @@ get:
   operationId: getRole
   description: Info for a specific user role
   tags:
-    - roles
+    - Roles
   parameters:
     - $ref: "../parameters/path/id.yaml"
   responses:
@@ -18,7 +18,7 @@ patch:
   operationId: patchRole
   description: Update an existing role
   tags:
-    - roles
+    - Roles
   requestBody:
     $ref: "../requestBodies/PATCH/Role.yaml"
   parameters:

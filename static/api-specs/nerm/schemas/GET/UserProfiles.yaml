@@ -4,3 +4,15 @@ properties:
     type: array
     items:
       $ref: '../GET/UserProfile.yaml'
+    example:  
+      - id: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+        uid: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+        user_id: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+        profile_id: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+        ne_attribute_id: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+        relationship_type: owner 
+      
+      
+      
+      
+     

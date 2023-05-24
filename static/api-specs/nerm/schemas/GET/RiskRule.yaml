@@ -1,27 +1,39 @@
 type: object
 properties:
   id:
+    description: The id
     type: string
     format: uuid
     readOnly: true
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   uid:
+    description: the uid
     type: string
     minLength: 32
     maxLength: 32
     readOnly: true
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   type:
+    description: The type
     type: string
     required: true
     enum: [RiskRule]
+    example: RiskRule
   comparison_operator:
+    description: The operator to use for comparison
     type: string
     enum: ['==', '>', '<']
+    example: ==
   value:
+    description: Id of the Risk Level being compared against
     type: string
     summary: id of the Risk Level being compared against
     required: true
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   secondary_value:
+    description: The secondary value
     type: string
     required: true
     enum: [OverallRisk]
+    example: OverallRisk

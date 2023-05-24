@@ -3,7 +3,7 @@ post:
   operationId: postProfile
   description: Create a profile
   tags:
-    - profiles
+    - Profiles
   requestBody:
     $ref: "../requestBodies/POST/Profile.yaml"
   responses:

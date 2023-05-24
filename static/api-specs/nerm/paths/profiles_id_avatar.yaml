@@ -3,7 +3,7 @@ get:
   operationId: getProfileAvatar
   description: Retrieves the URL of the profile avatar
   tags:
-    - profiles
+    - Profiles
   parameters:
     - $ref: "../parameters/path/id.yaml"
   responses:
@@ -18,7 +18,7 @@ post:
   operationId: postProfileAvatar
   description: Uploads a new profile avatar
   tags:
-    - profiles
+    - Profiles
   parameters:
     - $ref: "../parameters/path/id.yaml"
   requestBody:

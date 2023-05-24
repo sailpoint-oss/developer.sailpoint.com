@@ -4,3 +4,8 @@ properties:
     type: array
     items:
       $ref: '../GET/UserRole.yaml'
+    example:
+      - id: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9a
+        uid: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9b
+        user_id: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9c
+        role_id: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9d

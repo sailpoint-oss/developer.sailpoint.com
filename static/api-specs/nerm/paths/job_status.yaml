@@ -3,7 +3,7 @@ get:
   operationId: getJobStatus
   description: Get the status of a bulk job
   tags:
-    - job status
+    - Job Status
   parameters:
     - $ref: "../parameters/query/job_id.yaml"
   responses:

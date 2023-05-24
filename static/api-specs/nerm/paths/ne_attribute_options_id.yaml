@@ -3,7 +3,7 @@ get:
   operationId: getAttributeOption
   description: Info for a specific option based attribute value
   tags:
-    - attribute options
+    - Attribute Options
   parameters:
     - $ref: "../parameters/path/id.yaml"
   responses:
@@ -18,7 +18,7 @@ patch:
   operationId: patchAttributeOption
   description: Update a option based attribute value by id
   tags:
-    - attribute options
+    - Attribute Options
   parameters:
     - $ref: "../parameters/path/id.yaml"
   requestBody:
@@ -35,7 +35,7 @@ delete:
   operationId: deleteAttributeOption
   description: Delete a option based attribute value by id
   tags:
-    - attribute options
+    - Attribute Options
   parameters:
     - $ref: "../parameters/path/id.yaml"
   responses:

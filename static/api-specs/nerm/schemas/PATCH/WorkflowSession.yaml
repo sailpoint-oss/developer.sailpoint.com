@@ -1,29 +1,41 @@
 type: object
 properties:
   workflow_id:
+    description: the workflow_id
     type: string
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   requester_id:
+    description: the requester_id
     type: string
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   requester_type:
+    description: the requester type
     type: string
     enum: [User, NeprofileUser, NeaccessUser]
+    example: User
   profile_id:
     type: string
     format: uuid
     description: The profile this workflow session will be working with. Only Applicable for Update workflows
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   profile_ids:
     type: array
     items:
       type: string
       format: uuid
     description: The profiles this workflow session will be working with. Only Applicable for Batch workflows
+    example: 
+      - db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+      - db6f8e8b-65c2-47d5-a0db-90bcc4e9df94
   status:
+    description: the status
     type: string
     enum: [api_request_sent, approved, assigned, attempting_to_start_workflow, AUTH-STATUS1, AUTH-STATUS2, AUTH-STATUS3, AUTH-STATUS4, AUTH-STATUS5, AUTH-STATUS6, AUTH-STATUS7, AUTH-STATUS8, AUTH-STATUS9, auto_assigned, batch_completed, checking_for_duplicates, closed, completed, courion_add, courion_extend, courion_terminate, courion_update, duplicates_resolved, failed, fulfilled, invitation_sent, ldap_provided, new, non_employee_created, non_employee_updated, notified, pending_approval, pending_assignment, pending_courion_add, pending_courion_extend, pending_courion_terminate, pending_courion_update, pending_creation, pending_fulfillment, pending_ldap, pending_notification, pending_profile_select, pending_request, pending_review, pending_status_change, pending_stored_procedure, pending_trigger, pending_update, processing, profile_check_complete, profiles_selected, rejected, requested, reviewed, soap_request_sent, started_workflow, status_changed, stored_procedure, un_assigned, waiting_on_workflow, workflow_changed]
     example: completed
   attributes:
+    description: the attributes
     type: object
     additionalProperties:
       type: string

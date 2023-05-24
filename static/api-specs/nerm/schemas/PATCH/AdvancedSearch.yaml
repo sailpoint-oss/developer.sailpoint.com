@@ -1,11 +1,16 @@
 type: object
 properties:
   id:
+    description: the id of the object
     type: string
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   label:
+    description: the label
     type: string
+    example: mylabel
   condition_rules_attributes:
+    description: The attributes for the condition rules
     type: array
     items:
       anyOf:
@@ -15,3 +20,12 @@ properties:
         - $ref: "./ProfileAttributeRuleDate.yaml"
         - $ref: "./ProfileAttributeRuleId.yaml"
         - $ref: "./RiskRule.yaml"
+    example:
+      - type: ProfileTypeRule
+        comparison_operator: ==
+        value: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+      - type: ProfileStatusRule
+        id: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+        uid: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+        comparison_operator: ==
+        value: Active

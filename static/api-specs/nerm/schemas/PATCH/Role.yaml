@@ -1,13 +1,18 @@
 type: object
 properties:
   type:
+    description: The type
     type: string
     enum: [NeprofileRole, NeaccessRole]
+    example: NeprofileRole
   name:
+    description: The name
     type: string
     example: "Sponsors"
   groups:
+    description: the groups
     type: array
     items:
       type: string
-      example: "ad_group_name"
+    example: 
+      - "ad_group_name"

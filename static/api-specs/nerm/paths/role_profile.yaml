@@ -3,7 +3,7 @@ post:
   operationId: postRoleProfile
   description: Create a role-profile contributor relationship
   tags:
-    - role profiles
+    - Role Profiles
   requestBody:
     $ref: "../requestBodies/POST/RoleProfile.yaml"
   responses:

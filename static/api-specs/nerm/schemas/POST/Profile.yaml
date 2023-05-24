@@ -1,22 +1,33 @@
 type: object
 properties:
   name:
+    description: The name
     type: string
+    example: my profile name
   profile_type_id:
+    description: the profile type id
     type: string
     format: uuid
     required: true
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   status:
+    description: the status
     type: string
     enum: [Active, Inactive, On Leave, Terminated]
+    example: Active
     required: true
   id_proofing_status:
+    description: the id proofing status
     type: string
     enum: [pending, pass, fail]
+    example: pending
   archived:
+    description: is this profile archived
     type: boolean
     default: false
+    example: false
   attributes:
+    description: the attributes
     type: object
     additionalProperties:
       type: string

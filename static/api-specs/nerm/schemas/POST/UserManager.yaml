@@ -1,8 +1,13 @@
 type: object
 properties:
   user_id:
+    description: The user id
     type: string
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   manager_id:
+    description: the manager id
     type: string
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+    

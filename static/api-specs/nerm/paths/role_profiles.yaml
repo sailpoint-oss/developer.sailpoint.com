@@ -3,7 +3,7 @@ get:
   operationId: getRoleProfiles
   description: Get role-profile contributor relationships
   tags:
-    - role profiles
+    - Role Profiles
   parameters:
     - $ref: "../parameters/query/query.yaml"
     - $ref: "../parameters/query/role_id.yaml"
@@ -21,7 +21,7 @@ post:
   operationId: postRoleProfiles
   description: Create multiple role-profile contributor relationships
   tags:
-    - role profiles
+    - Role Profiles
   requestBody:
     $ref: "../requestBodies/POST/RoleProfiles.yaml"
   responses:
@@ -36,7 +36,7 @@ patch:
   operationId: patchRoleProfiles
   description: Update multiple role-profile contributor relationships
   tags:
-    - role profiles
+    - Role Profiles
   requestBody:
     $ref: "../requestBodies/PATCH/RoleProfiles.yaml"
   responses:

@@ -3,7 +3,7 @@ get:
   operationId: getUserAvatar
   description: Retrieves the URL of the user avatar
   tags:
-    - users
+    - Users
   parameters:
     - $ref: "../parameters/path/id.yaml"
   responses:
@@ -18,7 +18,7 @@ post:
   operationId: postUserAvatar
   description: Uploads a new user avatar
   tags:
-    - users
+    - Users
   parameters:
     - $ref: "../parameters/path/id.yaml"
   requestBody:

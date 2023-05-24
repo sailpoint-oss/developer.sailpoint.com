@@ -3,7 +3,7 @@ get:
   operationId: getAttributes
   description: This endpoint can retrieve attribute data in bulk from Lifecycle or you can search for attributes using parameters
   tags:
-    - attributes
+    - Attributes
   parameters:
     - $ref: "../parameters/query/query.yaml"
     - $ref: "../parameters/query/label.yaml"

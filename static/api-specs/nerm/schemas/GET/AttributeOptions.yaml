@@ -4,3 +4,12 @@ properties:
     type: array
     items:
       $ref: '../GET/AttributeOption.yaml'
+    example:
+      - id: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+        uid: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+        ne_attribute_id: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+        option: myoption1  
+      - id: db6f8e8b-65c2-47d5-a0db-90bcc4e9d511
+        uid: db6f8e8b-65c2-47d5-a0db-90bcc4e9d511
+        ne_attribute_id: db6f8e8b-65c2-47d5-a0db-90bcc4e9d511
+        option: myoption2

@@ -3,7 +3,7 @@ get:
   operationId: getRoleProfile
   description: Find role-profile contributor relationship by id
   tags:
-    - role profiles
+    - Role Profiles
   parameters:
     - $ref: "../parameters/path/id.yaml"
   responses:
@@ -18,7 +18,7 @@ patch:
   operationId: patchRoleProfile
   description: Update a role-profile contributor relationship by id
   tags:
-    - role profiles
+    - Role Profiles
   parameters:
     - $ref: "../parameters/path/id.yaml"
   requestBody:

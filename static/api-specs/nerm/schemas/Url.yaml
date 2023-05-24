@@ -1,6 +1,8 @@
 type: object
 properties:
   url:
+    description: The url
     type: string
     format: url
     readOnly: true
+    example: http://www.example.com

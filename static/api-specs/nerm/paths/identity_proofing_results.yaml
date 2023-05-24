@@ -3,7 +3,7 @@ get:
   operationId: getIdentityProofingResults
   description: This endpoint can retrieve identity proofing result data in bulk from Lifecycle
   tags:
-    - identity proofing results
+    - Identity Proofing Results
   parameters:
     - $ref: "../parameters/query/query.yaml"
     - $ref: "../parameters/query/profile_id.yaml"

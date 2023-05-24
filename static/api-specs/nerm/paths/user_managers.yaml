@@ -3,7 +3,7 @@ get:
   operationId: getUserManagers
   description: This endpoint can retrieve user-manager relationships from Lifecycle or you can search for user-manager relationships using parameters
   tags:
-    - user managers
+    - User Managers
   parameters:
     - $ref: "../parameters/query/query.yaml"
     - $ref: "../parameters/query/user_id.yaml"
@@ -21,7 +21,7 @@ post:
   operationId: postUserManagers
   description: Create multiple new user-manager relationships
   tags:
-    - user managers
+    - User Managers
   requestBody:
     $ref: "../requestBodies/POST/UserManagers.yaml"
   responses:
@@ -36,7 +36,7 @@ patch:
   operationId: patchUserManagers
   description: Update multiple user-manager relationships
   tags:
-    - user managers
+    - User Managers
   requestBody:
     $ref: "../requestBodies/PATCH/UserManagers.yaml"
   responses:

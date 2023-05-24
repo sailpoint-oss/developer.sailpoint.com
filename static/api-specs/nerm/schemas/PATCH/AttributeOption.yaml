@@ -1,7 +1,11 @@
 type: object
 properties:
   ne_attribute_id:
+    description: The ne_attribute_id
     type: string
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   option:
+    description: The option
     type: string
+    example: optionname

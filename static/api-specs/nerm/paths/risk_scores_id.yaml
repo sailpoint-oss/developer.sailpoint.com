@@ -3,7 +3,7 @@ get:
   operationId: getRiskScore
   description: Find risk score data by id
   tags:
-    - risk scores
+    - Risk Scores
   parameters:
     - $ref: "../parameters/path/id.yaml"
   responses:

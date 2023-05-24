@@ -3,7 +3,7 @@ post:
   operationId: postUserManager
   description: Create a new user-manager relationship
   tags:
-    - user managers
+    - User Managers
   requestBody:
     $ref: "../requestBodies/POST/UserManager.yaml"
   responses:

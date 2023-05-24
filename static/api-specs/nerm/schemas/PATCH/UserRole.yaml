@@ -1,8 +1,12 @@
 type: object
 properties:
   user_id:
+    description: The user_id
     type: string
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   role_id:
+    description: The role_id
     type: string
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e

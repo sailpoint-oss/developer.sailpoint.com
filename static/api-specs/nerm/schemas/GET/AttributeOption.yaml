@@ -1,16 +1,24 @@
 type: object
 properties:
   id:
+    description: the id
     type: string
     format: uuid
     readOnly: true
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   uid:
+    description: the uid
     type: string
     minLength: 32
     maxLength: 32
     readOnly: true
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   ne_attribute_id:
+    description: the ne_attribute_id
     type: string
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   option:
+    description: the option
     type: string
+    example: myoption

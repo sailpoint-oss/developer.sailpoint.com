@@ -3,7 +3,7 @@ post:
   operationId: postUserRole
   description: Assign a new role to a user
   tags:
-    - user roles
+    - User Roles
   requestBody:
     $ref: "../requestBodies/POST/UserRole.yaml"
   responses:

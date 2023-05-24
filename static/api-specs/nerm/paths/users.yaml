@@ -3,7 +3,7 @@ get:
   operationId: getUsers
   description: This endpoint can retrieve users from Lifecycle or you can search for users using parameters
   tags:
-    - users
+    - Users
   parameters:
     - $ref: "../parameters/query/query.yaml"
     - $ref: "../parameters/query/name.yaml"
@@ -24,7 +24,7 @@ post:
   operationId: postUsers
   description: Create multiple new users
   tags:
-    - users
+    - Users
   requestBody:
     $ref: "../requestBodies/POST/Users.yaml"
   responses:
@@ -39,7 +39,7 @@ patch:
   operationId: patchUsers
   description: Update multiple users
   tags:
-    - users
+    - Users
   requestBody:
     $ref: "../requestBodies/PATCH/Users.yaml"
   responses:

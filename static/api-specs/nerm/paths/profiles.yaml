@@ -3,7 +3,7 @@ get:
   operationId: getProfiles
   description: Get profiles
   tags:
-    - profiles
+    - Profiles
   parameters:
     - $ref: "../parameters/query/query.yaml"
     - $ref: "../parameters/query/exclude_attributes.yaml"
@@ -23,7 +23,7 @@ post:
   operationId: postProfiles
   description: Create multiple profiles
   tags:
-    - profiles
+    - Profiles
   requestBody:
     $ref: "../requestBodies/POST/Profiles.yaml"
   responses:
@@ -38,7 +38,7 @@ patch:
   operationId: patchProfiles
   description: Update multiple profiles
   tags:
-    - profiles
+    - Profiles
   requestBody:
     $ref: "../requestBodies/PATCH/Profiles.yaml"
   responses:
@@ -53,7 +53,7 @@ delete:
   operationId: deleteProfiles
   description: Delete multiple profiles
   tags:
-    - profiles
+    - Profiles
   requestBody:
     $ref: "../requestBodies/DELETE/Profiles.yaml"
   responses:

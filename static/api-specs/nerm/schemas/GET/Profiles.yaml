@@ -4,3 +4,19 @@ properties:
     type: array
     items:
       $ref: '../GET/Profile.yaml'
+    example:
+      - id: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+        uid: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+        name: my profile
+        profile_type_id: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+        status: Active
+        id_proofing_status: pending
+        created_at: 2023-05-01T09:12:28Z
+        updated_at: 2023-05-01T09:12:28Z
+        attributes:
+          text_attribute_uid: static text
+          date_attribute_uid: 01/15/2020
+          profile_select_attribute_uid: Profile Name
+          multiple_profile_select_attribute_uid: Profile Name,Second Profile Name,Third Profile Name
+          contributor_select_attribute_uid: User Name
+          multiple_contributor_select_attribute_uid: User Name,Second User Name,Third User Name

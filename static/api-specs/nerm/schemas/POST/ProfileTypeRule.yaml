@@ -1,14 +1,20 @@
 type: object
 properties:
   type:
+    description: The type
     type: string
     required: true
     enum: [ProfileTypeRule]
+    example: ProfileTypeRule
   comparison_operator:
+    description: The operator to use for comparison
     type: string
     required: true
     enum: ['==', '!=']
+    example: ==
   value:
+    description: The value
     type: string
     required: true
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e

@@ -1,23 +1,35 @@
 type: object
 properties:
   id:
+    description: The id
     type: string
     format: uuid
     readOnly: true
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   uid:
+    description: the uid
     type: string
     minLength: 32
     maxLength: 32
     readOnly: true
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   user_id:
+    description: The user id
     type: string
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   profile_id:
+    description: The profile_id
     type: string
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   ne_attribute_id:
+    description: The ne_attribute_id
     type: string
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   relationship_type:
+    description: the relationship_type
     type: string
     enum: [owner, contributor]
+    example: owner

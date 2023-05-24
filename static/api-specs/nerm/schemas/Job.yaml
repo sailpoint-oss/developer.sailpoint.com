@@ -1,17 +1,23 @@
 type: object
 properties:
   info:
+    description: info about the job
     type: string
     example: "job has started"
   job_status:
+    description: the status of the job
     type: object
     properties:
       job_id:
+        description: the job id
         type: string
         example: "3ce88e47ad6dba2ddf349d21"
       status:
+        description: the status
         type: string
         example: "queued"
   status:
-    type: int
+    description: the status
+    type: integer
+    format: int32
     example: 200

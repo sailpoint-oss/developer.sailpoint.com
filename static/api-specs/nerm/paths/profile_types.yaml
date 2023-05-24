@@ -3,7 +3,7 @@ get:
   operationId: getProfileTypes
   description: Get option based attribute values
   tags:
-    - profile types
+    - Profile Types
   parameters:
     - $ref: "../parameters/query/query.yaml"
     - $ref: "../parameters/query/name.yaml"

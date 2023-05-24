@@ -3,7 +3,7 @@ get:
   operationId: getUserProfile
   description: Find user-profile contributor relationship by id
   tags:
-    - user profiles
+    - User Profiles
   parameters:
     - $ref: "../parameters/path/id.yaml"
   responses:
@@ -18,7 +18,7 @@ patch:
   operationId: patchUserProfile
   description: Update a user-profile contributor relationship by id
   tags:
-    - user profiles
+    - User Profiles
   parameters:
     - $ref: "../parameters/path/id.yaml"
   requestBody:

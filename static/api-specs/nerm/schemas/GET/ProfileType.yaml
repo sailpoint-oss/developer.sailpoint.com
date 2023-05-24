@@ -1,61 +1,107 @@
 type: object
 properties:
   id:
+    description: The id
     type: string
     format: uuid
     readOnly: true
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   uid:
+    description: The uid
     type: string
     minLength: 32
     maxLength: 32
     readOnly: true
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   name:
+    description: the name
     type: string
+    example: my profile type
   bypass_dup_protection:
+    description: bypass duplicate protection?
     type: boolean
+    example: false
   archived:
+    description: is this profile type archived?
     type: boolean
+    example: false
   permitted_role_ids:
+    description: permitted role_ids for this profile_type
     type: array
     items: 
       type: string
       format: uuid
+    example:
+        - db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+        - db6f8e8b-65c2-47d5-a0db-90bcc4e9df92
   profile_type_dup_attributes:
+    description: The profile type duplicate attributes
     type: array
     items: 
       type: object
       properties:
         id:
+          description: the id
           type: string
           format: uuid
+          example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
         uid:
+          description: the uid
           type: string
           minLength: 32
           maxLength: 32
+          example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
         profile_type_id:
+          description: the profile type id
           type: string
           format: uuid
+          example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
         ne_attribute_id:
+          description: the ne attribute id
           type: string
           format: uuid
+          example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+    example: 
+      - id: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+        uid: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9f
+        profile_type_id: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9g
+        ne_attribute_id: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9h          
   profile_type_namings:
+    description: the profile type namings
     type: array
     items: 
       type: object
       properties:
         id:
+          description: the id
           type: string
           format: uuid
+          example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
         uid:
+          description: the uid
           type: string
           minLength: 32
           maxLength: 32
+          example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
         profile_type_id:
+          description: the profile type id
           type: string
           format: uuid
+          example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
         ne_attribute_id:
+          description: the ne attribute id
           type: string
           format: uuid
+          example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
         order:
+          description: the order
           type: integer
+          format: int32
           minimum: 0
+          example: 0
+    example: 
+      - id: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+        uid: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9f
+        profile_type_id: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9g
+        ne_attribute_id: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9h
+        order: 0       

@@ -1,8 +1,11 @@
 type: object
 properties:
   label:
+    description: the label
     type: string
+    example: my search label
   condition_rules_attributes:
+    description: The condition rules attributes
     type: array
     items:
       anyOf:
@@ -12,3 +15,10 @@ properties:
         - $ref: "./ProfileAttributeRuleDate.yaml"
         - $ref: "./ProfileAttributeRuleId.yaml"
         - $ref: "./RiskRule.yaml"
+    example:
+      - type: ProfileTypeRule
+        comparison_operator: ==
+        value: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+
+
+

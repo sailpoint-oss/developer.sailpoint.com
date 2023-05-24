@@ -1,33 +1,50 @@
 type: object
 properties:
   id:
+    description: the id
     type: string
     format: uuid
     readOnly: true
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   identity_proofing_action_id:
+    description: The identity_proofing_action_id
     type: string
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   workflow_session_id:
+    description: the workflow_session_id
     type: string
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   profile_id:
+    description: the profile_id
     type: string
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   proofing_workflow:
+    description: the proofing workflow id
     type: string
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   result:
+    description: the result of the identity proofing
     type: string
     enum: [pending, pass, fail]
+    example: pass
   proofing_attributes:
+    description: Any additional attributes associated with the proofing
     type: object
     additionalProperties:
       type: string
     example:
       result: approve
   created_at:
+    description: The created at time
     type: string
     format: date-time
+    example: 2023-05-01T09:12:28Z
   updated_at:
+    description: The updated at time
     type: string
     format: date-time
+    example: 2023-05-01T09:12:28Z

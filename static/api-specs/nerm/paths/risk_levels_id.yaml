@@ -3,7 +3,7 @@ get:
   operationId: getRiskLevel
   description: Find risk level data by id
   tags:
-    - risk levels
+    - Risk Levels
   parameters:
     - $ref: "../parameters/path/id.yaml"
   responses:

@@ -1,35 +1,58 @@
 type: object
 properties:
   id:
+    description: id
     type: string
     format: uuid
     readOnly: true
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   uid:
+    description: the uid
     type: string
     minLength: 32
     maxLength: 32
     readOnly: true
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   object_id:
+    description: the object id
     type: string
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   object_type:
+    description: the object type
     type: string
     enum: [Profile, WorkflowSession]
+    example: Profile
   overall_score:
+    description: Overall score
     type: number
+    format: decimal
     multipleOf: 0.01
+    example: 0.2
   overall_risk_level_id:
+    description: the overall risk level id
     type: string
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   impact_score:
+    description: the impact score
     type: number
+    format: decimal
     multipleOf: 0.01
+    example: 0.4
   impact_risk_level_id:
+    description: the impact risk level id
     type: string
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   probability_score:
+    description: the probability_score
     type: number
+    format: decimal
     multipleOf: 0.01
+    example: 0.5
   probability_risk_level_id:
+    description: The probability risk level id
     type: string
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e

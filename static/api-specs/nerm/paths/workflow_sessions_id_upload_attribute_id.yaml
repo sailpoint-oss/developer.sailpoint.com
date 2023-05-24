@@ -3,7 +3,7 @@ get:
   operationId: getWorkflowSessionUpload
   description: Retrieves the URL of an attachment attribute value from a workflow session
   tags:
-    - workflow sessions
+    - Workflow Sessions
   parameters:
     - $ref: "../parameters/path/id.yaml"
     - $ref: "../parameters/path/attribute_id.yaml"
@@ -19,7 +19,7 @@ post:
   operationId: postWorkflowSessionUpload
   description: Uploads a new attachment attribute value to a workflow session
   tags:
-    - workflow sessions
+    - Workflow Sessions
   parameters:
     - $ref: "../parameters/path/id.yaml"
     - $ref: "../parameters/path/attribute_id.yaml"

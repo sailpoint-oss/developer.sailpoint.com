@@ -1,37 +1,59 @@
 type: object
 properties:
   id:
+    description: The id
     type: string
     format: uuid
     readonly: true
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   uid:
+    description: The uid
     type: string
     minLength: 32
     maxLength: 32
     readonly: true
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   name:
+    description: The name
     type: string
+    example: bob
   email:
+    description: The email
     type: string
     format: email
+    example: example@sailpoint.com
   type:
+    description: The type
     type: string
     enum: [NeprofileUser, NeaccessUser]
     default: NeprofileUser
+    example: NeprofileUser
   title:
+    description: The title
     type: string
+    example: mytitle
   status:
+    description: The status
     type: string
     enum: [Active, Disabled]
+    example: Active
   login:
+    description: The login
     type: string
+    example: bob
   last_login:
+    description: The last login time
     type: string
     format: date-time
     readOnly: true
+    example: "2023-05-01T09:12:28Z"
   cookies_accepted_at:
+    description: The time the cookies were accepted at
     type: string
     format: date-time
     readOnly: true
+    example: "2023-05-01T09:12:28Z"
   preferred_language:
+    description: The preferred language
     type: string
+    example: en-US

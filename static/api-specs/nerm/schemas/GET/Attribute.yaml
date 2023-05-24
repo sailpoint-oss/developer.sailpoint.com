@@ -1,70 +1,120 @@
 type: object
 properties:
   id:
+    description: The id
     type: string
     format: uuid
     readOnly: true
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   uid:
+    description: The uid
     type: string
     minLength: 32
     maxLength: 32
     readOnly: true
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   label:
+    description: The label
     type: string
+    example: my_attribute
   description:
+    description: The description
     type: string
+    example: This is my attribute
   tool_tip:
+    description: The tool tip
     type: string
+    example: my attribute
   crypt:
+    description: Should this be encrypted?
     type: boolean
+    example: true
   archived:
+    description: Is this attribute archived?
     type: boolean
+    example: false
   archived_on:
+    description: When was this attribute archved
     type: string
     format: date-time
     readOnly: true
+    example: 2023-05-01T09:12:28Z
   created_at:
+    description: The created_at time
     type: string
     format: date-time
     readOnly: true
+    example: 2023-05-01T09:12:28Z
   updated_at:
+    description: The updated_at time
     type: string
     format: date-time
     readOnly: true
+    example: 2023-05-01T09:12:28Z
   date_format:
+    description: The format of the date
     type: string
     enum: [mm/dd/yyyy, mm-dd-yyyy, dd/mm/yyyy, dd-mm-yyyy, yyyy/mm/dd, yyyy-mm-dd]
+    example: mm/dd/yyyy
   selectable_status:
+    description: The selectable_status
     type: string
-  risk_score_setting:
+    example: Active
+  risk_score_setting: 
+    description: The risk score setting
     type: string
+    example: standard
   risk_type:
+    description: The risk type
     type: string
+    example: inherited
   ownership_driver:
+    description: The ownership_driver
     type: boolean
+    example: true
   allow_multiple_selections:
+    description: allow multiple selections
     type: boolean
+    example: false
   filtered_by_ne_attribute:
+    description: Should this attribute be filtered_by_ne_attribute
     type: boolean
+    example: false
   filtering_ne_attribute_id:
+    description: The ne_attribute_id to use for filtering
     type: string
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   ne_attribute_filter_id:
+    description: The ne_attribute_id to filter by
     type: string
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   reverse_association_attribute_id:
+    description: The reverse association ne_attribute_id
     type: string
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   profile_type_id:
+    description: The profile_type_id
     type: string
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   legacy_id:
+    description: The legacy ID
     type: integer
+    format: int32
+    example: 123
   tmp_created_at:
+    description: (Deprecated) The temporary created_at field
     type: string
     format: date-time
     readOnly: true
+    example: 2023-05-01T09:12:28Z
   tmp_updated_at:
+    description: (Deprecated) The temporary updated_at field
     type: string
     format: date-time
     readOnly: true
+    example: 2023-05-01T09:12:28Z
+    

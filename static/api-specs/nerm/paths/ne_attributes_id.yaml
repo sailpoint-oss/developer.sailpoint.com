@@ -3,7 +3,7 @@ get:
   operationId: getAttribute
   description: Info for a specific attribute
   tags:
-    - attributes
+    - Attributes
   parameters:
     - $ref: "../parameters/path/id.yaml"
   responses:

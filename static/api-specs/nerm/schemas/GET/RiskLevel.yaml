@@ -1,19 +1,31 @@
 type: object
 properties:
   id:
+    description: the id
     type: string
     format: uuid
     readOnly: true
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   uid:
+    description: the uid
     type: string
     minLength: 32
     maxLength: 32
     readOnly: true
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   label:
+    description: The label
     type: string
+    example: my_risk_level
   points:
+    description: The risk points
     type: number
+    format: decimal
     multipleOf: 0.01
+    example: 0.5
   order:
+    description: The order of this risk level
     type: integer
+    format: int32
     minimum: 0
+    example: 0

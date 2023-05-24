@@ -1,52 +1,82 @@
 type: object
 properties:
   name:
+    description: The name
     type: string
+    example: my_profile_type_name
   bypass_dup_protection:
+    description: Bypass duplicate protection
     type: boolean
+    example: false
   archived:
+    description: Is the profile type archived
     type: boolean
+    example: false
   permitted_role_ids:
+    description: Permitted role ids
     type: array
     items: 
       type: string
       format: uuid
+    example:
+        - db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+        - db6f8e8b-65c2-47d5-a0db-90bcc4e9df9b
   profile_type_dup_attributes:
+    description: Profile type duplicate attributes
     type: array
     items: 
       type: object
       properties:
         id:
+          description: The ID
           type: string
           format: uuid
+          example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
         uid:
+          description: The uid
           type: string
           minLength: 32
           maxLength: 32
+          example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
         profile_type_id:
+          description: The profile type id
           type: string
           format: uuid
+          example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
         ne_attribute_id:
+          description: The ne_attribute_id
           type: string
           format: uuid
+          example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   profile_type_namings:
+    description: Profile type namings
     type: array
     items: 
       type: object
       properties:
         id:
+          description: The id
           type: string
           format: uuid
+          example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
         uid:
+          description: the uid
           type: string
           minLength: 32
           maxLength: 32
+          example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
         profile_type_id:
+          description: The profile type id
           type: string
           format: uuid
+          example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
         ne_attribute_id:
+          description: The ne_attribute_id
           type: string
           format: uuid
+          example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
         order:
+          description: The order the profile type appears
           type: integer
           minimum: 0
+          example: 0

@@ -3,7 +3,7 @@ get:
   operationId: getProfile
   description: Find profile by id
   tags:
-    - profiles
+    - Profiles
   parameters:
     - $ref: "../parameters/path/id.yaml"
   responses:
@@ -18,7 +18,7 @@ patch:
   operationId: patchProfile
   description: Update a profile by id
   tags:
-    - profiles
+    - Profiles
   parameters:
     - $ref: "../parameters/path/id.yaml"
   requestBody:

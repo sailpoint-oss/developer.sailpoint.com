@@ -3,7 +3,7 @@ get:
   operationId: getUserProfiles
   description: Get user-profile contributor relationships
   tags:
-    - user profiles
+    - User Profiles
   parameters:
     - $ref: "../parameters/query/query.yaml"
     - $ref: "../parameters/query/user_id.yaml"
@@ -23,7 +23,7 @@ post:
   operationId: postUserProfiles
   description: Create multiple user-profile contributor relationships
   tags:
-    - user profiles
+    - User Profiles
   requestBody:
     $ref: "../requestBodies/POST/UserProfiles.yaml"
   responses:
@@ -38,7 +38,7 @@ patch:
   operationId: patchUserProfiles
   description: Update multiple user-profile contributor relationships
   tags:
-    - user profiles
+    - User Profiles
   requestBody:
     $ref: "../requestBodies/PATCH/UserProfiles.yaml"
   responses:

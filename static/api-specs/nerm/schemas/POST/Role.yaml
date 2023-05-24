@@ -1,17 +1,22 @@
 type: object
 properties:
   uid:
+    description: the uid
     type: string
     minLength: 32
     maxLength: 32
     example: "sponsors_role"
   type:
+    description: The role type
     type: string
     enum: [NeprofileRole, NeaccessRole]
+    example: NeaccessRole
   name:
+    description: The role name
     type: string
     example: "Sponsors"
   groups:
+    description: The role's groups
     type: array
     items:
       type: string

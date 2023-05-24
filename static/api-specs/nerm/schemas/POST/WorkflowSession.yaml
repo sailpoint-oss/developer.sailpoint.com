@@ -1,28 +1,39 @@
 type: object
 properties:
   workflow_id:
+    description: The workflow id
     type: string
     format: uuid
     required: true
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   requester_id:
+    description: The requester id
     type: string
     format: uuid
     required: true
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   requester_type:
+    description: The requester type
     type: string
     enum: [User, NeprofileUser, NeaccessUser]
     required: true
+    example: User
   profile_id:
     type: string
     format: uuid
     description: The profile this workflow session will be working with. Only Applicable for Update workflows
-  profile_ids:
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+  profile_ids:    
     type: array
     items:
       type: string
       format: uuid
     description: The profiles this workflow session will be working with. Only Applicable for Batch workflows
+    example: 
+      - db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+      - db6f8e8b-65c2-47d5-a0db-90bcc4e9df9f
   attributes:
+    description: The attributes
     type: object
     additionalProperties:
       type: string

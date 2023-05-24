@@ -3,7 +3,7 @@ get:
   operationId: getWorkflowSession
   description: Find workflow session by id
   tags:
-    - workflow sessions
+    - Workflow Sessions
   parameters:
     - $ref: "../parameters/path/id.yaml"
   responses:
@@ -18,7 +18,7 @@ patch:
   operationId: patchWorkflowSession
   description: Update a workflow session by id
   tags:
-    - workflow sessions
+    - Workflow Sessions
   parameters:
     - $ref: "../parameters/path/id.yaml"
     - $ref: "../parameters/query/run.yaml"

@@ -4,3 +4,8 @@ properties:
     type: array
     items:
       $ref: '../GET/UserManager.yaml'
+    example:
+      - id: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+        uid: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9g
+        user_id: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9h
+        manager_id: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9l

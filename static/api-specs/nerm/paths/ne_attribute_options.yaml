@@ -3,7 +3,7 @@ get:
   operationId: getAttributeOptions
   description: Get option based attribute values
   tags:
-    - attribute options
+    - Attribute Options
   parameters:
     - $ref: "../parameters/query/query.yaml"
     - $ref: "../parameters/query/ne_attribute_id.yaml"
@@ -21,7 +21,7 @@ post:
   operationId: postAttributeOptions
   description: Create multiple new option based attribute values
   tags:
-    - attribute options
+    - Attribute Options
   requestBody:
     $ref: "../requestBodies/POST/AttributeOptions.yaml"
   responses:
@@ -36,7 +36,7 @@ patch:
   operationId: patchAttributeOptions
   description: Update multiple option based attribute values
   tags:
-    - attribute options
+    - Attribute Options
   requestBody:
     $ref: "../requestBodies/PATCH/AttributeOptions.yaml"
   responses:

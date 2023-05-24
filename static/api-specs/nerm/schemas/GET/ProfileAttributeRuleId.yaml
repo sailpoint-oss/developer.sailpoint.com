@@ -1,31 +1,45 @@
 type: object
 properties:
   id:
+    description: The id
     type: string
     format: uuid
     readOnly: true
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   uid:
+    description: The uid
     type: string
     minLength: 32
     maxLength: 32
     readOnly: true
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   type:
+    description: The type
     type: string
     required: true
     enum: [ProfileAttributeRule]
+    example: ProfileAttributeRule
   condition_object_type:
+    description: The condition_object_type
     type: string
     required: true
     enum: [ProfileSelectAttribute, ProfileSearchAttribute, OwnerSelectAttribute, OwnerSearchAttribute, ContributorSelectAttribute, ContributorSearchAttribute]
+    example: OwnerSearchAttribute
   condition_object_id:
+    description: The condition_object_id
     type: string
     required: true
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   comparison_operator:
+    description: The comparison_operator
     type: string
     required: true
     enum: ['include?', 'exclude?']
+    example: include?
   value:
+    description: The value
     type: string
     required: true
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e

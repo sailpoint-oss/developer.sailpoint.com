@@ -3,7 +3,7 @@ get:
   operationId: getWorkflowSessions
   description: Get workflow sessions
   tags:
-    - workflow sessions
+    - Workflow Sessions
   parameters:
     - $ref: "../parameters/query/query.yaml"
     - $ref: "../parameters/query/profile_id.yaml"
@@ -24,7 +24,7 @@ post:
   operationId: postWorkflowSession
   description: Create a workflow session
   tags:
-    - workflow sessions
+    - Workflow Sessions
   parameters:
     - $ref: "../parameters/query/run.yaml"
   requestBody:

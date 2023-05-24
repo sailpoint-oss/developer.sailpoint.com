@@ -1,31 +1,44 @@
 type: object
 properties:
   id:
+    description: the id
     type: string
     format: uuid
     readOnly: true
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   uid:
+    description: the uid
     type: string
     minLength: 32
     maxLength: 32
     readOnly: true
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   type:
+    description: The type
     type: string
     required: true
     enum: [ProfileAttributeRule]
+    example: ProfileAttributeRule
   condition_object_type:
+    description: The condition_object_type
     type: string
     required: true
     enum: [TextFieldAttribute, TextAreaAttribute]
+    example: TextAreaAttribute
   condition_object_id:
+    description: The condition_object_id
     type: string
     required: true
     format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   comparison_operator:
+    description: The operator to use for comparison
     type: string
     required: true
     enum: ['==', '!=', '>', '<', 'start_with?', 'end_with?', 'include?']
+    example: ==
   value:
+    description: The value
     type: string
     required: true
     example: Some value

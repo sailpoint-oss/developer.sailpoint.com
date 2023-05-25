@@ -4,14 +4,12 @@ import styles from './styles.module.css';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Link from '@docusaurus/Link';
 
-export default function BlogBanner() {
+export default function BlogSidebar() {
   return (
     <div>
 
-      <div className={styles.imageContainer}>
-        <div className={styles.blogHeaderText}>
-          SailPoint Developer Blog
-        </div>
+      <div className={styles.sideBarContainer}>
+        sidebar Works!
       </div >
 
 

@@ -38,6 +38,7 @@ export default function BlogCards() {
             title={a.title}
             views={a.views}
             replies={a.replies}
+            readTime={a.readTime}
             creatorImage={a.creatorImage}></BlogCard>
           })}
         </div>
@@ -67,6 +68,7 @@ async function getPostList(topic) {
     liked: topic.like_count,
     replies: fullTopic.posts_count,
     solution: topic.has_accepted_answer,
+    readTime: parseInt(fullTopic.word_count/100),
   };
 }
 

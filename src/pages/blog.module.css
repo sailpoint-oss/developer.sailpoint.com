@@ -1,0 +1,11 @@
+.blogContainer {
+    display: flex;
+}
+
+.blogSidbarContainer {
+    flex: 10%;
+}
+
+.blogCardContainer {
+    flex: 90%;
+}

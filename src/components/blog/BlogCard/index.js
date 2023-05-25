@@ -14,21 +14,21 @@ export default function BlogCard({
   name,
   views,
   replies,
-  id
+  readTime
 }) {
 
   return (
     <Link to={link}>
       <div className={styles.card} >
 
-        <span className={styles.cardData}>
+        <div className={styles.cardData}>
           <img className={styles.cardEye} src={useBaseUrl('/blog/eye-regular.svg')}></img>
-          <span className={styles.cardDataTextAlign}><div>{views}</div></span>
-          <span className={styles.cardDataText}>{views}</span>
+          <div className={styles.cardCommentText}>{views}</div>
           <img className={styles.cardComment} src={useBaseUrl('/blog/comment-light.svg')}></img>
-          <span className={styles.cardDataTextAlign}><div>{replies}</div></span>
-          <span className={styles.cardDataText}>{replies}</span>
-        </span>
+          <div className={styles.cardCommentText}>{replies}</div>
+          <img className={styles.cardComment} src={useBaseUrl('/blog/clock-light.svg')}></img>
+          <div className={styles.cardCommentText}>{readTime} minute read</div>
+        </div>
 
         <div className={styles.cardUser}>
           <img className={styles.cardFace} src={useBaseUrl(creatorImage)}></img>

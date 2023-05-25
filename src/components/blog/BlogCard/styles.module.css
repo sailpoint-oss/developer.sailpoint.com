@@ -17,6 +17,10 @@
   box-shadow: var(--dev-card-selected);
 }
 
+
+
+
+
 .cardText {
   position: absolute;
   margin: 22px;
@@ -24,7 +28,6 @@
   top: 10px;
   left: 0;
 }
-
 
 .cardTitle {
   font-size: 22px;
@@ -37,7 +40,6 @@
   top: 10px;
   left: 0;
 }
-
 
 .tag {
   font-size: 16px;
@@ -56,10 +58,14 @@
   grid-gap: 10px;
 }
 
+
+
+
+
 .cardUser {
   position: absolute;
   bottom: 10px;
-  left: 120px;
+  left: 25px;
   display: flex;
 }
 
@@ -77,10 +83,15 @@
 }
 
 
+
+
+
 .cardData {
   position: absolute;
   bottom: 50px;
   left: 20px;
+  display: flex;
+  align-items: center;
 }
 
 .cardEye {
@@ -92,24 +103,6 @@
   width: 18px;
 }
 
-.cardDataText {
-  color: #96a9ba;
-  /* computed from codepen https://codepen.io/sosuke/pen/Pjoqqp */
-  margin-left: 5px;
-  font-size: 16px;
-  text-align: start;
-  visibility: hidden;
-}
-.cardDataTextAlign {
-  color: #96a9ba;
-  /* computed from codepen https://codepen.io/sosuke/pen/Pjoqqp */
-  margin-left: 5px;
-  font-size: 16px;
-  text-align: start;
-  position: absolute;
-  top: -3px
-}
-
 .cardComment {
   margin-left: 10px;
   fill: #96a9bb;
@@ -117,12 +110,14 @@
   filter: invert(79%) sepia(12%) saturate(484%) hue-rotate(168deg) brightness(84%) contrast(84%);
   height: 18px;
   width: 18px;
+  margin-bottom: 4px;
 }
 
 .cardCommentText {
   color: #96a9ba;
   /* computed from codepen https://codepen.io/sosuke/pen/Pjoqqp */
   margin-left: 5px;
+  margin-bottom: 5px;
   height: 20px;
   font-size: 16px;
 }

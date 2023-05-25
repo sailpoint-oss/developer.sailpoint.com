@@ -1378,6 +1378,16 @@ paths:
     $ref: './beta/paths/notification-template-context.yaml'
   /notification-preferences/{key}:
     $ref: './beta/paths/notification-preferences.yaml'
+  /reassignment-configurations/types:
+    $ref: './beta/paths/reassignment-configuration-types.yaml'
+  /reassignment-configurations:
+    $ref: './beta/paths/reassignment-configurations.yaml'
+  /reassignment-configurations/{identityId}:
+    $ref: './beta/paths/reassignment-configuration.yaml'
+  /reassignment-configurations/{identityId}/evaluate/{configType}:
+    $ref: './beta/paths/reassignment-configuration-evaluate.yaml'
+  /reassignment-configurations/tenant-config:
+    $ref: './beta/paths/tenant-configuration.yaml'
   /recommendations/request:
     $ref: './beta/paths/recommendations-request.yaml'
   /recommendations/config:

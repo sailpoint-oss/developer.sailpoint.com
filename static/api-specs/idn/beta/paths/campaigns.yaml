@@ -6,8 +6,8 @@ get:
   description: >-
     Gets campaigns and returns them in a list. Can provide increased level of detail for each campaign if provided
     the correct query.
- # security:
- #   - oauth2: [CERT_ADMIN,DASHBOARD,ORG_ADMIN,REPORT_ADMIN,ROLE_ADMIN,SOURCE_ADMIN,SOURCE_SUBADMIN]
+  security:
+    - oauth2: []
   parameters:
     - in: query
       name: detail
@@ -87,8 +87,9 @@ post:
     - Certification Campaigns
   summary: Create a campaign
   description: Creates a new Certification Campaign with the information provided in the request body.
-  #security:
-  #  - oauth2: [ORG_ADMIN,CERT_ADMIN]
+  security:
+    - oauth2: [idn:campaign:create]
+  deprecated: true
   requestBody:
     required: true
     content:

@@ -161,6 +161,73 @@ tags:
       - Password Change: These include password changes on sources.
 
       Refer to [Account Activity](https://documentation.sailpoint.com/saas/help/search/index.html#account-activity) for more information about account activities.
+  - name: Certification Campaigns
+    description: |
+      Use this API to implement certification campaign functionality.
+      With this functionality in place, administrators can create, customize, and manage certification campaigns for their organizations' use. 
+      Certification campaigns provide IdentityNow (IDN) users with an interactive review process they can use to identify and verify access to systems. 
+      Campaigns help organizations reduce risk of inappropriate access and satisfy audit requirements. 
+
+      A certification refers to IDN's mechanism for reviewing a user's access to entitlements (sets of permissions) and approving or removing that access. 
+      These certifications serve as a way of showing that a user's access has been reviewed and approved. 
+      Multiple certifications by different reviewers are often required to approve a user's access. 
+      A set of multiple certifications is called a certification campaign. 
+
+      For example, an organization may use a Manager Certification campaign as a way of showing that a user's access has been reviewed and approved by multiple managers. 
+      Once this campaign has been completed, IDN would provision all the access the user needs, nothing more. 
+
+      IDN provides two simple campaign types users can create without using search queries, Manager and Source Owner campaigns:
+
+      You can create these types of campaigns without using any search queries in IDN: 
+      
+      - ManagerCampaign: IDN provides this campaign type as a way to ensure that an identity's access is certified by their managers. 
+      You only need to provide a name and description to create one. 
+      
+      - Source Owner Campaign: IDN provides this campaign type as a way to ensure that an identity's access to a source is certified by its source owners. 
+      You only need to provide a name and description to create one. 
+      You can specify the sources whose owners you want involved or just run it across all sources. 
+
+      For more information about these campaign types, refer to [Starting a Manager or Source Owner Campaign](https://documentation.sailpoint.com/saas/help/certs/starting_campaign.html).
+
+      One useful way to create certification campaigns in IDN is to use a specific search and then run a campaign on the results returned by that search. 
+      This allows you to be much more specific about whom you are certifying in your campaigns and what access you are certifying in your campaigns. 
+      For example, you can search for all identities who are managed by "Amanda.Ross" and also have the access to the "Accounting" role and then run a certification campaign based on that search to ensure that the returned identities are appropriately certified. 
+      
+      You can use IDN search queries to create these types of campaigns: 
+
+      - Identities: Use this campaign type to review and revoke access items for specific identities. 
+      You can either build a search query and create a campaign certifying all identities returned by that query, or you can search for individual identities and add those identities to the certification campaign. 
+
+      - Access Items: Use this campaign type to review and revoke a set of roles, access profiles, or entitlements from the identities that have them. 
+      You can either build a search query and create a campaign certifying all access items returned by that query, or you can search for individual access items and add those items to the certification campaign. 
+
+      - Role Composition: Use this campaign type to review a role's composition, including its title, description, and membership criteria. 
+      You can either build a search query and create a campaign certifying all roles returned by that query, or you can search for individual roles and add those roles to the certification campaign. 
+
+      - Uncorrelated Accounts: Use this campaign type to certify source accounts that aren't linked to an authoritative identity in IDN. 
+      You can use this campaign type to view all the uncorrelated accounts for a source and certify them. 
+
+      For more information about search-based campaigns, refer to [Starting a Campaign from Search](https://documentation.sailpoint.com/saas/help/certs/starting_search_campaign.html).
+
+      Once you have generated your campaign, it becomes available for preview. 
+      An administrator can review the campaign and make changes, or if it's ready and accurate, activate it. 
+      
+      Once the campaign is active, organization administrators or certification administrators can designate other IDN users as certification reviewers. 
+      Those reviewers can view any of the certifications they either need to review (active) or have already reviewed (completed).
+
+      When a certification campaign is in progress, certification reviewers see the listed active certifications whose involved identities they can review. 
+      Reviewers can then make decisions to grant or revoke access, as well as reassign the ceritifcation to another reviewer. If the reviewer chooses this option, they must provide a reason for reassignment in the form of a comment.
+
+      Once a reviewer has made decisions on all the certification's involved access items, he or she must "Sign Off" to complete the review process.
+      Doing so converts the certification into read-only status, preventing any further changes to the review decisions and deleting the work item (task) from the reviewer's list of work items. 
+
+      Once all the reviewers have signed off, the certification campaign either completes or, if any reviewers decided to revoke access for any of the involved identities, it moves into a remediation phase. 
+      In the remediation phase, identities' entitlements are altered to remove any entitlements marked for revocation.
+      In this situation, the certification campaign completes once all the remediation requests are completed. 
+
+      The end of a certification campaign is determined by its deadline, its completion status, or by an administrator's decision. 
+
+      For more information about certifications and certification campaigns, refer to [Certifications](https://documentation.sailpoint.com/saas/user-help/certifications.html).
   - name: Certifications
     description: |
       Use this API to implement certification functionality. 
@@ -712,6 +779,10 @@ paths:
     $ref: "./v3/paths/account-activity-list.yaml"
   /account-activities/{id}:
     $ref: "./v3/paths/account-activity-get-one.yaml"
+  /campaigns:
+    $ref: './v3/paths/campaigns.yaml'
+  /campaigns/{id}:
+    $ref: './v3/paths/campaign.yaml'
   /certifications:
     $ref: "./v3/paths/identity-certifications.yaml"
   /certifications/{id}:

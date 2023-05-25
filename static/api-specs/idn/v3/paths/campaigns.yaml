@@ -1,0 +1,49 @@
+post:
+  operationId: createCampaign
+  tags:
+    - Certification Campaigns
+  summary: Create a campaign
+  description: Creates a new Certification Campaign with the information provided in the request body.
+  security:
+    - oauth2: [idn:campaign:create]
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/Campaign.yaml'
+        examples:
+          Manager:
+            $ref: '../schemas/campaign/examples/CreateCampaignManager.yaml'
+          Search:
+            $ref: '../schemas/campaign/examples/CreateCampaignSearch.yaml'
+          Source Owner:
+            $ref: '../schemas/campaign/examples/CreateCampaignSourceOwner.yaml'
+          Role Composition:
+            $ref: '../schemas/campaign/examples/CreateCampaignRoleComposition.yaml'
+  responses:
+    '200':
+      description: Indicates that the campaign requested was successfully created and returns its representation.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Campaign.yaml'
+          examples:
+            Manager:
+              $ref: '../schemas/campaign/examples/FullCampaignManager.yaml'
+            Search:
+              $ref: '../schemas/campaign/examples/FullCampaignSearch.yaml'
+            Source Owner:
+              $ref: '../schemas/campaign/examples/FullCampaignSourceOwner.yaml'
+            Role Composition:
+              $ref: '../schemas/campaign/examples/FullCampaignRoleComposition.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

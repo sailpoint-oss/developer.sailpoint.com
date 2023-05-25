@@ -1,0 +1,39 @@
+description: List of Slim Campaigns that would result from not specifying *detail* or specifying SLIM
+value:
+  - id: 2c918086719eec070171a7e3355a360a
+    name: Manager Review
+    description: A review of everyone's access by their manager.
+    deadline: "2020-12-25T06:00:00.123Z"
+    type: MANAGER
+    status: ACTIVE
+    emailNotificationEnabled: false
+    autoRevokeAllowed: false
+    recommendationsEnabled: false
+  - id: 7e1a731e3fb845cfbe58112ba4673ee4
+    name: Search Campaign
+    description: Search Campaign Info
+    deadline: 2022-07-26T15:42:44Z
+    type: SEARCH
+    status: ACTIVE
+    emailNotificationEnabled: false
+    autoRevokeAllowed: false
+    recommendationsEnabled: false
+  - id: 2c918086719eec070171a7e3355a412b
+    name: AD Source Review
+    description: A review of our AD source.
+    deadline: "2020-12-25T06:00:00.123Z"
+    type: SOURCE_OWNER
+    status: STAGED
+    emailNotificationEnabled: true
+    autoRevokeAllowed: false
+    recommendationsEnabled: false
+    correlatedStatus: CORRELATED
+  - id: 3b2e2e5821e84127b6d693d41c40623b
+    name: Role Composition Campaign
+    description: A review done by a role owner.
+    deadline: 2020-12-25T06:00:00.468Z
+    type: ROLE_COMPOSITION
+    status: ACTIVE
+    emailNotificationEnabled: false
+    autoRevokeAllowed: false
+    recommendationsEnabled: false

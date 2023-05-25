@@ -1,0 +1,8 @@
+name: archived
+in: query
+description: Filter by archive status
+required: false
+schema:
+  type: boolean
+  default: false
+example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e

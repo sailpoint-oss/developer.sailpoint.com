@@ -1,0 +1,53 @@
+name: query
+in: query
+description: |
+  Allows for pagination and sorting using the deepObject notation.
+  
+  </br>
+
+  `resource?query[limit]=50&query[offset]=0&query[order]=label`
+
+  </br>
+
+  <table><thead>
+  <tr>
+  <th>Parameter</th>
+  <th>Description</th>
+  <th>Default</th>
+  </tr>
+  </thead><tbody>
+  <tr>
+  <td>limit</td>
+  <td>Limits the number of results returned</td>
+  <td>100</td>
+  </tr>
+  <tr>
+  <td>offset</td>
+  <td>Returns the results starting at the value provided</td>
+  <td>0</td>
+  </tr>
+  <tr>
+  <td>order</td>
+  <td>Allows you to determine the order in which the data is returned (not available on profile attributes)</td>
+  <td>id</td>
+  </tr>
+  </tbody></table>
+required: false
+schema:
+  type: object
+  properties:
+    limit:
+      type: integer
+      description: The limit of results to return
+      example: 100
+    offset:
+      type: integer
+      description: The number of records to offset
+      example: 50
+    order:
+      type: string
+      description: The attribute to order by
+      example: created_at
+style: deepObject
+explode: true
+example: query[limit]=100&query[offset]=50&query[order]=created_at

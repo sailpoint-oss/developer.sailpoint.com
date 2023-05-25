@@ -1,0 +1,9 @@
+required: true
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        ne_attribute_option:
+          type: object
+          $ref: "../../schemas/POST/AttributeOption.yaml"

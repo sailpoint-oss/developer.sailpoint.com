@@ -1,0 +1,38 @@
+type: object
+properties:
+  name:
+    description: the name
+    type: string
+    example: testprofile
+  profile_type_id:
+    description: The profile_type_id
+    type: string
+    format: uuid
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+  status:
+    description: The Status
+    type: string
+    enum: [Active, Inactive, On Leave, Terminated]
+    example: Active
+  id_proofing_status:
+    description: The id_proofing_status
+    type: string
+    enum: [pending, pass, fail]
+    example: pending
+  archived:
+    description: Return archived items
+    type: boolean
+    default: false
+    example: false
+  attributes:
+    description: The attributes
+    type: object
+    additionalProperties:
+      type: string
+    example:
+      text_attribute_uid: static text
+      date_attribute_uid: 01/15/2020
+      profile_select_attribute_uid: Profile Name
+      multiple_profile_select_attribute_uid: Profile Name,Second Profile Name,Third Profile Name
+      contributor_select_attribute_uid: User Name
+      multiple_contributor_select_attribute_uid: User Name,Second User Name,Third User Name

@@ -10,14 +10,22 @@ import BlogCards from '../components/blog/BlogCards';
 import BlogSidebar from '../components/blog/BlogSidebar';
 
 export default function Blog() {
-  const [filteredProduct, setFilteredProduct] = React.useState();
+  const [filteredProduct, setFilteredProduct] = React.useState([]);
 
   const {siteConfig} = useDocusaurusContext();
 
   const handleClick = (data) => {
     console.log(data)
-    
-    setFilteredProduct(data)
+    var tempFilter = filteredProduct.slice()
+
+    const index = tempFilter.indexOf(data);
+    if (index !== -1) {
+      tempFilter.splice(index, 1);
+    } else {
+      tempFilter.push(data)
+    }
+
+    setFilteredProduct(tempFilter)
   };
   return (
     <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">

@@ -9,7 +9,7 @@ export default function BlogCards({
   const [cardData, setCardData] = React.useState();
 
   const getPosts = async () => {
-    const data = await getBlogPosts(filterCallback);
+    const data = await getBlogPosts(filterCallback.join(','));
     console.log(data.topics)
     const resultset = []
     for (const topic of data.topics) {

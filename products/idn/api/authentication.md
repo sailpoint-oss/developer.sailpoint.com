@@ -6,14 +6,15 @@ sidebar_label: Authentication
 sidebar_position: 2
 sidebar_class_name: authentication
 keywords: ['authentication']
-description: Read this guide to learn how to authenticate to SailPoint's IdentityNow APIs. 
+description: A guide on how to generate API credentials to authenticate to SailPoint's APIs.
 slug: /api/authentication
 tags: ['Authentication']
 ---
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
-	
-## Overview 
+
+## Overview
+
 With SailPoint's IdentityNow (IDN) APIs, you can extend your IDN platform far beyond its current capabilities. 
 	
 To be able to do so, you must first authenticate to the IDN APIs. 
@@ -71,6 +72,7 @@ To do so, you need to do the following:
 4. [Request access token](#request-access-token-with-client-credentials-grant-flow)
 
 ### Find your tenant's OAuth details
+
 Your tenant's OAuth details refer to the details you need to know to connect it to the APIs. 
 You need to know your tenant's name, its `authorizeEndpoint` URL, and its `tokenEndpoint` URL. 
 
@@ -106,6 +108,7 @@ This is an example of the OAuth details of the tenant, "iga-acme-sb":
 You can use the `authorizeEndpoint` and `tokenEndpoint` URLs from this example to test out the different authentication methods listed in this guide. 
 
 ### Generate a personal access token 
+
 A personal access token (PAT) is a method of authenticating to an API as a user without a providing a username and password.
 PATs are primarily used in scripts or programs that lack an easy way to implement an OAuth2 flow but need to call API endpoints that require user context. 
 PATs are also convenient for use in tools like [Postman](https://www.postman.com/) when you are exploring and testing the APIs. 
@@ -140,6 +143,7 @@ Once you have created the PAT and you know its `Client ID` and `Client Secret`, 
 You will need this `access_token` to authenticate your requests to the APIs. 
 
 ### Choose authorization grant flow
+
 There are several different authorization flows that OAuth 2.0 supports, and each has a grant-type defining its different use cases. 
 You must choose the one that best serves your purposes. 
 This document covers these three common flows: 
@@ -148,14 +152,14 @@ This document covers these three common flows:
 2. [**Authorization Code**](https://oauth.net/2/grant-types/authorization-code/) - Clients use this grant type to exchange an authorization code for an `access_token`. Authorization codes are mainly used by web applications because there is a login into IDN with a subsequent redirect back to the web application/client.
 3. [**Refresh Token**](https://oauth.net/2/grant-types/refresh-token/) - Clients use this grant type to exchange a refresh token for a new `access_token` when the existing `access_token` has expired. This allows clients to continue using the APIs without having to re-authenticate as frequently. This grant type is commonly used together with `Authorization Code` to prevent a user from having to log in several times per day.
 
-One way to determine which authorization flow you need to use is to look at the specification for the endpoint you want to use. The endpoint will haev the supported OAuth flows listed under the 'Authorization' dropdown, like the [List Access Profiles endpoint](https://developer.sailpoint.com/idn/api/beta/list-access-profiles):
+One way to determine which authorization flow you need to use is to look at the specification for the endpoint you want to use. 
+The endpoint will haev the supported OAuth flows listed under the 'Authorization' dropdown, like the [List Access Profiles endpoint](https://developer.sailpoint.com/idn/api/beta/list-access-profiles):
 
 ![Authorization Dropdown](./img/authorization/authorization-dropdown.png)
 
 For more information about how to choose the best grant flow for your use case, refer to [Grant Flow Use Cases](#grant-flow-use-cases)
 
 The guide will detail the three different authorization grant flows you can use to request the access token you need to authenticate your requests. 
-
 
 ### Request access token with client credentials grant flow 
 
@@ -304,7 +308,7 @@ GET https://{tenant}.identitynow.com/oauth/authorize?client_id={client-id}&clien
 POST https://{tenant}.api.identitynow.com/oauth/token?grant_type=authorization_code&client_id={client-id}&client_secret={client-secret}&code={code}&redirect_uri={redirect-url}
 ```
 
-:::note Note
+:::info
 
 The token endpoint URL is `{tenant}.api.identitynow.com`, and the authorize URL is `{tenant}.identitynow.com`. Be sure to use the correct URL when you're setting up your webapp to use this flow.
 
@@ -443,6 +447,8 @@ With the JWT `access_token`, you can now successfully send authenticated IDN API
 
 ## More Information
 
+This section of the document includes additional information about the authentication/authorization process, including some different use cases for the different authorization grant flows. 
+
 ### OAuth 2.0 
 The SailPoint authentication/authorization model is fully [OAuth 2.0](https://oauth.net/2/) compliant. 
 [OAuth 2.0](https://oauth.net/2/) is an industry-standard protocol for authorization. 
@@ -515,6 +521,7 @@ You can check the JWT access token data online at [jwt.io](https://jwt.io).
 This section describes some different use cases and which grant flow you would want to use for the different cases. 
 
 #### Daily work or quick actions
+
 For daily work or short, quick administrative actions, you may not really need to worry about grant types because you can easily generate an access token in the user interface (UI). 
 
 Follow these steps to do so: 
@@ -545,7 +552,7 @@ Because scripts, code, and programs lack an interactive web-interface, it is dif
 
 Most scripts and programs use the [Client Credentials grant flow](#request-access-token-with-client-credentials-grant-flow). 
 If your APIs can work under an API context without a user, using client credentials is ideal. 
-However, if your APIs need a user or admin context, you should use a PAT approach. 
+However, if your APIs need a user or admin context, you should use a PAT approach.
 
 ## Troubleshooting
 

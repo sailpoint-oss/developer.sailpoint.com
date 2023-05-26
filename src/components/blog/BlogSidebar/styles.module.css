@@ -38,15 +38,3 @@
   background-color: var(--dev-text-color-normal);
   color: var(--dev-card-background);
 }
-
-.caretDown {
-  margin-left: 5px;
-  height: 26px;
-  width: 26px;
-  top: 6px;
-  position: relative;
-}
-
-.caretDown:hover {
-
-}

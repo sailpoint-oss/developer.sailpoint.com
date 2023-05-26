@@ -15,7 +15,6 @@ export default function Blog() {
   const {siteConfig} = useDocusaurusContext();
 
   const handleClick = (data) => {
-    console.log(data)
     var tempFilter = filteredProduct.slice()
 
     const index = tempFilter.indexOf(data);

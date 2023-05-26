@@ -15,7 +15,6 @@ export default function BlogSidebar({
 
   const getTagData = async () => {
     const data = await getTags();
-    console.log(data.extras.tag_groups)
     const tagTechnologyResultset = []
     const tagProductResultset = []
     for (const tagGroup of data.extras.tag_groups) {
@@ -57,7 +56,7 @@ export default function BlogSidebar({
         <div className={styles.tagHeader}>Posts by Identity Governance</div>
         <div className={styles.tagContainer}>
             {tagTechnologyData.map(function(a, index){
-              return <div className={index > 10 && filterTags ? styles.hidden : ''} > <BlogSidebarButton key={a} text={a} filterCallback={filterCallback}></BlogSidebarButton></div>
+              return <div key={'div' + a} className={index > 10 && filterTags ? styles.hidden : ''} > <BlogSidebarButton key={a} text={a} filterCallback={filterCallback}></BlogSidebarButton></div>
             })}
         </div>
         <div className={styles.seeAll} onClick={(e) => toggleSeeAll()}>

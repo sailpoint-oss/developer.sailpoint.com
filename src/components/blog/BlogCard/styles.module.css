@@ -50,15 +50,15 @@
   color: var(--dev-secondary-text);
   background-color: var(--dev-tag-highlight);
   padding: 0px 8px;
+  margin-left: 5px;
+  margin-top: 5px;
 }
 
 .tags {
   margin: 0px;
-  width: 230px;
-
-  display: grid;
-  grid-template-columns: max-content max-content max-content;
-  grid-gap: 10px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 

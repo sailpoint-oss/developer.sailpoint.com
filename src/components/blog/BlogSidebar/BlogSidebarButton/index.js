@@ -9,7 +9,6 @@ export default function BlogSidebarButton({
   const [isActive, setIsActive] = React.useState(false);
   const activeClass = isActive ? styles.tagSelected : ''
   function setFilters(e, f) {
-    console.log(e)
     filterCallback(f)
     setIsActive(current => !current);
   }

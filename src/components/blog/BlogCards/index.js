@@ -10,7 +10,6 @@ export default function BlogCards({
 
   const getPosts = async () => {
     const data = await getBlogPosts(filterCallback.join(','));
-    console.log(data.topics)
     const resultset = []
     if (data.topics) {
       for (const topic of data.topics) {
@@ -56,7 +55,6 @@ export default function BlogCards({
 
 async function getPostList(topic) {
   const fullTopic = await getTopic(topic.id);
-  console.log(fullTopic)
   return {
     name: fullTopic.details.created_by.name,
     excerpt: styleExcerpt(topic.excerpt),

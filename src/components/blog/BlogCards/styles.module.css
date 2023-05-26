@@ -17,3 +17,11 @@
 .space {
   height: 200px;
 }
+
+.noFound {
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--dev-secondary-text);
+  padding: 8px;
+  margin: 50px;
+}

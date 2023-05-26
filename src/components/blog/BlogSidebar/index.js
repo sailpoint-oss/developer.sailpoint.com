@@ -11,7 +11,7 @@ export default function BlogSidebar({
   }) {
   const [tagProductData, setTagProductData] = React.useState();
   const [tagTechnologyData, setTagTechnologyData] = React.useState();
-  const [filteredProduct, setFilteredProduct] = React.useState();
+  const [filterTags, setFilterTags] = React.useState(true);
 
   const getTagData = async () => {
     const data = await getTags();
@@ -34,15 +34,16 @@ export default function BlogSidebar({
     setTagTechnologyData(tagTechnologyResultset)
   };
 
+  function toggleSeeAll() {
+    filterTags ? setFilterTags(false) : setFilterTags(true)
+  }
+  
+
   React.useEffect(() => {
     getTagData();
   }, []);
 
-  function setFilters(e, f) {
-    e.currentTarget.classList.toggle('selected');
-    console.log(e)
-    filterCallback(f)
-  }
+  const filterText = filterTags ? 'See All Tags' : 'See Less Tags'
 
   if (tagProductData && tagTechnologyData) {
     return (
@@ -51,10 +52,20 @@ export default function BlogSidebar({
         <div className={styles.tagContainer}>
             {tagProductData.map(function(a, index){
               return <BlogSidebarButton key={a} text={a} filterCallback={filterCallback}></BlogSidebarButton>
-              // return <div key={a} onClick={(e) => setFilters(e, a)} className={styles.tag}>{a}</div>
             })}
         </div>
+        <div className={styles.tagHeader}>Posts by Identity Governance</div>
+        <div className={styles.tagContainer}>
+            {tagTechnologyData.map(function(a, index){
+              return <div className={index > 10 && filterTags ? styles.hidden : ''} > <BlogSidebarButton key={a} text={a} filterCallback={filterCallback}></BlogSidebarButton></div>
+            })}
+        </div>
+        <div className={styles.seeAll} onClick={(e) => toggleSeeAll()}>
+          {filterText}
+          {/* <img className={styles.caretDown} src={useBaseUrl('/blog/caret-down-thin.svg')}></img> */}
+        </div>
       </div>
+      
     );
   } else {
     return <div></div>;

@@ -4,7 +4,9 @@
   font-weight: 500;
   color: var(--dev-secondary-text);
   padding: 8px;
-  margin: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   border-style: solid;
   border-width: 1px;
   border-color: var(--dev-text-color-normal);
@@ -17,7 +19,9 @@
   background-color: var(--dev-secondary-text);
   color: var(--dev-card-background);
   padding: 8px;
-  margin: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  margin-top: 5px;
   border-style: solid;
   border-width: 1px;
   border-color: var(--dev-text-color-normal);

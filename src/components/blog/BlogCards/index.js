@@ -12,10 +12,15 @@ export default function BlogCards({
     const data = await getBlogPosts(filterCallback.join(','));
     console.log(data.topics)
     const resultset = []
-    for (const topic of data.topics) {
+    if (data.topics) {
+      for (const topic of data.topics) {
         resultset.push(await getPostList(topic))
+      }
+      setCardData(resultset);
+    } else {
+      setCardData(undefined);
     }
-    setCardData(resultset);
+    
   };
 
   React.useEffect(() => {
@@ -45,7 +50,7 @@ export default function BlogCards({
       </div>
     );
   } else {
-    return <div></div>;
+    return <div className={styles.noFound}> No Blog Post Found with the Given Search Criteria</div>;
   }
 }
 

@@ -3,30 +3,30 @@ import styles from './styles.module.css';
 import BlogCard from '../BlogCard';
 
 import {getBlogPosts, getTopic} from '../../../services/DiscourseService';
-export default function BlogCards() {
-  const [ans, setAns] = React.useState();
+export default function BlogCards({
+  filterCallback
+  }) {
+  const [cardData, setCardData] = React.useState();
 
   const getPosts = async () => {
-    const data = await getBlogPosts();
+    const data = await getBlogPosts(filterCallback);
     console.log(data.topics)
     const resultset = []
-    let i = 0;
     for (const topic of data.topics) {
-      resultset.push(await getPostList(topic))
-      i++
+        resultset.push(await getPostList(topic))
     }
-    setAns(resultset);
+    setCardData(resultset);
   };
 
   React.useEffect(() => {
     getPosts();
-  }, []);
+  }, [filterCallback]);
 
-  if (ans) {
+  if (cardData) {
     return (
       <div className={styles.center}>
         <div className={styles.gridContainer}>
-          {ans.map(function(a, index){
+          {cardData.map(function(a, index){
             return <BlogCard 
             key={a.link}
             id={index + a.link}

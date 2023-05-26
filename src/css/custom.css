@@ -244,6 +244,7 @@
   --dev-text-color-secondary: #0033a1;
 
   --dev-secondary-text: #415364;
+  --dev-tag-highlight: #eaeef1;
 
   --text-on-primary: #ffffff;
 
@@ -286,6 +287,7 @@
   --dev-card-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
   --dev-card-selected: 0 5px 5px rgba(107, 107, 107, 0.2);
   --dev-secondary-text: #dae1e9;
+  --dev-tag-highlight: #00000075;
 
   /*main hero card*/
   --main-hero-card-background: #202122;

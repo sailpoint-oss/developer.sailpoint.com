@@ -9,11 +9,13 @@
   border: 1px solid var(--dev-card-background);
   border-radius: 40px;
   opacity: 1;
+  transition: all  0.3s;
+  max-width: 600px;
 }
 
 .card:hover {
   cursor: pointer;
-  top: -2px;
+  transform: translate(0px, -5px);
   box-shadow: var(--dev-card-selected);
 }
 
@@ -28,6 +30,7 @@
   top: 10px;
   left: 0;
 }
+
 
 .cardTitle {
   font-size: 22px;
@@ -45,7 +48,7 @@
   font-size: 16px;
   font-weight: 500;
   color: var(--dev-secondary-text);
-  background-color: #eaeef1;
+  background-color: var(--dev-tag-highlight);
   padding: 0px 8px;
 }
 

@@ -1,23 +1,21 @@
 
-.sidebar {
-  width: 300px;
-  height: 100%;
-  margin: 50px;
-}
-
-.tagHeader {
-  font-size: 22px;
-  font-weight: 700;
-}
-
-.tagContainer {
-  display: flex;
-}
-
 .tag {
   font-size: 16px;
   font-weight: 500;
   color: var(--dev-secondary-text);
+  padding: 8px;
+  margin: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--dev-text-color-normal);
+  transition: background-color 500ms;
+}
+
+.tagSelected {
+  font-size: 16px;
+  font-weight: 500;
+  background-color: var(--dev-secondary-text);
+  color: var(--dev-card-background);
   padding: 8px;
   margin: 5px;
   border-style: solid;

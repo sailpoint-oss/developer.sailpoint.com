@@ -3,9 +3,9 @@
 }
 
 .blogSidbarContainer {
-    flex: 10%;
+    flex: 5%;
 }
 
 .blogCardContainer {
-    flex: 90%;
+    flex: 95%;
 }

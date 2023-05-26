@@ -109,7 +109,7 @@ You can use the `authorizeEndpoint` and `tokenEndpoint` URLs from this example t
 
 ### Generate a personal access token 
 
-A personal access token (PAT) is a method of authenticating to an API as a user without a providing a username and password.
+A personal access token (PAT) is a method of authenticating to an API as a user without providing a username and password.
 PATs are primarily used in scripts or programs that lack an easy way to implement an OAuth2 flow but need to call API endpoints that require user context. 
 PATs are also convenient for use in tools like [Postman](https://www.postman.com/) when you are exploring and testing the APIs. 
 

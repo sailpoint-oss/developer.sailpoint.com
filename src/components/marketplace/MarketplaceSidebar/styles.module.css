@@ -1,0 +1,40 @@
+
+.sidebar {
+  width: 400px;
+  height: 100%;
+  margin-left: 50px;
+}
+
+.tagHeader {
+  margin-top: 10px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.tagContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.hidden {
+  display: none;
+}
+
+.seeAll {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: var(--dev-secondary-text);
+  border-style: solid;
+  border-width: 1px;
+  width: 100%;
+  transition: background-color 500ms;
+  text-align: center;
+  
+}
+
+.seeAll:hover {
+  cursor: pointer;
+  background-color: var(--dev-text-color-normal);
+  color: var(--dev-card-background);
+}

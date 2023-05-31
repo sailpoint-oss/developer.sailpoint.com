@@ -26,12 +26,51 @@ export async function getBlogPosts(tags) {
   }
 }
 
+export async function getMarketplacePosts(tags) {
+  let url = ''
+  if (tags) {
+    url = 'https://developer.identitysoon.com/discuss/search.json?q=category:show-and-tell+tags:' + tags
+  } else {
+    url = 'https://developer.identitysoon.com/discuss/search.json?q=category:show-and-tell'
+  }
+  try {
+    const response = await fetch(
+      url,
+    );
+    return await response.json();
+  } catch (error) {
+    return [];
+  }
+}
+
 export async function getTopic(id) {
   try {
     const response = await fetch(
       'https://developer.sailpoint.com/discuss/t/' + id + '.json',
     );
     return await response.json();
+  } catch (error) {
+    return [];
+  }
+}
+
+export async function getMarketplaceTopic(id) {
+  try {
+    const response = await fetch(
+      'https://developer.identitysoon.com/discuss/t/' + id + '.json',
+    );
+    return await response.json();
+  } catch (error) {
+    return [];
+  }
+}
+
+export async function getMarketplaceTopicRaw(id) {
+  try {
+    const response = await fetch(
+      'https://developer.identitysoon.com/discuss/raw/' + id + '.json',
+    );
+    return await response.text();
   } catch (error) {
     return [];
   }

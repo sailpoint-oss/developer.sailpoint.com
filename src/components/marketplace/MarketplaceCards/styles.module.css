@@ -31,7 +31,6 @@
 
 .modal {
   position: absolute;
-  margin-top: 50px;
   top: 50%;
   left: 50%;
   right: auto;
@@ -42,6 +41,10 @@
   border-radius: 20px;
   background-color: var(--dev-card-background);
   max-height: 100%;
+  max-width: 90%;
+  min-height: 80%;
+  scroll-behavior: auto;
+  overflow-y: auto;
 }
 
 .modalButton {

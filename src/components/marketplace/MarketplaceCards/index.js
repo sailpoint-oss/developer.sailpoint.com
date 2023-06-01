@@ -63,7 +63,6 @@ export default function BlogCards({
         className={styles.modal}
         contentLabel="Details">
         <div>
-          Modal Works!
           <MarketplaceCardDetail details={details}></MarketplaceCardDetail>
         </div>
         <button

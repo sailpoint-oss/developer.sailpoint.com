@@ -20,7 +20,7 @@ export default function MarketplaceCard({
 }) {
 
   function setFilters(e) {
-    openDialogFunc(rawData);
+    openDialogFunc({"rawData": rawData, "title": title, "image": image});
   }
 
   return (

@@ -23,7 +23,7 @@ post:
                 "description": "Export all available objects",
                 "excludeTypes": [],
                 "includeTypes":
-                  ["SOURCE", "RULE", "TRIGGER_SUBSCRIPTION", "TRANSFORM", "IDENTITY_PROFILE"],
+                  ["ACCESS_PROFILE", "AUTH_ORG", "FORM_DEFINITION", "GOVERNANCE_GROUP", "IDENTITY_PROFILE", "NOTIFICATION_TEMPLATE", "PUBLIC_IDENTITIES_CONFIG", "ROLE", "RULE", "SOURCE", "TRANSFORM", "TRIGGER_SUBSCRIPTION"],
                 "objectOptions": {},
               }
           Export sources by ID:

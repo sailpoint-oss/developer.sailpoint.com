@@ -6,11 +6,18 @@ properties:
     items:
       type: string
       enum:
-      - SOURCE
-      - RULE
-      - TRIGGER_SUBSCRIPTION
-      - TRANSFORM
+      - ACCESS_PROFILE
+      - AUTH_ORG
+      - FORM_DEFINITION
+      - GOVERNANCE_GROUP
       - IDENTITY_PROFILE
+      - NOTIFICATION_TEMPLATE
+      - PUBLIC_IDENTITIES_CONFIG
+      - ROLE
+      - RULE
+      - SOURCE
+      - TRANSFORM
+      - TRIGGER_SUBSCRIPTION
       example: "SOURCE"
   includeTypes:
     description: Object type names to be included in an sp-config export command. IncludeTypes takes precedence over excludeTypes.
@@ -18,11 +25,18 @@ properties:
     items:
       type: string
       enum:
-      - SOURCE
-      - RULE
-      - TRIGGER_SUBSCRIPTION
-      - TRANSFORM
+      - ACCESS_PROFILE
+      - AUTH_ORG
+      - FORM_DEFINITION
+      - GOVERNANCE_GROUP
       - IDENTITY_PROFILE
+      - NOTIFICATION_TEMPLATE
+      - PUBLIC_IDENTITIES_CONFIG
+      - ROLE
+      - RULE
+      - SOURCE
+      - TRANSFORM
+      - TRIGGER_SUBSCRIPTION
       example: "TRIGGER_SUBSCRIPTION"
   objectOptions:
     description: Additional options targeting specific objects related to each item in the includeTypes field

@@ -41,7 +41,7 @@ put:
     - Service Desk Integration
   summary: Update a Service Desk integration
   description: Update an existing Service Desk integration by ID with updated value in JSON form as the request body.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-  operationId: updateServiceDeskIntegration
+  operationId: putServiceDeskIntegration
   parameters:
     - name: id
       in: path
@@ -137,13 +137,27 @@ patch:
       A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
       PATCH can only be applied to the following fields:
-        *   "beforeProvisioningRule"
+        * `beforeProvisioningRule`
+        * `description`
+        * `ownerRef`
 
       A 403 Forbidden Error indicates that you attempted to PATCH a field that is not allowed.
     content:
       application/json-patch+json:
         schema:
           $ref: '../schemas/JsonPatch.yaml'
+        example: 
+          [
+            {
+              "op": "replace",
+              "path": "/ownerRef",
+              "value": {
+              "id": "2c9180867d05b227017d09921a205b4d",
+              "type": "IDENTITY",
+              "name": "Angelo2 tester"
+              }
+            }
+          ]
   responses:
     "200":
       description: ServiceDeskIntegrationDto as updated

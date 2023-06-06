@@ -30,7 +30,10 @@
 }
 
 
-
+.modalButtonText {
+  position: relative;
+  top: -2px;
+}
 
 .modalButton {
   border: 1px solid var(--ifm-color-primary);
@@ -40,7 +43,7 @@
   margin: 10px;
   padding: 10px;
   text-align: center;
-  width: 100px;
+  width: 125px;
   background-color: #ffffff31;
 }
 
@@ -50,4 +53,26 @@
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.4);
   background-color: #dae1e9;
   color: #005fc4;
+}
+
+.spinnerCenter {
+  margin: 30vh 20vh;
+}
+
+@media only screen and (max-width: 768px) {
+  .detailImage {
+    display: none;
+  }
+}
+
+.buttonImage {
+  position: relative;
+  left: -7px;
+  top: 4px;
+  fill: #96a9bb;
+  /* computed from codepen https://codepen.io/sosuke/pen/Pjoqqp */
+  filter: invert(79%) sepia(12%) saturate(484%) hue-rotate(168deg) brightness(84%) contrast(84%);
+  margin-left: 5px;
+  height: 18px;
+  width: 18px;
 }

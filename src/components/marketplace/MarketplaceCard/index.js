@@ -11,9 +11,8 @@ export default function MarketplaceCard({
 }) {
 
   function setFilters(e) {
-    openDialogFunc({"rawData": post.raw, "title": post.title, "image": post.image, "link": post.link});
+    openDialogFunc({"title": post.title, "image": post.image, "link": post.link, "id": post.id});
   }
-
   return (
     <div onClick={(e) => setFilters(e)}>
       <div className={styles.card} >

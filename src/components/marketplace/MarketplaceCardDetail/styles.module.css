@@ -28,3 +28,26 @@
 .detailTabs {
   margin: 10px;
 }
+
+
+
+
+.modalButton {
+  border: 1px solid var(--ifm-color-primary);
+  box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.12);
+  border-radius: 24px;
+  color: var(--ifm-color-primary);
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  width: 100px;
+  background-color: #ffffff31;
+}
+
+.modalButton:hover {
+  cursor: pointer;
+  top: -2px;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.4);
+  background-color: #dae1e9;
+  color: #005fc4;
+}

@@ -2,6 +2,9 @@ import React from 'react';
 import styles from './styles.module.css';
 import MarketplaceCard from '../MarketplaceCard';
 import Modal from 'react-modal';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import BounceLoader from "react-spinners/BounceLoader";
+
 
 import {getMarketplacePosts, getMarketplaceTopic, getMarketplaceTopicRaw} from '../../../services/DiscourseService';
 import MarketplaceCardDetail from '../MarketplaceCardDetail';
@@ -11,6 +14,7 @@ export default function BlogCards({
   const [cardData, setCardData] = React.useState();
   const [detailsOpen, setDetailsOpen] = React.useState(false);
   const [details, setDetails] = React.useState("");
+  const [loadingCards, setLoadingCards] = React.useState(true);
 
   const getPosts = async () => {
     const data = await getMarketplacePosts(filterCallback.join(','));
@@ -23,7 +27,7 @@ export default function BlogCards({
     } else {
       setCardData(undefined);
     }
-    
+    setLoadingCards(false)
   };
 
   const openDialog = (data) => {
@@ -33,6 +37,8 @@ export default function BlogCards({
   Modal.setAppElement('#__docusaurus');
   React.useEffect(() => {
     getPosts();
+    setCardData(undefined);
+    setLoadingCards(true);
   }, [filterCallback]);
 
   if (cardData) {
@@ -41,20 +47,9 @@ export default function BlogCards({
         <div className={styles.gridContainer}>
           {cardData.map(function(a, index){
             return <MarketplaceCard 
-            key={a.link}
+            post={a}
             id={index + a.link}
-            excerpt={a.excerpt}
-            name={a.name}
-            tags={a.tags}
-            link={a.link}
-            image={a.image}
-            title={a.title}
-            views={a.views}
-            replies={a.replies}
-            readTime={a.readTime}
-            creatorImage={a.creatorImage}
             openDialogFunc={openDialog}
-            rawData={a.raw}
             ></MarketplaceCard>
           })}
         </div>
@@ -65,18 +60,26 @@ export default function BlogCards({
         <div>
           <MarketplaceCardDetail details={details}></MarketplaceCardDetail>
         </div>
-        <button
-          className={styles.modalButton}
-          onClick={async () => {
-            setDetailsOpen(false);
-          }}>
-          OK
-        </button>
+        <img className={styles.cardExit} src={useBaseUrl('/icons/circle-xmark-regular.svg')} 
+        onClick={async () => {
+          setDetailsOpen(false);
+        }}
+        ></img>
+
       </Modal>
 
 
       </div>
     );
+  } else if (loadingCards) {
+    return   <BounceLoader
+              className={styles.spinnerCenter}
+              color={"#0033a1"}
+              loading={true}
+              size={150}
+              aria-label="Loading Spinner"
+              data-testid="loader"
+            />
   } else {
     return <div className={styles.noFound}> No Marketplace Item Found with the Given Search Criteria</div>;
   }
@@ -89,6 +92,7 @@ async function getPostList(topic) {
   console.log(fullTopic)
   console.log(fullTopicRaw)
   return {
+    id: topic.id,
     raw: fullTopicRaw,
     name: fullTopic.details.created_by.name,
     excerpt: styleExcerpt(topic.excerpt),
@@ -115,6 +119,8 @@ function getavatarURL(avatar) {
 
 function styleExcerpt(excerpt) {
   if (excerpt) {
+    // remove any strings that have colons between them
+    excerpt = excerpt.replace(/:[^:]*:/g,"")
     if (excerpt.length > 150) {
       return excerpt.slice(0, 150) + "..."
     } else {

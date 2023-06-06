@@ -23,6 +23,10 @@ export default function MarketplaceCardDetail({
       
   }
 
+  const goToLink = (link) => {
+    window.open(link, '_blank')
+  }
+
 
   return (
     <div className={styles.detailContainer}>
@@ -40,6 +44,13 @@ export default function MarketplaceCardDetail({
 
         <TabPanel>
           <ReactMarkdown className={styles.detailTabContent}>{getDivText(details.rawData, "details")}</ReactMarkdown>
+          <button
+            className={styles.modalButton}
+            onClick={async () => {
+              goToLink(details.link);
+            }}>
+            See More
+          </button>
         </TabPanel>
         <TabPanel>
         <ReactMarkdown className={styles.detailTabContent}>{getDivText(details.rawData, "requirements")}</ReactMarkdown>

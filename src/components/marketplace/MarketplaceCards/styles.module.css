@@ -47,23 +47,32 @@
   overflow-y: auto;
 }
 
-.modalButton {
-  border: 1px solid var(--ifm-color-primary);
-  box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.12);
-  border-radius: 24px;
-  color: var(--ifm-color-primary);
-  margin: 10px;
-  padding: 10px;
-  text-align: center;
-  width: 120px;
 
-  background-color: #ffffff31;
+
+
+.cardExit {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  fill: #96a9bb;
+  /* computed from codepen https://codepen.io/sosuke/pen/Pjoqqp */
+  filter: invert(79%) sepia(12%) saturate(484%) hue-rotate(168deg) brightness(84%) contrast(84%);
+  margin-left: 5px;
+  height: 24px;
+  width: 24px;
+  transition: all  0.2s;
 }
 
-.modalButton:hover {
+.cardExit:hover {
+  top: 8px;
   cursor: pointer;
-  top: -4px;
-  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.4);
-  background-color: #dae1e9;
-  color: #005fc4;
+  height: 23px;
+  width: 23px;
+}
+
+
+.spinnerCenter {
+  margin: 100px auto;
+  max-width: 1300px;
+  margin-bottom: 50px;
 }

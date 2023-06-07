@@ -1250,6 +1250,8 @@ paths:
     $ref: './beta/paths/identities.yaml'
   /identities/{id}:  
     $ref: './beta/paths/identity.yaml'
+  /identities/process:
+    $ref: './beta/paths/identities-process.yaml'
   /identity-profiles:
     $ref: './beta/paths/identity-profiles.yaml'
   /identity-profiles/bulk-delete:

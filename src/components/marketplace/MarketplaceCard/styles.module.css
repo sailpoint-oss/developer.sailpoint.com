@@ -126,3 +126,13 @@
 }
 
 
+
+
+.cardBadge {
+  position: absolute;
+  right: 5px;
+  bottom: 0px;
+  margin-left: 5px;
+  height: 120px;
+  width: 120px;
+}

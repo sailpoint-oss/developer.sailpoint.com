@@ -13,6 +13,19 @@ export default function MarketplaceCard({
   function setFilters(e) {
     openDialogFunc({"title": post.title, "image": post.image, "link": post.link, "id": post.id});
   }
+
+  let badge = (
+    <div></div>
+  );
+  if (post.tags.includes("sailpoint-authored")) {
+    badge = (
+      <img
+        className={styles.cardBadge}
+        src={useBaseUrl('/icons/SailPoint-LogoIcon-RGB-Color.svg')}></img>
+    );
+  }
+
+
   return (
     <div onClick={(e) => setFilters(e)}>
       <div className={styles.card} >
@@ -29,6 +42,8 @@ export default function MarketplaceCard({
           <div className={styles.cardName}>{post.name}</div>
         </div>
 
+
+        {badge}
 
         <div className={styles.cardText}>
           <img className={styles.cardImage} src={useBaseUrl(post.image)}></img>

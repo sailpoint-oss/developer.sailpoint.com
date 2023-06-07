@@ -19,10 +19,13 @@ export default function MarketplaceCards({filterCallback}) {
 
   const getPosts = async () => {
     const data = await getMarketplacePosts(filterCallback.join(','));
+    console.log(data)
     const resultset = [];
     if (data.topics) {
       for (const topic of data.topics) {
-        resultset.push(await getPostList(topic));
+        if (topic.tags.length > 0) {
+          resultset.push(await getPostList(topic));
+        }
       }
       setCardData(resultset);
     } else {
@@ -141,7 +144,7 @@ function styleExcerpt(excerpt) {
     // remove any strings that have colons between them
     excerpt = excerpt.replace(/:[^:]*:/g, '');
     if (excerpt.length > 150) {
-      return excerpt.slice(0, 150) + '...';
+      return excerpt.slice(0, 100) + '...';
     } else {
       return excerpt.replace('&hellip;', '');
     }

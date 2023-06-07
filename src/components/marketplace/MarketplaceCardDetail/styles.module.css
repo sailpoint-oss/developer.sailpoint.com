@@ -1,9 +1,11 @@
 .detailContainer {
-  max-width: 800px;
+  max-width: 937px;
 }
 
 .detailHeader {
   display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 20px;
 }
 

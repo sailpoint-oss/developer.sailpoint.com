@@ -68,7 +68,9 @@ export default function MarketplaceCardDetail({details, rawPost}) {
             <button
               className={styles.modalButton}
               onClick={async () => {
-                goToLink(details.link);
+                console.log(getDivText(rawPost,'github'))
+                const regex = /\(([^)]+)\)/;
+                goToLink(getDivText(rawPost,'github').match(regex)[1]);
               }}>
               <div className={styles.modalButtonText}>
                 <img

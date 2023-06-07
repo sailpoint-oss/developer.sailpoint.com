@@ -29,9 +29,9 @@ export async function getBlogPosts(tags) {
 export async function getMarketplacePosts(tags) {
   let url = ''
   if (tags) {
-    url = 'https://developer.identitysoon.com/discuss/search.json?q=category:show-and-tell+tags:' + tags
+    url = 'https://developer.sailpoint.com/discuss/search.json?q=category:marketplace+tags:' + tags
   } else {
-    url = 'https://developer.identitysoon.com/discuss/search.json?q=category:show-and-tell'
+    url = 'https://developer.sailpoint.com/discuss/search.json?q=category:marketplace'
   }
   try {
     const response = await fetch(
@@ -57,7 +57,7 @@ export async function getTopic(id) {
 export async function getMarketplaceTopic(id) {
   try {
     const response = await fetch(
-      'https://developer.identitysoon.com/discuss/t/' + id + '.json',
+      'https://developer.sailpoint.com/discuss/t/' + id + '.json',
     );
     return await response.json();
   } catch (error) {
@@ -68,7 +68,7 @@ export async function getMarketplaceTopic(id) {
 export async function getMarketplaceTopicRaw(id) {
   try {
     const response = await fetch(
-      'https://developer.identitysoon.com/discuss/raw/' + id + '.json',
+      'https://developer.sailpoint.com/discuss/raw/' + id + '.json',
     );
     return await response.text();
   } catch (error) {

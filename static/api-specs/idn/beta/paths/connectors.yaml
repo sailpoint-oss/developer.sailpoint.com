@@ -25,6 +25,9 @@ get:
 
 
         **directConnect**: *eq*
+        
+        
+        **category**: *eq*
       example: directConnect eq "true"
     - $ref: '../../v3/parameters/limit.yaml'
     - $ref: '../../v3/parameters/offset.yaml'
@@ -58,3 +61,5 @@ get:
       $ref: '../../v3/responses/429.yaml'
     '500':
       $ref: '../../v3/responses/500.yaml'
+  security:
+    - oauth2: [ idn:connector-source-config:read ]

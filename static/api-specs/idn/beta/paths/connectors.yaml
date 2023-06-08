@@ -28,6 +28,9 @@ get:
         
         
         **category**: *eq*
+        
+        
+        **features**: *ca*
       example: directConnect eq "true"
     - $ref: '../../v3/parameters/limit.yaml'
     - $ref: '../../v3/parameters/offset.yaml'

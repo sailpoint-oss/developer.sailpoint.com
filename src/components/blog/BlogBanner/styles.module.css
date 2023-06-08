@@ -1,0 +1,24 @@
+
+.blogHeaderText {
+  position: relative;
+  color: #ffffff;
+  font-size: 48px;
+  max-width: 396px;
+  font-weight: bold;
+  line-height: 133%;
+  top: 21px;
+  left: 74px;
+}
+
+.background {
+  width: 100%;
+  object-fit: repeat;
+  height: 100%;
+}
+
+.imageContainer {
+  width: 100%;
+  height: 180px;
+  background-image: url('../../../../static/blog/blog_banner_template.png');
+  background-repeat: repeat;
+}

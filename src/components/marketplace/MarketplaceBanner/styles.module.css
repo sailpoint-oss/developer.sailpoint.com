@@ -1,13 +1,13 @@
 
 .blogHeaderText {
   position: relative;
-  color: var(--ifm-color-primary);
-  font-size: 30px;
-  max-width: 396px;
+  color: #ffffff;
+  font-size: 48px;
+  max-width: 459px;
   font-weight: bold;
-  line-height: 100%;
-  top: 20px;
-  left: 20px;
+  line-height: 130%;
+  top: 29px;
+  left: 228px;
 }
 
 .background {
@@ -19,6 +19,7 @@
 .imageContainer {
   width: 100%;
   height: 180px;
-  background-image: url('../../../../static/blog/blog_banner_template.png');
+  background-size: 1920px 180px;
+  background-image: url('../../../../static/blog/marketplace_banner_template.png');
   background-repeat: repeat;
 }

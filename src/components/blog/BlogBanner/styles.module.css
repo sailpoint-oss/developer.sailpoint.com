@@ -1,13 +1,13 @@
 
 .blogHeaderText {
   position: relative;
-  color: var(--ifm-color-primary);
-  font-size: 30px;
+  color: #ffffff;
+  font-size: 48px;
   max-width: 396px;
   font-weight: bold;
-  line-height: 100%;
-  top: 20px;
-  left: 20px;
+  line-height: 133%;
+  top: 21px;
+  left: 74px;
 }
 
 .background {

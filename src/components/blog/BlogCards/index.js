@@ -1,12 +1,14 @@
 import React from 'react';
 import styles from './styles.module.css';
 import BlogCard from '../BlogCard';
+import BounceLoader from 'react-spinners/BounceLoader';
 
 import {getBlogPosts, getTopic} from '../../../services/DiscourseService';
 export default function BlogCards({
   filterCallback
   }) {
   const [cardData, setCardData] = React.useState();
+  const [loadingCards, setLoadingCards] = React.useState(true);
 
   const getPosts = async () => {
     const data = await getBlogPosts(filterCallback.join(','));
@@ -19,11 +21,13 @@ export default function BlogCards({
     } else {
       setCardData(undefined);
     }
-    
+    setLoadingCards(false);
   };
 
   React.useEffect(() => {
     getPosts();
+    setCardData(undefined);
+    setLoadingCards(true);
   }, [filterCallback]);
 
   if (cardData) {
@@ -48,8 +52,24 @@ export default function BlogCards({
         </div>
       </div>
     );
+  } else if (loadingCards) {
+    return (
+      <BounceLoader
+        className={styles.spinnerCenter}
+        color={'#0033a1'}
+        loading={true}
+        size={150}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
+    );
   } else {
-    return <div className={styles.noFound}> No Blog Post Found with the Given Search Criteria</div>;
+    return (
+      <div className={styles.noFound}>
+        {' '}
+        No Blogposts Found with the Given Search Criteria
+      </div>
+    );
   }
 }
 

@@ -4,9 +4,9 @@ import styles from './styles.module.css';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Link from '@docusaurus/Link';
 import { getTags } from '../../../services/DiscourseService';
-import BlogSidebarButton from './BlogSidebarButton';
+import MarketplaceSidebarButton from './MarketplaceSidebarButton';
 
-export default function BlogSidebar({
+export default function MarketplaceSidebar({
   filterCallback
   }) {
   const [tagProductData, setTagProductData] = React.useState();
@@ -47,16 +47,16 @@ export default function BlogSidebar({
   if (tagProductData && tagTechnologyData) {
     return (
       <div className={styles.sidebar}>
-        <div className={styles.tagHeader}>Posts by Product</div>
+        <div className={styles.tagHeader}>Items by Product</div>
         <div className={styles.tagContainer}>
             {tagProductData.map(function(a, index){
-              return <BlogSidebarButton key={a} text={a} filterCallback={filterCallback}></BlogSidebarButton>
+              return <MarketplaceSidebarButton key={a} text={a} filterCallback={filterCallback}></MarketplaceSidebarButton>
             })}
         </div>
-        <div className={styles.tagHeader}>Posts by Identity Governance</div>
+        <div className={styles.tagHeader}>Items by Identity Governance</div>
         <div className={styles.tagContainer}>
             {tagTechnologyData.map(function(a, index){
-              return <div key={'div' + a} className={index > 10 && filterTags ? styles.hidden : ''} > <BlogSidebarButton key={a} text={a} filterCallback={filterCallback}></BlogSidebarButton></div>
+              return <div key={'div' + a} className={index > 10 && filterTags ? styles.hidden : ''} > <MarketplaceSidebarButton key={a} text={a} filterCallback={filterCallback}></MarketplaceSidebarButton></div>
             })}
         </div>
         <div className={styles.seeAll} onClick={(e) => toggleSeeAll()}>

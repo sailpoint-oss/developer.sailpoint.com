@@ -25,3 +25,11 @@
   padding: 8px;
   margin: 50px;
 }
+
+
+
+.spinnerCenter {
+  margin: 100px auto;
+  max-width: 1300px;
+  margin-bottom: 50px;
+}

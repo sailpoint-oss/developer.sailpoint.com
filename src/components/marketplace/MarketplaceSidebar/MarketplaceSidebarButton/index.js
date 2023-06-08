@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './styles.module.css';
 
 
-export default function BlogSidebarButton({
+export default function MarketplaceSidebarButton({
     filterCallback,
     text
   }) {

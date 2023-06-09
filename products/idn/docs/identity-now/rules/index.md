@@ -42,6 +42,40 @@ Though IdentityNow shares some common functionality with other SailPoint product
 
 From a SailPoint support perspective, rules are considered configurations. SailPoint supports the underlying platform but not the rule configurations themselves. Any problems with the way rules are implemented or run over time are the responsibilities the customer or implementer must manage. SailPoint's IdentityNow Expert Services need hours to cover any rule configuration work (e.g., creating rules, best practices reviews, application to your IdentityNow environment, and promotion between sandbox & prod environments). Contact your Customer Success Manager with any questions. While rules allow some advanced flexibility, you must consider these support implications when you are deciding whether to implement rules. Consider rule usage a last resort, and use IdentityNow features instead whenever you can.
 
+## Best Practices for Rule deployments
+
+SailPoint Identity Now deployments often require the deployment of rules to the client’s IdentityNow tenants. Because IdentityNow is a multi-tenant solution, rules that are poorly written can have negative performance implications on other tenants in the same cloud. As such, SailPoint requires all rules to be reviewed prior to deployment. The time to complete these reviews requires an expert services contract to leverage billable hours.
+
+This article covers common topics around this process including best practices, rule review expectations, and more.
+
+### SLAs for Rule Review
+
+SailPoint has a 24 hour SLA on rule deployments for rules submitted over weekdays and next business day for rules submitted over the weekend.
+
+However, around 65% of rule reviews are completed in less 4 business hours, with the average turnaround time of 3-6 hours after ticket has been assigned. If a specific deployment window is required, SailPoint must be alerted at least 48 hours in advance so that the time for the reviewer and deployment expert may be reserved.
+
+### Go Live expectations
+
+SailPoint rule review team members work from 9am-5pm Monday-Friday in their local time zones, excluding holidays. For clients planning to go live on a weekend, we recommend having rules deployed in the sandbox environment prior to go live so that they can be promoted to production without SailPoint involvement. See the section below entitled [Promoting Rules from Sandbox to Production](#promoting-rules-from-sandbox-to-production).
+
+Note that even for clients who purchase Weekend Go-Live Support, rule deploys are not covered in the Weekend Go Live service as there are multiple teams involved in the rule deploy process.
+
+### Rule Deployments
+
+SailPoint recommends only submitting one rule at a time or only rules that should be deployed together.
+
+Typical rule reviews are billed 15-30 minutes per rule. However, this can vary based on the complexity of the rule or if the rule is rejected and must be resubmitted for review.
+
+In the case of rejection, we recommend submitting a new ticket to avoid a scenario where a case owner is out of the office.
+
+## Promoting Rules from Sandbox to Production
+
+A rule that has been approved in a sandbox tenant through the SailPoint rule review process, for example an IdentityAttribute, Correlation or ManagerCorrelation rule or any other rule type, can be migrated to the production IdentityNow tenant.
+
+This applies to all rule types, as the signature has been approved/verified during the SailPoint rule review process, the sp-config API allows you to import ANY ‘approved’ tenant rules. (this includes cloud rules!)
+
+For more details on the sp-config API see [sp-config](/idn/api/beta/export-sp-config)
+
 ## Rule Guidelines
 
 - **Supported Rules**

@@ -3,7 +3,7 @@ id: cloud-executed-rules
 title: Cloud Executed Rules
 pagination_label: Cloud Executed Rules
 sidebar_label: Cloud Executed Rules
-sidebar_position: 1
+sidebar_position: 2
 sidebar_class_name: cloudExecutedRules
 keywords: ['cloud', 'rules']
 description: Overview of cloud-executed rules

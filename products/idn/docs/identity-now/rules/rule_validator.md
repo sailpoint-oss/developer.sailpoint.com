@@ -44,13 +44,13 @@ Please note that the previous version used JDK 8 (1.8), if you do not have the J
 
 ## Support / Features
 
-This utility is developed by SailPoint Technology Services, and its usage is covered via SailPoint Expert Services. If you have any issues, bugs, or feature requests, please submit them to SailPoint Expert Services.
+This utility is developed by SailPoint Technology Services, and its usage is covered via SailPoint Expert Services. If you have any issues, bugs, or feature requests, please submit them to [SailPoint Expert Services](https://www.sailpoint.com/services/professional/#contact-form).
 
 ## Installation and Updates
 
 To use the Rule Validator locally, decompress the `sailpoint-saas-rule-validator-{3.0.xx}-distribution.zip` package into a folder on your workstation. The sp-rv command executes the java package, and has been designed to be run from a path so can be executed anywhere from your file system.
 
-### Linux and MacOS considerations
+### Linux and MacOS Considerations
 
 Under Linux and MacOS ensure the `sp-rv` script has execute privileges, by executing the `chmod` command on the `sp-rv` script:
 
@@ -97,7 +97,7 @@ In order to exit watch mode press `CTRL+C`
 
 ## Example Output
 
-### Rule with no errors but one warning
+### Rule With No Errors but One Warning
 
 ```bash
 ________________________________________________________________________________
@@ -130,7 +130,7 @@ ________________________________________________________________________________
 ________________________________________________________________________________
 ```
 
-### Failure with warnings
+### Failure With Warnings
 
 ```bash
 SailPoint SaaS Rule Validator v3.0.9-beta

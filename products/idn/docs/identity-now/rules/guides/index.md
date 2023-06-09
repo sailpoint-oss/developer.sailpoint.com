@@ -6,7 +6,7 @@ sidebar_label: Guides
 sidebar_position: 1
 sidebar_class_name: Rules
 keywords: ['rules', 'guides']
-description: Transform Guides
+description: Rule Guides
 slug: /docs/rules/guides
 tags: ['Rules', 'Guides']
 ---

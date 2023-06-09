@@ -11,8 +11,15 @@ tags: ['Connectivity', 'Connector Command']
 
 | Input/Output |      Data Type       |
 | :----------- | :------------------: |
-| Input        |      undefined       |
+| Input        | StdAccountListInput  |
 | Output       | StdAccountListOutput |
+
+### Example StdAccountListInput
+
+```javascript
+"state": {"date": "1686341338871"},
+"stateful": true
+```
 
 ### Example StdAccountListOutput
 
@@ -161,4 +168,59 @@ The result of the account list command is not an array of objects but several in
         ]
     }
 }
+```
+
+## Delta Aggregation (State)
+
+If your source can keep track of changes to the data in some way, then delta aggregation can be performed on a source. In order to implement, there are a few things that need to be configured
+
+1. In your connector-spec.json file, in the sourceConfig section, a checkbox needs to be added to enable state with the key ```spConnEnableStatefulCommands```:
+
+```
+{
+    "key": "spConnEnableStatefulCommands",
+    "label": "Stateful",
+    "required": true,
+    "type": "checkbox"
+}
+```
+
+2. In the ```stdAccountList``` command, when you are done sending commands, you need to also send the state to IDN so it knows where to start the next time it sends a list request:
+
+```
+const state = {"data": Date.now().toString()}
+...
+res.saveState(state)
+```
+
+In the above example, I am capturing the date, but you can use any value you want to store the state
+
+:::caution Important
+
+The state that you send using the ```saveState``` command MUST be a json object, and it is recommend to only save strings to ensure proper serialization/deserialization of the data. You cannot send a simple string or number or it will not properly save the state.
+
+:::
+
+3. In the ```stdAccountList``` command, you need to properly handle the state object. Something like below checks the stateful boolean as well as the state object and fetches accounts accordingly:
+
+```
+.stdAccountList(async (context: Context, input: StdAccountListInput, res: Response<StdAccountListOutput>) => {
+    let accounts = []
+    const state = {"data": Date.now().toString()}
+    if (!input.state && input.stateful) {
+        logger.info(input, "No state provided, fetching all accounts")
+        accounts = await airtable.getAllAccounts()
+    } else if (input.state && input.stateful) {
+        logger.info(input ,"Current state provided, only fetching accounts after that state")
+        accounts = await airtable.getAllStatefulAccounts(new Date(Number(input.state?.data)))
+    } else {
+        logger.info(input.state ,"Source is not stateful, getting all acounts")
+        accounts = await airtable.getAllAccounts()
+    }
+    logger.info(accounts, "fetched the following accounts from Airtable")
+    for (const account of accounts) {
+        res.send(account.toStdAccountListOutput())
+    }
+    res.saveState(state)
+})
 ```

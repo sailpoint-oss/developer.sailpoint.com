@@ -1,983 +1,716 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
 package sailpoint.object;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Map;
+import java.util.Set;
+import java.util.Map.Entry;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.JoinPoint.StaticPart;
+import org.aspectj.runtime.internal.Conversions;
+import org.aspectj.runtime.reflect.Factory;
 import sailpoint.api.SailPointContext;
 import sailpoint.tools.GeneralException;
 import sailpoint.tools.Message;
+import sailpoint.tools.TracingAspect;
 import sailpoint.tools.Util;
-import sailpoint.tools.xml.*;
-import sailpoint.web.messages.MessageKeys;
+import sailpoint.tools.xml.AbstractXmlObject;
+import sailpoint.tools.xml.SerializationMode;
+import sailpoint.tools.xml.XMLClass;
+import sailpoint.tools.xml.XMLObjectFactory;
+import sailpoint.tools.xml.XMLProperty;
+import sailpoint.tools.xml.XMLReferenceResolver;
 
-import java.io.Serializable;
-import java.util.*;
-
-public interface ProvisioningPlan extends PersistentXmlObject, Serializable {
-    /**
-     * Name of a plan argument holding the name of the identity
-     * that is considered to be the requester of the provisioning.
-     * This is intended as an replacement for the _requesters property
-     * that is easier to pass through the machinery in maps.
-     *
-     * @ignore !! Can _requesters ever have more than one thing on it?
-     * I suppose we could allow this to be a CSV or List<String>
-     */
-    String ARG_REQUESTER = "requester";
-    /**
-     * Name of a plan argument that contains the "source" type.
-     * The value should be one of the sailpoint.object.Source enumerations
-     * but it is allowed to be a custom source.
-     */
-    String ARG_SOURCE = "source";
-    /**
-     * Name of a plan argument that contains the database id of
-     * an object associated with the source. This is used only
-     * for Certification and PolicyViolation sources.
-     */
-    String ARG_SOURCE_ID = "sourceId";
-    /**
-     * Name of a plan argument that contains the database name of
-     * an object associated with the source. This is used only
-     * for Certification and PolicyViolation sources.
-     */
-    String ARG_SOURCE_NAME = "sourceName";
-    /**
-     * Name of a plan argument that contains the timeout to be used
-     * when acquiring locks on the target Identity. Also used
-     * when locking the source or destination identity when moving
-     * links. This is intended for use in plans that are being
-     * synchronously executed in a UI thread so you do not have to wait
-     * the default 1 minute for a lock timeout.
-     */
-    String ARG_LOCK_TIMEOUT = "lockTimeout";
-    /**
-     * The name of a special AccountRequest application that represents
-     * the IdentityIQ identity.
-     */
-    String APP_IIQ = "IIQ";
-    /**
-     * This is the name of the application "IIQ" that goes out in email.
-     *
-     * @ignore TODO: Maybe we should move it to some other class like 'Consts' or Configuration
-     */
-    String IIQ_APPLICATION_NAME = "IdentityIQ";
-    /**
-     * The name of a special AttributeRequest within the IdentityIQ
-     * application to modify the assigned role list.
-     */
-    String ATT_IIQ_ASSIGNED_ROLES = "assignedRoles";
-    /**
-     * The name of a special AttributeRequest within the IdentityIQ
-     * application to modify the detected role list.
-     */
-    String ATT_IIQ_DETECTED_ROLES = "detectedRoles";
-    /**
-     * The name of special AttributeRequest within the IdentityIQ
-     * application to move or delete links
-     */
-    String ATT_IIQ_LINKS = "links";
-    /**
-     * The name of a special AttributeRequest within the IdentityIQ
-     * application to modify the workgroup list.
-     */
-    String ATT_IIQ_WORKGROUPS = "workgroups";
-    /**
-     * Special attribute name used in AttributeRequests to
-     * set an Identity or account's password.
-     */
-    String ATT_PASSWORD =
-            sailpoint.integration.ProvisioningPlan.ATT_PASSWORD;
-    /**
-     * Special attribute used in the arguments map of a password
-     * AttributeRequest that holds the users current password. If not
-     * specified, the password will be "reset" rather than "changed".
-     */
-    String ATT_CURRENT_PASSWORD =
-            sailpoint.integration.ProvisioningPlan.ATT_CURRENT_PASSWORD;
-    /**
-     * Special attribute used in the arguments map of a password
-     * AttributeRequest that indicates that the new password should be
-     * pre-expired (for example - the user has to change it after first login).
-     */
-    String ATT_PRE_EXPIRE =
-            sailpoint.integration.ProvisioningPlan.ATT_PRE_EXPIRE;
-    /**
-     * Used to notify email template
-     */
-    String ATT_GENERATED = "generatedPass";
-    /**
-     * Constant for the password attribute found in AttributeRequests
-     * for IdentityIQ.
-     *
-     * @deprecated use {@link #ATT_PASSWORD}
-     */
+@XMLClass
+public class ProvisioningPlan extends AbstractXmlObject {
+    public static final String APP_IIQ = "IIQ";
+    public static final String IIQ_APPLICATION_NAME = "IdentityIQ";
+    /** @deprecated */
     @Deprecated
-    String ATT_IIQ_PASSWORD = ATT_PASSWORD;
-    /**
-     * Attribute holding the capabilities list.
-     * Certification has one of these too.
-     */
-    String ATT_IIQ_CAPABILITIES =
-            Certification.IIQ_ATTR_CAPABILITIES;
-    /**
-     * Preferred camel case version of the capabilities attribute. IIQEvaluator
-     * will accept either ATT_IIQ_CAPABILITIES or this attribute, but the IdentityMap
-     * will be using this name.
-     */
-    String ATT_IIQ_CAPABILITIES_NEW = "capabilities";
-    /**
-     * Attribute holding the controlled scopes.
-     */
-    String ATT_IIQ_CONTROLLED_SCOPES =
-            Certification.IIQ_ATTR_SCOPES;
-    /**
-     * Preferred camel case version of the authorizedScopes attribute. IIQEvaluator
-     * will accept either ATT_IIQ_CONTROLLED_SCOPES or this attribute, but the
-     * IdentityMap will be using this name.
-     */
-    String ATT_IIQ_CONTROLLED_SCOPES_NEW =
-            "controlledScopes";
-    /**
-     * The name of a special AttributeRequest within the IdentityIQ
-     * application to modify the authorized scopes list.
-     */
-    String ATT_IIQ_AUTHORIZED_SCOPES =
-            Certification.IIQ_ATTR_SCOPES;
-    /**
-     * Attribute holding the assigned scope.
-     */
-    String ATT_IIQ_SCOPE = "scope";
-    /**
-     * Attribute holding the flag indicating that the identity
-     * also controls the assigned scope.
-     */
-    String ATT_IIQ_CONTROLS_ASSIGNED_SCOPE =
-            "controlsAssignedScope";
-    /**
-     * The name of a special AttributeRequest within the IdentityIQ
-     * application to modify the ActivityConfig. The value
-     * is normally a String or List of application ids.
-     * If the value is Boolean true/false it sets the "enableAll"
-     * flag.
-     */
-    String ATT_IIQ_ACTIVITY_CONFIG = "activityConfig";
-    /**
-     * A pseudo attribute representing the IdentityArchive list
-     * which we display in the UI as "identity history".
-     * You can only make Remove requests for this list, adding
-     * IdentityArchive objects is only done as a side effect
-     * of an identity refresh you cannot make one from a provisioning plan.
-     * The value must be a id or list of ids of IdentityArchive objects.
-     */
-    String ATT_IIQ_ARCHIVES = "archives";
-    /**
-     * An IdentityIQ pseudo attribute targeting the list of IdentitySnapshots.
-     */
-    String ATT_IIQ_SNAPSHOTS = "snapshots";
-    /**
-     * A pseudo attribute representing Request objects associated
-     * with this identity which the UI displays as "identity events".
-     * You can only make Remove requests for this list, adding
-     * Request objects is only done as a side effect of other things
-     * like role sunrise/sunset. You cannot make one from a plan.
-     * The value must be a id or list of ids of Request objects.
-     *
-     * @ignore !! I think we also show pending WorkflowCases as events too
-     * in which case this may be a mixed list of Request and
-     * WorkflowCase ids.  Might want to make these different
-     * attributes but we don't really have to as long as we ref
-     * them by id.
-     */
-    String ATT_IIQ_EVENTS = "events";
-    /**
-     * An IdentityIQ pseudo attribute targeting the list of
-     * ProvisioningRequests.
-     */
-    String ATT_IIQ_PROVISIONING_REQUESTS = "provisioningRequests";
-    /**
-     * The name of a special AccountRequest application that represents
-     * the aggregate identity managed by a provisioning system.
-     * This account may have additional attributes not represented
-     * in resource accounts, notably a list of provisioning system
-     * role assignments.
-     *
-     * @ignore TODO: This may not be necessary if we have a Link
-     * in the identity for each IDM system account.  In that case
-     * just use the application name for the IDM system.
-     */
-    String APP_IDM =
-            sailpoint.integration.ProvisioningPlan.APP_IDM;
-    /**
-     * The name of the attribute in the APP_IDM account that
-     * represents the assigned roles. The value must
-     * be a List<String>.
-     */
-    String ATT_IDM_ROLES =
-            sailpoint.integration.ProvisioningPlan.ATT_IDM_ROLES;
-    /**
-     * When logically true, this AccountRequest argument indicates that the
-     * user specifically requested to create an account.
-     */
-    String ARG_FORCE_NEW_ACCOUNT = "forceNewAccount";
-    /**
-     * The date at which an add or set request is to occur,
-     * the "sunrise" date.
-     */
-    String ARG_ADD_DATE = "addDate";
-    /**
-     * The date at which a Remove request is to occur,
-     * the "sunset" date.
-     * This can be combined with addDate in a Set or Add request which
-     * is why it needs a different name.
-     */
-    String ARG_REMOVE_DATE = "removeDate";
-    /**
-     * The request comments coming in with the request. Need to be shown
-     * on the approval.
-     */
-    String ARG_COMMENTS = "comments";
-    /**
-     * The role assignment note coming in with the attribute request.
-     */
-    String ARG_ASSIGNMENT_NOTE = "assignmentNote";
-    /**
-     * When this is logically true, it means that the link attribute
-     * was manually edited. It should be stored in the link similar
-     * to the "optimistic provisioning" option, but it should NOT be
-     * sent to a provisioning system.
-     */
-    String ARG_LINK_EDIT = "linkEdit";
-    /**
-     * When used with ATT_PASSWORD, requests that policy checking
-     * be performed before setting.
-     */
-    String ARG_CHECK_POLICY = "checkPolicy";
-    /**
-     * When added to the arguments and set to true, will
-     * indicate that the AttributeAssignment stored on the identity,
-     * which makes it sticky, should also be created or removed.
-     *
-     * @see AttributeAssignment
-     */
-    String ARG_ASSIGNMENT = "assignment";
-    /**
-     * When true indicates that the AttributeRequest value is secret.
-     *
-     * @ignore This is a semi-kludge for bug#15808 to keep us from including
-     * values of secret fields in provisioning policies in the
-     * IdentityRequest object to address an urgent customer need.
-     * We need to follow this with a more thorough encryption
-     * strategy that we can use with secret fields so they remain
-     * encrypted while in the workflow rather than just hidden.
-     */
-    String ARG_SECRET = "secret";
-    /**
-     * Holds the name of the role which permits the role being requested
-     * in a permitted role request.
-     */
-    String ARG_PERMITTED_BY = "permittedBy";
-    /**
-     * Request to remove a profile from a role in a role composition certification.
-     */
-    String ATT_IIQ_ROLE_PROFILES = "profiles";
-    /**
-     * Request to remove a child role from a role in a role composition certification.
-     */
-    String ATT_IIQ_ROLE_CHILD = "children";
-    /**
-     * Request to remove a required role from a role in a role composition certification.
-     */
-    String ATT_IIQ_ROLE_REQUIREMENT = "requiredRole";
-    /**
-     * Request to remove a permitted role from a role in a role composition certification.
-     */
-    String ATT_IIQ_ROLE_PERMIT = "permittedRole";
-    /**
-     * Request to remove a scope grant from a role.
-     */
-    String ATT_IIQ_ROLE_GRANTED_SCOPE = "roleGrantedScope";
-    /**
-     * Request to remove a capability grant from a role.
-     */
-    String ATT_IIQ_ROLE_GRANTED_CAPABILITY = "roleGrantedCapability";
-    /**
-     * Optional AttributeRequest argument used to convey
-     * the previous values that were assigned.
-     */
-    String ARG_PREVIOUS_VALUE = "previousValue";
-    String ARG_TYPE = "type";
-    String ARG_REQUIRED = "required";
-    String ARG_TYPE_DATE = "date";
-    String ARG_ALLOW_SIMPLIFICATION = "allowSimplification";
-    /**
-     * Argument for "links" request. To which identity the link
-     * should be moved to.
-     */
-    String ARG_DESTINATION_IDENTITY = "destinationIdentity";
-    /**
-     * Argument for "links" request. From which identity the link
-     * should be moved.
-     */
-    String ARG_SOURCE_IDENTITY = "sourceIdentity";
-    /**
-     * A type name used in ObjectRequest to indicate that the request
-     * will create or update an IdentityIQ ManagedAttribute object but will
-     * not provisioning anything through a Connector. This is necessary
-     * to distinguish between ObjectRequests of type "group" that
-     * will provision groups, and ORs for other managed attributes.
-     *
-     * @ignore Originally we allowed the type to be the name of the account
-     * schema attribute, but that felt funny since it isn't a Schema
-     * name and in theory we might want to have MAs for more than just
-     * the account schema.
-     */
-    String OBJECT_TYPE_MANAGED_ATTRIBUTE = "ManagedAttribute";
-    /**
-     * A type name used in ObjectRequest to indicate that the request
-     * will create or update a group. Use of this constant is not required,
-     * any Schema name in the target Application will do, but this
-     * is common and consistent with OBJECT_type_MANAGED_ATTRIBUTE.
-     */
-    String OBJECT_TYPE_GROUP = Application.SCHEMA_GROUP;
-    //////////////////////////////////////////////////////////////////////
-    //
-    // Account Group Attributes
-    //
-    //////////////////////////////////////////////////////////////////////
-    String ACCOUNT_GROUP_NAME = "accountGroupName";
-    String ACCOUNT_GROUP_DESCRIPTION = "accountGroupDescription";
-    String ACCOUNT_GROUP_OWNER = "accountGroupOwner";
-    String ACCOUNT_GROUP_SCOPE = "accountGroupScope";
-    String ACCOUNT_GROUP_APPLICATION = "accountGroupApplication";
-    String ACCOUNT_GROUP_NATIVE_IDENTITY = "accountGroupNativeIdentity";
-    String ACCOUNT_GROUP_REFERENCE_ATTRIBUTE = "accountGroupReferenceAttribute";
-    String ATT_PLAN_IDENTITY =
-            sailpoint.integration.ProvisioningPlan.ATT_PLAN_IDENTITY;
-    String ATT_PLAN_ACCOUNTS =
-            sailpoint.integration.ProvisioningPlan.ATT_PLAN_ACCOUNTS;
-    String ATT_PLAN_OBJECTS =
-            sailpoint.integration.ProvisioningPlan.ATT_PLAN_OBJECTS;
-    String ATT_PLAN_REQUESTERS = "requesters";
-    String ATT_PLAN_ARGUMENTS =
-            sailpoint.integration.ProvisioningPlan.ATT_PLAN_ARGUMENTS;
-    String ATT_PLAN_INTEGRATION_DATA =
-            sailpoint.integration.ProvisioningPlan.ATT_PLAN_INTEGRATION_DATA;
-    String ATT_PLAN_PROFILE_ORINDAL = "profileOrdinal";
-    String ATT_OP =
-            sailpoint.integration.ProvisioningPlan.ATT_OP;
-    String ATT_OBJECT_APPLICATION =
-            sailpoint.integration.ProvisioningPlan.ATT_ACCOUNT_APPLICATION;
-    String ATT_OBJECT_INSTANCE =
-            sailpoint.integration.ProvisioningPlan.ATT_ACCOUNT_INSTANCE;
-    String ATT_OBJECT_TYPE = "type";
-    // this used to be "nativeIdentity", continue that for backward
-    // with the integration/common model.
-    String ATT_OBJECT_ID =
-            sailpoint.integration.ProvisioningPlan.ATT_ACCOUNT_IDENTITY;
-    String ATT_OBJECT_UUID = "uuid";
-    String ATT_OBJECT_ATTRIBUTES =
-            sailpoint.integration.ProvisioningPlan.ATT_ACCOUNT_ATTRIBUTES;
-    String ATT_OBJECT_PERMISSIONS =
-            sailpoint.integration.ProvisioningPlan.ATT_ACCOUNT_PERMISSIONS;
-    String ATT_OBJECT_ARGUMENTS =
-            sailpoint.integration.ProvisioningPlan.ATT_ACCOUNT_ARGUMENTS;
-    String ATT_ATTRIBUTE_NAME =
-            sailpoint.integration.ProvisioningPlan.ATT_ATTRIBUTE_NAME;
-    String ATT_ATTRIBUTE_VALUE =
-            sailpoint.integration.ProvisioningPlan.ATT_ATTRIBUTE_VALUE;
-    String ATT_PERMISSION_TARGET =
-            sailpoint.integration.ProvisioningPlan.ATT_PERMISSION_TARGET;
-    String ATT_PERMISSION_RIGHTS =
-            sailpoint.integration.ProvisioningPlan.ATT_PERMISSION_RIGHTS;
-    String ATT_REQUEST_ARGUMENTS =
-            sailpoint.integration.ProvisioningPlan.ATT_REQUEST_ARGUMENTS;
-    String ATT_REQUEST_RESULT =
-            sailpoint.integration.ProvisioningPlan.ATT_REQUEST_RESULT;
-    /**
-     * A reserved name that can be set in an AttributeRequest's assignmentId
-     * to indicate that a new assignment is to be created. This is an alternative
-     * to having the application generate a uuid.
-     */
-    String ASSIGNMENT_ID_NEW = "new";
-    /**
-     * List of secret things in provisioning plans.
-     *
-     * @ignore Moved here from ObjectUtil so we can use it in the object package without crossing
-     * into api.  Consider breaking this out into it's own class since
-     * we need it in a few places.
-     */
-    String[] SECRET_ATTRIBUTES = {
-            ATT_PASSWORD,                     // "password"
-            "USER_PWD",                       // used by PE2
-            "*password*",                     // used by openconnector
-            "currentPassword",                // seen in arg maps
-            "racfPassword",                   // RACF password
-            "userPassword",                   // Another password attrd
-            "group.password",                 // group password
-            "oauthBearerToken",               // SCIM #22736
-            "IDFileCurrentPassword",          // used by Lotus Domino Connector #22931
-            "tokenPIN",                       // used by RSA Connector
-            "passwdPolicyValidation"          // used for validating password against a policy
-    };
+    public static final String ATT_IIQ_PASSWORD = "password";
+    public static Object ATT_ASSIGNED_SCOPE;
+    public static final String ATT_OP = "op";
+    public static final String ATT_OBJECT_APPLICATION = "application";
+    public static final String ATT_OBJECT_ATTRIBUTES = "attributes";
+    public static final String ATT_OBJECT_ARGUMENTS = "args";
+    public static final String ATT_ATTRIBUTE_NAME = "name";
+    public static final String ATT_PERMISSION_TARGET = "target";
+    public static final String ATT_PERMISSION_RIGHTS = "rights";
+    public static final String ATT_REQUEST_ARGUMENTS = "args";
+    Identity _identity;
+    String _nativeIdentity;
+    List<ProvisioningPlan.AccountRequest> _accounts;
+    List<ProvisioningPlan.ObjectRequest> _objectRequests;
+    Attributes<String, Object> _arguments;
+    String _trackingId;
+    List<Identity> _requesters;
+    List<ProvisioningTarget> _provisioningTargets;
+    List<ProvisioningPlan.AbstractRequest> _filtered;
+    List<Question> _questionHistory;
+    String _targetIntegration;
+    ProvisioningResult _result;
+    boolean _provisioned;
+    long _maintenanceExpiration;
 
-    /**
-     * Return true if the given application name is the IdentityIQ application, either
-     * the Certification "IdentityIQ" name or the ProvisioningPlan "IIQ" name.
-     */
-    static boolean isIIQ(String app) {
-        return APP_IIQ.equals(app) || Certification.IIQ_APPLICATION.equals(app);
+    public ProvisioningPlan() {
     }
 
-    /**
-     * If appname is {@link #APP_IIQ} we change it to {@link #IIQ_APPLICATION_NAME}
-     *
-     * @param appName the appname to display
-     * @return modified Appname
-     * @ignore TODO: Move this to a utility class.
-     */
-    static String getApplicationDisplayName(String appName) {
+    public void add(ProvisioningPlan.AccountRequest account) {
 
-        if (ProvisioningPlan.APP_IIQ.equals(appName)) {
-            appName = ProvisioningPlan.IIQ_APPLICATION_NAME;
-        }
-        return appName;
-    }
-
-    /**
-     * Utility to add values to a multi-valued attribute with
-     * necessary coercion. This is generic and could go in Util.
-     * Originally this would always coerce the target value to a List
-     * but this creates XML clutter during the simplify phase where
-     * most AttributeRequests are just for atomic values.
-     * <p>
-     * When nocase is true, the values are case insensitive.
-     */
-    static Object addValues(Object something, Object toSomething,
-                            boolean nocase) {
-
-        // collapse simple lists
-        if (something instanceof List) {
-            List lvalue = (List) something;
-            int size = lvalue.size();
-            if (size == 0)
-                something = null;
-            else if (size == 1)
-                something = lvalue.get(0);
-        }
-
-        if (something != null) {
-
-            if (toSomething == null) {
-                toSomething = something;
-            } else if (!equals(something, toSomething, nocase)) {
-
-                if (!(toSomething instanceof List)) {
-                    // promote to a list
-                    List newvalue = new ArrayList();
-                    newvalue.add(toSomething);
-                    toSomething = newvalue;
+        try {
+            if (account != null) {
+                if (this._accounts == null) {
+                    this._accounts = new ArrayList();
                 }
 
-                List lvalue = (List) toSomething;
-                if (!(something instanceof List)) {
-                    if (!contains(lvalue, something, nocase))
-                        lvalue.add(something);
-                } else {
-                    for (Object o : (List) something) {
-                        if (!contains(lvalue, o, nocase))
-                            lvalue.add(o);
+                this._accounts.add(account);
+            }
+
+            Object var4 = null;
+        } catch (Throwable var6) {
+            throw var6;
+        }
+    }
+
+    public void remove(ProvisioningPlan.AccountRequest account) {
+
+        try {
+            if (account != null && this._accounts != null) {
+                this._accounts.remove(account);
+            }
+
+            Object var4 = null;
+        } catch (Throwable var6) {
+            throw var6;
+        }
+    }
+
+    public void addRequest(ProvisioningPlan.AbstractRequest req) {
+
+        try {
+            if (req instanceof ProvisioningPlan.AccountRequest) {
+                this.add((ProvisioningPlan.AccountRequest)req);
+            } else if (req instanceof ProvisioningPlan.ObjectRequest) {
+                this.addObjectRequest((ProvisioningPlan.ObjectRequest)req);
+            }
+
+            Object var4 = null;
+        } catch (Throwable var6) {
+            throw var6;
+        }
+    }
+
+    public void setAccountRequests(List<ProvisioningPlan.AccountRequest> reqs) {
+
+        try {
+            this._accounts = reqs;
+            Object var4 = null;
+        } catch (Throwable var6) {
+            throw var6;
+        }
+    }
+
+    public List<ProvisioningPlan.AccountRequest> getAccountRequests() {
+
+        try {
+            List var2;
+            List var3 = var2 = this._accounts;
+            return var2;
+        } catch (Throwable var5) {
+            throw var5;
+        }
+    }
+
+
+    public boolean isEmpty() {
+
+        try {
+            boolean var2;
+            boolean var3 = var2 = this.isEmpty(this._accounts) && this.isEmpty(this._objectRequests);
+            return var2;
+        } catch (Throwable var5) {
+            throw var5;
+        }
+    }
+
+    public List<Identity> getRequesters() {
+
+        try {
+            List var2;
+            List var3 = var2 = this._requesters;
+            return var2;
+        } catch (Throwable var5) {
+            throw var5;
+        }
+    }
+
+    public String getComments() {
+
+        try {
+            String var2;
+            String var3 = var2 = this.getString("comments");
+            return var2;
+        } catch (Throwable var5) {
+            throw var5;
+        }
+    }
+
+    public void setComments(String c) {
+
+        try {
+            this.put("comments", c);
+            Object var4 = null;
+        } catch (Throwable var6) {
+            throw var6;
+        }
+    }
+
+    public String getSource() {
+
+        try {
+            String var2;
+            String var3 = var2 = this.getString("source");
+            return var2;
+        } catch (Throwable var5) {
+            throw var5;
+        }
+    }
+
+    public Identity getIdentity() {
+
+        try {
+            Identity var2;
+            Identity var3 = var2 = this._identity;
+            return var2;
+        } catch (Throwable var5) {
+            throw var5;
+        }
+    }
+
+    public String getNativeIdentity() {
+
+        try {
+            String var2;
+            String var3 = var2 = this._nativeIdentity;
+            return var2;
+        } catch (Throwable var5) {
+            throw var5;
+        }
+    }
+
+    public void setNativeIdentity(String s) {
+
+        try {
+            this._nativeIdentity = s;
+            Object var4 = null;
+        } catch (Throwable var6) {
+            throw var6;
+        }
+    }
+
+    public Attributes<String, Object> getArguments() {
+
+        try {
+            Attributes var2;
+            Attributes var3 = var2 = this._arguments;
+            return var2;
+        } catch (Throwable var5) {
+            throw var5;
+        }
+    }
+
+    public void setArguments(Attributes<String, Object> atts) {
+
+        try {
+            this._arguments = atts;
+            Object var4 = null;
+        } catch (Throwable var6) {
+            throw var6;
+        }
+    }
+
+    public void setTargetIntegration(String name) {
+
+        try {
+            this._targetIntegration = name;
+            Object var4 = null;
+        } catch (Throwable var6) {
+            throw var6;
+        }
+    }
+
+    public void setResult(ProvisioningResult r) {
+
+        try {
+            this._result = r;
+            Object var4 = null;
+        } catch (Throwable var6) {
+            throw var6;
+        }
+    }
+
+    public ProvisioningPlan.AccountRequest add(String appname, String identity, ProvisioningPlan.AccountRequest.Operation op) {
+        Object[] var6 = new Object[]{appname, identity, op};
+
+        try {
+            ProvisioningPlan.AccountRequest account = null;
+            if (appname != null && identity != null) {
+                account = new ProvisioningPlan.AccountRequest();
+                account.setApplication(appname);
+                account.setNativeIdentity(identity);
+                account.setOperation(op);
+                this.add(account);
+            }
+
+            return account;
+        } catch (Throwable var13) {
+            throw var13;
+        }
+    }
+
+    public ProvisioningPlan.AccountRequest add(String appname, String nativeIdentity, String attname, ProvisioningPlan.Operation op, Object value) {
+        Object[] var9 = new Object[]{appname, nativeIdentity, attname, op, value};
+
+        try {
+            ProvisioningPlan.AccountRequest account = null;
+            if (appname != null && attname != null) {
+                account = this.getAccountRequest(appname, (String)null, nativeIdentity);
+                if (account == null) {
+                    account = new ProvisioningPlan.AccountRequest();
+                    account.setApplication(appname);
+                    account.setNativeIdentity(nativeIdentity);
+                    this.add(account);
+                }
+
+                ProvisioningPlan.AttributeRequest att = new ProvisioningPlan.AttributeRequest();
+                att.setName(attname);
+                att.setOperation(op);
+                att.setValue(value);
+                account.add(att);
+            }
+
+            return account;
+        } catch (Throwable var18) {
+            throw var18;
+        }
+    }
+
+    public void put(String name, Object value) {
+
+        try {
+            if (name != null) {
+                if (this._arguments == null) {
+                    this._arguments = new Attributes();
+                }
+
+                this._arguments.putClean(name, value);
+            }
+
+            Object var6 = null;
+        } catch (Throwable var8) {
+            throw var8;
+        }
+    }
+
+    public Object get(String name) {
+
+        try {
+            Object var10000 = this._arguments != null ? this._arguments.get(name) : null;
+            Object var4 = var10000;
+            Object var5 = var10000;
+            return var4;
+        } catch (Throwable var7) {
+            throw var7;
+        }
+    }
+
+    public List<ProvisioningPlan.AccountRequest> getAccountRequests(String appname) {
+
+        try {
+            List reqs = new ArrayList();
+            if (this._accounts != null && appname != null) {
+                Iterator var3 = this._accounts.iterator();
+
+                while(var3.hasNext()) {
+                    ProvisioningPlan.AccountRequest req = (ProvisioningPlan.AccountRequest)var3.next();
+                    if (appname.equals(req.getApplication())) {
+                        reqs.add(req);
                     }
                 }
             }
-        }
 
-        return toSomething;
-    }
-
-    /**
-     * Backward compatibility for the Original signature before
-     * case insensitivity was added.
-     */
-    static Object addValues(Object something, Object toSomething) {
-        return addValues(something, toSomething, false);
-    }
-
-    /**
-     * Utility to remove values from a multi-valued attribute.
-     * Like addValues, used by Provisioner during plan compilation
-     * and during plan application.
-     * <p>
-     * When nocase is true, the values are case insensitive.
-     */
-    static Object removeValues(Object something, Object fromSomething,
-                               boolean nocase) {
-
-        if (something != null) {
-            if (fromSomething instanceof List) {
-                List lvalue = (List) fromSomething;
-
-                if (something instanceof List)
-                    removeAll(lvalue, (List) something, nocase);
-                else
-                    remove(lvalue, something, nocase);
-
-                // collapse to null
-                if (lvalue.size() == 0)
-                    fromSomething = null;
-            } else if (fromSomething != null) {
-                // I guess it makes sense to have remove collapse a single
-                // value to null
-                if (something instanceof List) {
-                    List lvalue = (List) something;
-                    if (contains(lvalue, fromSomething, nocase))
-                        fromSomething = null;
-                } else if (equals(fromSomething, something, nocase))
-                    fromSomething = null;
-            }
-        }
-        return fromSomething;
-    }
-
-    /**
-     * Backward compatibility for the Original signature before
-     * case insensitivity was added.
-     */
-    static Object removeValues(Object something, Object fromSomething) {
-        return removeValues(something, fromSomething, false);
-    }
-
-    /**
-     * Utility to remove values from a multi-valued attribute that
-     * are not in a list.
-     * When nocase is true, the values are case insensitive.
-     */
-    static Object retainValues(Object something, Object fromSomething,
-                               boolean nocase) {
-        if (something == null) {
-            return null;
-        } else {
-            if (fromSomething instanceof List) {
-                List lvalue = (List) fromSomething;
-                List retains = null;
-                if (something instanceof List)
-                    retains = (List) something;
-                else {
-                    retains = new ArrayList();
-                    retains.add(something);
-                }
-                retainAll(lvalue, retains, nocase);
-
-                // collapse to null
-                if (lvalue.size() == 0)
-                    fromSomething = null;
-            } else if (fromSomething != null) {
-                // I guess it makes sense to have retain collapse a single
-                // value to null
-                if (something instanceof List) {
-                    List lvalue = (List) something;
-                    if (!contains(lvalue, fromSomething, nocase))
-                        fromSomething = null;
-                } else if (!equals(fromSomething, something, nocase))
-                    fromSomething = null;
-            }
-        }
-        return fromSomething;
-    }
-
-    static void removeAll(List list, List values, boolean nocase) {
-        if (nocase) {
-            for (Object o : values)
-                remove(list, o, nocase);
-        } else {
-            list.removeAll(values);
+            return reqs;
+        } catch (Throwable var10) {
+            throw var10;
         }
     }
 
-    static void retainAll(List list, List values, boolean nocase) {
+    public List<ProvisioningPlan.AccountRequest> getAccountRequests(String appname, String nativeIdentity) {
 
-        if (nocase) {
-            int max = list.size();
-            int psn = 0;
-            while (psn < max) {
-                Object el = list.get(psn);
-                boolean remove = false;
-                if (el instanceof String)
-                    remove = !contains(values, el, nocase);
-                else
-                    remove = !values.contains(el);
+        try {
+            List requests = new ArrayList();
+            Iterator var4 = Util.iterate(this._accounts).iterator();
 
-                if (remove) {
-                    list.remove(psn);
-                    max--;
-                } else
-                    psn++;
-            }
-        } else {
-            // retainAll is "optional", better be an ArrayList!
-            list.retainAll(values);
-        }
-    }
-
-    static void remove(List list, Object value, boolean nocase) {
-        if (nocase && value instanceof String) {
-            String svalue = (String) value;
-            ListIterator it = ((List) list).listIterator();
-            while (it.hasNext()) {
-                Object o = it.next();
-                if (o instanceof String && svalue.equalsIgnoreCase((String) o))
-                    it.remove();
-            }
-        } else
-            list.remove(value);
-    }
-
-    static boolean contains(List list, Object value, boolean nocase) {
-        boolean contains = false;
-        if (nocase && value instanceof String) {
-            String svalue = (String) value;
-            for (Object o : list) {
-                if (o instanceof String && svalue.equalsIgnoreCase((String) o)) {
-                    contains = true;
-                    break;
-                }
-            }
-        } else
-            contains = list.contains(value);
-
-        return contains;
-    }
-
-    static boolean equals(Object o1, Object o2, boolean nocase) {
-        boolean eq = false;
-        if (nocase && o1 instanceof String && o2 instanceof String)
-            eq = ((String) o1).equalsIgnoreCase((String) o2);
-        else
-            eq = Util.nullSafeEq(o1, o2, true);
-        return eq;
-    }
-
-    static boolean isSecret(String name) {
-        if (ProvisioningPlan.SecretAttributesMap == null) {
-            Map<String, String> map = new HashMap<String, String>();
-            for (int i = 0; i < SECRET_ATTRIBUTES.length; i++) {
-                String sec = SECRET_ATTRIBUTES[i];
-                map.put(sec, sec);
-            }
-            // no need for csect if we build before assigning
-            ProvisioningPlan.SecretAttributesMap = map;
-        }
-        return (ProvisioningPlan.SecretAttributesMap.get(name) != null);
-    }
-
-    /**
-     * Clone a plan removing passwords and other secret data.
-     * This is intended for use when logging plans.
-     *
-     * @ignore This isn't as generic
-     * as it could be, we only look for AttributeRequest and their
-     * argument maps.
-     */
-    static ProvisioningPlan getLoggingPlan(ProvisioningPlan src) {
-        ProvisioningPlan filtered = null;
-        if (src != null) {
-            try {
-                XMLObjectFactory xf = XMLObjectFactory.getInstance();
-                filtered = (ProvisioningPlan) xf.clone(src, null);
-                List<AbstractRequest> requests = filtered.getAllRequests();
-                if (requests != null) {
-                    for (AbstractRequest req : requests) {
-                        List<AttributeRequest> atts = req.getAttributeRequests();
-                        if (atts != null) {
-                            for (AttributeRequest att : atts) {
-                                if (isSecret(att.getName()))
-                                    att.setValue("********");
-
-                                Attributes<String, Object> args = att.getArguments();
-                                if (args != null) {
-                                    Iterator<String> keys = args.keySet().iterator();
-                                    while (keys.hasNext()) {
-                                        String key = keys.next();
-                                        if (isSecret(key))
-                                            args.put(key, "********");
-                                    }
-                                }
-                            }
+            while(true) {
+                ProvisioningPlan.AccountRequest request;
+                do {
+                    do {
+                        if (!var4.hasNext()) {
+                            return requests;
                         }
-                    }
-                }
-            } catch (Throwable t) {
-                ProvisioningPlan.log.error("Unable to log plan: ", t);
+
+                        request = (ProvisioningPlan.AccountRequest)var4.next();
+                    } while(!Util.nullSafeEq(appname, request.getApplication()));
+                } while(!Util.isNullOrEmpty(nativeIdentity) && !Util.nullSafeEq(nativeIdentity, request.getNativeIdentity()));
+
+                requests.add(request);
             }
+        } catch (Throwable var12) {
+            throw var12;
         }
-        return filtered;
     }
 
-    boolean isIdentityPlan();
-
-    void add(AccountRequest account);
-
-    void add(ObjectRequest object);
-
-    void remove(AccountRequest account);
-
-    void addRequest(AbstractRequest req);
-
-    @XMLProperty(mode = SerializationMode.INLINE_LIST_UNQUALIFIED)
-    void setAccountRequests(List<AccountRequest> reqs);
-
-    List<AccountRequest> getAccountRequests();
-
-    List<ObjectRequest> getObjectRequests();
-
-    @XMLProperty(mode = SerializationMode.INLINE_LIST_UNQUALIFIED)
-    void setObjectRequests(List<ObjectRequest> reqs);
-
-    void addObjectRequest(ObjectRequest request);
-
-    List<AbstractRequest> getAllRequests();
-
-    boolean isEmpty();
-
-    boolean hasRequests();
-
-    List<Identity> getRequesters();
-
-    void addRequester(Identity requester);
-
-    String getComments();
-
-    @XMLProperty(mode = SerializationMode.LIST)
-    List<ProvisioningTarget> getProvisioningTargets();
-
-    String getSource();
-
-    String getSourceType();
-
-    String getSourceName();
-
-    String getSourceId();
-
-    Identity getIdentity();
-
-    @XMLProperty
-    String getNativeIdentity();
-
-    Attributes<String, Object> getArguments();
-
-    Attributes<String, Object> getIntegrationData();
-
-    @XMLProperty
-    String getTargetIntegration();
-
-    @XMLProperty(mode = SerializationMode.UNQUALIFIED)
-    ProvisioningResult getResult();
-
-    boolean isIIQ();
-
-    @XMLProperty
-    String getTrackingId();
-
-    @Deprecated
-    @XMLProperty(xmlname = "sourceType")
-    String getXmlSourceType();
-
-    @Deprecated
-    @XMLProperty(xmlname = "sourceName")
-    String getXmlSourceName();
-
-    @Deprecated
-    @XMLProperty(xmlname = "sourceId")
-    String getXmlSourceId();
-
-    @Deprecated
-    @XMLProperty(xmlname = "status")
-    String getXmlStatus();
-
-    @Deprecated
-    @XMLProperty(xmlname = "requestID")
-    String getXmlRequestID();
-
-    @Deprecated
-    @XMLProperty(mode = SerializationMode.LIST, xmlname = "Warnings")
-    List<Message> getXmlWarnings();
-
-    @Deprecated
-    @XMLProperty(mode = SerializationMode.LIST, xmlname = "Errors")
-    List<Message> getXmlErrors();
-
-    AccountRequest add(String appname, String identity, AccountRequest.Operation op);
-
-    AccountRequest add(String appname, String nativeIdentity, String attname,
-                       Operation op, Object value);
-
-    void put(String name, Object value);
-
-    Object get(String name);
-
-    String getString(String name);
-
-    AbstractRequest getMatchingRequest(AbstractRequest src);
-
-    AbstractRequest getMatchingRequest(AbstractRequest src, boolean allowGeneratedId);
-
-    <T extends AbstractRequest> AbstractRequest
-    getMatchingRequest(List<T> requests, AbstractRequest src);
-
-    <T extends AbstractRequest> AbstractRequest
-    getMatchingRequest(List<T> requests, AbstractRequest src, boolean allowGeneratedId);
-
-    AccountRequest getMatchingAccountRequest(AccountRequest src);
-
-    List<AccountRequest> getAccountRequests(String appname);
-
-    @Deprecated
-    AccountRequest getAccountRequest(String appname);
-
-    AccountRequest getAccountRequest(String appname, String instance,
-                                     String nativeIdentity);
-
-    ObjectRequest getObjectRequest(String appName, String instance, String nativeIdentity);
-
-    AccountRequest getIIQAccountRequest();
-
-    AccountRequest getIDMAccountRequest();
-
-    Collection<EntitlementSnapshot> convertToEntitlementSnapshots()
-            throws GeneralException;
-
-    List<String> getApplicationNames();
-
-    List<Application> getApplications(Resolver resolver)
-            throws GeneralException;
-
-    List<AccountRequest> getNonModifyAccountRequests();
-
-    List<AccountRequest> getModifyAccountRequests();
-
-    Map toMap();
-
-    void fromMap(Map map);
-
-    ProvisioningPlan collapse(boolean includeNullSet);
-
-    boolean isFullyCommitted();
-
-    String getNormalizedStatus();
-
-    boolean hasBeenExecuted();
-
-    boolean needsRetry();
-
-    @Deprecated
-    void add(String appname, String attname, Operation op, Object value);
-
-    @Deprecated
-    @SuppressWarnings("deprecation")
-    void add(String appname, String attname, Object value);
-
-    @Deprecated
-    @SuppressWarnings("deprecation")
-    void remove(String appname, String attname, Object value);
-
-    @Deprecated
-    @SuppressWarnings("deprecation")
-    void set(String appname, String attname, Object value);
-
-    /**
-     * Operation codes for attributes and permissions.
-     * <p>
-     * Set means to replace the current value (the default).
-     * Add means to incrementally add something to the current value.
-     * Remove means to incrementally remove something to the current value.
-     * <p>
-     * Revoke is used only during certification to indicate that a role
-     * assignment should both be removed, and marked as permanently
-     * revoked so the assignment rules don't put it back.
-     * <p>
-     * Retain means to keep the attribute values if they exist but do not
-     * add them if they do not exist. It is only used in high-level
-     * plans, never in a compiled plan. The effect is to remove the value
-     * from Remove or Revoke operations but not to leave Add operations
-     * if one did not already exist.
-     */
-    @XMLClass
-    public enum Operation {
-        Set(MessageKeys.PROVISIONING_PLAN_OP_SET),
-        Add(MessageKeys.PROVISIONING_PLAN_OP_ADD),
-        Remove(MessageKeys.PROVISIONING_PLAN_OP_REMOVE),
-        Revoke(MessageKeys.PROVISIONING_PLAN_OP_REVOKE),
-        Retain(MessageKeys.PROVISIONING_PLAN_OP_RETAIN);
+    public ProvisioningPlan.AccountRequest getAccountRequest(String appname, String instance, String nativeIdentity) {
+        Object[] var5 = new Object[]{appname, instance, nativeIdentity};
+
+        try {
+            ProvisioningPlan.AccountRequest var9;
+            ProvisioningPlan.AccountRequest var10 = var9 = this.getAccountRequest(appname, instance, nativeIdentity, false);
+            return var9;
+        } catch (Throwable var12) {
+            throw var12;
+        }
+    }
+
+
+    private ProvisioningPlan.AccountRequest getAccountRequest(String appname, String instance, String nativeIdentity, boolean onlyAppName) {
+        Object[] var9 = new Object[]{appname, instance, nativeIdentity, Conversions.booleanObject(onlyAppName)};
+
+        try {
+            ProvisioningPlan.AccountRequest found = null;
+            if (this._accounts != null && appname != null) {
+                label40: {
+                    Iterator var6 = this._accounts.iterator();
+
+                    ProvisioningPlan.AccountRequest req;
+                    do {
+                        do {
+                            if (!var6.hasNext()) {
+                                break label40;
+                            }
+
+                            req = (ProvisioningPlan.AccountRequest)var6.next();
+                        } while(!appname.equals(req.getApplication()));
+                    } while(!onlyAppName && (!Util.nullSafeEq(req.getInstance(), instance, true) || !Util.nullSafeEq(req.getNativeIdentity(), nativeIdentity, true)));
+
+                    found = req;
+                }
+            }
+
+            return found;
+        } catch (Throwable var17) {
+            throw var17;
+        }
+    }
+
+    public Map toMap() {
+
+        try {
+            Map map = new HashMap();
+            if (this._nativeIdentity != null) {
+                map.put("identity", this._nativeIdentity);
+            }
+
+            ArrayList list;
+            Iterator var3;
+            Map rmap;
+            if (this._accounts != null) {
+                list = new ArrayList();
+                var3 = this._accounts.iterator();
+
+                while(var3.hasNext()) {
+                    ProvisioningPlan.AccountRequest req = (ProvisioningPlan.AccountRequest)var3.next();
+                    rmap = req.toMap();
+                    if (rmap != null) {
+                        list.add(rmap);
+                    }
+                }
+
+                map.put("accounts", list);
+            }
+
+            if (this._objectRequests != null) {
+                list = new ArrayList();
+                var3 = this._objectRequests.iterator();
+
+                while(var3.hasNext()) {
+                    ProvisioningPlan.ObjectRequest req = (ProvisioningPlan.ObjectRequest)var3.next();
+                    rmap = req.toMap();
+                    if (rmap != null) {
+                        list.add(rmap);
+                    }
+                }
+
+                map.put("objects", list);
+            }
+
+            if (this._arguments != null) {
+                map.put("args", this._arguments);
+            }
+
+            if (this._result != null) {
+                map.put("result", this._result.toMap());
+            }
+
+            return map;
+        } catch (Throwable var10) {
+            throw var10;
+        }
+    }
+
+    public static void removeAll(List list, List values, boolean nocase) {
+        Object[] var6 = new Object[]{list, values, Conversions.booleanObject(nocase)};
+
+        try {
+            if (list == values) {
+                list.clear();
+            } else if (nocase) {
+                Iterator var3 = values.iterator();
+
+                while(var3.hasNext()) {
+                    Object o = var3.next();
+                    remove(list, o, nocase);
+                }
+            } else {
+                list.removeAll(values);
+            }
+
+            Object var10 = null;
+        } catch (Throwable var12) {
+            throw var12;
+        }
+    }
+
+    public static class AttributeRequest extends ProvisioningPlan.GenericRequest {
+
+        public AttributeRequest() {
+
+        }
+
+        public AttributeRequest(Map map) {
+
+            try {
+                this.fromMap(map);
+            } catch (Throwable var5) {
+                throw var5;
+            }
+        }
+
+        public AttributeRequest(String name, Object value) {
+
+            try {
+                this._name = name;
+                this._value = value;
+            } catch (Throwable var7) {
+                throw var7;
+            }
+        }
+
+        public AttributeRequest(String name, ProvisioningPlan.Operation op, Object value) {
+            Object[] var5 = new Object[]{name, op, value};
+
+            try {
+                this._name = name;
+                this._op = op;
+                this._value = value;
+            } catch (Throwable var10) {
+                throw var10;
+            }
+        }
+
+        public AttributeRequest(String name, ProvisioningPlan.Operation op, Object value, String assignmentId) {
+            this(name, op, value);
+            Object[] var6 = new Object[]{name, op, value, assignmentId};
+
+            try {
+                this._assignmentId = assignmentId;
+            } catch (Throwable var12) {
+                throw var12;
+            }
+        }
+
+        public AttributeRequest(ProvisioningPlan.AttributeRequest src) {
+            super(src);
+
+        }
+
+        public ProvisioningPlan.GenericRequest instantiate() {
+
+            try {
+                ProvisioningPlan.AttributeRequest var2;
+                ProvisioningPlan.AttributeRequest var3 = var2 = new ProvisioningPlan.AttributeRequest();
+                return var2;
+            } catch (Throwable var5) {
+                throw var5;
+            }
+        }
+
+        public boolean isSecret() {
+
+            try {
+                boolean secret = false;
+                boolean declaredSecret = this.getBoolean("secret");
+                boolean appearsSecret = ProvisioningPlan.isSecret(this.getName());
+                secret = appearsSecret || declaredSecret;
+                return secret;
+            } catch (Throwable var8) {
+                throw var8;
+            }
+        }
+
+        public Object getValue(SailPointContext ctx) throws GeneralException {
+
+            try {
+                Object var10000;
+                Object var5;
+                if (this._value != null && this._value instanceof Reference) {
+                    Reference ref = (Reference)this._value;
+                    var10000 = var5 = ctx.getReferencedObject(ref.getClassName(), ref.getId(), ref.getName());
+                } else {
+                    var10000 = var5 = this._value;
+                }
+
+                Object var6 = var10000;
+                return var5;
+            } catch (Throwable var8) {
+                throw var8;
+            }
+        }
+
+        public Map toMap() {
+
+            try {
+                Map map = new HashMap();
+                map.put("name", this._name);
+                map.put("value", this._value);
+                if (this._op != null) {
+                    map.put("op", this._op.toString());
+                }
+
+                if (this._arguments != null) {
+                    map.put("args", this._arguments);
+                }
+
+                if (this._result != null) {
+                    map.put("result", this._result.toMap());
+                }
+
+                return map;
+            } catch (Throwable var6) {
+                throw var6;
+            }
+        }
+
+        public void fromMap(Map map) {
+
+            try {
+                this._name = Util.getString(map, "name");
+                this._value = map.get("value");
+                Object o = map.get("op");
+                if (o != null) {
+                    this._op = (ProvisioningPlan.Operation)Enum.valueOf(ProvisioningPlan.Operation.class, o.toString());
+                }
+
+                o = map.get("args");
+                if (o instanceof Map) {
+                    this._arguments = new Attributes();
+                    this._arguments.putAll((Map)o);
+                }
+
+                o = map.get("result");
+                if (o instanceof Map) {
+                    this._result = new ProvisioningResult((Map)o);
+                }
+
+                Object var5 = null;
+            } catch (Throwable var7) {
+                throw var7;
+            }
+        }
+    }
+
+    public static enum Operation {
+        Set,
+        Add,
+        Remove,
+        Revoke,
+        Retain;
 
         private String messageKey;
 
         private Operation(String messageKey) {
-            this.messageKey = messageKey;
+            Object[] var5 = new Object[]{var1, Conversions.intObject(var2), messageKey};
+
+            try {
+                this.messageKey = messageKey;
+            } catch (Throwable var10) {
+                throw var10;
+            }
         }
 
         public String getMessageKey() {
-            return this.messageKey;
+
+            try {
+                String var2;
+                String var3 = var2 = this.messageKey;
+                return var2;
+            } catch (Throwable var5) {
+                throw var5;
+            }
+        }
+
+        static {
+
+            try {
+                Set = new ProvisioningPlan.Operation("Set", 0, "provisioning_plan_op_set");
+                Add = new ProvisioningPlan.Operation("Add", 1, "provisioning_plan_op_add");
+                Remove = new ProvisioningPlan.Operation("Remove", 2, "provisioning_plan_op_remove");
+                Revoke = new ProvisioningPlan.Operation("Revoke", 3, "provisioning_plan_op_revoke");
+                Retain = new ProvisioningPlan.Operation("Retain", 4, "provisioning_plan_op_retain");
+            } catch (Throwable var1) {
+                if (var1 instanceof ExceptionInInitializerError) {
+                    throw (ExceptionInInitializerError)var1;
+                }
+
+                throw var1;
+            }
+
         }
     }
 
-    /**
-     * Represents a request for one application account.
-     * This exists for backward compatibility with many things prior to 6.0
-     * but it is effectively nothing more than an ObjectRequest.
-     * <p>
-     * Some deprecated methods are carried forward for XML upgrading.
-     */
-    @XMLClass
-    public static class AccountRequest extends AbstractRequest {
-
-        //////////////////////////////////////////////////////////////////////
-        //
-        // Fields
-        //
-        //////////////////////////////////////////////////////////////////////
-
-        /**
-         * Defines the operation to perform on the account. This values are
-         * the same as ObjectRequest.Operation. Either can be used when
-         * building the request. This is for backward compatibility with
-         * pre-6.0 code.
-         *
-         * @ignore I couldn't find a way avoid duplicating this.  Old code often
-         * does this:  Just inheriting
-         * <p>
-         * import sailpoint.object.ProvisioningPlan.AccountRequest.Operation;
-         * <p>
-         * But this results in the error:
-         * <p>
-         * import requires canonical name forsailpoint.object.ProvisioningPlan.ObjectRequest.Operation
-         * <p>
-         * Java enums cannot "subclass" like classes can so we cannot create
-         * an empty one down here that extends the other.  Since the
-         * operation list almost never changes it is duplicated and
-         * translation methods are provided.
-         */
-        @XMLClass(xmlname = "AccountOperation")
-        public static enum Operation {
-            Create,
-            Modify,
-            Delete,
-            Disable,
-            Enable,
-            Unlock,
-            Lock;
-        }
-
-        /**
-         * Temporary kludge for role assignment with multiple accounts.
-         * If this flag is true, it means this AccountRequest was generated
-         * by the role expander and tells PlanCompiler NOT to generate
-         * pre-6.3 AccountSelections if the target account is ambiguous.
-         * This should be removed by the time 6.3 is over.
-         */
+    public static class AccountRequest extends ProvisioningPlan.AbstractRequest {
+        public static final String TYPE_ROLE = "role";
+        public static final String TYPE_ENTITLEMENT = "entitlement";
+        public static final String ATTACHMENTS = "attachments";
+        public static final String ATTACHMENT_CONFIG_LIST = "attachmentConfigList";
         boolean _roleExpansion;
-
-        //////////////////////////////////////////////////////////////////////
-        //
-        // Constructors
-        //
-        //////////////////////////////////////////////////////////////////////
 
         public AccountRequest() {
         }
@@ -986,303 +719,159 @@ public interface ProvisioningPlan extends PersistentXmlObject, Serializable {
             super(map);
         }
 
-        public AccountRequest(AccountRequest src) {
-            super(src);
+        public AccountRequest(ProvisioningPlan.AccountRequest src) {
+            super((ProvisioningPlan.AbstractRequest)src);
         }
 
-        /**
-         * @ignore ObjectRequest doesn't have this, but some older code may
-         * still use it.
-         */
-        public AccountRequest(Operation op, String app, String inst, String id) {
+        public AccountRequest(ProvisioningPlan.AccountRequest.Operation op, String app, String inst, String id) {
+            Object[] var6 = new Object[]{op, app, inst, id};
 
-            setOperation(op);
-            setApplication(app);
-            setInstance(inst);
-            setNativeIdentity(id);
-        }
-
-        /**
-         * Temporary transient flag meaning this request came from role expansion.
-         * It is no serialized to xml.
-         */
-        public boolean isRoleExpansion() {
-            return _roleExpansion;
-        }
-
-        /**
-         * @ignore AccountRequest has historically had a clone() method. I don't
-         * think we use it in system code but it's been around for a long time
-         * so it may be used in custom code.
-         */
-        public AccountRequest clone() {
-            return new AccountRequest(this);
-        }
-
-        /**
-         * @ignore Not sure who uses this, it wasn't factored up to
-         * ObjectRequest, so we need this?
-         */
-        public boolean hasNoAttributesOrPermissions() {
-            return ((_attributes == null || _attributes.size() == 0) &&
-                    (_permissions == null || _permissions.size() == 0));
-        }
-
-        /**
-         * @ignore Backward compatibility accessor for cloneRequestProperties.
-         */
-        public void cloneAccountProperties(AccountRequest src) {
-
-            cloneRequestProperties(src);
-        }
-
-        /**
-         * @ignore Backward compatibility property that uses the older operation
-         * enumeration.  This is functionally the same as ObjectRequest.setOp()
-         */
-        public void setOperation(Operation op) {
-            if (op != null)
-                setOp(Enum.valueOf(ObjectOperation.class, op.toString()));
-        }
-
-        /**
-         * @ignore Backward compatibility property that uses the older operation
-         * enumeration.  This is functionally the same as
-         * ObjectRequest.getOp().
-         */
-        public Operation getOperation() {
-            Operation op = null;
-            ObjectOperation oop = getOp();
-            if (oop != null)
-                op = Enum.valueOf(Operation.class, oop.toString());
-            return op;
-        }
-
-        /**
-         * Causes object type to be suppressed from the Map representation.
-         */
-        public boolean isAccountRequest() {
-            return true;
-        }
-
-        //////////////////////////////////////////////////////////////////////
-        //
-        // Upgrades
-        //
-        //////////////////////////////////////////////////////////////////////
-
-        /**
-         * Return the request ID if this request was queued.
-         *
-         * @ignore requestID used to be a first-class property, now it
-         * is stored inside the ProvisioningResult.  Support the
-         * old property for backward compatibility with
-         * IntegrationExecutors
-         * @deprecated use {@link ProvisioningResult#getRequestID()} on {@link #getResult()}
-         */
-        @Deprecated
-        public String getRequestID() {
-            return ((_result != null) ? _result.getRequestID() : null);
-        }
-
-        /**
-          Parallel accessor for the xmlRequestID property upgrade.
-         * @deprecated use {@link ProvisioningResult#getRequestID()} on {@link #getResult()}
-         */
-        @Deprecated
-        public String getXmlRequestID() {
-            return null;
-        }
-
-        /**
-         
-         * @deprecated Only used for JSON - use {@link #getArguments()} instead.
-         */
-        @Deprecated
-        public Attributes<String, Object> getArgs() {
-            return getArguments();
-        }
-
-        /**
-         
-         * @deprecated Only used for JSON - use {@link #setArguments(Attributes)} instead.
-         */
-        @Deprecated
-        public void setArgs(Attributes<String, Object> atts) {
-            setArguments(atts);
-        }
-
-    }
-
-    /**
-     * Represents an operation on a single account attribute.
-     * <p>
-     * A Script can be used if you need to calculate a value at runtime
-     * rather than defining it statically. This is intended for plans
-     * attached to roles, not the compiled plans passed to the
-     * IntegrationExecutors.
-     *
-     * @ignore We could take this further and allow
-     * "scriptlets" in the _value like we do in the Workflow model
-     * but this seems kind of overkill here since only scripts or rule
-     * references are meaningful.  Still value='rule:foo' is a lot more
-     * convenient than this:
-     * <pre>
-     *   &lt;Script>
-     *     &lt;Source>
-     *       import java.util.HashMap;
-     *       import sailpoint.object.Rule;
-     *       Rule rule = context.getObject(Rule.class, "foo");
-     *       HashMap args = new HashMap();
-     *       args.put("identity", identity);
-     *       context.runRule(rule, args);
-     *     &lt;/Source>
-     *   &lt;/Script>
-     * </pre>
-     * I don't like over-using Rules now that we have inline Script
-     * capabilities so we'll punt on "rule:foo" for now.
-     */
-    @XMLClass
-    public static class AttributeRequest extends GenericRequest {
-
-        public AttributeRequest() {
-        }
-
-        public AttributeRequest(Map map) {
-            fromMap(map);
-        }
-
-        public AttributeRequest(String name, Object value) {
-            _name = name;
-            _value = value;
-        }
-
-        public AttributeRequest(String name, Operation op, Object value) {
-            _name = name;
-            _op = op;
-            _value = value;
-        }
-
-        public AttributeRequest(String name, Operation op, Object value, String assignmentId) {
-            this(name, op, value);
-            _assignmentId = assignmentId;
-        }
-
-        /**
-         * Handy constructor for plan transformers.
-         */
-        public AttributeRequest(AttributeRequest src) {
-            super(src);
-        }
-
-        //
-        // Pseudo properties for XML serialization
-        // The inherited properties aren't XMLProperties so we have
-        // more control over the names, don't need to change the
-        // name here but we do in PermissionRequest.  Put the
-        // XML qualifier after the base property name so these
-        // continue to sort they would if they actually had the xmlname.
-        //
-
-        /**
-         
-         * @deprecated use {@link #getName()}
-         */
-        @Deprecated
-        @XMLProperty(xmlname = "name")
-        public String getNameXml() {
-            return _name;
-        }
-
-        //
-        // This little dance let's us represent strings
-        // using an XML element while complex values are
-        // wrapped in a <value> element.  Not absolutely necessary
-        // but it's what XML authors expect.
-        //
-
-        /**
-         
-         * @deprecated use {@link #getValue()}
-         */
-        @Deprecated
-        @XMLProperty(mode = SerializationMode.ATTRIBUTE, xmlname = "value")
-        public String getValueXmlAttribute() {
-            return (_value instanceof String) ? (String) _value : null;
-        }
-
-        /**
-         
-         * @deprecated use {@link #getValue()}
-         */
-        @Deprecated
-        @XMLProperty(xmlname = "Value")
-        public Object getValueXmlElement() {
-            return (_value instanceof String) ? null : _value;
-        }
-
-        /**
-         
-         * @deprecated use {@link #getDisplayValue()}
-         */
-        @Deprecated
-        @XMLProperty(xmlname = "displayValue")
-        public String getDisplayValueXml() {
-            return this._displayValue;
-        }
-
-        //
-        // utilities
-        //
-
-        /**
-         * Returns attribute value. If the value is a reference, the referenced
-         * object will be returned.
-         *
-         * @param ctx SailPointContext
-         * @return Attribute value or null
-         * @throws GeneralException
-         */
-        public Object getValue(SailPointContext ctx) throws GeneralException {
-            if (_value != null && _value instanceof Reference) {
-                Reference ref = (Reference) _value;
-                return ctx.getReferencedObject(ref.getClassName(), ref.getId(), ref.getName());
-            } else {
-                return _value;
+            try {
+                this.setOperation(op);
+                this.setApplication(app);
+                this.setInstance(inst);
+                this.setNativeIdentity(id);
+            } catch (Throwable var12) {
+                throw var12;
             }
         }
 
-        public Map toMap() {
-            Map map = new HashMap();
-            map.put(ATT_ATTRIBUTE_NAME, _name);
-            map.put(ATT_ATTRIBUTE_VALUE, _value);
-            if (_op != null)
-                map.put(ATT_OP, _op.toString());
-            if (_arguments != null)
-                map.put(ATT_REQUEST_ARGUMENTS, _arguments);
-            if (_result != null)
-                map.put(ATT_REQUEST_RESULT, _result.toMap());
-            return map;
+        public ProvisioningPlan.AbstractRequest instantiate() {
+            try {
+                ProvisioningPlan.AccountRequest var2;
+                ProvisioningPlan.AccountRequest var3 = var2 = new ProvisioningPlan.AccountRequest();
+                return var2;
+            } catch (Throwable var5) {
+                throw var5;
+            }
         }
 
-        public void fromMap(Map map) {
-            _name = Util.getString(map, ATT_ATTRIBUTE_NAME);
-            _value = map.get(ATT_ATTRIBUTE_VALUE);//Util.getString(map, ATT_ATTRIBUTE_VALUE);
-            Object o = map.get(ATT_OP);
-            if (o != null)
-                _op = Enum.valueOf(Operation.class, o.toString());
+        public ProvisioningPlan.AccountRequest clone() {
 
-            o = map.get(ATT_REQUEST_ARGUMENTS);
-            if (o instanceof Map) {
-                _arguments = new Attributes<String, Object>();
-                _arguments.putAll((Map) o);
+            try {
+                ProvisioningPlan.AccountRequest var2;
+                ProvisioningPlan.AccountRequest var3 = var2 = new ProvisioningPlan.AccountRequest(this);
+                return var2;
+            } catch (Throwable var5) {
+                throw var5;
+            }
+        }
+
+        public void setOperation(ProvisioningPlan.AccountRequest.Operation op) {
+
+            try {
+                if (op != null) {
+                    this.setOp((ProvisioningPlan.ObjectOperation)Enum.valueOf(ProvisioningPlan.ObjectOperation.class, op.toString()));
+                }
+
+                Object var4 = null;
+            } catch (Throwable var6) {
+                throw var6;
+            }
+        }
+
+        public ProvisioningPlan.AccountRequest.Operation getOperation() {
+
+            try {
+                ProvisioningPlan.AccountRequest.Operation op = null;
+                ProvisioningPlan.ObjectOperation oop = this.getOp();
+                if (oop != null) {
+                    op = (ProvisioningPlan.AccountRequest.Operation)Enum.valueOf(ProvisioningPlan.AccountRequest.Operation.class, oop.toString());
+                }
+
+                return op;
+            } catch (Throwable var7) {
+                throw var7;
+            }
+        }
+
+        public static enum Operation {
+            Create,
+            Modify,
+            Delete,
+            Disable,
+            Enable,
+            Unlock,
+            Lock;
+
+            private Operation() {
+
+                try {
+                } catch (Throwable var7) {
+                    throw var7;
+                }
             }
 
-            o = map.get(ATT_REQUEST_RESULT);
-            if (o instanceof Map) {
-                _result = new ProvisioningResult((Map) o);
+            static {
+
+                try {
+                    Create = new ProvisioningPlan.AccountRequest.Operation("Create", 0);
+                    Modify = new ProvisioningPlan.AccountRequest.Operation("Modify", 1);
+                    Delete = new ProvisioningPlan.AccountRequest.Operation("Delete", 2);
+                    Disable = new ProvisioningPlan.AccountRequest.Operation("Disable", 3);
+                    Enable = new ProvisioningPlan.AccountRequest.Operation("Enable", 4);
+                    Unlock = new ProvisioningPlan.AccountRequest.Operation("Unlock", 5);
+                    Lock = new ProvisioningPlan.AccountRequest.Operation("Lock", 6);
+                } catch (Throwable var1) {
+                    if (var1 instanceof ExceptionInInitializerError) {
+                        throw (ExceptionInInitializerError)var1;
+                    }
+
+                    throw var1;
+                }
+
             }
         }
     }
 
+    public static enum ObjectOperation {
+        Create,
+        Modify,
+        Delete,
+        Disable,
+        Enable,
+        Unlock,
+        Lock,
+        Set;
+
+        private String messageKey;
+
+        private ObjectOperation(String messageKey) {
+            try {
+                this.messageKey = messageKey;
+            } catch (Throwable var10) {
+                throw var10;
+            }
+        }
+
+        public String getMessageKey() {
+
+            try {
+                String var2;
+                String var3 = var2 = this.messageKey;
+                return var2;
+            } catch (Throwable var5) {
+                throw var5;
+            }
+        }
+
+        static {
+            try {
+                Create = new ProvisioningPlan.ObjectOperation("Create", 0, "resource_object_op_create");
+                Modify = new ProvisioningPlan.ObjectOperation("Modify", 1, "resource_object_op_modify");
+                Delete = new ProvisioningPlan.ObjectOperation("Delete", 2, "resource_object_op_delete");
+                Disable = new ProvisioningPlan.ObjectOperation("Disable", 3, "resource_object_op_disable");
+                Enable = new ProvisioningPlan.ObjectOperation("Enable", 4, "resource_object_op_enable");
+                Unlock = new ProvisioningPlan.ObjectOperation("Unlock", 5, "resource_object_op_unlock");
+                Lock = new ProvisioningPlan.ObjectOperation("Lock", 6, "resource_object_op_lock");
+                Set = new ProvisioningPlan.ObjectOperation("Set", 7, "resource_object_op_set");
+            } catch (Throwable var1) {
+                if (var1 instanceof ExceptionInInitializerError) {
+                    throw (ExceptionInInitializerError)var1;
+                }
+
+                throw var1;
+            }
+        }
+    }
 }

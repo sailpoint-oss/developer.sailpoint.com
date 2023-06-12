@@ -19,3 +19,4 @@ value:
     autoRevokeAllowed: false
     recommendationsEnabled: false
     correlatedStatus: CORRELATED
+    mandatoryCommentRequirement: NO_DECISIONS

@@ -13,4 +13,5 @@ value:
     sourceIds:
       - 612b31b1a0f04aaf83123bdb80e70db6
   correlatedStatus: CORRELATED
+  mandatoryCommentRequirement: NO_DECISIONS
   

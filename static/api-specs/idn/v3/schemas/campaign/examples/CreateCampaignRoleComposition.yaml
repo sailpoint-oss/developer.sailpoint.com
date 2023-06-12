@@ -16,4 +16,5 @@ value:
       name: SailPoint Support
     roleIds:
       - b15d609fc5c8434b865fe552315fda8f
+  mandatoryCommentRequirement: NO_DECISIONS
 

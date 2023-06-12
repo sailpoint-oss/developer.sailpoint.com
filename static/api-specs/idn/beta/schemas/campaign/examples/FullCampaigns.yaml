@@ -38,6 +38,7 @@ value:
     totalCertifications: 0
     completedCertifications: 0
     sourcesWithOrphanEntitlements: null
+    mandatoryCommentRequirement: NO_DECISIONS
   - id: 1be8fc1103914bf0a4e14e316b6a7b7c
     name: Manager Review
     description: A review of everyone's access by their manager.
@@ -61,6 +62,7 @@ value:
     totalCertifications: 5
     completedCertifications: 0
     sourcesWithOrphanEntitlements: []
+    mandatoryCommentRequirement: NO_DECISIONS
   - id: 7e1a731e3fb845cfbe58112ba4673ee4
     name: Search Campaign
     description: Search Campaign for Identities
@@ -93,6 +95,7 @@ value:
     totalCertifications: 6
     completedCertifications: 0
     sourcesWithOrphanEntitlements: []
+    mandatoryCommentRequirement: NO_DECISIONS
   - id: ad3cf3dd50394b1bad646de4bc51b999
     name: Source Owner Campaign
     description: Example for Source Owner Campaign
@@ -119,3 +122,4 @@ value:
     completedCertifications: 0
     sourcesWithOrphanEntitlements: []
     correlatedStatus: CORRELATED
+    mandatoryCommentRequirement: NO_DECISIONS

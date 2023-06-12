@@ -206,3 +206,13 @@ allOf:
               type: string
               description: Name of the source
               example: Source with orphan entitlements
+      mandatoryCommentRequirement:
+        type: string
+        description: >-
+          Determines whether comments are required for decisions during certification reviews. You can require comments
+          for all decisions, revoke-only decisions, or no decisions. By default, comments are not required for decisions.
+        enum:
+          - "ALL_DECISIONS"
+          - "REVOKE_ONLY_DECISIONS"
+          - "NO_DECISIONS"
+        example: NO_DECISIONS

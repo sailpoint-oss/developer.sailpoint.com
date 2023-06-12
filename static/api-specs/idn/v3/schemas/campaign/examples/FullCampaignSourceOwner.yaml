@@ -25,4 +25,5 @@ value:
   completedCertifications: 0
   sourcesWithOrphanEntitlements: null
   correlatedStatus: CORRELATED
+  mandatoryCommentRequirement: NO_DECISIONS
   

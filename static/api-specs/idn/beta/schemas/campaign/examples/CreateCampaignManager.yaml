@@ -9,6 +9,7 @@ value:
   filter:
     type: CAMPAIGN_FILTER
     id: 0c46fb26c6b20967a55517ee90d15b93
+  mandatoryCommentRequirement: NO_DECISIONS
     
   
     

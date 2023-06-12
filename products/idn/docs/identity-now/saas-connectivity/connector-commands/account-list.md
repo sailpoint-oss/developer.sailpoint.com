@@ -77,6 +77,12 @@ IDN will throw a connection timeout error if your connector doesn't respond with
 
 :::
 
+:::caution Important
+
+IDN supports [delta aggregation](#delta-aggregation-state). If your source has a large number of accounts that will be syncronized with IDN, then it is highly recommended to utilize [delta aggregation](#delta-aggregation-state) for the source. 
+
+:::
+
 The following code snippet from [index.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/index.ts) shows how to register the account list command on the connector object:
 
 ```javascript
@@ -174,9 +180,11 @@ The result of the account list command is not an array of objects but several in
 
 If your source can keep track of changes to the data in some way, then delta aggregation can be performed on a source. In order to implement, there are a few things that need to be configured
 
-1. In your connector-spec.json file, in the sourceConfig section, a checkbox needs to be added to enable state with the key ```spConnEnableStatefulCommands```:
+1. In your connector-spec.json file, the feature needs to be enabled by adding the following key: ```"supportsStatefulCommands": true,``` and in the sourceConfig section, a checkbox needs to be added to enable state with the key ```spConnEnableStatefulCommands```:
 
-```
+```javascript
+"supportsStatefulCommands": true,
+...
 {
     "key": "spConnEnableStatefulCommands",
     "label": "Stateful",
@@ -185,9 +193,9 @@ If your source can keep track of changes to the data in some way, then delta agg
 }
 ```
 
-2. In the ```stdAccountList``` command, when you are done sending commands, you need to also send the state to IDN so it knows where to start the next time it sends a list request:
+2. In the ```stdAccountList``` command, when you are done sending accounts, you need to also send the state to IDN so it knows where to start the next time it sends a list request:
 
-```
+```javascript
 const state = {"data": Date.now().toString()}
 ...
 res.saveState(state)
@@ -203,7 +211,7 @@ The state that you send using the ```saveState``` command MUST be a json object,
 
 3. In the ```stdAccountList``` command, you need to properly handle the state object. Something like below checks the stateful boolean as well as the state object and fetches accounts accordingly:
 
-```
+```javascript
 .stdAccountList(async (context: Context, input: StdAccountListInput, res: Response<StdAccountListOutput>) => {
     let accounts = []
     const state = {"data": Date.now().toString()}

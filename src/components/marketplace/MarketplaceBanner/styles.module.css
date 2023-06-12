@@ -6,8 +6,8 @@
   max-width: 459px;
   font-weight: bold;
   line-height: 130%;
-  top: 29px;
-  left: 228px;
+  top: -84px;
+  left: 101px;
 }
 
 .background {
@@ -18,8 +18,11 @@
 
 .imageContainer {
   width: 100%;
-  height: 180px;
-  background-size: 1920px 180px;
-  background-image: url('../../../../static/blog/marketplace_banner_template.png');
-  background-repeat: repeat;
+  height: 90px;
+  background: rgb(0,51,161);
+  background: linear-gradient(90deg, rgba(0,51,161,1) 0%, rgba(84,192,232,1) 100%);
+}
+
+.headerImage {
+  height: 90px;
 }

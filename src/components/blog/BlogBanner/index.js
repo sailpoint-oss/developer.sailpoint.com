@@ -9,13 +9,11 @@ export default function BlogBanner() {
     <div>
 
       <div className={styles.imageContainer}>
+      <img className={styles.headerImage} src={useBaseUrl('/blog/blog_banner_template.png')}></img>
         <div className={styles.blogHeaderText}>
-          SailPoint Developer Blog
+          Blog
         </div>
       </div >
-
-
-
     </div>
   );
 }

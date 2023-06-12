@@ -9,8 +9,9 @@ export default function MarketplaceBanner() {
     <div>
 
       <div className={styles.imageContainer}>
+      <img className={styles.headerImage} src={useBaseUrl('/blog/marketplace_banner_template.png')}></img>
         <div className={styles.blogHeaderText}>
-          SailPoint Developer Marketplace
+          Marketplace
         </div>
       </div >
 

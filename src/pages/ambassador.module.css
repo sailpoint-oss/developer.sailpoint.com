@@ -1,0 +1,17 @@
+.ambassadorContainer {
+    display: flex;
+}
+
+.ambassadorSidbarContainer {
+    flex: 5%;
+}
+
+@media only screen and (max-width: 870px) {
+    .ambassadorSidbarContainer {
+      display: none;
+    }
+}
+
+.ambassadorCardContainer {
+    flex: 95%;
+}

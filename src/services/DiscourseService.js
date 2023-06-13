@@ -8,6 +8,29 @@ export async function getTopPosts() {
     return [];
   }
 }
+export async function getAmbassadors() {
+  try {
+    const response = await fetch(
+      'https://developer.sailpoint.com/discuss/groups/ambassadors/members.json',
+    );
+    return await response.json();
+  } catch (error) {
+    return [];
+  }
+}
+
+export async function checkImage(url) {
+  try {
+    const response = await fetch(
+      url,
+    );
+    console.log(response)
+    return true
+  } catch (error) {
+    return false;
+  }
+}
+
 
 export async function getBlogPosts(tags) {
   let url = ''

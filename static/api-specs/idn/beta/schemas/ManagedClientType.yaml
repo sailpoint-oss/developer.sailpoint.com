@@ -6,4 +6,5 @@ enum:
   - CCG
   - VA
   - INTERNAL
+  - IIQ_HARVESTER
   - null

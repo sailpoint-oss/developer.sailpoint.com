@@ -25,7 +25,7 @@ get:
       name: configType
       required: true
       schema:
-        $ref: '../schemas/work-reassignment/WorkTypeEnum.yaml'
+        $ref: '../schemas/work-reassignment/ConfigTypeEnum.yaml'
       description: Reassignment work type
       example: accessRequests
     - in: query

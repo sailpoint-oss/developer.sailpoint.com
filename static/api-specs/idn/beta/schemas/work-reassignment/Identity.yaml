@@ -8,4 +8,4 @@ properties:
   name:
     type: string
     description: Human-readable display name of the object
-    example: William.Wilson
+    example: William Wilson

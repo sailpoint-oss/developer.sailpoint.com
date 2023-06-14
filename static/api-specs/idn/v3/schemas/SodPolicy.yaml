@@ -27,8 +27,7 @@ properties:
     example: "This policy ensures compliance of xyz"
     nullable: true
   ownerRef:
-    $ref: '../schemas/BaseReferenceDto.yaml'
-    readOnly: true
+    $ref: '../../v3/schemas/BaseReferenceDto.yaml'
   externalPolicyReference:
     type: string
     description: Optional External Policy Reference
@@ -64,12 +63,12 @@ properties:
   creatorId:
     type: string
     description: Policy's creator ID
-    example: "0f11f2a47c944bf3a2bd742580fe3bde"
+    example: "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde"
     readOnly: true
   modifierId:
     type: string
     description: Policy's modifier ID
-    example: "0f11f2a47c944bf3a2bd742580fe3bde"
+    example: "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde"
     nullable : true
     readOnly: true
   violationOwnerAssignmentConfig:
@@ -77,9 +76,9 @@ properties:
     nullable: true
   scheduled:
     type: boolean
-    default: false
     description: defines whether a policy has been scheduled or not
     example: true
+    default: false
   type:
     type: string
     description: whether a policy is query based or conflicting access based
@@ -89,5 +88,6 @@ properties:
       - CONFLICTING_ACCESS_BASED
     example: GENERAL
   conflictingAccessCriteria:
-    $ref: './ConflictingAccessCriteria.yaml'
-    nullable: true
+    allOf:
+      - $ref: './ConflictingAccessCriteria.yaml'
+      - nullable: true

@@ -6,7 +6,7 @@ get:
     This API downloads the CSV schema that defines the account attributes on a source.
     
     >**NOTE: This API is designated only for Delimited File sources.**
-  operationId: downloadSourceAccountsSchema
+  operationId: getAccountsSchema
   parameters:
     - in: path
       name: id
@@ -50,7 +50,7 @@ post:
 
     
     >**NOTE: This API is designated only for Delimited File sources.**
-  operationId: uploadSourceAccountsSchema
+  operationId: importAccountsSchema
   parameters:
     - in: path
       name: id

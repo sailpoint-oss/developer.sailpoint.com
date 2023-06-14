@@ -1,8 +1,10 @@
 get:
   operationId: getSourceHealth
+  security:
+    - oauth2: [ idn:sources:read ]
   tags:
     - Sources
-  summary: This API fetches source health by source's id
+  summary: Fetches source health by id
   description: >-
     This endpoint fetches source health by source's id
 

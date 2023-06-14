@@ -1,5 +1,7 @@
 get:
   operationId: listSources
+  security:
+    - oauth2: [ idn:sources:read ]
   tags:
     - Sources
   summary: Lists all sources in IdentityNow.
@@ -18,51 +20,22 @@ get:
       example: name eq "#Employees"
       description: >-
         Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
-
-
+        
         Filtering is supported for the following fields and operators:
-
-
-        **id**: *eq, in*
-
-
-        **name**: *co, eq, in, sw*
-
-
-        **type**: *eq, in*
-
-
-        **owner.id**: *eq, in*
-
-
-        **features**: *ca, co*
-
-
-        **created**: *eq*
-
-
-        **modified**: *eq*
-
-
-        **managementWorkgroup.id**: *eq*
-
-
-        **description**: *eq*
-
-
-        **authoritative**: *eq*
-
-
-        **healthy**: *eq*
-
-
-        **status**: *eq, in*
-        
-        
-        **connectionType**: *eq*
-
-
-        **connectorName**: *eq*
+          **id**: *eq, in*
+          **name**: *co, eq, in, sw*
+          **type**: *eq, in*
+          **owner.id**: *eq, in*
+          **features**: *ca, co*
+          **created**: *eq*
+          **modified**: *eq*
+          **managementWorkgroup.id**: *eq*
+          **description**: *eq*
+          **authoritative**: *eq*
+          **healthy**: *eq*
+          **status**: *eq, in*
+          **connectionType**: *eq*
+          **connectorName**: *eq*
     - in: query
       name: sorters
       schema:
@@ -71,7 +44,6 @@ get:
       example: name
       description: >-
         Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
-
 
         Sorting is supported for the following fields: **type, created, modified, name, owner.name, healthy, status**
     - in: query
@@ -109,6 +81,8 @@ get:
       $ref: '../../v3/responses/500.yaml'
 post:
   operationId: createSource
+  security:
+    - oauth2: [ idn:sources:manage ]
   tags:
     - Sources
   summary: Creates a source in IdentityNow.

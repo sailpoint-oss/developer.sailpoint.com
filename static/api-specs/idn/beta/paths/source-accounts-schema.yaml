@@ -2,7 +2,7 @@ get:
   tags:
     - Sources
   summary: Downloads source accounts schema template
-  operationId: downloadSourceAccountsSchema
+  operationId: getSourceAccountsSchema
   parameters:
     - in: path
       name: id
@@ -37,7 +37,7 @@ post:
   summary: Uploads source accounts schema template
   description: >-
     This API uploads a source schema template file to configure a source's account attributes.
-  operationId: uploadSourceAccountsSchema
+  operationId: importSourceAccountsSchema
   parameters:
     - in: path
       name: id

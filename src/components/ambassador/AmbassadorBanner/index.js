@@ -11,7 +11,7 @@ export default function AmbassadorBanner() {
       <div className={styles.imageContainer}>
       <img className={styles.headerImage} src={useBaseUrl('/ambassador/ambassador_banner_template.png')}></img>
         <div className={styles.ambassadorHeaderText}>
-          Ambassador
+          Ambassadors
         </div>
       </div >
     </div>

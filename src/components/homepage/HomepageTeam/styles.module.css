@@ -2,13 +2,14 @@
 .gridContainer {
   display: grid;
   place-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
   grid-gap: 40px;
   margin-left: 40px;
   margin-right: 40px;
 }
 
 .center {
-  margin: 50px auto;
-  max-width: 1000px;
+  margin: 0px auto;
+  max-width: 1300px;
+  margin-bottom: 50px;
 }

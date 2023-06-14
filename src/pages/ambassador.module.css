@@ -1,17 +1,29 @@
-.ambassadorContainer {
-    display: flex;
-}
 
-.ambassadorSidbarContainer {
-    flex: 5%;
-}
+.gridContainer {
+    display: grid;
+    place-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-gap: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+  
+  .center {
+    margin: 50px auto;
+    max-width: 1000px;
+  }
 
-@media only screen and (max-width: 870px) {
-    .ambassadorSidbarContainer {
-      display: none;
-    }
-}
-
-.ambassadorCardContainer {
-    flex: 95%;
-}
+  .gettingStartedText {
+    text-align: center;
+  
+    margin: 150px auto 50px auto;
+    width: calc(100% - 100px);
+    max-width: 600px;
+  }
+  
+  .gettingStartedOne {
+    color: var(--ifm-color-primary);
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 100%;
+  }

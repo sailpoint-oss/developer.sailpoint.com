@@ -8,16 +8,36 @@ export async function getTopPosts() {
     return [];
   }
 }
-export async function getAmbassadors() {
+export async function getAmbassadors(expert) {
+  try {
+    if (expert) {
+      const response = await fetch(
+        'https://developer.sailpoint.com/discuss/groups/ambassador_expert/members.json',
+      );
+      return await response.json();
+    } else {
+      const response = await fetch(
+        'https://developer.sailpoint.com/discuss/groups/ambassador/members.json',
+      );
+      return await response.json();
+    }
+
+  } catch (error) {
+    return [];
+  }
+}
+
+export async function getAmbassadorDetails(id) {
   try {
     const response = await fetch(
-      'https://developer.sailpoint.com/discuss/groups/ambassadors/members.json',
+      'https://developer.sailpoint.com/discuss/u/' + id + '.json',
     );
     return await response.json();
   } catch (error) {
     return [];
   }
 }
+
 
 export async function checkImage(url) {
   try {

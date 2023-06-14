@@ -3,15 +3,15 @@ import styles from './styles.module.css';
 import AmbassadorCard from '../AmbassadorCard';
 import BounceLoader from 'react-spinners/BounceLoader';
 
-import {getAmbassadors, checkImage} from '../../../services/DiscourseService';
+import {getAmbassadors, getAmbassadorDetails} from '../../../services/DiscourseService';
 export default function AmbassadorCards({
-  filterCallback
+  expert
   }) {
   const [cardData, setCardData] = React.useState();
   const [loadingCards, setLoadingCards] = React.useState(true);
 
   const getPosts = async () => {
-    const data = await getAmbassadors(filterCallback.join(','));
+    const data = await getAmbassadors(expert);
     const resultset = []
     if (data.members) {
       for (const member of data.members) {
@@ -28,7 +28,7 @@ export default function AmbassadorCards({
     getPosts();
     setCardData(undefined);
     setLoadingCards(true);
-  }, [filterCallback]);
+  }, []);
 
   if (cardData) {
     return (
@@ -65,11 +65,15 @@ export default function AmbassadorCards({
 }
 
 async function getMemberList(member) {
-  
+  const details = await getAmbassadorDetails(member.username)
   return {
     name: member.name,
     creatorImage: getavatarURL(member.avatar_template),
     title: member.title,
+    bio: details.bio_excerpt,
+    answers: details.accepted_answers,
+    views: details.profile_view_count,
+    location: details.location,
     link:
     'https://developer.sailpoint.com/discuss/u/' +
     member.username +

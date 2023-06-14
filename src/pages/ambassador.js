@@ -9,30 +9,24 @@ import styles from './ambassador.module.css';
 import AmbassadorCards from '../components/ambassador/AmbassadorCards';
 
 export default function Ambassador() {
-  const [filteredProduct, setFilteredProduct] = React.useState([]);
-
   const {siteConfig} = useDocusaurusContext();
 
-  const handleClick = (data) => {
-    var tempFilter = filteredProduct.slice()
-
-    const index = tempFilter.indexOf(data);
-    if (index !== -1) {
-      tempFilter.splice(index, 1);
-    } else {
-      tempFilter.push(data)
-    }
-
-    setFilteredProduct(tempFilter)
-  };
   return (
     <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
       <main>
-      <AmbassadorBanner />
-      <div className={styles.ambassadorContainer}>
-          <div className={styles.ambassadorCardContainer}><AmbassadorCards filterCallback={filteredProduct}/></div>
-      </div>
-      
+        <AmbassadorBanner />
+        <div className={styles.gettingStartedText}>
+          <div className={styles.gettingStartedOne}>Expert Ambassadors</div>
+        </div>
+        <div className={styles.ambassadorCardContainer}>
+          <AmbassadorCards expert={true} />
+        </div>
+        <div className={styles.gettingStartedText}>
+          <div className={styles.gettingStartedOne}>Ambassadors</div>
+        </div>
+        <div className={styles.ambassadorCardContainer}>
+          <AmbassadorCards expert={false} />
+        </div>
       </main>
     </Layout>
   );

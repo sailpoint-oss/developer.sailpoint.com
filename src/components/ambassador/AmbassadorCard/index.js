@@ -11,21 +11,17 @@ export default function AmbassadorCard({
   console.log(data)
   return (
     <Link to={data.link}>
-      <div className={styles.card} >
-        <div className={styles.cardUser}>
+
+
+      <div className={styles.card}>
+        <div className={styles.cardFaceContainer}>
           <img className={styles.cardFace} src={useBaseUrl(data.creatorImage)}></img>
-          <div className={styles.cardName}>{data.name}</div>
         </div>
-
-
-        <div className={styles.cardText}>
-          <div className={styles.cardBody}>{data.title}</div>
-        </div>
-        
-
-
-
+        <div className={styles.cardText}>{data.name}</div>
+        <div className={styles.titleText}>{data.title}</div>
+        <div className={styles.expertiseText}>Ambassador</div>
       </div>
+
     </Link>
   );
 }

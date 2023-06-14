@@ -947,7 +947,7 @@ paths:
     $ref: './v3/paths/sod-violation-report.yaml'
   /sod-risks/risks/{id}:
     $ref: "./v3/paths/sod-arm-risk.yaml"
-  /sod-violation-report-status/{reportResultId}:
+  /sod-policies/sod-violation-report-status/{reportResultId}:
     $ref: './v3/paths/sod-violation-report-status.yaml'
   /sod-violations/predict:
     $ref: "./v3/paths/sod-violations-predict.yaml"

@@ -1568,7 +1568,7 @@ paths:
     $ref: './beta/paths/sod-violation-report.yaml'
   /sod-violations/predict:
     $ref: './beta/paths/sod/predict-violations.yaml'
-  /sod-violation-report-status/{reportResultId}:
+  /sod-policies/sod-violation-report-status/{reportResultId}:
     $ref: './beta/paths/sod-violation-report-status.yaml'
   /sod-violation-report/run:
     $ref: './beta/paths/sod-all-report-run.yaml'

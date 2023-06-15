@@ -4,7 +4,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import AmbassadorBanner from '../components/ambassador/AmbassadorBanner';
-
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './ambassador.module.css';
 import AmbassadorCards from '../components/ambassador/AmbassadorCards';
 
@@ -15,15 +15,26 @@ export default function Ambassador() {
     <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
       <main>
         <AmbassadorBanner />
-        <div className={styles.gettingStartedText}>
-          <div className={styles.gettingStartedOne}>Expert Ambassadors</div>
+        <div className={styles.headerText}>
+          <div className={styles.headerTextOne}>Expert Ambassadors</div>
+        </div>
+        <div className={styles.imageContainer}>
+          <div className={styles.spanLeft}></div>
+          <img className={styles.ambassadorImage} src={useBaseUrl('/ambassador/AmbassadorBadge-Pink-Hex.png')}></img>
+          <div className={styles.spanLeft}></div>
         </div>
         <div className={styles.ambassadorCardContainer}>
           <AmbassadorCards expert={true} />
         </div>
-        <div className={styles.gettingStartedText}>
-          <div className={styles.gettingStartedOne}>Ambassadors</div>
+        <div className={styles.headerText}>
+          <div className={styles.headerTextOne}>Ambassadors</div>
         </div>
+        <div className={styles.imageContainer}>
+          <div className={styles.spanLeft}></div>
+          <img className={styles.ambassadorImage} src={useBaseUrl('/ambassador/AmbassadorBadge-QuadGrad-Squircle.png')}></img>
+          <div className={styles.spanLeft}></div>
+        </div>
+        
         <div className={styles.ambassadorCardContainer}>
           <AmbassadorCards expert={false} />
         </div>

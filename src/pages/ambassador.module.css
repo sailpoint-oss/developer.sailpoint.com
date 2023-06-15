@@ -13,17 +13,45 @@
     max-width: 1000px;
   }
 
-  .gettingStartedText {
+  .headerText {
     text-align: center;
-  
-    margin: 150px auto 50px auto;
+    display: flex;
+    margin: 150px auto 0px auto;
     width: calc(100% - 100px);
-    max-width: 600px;
+    justify-content: center;
   }
-  
-  .gettingStartedOne {
+
+  .headerTextOne {
     color: var(--ifm-color-primary);
     font-size: 30px;
     font-weight: bold;
     line-height: 100%;
+  }
+  
+
+  
+
+
+  .spanLeft {
+    width: 35%;
+    margin: 14px;
+    position: relative;
+    top: -45px;
+    border-bottom-width:2px;
+    border-bottom-style:solid;
+    border-bottom-color:var(--ifm-color-primary);
+  }
+
+
+
+  .imageContainer {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .ambassadorImage {
+    margin-left: 5px;
+    height: 120px;
+    width: 120px;
   }

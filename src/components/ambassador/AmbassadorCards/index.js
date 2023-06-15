@@ -74,6 +74,8 @@ async function getMemberList(member, details) {
     creatorImage: getavatarURL(member.avatar_template),
     title: member.title,
     bio: details.bio_excerpt,
+    member_since: new Date(member.added_at).toISOString().slice(0, 4),
+    badge_count: details.badge_count,
     answers: details.accepted_answers,
     location: details.location,
     website: details.website_name,

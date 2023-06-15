@@ -1,9 +1,14 @@
 /* Getting Started Card */
+
+.link:hover {
+  text-decoration: none;
+}
+
 .card {
   position: relative;
   margin-top: 20px;
   height: 500px;
-  /* max-width: 420px; */
+  max-width: 420px;
   /* UI Properties */
   background: var(--dev-card-background);
   box-shadow: var(--dev-card-shadow);
@@ -18,10 +23,29 @@
   box-shadow: var(--dev-card-selected);
 }
 
-.cardText {
-  position: absolute;
-  margin: 22px auto;
-  text-align: center;
+
+
+
+
+.cardFaceContainer {
+  display: flex;
+  margin: 30px;
+}
+
+.cardFace {
+  border-radius: 9999px;
+  justify-content: center;
+  display: flex;
+  height: 100px;
+  width: 100px;
+}
+
+.cardNameContainer {
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+.name {
   font-size: 18px;
   font-weight: 500;
   width: 100%;
@@ -31,9 +55,6 @@
 }
 
 .titleText {
-  position: absolute;
-  margin: 22px auto;
-  text-align: center;
   font-size: 10px;
   font-weight: 400;
   width: 100%;
@@ -44,9 +65,6 @@
 }
 
 .location {
-  position: absolute;
-  margin: 22px auto;
-  text-align: center;
   font-size: 10px;
   font-weight: 500;
   width: 100%;
@@ -54,7 +72,6 @@
   top: 141px;
   left: 0;
   color: var(--ifm-color-primary);
-  padding: 30px;
 }
 
 .cardArrow {
@@ -65,29 +82,51 @@
   width: 20px;
 }
 
-.cardFaceContainer {
-  width: 100%;
-  margin: 40px auto;
-}
 
-.cardFace {
-  border-radius: 9999px;
-  justify-content: center;
-  display: flex;
-  margin: auto;
-  height: 100px;
-  width: 100px;
-}
 
 .bio {
   position: absolute;
-  margin: 22px auto;
-  text-align: center;
+  margin: 30px auto;
   font-size: 16px;
   font-weight: 500;
   width: 100%;
-  top: 174px;
+  top: 100px;
   left: 0;
   color: var(--ifm-color-primary);
   padding: 30px;
+}
+
+
+.cardData {
+  position: absolute;
+  bottom: 50px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.cardEye {
+  fill: #96a9bb;
+  /* computed from codepen https://codepen.io/sosuke/pen/Pjoqqp */
+  filter: invert(79%) sepia(12%) saturate(484%) hue-rotate(168deg) brightness(84%) contrast(84%);
+  margin-left: 5px;
+  height: 18px;
+  width: 18px;
+}
+
+.cardCommentText {
+  color: #96a9ba;
+  /* computed from codepen https://codepen.io/sosuke/pen/Pjoqqp */
+  margin-left: 5px;
+  margin-bottom: 5px;
+  height: 20px;
+  font-size: 16px;
+}
+
+.cardDataLower {
+  position: absolute;
+  bottom: 20px;
+  left: 22px;
+  display: flex;
+  align-items: center;
 }

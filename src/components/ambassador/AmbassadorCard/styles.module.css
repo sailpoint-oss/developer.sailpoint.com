@@ -2,7 +2,7 @@
 .card {
   position: relative;
   margin-top: 20px;
-  height: 300px;
+  height: 500px;
   /* max-width: 420px; */
   /* UI Properties */
   background: var(--dev-card-background);
@@ -22,10 +22,10 @@
   position: absolute;
   margin: 22px auto;
   text-align: center;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
   width: 100%;
-  top: 116px;
+  top: 124px;
   left: 0;
   color: var(--dev-text-color-normal);
 }
@@ -43,7 +43,7 @@
   color: var(--dev-text-color-normal);
 }
 
-.expertiseText {
+.location {
   position: absolute;
   margin: 22px auto;
   text-align: center;
@@ -51,7 +51,7 @@
   font-weight: 500;
   width: 100%;
   letter-spacing: 2px;
-  top: 160px;
+  top: 141px;
   left: 0;
   color: var(--ifm-color-primary);
   padding: 30px;
@@ -75,6 +75,19 @@
   justify-content: center;
   display: flex;
   margin: auto;
-  height: 80px;
-  width: 80px;
+  height: 100px;
+  width: 100px;
+}
+
+.bio {
+  position: absolute;
+  margin: 22px auto;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  width: 100%;
+  top: 174px;
+  left: 0;
+  color: var(--ifm-color-primary);
+  padding: 30px;
 }

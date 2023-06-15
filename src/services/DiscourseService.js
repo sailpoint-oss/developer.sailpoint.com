@@ -30,7 +30,7 @@ export async function getAmbassadors(expert) {
 export async function getAmbassadorDetails(id) {
   try {
     const response = await fetch(
-      'https://developer.sailpoint.com/discuss/u/' + id + '.json',
+      'https://developer.sailpoint.com/discuss/user-cards.json?user_ids=' + id.join(','),
     );
     return await response.json();
   } catch (error) {

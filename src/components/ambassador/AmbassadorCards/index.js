@@ -12,12 +12,15 @@ export default function AmbassadorCards({
 
   const getPosts = async () => {
     const data = await getAmbassadors(expert);
+
     const resultset = []
     if (data.members) {
+      const memberDetails = await getAmbassadorDetails(data.members.map(item => item.id))
       for (const member of data.members) {
-          resultset.push(await getMemberList(member))
+          resultset.push(await getMemberList(member, memberDetails.users.filter(item => item.id === member.id)[0]))
       }
       setCardData(resultset);
+      
     } else {
       setCardData(undefined);
     }
@@ -64,16 +67,16 @@ export default function AmbassadorCards({
   }
 }
 
-async function getMemberList(member) {
-  const details = await getAmbassadorDetails(member.username)
+async function getMemberList(member, details) {
+  
   return {
     name: member.name,
     creatorImage: getavatarURL(member.avatar_template),
     title: member.title,
     bio: details.bio_excerpt,
     answers: details.accepted_answers,
-    views: details.profile_view_count,
     location: details.location,
+    website: details.website_name,
     link:
     'https://developer.sailpoint.com/discuss/u/' +
     member.username +

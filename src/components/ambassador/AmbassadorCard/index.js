@@ -8,7 +8,6 @@ export default function AmbassadorCard({
   data
 }) {
 
-  console.log(data)
   return (
     <Link to={data.link}>
 
@@ -19,7 +18,8 @@ export default function AmbassadorCard({
         </div>
         <div className={styles.cardText}>{data.name}</div>
         <div className={styles.titleText}>{data.title}</div>
-        <div className={styles.expertiseText}>Ambassador</div>
+        <div className={styles.location}>{data.location}</div>
+        <div className={styles.bio} dangerouslySetInnerHTML={{__html: data.bio}}></div>
       </div>
 
     </Link>

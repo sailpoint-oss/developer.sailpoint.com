@@ -156,8 +156,8 @@ The following variables are available to the Apache Velocity template engine whe
 | Variable | Type | Description |
 | --- | --- | --- |
 | identity | sailpoint.object.Identity | This is the identity the attribute promotion is performed on. |
-| oldValue | Object | This is the definition of the attribute being promoted. |
-| attributeDefinition | sailpoint.object.ObjectAttribute | This is the attribute's previous value. |
+| attributeDefinition | sailpoint.object.ObjectAttribute | This is the definition of the attribute being promoted. |
+| oldValue | Object | This is the attribute's previous value. |
 
 ### Account Profile Context
 

@@ -17,8 +17,12 @@ export default function AmbassadorCards({
     if (data.members) {
       const memberDetails = await getAmbassadorDetails(data.members.map(item => item.id))
       for (const member of data.members) {
-          resultset.push(await getMemberList(member, memberDetails.users.filter(item => item.id === member.id)[0]))
+          const memberDetail = memberDetails.users.filter(item => item.id === member.id)[0]
+          if (member.avatar_template.includes("developer.sailpoint.com") && memberDetail.bio_excerpt && memberDetail.bio_excerpt.length > 60 && memberDetail.accepted_answers > 0) {
+            resultset.push(await getMemberList(member, memberDetail))
+          }          
       }
+      resultset.sort((a, b) => a.date - b.date)
       setCardData(resultset);
       
     } else {
@@ -74,7 +78,7 @@ async function getMemberList(member, details) {
     creatorImage: getavatarURL(member.avatar_template),
     title: member.title,
     bio: details.bio_excerpt,
-    member_since: new Date(member.added_at).toISOString().slice(0, 4),
+    member_since: new Date(member.added_at).toLocaleString('default', {month: 'long'}) + ' ' + new Date(member.added_at).toISOString().slice(0, 4),
     badge_count: details.badge_count,
     answers: details.accepted_answers,
     location: details.location,

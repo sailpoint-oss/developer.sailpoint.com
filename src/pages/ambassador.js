@@ -14,13 +14,31 @@ export default function Ambassador() {
   return (
     <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
       <main>
-        <AmbassadorBanner />
+        {/* <AmbassadorBanner /> */}
+        <div className={styles.ambassadorPurposeContainer}>
+          <img
+            className={styles.ambassadorPurposeImage}
+            src={useBaseUrl('/ambassador/Ambassador-Program-Banner.png')}></img>
+          <div className={styles.ambassadorPurposeText}>
+            Our global team of ambassadors empower their communities and help
+            make the Internet a safer place by attending and hosting meetups,
+            conferences, and other events that focus on authentication, security
+            and identity topics.
+            <div className={styles.button}>
+              <Link className={styles.link} to="https://developer.sailpoint.com/discuss/t/announcing-the-developer-community-ambassador-program/10634">
+                Become an Ambassador
+              </Link>
+            </div>
+          </div>
+        </div>
         <div className={styles.headerText}>
           <div className={styles.headerTextOne}>Expert Ambassadors</div>
         </div>
         <div className={styles.imageContainer}>
           <div className={styles.spanLeft}></div>
-          <img className={styles.ambassadorImage} src={useBaseUrl('/ambassador/AmbassadorBadge-Pink-Hex.png')}></img>
+          <img
+            className={styles.ambassadorImage}
+            src={useBaseUrl('/ambassador/AmbassadorBadge-Pink-Hex.png')}></img>
           <div className={styles.spanLeft}></div>
         </div>
         <div className={styles.ambassadorCardContainer}>
@@ -31,10 +49,14 @@ export default function Ambassador() {
         </div>
         <div className={styles.imageContainer}>
           <div className={styles.spanLeft}></div>
-          <img className={styles.ambassadorImage} src={useBaseUrl('/ambassador/AmbassadorBadge-QuadGrad-Squircle.png')}></img>
+          <img
+            className={styles.ambassadorImage}
+            src={useBaseUrl(
+              '/ambassador/AmbassadorBadge-QuadGrad-Squircle.png',
+            )}></img>
           <div className={styles.spanLeft}></div>
         </div>
-        
+
         <div className={styles.ambassadorCardContainer}>
           <AmbassadorCards expert={false} />
         </div>

@@ -47,13 +47,13 @@ export default function BlogSidebar({
   if (tagProductData && tagTechnologyData) {
     return (
       <div className={styles.sidebar}>
-        <div className={styles.tagHeader}>Posts by Product</div>
+        <div className={styles.tagHeader}>Blogs by Product</div>
         <div className={styles.tagContainer}>
             {tagProductData.map(function(a, index){
               return <BlogSidebarButton key={a} text={a} filterCallback={filterCallback}></BlogSidebarButton>
             })}
         </div>
-        <div className={styles.tagHeader}>Posts by Identity Governance</div>
+        <div className={styles.tagHeader}>Blogs by Identity Governance</div>
         <div className={styles.tagContainer}>
             {tagTechnologyData.map(function(a, index){
               return <div key={'div' + a} className={index > 10 && filterTags ? styles.hidden : ''} > <BlogSidebarButton key={a} text={a} filterCallback={filterCallback}></BlogSidebarButton></div>

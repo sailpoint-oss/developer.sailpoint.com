@@ -32,7 +32,7 @@ Because these rules execute in a multi-tenant cloud environment, they have a res
 
 For more details, see [Cloud Rules](./cloud-rules/index.md).
 
-**Connector-Executed Rules** or **Connector Rules** are rules executed in the IdentityNow virtual appliance, and they are often an extension connector itself. The rules are commonly used for performing complex connector-related functions, so they are specific to only certain connectors. Because these rules execute in the virtual appliance, they do not have access to query the IdentityNow data model or fetch information from IdentityNow. They rely instead on contextual information sent from IdentityNow. Connector-executed rules may also have managed connections supplied in their contexts to support querying end systems or sources. Though you may use these managed connections, you cannot make making additional connections or call-outs.
+**Connector-Executed Rules** or **Connector Rules** are rules executed in the IdentityNow virtual appliance, and they are often an extension connector itself. The rules are commonly used for performing complex connector-related functions, so they are specific to only certain connectors. Because these rules execute in the virtual appliance, they do not have access to query the IdentityNow data model or fetch information from IdentityNow. They rely instead on contextual information sent from IdentityNow. Connector-executed rules may also have managed connections supplied in their contexts to support querying end systems or sources. Though you may use these managed connections, you cannot make additional connections or call-outs.
 
 For more details, see the [Connector Rules](./connector-rules/index.md).
 

@@ -49,6 +49,13 @@ get:
                 "name": "Addie Smith",
                 "type": "IDENTITY"
               },
+              "segments": [
+                "1d126fe0-45e2-4aea-bc64-a07e9344ef26"
+              ],
+              "manuallyUpdatedFields": {
+                "DISPLAY_NAME": true,
+                "DESCRIPTION": true
+              },
               "id": "2c91808c74ff913f0175097daa9d59cd",
               "name": "LauncherTest1",
               "created": "2020-10-08T18:33:52.029Z",
@@ -164,6 +171,22 @@ patch:
                   "value": {
                     "type": "IDENTITY",
                     "id": "2c9180858315595501831958427e5424"
+                  }
+                }
+              ]
+          Set entitlement manually updated fields:
+            description: >-
+              This example shows how to set an entitlement's manually updated fields values with patch request.
+              Values for all manually updateable fields must be specified in the request.
+              For now only two entitlement fields support this: DISPLAY_NAME and DESCRIPTION.
+            value:
+              [
+                {
+                  "op": "replace",
+                  "path": "/manuallyUpdatedFields",
+                  "value": {
+                    "DISPLAY_NAME": true,
+                    "DESCRIPTION": true
                   }
                 }
               ]

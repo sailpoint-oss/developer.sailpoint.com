@@ -35,7 +35,7 @@
 }
 
 .cardFace {
-  border-radius: 9999px;
+  border-radius: 99px;
   justify-content: center;
   display: flex;
   height: 100px;
@@ -44,11 +44,13 @@
 
 .cardNameContainer {
   margin-left: 15px;
-  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .name {
-  font-size: 18px;
+  font-size: 25px;
   font-weight: 500;
   width: 100%;
   top: 124px;

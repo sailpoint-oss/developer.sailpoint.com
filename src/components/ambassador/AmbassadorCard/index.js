@@ -17,8 +17,6 @@ export default function AmbassadorCard({
           <img className={styles.cardFace} src={useBaseUrl(data.creatorImage)}></img>
           <div className={styles.cardNameContainer}>
             <div className={styles.name}>{data.name}</div>
-            <div className={styles.titleText}>{data.title}</div>
-            <div className={styles.location}>{data.location}</div>
           </div>
         </div>
 

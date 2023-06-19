@@ -60,14 +60,15 @@
   .ambassadorPurposeContainer {
     display: flex;
     justify-content: center;
-    max-width: 1600px;
+    width: calc(75% + 75px);
     align-items: center;
+    margin: 0px auto 0px auto;
   }
 
 
   .ambassadorPurposeText {
     font-size: 21px;
-    padding: 50px;
+    padding: 50px 0px 50px 50px;
     font-weight: 500;
     color: var(--dev-text-color-normal);
   }
@@ -76,7 +77,7 @@
     width: 40%;
     box-shadow: var(--dev-card-selected);
     border-radius: 40px;
-    margin: 50px;
+    margin: 50px 50px 50px 0px;
   }
 
   @media only screen and (max-width: 997px) {
@@ -85,6 +86,10 @@
     }
     .ambassadorPurposeImage {
       width: 80%;
+      margin: 50px 50px 50px 50px;
+    }
+    .ambassadorPurposeText {
+      padding: 50px 50px 50px 50px;
     }
 }
 
@@ -102,6 +107,7 @@
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
   background-color: #c552ae10;
   color: #cc27b0;
+  background-color: var(--dev-button-hover);
 }
 
 .button {
@@ -123,6 +129,7 @@
   box-shadow: 0px 20px 60px #00000015;
   border: 2px solid #df61ca;
   border-radius: 5px;
+  transition: all  0.3s;
 }
 
 .link {

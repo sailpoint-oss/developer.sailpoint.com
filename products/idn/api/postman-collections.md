@@ -36,7 +36,7 @@ If there are no changes, you're up to date. If there are changes, the screen lis
 
 ## Configure your environment
 
-The SailPoint workspace provides an environment, a set of variables you can use in your requests, that you can fork and pull changes from to stay up to date the same way you can with collections. You can also fork the environment by clicking on 'Run in Postman' button.
+The SailPoint workspace provides an environment, a set of variables you can use in your requests, that you can fork and pull changes from to stay up to date the same way you can with collections. To import the environment into your workspace, select 'Run in Postman'.
 
 | Environment | [![Run in Postman](./img/button.svg)](https://www.postman.com/sailpoint/workspace/identitynow/environment/23226990-ed571d4f-37a3-4a2c-9105-5d8d8cce1d20/fork) |
 |------|----------------------------|

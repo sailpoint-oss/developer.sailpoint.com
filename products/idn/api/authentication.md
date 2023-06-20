@@ -153,7 +153,7 @@ This document covers these three common flows:
 3. [**Refresh Token**](https://oauth.net/2/grant-types/refresh-token/) - Clients use this grant type to exchange a refresh token for a new `access_token` when the existing `access_token` has expired. This allows clients to continue using the APIs without having to re-authenticate as frequently. This grant type is commonly used together with `Authorization Code` to prevent a user from having to log in several times per day.
 
 One way to determine which authorization flow you need to use is to look at the specification for the endpoint you want to use. 
-The endpoint will haev the supported OAuth flows listed under the 'Authorization' dropdown, like the [List Access Profiles endpoint](https://developer.sailpoint.com/idn/api/beta/list-access-profiles):
+The endpoint will have the supported OAuth flows listed under the 'Authorization' dropdown, like the [List Access Profiles endpoint](https://developer.sailpoint.com/idn/api/beta/list-access-profiles):
 
 ![Authorization Dropdown](./img/authorization/authorization-dropdown.png)
 

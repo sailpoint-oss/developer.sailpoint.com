@@ -15,6 +15,13 @@ tags: ['Rules']
 
 In SailPoint solutions, rules serve as a flexible configuration framework implementers can leverage to preform complex or advanced configurations. Though rules allow some advanced flexibility, you must take special considerations when you are deciding to implement rules.
 
+## Java Beanshell
+
+Rules in IdentityNow are written in Java Beanshell, a lightweight scripting language that allows you to define custom logic and behavior within the rules. Java Beanshell provides a familiar syntax similar to Java, making it easier for implementers to create and maintain rule configurations. 
+
+For more information about Java Beanshell, you can refer to the [Java Beanshell Documentation](https://github.com/beanshell/beanshell/wiki).
+
+
 ## Rule Execution
 
 IdentityNow is a multi-tenant cloud solution, and its architecture varies differently from other SailPoint products like IdentityIQ. Therefore, the way rules execute within IdentityNow reflects the architectural design considerations the platform was built on. These considerations determine the rule's limitations.

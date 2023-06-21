@@ -783,6 +783,8 @@ paths:
     $ref: './v3/paths/campaigns.yaml'
   /campaigns/{id}:
     $ref: './v3/paths/campaign.yaml'
+  /campaigns/{id}/reassign:
+    $ref: './v3/paths/campaign-admin-cert-reassign.yaml'
   /certifications:
     $ref: "./v3/paths/identity-certifications.yaml"
   /certifications/{id}:

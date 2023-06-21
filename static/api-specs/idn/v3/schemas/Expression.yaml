@@ -15,6 +15,7 @@ properties:
     $ref: './Value.yaml'
   children:
     type: array
+    nullable: true
     description: List of expressions
     items:
       $ref: './Value.yaml'

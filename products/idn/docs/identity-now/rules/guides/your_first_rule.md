@@ -13,7 +13,7 @@ tags: ['Rules', 'Guides', 'First']
 
 ## Overview
 
-In this guide you'll learn the end to end process of writing a cloud rule to generate a username to be used during account creation.
+In this guide you'll learn the end to end process of writing a cloud rule to generate a username for use in account creation.
 
 - [Attribute generator rule overview](#attribute-generator-rule)
 - [Username requirements](#username-requirements)
@@ -25,21 +25,21 @@ In this guide you'll learn the end to end process of writing a cloud rule to gen
 
 This rule generates complex account attribute values during provisioning, e.g. when creating an account. You would typically use this rule when you are creating an account to generate attributes like usernames.
 
-This rule executes in the IdentityNow cloud, and it has read-only access to IdentityNow data models, but it does not have access to on-premise sources or connectors.
+This rule executes in the IdentityNow (IDN) cloud, and it has read-only access to IDN data models, but it doesn't have access to on-premise sources or connectors.
 
 Refer to [Attribute Generator Rule](../cloud-rules/account_profile_attribute_generator.md) to learn more about the inputs available to you during the rule execution.
 
 ## Username Requirements
 
-With this rule you will be able to generate a unique username and check for uniqueness for an Active Directory source.
+With this rule you'll be able to generate a unique username and check for uniqueness for an Active Directory source.
 
 The unique username will be generated as follows.
 
 - Retrieve the first name, last name and other name of the user.
-- If other name is not available then we will use the first name.
-- First, check the length of (othername | firstname).lastname, if it is greater than 12 then use the first 12 letters of the first name, add a period `.` and append the first character of the last name. Convert to lowercase. Check for uniqueness.
+- If the other name is not available, use the first name.
+- First, check the length of (othername | firstname).lastname. If it is greater than 12 then use the first 12 letters of the first name, add a period `.` and append the first character of the last name. Convert to lowercase. Check for uniqueness.
 - If it is not unique then use the first 12 characters of the first name and add a period `.` and append the second character of the last name. Convert to lowercase. Check for uniqueness.
-- Follow this pattern until a unique username is found. If all characters of the last name are exhausted return null.
+- Follow this pattern until a unique username is found. If all characters of the last name are exhausted, return null.
 
 ### Example Outputs
 
@@ -103,13 +103,13 @@ flowchart TD
 
 </div>
 
-## Writing the Rule
+## Write the Rule
 
-Create a new xml file with the following naming scheme [rule file naming](/idn/docs/rules/cloud-rules#review-guidelines).
+Create a new xml file with this naming scheme [rule file naming](/idn/docs/rules/cloud-rules#review-guidelines).
 
 Open that file in your preferred editor.
 
-For the attribute generator rule you can begin with the following template.
+For the attribute generator rule, you can begin with this template:
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
@@ -126,7 +126,7 @@ For the attribute generator rule you can begin with the following template.
 
 ### Add Imports and generateUsername Function
 
-Add a description and the necessary imports for your rule. This rule will need `Identity` and `Application` from `sailpoint.object` and a few other classes for working with Strings. Also added is the global constant `MAX_USERNAME_LENGTH` in the example below this rule will use the value of 12.
+Add a description and the necessary imports for your rule. This rule will need `Identity` and `Application` from `sailpoint.object`, as well as a few other classes for working with strings. Also add the global constant, `MAX_USERNAME_LENGTH` - in this example, this rule will use the value of 12.
 
 ```java
 <?xml version='1.0' encoding='UTF-8'?>
@@ -207,9 +207,9 @@ Add a description and the necessary imports for your rule. This rule will need `
 </Rule>
 ```
 
-### Logic When the Proposed Username Is Greater Than the Max Length
+### Logic if the Proposed Username Exceeds the Max Length
 
-If the full name is greater than the `MAX_USERNAME_LENGTH` the rule will check if the length of the first name is greater than the MAX_USERNAME_LENGTH minus 2 (in the case below 10) characters of the first name to allow for the period `.` and the first character of the last name to take up the remaining two characters. If the first name is less than the `MAX_USERNAME_LENGTH` the rule will use the full first name for the username with the period `.` and the first character of the last name appended. After the username is determined, a call to `isUnique( username )` is made. This uses the IDNRuleUtil class to check active directory if the username exists. We will add in that function shortly.
+If the full name exceeds the `MAX_USERNAME_LENGTH` the rule will check whether the length of the first name is greater than the MAX_USERNAME_LENGTH minus 2 (in the case below 10) characters of the first name - this allows for the period `.` and the first character of the last name to take up the remaining two characters. If the first name is less than the `MAX_USERNAME_LENGTH` the rule will use the full first name for the username with the period `.` and the first character of the last name appended. After the username is determined, a call to `isUnique( username )` is made. This uses the IDNRuleUtil class to check Active Directory if the username exists. You will add in that function shortly.
 
 ```java
 if(fullName.length() > MAX_USERNAME_LENGTH) {
@@ -248,9 +248,9 @@ if(fullName.length() > MAX_USERNAME_LENGTH) {
 }
 ```
 
-### Logic When the Proposed User Name Is Within the Max Length
+### Logic if the Proposed User Name Is Within the Max Length
 
-If the username firstname.lastname is less than or equal to the `MAX_USERNAME_LENGTH` check it for uniqueness against active directory. If it is not unique, check uniqueness with firstname.firstLetterOfLastName, firstname.secondLetterOfLastName, etc...
+If the username firstname.lastname is less than or equal to the `MAX_USERNAME_LENGTH`, check it for uniqueness against active directory. If it is not unique, check uniqueness with firstname.firstLetterOfLastName, firstname.secondLetterOfLastName, etc...
 
 ```java
 //The full name is less than MAX_USERNAME_LENGTH minus 2 chars directly assign username to full name.
@@ -280,7 +280,7 @@ else{
 
 ### Add Function `isUnique()` To Check Active Directory for Username
 
-The `isUnique()` function takes the username as a string and uses the `accountExistsByDisplayName()` function from the IDNRuleUtil class to search active directory and return a true or false result depending if the username is already taken. The function takes an application name and username to test against. The variables `idn` and `application` are included as inputs to the attribute generator rule and are already initialized. Refer to [inputs](../cloud-rules/account_profile_attribute_generator.md#input) to see all inputs available to attribute generator rules.
+The `isUnique()` function takes the username as a string and uses the `accountExistsByDisplayName()` function from the IDNRuleUtil class to search Active Directory and return a true or false result, depending on whether the username is taken. The function takes an application name and username to test against. The variables `idn` and `application` are included as inputs to the attribute generator rule and are already initialized. Refer to [inputs](../cloud-rules/account_profile_attribute_generator.md#input) to see all inputs available to attribute generator rules.
 
 ```java
 public boolean isUnique ( String username ) throws GeneralException {
@@ -288,9 +288,9 @@ public boolean isUnique ( String username ) throws GeneralException {
 }
 ```
 
-### Invoke `generateUsername()` With the Identities First and Last Name
+### Invoke `generateUsername()` With the Identity's First and Last Name
 
-This is the final part of the rule. We call our `generateUsername()` function, passing in the identities first and last name.
+This is the final part of the rule. Call the `generateUsername()` function, passing in the identity's first and last name.
 The `identity` variable is already initialized and included as input to our attribute generator rule.
 
 ```java
@@ -426,7 +426,7 @@ return generateUsername( identity.getFirstname(), identity.getLastname() );
 
 ## Validate the Rule
 
-Before you send the rule off to the professional services team to upload your rule to your tenant for use you can send it through the rule validator to check for any errors.
+Before you send the rule to the professional services team to upload your rule to your tenant for use, you can send it through the rule validator to check for any errors.
 
 Refer to [Rule Validator](../rule-validator) for installation.
 
@@ -482,13 +482,13 @@ Validation status: SUCCESS
 ________________________________________________________________________________
 ```
 
-## Submitting for Rule Review
+## Submitt for Rule Review
 
-In order to submit your Cloud Rule for review, approval, and inclusion in the SailPoint platform, they should be submitted via [SailPoint Expert Services](https://www.sailpoint.com/services/professional/#contact-form).  If you need assistance writing and testing rules, they can be sure to assist in that process as well.  Please make sure your contact information is up to date, in case the review team needs to contact you.
+To submit your Cloud Rule for review, approval, and inclusion in the SailPoint platform, you should submit them with [SailPoint Expert Services](https://www.sailpoint.com/services/professional/#contact-form). If you need assistance writing and testing rules, they assist in that process as well. Make sure your contact information is up to date so the review team can contact you if they need to.
 
 ## Add Rule To Account Creation
 
-Log into your IdentityNow tenant and navigate to **Admin** -> **Connections** -> **Sources** -> **{Source Name}** -> **Accounts** -> **Create Account**. Scroll to the attribute you wish to use the rule for generating the username. Check the generator radio button and pick your new rule from the drop down.
+Log into your IDN tenant and navigate to **Admin** -> **Connections** -> **Sources** -> **{Source Name}** -> **Accounts** -> **Create Account**. Scroll to the attribute you wish to use the rule for generating the username. Check the generator radio button and pick your new rule from the drop down.
 
 ![Account Create](./img/account-create.png)
 

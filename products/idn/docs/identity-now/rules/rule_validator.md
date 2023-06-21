@@ -13,14 +13,14 @@ tags: ['Rules']
 
 ## Overview
 
-The IdentityNow Rule Validator is a simple tool to validate IdentityNow rules for malformed or incorrect code fragments, and help make sure they conform to the SailPoint [IdentityNow Rule Guide](/idn/docs/rules#rule-guidelines) before rule submission. While this does check code fragments, it is not a code parser or linter; it does not check the code for syntax or completeness. This is not designed to replace any sort of unit testing you might do outside of IdentityNow. Running the IdentityNow Rule Validator against your rules before submission helps look for problems early on. It is designed to help catch common items that often trip up rule reviews, and provide immediate feedback during the rule writing process. This however is not a guarantee that the rule will be approved or doesn't have other flaws.
+The IdentityNow (IDN) Rule Validator is a simple tool you can use to validate IDN rules for malformed or incorrect code fragments and help make sure they conform to the SailPoint [IdentityNow Rule Guide](/idn/docs/rules#rule-guidelines) before rule submission. While this does check code fragments, it is not a code parser or linter - it does not check the code for syntax or completeness. This isn't designed to replace any sort of unit testing you might do outside IDN. Running the IDN Rule Validator against your rules before submission helps you find problems early on. It is designed to help catch common items that often trip up rule reviews and provide immediate feedback during the rule writing process. However this is not a guarantee that the rule will be approved or that they won't have any other falws. 
 
 ## Changelog
 
 ### Version 3.0
 
-- BeanShell linter will now validate syntax and usage to help discover issues in your code before you deploy
-- A watch option which continually monitors and validate/lint  your code while you develop.
+- BeanShell linter will now validate syntax and usage to help discover issues in your code before you deploy.
+- There is now a watch option that continuously monitors and validate/lint your code while you develop.
 
 ### Version 2.0
 
@@ -39,7 +39,7 @@ The IdentityNow Rule Validator is a simple tool to validate IdentityNow rules fo
 This utility is a Java based application and requires **Java SE Development Kit (JDK) 11** or higher to run.
 
 :::info
-Please note that the previous version used JDK 8 (1.8), if you do not have the JDK 11 or above then this must be downloaded and installed first
+Note that the previous version used JDK 8 (1.8). If you do not have the JDK 11 or above, then you must download and install JDK 11 first. 
 :::
 
 ## Support / Features
@@ -52,28 +52,28 @@ To use the Rule Validator locally, decompress the `sailpoint-saas-rule-validator
 
 ### Linux and MacOS Considerations
 
-Under Linux and MacOS ensure the `sp-rv` script has execute privileges, by executing the `chmod` command on the `sp-rv` script:
+Under Linux and MacOS ensure the `sp-rv` script has execute privileges. To do so, execute the `chmod` command on the `sp-rv` script:
 
 ```bash
 chmod +x sp-rv
 ```
 
-## Running the Rule Validator
+## Run the Rule Validator
 
-To run the validator with standard reporting, simply invoke the following command.
+To run the validator with standard reporting, invoke this command:
 
 ```bash
 sp-rv --file {path or file name}
 ```
 
-This will automatically validate all XML files in the path or a specific file name. To automatically include all nested sub-directories in the validation, include the `--recursive` flag.
+This automatically validates all XML files in the path or a specific file name. To automatically include all nested sub-directories in the validation, include the `--recursive` flag.
 
 ```bash
 sp-rv --file "~/path-to-rules" --recursive
 ```
 
 :::info
-If you provide a specific file name, then the `--recursive` flag parameter is ignored; the recursive evaluation will only be conducted if the filePath parameter is null or a directory.
+If you provide a specific file name, then the `--recursive` flag parameter is ignored - the validator will only conduct the recursive evaluation if the filePath parameter is null or a directory.
 :::
 
 ### Watch Option
@@ -92,7 +92,7 @@ sp-rv --watch "~/path-to-rules" --recursive
 ```
 
 :::info
-In order to exit watch mode press `CTRL+C`
+To exit watch mode, press `CTRL+C`.
 :::
 
 ## Example Output

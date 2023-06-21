@@ -11,7 +11,7 @@ slug: /docs/rules/guides
 tags: ['Rules', 'Guides']
 ---
 
-Not sure how to use rules yet? Read these guides to see how you can use rules and learn how to get started!
+Not sure how to use rules yet? Read these guides to learn how to use rules and get started!
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';

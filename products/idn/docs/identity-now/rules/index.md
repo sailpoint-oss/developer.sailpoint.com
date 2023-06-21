@@ -17,34 +17,34 @@ In SailPoint solutions, rules serve as a flexible configuration framework implem
 
 ## Rule Execution
 
-IdentityNow is a multi-tenant cloud solution, and its architecture varies differently from other SailPoint products like IdentityIQ. Therefore, the way rules execute within IdentityNow reflects the architectural design considerations the platform was built on. These considerations determine the rule's limitations.
+IdentityNow (IDN) is a multi-tenant cloud solution, and its architecture varies differently from other SailPoint products like IdentityIQ (IIQ). Therefore, the way rules execute within IDN reflects the architectural design considerations the platform was built on. These considerations determine the rule's limitations.
 
 There are two primary places where you can execute rules:
 
-- **Cloud Execution** - These rules are executed in the IdentityNow multi-tenant cloud.
-- **Connector Execution** - These rules are executed on the on-premise IdentityNow virtual appliance.
+- **Cloud Execution** - These rules are executed in the IDN multi-tenant cloud.
+- **Connector Execution** - These rules are executed on the on-premise IDN virtual appliance.
 
 ![Rule Execution](./img/rule_execution.png)
 
-**Cloud-Executed Rules** or **Cloud Rules** typically only perform a specific function, such as calculating attribute values. Many of these rules may be able to query the IdentityNow data-model in a read-only fashion, but they do not have the ability to commit transactions, save objects, etc.
+**Cloud-Executed Rules** or **Cloud Rules** typically only perform a specific function, such as calculating attribute values. Many of these rules may be able to query the IDN data-model in a read-only fashion, but they do not have the ability to commit transactions, save objects, etc.
 
 Because these rules execute in a multi-tenant cloud environment, they have a restricted context, and they are closely scrutinized to ensure that they execute in an efficient and secure manner.
 
 For more details, see [Cloud Rules](./cloud-rules/index.md).
 
-**Connector-Executed Rules** or **Connector Rules** are rules executed in the IdentityNow virtual appliance, and they are often an extension connector itself. The rules are commonly used for performing complex connector-related functions, so they are specific to only certain connectors. Because these rules execute in the virtual appliance, they do not have access to query the IdentityNow data model or fetch information from IdentityNow. They rely instead on contextual information sent from IdentityNow. Connector-executed rules may also have managed connections supplied in their contexts to support querying end systems or sources. Though you may use these managed connections, you cannot make making additional connections or call-outs.
+**Connector-Executed Rules** or **Connector Rules** are rules executed in the IDN virtual appliance, and they are often an extension connector itself. The rules are commonly used for performing complex connector-related functions, so they are specific to only certain connectors. Because these rules execute in the virtual appliance, they do not have access to query the IDN data model or fetch information from IDN. They rely instead on contextual information sent from IDN. Connector-executed rules may also have managed connections supplied in their contexts to support querying end systems or sources. Though you may use these managed connections, you cannot make making additional connections or call-outs.
 
 For more details, see the [Connector Rules](./connector-rules/index.md).
 
 ## Support Considerations
 
-Though IdentityNow shares some common functionality with other SailPoint products like IdentityIQ, the same rules are not necessarily supported, nor do they necessarily execute the same way or with the same context and variables. SailPoint recommends that you become familiar with which rules execute with which products, as well as the nuances in their execution contexts.
+Though IDN shares some common functionality with other SailPoint products like IIQ, the same rules are not necessarily supported, nor do they necessarily execute the same way or with the same context and variables. SailPoint recommends that you become familiar with which rules execute with which products, as well as the nuances in their execution contexts.
 
-From a SailPoint support perspective, rules are considered configurations. SailPoint supports the underlying platform but not the rule configurations themselves. Any problems with the way rules are implemented or run over time are the responsibilities the customer or implementer must manage. SailPoint's IdentityNow Expert Services need hours to cover any rule configuration work (e.g., creating rules, best practices reviews, application to your IdentityNow environment, and promotion between sandbox & prod environments). Contact your Customer Success Manager with any questions. While rules allow some advanced flexibility, you must consider these support implications when you are deciding whether to implement rules. Consider rule usage a last resort, and use IdentityNow features instead whenever you can.
+From a SailPoint support perspective, rules are considered configurations. SailPoint supports the underlying platform but not the rule configurations themselves. Any problems with the way rules are implemented or run over time are the responsibilities the customer or implementer must manage. SailPoint's IDN Expert Services need hours to cover any rule configuration work (e.g., creating rules, best practices reviews, application to your IDN environment, and promotion between sandbox & prod environments). Contact your Customer Success Manager with any questions. While rules allow some advanced flexibility, you must consider these support implications when you are deciding whether to implement rules. Consider rule usage a last resort, and use IdentityNow features instead whenever you can.
 
 ## Best Practices for Rule deployments
 
-SailPoint Identity Now deployments often require the deployment of rules to the client’s IdentityNow tenants. Because IdentityNow is a multi-tenant solution, rules that are poorly written can have negative performance implications on other tenants in the same cloud. As such, SailPoint requires all rules to be reviewed prior to deployment. The time to complete these reviews requires an expert services contract to leverage billable hours.
+SailPoint IDN deployments often require the deployment of rules to the client’s IDN tenants. Because IDN is a multi-tenant solution, rules that are poorly written can have negative performance implications on other tenants in the same cloud. As such, SailPoint requires all rules to be reviewed prior to deployment. The time to complete these reviews requires an expert services contract to leverage billable hours.
 
 This article covers common topics around this process including best practices, rule review expectations, and more.
 
@@ -52,7 +52,7 @@ This article covers common topics around this process including best practices, 
 
 SailPoint has a 24 hour SLA on rule deployments for rules submitted over weekdays and next business day for rules submitted over the weekend.
 
-However, around 65% of rule reviews are completed in less 4 business hours, with the average turnaround time of 3-6 hours after ticket has been assigned. If a specific deployment window is required, SailPoint must be alerted at least 48 hours in advance so that the time for the reviewer and deployment expert may be reserved.
+However, around 65% of rule reviews are completed in less 4 business hours, with the average turnaround time of 3-6 hours after ticket has been assigned. If a specific deployment window is required, you must alert SailPoint at least 48 hours in advance so that the time for the reviewer and deployment expert may be reserved.
 
 ### Go Live expectations
 
@@ -64,13 +64,13 @@ Note that even for clients who purchase Weekend Go-Live Support, rule deploys ar
 
 SailPoint recommends only submitting one rule at a time or only rules that should be deployed together.
 
-Typical rule reviews are billed 15-30 minutes per rule. However, this can vary based on the complexity of the rule or if the rule is rejected and must be resubmitted for review.
+Typical rule reviews are billed at 15-30 minutes per rule. However, this can vary based on the complexity of the rule or if the rule is rejected and must be resubmitted for review.
 
 In the case of rejection, we recommend submitting a new ticket to avoid a scenario where a case owner is out of the office.
 
-## Promoting Rules from Sandbox to Production
+## Promote Rules from Sandbox to Production
 
-A rule that has been approved in a sandbox tenant through the SailPoint rule review process, for example an IdentityAttribute, Correlation or ManagerCorrelation rule or any other rule type, can be migrated to the production IdentityNow tenant.
+A rule that has been approved in a sandbox tenant through the SailPoint rule review process, like an IdentityAttribute, Correlation or ManagerCorrelation rule or any other rule type, for example, can be migrated to the production IDN tenant.
 
 This applies to all rule types, as the signature has been approved/verified during the SailPoint rule review process, the sp-config API allows you to import ANY ‘approved’ tenant rules. (this includes cloud rules!)
 
@@ -82,7 +82,7 @@ For more details on the sp-config API see [sp-config](/idn/api/beta/export-sp-co
 
   - You must use one of the Supported Rules defined in [Supported Cloud Rules](./cloud-rules/index.md#supported-cloud-rules) and [Supported Connector Rules](./connector-rules/index.md#supported-connector-rules). You must also annotate the rule with the correct type.
 
-  - Adhere to the rule's purpose as defined in Supported Rules. Do not use the rule differently from its intended purpose.
+  - Adhere to the rule's purpose as defined in Supported Rules. Don't use the rule differently from its intended purpose.
 
   - The rules must use only available SailPoint product features, and they must not make unsupported API calls.
 
@@ -90,7 +90,7 @@ For more details on the sp-config API see [sp-config](/idn/api/beta/export-sp-co
 
   - Use logging statements sparingly but informatively. Do not make unnecessary logging calls.
 
-  - Do not use `System.out` statements to output data. Internal log aggregators do not pick up these statements.
+  - Do not use `System.out` statements to output data. Internal log aggregators don't pick up these statements.
 
   - If you want rules to log statements, use `log.debug()`, `log.info()`, `log.warn()`, or `log.error()` statements.
 
@@ -203,11 +203,11 @@ Note that the earlier code fragments are not allowed within [connector-executed 
 
 ## Other Rules
 
-While IdentityNow shares some common functionality with other SailPoint products like IdentityIQ, the same rules are not necessarily supported, nor do they necessarily execute the same way. SailPoint recommends that you become familiar with which rules execute with which products, as well as the nuances in their execution contexts. IdentityNow considers any other rules not mentioned in the Cloud-Executed Rules or Connector-Executed Rules sections to be unsupported.
+While IDN shares some common functionality with other SailPoint products like IIQ, the same rules are not necessarily supported, nor do they necessarily execute the same way. SailPoint recommends that you become familiar with which rules execute with which products, as well as the nuances in their execution contexts. IDN considers any other rules not mentioned in the Cloud-Executed Rules or Connector-Executed Rules sections to be unsupported.
 
 ## Deprecated Rules
 
-The following rules have been deprecated in IdentityNow. SailPoint recommends using supported product functionality instead of these rules:
+The following rules have been deprecated in IDN. SailPoint recommends using supported product functionality instead of these rules:
 
 - **Certification Exclusion Rules** - Use configurable certification campaign filters instead.
 - **Identity Selector Rules** - Use role standard assignment criteria instead.

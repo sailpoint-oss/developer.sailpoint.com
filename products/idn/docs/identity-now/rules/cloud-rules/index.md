@@ -13,7 +13,7 @@ tags: ['Rules']
 
 ## Overview
 
-**Cloud-Executed Rules** or **Cloud Rules** typically only perform a specific function, such as calculating attribute values. Cloud Rules all execute within the SailPoint cloud and offer access to objects and data, but they do not offer any sort of externalized connectivity.
+**Cloud-Executed Rules** or **Cloud Rules** typically only perform specific functions, such as calculating attribute values. Cloud Rules all execute within the SailPoint cloud and offer access to objects and data, but they do not offer any sort of external connectivity.
 
 Because these rules execute in a multi-tenant cloud environment, they have a very restricted context, and the review process is carefully scrutinized to ensure that they execute in an efficient and secure manner.
 
@@ -28,13 +28,13 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
 ## Configuration Process
 
-To ensure maximum compatibility, platform integrity, and security, SailPoint has instantiated a review process to ensure that any submitted Cloud Rules meet SailPoint requirements and that they do not contain code that can harm the system. The review process also checks the rules to verify their intended purposes and use cases.
+To ensure maximum compatibility, platform integrity, and security, SailPoint has instantiated a review process to ensure that any submitted Cloud Rules meet SailPoint requirements and do not contain code that can harm the system. The review process also checks the rules to verify their intended purposes and use cases.
 
 In this process, SailPoint does _not check_ whether the rule executes correctly or verify that it works as expected to deliver specific outcomes. The review is merely an integrity check on the rule itself.
 
-## Submitting for Rule Review
+## Submit for Rule Review
 
-To submit your Cloud Rule for review, approval, and inclusion in the SailPoint platform, submit them with [SailPoint Professional Services](https://www.sailpoint.com/services/professional/). If you need help writing and testing rules, Professional Services can help you with that process as well. Make sure your contact information is up to date, in case the review team needs to contact you.
+To submit your Cloud Rule for review, approval, and inclusion in the SailPoint platform, submit it with [SailPoint Professional Services](https://www.sailpoint.com/services/professional/). If you need help writing and testing rules, Professional Services can help you with that process as well. Make sure your contact information is up to date so the review team can contact you if they need to.
 
 ## Review Guidelines
 
@@ -57,13 +57,13 @@ All submitted rules must follow proper rule submission guidelines.
     - `&gt;` should be `>`
 - **Rule File Naming**
 
-The file naming convention for rules is: `Rule - {type} - {name}.xml`
+This is the file naming convention for rules: `Rule - {type} - {name}.xml`
 
-If this is your rule:
+For example, this is the rule: 
 
 `<Rule language="beanshell" name="Calculate Lifecycle" type="IdentityAttribute">`
 
-This should be your file name:
+This should be the rule's file name:
 
 `Rule - IdentityAttribute - Calculate Lifecycle.xml`
 
@@ -74,7 +74,7 @@ If you do not have a type, use "Generic" as the type. It would look like this:
 - **Updating Existing Rules and Versioning**
 
   - The best practice is to maintain a single rule for a given use case in the tenant. Creating additional rules while updating to maintain versioning is not supported because doing so may cause issues during reviews and support.
-  - **Example:** For an AD Before Provisioning rule called "AD BeforeProvisioningRule", you have the file "Rule - BeforeProvisioning - AD BeforeProvisioningRule.xml". When you are updating the logic for AD, it is best to update the file/rule with the same name, so changes can be properly tracked to the single object.
+  - **Example:** For an AD Before Provisioning rule called "AD BeforeProvisioningRule", you have the file "Rule - BeforeProvisioning - AD BeforeProvisioningRule.xml". When you are updating the logic for AD, it is best to update the file/rule with the same name so changes can be properly tracked to the single object.
 
 - **Deployment Window Requirements**
   - Rules are generally reviewed and deployed, if they are accepted without feedback, within 24 hours.

@@ -65,7 +65,7 @@ To set up your TypeScript SDK, follow these steps:
 1. Run the `npm init` command in your project directory and answer the questions. Doing so initializes your project and creates the "package.json" file. You will use npm to update this file with the dependencies necessary to use the SDK. 
 2. Create a source folder named "src". The SDK will include the `"src/**/*"` folder path when it compiles, so your SDK file must be there. 
 3. Go to the "src" folder and create a file named "index.ts" in there. You will need to compile the "index.ts" file to run the SDK. You can leave this "index.ts" file empty for now. 
-4. Go to the project directory and create a file named "tsconfig.json" in there. This file will contain your compiler configuration. Copy this information into your "tsconfig.ts" file: 
+4. Go to the project directory and create a file named "tsconfig.json" in there. This file will contain your compiler configuration. Copy this information into your "tsconfig.json" file: 
 ```typescript
 {
     "compilerOptions": {

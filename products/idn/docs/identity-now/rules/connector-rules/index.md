@@ -3,7 +3,7 @@ id: connector-executed-rules
 title: Connector Executed Rules
 pagination_label: Connector Executed Rules
 sidebar_label: Connector Executed Rules
-sidebar_position: 1
+sidebar_position: 3
 sidebar_class_name: cloudExecutedRules
 keywords: ['connector', 'rules']
 description: Overview of connector-executed rules.

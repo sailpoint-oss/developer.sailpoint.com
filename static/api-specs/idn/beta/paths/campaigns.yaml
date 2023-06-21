@@ -52,7 +52,7 @@ get:
         Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
 
 
-        Sorting is supported for the following fields: **name**
+        Sorting is supported for the following fields: **name**, **created**
       example: name
   responses:
     '200':

@@ -36,6 +36,10 @@ For more details, see [Cloud Rules](./cloud-rules/index.md).
 
 For more details, see the [Connector Rules](./connector-rules/index.md).
 
+## Java Beanshell Support
+
+It's worth noting that rules in IdentityNow are written in Java Beanshell, a lightweight scripting language that allows you to define custom logic and behavior within the rules. Java Beanshell provides a familiar syntax similar to Java, making it easier for implementers to create and maintain rule configurations.
+
 ## Support Considerations
 
 Though IdentityNow shares some common functionality with other SailPoint products like IdentityIQ, the same rules are not necessarily supported, nor do they necessarily execute the same way or with the same context and variables. SailPoint recommends that you become familiar with which rules execute with which products, as well as the nuances in their execution contexts.

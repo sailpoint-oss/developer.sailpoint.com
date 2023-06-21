@@ -1,100 +1,87 @@
 package sailpoint.object;
 
-import sailpoint.tools.Message;
-import sailpoint.tools.xml.PersistentXmlObject;
-import sailpoint.tools.xml.SerializationMode;
-import sailpoint.tools.xml.XMLProperty;
+@XMLClass
+public class ProvisioningResult {
+    public static final String STATUS_QUEUED = "queued";
+    public static final String STATUS_COMMITTED = "committed";
+    public static final String STATUS_FAILED = "failed";
+    public static final String STATUS_RETRY = "retry";
+    String _targetIntegration;
+    String _status;
+    ResourceObject _object;
 
-import java.io.Serializable;
-import java.util.List;
-import java.util.Map;
+    public ProvisioningResult() {
+    }
 
-public interface ProvisioningResult extends PersistentXmlObject, Serializable {
-    /**
-     * Indicates that the request was accepted and passed validation,
-     * but it was given to another system and we do not know
-     * when it will be committed. If possible the connector
-     * should also set a request id for tracking.
-     * <p>
-     * This is the default status, if no result object is returned or
-     * if the result object is missing a status, it can be assumed
-     * to have been queued.
-     */
-    String STATUS_QUEUED = "queued";
-    /**
-     * Indicates that the request was fully processed and the changes
-     * are known to have been made. The plan evaluator can use this
-     * to immediately update the identity to reflect the changes rather
-     * than waiting for the next aggregation.
-     */
-    String STATUS_COMMITTED = "committed";
-    /**
-     * Indicates that the request was not processed due to a
-     * fatal error.  The connector should save one or more
-     * messages on the error list.
-     */
-    String STATUS_FAILED = "failed";
-    /**
-     * Indicates that the request was not processed due to a
-     * non fatal error and that it should be retried at a later
-     * time. The connector may also set the retryInterval property
-     * to indicate the preferred wait time.
-     */
-    String STATUS_RETRY = "retry";
+    public String getTargetIntegration() {
 
-    @XMLProperty
-    String getTargetIntegration();
+        try {
+            String var2;
+            String var3 = var2 = this._targetIntegration;
+            return var2;
+        } catch (Throwable var5) {
+            throw var5;
+        }
+    }
 
-    @XMLProperty
-    String getStatus();
+    public void setTargetIntegration(String s) {
 
-    @XMLProperty
-    String setStatus();
+        try {
+            this._targetIntegration = s;
+            Object var4 = null;
+        } catch (Throwable var6) {
+            throw var6;
+        }
+    }
 
-    @XMLProperty
-    String getRequestID();
+    public String getStatus() {
 
-    @XMLProperty(mode = SerializationMode.LIST)
-    List<Message> getWarnings();
+        try {
+            String var2;
+            String var3 = var2 = this._status;
+            return var2;
+        } catch (Throwable var5) {
+            throw var5;
+        }
+    }
 
-    @XMLProperty(mode = SerializationMode.LIST)
-    List<Message> getErrors();
+    public void setStatus(String s) {
 
-    @XMLProperty
-    int getRetryInterval();
+        try {
+            if ("success".equals(s)) {
+                s = "queued";
+            } else if ("committed".equals(s)) {
+                s = "committed";
+            } else if ("failure".equals(s)) {
+                s = "failed";
+            } else if ("retry".equals(s)) {
+                s = "retry";
+            } else if ("warning".equals(s)) {
+                log.warn("STATUS_WARNING found in RequestResult");
+                s = "committed";
+            } else if ("notStarted".equals(s)) {
+                log.warn("STATUS_NOT_STARTED found in RequestResult");
+                s = "queued";
+            } else if ("inProcess".equals(s)) {
+                log.info("STATUS_IN_PROCESS found in RequestResult");
+                s = "queued";
+            }
 
-    ResourceObject getObject();
+            this._status = s;
+            Object var4 = null;
+        } catch (Throwable var6) {
+            throw var6;
+        }
+    }
 
-    void addError(Message m);
+    public ResourceObject getObject() {
 
-    void addError(String s);
-
-    void addError(Throwable t);
-
-    void addWarning(List<Message> m);
-
-    void addWarning(Message m);
-
-    void addWarning(String s);
-
-    boolean isCommitted();
-
-    boolean isQueued();
-
-    boolean isFailed();
-
-    boolean isRetry();
-
-    boolean isSubmitted();
-
-    boolean isFailure();
-
-    boolean hasMessages();
-
-    Map<String, Object> toMap();
-
-    @SuppressWarnings("unchecked")
-    void fromMap(Map map);
-
-    boolean isQueuedWithId();
+        try {
+            ResourceObject var2;
+            ResourceObject var3 = var2 = this._object;
+            return var2;
+        } catch (Throwable var5) {
+            throw var5;
+        }
+    }
 }

@@ -70,7 +70,7 @@ module.exports = {
     {
       position: 'left',
       label: 'Blog',
-      to: 'https://medium.com/sailpointengineering',
+      to: '/blog',
     },
     {
       position: 'left',

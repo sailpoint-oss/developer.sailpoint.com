@@ -5,7 +5,8 @@ import java.util.List;
 /**
  * Definition of a Web Services Client interface available to Rule implementors.
  */
-public interface WebServicesClient {
+public class WebServicesClient {
+    protected HttpClient _client;
 
     /**
      * Configure connection parameters. See the ARG_* constants.
@@ -18,13 +19,17 @@ public interface WebServicesClient {
      * @param args map of the available configuration parameters, ARG_URL, ARG_USERNAME, ARG_PASSWORD, ARG_TIMEOUT
      * @throws java.lang.Exception The exception thrown by the client
      */
-    void configure(java.util.Map args) throws java.lang.Exception;
+    public void configure(java.util.Map args) throws java.lang.Exception {
+
+    }
 
     /**
      * Use this method to get a list of cookies associated with the request
      * @return List of cookies associated with the request
      */
-     List getCookies();
+     public List getCookies() {
+         return this._client.getCookies();
+     }
 
 
     /**
@@ -34,7 +39,9 @@ public interface WebServicesClient {
      * @return Get request response object
      * @throws java.lang.Exception The exception thrown by the client
      */
-    String executeGet(java.util.Map headers, java.util.List<java.lang.String> allowedStatuses) throws java.lang.Exception;
+    public String executeGet(java.util.Map headers, java.util.List<java.lang.String> allowedStatuses) throws java.lang.Exception {
+        return "getResponse";
+    }
 
 
     /**
@@ -45,7 +52,9 @@ public interface WebServicesClient {
      * @return Get request response object
      * @throws java.lang.Exception The exception thrown by the client
      */
-    String executeGet(java.lang.String url, java.util.Map headers, java.util.List<java.lang.String> allowedStatuses) throws java.lang.Exception;
+    public String executeGet(java.lang.String url, java.util.Map headers, java.util.List<java.lang.String> allowedStatuses) throws java.lang.Exception {
+        return "getResponse";
+    }
 
     /**
      * Use this method to execute a POST call with specifying the url, payload, and allowed statuses.
@@ -55,7 +64,9 @@ public interface WebServicesClient {
      * @return Post request response object
      * @throws java.lang.Exception The exception thrown by the client
      */
-    String executePost(java.lang.String url, java.lang.Object payload, java.util.List<java.lang.String> allowedStatuses) throws java.lang.Exception;
+    public String executePost(java.lang.String url, java.lang.Object payload, java.util.List<java.lang.String> allowedStatuses) throws java.lang.Exception {
+        return "postResponse";
+    }
 
     /**
      * Use this method to execute a POST call with specifying the url, payload, header values and allowed statuses.
@@ -66,7 +77,9 @@ public interface WebServicesClient {
      * @return Post request response object
      * @throws java.lang.Exception The exception thrown by the client
      */
-    String executePost(java.lang.String url, java.lang.Object payload, java.util.Map headers, java.util.List<java.lang.String> allowedStatuses) throws java.lang.Exception;
+    public String executePost(java.lang.String url, java.lang.Object payload, java.util.Map headers, java.util.List<java.lang.String> allowedStatuses) throws java.lang.Exception {
+        return "postResponse";
+    }
 
 
     /**
@@ -77,7 +90,9 @@ public interface WebServicesClient {
      * @return Put request response object
      * @throws java.lang.Exception The exception thrown by the client
      */
-    String executePut(java.lang.String url, java.lang.Object payload, java.util.List<java.lang.String> allowedStatuses) throws java.lang.Exception;
+    public String executePut(java.lang.String url, java.lang.Object payload, java.util.List<java.lang.String> allowedStatuses) throws java.lang.Exception {
+        return "putResponse";
+    }
 
     /**
      * Use this method to execute a PUT call with specifying the url, payload, header values and allowed statuses.
@@ -88,7 +103,9 @@ public interface WebServicesClient {
      * @return Put request response object
      * @throws java.lang.Exception The exception thrown by the client
      */
-    String executePut(java.lang.String url, java.lang.Object payload, java.util.Map headers, java.util.List<java.lang.String> allowedStatuses) throws java.lang.Exception;
+    public String executePut(java.lang.String url, java.lang.Object payload, java.util.Map headers, java.util.List<java.lang.String> allowedStatuses) throws java.lang.Exception {
+        return "putResponse";
+    }
 
     /**
      * Use this method to execute a PATCH call with specifying the url, payload and allowed statuses.
@@ -98,7 +115,9 @@ public interface WebServicesClient {
      * @return Patch request response object
      * @throws java.lang.Exception The exception thrown by the client
      */
-    String executePatch(java.lang.String url, java.lang.Object payload, java.util.List<java.lang.String> allowedStatuses) throws java.lang.Exception;
+    public String executePatch(java.lang.String url, java.lang.Object payload, java.util.List<java.lang.String> allowedStatuses) throws java.lang.Exception {
+        return "patchResponse";
+    }
 
     /**
      * Use this method to execute a PATCH call with specifying the url, payload, header values and allowed statuses.
@@ -109,13 +128,17 @@ public interface WebServicesClient {
      * @return Patch request response object
      * @throws java.lang.Exception The exception thrown by the client
      */
-    String executePatch(java.lang.String url, java.lang.Object payload, java.util.Map headers, java.util.List<java.lang.String> allowedStatuses) throws java.lang.Exception;
+    public String executePatch(java.lang.String url, java.lang.Object payload, java.util.Map headers, java.util.List<java.lang.String> allowedStatuses) throws java.lang.Exception {
+        return "patchResponse";
+    }
 
     /**
      * Get the last executed request's response headers.
      * @return Map of response headers
      */
-    java.util.Map<java.lang.String,java.lang.String> getResponseHeaders();
+    public java.util.Map<java.lang.String,java.lang.String> getResponseHeaders() {
+        return this._client.getResponseHeaders();
+    }
 
 
     /**
@@ -125,7 +148,9 @@ public interface WebServicesClient {
      * @return Delete request response object
      * @throws java.lang.Exception The exception thrown by the client
      */
-    String executeDelete(java.lang.String url, java.util.List<java.lang.String> allowedStatuses) throws java.lang.Exception;
+    public String executeDelete(java.lang.String url, java.util.List<java.lang.String> allowedStatuses) throws java.lang.Exception {
+        return "deleteResponse";
+    }
 
     /**
      * Use this method to execute a DELETE call specifying the url, header values and allowed statuses.
@@ -135,6 +160,8 @@ public interface WebServicesClient {
      * @return Delete request response object
      * @throws java.lang.Exception The exception thrown by the client
      */
-    String executeDelete(java.lang.String url, java.util.Map headers, java.util.List<java.lang.String> allowedStatuses) throws java.lang.Exception;
+    public String executeDelete(java.lang.String url, java.util.Map headers, java.util.List<java.lang.String> allowedStatuses) throws java.lang.Exception {
+        return "deleteResponse";
+    }
 
 }

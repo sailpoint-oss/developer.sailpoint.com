@@ -55,6 +55,13 @@ get:
                   "name": "identity 1",
                   "type": "IDENTITY"
                 },
+                "segments": [
+                  "1d126fe0-45e2-4aea-bc64-a07e9344ef26"
+                ],
+                "manuallyUpdatedFields": {
+                  "DISPLAY_NAME": true,
+                  "DESCRIPTION": true
+                },
                 "id": "2c91808c74ff913f0175097daa9d59cd",
                 "name": "LauncherTest1",
                 "created": "2020-10-08T18:33:52.029Z",

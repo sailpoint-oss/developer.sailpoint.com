@@ -927,12 +927,6 @@ paths:
     $ref: './v3/paths/password-org-config.yaml'
   /sod-config/public-keys/target:
     $ref: "./v3/paths/sod-public-key-target.yaml"
-  /sod-exceptions:
-    $ref: "./v3/paths/sod-exceptions.yaml"
-  /sod-exceptions/{id}:
-    $ref: "./v3/paths/sod-exception.yaml"
-  /sod-exceptions/bulk-create:
-    $ref: "./v3/paths/sod-exceptions-bulk-create.yaml"
   /sod-policies:
     $ref: './v3/paths/sod-policies.yaml'
   /sod-policies/{id}:
@@ -947,7 +941,7 @@ paths:
     $ref: './v3/paths/sod-violation-report.yaml'
   /sod-risks/risks/{id}:
     $ref: "./v3/paths/sod-arm-risk.yaml"
-  /sod-violation-report-status/{reportResultId}:
+  /sod-policies/sod-violation-report-status/{reportResultId}:
     $ref: './v3/paths/sod-violation-report-status.yaml'
   /sod-violations/predict:
     $ref: "./v3/paths/sod-violations-predict.yaml"

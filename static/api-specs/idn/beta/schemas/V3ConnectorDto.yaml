@@ -12,10 +12,18 @@ properties:
     type: string
     description: The connector script name
     example: "servicenow"
+  features:
+    type: array
+    description: The list of features supported by the connector
+    nullable: true
+    items:
+      type: string
+    example: ["PROVISIONING", "SYNC_PROVISIONING", "SEARCH", "UNSTRUCTURED_TARGETS"]
   directConnect:
     type: boolean
     description: true if the source is a direct connect source
     example: true
+    default: false
   connectorMetadata:
     type: object
     description: Object containing metadata pertinent to the UI to be used

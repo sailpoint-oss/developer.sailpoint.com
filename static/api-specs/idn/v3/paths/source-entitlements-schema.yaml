@@ -7,7 +7,7 @@ get:
     
     
     >**NOTE: This API is designated only for Delimited File sources.**
-  operationId: downloadSourceEntitlementsSchema
+  operationId: getEntitlementsSchema
   parameters:
     - in: path
       name: id
@@ -57,7 +57,7 @@ post:
 
     
     >**NOTE: This API is designated only for Delimited File sources.**
-  operationId: uploadSourceEntitlementsSchema
+  operationId: importEntitlementsSchema
   parameters:
     - in: path
       name: id

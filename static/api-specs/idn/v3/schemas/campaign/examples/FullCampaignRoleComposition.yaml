@@ -32,4 +32,5 @@ value:
   totalCertifications: 0
   completedCertifications: 0
   sourcesWithOrphanEntitlements: null
+  mandatoryCommentRequirement: NO_DECISIONS
   

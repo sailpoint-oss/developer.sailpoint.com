@@ -1,5 +1,6 @@
 package sailpoint.object;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Identity {
@@ -49,7 +50,7 @@ public class Identity {
      * @return List of Link Objects
      */
     public List<Link> getLinks() {
-        return new List<Link>();
+        return new ArrayList<Link>();
     }
 
     /**
@@ -63,10 +64,6 @@ public class Identity {
 
     public List<Bundle> getBundles() {
         return new List<Bundle>();
-    }
-
-    public List<EntitlementGroup> getExceptions(List<Application> apps) {
-        return new List<EntitlementGroup>();
     }
 
     public Attributes<String, Object> getAttributes() {

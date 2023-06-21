@@ -64,7 +64,7 @@ export default function DiscussCard({
             if (index > 2) {
               return '';
             }
-            return <div className={styles.tag}>{tag}</div>;
+            return <div key={tag} className={styles.tag}>{tag}</div>;
           })}
         </div>
       </div>

@@ -20,7 +20,7 @@ To build the CLI, the following packages are required:
 
 To develop a connector, the following packages are required:
 
-- Node >= 14.17.3
+- Node >= 16.2.0
 
 ## IDE
 

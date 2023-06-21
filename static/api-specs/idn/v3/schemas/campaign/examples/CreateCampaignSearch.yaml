@@ -12,4 +12,5 @@ value:
   searchCampaignInfo: 
     type: ACCESS
     query: user
+  mandatoryCommentRequirement: NO_DECISIONS
   

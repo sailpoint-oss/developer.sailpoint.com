@@ -1,8 +1,9 @@
+#No Beta endpoint found for this operation.
 get:
   tags:
     - Sources
   summary: Downloads source entitlements schema template
-  operationId: downloadSourceEntitlementsSchema
+  operationId: getSourceEntitlementsSchema
   parameters:
     - in: path
       name: id
@@ -37,13 +38,14 @@ get:
       $ref: '../../v3/responses/500.yaml'
   security:
     - oauth2: [idn:source-schema:read, idn:source-schema:manage]
+#No Beta endpoint found for this operation.
 post:
   tags:
     - Sources
   summary: Uploads source entitlements schema template
   description: >-
     This API uploads a source schema template file to configure a source's entitlement attributes.
-  operationId: uploadSourceEntitlementsSchema
+  operationId: importSourceEntitlementsSchema
   parameters:
     - in: path
       name: id

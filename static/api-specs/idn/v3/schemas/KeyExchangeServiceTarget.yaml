@@ -1,5 +1,0 @@
-type: string
-description: Type of key exchange.
-enum:
-  - ARM
-example: ARM

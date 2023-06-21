@@ -927,8 +927,6 @@ paths:
     $ref: './v3/paths/password-dictionary.yaml'
   /password-org-config:
     $ref: './v3/paths/password-org-config.yaml'
-  /sod-config/public-keys/target:
-    $ref: "./v3/paths/sod-public-key-target.yaml"
   /sod-policies:
     $ref: './v3/paths/sod-policies.yaml'
   /sod-policies/{id}:
@@ -941,16 +939,12 @@ paths:
     $ref: './v3/paths/sod-report-run.yaml'
   /sod-policies/{id}/violation-report:
     $ref: './v3/paths/sod-violation-report.yaml'
-  /sod-risks/risks/{id}:
-    $ref: "./v3/paths/sod-arm-risk.yaml"
   /sod-policies/sod-violation-report-status/{reportResultId}:
     $ref: './v3/paths/sod-violation-report-status.yaml'
   /sod-violations/predict:
     $ref: "./v3/paths/sod-violations-predict.yaml"
   /sod-violations/check:
     $ref: "./v3/paths/sod-violations-check.yaml"
-  /sod-violations/config:
-    $ref: "./v3/paths/sod-violations-config.yaml"
   /sod-violation-report/run:
     $ref: './v3/paths/sod-all-report-run.yaml'
   /sod-violation-report:

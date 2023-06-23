@@ -18,7 +18,7 @@ export default function AmbassadorCards({
       const memberDetails = await getAmbassadorDetails(data.members.map(item => item.id))
       for (const member of data.members) {
           const memberDetail = memberDetails.users.filter(item => item.id === member.id)[0]
-          if (member.avatar_template.includes("developer.sailpoint.com") && memberDetail.bio_excerpt && memberDetail.bio_excerpt.length > 60 && memberDetail.accepted_answers > 0) {
+          if (member.avatar_template.includes("developer.sailpoint.com") && memberDetail.bio_excerpt && memberDetail.bio_excerpt.length > 150) {
             resultset.push(await getMemberList(member, memberDetail))
           }          
       }

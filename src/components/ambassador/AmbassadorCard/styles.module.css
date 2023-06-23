@@ -1,4 +1,7 @@
 /* Getting Started Card */
+.link {
+  max-width: 420px;
+}
 
 .link:hover {
   text-decoration: none;

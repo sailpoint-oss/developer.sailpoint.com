@@ -11,26 +11,27 @@ slug: /docs/saas-connectivity/prerequisites
 tags: ['Connectivity']
 ---
 
-## Packages
+## Required Software
 
-To build the CLI, the following packages are required:
+### Node
 
-- Golang >= 1.17
-- Make >= 3.81
+To develop a connector, Node >= 16.2.0 is required. Download node from the [nodejs.org downloads page](https://nodejs.org/en/download).
 
-To develop a connector, the following packages are required:
+### SailPoint CLI
 
-- Node >= 16.2.0
+SailPoint provides a CLI tool to manage the connectors' lifecycles. To install and set up the CLI, [follow the instructions here](../../../tools/cli) or you can directly download and install from the [GitHub releases page](https://github.com/sailpoint-oss/sailpoint-cli/releases)
 
-## IDE
+## Recommended Software
+
+### IDE
 
 Although you can develop connectors in a text editor, use an Integrated Development Environment (IDE) for a better experience. There are many IDEs that support Javascript/Typescript, including [Visual Sudio Code](https://code.visualstudio.com/Download), a free IDE with native support for Javascript/Typescript. VS Code provides syntax highlight, debugging, hints, code completion, and other helpful options.
 
-## Install CLI
+### Postman
 
-SailPoint provides a CLI tool to manage the connectors' lifecycles. To install and set up the CLI, follow the instructions in this repository's README file [SailPoint CLI on GitHub](https://github.com/sailpoint-oss/sailpoint-cli)
+A convenient way to test your connector before deploying to IDN is to use Postman. You can get it from the [postman.com downloads page](https://www.postman.com/downloads/)
 
-## Create New Project
+## Creating your first project
 
 To create an empty connector project, run the following command:
 

@@ -19,7 +19,7 @@ To develop a connector, Node >= 16.2.0 is required. Download node from the [node
 
 ### SailPoint CLI
 
-SailPoint provides a CLI tool to manage the connectors' lifecycles. To install and set up the CLI, [follow the instructions here](../../../tools/cli) or you can directly download and install from the [GitHub releases page](https://github.com/sailpoint-oss/sailpoint-cli/releases)
+SailPoint provides a CLI tool to manage the connectors' lifecycles. To install and set up the CLI, [follow the instructions here](../../../idn/tools/cli) or you can directly download and install from the [GitHub releases page](https://github.com/sailpoint-oss/sailpoint-cli/releases)
 
 ## Recommended Software
 

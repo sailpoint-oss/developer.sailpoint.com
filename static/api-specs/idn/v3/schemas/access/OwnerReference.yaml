@@ -1,4 +1,5 @@
 type: object
+nullable: true
 description: The owner of this object.
 properties:
   type:

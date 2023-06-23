@@ -3,7 +3,7 @@ id: rule-utility
 title: Using IDNRuleUtil as a Wrapper for Common Rule Operations
 pagination_label: IdentityNow Rule Utility
 sidebar_label: IdentityNow Rule Utility
-sidebar_position: 2
+sidebar_position: 4
 sidebar_class_name: ruleUtility
 keywords: ['rule', 'utility']
 description: Using IDNRuleUtil as a Wrapper for Common Rule Operations

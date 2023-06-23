@@ -3,6 +3,10 @@
   max-width: 420px;
 }
 
+.link {
+  max-width: 420px;
+}
+
 .link:hover {
   text-decoration: none;
 }
@@ -10,8 +14,8 @@
 .card {
   position: relative;
   margin-top: 20px;
-  height: 500px;
-  max-width: 420px;
+  min-height: 500px;
+  
   /* UI Properties */
   background: var(--dev-card-background);
   box-shadow: var(--dev-card-shadow);
@@ -92,15 +96,13 @@
 
 
 .bio {
-  position: absolute;
   margin: 30px auto;
   font-size: 16px;
   font-weight: 500;
   width: 100%;
-  top: 100px;
-  left: 0;
   color: var(--ifm-color-primary);
   padding: 30px;
+  margin-bottom: 50px;
 }
 
 

@@ -13,6 +13,8 @@ post:
     If a backup is performed, the id of the backup will be provided in the ImportResult as the "exportJobId". This can be downloaded 
     using the /sp-config/export/{exportJobId}/download endpoint.
 
+    You cannot currently import from the Non-Employee Lifecycle Management (NELM) source. You cannot use this endpoint to back up or store NELM data. 
+
     Request will need the following security scope:
 
     - sp:config:manage

@@ -3,10 +3,6 @@
   max-width: 420px;
 }
 
-.link {
-  max-width: 420px;
-}
-
 .link:hover {
   text-decoration: none;
 }

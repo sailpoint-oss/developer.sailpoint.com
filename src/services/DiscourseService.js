@@ -55,9 +55,9 @@ export async function checkImage(url) {
 export async function getBlogPosts(tags) {
   let url = ''
   if (tags) {
-    url = 'https://developer.sailpoint.com/discuss/search.json?q=category:blog+tags:' + tags
+    url = 'https://developer.sailpoint.com/discuss/search.json?q=category:blog-posts+tags:' + tags
   } else {
-    url = 'https://developer.sailpoint.com/discuss/search.json?q=category:blog'
+    url = 'https://developer.sailpoint.com/discuss/search.json?q=category:blog-posts'
   }
   try {
     const response = await fetch(

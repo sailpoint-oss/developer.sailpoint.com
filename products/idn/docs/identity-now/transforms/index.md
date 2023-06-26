@@ -352,7 +352,7 @@ To test a transform for account data, you must provision a new account on that s
 
 Sometimes it can be difficult to decide when to implement a transform and when to implement a rule. Both transforms and rules can calculate values for identity or account attributes.
 
-Despite their functional similarity, transforms and rules have very different implementations. Transforms are JSON-based configurations, editable with IdentityNow's transform REST APIs. Rules are implemented with code (typically BeanShell, a Java-like syntax), so they must follow the [IdentityNow Rule Guidelines](https://community.sailpoint.com/docs/DOC-12122), and they require SailPoint to be reviewed and installed into the tenant. Rules, however, can do things that transforms cannot in some cases.
+Despite their functional similarity, transforms and rules have very different implementations. Transforms are JSON-based configurations, editable with IdentityNow's transform REST APIs. Rules are implemented with code (typically [BeanShell](https://github.com/beanshell/beanshell), a Java-like syntax), so they must follow the [IdentityNow Rule Guidelines](https://community.sailpoint.com/docs/DOC-12122), and they require SailPoint to be reviewed and installed into the tenant. Rules, however, can do things that transforms cannot in some cases.
 
 Because transforms have easier and more accessible implementations, they are generally recommended. With transforms, any IdentityNow administrator can view, create, edit, and delete transforms directly with REST API without SailPoint involvement.
 

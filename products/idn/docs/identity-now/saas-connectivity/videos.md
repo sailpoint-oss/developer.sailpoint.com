@@ -20,4 +20,4 @@ During our 2023 Developer Days Conference, we created several connectivity video
  - [Building a Complete Connector Walkthrough](https://www.youtube.com/watch?v=wHHje_ItTKQ)
  - [SDKs in practice](https://www.youtube.com/watch?v=uvnlSUVsF8M)
 
-<Video source="https://www.youtube.com/watch?v=wHHje_ItTKQ"></Video>
+<Video source="https://www.youtube.com/embed/wHHje_ItTKQ"></Video>

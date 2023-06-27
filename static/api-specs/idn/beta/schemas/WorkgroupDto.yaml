@@ -1,0 +1,23 @@
+type: object
+properties:
+  owner:
+    $ref: './Owner.yaml'
+    description: Owner of the Governance Group
+  id:
+    type: string
+    description: ID of the object to which this reference applies
+    example: 2c91808568c529c60168cca6f90c1313
+  description:
+    type: string
+    description: Description of the Governance Group
+    example: Description of the Governance Group
+  memberCount:
+    type: integer
+    format: int64
+    example: 1641498673000
+    description: Number of members in the Governance Group.
+  connectionCount:
+    type: integer
+    format: int64
+    example: 1641498673000
+    description: Number of connections in the Governance Group.

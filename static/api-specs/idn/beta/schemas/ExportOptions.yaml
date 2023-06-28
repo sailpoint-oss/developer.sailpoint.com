@@ -7,17 +7,26 @@ properties:
       type: string
       enum:
       - ACCESS_PROFILE
+      - ACCESS_REQUEST_CONFIG
+      - ATTR_SYNC_SOURCE_CONFIG
       - AUTH_ORG
+      - CAMPAIGN_FILTER
       - FORM_DEFINITION
       - GOVERNANCE_GROUP
       - IDENTITY_PROFILE
+      - LIFECYCLE_STATE
       - NOTIFICATION_TEMPLATE
+      - PASSWORD_POLICY
+      - PASSWORD_SYNC_GROUP
       - PUBLIC_IDENTITIES_CONFIG
       - ROLE
       - RULE
+      - SERVICE_DESK_INTEGRATION
+      - SOD_POLICY
       - SOURCE
       - TRANSFORM
       - TRIGGER_SUBSCRIPTION
+      - WORKFLOWS
       example: "SOURCE"
   includeTypes:
     description: Object type names to be included in an sp-config export command. IncludeTypes takes precedence over excludeTypes.
@@ -26,17 +35,26 @@ properties:
       type: string
       enum:
       - ACCESS_PROFILE
+      - ACCESS_REQUEST_CONFIG
+      - ATTR_SYNC_SOURCE_CONFIG
       - AUTH_ORG
+      - CAMPAIGN_FILTER
       - FORM_DEFINITION
       - GOVERNANCE_GROUP
       - IDENTITY_PROFILE
+      - LIFECYCLE_STATE
       - NOTIFICATION_TEMPLATE
+      - PASSWORD_POLICY
+      - PASSWORD_SYNC_GROUP
       - PUBLIC_IDENTITIES_CONFIG
       - ROLE
       - RULE
+      - SERVICE_DESK_INTEGRATION
+      - SOD_POLICY
       - SOURCE
       - TRANSFORM
       - TRIGGER_SUBSCRIPTION
+      - WORKFLOWS
       example: "TRIGGER_SUBSCRIPTION"
   objectOptions:
     description: Additional options targeting specific objects related to each item in the includeTypes field

@@ -69,12 +69,16 @@ export async function getBlogPosts(tags) {
   }
 }
 
-export async function getMarketplacePosts(tags) {
+export async function getMarketplacePosts(tags, category) {
+  let filterCategory = 'marketplace'
+  if (category) {
+    filterCategory = category
+  }
   let url = ''
   if (tags) {
-    url = 'https://developer.sailpoint.com/discuss/search.json?q=category:marketplace+tags:' + tags
+    url = 'https://developer.sailpoint.com/discuss/search.json?q=category:' + filterCategory + '+tags:' + tags
   } else {
-    url = 'https://developer.sailpoint.com/discuss/search.json?q=category:marketplace'
+    url = 'https://developer.sailpoint.com/discuss/search.json?q=category:' + filterCategory
   }
   try {
     const response = await fetch(
@@ -123,6 +127,17 @@ export async function getTags() {
   try {
     const response = await fetch(
       'https://developer.sailpoint.com/discuss/tags.json',
+    );
+    return await response.json();
+  } catch (error) {
+    return [];
+  }
+}
+
+export async function getCatagories() {
+  try {
+    const response = await fetch(
+      'https://developer.sailpoint.com/discuss/categories.json',
     );
     return await response.json();
   } catch (error) {

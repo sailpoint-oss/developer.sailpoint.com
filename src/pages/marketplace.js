@@ -10,28 +10,37 @@ import MarketplaceCards from '../components/marketplace/MarketplaceCards';
 import MarketplaceSidebar from '../components/marketplace/MarketplaceSidebar';
 
 export default function Marketplace() {
-  const [filteredProduct, setFilteredProduct] = React.useState([]);
+  const [filteredProduct, setFilteredProduct] = React.useState({"category": "marketplace", "tags": []});
 
   const {siteConfig} = useDocusaurusContext();
 
   const handleClick = (data) => {
-    var tempFilter = filteredProduct.slice()
+    var tempFilter = filteredProduct.tags.slice()
 
-    const index = tempFilter.indexOf(data);
-    if (index !== -1) {
-      tempFilter.splice(index, 1);
-    } else {
-      tempFilter.push(data)
+    if (data.tag) {
+      const index = tempFilter.indexOf(data.tag);
+      if (index !== -1) {
+        tempFilter.splice(index, 1);
+      } else {
+        tempFilter.push(data.tag)
+      }
     }
 
-    setFilteredProduct(tempFilter)
+
+    if (data.category) {
+      setFilteredProduct({"category": data.category, "tags": [tempFilter]})
+    } else {
+      setFilteredProduct({"category": filteredProduct.category, "tags": [tempFilter]})
+    }
+
+    
   };
   return (
     <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
       <main>
       <MarketplaceBanner />
       <div className={styles.blogContainer}>
-          <div className={styles.blogSidbarContainer}><MarketplaceSidebar filterCallback={handleClick}/></div>
+          <div className={styles.blogSidbarContainer}><MarketplaceSidebar selectedCategory={filteredProduct.category} filterCallback={handleClick}/></div>
           <div className={styles.blogCardContainer}><MarketplaceCards filterCallback={filteredProduct}/></div>
       </div>
       

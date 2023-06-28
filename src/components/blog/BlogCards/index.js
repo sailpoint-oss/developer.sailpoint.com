@@ -11,7 +11,7 @@ export default function BlogCards({
   const [loadingCards, setLoadingCards] = React.useState(true);
 
   const getPosts = async () => {
-    const data = await getBlogPosts(filterCallback.join(','));
+    const data = await getBlogPosts(filterCallback.join('+'));
     const resultset = []
     if (data.topics) {
       for (const topic of data.topics) {

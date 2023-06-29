@@ -31,6 +31,7 @@ export default function AmbassadorCards({
     setLoadingCards(false);
   };
 
+  
   React.useEffect(() => {
     getPosts();
     setCardData(undefined);

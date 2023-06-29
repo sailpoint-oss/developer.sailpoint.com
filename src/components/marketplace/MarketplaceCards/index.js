@@ -18,7 +18,7 @@ export default function MarketplaceCards({filterCallback}) {
   const [loadingCards, setLoadingCards] = React.useState(true);
 
   const getPosts = async () => {
-    const data = await getMarketplacePosts(filterCallback.join(','));
+    const data = await getMarketplacePosts(filterCallback.tags.join('+'), filterCallback.category);
     console.log(data)
     const resultset = [];
     if (data.topics) {

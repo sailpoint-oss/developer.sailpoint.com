@@ -3,21 +3,37 @@ import clsx from 'clsx';
 import styles from './styles.module.css';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Link from '@docusaurus/Link';
-import { getTags } from '../../../services/DiscourseService';
+import { getCatagories, getTags } from '../../../services/DiscourseService';
 import MarketplaceSidebarButton from './MarketplaceSidebarButton';
 
 export default function MarketplaceSidebar({
-  filterCallback
+  filterCallback,
+  selectedCategory
   }) {
   const [tagProductData, setTagProductData] = React.useState();
   const [tagTechnologyData, setTagTechnologyData] = React.useState();
+  const [catIntegrationTypeData, setCatIntegrationTypeData] = React.useState();
   const [filterTags, setFilterTags] = React.useState(true);
 
   const getTagData = async () => {
-    const data = await getTags();
+    const tagData = await getTags();
+    const categoryData = await getCatagories();
+
     const tagTechnologyResultset = []
     const tagProductResultset = []
-    for (const tagGroup of data.extras.tag_groups) {
+    const catIntegrationType = []
+
+    for (const category of categoryData.category_list.categories) {
+      // 59 for marketplace
+      if (category.id === 59) {
+        for (const subCategory of category.subcategory_list) {
+          
+          catIntegrationType.push({"name": subCategory.name, "slug": subCategory.slug})
+        }
+      }
+    }
+
+    for (const tagGroup of tagData.extras.tag_groups) {
       if (tagGroup.id === 20) {
         for (const tag of tagGroup.tags) {
           tagProductResultset.push(tag.text)
@@ -31,6 +47,7 @@ export default function MarketplaceSidebar({
     }
     setTagProductData(tagProductResultset)
     setTagTechnologyData(tagTechnologyResultset)
+    setCatIntegrationTypeData(catIntegrationType)
   };
 
   function toggleSeeAll() {
@@ -44,19 +61,19 @@ export default function MarketplaceSidebar({
 
   const filterText = filterTags ? 'See All Tags' : 'See Less Tags'
 
-  if (tagProductData && tagTechnologyData) {
+  if (tagProductData && catIntegrationTypeData) {
     return (
       <div className={styles.sidebar}>
         <div className={styles.tagHeader}>Items by Product</div>
         <div className={styles.tagContainer}>
             {tagProductData.map(function(a, index){
-              return <MarketplaceSidebarButton key={a} text={a} filterCallback={filterCallback}></MarketplaceSidebarButton>
+              return <MarketplaceSidebarButton key={a} text={a} id={a} filterCallback={filterCallback}></MarketplaceSidebarButton>
             })}
         </div>
-        <div className={styles.tagHeader}>Items by Identity Governance</div>
+        <div className={styles.tagHeader}>Items by Integration Type</div>
         <div className={styles.tagContainer}>
-            {tagTechnologyData.map(function(a, index){
-              return <div key={'div' + a} className={index > 10 && filterTags ? styles.hidden : ''} > <MarketplaceSidebarButton key={a} text={a} filterCallback={filterCallback}></MarketplaceSidebarButton></div>
+            {catIntegrationTypeData.map(function(a, index){
+              return <div key={'div' + a.slug} className={index > 10 && filterTags ? styles.hidden : ''} > <MarketplaceSidebarButton category={selectedCategory} isCategory={true} key={a.slug} text={a.name} id={a.slug} filterCallback={filterCallback}></MarketplaceSidebarButton></div>
             })}
         </div>
         <div className={styles.seeAll} onClick={(e) => toggleSeeAll()}>

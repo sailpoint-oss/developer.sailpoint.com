@@ -23,7 +23,7 @@ get:
       description: >-
         The account ID.
         If specified, returns only entitlements associated with the given Account.
-        Can not be specified with the **filters**, **segmented-for-identity**, **for-segment-ids**, or
+        Cannot be specified with the **filters**, **segmented-for-identity**, **for-segment-ids**, or
         **include-unsegmented** param(s).
       example: ef38f94347e94562b5bb8424a56397d8
       required: false
@@ -36,7 +36,7 @@ get:
         are visible to the Identity with the specified ID. By convention, the value **me** can stand in for the current
         user's Identity ID.
 
-        Can not be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a
+        Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a
         value that refers to a different user's Identity.
       example: me
       required: false
@@ -49,7 +49,7 @@ get:
         If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s)
         with the specified IDs.
 
-        Can not be specified with the **account-id** or **segmented-for-identity** param(s).
+        Cannot be specified with the **account-id** or **segmented-for-identity** param(s).
       example: 041727d4-7d95-4779-b891-93cf41e98249,a378c9fa-bae5-494c-804e-a1e30f69f649
       required: false
     - in: query

@@ -2,10 +2,12 @@ put:
   tags:
     - Saved Search
   description: |
-    Updates an existing saved search.
+    Updates an existing saved search. 
+
+    >**NOTE: You cannot update the `owner` of the saved search.**
   summary: |
     Updates an existing saved search
-  operationId: updateSavedSearch
+  operationId: putSavedSearch
   parameters:
   - $ref: '../parameters/path/search/id.yaml'
   requestBody:
@@ -24,14 +26,20 @@ put:
             $ref: '../schemas/search/saved/SavedSearch.yaml'
     '400':
       $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
     '403':
       $ref: '../responses/403.yaml'
+    '429': 
+      $ref: '../responses/429.yaml'
+    '500': 
+      $ref: '../responses/500.yaml'
 get:
   tags:
     - Saved Search
   description: |
     Returns the specified saved search.
-  summary: Return a saved search by ID
+  summary: Return saved search by ID
   operationId: getSavedSearch
   parameters:
   - $ref: '../parameters/path/search/id.yaml'
@@ -42,14 +50,24 @@ get:
         application/json:
           schema:
             $ref: '../schemas/search/saved/SavedSearch.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
     '404':
       $ref: '../responses/404.yaml'
+    '429': 
+      $ref: '../responses/429.yaml'
+    '500': 
+      $ref: '../responses/500.yaml'
 delete:
   tags:
     - Saved Search
   description: |
     Deletes the specified saved search.
-  summary: Delete a document by ID
+  summary: Delete document by ID
   operationId: deleteSavedSearch
   parameters:
   - $ref: '../parameters/path/search/id.yaml'
@@ -58,7 +76,13 @@ delete:
       description: No Content - Indicates the request was successful but there is no content to be returned in the response.
     '400':
       $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
     '403':
       $ref: '../responses/403.yaml'
     '404':
       $ref: '../responses/404.yaml'
+    '429': 
+      $ref: '../responses/429.yaml'
+    '500': 
+      $ref: '../responses/500.yaml'

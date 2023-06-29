@@ -55,7 +55,7 @@ patch:
     * `saved`
 
 
-    >**NOTE: All other fields can not be modified.**
+    >**NOTE: All other fields cannot be modified.**
   parameters:
     - in: path
       name: sessionId

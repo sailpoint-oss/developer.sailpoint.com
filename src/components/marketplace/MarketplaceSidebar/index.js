@@ -24,7 +24,6 @@ export default function MarketplaceSidebar({
     const catIntegrationType = []
 
     for (const category of categoryData.category_list.categories) {
-      console.log(category)
       // 59 for marketplace
       if (category.id === 59) {
         for (const subCategory of category.subcategory_list) {
@@ -71,10 +70,10 @@ export default function MarketplaceSidebar({
               return <MarketplaceSidebarButton key={a} text={a} id={a} filterCallback={filterCallback}></MarketplaceSidebarButton>
             })}
         </div>
-        <div className={styles.tagHeader}>Items by Identity Governance</div>
+        <div className={styles.tagHeader}>Items by Integration Type</div>
         <div className={styles.tagContainer}>
             {catIntegrationTypeData.map(function(a, index){
-              return <div key={'div' + a} className={index > 10 && filterTags ? styles.hidden : ''} > <MarketplaceSidebarButton category={selectedCategory} isCategory={true} key={a.name} text={a.name} id={a.slug} filterCallback={filterCallback}></MarketplaceSidebarButton></div>
+              return <div key={'div' + a.slug} className={index > 10 && filterTags ? styles.hidden : ''} > <MarketplaceSidebarButton category={selectedCategory} isCategory={true} key={a.slug} text={a.name} id={a.slug} filterCallback={filterCallback}></MarketplaceSidebarButton></div>
             })}
         </div>
         <div className={styles.seeAll} onClick={(e) => toggleSeeAll()}>

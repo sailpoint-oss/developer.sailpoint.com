@@ -44,7 +44,6 @@ export async function checkImage(url) {
     const response = await fetch(
       url,
     );
-    console.log(response)
     return true
   } catch (error) {
     return false;

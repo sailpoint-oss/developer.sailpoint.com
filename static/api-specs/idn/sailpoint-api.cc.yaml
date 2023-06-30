@@ -961,9 +961,45 @@ paths:
         profiles.  |
       requestBody:
         content:
-          '*/*':
+          application/json:
             schema:
-              type: string
+              type: object
+              properties:
+                filter:
+                  type: string
+                  description: |
+                    Defines the identity or identities which this refresh applies to.
+                    The filter must use searchable identity attributes.
+                    If the filter cannot be understood or parsed, all identities will be refreshed.
+                refreshArgs:
+                  type: object
+                  properties:
+                    correlateEntitlements:
+                      type: boolean
+                      example: true
+                      description: This will refresh entitlement, role, and access profile calculations.
+                    promoteAttributes:
+                      type: boolean
+                      example: true
+                      description: This will calculate identity attributes.
+                    refreshManagerStatus:
+                      type: boolean
+                      example: false
+                      description: |
+                        This recalculates manager correlation and manager status. Note: This is computationally expensive to run.
+                    synchronizeAttributes:
+                      type: boolean
+                      example: false
+                      description: Enables attribute synchronization.
+                    pruneIdentities:
+                      type: boolean
+                      example: false
+                      description: |
+                        Option that will enable deletion of an identity objects if there are no account objects. Note: This is not typically used in IdentityNow, except by guidance from SailPoint.
+                    provision:
+                      type: boolean
+                      example: false
+                      description: Enables provisioning of role assignments with entitlements that are not currently fulfilled.
               example: >-
                 "{\n   \"filter\" : \"uid == \\\"1219028\\\"\",\n  
                 \"refreshArgs\" : {\n     \"correlateEntitlements\" :

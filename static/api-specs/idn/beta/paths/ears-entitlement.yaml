@@ -83,7 +83,7 @@ patch:
 
 
     The following fields are patchable:
-    **requestable**, **privileged**, **segments**, **owner**.
+    **requestable**, **privileged**, **segments**, **owner**, **name**, **description**.
 
 
     When you're patching owner, only owner type and owner id must be provided. Owner name is optional, and it won't be
@@ -188,6 +188,28 @@ patch:
                     "DISPLAY_NAME": true,
                     "DESCRIPTION": true
                   }
+                }
+              ]
+          Add the description for an entitlement:
+            description: >-
+              This example shows how to use patch to add a description for the entitlement.
+            value:
+              [
+                {
+                  "op": "add",
+                  "path": "/description",
+                  "value": "new description for the entitlement"
+                }
+              ]
+          Update the name for an entitlement:
+            description: >-
+              This example shows how to use patch to update an entitlement's name.
+            value:
+              [
+                {
+                  "op": "replace",
+                  "path": "/name",
+                  "value": "entitlement new name"
                 }
               ]
   responses:

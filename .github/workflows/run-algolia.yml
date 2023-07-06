@@ -2,11 +2,10 @@ name: Run Algolia Crawler
 
 on:
   # Runs on pushes targeting the default branch
-  push:
-    branches: ['feature/algolia-action']
-    paths-ignore:
-      - 'README.md'
-      - '.github/**'
+  workflow_run:
+    workflows: ['Build/Deploy to GitHub Pages']
+    types:
+      - completed
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -28,7 +27,7 @@ jobs:
 
       - name: Get the content of algolia.json as config
         id: algolia_config
-        run: echo "::set-output name=config::$(cat algolia/dev_config.json | jq -r tostring)"
+        run: echo "::set-output name=config::$(cat algolia/config.json | jq -r tostring)"
 
       - name: Push indices to Algolia
         uses: signcl/docsearch-scraper-action@master

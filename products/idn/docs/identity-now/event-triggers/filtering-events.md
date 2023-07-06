@@ -49,6 +49,7 @@ Functions can be invoked at the tail end of a path - the input to a function is 
 | Function | Description | Output type | Example |
 | --- | --- | --- | --- |
 | length() | Provides the length of an array | Integer | $[?($.changes.length() >= 3)] |
+| concat() | Concatenates two or more paths into a single string value | String | $.concat($.identity.attributes.firstname," ",$.identity.attributes.lastname) |
 
 ### Operators
 

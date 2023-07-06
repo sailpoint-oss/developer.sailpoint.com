@@ -133,7 +133,7 @@ Once you have provided your client ID and client secret, you can swap your auth 
 
 ## Environment variable configuration
 
-You can also store your configuration in environment variables. This can be useful when you are using the CLI in an automated environment like a continuous integration and continuous deployment (CI/CD) pipeline. In these types of scenarios, consuming the cconfiguration from environment variables would be easier than creating the configuration file.
+You can also store your configuration in environment variables. This can be useful when you are using the CLI in an automated environment like a continuous integration and continuous deployment (CI/CD) pipeline. In these types of scenarios, consuming the configuration from environment variables would be easier than creating the configuration file.
 
 To export the environment variables on **Linux/Mac**, open your terminal app and run these commands:
 

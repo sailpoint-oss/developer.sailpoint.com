@@ -4,63 +4,6 @@
     {
       "url": "https://developer.sailpoint.com/idn/docs/transforms",
       "tags": ["IDN Documentation", "Transforms"]
-    },
-    {
-      "url": "https://developer.sailpoint.com/idn/docs/rules",
-      "tags": ["IDN Documentation", "Rules"]
-    },
-    {
-      "url": "https://developer.sailpoint.com/idn/docs/event-triggers",
-      "tags": ["IDN Documentation", "Event Triggers"]
-    },
-    {
-      "url": "https://developer.sailpoint.com/idn/docs/saas-configuration",
-      "tags": ["IDN Documentation", "SaaS Configuration"]
-    },
-    {
-      "url": "https://developer.sailpoint.com/idn/docs/saas-connectivity",
-      "tags": ["IDN Documentation", "SaaS Connectivity"]
-    },
-    {
-      "url": "https://developer.sailpoint.com/idn/docs/",
-      "tags": ["IDN Documentation"]
-    },
-
-    {
-      "url": "https://developer.sailpoint.com/idn/api/getting-started",
-      "selectors_key": "api_v3",
-      "tags": ["IDN API Documenation"]
-    },
-    {
-      "url": "https://developer.sailpoint.com/idn/api/authentication",
-      "selectors_key": "api_v3",
-      "tags": ["IDN API Documenation"]
-    },
-    {
-      "url": "https://developer.sailpoint.com/idn/api/standard-collection-parameters",
-      "selectors_key": "api_v3",
-      "tags": ["IDN API Documenation"]
-    },
-    {
-      "url": "https://developer.sailpoint.com/idn/api/rate-limit",
-      "selectors_key": "api_v3",
-      "tags": ["IDN API Documenation"]
-    },
-
-    {
-      "url": "https://developer.sailpoint.com/idn/api/v3",
-      "selectors_key": "api_v3",
-      "tags": ["IDN V3 APIs"]
-    },
-    {
-      "url": "https://developer.sailpoint.com/idn/api/beta",
-      "selectors_key": "api_v3",
-      "tags": ["IDN Beta APIs"]
-    },
-    {
-      "url": "https://developer.sailpoint.com/iiq/api",
-      "selectors_key": "api_iiq",
-      "tags": ["IIQ APIs"]
     }
   ],
   "js_render": false,
@@ -87,6 +30,26 @@
       "lvl5": "article h4",
       "lvl6": "article h5, article td:first-child",
       "lvl7": "article h6",
+      "text": "article p, article li, article td:last-child"
+    },
+    "tools": {
+      "lvl0": {
+        "selector": "(//ul[contains(@class,'menu__list')]//a[contains(@class, 'menu__link menu__link--sublist menu__link--active')]/text() | //nav[contains(@class, 'navbar')]//a[contains(@class, 'navbar__link--active')]/text())[1]",
+        "type": "xpath",
+        "global": true,
+        "default_value": "IDN Tools"
+      },
+      "lvl1": {
+        "selector": "(//ul[contains(@class,'menu__list')]//a[contains(@class, 'menu__link menu__link--sublist menu__link--active')]/text() | //nav[contains(@class, 'navbar')]//a[contains(@class, 'navbar__link--active')]/text())[last()]",
+        "type": "xpath",
+        "global": true,
+        "default_value": "IDN Tools"
+      },
+      "lvl2": "article h2",
+      "lvl3": "article h3",
+      "lvl4": "article h4",
+      "lvl5": "article h5, article td:first-child",
+      "lvl6": "article h6",
       "text": "article p, article li, article td:last-child"
     },
     "api_v3": {

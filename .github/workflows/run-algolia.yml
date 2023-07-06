@@ -3,7 +3,7 @@ name: Run Algolia Crawler
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ['main']
+    branches: ['feature/algolia-action']
     paths-ignore:
       - 'README.md'
       - '.github/**'

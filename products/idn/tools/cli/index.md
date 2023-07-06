@@ -43,44 +43,89 @@ Learn how to use the SailPoint command line interface (CLI) in this guide.
 
 ## Get the CLI
 
-To install the SailPoint CLI: use a package manager for the OS of your choice. Prebuilt binaries for OS X, Windows, and Linux are provided in [Releases](https://github.com/sailpoint-oss/sailpoint-cli/releases).
+To install the SailPoint CLI: use a package manager for the OS of your choice. Prebuilt binaries for OS X, Windows, and Linux are provided in each [release](https://github.com/sailpoint-oss/sailpoint-cli/releases).
 
-### Homebrew
+### Windows
+```Note this installer is only compatible with 64 bit Windows.```
+
+Download the latest release from the [releases page](https://github.com/sailpoint-oss/sailpoint-cli/releases). 
+The release should include an MSI file named `sail_x.x.x_windows_amd64.msi` that can be installed on Windows, with `x.x.x` being the version of the most recent release.
+
+To install the MSI file, double click on it and follow the prompts in the installer.
+
+
+### MacOS
 
 MacOS users can use [Homebrew](https://brew.sh/) to install the CLI. Run these commands in your terminal:
 
-```sh
+```bash
 brew tap sailpoint-oss/tap && brew install sailpoint-cli
 ```
 
 Then make sure you can run the `sail` command.
+
+### Linux
+
+Each release on the [releases page](https://github.com/sailpoint-oss/sailpoint-cli/releases) includes a tarball that can be extracted and run on Linux.
+Or you can install using the available .deb or .rpm packages.
+
+#### Deb Package
+
+Download the specific .deb package from the release you wish to install
+
+Then install it using one of the following commands
+
+```bash
+sudo apt install ./sail_x.x.x_linux_amd64.deb
+```
+```bash
+sudo apt install /path/to/deb/package/sail_x.x.x_linux_amd64.deb
+```
+
+#### RPM Package
+
+Download the specific .rpm package from the release you wish to install
+
+Then install it using one of the following commands
+
+```bash
+sudo yum localinstall ./sail_x.x.x_linux_amd64.rpm
+```
+```bash
+sudo yum localinstall /path/to/rpm/package/sail_x.x.x_linux_amd64.rpm
+```
 
 ## Configuration
 
 To configure the CLI to connect and authenticate to your IDN tenant, you must do the following:
 
 - Find your tenant name. To learn how to find it, refer to [Getting Started](/idn/api/getting-started#find-your-tenant-name). The CLI will use this tenant name to connect to your IDN instance.
-- Create a personal access token (PAT). Make sure to note the "client ID" and "client secret." The CLI needs this information to authenticate successfully. To learn how to create a PAT, refer to [Personal Access Tokens](/idn/api/authentication#personal-access-tokens).
+- OAuth
+- PAT | Create a personal access token (PAT). Make sure to note the "client ID" and "client secret." The CLI needs this information to authenticate successfully. To learn how to create a PAT, refer to [Personal Access Tokens](/idn/api/authentication#personal-access-tokens).
 
-### Assisted configuration
-
-Once you have created the PAT, you can use the `configure` command to configure the CLI for your tenant.
-
-This command creates a configuration file in your home directory to store your tenant's connection details.
-
-To configure the CLI with your PAT, first run the `sail environment {name}` like this example:
-
-```shell
-sail environment example
+To configure your first environment for OAuth run the following command:
+```bash
+sail env {environment}
 ```
+with `{environment}` being the name of the environment you wish to configure.
 
-You can then provide your tenant URL and base URL.
+You will be prompted for the following information:
+- The Tenant URL - The web URL used to access your IdentityNow tenant (ex. https://tenant.identitynow.com), this is used during the OAuth process.
+- The API URL - The API URL used to access your IdentityNow tenant (ex. https://tenant.api.identitynow.com), this is used for the api calls made by certain commands.
 
-Then run the `sail configure` command. You can then provide your PAT client ID and client secret.
+### OAuth Authentication
+
+With the default environment values populated you can immediately begin using the CLI with OAuth authentication.
+Just make sure OAuth is your selected authentication method, this can be done by running `sail set auth oauth`.
+
+### PAT Authentication
+
+After you have configured your environment, if you want to use PAT authentication, run the `sail configure` command. 
+You can then provide your PAT client ID and client secret.
 
 ![Configure PAT](./assets/img/vhs/configure-pat.gif)
 
-Once you have provided your client ID and client secret, your CLI is configured.
+Once you have provided your client ID and client secret, you can swap your auth method to PAT using `sail set auth pat`.
 
 ### Manual configuration
 

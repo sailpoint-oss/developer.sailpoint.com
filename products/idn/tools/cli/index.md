@@ -77,7 +77,7 @@ Or you can install using the available .deb or .rpm packages.
 
 Download the specific .deb package from the release you wish to install
 
-Then install it using one of the following commands
+Then install it using one of the following commands, with the `x.x.x` being the version of the most recent release.
 
 ```bash
 sudo apt install ./sail_x.x.x_linux_amd64.deb
@@ -90,7 +90,7 @@ sudo apt install /path/to/deb/package/sail_x.x.x_linux_amd64.deb
 
 Download the specific .rpm package from the release you wish to install
 
-Then install it using one of the following commands
+Then install it using one of the following commands, with the `x.x.x` being the version of the most recent release.
 
 ```bash
 sudo yum localinstall ./sail_x.x.x_linux_amd64.rpm

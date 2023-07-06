@@ -35,8 +35,7 @@ Learn how to use the SailPoint command line interface (CLI) in this guide.
 - [Configuration](#configuration)
   - [OAuth Authentication](#oauth-authentication)
   - [PAT Authentication](#pat-authentication)
-  - [Manual configuration](#manual-configuration)
-    - [Environment variable configuration](#environment-variable-configuration)
+- [Environment variable configuration](#environment-variable-configuration)
 - [Usage](#usage)
 - [GitHub](#github)
 - [Contribution](#contribution)
@@ -132,50 +131,7 @@ You can then provide your PAT client ID and client secret.
 
 Once you have provided your client ID and client secret, you can swap your auth method to PAT using `sail set auth pat`.
 
-### Manual configuration
-
-Alternatively, you can manually create a configuration file in your home directory.
-
-On **Linux and MacOS**, open your terminal app and run these commands:
-
-```shell
-mkdir ~/.sailpoint
-touch ~/.sailpoint/config.yaml
-```
-
-On **Windows**, run Powershell as an administrator and run these commands:
-
-```powershell
-New-Item -ItemType Directory -Path 'C:\Users\<username>\.sailpoint'
-New-Item -ItemType File -Path 'C:\Users\<username>\.sailpoint\config.yaml'
-```
-
-These commands will create a `config.yaml` file you can use to set your environment variables:
-
-The `config.yaml` file must contain the following information:
-
-```yaml
-activeenvironment: example # The key identifying the current active environment.
-authtype: pat # Currently only "pat" is supported. If the ENV VARs for SAIL_BASE_URL are configured, they will override the values in the environment.
-exporttemplatespath: '' # The path to the user's custom export templates file, if it's provided
-searchtemplatespath: '' # The path to the user's custom search templates file, if it's provided
-debug: false # The CLI's debug setting
-environments: # The CLI's configured environments
-  example:
-    baseurl: https://example.api.identitynow.com # If the ENV VAR SAIL_BASE_URL is configured, it will override this value in the environment.
-    pat:
-      accesstoken: example-access-token
-      clientid: example-client-id # If the ENV VAR SAIL_CLIENT_ID is configured, it will override this value in the environment.
-      clientsecret: example-client-secret # If the ENV VAR SAIL_CLIENT_SECRET is configured, it will override this value in the environment.
-      expiry: example-access-token-expiry
-    tenanturl: https://example.identitynow.com
-```
-
-You can copy the example into your `config.yaml` file. You must specify your baseurl, tokenurl, clientsecret, and clientid and any other necessary information for your chosen authentication method.
-
-You can have both authentication methods configured at once, but only one can be active at a time.
-
-#### Environment variable configuration
+## Environment variable configuration
 
 You can also store your configuration in environment variables. This can be useful when you are using the CLI in an automated environment like a continuous integration and continuous deployment (CI/CD) pipeline. In these types of scenarios, consuming the cconfiguration from environment variables would be easier than creating the configuration file.
 
@@ -204,6 +160,7 @@ To get your environment variables to persist across PowerShell sessions, run thi
 [System.Environment]::SetEnvironmentVariable('SAIL_CLIENT_ID','{clientID}')
 [System.Environment]::SetEnvironmentVariable('SAIL_CLIENT_SECRET','clientSecret}')
 ```
+
 
 ## Usage
 

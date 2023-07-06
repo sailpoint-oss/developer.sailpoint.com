@@ -1638,3 +1638,5 @@ paths:
     $ref: './beta/paths/workflow-external-execute-test.yaml'
   /workgroups:
     $ref: './beta/paths/workgroups/Workgroups.yaml'
+  /workgroups/{id}:
+    $ref: './beta/paths/workgroups/workgroup.yaml'

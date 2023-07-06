@@ -1,0 +1,34 @@
+get:
+  operationId: getWorkgroup
+  tags:
+    - Governance Groups
+  summary: Get an Governance Groups
+  description: This API returns an Governance Groups by its ID.
+  parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      description: >-
+        ID of the Governance Groups
+      example: 2c9180837ca6693d017ca8d097500149
+  responses:
+    '200':
+      description: An Governance Groups
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/WorkgroupDto.yaml"
+    '400':
+      $ref: '../../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../../v3/responses/500.yaml'
+  security:
+    - oauth2: [idn:workgroup:read]

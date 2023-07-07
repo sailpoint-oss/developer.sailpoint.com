@@ -53,13 +53,6 @@ module.exports = [
     },
   ],
   [
-    '@docusaurus/plugin-google-gtag',
-    {
-      trackingID: 'GTM-TSD78J',
-      anonymizeIP: false,
-    },
-  ],
-  [
     'docusaurus-plugin-openapi-docs',
     {
       id: 'idn-api',

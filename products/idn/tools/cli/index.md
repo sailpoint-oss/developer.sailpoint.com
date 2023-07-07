@@ -50,7 +50,12 @@ Learn how to use the SailPoint command line interface (CLI) in this guide.
 To install the SailPoint CLI: use a package manager for the OS of your choice. Prebuilt binaries for OS X, Windows, and Linux are provided in each [release](https://github.com/sailpoint-oss/sailpoint-cli/releases).
 
 ### Windows
-```Note this installer is only compatible with 64 bit Windows.```
+
+:::info
+
+Note this installer is only compatible with 64 bit Windows.
+
+:::
 
 Download the latest release from the [releases page](https://github.com/sailpoint-oss/sailpoint-cli/releases). 
 The release should include an MSI file named `sail_x.x.x_windows_amd64.msi` that can be installed on Windows, with `x.x.x` being the version of the most recent release.

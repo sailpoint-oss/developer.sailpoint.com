@@ -70,7 +70,11 @@ If you already have a version of the PowerShell SDK installed, you can install a
 
 The Powershell SDK can be installed manually on Windows when access to the powershell gallery is not available.
 
-```If you manually install the module on a machine without access to the powershell gallery, you will also need to manually install updates to the SDK```
+:::caution
+
+If you manually install the module on a machine without access to the powershell gallery, you will also need to manually install updates to the SDK
+
+:::
 
 To manually install the PowerShell module:
 1. Download the source code zip from the most recent release on [GitHub](https://github.com/sailpoint-oss/powershell-sdk/releases)

@@ -57,9 +57,6 @@ const config = {
         searchPagePath: false,
         placeholder: 'Search the Developer Community',
       },
-      googleTagManager: {
-        containerId: 'GTM-TSD78J',
-      },
       docs: {
         sidebar: {
           hideable: true,

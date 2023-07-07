@@ -1,5 +1,11 @@
 module.exports = [
   [
+    '@docusaurus/plugin-google-tag-manager',
+    {
+      containerId: 'GTM-TSD78J',
+    },
+  ],
+  [
     '@docusaurus/plugin-client-redirects',
     {
       redirects: [

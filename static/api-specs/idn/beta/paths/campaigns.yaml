@@ -8,6 +8,7 @@ get:
     the correct query.
   security:
     - oauth2: []
+  deprecated: true
   parameters:
     - in: query
       name: detail

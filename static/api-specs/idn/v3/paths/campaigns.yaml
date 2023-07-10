@@ -7,7 +7,7 @@ get:
     Gets campaigns and returns them in a list. Can provide increased level of detail for each campaign if provided
     the correct query.
   security:
-    - oauth2: []
+    - oauth2: [idn:campaign-list:read]
   parameters:
     - in: query
       name: detail

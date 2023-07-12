@@ -1324,7 +1324,7 @@ paths:
     $ref: './beta/paths/managed-clusters.yaml'
   /mail-from-attributes:
     $ref: './beta/paths/mail-from-attributes.yaml'
-  /mail-from-attribute/{id}:
+  /mail-from-attributes/{identity}:
     $ref: './beta/paths/mail-from-attribute.yaml'
   /mfa/{method}/config:
     $ref: './beta/paths/mfa-config.yaml'

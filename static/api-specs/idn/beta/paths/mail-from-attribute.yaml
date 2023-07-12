@@ -1,22 +1,22 @@
 get:
   security:
-  - oauth2: [ sp:notification-mail-from-attributes:read ]
+    - oauth2: [ sp:notification-mail-from-attributes:read ]
   operationId: getMailFromAttributes
   tags:
-  - Notifications
+    - Notifications
   summary: Get MAIL FROM Attributes
   description: >-
     Retrieve MAIL FROM attributes for a given AWS SES identity.
   parameters:
-  - in: query
-    name: id
-    required: true
-    schema:
-      type: string
-    description: >-
-      Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
-    example:
-      bobsmith@sailpoint.com
+    - in: query
+      name: id
+      required: true
+      schema:
+        type: string
+      description: >-
+        Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
+      example:
+        bobsmith@sailpoint.com
   responses:
     '200':
       description: MAIL FROM Attributes object

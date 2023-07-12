@@ -1,9 +1,13 @@
 type: object
 properties:
-  id:
+  identity:
     type: string
-    example: BobSmith@sailpoint.com
-    description: The identity or domain address
+    example: bob.smith@sailpoint.com
+    description: The email identity
+  mailFromDomain:
+    type: string
+    example: foo.sailpoint.com
+    description: The name of a domain that an email identity uses as a custom MAIL FROM domain
   mxRecord:
     type: string
     example: 10 feedback-smtp.us-east-1.amazonses.com

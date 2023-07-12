@@ -233,80 +233,18 @@ This is also an example of a nested transform.
 
 Account attribute transforms are configured on the account create profiles. They determine the templates for new accounts created during provisioning events.
 
+:::caution
+
+These transforms are configured separately from the transforms applied via the identity profile mappings tab.
+
+:::
 #### Configuration
 
-These can be configured in IdentityNow by going to **Admin** > **Sources** > (A Source) > **Accounts** (tab) > **Create Profile**. These can also be configured with IdentityNow REST APIs.
+These can be configured in IdentityNow by going to **Admin** > **Sources** > (A Source) > **Accounts** (tab) > **Create Account**.
 
-You can select the installed, available transforms from this interface. Alternately, you can add more complex transforms with REST APIs.
+The available options on this page are constructed as transforms behind the scenes. For example, the identity attribute mapping choice is saved as an [identity attribute transform](./operations/identity-attribute.md) definition within the saved create profile.
 
-In the following example, we can call the [Create Provisioning Policy API](/idn/api/v3/create-provisioning-policy) to create a full name field using the first and last name identity attributes.
-
-```bash
-curl --location --request POST 'https://{tenant}.api.identitynow.com/v3/sources/{source_id}/provisioning-policies' \
---header 'Content-Type: application/json' \
---header 'Accept: application/json' \
---header 'Authorization: Bearer {token}' \
---data-raw '{
-    "name": "Account",
-    "description": null,
-    "usageType": "CREATE",
-    "fields": [
-        {
-            "name": "displayName",
-            "transform": {
-                "type": "concat",
-                "attributes": {
-                    "values": [
-                        {
-                            "attributes": {
-                                "name": "firstName"
-                            },
-                            "type": "identityAttribute"
-                        },
-                        " ",
-                        {
-                            "attributes": {
-                                "name": "lastName"
-                            },
-                            "type": "identityAttribute"
-                        }
-                    ]
-                }
-            },
-            "attributes": {},
-            "isRequired": false,
-            "type": "string",
-            "isMultiValued": false
-        },
-        {
-            "name": "firstName",
-            "transform": {
-                "type": "identityAttribute",
-                "attributes": {
-                    "name": "firstName"
-                }
-            },
-            "attributes": {},
-            "isRequired": false,
-            "type": "string",
-            "isMultiValued": false
-        },
-        {
-            "name": "lastName",
-            "transform": {
-                "type": "identityAttribute",
-                "attributes": {
-                    "name": "lastName"
-                }
-            },
-            "attributes": {},
-            "isRequired": false,
-            "type": "string",
-            "isMultiValued": false
-        },
-    ]
-}'
-```
+These can also be configured with IdentityNow REST APIs. You can define any kind of transform you want for any field in the create profile policy, to calculate account attributes in ways beyond what the UI offers. See [Transforms in Provisioning Policies](./guides/provisioning-policy-transform.md).
 
 For more information on the IdentityNow REST API endpoints used to managed transform objects in APIs, refer to [IdentityNow Transform REST APIs](/idn/api/v3/transforms).
 

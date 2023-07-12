@@ -81,8 +81,7 @@ To manually install the PowerShell module:
 2. Open the ZIP file, then open then folder labeled `powershell-sdk-x.x.x` with the `x.x.x` representing the version you downloaded
 3. Extract the `PSSailpoint` module folder inside to one of the following locations:
     - To install for the Current user: `C:\Users\<username>\Documents\WindowsPowerShell\Modules\PSSailpoint`
-    - To install for All users: `C:\Program Files\WindowsPowerShell\Modules\PSSailpoint`
-    ```This will require Administrator privileges```
+    - To install for All users (requires Administrator privileges): `C:\Program Files\WindowsPowerShell\Modules\PSSailpoint`
 4. Run `Import-Module PSSailpoint` to import the module into the current session.
 5. To validate the module is installed, run `Get-Module -ListAvailable PSSailpoint` and verify that the module is listed. Additionally, you can run `Get-Command -Module PSSailpoint` to see the available commands included in the module.
 
@@ -114,7 +113,8 @@ environments: # the configured environments
 You must specify the following information: 
 - `activeenvironment`: This key identifies the current active environment the SDK is connecting to. This environment name refers to your IDN tenant name. In the example, the key is "example". You must also make sure the environment name listed under `environments` matches the `activeenvironment`. 
 - `authtype`: The authentication type. Currently only "pat" and "pipeline" are supported. Configuring ENV VAR SAIL_AUTH_TYPE to "pipeline" overrides this value. In the example, the authentication type is "pat". You must also make sure the authentication type listed under the environment name "example" matches the `authtype`. 
-- `baseurl` and `tenanturl`: These refer to your IDN tenant URL. 
+- `baseurl`: This refers to the URL used to access the API of your IDN tenant. 
+- `tenanturl`: This refers to the URL used to access your IDN tenant. 
 - `clientsecret`: The PAT's client secret. 
 - `clientid`: The PAT's client ID. 
 

@@ -2,7 +2,7 @@
 id: date-compare
 title: Date Compare
 pagination_label: Date Compare
-sidebar_label: Date Compares
+sidebar_label: Date Compare
 sidebar_class_name: dateCompare
 keywords: ['transforms', 'operations', 'date', 'compare']
 description: Compare two dates and return a calculated value.

@@ -133,6 +133,12 @@ There are three main components of a transform object:
 
 3. `attributes` - This specifies any attributes or configurations for controlling how the transform works. As mentioned earlier in [Configuring Transform Behavior](#configuring-transform-behavior), each transform type has different sets of attributes available.
 
+:::caution
+
+When uploading a transform to IdentityNow it cannot exceed 400KB.
+
+:::
+
 ## Template Engine
 
 Seaspray ships with the Apache Velocity template engine that allows a transform to reference, transform, and render values passed into the transform context. Every string value in a Seaspray transform can contain templated text and will run through the template engine.
@@ -150,8 +156,8 @@ The following variables are available to the Apache Velocity template engine whe
 | Variable | Type | Description |
 | --- | --- | --- |
 | identity | sailpoint.object.Identity | This is the identity the attribute promotion is performed on. |
-| oldValue | Object | This is the definition of the attribute being promoted. |
-| attributeDefinition | sailpoint.object.ObjectAttribute | This is the attribute's previous value. |
+| attributeDefinition | sailpoint.object.ObjectAttribute | This is the definition of the attribute being promoted. |
+| oldValue | Object | This is the attribute's previous value. |
 
 ### Account Profile Context
 
@@ -346,7 +352,7 @@ To test a transform for account data, you must provision a new account on that s
 
 Sometimes it can be difficult to decide when to implement a transform and when to implement a rule. Both transforms and rules can calculate values for identity or account attributes.
 
-Despite their functional similarity, transforms and rules have very different implementations. Transforms are JSON-based configurations, editable with IdentityNow's transform REST APIs. Rules are implemented with code (typically BeanShell, a Java-like syntax), so they must follow the [IdentityNow Rule Guidelines](https://community.sailpoint.com/docs/DOC-12122), and they require SailPoint to be reviewed and installed into the tenant. Rules, however, can do things that transforms cannot in some cases.
+Despite their functional similarity, transforms and rules have very different implementations. Transforms are JSON-based configurations, editable with IdentityNow's transform REST APIs. Rules are implemented with code (typically [BeanShell](https://github.com/beanshell/beanshell), a Java-like syntax), so they must follow the [IdentityNow Rule Guidelines](https://community.sailpoint.com/docs/DOC-12122), and they require SailPoint to be reviewed and installed into the tenant. Rules, however, can do things that transforms cannot in some cases.
 
 Because transforms have easier and more accessible implementations, they are generally recommended. With transforms, any IdentityNow administrator can view, create, edit, and delete transforms directly with REST API without SailPoint involvement.
 

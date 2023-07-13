@@ -33,8 +33,9 @@
   cursor: pointer;
   top: -2px;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
-  background-color: #c552ae10;
+  background-color: var(--dev-button-hover);
   color: #cc27b0;
+  text-decoration: none;
 }
 
 .button {
@@ -56,6 +57,7 @@
   box-shadow: 0px 20px 60px #00000015;
   border: 2px solid #df61ca;
   border-radius: 5px;
+  transition: all  0.3s;
 }
 
 .link {
@@ -63,4 +65,5 @@
 }
 .link:hover {
   color: #df61ca;
+  text-decoration: none;
 }

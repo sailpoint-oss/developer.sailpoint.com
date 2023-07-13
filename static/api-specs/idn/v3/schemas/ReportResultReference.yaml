@@ -1,0 +1,15 @@
+allOf:
+- $ref: '../schemas/BaseReferenceDto.yaml'
+- type : object
+  properties:
+    status:
+      type: string
+      description: Status of a violation report
+      enum:
+        - SUCCESS
+        - WARNING
+        - ERROR
+        - TERMINATED
+        - TEMP_ERROR
+        - PENDING
+      example: PENDING

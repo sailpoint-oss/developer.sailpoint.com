@@ -19,6 +19,7 @@ get:
 
 
         Sorting is supported for the following fields: **name**
+      example: name
     - name: filters
       in: query
       required: false
@@ -44,6 +45,7 @@ get:
 
 
         **cluster**: *eq, in*
+      example: id eq 2c91808b6ef1d43e016efba0ce470904
     - $ref: '../../v3/parameters/count.yaml'
   responses:
     "200":
@@ -71,7 +73,7 @@ get:
 post:
   tags:
     - Service Desk Integration
-  summary: Create a new Service Desk integration
+  summary: Create new Service Desk integration
   description: Create a new Service Desk Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
   operationId: createServiceDeskIntegration
   requestBody:
@@ -101,4 +103,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:service-desk-admin:write,idn:service-desk-integration:write]
+    - oauth2: [idn:service-desk-admin:manage,idn:service-desk-integration:manage]

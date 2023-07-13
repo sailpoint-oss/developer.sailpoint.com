@@ -1,5 +1,7 @@
 post:
-  operationId: uploadSourceConnectorFile
+  operationId: importConnectorFile
+  security:
+    - oauth2: [ idn:sources-admin:manage ]
   tags:
     - Sources
   summary: Upload connector file to source

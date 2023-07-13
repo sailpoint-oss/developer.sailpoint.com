@@ -1,17 +1,13 @@
 post:
   operationId: exportSpConfig
   security:
-    - oauth2: [sp:config:export]
+    - oauth2: [sp:config:read, sp:config:manage]
   tags:
     - SP-Config
   summary: Initiates Configuration Objects Export Job.
   description: >-
     This post will export objects from the tenant to a JSON configuration file.
 
-    Request will need one of the following security scopes:
-
-    - sp:config:read
-    - sp:config:manage
   requestBody:
     description: Export options control what will be included in the export.
     required: true
@@ -27,7 +23,7 @@ post:
                 "description": "Export all available objects",
                 "excludeTypes": [],
                 "includeTypes":
-                  ["SOURCE", "RULE", "TRIGGER_SUBSCRIPTION", "TRANSFORM", "IDENTITY_PROFILE"],
+                  ["ACCESS_PROFILE", "ACCESS_REQUEST_CONFIG", "ATTR_SYNC_SOURCE_CONFIG", "AUTH_ORG", "CAMPAIGN_FILTER", "FORM_DEFINITION", "GOVERNANCE_GROUP", "IDENTITY_OBJECT_CONFIG", "IDENTITY_PROFILE", "LIFECYCLE_STATE", "NOTIFICATION_TEMPLATE", "PASSWORD_POLICY", "PASSWORD_SYNC_GROUP", "PUBLIC_IDENTITIES_CONFIG", "ROLE", "RULE", "SERVICE_DESK_INTEGRATION", "SOD_POLICY", "SOURCE", "TRANSFORM", "TRIGGER_SUBSCRIPTION", "WORKFLOWS"],
                 "objectOptions": {},
               }
           Export sources by ID:

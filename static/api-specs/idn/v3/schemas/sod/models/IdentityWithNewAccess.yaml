@@ -1,0 +1,30 @@
+description: An identity with a set of access to be added
+required:
+  - identityId
+  - accessRefs
+type: object
+properties:
+  identityId:
+    description: Identity id to be checked.
+    type: string
+    example: 2c91808568c529c60168cca6f90c1313
+  accessRefs:
+    description: The list of ENTITLEMENTs to consider for calculating possible violations in a preventive check.
+    type: array
+    items:
+      allOf:
+      - $ref: '../../BaseReferenceDto.yaml'
+      description: The types of objects supported for SOD violations
+      properties:
+        type:
+          enum:
+          - "ENTITLEMENT"
+          example: "ENTITLEMENT"
+          description: The type of object that is referenced
+    example: 
+    - type: ENTITLEMENT
+      id: 2c918087682f9a86016839c050861ab1
+      name: CN=Information Access,OU=test,OU=test-service,DC=TestAD,DC=local
+    - type: ENTITLEMENT
+      id: 2c918087682f9a86016839c0509c1ab2
+      name: CN=Information Technology,OU=test,OU=test-service,DC=TestAD,DC=local

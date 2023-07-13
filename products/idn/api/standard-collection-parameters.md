@@ -3,7 +3,7 @@ id: standard-collection-parameters
 title: Standard Collection Parameters
 pagination_label: Standard Collection Parameters
 sidebar_label: Standard Collection Parameters
-sidebar_position: 4
+sidebar_position: 5
 sidebar_class_name: standardCollectionParameters
 keywords: ['standard collection parameters']
 description: Many endpoints in the IdentityNow API support a generic syntax for paginating, filtering and sorting the results.
@@ -173,6 +173,8 @@ Examples:
 :::info
 
 - Spaces in URLs must be escaped with `%20`. Most programming languages, frameworks, libraries, and tools will do this for you, but some won't. In the event that your tool doesn't escape spaces, you will need to format your query as `/v3/public-identities?filters=email%20eq%20"john.doe@example.com"`
+
+- Double quotes may need to be escaped with `%22`. Most programming languages, frameworks, libraries, and tools will do this for you, but some won't. In the event that your tool doesn't escape quotes, you will need to format your query as `/v3/public-identities?filters=email%20eq%20%22john.doe@example.com%22`
 
 - You must escape spaces in URLs with `%20`. Most programming languages, frameworks, libraries, and tools do this for you, but some do not. In the event that your tool does not escape spaces, you must format your query as `/v3/public-identities?filters=email%20eq%20"john.doe@example.com"`
 

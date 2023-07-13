@@ -1,5 +1,7 @@
 get:
   operationId: getTaggedObject
+  security:
+    - oauth2: [ idn:tag:read, idn:tag:manage ]
   tags:
     - Tagged Objects
   summary: Get Tagged Object
@@ -43,6 +45,8 @@ get:
       $ref: '../../v3/responses/500.yaml'
 put:
   operationId: updateTaggedObject
+  security:
+    - oauth2: [ idn:tag:manage ]
   tags:
     - Tagged Objects
   summary: Update Tagged Object
@@ -59,6 +63,7 @@ put:
           - SOD_POLICY
       required: true
       description: The type of tagged object to update.
+      example: ROLE
     - in: path
       name: id
       schema:
@@ -91,6 +96,8 @@ put:
       $ref: '../../v3/responses/500.yaml'
 delete:
   operationId: deleteTaggedObject
+  security:
+    - oauth2: [ idn:tag:manage ]
   tags:
     - Tagged Objects
   summary: Delete Tagged Object
@@ -107,6 +114,7 @@ delete:
           - SOD_POLICY
       required: true
       description: The type of tagged object to delete.
+      example: ROLE
     - in: path
       name: id
       schema:

@@ -28,7 +28,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:connector-rule:read]
+    - oauth2: [idn:rule-management-connector:read, idn:rule-management-connector:manage]
 post:
   tags:
     - Connector Rule Management
@@ -64,4 +64,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:connector-rule:write]
+    - oauth2: [idn:rule-management-connector:manage]

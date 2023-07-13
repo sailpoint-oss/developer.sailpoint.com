@@ -1,0 +1,35 @@
+/* Getting Started Card container */
+.gridContainer {
+  display: grid;
+  place-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 40px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.center {
+  margin: 0px auto;
+  max-width: 1300px;
+  margin-bottom: 50px;
+}
+
+.space {
+  height: 200px;
+}
+
+.noFound {
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--dev-secondary-text);
+  padding: 8px;
+  margin: 50px;
+}
+
+
+
+.spinnerCenter {
+  margin: 100px auto;
+  max-width: 1300px;
+  margin-bottom: 50px;
+}

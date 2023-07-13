@@ -18,6 +18,7 @@ tags: ['Connectivity', 'Connector Command']
 
 ```javascript
 {
+    "identity": "john.doe",
     "key": {
         "simple": {
             "id": "john.doe"
@@ -101,3 +102,7 @@ After the connector applies the operations defined in the input payload, the con
 You can test the account update command the way you test the [Account Create](./account-create.md) command. Follow the steps in “Testing in IdentityNow” from “Account Create” to set up an access profile and role. Be sure to run the aggregation so the account(s) are created in the target source. Once the account(s) are created in the target source, modify the access profile to grant an additional entitlement. Return to the role and click the ‘Update’ button in the upper right corner. Doing so triggers the account update command because the accounts are already created in the target source. Once the update is complete, ensure the account(s) have the additional entitlement.
 
 Note: Testing the account update command for removing entitlements using this method does not work. You can remove the entitlement from the access profile and run an update, but IDN will not send an update command to the connector to remove the entitlement. We are looking for suggestions on how to test the removal of entitlements.
+
+## Handling an account that is not found
+
+If an account can't be found in the source system, IDN can recreate the account by using the ```ConnectorErrorType.NotFound``` error type. For details and implementation, refer to [Error Handling](../in-depth/error-handling.md#not-found-error-type).

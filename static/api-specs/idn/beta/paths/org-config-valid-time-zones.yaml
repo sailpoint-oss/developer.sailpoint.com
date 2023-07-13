@@ -3,16 +3,10 @@ get:
   tags:
     - Org Config
   summary: Get list of time zones
+  security:
+    - oauth2: [ idn:org-configs:read, idn:org-configs-user:read ]
   description: >-
     Get a list of valid time zones that can be set in org configurations.
-
-    Request will require the following security scope:
-
-    - 'idn:org-config-user:read'
-
-    - 'idn:org-config:read'
-
-    - 'idn:org-config-internal:read'
   responses:
     '200':
       description: Request successful

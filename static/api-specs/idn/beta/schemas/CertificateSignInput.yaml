@@ -1,0 +1,8 @@
+description: Sign Certificate Request
+type: object
+properties:
+  certificateSigningRequest:
+    description: The certificate signing request (CSR)
+    readOnly: true
+    type: string
+    example: -----BEGIN CERTIFICATE REQUEST-----******-----END CERTIFICATE REQUEST-----

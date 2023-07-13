@@ -49,12 +49,14 @@ properties:
         additionalProperties: true
     enabled:
         type: boolean
-        description: Whether the Role is enabled or not. This field is false by default.
+        description: Whether the Role is enabled or not. 
         example: true
+        default: false
     requestable:
         type: boolean
-        description: Whether the Role can be the target of Access Requests. This field is false by default.
+        description: Whether the Role can be the target of access requests. 
         example: true
+        default: false
     accessRequestConfig:
         $ref: './RequestabilityForRole.yaml'
         nullable: true
@@ -62,6 +64,7 @@ properties:
     revocationRequestConfig:
         $ref: './Revocability.yaml'
         nullable: true
+        default: null
         description: >-
             Revocation request configuration for this object.
     segments:

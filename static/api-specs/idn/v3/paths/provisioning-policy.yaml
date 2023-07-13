@@ -8,7 +8,7 @@ get:
 
     A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
   security:
-    - oauth2: [idn:provisioning-policy:read]
+    - oauth2: [idn:provisioning-policy:read, idn:provisioning-policy-source:read, idn:provisioning-policy:manage, idn:provisioning-policy-source-admin-operations:manage]
   parameters:
     - in: path
       name: sourceId
@@ -51,9 +51,13 @@ put:
   description: >-
     This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow.
 
+    Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
+    
+    Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
+
     A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
   security:
-    - oauth2: [idn:provisioning-policy:update]
+    - oauth2: [idn:provisioning-policy:manage, idn:provisioning-policy-source-admin-operations:manage]
   parameters:
     - in: path
       name: sourceId
@@ -100,6 +104,10 @@ patch:
   summary: Partial update of Provisioning Policy
   description: >-
     This API selectively updates an existing Provisioning Policy using a JSONPatch payload.
+
+    Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
+    
+    Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
 
     A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
   security:
@@ -178,7 +186,7 @@ delete:
 
     A token with API, or ORG_ADMIN authority is required to call this API.
   security:
-    - oauth2: [idn:provisioning-policy:delete]
+    - oauth2: [idn:provisioning-policy:manage]
   parameters:
     - in: path
       name: sourceId

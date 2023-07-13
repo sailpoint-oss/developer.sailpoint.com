@@ -16,3 +16,4 @@ value:
     emailNotificationEnabled: true
     autoRevokeAllowed: false
     recommendationsEnabled: false
+    mandatoryCommentRequirement: NO_DECISIONS

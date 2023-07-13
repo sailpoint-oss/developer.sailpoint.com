@@ -2,11 +2,11 @@ get:
   operationId: getSodPolicySchedule
   tags:
     - SOD Policy
-  summary: Get SOD Policy Schedule
+  summary: Get SOD policy schedule
   description: >-
-    This gets schedule for a specified SOD policy.
+    This endpoint gets a specified SOD policy's schedule.
 
-    Requires a role of ORG_ADMIN
+    Requires the role of ORG_ADMIN.
   # security:
   #   - oauth2: [ORG_ADMIN]
   parameters:
@@ -44,7 +44,7 @@ put:
   description: >-
     This updates schedule for a specified SOD policy.
 
-    Requires role of ORG_ADMIN
+    Requires role of ORG_ADMIN.
   parameters:
     - in: path
       name: id
@@ -61,7 +61,7 @@ put:
           $ref: '../schemas/SodPolicySchedule.yaml'
   responses:
     '200':
-      description: SOD Policy by ID.
+      description: SOD policy by ID.
       content:
         application/json:
           schema:
@@ -80,7 +80,7 @@ delete:
   operationId: deleteSodPolicySchedule
   tags:
     - SOD Policy
-  summary: Delete SOD Policy Schedule
+  summary: Delete SOD policy schedule
   # security:
   #   - oauth2: [ORG_ADMIN]
   description: >-
@@ -93,7 +93,7 @@ delete:
       schema:
         type: string
       required: true
-      description: The ID of the SOD Policy for which the schedule needs to be deleted.
+      description: The ID of the SOD policy the schedule must be deleted for.
       example: ef38f94347e94562b5bb8424a56397d8
   responses:
     '204':

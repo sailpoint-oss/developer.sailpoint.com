@@ -1,7 +1,7 @@
 get:
   operationId: listSpConfigObjects
   security:
-    - oauth2: [sp:config:export]
+    - oauth2: [sp:config:read, sp:config:manage]
   tags:
     - SP-Config
   summary: Get Config Object details
@@ -9,10 +9,6 @@ get:
     This gets the list of object configurations which are known to the tenant export/import service.
     Object configurations that contain "importUrl" and "exportUrl" are available for export/import.
 
-    Request will need one of the following security scopes:
-
-    - sp:config:read
-    - sp:config:manage
   responses:
     '200':
       description: >-

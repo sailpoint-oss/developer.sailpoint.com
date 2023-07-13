@@ -1,0 +1,20 @@
+type: object
+properties:
+  assignmentRule:
+    type: string
+    enum:
+      - MANAGER
+      - STATIC
+      - null
+    description: >-
+      Details about the violations owner.
+
+      MANAGER - identity's manager
+
+      STATIC - Governance Group or Identity
+    example: MANAGER
+    nullable: true
+  ownerRef:
+    allOf:
+      - $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+      - nullable: true

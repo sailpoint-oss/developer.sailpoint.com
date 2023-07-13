@@ -11,8 +11,8 @@ get:
     If the bucket type is shared, no further validation is needed.  If the bucket type is org, the information in the JWT
     is validated against the path query parameter.  A token with API authority is required to access this endpoint..
 
-    security:
-      - oauth2: [idn:s3-proxy:read]
+  security:
+    - oauth2: [idn:s3-proxy:read]
   parameters:
     - in: query
       name: path

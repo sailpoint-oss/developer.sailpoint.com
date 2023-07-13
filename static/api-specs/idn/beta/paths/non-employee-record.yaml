@@ -8,10 +8,6 @@ get:
   description: >-
     This gets a non-employee record.
 
-    Request will require the following scope:
-
-    'idn:nesr:read'
-
   parameters:
     - in: path
       name: id
@@ -53,6 +49,7 @@ put:
       description: >-
         Non-employee record id (UUID)
       required: true
+      example: 2c91808b6ef1d43e016efba0ce470904
       schema:
         type: string
   requestBody:
@@ -96,6 +93,7 @@ patch:
       description: >-
         Non-employee record id (UUID)
       required: true
+      example: 2c91808b6ef1d43e016efba0ce470904
       schema:
         type: string
   requestBody:
@@ -140,15 +138,13 @@ delete:
   description: >-
     This request will delete a non-employee record.
 
-    Request will require the following security scope:
-
-    'idn:nesr:delete'
   parameters:
     - in: path
       name: id
       description: >-
         Non-Employee record id (UUID)
       required: true
+      example: 2c91808b6ef1d43e016efba0ce470904
       schema:
         type: string
   responses:

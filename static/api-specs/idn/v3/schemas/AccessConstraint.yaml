@@ -1,0 +1,26 @@
+type : object
+properties:
+  type:
+    type: string
+    enum:
+      - ENTITLEMENT
+      - ACCESS_PROFILE
+      - ROLE
+    description: Type of Access
+    example: ENTITLEMENT
+  ids:
+    description: Must be set only if operator is SELECTED.
+    type: array
+    items:
+      type: string
+    example: [2c90ad2a70ace7d50170acf22ca90010]
+  operator:
+    type: string
+    enum:
+      - ALL
+      - SELECTED
+    description: Used to determine whether the scope of the campaign should be reduced for selected ids or all.
+    example: SELECTED
+required:
+  - type
+  - operator

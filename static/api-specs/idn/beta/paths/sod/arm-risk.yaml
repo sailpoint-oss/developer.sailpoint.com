@@ -2,14 +2,14 @@ get:
   operationId: getArmRiskById
   tags:
     - SOD Policy
-  summary: This API gets the specified ARM risk.
+  summary: Gets the specified ARM risk.
   description: >-
     This API gets the specified ARM risk.
 
 
     Any authenticated token can call this API.
   security:
-    - oauth2: [idn:sod-policy:read]
+    - oauth2: [idn:sod-policy:read, idn:sod-policy:manage]
   parameters:
     - in: path
       name: id

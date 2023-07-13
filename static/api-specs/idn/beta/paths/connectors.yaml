@@ -25,6 +25,12 @@ get:
 
 
         **directConnect**: *eq*
+        
+        
+        **category**: *eq*
+        
+        
+        **features**: *ca*
       example: directConnect eq "true"
     - $ref: '../../v3/parameters/limit.yaml'
     - $ref: '../../v3/parameters/offset.yaml'
@@ -43,7 +49,9 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/V3ConnectorDto.yaml'
+            type: array
+            items:
+              $ref: '../schemas/V3ConnectorDto.yaml'
     '400':
       $ref: '../../v3/responses/400.yaml'
     '401':
@@ -56,3 +64,5 @@ get:
       $ref: '../../v3/responses/429.yaml'
     '500':
       $ref: '../../v3/responses/500.yaml'
+  security:
+    - oauth2: [ idn:connector-source-config:read ]

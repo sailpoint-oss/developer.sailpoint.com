@@ -6,6 +6,9 @@ get:
   description: >-
     Retrieves information for an existing campaign using the campaign's ID. Authorized callers must be a
     reviewer for this campaign, an ORG_ADMIN, or a CERT_ADMIN.
+  deprecated: true
+  security:
+   - oauth2: []
   parameters:
     - in: path
       name: id
@@ -48,8 +51,8 @@ patch:
     - Certification Campaigns
   summary: Update a Campaign
   description: Allows updating individual fields on a campaign using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
-  # security:
-  #   - oauth2: [ORG_ADMIN,CERT_ADMIN]
+  security:
+    - oauth2: [idn:campaign:update,idn:campaign:read]
   parameters:
     - in: path
       name: id

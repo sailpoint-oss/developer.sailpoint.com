@@ -25,13 +25,28 @@ This document is intended for technically proficient administrators, implementer
 
 | **Object** | **Object Type** | **Export** | **Import** |
 | :-- | :-- | :-- | :-- |
+| Access Profiles | `ACCESS_PROFILE` | ✅ | ❌ |
+| Access Request Configuration | `ACCESS_REQUEST_CONFIG` | ✅ | ❌ |
+| Attribute Sync Source Configuration | `ATTR_SYNC_SOURCE_CONFIG` | ✅ | ❌ |
 | Authentication Configuration | `AUTH_ORG` | ✅ | ❌ |
-| Event Trigger Subscriptions | `TRIGGER_SUBSCRIPTION` | ✅ | ✅ |
+| Campaign Filters | `CAMPAIGN_FILTER` | ✅ | ❌ |
+| Form Definitions | `FORM_DEFINITION` | ✅ | ❌ |
 | Governance Groups | `GOVERNANCE_GROUP` | ✅ | ❌ | 
+| Identity Object Configuration | `IDENTITY_OBJECT_CONFIG` | ✅ | ❌ |
 | Identity Profiles | `IDENTITY_PROFILE` | ✅ | ✅ |
+| Lifecycle States | `LIFECYCLE_STATE` | ✅ | ❌ |
+| Notification Templates | `NOTIFICATION_TEMPLATE` | ✅ | ❌ |
+| Password Policies | `PASSWORD_POLICY` | ✅ | ❌ |
+| Password Sync Groups | `PASSWORD_SYNC_GROUP` | ✅ | ❌ |
+| Public Identities Configuration | `PUBLIC_IDENTITIES_CONFIG` | ✅ | ❌ |
+| Roles | `ROLE` | ✅ | ❌ |
 | Rules | `RULE` | ✅ | ✅|
+| Separation of Duties Policies | `SOD_POLICY` | ✅ | ❌ |
+| Service Desk Integrations | `SERVICE_DESK_INTEGRATION` | ✅ | ❌ |
 | Sources | `SOURCE` | ✅ | ✅ |
 | Transforms | `TRANSFORM` | ✅ | ✅ |
+| Event Trigger Subscriptions | `TRIGGER_SUBSCRIPTION` | ✅ | ✅ |
+| Workflows | `WORKFLOWS` | ✅ | ❌ |
 
 :::tip
 
@@ -77,6 +92,7 @@ The available supported objects are also available via REST API! See List Config
 5. **Get Import Results** - Once the status is `COMPLETE`, download the import results by calling `GET /beta/sp-config/import/{id}/download` where the `{id}` is the `jobId`.
 6. **Response with Import Results** - In response, the import process should produce listing of object that successfully imported, as well as any errors, warnings, or information about the import process. This result set will reflect the objects that were selected to be imported earlier.
 
+
 ## API Reference Guide
 
 | **Description**     | **REST API Endpoint**                     |
@@ -93,7 +109,8 @@ The available supported objects are also available via REST API! See List Config
 
 **Description**
 
-Lists all available objects that can be imported and exported into the system.
+[This endpoint](https://developer.sailpoint.com/idn/api/beta/list-sp-config-objects) gets the list of object configurations known to the tenant export/import service. 
+Object configurations containing "importUrl" and "exportUrl" are available for export/import.
 
 <Tabs>
   <TabItem value="request" label="Request" default>
@@ -197,7 +214,7 @@ Content-Type: application/json
 
 **Description**
 
-Starts an export process to export selected objects from the system.
+[This endpoint](https://developer.sailpoint.com/idn/api/beta/export-sp-config) exports selected objects from the tenant to a JSON configuration file.
 
 <Tabs>
   <TabItem value="request" label="Request" default>
@@ -273,7 +290,11 @@ Content-Type: application/json
 
 **Description**
 
-Gets the status of an export process.
+[This endpoint](https://developer.sailpoint.com/idn/api/beta/export-sp-config-job-status) gets the status of the export job identified by its `id` parameter.
+
+This request requires one of the following security scopes: 
+
+- `sp:config:read` - `sp:config:manage`
 
 <Tabs>
   <TabItem value="request" label="Request" default>
@@ -310,7 +331,11 @@ Content-Type: application/json
 
 **Description**
 
-Gets the results of an export process.
+[This endpoint](https://developer.sailpoint.com/idn/api/beta/export-sp-config-download) gets the export job's resulting export file by using the requested `id` and downloads it to a file.
+
+This request requires one of the following security scopes:
+
+- `sp:config:read` - `sp:config:manage`
 
 <Tabs>
   <TabItem value="request" label="Request" default>
@@ -470,7 +495,15 @@ Content-Type: application/json
 
 **Description**
 
-Starts an import process to import selected objects into the system.
+[This endpoint](https://developer.sailpoint.com/idn/api/beta/import-sp-config) imports objects from a JSON configuration file into a tenant. 
+By default, every import job first exports all existing objects supported by sp-config as a backup before attempting the import. 
+The import job provides a backup so the configuration's import status is available for inspection or restore if needed. 
+You can skip the backup by setting `excludeBackup` to `true` in the import options. 
+If a backup occurs, the ImportResult provides the backup's ID as the `exportJobId`. 
+
+This request requires the following security scope: 
+
+- sp:config:manage
 
 <Tabs>
   <TabItem value="request" label="Request" default>
@@ -518,7 +551,11 @@ Example: POST /beta/sp-config/import?preview=true
 
 **Description**
 
-Gets the status of an import process.
+[This endpoint](https://developer.sailpoint.com/idn/api/beta/import-sp-config-job-status) gets the status of the import job identified by its `id` parameter. 
+
+This request requires the following security scope: 
+
+- `sp:config:manage`
 
 <Tabs>
   <TabItem value="request" label="Request" default>
@@ -555,7 +592,12 @@ Content-Type: application/json
 
 **Description**
 
-Gets the results of an import process.
+[This endpoint](https://developer.sailpoint.com/idn/api/beta/import-sp-config-download) gets the import job's resulting import file by using the requested `id` and downloads the file. 
+The downloaded file will contain the import job's results, including any associated error, warning or informational messages.
+
+This request requires the following security scope:
+
+- `sp:config:manage`
 
 <Tabs>
   <TabItem value="request" label="Request" default>

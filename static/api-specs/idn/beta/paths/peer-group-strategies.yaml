@@ -3,7 +3,9 @@ get:
   tags:
     - IAI Peer Group Strategies
   summary: Identity Outliers List
+  deprecated: true
   description: >-
+    -- Deprecated : See 'IAI Outliers'
     This API will be used by Identity Governance systems to identify identities that are not included in an organization's peer groups. By default, 250 identities are returned. You can specify between 1 and 1000 number of identities that can be returned.
   parameters:
     - in: path
@@ -26,9 +28,11 @@ get:
             items:
               $ref: '../schemas/PeerGroupMember.yaml'
     '400':
-      $ref: '../../v3/responses/400.yaml'          
+      $ref: '../../v3/responses/400.yaml'
     '401':
       $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
     '429':
       $ref: '../../v3/responses/429.yaml'
     '500':

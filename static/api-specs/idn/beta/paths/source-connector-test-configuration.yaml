@@ -2,14 +2,14 @@ post:
   operationId: testSourceConfiguration
   tags:
     - Sources
-  summary: Test configuration for the source connector
+  summary: Test configuration for source connector
   description: >-
     This endpoint performs a more detailed validation of the source's configuration that can take longer than the
     lighter weight credential validation performed by the checkConnection API.
 
     A token with ORG_ADMIN authority is required to call this API.
   security:
-    - oauth2: [idn:source-connector:write]
+    - oauth2: [idn:source-connector:manage]
   parameters:
     - in: path
       name: sourceId
@@ -25,6 +25,8 @@ post:
         application/json:
           schema:
             $ref: '../schemas/StatusResponse.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
     '401':
       $ref: '../../v3/responses/401.yaml'
     '403':

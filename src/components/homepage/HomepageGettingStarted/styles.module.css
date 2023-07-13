@@ -73,7 +73,7 @@
     grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
     /* UI Properties */
     background: var(--main-hero-card-background);
-    box-shadow: var(--dev-card-shadow);
+    box-shadow: var(--dev-main-card-shadow);
     border: 1px solid var(--dev-card-background);
     border-radius: 40px;
     opacity: 1;

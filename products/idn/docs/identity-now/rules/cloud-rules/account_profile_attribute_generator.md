@@ -28,7 +28,7 @@ This rule generates complex account attribute values during provisioning, e.g. w
 | log | org.apache.log4j.Logger | Logger to log statements. _Note: This executes in the cloud, and logging is currently not exposed to anyone other than SailPoint._ |
 | idn | sailpoint.server.IdnRuleUtil | Provides a read-only starting point for using the SailPoint API. From this passed reference, the rule can interrogate the IdentityNow data model including identities or account information via helper methods as described in [IdnRuleUtil](../idn_rule_utility.md). |
 | identity | sailpoint.object.Identity | Reference to identity object representing the identity being calculated. |
-| application | java.lang.Object | Provides information about the source. For example, using application.getName() returns the source name. Using application.getId() returns the source ID. |
+| application | sailpoint.object.Application | Read-only reference to application object that represents the source to which provisioning is being done. |
 | field | sailpoint.object.Field | Field object used to get information about the attribute being generated. |
 
 ## Output

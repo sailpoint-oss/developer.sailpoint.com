@@ -1,5 +1,7 @@
 get:
   operationId: getSource
+  security:
+    - oauth2: [ idn:sources:read ]
   tags:
     - Sources
   summary: Get Source by ID
@@ -36,6 +38,8 @@ get:
       $ref: '../../v3/responses/500.yaml'
 put:
   operationId: putSource
+  security:
+    - oauth2: [ idn:sources:manage ]
   tags:
     - Sources
   summary: Update Source (Full)
@@ -62,6 +66,7 @@ put:
         type: string
       required: true
       description: The Source id
+      example: 2c9180835d191a86015d28455b4a2329
   requestBody:
     required: true
     content:
@@ -91,6 +96,8 @@ put:
       $ref: '../../v3/responses/500.yaml'
 patch:
   operationId: updateSource
+  security:
+    - oauth2: [ idn:sources:manage ]
   tags:
     - Sources
   summary: Update Source (Partial)
@@ -99,7 +106,6 @@ patch:
     [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
     Some fields are immutable and cannot be changed, such as:
-
     * id
     * type
     * authoritative
@@ -225,7 +231,9 @@ patch:
     '500':
       $ref: '../../v3/responses/500.yaml'
 delete:
-  operationId: deleteSource
+  security:
+    - oauth2: [ idn:sources:manage ]
+  operationId: delete
   tags:
     - Sources
   summary: Delete Source by ID
@@ -270,13 +278,6 @@ delete:
             deleteSource: 
               summary: Response returned when deleting a source
               value: {"type": "TASK_RESULT", "id": "2c91808779ecf55b0179f720942f181a", "name": null}
-      links:
-        GetTaskStatusById:
-          operationId: getTaskStatus
-          parameters:
-            id: '$response.body#/id'
-          description: >
-            The `id` value returned in the response can be used as the `id` parameter in `GET /task-status/{id}`.
     '400':
       $ref: '../../v3/responses/400.yaml'
     '401':

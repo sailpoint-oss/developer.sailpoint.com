@@ -5,12 +5,24 @@ properties:
     type: array
     items:
       type: string
+      enum: 
+      - IDENTITY_PROFILE
+      - RULE
+      - SOURCE
+      - TRANSFORM
+      - TRIGGER_SUBSCRIPTION
       example: "SOURCE"
   includeTypes:
     description: Object type names to be included in an sp-config export command. IncludeTypes takes precedence over excludeTypes.
     type: array
     items:
       type: string
+      enum: 
+      - IDENTITY_PROFILE
+      - RULE
+      - SOURCE
+      - TRANSFORM
+      - TRIGGER_SUBSCRIPTION
       example: "TRIGGER_SUBSCRIPTION"
   objectOptions:
     description: Additional options targeting specific objects related to each item in the includeTypes field

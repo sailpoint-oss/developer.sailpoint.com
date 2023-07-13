@@ -59,5 +59,7 @@ properties:
     $ref: './SourceCode.yaml'
   attributes:
     type: object
+    nullable: true
     description: a map of string to objects
     example: {}
+

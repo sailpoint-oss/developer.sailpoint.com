@@ -1,0 +1,138 @@
+/* Getting Started Card */
+.card {
+  position: relative;
+  margin-top: 20px;
+  height: 650px;
+  /* UI Properties */
+  background: var(--dev-card-background);
+  box-shadow: var(--dev-card-shadow);
+  border: 1px solid var(--dev-card-background);
+  border-radius: 40px;
+  opacity: 1;
+  transition: all  0.3s;
+  max-width: 600px;
+}
+
+.card:hover {
+  cursor: pointer;
+  transform: translate(0px, -5px);
+  box-shadow: var(--dev-card-selected);
+}
+
+
+
+
+
+.cardText {
+  position: absolute;
+  margin: 22px;
+  min-width: 170px;
+  top: 10px;
+  left: 0;
+}
+
+
+.cardTitle {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.cardBody {
+  font-size: 16px;
+  font-weight: 500;
+  top: 10px;
+  left: 0;
+}
+
+.tag {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--dev-secondary-text);
+  background-color: var(--dev-tag-highlight);
+  padding: 0px 8px;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.tags {
+  margin: 0px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+
+
+
+.cardUser {
+  position: absolute;
+  bottom: 10px;
+  left: 25px;
+  display: flex;
+}
+
+.cardFace {
+  border-radius: 9999px;
+  margin: auto;
+  height: 40px;
+  width: 40px;
+}
+
+.cardName {
+  min-width: 170px;
+  margin-top: 7px;
+  margin-left: 10px;
+}
+
+
+
+
+
+.cardData {
+  position: absolute;
+  bottom: 50px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.cardEye {
+  fill: #96a9bb;
+  /* computed from codepen https://codepen.io/sosuke/pen/Pjoqqp */
+  filter: invert(79%) sepia(12%) saturate(484%) hue-rotate(168deg) brightness(84%) contrast(84%);
+  margin-left: 5px;
+  height: 18px;
+  width: 18px;
+}
+
+.cardComment {
+  margin-left: 10px;
+  fill: #96a9bb;
+  /* computed from codepen https://codepen.io/sosuke/pen/Pjoqqp */
+  filter: invert(79%) sepia(12%) saturate(484%) hue-rotate(168deg) brightness(84%) contrast(84%);
+  height: 18px;
+  width: 18px;
+  margin-bottom: 4px;
+}
+
+.cardCommentText {
+  color: #96a9ba;
+  /* computed from codepen https://codepen.io/sosuke/pen/Pjoqqp */
+  margin-left: 5px;
+  margin-bottom: 5px;
+  height: 20px;
+  font-size: 16px;
+}
+
+
+
+
+.cardBadge {
+  position: absolute;
+  right: 5px;
+  bottom: 0px;
+  margin-left: 5px;
+  height: 120px;
+  width: 120px;
+}

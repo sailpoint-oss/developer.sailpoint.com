@@ -1,0 +1,46 @@
+type: object
+properties:
+  workflow_id:
+    description: The workflow id
+    type: string
+    format: uuid
+    required: true
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+  requester_id:
+    description: The requester id
+    type: string
+    format: uuid
+    required: true
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+  requester_type:
+    description: The requester type
+    type: string
+    enum: [User, NeprofileUser, NeaccessUser]
+    required: true
+    example: User
+  profile_id:
+    type: string
+    format: uuid
+    description: The profile this workflow session will be working with. Only Applicable for Update workflows
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+  profile_ids:    
+    type: array
+    items:
+      type: string
+      format: uuid
+    description: The profiles this workflow session will be working with. Only Applicable for Batch workflows
+    example: 
+      - db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+      - db6f8e8b-65c2-47d5-a0db-90bcc4e9df9f
+  attributes:
+    description: The attributes
+    type: object
+    additionalProperties:
+      type: string
+    example:
+      text_attribute_uid: static text
+      date_attribute_uid: 01/15/2020
+      profile_select_attribute_uid: Profile Name
+      multiple_profile_select_attribute_uid: Profile Name,Second Profile Name,Third Profile Name
+      contributor_select_attribute_uid: User Name
+      multiple_contributor_select_attribute_uid: User Name,Second User Name,Third User Name

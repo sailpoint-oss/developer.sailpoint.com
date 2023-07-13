@@ -17,6 +17,7 @@ tags: ['Connectivity', 'Connector Command']
 ### Example StdAccountUnlockInput
 
 ```javascript
+"identity": "john.doe",
 "key": {
     "simple": {
         "id": "john.doe"

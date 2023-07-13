@@ -16,10 +16,10 @@ properties:
     type: string
     format: date-time
     readOnly: true
-    example: true
+    example: "2023-01-03T21:16:22.432Z"
   modified:
     description: Last modification date of the Object
     type: string
     format: date-time
     readOnly: true
-    example: true
+    example: "2023-01-03T21:16:22.432Z"

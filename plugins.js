@@ -1,12 +1,17 @@
 module.exports = [
   [
+    '@docusaurus/plugin-google-tag-manager',
+    {
+      containerId: 'GTM-TSD78J',
+    },
+  ],
+  [
     '@docusaurus/plugin-client-redirects',
     {
       redirects: [
-        // /docs/oldDoc -> /docs/newDoc
         {
-          to: '/developerdays',
-          from: '/conf',
+          to: '/',
+          from: ['/conf', '/developerdays', '/developerdays/agenda'],
         },
       ],
     },
@@ -40,10 +45,17 @@ module.exports = [
     },
   ],
   [
-    '@docusaurus/plugin-google-gtag',
+    '@docusaurus/plugin-content-docs',
     {
-      trackingID: 'GTM-TSD78J',
-      anonymizeIP: false,
+      id: 'nerm',
+      path: 'products/nerm',
+      routeBasePath: 'nerm',
+      editUrl:
+        'https://github.com/sailpoint-oss/developer-community-site/edit/main/',
+      showLastUpdateAuthor: true,
+      showLastUpdateTime: true,
+      sidebarPath: require.resolve('./products/nerm/sidebar.js'),
+      docItemComponent: '@theme/ApiItem',
     },
   ],
   [
@@ -94,4 +106,22 @@ module.exports = [
       },
     },
   ],
+  [
+    'docusaurus-plugin-openapi-docs',
+    {
+      id: 'nerm-api',
+      docsPluginId: 'nerm',
+      config: {
+        nerm: {
+          specPath: 'static/api-specs/nerm/openapi.yaml',
+          outputDir: 'products/nerm/api',
+          sidebarOptions: {
+            groupPathsBy: 'tag',
+            categoryLinkSource: 'tag',
+          },
+          template: 'api.mustache',
+        },
+      },
+    },
+  ]
 ];

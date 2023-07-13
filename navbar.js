@@ -16,6 +16,9 @@ module.exports = {
         {to: '/idn/api/beta', label: 'Beta APIs', className: 'indent'},
         {to: '#', label: 'Documentation', className: 'navbar__section'},
         {to: 'idn/docs', label: 'IDN Documentation', className: 'indent'},
+        {to: '#', label: 'Tools', className: 'navbar__section'},
+        {to: 'idn/tools/cli', label: 'CLI', className: 'indent'},
+        {to: 'idn/tools/sdk', label: 'SDKs', className: 'indent'},
         {to: '#', label: 'External Links', className: 'navbar__section'},
         {
           href: 'https://documentation.sailpoint.com',
@@ -50,9 +53,24 @@ module.exports = {
       ],
     },
     {
+      type: 'dropdown',
+      label: 'NERM',
+      position: 'left',
+      items: [
+        {to: '#', label: 'API Specifications', className: 'navbar__section'},
+        {to: '/nerm/api', label: 'NERM APIs', className: 'indent'},
+        {to: '#', label: 'External Links', className: 'navbar__section'},
+        {
+          href: 'https://documentation.sailpoint.com',
+          label: 'Product Documentation',
+          className: 'indent',
+        }
+      ]
+    },
+    {
       position: 'left',
       label: 'Blog',
-      to: 'https://medium.com/sailpointengineering',
+      to: '/blog',
     },
     {
       position: 'left',
@@ -62,7 +80,7 @@ module.exports = {
     {
       position: 'left',
       label: 'Discuss',
-      to: 'https://developer.sailpoint.com/discuss',
+      to: 'https://developer.sailpoint.com/discuss/',
     },
     {
       type: 'dropdown',

@@ -9,7 +9,7 @@ post:
     description: 'Learn more about enabling identities here'
     url: 'https://documentation.sailpoint.com/saas/help/common/users/user_access.html#enabling-user-identities'
   security:
-    - oauth2: [idn:account:enable]
+    - oauth2: [idn:accounts-state:manage]
   parameters:
     - in: path
       name: id

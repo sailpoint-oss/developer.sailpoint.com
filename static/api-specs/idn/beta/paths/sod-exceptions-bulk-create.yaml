@@ -2,7 +2,7 @@ post:
   operationId: bulkCreateSodExceptions
   tags:
     - SOD Exception
-  summary: Create SOD Exceptions in bulk
+  summary: Create SOD exceptions in bulk
   # security:
   #   - oauth2: [API]
   description: >-

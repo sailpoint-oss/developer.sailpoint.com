@@ -22,6 +22,8 @@ post:
         application/json:
           schema:
             $ref: '../schemas/ConnectorRuleValidationResponse.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
     '401':
       $ref: '../../v3/responses/401.yaml'
     '403':
@@ -31,4 +33,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:connector-rule:read]
+    - oauth2: [idn:rule-management-connector:read, idn:rule-management-connector:manage]

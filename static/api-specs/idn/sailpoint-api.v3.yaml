@@ -161,6 +161,73 @@ tags:
       - Password Change: These include password changes on sources.
 
       Refer to [Account Activity](https://documentation.sailpoint.com/saas/help/search/index.html#account-activity) for more information about account activities.
+  - name: Certification Campaigns
+    description: |
+      Use this API to implement certification campaign functionality.
+      With this functionality in place, administrators can create, customize, and manage certification campaigns for their organizations' use. 
+      Certification campaigns provide IdentityNow (IDN) users with an interactive review process they can use to identify and verify access to systems. 
+      Campaigns help organizations reduce risk of inappropriate access and satisfy audit requirements. 
+
+      A certification refers to IDN's mechanism for reviewing a user's access to entitlements (sets of permissions) and approving or removing that access. 
+      These certifications serve as a way of showing that a user's access has been reviewed and approved. 
+      Multiple certifications by different reviewers are often required to approve a user's access. 
+      A set of multiple certifications is called a certification campaign. 
+
+      For example, an organization may use a Manager Certification campaign as a way of showing that a user's access has been reviewed and approved by multiple managers. 
+      Once this campaign has been completed, IDN would provision all the access the user needs, nothing more. 
+
+      IDN provides two simple campaign types users can create without using search queries, Manager and Source Owner campaigns:
+
+      You can create these types of campaigns without using any search queries in IDN: 
+      
+      - ManagerCampaign: IDN provides this campaign type as a way to ensure that an identity's access is certified by their managers. 
+      You only need to provide a name and description to create one. 
+      
+      - Source Owner Campaign: IDN provides this campaign type as a way to ensure that an identity's access to a source is certified by its source owners. 
+      You only need to provide a name and description to create one. 
+      You can specify the sources whose owners you want involved or just run it across all sources. 
+
+      For more information about these campaign types, refer to [Starting a Manager or Source Owner Campaign](https://documentation.sailpoint.com/saas/help/certs/starting_campaign.html).
+
+      One useful way to create certification campaigns in IDN is to use a specific search and then run a campaign on the results returned by that search. 
+      This allows you to be much more specific about whom you are certifying in your campaigns and what access you are certifying in your campaigns. 
+      For example, you can search for all identities who are managed by "Amanda.Ross" and also have the access to the "Accounting" role and then run a certification campaign based on that search to ensure that the returned identities are appropriately certified. 
+      
+      You can use IDN search queries to create these types of campaigns: 
+
+      - Identities: Use this campaign type to review and revoke access items for specific identities. 
+      You can either build a search query and create a campaign certifying all identities returned by that query, or you can search for individual identities and add those identities to the certification campaign. 
+
+      - Access Items: Use this campaign type to review and revoke a set of roles, access profiles, or entitlements from the identities that have them. 
+      You can either build a search query and create a campaign certifying all access items returned by that query, or you can search for individual access items and add those items to the certification campaign. 
+
+      - Role Composition: Use this campaign type to review a role's composition, including its title, description, and membership criteria. 
+      You can either build a search query and create a campaign certifying all roles returned by that query, or you can search for individual roles and add those roles to the certification campaign. 
+
+      - Uncorrelated Accounts: Use this campaign type to certify source accounts that aren't linked to an authoritative identity in IDN. 
+      You can use this campaign type to view all the uncorrelated accounts for a source and certify them. 
+
+      For more information about search-based campaigns, refer to [Starting a Campaign from Search](https://documentation.sailpoint.com/saas/help/certs/starting_search_campaign.html).
+
+      Once you have generated your campaign, it becomes available for preview. 
+      An administrator can review the campaign and make changes, or if it's ready and accurate, activate it. 
+      
+      Once the campaign is active, organization administrators or certification administrators can designate other IDN users as certification reviewers. 
+      Those reviewers can view any of the certifications they either need to review (active) or have already reviewed (completed).
+
+      When a certification campaign is in progress, certification reviewers see the listed active certifications whose involved identities they can review. 
+      Reviewers can then make decisions to grant or revoke access, as well as reassign the ceritifcation to another reviewer. If the reviewer chooses this option, they must provide a reason for reassignment in the form of a comment.
+
+      Once a reviewer has made decisions on all the certification's involved access items, he or she must "Sign Off" to complete the review process.
+      Doing so converts the certification into read-only status, preventing any further changes to the review decisions and deleting the work item (task) from the reviewer's list of work items. 
+
+      Once all the reviewers have signed off, the certification campaign either completes or, if any reviewers decided to revoke access for any of the involved identities, it moves into a remediation phase. 
+      In the remediation phase, identities' entitlements are altered to remove any entitlements marked for revocation.
+      In this situation, the certification campaign completes once all the remediation requests are completed. 
+
+      The end of a certification campaign is determined by its deadline, its completion status, or by an administrator's decision. 
+
+      For more information about certifications and certification campaigns, refer to [Certifications](https://documentation.sailpoint.com/saas/user-help/certifications.html).
   - name: Certifications
     description: |
       Use this API to implement certification functionality. 
@@ -294,6 +361,14 @@ tags:
       Use this API to implement OAuth client functionality.   
       With this functionality in place, users with the appropriate security scopes can create and configure OAuth clients to use as a way to obtain authorization to use the IdentityNow REST API.
       Refer to [Authentication](https://developer.sailpoint.com/idn/api/authentication) for more information about OAuth and how it works with the IdentityNow REST API. 
+  - name: Password Configuration
+    description: |
+      Use this API to implement organization password configuration functionality. 
+      With this functionality in place, organization administrators can create organization-specific password configurations. 
+
+      These configurations include details like custom password instructions, as well as digit token length and duration. 
+
+      Refer to [Configuring User Authentication for Password Resets](https://documentation.sailpoint.com/saas/help/pwd/pwd_reset.html) for more information about organization password configuration functionality.
   - name: Password Management
     description: |
       Use this API to implement password management functionality.  
@@ -320,6 +395,89 @@ tags:
       Users may be required to answer security questions or use a third-party authenticator before they can confirm their updates. 
 
       Refer to [Managing Passwords](https://documentation.sailpoint.com/saas/user-help/accounts/passwords.html) for more information about password management.
+  - name: Password Dictionary
+    description: |
+      Use this API to implement password dictionary functionality.  
+      With this functionality in place, administrators can create password dictionaries to prevent users from using certain words or characters in their passwords. 
+
+      A password dictionary is a list of words or characters that users are prevented from including in their passwords. 
+      This can help protect users from themselves and force them to create passwords that are not easy to break. 
+
+      A password dictionary must meet the following requirements to for the API to handle them correctly: 
+
+      - It must be in .txt format.
+
+      - All characters must be UTF-8 characters. 
+
+      - Each line must contain a single word or character with no spaces or whitespace characters.
+
+      - It must contain at least one line other than the locale string.
+
+      - Each line must not exceed 128 characters.
+
+      - The file must not exceed 2500 lines. 
+
+      Administrators should also consider the following when they create their dictionaries: 
+
+      - Lines starting with a # represent comments.
+
+      - All words in the password dictionary are case-insensitive. 
+      For example, adding the word "password" to the dictionary also disallows the following: PASSWORD, Password, and PassWord.
+
+      - The dictionary uses substring matching. 
+      For example, adding the word "spring" to the dictionary also disallows the following: Spring124, 345SprinG, and 8spring.
+      Users can then select 'Change Password' to update their passwords. 
+
+      Administrators must do the following to create a password dictionary: 
+
+      - Create the text file that will contain the prohibited password values.
+
+      - If the dictionary is not in English, they must add a locale string to the top line: locale:`languageCode`_`countryCode`
+
+      The languageCode value refers to the language's 2-letter ISO 639-1 code.
+      The countryCode value refers to the country's 2-letter ISO 3166-1 code.
+      
+      Refer to this list https://docs.oracle.com/cd/E13214_01/wli/docs92/xref/xqisocodes.html to see all the available ISO 639-1 language codes and ISO 3166-1 country codes.
+
+      - Upload the .txt file to IdentityNow with [Update Password Dictionary](https://developer.sailpoint.com/idn/api/v3/update-password-dictionary). Uploading a new file always overwrites the previous dictionary file.
+
+      Administrators can then specify which password policies check new passwords against the password dictionary by doing the following: In the Admin panel, they can use the Password Mgmt dropdown menu to select Policies, select the policy, and select the 'Prevent use of words in this site's password dictionary' checkbox beside it.
+
+      Refer to [Configuring Advanced Password Management Options](https://documentation.sailpoint.com/saas/help/pwd/adv_config.html) for more information about password dictionaries.
+  - name: Password Sync Groups
+    description: |
+      Use this API to implement password sync group functionality. 
+      With this functionality in place, administrators can group sources into password sync groups so that all their applications share the same password. 
+      This allows users to update the password for all the applications in a sync group if they want, rather than updating each password individually. 
+
+      A password sync group is a group of applications that shares a password. 
+      Administrators create these groups by grouping the applications' sources. 
+      For example, an administrator can group the ActiveDirectory, GitHub, and G Suite sources together so that all those sources' applications can also be grouped to share a password. 
+      A user can then update his or her password for ActiveDirectory, GitHub, Gmail, Google Drive, and Google Calendar all at once, rather then updating each one individually.
+
+      The following are required for administrators to create a password sync group in IdentityNow: 
+
+      - At least two direct connect sources connected to IdentityNow and configured for Password Management.
+
+      - Each authentication source in a sync group must have at least one application. Refer to [Adding and Resetting Application Passwords](https://documentation.sailpoint.com/saas/help/pwd/adv_config.html#adding-and-resetting-application-passwords) for more information about adding applications to sources.
+
+      - At least one password policy. Refer to [Managing Password Policies](https://documentation.sailpoint.com/saas/help/pwd/policies.html) for more information about password policies. 
+
+      In the Admin panel in IdentityNow, administrators can use the Password Mgmt dropdown menu to select Sync Groups. 
+      To create a sync group, administrators must provide a name, choose a password policy to be enforced across the sources in the sync group, and select the sources to include in the sync group. 
+
+      Administrators can also delete sync groups in IdentityNow, but they should know the following before they do: 
+
+      - Passwords related to the associated sources will become independent, so changing one will not change the others anymore. 
+
+      - Passwords for the sources' connected applications will also become independent. 
+
+      - Password policies assigned to the sync group are then assigned directly to the associated sources. 
+      To change the password policy for a source, administrators must edit it directly. 
+
+      Once the password sync group has been created, users can update the password for the group in Password Manager.
+
+      Refer to [Managing Password Sync Groups](https://documentation.sailpoint.com/saas/help/pwd/sync_grps.html) for more information about password sync groups.
   - name: Personal Access Tokens
     description: |
       Use this API to implement personal access token (PAT) functionality. 
@@ -459,7 +617,7 @@ tags:
       This ingestion process introduces a latency from when the operational data is created to when it is available in search. 
       Depending on the system load, this can take a few seconds to a few minutes. 
       Please keep this latency in mind when you use search. 
-
+  - name: Segments
   - name: Service Desk Integration
     description: |
       Use this API to build an integration between IdentityNow and a service desk ITSM (IT service management) solution. 
@@ -473,9 +631,9 @@ tags:
       Administrators can create various service desk integrations, all with their own nuances. 
       The following service desk integrations are available: 
 
-      - [Atlassian Cloud Jira Service Management](https://documentation.sailpoint.com/connectors/atlassian/jira_cloud/help/integrating_jira_cloud/introduction.html)
+      - [Atlassian Cloud Jira Service Management](https://documentation.sailpoint.com/connectors/atlassian/jira_cloud/help/integrating_jira_cloud_sd/introduction.html)
 
-      - [Atlassian Server Jira Service Management](https://documentation.sailpoint.com/connectors/atlassian/jira_server/help/integrating_jira_server/introduction.html)
+      - [Atlassian Server Jira Service Management](https://documentation.sailpoint.com/connectors/atlassian/jira_server/help/integrating_jira_server_sd/introduction.html)
 
       - [BMC Helix ITSM Service Desk](https://documentation.sailpoint.com/connectors/bmc/helix_ITSM_sd/help/integrating_bmc_helix_itsm_sd/intro.html)
 
@@ -485,7 +643,11 @@ tags:
 
       - [ServiceNow Service Desk](https://documentation.sailpoint.com/connectors/servicenow/sdim/help/integrating_servicenow_sdim/intro.html)
 
-      - [Zendesk Service Desk](https://documentation.sailpoint.com/connectors/zendesk/help/integrating_zendesk_sd/introduction.html)  
+      - [Zendesk Service Desk](https://documentation.sailpoint.com/connectors/zendesk/help/integrating_zendesk_sd/introduction.html)
+  - name: SOD Policy
+    description: Operations for Creating & Executing SOD (Seperation of Duties) policies
+  - name: SOD Violations
+    description: Operations for Predicting SOD (Seperation of Duties) violations
   - name: Sources
     description: |
       Use this API to implement and customize source functionality. 
@@ -545,6 +707,7 @@ tags:
 
       Well organized, mappped out connections between sources and IdentityNow are essential to achieving comprehensive identity access governance across all the source systems organizations need. 
       Refer to [Managing Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html) for more information about all the different things admins can do with sources once they are connected. 
+  - name: Tagged Objects
   - name: Transforms
     description: |
       The purpose of this API is to expose functionality for the manipulation of Transform objects.
@@ -616,6 +779,12 @@ paths:
     $ref: "./v3/paths/account-activity-list.yaml"
   /account-activities/{id}:
     $ref: "./v3/paths/account-activity-get-one.yaml"
+  /campaigns:
+    $ref: './v3/paths/campaigns.yaml'
+  /campaigns/{id}:
+    $ref: './v3/paths/campaign.yaml'
+  /campaigns/{id}/reassign:
+    $ref: './v3/paths/campaign-admin-cert-reassign.yaml'
   /certifications:
     $ref: "./v3/paths/identity-certifications.yaml"
   /certifications/{id}:
@@ -634,7 +803,7 @@ paths:
     $ref: "./v3/paths/identity-certifications-identity-summaries.yaml"
   /certifications/{id}/access-summaries/{type}:
     $ref: "./v3/paths/identity-certifications-access-summaries.yaml"
-  /certifications/{id}/identity-summary/{identitySummaryId}:
+  /certifications/{id}/identity-summaries/{identitySummaryId}:
     $ref: "./v3/paths/identity-certifications-identity-summary.yaml"
   /identities/{identity-id}/set-lifecycle-state:
     $ref: "./v3/paths/identity-set-lifecycle-state.yaml"
@@ -694,6 +863,10 @@ paths:
     $ref: "./v3/paths/oauth-clients.yaml"
   /oauth-clients/{id}:
     $ref: "./v3/paths/oauth-client.yaml"
+  /password-sync-groups:
+    $ref: './v3/paths/password-sync-groups.yaml'
+  /password-sync-groups/{id}:
+    $ref: './v3/paths/password-sync-group.yaml'
   /personal-access-tokens:
     $ref: "./v3/paths/personal-access-tokens.yaml"
   /personal-access-tokens/{id}:
@@ -730,6 +903,10 @@ paths:
     $ref: "./v3/paths/search-aggregate.yaml"
   /search/{index}/{id}:
     $ref: "./v3/paths/search-get.yaml"
+  /segments:
+    $ref: "./v3/paths/segments.yaml"
+  /segments/{id}:
+    $ref: "./v3/paths/segment.yaml"
   /service-desk-integrations:
     $ref: "./v3/paths/service-desk-integrations.yaml"
   /service-desk-integrations/{id}:
@@ -746,6 +923,36 @@ paths:
     $ref: "./v3/paths/set-password.yaml"
   /password-change-status/{id}:
     $ref: "./v3/paths/password-change-status.yaml"
+  /password-dictionary:
+    $ref: './v3/paths/password-dictionary.yaml'
+  /password-org-config:
+    $ref: './v3/paths/password-org-config.yaml'
+  /sod-policies:
+    $ref: './v3/paths/sod-policies.yaml'
+  /sod-policies/{id}:
+    $ref: './v3/paths/sod-policy.yaml'
+  /sod-policies/{id}/evaluate:
+    $ref: './v3/paths/sod-policy-evaluate.yaml'
+  /sod-policies/{id}/schedule:
+    $ref: './v3/paths/sod-schedule.yaml'
+  /sod-policies/{id}/violation-report/run:
+    $ref: './v3/paths/sod-report-run.yaml'
+  /sod-policies/{id}/violation-report:
+    $ref: './v3/paths/sod-violation-report.yaml'
+  /sod-policies/sod-violation-report-status/{reportResultId}:
+    $ref: './v3/paths/sod-violation-report-status.yaml'
+  /sod-violations/predict:
+    $ref: "./v3/paths/sod-violations-predict.yaml"
+  /sod-violations/check:
+    $ref: "./v3/paths/sod-violations-check.yaml"
+  /sod-violation-report/run:
+    $ref: './v3/paths/sod-all-report-run.yaml'
+  /sod-violation-report:
+    $ref: './v3/paths/sod-all-report-status.yaml'
+  /sod-violation-report/{reportResultId}/download:
+    $ref: './v3/paths/sod-download-default-report.yaml'
+  /sod-violation-report/{reportResultId}/download/{fileName}:
+    $ref: './v3/paths/sod-download-custom-report.yaml'
   /sources:
     $ref: "./v3/paths/sources.yaml"
   /sources/{id}:
@@ -768,6 +975,16 @@ paths:
     $ref: "./v3/paths/source-entitlements-schema.yaml"
   /sources/{sourceId}/upload-connector-file:
     $ref: "./v3/paths/source-upload-connector-file.yaml"
+  /tagged-objects:
+    $ref: "./v3/paths/tagged-objects.yaml"
+  /tagged-objects/{type}:
+    $ref: "./v3/paths/tagged-objects-type.yaml"
+  /tagged-objects/{type}/{id}:
+    $ref: "./v3/paths/tagged-object.yaml"
+  /tagged-objects/bulk-add:
+    $ref: "./v3/paths/bulk-add-tagged-objects.yaml"
+  /tagged-objects/bulk-remove:
+    $ref: "./v3/paths/bulk-remove-tagged-objects.yaml"
   /transforms:
     $ref: "./v3/paths/transforms.yaml"
   /transforms/{id}:

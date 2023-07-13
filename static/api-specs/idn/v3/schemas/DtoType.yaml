@@ -21,6 +21,7 @@ enum:
   - RULE
   - SOD_POLICY
   - SOURCE
+  - TAG
   - TAG_CATEGORY
   - TASK_RESULT
   - REPORT_RESULT

@@ -1,0 +1,142 @@
+
+.gridContainer {
+    display: grid;
+    place-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-gap: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+  
+  .center {
+    margin: 50px auto;
+    max-width: 1000px;
+  }
+
+  .headerText {
+    text-align: center;
+    display: flex;
+    margin: 100px auto 0px auto;
+    width: calc(100% - 100px);
+    justify-content: center;
+  }
+
+  .headerTextOne {
+    color: var(--ifm-color-primary);
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 100%;
+  }
+  
+
+  
+
+
+  .spanLeft {
+    width: 35%;
+    margin: 14px;
+    position: relative;
+    top: -45px;
+    border-bottom-width:2px;
+    border-bottom-style:solid;
+    border-bottom-color:var(--ifm-color-primary);
+  }
+
+
+
+  .imageContainer {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .ambassadorImage {
+    margin-left: 5px;
+    padding: 20px;
+    height: 120px;
+    width: 120px;
+  }
+
+
+  .ambassadorPurposeContainer {
+    display: flex;
+    justify-content: center;
+    width: calc(75% + 75px);
+    align-items: center;
+    margin: 0px auto 0px auto;
+  }
+
+
+  .ambassadorPurposeText {
+    font-size: 21px;
+    padding: 50px 0px 50px 50px;
+    font-weight: 500;
+    color: var(--dev-text-color-normal);
+  }
+
+  .ambassadorPurposeImage {
+    width: 40%;
+    box-shadow: var(--dev-card-selected);
+    border-radius: 40px;
+    margin: 50px 50px 50px 0px;
+  }
+
+  @media only screen and (max-width: 1460px) {
+    .ambassadorPurposeContainer {
+      flex-direction: column;
+    }
+    .ambassadorPurposeImage {
+      width: 80%;
+      margin: 50px 50px 50px 50px;
+    }
+    .ambassadorPurposeText {
+      padding: 50px 50px 50px 50px;
+    }
+}
+
+
+
+
+
+
+
+
+
+.button:hover {
+  cursor: pointer;
+  top: -2px;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  background-color: #c552ae10;
+  color: #cc27b0;
+  background-color: var(--dev-button-hover);
+}
+
+.button {
+  text-decoration: none;
+  text-align: center;
+  margin: 30px auto;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 100%;
+
+  /* Layout Properties */
+  width: 314px;
+  height: 61px;
+  line-height: 61px;
+  /* UI Properties */
+  background: transparent 0% 0% no-repeat padding-box;
+  opacity: 1;
+
+  box-shadow: 0px 20px 60px #00000015;
+  border: 2px solid #df61ca;
+  border-radius: 5px;
+  transition: all  0.3s;
+}
+
+.link {
+  color: #df61ca;
+}
+.link:hover {
+  color: #df61ca;
+  text-decoration: none;
+}

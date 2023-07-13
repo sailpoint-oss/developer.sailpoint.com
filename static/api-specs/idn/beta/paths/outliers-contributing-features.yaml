@@ -2,7 +2,7 @@ get:
   operationId: getPeerGroupOutliersContributingFeatures
   tags:
     - IAI Outliers
-  summary: IAI Get an Identity Outlier's Contibuting Features
+  summary: Get identity outlier's contibuting features
   description: >-
     This API returns a list of contributing feature objects for a single outlier.
     The object contains: feature name, feature value type, value, importance, display name (translated text or message key), description (translated text or message key), translation messages object
@@ -34,7 +34,7 @@ get:
         format: comma-separated
         example: importance
       description: >-
-        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/docs/standard_collection_parameters.html)
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
 
         Sorting is supported for the following fields: **importance**
   responses:

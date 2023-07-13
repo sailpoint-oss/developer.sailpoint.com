@@ -1,12 +1,12 @@
 type: object
 required:
-- id
-- triggerId
-- type
-- name
-- triggerName
-- enabled
-- responseDeadline
+  - id
+  - triggerId
+  - type
+  - name
+  - triggerName
+  - enabled
+  - responseDeadline
 properties:
   id:
     type: string

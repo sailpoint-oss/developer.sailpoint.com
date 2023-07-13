@@ -9,6 +9,10 @@ properties:
     type: string
     description: Operator friendly name
     example: Compare Boolean Values
+  type:
+    description: Operator type
+    type: string
+    example: "OPERATOR"
   description:
     type: string
     description: Description of the operator

@@ -13,7 +13,7 @@ tags: ['Getting Started']
 
 ## Find Your Tenant Name
 
-To form the proper URL for an API request, you must know your tenant name. To find your tenant name by log into IdentityNow, navigate to Admin, select the Dashboard dropdown, and select Overview. The org name is displayed within the Org Details section of the dashboard. If you do not have admin access, you can still find your tenant name and the API base URL you will use for API calls. To do so, view your session details when you are logged into your IdentityNow instance. Change your URL to the following: `https://{your-IdentityNow-hostname}.com/ui/session`, where `{your-IdentityNow-hostname}` is your company's domain name for accessing IdentityNow. The session detail you want is the `baseUrl`, which has the form of `https://{tenant}.api.identitynow.com`.
+To form the proper URL for an API request, you must know your tenant name. To find your tenant name, log into IdentityNow, navigate to Admin, select the Dashboard dropdown, and select Overview. The org name is displayed within the Org Details section of the dashboard. If you do not have admin access, you can still find your tenant name and the API base URL you will use for API calls. To do so, view your session details when you are logged into your IdentityNow instance. Change your URL to the following: `https://{your-IdentityNow-hostname}.com/ui/session`, where `{your-IdentityNow-hostname}` is your company's domain name for accessing IdentityNow. The session detail you want is the `baseUrl`, which has the form of `https://{tenant}.api.identitynow.com`.
 
 ## Make Your First API Call
 

@@ -2,7 +2,7 @@ get:
   tags:
     - Sources
   summary: Downloads source accounts schema template
-  operationId: downloadSourceAccountsSchema
+  operationId: getSourceAccountsSchema
   parameters:
     - in: path
       name: id
@@ -30,14 +30,14 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:source-schema:read]
+    - oauth2: [idn:source-schema:read, idn:source-schema:manage]
 post:
   tags:
     - Sources
   summary: Uploads source accounts schema template
   description: >-
     This API uploads a source schema template file to configure a source's account attributes.
-  operationId: uploadSourceAccountsSchema
+  operationId: importSourceAccountsSchema
   parameters:
     - in: path
       name: id
@@ -74,4 +74,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:source-schema:update]
+    - oauth2: [idn:source-schema:manage]

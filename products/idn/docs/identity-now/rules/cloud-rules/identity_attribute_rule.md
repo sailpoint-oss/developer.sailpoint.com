@@ -93,7 +93,7 @@ if( startDate.before( today ) && endDate.after( today ) ) {
   return "inactive";
 }
 
-// If we haven't calculated a state already; return null.
+// If we haven't calculated a state already, return null.
 return null;
 
   ]]></Source>

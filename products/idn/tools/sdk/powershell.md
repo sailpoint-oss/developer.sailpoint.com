@@ -186,6 +186,14 @@ If the command is unsuccessful, the SDK outputs this message: "Configuration fil
 
 To resolve this error, find the configuration file and copy it into the correct the specified folder path and run `Get-DefaultConfiguration` again. 
 
+:::info
+When you run the command, you may receive the following message:
+```
+Configuration file found in home directory, this approach of loading configuration will be deprecated in future releases, please upgrade the CLI and use the new 'sail sdk init config' command to create a local configuration file
+```
+The command `sail sdk init config` is no longer valid. Use the CLI commands found above in the section [CLI assisted configuration](https://developer.sailpoint.com/idn/tools/sdk/powershell/#cli-assisted-configuration) 
+:::
+
 ## Run an example request
 
 Once your SDK is installed and configured, you can start accessing the SDK's different functionalities. The SDK includes some prebuilt examples you can copy into your PowerShell instance to start learning how to use the SDK. 

@@ -25,7 +25,7 @@ export default function MarketplaceSidebar({
 
     for (const category of categoryData.category_list.categories) {
       // 59 for marketplace
-      if (category.id === 59) {
+      if (category.id === 57) {
         for (const subCategory of category.subcategory_list) {
           
           catIntegrationType.push({"name": subCategory.name, "slug": subCategory.slug})

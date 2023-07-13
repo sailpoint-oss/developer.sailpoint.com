@@ -17,7 +17,7 @@
   font-size: 16px;
   font-weight: 500;
   background-color: var(--dev-secondary-text);
-  color: var(--dev-card-background);
+  color: var(--dev-tag-selected-text);
   padding: 8px;
   margin-right: 5px;
   margin-bottom: 5px;
@@ -31,6 +31,25 @@
 .tag:hover {
   cursor: pointer;
   background-color: var(--dev-text-color-normal);
-  color: var(--dev-card-background);
+  color: var(--dev-tag-selected-text);
 }
 
+/* .radio {
+  visibility: hidden;
+  position: absolute;
+}
+.radio + label:before{
+  height:12px;
+  width:12px;
+  margin-right: 2px;
+  content: " ";
+  display:inline-block;
+  vertical-align: baseline;
+  border:1px solid #777;
+}
+.radio:checked + label:before{
+  background-color: var(--ifm-color-primary);
+}
+.radio + label:before{
+  border-radius:50%;
+} */

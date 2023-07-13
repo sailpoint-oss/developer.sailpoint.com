@@ -19,7 +19,6 @@ export default function MarketplaceCards({filterCallback}) {
 
   const getPosts = async () => {
     const data = await getMarketplacePosts(filterCallback.tags.join('+'), filterCallback.category);
-    console.log(data)
     const resultset = [];
     if (data.topics) {
       for (const topic of data.topics) {
@@ -136,13 +135,22 @@ async function getPostList(topic) {
 }
 
 function getavatarURL(avatar) {
-  return 'https://developer.sailpoint.com' + avatar.replace('{size}', '120');
+  if (avatar.includes("developer.sailpoint.com")) {
+    return "https://developer.sailpoint.com" + avatar.replace("{size}", "120")
+  } else {
+    return avatar.replace("{size}", "120")
+  }
 }
 
 function styleExcerpt(excerpt) {
   if (excerpt) {
     // remove any strings that have colons between them
     excerpt = excerpt.replace(/:[^:]*:/g, '');
+    // get text between "summary" and "Repository Link"
+    const match = excerpt.match(/Summary([\s\S]*?)Repository Link/)
+    if (match) {
+      excerpt = match[1].trim()
+    }
     if (excerpt.length > 150) {
       return excerpt.slice(0, 100) + '...';
     } else {

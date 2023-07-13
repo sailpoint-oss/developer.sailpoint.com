@@ -10,6 +10,11 @@ export default function MarketplaceSidebarButton({
     category
   }) {
   const [isActive, setIsActive] = React.useState(false);
+  const [checked, setChecked] = React.useState(false);
+
+  const handleChange = () => {
+    setChecked(!checked);
+  };
   let activeClass = ''
   if (isCategory && category === id) {
     activeClass = styles.tagSelected
@@ -18,21 +23,30 @@ export default function MarketplaceSidebarButton({
   } else {
     activeClass = isActive ? styles.tagSelected : ''
   }
+
+  let radioClass = styles.checkbox
+  if (isCategory) {
+    radioClass = styles.radio
+  }
   //const activeClass = isActive ? styles.tagSelected : ''
   function setFilters(e, id) {
     if (isCategory) {
       if (category === id) {
         filterCallback({"category": "marketplace"})
+        setIsActive(false)
       } else {
         filterCallback({"category": id})
+        setIsActive(true)
       }
       
     } else {
       filterCallback({"tag": id})
+      setIsActive(current => !current);
     }
-    setIsActive(current => !current);
+    
     
   }
+  // return <div><input id={id} type='checkbox' className={radioClass} checked={activeClass != ''} onChange={handleChange}></input><label htmlFor={id} onClick={(e) => setFilters(e, id)} className={activeClass + ' ' + styles.tag} key={text}>{text}</label></div>
   return <div key={text} onClick={(e) => setFilters(e, id)} className={activeClass + ' ' + styles.tag}>{text}</div>
 
 }

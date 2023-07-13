@@ -6,9 +6,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px;
+  margin: 20px 20px 0px 20px;
 }
 
+.detailImageContainor {
+  display: flex;
+  flex-direction: column;
+}
 .detailImage {
   border-radius: 40px;
   max-width: 400px;
@@ -28,7 +32,8 @@
 }
 
 .detailTabs {
-  margin: 10px;
+  margin: 20px 10px 10px 10px;
+  position: relative;
 }
 
 
@@ -47,11 +52,15 @@
   text-align: center;
   width: 125px;
   background-color: #ffffff31;
+  position: absolute;
+  right: 0px;
+  top: -25px;
+  transition: all  0.3s;
 }
 
 .modalButton:hover {
   cursor: pointer;
-  top: -2px;
+  top: -23px;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.4);
   background-color: #dae1e9;
   color: #005fc4;

@@ -24,16 +24,16 @@ export default function MarketplaceSidebar({
     const catIntegrationType = []
 
     for (const category of categoryData.category_list.categories) {
-      // 59 for marketplace
-      if (category.id === 57) {
+      // 59 for production marketplace, 57 for staging marketplace
+      if (category.id === 59) {
         for (const subCategory of category.subcategory_list) {
           
           catIntegrationType.push({"name": subCategory.name, "slug": subCategory.slug})
         }
       }
     }
-
     for (const tagGroup of tagData.extras.tag_groups) {
+      // 20 for production marketplace, 11 for staging marketplace
       if (tagGroup.id === 20) {
         for (const tag of tagGroup.tags) {
           tagProductResultset.push(tag.text)
@@ -73,12 +73,8 @@ export default function MarketplaceSidebar({
         <div className={styles.tagHeader}>Items by Integration Type</div>
         <div className={styles.tagContainer}>
             {catIntegrationTypeData.map(function(a, index){
-              return <div key={'div' + a.slug} className={index > 10 && filterTags ? styles.hidden : ''} > <MarketplaceSidebarButton category={selectedCategory} isCategory={true} key={a.slug} text={a.name} id={a.slug} filterCallback={filterCallback}></MarketplaceSidebarButton></div>
+              return <MarketplaceSidebarButton category={selectedCategory} isCategory={true} key={a.slug} text={a.name} id={a.slug} filterCallback={filterCallback}></MarketplaceSidebarButton>
             })}
-        </div>
-        <div className={styles.seeAll} onClick={(e) => toggleSeeAll()}>
-          {filterText}
-          {/* <img className={styles.caretDown} src={useBaseUrl('/blog/caret-down-thin.svg')}></img> */}
         </div>
       </div>
       

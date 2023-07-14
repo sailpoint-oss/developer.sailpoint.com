@@ -251,6 +251,8 @@
 
   /*card css*/
   --dev-card-background: #e9e9e963;
+  --dev-tag-selected-text: #ffffffef;
+  --dev-popup-background: #fdfdfd;
   --dev-card-shadow: 0px 0px 0px #6b6b6b15;
   --dev-main-card-shadow: 0px 20px 60px #00000015;
   --dev-card-selected: 0 4px 5px rgba(0, 0, 0, 0.2);
@@ -288,12 +290,14 @@
 
   /*card css*/
   --dev-card-background: #2a2b2d;
+  --dev-popup-background: #2a2b2d;
   --dev-card-shadow: 0 0px 0px rgba(0, 0, 0, 0.2);
   --dev-main-card-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
   --dev-card-selected: 0 5px 5px rgba(151, 151, 151, 0.2);
   --dev-secondary-text: #dae1e9;
   --dev-tag-highlight: #00000075;
   --dev-button-hover: #c552ae40;
+  --dev-tag-selected-text: #2a2b2d;
 
   /*main hero card*/
   --main-hero-card-background: #202122;

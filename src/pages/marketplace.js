@@ -26,11 +26,10 @@ export default function Marketplace() {
       }
     }
 
-
     if (data.category) {
-      setFilteredProduct({"category": data.category, "tags": [tempFilter]})
+      setFilteredProduct({"category": data.category, "tags": tempFilter})
     } else {
-      setFilteredProduct({"category": filteredProduct.category, "tags": [tempFilter]})
+      setFilteredProduct({"category": filteredProduct.category, "tags": tempFilter})
     }
 
     

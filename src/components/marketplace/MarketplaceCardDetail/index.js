@@ -3,12 +3,12 @@ import styles from './styles.module.css';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import ThemedImage from '@theme/ThemedImage';
-import {addDarkToFileName} from '../../../util/util';
-import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
+import { addDarkToFileName } from '../../../util/util';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import ReactMarkdown from 'react-markdown';
 import BounceLoader from 'react-spinners/BounceLoader';
-export default function MarketplaceCardDetail({details, rawPost}) {
+export default function MarketplaceCardDetail({ details, rawPost }) {
   const getDivText = (data, id) => {
     const requirementPosition = data.indexOf('id="' + id + '"');
     const requirementEndPosition = data.indexOf('</div>', requirementPosition);
@@ -19,13 +19,11 @@ export default function MarketplaceCardDetail({details, rawPost}) {
       );
       const incorrectURLPattern = /upload:\/\/([^"]+)/g;
       const correctURLPattern =
-        'https://developer.identitysoon.com/discuss/uploads/short-url/$1';
+        'https://developer.sailpoint.com/discuss/uploads/short-url/$1';
       return validContent.replace(incorrectURLPattern, correctURLPattern);
     } else {
       return 'No requirements found for this marketplace item';
     }
-    // https://developer.identitysoon.com/discuss/uploads/short-url/f9rlt0eoj7RnpndvL0CHjcEesV0.png?dl=1\
-    // upload://f9rlt0eoj7RnpndvL0CHjcEesV0.png
   };
 
   const goToLink = (link) => {
@@ -40,9 +38,22 @@ export default function MarketplaceCardDetail({details, rawPost}) {
           <img
             className={styles.detailImage}
             src={useBaseUrl(details.image)}></img>
+
         </div>
 
         <Tabs className={styles.detailTabs}>
+          <button
+            className={styles.modalButton}
+            onClick={async () => {
+              goToLink(details.link);
+            }}>
+            <div className={styles.modalButtonText}>
+              <img
+                className={styles.buttonImage}
+                src={useBaseUrl('/icons/discourse.svg')}></img>
+              See More
+            </div>
+          </button>
           <TabList>
             <Tab>Details</Tab>
             <Tab>Requirements</Tab>
@@ -53,32 +64,6 @@ export default function MarketplaceCardDetail({details, rawPost}) {
             <ReactMarkdown className={styles.detailTabContent}>
               {getDivText(rawPost, 'details')}
             </ReactMarkdown>
-            <button
-              className={styles.modalButton}
-              onClick={async () => {
-                goToLink(details.link);
-              }}>
-              <div className={styles.modalButtonText}>
-                <img
-                  className={styles.buttonImage}
-                  src={useBaseUrl('/icons/discourse.svg')}></img>
-                  See More
-              </div>
-            </button>
-            <button
-              className={styles.modalButton}
-              onClick={async () => {
-                console.log(getDivText(rawPost,'github'))
-                const regex = /\(([^)]+)\)/;
-                goToLink(getDivText(rawPost,'github').match(regex)[1]);
-              }}>
-              <div className={styles.modalButtonText}>
-                <img
-                  className={styles.buttonImage}
-                  src={useBaseUrl('/icons/github.svg')}></img>
-                  GitHub
-              </div>
-            </button>
           </TabPanel>
           <TabPanel>
             <ReactMarkdown className={styles.detailTabContent}>

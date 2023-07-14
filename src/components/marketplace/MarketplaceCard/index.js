@@ -30,6 +30,20 @@ export default function MarketplaceCard({
     <div onClick={(e) => setFilters(e)}>
       <div className={styles.card} >
 
+        <div className={styles.cardText}>
+          <img className={styles.cardImage} src={useBaseUrl(post.image)}></img>
+          <div className={styles.cardTitle}>{post.title}</div>
+          <div className={styles.tags}>
+            {post.tags?.map((tag, index) => {
+              if (index > 2) {
+                return '';
+              }
+              return <div key={tag} className={styles.tag}>{tag}</div>;
+            })}
+          </div>
+          <div className={styles.cardBody}>{post.excerpt}</div>
+        </div>
+
         <div className={styles.cardData}>
           <img className={styles.cardEye} src={useBaseUrl('/blog/eye-regular.svg')}></img>
           <div className={styles.cardCommentText}>{post.views}</div>
@@ -45,19 +59,7 @@ export default function MarketplaceCard({
 
         {badge}
 
-        <div className={styles.cardText}>
-          <img className={styles.cardImage} src={useBaseUrl(post.image)}></img>
-          <div className={styles.cardTitle}>{post.title}</div>
-          <div className={styles.tags}>
-            {post.tags?.map((tag, index) => {
-              if (index > 2) {
-                return '';
-              }
-              return <div key={tag} className={styles.tag}>{tag}</div>;
-            })}
-          </div>
-          <ReactMarkdown className={styles.cardBody}>{post.excerpt}</ReactMarkdown>
-        </div>
+
         
 
 

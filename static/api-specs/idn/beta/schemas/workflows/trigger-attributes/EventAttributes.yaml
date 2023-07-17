@@ -7,7 +7,7 @@ properties:
     type: string
     description: The unique ID of the trigger
     example: "idn:identity-attributes-changed"
-  filter:
+  filter.$:
     type: string
     description: JSON path expression that will limit which events the trigger will fire on
     example: "$.changes[?(@.attribute == 'manager')]"

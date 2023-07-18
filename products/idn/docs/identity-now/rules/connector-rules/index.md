@@ -117,6 +117,32 @@ Content-Type: `application/json-patch+json`
 ]
 ```
 
+### AfterCreate, AfterModify, AfterDelete, BeforeCreate, BeforeModify, BeforeDelete Rules
+
+`PATCH` /v3/sources/{id}
+
+Content-Type: `application/json-patch+json`
+
+:::info
+
+The value key is a list. All available AfterCreate, AfterModify, BeforeCreate, and BeforeModify rules will need to be set in the same list.
+
+:::
+
+```json
+[
+  {
+       "op": "add",
+       "path": "/connectorAttributes/nativeRules",
+       "value": [
+           "Example Rule 1",
+           "Example Rule 2"
+      ]
+  }
+]
+
+```
+
 ### Correlation Rule
 
 `PATCH` /v3/sources/{id}
@@ -200,6 +226,22 @@ Content-Type: `application/json-patch+json`
   {
     "op": "add",
     "path": "/connectorAttributes/jdbcProvisionRule",
+    "value": "Example Rule"
+  }
+]
+```
+
+### SAP HR Provisioning Modify Rule
+
+`PATCH` /v3/sources/{id}
+
+Content-Type: `application/json-patch+json`
+
+```json
+[
+  {
+    "op": "add",
+    "path": "/connectorAttributes/saphrModifyProvisioningRule",
     "value": "Example Rule"
   }
 ]

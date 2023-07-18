@@ -154,3 +154,7 @@ log.error("RULES processedResponseObject after is " + processedResponseObject);â
   ]]></Source>
 </Rule>
 ```
+
+## Attach to Source
+
+Refer to [Attaching Connector-Related Rules to Sources](./index.md#webserviceafteroperation-rule) for details on how to attach your rule to your source.

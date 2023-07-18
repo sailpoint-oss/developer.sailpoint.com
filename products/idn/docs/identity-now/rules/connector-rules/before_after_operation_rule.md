@@ -225,3 +225,7 @@ if($enableDebug) {
     LogToFile("Exiting beforeScript")
 }
 ```
+
+## Attach to Source
+
+Refer to [Attaching Connector-Related Rules to Sources](./index.md#aftercreate-aftermodify-afterdelete-beforecreate-beforemodify-beforedelete-rules) for details on how to attach your rule to your source.

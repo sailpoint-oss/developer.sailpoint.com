@@ -1,0 +1,60 @@
+properties:
+  config:
+    additionalProperties: { }
+    description: Config is a config object
+    example:
+      label: Department
+    type: object
+    x-go-name: Config
+  elementType:
+    description: |-
+      ElementType is a FormElementType value
+      TEXT FormElementTypeText
+      TOGGLE FormElementTypeToggle
+      TEXTAREA FormElementTypeTextArea
+      HIDDEN FormElementTypeHidden
+      PHONE FormElementTypePhone
+      EMAIL FormElementTypeEmail
+      SELECT FormElementTypeSelect
+      DATE FormElementTypeDate
+      SECTION FormElementTypeSection
+      COLUMNS FormElementTypeColumns
+    enum:
+      - TEXT
+      - TOGGLE
+      - TEXTAREA
+      - HIDDEN
+      - PHONE
+      - EMAIL
+      - SELECT
+      - DATE
+      - SECTION
+      - COLUMNS
+    example: TEXT
+    type: string
+    x-go-enum-desc: |-
+      TEXT FormElementTypeText
+      TOGGLE FormElementTypeToggle
+      TEXTAREA FormElementTypeTextArea
+      HIDDEN FormElementTypeHidden
+      PHONE FormElementTypePhone
+      EMAIL FormElementTypeEmail
+      SELECT FormElementTypeSelect
+      DATE FormElementTypeDate
+      SECTION FormElementTypeSection
+      COLUMNS FormElementTypeColumns
+    x-go-name: ElementType
+  id:
+    description: ID is a form element identifier
+    example: 00000000-0000-0000-0000-000000000000
+    type: string
+    x-go-name: ID
+  key:
+    description: Key is the technical key
+    example: department
+    type: string
+    x-go-name: Key
+  validations:
+    $ref: './FormElementValidationsSet.yaml'
+type: object
+x-go-package: github.com/sailpoint/sp-forms/domain

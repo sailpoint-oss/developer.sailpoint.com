@@ -15,7 +15,8 @@ properties:
   attributes:
     type: object
     description: Workflow Trigger Attributes.
-    anyOf:
-      - $ref: "./workflows/trigger-attributes/EventAttributes.yaml"
-      - $ref: "./workflows/trigger-attributes/ExternalAttributes.yaml"
-      - $ref: "./workflows/trigger-attributes/ScheduledAttributes.yaml"
+    schema:
+      anyOf:
+        - $ref: "./workflows/trigger-attributes/EventAttributes.yaml"
+        - $ref: "./workflows/trigger-attributes/ExternalAttributes.yaml"
+        - $ref: "./workflows/trigger-attributes/ScheduledAttributes.yaml"

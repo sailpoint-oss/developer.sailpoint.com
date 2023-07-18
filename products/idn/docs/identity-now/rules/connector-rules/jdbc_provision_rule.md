@@ -174,3 +174,7 @@ This rule performs provisioning actions from a provisioning plan provided by a s
   ]]></Source>
 </Rule>
 ```
+
+## Attach to Source
+
+Refer to [Attaching Connector-Related Rules to Sources](./index.md#jdbcprovision-rule) for details on how to attach your rule to your source.

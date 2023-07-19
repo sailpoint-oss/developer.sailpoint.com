@@ -1,5 +1,6 @@
 title: Event Trigger Attributes
 type: object
+description: Attributes related to an IdentityNow ETS event
 required:
 - id
 properties:

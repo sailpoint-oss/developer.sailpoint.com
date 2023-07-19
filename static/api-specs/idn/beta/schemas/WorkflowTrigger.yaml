@@ -13,10 +13,8 @@ properties:
     example: EVENT
     description: The trigger type
   attributes:
-    type: object
+    anyOf:
+      - $ref: './workflows/trigger-attributes/EventAttributes.yaml'
+      - $ref: './workflows/trigger-attributes/ExternalAttributes.yaml'
+      - $ref: './workflows/trigger-attributes/ScheduledAttributes.yaml'
     description: Workflow Trigger Attributes.
-    schema:
-      anyOf:
-        - $ref: "./workflows/trigger-attributes/EventAttributes.yaml"
-        - $ref: "./workflows/trigger-attributes/ExternalAttributes.yaml"
-        - $ref: "./workflows/trigger-attributes/ScheduledAttributes.yaml"

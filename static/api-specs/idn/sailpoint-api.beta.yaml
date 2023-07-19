@@ -265,6 +265,16 @@ tags:
       Refer to [SaaS Connectivity](https://developer.sailpoint.com/idn/docs/saas-connectivity) for more information about the SaaS custom connectors that do not need VAs (virtual appliances) to communicate with their sources.
 
       Refer to [Managing Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html) for more information about using connectors in IdentityNow.
+  - name: Custom Forms
+    description: |
+      Use this API to build and manage custom forms.
+      With this functionality in place, administrators can create and view form definitions and form instances.
+
+      Forms are composed of sections and fields. Sections split the form into logical groups of fields and fields are the data collection points within the form. Configure conditions to modify elements of the form as the responder provides input. Create form inputs to pass information from a calling feature, like a workflow, to your form.
+
+      Forms can be used within workflows as an action or as a trigger. The Form Action allows you to assign a form as a step in a running workflow, suspending the workflow until the form is submitted or times out, and the workflow resumes. The Form Submitted Trigger initiates a workflow when a form is submitted. The trigger can be configured to initiate on submission of a full form, a form element with any value, or a form element with a particular value.
+  
+      Refer to [Forms](https://documentation.sailpoint.com/saas/help/forms/index.html) for more information about using forms in IdentityNow.
   - name: Custom Password Instructions
     description: |
       Use this API to implement custom password instruction functionality.
@@ -329,6 +339,13 @@ tags:
       Refer to [Deleting Entitlements](https://documentation.sailpoint.com/saas/help/access/entitlements.html#deleting-entitlements) more information about deleting entitlements.
 
       Refer to [Entitlements](https://documentation.sailpoint.com/saas/help/access/entitlements.html) for more information about entitlements.
+  - name: Governance Groups
+    description: |
+      Use this API to implement and customize Governance Group functionality. With this functionality in place, administrators can create Governance Groups and configure them for use throughout IdentityNow.
+
+      A governance group is a group of users that can make governance decisions about access. If your organization has the Access Request or Certifications service, you can configure governance groups to review access requests or certifications. A governance group can determine whether specific access is appropriate for a user.
+
+      Refer to [Creating and Managing Governance Groups](https://documentation.sailpoint.com/saas/help/common/users/governance_groups.html) for more information about how to build Governance Groups in the visual builder in the IdentityNow UI.
   - name: IAI Access Request Recommendations
   - name: IAI Common Access
   - name: IAI Outliers
@@ -745,38 +762,38 @@ tags:
       ## Available Event Triggers
       Production ready event triggers that are available in all tenants.
 
-      | Name | ID | Type | Trigger condition | Schema(s) |
-      |-|-|-|-|-|
-      | [Access Request Dynamic Approval](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/access-request-dynamic-approval) | idn:access-request-dynamic-approver | REQUEST_RESPONSE |After an access request is submitted. Expects the subscriber to respond with the ID of an identity or workgroup to add to the approval workflow. | [Input Schema](#section/Access-Request-Dynamic-Approver-Event-Trigger-Input) - [Output Schema](#section/Access-Request-Dynamic-Approver-Event-Trigger-Output) |
-      | [Access Request Postapproval](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/access-request-postapproval) | idn:access-request-post-approval | FIRE_AND_FORGET | After an access request is approved. |[Input Schema](#section/Access-Request-Post-Approval-Event-Trigger-Input)|
-      | [Access Request Preapproval](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/access-request-preapproval) | idn:access-request-pre-approval | REQUEST_RESPONSE | After an access request is submitted. Expects the subscriber to respond with an approval decision. | [Input Schema](#section/Access-Request-Pre-Approval-Event-Trigger-Input) - [Output Schema](#section/Access-Request-Pre-Approval-Event-Trigger-Output) |
-      | [Account Aggregation Completed](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/account-aggregation-completed) | idn:account-aggregation-completed | FIRE_AND_FORGET | After an account aggregation completed, terminated, failed. | [Input Schema](#section/Account-Aggregation-Completed-Event-Trigger-Input) |
-      | Account Attributes Changed | idn:account-attributes-changed | FIRE_AND_FORGET | After an account aggregation, and one or more account attributes have changed. | [Input Schema](#section/Account-Attributes-Changed-Event-Trigger-Input) |
-      | Account Correlated | idn:account-correlated | FIRE_AND_FORGET | After an account is added to an identity. | [Input Schema](#section/Account-Correlated-Event-Trigger-Input) |
-      | Accounts Collected for Aggregation |  idn:aggregation-accounts-collected | FIRE_AND_FORGET | New, changed, and deleted accounts have been gathered during an aggregation and are being processed. | [Input Schema](#section/Accounts-Collected-for-Aggregation-Event-Trigger-Input) |
-      | Account Uncorrelated | idn:account-uncorrelated | FIRE_AND_FORGET | After an account is removed from an identity. | [Input Schema](#section/Account-Uncorrelated-Event-Trigger-Input)  |
-      | Campaign Activated | idn:campaign-activated | FIRE_AND_FORGET | After a campaign is activated. | [Input Schema](#section/Campaign-Activated-Event-Trigger-Input) |
-      | Campaign Ended | idn:campaign-ended | FIRE_AND_FORGET | After a campaign ends. | [Input Schema](#section/Campaign-Ended-Event-Trigger-Input) |
-      | Campaign Generated | idn:campaign-generated | FIRE_AND_FORGET | After a campaign finishes generating. | [Input Schema](#section/Campaign-Generated-Event-Trigger-Input) |
-      | Certification Signed Off | idn:certification-signed-off | FIRE_AND_FORGET | After a certification is signed off by its reviewer. | [Input Schema](#section/Certification-Signed-Off-Event-Trigger-Input) |
-      | [Identity Attributes Changed](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/account-aggregation-completed) | idn:identity-attributes-changed | FIRE_AND_FORGET | After One or more identity attributes changed. | [Input Schema](#section/Identity-Attributes-Changed-Event-Trigger-Input) |
-      | [Identity Created](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/identity-created) | idn:identity-created | FIRE_AND_FORGET | After an identity is created. | [Input Schema](#section/Identity-Created-Event-Trigger-Input) |
-      | [Provisioning Action Completed](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/provisioning-action-completed) |  idn:post-provisioning | FIRE_AND_FORGET | After a provisioning action completed on a source. | [Input Schema](#section/Provisioning-Completed-Event-Trigger-Input) |
-      | [Saved Search Complete](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/saved-search-completed) |  idn:saved-search-complete | FIRE_AND_FORGET | After a scheduled search completed. | [Input Schema](#section/Saved-Search-Complete-Event-Trigger-Input) |
-      | [Source Created](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/source-created) | idn:source-created | FIRE_AND_FORGET | After a source is created. | [Input Schema](#section/Source-Created-Event-Trigger-Input) |
-      | [Source Deleted](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/source-deleted) | idn:source-deleted | FIRE_AND_FORGET | After a source is deleted. | [Input Schema](#section/Source-Deleted-Event-Trigger-Input) |
-      | [Source Updated](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/source-updated) | idn:source-updated | FIRE_AND_FORGET | After configuration changes have been made to a source. | [Input Schema](#section/Source-Updated-Event-Trigger-Input) |
-      | [VA Cluster Status Change](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/va-cluster-status-change) | idn:va-cluster-status-change | FIRE_AND_FORGET | After the status of a VA cluster has changed. | [Input Schema](#section/VA-Cluster-Status-Change-Event-Event-Trigger-Input) |
+      | Name | ID | Type | Trigger condition |
+      |-|-|-|-|
+      | [Access Request Dynamic Approval](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/access-request-dynamic-approval) | idn:access-request-dynamic-approver | REQUEST_RESPONSE |After an access request is submitted. Expects the subscriber to respond with the ID of an identity or workgroup to add to the approval workflow. |
+      | [Access Request Postapproval](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/access-request-postapproval) | idn:access-request-post-approval | FIRE_AND_FORGET | After an access request is approved. |
+      | [Access Request Preapproval](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/access-request-preapproval) | idn:access-request-pre-approval | REQUEST_RESPONSE | After an access request is submitted. Expects the subscriber to respond with an approval decision. |
+      | [Account Aggregation Completed](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/account-aggregation-completed) | idn:account-aggregation-completed | FIRE_AND_FORGET | After an account aggregation completed, terminated, failed. |
+      | Account Attributes Changed | idn:account-attributes-changed | FIRE_AND_FORGET | After an account aggregation, and one or more account attributes have changed. |
+      | Account Correlated | idn:account-correlated | FIRE_AND_FORGET | After an account is added to an identity. |
+      | Accounts Collected for Aggregation |  idn:aggregation-accounts-collected | FIRE_AND_FORGET | New, changed, and deleted accounts have been gathered during an aggregation and are being processed. |
+      | Account Uncorrelated | idn:account-uncorrelated | FIRE_AND_FORGET | After an account is removed from an identity. |
+      | Campaign Activated | idn:campaign-activated | FIRE_AND_FORGET | After a campaign is activated. |
+      | Campaign Ended | idn:campaign-ended | FIRE_AND_FORGET | After a campaign ends. |
+      | Campaign Generated | idn:campaign-generated | FIRE_AND_FORGET | After a campaign finishes generating. |
+      | Certification Signed Off | idn:certification-signed-off | FIRE_AND_FORGET | After a certification is signed off by its reviewer. |
+      | [Identity Attributes Changed](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/account-aggregation-completed) | idn:identity-attributes-changed | FIRE_AND_FORGET | After One or more identity attributes changed. |
+      | [Identity Created](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/identity-created) | idn:identity-created | FIRE_AND_FORGET | After an identity is created. |
+      | [Provisioning Action Completed](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/provisioning-action-completed) |  idn:post-provisioning | FIRE_AND_FORGET | After a provisioning action completed on a source. |
+      | [Saved Search Complete](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/saved-search-completed) |  idn:saved-search-complete | FIRE_AND_FORGET | After a scheduled search completed. |
+      | [Source Created](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/source-created) | idn:source-created | FIRE_AND_FORGET | After a source is created. |
+      | [Source Deleted](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/source-deleted) | idn:source-deleted | FIRE_AND_FORGET | After a source is deleted. |
+      | [Source Updated](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/source-updated) | idn:source-updated | FIRE_AND_FORGET | After configuration changes have been made to a source. |
+      | [VA Cluster Status Change](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/va-cluster-status-change) | idn:va-cluster-status-change | FIRE_AND_FORGET | After the status of a VA cluster has changed. |
 
       ## Early Access Event Triggers
       Triggers that are in-development and not ready for production use.  Please contact support to enable these triggers in your tenant.
 
-      | Name | ID | Type | Trigger condition | Schema(s) |
-      |-|-|-|-|-|
-      | [Identity Deleted](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/identity-deleted) | idn:identity-deleted | FIRE_AND_FORGET | After an identity is deleted. | [Input Schema](#section/Identity-Deleted-Event-Trigger-Input) |
-      | [Source Account Created](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/source-account-created) | idn:source-account-created | FIRE_AND_FORGET | After a source account is created. | [Input Schema](#section/Source-Account-Created-Event-Trigger-Input) |
-      | [Source Account Deleted](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/source-account-deleted) | idn:source-account-deleted | FIRE_AND_FORGET | After a source account is deleted. | [Input Schema](#section/Source-Account-Deleted-Event-Trigger-Input) |
-      | [Source Account Updated](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/source-account-updated) | idn:source-account-updated | FIRE_AND_FORGET | After a source account is changed. | [Input Schema](#section/Source-Account-Updated-Event-Trigger-Input) |
+      | Name | ID | Type | Trigger condition |
+      |-|-|-|-|
+      | [Identity Deleted](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/identity-deleted) | idn:identity-deleted | FIRE_AND_FORGET | After an identity is deleted. |
+      | [Source Account Created](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/source-account-created) | idn:source-account-created | FIRE_AND_FORGET | After a source account is created. |
+      | [Source Account Deleted](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/source-account-deleted) | idn:source-account-deleted | FIRE_AND_FORGET | After a source account is deleted. |
+      | [Source Account Updated](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/source-account-updated) | idn:source-account-updated | FIRE_AND_FORGET | After a source account is changed. |
 
       Refer to [Event Triggers](https://developer.sailpoint.com/idn/docs/event-triggers/) for more information about event triggers.
   - name: Work Items
@@ -798,172 +815,6 @@ tags:
   - name: Workflows
     description: |
       Workflows allow administrators to create custom automation scripts directly within IdentityNow.  These automation scripts respond to [event triggers](https://developer.sailpoint.com/idn/docs/event-triggers#how-to-get-started-with-event-triggers) and perform a series of actions to perform tasks that are either too cumbersome or not available in the IdentityNow UI.  Workflows can be configured via a graphical user interface within IdentityNow, or by creating and uploading a JSON formatted script to the Workflow service.  The Workflows API collection provides the necessary functionality to create, manage, and test your workflows via REST.
-
-  - name: Governance Groups
-    description: |
-      Use this API to implement and customize Governance Group functionality. With this functionality in place, administrators can create Governance Groups and configure them for use throughout IdentityNow.
-
-      A governance group is a group of users that can make governance decisions about access. If your organization has the Access Request or Certifications service, you can configure governance groups to review access requests or certifications. A governance group can determine whether specific access is appropriate for a user.
-
-      Refer to [Creating and Managing Governance Groups](https://documentation.sailpoint.com/saas/help/common/users/governance_groups.html) for more information about how to build Governance Groups in the visual builder in the IdentityNow UI.
-  - name: Event Trigger Models
-    x-displayName: Trigger Models
-    description: |
-      ## Access Request Dynamic Approver Event Trigger Input
-      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-AccessRequestDynamicApprover" />
-
-      ## Access Request Dynamic Approver Event Trigger Output
-      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Output-AccessRequestDynamicApprover" />
-
-      ## Access Request Post Approval Event Trigger Input
-      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-AccessRequestPostApproval" />
-
-      ## Access Request Pre Approval Event Trigger Input
-      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-AccessRequestPreApproval" />
-
-      ## Access Request Pre Approval Event Trigger Output
-      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Output-AccessRequestPreApproval" />
-
-      ## Account Aggregation Completed Event Trigger Input
-      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-AccountAggregationCompleted" />
-
-      ## Account Attributes Changed Event Trigger Input
-      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-AccountAttributesChanged" />
-
-      ## Account Correlated Event Trigger Input
-      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-AccountCorrelated" />
-
-      ## Accounts Collected for Aggregation Event Trigger Input
-      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-AccountsCollectedForAggregation" />
-
-      ## Account Uncorrelated Event Trigger Input
-      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-AccountUncorrelated" />
-
-      ## Campaign Activated Event Trigger Input
-      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-CampaignActivated" />
-
-      ## Campaign Ended Event Trigger Input
-      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-CampaignEnded" />
-
-      ## Campaign Generated Event Trigger Input
-      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-CampaignGenerated" />
-
-      ## Certification Signed Off Event Trigger Input
-      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-CertificationSignedOff" />
-
-      ## Identity Attributes Changed Event Trigger Input
-      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-IdentityAttributesChanged" />
-
-      ## Identity Created Event Trigger Input
-      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-IdentityCreated" />
-
-      ## Identity Deleted Event Trigger Input
-      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-IdentityDeleted" />
-
-      ## Provisioning Completed Event Trigger Input
-      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-ProvisioningCompleted" />
-
-      ## Saved Search Complete Event Trigger Input
-      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-SavedSearchComplete" />
-
-      ## Source Account Created Event Trigger Input
-      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-SourceAccountCreated" />
-
-      ## Source Account Deleted Event Trigger Input
-      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-SourceAccountDeleted" />
-
-      ## Source Account Updated Event Trigger Input
-      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-SourceAccountUpdated" />
-
-      ## Source Created Event Trigger Input
-      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-SourceCreated" />
-
-      ## Source Deleted Event Trigger Input
-      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-SourceDeleted" />
-
-      ## Source Updated Event Trigger Input
-      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-SourceUpdated" />
-
-      ## VA Cluster Status Change Event Event Trigger Input
-      <SchemaDefinition schemaRef="#/components/schemas/Trigger-Input-VAClusterStatusChangeEvent" />
-
-
-# x-tagGroups:
-#   - name: Access
-#     tags:
-#       - Access Profiles
-#       - Access Request Approvals
-#       - Access Requests
-#       - Entitlements
-#       - Requestable Objects
-#       - Roles
-#       - Segments
-#   - name: Accounts
-#     tags:
-#       - Account Activities
-#       - Account Aggregations
-#       - Accounts
-#   - name: Certification Campaigns
-#     tags:
-#       - Certification Campaigns
-#       - Certifications
-#       - Work Items
-#   - name: Connections
-#     tags:
-#       - Connector Rule Management
-#       - Connectors
-#       - Managed Clients
-#       - Managed Clusters
-#       - Service Desk Integration
-#       - Sources
-#   - name: Event Triggers
-#     tags:
-#       - Triggers
-#       - Event Trigger Models
-#   - name: Global Settings
-#     tags:
-#       - MFA Configuration
-#       - Notifications
-#       - OAuth Clients
-#       - Personal Access Tokens
-#       - SP-Config
-#   - name: IdentityAI
-#     tags:
-#       - IAI Access Request Recommendations
-#       - IAI Common Access
-#       - IAI Outliers
-#       - IAI Peer Group Strategies
-#       - IAI Recommendations
-#       - IAI Role Mining
-#       - Role Insights
-#   - name: Identities
-#     tags:
-#       - Identity History
-#       - Identity Profiles
-#       - Public Identity Config
-#       - Transforms
-#   - name: Lifecycles
-#     tags:
-#       - Lifecycle States
-#       - Non-Employee Lifecycle Management
-#   - name: Password Management
-#     tags:
-#       - Custom Password Instructions
-#       - Password Configuration
-#       - Password Dictionary
-#       - Password Management
-#       - Password Sync Groups
-#   - name: Search
-#     tags:
-#       - Search Attribute Configuration
-#   - name: Separation of Duties (SOD)
-#     tags:
-#       - SOD Policy
-#       - SOD Violations
-#       - Tagged Objects
-#   - name: Workflows
-#     tags:
-#       - Workflows
 
 security:
   - oauth2: [ ]
@@ -1034,58 +885,6 @@ components:
       $ref: './beta/schemas/SectionDetails.yaml'
     Field:
       $ref: './beta/schemas/FieldDetails.yaml'
-    Trigger-Input-AccessRequestDynamicApprover:
-      $ref: './beta/schemas/trigger/example-input/AccessRequestDynamicApprover.yaml'
-    Trigger-Input-AccessRequestPostApproval:
-      $ref: './beta/schemas/trigger/example-input/AccessRequestPostApproval.yaml'
-    Trigger-Input-AccessRequestPreApproval:
-      $ref: './beta/schemas/trigger/example-input/AccessRequestPreApproval.yaml'
-    Trigger-Input-AccountAggregationCompleted:
-      $ref: './beta/schemas/trigger/example-input/AccountAggregationCompleted.yaml'
-    Trigger-Input-AccountAttributesChanged:
-      $ref: './beta/schemas/trigger/example-input/AccountAttributesChanged.yaml'
-    Trigger-Input-AccountCorrelated:
-      $ref: './beta/schemas/trigger/example-input/AccountCorrelated.yaml'
-    Trigger-Input-AccountsCollectedForAggregation:
-      $ref: './beta/schemas/trigger/example-input/AccountsCollectedForAggregation.yaml'
-    Trigger-Input-AccountUncorrelated:
-      $ref: './beta/schemas/trigger/example-input/AccountUncorrelated.yaml'
-    Trigger-Input-CampaignActivated:
-      $ref: './beta/schemas/trigger/example-input/CampaignActivated.yaml'
-    Trigger-Input-CampaignEnded:
-      $ref: './beta/schemas/trigger/example-input/CampaignEnded.yaml'
-    Trigger-Input-CampaignGenerated:
-      $ref: './beta/schemas/trigger/example-input/CampaignGenerated.yaml'
-    Trigger-Input-CertificationSignedOff:
-      $ref: './beta/schemas/trigger/example-input/CertificationSignedOff.yaml'
-    Trigger-Input-IdentityAttributesChanged:
-      $ref: './beta/schemas/trigger/example-input/IdentityAttributesChanged.yaml'
-    Trigger-Input-IdentityCreated:
-      $ref: './beta/schemas/trigger/example-input/IdentityCreated.yaml'
-    Trigger-Input-IdentityDeleted:
-      $ref: './beta/schemas/trigger/example-input/IdentityDeleted.yaml'
-    Trigger-Input-ProvisioningCompleted:
-      $ref: './beta/schemas/trigger/example-input/ProvisioningCompleted.yaml'
-    Trigger-Input-SavedSearchComplete:
-      $ref: './beta/schemas/trigger/example-input/SavedSearchComplete.yaml'
-    Trigger-Input-SourceAccountCreated:
-      $ref: './beta/schemas/trigger/example-input/SourceAccount.yaml'
-    Trigger-Input-SourceAccountDeleted:
-      $ref: './beta/schemas/trigger/example-input/SourceAccount.yaml'
-    Trigger-Input-SourceAccountUpdated:
-      $ref: './beta/schemas/trigger/example-input/SourceAccount.yaml'
-    Trigger-Input-SourceCreated:
-      $ref: './beta/schemas/trigger/example-input/SourceCreated.yaml'
-    Trigger-Input-SourceDeleted:
-      $ref: './beta/schemas/trigger/example-input/SourceDeleted.yaml'
-    Trigger-Input-SourceUpdated:
-      $ref: './beta/schemas/trigger/example-input/SourceUpdated.yaml'
-    Trigger-Input-VAClusterStatusChangeEvent:
-      $ref: './beta/schemas/trigger/example-input/VAClusterStatusChangeEvent.yaml'
-    Trigger-Output-AccessRequestDynamicApprover:
-      $ref: './beta/schemas/trigger/example-output/AccessRequestDynamicApprover.yaml'
-    Trigger-Output-AccessRequestPreApproval:
-      $ref: './beta/schemas/trigger/example-output/AccessRequestPreApproval.yaml'
 
 paths:
   /access-profiles:

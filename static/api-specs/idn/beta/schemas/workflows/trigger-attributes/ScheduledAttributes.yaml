@@ -1,5 +1,6 @@
 title: Scheduled Trigger Attributes
 type: object
+description: Attributes related to a scheduled trigger
 required:
 - cronString
 properties:

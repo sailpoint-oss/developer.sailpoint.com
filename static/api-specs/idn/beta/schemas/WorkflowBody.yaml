@@ -5,20 +5,22 @@ properties:
     description: The name of the workflow
     example: "Send Email"
   owner:
-    allOf:
-    - $ref: '../../v3/schemas/BaseReferenceDto.yaml'
     description: The identity that owns the workflow.  The owner's permissions in IDN will determine what actions the workflow is allowed to perform.  Ownership can be changed by updating the owner in a PUT or PATCH request.
     properties:
       type:
+        type: string
         enum:
         - "IDENTITY"
         example: "IDENTITY"
         description: The type of object that is referenced
-    example: {
-      "type": "IDENTITY",
-      "id": "2c91808568c529c60168cca6f90c1313",
-      "name": "William Wilson"
-    }
+      id:
+        type: string
+        description: The unique ID of the object
+        example: "2c91808568c529c60168cca6f90c1313"
+      name:
+        type: string
+        description: The name of the object
+        example: "William Wilson"
   description:
     type: string
     description: Description of what the workflow accomplishes

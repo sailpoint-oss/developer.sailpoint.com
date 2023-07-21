@@ -51,10 +51,10 @@ export default function MarketplaceCard({
           <div className={styles.cardCommentText}>{post.replies}</div>
         </div>
 
-        <div className={styles.cardUser}>
+        {/* <div className={styles.cardUser}>
           <img className={styles.cardFace} src={useBaseUrl(post.creatorImage)}></img>
           <div className={styles.cardName}>{post.name}</div>
-        </div>
+        </div> */}
 
 
         {badge}

@@ -12,7 +12,7 @@ tags: ['Event Triggers', 'Available Event Triggers', 'Request Response']
 
 ## Event Context
 
-The platform now includes event triggers within the Access Request approval workflow. The 'Access Request Submitted' event trigger provides more proactive governance, ensures users can quickly obtain needed access, and helps with more preventative measures towards unintended access.
+The platform now includes event triggers within the access request approval workflow. The 'Access Request Submitted' event trigger provides more proactive governance, ensures users can quickly obtain needed access, and helps with more preventative measures towards unintended access.
 
 ![Flow](./img/access-request-preapproval-path.png)
 
@@ -25,7 +25,7 @@ When an access request is submitted, some uses cases for this trigger include th
 
 Additional use cases include the following:
 
-- Send a Slack Notification to the approver or an approval channel and approve the request within Slack.
+- Send a Slack notification to the approver or an approval channel and approve the request within Slack.
 - Create an Outlook Actionable Message.
 - Create a Google Doc for the requester to fill out and submit.
 

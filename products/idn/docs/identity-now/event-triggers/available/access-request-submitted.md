@@ -1,18 +1,18 @@
 ---
-id: access-request-preapproval
-title: Access Request Preapproval
-pagination_label: Access Request Preapproval
-sidebar_label: Access Request Preapproval
-sidebar_class_name: accessRequestPreapproval
-keywords: ['event', 'trigger', 'access', 'request', 'preapproval', 'available']
+id: access-request-submitted
+title: Access Request Submitted
+pagination_label: Access Request Submitted
+sidebar_label: Access Request Submitted
+sidebar_class_name: accessRequestSubmitted
+keywords: ['event', 'trigger', 'access', 'request', 'submitted', 'preapproval', 'available']
 description: Fires after an access request is submitted.
-slug: /docs/event-triggers/triggers/access-request-preapproval
+slug: /docs/event-triggers/triggers/access-request-submitted
 tags: ['Event Triggers', 'Available Event Triggers', 'Request Response']
 ---
 
 ## Event Context
 
-The platform now includes event triggers within the Access Request approval workflow. The Access Request Submitted event trigger provides more proactive governance, ensures users can quickly obtain needed access, and helps with more preventative measures towards unintended access.
+The platform now includes event triggers within the Access Request approval workflow. The 'Access Request Submitted' event trigger provides more proactive governance, ensures users can quickly obtain needed access, and helps with more preventative measures towards unintended access.
 
 ![Flow](./img/access-request-preapproval-path.png)
 

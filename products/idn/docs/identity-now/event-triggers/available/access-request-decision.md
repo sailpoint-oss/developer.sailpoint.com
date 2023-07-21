@@ -1,9 +1,9 @@
 ---
-id: access-request-postapproval
-title: Access Request Postapproval
-pagination_label: Access Request Postapproval
-sidebar_label: Access Request Postapproval
-sidebar_class_name: accessRequestPostapproval
+id: access-request-decision
+title: Access Request Decision
+pagination_label: Access Request Decision
+sidebar_label: Access Request Decision
+sidebar_class_name: accessRequestDecision
 keywords:
   [
     'event',
@@ -11,18 +11,19 @@ keywords:
     'access',
     'request',
     'postapproval',
+    'decision',
     'post',
     'approval',
     'available',
   ]
 description: Fires after an access request is approved.
-slug: /docs/event-triggers/triggers/access-request-postapproval
+slug: /docs/event-triggers/triggers/access-request-decision
 tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 ---
 
 ## Event Context
 
-The SailPoint IdentityNow platform now includes event triggers within the Access Request Approval workflow. The Access Request Postapproval event trigger provides more proactive governance and ensures users can quickly obtain needed access.
+The SailPoint IdentityNow platform now includes event triggers within the Access Request Approval workflow. The 'Access Request Decision' event trigger provides more proactive governance and ensures users can quickly obtain needed access.
 
 ![Flow](./img/access-request-postapproval-path.png)
 

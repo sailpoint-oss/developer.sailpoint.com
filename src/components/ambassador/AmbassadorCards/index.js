@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './styles.module.css';
 import AmbassadorCard from '../AmbassadorCard';
 import BounceLoader from 'react-spinners/BounceLoader';
+import {discourseBaseURL, developerWebsiteDomain} from '../../../util/util';
 
 import {getAmbassadors, getAmbassadorDetails} from '../../../services/DiscourseService';
 export default function AmbassadorCards({
@@ -85,15 +86,15 @@ async function getMemberList(member, details) {
     location: details.location,
     website: details.website_name,
     link:
-    'https://developer.sailpoint.com/discuss/u/' +
+    discourseBaseURL() + 'u/' +
     member.username +
     '/summary',
   };
 }
 
 function getavatarURL(avatar) {
-  if (avatar.includes("developer.sailpoint.com")) {
-    return "https://developer.sailpoint.com" + avatar.replace("{size}", "120")
+  if (avatar.includes(developerWebsiteDomain())) {
+    return "https://" + developerWebsiteDomain() + avatar.replace("{size}", "120")
   } else {
     return avatar.replace("{size}", "120")
   }

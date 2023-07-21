@@ -2,7 +2,7 @@
 .card {
   position: relative;
   margin-top: 20px;
-  min-height: 460px;
+  min-height: 450px;
   /* UI Properties */
   background: var(--dev-card-background);
   box-shadow: var(--dev-card-shadow);
@@ -98,7 +98,7 @@
 
 .cardData {
   position: absolute;
-  bottom: 50px;
+  bottom: 20px;
   left: 20px;
   display: flex;
   align-items: center;

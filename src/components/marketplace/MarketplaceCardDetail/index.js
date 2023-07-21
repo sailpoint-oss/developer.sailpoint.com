@@ -8,6 +8,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import ReactMarkdown from 'react-markdown';
 import BounceLoader from 'react-spinners/BounceLoader';
+import {discourseBaseURL, developerWebsiteDomain} from '../../../util/util';
 export default function MarketplaceCardDetail({ details, rawPost }) {
   const getDivText = (data, id) => {
     const requirementPosition = data.indexOf('id="' + id + '"');
@@ -19,7 +20,7 @@ export default function MarketplaceCardDetail({ details, rawPost }) {
       );
       const incorrectURLPattern = /upload:\/\/([^"]+)/g;
       const correctURLPattern =
-        'https://developer.sailpoint.com/discuss/uploads/short-url/$1';
+      discourseBaseURL() + 'uploads/short-url/$1';
       return validContent.replace(incorrectURLPattern, correctURLPattern);
     } else {
       return 'No requirements found for this marketplace item';
@@ -51,7 +52,7 @@ export default function MarketplaceCardDetail({ details, rawPost }) {
               <img
                 className={styles.buttonImage}
                 src={useBaseUrl('/icons/discourse.svg')}></img>
-              See More
+              Go to Download
             </div>
           </button>
           <TabList>

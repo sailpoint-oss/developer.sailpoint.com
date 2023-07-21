@@ -1,14 +1,14 @@
 get:
-  operationId: exportSpConfigJobStatus
+  operationId: getSpConfigExportStatus
   # security:
   #   - oauth2: [sp:config:export]
   tags:
     - SP-Config
-  summary: Get Status of Export Job
+  summary: Get export job status
   description: >-
-    This gets the status of the export job identified by the id parameter.
+    This gets the status of the export job identified by the `id` parameter.
 
-    Request will need one of the following security scopes:
+    The request will need one of the following security scopes:
 
     - sp:config:read
     - sp:config:manage
@@ -18,7 +18,7 @@ get:
       schema:
         type: string
       required: true
-      description: The ID of the export job for which status will be returned.
+      description: The ID of the export job whose status will be returned.
       example: ef38f94347e94562b5bb8424a56397d8
   responses:
     '200':

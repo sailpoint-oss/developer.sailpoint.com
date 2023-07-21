@@ -1457,5 +1457,5 @@ paths:
     $ref: './beta/paths/form-instance.yaml'
   /form-instances/{formInstanceID}/data-source/{formElementID}:
     $ref: './beta/paths/form-instance-data-source.yaml'
-  /predefined-select-options:
-    $ref: './beta/paths/forms-predefined-select-options.yaml'
+  /form-definitions/predefined-select-options:
+    $ref: './beta/paths/form-definitions-predefined-select-options.yaml'

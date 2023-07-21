@@ -1,14 +1,14 @@
 get:
-  operationId: exportSpConfigDownload
+  operationId: getSpConfigExport
   # security:
   #   - oauth2: [sp:config:export]
   tags:
     - SP-Config
-  summary: Download Result of Export Job
+  summary: Download export job result.
   description: >-
-    This gets export file resulting from the export job with the requested id and downloads it to a file.
+    This endpoint gets the export file resulting from the export job with the requested `id` and downloads it to a file.
 
-    Request will need one of the following security scopes:
+    The request will need one of the following security scopes:
 
     - sp:config:read
     - sp:config:manage
@@ -18,7 +18,7 @@ get:
       schema:
         type: string
       required: true
-      description: The ID of the export job for which the results will be downloaded.
+      description: The ID of the export job whose results will be downloaded.
       example: ef38f94347e94562b5bb8424a56397d8
   responses:
     '200':

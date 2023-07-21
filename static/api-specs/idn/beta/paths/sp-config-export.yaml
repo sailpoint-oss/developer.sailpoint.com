@@ -4,9 +4,11 @@ post:
     - oauth2: [sp:config:read, sp:config:manage]
   tags:
     - SP-Config
-  summary: Initiates Configuration Objects Export Job.
+  summary: Initiates configuration objects export job
   description: >-
     This post will export objects from the tenant to a JSON configuration file.
+
+    For more information about the object types that currently support export functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).
 
   requestBody:
     description: Export options control what will be included in the export.

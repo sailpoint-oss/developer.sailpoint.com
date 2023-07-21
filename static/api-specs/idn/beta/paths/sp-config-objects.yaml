@@ -4,7 +4,7 @@ get:
     - oauth2: [sp:config:read, sp:config:manage]
   tags:
     - SP-Config
-  summary: Get Config Object details
+  summary: Get config object details
   description: >-
     This gets the list of object configurations which are known to the tenant export/import service.
     Object configurations that contain "importUrl" and "exportUrl" are available for export/import.

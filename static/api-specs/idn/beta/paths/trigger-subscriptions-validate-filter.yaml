@@ -1,5 +1,5 @@
 post:
-  operationId: validateSubscriptionFilter
+  operationId: testSubscriptionFilter
   tags:
     - Triggers
   summary: Validate a Subscription Filter
@@ -32,6 +32,8 @@ post:
             $ref: '../schemas/ValidateFilterOutputDto.yaml'
           example:
             isValid: true
+            isValidJSONPath: true
+            isPathExist: true 
     '400':
       $ref: '../../v3/responses/400.yaml'
     '401':

@@ -1,0 +1,48 @@
+type : object
+description: >-
+  Details about report result or current state.
+properties:
+  reportName:
+    type: string
+    description: >-
+      Name of the requesting report
+    example: 'Identities Details Report'
+  taskDefName:
+    type: string
+    description: >-
+      Name of the task definition which is started to process requesting report. Usually the same as report name
+    example: 'Identities Details Report'
+  id:
+    type: string
+    description: >-
+      Unique task definition identifier.
+    example: 'a248c16fe22222b2bd49615481311111'
+  date:
+    type: integer
+    format: int64
+    description: >-
+      Report processing start date in legacy long (int64) representation.
+    example: 1682589075909
+  status:
+    type: string
+    description: >-
+      Report current state or result status.
+    example: 'Success'
+  duration:
+    type: integer
+    format: int64
+    description: >-
+      Report processing time.
+    example: 342
+  rows:
+    type: integer
+    format: int64
+    description: >-
+      Report size in rows.
+    example: 37
+  availableFormats:
+    type: string
+    nullable: true
+    description: >-
+      Report request possible formats.
+    example: 'CSV'

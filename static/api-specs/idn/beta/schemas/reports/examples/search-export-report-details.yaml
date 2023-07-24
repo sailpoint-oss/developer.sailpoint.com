@@ -1,0 +1,21 @@
+summary: Search Export report
+value:
+  name: 'Search Export'
+  taskDefName: 'Search Export'
+  arguments:
+    reportDefName: 'Search Export'
+    s3bucket: 'abc-org-data-useast1'
+    indices: 'identities'
+    columns: 'displayName,firstName,lastName,email,created,attributes.cloudLifecycleState,tags,access.spread,apps.spread,accounts.spread'
+    query: '704171'
+    sort: 'displayName'
+    queryParams:
+      columns: 'displayName,firstName,lastName,email,created,attributes.cloudLifecycleState,tags,access.spread,apps.pread,accounts.spread'
+      indices: 'identities'
+      ownerId: '95ecba5c54fa439c949aec638ce2a74d'
+      query: '704171'
+      sort: 'displayName'
+    queryHash: '5e12cf79c67d92e23d4d8cb3e974f87d164e86d4a4dd8d32ecf89645cacfd3f2'
+    pod: 'def-pod'
+    org: 'an-org'
+  completed: false

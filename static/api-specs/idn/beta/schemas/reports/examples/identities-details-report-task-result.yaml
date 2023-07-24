@@ -1,0 +1,17 @@
+summary: Identities Details Report task result.
+value:
+  name: 'Identities Details Report'
+  taskDefName: 'Identities Details Report'
+  type: 'QUARTZ'
+  id: 'a248c16fe22222b2bd49615481311111'
+  created: 1682589075909
+  description: 'A detailed view of the identities in the system.'
+  parentName: 'Audit Report'
+  launcher: '9832285'
+  launched: 1682589076909
+  completed: 1682589078909
+  messages: []
+  returns: []
+  attributes:
+    org: 'an-org'
+  progress: 'Initializing...'

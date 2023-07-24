@@ -1,0 +1,10 @@
+summary: Identities Details Report
+value:
+  name: 'Identities Details Report'
+  taskDefName: 'Identities Details Report'
+  arguments:
+    reportDefName: 'Identities Details Report'
+    s3bucket: 'abc-org-data-useast1'
+    pod: 'def-pod'
+    org: 'an-org'
+  completed: false

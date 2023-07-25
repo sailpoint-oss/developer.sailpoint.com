@@ -45,8 +45,42 @@ patch:
   description: >-
     This API updates an existing Access Profile. The following fields are patchable:
 
-    **name**, **description**, **enabled**, **owner**, **requestable**,
-    **accessRequestConfig**, **revokeRequestConfig**, **segments**, **entitlements**, **provisioningCriteria**
+
+    **name**
+
+
+    **description**
+
+
+    **enabled**
+
+
+    **owner**
+
+
+    **requestable**
+
+
+    **accessRequestConfig**
+
+
+    **revokeRequestConfig**
+
+
+    **segments**
+
+
+    **entitlements**
+
+
+    **provisioningCriteria**
+    
+
+    **source** (must be updated with entitlements belonging to new source in the same API call)
+
+
+    If you need to change the `source` of the access profile, you can do so only if you update the `entitlements` in the same API call.  The new entitlements can only come from the target source that you want to change to.  Look for the example "Replace Source" in the examples dropdown.
+    
 
     A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a
     SOURCE_SUBADMIN may only use this API to patch Access Profiles which are associated with Sources they are able to
@@ -110,6 +144,30 @@ patch:
             value:
               - op: remove
                 path: /entitlements/0
+          Replace Source:
+            description: Change the source and the entitlements of the access profile
+            value: [
+                {
+                    "op": "replace",
+                    "path": "/source",
+                    "value": {
+                        "id": "2c9180887671ff8c01767b4671fb7d5e",
+                        "type": "SOURCE",
+                        "name": "Employees"
+                    }
+                },
+                {
+                    "op": "replace",
+                    "path": "/entitlements",
+                    "value": [
+                        {
+                            "id": "2c9180877677453d01767b4b08f63386",
+                            "type": "ENTITLEMENT",
+                            "name": "DevRel"
+                        }
+                    ]
+                }
+            ]
     required: true
   responses:
     '200':

@@ -130,7 +130,7 @@ To validate a filter using the UI, subscribe to a new event trigger or edit an e
 
 ### Validating Filters Using the API
 
-You can validate a trigger filter by using the [validate filter](/idn/api/beta/validate-subscription-filter) API endpoint. You must escape any double quotes, as seen in the example payload in the API description. Also, you must provide a sample input for the validation engine to run against. It is best to use the input example included in the input/output schemas for the event trigger you want to apply your filter to. Refer to [this table](/idn/api/beta/triggers#available-event-triggers) to find the schema of your event trigger. This is an example request:
+You can validate a trigger filter by using the [test filter](/idn/api/beta/test-subscription-filter) API endpoint. You must escape any double quotes, as seen in the example payload in the API description. Also, you must provide a sample input for the validation engine to run against. It is best to use the input example included in the input/output schemas for the event trigger you want to apply your filter to. Refer to [this table](/idn/api/beta/triggers#available-event-triggers) to find the schema of your event trigger. This is an example request:
 
 ```text
 POST https://{tenant}.api.identitynow.com/beta/trigger-subscriptions/validate-filter

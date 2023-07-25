@@ -1,7 +1,6 @@
-import {ActionIcon, Textarea, Text, Transition} from '@mantine/core';
+import {ActionIcon, Textarea} from '@mantine/core';
 import {IconSend, IconX} from '@tabler/icons-react';
 import React, {useRef, useState} from 'react';
-import styles from './styles.module.css';
 import ResponseCard from '../ResponseCard';
 
 export default function Content() {
@@ -26,65 +25,99 @@ export default function Content() {
       //   body: {query: textBoxRef.current.value},
       // });
       // console.log(resp);
-      setApiResponse([
-        ...apiResponse,
-        {
-          answer:
-            'The best way to access the SailPoint APIs is either by using the client credentials OAuth2 flow or a personal access token. The client credentials flow is recommended for authentication with client-side scripts or programs. If you need to access endpoints that require a user context, such as the /v3/access-requests endpoint, you will need to generate an access token using your personal access token credentials. For more information, you can refer to the API docs on the SailPoint developer portal.',
-          chat_history: [
-            [
-              'What is the best way to access the SailPoint APIs',
-              'The best way to access the SailPoint APIs is either by using the client credentials OAuth2 flow or a personal access token. The client credentials flow is recommended for authentication with client-side scripts or programs. If you need to access endpoints that require a user context, such as the /v3/access-requests endpoint, you will need to generate an access token using your personal access token credentials. For more information, you can refer to the API docs on the SailPoint developer portal.',
-            ],
+      const resp = {
+        answer:
+          'SailPoint supports a variety of transform operations. Some of the options include the username generator and the static transform. For a comprehensive list and detailed information about each operation, you can refer to the SailPoint Developer Community documentation on transforms: [Operations | SailPoint Developer Community](https://developer.sailpoint.com/idn/docs/transforms/operations).',
+        chat_history: [
+          [
+            'what is services ai',
+            'I\'m sorry, but I don\'t have any information about a service called "Services AI." Can you provide more context or details about what you are referring to?',
           ],
-          question: 'What is the best way to access the SailPoint APIs',
-        },
-      ]);
+          [
+            'this is just a test',
+            "I don't know the purpose of this test as the context provided does not specify.",
+          ],
+          [
+            'this is another test',
+            'The purpose of this test is not provided in the given context.',
+          ],
+          [
+            'just another test',
+            "I don't know the specific purpose of this test as there is no information provided.",
+          ],
+          [
+            'Can you give me a few transform operations supported by sailpoint?',
+            'SailPoint supports various transform operations, including but not limited to:\n- Concatenation: Joining two or more values together.\n- Substring: Extracting a portion of a string based on specified starting and ending positions.\n- Regular expressions: Pattern matching and replacement.\n- Date functions: Manipulating and formatting date values.\n- Mathematical operations: Performing calculations on numeric values.\n- Case functions: Changing the case of a string (e.g., upper, lower, title case).\n- Data type conversion: Converting values from one data type to another.\nPlease note that this is not an exhaustive list, and there may be additional transform operations supported by SailPoint.',
+          ],
+          [
+            'can you repeat that answer please?',
+            'SailPoint supports a variety of transform operations. Some of the options include the username generator and the static transform. For a comprehensive list and detailed information about each operation, you can refer to the SailPoint Developer Community documentation on transforms: [Operations | SailPoint Developer Community](https://developer.sailpoint.com/idn/docs/transforms/operations).',
+          ],
+        ],
+        question: 'can you repeat that answer please?',
+      };
+      setApiResponse(
+        resp.chat_history.map((item) => ({question: item[0], answer: item[1]})),
+      );
     }
   };
 
   return (
-    <>
-      <div className={styles.outterContainer}>
-        <div className={styles.innerContainer}>
-          <div style={{display: 'flex', flexDirection: 'row'}}>
-            <Textarea
-              style={{fontFamily: 'poppins', flexGrow: 1, marginRight: '10px'}}
-              ref={textBoxRef}
-              variant="filled"
-              label="Prompt"
-              placeholder="Input a query..."
-              autosize
-              minRows={2}
-              maxRows={30}
-            />
-            <div style={{display: 'flex', flexDirection: 'column', gap: '2px'}}>
-              <ActionIcon
-                onClick={reset}
-                color="blue"
-                size="xl"
-                variant="filled"
-                loading={loading}>
-                <IconX size="1rem" />
-              </ActionIcon>
-              <ActionIcon
-                onClick={submitQuery}
-                color="blue"
-                size="xl"
-                variant="filled"
-                loading={loading}>
-                <IconSend size="1rem" />
-              </ActionIcon>
-            </div>
-          </div>
+    <div
+      style={{
+        overflow: 'hidden',
+        display: 'flex',
+        flexDirection: 'column',
+        padding: '20px',
+        gap: '5px',
+      }}>
+      <div
+        style={{
+          overflow: 'auto',
+          height: '65vh',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '5px',
+        }}>
+        {apiResponse.length > 0 &&
+          apiResponse.map((item) => <ResponseCard Item={item} />)}
+      </div>
+
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          gap: '5px',
+        }}>
+        <Textarea
+          style={{fontFamily: 'poppins', flexGrow: 1}}
+          ref={textBoxRef}
+          variant="filled"
+          label="Prompt"
+          placeholder="Input a query..."
+          autosize
+          minRows={2}
+          maxRows={30}
+        />
+        <div style={{display: 'flex', flexDirection: 'column', gap: '2px'}}>
+          <ActionIcon
+            onClick={reset}
+            color="blue"
+            size="xl"
+            variant="filled"
+            loading={loading}>
+            <IconX size="1rem" />
+          </ActionIcon>
+          <ActionIcon
+            onClick={submitQuery}
+            color="blue"
+            size="xl"
+            variant="filled"
+            loading={loading}>
+            <IconSend size="1rem" />
+          </ActionIcon>
         </div>
       </div>
-      <div className={styles.outterContainer} style={{overflow: 'auto'}}>
-        <div className={styles.innerContainer}>
-          {apiResponse.length > 0 &&
-            apiResponse.map((item) => <ResponseCard Item={item} />)}
-        </div>
-      </div>
-    </>
+    </div>
   );
 }

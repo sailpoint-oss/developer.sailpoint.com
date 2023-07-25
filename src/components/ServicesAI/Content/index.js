@@ -2,6 +2,7 @@ import {ActionIcon, Textarea} from '@mantine/core';
 import {IconSend, IconX} from '@tabler/icons-react';
 import React, {useRef, useState} from 'react';
 import ResponseCard from '../ResponseCard';
+import {v4} from 'uuid';
 
 export default function Content() {
   const [inputText, setInputText] = useState('');
@@ -9,6 +10,7 @@ export default function Content() {
   const [apiResponse, setApiResponse] = useState([]);
   const textBoxRef = useRef(null);
   const [loading, setLoading] = useState(true);
+  const uniqueID = v4();
 
   setTimeout(() => {
     setLoading(false);
@@ -22,10 +24,11 @@ export default function Content() {
     if (e.keyCode === 13 || e.type === 'click') {
       // const resp = await fetch('http://127.0.0.1:5000/chatbot', {
       //   method: 'POST',
-      //   body: {query: textBoxRef.current.value},
+      //   body: {query: textBoxRef.current.value, token: uniqueID},
       // });
       // console.log(resp);
-      // const json = await resp.json()
+      // const json = resp.json()
+      console.log(uniqueID);
       const json = {
         answer:
           'SailPoint supports a variety of transform operations. Some of the options include the username generator and the static transform. For a comprehensive list and detailed information about each operation, you can refer to the SailPoint Developer Community documentation on transforms: [Operations | SailPoint Developer Community](https://developer.sailpoint.com/idn/docs/transforms/operations).',
@@ -81,7 +84,9 @@ export default function Content() {
           gap: '5px',
         }}>
         {apiResponse.length > 0 &&
-          apiResponse.map((item) => <ResponseCard Item={item} />)}
+          apiResponse.map((item, index) => (
+            <ResponseCard Item={item} key={index} />
+          ))}
       </div>
 
       <div

@@ -25,7 +25,8 @@ export default function Content() {
       //   body: {query: textBoxRef.current.value},
       // });
       // console.log(resp);
-      const resp = {
+      // const json = await resp.json()
+      const json = {
         answer:
           'SailPoint supports a variety of transform operations. Some of the options include the username generator and the static transform. For a comprehensive list and detailed information about each operation, you can refer to the SailPoint Developer Community documentation on transforms: [Operations | SailPoint Developer Community](https://developer.sailpoint.com/idn/docs/transforms/operations).',
         chat_history: [
@@ -57,7 +58,7 @@ export default function Content() {
         question: 'can you repeat that answer please?',
       };
       setApiResponse(
-        resp.chat_history.map((item) => ({question: item[0], answer: item[1]})),
+        json.chat_history.map((item) => ({question: item[0], answer: item[1]})),
       );
     }
   };

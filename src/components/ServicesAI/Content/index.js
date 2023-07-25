@@ -22,47 +22,28 @@ export default function Content() {
 
   const submitQuery = async (e) => {
     if (e.keyCode === 13 || e.type === 'click') {
-      // const resp = await fetch('http://127.0.0.1:5000/chatbot', {
-      //   method: 'POST',
-      //   body: {query: textBoxRef.current.value, token: uniqueID},
-      // });
-      // console.log(resp);
-      // const json = resp.json()
-      console.log(uniqueID);
-      const json = {
-        answer:
-          'SailPoint supports a variety of transform operations. Some of the options include the username generator and the static transform. For a comprehensive list and detailed information about each operation, you can refer to the SailPoint Developer Community documentation on transforms: [Operations | SailPoint Developer Community](https://developer.sailpoint.com/idn/docs/transforms/operations).',
-        chat_history: [
-          [
-            'what is services ai',
-            'I\'m sorry, but I don\'t have any information about a service called "Services AI." Can you provide more context or details about what you are referring to?',
-          ],
-          [
-            'this is just a test',
-            "I don't know the purpose of this test as the context provided does not specify.",
-          ],
-          [
-            'this is another test',
-            'The purpose of this test is not provided in the given context.',
-          ],
-          [
-            'just another test',
-            "I don't know the specific purpose of this test as there is no information provided.",
-          ],
-          [
-            'Can you give me a few transform operations supported by sailpoint?',
-            'SailPoint supports various transform operations, including but not limited to:\n- Concatenation: Joining two or more values together.\n- Substring: Extracting a portion of a string based on specified starting and ending positions.\n- Regular expressions: Pattern matching and replacement.\n- Date functions: Manipulating and formatting date values.\n- Mathematical operations: Performing calculations on numeric values.\n- Case functions: Changing the case of a string (e.g., upper, lower, title case).\n- Data type conversion: Converting values from one data type to another.\nPlease note that this is not an exhaustive list, and there may be additional transform operations supported by SailPoint.',
-          ],
-          [
-            'can you repeat that answer please?',
-            'SailPoint supports a variety of transform operations. Some of the options include the username generator and the static transform. For a comprehensive list and detailed information about each operation, you can refer to the SailPoint Developer Community documentation on transforms: [Operations | SailPoint Developer Community](https://developer.sailpoint.com/idn/docs/transforms/operations).',
-          ],
-        ],
-        question: 'can you repeat that answer please?',
-      };
-      setApiResponse(
-        json.chat_history.map((item) => ({question: item[0], answer: item[1]})),
+      console.log({uniqueID});
+      const resp = await fetch(
+        'https://sailpoint-ai-a67a0914ff13.herokuapp.com/chatbot',
+        {
+          method: 'POST',
+          body: JSON.stringify({
+            query: textBoxRef.current.value,
+            token: uniqueID,
+          }),
+        },
       );
+      console.debug(resp);
+      const json = await resp.json();
+      console.debug(json);
+      if (json.chat_history.length > 0 && resp.status === 200) {
+        setApiResponse(
+          json.chat_history.map((item) => ({
+            question: item[0],
+            answer: item[1],
+          })),
+        );
+      }
     }
   };
 

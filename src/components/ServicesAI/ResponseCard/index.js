@@ -1,7 +1,6 @@
-import {ActionIcon, Card, Textarea, Text, Transition} from '@mantine/core';
-import {IconSend, IconX} from '@tabler/icons-react';
-import React, {useRef, useState} from 'react';
-import styles from './styles.module.css';
+import {Card, Text, Transition} from '@mantine/core';
+import React, {useState} from 'react';
+import {ReactMarkdown} from 'react-markdown/lib/react-markdown';
 
 export default function ResponseCard({Item}) {
   const [mounted, setMounted] = useState(false);
@@ -19,10 +18,10 @@ export default function ResponseCard({Item}) {
       {(styles) => (
         <div style={styles}>
           <Card shadow="sm" padding="md" radius="md" withBorder>
-            <Text size="lg">{Item.question}</Text>
-            <Text size="md" color="dimmed">
-              {Item.answer}
+            <Text size="xl" fw={700} style={{paddingBottom: '20px'}}>
+              {Item.question}
             </Text>
+            <ReactMarkdown>{Item.answer}</ReactMarkdown>
           </Card>
         </div>
       )}

@@ -10,7 +10,10 @@ export default function Content() {
   const [loading, setLoading] = useState(true);
 let uniqueID
   useEffect(()=>{
-  uniqueID = localStorage.getItem('uniqueToken') || v4();
+  uniqueID = localStorage.getItem('uniqueToken') 
+    if(uniqueID == null || uniqueID == ""){
+      uniqueID = v4();
+    }
   localStorage.setItem('uniqueToken', uniqueID);
   }, [])
 

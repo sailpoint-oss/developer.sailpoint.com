@@ -8,9 +8,11 @@ export default function Content() {
   const [apiResponse, setApiResponse] = useState([]);
   const textBoxRef = useRef(null);
   const [loading, setLoading] = useState(true);
-
-  const uniqueID = localStorage.getItem('uniqueToken') || v4();
+let uniqueID
+  useEffect(()=>{
+  uniqueID = localStorage.getItem('uniqueToken') || v4();
   localStorage.setItem('uniqueToken', uniqueID);
+  })
 
   function getWindowSize() {
     const {innerWidth, innerHeight} = window;

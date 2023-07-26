@@ -14,9 +14,7 @@ export default function AI() {
     <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
       <main>
         <Header />
-        <BrowserOnly>
-          <Content />
-        </BrowserOnly>
+        <BrowserOnly>{() => <Content />}</BrowserOnly>
       </main>
     </Layout>
   );

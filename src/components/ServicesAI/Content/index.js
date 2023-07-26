@@ -1,14 +1,15 @@
-import {ActionIcon, Textarea} from '@mantine/core';
+import {ActionIcon, Skeleton, Textarea} from '@mantine/core';
 import {IconSend} from '@tabler/icons-react';
 import React, {useEffect, useRef, useState} from 'react';
 import {v4} from 'uuid';
 import ResponseCard from '../ResponseCard';
 
 export default function Content() {
-  const [apiResponse, setApiResponse] = useState([]);
   const textBoxRef = useRef(null);
-  const [loading, setLoading] = useState(true);
+  const [apiResponse, setApiResponse] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [uniqueID, setUniqueID] = useState();
+
   useEffect(() => {
     let temp = localStorage.getItem('uniqueToken');
     if (!temp) {
@@ -40,9 +41,26 @@ export default function Content() {
     };
   }, []);
 
-  setTimeout(() => {
-    setLoading(false);
-  }, 400);
+  const postQuery = async (query, token) => {
+    const resp = await fetch(
+      'https://sailpoint-ai-a67a0914ff13.herokuapp.com/chatbot',
+      {
+        method: 'POST',
+        body: JSON.stringify({
+          query,
+          token: token,
+        }),
+      },
+    );
+    console.debug(resp);
+    const json = await resp.json();
+    console.debug(json);
+
+    return await json.chat_history.map((item) => ({
+      question: item[0],
+      answer: item[1],
+    }));
+  };
 
   const submitQuery = async (e) => {
     if (
@@ -51,33 +69,13 @@ export default function Content() {
         textBoxRef.current.value.trim() !== '') ||
       e.type === 'click'
     ) {
-      setLoading(true);
       e.preventDefault();
+      setLoading(true);
       const currentQuery = textBoxRef.current.value;
       textBoxRef.current.value = '';
       console.log({uniqueID});
-      const resp = await fetch(
-        'https://sailpoint-ai-a67a0914ff13.herokuapp.com/chatbot',
-        {
-          method: 'POST',
-          body: JSON.stringify({
-            query: currentQuery,
-            token: uniqueID,
-          }),
-        },
-      );
-
-      console.debug(resp);
-      const json = await resp.json();
-      console.debug(json);
-      if (json.chat_history.length > 0 && resp.status === 200) {
-        setApiResponse(
-          json.chat_history.map((item) => ({
-            question: item[0],
-            answer: item[1],
-          })),
-        );
-      }
+      const json = await postQuery(currentQuery, uniqueID);
+      setApiResponse(json);
       setLoading(false);
     }
   };
@@ -99,10 +97,11 @@ export default function Content() {
           flexDirection: 'column',
           gap: '5px',
         }}>
-        {apiResponse.length > 0 &&
-          apiResponse.map((item, index) => (
+        {apiResponse?.length > 0 &&
+          apiResponse?.map((item, index) => (
             <ResponseCard Item={item} key={index} />
           ))}
+        {loading && <Skeleton height={150} visible={loading} />}
       </div>
 
       <div

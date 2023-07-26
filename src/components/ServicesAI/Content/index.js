@@ -8,14 +8,18 @@ export default function Content() {
   const [apiResponse, setApiResponse] = useState([]);
   const textBoxRef = useRef(null);
   const [loading, setLoading] = useState(true);
-let uniqueID
-  useEffect(()=>{
-  uniqueID = localStorage.getItem('uniqueToken') 
-    if(uniqueID == null || uniqueID == ""){
-      uniqueID = v4();
+  const [uniqueID, setUniqueID] = useState();
+  useEffect(() => {
+    let temp = localStorage.getItem('uniqueToken');
+    if (!temp) {
+      temp = v4();
+      console.debug({generated: temp});
+    } else {
+      console.debug({localStorage: temp});
     }
-  localStorage.setItem('uniqueToken', uniqueID);
-  }, [])
+    localStorage.setItem('uniqueToken', temp);
+    setUniqueID(temp);
+  }, []);
 
   function getWindowSize() {
     const {innerWidth, innerHeight} = window;

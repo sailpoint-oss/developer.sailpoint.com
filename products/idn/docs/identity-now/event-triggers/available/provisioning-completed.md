@@ -1,5 +1,5 @@
 ---
-id: provisioning-completed
+id: provisioning-action-completed
 title: Provisioning Completed
 pagination_label: Provisioning Completed
 sidebar_label: Provisioning Completed

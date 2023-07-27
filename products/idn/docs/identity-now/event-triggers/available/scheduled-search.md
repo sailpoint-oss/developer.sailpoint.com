@@ -1,5 +1,5 @@
 ---
-id: scheduled-search
+id: saved-search-completed
 title: Scheduled Search
 pagination_label: Scheduled Search
 sidebar_label: Scheduled Search

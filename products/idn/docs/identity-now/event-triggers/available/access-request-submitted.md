@@ -1,5 +1,5 @@
 ---
-id: access-request-submitted
+id: access-request-preapproval
 title: Access Request Submitted
 pagination_label: Access Request Submitted
 sidebar_label: Access Request Submitted

@@ -1,5 +1,5 @@
 ---
-id: access-request-decision
+id: access-request-postapproval
 title: Access Request Decision
 pagination_label: Access Request Decision
 sidebar_label: Access Request Decision

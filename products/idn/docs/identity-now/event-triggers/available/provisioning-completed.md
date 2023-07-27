@@ -1,13 +1,13 @@
 ---
 id: provisioning-action-completed
-title: Provisioning Action Completed
-pagination_label: Provisioning Action Completed
-sidebar_label: Provisioning Action Completed
-sidebar_class_name: provisioningActionCompleted
+title: Provisioning Completed
+pagination_label: Provisioning Completed
+sidebar_label: Provisioning Completed
+sidebar_class_name: provisioningCompleted
 keywords:
   ['event', 'trigger', 'provisioning', 'action', 'completed', 'available']
 description: Fires after a provisioning action completed on a source.
-slug: /docs/event-triggers/triggers/provisioning-action-completed
+slug: /docs/event-triggers/triggers/provisioning-completed
 tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 ---
 
@@ -15,7 +15,7 @@ tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 
 ![Flow](./img/provisioning-action.png)
 
-The Provisioning Action Completed event trigger notifies subscribed applications after the action is completed. This event trigger provides a flexible way to extend the Provisioning workflow after access has changed for an identity within SailPoint. This provides more proactive governance and ensures users can quickly get necessary access.
+The 'Provisioning Completed' event trigger notifies subscribed applications after the action is completed. This event trigger provides a flexible way to extend the Provisioning workflow after access has changed for an identity within SailPoint. This provides more proactive governance and ensures users can quickly get necessary access.
 
 Some uses cases for this trigger include the following:
 
@@ -71,7 +71,7 @@ This is an example input from this trigger:
 
 Before consuming this event trigger, the following prerequesites must be met:
 
-- An oAuth Client configured with authority as `ORG_ADMIN`.
+- An oAuth client configured with authority as `ORG_ADMIN`.
 - An org enabled with the `ARSENAL_ALLOW_POSTPROVISIONING_TRIGGERS` feature flag.
 - Configure connectors for provisioning into target applications.
 - An org configured for automated provisioning. See the Event Context section for specific setup.
@@ -97,7 +97,7 @@ Provisioning events occur in these workflows:
 
 ### Access Request
 
-When an Access Request approval process has completed with all positive approvals, the access request is fulfilled with provisioning to the target application with requested access.
+When an access request approval process has completed with all positive approvals, the access request is fulfilled with provisioning to the target application with requested access.
 
 ![Flow](./img/provisioning-access-request.png)
 

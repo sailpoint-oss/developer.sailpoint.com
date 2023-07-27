@@ -1,9 +1,9 @@
 ---
 id: access-request-postapproval
-title: Access Request Postapproval
-pagination_label: Access Request Postapproval
-sidebar_label: Access Request Postapproval
-sidebar_class_name: accessRequestPostapproval
+title: Access Request Decision
+pagination_label: Access Request Decision
+sidebar_label: Access Request Decision
+sidebar_class_name: accessRequestDecision
 keywords:
   [
     'event',
@@ -11,18 +11,19 @@ keywords:
     'access',
     'request',
     'postapproval',
+    'decision',
     'post',
     'approval',
     'available',
   ]
 description: Fires after an access request is approved.
-slug: /docs/event-triggers/triggers/access-request-postapproval
+slug: /docs/event-triggers/triggers/access-request-decision
 tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 ---
 
 ## Event Context
 
-The SailPoint IdentityNow platform now includes event triggers within the Access Request Approval workflow. The Access Request Postapproval event trigger provides more proactive governance and ensures users can quickly obtain needed access.
+The SailPoint IdentityNow platform now includes event triggers within the access request approval workflow. The 'Access Request Decision' event trigger provides more proactive governance and ensures users can quickly obtain needed access.
 
 ![Flow](./img/access-request-postapproval-path.png)
 
@@ -32,7 +33,7 @@ When an access request is approved, some uses cases for this trigger include the
 - Notify the administrator or system to take the appropriate provisioning actions for the requested access.
 - Notify a third party system to trigger another action (e.g. customer feedback survey, initiate another business process), or it can be used for auditing once an access request decision has been made.
 
-The Access Request event trigger is a flexible way to extend the Access Request workflow after access is approved for the requester.
+The 'Access Request Decision' event trigger is a flexible way to extend the access request workflow after access is approved for the requester.
 
 This is an example input from this trigger:
 

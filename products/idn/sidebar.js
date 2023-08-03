@@ -35,8 +35,8 @@ const sidebars = {
         },
         {
           type: 'doc',
-          id: 'api/patch-guide',
-        }
+          id: 'api/patch-guide'
+        },
         {
           type: 'category',
           label: 'V3 APIs',

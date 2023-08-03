@@ -461,8 +461,6 @@ This example uses the "-" after the path to indicate that the value will be adde
 
 For "move" and "copy" operations, you don't necessarily have to specify a "value" to apply the operations to, but you must specify a "from", a JSON Pointer representing the location you are moving or copying the value from. 
 
-Example (?)
-
 ## Send the PATCH request 
 
 Once you have specified the operation you want to apply, the path you want to apply it to, and the changes you want to make with that operation, you can send the PATCH request. 

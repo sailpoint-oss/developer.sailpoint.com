@@ -6,13 +6,13 @@ sidebar_label: Patch Guide
 sidebar_position: 8
 sidebar_class_name: patchGuide
 keywords: ['patch']
-description: Read this guide to learn how to send PATCH requests. 
-tags: ['patch']
+description: Read this guide to learn how to send PATCH requests to SailPoint's IdentityNow APIs. 
+tags: ['patch', 'guide']
 ---
 
 ## PATCH requests 
 
-You can use the IdentityNow (IDN) APIs to update resources. Many of the APIs offer multiple ways to do so: 
+You can use the IdentityNow (IDN) APIs to update existing resources. Many of the APIs offer multiple ways to do so: 
 
 - You can send a **PUT** request to replace the existing resource with a new one. For example, if you wanted to update one of John Doe's source accounts, you could use the [Put Account](https://developer.sailpoint.com/idn/api/v3/put-account) endpoint to replace John Doe's existing source account with a new one. This is a viable way to update a resource, but it requires you to update the entire resource each time. 
 

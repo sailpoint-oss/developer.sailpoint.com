@@ -34,7 +34,10 @@ properties:
     example:
       match:
         name: "john.doe"
-    
+
+  textQuery:
+    $ref: 'TextQuery.yaml'
+
   typeAheadQuery:
     $ref: 'TypeAheadQuery.yaml'
 

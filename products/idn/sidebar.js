@@ -34,6 +34,10 @@ const sidebars = {
           id: 'api/postman-collections',
         },
         {
+          type: 'doc',
+          id: 'api/patch-guide',
+        }
+        {
           type: 'category',
           label: 'V3 APIs',
           link: {

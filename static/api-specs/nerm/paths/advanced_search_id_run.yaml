@@ -3,7 +3,7 @@ get:
   operationId: runAdvancedSearchbyID
   description: Run a saved advanced search query
   tags:
-    - Advanced Search
+    - advanced search
   parameters:
     - $ref: "../parameters/path/id.yaml"
     - $ref: "../parameters/query/query.yaml"

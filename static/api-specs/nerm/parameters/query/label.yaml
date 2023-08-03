@@ -2,6 +2,5 @@ name: label
 in: query
 description: The attribute label to filter by
 required: false
-example: mylabel
 schema:
   type: string

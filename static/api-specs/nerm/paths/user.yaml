@@ -3,7 +3,7 @@ post:
   operationId: postUser
   description: Create a new user
   tags:
-    - Users
+    - users
   requestBody:
     $ref: "../requestBodies/POST/User.yaml"
   responses:

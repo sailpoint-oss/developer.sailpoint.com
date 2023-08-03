@@ -5,4 +5,3 @@ required: false
 schema:
   type: string
   format: email
-example: test@sailpoint.com

@@ -35,7 +35,7 @@ const sidebars = {
         },
         {
           type: 'doc',
-          id: 'api/patch-guide'
+          id: 'api/patch-requests'
         },
         {
           type: 'category',

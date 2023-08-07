@@ -1,10 +1,10 @@
 ---
-id: patch-guide
-title: Patch Guide
-pagination_label: Patch Guide
-sidebar_label: Patch Guide
+id: patch-requests
+title: Patch Requests
+pagination_label: Patch Requests
+sidebar_label: Patch Requests
 sidebar_position: 8
-sidebar_class_name: patchGuide
+sidebar_class_name: patchRequests
 keywords: ['patch']
 description: Read this guide to learn how to send PATCH requests to SailPoint's IdentityNow APIs. 
 tags: ['patch', 'guide']

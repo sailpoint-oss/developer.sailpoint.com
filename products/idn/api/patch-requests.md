@@ -429,7 +429,7 @@ PATCH https://{tenant}.api.identitynow.com/v3/sources/:id
 ]
 ```
 
-A value can also be an object that contains other values within it. For example, this PATCH request adds a new "location" attribute to the end of the array of a source's schema's attributes: 
+A value can also be an object that contains other values within it. For example, this PATCH request adds a new "location" attribute to the end of the source schema's array of attributes: 
 
 ```text
 PATCH https://{tenant}.api.identitynow.com//v3/sources/:sourceId/schemas/:schemaId

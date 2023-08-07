@@ -204,8 +204,8 @@ These are the available PATCH operations:
 | add | Adds a value to the target location. For more information about the "add" operation and how it behaves in different scenarios, refer [here](https://datatracker.ietf.org/doc/html/rfc6902#section-4.1). | This example uses the [Patch Source Schema](https://developer.sailpoint.com/idn/api/v3/update-source-schema) endpoint to add a new "office" attribute to the end of a source schema's array of attributes: ```[{"op": "add", "path": "/attributes/-", "value": {"name": "office", "type": "STRING", "schema": null, "description": "Office Location", "isMulti": false, "isEntitlement": false, "isGroup": false}}]``` |
 | remove | Removes a value from the target location. The target location must exist for the operation to be successful. | This example uses the [Patch Source](https://developer.sailpoint.com/idn/api/v3/update-source) endpoint to remove an existing filter string from a source's connector: ``` [{"op": "remove", "path": "/connectorAttributes/filterString", "value": "!( id.contains( \"m\" ) )"}] ``` | 
 | replace | Replaces the value at the target location with a new value. The operation object must contain a "value" member whose content specifies the replacement value, and the target location must exist for the operation to be successful. This operation is the equivalent of a "remove" followed by an "add". | This example uses the [Patch Source](https://developer.sailpoint.com/idn/api/v3/update-source) endpoint to replace a source's existing features with new ones: ``` [{"op": "replace", "path": "/features", "value": ["PASSWORD", "PROVISIONING", "ENABLE", "AUTHENTICATE"]}] ``` |
-| move | Removes the operation from a specified location and adds it to the target location. This operation object must contain a "from" member whose content specifies the location to remove the value from, and the "from" location must exist for the operation to be successful. |  |
-| copy | Copies the value from a specified location to the target location. The operation object must contain a "from" member whose content specifies the location to copy the value from, and the "from" location must exist for the operation to be successful. |  |
+| move | Removes the operation from a specified location and adds it to the target location. This operation object must contain a "from" member whose content specifies the location to remove the value from, and the "from" location must exist for the operation to be successful. | This example uses the [Patch Source Schema](https://developer.sailpoint.com/idn/api/v3/update-source-schema) endpoint to move an attribute from the beginning to the end of the schema's array of attributes: ``` [{"op": "move", "from": "/attributes/0", "path": "/attributes/-"}] ``` |
+| copy | Copies the value from a specified location to the target location. The operation object must contain a "from" member whose content specifies the location to copy the value from, and the "from" location must exist for the operation to be successful. | This example uses the [Patch Source Schema](https://developer.sailpoint.com/idn/api/v3/update-source-schema) endpoint to copies an attribute from the beginning and duplicates it at the end of the schema's array of attributes: ``` [{"op": "copy", "from": "/attributes/0", "path": "/attributes/-"}] ```  |
 | test | Tests that a value at the target location is equal to a specified value. The operation object must contain a "value" member whose content specifies the value to be compared to the target location's value, and the values must be equal for the operation to be successful. For more information about what "equal" means for different JSON types, refer [here](https://datatracker.ietf.org/doc/html/rfc6902#section-4.6). | This example uses the [Patch Source](https://developer.sailpoint.com/idn/api/v3/update-source) endpoint to test a source's existing features to make sure they match the specified values.: ``` [{"op": "test", "path": "/features", "value": ["PASSWORD", "PROVISIONING", "ENABLE", "AUTHENTICATE"]}] ``` |
 
 You can specify a single operation, or you can specify multiple. If you are using multiple operations in one PATCH request, each operation must include its own path. 
@@ -459,7 +459,27 @@ This example uses the "-" after the path to indicate that the value will be adde
 
 ## Specify a from 
 
-For "move" and "copy" operations, you don't necessarily have to specify a "value" to apply the operations to, but you must specify a "from", a JSON Pointer representing the location you are moving or copying the value from. 
+The "move" and "copy" operations allow you to remove or copy information from one path and add it to another path without your needing to specify the value, which could be an extensive array of information. To use the "move" and "copy" operations,you must specify a "from", a JSON Pointer representing the location you are moving or copying the value from. 
+
+This example request uses the [PATCH Source schema](https://developer.sailpoint.com/idn/api/v3/update-source-schema) endpoint to move an attribute, along with its details, from the beginning to the end of a source schema's array of attributes: 
+
+```text
+PATCH https://{tenant}.api.identitynow.com//v3/sources/:sourceId/schemas/:schemaId
+```
+
+```json
+
+ [
+  {
+    "op": "move", 
+    "from": "/attributes/0", 
+    "path": "/attributes/-"
+    }
+  ] 
+
+ ```
+
+ Instead of having to specify the value yourself, which could be an extensive array of information, you can use the "move" operation to move everything from one path to another. 
 
 ## Apply the PATCH request header
 

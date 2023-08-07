@@ -63,7 +63,21 @@ delete:
       content:
         application/json:
           schema:
-            $ref: "../../v3/schemas/ErrorResponseDto.yaml"
+            $ref: "../schemas/IdentityAssociationDetails.yaml"
+          example:
+            {
+              "message": "Identity is the owner of following resources",
+              "associationDetails": {
+                "associationType": "CAMPAIGN_OWNER",
+                "entities": [
+                  {
+                    "id": "b660a232f05b4e04812ca974b3011e0f",
+                    "name": "Gaston.800ddf9640a",
+                    "type": "CAMPAIGN_CAMPAIGNER"
+                  }
+                ]
+              }
+            }
     "401":
       $ref: "../../v3/responses/401.yaml"
     "403":

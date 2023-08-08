@@ -6,18 +6,20 @@ sidebar_label: Rule Development Kit
 sidebar_position: 1
 sidebar_class_name: rdk
 keywords: ['rule', 'development','kit']
-description: The SailPoint Rule Development Kit is a project that enables you to develop rules faster and with less effort.
+description: The SailPoint Rule Development Kit is a project that enables you to develop rules more quickly and easily.
 slug: /tools/rule-development-kit
 tags: ['RDK']
 ---
 
 ## Start Using the Rule Development Kit
 
-The SailPoint Rule Development Kit is a project you can use to develop rules faster and with less effort.
+The SailPoint Rule Development Kit (RDK) is a project you can use to develop rules more quickly and easily. 
 
-The Rule Development Kit provides you with the classes and methods available to you when developing rules. You can mock out these classes and run your rule locally to test your logic before submitting it to be reviewed.
+In SailPoint solutions, rules serve as flexible configuration frameworks implementers can leverage to preform complex or advanced configurations. To learn more about them, refer to [Rules](../../docs/identity-now/rules/index.md).
 
-Learn how to use the SailPoint Rule Development Kit in this guide.
+The RDK provides you with the available classes and methods available when you're developing a rule. You can mock out these classes and run your rule locally to test your logic before submitting it for review.
+
+Learn how to use the SailPoint RDK in this guide.
 
 ## Requirements
 
@@ -26,17 +28,19 @@ Learn how to use the SailPoint Rule Development Kit in this guide.
   * [Mac OS installation guide](https://www.appsdeveloperblog.com/how-to-install-maven-on-mac-os/)
   * [Windows installation guide](https://phoenixnap.com/kb/install-maven-windows)
 
-## Clone the Project
+## Clone the project
 
-The Rule Development Kit and its examples can be found in the Github repo [here](https://github.com/sailpoint-oss/rule-development-kit).
+You can find the RDK and its examples in the Github repo [here](https://github.com/sailpoint-oss/rule-development-kit).
 
-Clone the project.
+To get started, clone the project. 
+
+To clone the project, you can run this command: 
 
 ```bash
 git clone git@github.com:sailpoint-oss/rule-development-kit.git
 ```
 
-## Project Structure
+## Project structure
 
 ```bash
 src/
@@ -54,15 +58,15 @@ src/
         └── log4j2.properties
 ```
 
-* **`src/main/java/`** Use this folder to develop your rules before putting them into the rule xml format, import objects as needed from `sailpoint.*`
+* **`src/main/java/`** Use this folder to develop your rules before putting them into the rule XML format. Import objects as needed from `sailpoint.*`
 
-* **`src/main/resources/rules/`** Use this folder to store your rules in the xml format you would expect to upload to IdentityNow
+* **`src/main/resources/rules/`** Use this folder to store your rules in the XML format you would expect to upload to IdentityNow (IDN).
 
-* **`src/test/java/sailpoint/`** Use this folder for test classes to test the rules you have implemented
+* **`src/test/java/sailpoint/`** Use this folder for test classes to test your rules.
 
-## Install Depedencies
+## Install depedencies
 
-Install all required dependencies by running maven install in the root of the project
+Install all the required dependencies by running Maven install in the root of the project:
 
 ```bash
 mvn clean install
@@ -78,23 +82,19 @@ The rule development kit provides you with intellisense when writing rules, you 
 
 ### Local Testing -->
 
-## Writing Rules
+## Create your new rule
 
-In SailPoint solutions, rules serve as a flexible configuration framework implementers can leverage to preform complex or advanced configurations. See [Rules](../../docs/identity-now/rules/index.md) for more information.
+To get syntax highlighting and the features from the IDE, this guide shows how to write the rule in native Java and move it over to the XML format needed when you're storing it in IdentityNow (IDN).
 
-### Create Your New Rule
+This guide will walk through an example of how to duplicate writing the 'Username Generator' rule that ships with the RDK.
 
-In order to get syntax highlighting and the features from the IDE we will write the rule in native Java and move them over to the xml format needed when storing in Identity Now.
+Create a new Java class under `src/main/java`, called `UsernameGenerator`.
 
-In this guide we will duplicate writing the UsernameGenerator rule that ships with the rule development kit.
-
-Create a new Java class under `src/main/java` called `UsernameGenerator`.
-
-### Import Classes and Initialize Objects Needed in The Rule
+## Import the classes and initialize the objects the rule needs
 
 Each rule type has inputs provided to the rule. You can view available inputs for each rule type by clicking the rule type [here](/idn/docs/rules/cloud-rules#supported-cloud-rules).
 
-The Username Generator rule uses the `AttributeGenerator` rule type. See [Attribute Generator](/idn/docs/rules/cloud-rules/account-profile-attribute-generator#input) for the available inputs.
+The 'Username Generator' rule uses the `AttributeGenerator` rule type. See [Attribute Generator](/idn/docs/rules/cloud-rules/account-profile-attribute-generator#input) for the available inputs.
 
 In your IDE, import the classes needed, and initialize these inputs within your newly created class.
 
@@ -115,9 +115,9 @@ public class UsernameGenerator {
 }
 ```
 
-### Write Your Rule Logic
+## Write your rule logic
 
-The completed code for the Username Generator is below. If you would like to dive deeper into how this rule was written you can follow the guide [writing your first rule](/idn/docs/rules/guides/your-first-rule).
+You can see the completed code for the 'Username Generator' in the following code. If you want to dive deeper into how this rule was written, follow [this guide](/idn/docs/rules/guides/your-first-rule).
 
 <details>
   <summary>Completed Username Generator Code</summary>
@@ -228,13 +228,15 @@ public class UsernameGenerator {
 
 </details>
 
-## Convert Rule to XML Format
+## Convert the rule to XML format
 
-The final step required before we can test our rule is converting it to xml format. These XML files are stored under the `/src/main/resources/rules` directory in the Rule Development Kit. The template file for `AttributeGenerator` can be found [here](/idn/docs/rules/cloud-rules/account-profile-attribute-generator#template)
+The final step required before you can test your rule is converting it to XML format. These XML files are stored under the `/src/main/resources/rules` directory in the RDK. You can find the `AttributeGenerator` template file [here](/idn/docs/rules/cloud-rules/account-profile-attribute-generator#template). 
 
 Replace `Example Rule` with the preferred name of your rule, and add a short description.
 
-### Copy Over Imports For the Rule
+### Copy over imports for the rule
+
+Copy over the imports the rule needs. 
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
@@ -256,13 +258,13 @@ import sailpoint.tools.GeneralException;
 </Rule>
 ```
 
-### Copy the Rule Logic
+### Copy the rule logic
 
-Copy the logic of your rule inside of the class you created in the previous step.
+Copy the logic of your rule inside the class you created earlier. 
 
 :::caution
 
-Do not include your initialized variables for the inputs to the rule. These variables will be passed into the rule during runtime.
+Don't include your initialized variables for the inputs to the rule. These variables will be passed into the rule during runtime.
 
 :::
 
@@ -372,9 +374,9 @@ import sailpoint.tools.GeneralException;
 </Rule>
 ```
 
-### Add Your Return Statement
+### Add your return statement
 
-This line calls the generateUsername function and starts to execute the rule, the result will be returned.
+This line calls the `generateUsername` function and starts to execute the rule. The result will be returned.
 
 ```java
 return generateUsername( identity.getFirstname(), identity.getLastname() );
@@ -495,17 +497,19 @@ import sailpoint.tools.GeneralException;
 
 Once your rule is saved in the XML format, you can begin testing.
 
-## Testing Rules
+## Testing rules
 
-The Rule Development Kit by default uses the [Mockito](https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html) library to mock objects and return mocked results for testing the logic of your rules.
+Before submitting your rule for review, it's essential that you test it. You can use the RDK to do so. 
 
-### Create Your Test Class
+By default, the RDK uses the [Mockito](https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html) library to mock objects and return mocked results for testing your rule logic. 
 
-Create a new class at `/src/test/java/sailpoint` named `UsernameGeneratorTest`.
+### Create your test class
 
-### Configure Logging and Rule File
+Create a new class at `/src/test/java/sailpoint` named `UsernameGeneratorTest`. This class will serve as your test class. 
 
-Create a logger instance with the name of your test class, and set the `RULE_FILENAME` to the rule you wish to test.
+### Configure the logging and rule file 
+
+Create a logger instance with the name of your test class and set the `RULE_FILENAME` to the rule you want to test.
 
 ```java
 Logger log = LogManager.getLogger(UsernameGeneratorTest.class);
@@ -513,17 +517,17 @@ Logger log = LogManager.getLogger(UsernameGeneratorTest.class);
 private static final String RULE_FILENAME = "src/main/resources/rules/Rule - AttributeGenerator - UsernameGenerator.xml";
 ```
 
-### Setup Beanshell Interpreter
+### Setup the BeanShell interpreter
 
-Initialize the beanshell interpreter for evaluating the rule.
+Initialize the BeanShell interpreter for evaluating the rule.
 
 ```java
 Interpreter i = new Interpreter();
 ```
 
-### Mock Objects and Return Mocked Data
+### Mock the objects and return the mocked data
 
-Anywhere your rule uses data from IdentityNow you will need to mock out those objects. In the example of the UsernameGenerator the objects used are `IdnRuleUtil`, `Application`, and `Identity`.
+Anywhere your rule uses data from IDN, you will need to mock out those objects. In the 'Username Generator' example, the objects used are `IdnRuleUtil`, `Application`, and `Identity`.
 
 ```java
 IdnRuleUtil idn = mock();
@@ -538,9 +542,9 @@ when(identity.getLastname()).thenReturn("Smith");
 when(identity.getStringAttribute("otherName")).thenReturn("");
 ```
 
-### Pass Mocked Objects into Interpreter
+### Pass the mocked objects into the interpreter
 
-Here we pass the variables we mocked so that when our rule uses these objects they return our mocked values.
+Pass the variables you mocked so that when the rule uses these objects, they return your mocked values. 
 
 ```java
 i.set("log", log);
@@ -549,9 +553,9 @@ i.set("application", application);
 i.set("identity", identity);
 ```
 
-### Evaluate the Rule
+### Evaluate the rule
 
-Evaluate the rule using BeanShell to get our rule result.
+Use BeanShell to evaluate the rule to get your rule result.
 
 ```java
 String source = RuleXmlUtils.readRuleSourceFromFilePath(RULE_FILENAME);
@@ -560,28 +564,28 @@ result = (String) i.eval(source);
 
 ### Assertions
 
-Add assertions to your test class to validate that given certain inputs your rule returns your expected result.
+Add assertions to your test class to validate that when your rule is given certain inputs, it returns your expected result.
 
 ```java
 assertNotNull(result);
 assertEquals(result, "tyler.s");
 ```
 
-### Run Maven Test
+### Run Maven test
 
-To run the test with maven open the terminal and in the root of the project run
+To run the test with Maven, open the terminal and in the root of the project, run this command:
 
 ```bash
 mvn test -Dtest="UsernameGeneratorTest"
 ```
 
-Run all tests in the tests directory
+Run all tests in the tests directory: 
 
 ```bash
 mvn test
 ```
 
-When your test runs you will see the output of your logs to help with writing logic and debugging.
+When your test runs, you will see the output of your logs. These logs can help when you're writing logic and debugging.
 
 ```java
 [INFO] -------------------------------------------------------
@@ -605,8 +609,8 @@ When your test runs you will see the output of your logs to help with writing lo
 [INFO] ------------------------------------------------------------------------
 ```
 
-## Next Steps
+## Next steps
 
-Have an issue using the Rule Development Kit? Reach out to us on github [Rule Development Kit](https://github.com/sailpoint-oss/rule-development-kit/issues)
+Have an issue using the RDK? Reach out to us on GitHub [here](https://github.com/sailpoint-oss/rule-development-kit/issues)
 
-Discuss the tool and other rule specific topics in the [SailPoint Developer Community](https://developer.sailpoint.com/discuss/).
+Discuss the tool and other rule-specific topics in the [SailPoint Developer Community](https://developer.sailpoint.com/discuss/).

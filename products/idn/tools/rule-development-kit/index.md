@@ -8,7 +8,7 @@ sidebar_class_name: rdk
 keywords: ['rule', 'development','kit']
 description: The SailPoint Rule Development Kit is a project that enables you to develop rules faster and with less effort.
 slug: /tools/rule-development-kit
-tags: ['CLI']
+tags: ['RDK']
 ---
 
 ## Start Using the Rule Development Kit

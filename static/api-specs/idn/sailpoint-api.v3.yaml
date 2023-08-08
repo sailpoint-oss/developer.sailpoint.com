@@ -23,6 +23,12 @@ servers:
         default: sailpoint
         description:
           This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}/v3
+    description: This is the V3 API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
 
 tags:
   - name: Access Profiles

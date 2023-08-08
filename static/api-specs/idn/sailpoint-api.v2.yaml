@@ -10,6 +10,12 @@ servers:
         default: sailpoint
         description:
           This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}/v2
+    description: This is the V2 API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
 components:
   securitySchemes:
     oauth2:

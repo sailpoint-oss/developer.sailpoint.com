@@ -17,6 +17,12 @@ servers:
       tenant:
         default: sailpoint
         description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}/beta
+    description: This is the beta API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
 tags:
   - name: Access Profiles
     description: |

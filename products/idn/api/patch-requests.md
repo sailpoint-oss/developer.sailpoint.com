@@ -12,7 +12,7 @@ tags: ['patch', 'guide']
 
 ## PATCH requests 
 
-You can use the IdentityNow (IDN) APIs to update existing resources. Many of the APIs offer multiple ways to do so: 
+You can use the IdentityNow APIs to update existing resources. Many of the APIs offer multiple ways to do so: 
 
 - You can send a **PUT** request to replace the existing resource with a new one. For example, if you wanted to update one of John Doe's source accounts, you could use the [Put Account](https://developer.sailpoint.com/idn/api/v3/put-account) endpoint to replace John Doe's existing source account with a new one. This is a viable way to update a resource, but it requires you to update the entire resource each time. 
 
@@ -24,9 +24,9 @@ This guide will focus on the partial update method, PATCH requests. Read this gu
 
 To use PATCH to update a resource, you first need to know the resource ID. 
 
-Not all resource IDs are available in the IDN UI, so you may need to use the API to find the ID for the resource you want to update. 
+Not all resource IDs are available in the IdentityNow UI, so you may need to use the API to find the ID for the resource you want to update. 
 
-For example, source IDs aren't avilable in the IDN UI. If you want to use the [Patch Source](https://developer.sailpoint.com/idn/api/v3/update-source) endpoint to make a change to a specific source, you first need to find out the source's ID. 
+For example, source IDs aren't avilable in the IdentityNow UI. If you want to use the [Patch Source](https://developer.sailpoint.com/idn/api/v3/update-source) endpoint to make a change to a specific source, you first need to find out the source's ID. 
 
 You can use the [List Sources](https://developer.sailpoint.com/idn/api/v3/list-sources) endpoint to view all the sources in your tenant, along with their details. You can find your source and its ID in this list. 
 
@@ -185,7 +185,7 @@ You can find this example in the [Patch Source](https://developer.sailpoint.com/
 
 :::note
 
-The ordering of members in JSON objects doesn't affect the response. These examples all specify the operation first, but you would get the same response if you specified the members in any other order too. 
+The ordering of members in JSON objects doesn't affect the response. These examples all specify the operation first, but you would get the same response if you specified the members in any other order. 
 
 :::
 
@@ -201,7 +201,7 @@ These are the available PATCH operations:
 
 | Operation | Description | Example |
 | --- | --- | --- |
-| add | Adds a value to the target location. For more information about the "add" operation and how it behaves in different scenarios, refer [here](https://datatracker.ietf.org/doc/html/rfc6902#section-4.1). | This example uses the [Patch Source Schema](https://developer.sailpoint.com/idn/api/v3/update-source-schema) endpoint to add a new "office" attribute to the end of a source schema's array of attributes: ```[{"op": "add", "path": "/attributes/-", "value": {"name": "office", "type": "STRING", "schema": null, "description": "Office Location", "isMulti": false, "isEntitlement": false, "isGroup": false}}]``` |
+| add | Adds a value to the target location. For more information about the "add" operation and how it behaves in different scenarios, refer to the [JSON PATCH documentation](https://datatracker.ietf.org/doc/html/rfc6902#section-4.1). | This example uses the [Patch Source Schema](https://developer.sailpoint.com/idn/api/v3/update-source-schema) endpoint to add a new "office" attribute to the end of a source schema's array of attributes: ```[{"op": "add", "path": "/attributes/-", "value": {"name": "office", "type": "STRING", "schema": null, "description": "Office Location", "isMulti": false, "isEntitlement": false, "isGroup": false}}]``` |
 | remove | Removes a value from the target location. The target location must exist for the operation to be successful. | This example uses the [Patch Source](https://developer.sailpoint.com/idn/api/v3/update-source) endpoint to remove an existing filter string from a source's connector: ``` [{"op": "remove", "path": "/connectorAttributes/filterString", "value": "!( id.contains( \"m\" ) )"}] ``` | 
 | replace | Replaces the value at the target location with a new value. The operation object must contain a "value" member whose content specifies the replacement value, and the target location must exist for the operation to be successful. This operation is the equivalent of a "remove" followed by an "add". | This example uses the [Patch Source](https://developer.sailpoint.com/idn/api/v3/update-source) endpoint to replace a source's existing features with new ones: ``` [{"op": "replace", "path": "/features", "value": ["PASSWORD", "PROVISIONING", "ENABLE", "AUTHENTICATE"]}] ``` |
 | move | Removes the operation from a specified location and adds it to the target location. This operation object must contain a "from" member whose content specifies the location to remove the value from, and the "from" location must exist for the operation to be successful. | This example uses the [Patch Source Schema](https://developer.sailpoint.com/idn/api/v3/update-source-schema) endpoint to move an attribute from the beginning to the end of the schema's array of attributes: ``` [{"op": "move", "from": "/attributes/0", "path": "/attributes/-"}] ``` |
@@ -392,7 +392,7 @@ This request specifies the top-level path, "connectorAttributes", before followi
 
 For some of the operations, once you have specified the operation you want to apply and the path you want to apply it to, you need to specify the value you want to send with the request. The value you specify must fit the path's data type. 
 
-You can specify a single simple value for an operation. In this example from earlier, the PATCH request replace's the source's description: 
+You can specify a single simple value for an operation. In this example from earlier, the PATCH request replaces the source's description: 
 
 ```text
 PATCH https://{tenant}.api.identitynow.com/v3/sources/:id
@@ -459,7 +459,7 @@ This example uses the "-" after the path to indicate that the value will be adde
 
 ## Specify a from 
 
-The "move" and "copy" operations allow you to remove or copy information from one path and add it to another path without your needing to specify the value, which could be an extensive array of information. To use the "move" and "copy" operations,you must specify a "from", a JSON Pointer representing the location you are moving or copying the value from. 
+The "move" and "copy" operations allow you to remove or copy information from one path and add it to another path without your needing to specify the value, which could be an extensive array of information. To use the "move" and "copy" operations, you must specify a "from", a JSON Pointer representing the location you are moving or copying the value from. 
 
 This example request uses the [PATCH Source schema](https://developer.sailpoint.com/idn/api/v3/update-source-schema) endpoint to move an attribute, along with its details, from the beginning to the end of a source schema's array of attributes: 
 
@@ -495,6 +495,6 @@ When the request is successful, the API will return the updated resource.
 
 ## Get started 
 
-Now you can use PATCH requests to make partially update resources. For more information about PATCH requests, refer to this [documentation](https://datatracker.ietf.org/doc/html/rfc6902#section-4.6).  For more information about the IDN PATCH endpoints and which paths can be changed for each one, refer to their API specifications. 
+Now you can use PATCH requests to make partially update resources. For more information about PATCH requests, refer to this [documentation](https://datatracker.ietf.org/doc/html/rfc6902#section-4.6).  For more information about the IdentityNow PATCH endpoints and which paths can be changed for each one, refer to their API specifications. 
 
 Use this guide to get started, and if you have questions, don't hesitate to reach out on the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss!

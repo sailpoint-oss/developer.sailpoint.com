@@ -1,14 +1,23 @@
-import {ActionIcon, Skeleton, Textarea} from '@mantine/core';
+import {ActionIcon, Skeleton, Textarea, Card, Image, Text, Button, Center} from '@mantine/core';
 import {IconSend} from '@tabler/icons-react';
 import React, {useEffect, useRef, useState} from 'react';
 import {v4} from 'uuid';
 import ResponseCard from '../ResponseCard';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 export default function Content() {
   const textBoxRef = useRef(null);
   const [apiResponse, setApiResponse] = useState([]);
   const [loading, setLoading] = useState(false);
   const [uniqueID, setUniqueID] = useState();
+  const [showExamplePrompt, setShowExamplePrompt] = useState(true);
+
+  const examplePrompts = [
+    'How do I delete a source via API?',
+    'What is the api for creating an account on a source?',
+    'Where can I find information on scopes?',
+    'How do I create a personal access token?'
+  ]
 
   useEffect(() => {
     let temp = localStorage.getItem('uniqueToken');
@@ -64,12 +73,14 @@ export default function Content() {
 
   const submitQuery = async (e) => {
     if (
+      e == null ||
       (e.keyCode === 13 &&
         e.shiftKey === false &&
         textBoxRef.current.value.trim() !== '') ||
       e.type === 'click'
     ) {
-      e.preventDefault();
+      if (e != null) e.preventDefault();
+      setShowExamplePrompt(false);
       setLoading(true);
       const currentQuery = textBoxRef.current.value;
       textBoxRef.current.value = '';
@@ -79,6 +90,11 @@ export default function Content() {
       setLoading(false);
     }
   };
+
+  const submitExample = async (question) => {
+    textBoxRef.current.value = question
+    submitQuery()
+  }
 
   return (
     <div
@@ -102,6 +118,41 @@ export default function Content() {
             <ResponseCard Item={item} key={index} />
           ))}
         {loading && <Skeleton height={150} visible={loading} />}
+      </div>
+      
+      <div
+        style={{
+          position: 'absolute',
+          top: '250px',
+          width: '100vw',
+          display: showExamplePrompt ? '' : 'none'
+        }}>
+        <div
+          style={{
+            margin: '0 auto',
+            width: '500px',
+          }}>
+          <Card shadow="sm" padding="lg" radius="md" width={300} withBorder>
+            <Card.Section>
+              <Center h={80} mx="auto">
+                <Image width={50} height={50} src={useBaseUrl('/icons/sun-bright-light.svg')}/>
+              </Center>
+              <Center h={60}>
+                <Text fz="xl" fw={500}>Examples</Text>
+              </Center>
+            </Card.Section>
+
+            {examplePrompts.map(eg => 
+              <Button variant="light" color="blue" fullWidth mt="lg" radius="md" key={eg} onClick={() => submitExample(eg)}>
+                {eg}
+              </Button>
+            )}
+
+            <Card.Section mt="lg" h={50}>
+              <Center><Text>Or craft your own query from the textbox blow</Text></Center>
+            </Card.Section>
+          </Card>
+        </div>
       </div>
 
       <div

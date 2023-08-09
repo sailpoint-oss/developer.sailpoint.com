@@ -40,7 +40,7 @@ delete:
     - $ref: "../parameters/path/id.yaml"
   responses:
     '200':
-      $ref: "../responses/info.yaml"
+      $ref: "../responses/Info.yaml"
     '400':
       $ref: "../responses/400.yaml"
     '500':

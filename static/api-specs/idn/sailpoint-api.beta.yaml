@@ -1159,7 +1159,7 @@ paths:
     $ref: './beta/paths/outliers.yaml'
   /outliers/{outlierId}/contributing-features:
     $ref: './beta/paths/outliers-contributing-features.yaml'
-  /outliers/{outlierId}/feature-details/{contributingFeatureId}/access-items:
+  /outliers/{outlierId}/feature-details/{contributingFeatureName}/access-items:
     $ref: './beta/paths/outliers-contributing-feature-access-items.yaml'
   /outliers/ignore:
     $ref: './beta/paths/outliers-ignore.yaml'

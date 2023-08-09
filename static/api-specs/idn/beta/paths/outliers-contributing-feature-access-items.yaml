@@ -20,12 +20,19 @@ get:
       description: The outlier id
       example: "2c918085842e69ae018432d22ccb212f"
     - in: path
-      name: contributingFeatureId
+      name: contributingFeatureName
       schema:
         type: string
+        enum:
+          - radical_entitlement_count
+          - entitlement_count
+          - max_jaccard_similarity
+          - mean_max_bundle_concurrency
+          - single_entitlement_bundle_count
+          - peerless_score
       required: true
-      description: The contributing feature id
-      example: "9f9d5d53ad0e48fba7352f6da9f1b80c"
+      description: The name of contributing feature
+      example: entitlement_count
     - in: query
       name: accessType
       required: false

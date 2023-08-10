@@ -46,6 +46,7 @@ jobs:
           npm run gen-api-docs-all
           npm run build
       - name: Deploy to GitHub Pages
+        id: deploy
         if: success()
         uses: crazy-max/ghaction-github-pages@v3
         with:
@@ -53,3 +54,10 @@ jobs:
           build_dir: build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Cloudflare Purge Cache
+        if: steps.deploy.outcome == 'success'
+        uses: jakejarvis/cloudflare-purge-action@v0.3.0
+        env:
+          CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE }}
+          CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
+          PURGE_URLS: ['https://developer.sailpoint.com']

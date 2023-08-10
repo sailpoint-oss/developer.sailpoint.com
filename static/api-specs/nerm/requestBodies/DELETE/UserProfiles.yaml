@@ -4,7 +4,7 @@ content:
     schema:
       type: object
       properties:
-        profiles:
+        user_profiles:
           type: array
           items:
             type: object

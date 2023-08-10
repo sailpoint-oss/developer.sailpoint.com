@@ -59,7 +59,7 @@ jobs:
         with:
           repository: sailpoint-oss/cloudflare-purge-action-hosts
           path: cloudflare-purge-action-hosts
-          ref: main
+          ref: master
       - name: Cloudflare Purge Cache
         if: steps.deploy.outcome == 'success'
         uses: ./cloudflare-purge-action-hosts/

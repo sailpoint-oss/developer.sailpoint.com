@@ -54,10 +54,16 @@ jobs:
           build_dir: build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Checkout custom cloudflare purge action
+        uses: actions/checkout@v2
+        with:
+          repository: sailpoint-oss/cloudflare-purge-action-hosts
+          path: cloudflare-purge-action-hosts
+          ref: main
       - name: Cloudflare Purge Cache
         if: steps.deploy.outcome == 'success'
-        uses: sailpoint-oss/cloudflare-purge-action-hosts
+        uses: ./cloudflare-purge-action-hosts/
         env:
           CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE }}
           CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
-          SUBDOMAINS: '["developer"]'
+          SUBDOMAINS: '["developer.sailpoint.com"]'

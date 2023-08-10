@@ -20,7 +20,7 @@ post:
     
     __GRANT_ACCESS__
     * Can be requested for multiple identities in a single request.
-    * Supports self request and request on behalf of other users, see '/beta/access-request-config' endpoint for request configuration options.  
+    * Supports self request and request on behalf of other users. Refer to the [Get Access Request Configuration](https://developer.sailpoint.com/idn/api/v3/get-access-request-config) endpoint for request configuration options.  
     * Allows any authenticated token (except API) to call this endpoint to request to grant access to themselves. Depending on the configuration, a user can request access for others.
     * Roles, Access Profiles and Entitlements can be requested.
     * While requesting entitlements, maximum of 25 entitlements and 10 recipients are allowed in a request.

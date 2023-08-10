@@ -81,7 +81,7 @@ properties:
     type: array
     items:
       type: string
-      example: ["displayName","+id"]
+      example: ["displayName", "+id"]
 
   searchAfter:
     description: >-

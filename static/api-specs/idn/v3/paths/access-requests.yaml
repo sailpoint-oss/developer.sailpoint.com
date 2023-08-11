@@ -31,7 +31,7 @@ post:
     * If removeDate is specified, then the access will be removed on that date and time only for Roles and Access Profiles. Entitlements are currently unsupported for removeDate.
     * Roles, Access Profiles, and Entitlements can be requested for revocation.
     * Revoke requests for entitlements are limited to 1 entitlement per access request currently.
-    * [Roles, Access Profiles] RemoveData can be specified only if access don't have a sunset date.
+    * [Roles, Access Profiles] removeDate can be specified if access don't have a sunset date or if a revoke access with a removeDate earlier than the current endDate.
     * Allows a manager to request to revoke access for direct employees. A token with ORG_ADMIN authority can also request to revoke access from anyone.
 
     NOTE: There is no indication to the approver in the IdentityNow UI that the approval request is for a revoke action. Take this into consideration when calling this API.

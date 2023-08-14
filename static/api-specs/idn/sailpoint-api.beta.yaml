@@ -1167,6 +1167,8 @@ paths:
     $ref: './beta/paths/outliers-unignore.yaml'
   /outliers/export:
     $ref: './beta/paths/outliers-export.yaml'
+  /outlier-feature-summaries/{outlierFeatureId}:
+    $ref: './beta/paths/outlier-feature-summaries.yaml'
   /password-dictionary:
     $ref: './v3/paths/password-dictionary.yaml'
   /query-password-info:

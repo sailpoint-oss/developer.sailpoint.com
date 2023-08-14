@@ -1,5 +1,9 @@
 type: object
 properties:
+  id:
+    type: string
+    description: Contributing feature id
+    example: '66e38828-5017-47af-92ff-9844871352c5'
   name:
     type: string
     description: The name of the feature

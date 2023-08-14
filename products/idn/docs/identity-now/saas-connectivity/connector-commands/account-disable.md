@@ -50,9 +50,9 @@ tags: ['Connectivity', 'Connector Command']
 
 ## Description
 
-You typically invoke the account disable command during the joiner, mover, leaver (JML) lifecycle. An identity’s leaving from the organization or change to a role that does not require access to one or more accounts triggers the account disable command.
+You typically invoke the `account disable` command during the joiner, mover, leaver (JML) lifecycle. An identity’s leaving from the organization or change to a role that does not require access to one or more accounts triggers the account disable command.
 
-Disabling accounts is generally preferred if the source supports account disabling so the account data remains for later reactivation or inspection. If the source does not support account disabling or deleting accounts is preferred when an identity leaves the organization, the connector performs the necessary steps to delete an account with the account disable function.
+Disabling accounts is generally preferred if the source supports account disabling so the account data remains for later reactivation or inspection. If the source does not support account disabling, or deleting accounts is preferred when an identity leaves the organization, the connector can perform the necessary steps to delete an account with the account disable function.
 
 > 🚧 It is important to note that although SaaS Connectivity supports the account delete command, IDN never sends the account delete command, only the account disable command. The connector’s developer determines the appropriate action for account disable on the source.
 

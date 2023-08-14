@@ -50,9 +50,9 @@ tags: ['Connectivity', 'Connector Command']
 
 ## Description
 
-You typically invoke the account enable command during the joiner, mover, leaver (JML) lifecycle. An identity’s rejoining the organization or move to a role that grants access to a previously disabled account triggers the account enable command.
+You typically invoke the `account enable` command during the joiner, mover, leaver (JML) lifecycle. An identity’s rejoining the organization or move to a role that grants access to a previously disabled account triggers the account enable command.
 
-Account enable is similar to implementing the account update command. If you have implemented your source call to modify any of the values on your source, then you can use the same method to implement the command. The following code implements enable:
+Implementing `account enable` is similar to implementing the `account update` command. If you have implemented your source call to modify any of the values on your source, then you can use the same method to implement the command. The following code implements enable:
 
 ```javascript
 

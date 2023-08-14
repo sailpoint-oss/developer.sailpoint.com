@@ -11,7 +11,9 @@ slug: /docs/saas-connectivity/in-depth/connector-timeouts
 tags: ['Connectivity']
 ---
 
-An IdentityNow SaaS Connectivity connector will send a timeout error if it doesn't send a response within 3 minutes. If the connector is sending thousands of records, the record fetching process will likely exceed this timeout limit. If you are storing all those records in memory before sending them to IDN, you can run into memory utilization issues. To prevent these issues, you should paginate through your source data and send the data back in regular intervals. 
+An IdentityNow SaaS Connectivity connector will send a timeout error if it doesn't send a response within 3 minutes. If the connector is sending thousands of records, the record fetching process will likely exceed this timeout limit. If you are storing all those records in memory before sending them to IDN, you can run into memory utilization issues. To prevent these issues, you should paginate through your source data and send the data back in regular intervals.
+
+In the case of a long running API call to the source system, you can also optionally send `res.keepAlive()` to keep the connection to IdentityNow open without having to send any data to IdentityNow. If `res.keepAlive()` or `res.send()` is not called within 3 minutes, a connector timeout will occur.
 
 This is an example of how to set up this pagination: 
 

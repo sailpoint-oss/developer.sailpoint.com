@@ -1,12 +1,13 @@
 post:
-  operationId: refreshIdentityProfile
+  operationId: syncIdentityProfile
   tags:
     - Identity Profiles
-  summary: Refreshes all identities under profile
+  summary: Process identities under profile
   description: >-
-    This refreshes all identities under the profile
+    Process identities under the profile
 
-    A token with ORG_ADMIN authority is required to call this API to refresh identities under this Identity Profile.
+
+    A token with ORG_ADMIN authority is required to call this API.
   parameters:
     - in: path
       name: identity-profile-id
@@ -14,11 +15,11 @@ post:
         type: string
         format: uuid
       required: true
-      description: The Identity Profile ID to be refreshed
+      description: The Identity Profile ID to be processed
       example: ef38f94347e94562b5bb8424a56397d8
   responses:
     '202':
-      description: Accepted status after all refreshes have launched
+      description: Accepted status after refresh has launched
       $ref: '../../v3/responses/202.yaml'
     '400':
       $ref: '../../v3/responses/400.yaml'
@@ -33,6 +34,6 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:identity-profile:manage]
+    - oauth2: [idn:identity-profile:refresh]
 
 

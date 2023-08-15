@@ -1077,8 +1077,8 @@ paths:
     $ref: './beta/paths/identity-profile.yaml'
   /identity-profiles/{identity-profile-id}/default-identity-attribute-config:
     $ref: './beta/paths/identity-profile-default-config.yaml'
-  /identity-profiles/{identity-profile-id}/refresh-identities:
-    $ref: './beta/paths/identity-profile-refresh-identities.yaml'
+  /identity-profiles/{identity-profile-id}/process-identities:
+    $ref: './beta/paths/identity-profile-process-identities.yaml'
   /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}:
     $ref: './beta/paths/identity-profile-lifecycle-state.yaml'
   /non-employee-records:

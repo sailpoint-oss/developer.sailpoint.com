@@ -829,6 +829,8 @@ paths:
     $ref: "./v3/paths/identity-profile.yaml"
   /identity-profiles/{identity-profile-id}/default-identity-attribute-config:
     $ref: "./v3/paths/identity-profile-default-config.yaml"
+  /identity-profiles/{identity-profile-id}/process-identities:
+    $ref: "./v3/paths/identity-profile-process-identities.yaml"
   /non-employee-records:
     $ref: "./v3/paths/non-employee-records.yaml"
   /non-employee-records/{id}:

@@ -13,7 +13,7 @@ tags: ['Rules']
 
 ## Overview
 
-The IdentityNow (IDN) Rule Validator is a simple tool you can use to validate IDN rules for malformed or incorrect code fragments and help make sure they conform to the SailPoint [IdentityNow Rule Guide](/idn/docs/rules#rule-guidelines) before rule submission. While this does check code fragments, it is not a code parser or linter - it does not check the code for syntax or completeness. This isn't designed to replace any sort of unit testing you might do outside IDN. Running the IDN Rule Validator against your rules before submission helps you find problems early on. It is designed to help catch common items that often trip up rule reviews and provide immediate feedback during the rule writing process. However this is not a guarantee that the rule will be approved or that they won't have any other falws. 
+The IdentityNow (IDN) Rule Validator is a simple tool you can use to validate IDN rules for malformed or incorrect code fragments and help make sure they conform to the SailPoint [IdentityNow Rule Guide](/idn/docs/rules#rule-guidelines) before rule submission. Included is a BeanShell Linter that will take over much of the validation role of rules. It will validate syntax of the BeanShell code and object usage. This isn't designed to replace any sort of unit testing you might do outside IDN. Running the IDN Rule Validator against your rules before submission helps you find problems early on. It is designed to help catch common items that often trip up rule reviews and provide immediate feedback during the rule writing process. However this is not a guarantee that the rule will be approved or that they won't have any other flaws.
 
 ## Changelog
 
@@ -178,4 +178,4 @@ ________________________________________________________________________________
 
 ## Resources
 
-<a target="\_blank" href={require('/static/sailpoint-saas-rule-validator-3.0.26.zip').default}> Identity Now Rule Validator </a>
+<a target="\_blank" href={require('/static/sailpoint-saas-rule-validator-3.0.28.zip').default}> Identity Now Rule Validator </a>

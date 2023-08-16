@@ -263,7 +263,7 @@ The redirect URLs must also match the list in the client as well:
 
 <br></br>
 
-The authorization code grant flow looks a little different because it involves the exchange of the access token and authorization code. 
+The authorization code grant flow looks a little different because it ves the exchange of the access token and authorization code. 
 
 This diagram shows the authorization code grant flow: 
 

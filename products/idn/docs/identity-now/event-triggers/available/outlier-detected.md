@@ -37,10 +37,14 @@ This is an example input from this trigger:
 Before consuming this event trigger, the following prerequesites must be met:
 
 - Your organization must have Access Insights to access Identity Outliers.
-- Your organization must have Certifications to launch certification campaigns from Identity Outliers.
 - Your organization must have configured a source and loaded account data.
 - Your organization’s account data must be onboarded into AI-Driven Identity Security.
 
+:::caution Important
+
+If you don't meet the prerequisites and you subscribe to this event trigger, you will not receive any events.  The prerequisites must be met in order to receive events.
+
+:::
 
 ## Additional Information and Links
 

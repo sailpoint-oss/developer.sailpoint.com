@@ -3,7 +3,6 @@ get:
   tags:
     - Certification Campaigns
   summary: Get Campaign Reports
-  deprecated: true
   description: >- 
     Fetches all reports for a certification campaign by campaign ID.
 
@@ -12,7 +11,7 @@ get:
     - oauth2: [idn:campaign-report:read]
   parameters:
     - in: path
-      name: id
+      name: campaignId
       schema:
         type: string
         example: 2c91808571bcfcf80171c23e4b4221fc

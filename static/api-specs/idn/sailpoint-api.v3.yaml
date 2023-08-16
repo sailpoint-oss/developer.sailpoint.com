@@ -1021,6 +1021,8 @@ paths:
     $ref: "./v3/paths/work-items-bulk-reject-approval-item.yaml"
   /work-items/{id}/submit-account-selection:
     $ref: "./v3/paths/work-items-account-selection.yaml"
+  /campaigns/{id}/reports:
+    $ref: './v3/paths/campaign-reports.yaml'
 
 security:
   - oauth2: []

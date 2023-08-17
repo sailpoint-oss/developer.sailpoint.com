@@ -51,6 +51,7 @@ patch:
     - Certification Campaigns
   summary: Update a Campaign
   description: Allows updating individual fields on a campaign using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+  deprecated: true
   security:
     - oauth2: [idn:campaign:update,idn:campaign:read]
   parameters:

@@ -133,4 +133,4 @@ components:
     BearerAuth:
       type: http
       scheme: bearer
-      bearerFormat: Token token=<your token>
+      bearerFormat: Token token={your token}

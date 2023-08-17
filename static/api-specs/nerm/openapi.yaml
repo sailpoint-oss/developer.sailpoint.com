@@ -5,6 +5,13 @@ info:
   description: The Lifecycle API can be used to access and modify various resources in your environment.
   license:
     name: MIT
+
+servers:
+  - url: https://{tenantName}.nonemployee.com/api
+    variables:
+      tenantName:
+        description: Tenant name assigned to customer
+
 paths:
 # Users
   /user:
@@ -117,3 +124,13 @@ paths:
 # Jobs
   /job_status:
     $ref: "./paths/job_status.yaml"
+
+security:
+  BearerAuth: []
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: Token token=<your token>

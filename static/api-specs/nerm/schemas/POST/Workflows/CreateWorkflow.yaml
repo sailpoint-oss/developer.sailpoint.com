@@ -1,0 +1,24 @@
+type: object
+properties:
+  profile_type_id:
+    type: string
+    format: uuid
+    required: true
+    description: The profile type the workflow effects.
+    example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+  status:
+    type: string
+    enum: [Enabled, Disabled]
+    required: true
+    description: Whether or not the workflow is enabled or disabled.
+    example: Enabled
+  uid:
+    type: string
+    required: true
+    description: The uid of the workflow.
+    example: my_uid
+  name:
+    type: string
+    required: true
+    description: Name of the workflow
+    example: my_workflow

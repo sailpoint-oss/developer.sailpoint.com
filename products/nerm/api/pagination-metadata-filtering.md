@@ -136,6 +136,7 @@ Example:
   }
 }
 ```
+
 ### ProfileTypeRule
 
 This rule searches for profiles based on the id of the profile type.

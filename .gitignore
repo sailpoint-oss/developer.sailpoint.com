@@ -25,7 +25,7 @@ yarn-error.log*
 /products/iiq/api
 /products/nerm/api
 
-#Allow markdown for static views
+# Allow markdown for static views
 !/products/arm/api/*.md
 !/products/idn/api/v3/*.md
 !/products/idn/api/beta/*.md

@@ -11,6 +11,13 @@ coverage
 /products/idn/api/beta
 /products/iiq/api
 
+# Allow markdown for static views
+!/products/arm/api/*.md
+!/products/idn/api/v3/*.md
+!/products/idn/api/beta/*.md
+!/products/iiq/api/*.md
+!/products/nerm/api/*.md
+
 # Logs
 *.log*
 

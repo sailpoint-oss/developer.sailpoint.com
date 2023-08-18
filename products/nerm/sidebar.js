@@ -14,6 +14,10 @@ const sidebars = {
             id: 'api/authentication'
           },
           {
+            type: 'doc',
+            id: 'api/pagination-metadata-filtering'
+          },
+          {
             type: 'category',
             label: 'NERM v1 API',
             link: {

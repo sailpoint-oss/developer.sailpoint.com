@@ -126,11 +126,11 @@ paths:
     $ref: "./paths/job_status.yaml"
 
 security:
-  BearerAuth: []
+  - bearerAuth: []
 
 components:
   securitySchemes:
-    BearerAuth:
+    bearerAuth:
       type: http
       scheme: bearer
       bearerFormat: Token token=your token

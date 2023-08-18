@@ -64,8 +64,6 @@ Example:
 
 ## Advanced Profile Filtering
 
-More advanced filtering can be performed on **profiles** by using the [Advanced Search Endpoint]().
-
 For example, if you wanted to find all profiles where the **personal_first_name** started with the letter "a", you would first need to find the **id** of the **personal_first_name** attribute, and provide a JSON body like so:
 
 ```
@@ -113,13 +111,6 @@ There are 3 types of **condition_rules_attributes**
 
 This rule searches for profiles based on the status.
 
-| Key | Type | Description |
-|----------|------|-----------------------|
-| id | string | If you are updating an existing rule, include the ID of that rule, if you do not include an ID it will create a new condition rule |
-| type | string <span class="required">required</span> | The value must be 'ProfileStatusRule' |
-| comparison_operator | string <span class="required">required</span> | This is how the comparison is made for the attribute values. </br>Available basic operators: <ul><li>== (equals)</li><li>!= (not equal)</li></ul> |
-| value | string <span class="required">required</span> | This is the value used for comparison. </br>Available Values: <ul><li>Active</li><li>Inactive</li><li>Leave of absence</li><li>Terminated</li></ul> |
-| _destroy | boolean | Supplying this option with "true" will cause the condition to be destroyed |
 
 Example:
 
@@ -141,13 +132,6 @@ Example:
 
 This rule searches for profiles based on the id of the profile type.
 
-| Key | Type | Description |
-|----------|------|-----------------------|
-| id | string | If you are updating an existing rule, include the ID of that rule, if you do not include an ID it will create a new condition rule |
-| type | string **required** | The value must be 'ProfileTypeRule' |
-| comparison_operator | string **required** | This is how the comparison is made for the attribute values. Available basic operators: <ul><li>== (equals)</li><li>!= (not equal)</li></ul> |
-| value | string **required** | This is the value used for comparison. This should be the ID of the profile type |
-| _destroy | boolean | Supplying this option with "true" will cause the condition to be destroyed |
 
 Example:
 
@@ -169,15 +153,6 @@ Example:
 
 This rule searches for profiles based on an attribute that profile has.
 
-| Key | Type | Description |
-|----------|------|-----------------------|
-| id | string | If you are updating an existing rule, include the ID of that rule, if you do not include an ID it will create a new condition rule |
-| type | string **required** | The value must be 'ProfileAttributeRule' |
-| object_type | string **required** | The values must equal 'NeAttribute' |
-| condition_object_id | string **required** | this is the id of the attribute you are searching against |
-| comparison_operator | string **required** | This is how the comparison is made for the attribute values. </br>Available basic operators: <ul><li>== (equals)</li><li>!= (not equal)</li><li>> (greater than)</li><li>< (less than)</li><li>start_with? (starts with)</li><li>end_with? (ends with)</li><li>include? (includes)</li></ul>Available date operators: <ul><li>before (before specific date)</li><li>after (after specific date)</li><li>> (more than X days before/after today)</li><li>< (less than X days before/after today)</li><li>== (equal to X days before/after today)</li></ul> |
-| value | string **required** | This is the value used for comparison. </br>Value formatting: <ul><li>profile select attribute: ID of profile</li><li>profile search attribute: ID of profile</li><li>user select attribute: ID of user</li><li>user search attribute: ID of user</li><li>date attribute (before, after): correct date format for attribute</li><li>date attribute (>, <, ==): "X before" or "X after" where X is the number of days</li></ul> |
-| _destroy | boolean | Supplying this option with "true" will cause the condition to be destroyed |
 
 Example:
 

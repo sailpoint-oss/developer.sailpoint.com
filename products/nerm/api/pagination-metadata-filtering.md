@@ -11,7 +11,7 @@ slug: /api/pagination-metadata-filtering
 tags: ['Pagination Metadata Filtering']
 ---
 
-Many endpoints in the IdentityNow API support a generic syntax for paginating, filtering, and sorting results. A collection endpoint has the following characteristics:
+Many endpoints in the NERM API support a generic syntax for paginating, filtering, and sorting results. A collection endpoint has the following characteristics:
 
 - The HTTP verb is always GET.
 - The last component in the URL is a plural noun (ex. `/users`).
@@ -23,15 +23,15 @@ Use the following optional query parameters to achieve pagination:
 
 | Parameter | Description | Default | Constraints |
 | --- | --- | --- | --- |
-| `query[limit]` | Integer specifying the maximum number of records to return in a single API call. If it is not specified, a default limit is used. | `100` | Maxiumum of 500 for `api/profiles` |
-| `query[offset]` | Integer specifying the offset of the first result from the beginning of the collection. The **query[offset]** value is record-based, not page-based, and the index starts at 0. For example, **offset=0** and **limit=20** returns records 0-19, but **offset=1** and **limit=20** returns records 1-20. | `0` | Between 0 and the last record index. |
-| `query[order]` | String specifying the ascending order in which the results should be returned, for example, **query[order]=login** would return the users results in an ascending alphanumeric order| - | Limited to specific parameters |
+| `limit` | Integer specifying the maximum number of records to return in a single API call. If it is not specified, a default limit is used. | `100` | Maxiumum of 500 for `api/profiles` |
+| `offset` | Integer specifying the offset of the first result from the beginning of the collection. The **offset** value is record-based, not page-based, and the index starts at 0. For example, **offset=0** and **limit=20** returns records 0-19, but **offset=1** and **limit=20** returns records 1-20. | `0` | Between 0 and the last record index. |
+| `order` | String specifying the ascending order in which the results should be returned, for example, **order=login** would return the users results in an ascending alphanumeric order| - | Limited to specific parameters |
 
 Examples:
 
-- GET `/api/users?query[limit]=2`
-- GET `/api/users?query[limit]=20&query[offset]=4`
-- GET `/api/users?query[order]=created_at`
+- GET `/api/users?limit=2`
+- GET `/api/users?limit=20&offset=4`
+- GET `/api/users?order=created_at`
 
 ## Metadata
 
@@ -51,7 +51,7 @@ Example:
     "limit": 100,
     "offset": 200,
     "total": 500,
-    "next": "api/users?query[offset]=300&query[limit]=100
+    "next": "api/users?offset=300&limit=100
   }
 }
 ```

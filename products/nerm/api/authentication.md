@@ -17,6 +17,6 @@ NERM uses bearer tokens to allow customers to authenticate to NERM API endpoints
 
 ## Example
 
-To use your bearer token simply provide it in the header with the request like so: `Authorization: Token token=<token>`
+To use your bearer token simply provide it in the header with the request like so: `Authorization: Bearer <token>`
 
 

@@ -104,20 +104,20 @@ paths:
   /role_profile/{id}:
     $ref: "./paths/role_profile_id.yaml"
 # Workflows
-  /workflows/create_workflow:
-    $ref: "./paths/workflows/create_workflows.yaml"
-  /workflows/update_workflow:
-    $ref: "./paths/workflows/update_workflows.yaml"
-  /workflows/batch_workflow:
-    $ref: "./paths/workflows/batch_workflows.yaml"
-  /workflows/automated_workflow:
-    $ref: "./paths/workflows/automated_workflows.yaml"
-  /workflows/registration_workflow:
-    $ref: "./paths/workflows/registration_workflows.yaml"
-  /workflows/login_workflow:
-    $ref: "./paths/workflows/login_workflows.yaml"
-  /workflows/password_reset_workflow:
-    $ref: "./paths/workflows/password_reset_workflows.yaml"
+  /workflows/create_workflows:
+    $ref: "./paths/workflows/create_workflow.yaml"
+  /workflows/update_workflows:
+    $ref: "./paths/workflows/update_workflow.yaml"
+  /workflows/batch_workflows:
+    $ref: "./paths/workflows/batch_workflow.yaml"
+  /workflows/automated_workflows:
+    $ref: "./paths/workflows/automated_workflow.yaml"
+  /workflows/registration_workflows:
+    $ref: "./paths/workflows/registration_workflow.yaml"
+  /workflows/login_workflows:
+    $ref: "./paths/workflows/login_workflow.yaml"
+  /workflows/password_reset_workflows:
+    $ref: "./paths/workflows/password_reset_workflow.yaml"
 # Workflow Sessions
   /workflow_sessions:
     $ref: "./paths/workflow_sessions.yaml"

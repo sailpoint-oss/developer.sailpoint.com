@@ -274,17 +274,31 @@ This example uses the [Patch Source](https://developer.sailpoint.com/idn/api/v3/
  [
   {
     "op": "remove", 
-    "path": "/connectorAttributes/filterString", 
-    "value": "!( id.contains( \"m\" ) )"
+    "path": "/connectorAttributes/filterString" 
   }
  ] 
  ```
 
- In this example, the PATCH request is removing a value that contains a filter string that excludes all connector IDs that have the letter "m" in them. 
+ In this example, the PATCH request is removing a connector's string filter. If there is no string filter to remove, the request will fail and you will receive an error. 
 
- The request will only remove a filter string matching the one specified, so any other filter strings or connector attributes will be unaffected. 
- 
- If there is no value matching the filter string specified by the PATCH request, the request will fail and you will receive an error. 
+ Because there is only one value for the path, the request removes that value. 
+
+ If there is an array of values, you must specify the position within the array to remove that value. 
+
+This example uses the [Patch Source](https://developer.sailpoint.com/idn/api/v3/update-source) endpoint to remove the first feature from a source's list of features. 
+
+The source has three features, "ENABLE", "PROVISIONING", AND "UNLOCK". 
+
+This request will remove the the first value from the list, "ENABLE". 
+
+```json
+[
+  {
+    "op": "remove", 
+    "path": "/features/0"
+  }
+] 
+```
 
 ### Replace 
 
@@ -307,6 +321,20 @@ This example uses the [Patch Source](https://developer.sailpoint.com/idn/api/v3/
   }
 ] 
 ```
+
+You can also replace a value within an array. This example uses the [Patch Source](https://developer.sailpoint.com/idn/api/v3/update-source) endpoint to replace the first value in the array with the specified value: 
+
+```json
+[
+  {
+    "op": "replace",
+    "path": "/features/0",
+    "value": "CURRENT_PASSWORD"
+  }
+]
+```
+
+This request removes the first feature ("PASSWORD") in the list and adds the "CURRENT_PASSWORD" value in its place. 
 
 ### Move
 

@@ -821,6 +821,8 @@ paths:
     $ref: "./v3/paths/identity-profile-lifecycle-state.yaml"
   /identity-profiles:
     $ref: "./v3/paths/identity-profiles.yaml"
+  /identity-profiles/bulk-delete:
+    $ref: './v3/paths/identity-profiles-bulk-delete.yaml'
   /identity-profiles/export:
     $ref: "./v3/paths/identity-profiles-export.yaml"
   /identity-profiles/import:

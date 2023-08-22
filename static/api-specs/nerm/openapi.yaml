@@ -1,8 +1,8 @@
 openapi: "3.0.0"
 info:
   version: 1.0.0
-  title: SecZetta Lifecycle API
-  description: The Lifecycle API can be used to access and modify various resources in your environment.
+  title: NERM API
+  description: The NERM API can be used to access and modify various resources in your environment.
   license:
     name: MIT
 

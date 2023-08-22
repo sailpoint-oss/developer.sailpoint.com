@@ -16,6 +16,7 @@ properties:
     format: int32
   saved:
     type: boolean
+    default: true
     description: The session's saved status
     example: true
   scope:
@@ -38,3 +39,9 @@ properties:
   type:
     $ref: './iai/RoleMiningRoleType.yaml'
     description: Role mining potential type
+  state:
+    $ref: './RoleMiningSessionStatus.yaml'
+    description: Role mining session state
+  scopingMethod:
+    $ref: './RoleMiningSessionScopingMethod.yaml'
+    description: Scoping method used in current role mining session

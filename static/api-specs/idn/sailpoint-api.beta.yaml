@@ -1261,6 +1261,8 @@ paths:
     $ref: './beta/paths/role-mining-potential-role-provision.yaml'
   /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/excluded-entitlements:
     $ref: './beta/paths/role-mining-potential-role-excluded-entitlements.yaml'
+  /role-mining-sessions/{sessionId}/potential-roles/draft-roles:
+    $ref: './beta/paths/role-mining-session-draft-roles.yaml'
   /roles:
     $ref: './beta/paths/roles.yaml'
   /roles/{id}:

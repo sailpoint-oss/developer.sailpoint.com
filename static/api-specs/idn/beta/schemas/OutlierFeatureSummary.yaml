@@ -21,6 +21,13 @@ properties:
           type: string
           example: 55
           description: value
+        valueType:
+          type: string
+          enum:
+            - INTEGER
+            - FLOAT
+          description: The data type of the value field
+          example: INTEGER
   featureDefinition:
     type: string
     description: Definition of the feature

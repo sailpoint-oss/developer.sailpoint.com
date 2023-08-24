@@ -118,6 +118,63 @@ paths:
     $ref: "./paths/workflows/login_workflow.yaml"
   /workflows/password_reset_workflows:
     $ref: "./paths/workflows/password_reset_workflow.yaml"
+# Workflow Actions
+  /workflow_actions/approval_actions:
+    $ref: "./paths/workflow_actions/approval_action.yaml"
+  /workflow_actions/ask_security_question_actions:
+    $ref: "./paths/workflow_actions/ask_security_question_action.yaml"
+  /workflow_actions/auto_assign_actions:
+    $ref: "./paths/workflow_actions/auto_assign_action.yaml"
+  /workflow_actions/batch_update_actions:
+    $ref: "./paths/workflow_actions/batch_update_action.yaml"
+  /workflow_actions/close_session_actions:
+    $ref: "./paths/workflow_actions/close_session_action.yaml"
+  /workflow_actions/contributors_actions:
+    $ref: "./paths/workflow_actions/contributors_action.yaml"
+  /workflow_actions/create_profile_actions:
+    $ref: "./paths/workflow_actions/create_profile_action.yaml"
+  /workflow_actions/duplicate_prevention_actions:
+    $ref: "./paths/workflow_actions/duplicate_prevention_action.yaml"
+  /workflow_actions/email_verification_actions:
+    $ref: "./paths/workflow_actions/email_verification_action.yaml"
+  /workflow_actions/fulfillment_actions:
+    $ref: "./paths/workflow_actions/fulfillment_action.yaml"
+  /workflow_actions/identity_proofing_actions:
+    $ref: "./paths/workflow_actions/identity_proofing_action.yaml"
+  /workflow_actions/invitation_actions:
+    $ref: "./paths/workflow_actions/invitation_action.yaml"
+  /workflow_actions/ldap_actions:
+    $ref: "./paths/workflow_actions/ldap_action.yaml"
+  /workflow_actions/notification_actions:
+    $ref: "./paths/workflow_actions/notification_action.yaml"
+  /workflow_actions/password_reset_actions:
+    $ref: "./paths/workflow_actions/password_reset_action.yaml"
+  /workflow_actions/profile_check_actions:
+    $ref: "./paths/workflow_actions/profile_check_action.yaml"
+  /workflow_actions/profile_select_actions:
+    $ref: "./paths/workflow_actions/profile_select_action.yaml"
+  /workflow_actions/request_actions:
+    $ref: "./paths/workflow_actions/request_action.yaml"
+  /workflow_actions/rest_api_actions:
+    $ref: "./paths/workflow_actions/rest_api_action.yaml"
+  /workflow_actions/review_actions:
+    $ref: "./paths/workflow_actions/review_action.yaml"
+  /workflow_actions/run_workflow_actions:
+    $ref: "./paths/workflow_actions/run_workflow_action.yaml"
+  /workflow_actions/set_attributes_actions:
+    $ref: "./paths/workflow_actions/set_attributes_action.yaml"
+  /workflow_actions/set_security_question_actions:
+    $ref: "./paths/workflow_actions/set_security_question_action.yaml"
+  /workflow_actions/soap_api_actions:
+    $ref: "./paths/workflow_actions/soap_api_action.yaml"
+  /workflow_actions/status_change_actions:
+    $ref: "./paths/workflow_actions/status_change_action.yaml"
+  /workflow_actions/unassign_actions:
+    $ref: "./paths/workflow_actions/unassign_action.yaml"
+  /workflow_actions/update_profile_actions:
+    $ref: "./paths/workflow_actions/update_profile_action.yaml"
+  /workflow_actions/username_password_actions:
+    $ref: "./paths/workflow_actions/username_password_action.yaml"
 # Workflow Sessions
   /workflow_sessions:
     $ref: "./paths/workflow_sessions.yaml"

@@ -1,0 +1,15 @@
+post:
+  summary: Create an identity proofing action
+  operationId: createIdentityProofingAction
+  description: Create an identity proofing action. Coordinates with identity_proofing_action_configuration for configuration. Coordinates with identity_proofing_action_mappings for mapping.
+  tags:
+    - workflow actions
+  requestBody:
+    $ref: "../../requestBodies/POST/WorkflowActions/IdentityProofingAction.yaml"
+  responses:
+    '200':
+      $ref: "../../responses/WorkflowAction.yaml"
+    '400':
+      $ref: "../../responses/400.yaml"
+    '500':
+      $ref: "../../responses/500.yaml"

@@ -1,0 +1,15 @@
+post:
+  summary: Create an invitation action
+  operationId: createInvitationAction
+  description: Create an invitation action. Coordinate with workflow_action_pause_action if action is to wait for completion.
+  tags:
+    - workflow actions
+  requestBody:
+    $ref: "../../requestBodies/POST/WorkflowActions/InvitationAction.yaml"
+  responses:
+    '200':
+      $ref: "../../responses/WorkflowAction.yaml"
+    '400':
+      $ref: "../../responses/400.yaml"
+    '500':
+      $ref: "../../responses/500.yaml"

@@ -1,0 +1,15 @@
+post:
+  summary: Create an update profile action
+  operationId: createUpdateProfileAction
+  description: Create an update profile action
+  tags:
+    - workflow actions
+  requestBody:
+    $ref: "../../requestBodies/POST/WorkflowActions/UpdateProfileAction.yaml"
+  responses:
+    '200':
+      $ref: "../../responses/WorkflowAction.yaml"
+    '400':
+      $ref: "../../responses/400.yaml"
+    '500':
+      $ref: "../../responses/500.yaml"

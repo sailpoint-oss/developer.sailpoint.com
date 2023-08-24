@@ -1,0 +1,15 @@
+post:
+  summary: Create a run workflow action
+  operationId: createRunWorkflowAction
+  description: Create a run workflow action. Coordinate with configuration_profile_attribute.
+  tags:
+    - workflow actions
+  requestBody:
+    $ref: "../../requestBodies/POST/WorkflowActions/RunWorkflowAction.yaml"
+  responses:
+    '200':
+      $ref: "../../responses/WorkflowAction.yaml"
+    '400':
+      $ref: "../../responses/400.yaml"
+    '500':
+      $ref: "../../responses/500.yaml"

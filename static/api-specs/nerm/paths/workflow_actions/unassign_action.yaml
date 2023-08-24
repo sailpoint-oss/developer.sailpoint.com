@@ -1,0 +1,15 @@
+post:
+  summary: Create an unassign action
+  operationId: createUnassignAction
+  description: Create an unassign action. Coordinate with workflow_action_roles to assign roles.
+  tags:
+    - workflow actions
+  requestBody:
+    $ref: "../../requestBodies/POST/WorkflowActions/UnassignAction.yaml"
+  responses:
+    '200':
+      $ref: "../../responses/WorkflowAction.yaml"
+    '400':
+      $ref: "../../responses/400.yaml"
+    '500':
+      $ref: "../../responses/500.yaml"

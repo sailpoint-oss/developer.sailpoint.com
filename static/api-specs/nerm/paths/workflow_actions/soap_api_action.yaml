@@ -1,0 +1,15 @@
+post:
+  summary: Create a SOAP API action
+  operationId: createSoapApiAction
+  description: Create a SOAP API action. Coordinates with soap_api_action_configuration for configuration. Coordinates with api_configuration_attributes.
+  tags:
+    - workflow actions
+  requestBody:
+    $ref: "../../requestBodies/POST/WorkflowActions/SoapApiAction.yaml"
+  responses:
+    '200':
+      $ref: "../../responses/WorkflowAction.yaml"
+    '400':
+      $ref: "../../responses/400.yaml"
+    '500':
+      $ref: "../../responses/500.yaml"

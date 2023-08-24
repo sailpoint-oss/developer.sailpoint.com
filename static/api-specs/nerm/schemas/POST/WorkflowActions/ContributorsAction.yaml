@@ -1,0 +1,36 @@
+type: object
+properties:
+  workflow_id:
+    type: string
+    format: uuid
+    required: true
+    description: The workflow the workflow action belongs to.
+    example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+  description:
+    type: string
+    required: true
+    description: The description of the workflow action.
+    example: Have the requester determine the contributors or owner of the profile.
+  owner:
+    type: string
+    required: false
+    enum: [true, false]
+    description: If the assignment option should be an owner.  Owner, Contributors, or Roles must be chosen.
+    example: "true"
+  contributors:
+    type: string
+    required: false
+    enum: [true, false]
+    description: If the assignment option should be contributors. Owner, Contributors, or Roles must be chosen.
+    example: "true"
+  roles:
+    type: string
+    required: false
+    enum: [true, false]
+    description: If the assignment option should be roles. Owner, Contributors, or Roles must be chosen.
+    example: "true"
+  archived:
+    type: boolean
+    default: false
+    description: If the workflow action is archived or not.
+    example: false

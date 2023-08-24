@@ -1,0 +1,15 @@
+post:
+  summary: Create a contributors action
+  operationId: createContributorsAction
+  description: Create a contributors action. Coordinate with workflow_action_performers to set up performers. Coordinate with workflow_action_roles to set up performers by role. Coordinate with workflow_action_performer_notification_email for performer email config.
+  tags:
+    - workflow actions
+  requestBody:
+    $ref: "../../requestBodies/POST/WorkflowActions/ContributorsAction.yaml"
+  responses:
+    '200':
+      $ref: "../../responses/WorkflowAction.yaml"
+    '400':
+      $ref: "../../responses/400.yaml"
+    '500':
+      $ref: "../../responses/500.yaml"

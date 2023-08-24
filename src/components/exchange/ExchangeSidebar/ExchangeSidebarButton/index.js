@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './styles.module.css';
 
 
-export default function MarketplaceSidebarButton({
+export default function ExchangeSidebarButton({
     filterCallback,
     text,
     id,
@@ -32,7 +32,7 @@ export default function MarketplaceSidebarButton({
   function setFilters(e, id) {
     if (isCategory) {
       if (category === id) {
-        filterCallback({"category": "marketplace"})
+        filterCallback({"category": "exchange"})
         setIsActive(false)
       } else {
         filterCallback({"category": id})

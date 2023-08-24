@@ -70,8 +70,8 @@ export async function getBlogPosts(tags) {
   }
 }
 
-export async function getMarketplacePosts(tags, category) {
-  let filterCategory = 'marketplace'
+export async function getExchangePosts(tags, category) {
+  let filterCategory = 'exchange'
   if (category) {
     filterCategory = category
   }
@@ -102,7 +102,7 @@ export async function getTopic(id) {
   }
 }
 
-export async function getMarketplaceTopic(id) {
+export async function getExchangeTopic(id) {
   try {
     const response = await fetch(
       discourseBaseURL() + 't/' + id + '.json',
@@ -113,7 +113,7 @@ export async function getMarketplaceTopic(id) {
   }
 }
 
-export async function getMarketplaceTopicRaw(id) {
+export async function getExchangeTopicRaw(id) {
   try {
     const response = await fetch(
       discourseBaseURL() + 'raw/' + id + '.json',

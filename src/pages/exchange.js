@@ -3,14 +3,14 @@ import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-import MarketplaceBanner from '../components/marketplace/MarketplaceBanner';
+import ExchangeBanner from '../components/exchange/ExchangeBanner';
 
-import styles from './marketplace.module.css';
-import MarketplaceCards from '../components/marketplace/MarketplaceCards';
-import MarketplaceSidebar from '../components/marketplace/MarketplaceSidebar';
+import styles from './exchange.module.css';
+import ExchangeCards from '../components/exchange/ExchangeCards';
+import ExchangeSidebar from '../components/exchange/ExchangeSidebar';
 
-export default function Marketplace() {
-  const [filteredProduct, setFilteredProduct] = React.useState({"category": "marketplace", "tags": []});
+export default function Exchange() {
+  const [filteredProduct, setFilteredProduct] = React.useState({"category": "exchange", "tags": []});
 
   const {siteConfig} = useDocusaurusContext();
 
@@ -37,10 +37,10 @@ export default function Marketplace() {
   return (
     <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
       <main>
-      <MarketplaceBanner />
+      <ExchangeBanner />
       <div className={styles.blogContainer}>
-          <div className={styles.blogSidbarContainer}><MarketplaceSidebar selectedCategory={filteredProduct.category} filterCallback={handleClick}/></div>
-          <div className={styles.blogCardContainer}><MarketplaceCards filterCallback={filteredProduct}/></div>
+          <div className={styles.blogSidbarContainer}><ExchangeSidebar selectedCategory={filteredProduct.category} filterCallback={handleClick}/></div>
+          <div className={styles.blogCardContainer}><ExchangeCards filterCallback={filteredProduct}/></div>
       </div>
       
       </main>

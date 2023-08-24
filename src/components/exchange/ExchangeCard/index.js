@@ -5,7 +5,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import ThemedImage from '@theme/ThemedImage';
 import {addDarkToFileName} from '../../../util/util';
 import ReactMarkdown from 'react-markdown'
-export default function MarketplaceCard({
+export default function ExchangeCard({
   post,
   openDialogFunc,
 }) {

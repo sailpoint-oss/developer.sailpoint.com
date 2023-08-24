@@ -1,25 +1,25 @@
 import React from 'react';
 import styles from './styles.module.css';
-import MarketplaceCard from '../MarketplaceCard';
+import ExchangeCard from '../ExchangeCard';
 import Modal from 'react-modal';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import BounceLoader from 'react-spinners/BounceLoader';
 import {discourseBaseURL, developerWebsiteDomain} from '../../../util/util';
 
 import {
-  getMarketplacePosts,
-  getMarketplaceTopic,
-  getMarketplaceTopicRaw,
+  getExchangePosts,
+  getExchangeTopic,
+  getExchangeTopicRaw,
 } from '../../../services/DiscourseService';
-import MarketplaceCardDetail from '../MarketplaceCardDetail';
-export default function MarketplaceCards({filterCallback}) {
+import ExchangeCardDetail from '../ExchangeCardDetail';
+export default function ExchangeCards({filterCallback}) {
   const [cardData, setCardData] = React.useState();
   const [detailsOpen, setDetailsOpen] = React.useState(false);
   const [details, setDetails] = React.useState('');
   const [loadingCards, setLoadingCards] = React.useState(true);
 
   const getPosts = async () => {
-    const data = await getMarketplacePosts(filterCallback.tags.join('+'), filterCallback.category);
+    const data = await getExchangePosts(filterCallback.tags.join('+'), filterCallback.category);
     const resultset = [];
     if (data.topics) {
       for (const topic of data.topics) {
@@ -35,7 +35,7 @@ export default function MarketplaceCards({filterCallback}) {
   };
 
   const getDetails = async (data) => {
-    const raw = await getMarketplaceTopicRaw(data.id);
+    const raw = await getExchangeTopicRaw(data.id);
     setDetails({data: data, raw: raw});
   };
 
@@ -64,10 +64,10 @@ export default function MarketplaceCards({filterCallback}) {
         <div className={styles.gridContainer}>
           {cardData.map(function (a, index) {
             return (
-              <MarketplaceCard
+              <ExchangeCard
                 post={a}
                 key={index + a.link}
-                openDialogFunc={openDialog}></MarketplaceCard>
+                openDialogFunc={openDialog}></ExchangeCard>
             );
           })}
         </div>
@@ -77,9 +77,9 @@ export default function MarketplaceCards({filterCallback}) {
           contentLabel="Details">
           <div>
             <div>
-              <MarketplaceCardDetail
+              <ExchangeCardDetail
                 details={details.data}
-                rawPost={details.raw}></MarketplaceCardDetail>
+                rawPost={details.raw}></ExchangeCardDetail>
             </div>
             <img
               className={styles.cardExit}
@@ -106,14 +106,14 @@ export default function MarketplaceCards({filterCallback}) {
     return (
       <div className={styles.noFound}>
         {' '}
-        No Marketplace Item Found with the Given Search Criteria
+        No Exchange item found with the given search criteria.
       </div>
     );
   }
 }
 
 async function getPostList(topic) {
-  const fullTopic = await getMarketplaceTopic(topic.id);
+  const fullTopic = await getExchangeTopic(topic.id);
   return {
     id: topic.id,
     name: fullTopic.details.created_by.name,

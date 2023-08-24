@@ -4,19 +4,16 @@ import styles from './styles.module.css';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Link from '@docusaurus/Link';
 
-export default function MarketplaceBanner() {
+export default function ExchangeBanner() {
   return (
     <div>
 
       <div className={styles.imageContainer}>
-      <img className={styles.headerImage} src={useBaseUrl('/blog/marketplace_banner_template.png')}></img>
+      <img className={styles.headerImage} src={useBaseUrl('/exchange/exchange_banner_template.png')}></img>
         <div className={styles.blogHeaderText}>
-          Marketplace
+          Exchange
         </div>
       </div >
-
-
-
     </div>
   );
 }

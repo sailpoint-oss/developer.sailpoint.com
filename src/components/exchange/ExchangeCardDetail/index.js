@@ -9,7 +9,7 @@ import 'react-tabs/style/react-tabs.css';
 import ReactMarkdown from 'react-markdown';
 import BounceLoader from 'react-spinners/BounceLoader';
 import {discourseBaseURL, developerWebsiteDomain} from '../../../util/util';
-export default function MarketplaceCardDetail({ details, rawPost }) {
+export default function ExchangeCardDetail({ details, rawPost }) {
   const getDivText = (data, id) => {
     const requirementPosition = data.indexOf('id="' + id + '"');
     const requirementEndPosition = data.indexOf('</div>', requirementPosition);
@@ -23,7 +23,7 @@ export default function MarketplaceCardDetail({ details, rawPost }) {
       discourseBaseURL() + 'uploads/short-url/$1';
       return validContent.replace(incorrectURLPattern, correctURLPattern);
     } else {
-      return 'No requirements found for this marketplace item';
+      return 'No requirements found for this exchange item.';
     }
   };
 

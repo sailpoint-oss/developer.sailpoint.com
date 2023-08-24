@@ -4,9 +4,9 @@ import styles from './styles.module.css';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Link from '@docusaurus/Link';
 import { getCatagories, getTags } from '../../../services/DiscourseService';
-import MarketplaceSidebarButton from './MarketplaceSidebarButton';
+import ExchangeSidebarButton from './ExchangeSidebarButton';
 
-export default function MarketplaceSidebar({
+export default function ExchangeSidebar({
   filterCallback,
   selectedCategory
   }) {
@@ -24,7 +24,7 @@ export default function MarketplaceSidebar({
     const catIntegrationType = []
 
     for (const category of categoryData.category_list.categories) {
-      // 59 for production marketplace, 57 for staging marketplace
+      // 59 for production exchange, 57 for staging exchange
       if (category.id === 59) {
         for (const subCategory of category.subcategory_list) {
           
@@ -33,7 +33,7 @@ export default function MarketplaceSidebar({
       }
     }
     for (const tagGroup of tagData.extras.tag_groups) {
-      // 20 for production marketplace, 11 for staging marketplace
+      // 20 for production exchange, 11 for staging exchange
       if (tagGroup.id === 20) {
         for (const tag of tagGroup.tags) {
           tagProductResultset.push(tag.text)
@@ -67,13 +67,13 @@ export default function MarketplaceSidebar({
         <div className={styles.tagHeader}>Items by Product</div>
         <div className={styles.tagContainer}>
             {tagProductData.map(function(a, index){
-              return <MarketplaceSidebarButton key={a} text={a} id={a} filterCallback={filterCallback}></MarketplaceSidebarButton>
+              return <ExchangeSidebarButton key={a} text={a} id={a} filterCallback={filterCallback}></ExchangeSidebarButton>
             })}
         </div>
         <div className={styles.tagHeader}>Items by Integration Type</div>
         <div className={styles.tagContainer}>
             {catIntegrationTypeData.map(function(a, index){
-              return <MarketplaceSidebarButton category={selectedCategory} isCategory={true} key={a.slug} text={a.name} id={a.slug} filterCallback={filterCallback}></MarketplaceSidebarButton>
+              return <ExchangeSidebarButton category={selectedCategory} isCategory={true} key={a.slug} text={a.name} id={a.slug} filterCallback={filterCallback}></ExchangeSidebarButton>
             })}
         </div>
       </div>

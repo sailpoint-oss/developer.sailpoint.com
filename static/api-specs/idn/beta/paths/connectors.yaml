@@ -65,4 +65,4 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [ idn:connector-source-config:read ]
+    - UserContextAuth: [ idn:connector-source-config:read ]

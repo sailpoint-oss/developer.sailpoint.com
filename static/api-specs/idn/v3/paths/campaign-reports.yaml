@@ -8,7 +8,7 @@ get:
 
     Requires roles of CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN
   security:
-    - oauth2: [idn:campaign-report:read]
+    - UserContextAuth: [idn:campaign-report:read]
   parameters:
     - in: path
       name: campaignId

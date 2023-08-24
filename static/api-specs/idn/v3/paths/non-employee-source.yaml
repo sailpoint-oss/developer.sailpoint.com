@@ -1,7 +1,7 @@
 get:
   operationId: getNonEmployeeSource
   security:
-    - oauth2: []
+    - UserContextAuth: []
   tags:
     - Non-Employee Lifecycle Management
   summary: Get a Non-Employee Source

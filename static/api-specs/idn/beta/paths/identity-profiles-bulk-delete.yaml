@@ -41,4 +41,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:identity-profile:delete]
+    - UserContextAuth: [idn:identity-profile:delete]

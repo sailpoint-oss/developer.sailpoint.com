@@ -18,7 +18,7 @@ servers:
         description: This is the api url of your tenant
 components:
   securitySchemes:
-    oauth2:
+    UserContextAuth:
       type: oauth2
       description: |
         OAuth2 Bearer token (JWT). See [IdentityNow REST API Authentication](https://developer.sailpoint.com/idn/api/authentication) for more information.
@@ -449,7 +449,7 @@ paths:
       summary: List Work Groups
       description: This API returns a list of work groups
       security:
-        - oauth2: []
+        - UserContextAuth: []
       parameters:
         - in: query
           name: limit
@@ -541,7 +541,7 @@ paths:
       summary: Create Work Group
       description: This API allows you to create a work group
       security:
-          - oauth2: []
+          - UserContextAuth: []
       requestBody:
         description: Work group to create.
         required: true
@@ -620,7 +620,7 @@ paths:
       summary: Get Work Group By Id
       description: This API returns the details for a single workgroup based on the ID
       security:
-        - oauth2: []
+        - UserContextAuth: []
       parameters:
         - in: path
           name: workgroupId
@@ -684,7 +684,7 @@ paths:
       summary: Update Work Group By Id
       description: This API updates and returns the details for a single workgroup based on the ID
       security:
-        - oauth2: []
+        - UserContextAuth: []
       parameters:
         - in: path
           name: workgroupId
@@ -769,7 +769,7 @@ paths:
       summary: Delete Work Group By Id
       description: This API deletes a single workgroup based on the ID
       security:
-        - oauth2: []
+        - UserContextAuth: []
       parameters:
         - in: path
           name: workgroupId
@@ -791,7 +791,7 @@ paths:
       summary: List Work Group Members
       description: This API returns the members of a work group
       security:
-        - oauth2: []
+        - UserContextAuth: []
       parameters:
         - in: path
           name: workgroupId
@@ -864,7 +864,7 @@ paths:
       summary: Modify Work Group Members
       description: This API allows you to modify the members of a work group
       security:
-          - oauth2: []
+          - UserContextAuth: []
       parameters:
         - in: path
           name: workgroupId
@@ -904,7 +904,7 @@ paths:
       summary: List Work Group Connections
       description: This API returns the connections of a work group
       security:
-        - oauth2: []
+        - UserContextAuth: []
       parameters:
         - in: path
           name: workgroupId
@@ -949,7 +949,7 @@ paths:
       summary: Bulk delete work groups
       description: This API allows you to bulk-delete work groups
       security:
-          - oauth2: []
+          - UserContextAuth: []
       requestBody:
         description: Work group ids to delete
         required: true

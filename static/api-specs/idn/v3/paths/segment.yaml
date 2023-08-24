@@ -1,7 +1,7 @@
 get:
   operationId: getSegment
   security:
-    - oauth2: [ idn:segment:read, idn:segment:manage ]
+    - UserContextAuth: [ idn:segment:read, idn:segment:manage ]
   tags:
     - Segments
   summary: Get a Segment by ID
@@ -40,7 +40,7 @@ get:
 delete:
   operationId: deleteSegment
   security:
-    - oauth2: [ idn:segment:manage ]
+    - UserContextAuth: [ idn:segment:manage ]
   tags:
     - Segments
   summary: Delete Segment by ID
@@ -78,7 +78,7 @@ delete:
 patch:
   operationId: patchSegment
   security:
-    - oauth2: [ idn:segment:manage ]
+    - UserContextAuth: [ idn:segment:manage ]
   tags:
     - Segments
   summary: Update a Segment

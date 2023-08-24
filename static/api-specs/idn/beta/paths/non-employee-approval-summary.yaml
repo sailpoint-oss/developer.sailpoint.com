@@ -1,7 +1,7 @@
 get:
   operationId: getNonEmployeeApprovalSummary
   security:
-    - oauth2: [idn:nelm:read]
+    - UserContextAuth: [idn:nelm:read]
   tags:
     - Non-Employee Lifecycle Management
   summary: Get Summary of Non-Employee Approval Requests

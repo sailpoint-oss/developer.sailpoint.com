@@ -6,7 +6,7 @@ get:
   description: >-
     This API returns a single identity using the Identity ID.
   security:
-    - oauth2:
+    - UserContextAuth:
       - "idn:identity:read"
   parameters:
     - in: path
@@ -44,7 +44,7 @@ delete:
   description: >-
     The API returns successful response if the requested identity was deleted.
   security:
-    - oauth2:
+    - UserContextAuth:
         - "idn:identity:delete"
   parameters:
     - in: path

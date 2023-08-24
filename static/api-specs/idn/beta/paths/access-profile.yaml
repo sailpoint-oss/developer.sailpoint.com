@@ -36,7 +36,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:access-profile:read, idn:access-profile:manage]
+    - UserContextAuth: [idn:access-profile:read, idn:access-profile:manage]
 patch:
   operationId: patchAccessProfile
   tags:
@@ -129,7 +129,7 @@ patch:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:access-profile:manage]
+    - UserContextAuth: [idn:access-profile:manage]
 delete:
   operationId: deleteAccessProfile
   tags:
@@ -180,5 +180,5 @@ delete:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:access-profile:manage]
+    - UserContextAuth: [idn:access-profile:manage]
   

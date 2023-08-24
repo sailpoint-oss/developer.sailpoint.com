@@ -36,7 +36,7 @@ post:
 get:
   operationId: listNonEmployeeRecords
   security:
-    - oauth2: []
+    - UserContextAuth: []
   tags:
     - Non-Employee Lifecycle Management
   summary: List Non-Employee Records

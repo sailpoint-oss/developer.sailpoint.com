@@ -8,7 +8,7 @@ get:
     reviewer for this campaign, an ORG_ADMIN, or a CERT_ADMIN.
   deprecated: true
   security:
-   - oauth2: []
+   - UserContextAuth: []
   parameters:
     - in: path
       name: id
@@ -53,7 +53,7 @@ patch:
   description: Allows updating individual fields on a campaign using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
   deprecated: true
   security:
-    - oauth2: [idn:campaign:update,idn:campaign:read]
+    - UserContextAuth: [idn:campaign:update,idn:campaign:read]
   parameters:
     - in: path
       name: id

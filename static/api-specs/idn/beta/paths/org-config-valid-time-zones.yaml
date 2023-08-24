@@ -4,7 +4,7 @@ get:
     - Org Config
   summary: Get list of time zones
   security:
-    - oauth2: [ idn:org-configs:read, idn:org-configs-user:read ]
+    - UserContextAuth: [ idn:org-configs:read, idn:org-configs-user:read ]
   description: >-
     Get a list of valid time zones that can be set in org configurations.
   responses:

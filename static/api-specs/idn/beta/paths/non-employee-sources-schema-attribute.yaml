@@ -1,7 +1,7 @@
 get:
   operationId: getNonEmployeeSchemaAttribute
   security:
-    - oauth2: [idn:nelm:read]
+    - UserContextAuth: [idn:nelm:read]
   tags:
     - Non-Employee Lifecycle Management
   summary: Get Schema Attribute Non-Employee Source
@@ -43,7 +43,7 @@ get:
 patch:
   operationId: patchNonEmployeeSchemaAttribute
   security:
-    - oauth2: [idn:nelm:manage]
+    - UserContextAuth: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
   summary: Patch Non-Employee Source's Schema Attribute
@@ -101,7 +101,7 @@ patch:
 delete:
   operationId: deleteNonEmployeeSchemaAttribute
   security:
-    - oauth2: [idn:nelm:manage]
+    - UserContextAuth: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
   summary: Delete Non-Employee Source's Schema Attribute

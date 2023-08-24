@@ -1,7 +1,7 @@
 get:
   operationId: listTaggedObjects
   security:
-    - oauth2: [ idn:tag:read, idn:tag:manage ]
+    - UserContextAuth: [ idn:tag:read, idn:tag:manage ]
   tags:
     - Tagged Objects
   summary: List Tagged Objects
@@ -56,7 +56,7 @@ get:
 post:
   operationId: setTagToObject
   security:
-    - oauth2: [ idn:tag:manage ]
+    - UserContextAuth: [ idn:tag:manage ]
   tags:
     - Tagged Objects
   summary: Add Tag to Object

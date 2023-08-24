@@ -1,7 +1,7 @@
 post:
   operationId: createNonEmployeeRecord
   security:
-    - oauth2: [idn:nelm:manage]
+    - UserContextAuth: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
   summary: Create Non-Employee Record
@@ -39,7 +39,7 @@ post:
 get:
   operationId: listNonEmployeeRecords
   security:
-    - oauth2: [idn:nelm:read]
+    - UserContextAuth: [idn:nelm:read]
   tags:
     - Non-Employee Lifecycle Management
   summary: List Non-Employee Records

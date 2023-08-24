@@ -1,7 +1,7 @@
 get:
   operationId: getSource
   security:
-    - oauth2: [ idn:sources:read ]
+    - UserContextAuth: [ idn:sources:read ]
   tags:
     - Sources
   summary: Get Source by ID
@@ -39,7 +39,7 @@ get:
 put:
   operationId: putSource
   security:
-    - oauth2: [ idn:sources:manage ]
+    - UserContextAuth: [ idn:sources:manage ]
   tags:
     - Sources
   summary: Update Source (Full)
@@ -97,7 +97,7 @@ put:
 patch:
   operationId: updateSource
   security:
-    - oauth2: [ idn:sources:manage ]
+    - UserContextAuth: [ idn:sources:manage ]
   tags:
     - Sources
   summary: Update Source (Partial)
@@ -234,7 +234,7 @@ patch:
 delete:
   operationId: deleteSource
   security:
-    - oauth2: [ idn:sources:manage ]
+    - UserContextAuth: [ idn:sources:manage ]
   tags:
     - Sources
   summary: Delete Source by ID

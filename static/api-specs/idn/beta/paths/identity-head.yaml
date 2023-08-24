@@ -6,7 +6,7 @@ head:
   description: >-
     This API returns successful response if the requested identity exists and not found error if it doesn`t.
   security:
-    - oauth2:
+    - UserContextAuth:
       - "idn:identity:read"
   parameters:
     - in: path

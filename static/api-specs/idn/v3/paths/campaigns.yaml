@@ -7,7 +7,7 @@ get:
     Gets campaigns and returns them in a list. Can provide increased level of detail for each campaign if provided
     the correct query.
   security:
-    - oauth2: [idn:campaign-list:read]
+    - UserContextAuth: [idn:campaign-list:read]
   parameters:
     - in: query
       name: detail
@@ -88,7 +88,7 @@ post:
   summary: Create a campaign
   description: Creates a new Certification Campaign with the information provided in the request body.
   security:
-    - oauth2: [idn:campaign:create]
+    - UserContextAuth: [idn:campaign:create]
   requestBody:
     required: true
     content:

@@ -7,7 +7,7 @@ post:
   operationId: showReportResult
   summary: "Get Report Result"
   security:
-    - oauth2: [sp:report-result:read]
+    - UserContextAuth: [sp:report-result:read]
   requestBody:
     content:
       application/json:

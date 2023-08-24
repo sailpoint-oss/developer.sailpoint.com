@@ -6,7 +6,7 @@ get:
   description: >-
     This method returns all saved potential roles (draft roles) for a role mining session.
   security:
-    - oauth2: []
+    - UserContextAuth: []
   parameters:
     - in: path
       name: sessionId

@@ -49,7 +49,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:managed-cluster-types:read, idn:managed-cluster-types:manage]
+    - UserContextAuth: [idn:managed-cluster-types:read, idn:managed-cluster-types:manage]
 post:
   tags:
     - Managed Cluster Types
@@ -88,4 +88,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:managed-cluster-types:manage]
+    - UserContextAuth: [idn:managed-cluster-types:manage]

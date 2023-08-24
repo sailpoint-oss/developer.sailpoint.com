@@ -1,7 +1,7 @@
 post:
   operationId: exportSpConfig
   security:
-    - oauth2: [sp:config:read, sp:config:manage]
+    - UserContextAuth: [sp:config:read, sp:config:manage]
   tags:
     - SP-Config
   summary: Initiates configuration objects export job

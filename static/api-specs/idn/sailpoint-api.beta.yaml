@@ -823,14 +823,15 @@ tags:
       Workflows allow administrators to create custom automation scripts directly within IdentityNow.  These automation scripts respond to [event triggers](https://developer.sailpoint.com/idn/docs/event-triggers#how-to-get-started-with-event-triggers) and perform a series of actions to perform tasks that are either too cumbersome or not available in the IdentityNow UI.  Workflows can be configured via a graphical user interface within IdentityNow, or by creating and uploading a JSON formatted script to the Workflow service.  The Workflows API collection provides the necessary functionality to create, manage, and test your workflows via REST.
 
 security:
-  - oauth2: [ ]
+  - UserContextAuth: [ ]
 
 components:
   securitySchemes:
-    oauth2:
+    UserContextAuth:
       type: oauth2
       description: |
-        OAuth2 Bearer token (JWT). See [IdentityNow REST API Authentication](https://developer.sailpoint.com/idn/api/authentication) for more information.
+        OAuth2 Bearer token (JWT) generated using either a Personal Access token or through the Authorization Code flow. 
+        See [IdentityNow REST API Authentication](https://developer.sailpoint.com/idn/api/authentication) for more information.
         - Directions for generating a [personal access token](https://developer.sailpoint.com/idn/api/authentication#personal-access-tokens)
         - Directions using [client credentials flow](https://developer.sailpoint.com/idn/api/authentication#client-credentials-grant-flow)
         - Directions for using [authorization code flow](https://developer.sailpoint.com/idn/api/authentication#authorization-code-grant-flow)
@@ -842,14 +843,29 @@ components:
         clientCredentials:
           tokenUrl: https://tenant.api.identitynow.com/oauth/token
           scopes:
-            'sp:scopes:default': 'default scope'
-            'sp:scopes:all': 'access to all scopes'
+            "sp:scopes:default": "default scope"
+            "sp:scopes:all": "access to all scopes"
         authorizationCode:
           authorizationUrl: https://tenant.identitynow.com/oauth/authorize
           tokenUrl: https://tenant.api.identitynow.com/oauth/token
           scopes:
-            'sp:scopes:default': 'default scope'
-            'sp:scopes:all': 'access to all scopes'
+            "sp:scopes:default": "default scope"
+            "sp:scopes:all": "access to all scopes"
+    ApplicationOnlyAuth:
+      type: oauth2
+      description: |
+        OAuth2 Bearer token (JWT) generated using client credentials flow. 
+        See [IdentityNow REST API Authentication](https://developer.sailpoint.com/idn/api/authentication) for more information.
+        - Directions using [client credentials flow](https://developer.sailpoint.com/idn/api/authentication#client-credentials-grant-flow)
+
+        Which authentication method should I choose?  See our [guide](https://developer.sailpoint.com/idn/api/authentication#which-oauth-20-grant-flow-should-i-use)
+
+        Learn more about how to find your `tokenUrl` and `authorizationUrl` [in our docs](https://developer.sailpoint.com/idn/api/authentication#find-your-tenants-oauth-details)
+      flows:
+        clientCredentials:
+          tokenUrl: https://tenant.api.identitynow.com/oauth/token
+          scopes:
+            "sp:scopes:default": "default scope"
   schemas:
     AccountAggregation:
       $ref: './beta/schemas/AccountAggregationStatus.yaml'

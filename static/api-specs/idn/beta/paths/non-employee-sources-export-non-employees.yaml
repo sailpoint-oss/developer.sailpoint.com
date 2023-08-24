@@ -1,7 +1,7 @@
 get:
   operationId: exportNonEmployeeRecords
   security:
-    - oauth2: [idn:nelm:read, idn:nelm:manage]
+    - UserContextAuth: [idn:nelm:read, idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
   summary: Exports Non-Employee Records to CSV

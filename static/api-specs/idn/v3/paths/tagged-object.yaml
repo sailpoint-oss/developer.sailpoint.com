@@ -1,7 +1,7 @@
 get:
   operationId: getTaggedObject
   security:
-    - oauth2: [ idn:tag:read, idn:tag:manage ]
+    - UserContextAuth: [ idn:tag:read, idn:tag:manage ]
   tags:
     - Tagged Objects
   summary: Get Tagged Object
@@ -46,7 +46,7 @@ get:
 put:
   operationId: putTaggedObject
   security:
-    - oauth2: [ idn:tag:manage ]
+    - UserContextAuth: [ idn:tag:manage ]
   tags:
     - Tagged Objects
   summary: Update Tagged Object
@@ -97,7 +97,7 @@ put:
 delete:
   operationId: deleteTaggedObject
   security:
-    - oauth2: [ idn:tag:manage ]
+    - UserContextAuth: [ idn:tag:manage ]
   tags:
     - Tagged Objects
   summary: Delete Tagged Object

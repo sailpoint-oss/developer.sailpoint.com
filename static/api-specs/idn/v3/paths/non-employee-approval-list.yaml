@@ -1,7 +1,7 @@
 get:
   operationId: listNonEmployeeApprovals
   security:
-    - oauth2: []
+    - UserContextAuth: []
   tags:
     - Non-Employee Lifecycle Management
   summary: Get List of Non-Employee Approval Requests

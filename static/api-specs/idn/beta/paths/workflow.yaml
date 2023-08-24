@@ -6,7 +6,7 @@ get:
   description: >-
     Get a single workflow by id.
   security:
-    - oauth2: [sp:workflow:read]
+    - UserContextAuth: [sp:workflow:read]
   parameters:
     - name: id
       in: path
@@ -43,7 +43,7 @@ put:
   description: >-
     Perform a full update of a workflow.  The updated workflow object is returned in the response.
   security:
-    - oauth2: [sp:workflow:manage]
+    - UserContextAuth: [sp:workflow:manage]
   parameters:
     - name: id
       in: path
@@ -85,7 +85,7 @@ patch:
   description: >-
     Partially update an existing Workflow using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
   security:
-    - oauth2: [sp:workflow:manage]
+    - UserContextAuth: [sp:workflow:manage]
   parameters:
     - name: id
       in: path
@@ -194,7 +194,7 @@ delete:
   description: >-
     Delete a workflow.  **Enabled workflows cannot be deleted**.  They must first be disabled.
   security:
-    - oauth2: [sp:workflow:manage]
+    - UserContextAuth: [sp:workflow:manage]
   parameters:
     - name: id
       in: path

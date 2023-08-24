@@ -18,7 +18,7 @@ servers:
         description: This is the api url of your tenant
 components:
   securitySchemes:
-    oauth2:
+    UserContextAuth:
       type: oauth2
       description: |
         OAuth2 Bearer token (JWT). See [IdentityNow REST API Authentication](https://developer.sailpoint.com/idn/api/authentication) for more information.
@@ -57,7 +57,7 @@ paths:
       summary: List Accounts
       operationId: listAccounts
       security:
-        - oauth2: []
+        - UserContextAuth: []
       responses:
         '200':
           description: Successful response
@@ -70,7 +70,7 @@ paths:
       summary: Remove Account
       operationId: removeAccount
       security:
-        - oauth2: []
+        - UserContextAuth: []
       parameters:
         - name: id
           in: path
@@ -90,7 +90,7 @@ paths:
       summary: List Applications
       operationId: listApplications
       security:
-        - oauth2: []
+        - UserContextAuth: []
       responses:
         '200':
           description: Successful response
@@ -244,7 +244,7 @@ paths:
       summary: Get Single Application
       operationId: GetApplication
       security:
-        - oauth2: []
+        - UserContextAuth: []
       parameters:
         - name: id
           in: path
@@ -421,7 +421,7 @@ paths:
       summary: Create Application
       operationId: CreateApplication
       security:
-        - oauth2: []
+        - UserContextAuth: []
       requestBody:
         content:
           application/json:
@@ -446,7 +446,7 @@ paths:
       summary: Update Application
       operationId: UpdateApplication
       security:
-        - oauth2: []
+        - UserContextAuth: []
       parameters:
         - name: id
           in: path
@@ -475,7 +475,7 @@ paths:
       summary: Delete Application
       operationId: DeleteApplication
       security:
-        - oauth2: []
+        - UserContextAuth: []
       parameters:
         - name: id
           in: path
@@ -495,7 +495,7 @@ paths:
       summary: List Connectors
       operationId: listConnectors
       security:
-        - oauth2: []
+        - UserContextAuth: []
       responses:
         '200':
           description: Successful response
@@ -508,7 +508,7 @@ paths:
       summary: Create Connector
       operationId: createConnector
       security:
-        - oauth2: []
+        - UserContextAuth: []
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -548,7 +548,7 @@ paths:
       summary: Delete Connector
       operationId: deleteConnector
       security:
-        - oauth2: []
+        - UserContextAuth: []
       parameters:
         - name: id
           in: path
@@ -567,7 +567,7 @@ paths:
       summary: Export Connector Config
       operationId: exportConnectorConfig
       security:
-        - oauth2: []
+        - UserContextAuth: []
       parameters:
         - name: id
           in: path
@@ -586,7 +586,7 @@ paths:
       summary: Import Connector Config
       operationId: importConnectorConfig
       security:
-        - oauth2: []
+        - UserContextAuth: []
       requestBody:
         content:
           multipart/form-data:
@@ -615,7 +615,7 @@ paths:
       summary: Update User Permissions
       operationId: updateUserPermissions
       security:
-        - oauth2: []
+        - UserContextAuth: []
       requestBody:
         content:
           application/json:
@@ -652,7 +652,7 @@ paths:
       summary: Get Single Identity
       operationId: GetIdentity
       security:
-        - oauth2: []
+        - UserContextAuth: []
       parameters:
         - name: id
           in: path
@@ -869,7 +869,7 @@ paths:
       summary: Account Aggregation (File)
       operationId: loadAccounts
       security:
-        - oauth2: []
+        - UserContextAuth: []
       description: >-
         Aggregates a delimited file for the given source.  This only works for
         file-based sources.
@@ -908,7 +908,7 @@ paths:
       summary: Export Account Feed
       operationId: exportAccountFeed
       security:
-        - oauth2: []
+        - UserContextAuth: []
       description: Exports a CSV of the accounts for a particular source.
       parameters:
         - name: id
@@ -928,7 +928,7 @@ paths:
       summary: Refresh Identities
       operationId: refreshIdentities
       security:
-        - oauth2: []
+        - UserContextAuth: []
       description: >-
         This kicks off an identity refresh for a specified set of identity
         attributes.  This can be a long running process.  IdentityNow has

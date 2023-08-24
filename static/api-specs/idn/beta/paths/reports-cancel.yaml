@@ -6,7 +6,7 @@ post:
   operationId: cancelReport
   summary: "Cancel Report"
   security:
-    - oauth2: [sp:report:delete]
+    - UserContextAuth: [sp:report:delete]
   parameters:
     - name: id
       in: path

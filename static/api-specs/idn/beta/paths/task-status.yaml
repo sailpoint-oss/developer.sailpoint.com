@@ -29,7 +29,7 @@ get:
     "404":
       description: TaskStatus with the given id was not found.
   security:
-    - oauth2: [idn:task-management:read]
+    - UserContextAuth: [idn:task-management:read]
 patch:
   tags:
     - Task Management
@@ -65,4 +65,4 @@ patch:
     "404":
       $ref: '../../v3/responses/404.yaml'
   security:
-    - oauth2: [idn:task-management:write]
+    - UserContextAuth: [idn:task-management:write]

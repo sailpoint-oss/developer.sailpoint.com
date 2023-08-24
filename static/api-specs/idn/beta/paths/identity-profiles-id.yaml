@@ -40,7 +40,7 @@ delete:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:identity-profile:manage]
+    - UserContextAuth: [idn:identity-profile:manage]
 
 patch:
   operationId: updateIdentityProfile
@@ -61,7 +61,7 @@ patch:
 
     * modified
   security:
-    - oauth2: [idn:identity-profile:manage]
+    - UserContextAuth: [idn:identity-profile:manage]
   parameters:
     - in: path
       name: id

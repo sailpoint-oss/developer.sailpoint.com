@@ -26,7 +26,7 @@ get:
         **id**: *eq*
       example: id eq "sp:create-campaign"
   security:
-    - oauth2: [sp:workflow:read]
+    - UserContextAuth: [sp:workflow:read]
   responses:
     '200':
       description: >-

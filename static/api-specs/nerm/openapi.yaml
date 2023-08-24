@@ -37,6 +37,9 @@ paths:
     $ref: "./paths/role.yaml"
   /roles/{id}:
     $ref: "./paths/roles_id.yaml"
+# Permissions
+  /permissions:
+    $ref: "./paths/permissions.yaml"
 # User Roles
   /user_role:
     $ref: "./paths/user_role.yaml"

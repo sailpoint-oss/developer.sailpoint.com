@@ -22,10 +22,75 @@ properties:
     required: true
     description: Name of the workflow
     example: my_workflow
-  condition_rule_ids:
+  condition_rules_attributes:
     type: array
     items:
-      type: string
-      format: uuid
+      type: object
+      properties:
+        logical_operator:
+          type: string
+          enum: ["AND", "OR"]
+          required: true
+          description: The type of condition rule.
+          example: "RiskRule"
+        comparison_operator:
+          type: string
+          enum: ["<", ">", "==", "before", "include?", "absent?", "after"]
+          required: true
+          description: The operator used by the condition rule.
+          example: ">"
+        condition_object_id:
+          type: string
+          required: false
+          description: UUID for object targeted by the condition.
+          example: "cc844e99-9895-43d0-9d17-8f606b2158ba"
+        condition_object_type:
+          type: string
+          required: false
+          description: Type of object targeted by the condition.
+          example: "DateAttribute"
+        secondary_value:
+          type: string
+          required: false
+          description: Used for time_frame comparison.
+          example: "before"
+        tertiary_value:
+          type: string
+          required: false
+          description: Represents the days of a temporal comparison.
+          example: "before"
+        value:
+          type: string
+          required: false
+          description: The value being compared against.
+          example: "before"
+        order:
+          type: integer
+          format: int32
+          required: false
+          description: If there are multiple rules against one workflow, this is the order that they are ran in.
+          example: 1
+        type:
+          type: string
+          enum: [
+            "RiskRule",
+            "ProfileIdRule",
+            "ProfileTypeRule",
+            "ProfileExistsRule",
+            "ProfileStatusRule",
+            "SessionAttributeRule",
+            "ProfileAttributeRule",
+            "ProfileDoesNotExistRule",
+            "IdentityProofingRule"
+          ]
+          required: true
+          description: The type of condition rule.
+          example: "ProfileIdRule"
     description: The ProfileTypeRule this workflow will be working with.
-    example: [33f072dd-13b4-41e1-8ea0-16f2a59b57c8]
+    example: [{
+      "type": "ProfileTypeRule",
+      "condition_type": "Workflow",
+      "comparison_operator": "==",
+      "logical_operator": "AND",
+      "value": "true",
+    }]

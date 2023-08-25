@@ -16,7 +16,7 @@ tags: ['Rules']
 
 This rule generates complex account attribute values during provisioning, e.g. when creating an account. The rule's configuration comes from a template of values. You would typically use this rule when you are creating an account to generate attributes like usernames.
 
-In the example below, the template is `${firstname}.${lastname}${uniqueCounter}` which is pulled in by the `Create Unique LDAP Attribute` and used to replace the `firstname`, `lastname` and `uniqueCounter` placeholders.
+In the example below, the template is `${firstname}.${lastname}${uniqueCounter}` which is pulled in by the `Create Unique LDAP Attribute` rule and used to replace the `firstname`, `lastname` and `uniqueCounter` placeholders.
 
 ```json
     {

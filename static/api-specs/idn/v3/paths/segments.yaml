@@ -6,11 +6,9 @@ post:
     - Segments
   summary: Create Segment
   description: >-
-    This API creates a segment.
+    This API creates a segment. 
 
-
-    Note that segment definitions may take time to propagate to all identities.
-    
+    >**Note:** Segment definitions may take time to propagate to all identities.
 
     A token with ORG_ADMIN or API authority is required to call this API.
   requestBody:
@@ -44,7 +42,7 @@ get:
     - Segments
   summary: List Segments
   description: >-
-    This API returns a list of all segments.
+    This API returns a list of all segments. 
 
     A token with ORG_ADMIN or API authority is required to call this API.
   parameters:
@@ -53,7 +51,7 @@ get:
     - $ref: '../../v3/parameters/count.yaml'
   responses:
     '200':
-      description: List of all Segments
+      description: List of all segments
       content:
         application/json:
           schema:

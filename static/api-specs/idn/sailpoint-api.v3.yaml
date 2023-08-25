@@ -171,35 +171,35 @@ tags:
     description: |
       Use this API to implement certification campaign functionality.
       With this functionality in place, administrators can create, customize, and manage certification campaigns for their organizations' use. 
-      Certification campaigns provide IdentityNow (IDN) users with an interactive review process they can use to identify and verify access to systems. 
+      Certification campaigns provide IdentityNow users with an interactive review process they can use to identify and verify access to systems. 
       Campaigns help organizations reduce risk of inappropriate access and satisfy audit requirements. 
 
-      A certification refers to IDN's mechanism for reviewing a user's access to entitlements (sets of permissions) and approving or removing that access. 
+      A certification refers to IdentityNow's mechanism for reviewing a user's access to entitlements (sets of permissions) and approving or removing that access. 
       These certifications serve as a way of showing that a user's access has been reviewed and approved. 
       Multiple certifications by different reviewers are often required to approve a user's access. 
       A set of multiple certifications is called a certification campaign. 
 
       For example, an organization may use a Manager Certification campaign as a way of showing that a user's access has been reviewed and approved by multiple managers. 
-      Once this campaign has been completed, IDN would provision all the access the user needs, nothing more. 
+      Once this campaign has been completed, IdentityNow would provision all the access the user needs, nothing more. 
 
-      IDN provides two simple campaign types users can create without using search queries, Manager and Source Owner campaigns:
+      IdentityNow provides two simple campaign types users can create without using search queries, Manager and Source Owner campaigns:
 
-      You can create these types of campaigns without using any search queries in IDN: 
+      You can create these types of campaigns without using any search queries in IdentityNow: 
       
-      - ManagerCampaign: IDN provides this campaign type as a way to ensure that an identity's access is certified by their managers. 
+      - ManagerCampaign: IdentityNow provides this campaign type as a way to ensure that an identity's access is certified by their managers. 
       You only need to provide a name and description to create one. 
       
-      - Source Owner Campaign: IDN provides this campaign type as a way to ensure that an identity's access to a source is certified by its source owners. 
+      - Source Owner Campaign: IdentityNow provides this campaign type as a way to ensure that an identity's access to a source is certified by its source owners. 
       You only need to provide a name and description to create one. 
       You can specify the sources whose owners you want involved or just run it across all sources. 
 
       For more information about these campaign types, refer to [Starting a Manager or Source Owner Campaign](https://documentation.sailpoint.com/saas/help/certs/starting_campaign.html).
 
-      One useful way to create certification campaigns in IDN is to use a specific search and then run a campaign on the results returned by that search. 
+      One useful way to create certification campaigns in IdentityNow is to use a specific search and then run a campaign on the results returned by that search. 
       This allows you to be much more specific about whom you are certifying in your campaigns and what access you are certifying in your campaigns. 
       For example, you can search for all identities who are managed by "Amanda.Ross" and also have the access to the "Accounting" role and then run a certification campaign based on that search to ensure that the returned identities are appropriately certified. 
       
-      You can use IDN search queries to create these types of campaigns: 
+      You can use IdentityNow search queries to create these types of campaigns: 
 
       - Identities: Use this campaign type to review and revoke access items for specific identities. 
       You can either build a search query and create a campaign certifying all identities returned by that query, or you can search for individual identities and add those identities to the certification campaign. 
@@ -210,7 +210,7 @@ tags:
       - Role Composition: Use this campaign type to review a role's composition, including its title, description, and membership criteria. 
       You can either build a search query and create a campaign certifying all roles returned by that query, or you can search for individual roles and add those roles to the certification campaign. 
 
-      - Uncorrelated Accounts: Use this campaign type to certify source accounts that aren't linked to an authoritative identity in IDN. 
+      - Uncorrelated Accounts: Use this campaign type to certify source accounts that aren't linked to an authoritative identity in IdentityNow. 
       You can use this campaign type to view all the uncorrelated accounts for a source and certify them. 
 
       For more information about search-based campaigns, refer to [Starting a Campaign from Search](https://documentation.sailpoint.com/saas/help/certs/starting_search_campaign.html).
@@ -218,7 +218,7 @@ tags:
       Once you have generated your campaign, it becomes available for preview. 
       An administrator can review the campaign and make changes, or if it's ready and accurate, activate it. 
       
-      Once the campaign is active, organization administrators or certification administrators can designate other IDN users as certification reviewers. 
+      Once the campaign is active, organization administrators or certification administrators can designate other IdentityNow users as certification reviewers. 
       Those reviewers can view any of the certifications they either need to review (active) or have already reviewed (completed).
 
       When a certification campaign is in progress, certification reviewers see the listed active certifications whose involved identities they can review. 
@@ -307,7 +307,7 @@ tags:
       To maintain access across multiple lifecycle states, administrators must grant the access profiles in each lifecycle state. 
       For example, if an administrator wants users with the 'HR Employee' identity profile to maintain their building access in both the 'Active' and 'Leave of Absence' lifecycle states, the administrator must grant the access profile for that building access to both lifecycle states.
 
-      During scheduled refreshes, IdentityNow evaluates lifFecycle states to determine whether their assigned identities have the access defined in the lifecycle states' access profiles. 
+      During scheduled refreshes, IdentityNow evaluates lifecycle states to determine whether their assigned identities have the access defined in the lifecycle states' access profiles. 
       If the identities are missing access, IdentityNow provisions that access. 
 
       Administrators can also use the 'Provisioning' tab to configure email notifications for IdentityNow to send whenever an identity with that identity profile has a lifecycle state change. 
@@ -624,6 +624,24 @@ tags:
       Depending on the system load, this can take a few seconds to a few minutes. 
       Please keep this latency in mind when you use search. 
   - name: Segments
+    description: |
+      Use this API to implement and customize access request segment functionality. 
+      With this functionality in place, administrators can create and manage access request segments. 
+      Segments provide organizations with a way to make the access their users have even more granular - this can simply the access request process for the organization's users and improves security by reducing the risk of overprovisoning access. 
+
+      Segments represent sets of identities, all grouped by specified identity attributes, who are only able to see and access the access items associated with their segments.
+      For example, administrators could group all their organization's London office employees into one segment, "London Office Employees," by their shared location. 
+      The administrators could then define the access items the London employees would need, and the identities in the "London Office Employees" would then only be able to see and access those items.
+
+      In IdentityNow, administrators can use the 'Access' drop-down menu and select 'Segments' to reach the 'Access Requests Segments' page. 
+      This page lists all the existing access request segments, along with their statuses, enabled or disabled. 
+      Administrators can use this page to create, edit, enable, disable, and delete segments. 
+      To create a segment, an administrator must provide a name, define the identities grouped in the segment, and define the items the identities in the segment can access.
+      These items can be access profiles, roles, or entitlements. 
+
+      When administrators use the API to create and manage segments, they use a JSON expression in the `visibilityCriteria` object to define the segment's identities and access items. 
+
+      Refer to [Managing Access Request Segments](https://documentation.sailpoint.com/saas/help/requests/segments.html) for more information about segments in IdentityNow. 
   - name: Service Desk Integration
     description: |
       Use this API to build an integration between IdentityNow and a service desk ITSM (IT service management) solution. 

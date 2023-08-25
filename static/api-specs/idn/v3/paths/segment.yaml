@@ -4,10 +4,9 @@ get:
     - UserContextAuth: [ idn:segment:read, idn:segment:manage ]
   tags:
     - Segments
-  summary: Get a Segment by ID
+  summary: Get Segment by ID
   description: >-
     This API returns the segment specified by the given ID.
-
 
     A token with ORG_ADMIN or API authority is required to call this API.
   parameters:
@@ -16,7 +15,7 @@ get:
       schema:
         type: string
       required: true
-      description: The ID of the Segment to retrieve.
+      description: The segment ID to retrieve.
       example: ef38f94347e94562b5bb8424a56397d8
   responses:
     '200':
@@ -47,10 +46,8 @@ delete:
   description: >-
     This API deletes the segment specified by the given ID.
 
-
-    Note that segment deletion may take some time to become effective.
+    >**Note:** that segment deletion may take some time to become effective.
     
-
     A token with ORG_ADMIN or API authority is required to call this API.
   parameters:
     - in: path
@@ -58,7 +55,7 @@ delete:
       schema:
         type: string
       required: true
-      description: The ID of the Segment to delete.
+      description: The segment ID to delete.
       example: ef38f94347e94562b5bb8424a56397d8
   responses:
     '204':
@@ -81,14 +78,11 @@ patch:
     - UserContextAuth: [ idn:segment:manage ]
   tags:
     - Segments
-  summary: Update a Segment
+  summary: Update Segment
   description: >-
-    Allows updating Segment fields using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+    Use this API to update segment fields by using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
-
-    Note that changes to a segment may take some time to propagate to all identities, and that segments will have no
-    effect if segmentation is not enabled for your org.
-    
+    >**Note:** Changes to a segment may take some time to propagate to all identities.
 
     A token with ORG_ADMIN or API authority is required to call this API.
   parameters:
@@ -97,13 +91,12 @@ patch:
       schema:
         type: string
       required: true
-      description: The ID of the Segment being modified.
+      description: The segment ID to modify. 
       example: ef38f94347e94562b5bb8424a56397d8
   requestBody:
     required: true
     description: |
-      A list of Segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
-
+      A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
       The following fields are patchable:
       * name
@@ -141,7 +134,7 @@ patch:
   responses:
     '200':
       description: >-
-        Indicates the PATCH operation succeeded, and returns the Segment's new representation.
+        Indicates the PATCH operation succeeded, and returns the segment's new representation.
       content:
         application/json:
           schema:

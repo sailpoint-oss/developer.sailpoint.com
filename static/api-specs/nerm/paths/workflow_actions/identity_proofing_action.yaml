@@ -1,7 +1,7 @@
 post:
   summary: Create an identity proofing action
   operationId: createIdentityProofingAction
-  description: Create an identity proofing action. Coordinates with identity_proofing_action_configuration for configuration. Coordinates with identity_proofing_action_mappings for mapping.
+  description: Create an identity proofing action. The following supporting objects will need to be created after this action is created (which are tied together via workflow_action_id) - identity_proofing_action_configuration, identity_proofing_action_mappings. These supporting objects must be created for this action to be complete (APIs for these supporting objects not yet implemented, use UI).
   tags:
     - workflow actions
   requestBody:

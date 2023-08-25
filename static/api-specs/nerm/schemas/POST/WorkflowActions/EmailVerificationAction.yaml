@@ -28,7 +28,7 @@ properties:
     required: true
     enum: [hours, days, login attempts, always]
     description: The token expiration type, coordinates with token_expiration.
-    example: day
+    example: days
   archived:
     type: boolean
     default: false

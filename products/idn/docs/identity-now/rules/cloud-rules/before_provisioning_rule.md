@@ -14,11 +14,11 @@ tags: ['Rules']
 
 Use this rule to modify a provisioning plan as provisioning is sent out. Do not use this rule to create new attributes. Use an account creation profile (provisioning policy) instead.
 
-Examples of when to use this type of rule are below
+These are some examples of when to use this rule:
 
 * Disable account and remove groups during provisioning when the lifecycle state of an identity is set to terminated
 * Remove or add permissions when certain attribute criteria are met
-* Moving users to a specific organizational unit(OU) in Active Directory based upon attribute criteria
+* Move users to a specific organizational unit (OU) in Active Directory based upon attribute criteria
 
 ## Execution
 

@@ -12,7 +12,7 @@ tags: ['Rules']
 
 ## Overview
 
-This rule type is used in transforms to accomplish a specific task given configurable parameters described in the transforms attributes. The rule to perform the same task as the split transform given a delimiter and index would look like below.
+This rule type is used in transforms to accomplish a specific task given configurable parameters described in the transforms attributes. The rule to perform the same task as the split transform given a delimiter and index would look like this:
 
 ### Transform
 

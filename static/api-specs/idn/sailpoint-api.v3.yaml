@@ -1045,6 +1045,8 @@ paths:
     $ref: "./v3/paths/work-items-account-selection.yaml"
   /campaigns/{id}/reports:
     $ref: './v3/paths/campaign-reports.yaml'
+  /campaigns/{id}/run-report/{type}:
+    $ref: './v3/paths/campaign-run-report.yaml'
 
 security:
   - UserContextAuth: []

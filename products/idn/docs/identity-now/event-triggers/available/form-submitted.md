@@ -45,7 +45,7 @@ This is an example input from this trigger:
 }
 ```
 
-- `formData` contains the information provided by the user who submitted the form.  The attributes of `formData` will vary depending on the form definition
+- `formData` contains the information provided by the user who submitted the form.  The attributes of `formData` will vary depending on the form definition.
 
 ## Additional Information and Links
 

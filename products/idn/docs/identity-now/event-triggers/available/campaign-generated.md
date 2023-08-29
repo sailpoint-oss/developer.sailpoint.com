@@ -18,7 +18,7 @@ When a new campaign is created, it will start in the "Generating" state.
 
 ![Generating](./img/campaign-generated-generating.png)
 
-Once the generation is complete, the campaign will move to the "Preview Ready" state, and this trigger will fire and event with the details of the campaign.
+Once the generation is complete, the campaign will move to the "Preview Ready" state, and this trigger will fire an event with the details of the campaign.
 
 ![Preivew](./img/campaign-generated-preview.png)
 

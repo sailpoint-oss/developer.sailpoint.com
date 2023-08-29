@@ -276,7 +276,12 @@ tags:
       Once this certification has been completed, IdentityNow  would provision all the access the user needs, nothing more. 
 
       Certification summaries provide information about identity certification campaigns such as the identities involved, the number of decisions made, and the access changed. 
-      For example, an administrator or designated certification reviewer can examine the Manager Certification campaign to get an overview of how many entitlement decisions are made in that campaign as opposed to role decisions, which identities would be affected by changes to the campaign, and how those identities' access would be affected.  
+      For example, an administrator or designated certification reviewer can examine the Manager Certification campaign to get an overview of how many entitlement decisions are made in that campaign as opposed to role decisions, which identities would be affected by changes to the campaign, and how those identities' access would be affected.
+  - name: Global Tenant Security Settings
+    description: |
+      Use this API to implement and customize global tenant security settings.
+      With this functionality in place, administrators can manage the global security settings that a tenant/org has.
+      This API can be used to configure the networks and Geographies allowed to access IdentityNow URLs.
   - name: Lifecycle States
     description: |
       Use this API to implement and customize lifecycle state functionality.
@@ -803,6 +808,8 @@ paths:
     $ref: "./v3/paths/account-activity-list.yaml"
   /account-activities/{id}:
     $ref: "./v3/paths/account-activity-get-one.yaml"
+  /auth-org/network-config:
+    $ref: "./v3/paths/auth-org-network-config.yaml"
   /campaigns:
     $ref: './v3/paths/campaigns.yaml'
   /campaigns/{id}:

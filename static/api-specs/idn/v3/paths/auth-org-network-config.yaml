@@ -1,11 +1,13 @@
 get:
   operationId: getAuthOrgNetworkConfig
   tags:
-    - Auth Org Configuration
-  summary: Get the org's auth org network configuration.
+    - Global Tenant Security Settings
+  summary: Get security network configuration.
   description: >-
     This API returns the details of an org's network auth configuration.
     Requires security scope of: 'sp:auth-org:read'
+  security:
+    - oauth2: [ sp:auth-org:read ]
   responses:
     "200":
       description: Network configuration for the tenant's auth org.
@@ -13,12 +15,16 @@ get:
         application/json:
           schema:
             $ref: "../schemas/NetworkConfiguration.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
     "401":
       $ref: "../../v3/responses/401.yaml"
     "403":
       $ref: "../../v3/responses/403.yaml"
     "404":
       $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
     "500":
       $ref: "../../v3/responses/500.yaml"
   # security:
@@ -26,11 +32,13 @@ get:
 post:
   operationId: createAuthOrgNetworkConfig
   tags:
-    - Auth Org Configuration
-  summary: Create the org's auth org network configuration.
+    - Global Tenant Security Settings
+  summary: Create security network configuration.
   description: >-
     This API returns the details of an org's network auth configuration.
     Requires security scope of: 'sp:auth-org:create'
+  security:
+    - oauth2: [ sp:auth-org:create ]
   requestBody:
     required: true
     description: >-
@@ -59,6 +67,8 @@ post:
       $ref: "../../v3/responses/403.yaml"
     "404":
       $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
     "500":
       $ref: "../../v3/responses/500.yaml"
   # security:
@@ -66,11 +76,13 @@ post:
 patch:
   operationId: patchAuthOrgNetworkConfig
   tags:
-    - Auth Org Configuration
-  summary: Update the org's auth org network configuration
+    - Global Tenant Security Settings
+  summary: Update security network configuration.
   description: >-
     This API updates an existing network configuration for an org using PATCH
      Requires security scope of:  'sp:auth-org:update'
+  security:
+    - oauth2: [ sp:auth-org:update ]
   requestBody:
     required: true
     description: >-
@@ -111,6 +123,8 @@ patch:
       $ref: "../../v3/responses/403.yaml"
     "404":
       $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
     "500":
       $ref: "../../v3/responses/500.yaml"
   # security:

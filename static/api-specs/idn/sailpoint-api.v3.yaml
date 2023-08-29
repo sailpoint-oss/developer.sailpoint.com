@@ -167,6 +167,8 @@ tags:
       - Password Change: These include password changes on sources.
 
       Refer to [Account Activity](https://documentation.sailpoint.com/saas/help/search/index.html#account-activity) for more information about account activities.
+  - name: Auth User
+    description: Authentication service user retrieval and user capabilities update
   - name: Certification Campaigns
     description: |
       Use this API to implement certification campaign functionality.
@@ -371,7 +373,7 @@ tags:
     description: |
       Use this API to implement OAuth client functionality.   
       With this functionality in place, users with the appropriate security scopes can create and configure OAuth clients to use as a way to obtain authorization to use the IdentityNow REST API.
-      Refer to [Authentication](https://developer.sailpoint.com/idn/api/authentication) for more information about OAuth and how it works with the IdentityNow REST API. 
+      Refer to [Authentication](https://developer.sailpoint.com/idn/api/authentication) for more information about OAuth and how it works with the IdentityNow REST API.
   - name: Password Configuration
     description: |
       Use this API to implement organization password configuration functionality. 
@@ -810,6 +812,8 @@ paths:
     $ref: "./v3/paths/account-activity-get-one.yaml"
   /auth-org/network-config:
     $ref: "./v3/paths/auth-org-network-config.yaml"
+  /auth-users/{id}:
+    $ref: "./v3/paths/auth-user.yaml"
   /campaigns:
     $ref: './v3/paths/campaigns.yaml'
   /campaigns/{id}:

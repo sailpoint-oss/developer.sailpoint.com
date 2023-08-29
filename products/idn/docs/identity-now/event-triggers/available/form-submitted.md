@@ -12,7 +12,7 @@ tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 
 ## Event Context
 
-The Form Submitted events occurs after a [custom form](https://documentation.sailpoint.com/saas/help/forms/index.html) has been submitted by a user.
+The Form Submitted events occur after a user has submitted a [custom form](https://documentation.sailpoint.com/saas/help/forms/index.html).
 
 Some uses cases for this trigger include the following:
 
@@ -45,7 +45,7 @@ This is an example input from this trigger:
 }
 ```
 
-- `formData` contains the information provided by the user who submitted the form.  The attributes of `formData` will vary depending on the form definition.
+- `formData` contains the information provided by the user who submitted the form. The attributes of `formData` will vary depending on the form definition.
 
 ## Additional Information and Links
 

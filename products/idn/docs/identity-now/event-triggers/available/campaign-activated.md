@@ -12,7 +12,7 @@ tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 
 ## Event Context
 
-The Campaign Activated events occurs after a campaign is activated.
+The Campaign Activated events occur after a campaign is activated.
 
 Some uses cases for this trigger include the following:
 

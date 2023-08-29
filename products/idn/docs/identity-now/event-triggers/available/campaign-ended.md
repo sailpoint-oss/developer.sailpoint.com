@@ -12,7 +12,7 @@ tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 
 ## Event Context
 
-The Campaign Ended events occurs after a campaign is complete.
+The Campaign Ended events occur after a campaign is complete.
 
 Some uses cases for this trigger include the following:
 

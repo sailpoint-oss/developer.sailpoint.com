@@ -1,3 +1,4 @@
+// This is a comment for the plugins file for Docusaurus
 module.exports = [
   [
     '@docusaurus/plugin-google-tag-manager',

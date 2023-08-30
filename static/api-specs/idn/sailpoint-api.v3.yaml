@@ -824,6 +824,8 @@ paths:
     $ref: './v3/paths/campaign-activate.yaml'
   /campaigns/{id}/complete:
     $ref: './v3/paths/campaign-complete.yaml'
+  /campaigns/delete:
+    $ref: './v3/paths/campaigns-delete.yaml'
   /certifications:
     $ref: "./v3/paths/identity-certifications.yaml"
   /certifications/{id}:

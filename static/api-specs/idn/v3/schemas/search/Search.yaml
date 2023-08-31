@@ -81,7 +81,9 @@ properties:
     type: array
     items:
       type: string
-      example: ["displayName", "+id"]
+    example: 
+      - 'displayName'
+      - '+id'
 
   searchAfter:
     description: >-
@@ -101,7 +103,9 @@ properties:
     type: array
     items:
       type: string
-      example: ["John Doe","2c91808375d8e80a0175e1f88a575221"]
+    example: 
+      - 'John Doe'
+      - '2c91808375d8e80a0175e1f88a575221'
 
   filters:
     description: >-

@@ -11,14 +11,20 @@ properties:
     type: array
     items:
       type: string
-      example: ["The quick brown fox","3141592", "7"]
+    example: 
+      - 'The quick brown fox'
+      - '3141592'
+      - '7'
   fields:
     description: >-
       The fields to be searched.
     type: array
     items:
       type: string
-      example: ["displayName","employeeNumber", "roleCount"]
+    example: 
+      - 'displayName'
+      - 'employeeNumber'
+      - 'roleCount'
   matchAny:
     description: >-
       Indicates that at least one of the terms must be found in the specified fields; 

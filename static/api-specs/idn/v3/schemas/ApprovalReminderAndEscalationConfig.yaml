@@ -12,8 +12,9 @@ properties:
     example: 0
   maxReminders:
     type: integer
-    description: Maximum number of reminder notification to send to the reviewer before approval escalation. This will only be a positive number.
+    description: Maximum number of reminder notification to send to the reviewer before approval escalation. 
     format: int32
+    minimum: 1
     example: 1
   fallbackApproverRef:
     $ref: './IdentityReferenceWithNameAndEmail.yaml'

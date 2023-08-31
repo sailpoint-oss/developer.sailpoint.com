@@ -34,6 +34,10 @@ properties:
   cluster:
     description: Reference to the associated Cluster
     type: object
+    required: 
+      - name 
+      - id 
+      - type 
     properties:
       type:
         description: The type of object being referenced
@@ -237,6 +241,7 @@ properties:
     type: boolean
     description: >-
       When true indicates the source is referenced by an IdentityProfile.
+    default: false 
     example: false
   managementWorkgroup:
     description: Reference to Management Workgroup for this Source
@@ -260,6 +265,7 @@ properties:
     type: boolean
     description: >-
       When true indicates a healthy source
+    default: false 
     example: true
   status:
     type: string

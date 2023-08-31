@@ -16,6 +16,7 @@ properties:
       Maximum number of reminder notification to send to the reviewer before
       approval escalation.
     format: int32
+    minimum: 1
     example: 3
   fallbackApproverRef:
     $ref: "../IdentityReferenceWithNameAndEmail.yaml"

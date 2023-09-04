@@ -826,6 +826,12 @@ paths:
     $ref: './v3/paths/campaign-complete.yaml'
   /campaigns/delete:
     $ref: './v3/paths/campaigns-delete.yaml'
+  /campaigns/{id}/reports:
+    $ref: './v3/paths/campaign-reports.yaml'
+  /campaigns/{id}/run-report/{type}:
+    $ref: './v3/paths/campaign-run-report.yaml'
+  /campaigns/reports-configuration:
+    $ref: './v3/paths/campaign-reports-configuration.yaml'
   /certifications:
     $ref: "./v3/paths/identity-certifications.yaml"
   /certifications/{id}:
@@ -1056,10 +1062,6 @@ paths:
     $ref: "./v3/paths/work-items-bulk-reject-approval-item.yaml"
   /work-items/{id}/submit-account-selection:
     $ref: "./v3/paths/work-items-account-selection.yaml"
-  /campaigns/{id}/reports:
-    $ref: './v3/paths/campaign-reports.yaml'
-  /campaigns/{id}/run-report/{type}:
-    $ref: './v3/paths/campaign-run-report.yaml'
 
 security:
   - UserContextAuth: []

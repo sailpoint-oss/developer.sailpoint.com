@@ -3,13 +3,14 @@ get:
   tags:
     - Certification Campaigns
   summary: Get Campaign Reports Configuration
+  deprecated: true
   description: >- 
     Fetches configuration for campaign reports. Currently it includes only one element - identity attributes defined as custom report columns.
 
     Requires roles of CERT_ADMIN and ORG_ADMIN.
 
-  # security:
-  #   - oauth2: [CERT_ADMIN,ORG_ADMIN]
+  security:
+    - UserContextAuth: [ idn:campaign-reports-config:read ]
   responses:
     '200':
       description: Campaign Report Configuration
@@ -17,6 +18,8 @@ get:
         application/json:
           schema:
             $ref: '../schemas/CampaignReportsConfig.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
     '401':
       $ref: '../../v3/responses/401.yaml'
     '403':
@@ -35,8 +38,8 @@ put:
 
     Requires roles CERT_ADMIN and ORG_ADMIN.
 
-  # security:
-  #   - oauth2: [CERT_ADMIN,ORG_ADMIN]
+  security:
+    - UserContextAuth: [ idn:campaign-reports-config:write ]
   requestBody:
     required: true
     description: Campaign Report Configuration

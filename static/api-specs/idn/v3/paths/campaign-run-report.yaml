@@ -8,7 +8,7 @@ post:
 
     Requires the following roles: CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN.
   security:
-    - oauth2: [idn:campaign-report:run]
+    - UserContextAuth: [idn:campaign-report:run]
   parameters:
     - in: path
       name: id

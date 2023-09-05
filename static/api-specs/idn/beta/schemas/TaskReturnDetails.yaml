@@ -11,3 +11,4 @@ properties:
   attributeName:
     description: Attribute the TaskReturnDetails is for
     type: string
+    example: identityCount

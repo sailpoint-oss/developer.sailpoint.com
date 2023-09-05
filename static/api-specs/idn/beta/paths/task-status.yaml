@@ -4,7 +4,7 @@
 get:
   tags:
     - Task Management
-  summary: Retrieve a task status by task ID.
+  summary: Get task status by ID.
   description: Get a TaskStatus for a task by task ID.
   operationId: getTaskStatus
   parameters:
@@ -28,13 +28,22 @@ get:
       description: Forbidden, generally due to a lack of security rights
     "404":
       description: TaskStatus with the given id was not found.
+    "400":
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
   security:
     - UserContextAuth: [idn:task-management:read]
 patch:
   tags:
     - Task Management
-  summary: Update task status by task ID
+  summary: Update task status by ID
   description: Update a current TaskStatus for a task by task ID.
+  operationId: updateTaskStatus
   parameters:
     - name: id
       in: path
@@ -64,5 +73,11 @@ patch:
       $ref: '../../v3/responses/403.yaml'
     "404":
       $ref: '../../v3/responses/404.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
   security:
     - UserContextAuth: [idn:task-management:write]

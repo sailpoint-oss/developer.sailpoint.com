@@ -10,29 +10,32 @@ description: How to run the APIs in Postman.
 tags: ['postman']
 ---
 
+
+import GitHubPublicFileComponent from '@site/src/components/GitHubLink';
+
 [Postman](https://www.postman.com/) is a platform you can use to design, build, test, and iterate your APIs. Postman users and teams can create public workspaces they can use to make it easy to access their API collections and environments and get started. SailPoint maintains a [public workspace for the IdentityNow API collections](https://www.postman.com/sailpoint/workspace/identitynow). You can use this workspace to access all the IDN API collections and stay up to date.
 
 ## Run in Postman
 
 Each IDN API version is broken out into a separate collection within the workspace. The following table lists the available IDN API collections. To import a collection into your workspace, select the 'Run in Postman' button for your desired version. Doing so forks the collection into your workspace.
 
+
+
 | API | Postman Collection |
 |------|----------------------------|
-| V3 API | [![Run in Postman](./img/button.svg)](https://app.getpostman.com/run-collection/23226990-5f6a4855-8012-406f-9456-c8fa6311b080?action=collection%2Ffork&collection-url=entityId%3D23226990-5f6a4855-8012-406f-9456-c8fa6311b080%26entityType%3Dcollection%26workspaceId%3D80af54be-a333-4712-af5e-41aa9eccbdd0) |
-| Beta API | [![Run in Postman](./img/button.svg)](https://god.gw.postman.com/run-collection/23226990-18091672-ede8-4a27-a1b8-251d4bda2da1?action=collection%2Ffork&collection-url=entityId%3D23226990-18091672-ede8-4a27-a1b8-251d4bda2da1%26entityType%3Dcollection%26workspaceId%3D80af54be-a333-4712-af5e-41aa9eccbdd0) |
-| V2 API | [![Run in Postman](./img/button.svg)](https://god.gw.postman.com/run-collection/23226990-624bf09b-7d1b-4ee6-9833-4b581b41db40?action=collection%2Ffork&collection-url=entityId%3D23226990-624bf09b-7d1b-4ee6-9833-4b581b41db40%26entityType%3Dcollection%26workspaceId%3D80af54be-a333-4712-af5e-41aa9eccbdd0) |
-| cc/private API | [![Run in Postman](./img/button.svg)](https://god.gw.postman.com/run-collection/23226990-4ec40b38-cdac-44bf-a07c-8606895d2233?action=collection%2Ffork&collection-url=entityId%3D23226990-4ec40b38-cdac-44bf-a07c-8606895d2233%26entityType%3Dcollection%26workspaceId%3D80af54be-a333-4712-af5e-41aa9eccbdd0) |
+| V3 API | <GitHubPublicFileComponent source="https://raw.githubusercontent.com/sailpoint-oss/api-specs/main/postman/links/v3-link.txt"></GitHubPublicFileComponent> |
+| Beta API | <GitHubPublicFileComponent source="https://raw.githubusercontent.com/sailpoint-oss/api-specs/main/postman/links/beta-link.txt"></GitHubPublicFileComponent> |
+| V2 API | <GitHubPublicFileComponent source="https://raw.githubusercontent.com/sailpoint-oss/api-specs/main/postman/links/v2-link.txt"></GitHubPublicFileComponent> |
+| cc/private API | <GitHubPublicFileComponent source="https://raw.githubusercontent.com/sailpoint-oss/api-specs/main/postman/links/cc-link.txt"></GitHubPublicFileComponent> |
 | SaaS Connectivity | [![Run in Postman](./img/button.svg)](https://god.gw.postman.com/run-collection/23226990-a0b5c429-d8dd-4fe2-a4a2-eb7ff85322ef?action=collection%2Ffork&collection-url=entityId%3D23226990-a0b5c429-d8dd-4fe2-a4a2-eb7ff85322ef%26entityType%3Dcollection%26workspaceId%3D80af54be-a333-4712-af5e-41aa9eccbdd0) |
 
 You can also fork a collection by selecting the ellipses to the right of the collection and selecting 'Create a fork.'
 
-When you fork the collection, it is recommended that you check the 'Watch original collection' checkbox to get notifications when there are changes to the collection. You can then pull the changes to merge them and stay up to date.
+When you fork the collection, even if you check the 'Watch original collection' checkbox to get notifications when there are changes to the collection because of limitations of Postman, to get the most recent version of changes to the collection, you will need to click the link to fork the most up to date collection.
 
 ## Update your collections
 
-SailPoint is often making improvements to the IDN API collections. To keep your workspace in sync with updates to one of SailPoint's public collections, select the ellipse to the right of the collection, and select 'Pull changes'.
-
-If there are no changes, you're up to date. If there are changes, the screen lists the changes you're pulling. Select 'Pull changes' again to pull them in.
+SailPoint is often making improvements to the IDN API collections. To keep your workspace in sync with updates to one of SailPoint's public collections, you will need to visit the [sailpoint workspace](https://www.postman.com/sailpoint/workspace/identitynow) and create a fork of the most recently published version or click the links above to fork the most recent version.
 
 ## Configure your environment
 

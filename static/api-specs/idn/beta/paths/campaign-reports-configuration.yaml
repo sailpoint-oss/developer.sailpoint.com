@@ -33,6 +33,7 @@ put:
   tags:
     - Certification Campaigns
   summary: Set Campaign Reports Configuration
+  deprecated: true
   description: >- 
     Overwrites configuration for campaign reports.
 

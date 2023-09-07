@@ -18,7 +18,7 @@ post:
     Requires roles of CERT_ADMIN and ORG_ADMIN
   deprecated: true
   security:
-    - oauth2: [idn:campaign:update]
+    - UserContextAuth: [idn:campaign:update]
   requestBody:
     description:
       Optional. Default behavior is for the campaign to auto-approve upon completion,

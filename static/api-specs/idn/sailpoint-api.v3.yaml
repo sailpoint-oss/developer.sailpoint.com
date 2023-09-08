@@ -852,6 +852,8 @@ paths:
     $ref: './v3/paths/campaign-complete.yaml'
   /campaigns/delete:
     $ref: './v3/paths/campaigns-delete.yaml'
+  /campaigns/{id}/run-remediation-scan:
+    $ref: './v3/paths/campaign-run-remediation-scan.yaml'
   /campaigns/{id}/reports:
     $ref: './v3/paths/campaign-reports.yaml'
   /campaigns/{id}/run-report/{type}:

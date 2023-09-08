@@ -8,7 +8,7 @@ post:
     Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.
   deprecated: true
   security:
-    - oauth2: [idn:campaign:delete]
+    - UserContextAuth: [idn:campaign:delete]
   requestBody:
     description: The ids of the campaigns to delete.
     required: true

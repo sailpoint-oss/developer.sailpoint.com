@@ -5,12 +5,12 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import MarketplaceBanner from '../components/marketplace/MarketplaceBanner';
 
-import styles from './marketplace.module.css';
+import styles from './exchange.module.css';
 import MarketplaceCards from '../components/marketplace/MarketplaceCards';
 import MarketplaceSidebar from '../components/marketplace/MarketplaceSidebar';
 
 export default function Marketplace() {
-  const [filteredProduct, setFilteredProduct] = React.useState({"category": "marketplace", "tags": []});
+  const [filteredProduct, setFilteredProduct] = React.useState({"category": "exchange", "tags": []});
 
   const {siteConfig} = useDocusaurusContext();
 

@@ -3,12 +3,12 @@ import styles from './styles.module.css';
 
 
 export default function MarketplaceSidebarButton({
-    filterCallback,
-    text,
-    id,
-    isCategory,
-    category
-  }) {
+  filterCallback,
+  text,
+  id,
+  isCategory,
+  category
+}) {
   const [isActive, setIsActive] = React.useState(false);
   const [checked, setChecked] = React.useState(false);
 
@@ -30,23 +30,31 @@ export default function MarketplaceSidebarButton({
   }
   //const activeClass = isActive ? styles.tagSelected : ''
   function setFilters(e, id) {
+    console.log(id)
+    console.log(category)
     if (isCategory) {
       if (category === id) {
-        filterCallback({"category": "marketplace"})
+        filterCallback({ "category": "exchange" })
         setIsActive(false)
       } else {
-        filterCallback({"category": id})
+        filterCallback({ "category": id })
         setIsActive(true)
       }
-      
+
     } else {
-      filterCallback({"tag": id})
+      filterCallback({ "tag": id })
       setIsActive(current => !current);
     }
-    
-    
+
+
   }
-  // return <div><input id={id} type='checkbox' className={radioClass} checked={activeClass != ''} onChange={handleChange}></input><label htmlFor={id} onClick={(e) => setFilters(e, id)} className={activeClass + ' ' + styles.tag} key={text}>{text}</label></div>
-  return <div key={text} onClick={(e) => setFilters(e, id)} className={activeClass + ' ' + styles.tag}>{text}</div>
+  return (
+    <div>
+      <input onClick={(e) => setFilters(e, id)} id={id} type='checkbox' className={styles.sidebarButton + ' ' + radioClass} checked={activeClass != ''} onChange={handleChange}></input>
+      <label htmlFor={id}  className={activeClass + ' ' + styles.tag} key={text}>{text}
+      </label>
+    </div>
+  )
+  //return <div key={text} onClick={(e) => setFilters(e, id)} className={activeClass + ' ' + styles.tag}>{text}</div>
 
 }

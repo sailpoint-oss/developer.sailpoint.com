@@ -71,7 +71,7 @@ export async function getBlogPosts(tags) {
 }
 
 export async function getMarketplacePosts(tags, category) {
-  let filterCategory = 'marketplace'
+  let filterCategory = 'exchange'
   if (category) {
     filterCategory = category
   }

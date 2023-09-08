@@ -135,11 +135,52 @@
 
 
 
-.cardBadge {
+/* .cardBadge {
   position: absolute;
   right: 5px;
   bottom: 0px;
   margin-left: 5px;
   height: 80px;
   width: 80px;
+} */
+
+.cardBadge {
+  position: absolute;
+  display: flex;
+  right: 95px;
+  bottom: 0px;
+  margin-left: 5px;
+  height: 80px;
+  width: 80px;
+  color: var(--dev-text-color-secondary);
+}
+
+.cardBadgeImage {
+  margin-right: 10px;
+  height: 80px;
+  width: 80px;
+}
+
+.cardBadgeText {
+  margin-left: -19px;
+  margin-top: 15px;
+}
+
+
+.cardBadgeCertified {
+  position: absolute;
+  display: flex;
+  right: 85px;
+  bottom: 15px;
+  margin-left: 5px;
+  height: 50px;
+  width: 50px;
+  color: var(--dev-text-color-secondary);
+}
+
+.cardBadgeCertifiedImage {
+  margin-right: 10px;
+  height: 50px;
+  width: 50px;
+  filter: var(--dev-icon-color-primary);
 }

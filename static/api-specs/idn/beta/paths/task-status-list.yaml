@@ -24,7 +24,7 @@ get:
           **id**: *eq, in*
           **sourceId**: *eq, in*
           **completionStatus**: *eq, in*
-          **schedule**: *eq, in*
+          **type**: *eq, in* "CLOUD_ACCOUNT_AGGREGATION", "CLOUD_GROUP_AGGREGATION", "CLOUD_PROCESS_UNCORRELATED_ACCOUNTS" or "CLOUD_REFRESH_ROLE"
     - in: query
       name: sorters
       schema:
@@ -58,4 +58,4 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:task-management:read]
+    - UserContextAuth: [idn:task-management:read]

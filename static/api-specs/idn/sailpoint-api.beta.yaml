@@ -1415,6 +1415,12 @@ paths:
     $ref: './beta/paths/source-synchronize-attributes.yaml'
   /sources/{id}/entitlement-request-config:
     $ref: './beta/paths/sources-entitlement-request-config.yaml'
+  /task-status:
+    $ref: "./beta/paths/task-status-list.yaml"
+  /task-status/{id}:
+    $ref: "./beta/paths/task-status.yaml"
+  /task-status/pending-tasks:
+    $ref: "./beta/paths/task-status-pending.yaml"
   /tagged-objects:
     $ref: './beta/paths/tagged-objects.yaml'
   /tagged-objects/{type}:

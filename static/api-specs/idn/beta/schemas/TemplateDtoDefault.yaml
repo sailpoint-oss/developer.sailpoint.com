@@ -3,9 +3,11 @@ properties:
   key:
     type: string
     example: "cloud_manual_work_item_summary"
+    description: The key of the default template
   name:
     type: string
     example: "Task Manager Subscription"
+    description: The name of the default template
   medium:
     type: string
     description: The message medium. More mediums may be added in the future.
@@ -25,22 +27,33 @@ properties:
     example:
       "You have $numberOfPendingTasks $taskTasks to complete in
       ${__global.productName}."
+    description: The subject of the default template
   header:
     type: string
-    example: "Dear $__recipient.name,"
+    nullable: true
+    example: null
+    deprecated: true
+    description: The header value is now located within the body field. If included with non-null values, will result in a 400.
   body:
     type: string
     example: "Please go to the task manager"
+    description: The body of the default template
   footer:
     type: string
-    example: "Thanks, The $__global.productName Team"
+    nullable: true
+    example: null
+    deprecated: true
+    description: The footer value is now located within the body field. If included with non-null values, will result in a 400.
   from:
     type: string
     example: "$__global.emailFromAddress"
+    description: The "From:" address of the default template
   replyTo:
     type: string
     example: "$__global.emailFromAddress"
+    description: The "Reply To" field of the default template
   description:
     type: string
     example:
       "Daily digest - sent if number of outstanding tasks for task owner > 0"
+    description: The description of the default template

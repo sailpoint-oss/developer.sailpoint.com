@@ -1135,6 +1135,8 @@ paths:
     $ref: './beta/paths/historical-identity-compare-type.yaml'
   /identities/{identityId}/synchronize-attributes:
     $ref: './beta/paths/identity-synchronize-attributes.yaml'
+  /identities/{identityId}/ownership:
+    $ref: './beta/paths/identity-ownership.yaml'
   /identities:
     $ref: './beta/paths/identities.yaml'
   /identities/{id}:

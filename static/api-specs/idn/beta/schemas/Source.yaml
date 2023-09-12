@@ -289,9 +289,9 @@ properties:
     type: string
     description: The type of connection (direct or file)
     example: "file"
-  connectorImplementstionId:
+  connectorImplementationId:
     type: string
-    description: The connector implementstion id
+    description: The connector implementation id
     example: "delimited-file"
 required:
   - name

@@ -161,7 +161,7 @@ patch:
               ]
 
           Edit source features:
-            description: This example illustrates how you can update source supported features
+            description: This example illustrates how you can update source supported features.
             value:
               [
                 {
@@ -201,7 +201,7 @@ patch:
                   }
               ]
           Update connector attribute for specific operation type:
-            description: This example shows how you can update the 3rd object in the connection parameters operationType. This will change it from a standard group aggregation to a group aggregation on the "test" entitlement type
+            description: This example shows how you can update the 3rd object in the connection parameters operationType. This will change it from a standard group aggregation to a group aggregation on the "test" entitlement type.
             value:
               [
                   {

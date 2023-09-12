@@ -9,7 +9,14 @@ properties:
     example: 'name:a*'
   fields:
     description: >-
-      The fields to which the specified query will be applied.  The available fields are dependent on the indice(s) being searched on.  Please refer to the response schema of this API for a list of available fields.
+      The fields the query will be applied to. 
+      Fields provide you with a simple way to add additional fields to search, without making the query too complicated. 
+      For example, you can use the fields to specify that you want your query of "a*" to be applied to "name", "firstName", and the "source.name". 
+      The response will include all results matching the "a*" query found in those three fields. 
+
+      A field's availability depends on the indices being searched. 
+      For example, if you are searching "identities", you can apply your search to the "firstName" field, but you couldn't use "firstName" with a search on "access profiles". 
+      Refer to the response schema for the respective lists of available fields. 
     type: array
     items:
       type: string

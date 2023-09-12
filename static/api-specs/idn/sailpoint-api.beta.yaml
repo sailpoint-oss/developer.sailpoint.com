@@ -1395,6 +1395,8 @@ paths:
     $ref: './beta/paths/source-connector-test-configuration.yaml'
   /sources/{id}/connectors/source-config:
     $ref: './beta/paths/source-connectors-source-config.yaml'
+  /sources/{sourceId}/native-change-detection-config:
+    $ref: './beta/paths/native-change-detection-config.yaml'
   /sources/{sourceId}/provisioning-policies:
     $ref: './v3/paths/provisioning-policies.yaml'
   /sources/{sourceId}/provisioning-policies/{usageType}:

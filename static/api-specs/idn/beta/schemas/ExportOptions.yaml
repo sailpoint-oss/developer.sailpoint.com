@@ -27,7 +27,7 @@ properties:
       - SOURCE
       - TRANSFORM
       - TRIGGER_SUBSCRIPTION
-      - WORKFLOWS
+      - WORKFLOW
       example: "SOURCE"
   includeTypes:
     description: Object type names to be included in an sp-config export command. IncludeTypes takes precedence over excludeTypes.
@@ -56,7 +56,7 @@ properties:
       - SOURCE
       - TRANSFORM
       - TRIGGER_SUBSCRIPTION
-      - WORKFLOWS
+      - WORKFLOW
       example: "TRIGGER_SUBSCRIPTION"
   objectOptions:
     description: Additional options targeting specific objects related to each item in the includeTypes field

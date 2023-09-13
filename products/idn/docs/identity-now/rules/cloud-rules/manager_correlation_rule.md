@@ -20,6 +20,8 @@ Use this rule to correlate an identity's manager for the following scenarios:
 * You need to do a lookup from an employee number to other data.
 * The identity changes types, for example, from consultant to employee with the manager coming from a different authoritative source.
 
+The manager correlation rule runs before configured manager account correlation.
+
 ## Execution
 
 - **Cloud Execution** - This rule executes in the IdentityNow cloud, and it has read-only access to IdentityNow data models, but it does not have access to on-premise sources or connectors.

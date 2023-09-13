@@ -817,6 +817,7 @@ tags:
   - name: SP-Config
     description: Import and export configuration for some objects between tenants.
   - name: Tagged Objects
+  - name: Task Management
   - name: Transforms
     description: Operations for creating, managing, and deleting transforms
   - name: Triggers

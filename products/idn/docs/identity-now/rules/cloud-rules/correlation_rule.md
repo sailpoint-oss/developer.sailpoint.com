@@ -12,7 +12,7 @@ tags: ['Rules']
 
 ## Overview
 
-This rule associates or correlates an account to an identity, based on complex logic.
+This rule associates or correlates an account to an identity, based on complex logic. The rule runs before configured account correlation including the default account correlation.
 
 ## Execution
 

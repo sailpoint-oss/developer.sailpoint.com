@@ -882,6 +882,8 @@ paths:
     $ref: "./v3/paths/identity-certifications-identity-summary.yaml"
   /certifications/{id}/reviewers:
     $ref: './v3/paths/certifications-reviewers.yaml'
+  /certification-tasks/{id}:
+    $ref: "./v3/paths/certification-task.yaml"
   /identities/{identity-id}/set-lifecycle-state:
     $ref: "./v3/paths/identity-set-lifecycle-state.yaml"
   /identity-profiles/{identity-profile-id}/lifecycle-states:

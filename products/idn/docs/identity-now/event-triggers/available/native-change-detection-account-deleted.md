@@ -12,7 +12,7 @@ tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 
 ## Event Context
 
-:::caution Important Setup Steps
+:::info Important Setup Steps
 
 You must have at least one source configured for Native Change Detection (NCD) before you will receive events from this trigger.  There are two ways you can configure a source for NCD:
 
@@ -21,7 +21,7 @@ You must have at least one source configured for Native Change Detection (NCD) b
 
 :::
 
-Native Change Detection (NCD) events occur when a source account is changed directly on the source as opposed to changing as the result of a provisioning action initiated by SailPoint.  This trigger fires an event when an account is **deleted** directly on the target source rather than from a provisioning activity by SailPoint.
+Native Change Detection events occur when a source account is changed directly on the source as opposed to changing as the result of a provisioning action initiated by SailPoint.  This trigger fires an event when an account is **deleted** directly on the target source rather than from a provisioning activity by SailPoint.
 
 <div align="center">
 

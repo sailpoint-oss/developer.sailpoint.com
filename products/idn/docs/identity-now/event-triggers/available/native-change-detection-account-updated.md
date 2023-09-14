@@ -1,12 +1,12 @@
 ---
-id: native-change-detection-account-updated
-title: Native Change Detection Account Updated
-pagination_label: Native Change Detection Account Updated
-sidebar_label: Native Change Detection Account Updated
-sidebar_class_name: nativeChangeDetectionAccountUpdated
+id: native-change-account-updated
+title: Native Change Account Updated
+pagination_label: Native Change Account Updated
+sidebar_label: Native Change Account Updated
+sidebar_class_name: nativeChangeAccountUpdated
 keywords: ['account', 'updated', 'available']
 description: Fires after an account is updated outside of Identity Security Platform
-slug: /docs/event-triggers/triggers/native-change-detection-account-updated
+slug: /docs/event-triggers/triggers/native-change-account-updated
 tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 ---
 
@@ -21,7 +21,11 @@ You must have at least one source configured for Native Change Detection (NCD) b
 
 :::
 
-Native Change Detection events occur when a source account is changed directly on the source as opposed to changing as the result of a provisioning action initiated by SailPoint.  This trigger fires an event when an account is **updated** directly on the target source rather than from a provisioning activity by SailPoint.
+The Native Change Account Updated trigger fires after Account Aggregations detects that an account is updated external to Identity Security Platform on sources where:
+
+1. Native Change Detection is enabled
+2. Account Update operations are monitored
+3. at least one attribute that is selected for monitoring changed.
 
 <div align="center">
 
@@ -30,7 +34,7 @@ flowchart TD
     A[Account updated on source] --> B
     B[Account aggregation completed] --> C{Was account\nprovisioned by IDN?}
     C -->|yes| D[Trigger Source Account Updated event]
-    C -->|no| E[Trigger Native Change Detection\nAccount Updated event]
+    C -->|no| E[Trigger Native Change\nAccount Updated event]
 ```
 
 </div>

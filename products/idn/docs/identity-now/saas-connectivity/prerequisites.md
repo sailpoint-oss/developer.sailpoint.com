@@ -15,7 +15,7 @@ tags: ['Connectivity']
 
 ### Node
 
-To develop a connector, Node >= 16.2.0 is required. Download node from the [nodejs.org downloads page](https://nodejs.org/en/download).
+To develop a connector, Node >= 18.0.0 is required. Download node from the [nodejs.org downloads page](https://nodejs.org/en/download).
 
 ### SailPoint CLI
 

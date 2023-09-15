@@ -32,9 +32,8 @@ The Native Change Account Updated trigger fires after Account Aggregations detec
 ```mermaid
 flowchart TD
     A[Account updated on source] --> B
-    B[Account aggregation completed] --> C{Was account\nprovisioned by IDN?}
-    C -->|yes| D[Trigger Source Account Updated event]
-    C -->|no| E[Trigger Native Change\nAccount Updated event]
+    B[Account aggregation\ndetected account updates] --> C
+    C[Trigger Native Change Account Updated]
 ```
 
 </div>
@@ -116,7 +115,9 @@ This is an example input from this trigger:
 ```
 
 - `identity` The identity correlated to this account.
-- `singleValueAttributeChanges` Contains a list of account attributes that have changed.  During an account updated event, only account attributes that were modified will be listed, and their `oldValue` will be contain the previous value before the change.
+- `singleValueAttributeChanges` Contains a list of account attributes that have changed.  During an account updated event, only account attributes that were modified will be listed, and their `oldValue` will contain the previous value before the change.
+  - it will include ALL account attributes if the config is `"allNonEntitlementAttributes": true`
+  - it will include the enumerated list of attributes contained in `"selectedNonEntitlementAttributes": []`
 - `entitlementChanges` Contains a list of entitlements that have been added and/or removed on the account.
 - `eventType` Will always be `ACCOUNT_UPDATED` for account updated events.
 - `source` The source where this account originated from.
@@ -124,6 +125,8 @@ This is an example input from this trigger:
   - Possible values are `ATTRIBUTES_CHANGED`, `ENTITLEMENTS_ADDED`, and `ENTITLEMENTS_REMOVED`.
   - The above example lists all three change types since attributes were changed and entitlements were added and removed.  If an event payload only contains changed attributes, then this list will only contain the `ATTRIBUTES_CHANGED` value.  This can be useful when filtering events based on change types, or quickly checking what types of objects changed in the account before continuing to process the input.
 - `multiValueAttributeChanges` List of multivalued attributes that were added and/or removed on the account.
+  - it will include ALL account attributes if the config is `"allNonEntitlementAttributes": true`
+  - it will include the enumerated list of attributes contained in `"selectedNonEntitlementAttributes": []`
 - `account` The details of the account as it appears in IdentityNow.  This information can be used to query the account API for more information.
 
 ## Additional Information and Links

@@ -32,9 +32,8 @@ The Native Change Account Deleted trigger fires after Account Aggregations detec
 ```mermaid
 flowchart TD
     A[Account deleted on source] --> B
-    B[Account aggregation completed] --> C{Was account\ndeleted by IDN?}
-    C -->|yes| D[Trigger Source Account Deleted event]
-    C -->|no| E[Trigger Native Change\nAccount Deleted event]
+    B[Account aggregation detects deleted account] --> C
+    C[Trigger Native Change Account Deleted]
 ```
 
 </div>
@@ -154,6 +153,8 @@ This is an example input from this trigger:
 
 - `identity` The identity correlated to this account.
 - `singleValueAttributeChanges` Contains a list of account attributes that have changed.  During an account deleted event, all aggregated account attributes will be listed, and their `newValue` will be null.
+  - it will include ALL account attributes if the config is `"allNonEntitlementAttributes": true`
+  - it will include the enumerated list of attributes contained in `"selectedNonEntitlementAttributes": []`
 - `entitlementChanges` Contains a list of entitlements that have been aggregated with the account.  the `added` list will always be empty for an account deleted event.
 - `eventType` Will always be `ACCOUNT_DELETED` for account deleted events.
 - `source` The source where this account originated from.
@@ -161,6 +162,8 @@ This is an example input from this trigger:
   - Possible values are `ATTRIBUTES_CHANGED` and `ENTITLEMENTS_REMOVED`.
   - The above example lists both change types since both attributes and entitlements were removed.  If an event payload only contains attributes removed, then this list will only contain the `ATTRIBUTES_CHANGED` value.  This can be useful when filtering events based on change types, or quickly checking what types of objects changed in the account before continuing to process the input.
 - `multiValueAttributeChanges` List of multivalued attributes that were aggregated with the account.  Only `removedValues` will appear for account deleted events.
+  - it will include ALL account attributes if the config is `"allNonEntitlementAttributes": true`
+  - it will include the enumerated list of attributes contained in `"selectedNonEntitlementAttributes": []`
 - `account` The details of the account as it appears in IdentityNow.  This information can be used to query the account API for more information.
 
 ## Additional Information and Links

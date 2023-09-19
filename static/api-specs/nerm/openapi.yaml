@@ -60,6 +60,11 @@ paths:
     $ref: "./paths/ne_attribute_options.yaml"
   /ne_attribute_options/{id}:
     $ref: "./paths/ne_attribute_options_id.yaml"
+# Pages
+  /pages/profile_pages:
+    $ref: "./paths/pages/profile_page.yaml"
+  /pages/workflow_pages:
+    $ref: "./paths/pages/workflow_page.yaml" 
 # Profile Types
   /profile_type:
     $ref: "./paths/profile_type.yaml"

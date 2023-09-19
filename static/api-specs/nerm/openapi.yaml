@@ -67,6 +67,9 @@ paths:
     $ref: "./paths/profile_types.yaml"
   /profile_types/{id}:
     $ref: "./paths/profile_types_id.yaml"
+# Profile Type Roles
+  /profile_type_roles:
+    $ref: "./paths/profile_type_roles.yaml" 
 # Profiles
   /profile:
     $ref: "./paths/profile.yaml"

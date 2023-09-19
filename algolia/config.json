@@ -169,7 +169,9 @@
       "version",
       "type",
       "docusaurus_tag",
-      "tags"
+      "tags",
+      "hierarchy.lvl0",
+      "hierarchy.lvl1"
     ],
     "attributesToRetrieve": [
       "hierarchy",
@@ -178,7 +180,9 @@
       "url",
       "tags",
       "url_without_anchor",
-      "type"
+      "type",
+      "hierarchy.lvl0",
+      "hierarchy.lvl1"
     ]
   },
   "conversation_id": ["1090805758"],

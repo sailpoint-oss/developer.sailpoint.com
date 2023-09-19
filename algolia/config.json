@@ -169,9 +169,9 @@
       "version",
       "type",
       "docusaurus_tag",
-      "tags",
-      "hierarchy.lvl0",
-      "hierarchy.lvl1"
+      "searchable(tags)",
+      "searchable(hierarchy.lvl0)",
+      "searchable(hierarchy.lvl1)"
     ],
     "attributesToRetrieve": [
       "hierarchy",
@@ -181,6 +181,11 @@
       "tags",
       "url_without_anchor",
       "type",
+      "hierarchy.lvl0",
+      "hierarchy.lvl1"
+    ],
+    "searchableAttributes": [
+      "tags",
       "hierarchy.lvl0",
       "hierarchy.lvl1"
     ]

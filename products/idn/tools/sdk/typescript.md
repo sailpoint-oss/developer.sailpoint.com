@@ -20,7 +20,7 @@ npm install sailpoint-api-client
 ```
 or
 ```
-yarn install sailpoint-api-client
+yarn add sailpoint-api-client
 ```
 
 You can find the SDK and its examples in its GitHub repo [here](https://github.com/sailpoint-oss/typescript-sdk).

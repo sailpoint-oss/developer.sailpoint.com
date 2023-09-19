@@ -208,7 +208,10 @@ paths:
 # Jobs
   /job_status:
     $ref: "./paths/job_status.yaml"
-
+# Forms
+  /forms:
+    $ref: "./paths/forms.yaml"
+      
 security:
   - bearerAuth: []
 

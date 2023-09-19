@@ -834,8 +834,8 @@ tags:
       | Name | ID | Type | Trigger condition |
       |-|-|-|-|
       | [Access Request Dynamic Approval](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/access-request-dynamic-approval) | idn:access-request-dynamic-approver | REQUEST_RESPONSE |After an access request is submitted. Expects the subscriber to respond with the ID of an identity or workgroup to add to the approval workflow. |
-      | [Access Request Postapproval](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/access-request-postapproval) | idn:access-request-post-approval | FIRE_AND_FORGET | After an access request is approved. |
-      | [Access Request Preapproval](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/access-request-preapproval) | idn:access-request-pre-approval | REQUEST_RESPONSE | After an access request is submitted. Expects the subscriber to respond with an approval decision. |
+      | [Access Request Decision](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/access-request-decision) | idn:access-request-post-approval | FIRE_AND_FORGET | After an access request is approved. |
+      | [Access Request Submitted](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/access-request-submitted) | idn:access-request-pre-approval | REQUEST_RESPONSE | After an access request is submitted. Expects the subscriber to respond with an approval decision. |
       | [Account Aggregation Completed](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/account-aggregation-completed) | idn:account-aggregation-completed | FIRE_AND_FORGET | After an account aggregation completed, terminated, failed. |
       | Account Attributes Changed | idn:account-attributes-changed | FIRE_AND_FORGET | After an account aggregation, and one or more account attributes have changed. |
       | Account Correlated | idn:account-correlated | FIRE_AND_FORGET | After an account is added to an identity. |
@@ -848,7 +848,7 @@ tags:
       | [Identity Attributes Changed](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/account-aggregation-completed) | idn:identity-attributes-changed | FIRE_AND_FORGET | After One or more identity attributes changed. |
       | [Identity Created](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/identity-created) | idn:identity-created | FIRE_AND_FORGET | After an identity is created. |
       | [Provisioning Action Completed](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/provisioning-action-completed) |  idn:post-provisioning | FIRE_AND_FORGET | After a provisioning action completed on a source. |
-      | [Saved Search Complete](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/saved-search-completed) |  idn:saved-search-complete | FIRE_AND_FORGET | After a scheduled search completed. |
+      | [Scheduled Search](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/scheduled-search) |  idn:saved-search-complete | FIRE_AND_FORGET | After a scheduled search completed. |
       | [Source Created](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/source-created) | idn:source-created | FIRE_AND_FORGET | After a source is created. |
       | [Source Deleted](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/source-deleted) | idn:source-deleted | FIRE_AND_FORGET | After a source is deleted. |
       | [Source Updated](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/source-updated) | idn:source-updated | FIRE_AND_FORGET | After configuration changes have been made to a source. |

@@ -211,6 +211,10 @@ paths:
 # Forms
   /forms:
     $ref: "./paths/forms.yaml"
+# Form Attributes
+  /form_attributes:
+    $ref: "./paths/form_attributes.yaml"
+
       
 security:
   - bearerAuth: []

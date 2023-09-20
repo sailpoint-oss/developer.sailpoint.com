@@ -890,8 +890,10 @@ paths:
     $ref: "./v3/paths/identity-certifications-access-summaries.yaml"
   /certifications/{id}/identity-summaries/{identitySummaryId}:
     $ref: "./v3/paths/identity-certifications-identity-summary.yaml"
+  /certifications/{certificationId}/access-review-items/{itemId}/permissions:
+    $ref: "./v3/paths/identity-certifications-item-permissions.yaml"
   /certifications/{id}/reviewers:
-    $ref: './v3/paths/certifications-reviewers.yaml'
+    $ref: "./v3/paths/certifications-reviewers.yaml"
   /certification-tasks/{id}:
     $ref: "./v3/paths/certification-task.yaml"
   /identities/{identity-id}/set-lifecycle-state:

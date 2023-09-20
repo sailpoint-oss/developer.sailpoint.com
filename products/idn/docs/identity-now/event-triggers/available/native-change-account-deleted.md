@@ -50,12 +50,14 @@ This is an example input from this trigger:
 		"manager": {
 			"name": "Martena Heath",
 			"id": "2c91808378eb9fa30178fb8caf90097f",
-			"type": "IDENTITY"
+			"type": "IDENTITY",
+			"email": "martena.heath@sample_email.com"
 		},
 		"name": "Letty Wilson",
 		"alias": "Letty.Wilson",
 		"id": "2c91808978eb9fab0178fb8ca6d308fb",
-		"type": "IDENTITY"
+		"type": "IDENTITY",
+		"email": "letty.wilson@sample_email.com"
 	},
 	"singleValueAttributeChanges": [{
 			"newValue": null,
@@ -105,7 +107,8 @@ This is an example input from this trigger:
 		"owner": {
 			"name": "Aaron Andrew",
 			"id": "2c9180867a7c46d0017a7ca099d50531",
-			"type": "IDENTITY"
+			"type": "IDENTITY",
+			"email": "aaron.andrew@sample_email.com"
 		},
 		"name": "Active Directory",
 		"alias": "Active Directory [source]",
@@ -146,12 +149,13 @@ This is an example input from this trigger:
 		"id": "6805a47c09cc4dfca9083f1ce84552ee",
 		"type": "ACCOUNT",
 		"uuid": "{3c096158-9188-46f4-bb13-20ef9daafa7f}",
+		"correlated": true,
 		"nativeIdentity": "CN=Letty Wilson,OU=Austin,OU=Americas,OU=Demo,DC=seri,DC=sailpointdemo,DC=com"
 	}
 }
 ```
 
-- `identity` The identity correlated to this account.
+- `identity` The identity correlated to this account.  If `account.correlated` is `false`, then this will be a system generated identity, not a real identity. For uncorrelated accounts, this system generated identity can be used to revoke entitlements on the account, or in any other API request that requires an identity ID.
 - `singleValueAttributeChanges` Contains a list of account attributes that have changed.  During an account deleted event, all aggregated account attributes will be listed, and their `newValue` will be null.
   - it will include ALL account attributes if the config is `"allNonEntitlementAttributes": true`
   - it will include the enumerated list of attributes contained in `"selectedNonEntitlementAttributes": []`

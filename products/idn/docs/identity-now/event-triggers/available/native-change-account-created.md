@@ -52,12 +52,14 @@ This is an example input from this trigger:
         "manager": {
           "name": "Martena Heath",
           "id": "2c91808378eb9fa30178fb8caf90097f",
-          "type": "IDENTITY"
+          "type": "IDENTITY",
+          "email": "martena.heath@sample_email.com"
         },
         "name": "peter.williams",
         "alias": "peter.williams",
         "id": "e43ba47b265b4baf943efe3aaef886c8",
-        "type": "IDENTITY"
+        "type": "IDENTITY",
+        "email": "peter.williams@sample_email.com"
     },
     "singleValueAttributeChanges": [
         {
@@ -116,7 +118,8 @@ This is an example input from this trigger:
         "owner": {
             "name": "Aaron Andrew",
             "id": "2c9180867a7c46d0017a7ca099d50531",
-            "type": "IDENTITY"
+            "type": "IDENTITY",
+            "email": "aaron.andrew@sample_email.com"
         },
         "name": "Active Directory",
         "alias": "Active Directory [source]",
@@ -158,12 +161,13 @@ This is an example input from this trigger:
         "id": "b3b17b0072f04da39b41e8802aaff01b",
         "type": "ACCOUNT",
         "uuid": "{615ebfa6-3d21-484e-9e67-01bd4e20c3da}",
+        "correlated": true,
         "nativeIdentity": "CN=Peter Williams,OU=Austin,OU=Americas,OU=Demo,DC=seri,DC=sailpointdemo,DC=com"
     }
 }
 ```
 
-- `identity` The identity correlated to this account.
+- `identity` The identity correlated to this account.  If `account.correlated` is `false`, then this will be a system generated identity, not a real identity. For uncorrelated accounts, this system generated identity can be used to revoke entitlements on the account, or in any other API request that requires an identity ID.
 - `singleValueAttributeChanges` Contains a list of account attributes that have changed.  During an account created event, all aggregated account attributes will be listed, and their `oldValue` will be null.
   - it will include ALL account attributes if the config is `"allNonEntitlementAttributes": true`
   - it will include the enumerated list of attributes contained in `"selectedNonEntitlementAttributes": []`

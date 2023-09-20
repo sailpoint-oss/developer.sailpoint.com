@@ -122,7 +122,7 @@ This is an example input from this trigger:
 }
 ```
 
-- `identity` The identity correlated to this account.  If `account.correlated` is `false`, then this will be a system generated identity, not a real identity. For uncorrelated accounts, this system generated identity can be used to revoke entitlements on the account, or in any other API request that requires and identity ID.
+- `identity` The identity correlated to this account.  If `account.correlated` is `false`, then this will be a system generated identity, not a real identity. For uncorrelated accounts, this system generated identity can be used to revoke entitlements on the account, or in any other API request that requires an identity ID.
 - `singleValueAttributeChanges` Contains a list of account attributes that have changed.  During an account updated event, only account attributes that were modified will be listed, and their `oldValue` will contain the previous value before the change.
   - it will include ALL account attributes if the config is `"allNonEntitlementAttributes": true`
   - it will include the enumerated list of attributes contained in `"selectedNonEntitlementAttributes": []`

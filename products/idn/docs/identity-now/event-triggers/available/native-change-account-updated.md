@@ -52,12 +52,14 @@ This is an example input from this trigger:
 		"manager": {
 			"name": "Martena Heath",
 			"id": "2c91808378eb9fa30178fb8caf90097f",
-			"type": "IDENTITY"
+			"type": "IDENTITY",
+			"email": "martena.heath@sample_email.com"
 		},
 		"name": "Ann English",
 		"alias": "Ann.English",
 		"id": "2c91808978eb9fab0178fb8ca6d308fb",
-		"type": "IDENTITY"
+		"type": "IDENTITY",
+		"email": "ann.english@sample_email.com"
 	},
 	"singleValueAttributeChanges": [{
 		"newValue": "Call Center Representative",
@@ -84,13 +86,18 @@ This is an example input from this trigger:
 		"owner": {
 			"name": "Aaron Andrew",
 			"id": "2c9180867a7c46d0017a7ca099d50531",
-			"type": "IDENTITY"
+			"type": "IDENTITY",
+			"email": "aaron.andrew@sample_email.com"
 		},
 		"name": "Active Directory",
 		"alias": "Active Directory [source]",
 		"id": "2c91808a78efc63e0178fb8624b248c5",
 		"type": "SOURCE",
-		"governanceGroup": null
+		"governanceGroup": {
+			"id": "fd0d1393-35fb-47d8-9809-0e385b73f25e",
+			"name": "Active Directory Owners",
+			"type": "GOVERNANCE_GROUP"
+		}
 	},
 	"accountChangeTypes": [
 		"ATTRIBUTES_CHANGED",
@@ -109,12 +116,13 @@ This is an example input from this trigger:
 		"id": "2c91808378eb9fa30178fb9481a30afa",
 		"type": "ACCOUNT",
 		"uuid": "{08ee6c6d-7d02-4978-9417-d92ba6a5ed50}",
+		"correlated": true,
 		"nativeIdentity": "CN=Ann English,OU=Call Center,OU=AI,OU=Demo,DC=seri,DC=sailpointdemo,DC=com"
 	}
 }
 ```
 
-- `identity` The identity correlated to this account.
+- `identity` The identity correlated to this account.  If `account.correlated` is `false`, then this will be a system generated identity, not a real identity. For uncorrelated accounts, this system generated identity can be used to revoke entitlements on the account, or in any other API request that requires and identity ID.
 - `singleValueAttributeChanges` Contains a list of account attributes that have changed.  During an account updated event, only account attributes that were modified will be listed, and their `oldValue` will contain the previous value before the change.
   - it will include ALL account attributes if the config is `"allNonEntitlementAttributes": true`
   - it will include the enumerated list of attributes contained in `"selectedNonEntitlementAttributes": []`

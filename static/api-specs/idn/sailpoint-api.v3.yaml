@@ -789,6 +789,16 @@ tags:
       When they complete the work item, they can select 'Mark Complete' to add it to their list of completed work items. 
 
       Refer to [Task Manager](https://documentation.sailpoint.com/saas/user-help/task_manager.html) for more information about work items, including the different types of work items users may need to complete.
+  - name: Source Usages
+    description: |
+      Use this API to implement source usage insight functionality.
+      With this functionality in place, administrators can gather information and insights about how their tenants' sources are being used.
+      This allows organizations to get the information they need to start optimizing and securing source usage.
+  - name: Account Usages
+    description: |
+      Use this API to implement account usage insight functionality.
+      With this functionality in place, administrators can gather information and insights about how their tenants' source accounts are being used.
+      This allows organizations to get the information they need to start optimizing and securing source account usage.
 paths:
   /access-profiles:
     $ref: './v3/paths/access-profiles.yaml'
@@ -1094,6 +1104,12 @@ paths:
     $ref: "./v3/paths/work-items-bulk-reject-approval-item.yaml"
   /work-items/{id}/submit-account-selection:
     $ref: "./v3/paths/work-items-account-selection.yaml"
+  /source-usages/{sourceId}/status:
+    $ref: "./v3/paths/source-usage-status.yaml"
+  /source-usages/{sourceId}/summaries:
+    $ref: "./v3/paths/source-usages.yaml"
+  /account-usages/{accountId}/summaries:
+    $ref: "./v3/paths/account-usages.yaml"
 
 security:
   - UserContextAuth: []
@@ -1241,3 +1257,9 @@ components:
       $ref: "./v3/schemas/WorkItemsCount.yaml"
     WorkItemsSummary:
       $ref: "./v3/schemas/WorkItemsSummary.yaml"
+    AccountUsage:
+      $ref: './v3/schemas/AccountUsage.yaml'
+    SourceUsage:
+      $ref: './v3/schemas/SourceUsage.yaml'
+    SourceUsageStatus:
+      $ref: './v3/schemas/SourceUsageStatus.yaml'

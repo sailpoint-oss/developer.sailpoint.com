@@ -884,6 +884,16 @@ tags:
   - name: Workflows
     description: |
       Workflows allow administrators to create custom automation scripts directly within IdentityNow.  These automation scripts respond to [event triggers](https://developer.sailpoint.com/idn/docs/event-triggers#how-to-get-started-with-event-triggers) and perform a series of actions to perform tasks that are either too cumbersome or not available in the IdentityNow UI.  Workflows can be configured via a graphical user interface within IdentityNow, or by creating and uploading a JSON formatted script to the Workflow service.  The Workflows API collection provides the necessary functionality to create, manage, and test your workflows via REST.
+  - name: Source Usages
+    description: |
+      Use this API to implement source usage insight functionality.
+      With this functionality in place, administrators can gather information and insights about how their tenants' sources are being used.
+      This allows organizations to get the information they need to start optimizing and securing source usage.
+  - name: Account Usages
+    description: |
+      Use this API to implement account usage insight functionality.
+      With this functionality in place, administrators can gather information and insights about how their tenants' source accounts are being used.
+      This allows organizations to get the information they need to start optimizing and securing source account usage.
 
 security:
   - UserContextAuth: [ ]
@@ -970,6 +980,12 @@ components:
       $ref: './beta/schemas/SectionDetails.yaml'
     Field:
       $ref: './beta/schemas/FieldDetails.yaml'
+    AccountUsage:
+      $ref: './beta/schemas/AccountUsage.yaml'
+    SourceUsage:
+      $ref: './beta/schemas/SourceUsage.yaml'
+    SourceUsageStatus:
+      $ref: './beta/schemas/SourceUsageStatus.yaml'
 
 paths:
   /access-profiles:
@@ -1560,3 +1576,9 @@ paths:
     $ref: './beta/paths/form-instance-data-source.yaml'
   /form-definitions/predefined-select-options:
     $ref: './beta/paths/form-definitions-predefined-select-options.yaml'
+  /source-usages/{sourceId}/status:
+    $ref: "./beta/paths/source-usage-status.yaml"
+  /source-usages/{sourceId}/summaries:
+    $ref: "./beta/paths/source-usages.yaml"
+  /account-usages/{accountId}/summaries:
+    $ref: "./beta/paths/account-usages.yaml"

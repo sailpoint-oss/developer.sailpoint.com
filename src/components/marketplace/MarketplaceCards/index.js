@@ -18,6 +18,11 @@ export default function MarketplaceCards({filterCallback}) {
   const [details, setDetails] = React.useState('');
   const [loadingCards, setLoadingCards] = React.useState(true);
 
+
+  const handleCloseModal = () => {
+    setDetailsOpen(false);
+  }
+
   const getPosts = async () => {
     const data = await getMarketplacePosts(filterCallback.tags.join('+'), filterCallback.category);
     const resultset = [];
@@ -74,6 +79,7 @@ export default function MarketplaceCards({filterCallback}) {
         <Modal
           isOpen={detailsOpen}
           className={styles.modal}
+          onRequestClose={handleCloseModal}
           contentLabel="Details">
           <div>
             <div>

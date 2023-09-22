@@ -34,7 +34,7 @@ export default function MarketplaceSidebarButton({
     console.log(category)
     if (isCategory) {
       if (category === id) {
-        filterCallback({ "category": "exchange" })
+        filterCallback({ "category": "colab" })
         setIsActive(false)
       } else {
         filterCallback({ "category": id })

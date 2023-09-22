@@ -10,7 +10,7 @@ import MarketplaceCards from '../components/marketplace/MarketplaceCards';
 import MarketplaceSidebar from '../components/marketplace/MarketplaceSidebar';
 
 export default function Marketplace() {
-  const [filteredProduct, setFilteredProduct] = React.useState({"category": "exchange", "tags": []});
+  const [filteredProduct, setFilteredProduct] = React.useState({"category": "colab", "tags": []});
 
   const {siteConfig} = useDocusaurusContext();
 

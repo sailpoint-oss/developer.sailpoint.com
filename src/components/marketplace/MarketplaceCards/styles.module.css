@@ -1,9 +1,9 @@
 /* Getting Started Card container */
 .gridContainer {
-  display: grid;
+  display: flex;
   place-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(345px, 1fr));
-  grid-gap: 40px;
+  flex-wrap: wrap;
+  gap: 40px;
   margin-left: 40px;
   margin-right: 40px;
 }

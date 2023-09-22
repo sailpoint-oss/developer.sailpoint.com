@@ -35,3 +35,11 @@ properties:
     maximum: 1000
     default: 10
     example: 10
+  size:
+    description: >- 
+      The max amount of records the search will return.
+    type: integer
+    format: int32
+    minimum: 1
+    default: 100
+    example: 100

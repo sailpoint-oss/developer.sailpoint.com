@@ -7,3 +7,4 @@ value:
     field: 'name'
     query: 'Jo'
     maxExpansions: 50
+    size: 100

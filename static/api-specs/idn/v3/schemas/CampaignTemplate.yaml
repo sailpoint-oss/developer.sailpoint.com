@@ -64,9 +64,9 @@ properties:
       (the current date plus 14 days).
     example: P2W
   campaign:
-    type: object
+    type : object
     description: >-
-      This will hold campaign related information like name, description etc.
+        This will hold campaign related information like name, description etc.
     $ref: './Campaign.yaml'
 required:
   - name

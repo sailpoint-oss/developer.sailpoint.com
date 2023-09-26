@@ -870,6 +870,8 @@ paths:
     $ref: './v3/paths/campaign-run-report.yaml'
   /campaigns/reports-configuration:
     $ref: './v3/paths/campaign-reports-configuration.yaml'
+  /campaign-templates:
+    $ref: './v3/paths/campaign-templates.yaml'
   /certifications:
     $ref: "./v3/paths/identity-certifications.yaml"
   /certifications/{id}:

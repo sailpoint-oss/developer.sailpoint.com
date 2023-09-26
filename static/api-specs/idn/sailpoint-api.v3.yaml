@@ -894,6 +894,8 @@ paths:
     $ref: "./v3/paths/identity-certifications-item-permissions.yaml"
   /certifications/{id}/reviewers:
     $ref: "./v3/paths/certifications-reviewers.yaml"
+  /certifications/{id}/reassign-async:
+    $ref: './v3/paths/certifications-reassign-async.yaml'
   /certification-tasks/{id}:
     $ref: "./v3/paths/certification-task.yaml"
   /identities/{identity-id}/set-lifecycle-state:

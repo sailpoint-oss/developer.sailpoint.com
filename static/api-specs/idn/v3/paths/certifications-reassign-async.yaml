@@ -8,7 +8,6 @@ post:
     reviewer. The `certification-tasks` API can be used to get an updated status on the task and determine when the
     reassignment is complete. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for
     this certification can also call this API.
-  deprecated: true
   security:
     - UserContextAuth: [idn:certification:write]
   parameters:
@@ -24,23 +23,23 @@ post:
     content:
       application/json:
         schema:
-          $ref: "../../v3/schemas/ReviewReassign.yaml"
+          $ref: "../schemas/ReviewReassign.yaml"
   responses:
     '200':
       description: A certification task object for the reassignment which can be queried for status.
       content:
         application/json:
           schema:
-            $ref: '../schemas/IdentityCertificationTask.yaml'
+            $ref: '../schemas/CertificationTask.yaml'
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: '../responses/400.yaml'
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: '../responses/401.yaml'
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: '../responses/403.yaml'
     '404':
-      $ref: '../../v3/responses/404.yaml'
+      $ref: '../responses/404.yaml'
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: '../responses/429.yaml'
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: '../responses/500.yaml'

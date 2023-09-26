@@ -27,6 +27,23 @@ export default function MarketplaceCardDetail({ details, rawPost }) {
     }
   };
 
+  const getCommentText = (data, id) => {
+    const requirementPosition = data.indexOf('[//]: <> (' + id + ' Start)');
+    const requirementEndPosition = data.indexOf('[//]: <> (' + id + ' End)');
+    if (requirementPosition > 0 && requirementEndPosition > 0) {
+      const validContent = data.substring(
+        requirementPosition + 17 + id.length,
+        requirementEndPosition,
+      );
+      const incorrectURLPattern = /upload:\/\/([^"]+)/g;
+      const correctURLPattern =
+      discourseBaseURL() + 'uploads/short-url/$1';
+      return validContent.replace(incorrectURLPattern, correctURLPattern);
+    } else {
+      return 'No requirements found for this marketplace item';
+    }
+  };
+
   const goToLink = (link) => {
     window.open(link, '_blank');
   };
@@ -56,24 +73,24 @@ export default function MarketplaceCardDetail({ details, rawPost }) {
             </div>
           </button>
           <TabList>
-            <Tab>Details</Tab>
+            <Tab>Overview</Tab>
             <Tab>Requirements</Tab>
             <Tab>Support</Tab>
           </TabList>
 
           <TabPanel>
             <ReactMarkdown className={styles.detailTabContent}>
-              {getDivText(rawPost, 'details')}
+              {getCommentText(rawPost, 'Overview')}
             </ReactMarkdown>
           </TabPanel>
           <TabPanel>
             <ReactMarkdown className={styles.detailTabContent}>
-              {getDivText(rawPost, 'requirements')}
+              {getCommentText(rawPost, 'Requirements')}
             </ReactMarkdown>
           </TabPanel>
           <TabPanel>
             <ReactMarkdown className={styles.detailTabContent}>
-              {getDivText(rawPost, 'support')}
+              The Developer Community CoLab has three different support models, depending on the integration. Please see the full integration page using the ``` Go To Download ``` button above.
             </ReactMarkdown>
           </TabPanel>
         </Tabs>

@@ -2,9 +2,7 @@ get:
   operationId: getPendingCertificationTasks
   tags:
     - Certifications
-    - Certification Campaigns
   summary: List of Pending Certification Tasks
-  deprecated: true
   description: >-
     This API returns a list of pending (`QUEUED` or `IN_PROGRESS`) certification tasks. Any authenticated token can call
     this API, but only certification tasks you are authorized to review will be returned.
@@ -18,9 +16,9 @@ get:
         example: Ada.1de82e55078344
       description: The ID of reviewer identity. *me* indicates the current user.
       required: false
-    - $ref: '../../v3/parameters/limit.yaml'
-    - $ref: '../../v3/parameters/offset.yaml'
-    - $ref: '../../v3/parameters/count.yaml'
+    - $ref: '../parameters/limit.yaml'
+    - $ref: '../parameters/offset.yaml'
+    - $ref: '../parameters/count.yaml'
     - in: query
       name: filters
       schema:
@@ -48,16 +46,16 @@ get:
           schema:
             type: array
             items:
-              $ref: '../../beta/schemas/CertificationTask.yaml'
+              $ref: '../schemas/CertificationTask.yaml'
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: '../responses/400.yaml'
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: '../responses/401.yaml'
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: '../responses/403.yaml'
     '404':
-      $ref: '../../v3/responses/404.yaml'
+      $ref: '../responses/404.yaml'
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: '../responses/429.yaml'
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: '../responses/500.yaml'

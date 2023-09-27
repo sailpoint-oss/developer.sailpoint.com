@@ -117,6 +117,10 @@ erDiagram
         text STATUS "What was the status of the Audit Event, examples include PASSED, FAILED, TERMINATED, etc."
         timestamp_ntz SYNC_DATE "Date Audit Event Synced"
     }
+
+
+
+
 ```
 
 Consumer Setup:
@@ -126,3 +130,6 @@ import ConsumerSetUp from './img/consumer_db_creation_from_listings.mp4';
 <video controls>
   <source src={ConsumerSetUp}/>
 </video>
+
+https://github.com/sailpoint-oss/developer.sailpoint.com/assets/117477193/cec57fb2-850a-458b-8d1e-07e3cf98a6ba
+

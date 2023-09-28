@@ -19,9 +19,22 @@ export default function MarketplaceCard({
   );
   if (post.tags.includes("sailpoint-authored")) {
     badge = (
+      <div className={styles.cardBadge}>
       <img
-        className={styles.cardBadge}
+        className={styles.cardBadgeImage}
         src={useBaseUrl('/icons/SailPoint-LogoIcon-RGB-Color.svg')}></img>
+        <span className={styles.cardBadgeText}>SailPoint Developed</span>
+      </div>
+
+    );
+  } else if (post.tags.includes("sailpoint-certified")) {
+    badge = (
+      <div className={styles.cardBadgeCertified}>
+        <img
+        className={styles.cardBadgeCertifiedImage}
+        src={useBaseUrl('/marketplace/award-simple-sharp-solid.svg')}></img>
+        <span>SailPoint Certified</span>
+        </div>
     );
   }
 
@@ -35,7 +48,8 @@ export default function MarketplaceCard({
           <div className={styles.cardTitle}>{post.title}</div>
           <div className={styles.tags}>
             {post.tags?.map((tag, index) => {
-              if (index > 2) {
+
+              if (index > 2 || tag == 'sailpoint-certified' || tag == 'sailpoint-authored') {
                 return '';
               }
               return <div key={tag} className={styles.tag}>{tag}</div>;
@@ -51,10 +65,10 @@ export default function MarketplaceCard({
           <div className={styles.cardCommentText}>{post.replies}</div>
         </div>
 
-        <div className={styles.cardUser}>
+        {/* <div className={styles.cardUser}>
           <img className={styles.cardFace} src={useBaseUrl(post.creatorImage)}></img>
           <div className={styles.cardName}>{post.name}</div>
-        </div>
+        </div> */}
 
 
         {badge}

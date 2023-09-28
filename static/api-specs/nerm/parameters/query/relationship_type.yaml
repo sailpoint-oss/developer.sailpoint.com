@@ -5,4 +5,4 @@ required: false
 schema:
   type: string
   enum: [owner, contributor]
-example: owner
+  example: contributor

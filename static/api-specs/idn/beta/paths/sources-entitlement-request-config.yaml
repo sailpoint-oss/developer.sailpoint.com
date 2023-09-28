@@ -1,6 +1,6 @@
 get:
   security:
-    - oauth2: [ idn:sources:read, idn:sources:manage ]
+    - UserContextAuth: [ idn:sources:read, idn:sources:manage ]
   operationId: getSourceEntitlementRequestConfig
   summary: Get Source Entitlement Request Configuration
   tags:
@@ -91,7 +91,7 @@ get:
 
 put:
   security:
-    - oauth2: [ idn:sources:manage ]
+    - UserContextAuth: [ idn:sources:manage ]
   operationId: updateSourceEntitlementRequestConfig
   summary: Update Source Entitlement Request Configuration
   tags:

@@ -35,4 +35,4 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:managed-client-certificate:read]
+    - UserContextAuth: [idn:managed-client-certificate:read]

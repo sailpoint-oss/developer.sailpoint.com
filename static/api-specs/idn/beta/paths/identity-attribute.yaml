@@ -1,0 +1,36 @@
+get:
+  operationId: getIdentityAttribute
+  tags:
+    - Identity Attributes
+  summary: Get Identity Attribute
+  description: >-
+    This gets an identity attributes for a given technical name.
+  security:
+    - UserContextAuth: [idn:identity-profile-attribute:read]
+  parameters:
+    - in: path
+      name: name
+      schema:
+        type: string
+      description: The attribute's technical name.
+      required: true
+      example: displayName
+  responses:
+    "200":
+      description: The identity attribute with the given name
+      content:
+        application/json:
+          schema:
+            $ref: "../../v3/schemas/identity-attributes/IdentityAttribute.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

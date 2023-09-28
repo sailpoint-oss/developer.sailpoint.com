@@ -6,6 +6,7 @@ properties:
     items:
       type: string
       enum: 
+      - IDENTITY_OBJECT_CONFIG
       - IDENTITY_PROFILE
       - RULE
       - SOURCE
@@ -18,6 +19,7 @@ properties:
     items:
       type: string
       enum: 
+      - IDENTITY_OBJECT_CONFIG
       - IDENTITY_PROFILE
       - RULE
       - SOURCE

@@ -21,8 +21,9 @@ yarn-error.log*
 
 /products/arm/api
 /products/idn/api/v3
-products/idn/api/beta
+/products/idn/api/beta
 /products/iiq/api
+/products/nerm/api
 
 #Alogolia env file
 /algolia/.env

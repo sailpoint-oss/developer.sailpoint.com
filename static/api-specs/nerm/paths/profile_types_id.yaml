@@ -3,7 +3,7 @@ get:
   operationId: getProfileType
   description: Find profile type by id
   tags:
-    - Profile Types
+    - profile types
   parameters:
     - $ref: "../parameters/path/id.yaml"
   responses:
@@ -18,7 +18,7 @@ patch:
   operationId: patchProfileType
   description: Update a profile type by id
   tags:
-    - Profile Types
+    - profile types
   parameters:
     - $ref: "../parameters/path/id.yaml"
   requestBody:
@@ -36,12 +36,12 @@ delete:
   operationId: deleteProfileType
   description: Delete a profile type. All profiles of that type must first be destroyed before the profile type can be destroyed.
   tags:
-    - Profile Types
+    - profile types
   parameters:
     - $ref: "../parameters/path/id.yaml"
   responses:
     '200':
-      $ref: "../responses/info.yaml"
+      $ref: "../responses/Info.yaml"
     '400':
       $ref: "../responses/400.yaml"
     '500':

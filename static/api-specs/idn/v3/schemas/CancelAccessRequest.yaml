@@ -6,7 +6,7 @@ required:
 properties:
   accountActivityId:
     type: string
-    description: ID of the account activity object corresponding to the access request.
+    description: This refers to the identityRequestId. To successfully cancel an access request, you must provide the identityRequestId. 
     example: 2c9180835d2e5168015d32f890ca1581
   comment:
     type: string

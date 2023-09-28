@@ -1,7 +1,7 @@
 post:
   operationId: approveNonEmployeeRequest
   security:
-    - oauth2: [idn:nelm:manage]
+    - UserContextAuth: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
   summary: Approve a Non-Employee Request

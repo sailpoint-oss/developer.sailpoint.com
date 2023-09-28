@@ -8,3 +8,4 @@ value:
     nestedType: 'access'
     query: 'Work'
     maxExpansions: 50
+    size: 100

@@ -1,7 +1,7 @@
 get:
   operationId: getNonEmployeeRecord
   security:
-    - oauth2: [idn:nelm:read]
+    - UserContextAuth: [idn:nelm:read]
   tags:
     - Non-Employee Lifecycle Management
   summary: Get a Non-Employee Record
@@ -37,7 +37,7 @@ get:
 put:
   operationId: updateNonEmployeeRecord
   security:
-    - oauth2: [idn:nelm:manage]
+    - UserContextAuth: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
   summary: Update Non-Employee Record
@@ -81,7 +81,7 @@ put:
 patch:
   operationId: patchNonEmployeeRecord
   security:
-    - oauth2: [idn:nelm:manage]
+    - UserContextAuth: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
   summary: Patch Non-Employee Record
@@ -131,7 +131,7 @@ patch:
 delete:
   operationId: deleteNonEmployeeRecord
   security:
-    - oauth2: [idn:nelm:manage]
+    - UserContextAuth: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
   summary: Delete Non-Employee Record

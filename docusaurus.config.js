@@ -70,7 +70,7 @@ const config = {
       announcementBar: {
         id: 'java_docs_announcement',
         content:
-          'Checkout our latest announcement in the SailPoint Developer Community Forum: <a target="_blank" rel="noopener noreferrer" href="https://developer.sailpoint.com/discuss/t/rule-java-docs-now-available-on-the-sailpoint-developer-community/10787">Introducing Rules Java Docs for IdentityNow!</a> 🎉',
+          'Checkout our latest announcement in the SailPoint Developer Community Forum: <a target="_blank" rel="noopener noreferrer" href="https://developer.sailpoint.com/discuss/t/announcing-developer-community-events/14633">Announcing Developer Community Events!</a> 🎉',
       },
       navbar: navbar,
       footer: footer,

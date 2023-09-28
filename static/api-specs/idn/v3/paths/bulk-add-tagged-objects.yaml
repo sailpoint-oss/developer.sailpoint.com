@@ -1,7 +1,7 @@
 post:
   operationId: setTagsToManyObjects
   security:
-    - oauth2: [ idn:tag:manage ]
+    - UserContextAuth: [ idn:tag:manage ]
   tags:
     - Tagged Objects
   summary: Tag Multiple Objects

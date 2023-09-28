@@ -1,0 +1,102 @@
+get:
+  operationId: getAuthUser
+  tags:
+    - Auth User
+  summary: Auth User Details
+  description: >-
+    This API returns the specified user's authentication system details.
+
+    Requires security scope of:  'sp:auth-user:read'
+  parameters:
+    - in: path
+      name: id
+      description: >-
+        Identity ID
+      required: true
+      schema:
+        type: string
+      example: ef38f94347e94562b5bb8424a56397d8
+  security:
+    - UserContextAuth: [sp:auth-user:read]
+  responses:
+    '200':
+      description: The specified user's authentication system details.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/AuthUser.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+
+patch:
+  operationId: patchAuthUser
+  tags:
+    - Auth User
+  summary: Auth User Update
+  description: Update an existing user in the authentication system with a PATCH request.
+  security:
+    - UserContextAuth: [sp:auth-user:update]
+  parameters:
+    - in: path
+      name: id
+      description: >-
+        Identity ID
+      required: true
+      schema:
+        type: string
+      example: ef38f94347e94562b5bb8424a56397d8
+  requestBody:
+    required: true
+    description: |
+      A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+
+      PATCH can only be applied to the following fields:
+        *   "capabilities"
+
+      A list of valid capabilities can be found using the GET ams/v3/authorization/authorization-capabilities/ endpoint.
+      Capabilities can only be patched if they are administrator assignable, as indicated by the 'adminAssignable' field from the output of list authorization-capabilities.
+      Capabilities that have a legacy group ('legacyGroup' field) need to be patched using the legacyGroup name (e.g. 'ORG_ADMIN').
+      Capabilities that are adminAssignable but do not have a legacyGroup can be patched using the ams id (e.g. 'cam:new-role').
+
+      A 400.1.1 Illegal update attempt detail code indicates that you attempted to PATCH a field that is not allowed.
+
+      Requires security scope of 'sp:auth-user:update'
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: '../schemas/JsonPatchOperation.yaml'
+        example:
+            - op: "replace"
+              path: "/capabilities"
+              value: ["ORG_ADMIN"]
+  responses:
+    '200':
+      description: Auth user updated.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/AuthUser.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

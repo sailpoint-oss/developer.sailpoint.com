@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './styles.module.css';
 import DiscussCard from '../DiscussCard';
+import {discourseBaseURL, developerWebsiteDomain} from '../../../util/util';
 
 import {getTopPosts} from '../../../services/DiscourseService';
 export default function HomepageDiscuss() {
@@ -65,7 +66,7 @@ function getPostList(posts, index) {
   return {
     tags: posts.topic_list.topics[index].tags,
     link:
-      'https://developer.sailpoint.com/discuss/t/' +
+    discourseBaseURL() + 't/' +
       posts.topic_list.topics[index].slug +
       '/' +
       posts.topic_list.topics[index].id,

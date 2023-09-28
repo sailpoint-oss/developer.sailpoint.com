@@ -4,7 +4,7 @@ get:
         - Org Config
     summary: Get Org configuration settings
     security:
-        - oauth2: [ idn:org-configs:read, idn:org-configs:manage]
+        - UserContextAuth: [ idn:org-configs:read, idn:org-configs:manage]
     description: >-
         Get org configuration with only external (org admin) accessible properties for the current org.
     responses:
@@ -32,7 +32,7 @@ patch:
         - Org Config
     summary: Patch an Org configuration property
     security:
-        - oauth2: [ idn:org-configs:manage]
+        - UserContextAuth: [ idn:org-configs:manage]
     description: >-
         Patch configuration of the current org using http://jsonpatch.com/ syntax.  Commonly used for changing the time zone of an org.
     requestBody:

@@ -30,6 +30,7 @@ properties:
     readOnly: true
     description: Indicates if this campaign template has been scheduled.
     example: false
+    default: false
   ownerRef:
     type : object
     description: >-
@@ -63,6 +64,9 @@ properties:
       (the current date plus 14 days).
     example: P2W
   campaign:
+    type: object
+    description: >-
+      This will hold campaign related information like name, description etc.
     $ref: './Campaign.yaml'
 required:
   - name

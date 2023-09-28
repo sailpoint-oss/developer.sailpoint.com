@@ -482,9 +482,9 @@ Validation status: SUCCESS
 ________________________________________________________________________________
 ```
 
-## Submitt for Rule Review
+## Submit for Rule Review
 
-To submit your Cloud Rule for review, approval, and inclusion in the SailPoint platform, you should submit them with [SailPoint Expert Services](https://www.sailpoint.com/services/professional/#contact-form). If you need assistance writing and testing rules, they assist in that process as well. Make sure your contact information is up to date so the review team can contact you if they need to.
+To submit your Cloud Rule for review, approval, and inclusion in the SailPoint platform, submit a [SailPoint support portal request](https://support.sailpoint.com/csm) or send an email to <support@sailpoint.com>. Attach the rule, validator output, tenant name (e.g., acme-sb.identitynow.com for sandbox or acme.identitynow.com for production) and approval for expert services to proceed. If you need assistance writing and testing rules, Expert Services can assist in that process as well. Make sure your contact information is up to date so the review team can contact you if they need to.
 
 ## Add Rule To Account Creation
 

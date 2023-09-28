@@ -3,6 +3,8 @@ get:
   tags:
     - Certification Campaigns
   summary: List Campaign Templates
+  security:
+    - UserContextAuth: [ idn:campaign-template-list:read ]
   parameters:
     - $ref: '../../v3/parameters/limit.yaml'
     - $ref: '../../v3/parameters/offset.yaml'
@@ -17,6 +19,7 @@ get:
 
 
         Sorting is supported for the following fields: **name, created, modified**
+      example: name
     - in: query
       name: filters
       schema:
@@ -27,6 +30,7 @@ get:
 
 
         Filtering is supported for the following fields: **name, id**
+      example: name eq "manager template"
   responses:
     '200':
       description: List of campaign template objects
@@ -53,6 +57,11 @@ post:
   tags:
     - Certification Campaigns
   summary: Create a Campaign Template
+  description: >-
+    Create a campaign Template based on campaign.
+  security:
+    - UserContextAuth: [ idn:campaign-template:create ]
+  deprecated: true
   requestBody:
     required: true
     content:

@@ -8,7 +8,7 @@ post:
 
     Requires roles of CERT_ADMIN and ORG_ADMIN
   security:
-    - oauth2: [ idn:campaign:update ]
+    - UserContextAuth: [ idn:campaign:update ]
   deprecated: true
   requestBody:
     description:

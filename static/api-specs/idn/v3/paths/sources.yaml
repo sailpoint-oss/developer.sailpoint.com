@@ -1,7 +1,7 @@
 get:
   operationId: listSources
   security:
-    - oauth2: [ idn:sources:read ]
+    - UserContextAuth: [ idn:sources:read ]
   tags:
     - Sources
   summary: Lists all sources in IdentityNow.
@@ -83,7 +83,7 @@ get:
 post:
   operationId: createSource
   security:
-    - oauth2: [ idn:sources:manage ]
+    - UserContextAuth: [ idn:sources:manage ]
   tags:
     - Sources
   summary: Creates a source in IdentityNow.

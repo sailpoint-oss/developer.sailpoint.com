@@ -4,4 +4,3 @@ description: The id of the job returned from a POST or PATCH endpoint that resul
 required: true
 schema:
   type: string
-example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e

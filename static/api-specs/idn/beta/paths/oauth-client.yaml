@@ -1,7 +1,7 @@
 get:
   operationId: getOauthClient
   security:
-    - oauth2: [sp:oauth-client:manage, sp:oauth-client:read]
+    - UserContextAuth: [sp:oauth-client:manage, sp:oauth-client:read]
   tags:
     - OAuth Clients
   summary: Get OAuth Client
@@ -38,7 +38,7 @@ get:
 delete:
   operationId: deleteOauthClient
   security:
-    - oauth2: [sp:oauth-client:manage]
+    - UserContextAuth: [sp:oauth-client:manage]
   tags:
     - OAuth Clients
   summary: Delete OAuth Client
@@ -71,7 +71,7 @@ delete:
 patch:
   operationId: patchOauthClient
   security:
-    - oauth2: [sp:oauth-client:manage]
+    - UserContextAuth: [sp:oauth-client:manage]
   tags:
     - OAuth Clients
   summary: Patch OAuth Client

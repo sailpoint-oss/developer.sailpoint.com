@@ -17,6 +17,12 @@ servers:
       tenant:
         default: sailpoint
         description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}/beta
+    description: This is the beta API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
 tags:
   - name: Access Profiles
     description: |
@@ -170,35 +176,35 @@ tags:
     description: |
       Use this API to implement certification campaign functionality.
       With this functionality in place, administrators can create, customize, and manage certification campaigns for their organizations' use.
-      Certification campaigns provide IdentityNow (IDN) users with an interactive review process they can use to identify and verify access to systems.
+      Certification campaigns provide IdentityNow users with an interactive review process they can use to identify and verify access to systems.
       Campaigns help organizations reduce risk of inappropriate access and satisfy audit requirements.
 
-      A certification refers to IDN's mechanism for reviewing a user's access to entitlements (sets of permissions) and approving or removing that access.
+      A certification refers to IdentityNow's mechanism for reviewing a user's access to entitlements (sets of permissions) and approving or removing that access.
       These certifications serve as a way of showing that a user's access has been reviewed and approved.
       Multiple certifications by different reviewers are often required to approve a user's access.
       A set of multiple certifications is called a certification campaign.
 
       For example, an organization may use a Manager Certification campaign as a way of showing that a user's access has been reviewed and approved by multiple managers.
-      Once this campaign has been completed, IDN would provision all the access the user needs, nothing more.
+      Once this campaign has been completed, IdentityNow would provision all the access the user needs, nothing more.
 
-      IDN provides two simple campaign types users can create without using search queries, Manager and Source Owner campaigns:
+      IdentityNow provides two simple campaign types users can create without using search queries, Manager and Source Owner campaigns:
 
-      You can create these types of campaigns without using any search queries in IDN:
+      You can create these types of campaigns without using any search queries in IdentityNow:
 
-      - ManagerCampaign: IDN provides this campaign type as a way to ensure that an identity's access is certified by their managers.
+      - ManagerCampaign: IdentityNow provides this campaign type as a way to ensure that an identity's access is certified by their managers.
       You only need to provide a name and description to create one.
 
-      - Source Owner Campaign: IDN provides this campaign type as a way to ensure that an identity's access to a source is certified by its source owners.
+      - Source Owner Campaign: IdentityNow provides this campaign type as a way to ensure that an identity's access to a source is certified by its source owners.
       You only need to provide a name and description to create one.
       You can specify the sources whose owners you want involved or just run it across all sources.
 
       For more information about these campaign types, refer to [Starting a Manager or Source Owner Campaign](https://documentation.sailpoint.com/saas/help/certs/starting_campaign.html).
 
-      One useful way to create certification campaigns in IDN is to use a specific search and then run a campaign on the results returned by that search.
+      One useful way to create certification campaigns in IdentityNow is to use a specific search and then run a campaign on the results returned by that search.
       This allows you to be much more specific about whom you are certifying in your campaigns and what access you are certifying in your campaigns.
       For example, you can search for all identities who are managed by "Amanda.Ross" and also have the access to the "Accounting" role and then run a certification campaign based on that search to ensure that the returned identities are appropriately certified.
 
-      You can use IDN search queries to create these types of campaigns:
+      You can use IdentityNow search queries to create these types of campaigns:
 
       - Identities: Use this campaign type to review and revoke access items for specific identities.
       You can either build a search query and create a campaign certifying all identities returned by that query, or you can search for individual identities and add those identities to the certification campaign.
@@ -209,7 +215,7 @@ tags:
       - Role Composition: Use this campaign type to review a role's composition, including its title, description, and membership criteria.
       You can either build a search query and create a campaign certifying all roles returned by that query, or you can search for individual roles and add those roles to the certification campaign.
 
-      - Uncorrelated Accounts: Use this campaign type to certify source accounts that aren't linked to an authoritative identity in IDN.
+      - Uncorrelated Accounts: Use this campaign type to certify source accounts that aren't linked to an authoritative identity in IdentityNow.
       You can use this campaign type to view all the uncorrelated accounts for a source and certify them.
 
       For more information about search-based campaigns, refer to [Starting a Campaign from Search](https://documentation.sailpoint.com/saas/help/certs/starting_search_campaign.html).
@@ -217,7 +223,7 @@ tags:
       Once you have generated your campaign, it becomes available for preview.
       An administrator can review the campaign and make changes, or if it's ready and accurate, activate it.
 
-      Once the campaign is active, organization administrators or certification administrators can designate other IDN users as certification reviewers.
+      Once the campaign is active, organization administrators or certification administrators can designate other IdentityNow users as certification reviewers.
       Those reviewers can view any of the certifications they either need to review (active) or have already reviewed (completed).
 
       When a certification campaign is in progress, certification reviewers see the listed active certifications whose involved identities they can review.
@@ -369,6 +375,7 @@ tags:
       Doing so immediately begins the attribute synchronization and analyzes all accounts for the selected identity.
 
       Refer to [Synchronizing Attributes](https://documentation.sailpoint.com/saas/help/provisioning/attr_sync.html) for more information about synchronizing attributes.
+  - name: Identity Attributes
   - name: Identity History
   - name: Identity Profiles
     description: |
@@ -657,6 +664,24 @@ tags:
       Refer to [Working with Roles](https://documentation.sailpoint.com/saas/help/provisioning/roles.html) for more information about roles.
   - name: Search Attribute Configuration
   - name: Segments
+    description: |
+      Use this API to implement and customize access request segment functionality. 
+      With this functionality in place, administrators can create and manage access request segments. 
+      Segments provide organizations with a way to make the access their users have even more granular - this can simply the access request process for the organization's users and improves security by reducing the risk of overprovisoning access. 
+
+      Segments represent sets of identities, all grouped by specified identity attributes, who are only able to see and access the access items associated with their segments.
+      For example, administrators could group all their organization's London office employees into one segment, "London Office Employees," by their shared location. 
+      The administrators could then define the access items the London employees would need, and the identities in the "London Office Employees" would then only be able to see and access those items.
+
+      In IdentityNow, administrators can use the 'Access' drop-down menu and select 'Segments' to reach the 'Access Requests Segments' page. 
+      This page lists all the existing access request segments, along with their statuses, enabled or disabled. 
+      Administrators can use this page to create, edit, enable, disable, and delete segments. 
+      To create a segment, an administrator must provide a name, define the identities grouped in the segment, and define the items the identities in the segment can access.
+      These items can be access profiles, roles, or entitlements. 
+
+      When administrators use the API to create and manage segments, they use a JSON expression in the `visibilityCriteria` object to define the segment's identities and access items. 
+
+      Refer to [Managing Access Request Segments](https://documentation.sailpoint.com/saas/help/requests/segments.html) for more information about segments in IdentityNow. 
   - name: Service Desk Integration
     description: |
       Use this API to build an integration between IdentityNow and a service desk ITSM (IT service management) solution.
@@ -684,9 +709,53 @@ tags:
 
       - [Zendesk Service Desk](https://documentation.sailpoint.com/connectors/zendesk/help/integrating_zendesk_sd/introduction.html)
   - name: SOD Policy
-    description: Operations for Creating & Executing SOD (Seperation of Duties) policies
+    description: |
+      Use this API to implement and manage "separation of duties" (SOD) policies. 
+      With SOD policy functionality in place, administrators can organize the access in their tenants to prevent individuals from gaining conflicting or excessive access. 
+
+      "Separation of duties" refers to the concept that people shouldn't have conflicting sets of access - all their access should be configured in a way that protects your organization's assets and data.  
+      For example, people who record monetary transactions shouldn't be able to issue payment for those transactions.
+      Any changes to major system configurations should be approved by someone other than the person requesting the change. 
+
+      Organizations can use "separation of duties" (SOD) policies to enforce and track their internal security rules throughout their tenants.
+      These SOD policies limit each user's involvement in important processes and protects the organization from individuals gaining excessive access. 
+
+      To create SOD policies in IdentityNow, administrators use 'Search' and then access 'Policies'.
+      To create a policy, they must configure two lists of access items. Each access item can only be added to one of the two lists.
+      They can search for the entitlements they want to add to these access lists.
+
+      >Note: You can have a maximum of 500 policies of any type (including general policies) in your organization. In each access-based SOD policy, you can have a maximum of 50 entitlements in each access list.
+
+      Once a SOD policy is in place, if an identity has access items on both lists, a SOD violation will trigger. 
+      These violations are included in SOD violation reports that other users will see in emails at regular intervals if they're subscribed to the SOD policy.
+      The other users can then better help to enforce these SOD policies. 
+
+      To create a subscription to a SOD policy in IdentityNow, administrators use 'Search' and then access 'Layers'.
+      They can create a subscription to the policy and schedule it to run at a regular interval. 
+
+      Refer to [Managing Policies](https://documentation.sailpoint.com/saas/help/sod/manage-policies.html) for more information about SOD policies. 
+
+      Refer to [Subscribe to a SOD Policy](https://documentation.sailpoint.com/saas/help/sod/policy-violations.html#subscribe-to-an-sod-policy) for more information about SOD policy subscriptions. 
   - name: SOD Violations
-    description: Operations for Predicting SOD (Seperation of Duties) violations
+    description: |
+      Use this API to check for current "separation of duties" (SOD) policy violations as well as potential future SOD policy violations. 
+      With SOD violation functionality in place, administrators can get information about current SOD policy violations and predict whether an access change will trigger new violations, which helps to prevent them from occurring at all. 
+
+      "Separation of duties" refers to the concept that people shouldn't have conflicting sets of access - all their access should be configured in a way that protects your organization's assets and data.  
+      For example, people who record monetary transactions shouldn't be able to issue payment for those transactions.
+      Any changes to major system configurations should be approved by someone other than the person requesting the change. 
+
+      Organizations can use "separation of duties" (SOD) policies to enforce and track their internal security rules throughout their tenants.
+      These SOD policies limit each user's involvement in important processes and protects the organization from individuals gaining excessive access. 
+
+      Once a SOD policy is in place, if an identity has conflicting access items, a SOD violation will trigger. 
+      These violations are included in SOD violation reports that other users will see in emails at regular intervals if they're subscribed to the SOD policy.
+      The other users can then better help to enforce these SOD policies.
+
+      Administrators can use the SOD violations APIs to check a set of identities for any current SOD violations, and they can use them to check whether adding an access item would potentially trigger a SOD violation. 
+      This second option is a good way to prevent SOD violations from triggering at all. 
+
+      Refer to [Handling Policy Violations](https://documentation.sailpoint.com/saas/help/sod/policy-violations.html) for more information about SOD policy violations. 
   - name: Sources
     description: |
       Use this API to implement and customize source functionality.
@@ -744,11 +813,12 @@ tags:
       Admins can also delete sources, but they must first ensure that the sources no longer have any active connections: the source must not be associated with any identity profile or any app, and it must not be referenced by any transform.
       Refer to [Deleting Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html#deleting-sources) for more information about deleting sources.
 
-      Well organized, mappped out connections between sources and IdentityNow are essential to achieving comprehensive identity access governance across all the source systems organizations need.
+      Well organized, mapped out connections between sources and IdentityNow are essential to achieving comprehensive identity access governance across all the source systems organizations need.
       Refer to [Managing Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html) for more information about all the different things admins can do with sources once they are connected.
   - name: SP-Config
     description: Import and export configuration for some objects between tenants.
   - name: Tagged Objects
+  - name: Task Management
   - name: Transforms
     description: Operations for creating, managing, and deleting transforms
   - name: Triggers
@@ -765,8 +835,8 @@ tags:
       | Name | ID | Type | Trigger condition |
       |-|-|-|-|
       | [Access Request Dynamic Approval](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/access-request-dynamic-approval) | idn:access-request-dynamic-approver | REQUEST_RESPONSE |After an access request is submitted. Expects the subscriber to respond with the ID of an identity or workgroup to add to the approval workflow. |
-      | [Access Request Postapproval](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/access-request-postapproval) | idn:access-request-post-approval | FIRE_AND_FORGET | After an access request is approved. |
-      | [Access Request Preapproval](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/access-request-preapproval) | idn:access-request-pre-approval | REQUEST_RESPONSE | After an access request is submitted. Expects the subscriber to respond with an approval decision. |
+      | [Access Request Decision](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/access-request-decision) | idn:access-request-post-approval | FIRE_AND_FORGET | After an access request is approved. |
+      | [Access Request Submitted](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/access-request-submitted) | idn:access-request-pre-approval | REQUEST_RESPONSE | After an access request is submitted. Expects the subscriber to respond with an approval decision. |
       | [Account Aggregation Completed](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/account-aggregation-completed) | idn:account-aggregation-completed | FIRE_AND_FORGET | After an account aggregation completed, terminated, failed. |
       | Account Attributes Changed | idn:account-attributes-changed | FIRE_AND_FORGET | After an account aggregation, and one or more account attributes have changed. |
       | Account Correlated | idn:account-correlated | FIRE_AND_FORGET | After an account is added to an identity. |
@@ -779,7 +849,7 @@ tags:
       | [Identity Attributes Changed](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/account-aggregation-completed) | idn:identity-attributes-changed | FIRE_AND_FORGET | After One or more identity attributes changed. |
       | [Identity Created](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/identity-created) | idn:identity-created | FIRE_AND_FORGET | After an identity is created. |
       | [Provisioning Action Completed](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/provisioning-action-completed) |  idn:post-provisioning | FIRE_AND_FORGET | After a provisioning action completed on a source. |
-      | [Saved Search Complete](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/saved-search-completed) |  idn:saved-search-complete | FIRE_AND_FORGET | After a scheduled search completed. |
+      | [Scheduled Search](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/scheduled-search) |  idn:saved-search-complete | FIRE_AND_FORGET | After a scheduled search completed. |
       | [Source Created](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/source-created) | idn:source-created | FIRE_AND_FORGET | After a source is created. |
       | [Source Deleted](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/source-deleted) | idn:source-deleted | FIRE_AND_FORGET | After a source is deleted. |
       | [Source Updated](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/source-updated) | idn:source-updated | FIRE_AND_FORGET | After configuration changes have been made to a source. |
@@ -815,16 +885,27 @@ tags:
   - name: Workflows
     description: |
       Workflows allow administrators to create custom automation scripts directly within IdentityNow.  These automation scripts respond to [event triggers](https://developer.sailpoint.com/idn/docs/event-triggers#how-to-get-started-with-event-triggers) and perform a series of actions to perform tasks that are either too cumbersome or not available in the IdentityNow UI.  Workflows can be configured via a graphical user interface within IdentityNow, or by creating and uploading a JSON formatted script to the Workflow service.  The Workflows API collection provides the necessary functionality to create, manage, and test your workflows via REST.
+  - name: Source Usages
+    description: |
+      Use this API to implement source usage insight functionality.
+      With this functionality in place, administrators can gather information and insights about how their tenants' sources are being used.
+      This allows organizations to get the information they need to start optimizing and securing source usage.
+  - name: Account Usages
+    description: |
+      Use this API to implement account usage insight functionality.
+      With this functionality in place, administrators can gather information and insights about how their tenants' source accounts are being used.
+      This allows organizations to get the information they need to start optimizing and securing source account usage.
 
 security:
-  - oauth2: [ ]
+  - UserContextAuth: [ ]
 
 components:
   securitySchemes:
-    oauth2:
+    UserContextAuth:
       type: oauth2
       description: |
-        OAuth2 Bearer token (JWT). See [IdentityNow REST API Authentication](https://developer.sailpoint.com/idn/api/authentication) for more information.
+        OAuth2 Bearer token (JWT) generated using either a Personal Access token or through the Authorization Code flow. 
+        See [IdentityNow REST API Authentication](https://developer.sailpoint.com/idn/api/authentication) for more information.
         - Directions for generating a [personal access token](https://developer.sailpoint.com/idn/api/authentication#personal-access-tokens)
         - Directions using [client credentials flow](https://developer.sailpoint.com/idn/api/authentication#client-credentials-grant-flow)
         - Directions for using [authorization code flow](https://developer.sailpoint.com/idn/api/authentication#authorization-code-grant-flow)
@@ -836,14 +917,29 @@ components:
         clientCredentials:
           tokenUrl: https://tenant.api.identitynow.com/oauth/token
           scopes:
-            'sp:scopes:default': 'default scope'
-            'sp:scopes:all': 'access to all scopes'
+            "sp:scopes:default": "default scope"
+            "sp:scopes:all": "access to all scopes"
         authorizationCode:
           authorizationUrl: https://tenant.identitynow.com/oauth/authorize
           tokenUrl: https://tenant.api.identitynow.com/oauth/token
           scopes:
-            'sp:scopes:default': 'default scope'
-            'sp:scopes:all': 'access to all scopes'
+            "sp:scopes:default": "default scope"
+            "sp:scopes:all": "access to all scopes"
+    ApplicationOnlyAuth:
+      type: oauth2
+      description: |
+        OAuth2 Bearer token (JWT) generated using client credentials flow. 
+        See [IdentityNow REST API Authentication](https://developer.sailpoint.com/idn/api/authentication) for more information.
+        - Directions using [client credentials flow](https://developer.sailpoint.com/idn/api/authentication#client-credentials-grant-flow)
+
+        Which authentication method should I choose?  See our [guide](https://developer.sailpoint.com/idn/api/authentication#which-oauth-20-grant-flow-should-i-use)
+
+        Learn more about how to find your `tokenUrl` and `authorizationUrl` [in our docs](https://developer.sailpoint.com/idn/api/authentication#find-your-tenants-oauth-details)
+      flows:
+        clientCredentials:
+          tokenUrl: https://tenant.api.identitynow.com/oauth/token
+          scopes:
+            "sp:scopes:default": "default scope"
   schemas:
     AccountAggregation:
       $ref: './beta/schemas/AccountAggregationStatus.yaml'
@@ -885,6 +981,12 @@ components:
       $ref: './beta/schemas/SectionDetails.yaml'
     Field:
       $ref: './beta/schemas/FieldDetails.yaml'
+    AccountUsage:
+      $ref: './beta/schemas/AccountUsage.yaml'
+    SourceUsage:
+      $ref: './beta/schemas/SourceUsage.yaml'
+    SourceUsageStatus:
+      $ref: './beta/schemas/SourceUsageStatus.yaml'
 
 paths:
   /access-profiles:
@@ -1051,12 +1153,18 @@ paths:
     $ref: './beta/paths/historical-identity-compare-type.yaml'
   /identities/{identityId}/synchronize-attributes:
     $ref: './beta/paths/identity-synchronize-attributes.yaml'
+  /identities/{identityId}/ownership:
+    $ref: './beta/paths/identity-ownership.yaml'
   /identities:
     $ref: './beta/paths/identities.yaml'
   /identities/{id}:
     $ref: './beta/paths/identity.yaml'
   /identities/process:
     $ref: './beta/paths/identities-process.yaml'
+  /identity-attributes:
+    $ref: './beta/paths/identity-attributes.yaml'
+  /identity-attributes/{name}:
+    $ref: './beta/paths/identity-attribute.yaml'
   /identity-profiles:
     $ref: './beta/paths/identity-profiles.yaml'
   /identity-profiles/bulk-delete:
@@ -1071,8 +1179,8 @@ paths:
     $ref: './beta/paths/identity-profile.yaml'
   /identity-profiles/{identity-profile-id}/default-identity-attribute-config:
     $ref: './beta/paths/identity-profile-default-config.yaml'
-  /identity-profiles/{identity-profile-id}/refresh-identities:
-    $ref: './beta/paths/identity-profile-refresh-identities.yaml'
+  /identity-profiles/{identity-profile-id}/process-identities:
+    $ref: './beta/paths/identity-profile-process-identities.yaml'
   /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}:
     $ref: './beta/paths/identity-profile-lifecycle-state.yaml'
   /non-employee-records:
@@ -1153,12 +1261,16 @@ paths:
     $ref: './beta/paths/outliers.yaml'
   /outliers/{outlierId}/contributing-features:
     $ref: './beta/paths/outliers-contributing-features.yaml'
+  /outliers/{outlierId}/feature-details/{contributingFeatureName}/access-items:
+    $ref: './beta/paths/outliers-contributing-feature-access-items.yaml'
   /outliers/ignore:
     $ref: './beta/paths/outliers-ignore.yaml'
   /outliers/unignore:
     $ref: './beta/paths/outliers-unignore.yaml'
   /outliers/export:
     $ref: './beta/paths/outliers-export.yaml'
+  /outlier-feature-summaries/{outlierFeatureId}:
+    $ref: './beta/paths/outlier-feature-summaries.yaml'
   /password-dictionary:
     $ref: './v3/paths/password-dictionary.yaml'
   /query-password-info:
@@ -1251,6 +1363,8 @@ paths:
     $ref: './beta/paths/role-mining-potential-role-provision.yaml'
   /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/excluded-entitlements:
     $ref: './beta/paths/role-mining-potential-role-excluded-entitlements.yaml'
+  /role-mining-sessions/{sessionId}/potential-roles/draft-roles:
+    $ref: './beta/paths/role-mining-session-draft-roles.yaml'
   /roles:
     $ref: './beta/paths/roles.yaml'
   /roles/{id}:
@@ -1305,6 +1419,8 @@ paths:
     $ref: './beta/paths/source-connector-test-configuration.yaml'
   /sources/{id}/connectors/source-config:
     $ref: './beta/paths/source-connectors-source-config.yaml'
+  /sources/{sourceId}/native-change-detection-config:
+    $ref: './beta/paths/native-change-detection-config.yaml'
   /sources/{sourceId}/provisioning-policies:
     $ref: './v3/paths/provisioning-policies.yaml'
   /sources/{sourceId}/provisioning-policies/{usageType}:
@@ -1325,6 +1441,12 @@ paths:
     $ref: './beta/paths/source-synchronize-attributes.yaml'
   /sources/{id}/entitlement-request-config:
     $ref: './beta/paths/sources-entitlement-request-config.yaml'
+  /task-status:
+    $ref: "./beta/paths/task-status-list.yaml"
+  /task-status/{id}:
+    $ref: "./beta/paths/task-status.yaml"
+  /task-status/pending-tasks:
+    $ref: "./beta/paths/task-status-pending.yaml"
   /tagged-objects:
     $ref: './beta/paths/tagged-objects.yaml'
   /tagged-objects/{type}:
@@ -1457,5 +1579,11 @@ paths:
     $ref: './beta/paths/form-instance.yaml'
   /form-instances/{formInstanceID}/data-source/{formElementID}:
     $ref: './beta/paths/form-instance-data-source.yaml'
-  /predefined-select-options:
-    $ref: './beta/paths/forms-predefined-select-options.yaml'
+  /form-definitions/predefined-select-options:
+    $ref: './beta/paths/form-definitions-predefined-select-options.yaml'
+  /source-usages/{sourceId}/status:
+    $ref: "./beta/paths/source-usage-status.yaml"
+  /source-usages/{sourceId}/summaries:
+    $ref: "./beta/paths/source-usages.yaml"
+  /account-usages/{accountId}/summaries:
+    $ref: "./beta/paths/account-usages.yaml"

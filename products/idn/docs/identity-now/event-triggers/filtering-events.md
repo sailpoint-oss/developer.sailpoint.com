@@ -49,6 +49,7 @@ Functions can be invoked at the tail end of a path - the input to a function is 
 | Function | Description | Output type | Example |
 | --- | --- | --- | --- |
 | length() | Provides the length of an array | Integer | $[?($.changes.length() >= 3)] |
+| concat() | Concatenates two or more paths into a single string value | String | $.concat($.identity.attributes.firstname," ",$.identity.attributes.lastname) |
 
 ### Operators
 
@@ -69,7 +70,7 @@ Operators provide more options to filter JSON structures.
 | anyof | **Any of** - Evaluates to `true` if the left operand has an intersection with the right. | $[?($.warnings anyof ['Account skipped','Invalid account'])] |
 | noneof | **None of** - Evaluates to `true` if the left operand **does not** have an intersection with the right. | $[?($.warnings anyof ['Account skipped','Invalid account'])] |
 | size | **Size** - Evaluates to `true` if the size of the left (array or string) matches the right. | $[?($.warnings size 1] |
-| && | Logical **AND** operator that evaluates `true` only if both conditions are `true`. | $.changes[?(@.attribute == "cloudLifecycleState" && @.newValue == "terminated")] |
+| && | Logical **AND** operator that evaluates `true` only if both conditions are `true`. You can only use this operator when both operands are part of the same item. | $.changes[?(@.attribute == "cloudLifecycleState" && @.newValue == "terminated")] |
 | ! | **Not** - Negates the boolean expression. | $.identity.attributes[?(!@.alternateEmail)] |
 | \|\| | Logical **OR** operator that evaluates `true` if at least one condition is `true`. | $.changes[?(@.attribute == "cloudLifecycleState" \|\| @.attribute == "department")] |
 | contains | **Contains** - Checks whether a string contains the specified substring (case sensitive). | $[?($.identity.name contains "john")] |
@@ -129,7 +130,7 @@ To validate a filter using the UI, subscribe to a new event trigger or edit an e
 
 ### Validating Filters Using the API
 
-You can validate a trigger filter by using the [validate filter](/idn/api/beta/validate-subscription-filter) API endpoint. You must escape any double quotes, as seen in the example payload in the API description. Also, you must provide a sample input for the validation engine to run against. It is best to use the input example included in the input/output schemas for the event trigger you want to apply your filter to. Refer to [this table](/idn/api/beta/triggers#available-event-triggers) to find the schema of your event trigger. This is an example request:
+You can validate a trigger filter by using the [test filter](/idn/api/beta/test-subscription-filter) API endpoint. You must escape any double quotes, as seen in the example payload in the API description. Also, you must provide a sample input for the validation engine to run against. It is best to use the input example included in the input/output schemas for the event trigger you want to apply your filter to. Refer to [this table](/idn/api/beta/triggers#available-event-triggers) to find the schema of your event trigger. This is an example request:
 
 ```text
 POST https://{tenant}.api.identitynow.com/beta/trigger-subscriptions/validate-filter

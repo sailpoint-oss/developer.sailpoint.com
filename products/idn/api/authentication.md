@@ -148,7 +148,7 @@ There are several different authorization flows that OAuth 2.0 supports, and eac
 You must choose the one that best serves your purposes. 
 This document covers these three common flows: 
 
-1. [**Client Credentials**](https://oauth.net/2/grant-types/client-credentials/) - Clients use this grant type to obtain a JWT `access_token` outside the context of a user. Because this is outside a user context, only a subset of IDN APIs may be accessible with this grant type.
+1. [**Client Credentials**](https://oauth.net/2/grant-types/client-credentials/) - Clients use this grant type to obtain a JWT `access_token` without user involvement such as scripts, programs or system to system integration.
 2. [**Authorization Code**](https://oauth.net/2/grant-types/authorization-code/) - Clients use this grant type to exchange an authorization code for an `access_token`. Authorization codes are mainly used by web applications because there is a login into IDN with a subsequent redirect back to the web application/client.
 3. [**Refresh Token**](https://oauth.net/2/grant-types/refresh-token/) - Clients use this grant type to exchange a refresh token for a new `access_token` when the existing `access_token` has expired. This allows clients to continue using the APIs without having to re-authenticate as frequently. This grant type is commonly used together with `Authorization Code` to prevent a user from having to log in several times per day.
 
@@ -163,10 +163,11 @@ The guide will detail the three different authorization grant flows you can use 
 
 ### Request access token with client credentials grant flow 
 
-Clients use the 'Client Credentials' grant type to obtain access tokens without user context. 
-This is probably the simplest authentication flow, but it has a drawback: API endpoints that require [user level permissions](https://documentation.sailpoint.com/saas/help/common/users/user_level_matrix.html) will not work with them. 
+Clients use the 'Client Credentials' grant type to obtain access tokens without user invovlement. This is the simplest authentication flow.
 
-Personal access tokens are client credentials that have user context, so the API endpoints requiring user level permissions work with them. Which endpoints a personal access token (PAT) can be used to call depends on the permissions of the user who generated it. 
+API endpoints that require [user level permissions](https://documentation.sailpoint.com/saas/help/common/users/user_level_matrix.html) require the use of Personal access tokens (PATs). Correspondingly, the endpoints a personal access token (PAT) can call depends on the permissions of the user who generated it and the configuration of IDN.
+
+Note: If an API Key is used then IDN API calls are made outside of the context of a user and some API calls will not work.
 
 An OAuth 2.0 client using the client credentials grant flow must have `CLIENT_CREDENTIALS` as one of its grantTypes (PATs are implicitly granted the `CLIENT_CREDENTIALS` grant type):
 
@@ -545,14 +546,13 @@ If you are making a web application, the best grant flow to use is the [Authoriz
 SailPoint doesn't recommend using a password grant flow for web applications because doing so would involve entering IDN credentials in the web application. 
 This flow also doesn't allow you to work with SSO, strong authentication, or pass-through authentication.
 
-#### Scripts or programs
-If you are writing scripts or programs that leverage the IDN APIs, the OAuth 2.0 grant you should use typically depends on what you're doing and the user context you need to operate under. 
+#### Scripts, programs or system to system integration
+If you are writing scripts, programs or system integrations that leverage the IDN APIs, the OAuth 2.0 grant you should use typically depends on what you're doing and the user context you need to operate under. 
 
-Because scripts, code, and programs lack an interactive web-interface, it is difficult, but not impossible, to implement a working authorization code grant flow. 
+Because scripts, code, and programs lack an interactive web-interface, it is difficult, but not impossible, to implement a working authorization code grant flow. System to system integrations may require an elevated level of access and utilize a service account to make API calls beyond the privileges of the authenticated user.
 
-Most scripts and programs use the [Client Credentials grant flow](#request-access-token-with-client-credentials-grant-flow). 
-If your APIs can work under an API context without a user, using client credentials is ideal. 
-However, if your APIs need a user or admin context, you should use a PAT approach.
+Most scripts, programs, and many integrations use the [Client Credentials grant flow](#request-access-token-with-client-credentials-grant-flow). 
+Using a PAT allows your API calls to work within a user context making client credentials ideal. 
 
 ## Troubleshooting
 

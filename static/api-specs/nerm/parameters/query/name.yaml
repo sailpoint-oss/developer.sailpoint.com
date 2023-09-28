@@ -4,4 +4,3 @@ description: object name for filtering
 required: false
 schema:
   type: string
-example: objectname

@@ -4,4 +4,3 @@ description: The user login to search by
 required: false
 schema:
   type: string
-example: myuser

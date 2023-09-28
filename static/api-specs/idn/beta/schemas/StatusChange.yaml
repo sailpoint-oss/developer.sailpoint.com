@@ -2,7 +2,17 @@ type: object
 properties:
   previousStatus:
     type: string
-    description: previoys status of the account (LOCKED, DISABLED or ENABLED)
+    description: previous status of the account
+    enum:
+      - LOCKED
+      - DISABLED
+      - ENABLED
+    example: DISABLED
   newStatus:
     type: string
-    description: new status of the account (LOCKED, DISABLED or ENABLED)
+    description: new status of the account
+    enum:
+      - LOCKED
+      - DISABLED
+      - ENABLED
+    example: ENABLED

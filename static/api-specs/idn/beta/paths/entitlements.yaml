@@ -4,7 +4,7 @@ get:
     - Entitlements
   summary: Gets a list of entitlements.
   security:
-    - oauth2: [idn:entitlement:read, idn:entitlement:manage]
+    - UserContextAuth: [idn:entitlement:read, idn:entitlement:manage]
   description: >-
     This API returns a list of entitlements.
 

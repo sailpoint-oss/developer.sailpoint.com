@@ -29,4 +29,4 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:password-sync-group-management:read]
+    - UserContextAuth: [idn:password-sync-group-management:read]

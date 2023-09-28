@@ -3,7 +3,7 @@ post:
   operationId: postProfileType
   description: Create a profile type
   tags:
-    - Profile Types
+    - profile types
   requestBody:
     $ref: "../requestBodies/POST/ProfileType.yaml"
   responses:

@@ -1,0 +1,83 @@
+type: object
+properties:
+  workflow_id:
+    type: string
+    format: uuid
+    required: true
+    description: The workflow the workflow action belongs to.
+    example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+  description:
+    type: string
+    required: true
+    description: The description of the workflow action.
+    example: Create a Collaboration user account for this profile.
+  archived:
+    type: boolean
+    default: false
+    description: If the workflow action is archived or not.
+    example: false
+  store_type:
+    type: string
+    required: true
+    enum: [Local, Directory]
+    description: the type of store.
+    example: Local
+  ldap_action_user_roles_attributes:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uuid
+        description: the id.
+        example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+      role_id:
+        type: string
+        format: uuid
+        description: the id of the role.
+        example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+  workflow_action_value_builders_attributes:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uuid
+        description: the id.
+        example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+      workflow_action_id:
+        type: string
+        format: uuid
+        description: the id of the workflow action.
+        example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+      value_builder_id:
+        type: string
+        format: uuid
+        description: the id of the value builder.
+        example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+      position:
+        type: integer
+        format: int32
+        description: the position of the value builder attribute.
+        example: 1
+  workflow_action_directory_groups_attributes:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uuid
+        description: the id.
+        example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+      directory_id:
+        type: string
+        format: uuid
+        description: the id of the directory.
+        example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+      group_label:
+        type: string
+        format: text
+        description: the group label.
+        example: Admin
+      group_dn:
+        type: string
+        format: text
+        description: the group dn.
+        example: group

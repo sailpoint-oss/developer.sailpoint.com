@@ -39,7 +39,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:managed-client-status:read]
+    - UserContextAuth: [idn:managed-client-status:read]
 post:
   tags:
     - Managed Clients
@@ -80,4 +80,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:managed-client-status:manage]
+    - UserContextAuth: [idn:managed-client-status:manage]

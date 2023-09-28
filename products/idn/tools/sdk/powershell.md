@@ -127,7 +127,7 @@ customexporttemplatespath: "" # the path to the users custom export templates fi
 customsearchtemplatespath: "" # the path to the users custom search templates file if one is provided
 debug: false # the debug setting  
 environments: # the configured environments 
-  example:
+  devrel:
     baseurl: https://devrel.api.identitynow.com
     pat:
       accesstoken: example-access-token

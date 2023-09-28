@@ -13,7 +13,7 @@ post:
     
     To learn more, refer to the [identity processing documentation](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html).
   security:
-    - oauth2:
+    - UserContextAuth:
         - "idn:identity:manage"
   requestBody:
     required: true

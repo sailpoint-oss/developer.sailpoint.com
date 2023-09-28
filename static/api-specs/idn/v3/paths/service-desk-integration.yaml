@@ -34,7 +34,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:service-desk-admin:read,idn:service-desk-integration:read]
+    - UserContextAuth: [idn:service-desk-admin:read,idn:service-desk-integration:read]
 
 put:
   tags:
@@ -79,7 +79,7 @@ put:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:service-desk-admin:manage,idn:service-desk-integration:manage]
+    - UserContextAuth: [idn:service-desk-admin:manage,idn:service-desk-integration:manage]
 
 delete:
   tags:
@@ -113,7 +113,7 @@ delete:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:service-desk-admin:manage,idn:service-desk-integration:manage]
+    - UserContextAuth: [idn:service-desk-admin:manage,idn:service-desk-integration:manage]
 
 patch:
   operationId: patchServiceDeskIntegration
@@ -178,4 +178,4 @@ patch:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:service-desk-admin:manage,idn:service-desk-integration:manage]
+    - UserContextAuth: [idn:service-desk-admin:manage,idn:service-desk-integration:manage]

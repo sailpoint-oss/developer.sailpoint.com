@@ -6,7 +6,7 @@ get:
     count of identities would never be returned even if the count param is specified in the request
     Requires authorization scope of 'idn:identity-history:read'
   security:
-    - oauth2:
+    - UserContextAuth:
       - "idn:identity-history:read" 
   tags:
     - Identity History

@@ -4,6 +4,7 @@ import MarketplaceCard from '../MarketplaceCard';
 import Modal from 'react-modal';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import BounceLoader from 'react-spinners/BounceLoader';
+import {discourseBaseURL, developerWebsiteDomain} from '../../../util/util';
 
 import {
   getMarketplacePosts,
@@ -16,6 +17,11 @@ export default function MarketplaceCards({filterCallback}) {
   const [detailsOpen, setDetailsOpen] = React.useState(false);
   const [details, setDetails] = React.useState('');
   const [loadingCards, setLoadingCards] = React.useState(true);
+
+
+  const handleCloseModal = () => {
+    setDetailsOpen(false);
+  }
 
   const getPosts = async () => {
     const data = await getMarketplacePosts(filterCallback.tags.join('+'), filterCallback.category);
@@ -73,6 +79,7 @@ export default function MarketplaceCards({filterCallback}) {
         <Modal
           isOpen={detailsOpen}
           className={styles.modal}
+          onRequestClose={handleCloseModal}
           contentLabel="Details">
           <div>
             <div>
@@ -121,7 +128,7 @@ async function getPostList(topic) {
     tags: topic.tags,
     image: fullTopic.image_url,
     link:
-      'https://developer.sailpoint.com/discuss/t/' +
+    discourseBaseURL() + 'discuss/t/' +
       topic.slug +
       '/' +
       topic.id,
@@ -135,8 +142,8 @@ async function getPostList(topic) {
 }
 
 function getavatarURL(avatar) {
-  if (avatar.includes("developer.sailpoint.com")) {
-    return "https://developer.sailpoint.com" + avatar.replace("{size}", "120")
+  if (avatar.includes(developerWebsiteDomain())) {
+    return "https://" + developerWebsiteDomain() + avatar.replace("{size}", "120")
   } else {
     return avatar.replace("{size}", "120")
   }

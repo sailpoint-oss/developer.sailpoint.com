@@ -8,7 +8,7 @@ get:
 
     A token with ORG_ADMIN authority is required to call this API.
   security:
-    - oauth2: [idn:accounts:read]
+    - UserContextAuth: [idn:accounts:read]
   parameters:
     - $ref: "../parameters/limit.yaml"
     - $ref: "../parameters/offset.yaml"
@@ -87,7 +87,7 @@ post:
 
     A token with ORG_ADMIN authority is required to call this API.
   security:
-    - oauth2: [idn:accounts:manage]
+    - UserContextAuth: [idn:accounts:manage]
   requestBody:
     required: true
     content:

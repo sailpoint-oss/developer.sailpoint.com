@@ -7,6 +7,9 @@ get:
     This API returns the permissions associated with an entitlement certification item based on the certification item's
     ID. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification
     can also call this API.
+  deprecated: true
+  security:
+    - UserContextAuth: [ idn:certification:read ]
   parameters:
     - in: query
       name: filters
@@ -48,6 +51,7 @@ get:
         The following is invalid:
 
         *?filters=rights+ca+(%22CREATE%22)+and+rights+ca+(%SELECT%22)*
+      example: target eq "SYS.OBJAUTH2"
     - in: path
       name: certificationId
       schema:

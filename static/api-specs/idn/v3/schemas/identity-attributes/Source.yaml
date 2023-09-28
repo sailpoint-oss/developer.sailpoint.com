@@ -1,0 +1,10 @@
+type: object
+properties:
+  type:
+    type: string
+    description: The type of the source
+    example: 'rule'
+  properties:
+    type: object
+    description: The source properties
+    example: { "attribute": null,"sourceName": "Employees" }

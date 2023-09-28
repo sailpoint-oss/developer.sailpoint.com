@@ -1,0 +1,39 @@
+post:
+  tags:
+    - Reports Data Extraction
+  description: >-
+    Get the report results for a report that was run or is running.
+    Returns empty report result in case there are no active task definitions with used in payload task definition name.
+  operationId: showReportResult
+  summary: "Get Report Result"
+  security:
+    - UserContextAuth: [sp:report-result:read]
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/reports/ReportDetails.yaml'
+        examples:
+          identityDetailsReport:
+            $ref: '../schemas/reports/examples/identities-details-report-details.yaml'
+    required: true
+  responses:
+    '200':
+      description: Details about report that was run or is running.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/reports/ReportResults.yaml'
+          examples:
+            identityDetailsReport:
+              $ref: '../schemas/reports/examples/identities-details-report-results.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

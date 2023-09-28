@@ -3,12 +3,13 @@ get:
   tags:
     - Certification Campaigns
   summary: Get Campaign Reports
+  deprecated: true
   description: >- 
     Fetches all reports for a certification campaign by campaign ID.
 
     Requires roles of CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN
-  # security:
-  #   - oauth2: [CERT_ADMIN,DASHBOARD,ORG_ADMIN,REPORT_ADMIN]
+  security:
+    - UserContextAuth: [idn:campaign-report:read]
   parameters:
     - in: path
       name: id
@@ -26,6 +27,8 @@ get:
             type: array
             items:
               $ref: '../schemas/CampaignReport.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
     '401':
       $ref: '../../v3/responses/401.yaml'
     '403':

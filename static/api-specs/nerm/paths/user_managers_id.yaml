@@ -3,7 +3,7 @@ get:
   operationId: getUserManager
   description: Info for a specific user-manager relationship
   tags:
-    - User Managers
+    - user managers
   parameters:
     - $ref: "../parameters/path/id.yaml"
   responses:
@@ -18,7 +18,7 @@ patch:
   operationId: patchUserManager
   description: Update a user-manager relationship by id
   tags:
-    - User Managers
+    - user managers
   requestBody:
     $ref: "../requestBodies/PATCH/UserManager.yaml"
   parameters:

@@ -3,7 +3,7 @@ get:
   operationId: getUser
   description: Info for a specific user
   tags:
-    - Users
+    - users
   parameters:
     - $ref: "../parameters/path/id.yaml"
   responses:
@@ -18,7 +18,7 @@ patch:
   operationId: patchUser
   description: Update a user by id
   tags:
-    - Users
+    - users
   parameters:
     - $ref: "../parameters/path/id.yaml"
   requestBody:
@@ -35,12 +35,12 @@ delete:
   operationId: deleteUser
   description: Delete a user
   tags:
-    - Users
+    - users
   parameters:
     - $ref: "../parameters/path/id.yaml"
   responses:
     '200':
-      $ref: "../responses/info.yaml"
+      $ref: "../responses/Info.yaml"
     '400':
       $ref: "../responses/400.yaml"
     '500':

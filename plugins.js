@@ -1,5 +1,11 @@
 module.exports = [
   [
+    '@docusaurus/plugin-google-tag-manager',
+    {
+      containerId: 'GTM-TSD78J',
+    },
+  ],
+  [
     '@docusaurus/plugin-client-redirects',
     {
       redirects: [
@@ -50,13 +56,6 @@ module.exports = [
       showLastUpdateTime: true,
       sidebarPath: require.resolve('./products/nerm/sidebar.js'),
       docItemComponent: '@theme/ApiItem',
-    },
-  ],
-  [
-    '@docusaurus/plugin-google-gtag',
-    {
-      trackingID: 'GTM-TSD78J',
-      anonymizeIP: false,
     },
   ],
   [

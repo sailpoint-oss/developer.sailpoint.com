@@ -13,14 +13,17 @@ properties:
       - INFO
       - WARN
       - ERROR
+    example: INFO
   localizedText:
     description: Localized form of the message
     $ref: './LocalizedMessage.yaml'
   key:
     description: Key of the message
     type: string
+    example: akey
   parameters:
     description: Message parameters for internationalization
     type: array
     items:
       type: object
+    example: [{ "name": "value"}]

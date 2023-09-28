@@ -14,6 +14,12 @@ tags: ['Rules']
 
 Use this rule to modify a provisioning plan as provisioning is sent out. Do not use this rule to create new attributes. Use an account creation profile (provisioning policy) instead.
 
+These are some examples of when to use this rule:
+
+* Disable account and remove groups during provisioning when the lifecycle state of an identity is set to terminated
+* Remove or add permissions when certain attribute criteria are met
+* Move users to a specific organizational unit (OU) in Active Directory based upon attribute criteria
+
 ## Execution
 
 - **Cloud Execution** - This rule executes in the IdentityNow cloud, and it has read-only access to IdentityNow data models, but it does not have access to on-premise sources or connectors.

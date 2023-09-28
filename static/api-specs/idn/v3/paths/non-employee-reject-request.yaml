@@ -1,7 +1,7 @@
 post:
   operationId: rejectNonEmployeeRequest
   security:
-    - oauth2: []
+    - UserContextAuth: []
   tags:
     - Non-Employee Lifecycle Management
   summary: Reject a Non-Employee Request

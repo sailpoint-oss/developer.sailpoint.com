@@ -1,0 +1,25 @@
+type : object
+properties:
+  name:
+    type: string
+    description: >-
+      Name of the requesting report
+    example: 'Identities Details Report'
+  taskDefName:
+    type: string
+    description: >-
+      Name of the task definition which is started to process requesting report
+    example: 'Identities Details Report'
+  arguments:
+    type: object
+    description: >-
+      The string-object map(dictionary) with the arguments needed for report processing.
+    additionalProperties:
+      type: object
+    example: { "org": "org name" }
+  completed:
+    type: boolean
+    default: false
+    description: >-
+      Current state of the requested report
+    example: true

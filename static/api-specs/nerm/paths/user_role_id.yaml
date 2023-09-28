@@ -3,7 +3,7 @@ delete:
   operationId: deleteUserRole
   description: Delete a user role assignment
   tags:
-    - User Roles
+    - user roles
   parameters:
     - $ref: "../parameters/path/id.yaml"
   responses:

@@ -18,6 +18,7 @@ module.exports = {
         {to: 'idn/docs', label: 'IDN Documentation', className: 'indent'},
         {to: '#', label: 'Tools', className: 'navbar__section'},
         {to: 'idn/tools/cli', label: 'CLI', className: 'indent'},
+        {to: 'idn/tools/rule-development-kit', label: 'RDK', className: 'indent'},
         {to: 'idn/tools/sdk', label: 'SDKs', className: 'indent'},
         {to: '#', label: 'External Links', className: 'navbar__section'},
         {

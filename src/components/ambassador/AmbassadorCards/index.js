@@ -12,23 +12,35 @@ export default function AmbassadorCards({
   const [loadingCards, setLoadingCards] = React.useState(true);
 
   const getPosts = async () => {
-    const data = await getAmbassadors(expert);
-
+    let data = await getAmbassadors(expert, 1, 0);
     const resultset = []
-    if (data.members) {
-      const memberDetails = await getAmbassadorDetails(data.members.map(item => item.id))
-      for (const member of data.members) {
-          const memberDetail = memberDetails.users.filter(item => item.id === member.id)[0]
-          if (member.avatar_template.includes("developer.sailpoint.com") && memberDetail.bio_excerpt && memberDetail.bio_excerpt.length > 150) {
-            resultset.push(await getMemberList(member, memberDetail))
-          }          
+
+    if (data.meta) {
+      let count = 0
+      while (count < data.meta.total) {
+        data = await getAmbassadors(expert, 50, count);
+        count += 50
+        if (data.members) {
+          const memberDetails = await getAmbassadorDetails(data.members.map(item => item.id))
+          for (const member of data.members) {
+              const memberDetail = memberDetails.users.filter(item => item.id === member.id)[0]
+              if (member.avatar_template.includes("developer.sailpoint.com") && memberDetail.bio_excerpt && memberDetail.bio_excerpt.length > 150) {
+                resultset.push(await getMemberList(member, memberDetail))
+              }          
+          }
+        }
       }
-      resultset.sort((a, b) => a.date - b.date)
-      setCardData(resultset);
-      
     } else {
       setCardData(undefined);
+      setLoadingCards(false);
+      return
     }
+    
+
+
+    resultset.sort((a, b) => a.date - b.date)
+    setCardData(resultset);
+
     setLoadingCards(false);
   };
 

@@ -72,14 +72,16 @@ export async function getBlogPosts(tags) {
 
 export async function getMarketplacePosts(tags, category) {
   let filterCategory = 'colab'
-  if (category) {
-    filterCategory = category
+  if (category && category != 'colab') {
+    filterCategory = filterCategory + '/' + category
   }
+  console.log(`filter catagory ${filterCategory}`)
+  console.log(`tags ${tags}`)
   let url = ''
   if (tags) {
-    url = discourseBaseURL() + 'search.json?q=category:' + filterCategory + '+tags:' + tags
+    url = discourseBaseURL() + 'c/' + filterCategory + '/l/latest.json?tags=' + tags
   } else {
-    url = discourseBaseURL() + 'search.json?q=category:' + filterCategory
+    url = discourseBaseURL() + 'c/' + filterCategory + '/l/latest.json'
   }
   try {
     const response = await fetch(

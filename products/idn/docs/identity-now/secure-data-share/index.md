@@ -11,13 +11,14 @@ slug: /docs/secure-data-share
 tags: ['SecureDataShare']
 ---
 
+import MermaidViewer from '@site/src/components/MermaidViewer';
+
 Secure Data Sharing makes SailPoint's Identity data avaiable directly to customer via their Snowflake account. DataSet comprises of structured Identity and audit data. Includes relationship tables that connects Identity with other domain entities like entitlements, roles, access profiles, accounts and Apps. This dataset has an additional Audit events table that is a flattened representation of all the events happening in IdentityNow for your organization.
 
 
-```mermaid
-erDiagram
+<MermaidViewer diagram='erDiagram
     IDENTITY_ACCOUNTS {
-        text TENANT_ID "Unique Id for an Organization's tenant"
+        text TENANT_ID "Unique Id for an Organizations tenant"
         text ID PK "unique ID of the identity this account is correlated to"
         text DISPLAY_NAME "Human-readable display name of the object"
         timestamp_ntz CREATED_DATE "date when the Identity was created"
@@ -31,7 +32,7 @@ erDiagram
         timestamp_ltz SYNC_DATE "When the row is last synced"
     }
     IDENTITY_ENTITLEMENTS {
-        text TENANT_ID "Unique Id for an Organization's tenant"
+        text TENANT_ID "Unique Id for an Organizations tenant"
         text ID PK "Unique Id for the identity"
         text DISPLAY_NAME "Human-readable display name of the object"
         timestamp_ntz CREATED_DATE "date when the Identity was created"
@@ -43,7 +44,7 @@ erDiagram
         timestamp_ltz SYNC_DATE "When the row is last synced"
     }
     IDENTITY {
-        text TENANT_ID "Unique Id for an Organization's tenant"
+        text TENANT_ID "Unique Id for an Organizations tenant"
         text ID PK "Unique Id for the identity"
         text NAME "Name of the Object"
         timestamp_ntz CREATED_DATE "date when the identity was created"
@@ -60,7 +61,7 @@ erDiagram
         timestamp_ntz SYNC_DATE "When the row is last synced"
     }
     IDENTITY_ROLES {
-        text TENANT_ID "Unique Id for an Organization's tenant"
+        text TENANT_ID "Unique Id for an Organizations tenant"
         text ID PK "Unique Id for the identity"
         text DISPLAY_NAME "Human-readable display name of the object"
         timestamp_ntz CREATED_DATE "date when the Identity was created"
@@ -71,7 +72,7 @@ erDiagram
         timestamp_ntz SYNC_DATE "When the row is last synced"
     }
     IDENTITY_ACCESS_PROFILES {
-        text TENANT_ID "Unique Id for an Organization's tenant"
+        text TENANT_ID "Unique Id for an Organizations tenant"
         text ID PK "Unique Id for the identity"
         text DISPLAY_NAME "Human-readable display name of the object"
         timestamp_ntz CREATED_DATE "date when the Identity was created"
@@ -82,7 +83,7 @@ erDiagram
         timestamp_ntz SYNC_DATE "When the row is last synced"
     }
     IDENTITY_APPS {
-        text TENANT_ID "Unique Id for an Organization's tenant"
+        text TENANT_ID "Unique Id for an Organizations tenant"
         text ID PK "Unique Id for the identity"
         text DISPLAY_NAME "Human-readable display name of the object"
         timestamp_ntz CREATED_DATE "date when the Identity was created"
@@ -95,8 +96,8 @@ erDiagram
     IDENTITY ||--o{ IDENTITY_ENTITLEMENTS : "associated to and owns"
     IDENTITY ||--o{ IDENTITY_ROLES : "associated to and owns"
     IDENTITY ||--o{ IDENTITY_ACCESS_PROFILES: "associated to and owns"
-    IDENTITY ||--o{ IDENTITY_APPS: "assocaited with"
-```
+    IDENTITY ||--o{ IDENTITY_APPS: "assocaited with"'></MermaidViewer>
+
 
 ```mermaid
 erDiagram

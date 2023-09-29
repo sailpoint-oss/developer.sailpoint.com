@@ -13,7 +13,7 @@ tags: ['AccessIntelligenceCenter', 'AIC']
 
 import MermaidViewer from '@site/src/components/MermaidViewer';
 
-Secure Data Sharing makes SailPoint's Identity data avaiable directly to customer via their Snowflake account. DataSet comprises of structured Identity and audit data. Includes relationship tables that connects Identity with other domain entities like entitlements, roles, access profiles, accounts and Apps. This dataset has an additional Audit events table that is a flattened representation of all the events happening in IdentityNow for your organization.
+Access Intelligence Center is an easy way to get IDN data of your organization in a structured format.
 
 
 <MermaidViewer diagram='erDiagram
@@ -60,7 +60,7 @@ Secure Data Sharing makes SailPoint's Identity data avaiable directly to custome
         varchar DEPARTMENT "Identity department"
         varchar IDENTITY_CREATED_MONTH_SORT "A field to sort charts based on the month an Identity was created"
         number IDENTITY_CREATED_WEEK_SORT "A field to sort charts based on the week an Identity was created"
-        timestamp SYNC_DATE "The date the data was synced to the table"
+        timestamp SYNC_DATgit fE "The date the data was synced to the table"
     }
     IDENTITY_ROLES {
         text TENANT_ID "Unique Id for an Organizations tenant"

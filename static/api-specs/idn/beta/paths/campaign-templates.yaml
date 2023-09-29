@@ -3,6 +3,13 @@ get:
   tags:
     - Certification Campaigns
   summary: List Campaign Templates
+  description: >-
+    Lists all CampaignTemplates. Scope can be reduced via standard V3 query params.
+
+
+    All CampaignTemplates matching the query params
+
+  deprecated: true
   security:
     - UserContextAuth: [ idn:campaign-template-list:read ]
   parameters:

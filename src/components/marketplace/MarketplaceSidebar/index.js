@@ -54,6 +54,19 @@ export default function MarketplaceSidebar({
   function toggleSeeAll() {
     filterTags ? setFilterTags(false) : setFilterTags(true)
   }
+
+  function uppercaseText(text) {
+    if (text === 'identitynow') {
+      return 'IdentityNow'
+    }
+    if (text === 'identityiq') {
+      return 'IdentityIQ'
+    }
+    if (text === 'nerm') {
+      return 'NERM'
+    }
+
+  }
   
 
   React.useEffect(() => {
@@ -68,7 +81,7 @@ export default function MarketplaceSidebar({
         <div className={styles.tagHeader}>Items by Product</div>
         <div className={styles.tagContainer}>
             {tagProductData.map(function(a, index){
-              return <MarketplaceSidebarButton key={a} text={a} id={a} filterCallback={filterCallback}></MarketplaceSidebarButton>
+              return <MarketplaceSidebarButton key={a} text={uppercaseText(a)} id={a} filterCallback={filterCallback}></MarketplaceSidebarButton>
             })}
         </div>
         <div className={styles.tagHeader}>Items by Integration Type</div>

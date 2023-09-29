@@ -25,11 +25,23 @@ export default function MarketplaceCards({filterCallback}) {
 
   const getPosts = async () => {
     const data = await getMarketplacePosts(filterCallback.tags.join('+'), filterCallback.category);
+    console.log(data)
     const resultset = [];
-    if (data.topics) {
-      for (const topic of data.topics) {
+    if (data.topic_list) {
+      for (const topic of data.topic_list.topics) {
         if (topic.tags.length > 0) {
-          resultset.push(await getPostList(topic));
+          let poster = {}
+          for (let topicUser of topic.posters) {
+            if (topicUser.description.includes("Original Poster")) {
+              for (let user of data.users) {
+                if (user.id === topicUser.user_id) {
+                  poster = user
+                }
+              }
+            }
+          }
+
+          resultset.push(await getPostList(topic, poster));
         }
       }
       setCardData(resultset);
@@ -118,26 +130,25 @@ export default function MarketplaceCards({filterCallback}) {
   }
 }
 
-async function getPostList(topic) {
-  const fullTopic = await getMarketplaceTopic(topic.id);
+async function getPostList(topic, user) {
   return {
     id: topic.id,
-    name: fullTopic.details.created_by.name,
+    name: user.name,
     excerpt: styleExcerpt(topic.excerpt),
-    creatorImage: getavatarURL(fullTopic.details.created_by.avatar_template),
+    creatorImage: getavatarURL(user.avatar_template),
     tags: topic.tags,
-    image: fullTopic.image_url,
+    image: topic.image_url,
     link:
     discourseBaseURL() + 'discuss/t/' +
       topic.slug +
       '/' +
       topic.id,
     title: topic.title,
-    views: fullTopic.views,
+    views: topic.views,
     liked: topic.like_count,
-    replies: fullTopic.posts_count,
+    replies: topic.posts_count,
     solution: topic.has_accepted_answer,
-    readTime: parseInt(fullTopic.word_count / 100),
+    readTime: parseInt(500 / 100),
   };
 }
 

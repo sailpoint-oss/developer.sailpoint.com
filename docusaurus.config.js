@@ -79,6 +79,13 @@ const config = {
         darkTheme: darkCodeTheme,
         additionalLanguages: ['http', 'java', 'ruby', 'php', 'csharp'],
       },
+      mermaid: {
+        options: {
+          er: {
+            layoutDirection: 'RL'
+          }
+        },
+      }
     }),
 
   plugins: plugins,

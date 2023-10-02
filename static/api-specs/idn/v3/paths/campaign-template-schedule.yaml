@@ -1,41 +1,3 @@
-get:
-  operationId: getCampaignTemplateSchedule
-  tags:
-    - Certification Campaigns
-  summary: Gets a Campaign Template's Schedule
-  description: >-
-    Gets the schedule for a campaign template. Returns a 404 if there is no schedule set.
-  security:
-    - UserContextAuth: [ idn:campaign-template:read ]
-  parameters:
-    - in: path
-      name: id
-      schema:
-        type: string
-      required: true
-      description: The ID of the campaign template whose schedule is being fetched.
-      example: "04bedce387bd47b2ae1f86eb0bb36dee"
-  responses:
-    '200':
-      description: >-
-        The current schedule for the campaign template. See the PUT endpoint documentation for
-        more examples.
-      content:
-        application/json:
-          schema:
-            $ref: '../schemas/Schedule.yaml'
-    '400':
-      $ref: '../../v3/responses/400.yaml'
-    '401':
-      $ref: '../../v3/responses/401.yaml'
-    '403':
-      $ref: '../../v3/responses/403.yaml'
-    '404':
-      $ref: '../../v3/responses/404.yaml'
-    '429':
-      $ref: '../../v3/responses/429.yaml'
-    '500':
-      $ref: '../../v3/responses/500.yaml'
 put:
   operationId: setCampaignTemplateSchedule
   tags:
@@ -46,7 +8,6 @@ put:
     the new one.
   security:
     - UserContextAuth: [ idn:campaign-template:run ]
-  deprecated: true
   parameters:
     - in: path
       name: id
@@ -54,7 +15,7 @@ put:
         type: string
       required: true
       description: The ID of the campaign template being scheduled.
-      example: 04bedce387bd47b2ae1f86eb0bb36dee
+      example: "04bedce387bd47b2ae1f86eb0bb36dee"
   requestBody:
     content:
       application/json:
@@ -129,48 +90,16 @@ put:
                   - "2020-02-18"
   responses:
     '204':
-      $ref: '../../v3/responses/204.yaml'
+      $ref: '../responses/204.yaml'
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: '../responses/401.yaml'
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: '../responses/403.yaml'
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: '../responses/400.yaml'
     '404':
-      $ref: '../../v3/responses/404.yaml'
+      $ref: '../responses/404.yaml'
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: '../responses/429.yaml'
     '500':
-      $ref: '../../v3/responses/500.yaml'
-delete:
-  operationId: deleteCampaignTemplateSchedule
-  tags:
-    - Certification Campaigns
-  summary: Deletes a Campaign Template's Schedule
-  description: >-
-    Deletes the schedule for a campaign template. Returns a 404 if there is no schedule set.
-  security:
-    - UserContextAuth: [ idn:campaign-template:run ]
-  parameters:
-    - in: path
-      name: id
-      schema:
-        type: string
-      required: true
-      description: The ID of the campaign template whose schedule is being deleted.
-      example: "04bedce387bd47b2ae1f86eb0bb36dee"
-  responses:
-    '204':
-      $ref: '../../v3/responses/204.yaml'
-    '400':
-      $ref: '../../v3/responses/400.yaml'
-    '401':
-      $ref: '../../v3/responses/401.yaml'
-    '403':
-      $ref: '../../v3/responses/403.yaml'
-    '404':
-      $ref: '../../v3/responses/404.yaml'
-    '429':
-      $ref: '../../v3/responses/429.yaml'
-    '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: '../responses/500.yaml'

@@ -874,6 +874,8 @@ paths:
     $ref: './v3/paths/campaign-templates.yaml'
   /campaign-templates/{id}:
     $ref: './v3/paths/campaign-template.yaml'
+  /campaign-templates/{id}/schedule:
+    $ref: './v3/paths/campaign-template-schedule.yaml'
   /certifications:
     $ref: "./v3/paths/identity-certifications.yaml"
   /certifications/{id}:

@@ -38,7 +38,7 @@ get:
     "500":
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:transform:read]
+    - UserContextAuth: [idn:transform:read, idn:transform:manage]
 put:
   tags:
     - Transforms
@@ -66,7 +66,7 @@ put:
     content:
       application/json:
         schema:
-          $ref: '../schemas/Transform.yaml'
+          $ref: '../schemas/TransformUpdate.yaml'
         example:
           name: Timestamp To Date
           type: dateFormat
@@ -77,7 +77,7 @@ put:
       content:
         application/json:
           schema:
-            $ref: '../schemas/Transform.yaml'
+            $ref: '../schemas/TransformRead.yaml'
           example:
             id: 2cd78adghjkja34jh2b1hkjhasuecd
             name: Timestamp To Date

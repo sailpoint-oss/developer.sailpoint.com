@@ -6,12 +6,6 @@ required:
   - type
   - attributes
 properties:
-  id:
-    type: string
-    readOnly: true
-    description: >-
-      Unique ID of this transform
-    example: 2cd78adghjkja34jh2b1hkjhasuecd
   name:
     type: string
     description: >-

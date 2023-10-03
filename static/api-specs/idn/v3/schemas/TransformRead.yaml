@@ -1,0 +1,9 @@
+allOf:
+  - $ref: "./Transform.yaml"
+  - type: object
+    properties:
+      id:
+        type: string
+        description: >-
+          Unique ID of this transform
+        example: 2cd78adghjkja34jh2b1hkjhasuecd

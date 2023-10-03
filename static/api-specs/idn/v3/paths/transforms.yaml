@@ -45,7 +45,7 @@ get:
           schema:
             type: array
             items:
-              $ref: '../schemas/Transform.yaml'
+              $ref: '../schemas/TransformRead.yaml'
           example:
             - id: 2cd78adghjkja34jh2b1hkjhasuecd
               name: Timestamp To Date

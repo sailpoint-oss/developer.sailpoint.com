@@ -62,11 +62,11 @@ put:
       example: 2cd78adghjkja34jh2b1hkjhasuecd
   requestBody:
     description: >-
-      The updated transform object (must include "name", "type", and "attributes" fields).
+      The updated transform object. Must include "name", "type", and "attributes" fields, but "name" and "type" must not be modified.
     content:
       application/json:
         schema:
-          $ref: '../schemas/TransformUpdate.yaml'
+          $ref: '../schemas/Transform.yaml'
         example:
           name: Timestamp To Date
           type: dateFormat

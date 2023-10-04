@@ -3,6 +3,7 @@ allOf:
   - type: object
     required:
       - id
+      - internal
     properties:
       id:
         type: string

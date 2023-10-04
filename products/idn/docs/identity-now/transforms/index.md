@@ -13,6 +13,8 @@ tags: ['Transforms']
 
 In SailPoint's cloud services, transforms allow you to manipulate attribute values while aggregating from or provisioning to a source. This guide provides a reference to help you understand the purpose, configuration, and usage of transforms.
 
+This is a proposed change!
+
 ## What Are Transforms
 
 Transforms are configurable objects that define easy ways to manipulate attribute data without requiring you to write code. Transforms are configurable building blocks with sets of inputs and outputs:

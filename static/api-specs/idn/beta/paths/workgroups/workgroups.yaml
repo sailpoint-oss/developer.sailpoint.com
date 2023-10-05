@@ -9,6 +9,22 @@ get:
     - $ref: '../../../v3/parameters/limit50.yaml'
     - $ref: '../../../v3/parameters/count.yaml'
     - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following Governance Group fields and operators:
+
+        **id**: *eq, in*
+
+
+        **name**: *eq, sw*
+      example: name sw "Test"
+      required: false
+    - in: query
       name: sorters
       schema:
         type: string
@@ -27,7 +43,7 @@ get:
           schema:
             type: array
             items:
-              $ref: "../../schemas/WorkgroupDto.yaml"
+              $ref: "../../schemas/workgroups/WorkgroupDto.yaml"
     '400':
       $ref: '../../../v3/responses/400.yaml'
     '401':
@@ -39,11 +55,11 @@ get:
     '500':
       $ref: '../../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [ idn:workgroup:read, idn:workgroup:write ]
+    - UserContextAuth: [ idn:workgroup:read]
 post:
   operationId: createWorkgroup
   security:
-    - UserContextAuth: [ idn:workgroup:read, idn:workgroup:write ]
+    - UserContextAuth: [ idn:workgroup:write ]
   tags:
     - Governance Groups
   summary: Create a new Governance Group.
@@ -53,14 +69,14 @@ post:
     content:
       application/json:
         schema:
-          $ref: "../../schemas/WorkgroupDto.yaml"
+          $ref: "../../schemas/workgroups/WorkgroupDto.yaml"
   responses:
     '200':
       description: Governance Group object created.
       content:
         application/json:
           schema:
-            $ref: "../../schemas/WorkgroupDto.yaml"
+            $ref: "../../schemas/workgroups/WorkgroupDto.yaml"
     '400':
       $ref: '../../../v3/responses/400.yaml'
     '401':

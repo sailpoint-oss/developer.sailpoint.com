@@ -31,10 +31,10 @@ get:
         **internal**: *eq*
 
         **name**: *eq*, *sw*
-      example: name eq ExampleTransformName123
       required: false
       style: form
       explode: true
+      example: name eq "Uppercase"
       schema:
         type: string
   responses:
@@ -45,7 +45,7 @@ get:
           schema:
             type: array
             items:
-              $ref: '../schemas/Transform.yaml'
+              $ref: '../schemas/TransformRead.yaml'
           example:
             - id: 2cd78adghjkja34jh2b1hkjhasuecd
               name: Timestamp To Date
@@ -63,6 +63,8 @@ get:
       $ref: '../../v3/responses/401.yaml'
     "403":
       $ref: '../../v3/responses/403.yaml'
+    "404":
+      $ref: '../../v3/responses/404.yaml'
     "429":
       $ref: '../../v3/responses/429.yaml'
     "500":
@@ -74,9 +76,10 @@ post:
     - Transforms
   summary: Create transform
   description: >-
-    Creates a new transform object. Request body must include name, type, and attributes.
-
-    A token with transform write authority is required to call this API.
+    Creates a new transform object immediately. By default, the internal flag is set to false to indicate that this is
+    a custom transform. Only SailPoint employees have the ability to create a transform with internal set to true.
+    Newly created Transforms can be used in the Identity Profile mappings within the UI. A token with transform write
+    authority is required to call this API.
 
   operationId: createTransform
   requestBody:
@@ -97,13 +100,15 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../schemas/Transform.yaml'
+            $ref: '../schemas/TransformRead.yaml'
     "400":
       $ref: '../../v3/responses/400.yaml'
     "401":
       $ref: '../../v3/responses/401.yaml'
     "403":
       $ref: '../../v3/responses/403.yaml'
+    "404":
+      $ref: '../../v3/responses/404.yaml'
     "429":
       $ref: '../../v3/responses/429.yaml'
     "500":

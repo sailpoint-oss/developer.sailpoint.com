@@ -24,7 +24,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/Transform.yaml'
+            $ref: '../schemas/TransformRead.yaml'
     "400":
       $ref: '../../v3/responses/400.yaml'
     "401":
@@ -38,7 +38,7 @@ get:
     "500":
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:transform:read]
+    - UserContextAuth: [idn:transform:read, idn:transform:manage]
 put:
   tags:
     - Transforms
@@ -62,7 +62,7 @@ put:
       example: 2cd78adghjkja34jh2b1hkjhasuecd
   requestBody:
     description: >-
-      The updated transform object (must include "name", "type", and "attributes" fields).
+      The updated transform object. Must include "name", "type", and "attributes" fields, but "name" and "type" must not be modified.
     content:
       application/json:
         schema:
@@ -77,7 +77,7 @@ put:
       content:
         application/json:
           schema:
-            $ref: '../schemas/Transform.yaml'
+            $ref: '../schemas/TransformRead.yaml'
           example:
             id: 2cd78adghjkja34jh2b1hkjhasuecd
             name: Timestamp To Date

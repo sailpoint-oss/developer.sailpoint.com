@@ -1,0 +1,56 @@
+post:
+  operationId: deleteWorkgroupsInBulk
+  summary: Delete Governance Group(s)
+  tags:
+    - Governance Groups
+  description: >-
+
+    This API initiates a bulk deletion of one or more Governance Groups.
+
+
+    >  If any of the indicated Governance Groups have one or more connections associated with it,then those Governance Groups will be added in  **inUse**
+    list of the response. Governance Group(s) marked as **inUse** can not be deleted.
+    
+    
+    >  If any of the indicated Governance Groups is not does not exists in Organization,then those Governance Groups will be added in **notFound**
+    list of the response. Governance Groups marked as **notFound** will not be deleted.
+    
+    
+    >  If any of the indicated Governance Groups does not have any connections associated with it,then those Governance Groups will be added in **deleted**
+    list of the response. A Governance Group marked as **deleted** will be deleted from current Organization.
+    
+    
+    >  If the request contains any **inUse** or **notFound** Governance Group IDs then it skips only these Governance Groups for deletion and deletes the rest of Governance Groups which have no connections associated with it. 
+    
+    
+    >  **This API has limit number of Governance Groups can be deleted at one time. If the request contains more then 100 Governance Groups IDs to be deleted then the API will throw an exception.**
+
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/workgroups/WorkgroupBulkDeleteRequest.yaml"
+        example:
+          {
+            "ids": [ "567a697e-885b-495a-afc5-d55e1c23a302","c7b0f7b2-1e78-4063-b294-a555333dacd2" ]
+          }
+  responses:
+    '207':
+      description: Governance Group bulk delete response.
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/workgroups/WorkgroupBulkDeleteResponse.yaml"
+    '400':
+      $ref: '../../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [ idn:workgroup:write ]

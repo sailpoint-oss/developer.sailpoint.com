@@ -11,6 +11,14 @@ slug: /api/getting-started
 tags: ['Getting Started']
 ---
 
+## Overview
+
+This guide is intended to help you quickly make your first API call to SailPoint IdentityNow and assumes an intermediate level of understanding of APIs.  For beginners to APIs, we recommend you watch this presentation that covers the fundamentals of APIs with visual demonstrations of how to make an API call in SailPoint.
+
+<div class="text--center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/YFRz8AcdWXg?si=9AvO6gMT1oCqYXAj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
 ## Find Your Tenant Name
 
 To form the proper URL for an API request, you must know your tenant name. To find your tenant name, log into IdentityNow, navigate to Admin, select the Dashboard dropdown, and select Overview. The org name is displayed within the Org Details section of the dashboard. If you do not have admin access, you can still find your tenant name and the API base URL you will use for API calls. To do so, view your session details when you are logged into your IdentityNow instance. Change your URL to the following: `https://{your-IdentityNow-hostname}.com/ui/session`, where `{your-IdentityNow-hostname}` is your company's domain name for accessing IdentityNow. The session detail you want is the `baseUrl`, which has the form of `https://{tenant}.api.identitynow.com`.

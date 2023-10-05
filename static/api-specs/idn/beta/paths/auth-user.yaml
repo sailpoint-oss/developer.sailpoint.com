@@ -5,7 +5,7 @@ put:
   summary: Auth User Update - Overwrite
   description: Update an existing user in the authentication system by over overwriting the information with new information.
   security:
-    - oauth2: [sp:auth-user-internal:update]
+    - UserContextAuth: [sp:auth-user-internal:update]
   parameters:
     - in: path
       name: id
@@ -19,8 +19,6 @@ put:
     required: true
     description: |
       Auth User Save Request. This overwrites the existing user details in the authentication system.
-
-      Requires security scope of 'sp:auth-user:update'
     content:
       application/json:
         schema:
@@ -52,7 +50,7 @@ delete:
   summary: Delete an Auth User
   description: Delete an existing user in the authentication system.
   security:
-    - oauth2: [sp:auth-user:delete]
+    - UserContextAuth: [sp:auth-user:delete]
   parameters:
     - in: path
       name: id

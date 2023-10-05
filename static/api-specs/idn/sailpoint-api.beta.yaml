@@ -1558,9 +1558,19 @@ paths:
   /workflows/execute/external/{id}/test:
     $ref: './beta/paths/workflow-external-execute-test.yaml'
   /workgroups:
-    $ref: './beta/paths/workgroups/Workgroups.yaml'
+    $ref: './beta/paths/workgroups/workgroups.yaml'
   /workgroups/{id}:
     $ref: './beta/paths/workgroups/workgroup.yaml'
+  /workgroups/bulk-delete:
+    $ref: './beta/paths/workgroups/workgroups-bulk-delete.yaml'
+  /workgroups/{workgrouId}/connections:
+    $ref: './beta/paths/workgroups/connections.yaml'
+  /workgroups/{workgrouId}/members:
+    $ref: './beta/paths/workgroups/workgroup-members.yaml'
+  /workgroups/{workgrouId}/members/bulk-add:
+    $ref: './beta/paths/workgroups/bulk-add-workgroup-members.yaml'
+  /workgroups/{workgrouId}/members/bulk-delete:
+    $ref: './beta/paths/workgroups/bulk-delete-workgroup-members.yaml'
   /form-definitions:
     $ref: './beta/paths/form-definitions.yaml'
   /form-definitions/{formDefinitionID}:

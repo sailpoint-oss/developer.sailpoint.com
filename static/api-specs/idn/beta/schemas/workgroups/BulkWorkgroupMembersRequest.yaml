@@ -1,0 +1,12 @@
+description: List of identities to be added or removed to a Governance Group members list.
+type: array
+items:
+  $ref: "../../../v3/schemas/BaseReferenceDto.yaml"
+example:
+      [
+        {
+          "type": "IDENTITY",
+          "id": "464ae7bf791e49fdb74606a2e4a89635",
+          "name": "Addie Smith"
+        }
+      ]

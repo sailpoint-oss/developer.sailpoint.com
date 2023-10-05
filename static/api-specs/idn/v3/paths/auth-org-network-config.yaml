@@ -7,7 +7,7 @@ get:
     This API returns the details of an org's network auth configuration.
     Requires security scope of: 'sp:auth-org:read'
   security:
-    - oauth2: [ sp:auth-org:read ]
+    - UserContextAuth: [ sp:auth-org:read ]
   responses:
     "200":
       description: Network configuration for the tenant's auth org.
@@ -27,8 +27,6 @@ get:
       $ref: "../../v3/responses/429.yaml"
     "500":
       $ref: "../../v3/responses/500.yaml"
-  # security:
-  #   - oauth2: [sp:auth-org:read]
 post:
   operationId: createAuthOrgNetworkConfig
   tags:
@@ -38,7 +36,7 @@ post:
     This API returns the details of an org's network auth configuration.
     Requires security scope of: 'sp:auth-org:create'
   security:
-    - oauth2: [ sp:auth-org:create ]
+    - UserContextAuth: [ sp:auth-org:create ]
   requestBody:
     required: true
     description: >-
@@ -71,8 +69,6 @@ post:
       $ref: "../../v3/responses/429.yaml"
     "500":
       $ref: "../../v3/responses/500.yaml"
-  # security:
-  #   - oauth2: [sp:auth-org:create]
 patch:
   operationId: patchAuthOrgNetworkConfig
   tags:
@@ -82,7 +78,7 @@ patch:
     This API updates an existing network configuration for an org using PATCH
      Requires security scope of:  'sp:auth-org:update'
   security:
-    - oauth2: [ sp:auth-org:update ]
+    - UserContextAuth: [ sp:auth-org:update ]
   requestBody:
     required: true
     description: >-

@@ -6,12 +6,6 @@ required:
   - type
   - attributes
 properties:
-  id:
-    type: string
-    readOnly: true
-    description: >-
-      Unique ID of this transform
-    example: 2cd78adghjkja34jh2b1hkjhasuecd
   name:
     type: string
     description: >-
@@ -96,9 +90,3 @@ properties:
     - $ref: './transforms/Trim.yaml'
     - $ref: './transforms/Upper.yaml'
     - $ref: './transforms/UUIDGenerator.yaml'
-  internal:
-    type: boolean
-    readOnly: true
-    description: >-
-      Indicates whether this is an internal SailPoint-created transform or a customer-created transform
-    example: false

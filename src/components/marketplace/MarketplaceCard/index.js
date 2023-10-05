@@ -17,7 +17,7 @@ export default function MarketplaceCard({
   let badge = (
     <div></div>
   );
-  if (post.tags.includes("sailpoint-authored")) {
+  if (post.tags.includes("sailpoint-developed")) {
     badge = (
       <div className={styles.cardBadge}>
       <img

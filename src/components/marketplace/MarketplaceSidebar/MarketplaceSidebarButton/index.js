@@ -30,8 +30,6 @@ export default function MarketplaceSidebarButton({
   }
   //const activeClass = isActive ? styles.tagSelected : ''
   function setFilters(e, id) {
-    console.log(id)
-    console.log(category)
     if (isCategory) {
       if (category === id) {
         filterCallback({ "category": "colab" })

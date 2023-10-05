@@ -25,7 +25,7 @@ export default function MarketplaceCards({filterCallback}) {
 
   const getPosts = async () => {
     const data = await getMarketplacePosts(filterCallback.tags.join('+'), filterCallback.category);
-    console.log(data)
+    
     const resultset = [];
     if (data.topic_list) {
       for (const topic of data.topic_list.topics) {
@@ -75,7 +75,7 @@ export default function MarketplaceCards({filterCallback}) {
 
   const xImage = useBaseUrl('/icons/circle-xmark-regular.svg')
 
-  if (cardData) {
+  if (cardData && cardData.length > 0) {
     return (
       <div className={styles.center}>
         <div className={styles.gridContainer}>
@@ -124,7 +124,7 @@ export default function MarketplaceCards({filterCallback}) {
     return (
       <div className={styles.noFound}>
         {' '}
-        No Marketplace Item Found with the Given Search Criteria
+        Hey there, looks like no integrations match your search criteria. Check out our <a href='https://developer.sailpoint.com/discuss/t/about-the-sailpoint-developer-community-colab/11230'>getting started guide</a>, and consider being the first to contribute this integration!
       </div>
     );
   }
@@ -164,8 +164,8 @@ function styleExcerpt(excerpt) {
   if (excerpt) {
     // remove any strings that have colons between them
     excerpt = excerpt.replace(/:[^:]*:/g, '');
-    // get text between "summary" and "Repository Link"
-    const match = excerpt.match(/Summary([\s\S]*?)Repository Link/)
+    // get text between "Description" and "Legal Agreement"
+    const match = excerpt.match(/Description([\s\S]*?)Legal Agreement/)
     if (match) {
       excerpt = match[1].trim()
     }

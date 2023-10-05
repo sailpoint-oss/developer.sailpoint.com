@@ -2,7 +2,7 @@
 .card {
   position: relative;
   margin-top: 20px;
-  height: 480px;
+  height: 500px;
   /* UI Properties */
   background: var(--dev-card-background);
   box-shadow: var(--dev-card-shadow);

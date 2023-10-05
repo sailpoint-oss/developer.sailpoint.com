@@ -75,8 +75,6 @@ export async function getMarketplacePosts(tags, category) {
   if (category && category != 'colab') {
     filterCategory = filterCategory + '/' + category
   }
-  console.log(`filter catagory ${filterCategory}`)
-  console.log(`tags ${tags}`)
   let url = ''
   if (tags) {
     url = discourseBaseURL() + 'c/' + filterCategory + '/l/latest.json?tags=' + tags

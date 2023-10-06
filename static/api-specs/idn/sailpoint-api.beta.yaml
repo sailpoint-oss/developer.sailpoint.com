@@ -1165,6 +1165,8 @@ paths:
     $ref: './beta/paths/identity-attributes.yaml'
   /identity-attributes/{name}:
     $ref: './beta/paths/identity-attribute.yaml'
+  /identity-attributes/bulk-delete:
+    $ref: './beta/paths/identity-attributes-bulk-delete.yaml'
   /identity-profiles:
     $ref: './beta/paths/identity-profiles.yaml'
   /identity-profiles/bulk-delete:

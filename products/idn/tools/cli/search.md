@@ -53,7 +53,6 @@ You can add these flags to the `query` command:
   ```shell
   sail search query "name:a*" --indices identities --sort name --sort "-created"
   ```
-- `outputTypes`: Use this flag to specify the output data type. This example shows how running this command would return search results in a `json` output. Currently only `csv` and `json` are supported.
 - `folderPath`: Use this flag to specify the folder path you want to save the search results in. If the directory doesn't exist, the CLI creates it. The default folder path is the current working directory.
 
 ### Template
@@ -73,14 +72,8 @@ sail search template all-provisioning-events-90-days
 #### Flags
 
 You can add these flags to your `template` command:
-
-- `outputTypes`: Use this flag to specify the output data type. In this example, running this command would return search results in a `json` output:
-  ```shell
-  sail search template all-provisioning-events-90-days --outputTypes json
-  ```
-  Currently only `csv` and `json` are supported.
 - `folderPath`: Use this flag to specify the folder path you want to save the search results in. For example, running this command would save search results to "./local/folder/path":
   ```shell
   sail search template all-provisioning-events-90-days --folderPath ./local/folder/path
   ```
-  If the directory doesn't exist, the CLI creates it. The default folder path is the current working directory.
+  If the directory doesn't exist, the CLI creates it. The default folder path is the folder `search_results` created inside the current working directory.

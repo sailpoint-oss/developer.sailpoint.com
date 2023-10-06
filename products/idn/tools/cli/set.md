@@ -19,11 +19,13 @@ This includes setting your authentication mode, your debug mode, and the filepat
 
 You can use these `set` commands to configure your CLI settings: 
 
-- [Auth](#auth)
-- [Debug](#debug)
-- [Search templates](#search-templates)
+- [Set](#set)
+  - [Auth](#auth)
+  - [Debug](#debug)
+  - [PAT](#pat)
+  - [Search templates](#search-templates)
     - [File format](#file-format)
-- [Export templates](#export-templates)
+  - [Export templates](#export-templates)
     - [File format](#file-format-1)
 
 ### Auth
@@ -34,7 +36,7 @@ To set the current authentication method for the CLI, run this command:
 sail set auth {authentication type}
 ```
 
-You can currently only set the authentication to use a personal access token (PAT). 
+You can currently set authentication to either `pat` to use a personal access token (PAT), or `oauth` to use OAuth2 authentication via browser authentication. 
 
 ### Debug
 
@@ -45,6 +47,18 @@ sail set debug enable
 ```
 
 To disable debug mode, run the same command with `disable` instead. 
+
+### PAT
+
+To configure PAT authentication for a given environment, run this command: 
+
+```shell
+sail set pat
+```
+
+Then follow the prompts to provide your PAT client ID and client secret.
+
+![Configure PAT](https://github.com/sailpoint-oss/sailpoint-cli/blob/main/assets/img/vhs/configure/configure-pat.gif?raw=true)
 
 ### Search templates
 

@@ -21,15 +21,17 @@ For more information about VAs, refer to the [Virtual Appliance Reference Guide]
 ## Commands
 
 To use the CLI to interact with VAs connected to your tenant, run these commands: 
-- [Collect](#collect)
-    - [Flags](#flags)
-    - [Example](#example)
-- [Parse](#parse)
-    - [Flags](#flags-1)
-    - [Example](#example-1)
-- [Update](#update)
-    - [Flags](#flags-2)
-    - [Example](#example-2)
+- [VA](#va)
+  - [Commands](#commands)
+    - [Collect](#collect)
+      - [Flags](#flags)
+      - [Example](#example)
+    - [Parse](#parse)
+      - [Flags](#flags-1)
+      - [Example](#example-1)
+    - [Update](#update)
+      - [Flags](#flags-2)
+      - [Example](#example-2)
 
 ### Collect 
 
@@ -44,7 +46,7 @@ This command gets all files from the VA and saves them to the current working di
 #### Flags
 
 You can add these flags to the the `collect` command: 
-- `-o, --Output`: Set the path to save the files to. If the directory doesn't exist, the CLI creates it. The default directory is the current working directory. 
+- `-o, --output`: Set the path to save the files to. If the directory doesn't exist, the CLI creates it. The default directory is the current working directory. 
 - `-c, --config`: Only get config files. 
 - `-h, --help`: View the command's help with examples within the CLI.
 - `-l, --logs`: Only get log files. 
@@ -54,17 +56,19 @@ You can add these flags to the the `collect` command:
 Here is an example command and response: 
 
 ```shell
-sail va collect 10.10.10.10, 10.10.10.11 (-l only collect log files) (-c only collect config files) (-o /path/to/save/files)
-
-Log Files: 
-/home/sailpoint/log/ccg.log
-/home/sailpoint/proxy.yaml
-/home/sailpoint/stuntlog.txt
-
-Config Files: 
-/home/sailpoint/proxy.yaml
-/etc/systemd/network/static.network
-/etc/resolv.conf
+sail va collect 10.10.10.25 10.10.10.26 -p S@ilp0int -p S@ilp0int                                
+2023/10/05 22:19:19 INFO Starting File Collection VA=10.10.10.26
+2023/10/05 22:19:19 INFO Starting File Collection VA=10.10.10.25
+2023/10/05 22:19:19 WARN Skipping file file=/home/sailpoint/proxy.yaml VA=10.10.10.25
+2023/10/05 22:19:19 WARN Skipping file file=/home/sailpoint/log/ccg.log VA=10.10.10.25
+2023/10/05 22:19:19 WARN Skipping file file=/home/sailpoint/proxy.yaml VA=10.10.10.26
+2023/10/05 22:19:19 WARN Skipping file file=/home/sailpoint/log/ccg.log VA=10.10.10.26
+10.10.10.26 - static.network : 87.00 b                Complete
+10.10.10.26 - resolv.conf    : 785.00 b               Complete
+10.10.10.25 - resolv.conf    : 785.00 b               Complete
+10.10.10.25 - static.network : 87.00 b                Complete
+10.10.10.25 - charon.log : 36.12 MB   Complete
+10.10.10.26 - charon.log : 36.06 MB   Complete
 ```
 
 ### Parse
@@ -82,8 +86,9 @@ By default, this command parses all errors in the log files, not all log traffic
 #### Flags
 
 You can add these flags to the `parse` command: 
-- `--canal`: Specify that the provided files are CANAL files. 
-- `--ccg`: Specify that the provided files are CCG files. 
+- `--type`: 
+  - `canal` Specify that the provided files are Canal log files.
+  - `ccg` Specify that the provided files are CCG log files. 
 - `-e, --everything`: Parse all log traffic, not just errors. 
 - `-h, --help`: View the command's help with examples within the CLI. 
 
@@ -92,7 +97,11 @@ You can add these flags to the `parse` command:
 Here is an example command: 
 
 ```shell
-sail va parse ./path/to/ccg.log ./path/to/ccg.log ./path/to/canal.log ./path/to/canal.log
+sail va parse --type ccg ./path/to/ccg.log ./path/to/ccg.log --all
+
+or 
+
+sail va parse --type canal ./path/to/canal.log ./path/to/canal.log 
 ```
 
 ### Update
@@ -113,5 +122,9 @@ You can add these flags to the `update` command:
 Here is an example command: 
 
 ```shell
-sail va update 10.10.10.10 10.10.10.11 
+sail va update 10.10.10.25
+
+or 
+
+sail va update 10.10.10.25 -p S@ilp0int
 ```

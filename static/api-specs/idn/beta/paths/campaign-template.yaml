@@ -6,6 +6,7 @@ get:
   description: Fetches a campaign template by ID.
   security:
     - UserContextAuth: [ idn:campaign-template:read ]
+  deprecated: true
   parameters:
     - in: path
       name: id

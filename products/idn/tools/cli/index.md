@@ -19,7 +19,7 @@ You can use the CLI to perform many functions you would have otherwise used Post
 
 Learn how to use the SailPoint command line interface (CLI) in this guide.
 
-![Sail](./assets/img/vhs/Sail.gif)
+![Sail](https://github.com/sailpoint-oss/sailpoint-cli/blob/main/assets/img/vhs/Sail.gif?raw=true)
 
 ## Contents
 
@@ -110,7 +110,7 @@ To configure the CLI to connect and authenticate to your IDN tenant, you must do
 
 - Find your tenant name. To learn how to find it, refer to [Getting Started](/idn/api/getting-started#find-your-tenant-name). The CLI will use this tenant name to connect to your IDN instance.
 - OAuth
-- PAT | Create a personal access token (PAT). Make sure to note the "client ID" and "client secret." The CLI needs this information to authenticate successfully. To learn how to create a PAT, refer to [Personal Access Tokens](/idn/api/authentication#personal-access-tokens).
+- PAT | Create a personal access token (PAT). Make sure to note the "Client ID" and "Client Secret." The CLI needs this information to authenticate successfully. To learn how to create a PAT, refer to [Personal Access Tokens](/idn/api/authentication#personal-access-tokens).
 
 To configure your first environment for OAuth run the following command:
 ```bash
@@ -129,10 +129,10 @@ Just make sure OAuth is your selected authentication method, this can be done by
 
 ### PAT Authentication
 
-After you have configured your environment, if you want to use PAT authentication, run the `sail configure` command. 
+After you have configured your environment, if you want to use PAT authentication, run the `sail set pat` command. 
 You can then provide your PAT client ID and client secret.
 
-![Configure PAT](./assets/img/vhs/configure-pat.gif)
+![Configure PAT](https://github.com/sailpoint-oss/sailpoint-cli/blob/main/assets/img/vhs/configure/configure-pat.gif?raw=true)
 
 Once you have provided your client ID and client secret, you can swap your auth method to PAT using `sail set auth pat`.
 

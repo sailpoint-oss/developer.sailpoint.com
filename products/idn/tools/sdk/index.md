@@ -3,7 +3,7 @@ id: sdk
 title: SDKs
 pagination_label: SDKs
 sidebar_label: SDKs
-sidebar_position: 1
+sidebar_position: 2
 sidebar_class_name: sdk
 keywords: ['sdk']
 description: A SailPoint SDK makes it easy to access the SailPoint API and extend your IDN platform. 

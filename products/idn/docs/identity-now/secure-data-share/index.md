@@ -92,11 +92,16 @@ Secure Data Sharing makes SailPoint's Identity data avaiable directly to custome
         text APP_DISPLAY_NAME "Human-readable display name of the APP"
         timestamp_ntz SYNC_DATE "When the row is last synced"
     }
-    IDENTITY ||--o{ IDENTITY_ACCOUNTS : "has and owns"
-    IDENTITY ||--o{ IDENTITY_ENTITLEMENTS : "associated to and owns"
+    IDENTITY ||--o{ IDENTITIY_ATTRIBUTE : "has and owns"
     IDENTITY ||--o{ IDENTITY_ROLES : "associated to and owns"
-    IDENTITY ||--o{ IDENTITY_ACCESS_PROFILES: "associated to and owns"
-    IDENTITY ||--o{ IDENTITY_APPS: "assocaited with"'></MermaidViewer>
+    IDENTITY ||--o{ ACCOUNT : "associated to and owns"
+    IDENTITY ||--o{ APPS: "associated to and owns"
+    IDENTITY ||--o{ ENTITLEMENTS: "associated to and owns"
+    IDENTITY ||--o{ ACCESS_REQUEST_DURATION: "associated to and owns"
+    IDENTITY ||--o{ CERTIFICATION_STATS: "associated to and owns"
+    IDENTITY ||--o{ CERTIFICATION_ITEM: "associated to and owns"
+    IDENTITY ||--o{ CERTIFICATION: "associated to and owns"
+    IDENTITY ||--o{ IDENTITY_REQUEST: "associated to and owns"'></MermaidViewer>
 
 
 ```mermaid

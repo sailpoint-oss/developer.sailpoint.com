@@ -40,7 +40,7 @@ Access Intelligence Center is an easy way to get IDN data of your organization i
         varchar ROLE_DISPLAY_NAME "The user friendly name for the role"
     }
     IDENTITY {
-        varchar PK "The primary Key"
+        varchar ID PK "The primary Key"
         varchar TENANT_ID "Unique ID of customer organization"
         varchar IDENTITY_ID "This contains the unique identifier for the identity"
         timestamp IDENTITY_CREATED "Identity created Date"
@@ -56,7 +56,7 @@ Access Intelligence Center is an easy way to get IDN data of your organization i
         varchar DEPARTMENT "Identity department"
         varchar IDENTITY_CREATED_MONTH_SORT "A field to sort charts based on the month an Identity was created"
         number IDENTITY_CREATED_WEEK_SORT "A field to sort charts based on the week an Identity was created"
-        timestamp SYNC_DATgit fE "The date the data was synced to the table"
+        timestamp SYNC_DATE "The date the data was synced to the table"
     }
     ACCESS_PROFILES_FULL {
         varchar IDENTITY_ID "This contains the unique identifier for the identity"
@@ -64,17 +64,6 @@ Access Intelligence Center is an easy way to get IDN data of your organization i
         varchar ACCESS_PROFILE_NAME "The access profile name"
         varchar ACCESS_PROFILE_DISPLAY_NAME "The user friendly name of access profile"
         varchar ACCESS_PROFILE_DESCRIPTION "The description of the access profile"
-    }
-    IDENTITY_ACCESS_PROFILES {
-        text TENANT_ID "Unique Id for an Organizations tenant"
-        text ID PK "Unique Id for the identity"
-        text DISPLAY_NAME "Human-readable display name of the object"
-        timestamp_ntz CREATED_DATE "date when the Identity was created"
-        timestamp_ntz UPDATED_DATE "date when the identity was modified"
-        text ACCESS_PROFILE_ID PK "Unique Id for the Access Profile"
-        text ACCESS_PROFILE_NAME "Name of the Access Profile Object"
-        text ACCESS_PROFILE_DISPLAY_NAME "Human-readable display name of the Access Profile"
-        timestamp_ntz SYNC_DATE "When the row is last synced"
     }
     IDENTITY_ACCOUNTS_FULL {
         varchar IDENTITY_ID "This contains the unique identifier for the identity"
@@ -112,7 +101,7 @@ Access Intelligence Center is an easy way to get IDN data of your organization i
         number HOURS_LATE "The number of hours after a certfications due date that a certification was finished"
         varchar CERTIFIER_DISPLAY_NAME "The display name of the Certifier"
     }   
-       CERTIFICATION_IOTEM {
+    CERTIFICATION_ITEM {
         varchar CERTIFICATION_ID "This contains the unique identifier for the certification"
         varchar REVIEWER_ID "The identity id of the certifier"
         varchar IDENTITY_ID "This contains the unique identifier for the Identity"
@@ -201,18 +190,18 @@ Access Intelligence Center is an easy way to get IDN data of your organization i
         varchar IDENTITY_REQUEST_ITEM_ROLE_ID "The id of the identity request item role"
         varchar IDENTITY_REQUEST_ITEM_ROLE_NAME "The name of the identity request item role"
         varchar IDENTITY_REQUEST_ITEM_ROLE_DISPLAY_NAME "The name of the identity request item role display"
-    }
-    IDENTITY ||--o{ IDENTITY_ATTRIBUTE : "has and owns"
-    IDENTITY ||--o{ IDENTITY_ROLES : "associated to and owns"
-    IDENTITY ||--o{ ACCESS_PROFILES: "associated to and owns"
-    IDENTITY ||--o{ ACCOUNT : "associated to and owns"
-    IDENTITY ||--o{ APPS : "associated to and owns"
-    IDENTITY ||--o{ ENTITLEMENTS : "associated to and owns"
-    IDENTITY ||--o{ ACCESS_REQUEST_DURATION : "associated to and owns"
-    IDENTITY ||--o{ CERTIFICATION_STATS : "associated to and owns"
+    } 
+    IDENTITY ||--o{ IDENTITY_ATRIBUTE : "associated to and owns"
+    IDENTITY ||--o{ IDENTITY_ROLES_FULL : "associated to and owns"
+    IDENTITY ||--o{ ACCESS_PROFILES_FULL: "associated to and owns"
+    IDENTITY ||--o{ IDENTITY_ACCOUNTS_FULL : "associated to and owns"
+    IDENTITY ||--o{ IDENTITY_APPS_FULL : "associated to and owns"
+    IDENTITY ||--o{ IDENTITY_ENTITLEMENTS_FULL : "associated to and owns"
     IDENTITY ||--o{ CERTIFICATION_ITEM : "associated to and owns"
-    IDENTITY ||--o{ CERTIFICATION : "associated to and owns"
-    IDENTITY ||--o{ IDENTITY_REQUEST : "associated to and owns"'></MermaidViewer>
+    CERTIFICATION_ITEM ||--o{ CERTIFICATION_STATS : "associated to and owns"
+    CERTIFICATION_ITEM ||--o{ CERTIFICATION_IDENTITY_FULL : "associated to and owns"
+    IDENTITY ||--o{ IDENTITY_REQUEST_IDENTITY_REQUEST_ITEM_FULL : "associated to and owns"
+    IDENTITY_REQUEST_IDENTITY_REQUEST_ITEM_FULL ||--o{ IDENTITY_REQUEST_WITH_DURATION : "associated to and owns"'></MermaidViewer>
 
 
 ```mermaid

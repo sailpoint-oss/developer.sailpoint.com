@@ -163,7 +163,7 @@ The guide will detail the three different authorization grant flows you can use 
 
 ### Request access token with client credentials grant flow 
 
-Clients use the 'Client Credentials' grant type to obtain access tokens without user invovlement. This is the simplest authentication flow.
+Clients use the 'Client Credentials' grant type to obtain access tokens without user involvement. This is the simplest authentication flow.
 
 API endpoints that require [user level permissions](https://documentation.sailpoint.com/saas/help/common/users/user_level_matrix.html) require the use of Personal access tokens (PATs). Correspondingly, the endpoints a personal access token (PAT) can call depends on the permissions of the user who generated it and the configuration of IDN.
 

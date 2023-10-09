@@ -461,7 +461,7 @@ class IdnRuleUtil {
     * the specified sortAttribute.
     *
     * @param attributeName The attribute to be searched. It must be searchable and non-null.
-    * @param operation The operation to be used when searching. It only allows equals and StartsWith.
+    * @param operation The operation to be used when searching. It only allows Equals and StartsWith.
     * @param value The value to match. It must be non-null.
     * @param sortAttribute The attribute to be used when sorting.
     * Default ordering is on uid if it is not specified and this also must be searchable.
@@ -486,7 +486,7 @@ String value, String sortAttribute)
     * Count and return the number of users matching the incoming attributeName, operation and value.
     *
     * @param attributeName The attribute to be searched. It must be searchable and non-null.
-    * @param operation The operation to be used when searching. It only allows equals and StartsWith.
+    * @param operation The operation to be used when searching. It only allows Equals and StartsWith.
     * @param value The value to match. It must be non-null.
     *
     * @return The number of identities matching the parameters.

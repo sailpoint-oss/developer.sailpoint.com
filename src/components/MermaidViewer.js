@@ -8,6 +8,7 @@ export default function MermaidViewer({ children, diagram }) {
   const [width, setWidth] = React.useState(0);
   const [mermaidCursorStart, setMermaidCursorStart] = React.useState({ cursor: 'grab', clickX: 0, clickY: 0, offsetX: 0, offsetY: 0 });
   const [mermaidCursorMoving, setMermaidCursorMoving] = React.useState({ x: 0, y: 0 });
+  const [mermaidRender, setMermaidRender] = React.useState(false);
 
   function increaseWidth(e) {
     setWidth(width + 300)
@@ -49,6 +50,17 @@ export default function MermaidViewer({ children, diagram }) {
       
     }
   }
+  
+
+  setTimeout(() => {
+  if (mermaidRender === false) {
+    const el = document.getElementById("mermaid")
+    if (el) {
+      el.style.top = '0px'
+      setMermaidRender(true)
+    } 
+  }
+},10)
 
   return (
     <div>
@@ -67,7 +79,7 @@ export default function MermaidViewer({ children, diagram }) {
         onTouchEnd={(e) => setMouseUp(e)}
         onMouseLeave={(e) => setMouseUp(e)}
       >
-        <div draggable="false" className="mermaid" style={{ position: 'relative', top: -mermaidCursorMoving.y + 'px', left: -mermaidCursorMoving.x + 'px', width: 'calc(100% + ' + width + 'px)', maxHeight: '1000px' }}>
+        <div id="mermaid" draggable="false" className="mermaid" style={{ position: 'relative', top: -mermaidCursorMoving.y + 'px', left: -mermaidCursorMoving.x + 'px', width: 'calc(100% + ' + width + 'px)', maxHeight: '1000px' }}>
           {diagram}
         </div>
       </div>

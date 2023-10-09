@@ -9,6 +9,7 @@ keywords: ['data listing', 'data share', 'secure data sharing']
 description: Secure Data Share is an easy way to get IDN data of your organization in a structured format.
 slug: /docs/secure-data-share
 tags: ['SecureDataShare']
+hide_table_of_contents: true
 ---
 
 import MermaidViewer from '@site/src/components/MermaidViewer';

@@ -58,7 +58,7 @@ export default function MermaidViewer({ children, diagram }) {
       if (!canceled) {
         setMermaidRender(true)
       }
-    }, 1000);
+    }, 100);
     return () => {
       canceled = true;
     };
@@ -66,10 +66,13 @@ export default function MermaidViewer({ children, diagram }) {
 
 
   let renderedDiagram;
+  let loadingIndicator;
   if (mermaidRender === true) {
+      loadingIndicator = <div></div>
       renderedDiagram = <div id="mermaid" draggable="false" className="mermaid" style={{ position: 'relative', top: -mermaidCursorMoving.y + 'px', left: -mermaidCursorMoving.x + 'px', width: 'calc(100% + ' + width + 'px)', maxHeight: '1000px' }}>{diagram}</div>
     } else {
-      renderedDiagram = <div>Mermaid Chart Loading ...</div>
+      loadingIndicator = <div>Diagram Loading ...</div>
+      renderedDiagram = <div id="mermaid" draggable="false" className="mermaid" style={{visibility: 'hidden', position: 'relative', top: -mermaidCursorMoving.y + 'px', left: -mermaidCursorMoving.x + 'px', width: 'calc(100% + ' + width + 'px)', maxHeight: '1000px' }}>{diagram}</div>
     }
 
 
@@ -90,6 +93,7 @@ export default function MermaidViewer({ children, diagram }) {
         onTouchEnd={(e) => setMouseUp(e)}
         onMouseLeave={(e) => setMouseUp(e)}
       >
+      {loadingIndicator}
       {renderedDiagram}
       </div>
 

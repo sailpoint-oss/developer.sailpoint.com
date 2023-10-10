@@ -20,7 +20,7 @@ Secure Data Sharing (SDS) makes SailPoint's Identity data avaiable directly to c
 For information on how to use SDS in your environment, see the documentation [here](https://documentation.sailpoint.com/saas/help/secure_data_share/secure_data_share.html)
 
 ## Technical Documentation
-For ER Diagrams that represent the data model in SDS as well as other documentation see the following pages
+For Entity Relationship (ER) Diagrams that represent the data model in SDS as well as other documentation see the following pages
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';

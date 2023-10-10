@@ -2,7 +2,7 @@
 id: secure-data-share-audit-er-diagram
 title: Secure Data Share Audit ER Diagram
 pagination_label: Secure Data Share Audit ER Diagram
-sidebar_label: Audit ER Diagram
+sidebar_label: Audit Entity Relationship Diagram
 sidebar_position: 2
 sidebar_class_name: secureDataShare
 keywords: ['data listing', 'data share', 'secure data sharing']
@@ -14,7 +14,7 @@ hide_table_of_contents: true
 
 import MermaidViewer from '@site/src/components/MermaidViewer';
 
-# ER Diagram for Secure Data Share Audit
+# Secure Data Share Audit ER Diagram
 
 
 <MermaidViewer diagram='erDiagram

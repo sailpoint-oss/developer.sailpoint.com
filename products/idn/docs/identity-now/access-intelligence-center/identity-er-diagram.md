@@ -2,7 +2,7 @@
 id: access-intelligence-center-er-diagram
 title: Access Intelligence Center ER Diagram
 pagination_label: Access Intelligence Center ER Diagram
-sidebar_label: ER Diagram
+sidebar_label: Entity Relationship Diagram
 sidebar_position: 1
 sidebar_class_name: AccessIntelligenceCenter
 keywords: ['data listing', 'data share', 'secure data sharing']
@@ -14,7 +14,7 @@ hide_table_of_contents: true
 
 import MermaidViewer from '@site/src/components/MermaidViewer';
 
-# ER Diagram for Access Intelligence Center
+# Access Intelligence Center ER Diagram
 
 
 <MermaidViewer diagram='erDiagram

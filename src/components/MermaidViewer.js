@@ -52,15 +52,26 @@ export default function MermaidViewer({ children, diagram }) {
   }
   
 
-  setTimeout(() => {
-  if (mermaidRender === false) {
-    const el = document.getElementById("mermaid")
-    if (el) {
-      el.style.top = '0px'
-      setMermaidRender(true)
-    } 
-  }
-},10)
+  React.useEffect(() => {
+    let canceled = false;
+    setTimeout(() => {
+      if (!canceled) {
+        setMermaidRender(true)
+      }
+    }, 1000);
+    return () => {
+      canceled = true;
+    };
+  })
+
+
+  let renderedDiagram;
+  if (mermaidRender === true) {
+      renderedDiagram = <div id="mermaid" draggable="false" className="mermaid" style={{ position: 'relative', top: -mermaidCursorMoving.y + 'px', left: -mermaidCursorMoving.x + 'px', width: 'calc(100% + ' + width + 'px)', maxHeight: '1000px' }}>{diagram}</div>
+    } else {
+      renderedDiagram = <div>Mermaid Chart Loading ...</div>
+    }
+
 
   return (
     <div>
@@ -79,9 +90,7 @@ export default function MermaidViewer({ children, diagram }) {
         onTouchEnd={(e) => setMouseUp(e)}
         onMouseLeave={(e) => setMouseUp(e)}
       >
-        <div id="mermaid" draggable="false" className="mermaid" style={{ position: 'relative', top: -mermaidCursorMoving.y + 'px', left: -mermaidCursorMoving.x + 'px', width: 'calc(100% + ' + width + 'px)', maxHeight: '1000px' }}>
-          {diagram}
-        </div>
+      {renderedDiagram}
       </div>
 
 

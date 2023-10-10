@@ -12,10 +12,7 @@ post:
     content:
       application/json:
         schema:
-          name: ids
-          type: array
-          items:
-            type: string
+          $ref: "../../v3/schemas/identity-attributes/IdentityAttributeNames.yaml"
   responses:
     "204":
       $ref: "../../v3/responses/204.yaml"

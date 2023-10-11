@@ -21,7 +21,10 @@ You need to have the same software installed to create a customizer as you need 
 
 To create an empty connector customizer project, run the following command:
 
+```
 sail conn customizers init my-first-customizer-project
+```
+
 
 The CLI init command creates a new folder with your project name in the location where you run the command.
 

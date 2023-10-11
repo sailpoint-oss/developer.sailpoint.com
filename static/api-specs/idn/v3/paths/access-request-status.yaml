@@ -1,5 +1,7 @@
 get:
   operationId: listAccessRequestStatus
+  security:
+    - UserContextAuth: [ idn:access-request-status:read ]
   tags:
     - Access Requests
   summary: Access Request Status

@@ -1,7 +1,7 @@
 post:
   operationId: createAccessRequest
   security:
-    - UserContextAuth: [ idn:access-request:manage ]
+    - UserContextAuth: [ idn:access-request:create ]
   summary: Submit an Access Request
   tags:
     - Access Requests

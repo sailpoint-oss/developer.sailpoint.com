@@ -79,12 +79,26 @@ allOf:
               selected/available.
             example: Search Campaign description
           reviewer:
+            type: object
             description: >-
               If specified, this identity or governance group will be the reviewer for all certifications in
-              this campaign. The allowed DTO types are IDENTITY and GOVERNANCE_GROUP
-            allOf:
-              - $ref: '../../v3/schemas/BaseReferenceDto.yaml'
-              - type: object
+              this campaign. The allowed DTO types are IDENTITY and GOVERNANCE_GROUP.
+            properties: 
+              type: 
+                type: string
+                description: The reviewer's DTO type.
+                enum: 
+                  - GOVERNANCE_GROUP 
+                  - IDENTITY
+                example: IDENTITY
+              id: 
+                type: string 
+                description: The reviewer's ID.
+                example: 2c91808568c529c60168cca6f90c1313     
+              name: 
+                type: string
+                description: The reviewer's name.
+                example: William Wilson
           query:
             type: string
             description: >-
@@ -113,12 +127,26 @@ allOf:
         description: Optional configuration options for role composition campaigns.
         properties:
           reviewer:
+            type: object
             description: >-
               If specified, this identity or governance group will be the reviewer for all certifications in
-              this campaign. The allowed DTO types are IDENTITY and GOVERNANCE_GROUP
-            allOf:
-              - $ref: '../../v3/schemas/BaseReferenceDto.yaml'
-              - type: object
+              this campaign. The allowed DTO types are IDENTITY and GOVERNANCE_GROUP.
+            properties: 
+              type: 
+                type: string
+                description: The reviewer's DTO type.
+                enum: 
+                  - GOVERNANCE_GROUP 
+                  - IDENTITY
+                example: IDENTITY
+              id: 
+                type: string 
+                description: The reviewer's ID.
+                example: 2c91808568c529c60168cca6f90c1313     
+              name: 
+                type: string
+                description: The reviewer's name.
+                example: William Wilson
           roleIds:
             type: array
             description: >-

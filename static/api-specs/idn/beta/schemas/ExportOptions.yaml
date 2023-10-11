@@ -22,9 +22,11 @@ properties:
       - PUBLIC_IDENTITIES_CONFIG
       - ROLE
       - RULE
+      - SEGMENT
       - SERVICE_DESK_INTEGRATION
       - SOD_POLICY
       - SOURCE
+      - TAG
       - TRANSFORM
       - TRIGGER_SUBSCRIPTION
       - WORKFLOW
@@ -51,9 +53,11 @@ properties:
       - PUBLIC_IDENTITIES_CONFIG
       - ROLE
       - RULE
+      - SEGMENT
       - SERVICE_DESK_INTEGRATION
       - SOD_POLICY
       - SOURCE
+      - TAG
       - TRANSFORM
       - TRIGGER_SUBSCRIPTION
       - WORKFLOW

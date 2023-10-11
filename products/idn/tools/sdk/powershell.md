@@ -11,7 +11,7 @@ slug: /tools/sdk/powershell
 tags: ['SDK']
 ---
 
-Learn how to use the PowerShell SDK in this guide. The PowerShell SDK has some pre-built code examples you can use to learn how to build tools that can interact with IdentityNow.
+Read this guide to learn how to use the PowerShell SDK. The PowerShell SDK has some pre-built code examples you can use to learn how to build tools that can interact with IdentityNow.
 
 You can find the SDK and its examples in its GitHub repo [here](https://github.com/sailpoint-oss/powershell-sdk).
 

@@ -3,7 +3,7 @@ id: connectivity-customizers
 title: Connectivity Customizers
 pagination_label: Connectivity Customizers
 sidebar_label: Customizers
-sidebar_position: 6.5
+sidebar_position: 7.1
 sidebar_class_name: saasConnectivity
 keywords: ['connectivity', 'connectors', customizers]
 description: Connectivity Customizers are cloud based connector customizers that make customizing out of the box SaaS connectors possible.

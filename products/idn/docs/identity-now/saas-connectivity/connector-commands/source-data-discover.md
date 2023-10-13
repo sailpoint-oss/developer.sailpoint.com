@@ -94,7 +94,7 @@ You can optionally use the input.queryInput.query to allow the list to be search
 Now if the source system sends a command like the following, they will only get the "name" back:
 
 ```javascript
-    "type": "std:source-data:read",
+    "type": "std:source-data:discover",
     "input": {
         "sourceDataKey": "id",
         "queryInput": {

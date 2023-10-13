@@ -11,10 +11,10 @@ tags: ['Connectivity', 'Connector Command']
 
 | Input/Output |            Data Type        |
 | :----------- | :-------------------------: |
-| Input        | StdSourceDataDiscoverInput  |
-| Output       | StdSourceDataDiscoverOutput |
+| Input        | StdSourceDataReadInput  |
+| Output       | StdSourceDataReadOutput |
 
-### Example StdSourceDataDiscoverInput
+### Example StdSourceDataReadInput
 
 ```javascript
 {
@@ -26,7 +26,7 @@ tags: ['Connectivity', 'Connector Command']
 }
 ```
 
-### Example StdSourceDataDiscoverOutput
+### Example StdSourceDataReadOutput
 
 ```javascript
 [
@@ -47,7 +47,7 @@ tags: ['Connectivity', 'Connector Command']
 
 The Source Data Read command is used to query a source in IdentityNow and return a set of data that is typically used to populate a dropdown for selection purposes. This is normally used for the IdentityNow forms but can be used for any type of implementation where you need to get other information from a source not normally retrieved from identites or entitlements.
 
-Below is a simple example of the Source Data Read command implemented where it simply retrieves the base ID name. The sourceDataKey is required and should be returned from the ```source data discover``` command.
+Below is a simple example of the Source Data Read command implemented where it simply retrieves the base ID name. The sourceDataKey is required and should be returned from the ```source data read``` command.
 
 ```javascript
 .stdSourceDataRead(async (context: Context, input: StdSourceDataReadInput, res: Response<StdSourceDataReadOutput>) => {
@@ -107,7 +107,7 @@ async queryAccounts(query: string): Promise<AirtableAccount[]> {
 Now if the source system sends a command like the following, they will only get a results that match the name "Adam Archer"
 
 ```javascript
-    "type": "std:source-data:discover",
+    "type": "std:source-data:read",
     "input": {
         "queryInput": {
             "query": "filterByFormula=({displayName} = 'Adam Archer')"

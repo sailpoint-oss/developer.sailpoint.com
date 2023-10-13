@@ -1,25 +1,27 @@
 ---
-id: connectivity-customizers-deploying
-title: Build and Deploy into Identity Now
-pagination_label: Build and Deploy
-sidebar_label: Build and Deploy
+id: connectivity-customizers-uploading
+title: Build and Upload into Identity Now
+pagination_label: Build and Upload
+sidebar_label: Build and Upload
 sidebar_position: 5
 sidebar_class_name: saasConnectivity
 keywords: ['connectivity', 'connectors', customizers]
 description: Getting started with Connectivity Customizers
-slug: /docs/saas-connectivity/customizers/deploy
+slug: /docs/saas-connectivity/customizers/upload
 tags: ['Connectivity']
 ---
 
-# Build and Deploy into Identity Now
+# Build and Upload into Identity Now
 
 ### initial requirements
 
-Before you can deploy a connector customizer, you need to create one in IdentityNow where it will get deployed to:
+Before you can upload a connector customizer, you need to issue the create command to create an empty connector customizer:
 
 ```
 sail conn customizers create my-connector-customizer
-
+```
+This will return the customizer id
+```
 +--------------------------------------+-------------------------+---------+
 |                  ID                  |          NAME           | VERSION |
 +--------------------------------------+-------------------------+---------+

@@ -17,11 +17,11 @@ tags: ['Connectivity']
 
 Before you can upload a connector customizer, you need to issue the create command to create an empty connector customizer:
 
-```
+```bash
 sail conn customizers create my-connector-customizer
 ```
 This will return the customizer id
-```
+```bash
 +--------------------------------------+-------------------------+---------+
 |                  ID                  |          NAME           | VERSION |
 +--------------------------------------+-------------------------+---------+
@@ -33,13 +33,13 @@ This will return the customizer id
 
 Building a connector customizer is similar to building a SaaS Connector, simply execute the command
 
-```
+```bash
 npm run pack-zip
 ```
 
 After the build is complete, you should see a message similar to the following:
 
-```
+```bash
 > my-connector-customizer@0.1.0 pack-zip
 > spcx package
 
@@ -50,7 +50,7 @@ Connector zip file created under dist folder: my-connector-customizer-0.1.0.zip
 
 To upload to IdentityNow, simply use the upload command:
 
-```
+```bash
 sail conn customizers upload -c 7b968fab-0f40-49f0-b13b-8bf529fc0b82 -f .\dist\my-connector-customizer-0.1.0.zip
 ```
 Now the customizer is ready to be used!

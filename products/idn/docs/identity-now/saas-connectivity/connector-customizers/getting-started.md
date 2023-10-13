@@ -21,8 +21,8 @@ You need to have the same software installed to create a customizer as you need 
 
 To create an empty connector customizer project, run the following command:
 
-```
-sail conn customizers init my-first-customizer-project
+```bash
+sail conn customizers init my-customizer-project
 ```
 
 
@@ -34,8 +34,8 @@ Change the directory to the project folder and Run ```npm install to install`` t
 
 The earlier command creates the initial project source directory below:
 
-```
-my-first-project
+```bash
+my-customizer-project
 ├── .gitignore
 ├── package.json
 ├── src/

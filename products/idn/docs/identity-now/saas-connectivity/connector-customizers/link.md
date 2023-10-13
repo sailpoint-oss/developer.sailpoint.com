@@ -19,11 +19,11 @@ Before you can link a connector customizer to a source, you need to have a SaaS 
 
 to find sources:
 
-```
+```bash
 sail conn instances list
 ```
 a similar looking list of instances will be returned
-```
+```bash
 +--------------------------------------+--------------------------+---------------+
 |                  ID                  |           NAME           | CUSTOMIZER ID |
 +--------------------------------------+--------------------------+---------------+
@@ -36,11 +36,11 @@ a similar looking list of instances will be returned
 
 to find customizers:
 
-```
+```bash
 sail conn customizers list
 ```
 a similar looking list of customizers will be returned
-```
+```bash
 +--------------------------------------+---------------------+---------+
 |                  ID                  |        NAME         | VERSION |
 +--------------------------------------+---------------------+---------+
@@ -52,11 +52,11 @@ a similar looking list of customizers will be returned
 
 To link a source to a customizer, simply find the ID of the source from the instance list and a customizer from the customizer list and issue the following command:
 
-```
+```bash
 sail conn customizers link -i edfc9bfb-b55c-482f-b1aa-b4d51caf7558 -c 7b968fab-0f40-49f0-b13b-8bf529fc0b82
 ```
 the following output will indicate the customizer has succesfully linked to the connector instance
-```
+```bash
 +--------------------------------------+----------------------+--------------------------------------+
 |                  ID                  |         NAME         |            CUSTOMIZER ID             |
 +--------------------------------------+----------------------+--------------------------------------+
@@ -68,6 +68,6 @@ the following output will indicate the customizer has succesfully linked to the 
 
 To unlink a customizer from a source, simply issue the unlink command and pass the source instance Id: 
 
-```
+```bash
 sail conn customizers unlink -i edfc9bfb-b55c-482f-b1aa-b4d51caf7558
 ```

@@ -49,7 +49,7 @@ If your IDE supports debugging JavaScript, then your IDE’s built-in debugger c
 
 In VS Code, open a javascript debug terminal window and run the npm run dev command.
 
-`npm run dev`
+`npm run debug`
 
 Now you can set breakpoints in your typescript files in VS Code: ![debugging 1](./img/debugging1.png)
 
@@ -69,7 +69,7 @@ To simplify the debugging process, you can consolidate the debugging steps into 
     {
       "name": "Launch Program via NPM",
       "request": "launch",
-      "runtimeArgs": ["run-script", "dev"],
+      "runtimeArgs": ["run-script", "debug"],
       "windows": {
         "runtimeExecutable": "npm.cmd"
       },

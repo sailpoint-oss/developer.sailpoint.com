@@ -986,6 +986,8 @@ paths:
     $ref: './v3/paths/roles.yaml'
   /roles/{id}:
     $ref: './v3/paths/role.yaml'
+  /roles/bulk-delete:
+    $ref: './v3/paths/role-bulk-delete.yaml'
   /roles/{id}/assigned-identities:
     $ref: './v3/paths/role-assigned-identities.yaml'
   /saved-searches:

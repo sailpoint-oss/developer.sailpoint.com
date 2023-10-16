@@ -1565,13 +1565,13 @@ paths:
     $ref: './beta/paths/workgroups/workgroup.yaml'
   /workgroups/bulk-delete:
     $ref: './beta/paths/workgroups/workgroups-bulk-delete.yaml'
-  /workgroups/{workgrouId}/connections:
+  /workgroups/{workgroupId}/connections:
     $ref: './beta/paths/workgroups/connections.yaml'
-  /workgroups/{workgrouId}/members:
+  /workgroups/{workgroupId}/members:
     $ref: './beta/paths/workgroups/workgroup-members.yaml'
-  /workgroups/{workgrouId}/members/bulk-add:
+  /workgroups/{workgroupId}/members/bulk-add:
     $ref: './beta/paths/workgroups/bulk-add-workgroup-members.yaml'
-  /workgroups/{workgrouId}/members/bulk-delete:
+  /workgroups/{workgroupId}/members/bulk-delete:
     $ref: './beta/paths/workgroups/bulk-delete-workgroup-members.yaml'
   /form-definitions:
     $ref: './beta/paths/form-definitions.yaml'

@@ -56,9 +56,9 @@ export async function checkImage(url) {
 export async function getBlogPosts(tags) {
   let url = ''
   if (tags) {
-    url = discourseBaseURL() + 'search.json?q=category:blog-posts+tags:' + tags
+    url = discourseBaseURL() + 'c/blog/l/latest.json?tags=' + tags
   } else {
-    url = discourseBaseURL() + 'search.json?q=category:blog-posts'
+    url = discourseBaseURL() + 'c/blog/l/latest.json'
   }
   try {
     const response = await fetch(

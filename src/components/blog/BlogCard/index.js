@@ -27,7 +27,6 @@ export default function BlogCard({
           <img className={styles.cardComment} src={useBaseUrl('/blog/comment-light.svg')}></img>
           <div className={styles.cardCommentText}>{replies}</div>
           <img className={styles.cardComment} src={useBaseUrl('/blog/clock-light.svg')}></img>
-          <div className={styles.cardCommentText}>{readTime} minute read</div>
         </div>
 
         <div className={styles.cardUser}>

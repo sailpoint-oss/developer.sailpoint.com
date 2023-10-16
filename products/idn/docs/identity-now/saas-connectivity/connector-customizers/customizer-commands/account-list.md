@@ -5,7 +5,7 @@ pagination_label: Account List
 sidebar_label: Account List
 keywords: ['connectivity', 'connectors', 'Account List']
 description: Ensure the connector can communicate with the source.
-slug: /docs/saas-connectivity/connector-customizers/customizer-commands/account-list
+slug: /docs/saas-connectivity/connector-customizers/commands/account-list
 tags: ['Connectivity', 'Connector Command']
 ---
 

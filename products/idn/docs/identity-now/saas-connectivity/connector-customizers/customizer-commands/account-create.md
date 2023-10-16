@@ -5,7 +5,7 @@ pagination_label: Account Create
 sidebar_label: Account Create
 keywords: ['connectivity', 'connectors', 'Account Create']
 description: Ensure the connector can communicate with the source.
-slug: /docs/saas-connectivity/connector-customizers/customizer-commands/account-create
+slug: /docs/saas-connectivity/connector-customizers/commands/account-create
 tags: ['Connectivity', 'Connector Command']
 ---
 

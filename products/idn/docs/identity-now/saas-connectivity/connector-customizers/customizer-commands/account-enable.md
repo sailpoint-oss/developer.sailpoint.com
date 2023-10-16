@@ -5,7 +5,7 @@ pagination_label: Account Enable
 sidebar_label: Account Enable
 keywords: ['connectivity', 'connectors', 'Account Enable']
 description: Ensure the connector can communicate with the source.
-slug: /docs/saas-connectivity/connector-customizers/customizer-commands/account-enable
+slug: /docs/saas-connectivity/connector-customizers/commands/account-enable
 tags: ['Connectivity', 'Connector Command']
 ---
 

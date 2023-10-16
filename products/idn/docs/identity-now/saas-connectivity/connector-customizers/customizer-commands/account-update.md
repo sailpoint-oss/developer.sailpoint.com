@@ -5,7 +5,7 @@ pagination_label: Account Update
 sidebar_label: Account Update
 keywords: ['connectivity', 'connectors', 'Account Update']
 description: Ensure the connector can communicate with the source.
-slug: /docs/saas-connectivity/connector-customizers/customizer-commands/account-update
+slug: /docs/saas-connectivity/connector-customizers/commands/account-update
 tags: ['Connectivity', 'Connector Command']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Account Unlock
 sidebar_label: Account Unlock
 keywords: ['connectivity', 'connectors', 'Account Unlock']
 description: Ensure the connector can communicate with the source.
-slug: /docs/saas-connectivity/connector-customizers/customizer-commands/account-unlock
+slug: /docs/saas-connectivity/connector-customizers/commands/account-unlock
 tags: ['Connectivity', 'Connector Command']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Account Read
 sidebar_label: Account Read
 keywords: ['connectivity', 'connectors', 'Account Read']
 description: Ensure the connector can communicate with the source.
-slug: /docs/saas-connectivity/connector-customizers/customizer-commands/account-read
+slug: /docs/saas-connectivity/connector-customizers/commands/account-read
 tags: ['Connectivity', 'Connector Command']
 ---
 

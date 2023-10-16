@@ -5,7 +5,7 @@ pagination_label: Source Data Discover
 sidebar_label: Source Data Discover
 keywords: ['connectivity', 'connectors', 'Source Data Discover']
 description: Ensure the connector can communicate with the source.
-slug: /docs/saas-connectivity/connector-customizers/customizer-commands/source-data-discover
+slug: /docs/saas-connectivity/connector-customizers/commands/source-data-discover
 tags: ['Connectivity', 'Connector Command']
 ---
 

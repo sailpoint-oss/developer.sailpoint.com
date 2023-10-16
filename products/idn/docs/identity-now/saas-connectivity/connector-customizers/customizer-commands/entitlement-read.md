@@ -5,7 +5,7 @@ pagination_label: Entitlement Read
 sidebar_label: Entitlement Read
 keywords: ['connectivity', 'connectors', 'Entitlement Read']
 description: Ensure the connector can communicate with the source.
-slug: /docs/saas-connectivity/connector-customizers/customizer-commands/entitlement-read
+slug: /docs/saas-connectivity/connector-customizers/commands/entitlement-read
 tags: ['Connectivity', 'Connector Command']
 ---
 

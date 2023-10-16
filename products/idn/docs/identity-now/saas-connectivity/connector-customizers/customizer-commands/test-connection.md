@@ -5,7 +5,7 @@ pagination_label: Test Connection
 sidebar_label: Test Connection
 keywords: ['connectivity', 'connectors', 'test connection']
 description: Ensure the connector can communicate with the source.
-slug: /docs/saas-connectivity/connector-customizers/customizer-commands/test-connection
+slug: /docs/saas-connectivity/connector-customizers/commands/test-connection
 tags: ['Connectivity', 'Connector Command']
 ---
 

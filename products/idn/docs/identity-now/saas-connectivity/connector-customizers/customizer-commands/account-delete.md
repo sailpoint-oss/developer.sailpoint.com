@@ -5,7 +5,7 @@ pagination_label: Account Delete
 sidebar_label: Account Delete
 keywords: ['connectivity', 'connectors', 'Account Delete']
 description: Ensure the connector can communicate with the source.
-slug: /docs/saas-connectivity/connector-customizers/customizer-commands/account-delete
+slug: /docs/saas-connectivity/connector-customizers/commands/account-delete
 tags: ['Connectivity', 'Connector Command']
 ---
 

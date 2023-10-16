@@ -5,7 +5,7 @@ pagination_label: Change Password
 sidebar_label: Change Password
 keywords: ['connectivity', 'connectors', 'Change Password']
 description: Ensure the connector can communicate with the source.
-slug: /docs/saas-connectivity/connector-customizers/customizer-commands/change-password
+slug: /docs/saas-connectivity/connector-customizers/commands/change-password
 tags: ['Connectivity', 'Connector Command']
 ---
 

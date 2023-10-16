@@ -5,7 +5,7 @@ pagination_label: Account Disable
 sidebar_label: Account Disable
 keywords: ['connectivity', 'connectors', 'Account Disable']
 description: Ensure the connector can communicate with the source.
-slug: /docs/saas-connectivity/connector-customizers/customizer-commands/account-disable
+slug: /docs/saas-connectivity/connector-customizers/commands/account-disable
 tags: ['Connectivity', 'Connector Command']
 ---
 

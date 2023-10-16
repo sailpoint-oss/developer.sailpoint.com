@@ -5,7 +5,7 @@ pagination_label: Source Data Read
 sidebar_label: Source Data Read
 keywords: ['connectivity', 'connectors', 'Source Data Read']
 description: Ensure the connector can communicate with the source.
-slug: /docs/saas-connectivity/connector-customizers/customizer-commands/source-data-read
+slug: /docs/saas-connectivity/connector-customizers/commands/source-data-read
 tags: ['Connectivity', 'Connector Command']
 ---
 

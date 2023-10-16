@@ -5,7 +5,7 @@ pagination_label: Entitlement List
 sidebar_label: Entitlement List
 keywords: ['connectivity', 'connectors', 'Entitlement List']
 description: Ensure the connector can communicate with the source.
-slug: /docs/saas-connectivity/connector-customizers/customizer-commands/entitlement-list
+slug: /docs/saas-connectivity/connector-customizers/commands/entitlement-list
 tags: ['Connectivity', 'Connector Command']
 ---
 

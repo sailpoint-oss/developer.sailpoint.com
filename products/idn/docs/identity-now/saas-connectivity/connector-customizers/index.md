@@ -6,18 +6,20 @@ sidebar_label: Customizers
 sidebar_position: 7.1
 sidebar_class_name: saasConnectivity
 keywords: ['connectivity', 'connectors', customizers]
-description: Connectivity Customizers are cloud based connector customizers that make customizing out of the box SaaS connectors possible.
+description: Connectivity customizers can customize out of the box SaaS connectors. 
 slug: /docs/saas-connectivity/customizers
 tags: ['Connectivity']
 ---
 
 # Overview
 
-SaaS Connectivity Customizers allow you to customize the out of the box connectors similar to how rules work in VA based connectors. By using a connectivity customizer, you can change the input to a connector prior to the data being injested into the connector, or you can change the output from a connector prior to it being sent to IdentityNow.
+SaaS Connectivity Customizers are cloud-based connector customizers that make customizing out of the box SaaS connectors possible. The customizers allow you to customize the out of the box connectors in a similar way to how you can use rules to customize VA (virtual appliance) based connectors. By using a customizer, you can change a connector's input before the connector ingests the data, or you can change the connector's output before to the output is sent to IdentityNow.
 
 ## How do they work?
 
-SaaS Connectivity Customizers work by sitting in between IdentityNow and the connector. They intercept calls to the connector from IdentityNow and intercept calls to IdentityNow from the connector. When the call is intercepted, custom code can be called to mutate the data in any way that is necessary to change the connector behavior. The below chart shows an example of this with the ```stdAccountRead``` command implemented with the customizer in place.
+SaaS Connectivity Customizers work by sitting in between IdentityNow and the connector. They intercept calls from IdentityNow to the connector and calls from the connector to IdentityNow. When the customizer intercepts a call, it can call custom code to mutate the data in any way necessary to change the connector behavior. 
+
+This chart shows an example of this interception process - the ```stdAccountRead``` command is implemented with the customizer in place: 
 
 <div align="center">
 

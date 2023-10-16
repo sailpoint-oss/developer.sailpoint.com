@@ -4,7 +4,7 @@ title: Source Data Discover
 pagination_label: Source Data Discover
 sidebar_label: Source Data Discover
 keywords: ['connectivity', 'connectors', 'Source Data Discover']
-description: Create account on the source.
+description: Discover potential source data types. 
 slug: /docs/saas-connectivity/commands/source-data-discover
 tags: ['Connectivity', 'Connector Command']
 ---
@@ -44,9 +44,11 @@ tags: ['Connectivity', 'Connector Command']
 
 ## Description
 
-The Source Data Discover command is used to identify what types of data your source can return. This is typically used by IdentityNow customer forms for dropdowns to identify what types of additional information your source might be able to provide to IdentityNow. For example, a source might be able to retrieve a list of different languages it supports, or it might be able to send values describing source details no normally sent via accounts and entitlements. 
+Use the source data discover command to identify the types of data your source can return. Different sources can send different types of data to IdentityNow. For example, one source may be able to send a list of the different languages it supports, while another may be able to send values describing source details normally sent through accounts and entitlements. You can use the source data discover command to discover these possibilities. 
 
-Below is a simple example of the source data discover command implemented where it simply lists two types of queries that the Airtable source can supply. 
+One typical use for the source data discover command is found in IdentityNow customer forms for dropdown menus: they use the command to identify the additional source types their sources can provide to IdentityNow and use that information to populate the dropdown menus. 
+
+This is a simple example of the source data discover command. It has been implemented to list two types of queries that the Airtable source can supply. 
 
 ```javascript
 .stdSourceDataDiscover(async (context: Context, input: StdSourceDataDiscoverInput, res: Response<StdSourceDataDiscoverOutput>) => {
@@ -65,7 +67,7 @@ Below is a simple example of the source data discover command implemented where 
 })
 ```
 
-You can optionally use the input.queryInput.query to allow the list to be searchable. One way you might do this is importing a tool like [alasql](https://github.com/AlaSQL/alasql) and allowing the user to implement a search on the dataset like the following example:
+You can optionally use `input.queryInput.query` to make the list searchable. One way you could do this is to import a tool like [alasql](https://github.com/AlaSQL/alasql) and allow the user to implement a search on the dataset, as shown in this example:
 
 ```javascript
 .stdSourceDataDiscover(async (context: Context, input: StdSourceDataDiscoverInput, res: Response<StdSourceDataDiscoverOutput>) => {
@@ -91,7 +93,7 @@ You can optionally use the input.queryInput.query to allow the list to be search
 })
 ```
 
-Now if the source system sends a command like the following, they will only get the "name" back:
+Now, if the source system sends a command like the following, they will only get the "name" back:
 
 ```javascript
     "type": "std:source-data:discover",

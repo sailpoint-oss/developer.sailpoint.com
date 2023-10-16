@@ -41,7 +41,7 @@ sail conn init my-first-project
 
 The CLI init command creates a new folder with your project name in the location where you run the command.
 
-Change the directory to the project folder and Run ```npm install to install`` the dependencies.
+Change the directory to the project folder and run ```npm install to install`` the dependencies.
 
 ### Source Files
 

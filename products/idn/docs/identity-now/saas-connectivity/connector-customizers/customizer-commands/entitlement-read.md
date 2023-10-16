@@ -4,18 +4,18 @@ title: Entitlement Read
 pagination_label: Entitlement Read
 sidebar_label: Entitlement Read
 keywords: ['connectivity', 'connectors', 'Entitlement Read']
-description: Ensure the connector can communicate with the source.
+description: Intercept the entitlement read command.
 slug: /docs/saas-connectivity/connector-customizers/commands/entitlement-read
 tags: ['Connectivity', 'Connector Command']
 ---
 
 ## Overview
 
-Use these commands to intercept the [entitlement-read](../../commands/entitlement-read) command
+Use these commands to intercept the [entitlement-read](../../commands/entitlement-read) command.
 
 ### Before entitlement-read command
 
-You can implement the command by using the following logic
+Use this logic to implement the command: 
 
 ```javascript
     .beforeStdEntitlementRead(async (context: Context, input: StdEntitlementReadInput) => {
@@ -23,11 +23,11 @@ You can implement the command by using the following logic
         return input
     })
 ```
-The `input` object can be mutated and returned but the same data type still needs to be returned 
+The `input` object can be mutated and returned, but the same data type must still be returned.
 
 ### After entitlement-read command
 
-You can implement the command by using the following logic
+Use this logic to implement the command: 
 
 ```javascript
     .afterStdEntitlementRead(async (context: Context, output: StdEntitlementReadOutput) => {
@@ -35,4 +35,4 @@ You can implement the command by using the following logic
         return output
     })
 ```
-The `output` object can be mutated and returned but the same data type still needs to be returned 
+The `output` object can be mutated and returned, but the same data type must still be returned.

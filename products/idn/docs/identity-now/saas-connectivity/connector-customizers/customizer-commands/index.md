@@ -6,12 +6,12 @@ sidebar_label: Customizer Commands
 sidebar_position: 7
 sidebar_class_name: connectorCommands
 keywords: ['connectivity', 'connector', 'commands']
-description: All commands available to implement in a SaaS Connector Customizer.
+description: Available connectivity customizer commands.
 slug: /docs/saas-connectivity/connector-customizers/commands
 tags: ['Connectivity']
 ---
 
-Below you will find all of commands available to implement in a SaaS Connector Customizer.
+You will find all the commands available to implement in a SaaS Connector Customizer here:
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';

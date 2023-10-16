@@ -4,18 +4,18 @@ title: Source Data Discover
 pagination_label: Source Data Discover
 sidebar_label: Source Data Discover
 keywords: ['connectivity', 'connectors', 'Source Data Discover']
-description: Ensure the connector can communicate with the source.
+description: Intercept the source data discover command.
 slug: /docs/saas-connectivity/connector-customizers/commands/source-data-discover
 tags: ['Connectivity', 'Connector Command']
 ---
 
 ## Overview
 
-Use these commands to intercept the [source-data-discover](../../commands/source-data-discover) command
+Use these commands to intercept the [source-data-discover](../../commands/source-data-discover) command.
 
 ### Before source-data-discover command
 
-You can implement the command by using the following logic
+Use this logic to implement the command: 
 
 ```javascript
     .beforeStdSourceDataDiscover(async (context: Context, input: StdSourceDataDiscoverInput) => {
@@ -23,11 +23,11 @@ You can implement the command by using the following logic
         return input
     })
 ```
-The `input` object can be mutated and returned but the same data type still needs to be returned 
+The `input` object can be mutated and returned, but the same data type must still be returned.
 
 ### After source-data-discover command
 
-You can implement the command by using the following logic
+Use this logic to implement the command: 
 
 ```javascript
     .afterStdSourceDataDiscover(async (context: Context, output: StdSourceDataDiscoverOutput) => {
@@ -35,4 +35,4 @@ You can implement the command by using the following logic
         return output
     })
 ```
-The `output` object can be mutated and returned but the same data type still needs to be returned 
+The `output` object can be mutated and returned, but the same data type must still be returned.

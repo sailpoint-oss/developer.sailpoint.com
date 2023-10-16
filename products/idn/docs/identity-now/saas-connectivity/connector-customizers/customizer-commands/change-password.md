@@ -4,18 +4,18 @@ title: Change Password
 pagination_label: Change Password
 sidebar_label: Change Password
 keywords: ['connectivity', 'connectors', 'Change Password']
-description: Ensure the connector can communicate with the source.
+description: Intercept the change password command.
 slug: /docs/saas-connectivity/connector-customizers/commands/change-password
 tags: ['Connectivity', 'Connector Command']
 ---
 
 ## Overview
 
-Use these commands to intercept the [change-password](../../commands/change-password) command
+Use these commands to intercept the [change-password](../../commands/change-password) command.
 
 ### Before change-password command
 
-You can implement the command by using the following logic
+Use this logic to implement the command: 
 
 ```javascript
     .beforeStdChangePassword(async (context: Context, input: StdChangePasswordInput) => {
@@ -23,11 +23,11 @@ You can implement the command by using the following logic
         return input
     })
 ```
-The `input` object can be mutated and returned but the same data type still needs to be returned 
+The `input` object can be mutated and returned, but the same data type must still be returned.
 
 ### After change-password command
 
-You can implement the command by using the following logic
+Use this logic to implement the command: 
 
 ```javascript
     .afterStdChangePassword(async (context: Context, output: StdChangePasswordOutput) => {
@@ -35,4 +35,4 @@ You can implement the command by using the following logic
         return output
     })
 ```
-The `output` object can be mutated and returned but the same data type still needs to be returned 
+The `output` object can be mutated and returned, but the same data type must still be returned.

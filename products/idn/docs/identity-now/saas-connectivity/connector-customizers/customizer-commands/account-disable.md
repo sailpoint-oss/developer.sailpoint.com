@@ -4,18 +4,18 @@ title: Account Disable
 pagination_label: Account Disable
 sidebar_label: Account Disable
 keywords: ['connectivity', 'connectors', 'Account Disable']
-description: Ensure the connector can communicate with the source.
+description: Intercept the account disable command. 
 slug: /docs/saas-connectivity/connector-customizers/commands/account-disable
 tags: ['Connectivity', 'Connector Command']
 ---
 
 ## Overview
 
-Use these commands to intercept the [account-disable](../../commands/account-disable) command
+Use these commands to intercept the [account-disable](../../commands/account-disable) command.
 
 ### Before account-disable command
 
-You can implement the command by using the following logic
+Use this logic to implement the command: 
 
 ```javascript
     .beforeStdAccountDisable(async (context: Context, input: StdAccountDisableInput) => {
@@ -23,11 +23,11 @@ You can implement the command by using the following logic
         return input
     })
 ```
-The `input` object can be mutated and returned but the same data type still needs to be returned 
+The `input` object can be mutated and returned, but the same data type must still be returned.
 
 ### After account-disable command
 
-You can implement the command by using the following logic
+Use this logic to implement the command: 
 
 ```javascript
     .afterStdAccountDisable(async (context: Context, output: StdAccountDisableOutput) => {
@@ -35,4 +35,4 @@ You can implement the command by using the following logic
         return output
     })
 ```
-The `output` object can be mutated and returned but the same data type still needs to be returned 
+The `output` object can be mutated and returned, but the same data type must still be returned.

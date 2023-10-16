@@ -4,18 +4,18 @@ title: Account Read
 pagination_label: Account Read
 sidebar_label: Account Read
 keywords: ['connectivity', 'connectors', 'Account Read']
-description: Ensure the connector can communicate with the source.
+description: Intercept the account read command.
 slug: /docs/saas-connectivity/connector-customizers/commands/account-read
 tags: ['Connectivity', 'Connector Command']
 ---
 
 ## Overview
 
-Use these commands to intercept the [account-read](../../commands/account-read) command
+Use these commands to intercept the [account-read](../../commands/account-read) command.
 
 ### Before account-read command
 
-You can implement the command by using the following logic
+Use this logic to implement the command: 
 
 ```javascript
     .beforeStdAccountRead(async (context: Context, input: StdAccountReadInput) => {
@@ -23,11 +23,11 @@ You can implement the command by using the following logic
         return input
     })
 ```
-The `input` object can be mutated and returned but the same data type still needs to be returned 
+The `input` object can be mutated and returned, but the same data type must still be returned.
 
 ### After account-read command
 
-You can implement the command by using the following logic
+Use this logic to implement the command: 
 
 ```javascript
     .afterStdAccountRead(async (context: Context, output: StdAccountReadOutput) => {
@@ -35,4 +35,4 @@ You can implement the command by using the following logic
         return output
     })
 ```
-The `output` object can be mutated and returned but the same data type still needs to be returned 
+The `output` object can be mutated and returned, but the same data type must still be returned.

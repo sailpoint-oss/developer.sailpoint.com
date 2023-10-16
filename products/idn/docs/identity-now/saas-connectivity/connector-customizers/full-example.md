@@ -6,14 +6,14 @@ sidebar_label: Full Example
 sidebar_position: 7
 sidebar_class_name: saasConnectivity
 keywords: ['connectivity', 'connectors', customizers]
-description: Getting started with Connectivity Customizers
+description: Full connectivity customizer example.
 slug: /docs/saas-connectivity/customizers/example
 tags: ['Connectivity']
 ---
 
 # Full Example
 
-Below is a full example of a customizer with all commands provisioned
+This is a full example of a customizer with all commands provisioned:
 
 ```javascript
 import {

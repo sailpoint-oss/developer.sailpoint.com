@@ -4,18 +4,18 @@ title: Account Enable
 pagination_label: Account Enable
 sidebar_label: Account Enable
 keywords: ['connectivity', 'connectors', 'Account Enable']
-description: Ensure the connector can communicate with the source.
+description: Intercept the account enable command.
 slug: /docs/saas-connectivity/connector-customizers/commands/account-enable
 tags: ['Connectivity', 'Connector Command']
 ---
 
 ## Overview
 
-Use these commands to intercept the [account-enable](../../commands/account-enable) command
+Use these commands to intercept the [account-enable](../../commands/account-enable) command.
 
 ### Before account-enable command
 
-You can implement the command by using the following logic
+Use this logic to implement the command: 
 
 ```javascript
     .beforeStdAccountEnable(async (context: Context, input: StdAccountEnableInput) => {
@@ -23,11 +23,11 @@ You can implement the command by using the following logic
         return input
     })
 ```
-The `input` object can be mutated and returned but the same data type still needs to be returned 
+The `input` object can be mutated and returned, but the same data type must still be returned.
 
 ### After account-enable command
 
-You can implement the command by using the following logic
+Use this logic to implement the command: 
 
 ```javascript
     .afterStdAccountEnable(async (context: Context, output: StdAccountEnableOutput) => {
@@ -35,4 +35,4 @@ You can implement the command by using the following logic
         return output
     })
 ```
-The `output` object can be mutated and returned but the same data type still needs to be returned 
+The `output` object can be mutated and returned, but the same data type must still be returned.

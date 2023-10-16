@@ -4,18 +4,18 @@ title: Account Delete
 pagination_label: Account Delete
 sidebar_label: Account Delete
 keywords: ['connectivity', 'connectors', 'Account Delete']
-description: Ensure the connector can communicate with the source.
+description: Intercept the account delete command. 
 slug: /docs/saas-connectivity/connector-customizers/commands/account-delete
 tags: ['Connectivity', 'Connector Command']
 ---
 
 ## Overview
 
-Use these commands to intercept the [account-delete](../../commands/account-delete) command
+Use these commands to intercept the [account-delete](../../commands/account-delete) command.
 
 ### Before account-delete command
 
-You can implement the command by using the following logic
+Use this logic to implement the command: 
 
 ```javascript
     .beforeStdAccountDelete(async (context: Context, input: StdAccountDeleteInput) => {
@@ -23,11 +23,11 @@ You can implement the command by using the following logic
         return input
     })
 ```
-The `input` object can be mutated and returned but the same data type still needs to be returned 
+The `input` object can be mutated and returned, but the same data type must still be returned. 
 
 ### After account-delete command
 
-You can implement the command by using the following logic
+Use this logic to implement the command: 
 
 ```javascript
     .afterStdAccountDelete(async (context: Context, output: StdAccountDeleteOutput) => {
@@ -35,4 +35,4 @@ You can implement the command by using the following logic
         return output
     })
 ```
-The `output` object can be mutated and returned but the same data type still needs to be returned 
+The `output` object can be mutated and returned, but the same data type must still be returned. 

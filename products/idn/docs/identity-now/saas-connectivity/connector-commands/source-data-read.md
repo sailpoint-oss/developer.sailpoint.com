@@ -4,7 +4,7 @@ title: Source Data Read
 pagination_label: Source Data Read
 sidebar_label: Source Data Read
 keywords: ['connectivity', 'connectors', 'Source Data Read']
-description: Create account on the source.
+description: Read source data. 
 slug: /docs/saas-connectivity/commands/source-data-read
 tags: ['Connectivity', 'Connector Command']
 ---
@@ -45,9 +45,9 @@ tags: ['Connectivity', 'Connector Command']
 
 ## Description
 
-The Source Data Read command is used to query a source in IdentityNow and return a set of data that is typically used to populate a dropdown for selection purposes. This is normally used for the IdentityNow forms but can be used for any type of implementation where you need to get other information from a source not normally retrieved from identites or entitlements.
+Use the source data read command to query a source in IdentityNow and return a set of data. This data is typically used to populate a dropdown menu for selection purposes. This functionality is typically useful for IdentityNow forms, but it can be used for any type of implementation that requires you to get other information from a source, information that is not normally retrieved from identites or entitlements.
 
-Below is a simple example of the Source Data Read command implemented where it simply retrieves the base ID name. The sourceDataKey is required and should be returned from the ```source data read``` command.
+This is a simple example of the source data read command. It is implemented to retrieve the base ID name. The `sourceDataKey` is required, the ```source data read``` command should return it.
 
 ```javascript
 .stdSourceDataRead(async (context: Context, input: StdSourceDataReadInput, res: Response<StdSourceDataReadOutput>) => {
@@ -63,7 +63,7 @@ Below is a simple example of the Source Data Read command implemented where it s
 })
 ```
 
-You can optionally use the input.queryInput.query to allow the list to be searchable. One way you might do this is importing a tool like [alasql](https://github.com/AlaSQL/alasql) and allowing the user to implement a search on the dataset or in the below case of Airtable, one might retrieve accounts and allow a search to be performed on the airtable API.
+You can optionally use `input.queryInput.query` to make the list searchable. One way you could do this is to import a tool like [alasql](https://github.com/AlaSQL/alasql) and allow the user to implement a search on the dataset. This example from Airtable shows how you could use the source data read command to get accounts and allow a search to be performed with the Airtable API: 
 
 ```javascript
 .stdSourceDataRead(async (context: Context, input: StdSourceDataReadInput, res: Response<StdSourceDataReadOutput>) => {
@@ -104,7 +104,7 @@ async queryAccounts(query: string): Promise<AirtableAccount[]> {
 
 ```
 
-Now if the source system sends a command like the following, they will only get a results that match the name "Adam Archer"
+Now, if the source system sends a command like the following, the system will only get results that match the name "Adam Archer":
 
 ```javascript
     "type": "std:source-data:read",

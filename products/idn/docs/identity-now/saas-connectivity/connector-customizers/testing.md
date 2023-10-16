@@ -6,26 +6,28 @@ sidebar_label: Testing and Debugging
 sidebar_position: 6
 sidebar_class_name: saasConnectivity
 keywords: ['connectivity', 'connectors', customizers]
-description: Getting started with Connectivity Customizers
+description: Test and debug connectors with customizers. 
 slug: /docs/saas-connectivity/customizers/testing
 tags: ['Connectivity']
 ---
 
-# Testing and Debugging
+# Testing and debugging
 
-### Debugging locally
+### Debug locally
 
-Debugging your code locally follows the same process as debugging a [connector locally](../in-depth/debugging). The recommended approach is to simply start a [Visual Studio Code debug window](https://code.visualstudio.com/docs/editor/debugging) and run the command:
+Debugging your code locally follows the same process that debugging a [connector locally](../in-depth/debugging) does. The recommended approach is to start a [Visual Studio Code debug window](https://code.visualstudio.com/docs/editor/debugging) and run this command:
 
 ```bash
 npm run debug
 ```
 
-Now you can set breakpoints in your code step through processes in the IDE.
+You can then set breakpoints in your code step through processes in your IDE (integrated development environment).
 
-### Testing alongside a custom connector
+### Test alongside a custom connector
 
-If you want to test alongside a SaaS custom connector, the easiest way to do this is to simply copy the customizer code into the connector code. For example, if you have a custom connector like the following:
+If you want to test alongside a SaaS custom connector, the easiest way to do so is to copy the customizer code into the connector code. 
+
+For example, you want to test this connector:
 
 ```javascript
 export const connector = async () => {
@@ -78,4 +80,4 @@ export const connectorCustomizer = async () => {
 
 ```
 
-now when you run the test-connection command, the customizer After test-connection command will also be run.
+Now, when you run the test-connection command, the customizer after the test-connection command will also run.

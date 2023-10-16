@@ -6,23 +6,24 @@ sidebar_label: Linking to a Source
 sidebar_position: 6
 sidebar_class_name: saasConnectivity
 keywords: ['connectivity', 'connectors', customizers]
-description: Getting started with Connectivity Customizers
+description: Link connectivity customizers to sources.
 slug: /docs/saas-connectivity/customizers/linking
 tags: ['Connectivity']
 ---
 
-# Linking a Customizer to a Source
+# Linking a connectivity customizer to a source
 
-### initial requirements
+### Initial requirements
 
-Before you can link a connector customizer to a source, you need to have a SaaS source in IdentityNow as well as a Customizer built and deployed. You can use the following commands to retrieve a list of valid sources as well as customizers
+Before you can link a connector customizer to a source, you must have a SaaS source in IdentityNow, as well as a Customizer built and deployed. You can use the following commands to get a list of valid sources, as well as customizers:
 
-to find sources:
+Use this command to find sources:
 
 ```bash
 sail conn instances list
 ```
-a similar looking list of instances will be returned
+This similar looking list of instances will be returned:
+
 ```bash
 +--------------------------------------+--------------------------+---------------+
 |                  ID                  |           NAME           | CUSTOMIZER ID |
@@ -34,12 +35,13 @@ a similar looking list of instances will be returned
 +--------------------------------------+--------------------------+---------------+
 ```
 
-to find customizers:
+Use this command to find customizers:
 
 ```bash
 sail conn customizers list
 ```
-a similar looking list of customizers will be returned
+This similar looking list of customizers will be returned:
+
 ```bash
 +--------------------------------------+---------------------+---------+
 |                  ID                  |        NAME         | VERSION |
@@ -48,14 +50,14 @@ a similar looking list of customizers will be returned
 +--------------------------------------+---------------------+---------+
 ```
 
-### Linking to a Source
+### Link to a source
 
-To link a source to a customizer, simply find the ID of the source from the instance list and a customizer from the customizer list and issue the following command:
+To link a source to a customizer, find the source ID in the instance list and a customizer from the customizer list. Then issue this command:
 
 ```bash
 sail conn customizers link -i edfc9bfb-b55c-482f-b1aa-b4d51caf7558 -c 7b968fab-0f40-49f0-b13b-8bf529fc0b82
 ```
-the following output will indicate the customizer has succesfully linked to the connector instance
+The output will indicate that the customizer has succesfully linked to the connector instance:
 ```bash
 +--------------------------------------+----------------------+--------------------------------------+
 |                  ID                  |         NAME         |            CUSTOMIZER ID             |
@@ -64,9 +66,9 @@ the following output will indicate the customizer has succesfully linked to the 
 +--------------------------------------+----------------------+--------------------------------------+
 ```
 
-### Unlinking from a source
+### Unlink from a source
 
-To unlink a customizer from a source, simply issue the unlink command and pass the source instance Id: 
+To unlink a customizer from a source, issue the unlink command and pass the source instance ID: 
 
 ```bash
 sail conn customizers unlink -i edfc9bfb-b55c-482f-b1aa-b4d51caf7558

@@ -4,18 +4,18 @@ title: Account List
 pagination_label: Account List
 sidebar_label: Account List
 keywords: ['connectivity', 'connectors', 'Account List']
-description: Ensure the connector can communicate with the source.
+description: Intercept the account list command.
 slug: /docs/saas-connectivity/connector-customizers/commands/account-list
 tags: ['Connectivity', 'Connector Command']
 ---
 
 ## Overview
 
-Use these commands to intercept the [account-list](../../commands/account-list) command
+Use these commands to intercept the [account-list](../../commands/account-list) command.
 
 ### Before account-list command
 
-You can implement the command by using the following logic
+Use this logic to implement the command: 
 
 ```javascript
     .beforeStdAccountList(async (context: Context, input: StdAccountListInput) => {
@@ -23,8 +23,8 @@ You can implement the command by using the following logic
         return input
     })
 ```
-The `input` object can be mutated and returned but the same data type still needs to be returned 
+The `input` object can be mutated and returned, but the same data type must still be returned.
 
 ### After account-list command
 
-After account-list is not available for customization at this time. If you need to modify the values of the response, then it is recommended to use Transforms.
+After account-list is not available for customization at this time. If you need to modify the values of the response, it is recommended that you use [Transforms](https://developer.sailpoint.com/idn/docs/transforms/).

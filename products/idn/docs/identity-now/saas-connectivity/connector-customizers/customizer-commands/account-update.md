@@ -4,18 +4,18 @@ title: Account Update
 pagination_label: Account Update
 sidebar_label: Account Update
 keywords: ['connectivity', 'connectors', 'Account Update']
-description: Ensure the connector can communicate with the source.
+description: Intercept the account update command.
 slug: /docs/saas-connectivity/connector-customizers/commands/account-update
 tags: ['Connectivity', 'Connector Command']
 ---
 
 ## Overview
 
-Use these commands to intercept the [account-update](../../commands/account-update) command
+Use these commands to intercept the [account-update](../../commands/account-update) command.
 
 ### Before account-update command
 
-You can implement the command by using the following logic
+Use this logic to implement the command: 
 
 ```javascript
     .beforeStdAccountUpdate(async (context: Context, input: StdAccountUpdateInput) => {
@@ -23,11 +23,11 @@ You can implement the command by using the following logic
         return input
     })
 ```
-The `input` object can be mutated and returned but the same data type still needs to be returned 
+The `input` object can be mutated and returned, but the same data type must still be returned.
 
 ### After account-update command
 
-You can implement the command by using the following logic
+Use this logic to implement the command: 
 
 ```javascript
     .afterStdAccountUpdate(async (context: Context, output: StdAccountUpdateOutput) => {
@@ -35,4 +35,4 @@ You can implement the command by using the following logic
         return output
     })
 ```
-The `output` object can be mutated and returned but the same data type still needs to be returned 
+The `output` object can be mutated and returned, but the same data type must still be returned.

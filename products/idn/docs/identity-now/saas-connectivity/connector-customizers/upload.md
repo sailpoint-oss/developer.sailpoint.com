@@ -6,21 +6,23 @@ sidebar_label: Build and Upload
 sidebar_position: 5
 sidebar_class_name: saasConnectivity
 keywords: ['connectivity', 'connectors', customizers]
-description: Getting started with Connectivity Customizers
+description: Build and upload connectivity customizers.
 slug: /docs/saas-connectivity/customizers/upload
 tags: ['Connectivity']
 ---
 
-# Build and Upload into Identity Now
+# Building and uploading to Identity Now
 
-### initial requirements
+### Initial requirements
 
-Before you can upload a connector customizer, you need to issue the create command to create an empty connector customizer:
+Before you can upload a connector customizer, you must issue the create command to create an empty connector customizer:
 
 ```bash
 sail conn customizers create my-connector-customizer
 ```
-This will return the customizer id
+
+This will return the customizer ID. 
+
 ```bash
 +--------------------------------------+-------------------------+---------+
 |                  ID                  |          NAME           | VERSION |
@@ -29,15 +31,15 @@ This will return the customizer id
 +--------------------------------------+-------------------------+---------+
 ```
 
-### Building
+### Build the customizer
 
-Building a connector customizer is similar to building a SaaS Connector, simply execute the command
+Building a connector customizer is similar to building a SaaS Connector. Execute this command:
 
 ```bash
 npm run pack-zip
 ```
 
-After the build is complete, you should see a message similar to the following:
+After the build is complete, you will see a message like this:
 
 ```bash
 > my-connector-customizer@0.1.0 pack-zip
@@ -46,9 +48,9 @@ After the build is complete, you should see a message similar to the following:
 Connector zip file created under dist folder: my-connector-customizer-0.1.0.zip
 ```
 
-### Uploading to IdentityNow
+### Upload to IdentityNow
 
-To upload to IdentityNow, simply use the upload command:
+To upload the customizer to IdentityNow, use the upload command:
 
 ```bash
 sail conn customizers upload -c 7b968fab-0f40-49f0-b13b-8bf529fc0b82 -f .\dist\my-connector-customizer-0.1.0.zip

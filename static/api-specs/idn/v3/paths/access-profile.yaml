@@ -188,5 +188,55 @@ patch:
       $ref: '../../v3/responses/500.yaml'
   security:
     - UserContextAuth: [idn:access-profile:manage]
+delete:
+  operationId: deleteAccessProfile
+  tags:
+    - Access Profiles
+  summary: Delete the specified Access Profile
+  description: >-
+    This API deletes an existing Access Profile.
 
+
+    The Access Profile must not be in use, for example, Access Profile can not be deleted if they belong to an Application, Life Cycle State or a Role. If it is, a 400 error is returned.
+
+
+    A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to invoke this API. In addition,
+    a SOURCE_SUBADMIN token must be able to administer the Source associated with the Access Profile.
+  parameters:
+    - name: id
+      in: path
+      description: ID of the Access Profile to delete
+      required: true
+      schema:
+        type: string
+        example: 2c91808a7813090a017814121919ecca
+  responses:
+    '204':
+      $ref: "../../v3/responses/204.yaml"
+    '400':
+      description: Returned when an access profile cannot be deleted as it's being used.
+      content:
+        application/json:
+          schema:
+            $ref: '../../v3/schemas/ErrorResponseDto.yaml'
+          examples:
+            400.2.1.0 Object in use by another:
+              description: Returned when an access profile cannot be deleted as it's being used
+              value:
+                detailCode: 400.2.1.0 Object in use by another
+                trackingId: c9c1033c55b84ebc9e93e926dcf8b8b3
+                messages:
+                  - locale: en-US
+                    localeOrigin: DEFAULT
+                    text: The "testAccessProfile" access profile can't be deleted because it's in use.
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [idn:access-profile:manage]
   

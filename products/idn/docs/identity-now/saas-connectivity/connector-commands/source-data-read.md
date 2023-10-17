@@ -90,7 +90,7 @@ You can optionally use `input.queryInput.query` to make the list searchable. One
 async queryAccounts(query: string): Promise<AirtableAccount[]> {
     return this.airTableBase('Users').select({
         view: 'Grid view',
-        filterByFormula: query
+        filterByFormula: `SEARCH(LOWER("${query}"), LOWER(displayName)) > 0`
     }).firstPage().then(records => {
         const recordArray: Array<AirtableAccount> = []
         for (const record of records) {
@@ -104,13 +104,13 @@ async queryAccounts(query: string): Promise<AirtableAccount[]> {
 
 ```
 
-Now, if the source system sends a command like the following, the system will only get results that match the name "Adam Archer":
+Now, if the source system sends a command like the following, the system will only get results that contain the name "Adam":
 
 ```javascript
     "type": "std:source-data:read",
     "input": {
         "queryInput": {
-            "query": "filterByFormula=({displayName} = 'Adam Archer')"
+            "query": "Adam"
         }
     },
 ```

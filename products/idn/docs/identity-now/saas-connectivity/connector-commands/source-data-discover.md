@@ -85,7 +85,7 @@ You can optionally use `input.queryInput.query` to make the list searchable. One
     ]
 
     if (input.queryInput?.query) {
-        let result = alasql(input.queryInput?.query, [data] );
+        let result = alasql(`select * from ? where key like('%${input.queryInput?.query}%')`, [data] );
         res.send(result)
     } else {
         res.send(data)
@@ -93,14 +93,14 @@ You can optionally use `input.queryInput.query` to make the list searchable. One
 })
 ```
 
-Now, if the source system sends a command like the following, they will only get the "name" back:
+Now, if the source system sends a command like the following, they will only get fields that contain the name "name" back:
 
 ```javascript
     "type": "std:source-data:discover",
     "input": {
         "sourceDataKey": "id",
         "queryInput": {
-            "query": "select * from ? where key = 'name'"
+            "query": "name"
         }
     },
 ```

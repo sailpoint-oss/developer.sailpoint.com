@@ -1,0 +1,13 @@
+type: object
+allOf:
+  - $ref: "./BasicPermission.yaml"
+  - type: object
+    properties:
+      created_at:
+        type: string
+        format: date
+        example: "2022-10-12T12:47:13-04:00"
+      updated_at:
+        type: string
+        format: date
+        example: "2022-10-12T12:47:13-04:00"

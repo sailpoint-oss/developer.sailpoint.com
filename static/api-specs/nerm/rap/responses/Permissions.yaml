@@ -1,0 +1,10 @@
+description: Permissions
+content:
+  application/json:
+    schema:
+      properties:
+        permissions:
+          type: array
+          items:
+            type: object
+            $ref: '../schemas/Permission.yaml'

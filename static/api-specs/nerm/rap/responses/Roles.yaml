@@ -1,0 +1,10 @@
+description: Roles
+content:
+  application/json:
+    schema:
+      properties:
+        roles:
+          type: array
+          items:
+            type: object
+            $ref: '../schemas/Role.yaml'

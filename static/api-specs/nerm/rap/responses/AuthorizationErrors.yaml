@@ -1,0 +1,8 @@
+description: Authorization
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        type: object
+        $ref: '../schemas/Authorization.yaml'

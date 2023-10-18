@@ -1,0 +1,18 @@
+type: object
+properties:
+  subject:
+    type: integer
+    format: int64
+    example: 1
+  subject_id:
+    type: string
+    format: uuid
+    example: "e1b74550-5a46-4680-a0d0-e843d00d4e97"
+  user_id:
+    type: string
+    format: uuid
+    example: "ea1a2e0b-91d1-4724-93f9-29f29ca7a8bd"
+  value:
+    type: integer
+    format: int64
+    example: 3

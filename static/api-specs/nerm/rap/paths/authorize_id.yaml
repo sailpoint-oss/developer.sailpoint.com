@@ -1,0 +1,9 @@
+post:
+  summary: Check authorization
+  operationId: getAuthorization
+  description: Determines if the user has access to a thing.
+  tags:
+    - authorizations
+  responses:
+    '200':
+      $ref: "../responses/Authorization.yaml"

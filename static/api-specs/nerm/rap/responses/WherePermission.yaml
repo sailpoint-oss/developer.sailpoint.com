@@ -1,0 +1,14 @@
+description: Permissions
+content:
+  application/json:
+    schema:
+      properties:
+        oneOf:
+          permissions:
+            type: array
+            items:
+              type: object
+              $ref: '../schemas/Permission.yaml'
+          permissions:
+            type: object
+            $ref: '../schemas/WherePermission.yaml'

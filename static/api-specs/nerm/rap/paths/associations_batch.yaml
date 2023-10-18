@@ -1,0 +1,27 @@
+post:
+  summary: Bulk create associations
+  operationId: postAssociations
+  description: Create many associations at once.
+  tags:
+    - associations
+  responses:
+    '201':
+      $ref: "../responses/Associations.yaml"
+patch:
+  summary: Bulk update associations
+  operationId: patchAssociations
+  description: Delete many associations at once.
+  tags:
+    - associations
+  responses:
+    '200':
+      $ref: "../responses/Associations.yaml"
+delete:
+  summary: Bulk delete associations
+  operationId: deleteAssociations
+  description: Delete many associations at once.
+  tags:
+    - associations
+  responses:
+    '200':
+      $ref: "../responses/Associations.yaml"

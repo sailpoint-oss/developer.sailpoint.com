@@ -1,0 +1,21 @@
+Association:
+  $ref: './Association.yaml'
+Authorization:
+  $ref: './Authorization.yaml'
+Authorizations:
+  $ref: './Authorizations.yaml'
+BasicAssociation:
+  $ref: './BasicAssociation.yaml'
+BassicPermission:
+  $ref: './BassicPermission.yaml'
+BasicRole:
+  $ref: './BasicRole.yaml'
+Permission:
+  $ref: './Permission.yaml'
+Role:
+  $ref: './Role.yaml'
+Url:
+  $ref: './Url.yaml'
+WherePermission:
+  $ref: './WherePermission.yaml'
+  

@@ -1,0 +1,30 @@
+get:
+  summary: Get permissions
+  operationId: getPermissions
+  description: Fetches permissions in the system.
+  tags:
+    - permissions
+  responses:
+    '200':
+      $ref: "../responses/Permissions.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '404':
+      $ref: "../responses/404.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+post:
+  summary: Create permission
+  operationId: createPermission
+  description: Creates a permission. Grants a role identified by role_id access defined by value for a subject identified by subject_id.
+  tags:
+    - permissions
+  responses:
+    '201':
+      $ref: "../responses/Permission.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '404':
+      $ref: "../responses/404.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

@@ -48,13 +48,27 @@ module.exports = [
     '@docusaurus/plugin-content-docs',
     {
       id: 'nerm',
-      path: 'products/nerm',
-      routeBasePath: 'nerm',
+      path: 'products/nerm/ids',
+      routeBasePath: 'nerm/ids',
       editUrl:
         'https://github.com/sailpoint-oss/developer-community-site/edit/main/',
       showLastUpdateAuthor: true,
       showLastUpdateTime: true,
-      sidebarPath: require.resolve('./products/nerm/sidebar.js'),
+      sidebarPath: require.resolve('./products/nerm/ids/sidebar.js'),
+      docItemComponent: '@theme/ApiItem',
+    },
+  ],
+  [
+    '@docusaurus/plugin-content-docs',
+    {
+      id: 'rap',
+      path: 'products/nerm/rap',
+      routeBasePath: 'nerm/rap',
+      editUrl:
+        'https://github.com/sailpoint-oss/developer-community-site/edit/main/',
+      showLastUpdateAuthor: true,
+      showLastUpdateTime: true,
+      sidebarPath: require.resolve('./products/nerm/rap/sidebar.js'),
       docItemComponent: '@theme/ApiItem',
     },
   ],
@@ -113,14 +127,23 @@ module.exports = [
       docsPluginId: 'nerm',
       config: {
         nerm: {
-          specPath: 'static/api-specs/nerm/openapi.yaml',
-          outputDir: 'products/nerm/api',
+          specPath: 'static/api-specs/nerm/ids/openapi.yaml',
+          outputDir: 'products/nerm/ids/api',
           sidebarOptions: {
             groupPathsBy: 'tag',
             categoryLinkSource: 'tag',
           },
           template: 'api.mustache',
         },
+        rap: {
+          specPath: 'static/api-specs/nerm/rap/openapi.yaml',
+          outputDir: 'products/nerm/rap/api',
+          sidebarOptions: {
+            groupPathsBy: 'tag',
+            categoryLinkSource: 'tag',
+          },
+          template: 'api.mustache',
+        }
       },
     },
   ]

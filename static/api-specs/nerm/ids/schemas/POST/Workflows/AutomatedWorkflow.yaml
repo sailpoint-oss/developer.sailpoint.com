@@ -1,0 +1,22 @@
+type: object
+properties:
+  profile_type_id:
+    type: string
+    format: uuid
+    required: true
+  status:
+    type: string
+    enum: [Enabled, Disabled]
+    required: true
+  uid:
+    type: string
+    required: true
+  name:
+    type: string
+    required: true
+  condition_rule_ids:
+    type: array
+    items:
+      type: string
+      format: uuid
+    description: The ProfileTypeRule this workflow will be working with.

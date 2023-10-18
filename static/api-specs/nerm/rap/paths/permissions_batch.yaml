@@ -1,0 +1,27 @@
+post:
+  summary: Bulk create permissions
+  operationId: postPermissions
+  description: Create many permissions at once.
+  tags:
+    - permissions
+  responses:
+    '201':
+      $ref: "../responses/Permissions.yaml"
+patch:
+  summary: Bulk update permissions
+  operationId: patchPermissions
+  description: Delete many permissions at once.
+  tags:
+    - permissions
+  responses:
+    '200':
+      $ref: "../responses/WherePermission.yaml"
+delete:
+  summary: Bulk delete permissions
+  operationId: deletePermissions
+  description: Delete many permissions at once.
+  tags:
+    - permissions
+  responses:
+    '200':
+      $ref: "../responses/WherePermission.yaml"

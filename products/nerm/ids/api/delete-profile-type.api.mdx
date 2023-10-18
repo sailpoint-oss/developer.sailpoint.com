@@ -1,0 +1,39 @@
+---
+id: delete-profile-type
+sidebar_label: Delete profile type
+hide_title: true
+hide_table_of_contents: true
+api: {"operationId":"deleteProfileType","description":"Delete a profile type. All profiles of that type must first be destroyed before the profile type can be destroyed.","tags":["profile types"],"parameters":[{"name":"id","in":"path","description":"ID of the object to retrieve, update, or delete","required":true,"schema":{"type":"string","format":"uuid","example":"1246d8b3-ac29-4015-8154-dea4434a73fa"}}],"responses":{"200":{"description":"Info about the operation","content":{"application/json":{"schema":{"type":"object","properties":{"info":{"description":"A message confirming the operation","example":"object deleted"}}}}}},"400":{"description":"Bad Request - unable to complete.","content":{"application/json":{"schema":{"oneOf":[{"type":"object","properties":{"error":{"example":"Invalid JSON syntax. Please check your syntax and try again."}}},{"type":"object","properties":{"error":{"example":"The <object> failed to create/update"},"errors":{"example":{"attribute":"can't be blank"}}}}]}}}},"500":{"description":"Internal Server Error - returned on unhandled exceptions.","content":{"application/json":{"schema":{"type":"object","properties":{"error":{"description":"A message describing the error","example":"Sorry something went wrong"}}}}}}},"method":"delete","path":"/profile_types/{id}","servers":[{"url":"https://{tenantName}.nonemployee.com/api","variables":{"tenantName":{"default":"acmeco","description":"Tenant name assigned to customer"}}}],"security":[{"bearerAuth":[]}],"securitySchemes":{"bearerAuth":{"type":"http","scheme":"bearer","bearerFormat":"Token token=your token"}},"info":{"version":"1.0.0","title":"SecZetta Lifecycle API","description":"The Lifecycle API can be used to access and modify various resources in your environment.","license":{"name":"MIT"}},"postman":{"name":"Delete profile type","description":{"content":"Delete a profile type. All profiles of that type must first be destroyed before the profile type can be destroyed.","type":"text/plain"},"url":{"path":["profile_types",":id"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) ID of the object to retrieve, update, or delete","type":"text/plain"},"type":"any","value":"","key":"id"}]},"header":[{"key":"Accept","value":"application/json"}],"method":"DELETE"}}
+sidebar_class_name: "delete api-method"
+info_path: nerm/ids/api/seczetta-lifecycle-api
+custom_edit_url: "https://github.com/sailpoint-oss/developer.sailpoint.com/issues/new?assignees=&labels=&template=bug-report.md&title=%5BBug%5D+Your+Bug+Report+Here Requesting changes to 'Delete profile type' (delete-profile-type)"
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Delete profile type
+
+
+
+Delete a profile type. All profiles of that type must first be destroyed before the profile type can be destroyed.
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"id","in":"path","description":"ID of the object to retrieve, update, or delete","required":true,"schema":{"type":"string","format":"uuid","example":"1246d8b3-ac29-4015-8154-dea4434a73fa"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Info about the operation
+
+</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"info"} required={false} deprecated={undefined} schemaDescription={"A message confirming the operation"} schemaName={""} qualifierMessage={undefined} defaultValue={undefined}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"info\": \"object deleted\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request - unable to complete.
+
+</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div><div><span className={"badge badge--info"}>oneOf</span><SchemaTabs><TabItem label={"MOD1"} value={"0-item-properties"}><SchemaItem collapsible={false} name={"error"} required={false} deprecated={undefined} schemaDescription={undefined} schemaName={""} qualifierMessage={undefined} defaultValue={undefined}></SchemaItem></TabItem><TabItem label={"MOD2"} value={"1-item-properties"}><SchemaItem collapsible={false} name={"error"} required={false} deprecated={undefined} schemaDescription={undefined} schemaName={""} qualifierMessage={undefined} defaultValue={undefined}></SchemaItem><SchemaItem collapsible={false} name={"errors"} required={false} deprecated={undefined} schemaDescription={undefined} schemaName={""} qualifierMessage={undefined} defaultValue={undefined}></SchemaItem></TabItem></SchemaTabs></div></div></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"error\": \"Invalid JSON syntax. Please check your syntax and try again.\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"500"} value={"500"}><div>
+
+Internal Server Error - returned on unhandled exceptions.
+
+</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"error"} required={false} deprecated={undefined} schemaDescription={"A message describing the error"} schemaName={""} qualifierMessage={undefined} defaultValue={undefined}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"error\": \"Sorry something went wrong\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div>

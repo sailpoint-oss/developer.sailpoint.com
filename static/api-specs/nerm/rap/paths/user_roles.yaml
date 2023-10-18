@@ -1,0 +1,9 @@
+get:
+  summary: Get user roles
+  operationId: getUserRoles
+  description: Fetches roles associated with the user.
+  tags:
+    - userAssociations
+  responses:
+    '200':
+      $ref: "../responses/Associations.yaml"

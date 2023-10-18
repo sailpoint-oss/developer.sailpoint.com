@@ -1,0 +1,24 @@
+get:
+  summary: Get role
+  operationId: getRole
+  description: Fetches a role in the system.
+  tags:
+    - roles
+  responses:
+    '200':
+      $ref: "../responses/Roles.yaml"
+patch:
+  summary: Update role
+  operationId: updateRole
+  description: Updates a role.
+  tags:
+    - roles
+  responses:
+    '200':
+      $ref: "../responses/Role.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '404':
+      $ref: "../responses/404.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

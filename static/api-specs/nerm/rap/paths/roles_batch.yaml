@@ -1,0 +1,18 @@
+post:
+  summary: Bulk create roles
+  operationId: postRoles
+  description: Create many roles at once.
+  tags:
+    - roles
+  responses:
+    '201':
+      $ref: "../responses/Roles.yaml"
+patch:
+  summary: Bulk update roles
+  operationId: patchRoles
+  description: Delete many roles at once.
+  tags:
+    - roles
+  responses:
+    '200':
+      $ref: "../responses/Roles.yaml"

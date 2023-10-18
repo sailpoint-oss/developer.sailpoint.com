@@ -1,0 +1,18 @@
+get:
+  summary: Get association
+  operationId: getAssociation
+  description: Fetches a association in the system.
+  tags:
+    - associations
+  responses:
+    '200':
+      $ref: "../responses/Associations.yaml"
+delete:
+  summary: Delete association
+  operationId: deleteAssociation
+  description: Deletes an association by ID.
+  tags:
+    - associations
+  responses:
+    '200':
+      $ref: "../responses/Association.yaml"

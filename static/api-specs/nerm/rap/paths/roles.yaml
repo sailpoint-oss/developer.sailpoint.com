@@ -1,0 +1,30 @@
+get:
+  summary: Get roles
+  operationId: getRoles
+  description: Fetches roles in the system.
+  tags:
+    - roles
+  responses:
+    '200':
+      $ref: "../responses/Roles.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '404':
+      $ref: "../responses/404.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+post:
+  summary: Create role
+  operationId: createRole
+  description: Creates a role.
+  tags:
+    - roles
+  responses:
+    '201':
+      $ref: "../responses/Role.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '404':
+      $ref: "../responses/404.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

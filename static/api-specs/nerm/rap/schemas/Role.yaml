@@ -1,0 +1,21 @@
+# type: object
+# allOf:
+#   - $ref: "./BasicRole.yaml"
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+    example: "c9dea78a-cb8a-4a3e-af5f-1708317324d5"
+  archived_on:
+    type: string
+    format: date
+    example: "2022-10-12T12:47:13-04:00"
+  created_at:
+    type: string
+    format: date
+    example: "2022-10-12T12:47:13-04:00"
+  updated_at:
+    type: string
+    format: date
+    example: "2022-10-12T12:47:13-04:00"

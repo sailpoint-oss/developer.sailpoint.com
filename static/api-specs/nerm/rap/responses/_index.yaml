@@ -1,0 +1,25 @@
+Association:
+  $ref: './Association.yaml'
+Associations:
+  $ref: './Associations.yaml'
+Authorization:
+  $ref: './Authorization.yaml'
+AuthorizationErrors:
+  $ref: './AuthorizationErrors.yaml'
+Authorizations:
+  $ref: './Authorizations.yaml'
+InvalidJson:
+  $ref: './InvalidJson.yaml'
+ValidationErrors:
+  $ref: './ValidationErrors.yaml'
+Permission:
+  $ref: './Permission.yaml'
+Permissions:
+  $ref: './Permissions.yaml'
+Role:
+  $ref: './Role.yaml'
+Roles:
+  $ref: './Roles.yaml'
+WherePermission:
+  $ref: './WherePermission.yaml'
+  

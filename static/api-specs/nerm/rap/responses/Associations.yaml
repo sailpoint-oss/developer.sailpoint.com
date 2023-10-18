@@ -1,0 +1,10 @@
+description: Associations
+content:
+  application/json:
+    schema:
+      properties:
+        associations:
+          type: array
+          items:
+            type: object
+            $ref: '../schemas/Association.yaml'

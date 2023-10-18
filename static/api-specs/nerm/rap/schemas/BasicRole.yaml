@@ -1,0 +1,26 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+    example: "e1b74550-5a46-4680-a0d0-e843d00d4e97"
+  name:
+    type: string
+    example: "My awesome role"
+  groups:
+    type: string
+    example: "admins,users"
+  uid:
+    type: string
+    example: "my_awesome_role"
+  role_type:
+    type: integer
+    format: int64
+    example: 1
+  allow_empty_groups_strings:
+    type: boolean
+    example: false
+  archived_on:
+    type: string
+    format: date
+    example: "2023-01-27T11:10:33-05:00"

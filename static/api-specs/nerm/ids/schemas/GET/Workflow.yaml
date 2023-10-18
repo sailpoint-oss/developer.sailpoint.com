@@ -1,0 +1,67 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+    readOnly: true
+  archived:
+    type: boolean
+    default: false
+  archived_on:
+    type: string
+    format: date-time
+  created_at:
+    type: string
+    format: date-time
+    readOnly: true
+  description:
+    type: string
+  legacy_id:
+    type: string
+    format: uuid
+  name:
+    type: string
+  ne_attribute_id:
+    type: string
+    format: uuid
+  options:
+    type: object
+    properties:
+      all_profiles:
+        type: string
+        enum: ["true", "false"]
+      multiple_requests:
+        type: string
+        enum: ["true", "false"]
+      expiration_time:
+        type: integer
+        minimum: 1
+  position:
+    type: integer
+    minimum: 1
+  profile_status:
+    type: string
+  profile_type_id:
+    type: string
+    format: uuid
+  runs_other_workflows:
+    type: boolean
+    default: false
+  status:
+    type: string
+    enum: [Enabled, Disabled]
+  uid:
+    type: string
+    minLength: 32
+    maxLength: 32
+    readOnly: true
+  updated_at:
+    type: string
+    format: date-time
+    readOnly: true
+  url:
+    type: string
+    format: uuid
+  allow_block_permissions:
+    type: boolean
+    default: false

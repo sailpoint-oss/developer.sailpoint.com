@@ -1,0 +1,55 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: SecZetta Roles and Permissions API
+  description: The Roles and Permissions API can be used to access and modify various resources in your environment.
+  license:
+    name: MIT
+
+servers:
+  - url: https://{tenantName}.nonemployee.com/internal
+    variables:
+      tenantName:
+        default: acmeco
+        description: Tenant name assigned to customer
+
+paths:
+# # Roles
+#   /roles:
+#     $ref: "./paths/roles.yaml"
+#   /roles/{id}:
+#     $ref: "./paths/roles_id.yaml"
+#   /roles/batch:
+#     $ref: "./paths/roles_batch.yaml"
+# # Permissions
+  # /permissions:
+  #   $ref: "./paths/permissions.yaml"
+#   /permissions/batch:
+#     $ref: "./paths/permissions_batch.yaml"
+# # Associations
+  /associations:
+    $ref: "./paths/associations.yaml"
+  /associations/{id}:
+    $ref: "./paths/associations_id.yaml"
+#   /associations/batch:
+#     $ref: "./paths/associations_batch.yaml"
+# # Authorization
+#   /authorize:
+#     $ref: "./paths/authorize.yaml"
+#   /authorize/{user_id}:
+#     $ref: "./paths/authorize_id.yaml"
+# # Users
+#   /associations/users/{user_id}/role_profiles:
+#     $ref: "./paths/role_profiles.yaml"
+#   /associations/users/{user_id}/user_roles:
+#     $ref: "./paths/user_roles.yaml"
+
+security:
+  - bearerAuth : []
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: Token token=your token

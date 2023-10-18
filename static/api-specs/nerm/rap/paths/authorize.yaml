@@ -1,0 +1,15 @@
+get:
+  summary: Get all authorizations
+  operationId: getAuthorizations
+  description: Fetches all the objects the user has access to with the level of access
+  tags:
+    - authorizations
+  responses:
+    '200':
+      $ref: "../responses/Authorizations.yaml"
+    '400': #bad request
+      $ref: "../responses/AuthorizationErrors.yaml"
+    '403': #forbidden
+      $ref: "../responses/Authorization.yaml"
+    '422': #unprocessable entity
+      $ref: "../responses/AuthorizationErrors.yaml"

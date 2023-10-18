@@ -1,0 +1,18 @@
+type: object
+properties:
+  subject:
+    type: integer
+    format: int64
+    example: 2
+  subject_id:
+    type: string
+    format: uuid
+    example: "e1b74550-5a46-4680-a0d0-e843d00d4e97"
+  value:
+    type: integer
+    format: int64
+    example: 3
+  role_id:
+    type: string
+    format: uuid
+    example: "f2b74550-5a46-4680-a0d0-e843d00d4e98"

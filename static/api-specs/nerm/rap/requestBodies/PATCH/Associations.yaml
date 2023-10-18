@@ -1,0 +1,11 @@
+required: true
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        roles:
+          type: array
+          items:
+            type: object
+            $ref: "../../schemas/Association.yaml"

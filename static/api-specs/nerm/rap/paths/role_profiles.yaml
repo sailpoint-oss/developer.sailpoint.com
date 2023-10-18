@@ -1,0 +1,9 @@
+get:
+  summary: Get user role profiles
+  operationId: getRoleProfiles
+  description: Fetches profile associates from the roles that the user has.
+  tags:
+    - userAssociations
+  responses:
+    '200':
+      $ref: "../responses/Roles.yaml"

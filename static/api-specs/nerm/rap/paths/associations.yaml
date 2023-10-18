@@ -1,0 +1,30 @@
+get:
+  summary: Get associations
+  operationId: getAssociations
+  description: Fetches associations for either a subject, subject_id, or role_id.  At least one needs to be provided.
+  tags:
+    - associations
+  responses:
+    '200':
+      $ref: "../responses/Associations.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '404':
+      $ref: "../responses/404.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+post:
+  summary: Create association
+  operationId: createAssociation
+  description: Creates an association. Associating a role identified by role_id with a foreign entity of type identified by subject with an id of subject_id.
+  tags:
+    - associations
+  responses:
+    '201':
+      $ref: "../responses/Association.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '404':
+      $ref: "../responses/404.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

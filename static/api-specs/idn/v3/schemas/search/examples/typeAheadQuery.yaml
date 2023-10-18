@@ -8,3 +8,5 @@ value:
     query: 'Jo'
     maxExpansions: 50
     size: 100
+    sort: 'desc'
+    sortByValue: false

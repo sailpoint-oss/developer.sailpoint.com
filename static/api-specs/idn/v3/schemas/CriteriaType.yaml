@@ -1,0 +1,15 @@
+type: string
+enum:
+  - COMPOSITE
+  - ROLE
+  - IDENTITY
+  - IDENTITY_ATTRIBUTE
+  - ENTITLEMENT
+  - INVALID_CERTIFIABLE_ENTITY
+  - ACCESS_PROFILE
+  - SOURCE
+  - ACCOUNT
+  - INVALID_CERTIFIABLE_BUNDLE
+  - AGGREGATED_ENTITLEMENT
+description: Type of the criteria in the filter.
+example: IDENTITY_ATTRIBUTE

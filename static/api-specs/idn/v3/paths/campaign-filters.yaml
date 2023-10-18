@@ -1,0 +1,32 @@
+post:
+  operationId: createCampaignFilter
+  tags:
+    - Certification Campaign Filters
+  summary: Create a Campaign Filter
+  description: >-
+    Create a campaign Filter based on filter details and criteria.
+  security:
+    - UserContextAuth: [ idn:campaign-filter:create ]
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/CampaignFilterDetails.yaml'
+  responses:
+    '200':
+      description: Created successfully.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/CampaignFilterDetails.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

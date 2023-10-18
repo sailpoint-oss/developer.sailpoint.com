@@ -9,3 +9,5 @@ value:
     query: 'Work'
     maxExpansions: 50
     size: 100
+    sort: 'desc'
+    sortByValue: false

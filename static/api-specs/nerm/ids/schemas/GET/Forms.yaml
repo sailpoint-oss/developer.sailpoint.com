@@ -1,0 +1,24 @@
+type: object
+properties:
+  uid:
+    type: string   
+    description: The uid of the form
+    example: form_uid
+  description:
+    type: text    
+    example: Form for creating new profile
+    description: The description of the form
+  name:
+    type: string    
+    example: My Form Name
+    description: The name of the form
+  archived:
+    type: boolean    
+    example: false
+    description: Determines whether the form is archived
+  id:
+    type: string
+    format: uuid
+    readOnly: true
+    description: The id of the form
+    example: 2e06b876-f456-473d-bd65-b6435e0b6b2d

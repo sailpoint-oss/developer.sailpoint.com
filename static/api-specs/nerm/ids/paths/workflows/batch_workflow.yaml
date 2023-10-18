@@ -1,11 +1,9 @@
 post:
   summary: Create a batch workflow
-  operationId: postBatchWorkflow
+  operationId: createBatchWorkflow
   description: Create a batch workflow
   tags:
     - workflows
-  parameters:
-    - $ref: "../../parameters/query/run.yaml"
   requestBody:
     $ref: "../../requestBodies/POST/Workflows/BatchWorkflow.yaml"
   responses:

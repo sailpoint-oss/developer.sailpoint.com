@@ -1,11 +1,9 @@
 post:
   summary: Create an automated workflow
-  operationId: postAutomatedWorkflow
+  operationId: createAutomatedWorkflow
   description: Create an automated workflow
   tags:
     - workflows
-  parameters:
-    - $ref: "../../parameters/query/run.yaml"
   requestBody:
     $ref: "../../requestBodies/POST/Workflows/AutomatedWorkflow.yaml"
   responses:

@@ -1,11 +1,9 @@
 post:
   summary: Create an update workflow
-  operationId: postUpdateWorkflow
+  operationId: createUpdateWorkflow
   description: Create an update workflow
   tags:
     - workflows
-  parameters:
-    - $ref: "../../parameters/query/run.yaml"
   requestBody:
     $ref: "../../requestBodies/POST/Workflows/UpdateWorkflow.yaml"
   responses:

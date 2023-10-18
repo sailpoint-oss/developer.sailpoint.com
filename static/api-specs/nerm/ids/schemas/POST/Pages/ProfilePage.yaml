@@ -1,0 +1,18 @@
+type: object
+properties:
+  uid:
+    type: string   
+    description: The uid of the page
+    example: page_uid
+  description:
+    type: text    
+    example: Page for workflow
+    description: The description of the page
+  name:
+    type: string    
+    example: My Page Name
+    description: The name of the page
+  archived:
+    type: boolean    
+    example: false
+    description: Determines whether the page is archived

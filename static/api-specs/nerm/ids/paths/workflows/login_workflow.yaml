@@ -1,11 +1,9 @@
 post:
-  summary: Create a password reset workflow
-  operationId: postPasswordUpdateWorkflow
-  description: Create a password reset workflow
+  summary: Create a login workflow
+  operationId: createLoginWorkflow
+  description: Create a login workflow
   tags:
     - workflows
-  parameters:
-    - $ref: "../../parameters/query/run.yaml"
   requestBody:
     $ref: "../../requestBodies/POST/Workflows/LoginWorkflow.yaml"
   responses:

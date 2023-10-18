@@ -1,0 +1,38 @@
+get:
+  operationId: getCampaignTemplateSchedule
+  tags:
+    - Certification Campaigns
+  summary: Gets a Campaign Template's Schedule
+  description: >-
+    Gets the schedule for a campaign template. Returns a 404 if there is no schedule set.
+  security:
+    - UserContextAuth: [ idn:campaign-template:read ]
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The ID of the campaign template whose schedule is being fetched.
+      example: "04bedce387bd47b2ae1f86eb0bb36dee"
+  responses:
+    '200':
+      description: >-
+        The current schedule for the campaign template. See the PUT endpoint documentation for
+        more examples.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Schedule.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

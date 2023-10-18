@@ -7,6 +7,7 @@ get:
     Gets the schedule for a campaign template. Returns a 404 if there is no schedule set.
   security:
     - UserContextAuth: [ idn:campaign-template:read ]
+  deprecated: true
   parameters:
     - in: path
       name: id

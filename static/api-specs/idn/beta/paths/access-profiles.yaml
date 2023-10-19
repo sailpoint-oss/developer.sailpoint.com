@@ -54,6 +54,9 @@ get:
 
 
         **source.id**: *eq, in*
+        
+        
+        Composite operators supported: *and, or*
       example: name eq "SailPoint Support"
       required: false
     - in: query

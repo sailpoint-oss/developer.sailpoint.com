@@ -44,6 +44,15 @@ get:
         Mutually exclusive with *requested-for* and *requested-by*.
       required: false
     - in: query
+      name: assigned-to
+      schema:
+        type: string
+      example: 2c9180877b2b6ea4017b2c545f971429
+      description: >-
+        Filter the results by the specified identity which is the
+        owner of the Identity Request Work Item. *me* indicates the current user.
+      required: false
+    - in: query
       name: count
       description: >-
         If *true* it will populate the *X-Total-Count* response header with the

@@ -123,6 +123,7 @@ These filter operators apply directly to fields and their values:
 | `lt` | True if the value of the field indicated by the first operand is less than the value specified by the second operand. | daysUntilEscalation lt 7 name lt "Genaro" created lt 2018-12-18T23:05:55Z |
 | `ne` | True if the value of the field indicated by the first operand is not equal to the value specified by the second operand. | type ne "ROLE" |
 | `pr` | True if the field is present, that is, not null. | pr accountRequestInfo |
+| `isnull` | True if the field is null. | lastUsed isnull |
 | `sw` | True if the value of the field starts with the specified value.(Applicable to string-valued fields only.) | name sw "Rajesh" |
 
 ### Composite Operators

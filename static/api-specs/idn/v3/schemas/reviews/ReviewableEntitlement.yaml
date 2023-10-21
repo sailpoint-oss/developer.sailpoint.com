@@ -17,6 +17,7 @@ properties:
   privileged:
     type: boolean
     example: false
+    default: false
     description: Indicates if the entitlement is a privileged entitlement
   owner:
     $ref: '../IdentityReferenceWithNameAndEmail.yaml'
@@ -43,19 +44,30 @@ properties:
   hasPermissions:
     type: boolean
     description: Indicates if the entitlement has permissions
+    default: false
     example: false
   isPermission:
     type: boolean
     description: Indicates if the entitlement is a representation of an account permission
     example: false
+    default: false
   revocable:
     type: boolean
     description: Indicates whether the entitlement can be revoked
     example: true
+    default: false
   cloudGoverned:
     type: boolean
     description: True if the entitlement is cloud governed
     example: false
+    default: false
+  containsDataAccess:
+    type: boolean
+    description: True if the entitlement has DAS data
+    default: false
+    example: true
+  dataAccess:
+    $ref: '../DataAccess.yaml'
   account:
     type: object
     nullable: true
@@ -69,10 +81,12 @@ properties:
         type: boolean
         example: false
         description: Indicates whether this account is currently disabled
+        default: false
       locked:
         type: boolean
         example: false
         description: Indicates whether this account is currently locked
+        default: false
       type:
         $ref: '../DtoType.yaml'
       id:

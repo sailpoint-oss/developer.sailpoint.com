@@ -24,7 +24,9 @@ const config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
-
+  customFields:{
+    mendableAnonKey: "15da600e-73b1-46dc-8d66-a73033c08ba0",
+  },
   presets: [
     [
       'classic',
@@ -50,13 +52,7 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      algolia: {
-        appId: 'TB01H1DFAM',
-        apiKey: '726952a7a9389c484b6c96808a3e0010',
-        indexName: 'prod_DEVELOPER_SAILPOINT_COM',
-        searchPagePath: false,
-        placeholder: 'Search the Developer Community',
-      },
+
       docs: {
         sidebar: {
           hideable: true,

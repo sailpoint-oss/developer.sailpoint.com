@@ -12,6 +12,8 @@ post:
     5. Potentially clean-up identity processing errors, assuming the error has been resolved.
     
     To learn more, refer to the [identity processing documentation](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html).
+
+    A token with ORG_ADMIN or HELPDESK authority is required to call this API.
   security:
     - UserContextAuth:
         - "idn:identity:manage"
@@ -27,7 +29,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: "../schemas/BaseReferenceDto.yaml"
+            $ref: "../schemas/TaskResultResponse.yaml"
     "400":
       $ref: "../../v3/responses/400.yaml"
     "401":

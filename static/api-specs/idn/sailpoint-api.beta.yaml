@@ -1235,10 +1235,14 @@ paths:
     $ref: './beta/paths/mail-from-attributes.yaml'
   /mail-from-attributes/{identity}:
     $ref: './beta/paths/mail-from-attribute.yaml'
-  /mfa/{method}/config:
-    $ref: './beta/paths/mfa-config.yaml'
+  /mfa/okta-verify/config:
+    $ref: './beta/paths/mfa-okta-config.yaml'
+  /mfa/duo-web/config:
+    $ref: './beta/paths/mfa-duo-config.yaml'
   /mfa/{method}/test:
     $ref: './beta/paths/mfa-config-test.yaml'
+  /mfa/{method}/delete:
+    $ref: './beta/paths/mfa-config-delete.yaml'
   /notification-template-defaults:
     $ref: './beta/paths/notification-template-defaults.yaml'
   /notification-templates:

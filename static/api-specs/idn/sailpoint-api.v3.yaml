@@ -907,10 +907,10 @@ paths:
     $ref: './v3/paths/campaign-templates.yaml'
   /campaign-templates/{id}:
     $ref: './v3/paths/campaign-template.yaml'
-  /campaign-templates/{id}/generate:
-    $ref: './v3/paths/campaign-template-generate.yaml'
   /campaign-templates/{id}/schedule:
     $ref: './v3/paths/campaign-template-schedule.yaml'
+  /campaign-templates/{id}/generate:
+    $ref: './v3/paths/campaign-template-generate.yaml'
   /certifications:
     $ref: "./v3/paths/identity-certifications.yaml"
   /certifications/{id}:

@@ -36,3 +36,108 @@ get:
       $ref: '../responses/429.yaml'
     '500':
       $ref: '../responses/500.yaml'
+put:
+  operationId: setCampaignTemplateSchedule
+  tags:
+    - Certification Campaigns
+  summary: Sets a Campaign Template's Schedule
+  description: >-
+    Sets the schedule for a campaign template. If a schedule already exists, it will be overwritten with
+    the new one.
+  security:
+    - UserContextAuth: [ idn:campaign-template:run ]
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The ID of the campaign template being scheduled.
+      example: "04bedce387bd47b2ae1f86eb0bb36dee"
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/Schedule.yaml'
+        examples:
+          'Monthly':
+            description: Runs on the 15th and last day of the month, at 5PM.
+            value:
+              type: MONTHLY
+              hours:
+                type: LIST
+                values:
+                  - "17"
+              days:
+                type: LIST
+                values:
+                  - "15"
+          'Once a year':
+            description: Runs every January 1st at midnight.
+            value:
+              type: ANNUALLY
+              hours:
+                type: LIST
+                values:
+                  - "0"
+              days:
+                type: LIST
+                values:
+                  - "--01-01"
+          'Quarterly':
+            description: Runs once a quarter (every 3 months) on the first of the month at 1AM.
+            value:
+              type: ANNUALLY
+              hours:
+                type: LIST
+                values:
+                  - "1"
+              days:
+                type: LIST
+                values:
+                  - "1"
+              months:
+                type: LIST
+                values:
+                  - "1"
+                interval: 3
+          'Yearly on Specific Days':
+            description: Runs on March 12 and December 5 at 1AM, every year.
+            value:
+              type: ANNUALLY
+              hours:
+                type: LIST
+                values:
+                  - "1"
+              days:
+                type: LIST
+                values:
+                  - "--03-12"
+                  - "--12-05"
+          'On a Specific Date':
+            description: Runs at 1AM on February 18th, 2020
+            value:
+              type: CALENDAR
+              hours:
+                type: LIST
+                values:
+                  - "1"
+              days:
+                type: LIST
+                values:
+                  - "2020-02-18"
+  responses:
+    '204':
+      $ref: '../responses/204.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

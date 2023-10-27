@@ -3,7 +3,7 @@ id: cli-connectors
 title: Connectors
 pagination_label: CLI Connectors
 sidebar_label: Connectors
-sidebar_position: 2
+sidebar_position: 1
 sidebar_class_name: cli-connectors
 keywords: ['cli', 'cli connectors', 'connectors']
 description: Learn how to use the CLI to create, manage, and test SaaS connectors in this guide.

@@ -35,23 +35,23 @@ Search queries in IDN are flexible - they can be very broad or very narrow, and 
 To create a search query, run this command and provide your desired search attributes:
 
 ```shell
-sail search query {search query string} --indices {index to search}
+sail search query {search query string} --Indices {index to search}
 ```
 
 For example, running this command would return all identities starting with the letter "a":
 
 ```shell
-sail search query "name:a*" --indices identities
+sail search query "name:a*" --Indices identities
 ```
 
 #### Flags
 
 You can add these flags to the `query` command:
 
-- `indices`: Use this flag to specify the indices you want to search. The following indices are searchable: identities, roles, access profiles, entitlements, events, and account activities. The earlier example shows how to specify a single index in a search query. You can also search multiple indices. For example, running this command would return all identities and access profiles starting with the letter "a": `shell sail search query "name:a*" --indices identities --indices accessprofiles `
+- `indices`: Use this flag to specify the indices you want to search. The following indices are searchable: identities, roles, access profiles, entitlements, events, and account activities. The earlier example shows how to specify a single index in a search query. You can also search multiple indices. For example, running this command would return all identities and access profiles starting with the letter "a": `shell sail search query "name:a*" --Indices identities --Indices accessprofiles `
 - `sort`: Use this flag to specify the sort strings your search query uses. You can also specify multiple sorting criteria. For example, running this command would sort search results by starting with the letter "a" first by the `name` attribute in ascending order and then the `created` attribute in descending order, as indicated by the `-` prefix:
   ```shell
-  sail search query "name:a*" --indices identities --sort name --sort "-created"
+  sail search query "name:a*" --Indices identities --Sort name --Sort "-created"
   ```
 - `folderPath`: Use this flag to specify the folder path you want to save the search results in. If the directory doesn't exist, the CLI creates it. The default folder path is the current working directory.
 
@@ -72,8 +72,8 @@ sail search template all-provisioning-events-90-days
 #### Flags
 
 You can add these flags to your `template` command:
-- `folderPath`: Use this flag to specify the folder path you want to save the search results in. For example, running this command would save search results to "./local/folder/path":
+- `FolderPath`: Use this flag to specify the folder path you want to save the search results in. For example, running this command would save search results to "RecentProvisioningEvents":
   ```shell
-  sail search template all-provisioning-events-90-days --folderPath ./local/folder/path
+  sail search template all-provisioning-events-90-days --FolderPath ./RecentProvisioningEvents
   ```
   If the directory doesn't exist, the CLI creates it. The default folder path is the folder `search_results` created inside the current working directory.

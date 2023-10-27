@@ -1369,8 +1369,14 @@ paths:
     $ref: './beta/paths/role-mining-potential-role-provision.yaml'
   /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/excluded-entitlements:
     $ref: './beta/paths/role-mining-potential-role-excluded-entitlements.yaml'
-  /role-mining-sessions/{sessionId}/potential-roles/draft-roles:
-    $ref: './beta/paths/role-mining-session-draft-roles.yaml'
+  /role-mining-potential-roles:
+    $ref: './beta/paths/role-mining-potential-role-summaries.yaml'
+  /role-mining-potential-roles/{potentialRoleId}:
+    $ref: './beta/paths/role-mining-potential-role.yaml'
+  /role-mining-potential-roles/saved:
+    $ref: './beta/paths/role-mining-potential-roles-draft.yaml'
+  /role-mining-potential-roles/{potentialRoleId}/sources/{sourceId}/identityUsage:
+    $ref: './beta/paths/role-mining-potential-role-source-identity-usage.yaml'
   /roles:
     $ref: './beta/paths/roles.yaml'
   /roles/{id}:

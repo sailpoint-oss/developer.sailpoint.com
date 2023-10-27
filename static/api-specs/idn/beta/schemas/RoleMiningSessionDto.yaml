@@ -20,16 +20,19 @@ properties:
   pruneThreshold:
     type: integer
     description: The prune threshold to be used or null to calculate prescribedPruneThreshold
+    nullable: true
     example: 5
     format: int32
   prescribedPruneThreshold:
     type: integer
     description: The calculated prescribedPruneThreshold
+    nullable: true
     example: 10
     format: int32
   minNumIdentitiesInPotentialRole:
     type: integer
     description: Minimum number of identities in a potential role
+    nullable: true
     example: 20
     format: int32
   potentialRoleCount:
@@ -53,9 +56,12 @@ properties:
   emailRecipientId:
     type: string
     description: The id of the user who will receive an email about the role mining session
+    nullable: true
     example: "2c918090761a5aac0176215c46a62d58"
   createdBy:
-    $ref: './iai/EntityCreatedByDTO.yaml'
+    oneOf:
+      - $ref: './iai/EntityCreatedByDTO.yaml'
+      - $ref: './iai/NullableEntityCreatedByDTO.yaml'
     description: The session created by details
   identityCount:
     type: integer
@@ -65,8 +71,10 @@ properties:
   saved:
     type: boolean
     description: The session's saved status
+    default: false
     example: true
   name:
     type: string
     description: The session's saved name
+    nullable: true
     example: "Saved RM Session - 07/10"

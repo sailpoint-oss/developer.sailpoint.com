@@ -1,20 +1,13 @@
 get:
-  operationId: getSavedRoles
-  summary: Retrieves all draft roles
+  operationId: getSavedPotentialRoles
+  summary: Retrieves all saved potential roles
   tags:
     - IAI Role Mining
   description: >-
-    This method returns all saved potential roles (draft roles) for a role mining session.
+    This method returns all saved potential roles (draft roles).
   security:
     - UserContextAuth: []
   parameters:
-    - in: path
-      name: sessionId
-      schema:
-        type: string
-      required: true
-      description: The role mining session id
-      example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
     - in: query
       name: sorters
       required: false
@@ -27,24 +20,6 @@ get:
         Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters/)
         Sorting is supported for the following fields: **modified**
       example: 'modified'
-    - in: query
-      name: filters
-      description: >-
-        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters/)
-        Filtering is supported for the following fields and operators:
-
-        **description**: *sw, co*
-
-        **name**: *eq, sw, co*
-
-        **type**: *eq*
-
-      example: '(type eq "COMMON")and ((name co "ent")or (description co "desc"))'
-      required: false
-      style: form
-      explode: true
-      schema:
-        type: string
     - $ref: '../../v3/parameters/offset.yaml'
     - $ref: '../../v3/parameters/limit.yaml'
     - $ref: '../../v3/parameters/count.yaml'

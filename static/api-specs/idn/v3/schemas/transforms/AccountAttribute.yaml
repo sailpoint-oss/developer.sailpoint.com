@@ -22,6 +22,7 @@ properties:
       when determining the ordering of returned accounts when there are multiple
       entries
     example: created
+    default: created
   accountSortDescending:
     type: boolean
     description: >-
@@ -29,6 +30,7 @@ properties:
       order of the sort when there are multiple accounts. If not defined, the
       transform will default to false (ascending order)
     example: false
+    default: false
   accountReturnFirstLink:
     type: boolean
     description: >-
@@ -38,6 +40,7 @@ properties:
       even if it is null. If it is set to false, the transform returns the first
       non-null value. If not defined, the transform will default to false
     example: false
+    default: false
   accountFilter:
     type: string
     description: >-

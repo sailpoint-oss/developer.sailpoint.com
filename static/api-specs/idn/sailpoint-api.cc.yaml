@@ -62,7 +62,70 @@ paths:
         '200':
           description: Successful response
           content:
-            application/json: {}
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id: 
+                      type: string
+                      example: 17248154
+                    type: 
+                      type: string
+                      example: SYSTEM_CONTROLLED
+                    displayName: 
+                      type: string
+                      example: tyler.mairose
+                    username: 
+                      type: string
+                      example: tyler.mairose
+                    passwordRequired: 
+                      type: boolean
+                    passwordProvided: 
+                      type: boolean
+                    apps: 
+                      type: array
+                      items: 
+                        type: object
+                    ssoMethod: 
+                      type: string
+                      example: NONE
+                    idEncryption: 
+                      type: string
+                      example: NONE
+                    passwordEncryption: 
+                      type: string
+                      example: NONE
+                    lastPasswdChange: 
+                      type: string
+                      nullable: true
+                    serviceName: 
+                      type: string
+                      example: airtable v4
+                    dateDisabled: 
+                      type: string
+                      nullable: true
+                    accountServiceId: 
+                      type: integer
+                      format: int32
+                      example: 44663
+                    serviceId: 
+                      type: integer
+                      format: int32
+                      example: 44663
+                    pendingPasswordRequestId: 
+                      type: string
+                      nullable: true
+                    passwordChangeStatus: 
+                      type: string
+                      example: SUCCESS
+                    passwordChangeResult: 
+                      type: object
+                      properties: 
+                        completionStatus: 
+                          type: string
+                          example: SUCCESS     
   /cc/api/account/remove/{id}:
     post:
       tags:
@@ -500,7 +563,70 @@ paths:
         '200':
           description: Successful response
           content:
-            application/json: {}
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: number
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                          applicationXml: 
+                            type: string
+                            nullable: true
+                          className: 
+                            type: string
+                            nullable: true
+                          connectorMetadata: 
+                            type: object
+                          correlationConfigXml: 
+                            type: string
+                            nullable: true
+                          directConnect: 
+                            type: boolean
+                          fileUpload: 
+                            type: boolean
+                          id: 
+                            type: integer
+                            format: int32
+                            example: 8017
+                          name: 
+                            type: string
+                            example: ACF2
+                          s3Location: 
+                            type: string
+                            nullable: true
+                          scope: 
+                            type: string
+                            example: global
+                          scriptName: 
+                            type: string
+                            example: acf2-angularsc
+                          sourceConfig: 
+                            type: string
+                            nullable: true
+                          sourceConfigFrom: 
+                            type: string
+                            nullable: true
+                          sourceConfigXml: 
+                            type: string
+                            nullable: true
+                          status: 
+                            type: string
+                            example: RELEASED
+                          translationProperties: 
+                            type: object
+                          type: 
+                            type: string
+                            example: ACF2 - Full
+                          uploadedFiles: 
+                            type: array
+                            items: 
+                              type: object 
+                            example: []
   /cc/api/connector/create:
     post:
       tags:

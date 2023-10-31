@@ -25,11 +25,11 @@ In order to create an IP Address Allow list, you need to know what region your t
 
 1. Find the IP address of your tenant by sending an API request in Postman:
 
-![img](./img/postman1.png)
+![img](./img/postman1.PNG)
 
 2. After a succesful call to IdentityNow, hover over the globe icon in the response window in postman to get the IP address:
 
-![img](./img/postman2.png)
+![img](./img/postman2.PNG)
 
 3. Download the [IP Address ranges from AWS](https://ip-ranges.amazonaws.com/ip-ranges.json)
 

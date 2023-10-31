@@ -42,16 +42,16 @@ get:
         **name**: *eq, sw*
         
         
-        **created, modified**: *gt, lt, ge, le*
+        **created**: *gt, lt, ge, le*
+
+
+        **modified**: *gt, lt, ge, le*
         
         
         **owner.id**: *eq, in*
         
         
         **requestable**: *eq*
-        
-        
-        Composite operators supported: *and, or*
       example: requestable eq false
       required: false
     - in: query
@@ -61,8 +61,9 @@ get:
         format: comma-separated
       description: >-
         Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
-        Sorting is supported for the following fields: **name, created, modified**
 
+
+        Sorting is supported for the following fields: **name, created, modified**
       example: name,-modified
       required: false
     - in: query

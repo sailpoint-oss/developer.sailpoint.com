@@ -39,7 +39,7 @@ get:
         Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
 
 
-        Sorting is supported for the following fields: **id**, **name**, **priority**
+        Sorting is supported for the following fields: **id, name, priority**
       example: name,-priority
   responses:
     '200':

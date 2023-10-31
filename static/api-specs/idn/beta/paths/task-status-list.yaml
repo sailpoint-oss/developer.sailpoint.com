@@ -1,6 +1,3 @@
-#
-# Copyright (C) 2023 SailPoint Technologies, Inc.  All rights reserved.
-#
 get:
   tags:
     - Task Management
@@ -20,11 +17,20 @@ get:
       description: >-
         Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
 
+
         Filtering is supported for the following fields and operators:
-          **id**: *eq, in*
-          **sourceId**: *eq, in*
-          **completionStatus**: *eq, in*
-          **type**: *eq, in* "CLOUD_ACCOUNT_AGGREGATION", "CLOUD_GROUP_AGGREGATION", "CLOUD_PROCESS_UNCORRELATED_ACCOUNTS" or "CLOUD_REFRESH_ROLE"
+
+
+        **id**: *eq, in*
+
+
+        **sourceId**: *eq, in*
+
+
+        **completionStatus**: *eq, in*
+
+
+        **type**: *eq, in*
     - in: query
       name: sorters
       schema:
@@ -34,6 +40,7 @@ get:
       required: false
       description: >-
         Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
 
         Sorting is supported for the following fields: **created**
   responses:

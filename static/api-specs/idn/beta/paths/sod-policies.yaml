@@ -3,8 +3,6 @@ post:
   tags:
     - SOD Policy
   summary: Create SOD policy
-  # security:
-  #   - oauth2: [ORG_ADMIN]
   description: >-
     This creates both General and Conflicting Access Based policy, with a limit
     of 50 entitlements for each (left & right) criteria for Conflicting Access
@@ -234,8 +232,6 @@ get:
   tags:
     - SOD Policy
   summary: List SOD policies
-  # security:
-  #   - oauth2: [ORG_ADMIN]
   description: >-
     This gets list of all SOD policies.
 
@@ -249,15 +245,19 @@ get:
       schema:
         type: string
       description: >-
-        Filter results using the standard syntax described in [V3 API Standard
-        Collection
-        Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
 
 
         Filtering is supported for the following fields and operators:
 
 
-        **id**: *eq*  **name**: *eq*  **state**: *eq*
+        **id**: *eq*
+        
+        
+        **name**: *eq*
+        
+        
+        **state**: *eq*
       example: id eq "bc693f07e7b645539626c25954c58554"
       required: false
   responses:

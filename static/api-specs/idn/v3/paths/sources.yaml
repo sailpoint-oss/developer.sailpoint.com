@@ -17,25 +17,54 @@ get:
       name: filters
       schema:
         type: string
-      example: name eq "#Employees"
+      example: name eq "Employees"
       description: >-
         Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
 
+
         Filtering is supported for the following fields and operators:
-          **id**: *eq, in*
-          **name**: *co, eq, in, sw*
-          **type**: *eq, in*
-          **owner.id**: *eq, in*
-          **features**: *ca, co*
-          **created**: *eq*
-          **modified**: *eq*
-          **managementWorkgroup.id**: *eq*
-          **description**: *eq*
-          **authoritative**: *eq*
-          **healthy**: *eq*
-          **status**: *eq, in*
-          **connectionType**: *eq*
-          **connectorName**: *eq*
+
+
+        **id**: *eq, in*
+
+
+        **name**: *co, eq, in, sw*
+
+
+        **type**: *eq, in*
+
+
+        **owner.id**: *eq, in*
+
+
+        **features**: *ca, co*
+
+
+        **created**: *eq*
+
+
+        **modified**: *eq*
+
+
+        **managementWorkgroup.id**: *eq*
+
+
+        **description**: *eq*
+
+
+        **authoritative**: *eq*
+
+
+        **healthy**: *eq*
+
+
+        **status**: *eq, in*
+
+
+        **connectionType**: *eq*
+
+
+        **connectorName**: *eq*
     - in: query
       name: sorters
       schema:

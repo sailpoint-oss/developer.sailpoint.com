@@ -85,7 +85,13 @@ get:
         Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
 
 
-        Filtering is supported for the following fields: **name, id**
+        Filtering is supported for the following fields and operators:
+
+
+        **name**: *eq*
+
+
+        **id**: *eq*
       example: name eq "manager template"
   responses:
     '200':

@@ -143,6 +143,11 @@ tags:
       In Account Aggregation, administrators can view the account aggregations' statuses and details in the Account Activity Log.
 
       Refer to [Loading Account Data](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html) for more information about account aggregations.
+  - name: Account Usages
+    description: |
+      Use this API to implement account usage insight functionality.
+      With this functionality in place, administrators can gather information and insights about how their tenants' source accounts are being used.
+      This allows organizations to get the information they need to start optimizing and securing source account usage.
   - name: Accounts
     description: |
       Use this API to implement and customize account functionality.
@@ -756,6 +761,11 @@ tags:
       This second option is a good way to prevent SOD violations from triggering at all. 
 
       Refer to [Handling Policy Violations](https://documentation.sailpoint.com/saas/help/sod/policy-violations.html) for more information about SOD policy violations. 
+  - name: Source Usages
+    description: |
+      Use this API to implement source usage insight functionality.
+      With this functionality in place, administrators can gather information and insights about how their tenants' sources are being used.
+      This allows organizations to get the information they need to start optimizing and securing source usage.
   - name: Sources
     description: |
       Use this API to implement and customize source functionality.
@@ -882,20 +892,21 @@ tags:
       When they complete the work item, they can select 'Mark Complete' to add it to their list of completed work items.
 
       Refer to [Task Manager](https://documentation.sailpoint.com/saas/user-help/task_manager.html) for more information about work items, including the different types of work items users may need to complete.
+  - name: Work Reassignment
+    description: |
+      Use this API to implement work reassignment functionality.
+
+      Work Reassignment allows access request reviews, certifications, and manual provisioning tasks assigned to a user to be reassigned to a different user. This is primarily used for:
+
+      - Temporarily redirecting work for users who are out of office, such as on vacation or sick leave
+      - Permanently redirecting work for users who should not be assigned these tasks at all, such as senior executives or service identities
+      
+      Users can define reassignments for themselves, managers can add them for their team members, and administrators can configure them on any user’s behalf. Work assigned during the specified reassignment timeframes will be automatically reassigned to the designated user as it is created.
+  
+      Refer to [Work Reassignment](https://documentation.sailpoint.com/saas/help/users/work_reassignment.html) for more information about this topic.
   - name: Workflows
     description: |
       Workflows allow administrators to create custom automation scripts directly within IdentityNow.  These automation scripts respond to [event triggers](https://developer.sailpoint.com/idn/docs/event-triggers#how-to-get-started-with-event-triggers) and perform a series of actions to perform tasks that are either too cumbersome or not available in the IdentityNow UI.  Workflows can be configured via a graphical user interface within IdentityNow, or by creating and uploading a JSON formatted script to the Workflow service.  The Workflows API collection provides the necessary functionality to create, manage, and test your workflows via REST.
-  - name: Source Usages
-    description: |
-      Use this API to implement source usage insight functionality.
-      With this functionality in place, administrators can gather information and insights about how their tenants' sources are being used.
-      This allows organizations to get the information they need to start optimizing and securing source usage.
-  - name: Account Usages
-    description: |
-      Use this API to implement account usage insight functionality.
-      With this functionality in place, administrators can gather information and insights about how their tenants' source accounts are being used.
-      This allows organizations to get the information they need to start optimizing and securing source account usage.
-
 security:
   - UserContextAuth: [ ]
 

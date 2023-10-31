@@ -44,10 +44,16 @@ get:
         type: string
       description: >-
         Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
         Filtering is supported for the following fields and operators:
-        **saved**: *eq* "true" or "false"
+
+
+        **saved**: *eq*
+
+
         **name**: *eq, sw*
-      example: 'saved eq "true" and name sw "RM Session"'
+      example: saved eq "true" and name sw "RM Session"
     - in: query
       name: sorters
       schema:
@@ -55,8 +61,10 @@ get:
         format: comma-separated
       description: >-
         Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+
         Sorting is supported for the following fields: **createdBy, createdDate**
-      example: 'createdBy,createdDate'
+      example: createdBy,createdDate
     - $ref: '../../v3/parameters/offset.yaml'
     - $ref: '../../v3/parameters/limit.yaml'
     - $ref: '../../v3/parameters/count.yaml'

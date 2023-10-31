@@ -33,7 +33,10 @@ get:
         **id**: *eq, in*
 
 
-        **type / access.type**: *eq*
+        **type**: *eq*
+
+
+        **access.type**: *eq*
 
 
         **completed**: *eq, ne*

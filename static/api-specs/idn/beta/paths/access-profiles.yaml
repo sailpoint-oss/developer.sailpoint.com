@@ -44,7 +44,10 @@ get:
         **name**: *eq, sw*
 
 
-        **created, modified**: *gt, lt, ge, le*
+        **created**: *gt, lt, ge, le*
+
+
+        **modified**: *gt, lt, ge, le*
 
 
         **owner.id**: *eq, in*
@@ -54,9 +57,6 @@ get:
 
 
         **source.id**: *eq, in*
-        
-        
-        Composite operators supported: *and, or*
       example: name eq "SailPoint Support"
       required: false
     - in: query

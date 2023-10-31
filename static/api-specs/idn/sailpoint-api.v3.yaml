@@ -903,6 +903,8 @@ paths:
     $ref: './v3/paths/campaign-filters.yaml'
   /campaign-filters/{id}:
     $ref: './v3/paths/campaign-filter.yaml'
+  /campaign-filters/delete:
+    $ref: './v3/paths/campaign-filters-delete.yaml'
   /campaign-templates:
     $ref: './v3/paths/campaign-templates.yaml'
   /campaign-templates/{id}:

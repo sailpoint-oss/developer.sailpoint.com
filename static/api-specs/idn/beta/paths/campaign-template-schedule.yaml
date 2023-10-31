@@ -152,6 +152,7 @@ delete:
     Deletes the schedule for a campaign template. Returns a 404 if there is no schedule set.
   security:
     - UserContextAuth: [ idn:campaign-template:run ]
+  deprecated: true
   parameters:
     - in: path
       name: id

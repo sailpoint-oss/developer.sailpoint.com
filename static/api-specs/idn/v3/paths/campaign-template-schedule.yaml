@@ -141,3 +141,37 @@ put:
       $ref: '../responses/429.yaml'
     '500':
       $ref: '../responses/500.yaml'
+delete:
+  operationId: deleteCampaignTemplateSchedule
+  tags:
+    - Certification Campaigns
+  summary: Deletes a Campaign Template's Schedule
+  description: >-
+    Deletes the schedule for a campaign template. Returns a 404 if there is no schedule set.
+  security:
+    - UserContextAuth: [ idn:campaign-template:run ]
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The ID of the campaign template whose schedule is being deleted.
+      example: "04bedce387bd47b2ae1f86eb0bb36dee"
+  responses:
+    '204':
+      $ref: '../responses/204.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+
+

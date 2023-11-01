@@ -6,12 +6,12 @@ sidebar_label: Global Platform Resources
 sidebar_position: 1
 sidebar_class_name: globalResources
 keywords: ['IdentityNow', 'resources', 'configuration']
-description: Global platform resources are useful for all IdentityNow platforms."
+description: Our Global Documentation provides comprehensive insights applicable to multiple features or the entire platform, complementing our feature-specific resources.
 slug: /docs/saas-connectivity/global-platform-resources
 tags: ['Connectivity']
 ---
 
-Developers can use global platform resources to improve all IdentityNow platforms. Read these documents for advanced setup and configuration instructions:
+Within other areas of our documentation, you will find resources that are tailored to specific features of our platform, providing in-depth information and guidance on each individual aspect. However, our Global Platform Resources section includes documents that are applicable to multiple features or sometimes the entire platform. These resources offer valuable insights that are relevant across different areas of the platform, ensuring you have a comprehensive understanding of our platform as a whole.
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';

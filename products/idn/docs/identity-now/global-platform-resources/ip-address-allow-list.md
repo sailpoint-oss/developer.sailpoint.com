@@ -6,7 +6,7 @@ sidebar_label: IP Address Allow List
 sidebar_position: 8
 sidebar_class_name: allowList
 keywords: ['connectivity', 'connectors', 'workflows', 'allowlist','ip address']
-description: How to create an IP Address Allow list for SaaS Services
+description: This document outlines how to create an IP Address Allow List for secure access to internal resources by certain IdentityNow services, and how to find your tenant's hosting region to set up this list​.
 slug: /docs/global-platform-resources/ip-address-allow-list
 tags: ['Connectivity', 'connectors', 'workflows', 'allowlist','ip address']
 ---

@@ -29,7 +29,7 @@ Simply navigate to the IdentityNow admin console and find the "Org Details" sect
 
 ### Finding your tenant programatically using the IP address returned by IdentityNow
 
-if you cannot access the admin console or want to find the tenant dynamically through code, here are some steps you can follow to find it:
+if you cannot access the admin console or want to find the region dynamically through code, here are some steps you can follow to find it:
 
 1. Find the IP address of your tenant by sending an API request in Postman or through any other API framework:
 

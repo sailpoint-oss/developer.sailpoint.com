@@ -17,13 +17,21 @@ tags: ['Connectivity', 'connectors', 'workflows', 'allowlist','ip address']
 
 Some SaaS services like Workflows and SaaS Connectivity might need to reach out to internal resources to perform operations inside a customer environment. Instead of opening up those internal resources to the entire internet, you can create an IP Address Allow List so that you can be sure that all SaaS resources can access them while restricting the IP Address range to only allow what is required
 
-## Requirements
+## Finding your Tenant's Region
 
-### Finding your Tenants Region
+In order to create an IP Address Allow list, you need to know what region your tenant is hosted in. If you don't know this, you can find it by using one of two processes:
 
-In order to create an IP Address Allow list, you need to know what region your tenant is hosted in. If you don't know this, you can find it by using the following steps:
+### Finding your tenant using the admin console
 
-1. Find the IP address of your tenant by sending an API request in Postman:
+Go to the admin console in IdentityNow and find the 'Org Details' section. You will find your tenant's host region there:
+
+![img](./img/idn-console.PNG)
+
+### Finding your tenant programatically using the IP address returned by IdentityNow
+
+If you can't access the admin console or you want to dynamically find the region through code, follow these steps to find it:
+
+1. Find the IP address of your tenant by sending an API request in Postman or through any other API framework:
 
 ![img](./img/postman1.PNG)
 
@@ -56,7 +64,7 @@ def find_aws_region(ip):
 find_aws_region('54.234.204.155') 
 ```
 
-### Using your region to create the allow-list URL
+## Using your region to create the allow-list URL
 
 The URL used to find your range of allow list URLs can be constructed using the region found above and the file format desired.
 

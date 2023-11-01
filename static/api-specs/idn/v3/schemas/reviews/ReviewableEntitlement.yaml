@@ -49,26 +49,22 @@ properties:
     type: boolean
     default: false
     description: Indicates if the entitlement has permissions
-    default: false
     example: false
   isPermission:
     type: boolean
     default: false
     description: Indicates if the entitlement is a representation of an account permission
     example: false
-    default: false
   revocable:
     type: boolean
     default: false
     description: Indicates whether the entitlement can be revoked
     example: true
-    default: false
   cloudGoverned:
     type: boolean
     default: false
     description: True if the entitlement is cloud governed
     example: false
-    default: false
   containsDataAccess:
     type: boolean
     description: True if the entitlement has DAS data
@@ -90,13 +86,11 @@ properties:
         default: false
         example: false
         description: Indicates whether this account is currently disabled
-        default: false
       locked:
         type: boolean
         default: false
         example: false
         description: Indicates whether this account is currently locked
-        default: false
       type:
         $ref: '../DtoType.yaml'
       id:

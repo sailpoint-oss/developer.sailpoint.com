@@ -6,7 +6,7 @@ sidebar_label: Global Platform Resources
 sidebar_position: 1
 sidebar_class_name: globalResources
 keywords: ['IdentityNow', 'resources', 'configuration']
-description: Our Global Documentation provides comprehensive insights applicable to multiple features or the entire platform, complementing our feature-specific resources.
+description: Our global platform resource documentation provides comprehensive insights applicable to multiple features or the entire platform, complementing our feature-specific resources.
 slug: /docs/global-platform-resources
 tags: ['Connectivity']
 ---

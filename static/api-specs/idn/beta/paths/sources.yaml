@@ -26,16 +26,16 @@ get:
         Filtering is supported for the following fields and operators:
 
 
-        **id**: *eq, in*
+        **id**: *eq, in, co, ge, gt, le, lt, ne, isnull, sw*
 
 
-        **name**: *co, eq, in, sw*
+        **name**: *co, eq, in, sw, ge, gt, ne, isnull*
 
 
-        **type**: *eq, in*
+        **type**: *eq, in, co, ge, gt, ne, isnull, sw*
 
 
-        **owner.id**: *eq, in*
+        **owner.id**: *eq, in, co, ge, gt, le, lt, ne, isnull, sw*
 
 
         **features**: *ca, co*
@@ -47,25 +47,25 @@ get:
         **modified**: *eq*
 
 
-        **managementWorkgroup.id**: *eq*
+        **managementWorkgroup.id**: *eq, co, ge, gt, in, le, lt, ne, isnull, sw*
 
 
-        **description**: *eq*
+        **description**: *eq, sw*
 
 
-        **authoritative**: *eq*
+        **authoritative**: *eq, ne, isnull*
 
 
-        **healthy**: *eq*
+        **healthy**: *isnull*
 
 
-        **status**: *eq, in*
+        **status**: *eq, in, co, ge, gt, le, lt, ne, isnull, sw*
 
 
-        **connectionType**: *eq*
+        **connectionType**: *eq, co, ge, gt, in, le, lt, ne, isnull, sw*
 
 
-        **connectorName**: *eq*
+        **connectorName**: *eq, co, ge, gt, in, ne, isnull, sw*
     - in: query
       name: sorters
       schema:
@@ -76,7 +76,7 @@ get:
         Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
 
 
-        Sorting is supported for the following fields: **type, created, modified, name, owner.name, healthy, status**
+        Sorting is supported for the following fields: **type, created, modified, name, owner.name, healthy, status, id, description, owner.id, accountCorrelationConfig.id, accountCorrelationConfig.name, managerCorrelationRule.type, managerCorrelationRule.id, managerCorrelationRule.name, authoritative, managementWorkgroup.id, connectorName, connectionType**
     - in: query
       name: for-subadmin
       schema:

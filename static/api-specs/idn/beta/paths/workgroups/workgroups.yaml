@@ -19,10 +19,10 @@ get:
         Filtering is supported for the following fields and operators:
 
 
-        **id**: *eq, in*
+        **id**: *eq, in, sw*
 
 
-        **name**: *eq, sw*
+        **name**: *eq, sw, in*
       example: name sw "Test"
       required: false
     - in: query
@@ -34,7 +34,7 @@ get:
         Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
         
         
-        Sorting is supported for the following fields: **name, created, modified**
+        Sorting is supported for the following fields: **name, created, modified, id, description**
       example: name,-modified
       required: false
   responses:

@@ -38,7 +38,7 @@ get:
         **requestedFor.id**: *eq, in*
 
 
-        **modified**: *gt, lt, ge, le*
+        **modified**: *gt, lt, ge, le, eq, in*
     - in: query
       name: sorters
       schema:

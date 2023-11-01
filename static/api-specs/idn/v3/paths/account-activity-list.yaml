@@ -49,13 +49,13 @@ get:
         Filtering is supported for the following fields and operators:
 
 
-        **type**: *eq, in*
+        **type**: *eq, in, co, ge, gt, le, lt, ne, isnull, sw*
 
 
-        **created**: *gt, lt, ge, le*
+        **created**: *gt, lt, ge, le, co, eq, in, ne, isnull, sw*
 
 
-        **modified**: *gt, lt, ge, le*
+        **modified**: *gt, lt, ge, le, co, eq, in, ne, isnull, sw*
       example: type eq "Identity Refresh"
       required: false
     - in: query

@@ -107,7 +107,7 @@ get:
         **triggerId**: *eq*
 
 
-        **type**: *eq*
+        **type**: *eq, le*
       example: id eq "12cff757-c0c0-413b-8ad7-2a47956d1e89"
     - in: query
       name: sorters

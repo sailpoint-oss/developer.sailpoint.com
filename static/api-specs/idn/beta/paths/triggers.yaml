@@ -20,7 +20,7 @@ get:
         Filtering is supported for the following fields and operators:
 
 
-        **id**: *eq*
+        **id**: *eq, ge, le*
       example: id eq "idn:access-request-post-approval"
     - in: query
       name: sorters

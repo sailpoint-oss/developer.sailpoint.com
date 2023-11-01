@@ -27,19 +27,19 @@ get:
         Filtering is supported for the following fields and operators:
 
 
-        **id**: *eq, in*
+        **id**: *eq, in, co, ge, gt, le, lt, ne, isnull, sw*
 
 
-        **identityId**: *eq*
+        **identityId**: *eq, co, ge, gt, in, le, lt, ne, isnull, sw*
 
 
-        **name**: *eq, in*
+        **name**: *eq, in, co, ge, gt, ne, isnull, sw*
 
 
-        **nativeIdentity**: *eq, in*
+        **nativeIdentity**: *eq, in, co, ge, gt, le, lt, ne, isnull, sw*
 
 
-        **sourceId**: *eq, in*
+        **sourceId**: *eq, in, co, ge, gt, le, lt, ne, isnull, sw*
 
 
         **uncorrelated**: *eq*
@@ -55,7 +55,7 @@ get:
         Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
 
 
-        Sorting is supported for the following fields: **id, name, created, modified**
+        Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated**
   responses:
     "200":
       description: List of account objects

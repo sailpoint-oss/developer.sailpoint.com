@@ -19,22 +19,22 @@ get:
         Filtering is supported for the following fields and operators:
 
 
-        **status**: *eq*
+        **status**: *eq, sw*
 
 
         **reviewedByUser** *eq*
 
 
-        **access.id**: *eq*
+        **access.id**: *eq, sw*
 
 
         **access.type**: *eq*
 
 
-        **access.name**: *sw*
+        **access.name**: *sw, eq*
 
 
-        **access.description**: *sw*
+        **access.description**: *sw, eq*
       example: access.type eq "ROLE"
       required: false
       style: form

@@ -22,10 +22,10 @@ get:
         Filtering is supported for the following fields and operators:
 
 
-        **id**: *eq, ne*
+        **id**: *eq, ne, co, ge, gt, in, le, lt, isnull, sw*
 
 
-        **name**: *eq, ne*
+        **name**: *eq, ne, co, in, le, lt, isnull, sw*
 
 
         **priority**: *eq, ne*
@@ -39,7 +39,7 @@ get:
         Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
 
 
-        Sorting is supported for the following fields: **id, name, priority**
+        Sorting is supported for the following fields: **id, name, priority, created, modified, owner.id, owner.name**
       example: name,-priority
   responses:
     '200':

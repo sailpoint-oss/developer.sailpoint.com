@@ -20,7 +20,7 @@ get:
         Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
         
         
-        Sorting is supported for the following fields: **createdDate**
+        Sorting is supported for the following fields: **createdDate, identityCount, entitlementCount, freshness, quality**
       example: createdDate
     - in: query
       name: filters
@@ -46,7 +46,7 @@ get:
         **freshness**: *eq, ge, gt, le, lt*
 
 
-        **name**: *eq, sw, co*
+        **name**: *eq, sw, co, ge, gt, le, lt*
 
 
         **quality**: *eq, ge, gt, le, lt*
@@ -58,7 +58,7 @@ get:
         **saved**: *eq*
         
 
-        **type**: *eq*
+        **type**: *eq, ge, gt, le, lt*
 
         
         **scopingMethod**: *eq*

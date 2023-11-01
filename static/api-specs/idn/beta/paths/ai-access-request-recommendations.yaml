@@ -53,7 +53,7 @@ get:
         **access.type**: *eq, in*
 
 
-        **access.description**: *co*
+        **access.description**: *co, eq, in*
       example: access.name co "admin"
     - in: query
       name: sorters

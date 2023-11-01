@@ -41,23 +41,31 @@ properties:
     type: string
     description: The type of the source for which the entitlement belongs
     example: Active Directory - Direct
+  sourceId:
+    type: string
+    description: The ID of the source for which the entitlement belongs
+    example: 78ca6be511cb41fbb86dba2fcca7780c
   hasPermissions:
     type: boolean
+    default: false
     description: Indicates if the entitlement has permissions
     default: false
     example: false
   isPermission:
     type: boolean
+    default: false
     description: Indicates if the entitlement is a representation of an account permission
     example: false
     default: false
   revocable:
     type: boolean
+    default: false
     description: Indicates whether the entitlement can be revoked
     example: true
     default: false
   cloudGoverned:
     type: boolean
+    default: false
     description: True if the entitlement is cloud governed
     example: false
     default: false
@@ -79,11 +87,13 @@ properties:
         example: 'CN=Alison Ferguso'
       disabled:
         type: boolean
+        default: false
         example: false
         description: Indicates whether this account is currently disabled
         default: false
       locked:
         type: boolean
+        default: false
         example: false
         description: Indicates whether this account is currently locked
         default: false

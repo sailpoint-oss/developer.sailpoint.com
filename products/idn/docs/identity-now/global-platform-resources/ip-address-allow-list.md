@@ -7,8 +7,8 @@ sidebar_position: 8
 sidebar_class_name: allowList
 keywords: ['connectivity', 'connectors', 'workflows', 'allowlist','ip address']
 description: How to create an IP Address Allow list for SaaS Services
-slug: /docs/ip-address-allow-list
-tags: ['Connectivity']
+slug: /docs/global-platform-resources/ip-address-allow-list
+tags: ['Connectivity', 'connectors', 'workflows', 'allowlist','ip address']
 ---
 
 # IP Address Allow List

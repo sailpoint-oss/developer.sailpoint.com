@@ -23,13 +23,13 @@ In order to create an IP Address Allow list, you need to know what region your t
 
 ### Finding your tenant using the admin console
 
-Simply navigate to the IdentityNow admin console and find the "Org Details" section. There you will find the region your tenant is hosted in:
+Go to the admin console in IdentityNow and find the 'Org Details' section. You will find your tenant's host region there:
 
 ![img](./img/idn-console.PNG)
 
 ### Finding your tenant programatically using the IP address returned by IdentityNow
 
-if you cannot access the admin console or want to find the region dynamically through code, here are some steps you can follow to find it:
+If you can't access the admin console or you want to dynamically find the region through code, follow these steps to find it:
 
 1. Find the IP address of your tenant by sending an API request in Postman or through any other API framework:
 

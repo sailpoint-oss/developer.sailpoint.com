@@ -476,7 +476,10 @@ paths:
         '200':
           description: Successful response
           content:
-            application/json: {}
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
   /cc/api/app/create:
     post:
       tags:
@@ -501,7 +504,10 @@ paths:
         '200':
           description: Successful response
           content:
-            application/json: {}
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
   /cc/api/app/update/{id}:
     post:
       tags:
@@ -522,15 +528,15 @@ paths:
           application/json:
             schema:
               type: object
-              properties:
-                description:
-                  type: string
-                  format: 'This is my application'
+              additionalProperties: true
       responses:
         '200':
           description: Successful response
           content:
-            application/json: {}
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
   /cc/api/app/delete/{id}:
     post:
       tags:
@@ -1026,7 +1032,49 @@ paths:
         '200':
           description: Successful response
           content:
-            application/json: {}
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /cc/api/source/loadEntitlements/{id}:
+    post:
+      tags:
+        - Sources > Aggregation
+      summary: Account Aggregation (File)
+      operationId: loadEntitlements
+      security:
+        - UserContextAuth: []
+      description: >-
+        Aggregates a delimited file for the given source.  This only works for
+        file-based sources.
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/x-www-form-urlencoded
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
   /cc/api/source/exportAccountFeed/{id}:
     get:
       tags:
@@ -1149,4 +1197,7 @@ paths:
         '200':
           description: Successful response
           content:
-            application/json: {}
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true

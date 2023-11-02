@@ -2,7 +2,7 @@ type: object
 properties:
   policy:
     allOf:
-    - $ref: '../../../../v3/schemas/BaseReferenceDto.yaml'
+    - $ref: './SodPolicyDto.yaml'
     - type: object
       properties:
         type:
@@ -11,13 +11,13 @@ properties:
         name:
           type: string
           example: 'A very cool policy name'
-    description: The types of objects supported for SOD violations
+    description: The types of objects supported for SOD policy violations.
     properties:
       type:
         enum:
         - "ENTITLEMENT"
         example: "ENTITLEMENT"
-        description: The type of object that is referenced
+        description: The type of object supported for SOD policy violations. 
   conflictingAccessCriteria:
     $ref: './ExceptionAccessCriteria.yaml'
     nullable: false

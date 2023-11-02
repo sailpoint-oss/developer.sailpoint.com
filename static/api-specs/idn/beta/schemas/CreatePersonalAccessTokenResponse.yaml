@@ -21,8 +21,7 @@ properties:
     description: The name of the personal access token. Cannot be the same as other personal access tokens owned by a user.
     example: "NodeJS Integration"
   owner:
-    $ref: '../../v3/schemas/BaseReferenceDto.yaml'
-    description: Details about the owner of the personal access token.
+    $ref: '../../v3/schemas/PatOwner.yaml'
   created:
     type: string
     format: 'date-time'

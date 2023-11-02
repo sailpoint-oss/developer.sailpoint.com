@@ -1,30 +1,30 @@
 type: object
 properties:
   owner:
-    $ref: "../../../v3/schemas/BaseReferenceDto.yaml"
-    description: Owner of the Governance Group
+    $ref: '../../../v3/schemas/OwnerDto.yaml'
+    description: Governance group owner. 
   id:
     type: string
-    description: ID of the object to which this reference applies
+    description: Governance group ID. 
     example: 2c91808568c529c60168cca6f90c1313
     readOnly: true
   name:
     type: string
-    description: Name of the Governance Group
+    description: Governance group name. 
     example: DB Access Governance Group
   description:
     type: string
-    description: Description of the Governance Group
+    description: Governance group description. 
     example: Description of the Governance Group
   memberCount:
     type: integer
     format: int64
     example: 1641498673000
     readOnly: true
-    description: Number of members in the Governance Group.
+    description: Number of members in the governance group.
   connectionCount:
     type: integer
     format: int64
     example: 1641498673000
-    description: Number of connections in the Governance Group.
+    description: Number of connections in the governance group.
     readOnly: true

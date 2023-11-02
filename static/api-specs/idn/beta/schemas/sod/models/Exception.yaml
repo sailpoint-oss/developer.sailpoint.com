@@ -17,10 +17,25 @@ properties:
     description: The time when this SOD exception is modified.
     example: "2020-01-01T00:00:00.000Z"
   sodPolicy:
-    $ref: '../../../../v3/schemas/BaseReferenceDto.yaml'
-    example: "00fc6afc-af1d-43af-b350-8d632f4c56ca"
+    $ref: './SodPolicyDto.yaml'
   identity:
-    $ref: '../../../../v3/schemas/BaseReferenceDto.yaml'
+    type: object
+    description: Identity's basic details. 
+    properties:
+      type:
+        type: string 
+        description: Identity's DTO type. 
+        enum: 
+          - IDENTITY
+        example: IDENTITY
+      id:
+        type: string
+        description: Identity ID.
+        example: 2c7180a46faadee4016fb4e018c20642
+    name:
+      type: string
+      description: Identity's display name. 
+      example: Michael Michaels
   start:
     type: string
     format: date-time

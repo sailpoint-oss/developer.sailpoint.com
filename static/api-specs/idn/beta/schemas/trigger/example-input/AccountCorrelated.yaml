@@ -11,52 +11,68 @@ properties:
     - type
     - name
     - id
-    allOf:
-    - $ref: '../../../../v3/schemas/BaseReferenceDto.yaml'
-    description: The identity that the account correlated with.
+    type: object
+    description: Identity the account is correlated with. 
     properties:
       type:
-        enum:
-        - IDENTITY
-        description: The type of object that is referenced
+        type: string 
+        description: DTO type of the identity the account is correlated with. 
+        enum: 
+          - IDENTITY
         example: IDENTITY
+      id:
+        type: string
+        description: ID of the identity the account is correlated with. 
+        example: 2c7180a46faadee4016fb4e018c20642
+      name:
+        type: string
+        description: Display name of the identity the account is correlated with. 
+        example: Michael Michaels
   source:
     required:
     - id
     - type
     - name
     type: object
-    description: The source from which the account came from.
+    description: The source the accounts are being correlated from. 
     properties:
-      id:
-        description: ID of the object to which this reference applies
-        type: string
-        example: 4e4d982dddff4267ab12f0f1e72b5a6d
       type:
-        type: string
-        enum:
-        - SOURCE
+        type: string 
+        description: The DTO type of the source the accounts are being correlated from. 
+        enum: 
+          - SOURCE
         example: SOURCE
-        description: The type of object that is referenced
+      id:
+        type: string
+        description: The ID of the source the accounts are being correlated from. 
+        example: 2c9180835d191a86015d28455b4b232a
       name:
         type: string
-        description: Human-readable display name of the object to which this reference applies
-        example: Corporate Active Directory
+        description: Display name of the source the accounts are being correlated from. 
+        example: HR Active Directory
   account:
+    type: object
+    description: The correlated account. 
     required:
     - id
     - name
     - nativeIdentity
     - type
-    allOf:
-    - $ref: '../../../../v3/schemas/BaseReferenceDto.yaml'
-    description: The account that was correlated.
     properties:
       type:
+        type: string
+        description: The correlated account's DTO type. 
         enum:
         - ACCOUNT
-        description: The type of object that is referenced
         example: ACCOUNT
+      id: 
+        type: string
+        description: The correlated account's ID. 
+        example: 98da47c31df444558c211f9b205184f6
+      name: 
+        type: string
+        description: The correlated account's display name.
+        example: Brian Mendoza
       nativeIdentity:
         type: string
         description: Unique ID of the account on the source.

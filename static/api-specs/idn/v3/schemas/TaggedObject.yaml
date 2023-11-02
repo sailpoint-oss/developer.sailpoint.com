@@ -1,7 +1,8 @@
 type: object
+description: Tagged object.
 properties:
   objectRef:
-    $ref: '../../v3/schemas/TaggedObjectDto.yaml'
+    $ref: '../../v3/schemas/TaggedObject.yaml'
   tags:
     type: array
     items:

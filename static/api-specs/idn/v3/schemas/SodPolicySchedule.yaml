@@ -25,7 +25,7 @@ properties:
   recipients:
     type: array
     items:
-      $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+      $ref: '../../v3/schemas/SodRecipient.yaml'
   emailEmptyResults:
     type: boolean
     description: Indicates if empty results need to be emailed

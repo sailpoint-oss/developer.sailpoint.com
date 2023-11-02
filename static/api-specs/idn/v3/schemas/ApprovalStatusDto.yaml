@@ -6,17 +6,26 @@ properties:
       True if the request for this item was forwarded from one owner to another.
     example: false
   originalOwner:
-    $ref: "./BaseReferenceDto.yaml"
-    description: >-
-      Base identity/workgroup reference object representing the original owner,
-      if forwarded.
+    type: object
+    description: Identity of orginal approval owner. 
+    properties:
+      type:
+        type: string 
+        description: DTO type of original approval owner's identity.  
+        enum: 
+          - GOVERNANCE_GROUP
+          - IDENTITY
+        example: IDENTITY
+      id:
+        type: string
+        description: ID of original approval owner's identity. 
+        example: 2c7180a46faadee4016fb4e018c20642
+      name:
+        type: string
+        description: Display name of original approval owner. 
+        example: Michael Michaels
   currentOwner:
-    $ref: "./BaseReferenceDto.yaml"
-    description: >-
-      Base reference of approver that will make decision.
-  reviewedBy:
-    $ref: "./BaseReferenceDto.yaml"
-    description: The identity who has reviewed the approval.
+    $ref: './AccessItemReviewedBy.yaml'
   modified:
     type: string
     format: date-time

@@ -25,13 +25,8 @@ properties:
       $ref: './SodViolationContext.yaml'
   violatedPolicies:
     type: array
-    description: A list of the Policies that were violated
+    description: A list of the Policies that were violated.
     items:
-      $ref: './BaseReferenceDto.yaml'
-      description: Reference to the policy that was violated
-      example:
-        - type: "SOD_POLICY"
-          id: "69129440-422d-4a23-aadd-35c828d5bfda"
-          name: 'HR Policy'
+      $ref: './SodPolicyDto.yaml'
 
 

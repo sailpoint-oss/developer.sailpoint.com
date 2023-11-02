@@ -27,17 +27,29 @@ properties:
     $ref: '../../v3/schemas/AccessRequestType.yaml'
     description: If the access-request was for granting or revoking access.
   requester:
-    $ref: '../../v3/schemas/BaseReferenceDto.yaml'
-    description: The identity that requested the item.
+    $ref: './AccessItemRequesterDto.yaml'
   requestedFor:
-    $ref: '../../v3/schemas/BaseReferenceDto.yaml'
-    description: The identity for whom the item is requested for.
+    $ref: './AccessItemRequestedForDto.yaml'
   reviewedBy:
-    $ref: '../../v3/schemas/BaseReferenceDto.yaml'
-    description: The identity who has reviewed the approval.
+    type: object
+    description: Identity who reviewed the access item request. 
+    properties:
+      type:
+        type: string 
+        description: DTO type of identity who reviewed the access item request. 
+        enum: 
+          - IDENTITY
+        example: IDENTITY
+      id:
+        type: string
+        description: ID of identity who reviewed the access item request. 
+        example: 2c3780a46faadee4016fb4e018c20652
+      name:
+        type: string
+        description: Human-readable display name of identity who reviewed the access item request. 
+        example: Allen Albertson
   owner:
-    $ref: '../../v3/schemas/BaseReferenceDto.yaml'
-    description: The owner or approver of the approval.
+    $ref: './AccessItemOwnerDto.yaml'
   requestedObject:
     $ref: './RequestableObjectReference.yaml'
     description: The requested access item.
@@ -45,7 +57,10 @@ properties:
     $ref: '../../v3/schemas/CommentDto.yaml'
     description: The requester's comment.
   reviewerComment:
-    $ref: '../../v3/schemas/CommentDto.yaml'
+    allOf:
+      - $ref: './CommentDto.yaml'
+    type: object
+    nullable: true 
     description: The approval's reviewer's comment.
   previousReviewersComments:
     type: array
@@ -66,6 +81,7 @@ properties:
     description: The final state of the approval
   removeDate:
     type: string
+    nullable: true
     description: The date the role or access profile is no longer assigned to the specified identity.
     format: 'date-time'
     example: '2020-07-11T00:00:00Z'
@@ -75,6 +91,7 @@ properties:
     description: If true, then the request was to change the remove date or sunset date.
   currentRemoveDate:
     type: string
+    nullable: true
     description: The remove date or sunset date that was assigned at the time of the request.
     format: 'date-time'
     example: '2020-07-11T00:00:00Z'

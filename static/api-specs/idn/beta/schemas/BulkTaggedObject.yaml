@@ -8,7 +8,7 @@ properties:
     type: array
     items:
       type: string
-    description: Label to be applied to an Object
+    description: Label to be applied to object. 
     example: [ "BU_FINANCE", "PCI" ]
   operation:
     type: string

@@ -27,7 +27,7 @@ properties:
     example: "This policy ensures compliance of xyz"
     nullable: true
   ownerRef:
-    $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+    $ref: '../../v3/schemas/OwnerDto.yaml'
   externalPolicyReference:
     type: string
     description: Optional External Policy Reference

@@ -16,5 +16,5 @@ properties:
     nullable: true
   ownerRef:
     allOf:
-      - $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+      - $ref: '../../v3/schemas/OwnerDto.yaml'
       - nullable: true

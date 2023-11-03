@@ -102,11 +102,11 @@ The Service Definition must specify a pluginName attribute. This tells IdentityI
 
 ```xml
 <ServiceDefinition name="MyService" executor="com.acme.MyPluginService" interval="60" hostes="global">
-<Attributes>
-<Map>
-<entry key="pluginName value="MyPlugin"/>
-</Map>
-</Attributes>
+    <Attributes>
+        <Map>
+            <entry key="pluginName value="MyPlugin"/>
+        </Map>
+    </Attributes>
 </ServiceDefinition>
 ```
 
@@ -162,11 +162,11 @@ In your TaskDefintion you must include the pluginName attribute, as this attribu
 
 ```xml
 <TaskDefinition name="My Task" executor="com.acme.MyTaskExecutor" resultAction="Delete" subType="task_item_type_generic" type="Generic">
-<Attributes>
-<Map>
-<entry key="pluginName" value="MyPlugin" />
-</Map>
-</Attributes>
+    <Attributes>
+        <Map>
+            <entry key="pluginName" value="MyPlugin" />
+        </Map>
+    </Attributes>
 </TaskDefinition>
 ```
 
@@ -201,6 +201,7 @@ public class MyPolicyExecutor extends BasePluginPolicyExecutor {
 
     /**
      * {@inheritDoc}
+     **/
     public List<PolicyViolation> evaluate(SailPointContext context, Policy policy, Identity id) throws GeneralException {
 
         List<PolicyViolation> violations = new ArrayList<>();

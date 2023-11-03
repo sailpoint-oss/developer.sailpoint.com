@@ -11,7 +11,7 @@ slug: /docs/plugin-developer-guide/overview
 tags: ['plugin','guide','identityiq']
 ---
 
-# Chapter 1 - Overview
+# Overview
 
 Introduced with IdentityIQ 7.1, the plugin framework provides the infrastructure and tools to enable developers to extend the Open Identity Platform to meet a variety of specialized use cases that one might encounter in a non-standard deployment. The plugin framework allows developers to create packaged functionality that integrates with IdentityIQ, in a upgrade safe and isolated manner. It gives implementers a safe option for creating User Interface extensions, REST services, Custom SailPoint configuration objects, and more. This guide is designed to walk through the basics of plugin development and installation.
 
@@ -22,6 +22,8 @@ Developing a plugin requires a fairly robust knowledge of IdentityIQ and its obj
 *A quick note about plugin loading...*
 
 Before getting into the structure of a plugin project and why it is important, it may be helpful to understand how a plugin is represented in IdentityIQ once installed. IdentityIQ stores the '.zip' archive file of the Plugin in the IdentityIQ database in a data LONGBLOB in the 'spt_file_bucket' table. The data in the 'spt_file_bucket' table is referenced (by 'id') to an entry in the 'spt_persisted_file' table as shown below.
+
+![Persisted File](../img/persisted_file.png)
 
 It is from this .zip file that plugins are loaded after installation, or after an application server restart. The .zip file is extracted, and all important (html, css, js, etc) files are cached for later use. The plugin framework in 7.1 has several accessor methods to reference the cached files, but basically they can be referenced by the url prefix `<hostname>:8080/identityiq/plugin/{pluginName}` followed by the path found in the build structure . Compiled java classes are loaded (and cached) from the .zip archive via the PluginClassLoader class - more on this later.
 
@@ -50,6 +52,8 @@ A plugin is defined in IdentityIQ by the Plugin XML object. This object defines 
 
 A basic plugin will consist of a manifest file, database scripts, IdentityIQ objects, REST endpoints, UI elements (.css, xhtml, javascript, etc.) and compiled java classes. Not all of these components are required for a simple plugin - it can be as easy as creating the manifest, and some javascript/xhtml pages. In order to understand how a plugin operates, and how best to create one, it is important to understand what each of these components does, and how they interact.
 
+![File Structure](../img/plugin_structure.png)
+
 Main build components are as follows:
 
 1. Manifest file
@@ -59,4 +63,4 @@ Main build components are as follows:
 5. XML Artifacts
 6. Java Classes
 
-Each build component is described in more detail in each chapter of this blog.
+Each build component is described in more detail in each chapter of this guide.

@@ -1,8 +1,8 @@
 ---
 id: plugin-appendix-8.0-updates
 title: Appendix B 8.0 Updates
-pagination_label: Updates
-sidebar_label: Update
+pagination_label: Appendix B 8.0 Updates
+sidebar_label: Appendix B 8.0 Updates
 sidebar_position: 11
 sidebar_class_name: plugin_developer_guide_updates
 keywords: ['plugin']

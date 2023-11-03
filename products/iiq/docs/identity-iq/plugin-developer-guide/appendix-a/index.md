@@ -1,8 +1,8 @@
 ---
 id: plugin-appendix-7.1-migration
 title: Appendix A 7.1 Migration
-pagination_label: Appendix A 7.1 Migration
-sidebar_label: Appendix A 7.1 Migration
+pagination_label: Appendix A 7.0 to 7.1 Migration
+sidebar_label: Appendix A 7.0 to 7.1 Migration
 sidebar_position: 10
 sidebar_class_name: plugin_developer_guide_appendix_migration
 keywords: ['plugin']

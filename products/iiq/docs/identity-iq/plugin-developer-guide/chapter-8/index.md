@@ -13,7 +13,7 @@ tags: ['plugin','guide','identityiq']
 
 # Java Classes - Plugin Executors
 
-The plugin framework allows developers to include custom task implementations or services with their plugin. These items rely on executor classes to contain that contain the business logic for these services.  The following executors are currently available for use by developers
+The plugin framework allows developers to include custom task implementations or services with their plugin. These items rely on executor classes that contain the business logic for these services.  The following executors are currently available for use by developers
 
 1. Service Executors
 2. Task Executors

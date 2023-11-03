@@ -2,6 +2,7 @@ type: object
 properties:
   id:
     type: string
+    description: The id for this SOD exception
     nullable: true
     example: "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde"
   created:
@@ -32,10 +33,10 @@ properties:
         type: string
         description: Identity ID.
         example: 2c7180a46faadee4016fb4e018c20642
-    name:
-      type: string
-      description: Identity's display name. 
-      example: Michael Michaels
+      name:
+        type: string
+        description: Identity's display name. 
+        example: Michael Michaels
   start:
     type: string
     format: date-time

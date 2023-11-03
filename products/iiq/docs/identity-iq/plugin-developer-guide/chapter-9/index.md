@@ -21,7 +21,7 @@ Doing this will create a view with a large element that allows for drag and drop
 
 ![Drag and Drop](../img/drag_and_drop.png)
 
-But wait, where do I get the .zip archive? If you have downloaded a published plugin from Compass, the .zip file should be included with the download. If you have developed the plugin yourself, the .zip file will be the result of executing the build process against your project. Using the build file outlined in this guide as an example, the .zip archive will be created in your project directory under 'build/<your plugin name/>/dist' after executing the 'ant build' command.
+But wait, where do I get the .zip archive? If you have downloaded a published plugin from SailPoint, the .zip file should be included with the download. If you have developed the plugin yourself, the .zip file will be the result of executing the build process against your project. Using the build file outlined in this guide as an example, the .zip archive will be created in your project directory under 'build/<your plugin name/>/dist' after executing the 'ant build' command.
 
 ![Plugin Dist File](../img/plugin_dist.png)
 

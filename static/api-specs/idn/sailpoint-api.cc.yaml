@@ -299,7 +299,9 @@ paths:
                     passwordServiceId:
                       type: number
                     accessProfileIds:
-                      type: object
+                      type: array
+                      items:
+                        type: string
   /cc/api/app/get/{id}:
     get:
       tags:

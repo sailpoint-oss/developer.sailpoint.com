@@ -128,7 +128,7 @@ get:
 put:
   security:
     - UserContextAuth: [idn:sod-policy:write]
-  operationId: setSodPolicy
+  operationId: putSodPolicy
   tags:
     - SOD Policy
   summary: Update SOD policy by ID

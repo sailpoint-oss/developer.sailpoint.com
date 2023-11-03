@@ -3,6 +3,9 @@ post:
   tags:
     - SOD Policy
   summary: Create SOD policy
+  deprecated: true
+  security:
+    - UserContextAuth: [idn:sod-policy:write]
   description: >-
     This creates both General and Conflicting Access Based policy, with a limit
     of 50 entitlements for each (left & right) criteria for Conflicting Access
@@ -232,6 +235,9 @@ get:
   tags:
     - SOD Policy
   summary: List SOD policies
+  deprecated: true
+  security:
+    - UserContextAuth: [idn:sod-policy:read]
   description: >-
     This gets list of all SOD policies.
 

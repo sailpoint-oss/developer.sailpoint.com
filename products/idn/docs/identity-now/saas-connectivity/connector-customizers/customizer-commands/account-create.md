@@ -5,13 +5,62 @@ pagination_label: Account Create
 sidebar_label: Account Create
 keywords: ['connectivity', 'connectors', 'Account Create']
 description: Intercept the account create command. 
-slug: /docs/saas-connectivity/connector-customizers/commands/account-create
+slug: /docs/saas-connectivity/customizers/commands/account-create
 tags: ['Connectivity', 'Connector Command']
 ---
 
 ## Overview
 
 Use these commands to intercept the [account-create](../../commands/account-create) command.
+
+
+| Input/Output |       Data Type        |
+| :----------- | :--------------------: |
+| Input        | StdAccountCreateInput  |
+| Output       | StdAccountCreateOutput |
+
+### Example StdAccountCreateInput
+
+```javascript
+{
+    "attributes": {
+        "id": "john.doe",
+        "email": "example@gmail.com",
+        "department": "external",
+        "displayName": "John Doe",
+        "password": "test",
+        "entitlements": [
+            "user",
+            "administrator"
+        ]
+    }
+}
+```
+
+### Example StdAccountCreateOutput
+
+```javascript
+{
+    "identity": "john.doe",
+    "key": {
+        "simple": {
+            "id": "john.doe"
+        }
+    },
+    "disabled": false,
+    "locked": false,
+    "attributes": {
+        "id": "john.doe",
+        "displayName": "John Doe",
+        "email": "example@sailpoint.com",
+        "entitlements": [
+            "administrator",
+            "sailpoint"
+        ]
+    }
+}
+```
+## Implementation
 
 ### Before account-create command
 

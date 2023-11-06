@@ -5,13 +5,28 @@ pagination_label: Entitlement List
 sidebar_label: Entitlement List
 keywords: ['connectivity', 'connectors', 'Entitlement List']
 description: Intercept the entitlement list command.
-slug: /docs/saas-connectivity/connector-customizers/commands/entitlement-list
+slug: /docs/saas-connectivity/customizers/commands/entitlement-list
 tags: ['Connectivity', 'Connector Command']
 ---
 
 ## Overview
 
 Use these commands to intercept the [entitlement-list](../../commands/entitlement-list) command.
+
+
+| Input/Output |        Data Type         |
+| :----------- | :----------------------: |
+| Input        | StdEntitlementListInput  |
+
+### Example StdEntitlementListInput
+
+```javascript
+{
+    "type": "group"
+}
+```
+
+## Implementation
 
 ### Before entitlement-list command
 

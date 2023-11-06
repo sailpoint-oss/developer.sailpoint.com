@@ -5,13 +5,26 @@ pagination_label: Account List
 sidebar_label: Account List
 keywords: ['connectivity', 'connectors', 'Account List']
 description: Intercept the account list command.
-slug: /docs/saas-connectivity/connector-customizers/commands/account-list
+slug: /docs/saas-connectivity/customizers/commands/account-list
 tags: ['Connectivity', 'Connector Command']
 ---
 
 ## Overview
 
 Use these commands to intercept the [account-list](../../commands/account-list) command.
+
+
+| Input/Output |      Data Type       |
+| :----------- | :------------------: |
+| Input        | StdAccountListInput  |
+
+### Example StdAccountListInput
+
+```javascript
+"state": {"date": "1686341338871"},
+"stateful": true
+```
+## Implementation
 
 ### Before account-list command
 

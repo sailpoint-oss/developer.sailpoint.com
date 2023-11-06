@@ -5,13 +5,65 @@ pagination_label: Account Update
 sidebar_label: Account Update
 keywords: ['connectivity', 'connectors', 'Account Update']
 description: Intercept the account update command.
-slug: /docs/saas-connectivity/connector-customizers/commands/account-update
+slug: /docs/saas-connectivity/customizers/commands/account-update
 tags: ['Connectivity', 'Connector Command']
 ---
 
 ## Overview
 
 Use these commands to intercept the [account-update](../../commands/account-update) command.
+
+
+| Input/Output |       Data Type        |
+| :----------- | :--------------------: |
+| Input        | StdAccountUpdateInput  |
+| Output       | StdAccountUpdateOutput |
+
+### Example StdAccountUpdateInput
+
+```javascript
+{
+    "identity": "john.doe",
+    "key": {
+        "simple": {
+            "id": "john.doe"
+        }
+    },
+    "changes": [
+        {
+            "op": <Set|Add|Remove>,
+            "attribute": <account attribute to modify>,
+            "value": <the value to use for the operation>
+        }
+    ]
+}
+```
+
+### Example StdAccountUpdateOutput
+
+```javascript
+{
+    "identity": "john.doe",
+    "key": {
+        "simple": {
+            "id": "john.doe"
+        }
+    },
+    "disabled": false,
+    "locked": false,
+    "attributes": {
+        "id": "john.doe",
+        "displayName": "John Doe",
+        "email": "example@sailpoint.com",
+        "entitlements": [
+            "administrator",
+            "sailpoint"
+        ]
+    }
+}
+```
+## Implementation
+
 
 ### Before account-update command
 

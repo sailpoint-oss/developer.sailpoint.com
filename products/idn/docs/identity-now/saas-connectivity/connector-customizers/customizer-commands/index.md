@@ -7,7 +7,7 @@ sidebar_position: 7
 sidebar_class_name: connectorCommands
 keywords: ['connectivity', 'connector', 'commands']
 description: Available connectivity customizer commands.
-slug: /docs/saas-connectivity/connector-customizers/commands
+slug: /docs/saas-connectivity/customizers/commands
 tags: ['Connectivity']
 ---
 

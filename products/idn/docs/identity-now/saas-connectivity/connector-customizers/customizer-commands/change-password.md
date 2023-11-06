@@ -5,13 +5,39 @@ pagination_label: Change Password
 sidebar_label: Change Password
 keywords: ['connectivity', 'connectors', 'Change Password']
 description: Intercept the change password command.
-slug: /docs/saas-connectivity/connector-customizers/commands/change-password
+slug: /docs/saas-connectivity/customizers/commands/change-password
 tags: ['Connectivity', 'Connector Command']
 ---
 
 ## Overview
 
 Use these commands to intercept the [change-password](../../commands/change-password) command.
+
+
+| Input/Output |       Data Type         |
+| :----------- | :--------------------:  |
+| Input        | StdChangePasswordInput  |
+| Output       | StdChangePasswordOutput |
+
+### Example StdChangePasswordInput
+
+```javascript
+"identity": "john.doe",
+"key": {
+    "simple": {
+        "id": "john.doe"
+    }
+},
+"password": "newPassword"
+```
+
+### Example StdChangePasswordOutput
+
+```javascript
+{}
+```
+## Implementation
+
 
 ### Before change-password command
 

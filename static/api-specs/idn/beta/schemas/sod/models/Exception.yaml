@@ -5,6 +5,7 @@ properties:
     description: The id for this SOD exception
     nullable: true
     example: "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde"
+    description: Unique identifier of the SOD exception object
   created:
     type: string
     nullable: true

@@ -1067,9 +1067,9 @@
     "message": "Validate Connector Rule",
     "description": "The label for the doc item Validate Connector Rule in sidebar openApiSidebar, linking to the doc api/beta/validate-connector-rule"
   },
-  "sidebar.openApiSidebar.doc.Gets connector list": {
-    "message": "Gets connector list",
-    "description": "The label for the doc item Gets connector list in sidebar openApiSidebar, linking to the doc api/beta/get-connector-list"
+  "sidebar.openApiSidebar.doc.Use this endpoint to get a list of released connectors.": {
+    "message": "Use this endpoint to get a list of released connectors.",
+    "description": "The label for the doc item Use this endpoint to get a list of released connectors. in sidebar openApiSidebar, linking to the doc api/beta/get-connector-list"
   },
   "sidebar.openApiSidebar.doc.Create Custom Password Instructions": {
     "message": "Create Custom Password Instructions",

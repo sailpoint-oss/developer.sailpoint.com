@@ -12,65 +12,72 @@ properties:
     description: >-
       Type of the job or task underlying in the report processing. It could be a quartz task, QPOC or MENTOS jobs or a
       refresh/sync task.
-    example: 'MENTOS'
+    example: MENTOS
   id:
     type: string
     description: >-
       Unique task definition identifier.
-    example: 'a248c16fe22222b2bd49615481311111'
-  name:
-    type: string
+    example: a248c16fe22222b2bd49615481311111
+  reportType:
+    enum:
+      - ACCOUNTS
+      - IDENTITIES_DETAILS
+      - IDENTITIES
+      - IDENTITY_PROFILE_IDENTITY_ERROR
+      - ORPHAN_IDENTITIES
+      - SEARCH_EXPORT
+      - UNCORRELATED_ACCOUNTS
     description: >-
-      Name of the requesting report.
-    example: 'Identities Details Report'
+      Use this property to define what report should be processed in the RDE service.
+    example: IDENTITIES_DETAILS
   description:
     type: string
     description: >-
       Description of the report purpose and/or contents.
-    example: 'A detailed view of the identities in the system.'
+    example: A detailed view of the identities in the system.
   parentName:
     type: string
     nullable: true
     description: >-
       Name of the parent task/report if exists.
-    example: 'Audit Report'
+    example: Audit Report
   launcher:
     type: string
     description: >-
       Name of the report processing initiator.
-    example: 'cloudadmin'
+    example: cloudadmin
   created:
-    type: integer
-    format: int64
+    type: string
     description: >-
-      Report creation date in legacy long (int64) representation.
-    example: 1688633986104
+      Report creation date
+    format: date-time
+    example: '2020-09-07T42:14:00.364Z'
   launched:
-    type: integer
+    type: string
     nullable: true
-    format: int64
+    format: date-time
     description: >-
-      Report start date in legacy long (int64) representation.
-    example: 1688633988104
+      Report start date
+    example: '2020-09-07T42:14:00.521Z'
   completed:
-    type: integer
+    type: string
     nullable: true
-    format: int64
+    format: date-time
     description: >-
-      Report completion date in legacy long (int64) representation.
-    example: 1688633989504
+      Report completion date
+    example: '2020-09-07T42:14:01.137Z'
   completionStatus:
     type: string
     nullable: true
     enum:
-      - Success
-      - Warning
-      - Error
-      - Terminated
-      - TempError
+      - SUCCESS
+      - WARNING
+      - ERROR
+      - TERMINATED
+      - TEMP_ERROR
     description: >-
       Report completion status.
-    example: 'Success'
+    example: Success
   messages:
     type: array
     description: >-
@@ -85,10 +92,10 @@ properties:
           description: >-
             Type of the message.
           enum:
-            - Info
-            - Warn
-            - Error
-          example: 'Warn'
+            - INFO
+            - WARN
+            - ERROR
+          example: WARN
         error:
           type: boolean
           default: false
@@ -105,12 +112,12 @@ properties:
           type: string
           description: >-
             Message string identifier.
-          example: 'The following account(s) failed to correlate: A,B,C'
+          example: "The following account(s) failed to correlate: A,B,C"
         localizedText:
           type: string
           description: >-
             Message context with the locale based language.
-          example: 'The following account(s) failed to correlate: A,B,C'
+          example: "The following account(s) failed to correlate: A,B,C"
   returns:
     type: array
     description: >-
@@ -133,14 +140,12 @@ properties:
     type: object
     description: >-
       Extra attributes map(dictionary) needed for the report.
-    example:
-      org: 'an-org'
-      pod: 'the-pod'
     additionalProperties:
       type: object
+    example: {"org": "an-org"}
   progress:
     type: string
     nullable: true
     description: >-
       Current report state.
-    example: 'Initializing...'
+    example: Initializing...

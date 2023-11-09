@@ -15,13 +15,16 @@ get:
       required: true
       description: Unique identifier of the task result which handled report
       example: ef38f94347e94562b5bb8424a56397d8
-    - in: path
+    - in: query
       name: fileFormat
       schema:
         type: string
+        enum:
+          - csv
+          - pdf
       required: true
       description: Output format of the requested report file
-      example: 'CSV'
+      example: csv
     - in: query
       name: name
       required: false
@@ -29,6 +32,17 @@ get:
         type: string
       example: 'Identities Details Report'
       description: preferred Report file name, by default will be used report name from task result.
+    - in: query
+      name: auditable
+      required: false
+      schema:
+        type: boolean
+        default: false
+      example: true
+      description: >-
+        Enables auditing for current report download.
+        Will create an audit event and sent it to the REPORT cloud-audit kafka topic. 
+        Event will be created if there is any result present by requested taskResultId.
   responses:
     '200':
       description: Details about running report task.

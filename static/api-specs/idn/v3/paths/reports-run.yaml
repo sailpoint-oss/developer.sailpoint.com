@@ -14,10 +14,8 @@ post:
         schema:
           $ref: '../schemas/reports/ReportDetails.yaml'
         examples:
-          identityDetailsReport:
+          Identities Details Report:
             $ref: '../schemas/reports/examples/identities-details-report-details.yaml'
-          searchExportReport:
-            $ref: '../schemas/reports/examples/search-export-report-details.yaml'
     required: true
   responses:
     '200':

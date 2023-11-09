@@ -1,0 +1,31 @@
+title: ORPHAN_IDENTITIES & UNCORRELATED_ACCOUNTS
+type: object
+description: >-
+  Arguments for Orphan Identities report (ORPHAN_IDENTITIES) and Uncorrelated Accounts report (UNCORRELATED_ACCOUNTS)
+required:
+  - defaultS3Bucket
+properties:
+  selectedFormats:
+    type: array
+    items:
+      type: string
+      enum:
+        - CSV
+        - PDF
+    description: >-
+      Output report file formats. This are formats for calling get endpoint as a query parameter 'fileFormat'. 
+      In case report won't have this argument there will be ['CSV', 'PDF'] as default.
+    example:
+      - CSV
+  defaultS3Bucket:
+    type: boolean
+    description: >-
+      Use it to set default s3 bucket where generated report will be saved. 
+      In case this argument is false and 's3Bucket' argument is null or absent there will be default
+      s3Bucket assigned to the report.
+    example: true
+  s3Bucket:
+    type: string
+    description: >-
+      If you want to be specific you could use this argument with defaultS3Bucket = false.
+    example: the-dev-bucket

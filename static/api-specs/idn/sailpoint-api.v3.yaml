@@ -550,6 +550,9 @@ tags:
 
       For example, a non-administrator deciding whether to approve another identity's request for access to the Workday application, whose access may be restricted to members of the HR department, would want to know whether the identity is a member of the HR department. 
       If an administrator has used [Update Public Identity Config](https://developer.sailpoint.com/idn/api/v3/update-public-identity-config) to make the "department" attribute public, the approver can see the department and make a decision without requesting any more information.
+  - name: Reports Data Extraction
+    description: |
+      Use this API to implement reports lifecycle managing and monitoring.
   - name: Requestable Objects
     description: |
       Use this API to implement requestable object functionality. 
@@ -1071,6 +1074,14 @@ paths:
     $ref: './v3/paths/password-dictionary.yaml'
   /password-org-config:
     $ref: './v3/paths/password-org-config.yaml'
+  /reports/{taskResultId}/result:
+    $ref: './v3/paths/reports-result.yaml'
+  /reports/run:
+    $ref: './v3/paths/reports-run.yaml'
+  /reports/{id}/cancel:
+    $ref: './v3/paths/reports-cancel.yaml'
+  /reports/{taskResultId}:
+    $ref: './v3/paths/reports-get-file.yaml'
   /sod-policies:
     $ref: './v3/paths/sod-policies.yaml'
   /sod-policies/{id}:

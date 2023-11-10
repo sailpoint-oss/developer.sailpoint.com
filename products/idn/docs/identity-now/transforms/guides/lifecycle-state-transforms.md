@@ -49,7 +49,7 @@ This example and dates assume that the `now` keyword in the dateMath expression 
 
 The first part of the transform will check whether the `end_date` attribute was in the past. You will use these transforms to do so: `dateCompare`, `dateFormat`, and `dateMath`.
 
-First, use the [dateCompare operation](../operations/date-compare.md) to check that today is less than the specified `end_date`. To use the `dateCompare` operation, the dates must be in the `ISO8601` format, so the transform will require the use of the [dateFormat operation]((../operations/date-format.md)) as well. 
+First, use the [dateCompare operation](../operations/date-compare.md) to check that today is less than the specified `end_date`. To use the `dateCompare` operation, the dates must be in the `ISO8601` format, so the transform will require the use of the [dateFormat operation](../operations/date-format.md) as well. 
 
 On lines 10-17, the [dathMath operation](../operations/date-math.md) to pull the date `now`, which represents the current moment in time. The `dateFormat` operation then converts it into the `ISO8601` format for comparison.
 

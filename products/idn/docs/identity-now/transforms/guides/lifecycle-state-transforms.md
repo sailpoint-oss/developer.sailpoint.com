@@ -5,7 +5,7 @@ pagination_label: Lifecycle State Transform
 sidebar_label: Lifecycle State Transform
 sidebar_class_name: lifecycleStateTransform
 keywords: ['transforms', 'guides', 'nested', 'lifecycle']
-description: Learn how to build a lifecycle state transform
+description: Learn how to build a lifecycle state transform.
 sidebar_position: 4
 slug: /docs/transforms/guides/lifecycle-state-transform
 tags: ['Transforms', 'Guides', 'Lifecycle']
@@ -13,13 +13,13 @@ tags: ['Transforms', 'Guides', 'Lifecycle']
 
 ## Overview
 
-In this guide we will walk through a lifecycle state transform that requires nesting transforms together to achieve your desired result.
+In this guide, you will walk through a lifecycle state transform that requires you to nest multiple transforms together to achieve your desired result.
 
-A lifecycle state is a status that an identity can be in for example, `active`, `inactive` and `terminated`. You can then use this lifecycle state in IdentityNow to determine the access of an identity.
+A lifecycle state is a status an identity can be in, such as `active`, `inactive` and `terminated`, for example. You can then use this lifecycle state in IdentityNow to determine an identity's access. 
 
-## Determine Lifecycle State from End Date attribute
+## Determine lifecycle state from end date attribute
 
-The scenario is as follows. If the end date is greater than 25 days from today the transform will return `active`. If the end date is between 7 and 25 days from today then the transform will return `activePendingTermination`. If the end date is between 0 and 7 days from today then the transform will return `inactivePendingTermination`. Finally, if the end date is in the past, the transform will return `terminated`.
+The example scenario is as follows: If the end date is greater than 25 days from today, the transform will return `active`. If the end date is between 7 and 25 days from today, the transform will return `activePendingTermination`. If the end date is between 0 and 7 days from today, the transform will return `inactivePendingTermination`. Finally, if the end date is in the past, the transform will return `terminated`.
 
 The table shows conditions and expected outcomes.
 
@@ -30,7 +30,7 @@ The table shows conditions and expected outcomes.
 | end date 25 Days or more      | active                     |
 | end date in past              | terminated                 |
 
-I will use a delimited file to show how this can be accomplished. The file contents will be in the following format.
+This example will use a delimited file to show how this can be accomplished. The file contents will be in the following format:
 
 :::caution
 
@@ -45,17 +45,17 @@ This example and dates assume that the `now` keyword in the dateMath expression 
 | 100012 | paddy.lowe@sailpoint.com     | Paddy      | Lowe      | 2023-11-25 |
 | 100013 | keifer.sutherland@sailpoint.com | Keifer | Sutherland | 2023-12-25 |
 
-### Check if End Date Is in the Past
+### Check whether the end date was in the past 
 
-The first part of the transform will check if the `end_date` attribute is in the past. We will determine this with `dateCompare`, `dateFormat` and `dateMath`.
+The first part of the transform will check whether the `end_date` attribute was in the past. You will use these transforms to do so: `dateCompare`, `dateFormat`, and `dateMath`.
 
-We will use the [dateCompare](../operations/date-compare.md) operation to check that today is less than our end_date. In order to use the dateCompare operation the dates must be in the `ISO8601` format.
+First, use the [dateCompare operation](../operations/date-compare.md) to check that today is less than the specified `end_date`. To use the `dateCompare` operation, the dates must be in the `ISO8601` format, so the transform will require the use of the [dateFormat operation]((../operations/date-format.md)) as well. 
 
-On lines 10-17 we use the [dathMath](../operations/date-math.md) operation to pull out the date `now` which represents the current moment in time and the [dateFormat](../operations/date-format.md) operation to convert it into the `ISO8601` format for comparison.
+On lines 10-17, the [dathMath operation](../operations/date-math.md) to pull the date `now`, which represents the current moment in time. The `dateFormat` operation then converts it into the `ISO8601` format for comparison.
 
-On lines 21-31 we use the dateFormat operation to convert the end date provided from the source to `ISO8601`. In this example the format of the end_date attribute on the source is `YYYY-MM-dd`.
+On lines 21-31, the `dateFormat` operation converts the end date provided from the source format (`YYYY-MM-dd`) into the `ISO8601` format. 
 
-Finally, on lines 34-36 we use the comparison operator greater than or equal to `gte`. If the current date is greater than or equal to the end date then the comparison will return true meaning that the end date is in the past otherwise it will return false.
+Finally, lines 34-36 use the comparison operator greater than or equal to `gte`. If the current date is greater than or equal to the end date, the comparison will return `true`, meaning that the end date is in the past. This would result in identity's `terminated` lifecycle state. If the current date is still less than the end date, the comparison will return `false`. 
 
 <details>
 <summary>Show Transform</summary>
@@ -106,13 +106,13 @@ Finally, on lines 34-36 we use the comparison operator greater than or equal to 
 
 </details>
 
-### Check if End Date Is Within 7 Days
+### Check whether end date is within 7 days
 
-As the next part of this transform we will check that the `end_date` attribute is less than 7 days from now. We will also use `dateCompare`, `dateFormat` and `dateMath` for this comparison.
+Once you have ensured that the `end_date` is in fact in the past, the next step is to check whether the `end_date` is fewer than 7 days away, 7-25 days days away, or more than 25 days away, to determine their exact lifecycle states. Start by checking whether the `end_date` is fewer than 7 days away. You will again use `dateCompare`, `dateFormat`, and `dateMath` for this comparison. 
 
-On line 27, we use the dateMath operation to add 7 days to the current date `now+7d`. We pull in the end date the same as before and convert both to ISO8601 for comparison.
+On line 27, use the `dateMath` operation to add 7 days to the current date: `now+7d`. It pulls in the `end_date` the same way it did before, and it converts both dates to the `ISO8601` format for comparison.
 
-On line 34-36, we use the comparison operator less than or equal to `lte`. Using the result from the previous check, if the end_date is not in the past and is less than 7 days out then our end date is between 0-7 days.
+Lines 34-36 use the comparison operator less than or equal to: `lte`. This uses the result from the previous check to ensure that if the `end_date` is not in the past and that it is also fewer than 7 days away, the `end_date` will indeed occur in the 0-7 days range. This would result in the identity's `inactivePendingTermination` lifecycle state. 
 
 <details>
     <summary>Show Transform</summary>
@@ -163,13 +163,13 @@ On line 34-36, we use the comparison operator less than or equal to `lte`. Using
 
 </details>
 
-### Check if End Date Is Within 25 Days
+### Check whether end date is within 25 days
 
-The last comparison we need for this transform checks that the `end_date` attribute is between 7-25 days from now. We will also use `dateCompare`, `dateFormat` and `dateMath` for this comparison.
+Once you have ensured that the end date is in the past and that it is not fewer than 7 days away, the last required comparison checks whether the `end_date` attribute is either between 7 and 25 days from now or more than 25 days away. You can do so by checking whether the `end_date` is fewer than 25 days away (and more than 7 days away, using the result from the previous transform). You will again use `dateCompare`, `dateFormat`, and `dateMath` for this comparison.
 
-On line 27, we use the dateMath operation to add 25 days to the current date `now+25d`. We pull in the end date the same as before and convert both to ISO8601 for comparison.
+On line 27, the `dateMath` operation adds 25 days to the current date `now+25d`. It pulls in the end date the same way it did before, and it converts both dates to the `ISO8601` format for comparison.
 
-On line 34-36, we use the comparison operator less than or equal to `lte`. Using a combination of the checks above, if the end date is not in the past, and is not less than 7 days but is less than 25 days we know it must be between 7-25 days.
+Lines 34-36 use the comparison operator less than or equal to: `lte`. This uses the combination of the previous checks to ensure that if the `end_date` is not in the past, it is greater than 7 days away, and it returns `true` that it is fewer than 25 days away, then the `end_date` must fall between 7 and 25 days away. This would result in the identity's `activePendingTermination` lifecycle state. If it returns `false`, then the `end_date` must be more than 25 days away. This would result in the identity's `active` lifecycle state. 
 
 <details>
     <summary>Show Transform</summary>
@@ -222,7 +222,7 @@ On line 34-36, we use the comparison operator less than or equal to `lte`. Using
 
 ## Putting It All Together
 
-Now that we have checks in place to see if the end date is in the past, within 7 days, and within 25 days we can calculate our lifecycle state using [velocity if/else logic](https://people.apache.org/~henning/velocity/html/ch05s03.html) within the static transform.
+Now that you have taken the time to understand each of the nested transforms, you can put it all together! You can now calculate lifecycle states for the identities with the [velocity if/else logic](https://people.apache.org/~henning/velocity/html/ch05s03.html) within the static transform.
 
 ```javascript
 #if($inPast=='false' && $Within7Days == 'true')
@@ -236,7 +236,7 @@ Now that we have checks in place to see if the end date is in the past, within 7
 #end
 ```
 
-Logic within the static transform
+This is the logic within the static transform: 
 
 ```json
 {
@@ -369,7 +369,7 @@ Logic within the static transform
 
 </details>
 
-The results of the transform on each identity given that `now` returns 2023-11-07.
+These are the results of the transform on each identity, given that `now` returns 2023-11-07:
 
 | id     | email                        | first_name | last_name | end_date   | result |
 | ------ | ---------------------------- | ---------- | --------- | ---------- | ------ |

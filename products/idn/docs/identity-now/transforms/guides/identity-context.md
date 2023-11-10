@@ -5,7 +5,7 @@ pagination_label: Identity Attribute Context
 sidebar_label: Identity Attribute Context
 sidebar_class_name: identityContextTransform
 keywords: ['transforms', 'guides', 'nested', 'lifecycle']
-description: Learn what is possible with the identity attribute context
+description: Learn what you can do with the identity attribute context.
 sidebar_position: 5
 slug: /docs/transforms/guides/identity-context
 tags: ['Transforms', 'Guides', 'identity']
@@ -13,9 +13,9 @@ tags: ['Transforms', 'Guides', 'identity']
 
 ## Overview
 
-Transforms ships with the Apache Velocity template engine that allows a transform to reference, transform, and render values passed into the transform context.
+Transforms ship with the Apache Velocity template engine, which allows a transform to reference, transform, and render values passed into the transform context.
 
-The following variables are available to the Apache Velocity template engine when a transform is used to source an identity attribute.
+The following variables are available to the Apache Velocity template engine when a transform is used to source an identity attribute: 
 
 | Variable | Type | Description |
 | --- | --- | --- |
@@ -23,21 +23,21 @@ The following variables are available to the Apache Velocity template engine whe
 | attributeDefinition | sailpoint.object.ObjectAttribute | This is the definition of the attribute being promoted. |
 | oldValue | Object | This is the attribute's previous value. |
 
-For available methods on these objects see our [rule java documentation](https://developer.sailpoint.com/idn/docs/rules/java-docs).
+For available methods on these objects see our [Rules Java Docs](https://developer.sailpoint.com/idn/docs/rules/java-docs).
 
-## Example Usage
+## Examples 
 
-The following examples will help get you started to see what is possible with the identity context.
+These examples will help you learn what you can do with the identity context.
 
 :::info
 
-`$identity` as well as the other variables can be used in all transform operations.
+You can use `$identity`, as well as the other variables, in all transform operations.
 
 :::
 
-### Get the Id From an Identity’s Manager
+### Get the ID of the identity's manager
 
-The use of a firstValid is needed, if the identity does not have a manager `getManager()` returns null.
+You must use a `firstValid`. If the identity does not have a manager, `getManager()` returns null.
 
 ```json
 {
@@ -48,9 +48,9 @@ The use of a firstValid is needed, if the identity does not have a manager `getM
 }
 ```
 
-### Get Custom Attribute From an Identity’s Manager
+### Get the custom attribute of the identity's manager
 
-The use of a firstValid is needed, if the identity does not have a manager `getManager()` returns null.
+You must use a `firstValid`. If the identity does not have a manager, `getManager()` returns null.
 
 ```json
 {
@@ -61,7 +61,9 @@ The use of a firstValid is needed, if the identity does not have a manager `getM
 }
 ```
 
-### Get Whether or Not the Identity Is a Manager
+### Get manager status of the identity's manager
+
+This example would get the status of whether or not the identity's manager is currently actually a manager. 
 
 ```json
 {
@@ -72,7 +74,9 @@ The use of a firstValid is needed, if the identity does not have a manager `getM
 }
 ```
 
-### Get Accounts for an Identity
+### Get an identity's accounts
+
+This example would get an identity's various associated source accounts. 
 
 ```json
 {
@@ -83,9 +87,9 @@ The use of a firstValid is needed, if the identity does not have a manager `getM
 }
 ```
 
-### Get a Comma Separated List of Account Names From a Particular Application/Source
+### Get a comma separated list of account names from an application/source
 
-The velocity logic behind the transform
+This is the velocity logic of the transform: 
 
 ```java
 /* Loop through accounts returned from get accounts by application id */
@@ -111,11 +115,11 @@ The velocity logic behind the transform
 
 :::caution
 
-If you assign a variable with the identity attribute context, it will cast the type to a string.
+If you assign a variable with the identity attribute context, doing so will cast the type to a string.
 
 :::
 
-For example, if we wanted to assign the identity's manager object to a variable and then get additional data off of it.
+For example, you may do this if you wanted to assign the identity's manager object to a variable and then get additional data from it.
 
 :::warning Invalid
 

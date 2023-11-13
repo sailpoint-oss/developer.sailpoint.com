@@ -7,7 +7,7 @@ sidebar_position: 8
 sidebar_class_name: cli-workflows
 keywords: ['cli', 'cli workflows', 'workflows']
 description: Learn how to use the CLI to create, manage, and test workflows in this guide.
-slug: /tools/cli/workflows
+slug: /tools/cli/workflow
 tags: ['CLI']
 ---
 

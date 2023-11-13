@@ -5,9 +5,9 @@ pagination_label: Identity Attribute Context
 sidebar_label: Identity Attribute Context
 sidebar_class_name: identityContextTransform
 keywords: ['transforms', 'guides', 'nested', 'lifecycle']
-description: Learn what you can do with the identity attribute context.
+description: Examples on how you might use the identity attribute context.
 sidebar_position: 5
-slug: /docs/transforms/guides/identity-context
+slug: /docs/transforms/guides/identity-context-examples
 tags: ['Transforms', 'Guides', 'identity']
 ---
 

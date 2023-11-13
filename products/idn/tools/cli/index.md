@@ -179,7 +179,8 @@ These commands are available:
 - `spconfig`: Run this command to access IDN SP Config functionality. For more information about the `spconfig` command, refer to the CLI [SPConfig guide](/idn/tools/cli/spconfig). 
 - `transform`: This command is a CLI interface that makes it easy to create, manage, and test transforms. For more information about the `transform` command, refer to the CLI [Transforms guide](/idn/tools/cli/transforms). 
 - `va`: Run this command to access VAs connected to your tenant. For more information about the `va` command, refer to the CLI [VA guide](/idn/tools/cli/va).
-- `workflow`: Run this command to create and manage workflows within the CLI. For more information about the `workflow` command, refer to [Workflows](/idn/tools/cli/workflow).
+- `cluster`: Run this command to access VA clusters connected to your tenant. For more information about the `cluster` command, refer to the CLI [Clusters guide](/idn/tools/cli/cluster).
+- `workflow`: Run this command to create and manage workflows within the CLI. For more information about the `workflow` command, refer to the CLI [Workflows guide](/idn/tools/cli/workflow).
 
 ## GitHub
 

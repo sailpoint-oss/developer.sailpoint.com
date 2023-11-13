@@ -1239,16 +1239,12 @@ components:
       $ref: "./v3/schemas/search/model/account/activity/AccountActivityDocument.yaml"
     AccountAttributes:
       $ref: "./v3/schemas/AccountAttributes.yaml"
-    AccountDocument:
-      $ref: "./v3/schemas/search/model/account/AccountDocument.yaml"
     AccountsAsyncResult:
       $ref: "./v3/schemas/AccountsAsyncResult.yaml"
     AccountToggleRequest:
       $ref: "./v3/schemas/AccountToggleRequest.yaml"
     AccountUnlockRequest:
       $ref: "./v3/schemas/AccountUnlockRequest.yaml"
-    Aggregation:
-      $ref: "./v3/schemas/search/model/aggregation/AggregationDocument.yaml"
     ApprovalItems:
       $ref: "./v3/schemas/ApprovalItemDetails.yaml"
     Campaign:

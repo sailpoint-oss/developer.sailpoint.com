@@ -1,6 +1,6 @@
 summary: NestedAggregation with BucketAggregation using DSL
 value:
-  indices:  [ 'aggregations' ]
+  indices:  [ 'identities' ]
   aggregationType: 'DSL'
   aggregationsDsl:
     access:

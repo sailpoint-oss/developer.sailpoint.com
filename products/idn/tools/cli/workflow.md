@@ -1,9 +1,9 @@
 ---
-id: cli-connectors
+id: cli-workflows
 title: Workflows
 pagination_label: CLI Workflows
 sidebar_label: Workflows
-sidebar_position: 8
+sidebar_position: 9
 sidebar_class_name: cli-workflows
 keywords: ['cli', 'cli workflows', 'workflows']
 description: Learn how to use the CLI to create, manage, and test workflows in this guide.
@@ -194,4 +194,4 @@ The `workflow` command makes it easy to create, manage, and test workflows from 
   sail workflow download -f my-workflows
   ```
 
-  Running this command downloads the available workflow files 
+  Running this command downloads the available workflow files.

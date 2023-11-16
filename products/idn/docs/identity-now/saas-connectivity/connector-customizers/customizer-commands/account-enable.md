@@ -5,13 +5,55 @@ pagination_label: Account Enable
 sidebar_label: Account Enable
 keywords: ['connectivity', 'connectors', 'Account Enable']
 description: Intercept the account enable command.
-slug: /docs/saas-connectivity/connector-customizers/commands/account-enable
+slug: /docs/saas-connectivity/customizers/commands/account-enable
 tags: ['Connectivity', 'Connector Command']
 ---
 
 ## Overview
 
 Use these commands to intercept the [account-enable](../../commands/account-enable) command.
+
+
+| Input/Output    |        Data Type        |
+| :-------------- | :---------------------: |
+| Input           |  StdAccountEnableInput  |
+| Output          |  StdAccountEnableOutput |
+
+### Example StdAccountEnableInput
+
+```javascript
+"identity": "john.doe",
+"key": {
+    "simple": {
+        "id": "john.doe"
+    }
+}
+```
+
+### Example StdAccountEnableOutput
+
+```javascript
+{
+    "identity": "john.doe",
+    "key": {
+        "simple": {
+            "id": "john.doe"
+        }
+    },
+    "disabled": false,
+    "locked": false,
+    "attributes": {
+        "id": "john.doe",
+        "displayName": "John Doe",
+        "email": "example@sailpoint.com",
+        "entitlements": [
+            "administrator",
+            "sailpoint"
+        ]
+    }
+}
+```
+## Implementation
 
 ### Before account-enable command
 

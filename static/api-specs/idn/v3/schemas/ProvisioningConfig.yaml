@@ -11,19 +11,7 @@ properties:
     type: array
     items:
       allOf:
-        - $ref: '../schemas/BaseReferenceDto.yaml'
-      properties:
-        type:
-          description: The type of object being referenced
-          enum:
-            - SOURCE
-          example: SOURCE
-        id:
-          description: ID of the source
-          example: 2c91808568c529c60168cca6f90c1313
-        name:
-          description: Human-readable display name of the source
-          example: My Source
+        - $ref: '../../v3/schemas/ServiceDeskSource.yaml'
     example:
       - type: "SOURCE"
         id: "2c9180855d191c59015d291ceb051111"

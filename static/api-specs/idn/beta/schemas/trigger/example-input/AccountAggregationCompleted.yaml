@@ -14,15 +14,23 @@ properties:
     - type
     - name
     - id
-    allOf:
-    - $ref: '../../../../v3/schemas/BaseReferenceDto.yaml'
-    description: The source from which the accounts were aggregated.
+    type: object
+    description: The source the accounts are being aggregated from. 
     properties:
       type:
-        enum:
-        - SOURCE
-        description: The type of object that is referenced
+        type: string 
+        description: The DTO type of the source the accounts are being aggregated from. 
+        enum: 
+          - SOURCE
         example: SOURCE
+      id:
+        type: string
+        description: The ID of the source the accounts are being aggregated from. 
+        example: 2c9180835d191a86015d28455b4b232a
+      name:
+        type: string
+        description: Display name of the source the accounts are being aggregated from. 
+        example: HR Active Directory
   status:
     description: The overall status of the aggregation.
     enum:

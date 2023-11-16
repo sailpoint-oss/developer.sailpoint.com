@@ -2,8 +2,7 @@ description: The contextual information of the violated criteria
 type: object
 properties:
   policy:
-    $ref: "./BaseReferenceDto.yaml"
-    description: Reference to the Policy that is being violated.
+    $ref: './SodPolicyDto.yaml'
   conflictingAccessCriteria:
     type: object
     description: The object which contains the left and right hand side of the entitlements that got violated according to the policy.

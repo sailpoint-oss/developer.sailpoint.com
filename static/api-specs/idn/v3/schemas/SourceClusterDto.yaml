@@ -1,0 +1,17 @@
+type: object
+description: Source cluster. 
+properties:
+  type:
+    type: string 
+    description: Source cluster DTO type. 
+    enum: 
+      - CLUSTER
+    example: CLUSTER
+  id:
+    type: string
+    description: Source cluster ID. 
+    example: 2c9180847a7fccdd017aa5896f9f4f6f
+  name:
+    type: string
+    description: Source cluster display name. 
+    example: Training VA

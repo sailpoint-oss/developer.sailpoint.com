@@ -1,0 +1,151 @@
+type: object
+description: >-
+    Details about job or task type, state and lifecycle.
+properties:
+  type:
+    type: string
+    enum:
+      - QUARTZ
+      - QPOC
+      - MENTOS
+      - QUEUED_TASK
+    description: >-
+      Type of the job or task underlying in the report processing. It could be a quartz task, QPOC or MENTOS jobs or a
+      refresh/sync task.
+    example: MENTOS
+  id:
+    type: string
+    description: >-
+      Unique task definition identifier.
+    example: a248c16fe22222b2bd49615481311111
+  reportType:
+    enum:
+      - ACCOUNTS
+      - IDENTITIES_DETAILS
+      - IDENTITIES
+      - IDENTITY_PROFILE_IDENTITY_ERROR
+      - ORPHAN_IDENTITIES
+      - SEARCH_EXPORT
+      - UNCORRELATED_ACCOUNTS
+    description: >-
+      Use this property to define what report should be processed in the RDE service.
+    example: IDENTITIES_DETAILS
+  description:
+    type: string
+    description: >-
+      Description of the report purpose and/or contents.
+    example: A detailed view of the identities in the system.
+  parentName:
+    type: string
+    nullable: true
+    description: >-
+      Name of the parent task/report if exists.
+    example: Audit Report
+  launcher:
+    type: string
+    description: >-
+      Name of the report processing initiator.
+    example: cloudadmin
+  created:
+    type: string
+    description: >-
+      Report creation date
+    format: date-time
+    example: '2020-09-07T42:14:00.364Z'
+  launched:
+    type: string
+    nullable: true
+    format: date-time
+    description: >-
+      Report start date
+    example: '2020-09-07T42:14:00.521Z'
+  completed:
+    type: string
+    nullable: true
+    format: date-time
+    description: >-
+      Report completion date
+    example: '2020-09-07T42:14:01.137Z'
+  completionStatus:
+    type: string
+    nullable: true
+    enum:
+      - SUCCESS
+      - WARNING
+      - ERROR
+      - TERMINATED
+      - TEMP_ERROR
+    description: >-
+      Report completion status.
+    example: Success
+  messages:
+    type: array
+    description: >-
+      List of the messages dedicated to the report. 
+      From task definition perspective here usually should be warnings or errors.
+    example: []
+    items:
+      type: object
+      properties:
+        type:
+          type: string
+          description: >-
+            Type of the message.
+          enum:
+            - INFO
+            - WARN
+            - ERROR
+          example: WARN
+        error:
+          type: boolean
+          default: false
+          description: >-
+            Flag whether message is an error.
+          example: false
+        warning:
+          type: boolean
+          default: false
+          description: >-
+            Flag whether message is a warning.
+          example: true
+        key:
+          type: string
+          description: >-
+            Message string identifier.
+          example: "The following account(s) failed to correlate: A,B,C"
+        localizedText:
+          type: string
+          description: >-
+            Message context with the locale based language.
+          example: "The following account(s) failed to correlate: A,B,C"
+  returns:
+    type: array
+    description: >-
+      Task definition results, if necessary.
+    example: []
+    items:
+      type: object
+      properties:
+        displayLabel:
+          type: string
+          description: >-
+            Attribute description.
+          example: ' '
+        attributeName:
+          type: string
+          description: >-
+            System or database attribute name.
+          example: ' '
+  attributes:
+    type: object
+    description: >-
+      Extra attributes map(dictionary) needed for the report.
+    additionalProperties:
+      type: object
+    example: {"org": "an-org"}
+  progress:
+    type: string
+    nullable: true
+    description: >-
+      Current report state.
+    example: Initializing...

@@ -11,7 +11,7 @@ properties:
     type: array
     items:
       allOf:
-        - $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+        - $ref: '../../v3/schemas/ServiceDeskSource.yaml'
       properties:
         type:
           description: The type of object being referenced

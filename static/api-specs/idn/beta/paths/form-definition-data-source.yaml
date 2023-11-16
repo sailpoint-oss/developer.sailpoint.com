@@ -32,14 +32,20 @@ post:
       x-go-name: Limit
     - name: filters
       in: query
-      description: |-
-        Filters
-
+      description: >-
         Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
         Filtering is supported for the following fields and operators:
-        <b>value</b>: <i>eq, gt, sw, in</i>
-        <b>label</b>: <i>eq, gt, sw, in</i>
-        <b>subLabel</b>: <i>eq, gt, sw, in</i>
+
+
+        **value**: *eq, gt, sw, in*
+
+
+        **label**: *eq, gt, sw, in*
+
+
+        **subLabel**: *eq, gt, sw, in*
       schema:
         type: string
         x-go-name: Filters

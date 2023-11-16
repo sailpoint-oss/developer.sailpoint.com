@@ -5,13 +5,49 @@ pagination_label: Source Data Read
 sidebar_label: Source Data Read
 keywords: ['connectivity', 'connectors', 'Source Data Read']
 description: Intercept the source data read command.
-slug: /docs/saas-connectivity/connector-customizers/commands/source-data-read
+slug: /docs/saas-connectivity/customizers/commands/source-data-read
 tags: ['Connectivity', 'Connector Command']
 ---
 
 ## Overview
 
 Use these commands to intercept the [source-data-read](../../commands/source-data-read) command.
+
+
+| Input/Output |            Data Type        |
+| :----------- | :-------------------------: |
+| Input        | StdSourceDataReadInput  |
+| Output       | StdSourceDataReadOutput |
+
+### Example StdSourceDataReadInput
+
+```javascript
+{
+    "sourceDataKey": "name",
+    "queryInput": {
+        "query": "fetchAll",
+        "limit": 10
+    }
+}
+```
+
+### Example StdSourceDataReadOutput
+
+```javascript
+[
+    {
+        key: 'id',
+        label: 'Id',
+        subLabel: 'Airtable Base Id'
+    },
+    {
+        key: 'name',
+        label: 'Name',
+        subLabel: 'Airtable Source Table Name'
+    }
+]
+```
+## Implementation
 
 ### Before source-data-read command
 

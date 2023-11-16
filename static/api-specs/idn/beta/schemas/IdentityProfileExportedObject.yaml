@@ -6,6 +6,6 @@ properties:
     example: 1
     description: Version or object from the target service.
   self:
-    $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+    $ref: '../../v3/schemas/SelfImportExportDto.yaml'
   object:
     $ref: '../../v3/schemas/IdentityProfile.yaml'

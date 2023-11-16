@@ -16,14 +16,7 @@ properties:
     - type
     - name
     allOf:
-    - $ref: '../../../../v3/schemas/BaseReferenceDto.yaml'
-    description: The identity who the access request is for.
-    properties:
-      type:
-        enum:
-        - "IDENTITY"
-        example: "IDENTITY"
-        description: The type of object that is referenced
+    - $ref: './AccessItemRequestedForDto.yaml'
   requestedItemsStatus:
     description: Details on the outcome of each access item.
     type: array
@@ -105,7 +98,7 @@ properties:
                 - type
                 - name
                 allOf:
-                - $ref: '../../../../v3/schemas/BaseReferenceDto.yaml'
+                - $ref: './AccessItemApproverDto.yaml'
                 description: The identity of the approver.
                 properties:
                   type:
@@ -119,11 +112,4 @@ properties:
     - type
     - name
     allOf:
-    - $ref: '../../../../v3/schemas/BaseReferenceDto.yaml'
-    description: The identity that initiated the access request.
-    properties:
-      type:
-        enum:
-        - "IDENTITY"
-        example: "IDENTITY"
-        description: The type of object that is referenced
+    - $ref: './AccessItemRequesterDto.yaml'

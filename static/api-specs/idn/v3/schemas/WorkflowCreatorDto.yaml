@@ -1,0 +1,17 @@
+type: object
+description: Workflow creator's identity. 
+properties:
+  type:
+    type: string 
+    description: Workflow creator's DTO type. 
+    enum: 
+      - IDENTITY
+    example: IDENTITY
+  id:
+    type: string
+    description: Workflow creator's identity ID.
+    example: 2c7180a46faadee4016fb4e018c20642
+  name:
+    type: string
+    description: Workflow creator's display name. 
+    example: Michael Michaels

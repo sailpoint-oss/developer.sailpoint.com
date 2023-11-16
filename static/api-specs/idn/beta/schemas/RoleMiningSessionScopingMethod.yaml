@@ -1,6 +1,6 @@
-type: object
-properties:
-  state:
-    description: The scoping method used in the current role mining session. Can be one of these states - MANUAL|AUTO_RM
-    type: string
-    example: "MANUAL"
+type: string
+description: The scoping method used in the current role mining session.
+enum:
+  - MANUAL
+  - AUTO_RM
+example: MANUAL

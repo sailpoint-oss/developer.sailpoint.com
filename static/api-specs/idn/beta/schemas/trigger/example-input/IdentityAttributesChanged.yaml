@@ -9,15 +9,23 @@ properties:
     - id
     - type
     - name
-    allOf:
-    - $ref: '../../../../v3/schemas/BaseReferenceDto.yaml'
-    description: The identity who's attributes changed.
+    type: object
+    description: Identity whose attributes changed. 
     properties:
       type:
-        enum:
-        - "IDENTITY"
-        example: "IDENTITY"
-        description: The type of object that is referenced
+        type: string 
+        description: DTO type of identity whose attributes changed. 
+        enum: 
+          - IDENTITY
+        example: IDENTITY
+      id:
+        type: string
+        description: ID of identity whose attributes changed. 
+        example: 2c7180a46faadee4016fb4e018c20642
+      name:
+        type: string
+        description: Display name of identity whose attributes changed. 
+        example: Michael Michaels
   changes:
     description: A list of one or more identity attributes that changed on the identity.
     type: array

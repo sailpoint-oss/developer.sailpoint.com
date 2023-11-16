@@ -35,7 +35,7 @@ get:
 put:
   security:
     - UserContextAuth: [idn:sod-policy:write]
-  operationId: setPolicySchedule
+  operationId: putPolicySchedule
   tags:
     - SOD Policy
   summary: Update SOD Policy schedule

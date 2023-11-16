@@ -17,8 +17,7 @@ properties:
     description: Scopes of the personal  access token.
     example: [ "demo:personal-access-token-scope:first", "demo:personal-access-token-scope:second" ]
   owner:
-    $ref: '../../v3/schemas/BaseReferenceDto.yaml'
-    description: Details about the owner of the personal access token.
+    $ref: '../../v3/schemas/PatOwner.yaml'
   created:
     type: string
     format: 'date-time'

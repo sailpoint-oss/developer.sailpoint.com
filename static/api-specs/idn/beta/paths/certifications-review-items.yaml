@@ -31,7 +31,7 @@ get:
         **id**: *eq, in*
 
 
-        **completed***: *eq, ne*
+        **completed**: *eq, ne*
 
 
         **targetSummary.id**: *eq, in*
@@ -53,6 +53,7 @@ get:
 
 
         **reviewData.accessProfile.sourceName**: *eq, sw*
+      example: id eq "2c9180846b0a0583016b299f210c1314"
     - in: query
       name: sorters
       schema:
@@ -63,6 +64,7 @@ get:
 
 
         Sorting is supported for the following fields: **targetSummary.name, reviewData.entity.type, reviewData.entity.name, reviewData.entitlement.sourceName, reviewData.accessProfile.sourceName**
+      example: targetSummary.name
     - in: query
       name: activity-data
       schema:

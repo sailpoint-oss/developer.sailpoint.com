@@ -19,13 +19,13 @@ get:
         Filtering is supported for the following fields and operators:
 
 
-        **key**: *eq, in*
+        **key**: *eq, in, co, sw*
 
 
-        **medium**: *eq*
+        **medium**: *eq, co, sw*
 
 
-        **locale**: *eq*
+        **locale**: *eq, co, sw*
       example: 'medium eq "EMAIL"'
   responses:
     '200':

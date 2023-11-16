@@ -11,7 +11,12 @@ get:
     - $ref: '../../v3/parameters/count.yaml'
     - name: sorters
       in: query
-      description: sort by numberOfUpdates, identitiesWithAccess, totalNumberOfIdentities (default- ascending)
+      description: >-
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+
+        Sorting is supported for the following fields: **numberOfUpdates, identitiesWithAccess, totalNumberOfIdentities**
+      example: numberOfUpdates
       required: false
       style: form
       explode: true
@@ -19,10 +24,24 @@ get:
         type: string
     - name: filters
       in: query
-      description: Filter parameter(s) by "starts with" for the name, ownerName and description.
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **name**: *sw*
+
+
+        **ownerName**: *sw*
+
+
+        **description**: *sw*
       required: false
       style: form
       explode: true
+      example: name sw "John"
       schema:
         type: string
   responses:

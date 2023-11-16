@@ -58,6 +58,7 @@ properties:
   attributes:
     description: >-
       Meta-data about the transform. Values in this list are specific to the type of transform to be executed.
+    nullable: true
     oneOf:
     - $ref: './transforms/AccountAttribute.yaml'
     - $ref: './transforms/Base64Decode.yaml'

@@ -37,6 +37,7 @@ properties:
     $ref: './AccessProfileSourceRef.yaml'
   entitlements:
     type: array
+    nullable: true
     description: A list of entitlements associated with the Access Profile. If enabled is false this is allowed to be empty otherwise it needs to contain at least one Entitlement.
     items:
       $ref: './EntitlementRef.yaml'

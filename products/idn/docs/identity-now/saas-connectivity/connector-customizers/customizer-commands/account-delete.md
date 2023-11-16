@@ -5,13 +5,39 @@ pagination_label: Account Delete
 sidebar_label: Account Delete
 keywords: ['connectivity', 'connectors', 'Account Delete']
 description: Intercept the account delete command. 
-slug: /docs/saas-connectivity/connector-customizers/commands/account-delete
+slug: /docs/saas-connectivity/customizers/commands/account-delete
 tags: ['Connectivity', 'Connector Command']
 ---
 
 ## Overview
 
 Use these commands to intercept the [account-delete](../../commands/account-delete) command.
+
+| Input/Output |       Data Type        |
+| :----------- | :--------------------: |
+| Input        | StdAccountDeleteInput  |
+| Output       | StdAccountDeleteOutput |
+
+### Example StdAccountDeleteInput
+
+```javascript
+{
+    "identity": "john.doe",
+    "key": {
+        "simple": {
+            "id": "john.doe"
+        }
+    }
+}
+```
+
+### Example StdAccountDeleteOutput
+
+```javascript
+{
+}
+```
+## Implementation
 
 ### Before account-delete command
 

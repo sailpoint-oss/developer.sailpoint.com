@@ -1,6 +1,6 @@
 summary: MetricAggregation
 value:
-  indices:  [ 'aggregations' ]
+  indices:  [ 'identities' ]
   aggregationType: 'SAILPOINT'
   aggregations:
     metric:

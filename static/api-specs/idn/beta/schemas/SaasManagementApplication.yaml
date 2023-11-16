@@ -44,13 +44,13 @@ properties:
       UNKNOWN - The integration state is not recognized.
   identityNowSource:
     allOf:
-      - $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+      - $ref: '../../v3/schemas/SourceDto.yaml'
     nullable: true
     description: Reference to mapped IdentityNow Source, if mapping exists.
     example:
       type: "SOURCE"
-      id: "2c9180866166b5b0016167c32ef31a66"
-      name: "Corporate directory"
+      id: "2c9180835d191a86015d28455b4b232a"
+      name: "HR Active Directory"
   lastTested:
     type: string
     nullable: true

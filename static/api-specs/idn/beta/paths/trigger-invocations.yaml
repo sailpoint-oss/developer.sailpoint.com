@@ -24,7 +24,7 @@ get:
 
 
         **triggerId**: *eq*
-      example: 'triggerId eq "idn:access-request-dynamic-approver"'
+      example: triggerId eq "idn:access-request-dynamic-approver"
     - in: query
       name: sorters
       required: false
@@ -35,11 +35,8 @@ get:
         Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
 
 
-        Sorting is supported for the following fields:
-
-
-        **triggerId**
-      example: 'triggerId'
+        Sorting is supported for the following fields: **triggerId**
+      example: triggerId
   responses:
     '200':
       description: >-

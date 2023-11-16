@@ -14,4 +14,4 @@ properties:
     description: Description of the application.
     example: Access to research information, lab results, and schematics
   owner:
-    $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+    $ref: './AccessItemOwnerDto.yaml'

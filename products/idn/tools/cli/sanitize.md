@@ -29,7 +29,7 @@ The existing support guide for collecting and sanitizing the HAR file [can be fo
 ### Functionality
 
 The Sanitize command sanitizes a HAR file of sensitive data.
-Specifically it removes access tokens and origin urls similar to the examples below:
+It ONLY removes access tokens that match IdentityNow format and origin urls similar to the examples below:
 
 Access Token
 ```

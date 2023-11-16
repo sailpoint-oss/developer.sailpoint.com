@@ -16,7 +16,7 @@ tags: ['CLI']
 
 Learn how to use the CLI to sanitize your HAR files in this guide.
 
-In IdentityNow (IDN), you occasionally need to troubleshoot issues, and often some of the most helpful data can be a HAR file collected of your browsers api calls made while replicating the issue.
+In IdentityNow (IDN), you occasionally need to troubleshoot issues, and often some of the most helpful data can be a HAR file collected of your browsers API calls made while replicating the issue.
 
 The problem lies in the amount of information, specifically sensitive information that that file contains, due to the nature of what it is capturing.  This is where the CLI comes in.  The CLI can be used to sanitize the HAR file, removing sensitive information, while still leaving the file in a useful state for support to troubleshoot the issue.
 

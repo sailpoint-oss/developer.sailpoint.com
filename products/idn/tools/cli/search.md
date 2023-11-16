@@ -146,6 +146,7 @@ The specified template file will give the CLI all the information it needs to pe
 
 ### Flags
 
+
 You can append two flags to the `template` command to refine it: 
 - The first possible flag, `outputTypes`, allows you to specify the output data format as either `json` or `csv`. 
 - The second possible flag, `folderPath`, allows you to specify the folder path where you want to save the search query result files. 
@@ -170,3 +171,4 @@ Here is an example of a `template` command that specifies a `folderPath`:
 ```shell
 sail search template all-provisioning-events-90-days --folderPath ./local/folder/path
 ```
+

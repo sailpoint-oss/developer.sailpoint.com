@@ -6,7 +6,7 @@ sidebar_label: Sanitize
 sidebar_position: 2
 sidebar_class_name: cli
 keywords: ['cli', 'sanitize']
-description: Learn how to use the CLI to sanitize your har files in this guide.
+description: Learn how to use the CLI to sanitize your HAR files in this guide.
 slug: /tools/cli/sanitize
 tags: ['CLI']
 ---
@@ -14,20 +14,20 @@ tags: ['CLI']
 
 ## Sanitize
 
-Learn how to use the CLI to sanitize your har files in this guide.
+Learn how to use the CLI to sanitize your HAR files in this guide.
 
-In IdentityNow (IDN), you occasionally need to troubleshoot issues, and often some of the most helpful data can be a har file collected of your browsers api calls made while replicating the issue.
+In IdentityNow (IDN), you occasionally need to troubleshoot issues, and often some of the most helpful data can be a HAR file collected of your browsers api calls made while replicating the issue.
 
-The problem lies in the amount of information, specifically sensitive information that that file contains, due to the nature of what it is capturing.  This is where the CLI comes in.  The CLI can be used to sanitize the har file, removing sensitive information, while still leaving the file in a useful state for support to troubleshoot the issue.
+The problem lies in the amount of information, specifically sensitive information that that file contains, due to the nature of what it is capturing.  This is where the CLI comes in.  The CLI can be used to sanitize the HAR file, removing sensitive information, while still leaving the file in a useful state for support to troubleshoot the issue.
 
-The existing support guide for collecting and sanitizing the har file [can be found here](https://support.sailpoint.com/csm?id=kb_article_view&sysparm_article=KB0011711#_gl=1*17esz5f*_gcl_au*MTczOTU0NDU4NC4xNjkxNjc5NzY2)
+The existing support guide for collecting and sanitizing the HAR file [can be found here](https://support.sailpoint.com/csm?id=kb_article_view&sysparm_article=KB0011711#_gl=1*17esz5f*_gcl_au*MTczOTU0NDU4NC4xNjkxNjc5NzY2)
 
 - [Sanitize](#sanitize)
   - [Command](#command)
 
 ### Functionality
 
-The Sanitize command sanitizes a har file of sensitive data.
+The Sanitize command sanitizes a HAR file of sensitive data.
 Specifically it removes access tokens and origin urls similar to the examples below:
 
 Access Token
@@ -41,10 +41,10 @@ Origin URLs
     "name": "origin",
     "value": "https://example.identitynow.com"
 }
-
+```
 ### Command
 
-To use the CLI to sanitize har files, you can use this command:
+To use the CLI to sanitize HAR files, you can use this command:
 
 ```shell
 sail sanitize ./path/to/har/file.har

@@ -16,7 +16,7 @@ tags: ['CLI']
 
 Learn how to use the CLI to sanitize your HAR files in this guide.
 
-When you're troubleshooting issues you encounter using Identity Security Cloud, some of the most helpful data can be contained in a HAR file  collected from your browser's API calls made while replicating the issue.
+When you're troubleshooting issues you encounter using Identity Security Cloud, some of the most helpful data can be contained in a HAR file collected from your browser's API calls made while replicating the issue.
 
 The problem lies in the amount of information, specifically sensitive information that the HAR file contains, due to the nature of the data it's capturing. The CLI is very useful for this. You can use the CLI to sanitize the HAR file, which removes sensitive information but still still leaves the file in a useful state for troubleshooting the issue.
 

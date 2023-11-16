@@ -16,9 +16,9 @@ tags: ['CLI']
 
 Learn how to use the CLI to sanitize your HAR files in this guide.
 
-In IdentityNow (IDN), you occasionally need to troubleshoot issues, and often some of the most helpful data can be a HAR file collected of your browsers API calls made while replicating the issue.
+When you're troubleshooting issues you encounter using Identity Security Cloud, some of the most helpful data can be contained in a HAR file  collected from your browser's API calls made while replicating the issue.
 
-The problem lies in the amount of information, specifically sensitive information that that file contains, due to the nature of what it is capturing.  This is where the CLI comes in.  The CLI can be used to sanitize the HAR file, removing sensitive information, while still leaving the file in a useful state for support to troubleshoot the issue.
+The problem lies in the amount of information, specifically sensitive information that the HAR file contains, due to the nature of the data it's capturing. The CLI is very useful for this. You can use the CLI to sanitize the HAR file, which removes sensitive information but still still leaves the file in a useful state for troubleshooting the issue.
 
 The existing support guide for collecting and sanitizing the HAR file [can be found here](https://support.sailpoint.com/csm?id=kb_article_view&sysparm_article=KB0011711#_gl=1*17esz5f*_gcl_au*MTczOTU0NDU4NC4xNjkxNjc5NzY2)
 
@@ -45,13 +45,13 @@ Origin URLs
 ```
 ### Command
 
-To use the CLI to sanitize HAR files, you can use this command:
+To use the CLI to sanitize HAR files, you can run this command:
 
 ```shell
 sail sanitize ./path/to/har/file.har
 ```
 
-or you can sanitize multiple files at once:
+You can also sanitize multiple files at once:
 
 ```shell
 sail sanitize ./path/to/har/file1.har ./path/to/har/file2.har ./path/to/har/file3.har

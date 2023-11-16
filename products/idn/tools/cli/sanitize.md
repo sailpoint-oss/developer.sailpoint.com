@@ -23,6 +23,7 @@ The problem lies in the amount of information, specifically sensitive informatio
 The existing support guide for collecting and sanitizing the HAR file [can be found here](https://support.sailpoint.com/csm?id=kb_article_view&sysparm_article=KB0011711#_gl=1*17esz5f*_gcl_au*MTczOTU0NDU4NC4xNjkxNjc5NzY2)
 
 - [Sanitize](#sanitize)
+  - [Functionality](#functionality)
   - [Command](#command)
 
 ### Functionality

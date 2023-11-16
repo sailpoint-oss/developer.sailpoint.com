@@ -20,7 +20,7 @@ When you're troubleshooting issues you encounter using Identity Security Cloud, 
 
 The problem lies in the amount of information, specifically sensitive information that the HAR file contains, due to the nature of the data it's capturing. The CLI is very useful for this. You can use the CLI to sanitize the HAR file, which removes sensitive information but still still leaves the file in a useful state for troubleshooting the issue.
 
-The existing support guide for collecting and sanitizing the HAR file [can be found here](https://support.sailpoint.com/csm?id=kb_article_view&sysparm_article=KB0011711#_gl=1*17esz5f*_gcl_au*MTczOTU0NDU4NC4xNjkxNjc5NzY2)
+The existing support guide for collecting and sanitizing the HAR file [can be found here](https://support.sailpoint.com/csm?id=kb_article_view&sysparm_article=KB0011711#_gl=1*17esz5f*_gcl_au*MTczOTU0NDU4NC4xNjkxNjc5NzY2).
 
 - [Sanitize](#sanitize)
   - [Functionality](#functionality)

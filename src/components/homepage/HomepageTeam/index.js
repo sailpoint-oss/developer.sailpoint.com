@@ -7,60 +7,72 @@ export default function HomepageTeam() {
   return (
     <div className={styles.center}>
       <div className={styles.gridContainer}>
+      <TeamCard
+          link={'https://developer.sailpoint.com/discuss/u/danielleg/summary'}
+          name={'Danielle Gaitan'}
+          title={'Community Manager'.toUpperCase()}
+          expertise={''}
+          image={'/homepage/danielle-gaitan.png'}
+        />
         <TeamCard
           link={
             'https://developer.sailpoint.com/discuss/u/colin_mckibben/summary'
           }
           name={'Colin McKibben'}
           title={'Lead Developer Advocate'.toUpperCase()}
-          expertise={'APIs, WORKFLOWS, EVENT TRIGGERS'}
+          expertise={'Identity Security Cloud'.toUpperCase()}
           image={'/homepage/colin-mckibben.png'}
-        />
-        <TeamCard
-          link={'https://developer.sailpoint.com/discuss/u/lukehagar/summary'}
-          name={'Luke Hagar'}
-          title={'Senior Developer Advocate'.toUpperCase()}
-          expertise={'DEVELOPER TOOLS, APIs, IAM'}
-          image={'/homepage/lukehagar.png'}
         />
         <TeamCard
           link={
             'https://developer.sailpoint.com/discuss/u/tyler_mairose/summary'
           }
           name={'Tyler Mairose'}
-          title={'Staff Software Engineer'.toUpperCase()}
-          expertise={'RULES, TRANSFORMS'}
+          title={'Developer Advocate'.toUpperCase()}
+          expertise={'Identity Security Cloud'.toUpperCase()}
           image={'/homepage/tyler-mairose.png'}
         />
-        <TeamCard
-          link={
-            'https://developer.sailpoint.com/discuss/u/philip-ellis/summary'
-          }
-          name={'Philip Ellis'}
-          title={'Lead Software Engineer'.toUpperCase()}
-          expertise={'DEVELOPER TOOLS, SAAS CONNECTIVITY'}
-          image={'/homepage/phil-ellis.png'}
-        />
-        <TeamCard
+               <TeamCard
           link={'https://developer.sailpoint.com/discuss/u/jthaytko/summary'}
           name={'James Haytko'}
           title={'Technical Writer'.toUpperCase()}
           expertise={'DEVELOPER DOCUMENTATION'}
           image={'/homepage/james-haytko.png'}
         />
-          <TeamCard
+      </div>
+
+      <div className={styles.gridContainer}>
+        <TeamCard
+          link={
+            'https://developer.sailpoint.com/discuss/u/philip-ellis/summary'
+          }
+          name={'Philip Ellis'}
+          title={'Lead Software Engineer'.toUpperCase()}
+          expertise={'DEVELOPER TOOLS'}
+          image={'/homepage/phil-ellis.png'}
+        />
+        <TeamCard
           link={'https://developer.sailpoint.com/discuss/u/Darrell/summary'}
           name={'Darrell Thobe'}
-          title={'Staff Software Engineer'.toUpperCase()}
-          expertise={'DEVELOPER TOOLS, APIs'}
+          title={'Software Engineer'.toUpperCase()}
+          expertise={'DEVELOPER TOOLS'}
           image={'/homepage/darrell-thobe.png'}
         />
           <TeamCard
-          link={'https://developer.sailpoint.com/discuss/u/danielleg/summary'}
-          name={'Danielle Gaitan'}
-          title={'Staff Community Manager'.toUpperCase()}
-          expertise={'DEVELOPER COMMUNITY'}
-          image={'/homepage/danielle-gaitan.png'}
+          link={'https://developer.sailpoint.com/discuss/u/lukehagar/summary'}
+          name={'Luke Hagar'}
+          title={'Software Engineer'.toUpperCase()}
+          expertise={'DEVELOPER TOOLS'}
+          image={'/homepage/lukehagar.png'}
+        />
+        <TeamCard
+          link={
+            'https://developer.sailpoint.com/discuss/u/jordan_violet/summary'
+          }
+          name={'Jordan Violet'}
+          title={'Head of Developer Relations'.toUpperCase()}
+          expertise={''}
+          image={'/homepage/jordan-violet.png'}
         />
       </div>
     </div>

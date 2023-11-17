@@ -6,15 +6,21 @@ sidebar_label: UI Elements
 sidebar_position: 5
 sidebar_class_name: plugin_developer_guide_ui_elements
 keywords: ['plugin']
-description: Plugin Developer Guide UI Elements in IdentityIQ
+description: IdentityIQ Plugin UI Elements
 slug: /docs/plugin-developer-guide/ui-elements
 tags: ['plugin','guide','identityiq']
 ---
 # UI Elements
 
-Most plugins will have some additional UI component that will appear in IdentityIQ. Images, CSS files, HTML templates, and JavaScript can all be used to provide the interactions and views required by the plugin. Plugins that utilize a 'fullPage' element will look for a file called 'page.xhtml' in the build. Please note: any css installed with the plugin will apply to all elements in IdentityIQ. For this reason it is recommended that developers keep their css classes specific to their plugin.
+Most plugins will have some additional UI component that will display in IdentityIQ. You can use images, CSS files, HTML templates, and JavaScript to provide the interactions and views required by the plugin. Plugins using a `fullPage` element will look for a file called 'page.xhtml' in the build. 
 
-The page.xhtml in the 'Todo' example, is configured to allow for the input of a new todo, and display all current Todos in the system. The Angular controller utilized in 'page.xhtml', and all the functions available to it are defined in TodoModule.js (located in the '/ui/js' folder).
+:::Note
+
+Any css installed with the plugin will apply to all elements in IdentityIQ. For this reason it is recommended that developers keep their css classes specific to their plugin.
+
+:::
+
+The 'page.xhtml' in the 'Todo' example is configured to allow for the input of a new Todo and display all current Todos in the system. The Angular controller used in 'page.xhtml' and all the functions available to the controller are defined in 'TodoModule.js' (located in the '/ui/js' folder).
 
 ```javascript
 /**
@@ -45,7 +51,7 @@ me.viewFlaggedUsers = function() {
     });
 };
 ```
-The TodoController controller (and available methods) can then be referenced in `page.xhtml`
+The 'TodoController' controller (and available methods) can then be referenced in `page.xhtml`.
 
 ```html
 <ui:composition>
@@ -55,12 +61,12 @@ The TodoController controller (and available methods) can then be referenced in 
         </div>
         <div class="row m-t">
 ```
-- **Line 2** - shows the angular controller 'ng-controller' defined as TodoController from  line 8 of TodoModule.js
-- **Line 4** - example of accessing controller method 'viewFlaggedUsers' from line 21 of TodoModule.js
+- **Line 2** - shows the angular controller `ng-controller` defined as 'TodoController' from **line 8** of 'TodoModule.js'.
+- **Line 4** - example of accessing controller method `viewFlaggedUsers` from **line 21** of 'TodoModule.js'.
 
-The above example demonstrates how to use the Angular concept of the modal within a plugin. In the Todo plugin, if the user clicks the 'Flagged Users' button as defined on the fullPage, it will switch context to the page defined by the 'ui/html/flagged-template.html', and swap the AngularJS controller to 'FlaggedUserCtrl'. The behavior of this modal dialogue is essentially the same as the fullPage 'page.xhtml' - it accesses information via the controller, which may rely on backend Java classes to produce data. Notice that in order to reference the .html template for the flagged users, we use the 'PluginHelper' classes method 'getPluginFileUrl' - this allows for fetching the plugin resource via a relative path as it would appear in the .zip archive that was installed.
+This example demonstrates how to use the Angular concept of the modal within a plugin. In the 'Todo' plugin, if the user clicks the 'Flagged Users' button as defined on the `fullPage`, it will switch context to the page defined by the ui/`html/flagged-template.html`, and swap the AngularJS controller to `FlaggedUserCtrl`. The behavior of this modal dialogue is essentially the same as the `fullPage` 'page.xhtml' - it accesses information by the controller, which may rely on backend Java classes to produce data. Notice that to reference the .html template for the flagged users, the example uses the `PluginHelper` classes' method `getPluginFileUrl` - this allows for fetching the plugin resource by a relative path as it would display in the installed .zip archive. 
 
-One last aspect of the `page.xhtml`, is the necessity to include reference to the JavaScript packages that will be utilized by the plugin. These should be referenced by the path `#{plugins.requestContextPath}/plugin/<Plugin Name>/path/to/js/files.js`.
+One last aspect to remember for the `page.xhtml` is the necessity to include references to the JavaScript packages the plugin will use. Use this path to reference the packages: `#{plugins.requestContextPath}/plugin/<Plugin Name>/path/to/js/files.js`.
 
 ```html
     <script src="#{plugins.requestContextPath}/plugin/TodoPlugin/ui/js/angular.min.js"></script>
@@ -68,4 +74,4 @@ One last aspect of the `page.xhtml`, is the necessity to include reference to th
     <script src="#{plugins.requestContextPath}/plugin/TodoPlugin/ui/js/TodoModule.js"></script>
 ```
 
-The path to the page would be as follows: `{serverpath}/plugins/pluginPage.jsf?pn={PluginName}`, where `PluginName` is the name of your Plugin as specified in the manifest, and `serverpath` is that path to your server.
+The path to the page would be the following: `{serverpath}/plugins/pluginPage.jsf?pn={PluginName}`, where `PluginName` is the name of your plugin, as specified in the manifest, and `serverpath` is the path to your server.

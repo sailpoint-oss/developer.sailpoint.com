@@ -6,14 +6,14 @@ sidebar_label: Java Classes - Executors
 sidebar_position: 8
 sidebar_class_name: plugin_developer_guide_java_executors
 keywords: ['plugin']
-description: Plugin Developer Guide Java Classes Executors in IdentityIQ
+description: IdentityIQ Plugin Java Class Plugin Executors
 slug: /docs/plugin-developer-guide/java-classes-executors
 tags: ['plugin','guide','identityiq']
 ---
 
 # Java Classes - Plugin Executors
 
-The plugin framework allows developers to include custom task implementations or services with their plugin. These items rely on executor classes that contain the business logic for these services.  The following executors are currently available for use by developers
+The plugin framework allows developers to include custom task implementations or services with their plugin. These items rely on executor classes that contain the business logic for these services. The following executors are currently available for use by developers:
 
 1. Service Executors
 2. Task Executors
@@ -21,7 +21,7 @@ The plugin framework allows developers to include custom task implementations or
 
 ## Plugin Object Properties
 
-When defining your plugin object you must provide a list of service executors that will be included. The list will live inside an attributes map under the key serviceExecutors.
+When you're defining your plugin object, you must provide a list of service executors that will be included. The list will live inside an attributes map under the key serviceExecutors. Here is what such a list would look like: 
 
 1. Plugin Helper methods
 2. All inherited Service methods
@@ -35,23 +35,23 @@ When defining your plugin object you must provide a list of service executors th
 
 ## Plugin Helper Methods
 
-The list of methods that are included with the BasePlugin classes are as follows:
+This is the list of methods included with the `BasePlugin` classes:
 
-* **getPluginName()** - returns a string value of the name of the plugin
-* **getConnection()** - returns a Connection object used to query the database
-* **getSettingString(String settingName)** - returns a String setting value from the Plugin Settings
-* **getSettingBool( String settingName)** - returns a boolean value from the Plugin Settings
-* **getSettingInt(String settingName)** - returns a integer value from the Plugin Settings
+* **getPluginName()** - returns a string value of the plugin's name. 
+* **getConnection()** - returns a connection object used to query the database.
+* **getSettingString(String settingName)** - returns a string setting value from the Plugin Settings. 
+* **getSettingBool( String settingName)** - returns a boolean value from the Plugin Settings.
+* **getSettingInt(String settingName)** - returns a integer value from the Plugin Settings.
 
-You can think of the BasePlugin classes as foundation for creating your specific objects. The biggest advantage you receive by using them is access to the Plugin Helper Methods. You are not required to use the BasePlugin classes for your implementation, you are welcome to extend directly from the parent class object you wish to implement.
+You can think of the `BasePlugin` classes as the foundation for the creation of your specific objects. The biggest advantage to using them is the access to the Plugin Helper Methods. You aren't required to use the `BasePlugin` classes for your implementation though - you're welcome to extend directly from the parent class object you want to implement.
 
-## Implementing a Plugin Service Definition
+## Implement a plugin service definition
 
-When implementing a Plugin Service you'll have two parts. The first is your Service class. This will contain your business logic that you want the service to actually do. The second is the service definition xml that will be loaded into IdentityIQ. Example of both are listed below.
+When you're implementing a plugin service you will have to implement two parts. The first is your Service class, which will contain the business logic for what you want the service ot actually do. The second is the service definition XML file that will be loaded into IdentityIQ. You can find examples of both below: 
 
 ### BasePluginService Class
 
-This is an abstract class that extends the Service class, as well as implements the PluginContext interface. You can use this class as the foundation for your custom Plugin Service
+This is an abstract class that extends the service class and implements the `PluginContext` interface. You can use this class as the foundation for your custom plugin service:
 
 ```java
 public class MyPluginService extends BasePluginService {
@@ -98,7 +98,7 @@ public class MyPluginService extends BasePluginService {
 
 ### Service Definition
 
-The Service Definition must specify a pluginName attribute. This tells IdentityIQ to use the plugin class loader for this executor.  If this attribute is not specified the executor class will not be able to be found
+The Service Definition must specify a `pluginName` attribute. This tells IdentityIQ to use the plugin class loader for this executor. If the `pluginName` attribute isn't specified, the executor class won't be findable. 
 
 ```xml
 <ServiceDefinition name="MyService" executor="com.acme.MyPluginService" interval="60" hostes="global">
@@ -110,13 +110,13 @@ The Service Definition must specify a pluginName attribute. This tells IdentityI
 </ServiceDefinition>
 ```
 
-## Implementing a Plugin Task Executor
+## Implement a plugin task executor
 
-Following a similar pattern to the Service plugin implementation there are two parts to a Task Executor implementation. The first part is the Task Executor task which again handles your business logic for your task. The second is your TaskDefinition xml object which gets loaded into IdentityIQ.
+Similar to the implementation of the service plugin, there are two parts to a task executor implementation. The first part is the task executor task, which handles your task's business logic. The second is your `TaskDefinition` XML object, which gets loaded into IdentityIQ.
 
 ### BasePluginTaskExecutor Class
 
-This is an abstract class that extends the AbstractTaskExecutor class, as well as implements the PluginContext interface. You can use this class as the foundation for your custom Plugin Executor task.
+This is an abstract class that extends the `AbstractTaskExecutor` class and implements the `PluginContext` interface. You can use this class as the foundation for your custom plugin executor task:
 
 ```java
 import sailpoint.task.BasePluginTaskExecutor;
@@ -157,7 +157,7 @@ public class MyTaskExecutor extends BasePluginTaskExecutor {
 
 ### TaskDefinition
 
-In your TaskDefintion you must include the pluginName attribute, as this attribute tells IdentityIQ to to use the plugin class loader instead of default class loader. Again if the attribute is not specified the executor class will not be able to be found.
+In your `TaskDefintion`, you must include the `pluginName` attribute because this attribute tells IdentityIQ to to use the plugin class loader instead of the default class loader. If the `pluginName` attribute isn't specified, the executor class won't be findable. 
 
 
 ```xml
@@ -170,9 +170,9 @@ In your TaskDefintion you must include the pluginName attribute, as this attribu
 </TaskDefinition>
 ```
 
-## Implementing a Policy Executor
+## Implement a policy executor
 
-Again same pattern as the other two, you'll have an executor class, and a Policy Xml object. The Policy object must contain the pluginName attribute
+Similar to the implementation of the service plugin and the task executor plugin, you must implement two parts: an executor class and a `Policy` Xml object. The `Policy` object must contain the `pluginName` attribute:
 
 ### BasePluginPolicyExecutor
 

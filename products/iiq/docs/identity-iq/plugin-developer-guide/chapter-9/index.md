@@ -6,18 +6,18 @@ sidebar_label: Installation
 sidebar_position: 9
 sidebar_class_name: plugin_developer_guide_installation
 keywords: ['plugin']
-description: Plugin Developer Guide Installation in IdentityIQ
+description: IdentityIQ Plugin Installation
 slug: /docs/plugin-developer-guide/installation
 tags: ['plugin','guide','identityiq']
 ---
 
 # Plugin Installation
 
-Plugin installation is simple in IdentityIQ 7.1. Simply navigate to Settings -> Plugins, and then click the 'New' button
+Plugin installation is simple in IdentityIQ 7.1. Mavigate to Settings -> Plugins, and then click the 'New' button.
 
 ![New Plugin Button](../img/new_plugin.png)
 
-Doing this will create a view with a large element that allows for drag and drop installation. Drag the .zip archive of your plugin to this element and the Plugin will install. If any errors occur during this process, check the SyslogEvent table for more information.
+Doing so will create a view with a large element that allows for drag and drop installation. Drag your plugin's .zip archive to this element, and the plugin will install. If any errors occur during this process, check the 'SyslogEvent' table for more information.
 
 ![Drag and Drop](../img/drag_and_drop.png)
 
@@ -25,8 +25,8 @@ But wait, where do I get the .zip archive? If you have downloaded a published pl
 
 ![Plugin Dist File](../img/plugin_dist.png)
 
-When a plugin is installed, the database scripts from the 'db/install' folder are ran, which should create any tables necessary for the plugin, the XML configuration files are imported into the IdentityIQ database from the 'import/install' folder, and any compiled classes are loaded into the unique plugin classloader, and the manifest file is imported creating the Plugin object.
+When a plugin is installed, the database scripts from the 'db/install' folder run, creating any necessary tables for the plugin, importing the XML configuration files into the IdentityIQ database from the 'import/install' folder, loading any compiled classes into the unique plugin classloader, and importing the manifest file - this process creates the plugin object. 
 
-Uninstallation follows a very similar path, it is launched by clicking the small 'X' icon on the appropriate Plugin card in the 'Settings->Plugin' interface. Database scripts in charge of cleaning up data are ran from the 'db/uninstall' folder, and the Manifest file (the Plugin object) is removed. It should be noted that the other XML objects created during installation are currently *not* uninstalled when a Plugin is removed.
+Uninstallation follows a similar path. You can launch uninstallation by clicking the small 'X' icon on the appropriate plugin card in the 'Settings->Plugin' interface. Database scripts responsible for cleaning up data run from the 'db/uninstall' folder, and the manifest file (the plugin object) is removed. Remember that the other XML objects created during installation are currently *not* uninstalled when a plugin is removed.
 
 ![Uninstall a Plugin](../img/delete_plugin.png)

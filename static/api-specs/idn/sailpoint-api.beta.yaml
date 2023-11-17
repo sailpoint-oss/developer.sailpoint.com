@@ -284,7 +284,7 @@ tags:
       Forms are composed of sections and fields. Sections split the form into logical groups of fields and fields are the data collection points within the form. Configure conditions to modify elements of the form as the responder provides input. Create form inputs to pass information from a calling feature, like a workflow, to your form.
 
       Forms can be used within workflows as an action or as a trigger. The Form Action allows you to assign a form as a step in a running workflow, suspending the workflow until the form is submitted or times out, and the workflow resumes. The Form Submitted Trigger initiates a workflow when a form is submitted. The trigger can be configured to initiate on submission of a full form, a form element with any value, or a form element with a particular value.
-  
+      
       Refer to [Forms](https://documentation.sailpoint.com/saas/help/forms/index.html) for more information about using forms in IdentityNow.
   - name: Custom Password Instructions
     description: |
@@ -902,7 +902,7 @@ tags:
       - Permanently redirecting work for users who should not be assigned these tasks at all, such as senior executives or service identities
       
       Users can define reassignments for themselves, managers can add them for their team members, and administrators can configure them on any user’s behalf. Work assigned during the specified reassignment timeframes will be automatically reassigned to the designated user as it is created.
-  
+      
       Refer to [Work Reassignment](https://documentation.sailpoint.com/saas/help/users/work_reassignment.html) for more information about this topic.
   - name: Workflows
     description: |
@@ -1606,12 +1606,18 @@ paths:
     $ref: './beta/paths/form-definition-forms-action-dynamic-schema.yaml'
   /form-definitions/import:
     $ref: './beta/paths/form-definitions-import.yaml'
+  /form-definitions/{formDefinitionID}/upload:
+    $ref: './beta/paths/form-definition-files.yaml'
+  /form-definitions/{formDefinitionID}/file/{fileID}:
+    $ref: './beta/paths/form-definition-file.yaml'
   /form-instances:
     $ref: './beta/paths/form-instances.yaml'
   /form-instances/{formInstanceID}:
     $ref: './beta/paths/form-instance.yaml'
   /form-instances/{formInstanceID}/data-source/{formElementID}:
     $ref: './beta/paths/form-instance-data-source.yaml'
+  /form-instances/{formInstanceID}/file/{fileID}:
+    $ref: './beta/paths/form-instance-file.yaml'
   /form-definitions/predefined-select-options:
     $ref: './beta/paths/form-definitions-predefined-select-options.yaml'
   /source-usages/{sourceId}/status:

@@ -13,7 +13,7 @@ tags: ['plugin','guide','identityiq']
 
 # Plugin Installation
 
-Plugin installation is simple in IdentityIQ 7.1. Mavigate to Settings -> Plugins, and then click the 'New' button.
+Plugin installation is simple in IdentityIQ 7.1. Navigate to Settings -> Plugins, and then click the 'New' button.
 
 ![New Plugin Button](../img/new_plugin.png)
 

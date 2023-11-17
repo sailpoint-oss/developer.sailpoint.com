@@ -258,7 +258,7 @@ tags:
       Once this certification has been completed, IdentityNow  would provision all the access the user needs, nothing more.
 
       This API enables administrators and reviewers to get useful information about certifications at a high level, such as the reviewers involved, and at a more granular level, such as the permissions affected by changes to entitlements within those certifications.
-      It also provides the useful ability to reassign identities and items within certifications to other reviewers, rather than [reassigning the entire certifications themselves](https://developer.sailpoint.com/idn/api/beta/reassign-identity-certs-async).
+      It also provides the useful ability to reassign identities and items within certifications to other reviewers, rather than [reassigning the entire certifications themselves](https://developer.sailpoint.com/idn/api/beta/submit-reassign-certs-async/).
   - name: Connector Rule Management
   - name: Connectors
     description: |
@@ -292,7 +292,7 @@ tags:
       With this functionality in place, administrators can create custom password instructions to help users reset their passwords, change them, unlock their accounts, or recover their usernames.
       This allows administrators to emphasize password policies or provide organization-specific instructions.
 
-      Administrators must first use [Update Password Org Config](https://developer.sailpoint.com/idn/api/beta/update-password-org-config) to set `customInstructionsEnabled` to `true`.
+      Administrators must first use [Update Password Org Config](https://developer.sailpoint.com/idn/api/beta/put-password-org-config) to set `customInstructionsEnabled` to `true`.
 
       Once they have enabled custom instructions, they can use [Create Custom Password Instructions](https://developer.sailpoint.com/idn/api/beta/create-custom-password-instructions) to create custom page content for the specific pageId they select.
 
@@ -666,7 +666,7 @@ tags:
       - Access Requests: Configure roles to be requestable and establish an approval process for any requests that the role be granted or revoked.
       Do not configure a role to be requestable without establishing a secure access request approval process for that role first.
 
-      Refer to [Working with Roles](https://documentation.sailpoint.com/saas/help/provisioning/roles.html) for more information about roles.
+      Refer to [Working with Roles](https://documentation.sailpoint.com/saas/help/access/roles.html) for more information about roles.
   - name: Search Attribute Configuration
   - name: Segments
     description: |
@@ -858,7 +858,7 @@ tags:
       | Certification Signed Off | idn:certification-signed-off | FIRE_AND_FORGET | After a certification is signed off by its reviewer. |
       | [Identity Attributes Changed](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/account-aggregation-completed) | idn:identity-attributes-changed | FIRE_AND_FORGET | After One or more identity attributes changed. |
       | [Identity Created](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/identity-created) | idn:identity-created | FIRE_AND_FORGET | After an identity is created. |
-      | [Provisioning Action Completed](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/provisioning-action-completed) |  idn:post-provisioning | FIRE_AND_FORGET | After a provisioning action completed on a source. |
+      | [Provisioning Action Completed](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/provisioning-completed) |  idn:post-provisioning | FIRE_AND_FORGET | After a provisioning action completed on a source. |
       | [Scheduled Search](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/scheduled-search) |  idn:saved-search-complete | FIRE_AND_FORGET | After a scheduled search completed. |
       | [Source Created](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/source-created) | idn:source-created | FIRE_AND_FORGET | After a source is created. |
       | [Source Deleted](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/source-deleted) | idn:source-deleted | FIRE_AND_FORGET | After a source is deleted. |

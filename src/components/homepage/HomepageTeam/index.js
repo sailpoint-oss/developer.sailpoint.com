@@ -48,6 +48,20 @@ export default function HomepageTeam() {
           expertise={'DEVELOPER DOCUMENTATION'}
           image={'/homepage/james-haytko.png'}
         />
+          <TeamCard
+          link={'https://developer.sailpoint.com/discuss/u/Darrell/summary'}
+          name={'Darrell Thobe'}
+          title={'Staff Software Engineer'.toUpperCase()}
+          expertise={'DEVELOPER TOOLS, APIs'}
+          image={'/homepage/darrell-thobe.png'}
+        />
+          <TeamCard
+          link={'https://developer.sailpoint.com/discuss/u/danielleg/summary'}
+          name={'Danielle Gaitan'}
+          title={'Staff Community Manager'.toUpperCase()}
+          expertise={'DEVELOPER COMMUNITY'}
+          image={'/homepage/danielle-gaitan.png'}
+        />
       </div>
     </div>
   );

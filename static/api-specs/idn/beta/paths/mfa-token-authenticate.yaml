@@ -1,0 +1,43 @@
+post:
+  operationId: sendTokenAuthRequest
+  tags:
+    - MFA Controller
+  summary: Authenticate Token provided MFA method
+  description: >-
+    This API Authenticate user in Token MFA method.
+  security:
+    - UserContextAuth: [idn:mfa:verify]
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/TokenAuthRequest.yaml"
+        example:
+          {
+            "token": "12345",
+            "userAlias": "will.albin",
+            "deliveryType": "EMAIL_WORK"
+          }
+
+  responses:
+    "200":
+      description: Token authenticated status.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/TokenAuthResponse.yaml"
+          example:
+            {
+              "status": "PENDING"
+            }
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

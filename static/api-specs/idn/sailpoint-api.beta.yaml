@@ -439,6 +439,8 @@ tags:
     description: Operations for accessing and managing client Clusters, including Log Configuration
   - name: MFA Configuration
     description: Configure and test multifactor authentication (MFA) methods
+  - name: MFA Controller
+    description: This API used for multifactor authentication functionality belong to gov-multi-auth service. This controller allow you to verify authentication by specified method
   - name: Non-Employee Lifecycle Management
     description: |
       Use this API to implement non-employee lifecycle management functionality.
@@ -1254,6 +1256,14 @@ paths:
     $ref: './beta/paths/mfa-config-test.yaml'
   /mfa/{method}/delete:
     $ref: './beta/paths/mfa-config-delete.yaml'
+  /mfa/{method}/poll:
+    $ref: './beta/paths/mfa-poll.yaml'
+  /mfa/kba/authenticate:
+    $ref: './beta/paths/mfa-kba-authenticate.yaml'
+  /mfa/token/authenticate:
+    $ref: './beta/paths/mfa-token-authenticate.yaml'
+  /mfa/token/send:
+    $ref: './beta/paths/mfa-token-send.yaml'
   /notification-template-defaults:
     $ref: './beta/paths/notification-template-defaults.yaml'
   /notification-templates:

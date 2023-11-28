@@ -1,7 +1,7 @@
 get:
   operationId: getNonEmployeeBulkUploadStatus
   security:
-    - oauth2: [idn:nelm:read]
+    - UserContextAuth: [idn:nelm:read]
   tags:
     - Non-Employee Lifecycle Management
   summary: Bulk upload status on source

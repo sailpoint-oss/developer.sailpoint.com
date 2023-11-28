@@ -21,7 +21,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: []
+    - UserContextAuth: []
 put:
   operationId: updateRecommendationsConfig
   summary: Update certification recommendation config values
@@ -51,4 +51,4 @@ put:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: []
+    - UserContextAuth: []

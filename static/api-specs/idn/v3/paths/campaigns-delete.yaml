@@ -1,0 +1,33 @@
+post:
+  operationId: deleteCampaigns
+  tags:
+    - Certification Campaigns
+  summary: Deletes Campaigns
+  description: >-
+    Deletes campaigns whose Ids are specified in the provided list of campaign Ids.
+    Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.
+  security:
+    - UserContextAuth: [idn:campaign:delete]
+  requestBody:
+    description: The ids of the campaigns to delete.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/CampaignsDeleteRequest.yaml'
+
+  responses:
+    '202':
+      $ref: '../responses/202.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

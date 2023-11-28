@@ -14,7 +14,7 @@ tags: ['Rules']
 
 ## Overview
 
-This rule manipulates raw input data provided by the rows and columns in a file and builds a map from the incoming data.
+This rule manipulates raw input data provided by the rows and columns in a file and builds a map from the incoming data. Use this rule to create a new value by combining two columns together. For example, if one column was `access` and another `permissions` you could combine these together to create an entitlement `admin-read`.
 
 :::info
 This rule runs in the cloud, but it's really a connector rule because it executes against the DelimitedFileConnector.
@@ -22,7 +22,7 @@ This rule runs in the cloud, but it's really a connector rule because it execute
 
 ## Execution
 
-- **Cloud Execution** - This rule executes in the IdentityNow cloud and it has read-only access to IdentityNow data models, but it doesn't have access to on-premise sources or connectors.
+- **Cloud Execution** - This rule executes in the IdentityNow cloud, and has read-only access to the records from the Delimited File being imported. However, it doesn't have access to on-premise sources or connectors.
 - **Logging** - Logging statements are currently only visible to SailPoint personnel.
 
 ![Rule Execution](../img/cloud_execution.png)
@@ -31,7 +31,7 @@ This rule runs in the cloud, but it's really a connector rule because it execute
 
 | Argument | Type | Purpose |
 | --- | --- | --- |
-| col | java.util.List | Ordered list of the column names from the file’s header records or specified columns list. |
+| cols | java.util.List | Ordered list of the column names from the file’s header records or specified columns list. |
 | record | java.util.List | Ordered list of the values for the current record, parsed based on the specified delimiter. |
 | application | System.Collections.Hashtable | Map of the application configuration. |
 | schema | sailpoint.object.Schema | Reference to the schema object for the delimited file source being read. |

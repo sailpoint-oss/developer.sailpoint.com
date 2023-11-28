@@ -1,6 +1,6 @@
 summary: BucketAggregation with SubAggregation
 value:
-  indices:  [ 'aggregations' ]
+  indices:  [ 'identities' ]
   aggregationType: 'SAILPOINT'
   aggregations:
     bucket:

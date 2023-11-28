@@ -1,16 +1,30 @@
 /* Getting Started Card container */
 .gridContainer {
-  display: grid;
-  place-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(345px, 1fr));
-  grid-gap: 40px;
+  display: flex;
+  /* place-content: center; */
+  flex-wrap: wrap;
+  gap: 40px;
   margin-left: 40px;
   margin-right: 40px;
 }
+.gridContainer::after {
+  content: "";
+  flex: auto;
+}
+
+@media only screen and (max-width: 870px) {
+  .gridContainer {
+    place-content: center;
+  }
+  .gridContainer::after {
+    display: none;
+  }
+}
+
+
 
 .center {
   margin: 0px auto;
-  max-width: 1300px;
   margin-bottom: 50px;
 }
 

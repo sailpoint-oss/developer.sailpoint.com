@@ -1,0 +1,44 @@
+post:
+  operationId: deleteIdentityProfiles
+  tags:
+    - Identity Profiles
+  summary: Delete Identity Profiles
+  description: >-
+    This deletes multiple Identity Profiles via a list of supplied IDs.
+
+
+    On success, this endpoint will return a reference to the bulk delete task result.
+
+
+    A token with ORG_ADMIN authority is required to call this API.
+    
+    
+    The following rights are required to access this endpoint: idn:identity-profile:delete
+  requestBody:
+    description: Identity Profile bulk delete request body.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/IdentityProfileBulkDelete.yaml'
+
+  responses:
+    '202':
+      description: Accepted - Returns a TaskResult object referencing the bulk delete job created.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/TaskResultSimplified.yaml'
+            description: An object with a TaskResult reference of the bulk delete job
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+  security:
+    - UserContextAuth: [idn:identity-profile:delete]

@@ -1,0 +1,80 @@
+type: object
+properties:
+  workflow_id:
+    type: string
+    format: uuid
+    required: true
+    description: The workflow the workflow action belongs to.
+    example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+  description:
+    type: string
+    required: true
+    description: The description of the workflow action.
+    example: Creates a registration session associated with an email address
+  archived:
+    type: boolean
+    default: false
+    description: If the workflow action is archived or not.
+    example: false
+  configuration_attributes:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uuid
+        description: the id.
+        example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+      wait_for_completion:
+        type: boolean
+        example: false
+        description: If the invitation action should pause the parent workflow to wait for completion.
+      return_profile:
+        type: boolean
+        example: false
+        description: If the invitation action should return a profile.
+      portal_id:
+        type: string
+        format: uuid
+        description: the id of the portal.
+        example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+      registration_workflow_id:
+        type: string
+        format: uuid
+        description: the id of the registration workflow.
+        example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+      email_attribute_id:
+        type: string
+        format: uuid
+        description: the id of the email attribute.
+        example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+      validate_completed_registration:
+        type: boolean
+        example: false
+        description: If the action should validate against completed registrations by email address.
+      validate_open_registration:
+        type: boolean
+        example: false
+        description: If the action should validate against open registrations by email address.
+  workflow_action_email_attributes:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uuid
+        description: the id.
+        example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+      workflow_action_id:
+        type: string
+        format: uuid
+        description: the id of the workflow action.
+        example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+      email_id:
+        type: string
+        format: uuid
+        description: the id of the email.
+        example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+      type:
+        type: string
+        description: the type of email.
+        enum: [StandardEmail, PerformerNotificationEmail, ApprovalEmail, RejectionEmail]
+        example: StandardEmail

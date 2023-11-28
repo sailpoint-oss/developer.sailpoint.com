@@ -1,0 +1,30 @@
+post:
+  operationId: deleteIdentityAttributesInBulk
+  tags:
+    - Identity Attributes
+  summary: Bulk delete Identity Attributes
+  description: >-
+    This deletes identity attributes for a given set of technical names.
+  security:
+    - UserContextAuth: [ idn:identity-profile-attribute-bulk:delete ]
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../v3/schemas/identity-attributes/IdentityAttributeNames.yaml"
+  responses:
+    "204":
+      $ref: "../../v3/responses/204.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

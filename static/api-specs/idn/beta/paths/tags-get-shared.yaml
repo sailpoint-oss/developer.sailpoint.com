@@ -1,5 +1,7 @@
 post:
-  operationId: getSharedTags
+  operationId: searchSharedTags
+  security:
+    - UserContextAuth: [ idn:tag:manage ]
   tags:
     - Tags
   summary: Get Shared Tags
@@ -11,7 +13,7 @@ post:
     authority is required to call this API.
   requestBody:
     required: true
-    description: Supported object types are ROLE, IDENTITY and SOD_POLICY.
+    description: Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
     content:
       application/json:
         schema:

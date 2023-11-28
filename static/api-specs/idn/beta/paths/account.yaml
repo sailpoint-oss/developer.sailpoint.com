@@ -8,7 +8,7 @@ get:
 
     A token with ORG_ADMIN authority is required to call this API.
   security:
-    - oauth2: [idn:accounts:read, idn:accounts:manage]
+    - UserContextAuth: [idn:accounts:read, idn:accounts:manage]
   parameters:
     - in: path
       name: id
@@ -46,7 +46,7 @@ patch:
 
     A token with ORG_ADMIN authority is required to call this API.
   security:
-    - oauth2: [idn:accounts:manage]
+    - UserContextAuth: [idn:accounts:manage]
   parameters:
     - in: path
       name: id
@@ -96,7 +96,7 @@ put:
 
     A token with ORG_ADMIN authority is required to call this API.
   security:
-    - oauth2: [idn:accounts:manage]
+    - UserContextAuth: [idn:accounts:manage]
   parameters:
     - in: path
       name: id
@@ -140,7 +140,7 @@ delete:
 
     A token with ORG_ADMIN authority is required to call this API.
   security:
-    - oauth2: [idn:accounts:manage]
+    - UserContextAuth: [idn:accounts:manage]
   parameters:
     - in: path
       name: id

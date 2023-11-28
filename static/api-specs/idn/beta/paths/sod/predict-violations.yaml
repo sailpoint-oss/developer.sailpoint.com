@@ -1,8 +1,11 @@
 post:
-  operationId: predictSodViolations
+  operationId: startPredictSodViolations
   tags:
     - SOD Violations
-  summary: Predict SOD violations for the given identity if they were granted the given access.
+  summary: Predict SOD violations for identity.
+  deprecated: true
+  security:
+    - UserContextAuth: [ idn:sod-violation:read ]
   description: >-
     This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies.
     Returns the violations that would be caused.

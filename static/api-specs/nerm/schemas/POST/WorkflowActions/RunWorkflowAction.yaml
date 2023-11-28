@@ -1,0 +1,54 @@
+type: object
+properties:
+  workflow_id:
+    type: string
+    format: uuid
+    required: true
+    description: The workflow the workflow action belongs to.
+    example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+  description:
+    type: string
+    required: true
+    description: The description of the workflow action.
+    example: Runs another workflow with the ability to pass data in between.
+  archived:
+    type: boolean
+    default: false
+    description: If the workflow action is archived or not.
+    example: false
+  configuration_attributes:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uuid
+        description: the id.
+        example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+      workflow_id:
+        type: string
+        format: uuid
+        description: the id of the workflow.
+        example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+      wait_for_completion:
+        type: boolean
+        description: If the parent workflow should wait for the child to complete.
+        example: false
+      profile_to_send:
+        type: string
+        enum: [none, current, attribute, profile_type]
+        description: the profile the parent should send to the child workflow.
+        example: current
+      return_profile:
+        type: boolean
+        description: if the child workflow should return a profile.
+        example: false
+      run_workflow_action_id:
+        type: string
+        format: uuid
+        description: the id of the child workflow to run.
+        example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+      profile_type_id:
+        type: string
+        format: uuid
+        description: the id of the profile type.
+        example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8

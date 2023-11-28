@@ -1,6 +1,6 @@
 summary: NestedAggregation with FilterAggregation and BucketAggregation
 value:
-  indices:  [ 'aggregations' ]
+  indices:  [ 'identities' ]
   aggregationType: 'SAILPOINT'
   aggregations:
     nested:

@@ -40,7 +40,7 @@ patch:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:remote-client:manage]
+    - UserContextAuth: [idn:remote-client:manage]
 delete:
   operationId: deleteManagedCluster
   tags:
@@ -79,4 +79,4 @@ delete:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:remote-client:manage]
+    - UserContextAuth: [idn:remote-client:manage]

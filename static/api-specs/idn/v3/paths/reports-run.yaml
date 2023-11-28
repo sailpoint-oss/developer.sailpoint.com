@@ -1,0 +1,41 @@
+post:
+  tags:
+    - Reports Data Extraction
+  description: >-
+    Runs a report according to input report details.
+    If non-concurrent task is already running then it returns, otherwise new task creates and returns.
+  operationId: startReport
+  summary: "Run Report"
+  security:
+    - UserContextAuth: [sp:report:create]
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/reports/ReportDetails.yaml'
+        examples:
+          Identities Details Report:
+            $ref: '../schemas/reports/examples/identities-details-report-details.yaml'
+    required: true
+  responses:
+    '200':
+      description: Details about running report task.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/reports/TaskResultDetails.yaml'
+          examples:
+            identityDetailsReport:
+              $ref: '../schemas/reports/examples/identities-details-report-task-result.yaml'
+            searchExportReport:
+              $ref: '../schemas/reports/examples/search-export-report-task-result.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

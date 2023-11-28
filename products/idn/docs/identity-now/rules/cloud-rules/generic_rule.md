@@ -12,7 +12,36 @@ tags: ['Rules']
 
 ## Overview
 
-This rule performs transforms.
+This rule type is used in transforms to accomplish a specific task given configurable parameters described in the transforms attributes. The rule to perform the same task as the split transform given a delimiter and index would look like this:
+
+### Transform
+
+```json
+{
+  "name": "Split Rule",
+  "type": "rule",
+  "attributes": {
+    "name": "Split",
+    "delimiter": ",",
+    "index": 0,
+    "text": "This,is,a,test"
+  }
+}
+```
+
+### Rule Code
+
+The variables `delimiter`, `index`, and `text` in the above transform are all available to you within the scope of the rule.
+
+```java
+String delimiter = delimiter;
+int index = index;
+String text = text;
+
+
+String[] result = text.split(delimiter);
+return result[index];
+```
 
 ## Execution
 

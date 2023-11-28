@@ -1,0 +1,18 @@
+type: object
+properties:
+  created:
+    type: string
+    description: Created is the date the file was uploaded
+    example: 2023-07-12T20:14:57.74486Z
+    x-go-name: Created
+  fileId:
+    type: string
+    description: fileId is a unique ULID that serves as an identifier for the form definition file
+    example: 01FHZXHK8PTP9FVK99Z66GXQTX.png
+    x-go-name: FileID
+  formDefinitionId:
+    type: string
+    description: FormDefinitionID is a unique guid identifying this form definition
+    example: 00000000-0000-0000-0000-000000000000
+    x-go-name: FormDefinitionID
+x-go-package: github.com/sailpoint/sp-forms/internal/rest/response

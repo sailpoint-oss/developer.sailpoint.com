@@ -1,6 +1,6 @@
 put:
   security:
-  - oauth2: [ sp:notification-mail-from-attributes:write ]
+  - UserContextAuth: [ sp:notification-mail-from-attributes:write ]
   operationId: putMailFromAttributes
   tags:
   - Notifications

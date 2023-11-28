@@ -38,30 +38,46 @@ properties:
     - id
     - type
     - name
-    allOf:
-    - $ref: '../../../../v3/schemas/BaseReferenceDto.yaml'
-    description: Reference to the identity who is the target of the provisioning request.
+    type: object
+    description: Provisioning recpient. 
     properties:
       type:
-        enum:
-        - "IDENTITY"
-        example: "IDENTITY"
-        description: The type of object that is referenced
+        type: string 
+        description: Provisioning recipient DTO type. 
+        enum: 
+          - IDENTITY
+        example: IDENTITY
+      id:
+        type: string
+        description: Provisioning recipient's identity ID. 
+        example: 2c7180a46faadee4016fb4e018c20642
+      name:
+        type: string
+        description: Provisioning recipient's display name. 
+        example: Michael Michaels
   requester:
     nullable: true
     required:
     - id
     - type
     - name
-    allOf:
-    - $ref: '../../../../v3/schemas/BaseReferenceDto.yaml'
-    description: Reference to the identity (if any) who submitted the provisioning request.
+    type: object
+    description: Provisioning requester's identity. 
     properties:
       type:
-        enum:
-        - "IDENTITY"
-        example: "IDENTITY"
-        description: The type of object that is referenced
+        type: string 
+        description: Provisioning requester's DTO type. 
+        enum: 
+          - IDENTITY
+        example: IDENTITY
+      id:
+        type: string
+        description: Provisioning requester's identity ID. 
+        example: 2c7180a46faadee4016fb4e018c20648
+      name:
+        type: string
+        description: Provisioning owner's human-readable display name. 
+        example: William Wilson
   accountRequests:
     type: array
     description: A list of provisioning instructions to perform on an account-by-account basis.  

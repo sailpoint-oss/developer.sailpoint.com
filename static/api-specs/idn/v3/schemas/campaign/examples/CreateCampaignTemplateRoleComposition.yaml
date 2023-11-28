@@ -1,0 +1,20 @@
+description: >-
+  This creates a template that can be used to generate role composition campaigns. The campaigns will
+  have a due date that is two weeks after their creation date, and will be named "{current date} Role
+  Composition Review" (e.g. "2020-03-16 Role Composition Review").
+value:
+  name: Role Composition Review
+  description: A review of every role's access items, by the specified reviewer.
+  deadlineDuration: P2W
+  campaign:
+    name: Role Composition Review
+    description: Review all our roles.
+    type: ROLE_COMPOSITION
+    roleCompositionCampaignInfo:
+      remediatorRef:
+        type: IDENTITY
+        id: 2c9180876ab2c053016ab6f65dfd5aaa
+    emailNotificationEnabled: true
+    autoRevokeAllowed: false
+    recommendationsEnabled: false
+    mandatoryCommentRequirement: NO_DECISIONS

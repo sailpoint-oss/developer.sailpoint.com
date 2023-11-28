@@ -5,6 +5,9 @@ get:
   summary: Gets a Campaign Template's Schedule
   description: >-
     Gets the schedule for a campaign template. Returns a 404 if there is no schedule set.
+  security:
+    - UserContextAuth: [ idn:campaign-template:read ]
+  deprecated: true
   parameters:
     - in: path
       name: id
@@ -12,6 +15,7 @@ get:
         type: string
       required: true
       description: The ID of the campaign template whose schedule is being fetched.
+      example: "04bedce387bd47b2ae1f86eb0bb36dee"
   responses:
     '200':
       description: >-
@@ -21,6 +25,8 @@ get:
         application/json:
           schema:
             $ref: '../schemas/Schedule.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
     '401':
       $ref: '../../v3/responses/401.yaml'
     '403':
@@ -39,6 +45,9 @@ put:
   description: >-
     Sets the schedule for a campaign template. If a schedule already exists, it will be overwritten with
     the new one.
+  security:
+    - UserContextAuth: [ idn:campaign-template:run ]
+  deprecated: true
   parameters:
     - in: path
       name: id
@@ -46,6 +55,7 @@ put:
         type: string
       required: true
       description: The ID of the campaign template being scheduled.
+      example: 04bedce387bd47b2ae1f86eb0bb36dee
   requestBody:
     content:
       application/json:
@@ -140,6 +150,9 @@ delete:
   summary: Deletes a Campaign Template's Schedule
   description: >-
     Deletes the schedule for a campaign template. Returns a 404 if there is no schedule set.
+  security:
+    - UserContextAuth: [ idn:campaign-template:run ]
+  deprecated: true
   parameters:
     - in: path
       name: id
@@ -147,9 +160,12 @@ delete:
         type: string
       required: true
       description: The ID of the campaign template whose schedule is being deleted.
+      example: "04bedce387bd47b2ae1f86eb0bb36dee"
   responses:
     '204':
       $ref: '../../v3/responses/204.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
     '401':
       $ref: '../../v3/responses/401.yaml'
     '403':

@@ -1,5 +1,7 @@
 get:
   operationId: getAccessRequestApprovalSummary
+  security:
+    - UserContextAuth: [ idn:access-request-approvals-summary:read ]
   summary: Get the number of access-requests-approvals
   tags:
     - Access Request Approvals

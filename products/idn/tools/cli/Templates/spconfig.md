@@ -3,7 +3,7 @@ id: cli-template-spconfig
 title: SPConfig Template
 pagination_label: CLI Templates SPConfig
 sidebar_label: SPConfig
-sidebar_position: 7
+sidebar_position: 10
 sidebar_class_name: cli-template-spconfig
 keywords: ['cli', 'template', 'spconfig']
 description: Learn about the SPConfig template commands you can use to import and export configurations from the CLI. 

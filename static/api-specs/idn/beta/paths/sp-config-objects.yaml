@@ -1,7 +1,7 @@
 get:
   operationId: listSpConfigObjects
   security:
-    - oauth2: [sp:config:read, sp:config:manage]
+    - UserContextAuth: [sp:config:read, sp:config:manage]
   tags:
     - SP-Config
   summary: Get config object details

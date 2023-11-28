@@ -1,6 +1,4 @@
 type: object
 properties:
   placeholder:
-    description: The placeholder
     type: string
-    example: abc123

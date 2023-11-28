@@ -1,0 +1,15 @@
+post:
+  summary: Create a form
+  description: This endpoint can create a form
+  operationId: createForm
+  tags:
+    - forms
+  requestBody:
+    $ref: "../requestBodies/POST/Forms.yaml"
+  responses:
+    '200':
+      $ref: "../responses/Forms.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

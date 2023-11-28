@@ -1,0 +1,6 @@
+summary: Identities Details report
+value:
+  reportType: IDENTITIES_DETAILS
+  arguments:
+    defaultS3Bucket: true
+    correlatedOnly: true

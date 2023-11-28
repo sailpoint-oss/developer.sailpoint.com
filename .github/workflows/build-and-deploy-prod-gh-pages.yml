@@ -46,6 +46,7 @@ jobs:
           npm run gen-api-docs-all
           npm run build
       - name: Deploy to GitHub Pages
+        id: deploy
         if: success()
         uses: crazy-max/ghaction-github-pages@v3
         with:

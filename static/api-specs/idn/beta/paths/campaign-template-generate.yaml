@@ -1,10 +1,11 @@
 post:
-  operationId: generateCampaignTemplate
+  operationId: startGenerateCampaignTemplate
   tags:
     - Certification Campaigns
   summary: Generate a Campaign from Template
-  # security:
-  #   - oauth2: [ORG_ADMIN]
+  deprecated: true
+  security:
+     - UserContextAuth: [idn:campaign-template:run]
   description: >-
     Generates a new campaign from a campaign template.
 
@@ -26,6 +27,7 @@ post:
         type: string
       required: true
       description: The ID of the campaign template to use for generation.
+      example: 2c9180835d191a86015d28455b4a2329
   responses:
     '200':
       description: >-

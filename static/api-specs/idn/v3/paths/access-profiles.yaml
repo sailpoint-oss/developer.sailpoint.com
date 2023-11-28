@@ -41,10 +41,13 @@ get:
         **id**: *eq, in*
 
 
-        **name**: *eq, sw*
+        **name**: *eq, sw, co*
 
 
-        **created, modified**: *gt, lt, ge, le*
+        **created**: *gt, lt, ge, le*
+
+
+        **modified**: *gt, lt, ge, le*
 
 
         **owner.id**: *eq, in*
@@ -54,6 +57,9 @@ get:
 
 
         **source.id**: *eq, in*
+        
+        
+        Composite operators supported: *and, or*
       example: name eq "SailPoint Support"
       required: false
     - in: query
@@ -111,7 +117,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:access-profile:read]
+    - UserContextAuth: [idn:access-profile:read]
 post:
   operationId: createAccessProfile
   tags:
@@ -150,4 +156,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:access-profile:manage]
+    - UserContextAuth: [idn:access-profile:manage]

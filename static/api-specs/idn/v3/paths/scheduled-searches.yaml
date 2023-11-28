@@ -161,20 +161,17 @@ get:
     in: query
     schema:
       type: string
-    description: |
-      An expression used to constrain the result set using the filtering syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results).
+    description: >-
+      Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
 
-      Allowed filter properties: *owner.id*, *savedSearchId*
 
-      Allowed filter operator: *eq*
+      Filtering is supported for the following fields and operators:
 
-      **Example filters**:
 
-      ```owner.id eq "0de46054-fe90-434a-b84e-c6b3359d0c64"``` -- returns scheduled searches for the specified owner ID
+      **owner.id**: *eq*
 
-      ```savedSearchId eq "6cc0945d-9eeb-4948-9033-72d066e1153e"``` -- returns scheduled searches that reference the specified saved search
 
-      ```owner.id eq me or savedSearchId eq "6cc0945d-9eeb-4948-9033-72d066e1153e"``` -- returns all of the current user's scheduled searches as well as all scheduled searches that reference the specified saved search
+      **savedSearchId**: *eq*
     example: savedSearchId eq "6cc0945d-9eeb-4948-9033-72d066e1153e"
   responses:
     '200':

@@ -7,6 +7,8 @@ get:
     This API returns a list of access summaries for the specified identity campaign certification and type. A token with
     ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this
     API.
+  security:
+    - oauth2: [ idn:certification:read ]
   parameters:
     - in: path
       name: id
@@ -96,6 +98,18 @@ get:
                 sourceName: ODS-AD-Source
                 hasPermissions: true
                 revocable: true
+                containsDataAccess: true
+                dataAccess:
+                  policies:
+                    - value: GDPR-1
+                    - value: GDPR-2
+                  categories:
+                    - {value: email-7, matchCount: 74}
+                    - {value: email-9, matchCount: 30}
+                  impactScore:
+                    value: Medium
+
+
     '400':
       $ref: '../responses/400.yaml'
     '401':

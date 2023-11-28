@@ -15,10 +15,11 @@ get:
       description: >-
         Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
 
+
         Filtering is supported for the following fields and operators:
 
 
-        **name**: *sw*
+        **name**: *sw, co*
 
 
         **type**: *eq*
@@ -65,4 +66,4 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [ idn:connector-source-config:read ]
+    - UserContextAuth: [ idn:connector-source-config:read ]

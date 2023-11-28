@@ -9,7 +9,7 @@ post:
     description: 'Learn more about disabling identities here'
     url: 'https://documentation.sailpoint.com/saas/help/common/users/user_access.html#disabling-user-identities'
   security:
-    - oauth2: [idn:accounts-state:manage]
+    - UserContextAuth: [idn:accounts-state:manage]
   requestBody:
     required: true
     content:

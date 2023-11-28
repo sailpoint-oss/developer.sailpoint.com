@@ -3,7 +3,7 @@ post:
   operationId: postRole
   description: Create a new role
   tags:
-    - Roles
+    - roles
   requestBody:
     $ref: "../requestBodies/POST/Role.yaml"
   responses:

@@ -27,5 +27,6 @@ enum:
   - REPORT_RESULT
   - SOD_VIOLATION
   - ACCOUNT_ACTIVITY
+  - WORKGROUP
 description: An enumeration of the types of DTOs supported within the IdentityNow infrastructure.
 example: IDENTITY

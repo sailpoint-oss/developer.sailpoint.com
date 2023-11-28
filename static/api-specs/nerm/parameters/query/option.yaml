@@ -4,4 +4,3 @@ description: attribute option label for filtering
 required: false
 schema:
   type: string
-example: my_option_label

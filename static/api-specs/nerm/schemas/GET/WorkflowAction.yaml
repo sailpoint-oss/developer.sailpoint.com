@@ -1,0 +1,59 @@
+type: object
+properties:
+  workflow_id:
+    type: string
+    format: uuid
+    required: true
+    description: The workflow the workflow action belongs to.
+    example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+  description:
+    type: string
+    required: false
+    description: The description of the workflow action.
+    example: Require approval from another user or a group of users with a specific role.
+  page_id:
+    type: string
+    format: uuid
+    required: true
+    description: The page the workflow action should render.
+    example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+  add_requester_as_owner:
+    type: boolean
+    default: true
+    description: If the requester should be added as the owner of the profile to be created.
+    example: true
+  email_attribute_id:
+    type: string
+    format: uuid
+    required: false
+    description: The attribute storing the email address for the workflow action.
+    example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+  email_addresses:
+    type: array
+    required: false
+    items:
+      type: string
+      format: text
+    description: The email addresses for the workflow action.
+    example: ["johndoe@gmail.com", "janedoe@gmail.com"]
+  new_status:
+    type: string
+    format: text
+    required: false
+    description: The new status for the Status Change workflow action.
+    example: Active, Inactive, On Leave, Terminated
+  archived:
+    type: boolean
+    default: false
+    description: If the workflow action is archived or not.
+    example: false
+  skippable:
+    type: boolean
+    default: false
+    description: If the workflow action is skippable or not.
+    example: false
+  requires_comment:
+    type: boolean
+    default: false
+    description: If the workflow action requires a comment or not.
+    example: false

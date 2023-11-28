@@ -1,7 +1,17 @@
 type: object
 properties:
   type:
-    $ref: '../../v3/schemas/DtoType.yaml'
+    type: string
+    enum:
+      - ACCESS_PROFILE
+      - APPLICATION
+      - CAMPAIGN
+      - ENTITLEMENT
+      - IDENTITY
+      - ROLE
+      - SOD_POLICY
+      - SOURCE
+    example: IDENTITY
     description: DTO type
   id:
     type: string

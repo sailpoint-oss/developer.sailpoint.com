@@ -23,15 +23,17 @@ With the `transforms` command, it's it easy to create, manage, and test transfor
 
 To create, manage, and test transforms with the CLI, you can use these commands: 
 
-- [List transforms](#list-transforms)
-- [Download transforms](#download-transforms)
-- [Create transform](#create-transform)
-- [Update transform](#update-transform)
-- [Preview transform](#preview-transform)
-  - [Explicit input](#explicit-input)
-  - [Implicit input](#implicit-input)
-  - [Output](#output)
-- [Delete transform](#delete-transform)
+- [Transforms](#transforms)
+  - [Commands](#commands)
+  - [List transforms](#list-transforms)
+  - [Download transforms](#download-transforms)
+  - [Create transform](#create-transform)
+  - [Update transform](#update-transform)
+  - [Preview transform](#preview-transform)
+    - [Explicit input](#explicit-input)
+    - [Implicit input](#implicit-input)
+    - [Output](#output)
+  - [Delete transform](#delete-transform)
 
 ## List transforms
 
@@ -142,7 +144,7 @@ To delete multiple transforms, use this syntax:
 sail transform delete <transform-id> <transform-id> <transform-id>
 ```
 
-You can use this command in conjuction with the `ls` command to find the ID of the transform you want to delete. 
+You can use this command in conjunction with the `ls` command to find the ID of the transform you want to delete. 
 
 This is an example of how you can find a transform ID and delete it: 
 

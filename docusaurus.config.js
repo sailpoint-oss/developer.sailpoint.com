@@ -70,7 +70,7 @@ const config = {
       announcementBar: {
         id: 'java_docs_announcement',
         content:
-          'Checkout our latest announcement in the SailPoint Developer Community Forum: <a target="_blank" rel="noopener noreferrer" href="https://developer.sailpoint.com/discuss/t/rule-java-docs-now-available-on-the-sailpoint-developer-community/10787">Introducing Rules Java Docs for IdentityNow!</a> 🎉',
+          'Checkout our latest announcement in the SailPoint Developer Community Forum: <a target="_blank" rel="noopener noreferrer" href="https://developer.sailpoint.com/discuss/t/the-developer-community-colab-a-new-way-to-find-build-and-collaborate-on-extensibility-solutions/18847">Announcing the Developer Community CoLab!</a> 🎉',
       },
       navbar: navbar,
       footer: footer,
@@ -79,6 +79,13 @@ const config = {
         darkTheme: darkCodeTheme,
         additionalLanguages: ['http', 'java', 'ruby', 'php', 'csharp'],
       },
+      mermaid: {
+        options: {
+          er: {
+            layoutDirection: 'RL'
+          }
+        },
+      }
     }),
 
   plugins: plugins,

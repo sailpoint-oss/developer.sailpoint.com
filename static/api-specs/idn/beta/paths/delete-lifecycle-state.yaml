@@ -28,7 +28,7 @@ delete:
       content:
         application/json:
           schema:
-            $ref: '../schemas/BaseReferenceDto.yaml'
+            $ref: '../../v3/schemas/LifecyclestateDeleted.yaml'
     '401':
       $ref: '../../v3/responses/401.yaml'
     '403':

@@ -25,4 +25,4 @@ post:
     "404":
       $ref: '../../v3/responses/404.yaml'
   security:
-    - oauth2: [idn:task-management:write]
+    - UserContextAuth: [idn:task-management:write]

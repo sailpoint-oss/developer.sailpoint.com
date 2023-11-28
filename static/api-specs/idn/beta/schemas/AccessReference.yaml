@@ -16,7 +16,7 @@ properties:
   type:
     $ref: '../../v3/schemas/RequestableObjectType.yaml'
   owner:
-    $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+    $ref: './AccessItemOwnerDto.yaml'
   requestCommentsRequired:
     type: boolean
     description: If comments are required while requesting the access item.

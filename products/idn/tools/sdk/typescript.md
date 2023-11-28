@@ -15,6 +15,14 @@ tags: ['SDK']
 
 Learn how to use the TypeScript SDK in this guide. The TypeScript SDK has some pre-built code examples you can use to learn how to build tools that can interact with IdentityNow (IDN).
 
+```
+npm install sailpoint-api-client
+```
+or
+```
+yarn add sailpoint-api-client
+```
+
 You can find the SDK and its examples in its GitHub repo [here](https://github.com/sailpoint-oss/typescript-sdk).
 
 The TypeScript SDK includes the following functionality: 

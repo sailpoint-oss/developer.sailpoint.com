@@ -29,6 +29,7 @@ properties:
       - QUARTZ
       - QPOC
       - QUEUED_TASK
+    example: QUARTZ
   uniqueName:
     description: Name of the task this TaskStatus represents
     type: string
@@ -49,18 +50,22 @@ properties:
     description: Creation date of the task this TaskStatus represents
     type: string
     format: date-time
+    example: '2020-07-11T21:23:15.000Z'
   modified:
     description: Last modification date of the task this TaskStatus represents
     type: string
     format: date-time
+    example: '2020-07-11T21:23:15.000Z'
   launched:
     description: Launch date of the task this TaskStatus represents
     type: string
     format: date-time
+    example: '2020-07-11T21:23:15.000Z'
   completed:
     description: Completion date of the task this TaskStatus represents
     type: string
     format: date-time
+    example: '2020-07-11T21:23:15.000Z'
   completionStatus:
     description: Completion status of the task this TaskStatus represents
     type: string
@@ -70,6 +75,7 @@ properties:
       - Error
       - Terminated
       - TempError
+    example: Success
   messages:
     description: Messages associated with the task this TaskStatus represents
     type: array
@@ -84,9 +90,12 @@ properties:
     description: Attributes of the task this TaskStatus represents
     type: object
     additionalProperties: true
+    example: {"identityCount": 0}
   progress:
     description: Current progress of the task this TaskStatus represents
     type: string
+    example: 'Started'
   percentComplete:
     description: Current percentage completion of the task this TaskStatus represents
     type: integer
+    example: 100

@@ -221,7 +221,7 @@ class IdnRuleUtil {
     /**
      * Determines whether an account currently exists on an application using the native identity.
      *
-     * @param applicationName The application name.
+     * @param applicationName The application name, this is typically in the format of "appName [source]". Can be pulled via application.getName()
      * @param nativeIdentity The account's native identity.
      * @return True if the account exists, false otherwise.
      * @throws GeneralException wrapping underlying DB related errors.
@@ -233,7 +233,7 @@ class IdnRuleUtil {
     /**
      * Determines if an account currently exists on an application using the display name.
      *
-     * @param applicationName The application name.
+     * @param applicationName The application name, this is typically in the format of "appName [source]". Can be pulled via application.getName()
      * @param displayName The account's display name.
      * @return True if the account exists, false otherwise.
      * @throws GeneralException wrapping underlying DB related errors.
@@ -245,7 +245,7 @@ class IdnRuleUtil {
     /**
      * Gets an account on an application using the native identity.
      *
-     * @param applicationName The application name.
+     * @param applicationName The application name, this is typically in the format of "appName [source]". Can be pulled via application.getName()
      * @param nativeIdentity The account's native identity.
      * @return The account or null if not found. If more than one is found, the first
      *         account in the exists is returned.
@@ -258,7 +258,7 @@ class IdnRuleUtil {
     /**
      * Gets an account on an application using the display name.
      *
-     * @param applicationName The application name.
+     * @param applicationName The application name, this is typically in the format of "appName [source]". Can be pulled via application.getName()
      * @param displayName The account's display name.
      * @return The account or null if not found. If more than one is found, the first
      *         account in the exists is returned.
@@ -271,7 +271,7 @@ class IdnRuleUtil {
     /**
     * Get the first account for the application and identityName and return the first account's native identity.
     *
-    * @param applicationName The application name.
+    * @param applicationName The application name, this is typically in the format of "appName [source]". Can be pulled via application.getName()
     * @param identityName The identity name.
     * @return The first link's nativeIdentity.
     *
@@ -282,7 +282,7 @@ class IdnRuleUtil {
     /**
      * Counts the number of accounts on an application.
      *
-     * @param applicationName The application name.
+     * @param applicationName The application name, this is typically in the format of "appName [source]". Can be pulled via application.getName()
      * @return The total number of accounts.
      * @throws GeneralException wrapping underlying DB related errors.
      */
@@ -293,7 +293,7 @@ class IdnRuleUtil {
     /**
      * Gets the value of an attribute from an account on an application.
      *
-     * @param applicationName The application name.
+     * @param applicationName The application name, this is typically in the format of "appName [source]". Can be pulled via application.getName()
      * @param nativeIdentity The account's native identity.
      * @param attribute The name of the attribute to retrieve.
      * @return The attribute value or null if the attribute does not exist.
@@ -317,7 +317,7 @@ class IdnRuleUtil {
     /**
      * Gets the string value of an attribute from an account on an application.
      *
-     * @param applicationName The application name.
+     * @param applicationName The application name, this is typically in the format of "appName [source]". Can be pulled via application.getName()
      * @param nativeIdentity The account's native identity.
      * @param attribute The name of the attribute to retrieve.
      * @return The attribute value or null if the attribute does not exist.
@@ -341,7 +341,7 @@ class IdnRuleUtil {
     /**
      * Gets the boolean value of an attribute from an account on an application.
      *
-     * @param applicationName The application name.
+     * @param applicationName The application name, this is typically in the format of "appName [source]". Can be pulled via application.getName()
      * @param nativeIdentity The account's native identity.
      * @param attribute The name of the attribute to retrieve.
      * @return The attribute value or false if the attribute does not exist.
@@ -395,7 +395,7 @@ class IdnRuleUtil {
     /**
      * Gets the int value of an attribute from an account on an application.
      *
-     * @param applicationName The application name.
+     * @param applicationName The application name, this is typically in the format of "appName [source]". Can be pulled via application.getName()
      * @param nativeIdentity The account's native identity.
      * @param attribute The name of the attribute to retrieve.
      * @return The attribute value or zero if the attribute does not exist.
@@ -461,7 +461,7 @@ class IdnRuleUtil {
     * the specified sortAttribute.
     *
     * @param attributeName The attribute to be searched. It must be searchable and non-null.
-    * @param operation The operation to be used when searching. It only allows equals and StartsWith.
+    * @param operation The operation to be used when searching. It only allows Equals and StartsWith.
     * @param value The value to match. It must be non-null.
     * @param sortAttribute The attribute to be used when sorting.
     * Default ordering is on uid if it is not specified and this also must be searchable.
@@ -486,7 +486,7 @@ String value, String sortAttribute)
     * Count and return the number of users matching the incoming attributeName, operation and value.
     *
     * @param attributeName The attribute to be searched. It must be searchable and non-null.
-    * @param operation The operation to be used when searching. It only allows equals and StartsWith.
+    * @param operation The operation to be used when searching. It only allows Equals and StartsWith.
     * @param value The value to match. It must be non-null.
     *
     * @return The number of identities matching the parameters.

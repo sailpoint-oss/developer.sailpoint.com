@@ -2,7 +2,7 @@ type: object
 properties:
   id:
     type: string
-    description: ID of the approval item
+    description: The approval item's ID
     example: 2c9180835d2e5168015d32f890ca1581
   account:
     type: string
@@ -10,19 +10,19 @@ properties:
     example: john.smith
   application:
     type: string
-    description: The name the application/source
+    description: The name of the application/source
     example: Active Directory
-  attributeName:
+  name:
     type: string
-    description: The name of the attribute
+    description: The attribute's name 
     example: emailAddress
-  attributeOperation:
+  operation:
     type: string
-    description: The operation of the attribute
+    description: The attribute's operation 
     example: update
-  attributeValue:
+  value:
     type: string
-    description: The value of the attribute
+    description: The attribute's value 
     example: a@b.com
   state:
     $ref: '../../v3/schemas/WorkItemState.yaml'

@@ -1,6 +1,6 @@
 get:
   security:
-    - oauth2: [idn:sod-policy:read]
+    - UserContextAuth: [idn:sod-policy:read]
   operationId: getSodPolicySchedule
   tags:
     - SOD Policy
@@ -34,8 +34,8 @@ get:
       $ref: '../responses/500.yaml'
 put:
   security:
-    - oauth2: [idn:sod-policy:write]
-  operationId: setPolicySchedule
+    - UserContextAuth: [idn:sod-policy:write]
+  operationId: putPolicySchedule
   tags:
     - SOD Policy
   summary: Update SOD Policy schedule
@@ -74,7 +74,7 @@ put:
       $ref: '../responses/500.yaml'
 delete:
   security:
-    - oauth2: [idn:sod-policy:write]
+    - UserContextAuth: [idn:sod-policy:write]
   operationId: deleteSodPolicySchedule
   tags:
     - SOD Policy

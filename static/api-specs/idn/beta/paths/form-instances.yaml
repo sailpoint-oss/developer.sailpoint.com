@@ -106,7 +106,7 @@ get:
                 type: string
                 x-go-name: TrackingID
   security:
-    - oauth2:
+    - UserContextAuth:
         - sp:forms:manage
 post:
   tags:
@@ -234,6 +234,6 @@ post:
                 type: string
                 x-go-name: TrackingID
   security:
-    - oauth2:
+    - UserContextAuth:
         - sp:forms:manage
   x-codegen-request-body-name: Body

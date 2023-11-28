@@ -1,10 +1,18 @@
 openapi: "3.0.0"
 info:
   version: 1.0.0
-  title: NERM Lifecycle API
-  description: The Lifecycle API can be used to access and modify various resources in your environment.
+  title: NERM API
+  description: The NERM API can be used to access and modify various resources in your environment.
   license:
     name: MIT
+
+servers:
+  - url: https://{tenantName}.nonemployee.com/api
+    variables:
+      tenantName:
+        default: acmeco
+        description: Tenant name assigned to customer
+
 paths:
 # Users
   /user:
@@ -29,6 +37,9 @@ paths:
     $ref: "./paths/role.yaml"
   /roles/{id}:
     $ref: "./paths/roles_id.yaml"
+# Permissions
+  /permissions:
+    $ref: "./paths/permissions.yaml"
 # User Roles
   /user_role:
     $ref: "./paths/user_role.yaml"
@@ -49,6 +60,11 @@ paths:
     $ref: "./paths/ne_attribute_options.yaml"
   /ne_attribute_options/{id}:
     $ref: "./paths/ne_attribute_options_id.yaml"
+# Pages
+  /pages/profile_pages:
+    $ref: "./paths/pages/profile_page.yaml"
+  /pages/workflow_pages:
+    $ref: "./paths/pages/workflow_page.yaml" 
 # Profile Types
   /profile_type:
     $ref: "./paths/profile_type.yaml"
@@ -56,6 +72,9 @@ paths:
     $ref: "./paths/profile_types.yaml"
   /profile_types/{id}:
     $ref: "./paths/profile_types_id.yaml"
+# Profile Type Roles
+  /profile_type_roles:
+    $ref: "./paths/profile_type_roles.yaml" 
 # Profiles
   /profile:
     $ref: "./paths/profile.yaml"
@@ -95,6 +114,78 @@ paths:
     $ref: "./paths/role_profiles_id.yaml"
   /role_profile/{id}:
     $ref: "./paths/role_profile_id.yaml"
+# Workflows
+  /workflows/create_workflows:
+    $ref: "./paths/workflows/create_workflow.yaml"
+  /workflows/update_workflows:
+    $ref: "./paths/workflows/update_workflow.yaml"
+  /workflows/batch_workflows:
+    $ref: "./paths/workflows/batch_workflow.yaml"
+  /workflows/automated_workflows:
+    $ref: "./paths/workflows/automated_workflow.yaml"
+  /workflows/registration_workflows:
+    $ref: "./paths/workflows/registration_workflow.yaml"
+  /workflows/login_workflows:
+    $ref: "./paths/workflows/login_workflow.yaml"
+  /workflows/password_reset_workflows:
+    $ref: "./paths/workflows/password_reset_workflow.yaml"
+# Workflow Actions
+  /workflow_actions/approval_actions:
+    $ref: "./paths/workflow_actions/approval_action.yaml"
+  /workflow_actions/ask_security_question_actions:
+    $ref: "./paths/workflow_actions/ask_security_question_action.yaml"
+  /workflow_actions/auto_assign_actions:
+    $ref: "./paths/workflow_actions/auto_assign_action.yaml"
+  /workflow_actions/batch_update_actions:
+    $ref: "./paths/workflow_actions/batch_update_action.yaml"
+  /workflow_actions/close_session_actions:
+    $ref: "./paths/workflow_actions/close_session_action.yaml"
+  /workflow_actions/contributors_actions:
+    $ref: "./paths/workflow_actions/contributors_action.yaml"
+  /workflow_actions/create_profile_actions:
+    $ref: "./paths/workflow_actions/create_profile_action.yaml"
+  /workflow_actions/duplicate_prevention_actions:
+    $ref: "./paths/workflow_actions/duplicate_prevention_action.yaml"
+  /workflow_actions/email_verification_actions:
+    $ref: "./paths/workflow_actions/email_verification_action.yaml"
+  /workflow_actions/fulfillment_actions:
+    $ref: "./paths/workflow_actions/fulfillment_action.yaml"
+  /workflow_actions/identity_proofing_actions:
+    $ref: "./paths/workflow_actions/identity_proofing_action.yaml"
+  /workflow_actions/invitation_actions:
+    $ref: "./paths/workflow_actions/invitation_action.yaml"
+  /workflow_actions/ldap_actions:
+    $ref: "./paths/workflow_actions/ldap_action.yaml"
+  /workflow_actions/notification_actions:
+    $ref: "./paths/workflow_actions/notification_action.yaml"
+  /workflow_actions/password_reset_actions:
+    $ref: "./paths/workflow_actions/password_reset_action.yaml"
+  /workflow_actions/profile_check_actions:
+    $ref: "./paths/workflow_actions/profile_check_action.yaml"
+  /workflow_actions/profile_select_actions:
+    $ref: "./paths/workflow_actions/profile_select_action.yaml"
+  /workflow_actions/request_actions:
+    $ref: "./paths/workflow_actions/request_action.yaml"
+  /workflow_actions/rest_api_actions:
+    $ref: "./paths/workflow_actions/rest_api_action.yaml"
+  /workflow_actions/review_actions:
+    $ref: "./paths/workflow_actions/review_action.yaml"
+  /workflow_actions/run_workflow_actions:
+    $ref: "./paths/workflow_actions/run_workflow_action.yaml"
+  /workflow_actions/set_attributes_actions:
+    $ref: "./paths/workflow_actions/set_attributes_action.yaml"
+  /workflow_actions/set_security_question_actions:
+    $ref: "./paths/workflow_actions/set_security_question_action.yaml"
+  /workflow_actions/soap_api_actions:
+    $ref: "./paths/workflow_actions/soap_api_action.yaml"
+  /workflow_actions/status_change_actions:
+    $ref: "./paths/workflow_actions/status_change_action.yaml"
+  /workflow_actions/unassign_actions:
+    $ref: "./paths/workflow_actions/unassign_action.yaml"
+  /workflow_actions/update_profile_actions:
+    $ref: "./paths/workflow_actions/update_profile_action.yaml"
+  /workflow_actions/username_password_actions:
+    $ref: "./paths/workflow_actions/username_password_action.yaml"
 # Workflow Sessions
   /workflow_sessions:
     $ref: "./paths/workflow_sessions.yaml"
@@ -117,3 +208,20 @@ paths:
 # Jobs
   /job_status:
     $ref: "./paths/job_status.yaml"
+# Forms
+  /forms:
+    $ref: "./paths/forms.yaml"
+# Form Attributes
+  /form_attributes:
+    $ref: "./paths/form_attributes.yaml"
+
+      
+security:
+  - bearerAuth: []
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: Token token=your token

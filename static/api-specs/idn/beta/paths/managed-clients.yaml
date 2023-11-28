@@ -14,11 +14,21 @@ get:
       schema:
         type: string
       description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
         Filtering is supported for the following fields and operators:
 
+
         **id**: *eq*
+
+
         **name**: *eq*
+
+
         **clientId**: *eq*
+
+
         **clusterId**: *eq*
       example: name eq "client name"
   responses:
@@ -43,7 +53,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:remote-client:read, idn:remote-client:manage]
+    - UserContextAuth: [idn:remote-client:read, idn:remote-client:manage]
 post:
   tags:
     - Managed Clients
@@ -79,4 +89,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:remote-client:manage]
+    - UserContextAuth: [idn:remote-client:manage]

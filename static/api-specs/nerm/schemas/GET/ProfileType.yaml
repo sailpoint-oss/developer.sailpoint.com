@@ -1,107 +1,91 @@
 type: object
 properties:
   id:
-    description: The id
     type: string
     format: uuid
     readOnly: true
-    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+    description: The objects ID.
+    example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
   uid:
-    description: The uid
     type: string
     minLength: 32
     maxLength: 32
     readOnly: true
-    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+    description: The objects UID.
+    example: ptUid
   name:
-    description: the name
     type: string
-    example: my profile type
+    description: This is the name of the profile type.
+    example: Worker
   bypass_dup_protection:
-    description: bypass duplicate protection?
     type: boolean
+    description: Whether or not duplication protection is bypassed.
     example: false
   archived:
-    description: is this profile type archived?
     type: boolean
+    description: Whether or not the profile type is archived.
     example: false
   permitted_role_ids:
-    description: permitted role_ids for this profile_type
     type: array
     items: 
       type: string
       format: uuid
-    example:
-        - db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
-        - db6f8e8b-65c2-47d5-a0db-90bcc4e9df92
+    description: The role ids that are permitted for this profile type.
+    example: ['33f072dd-13b4-41e1-8ea0-16f2a59b57c8']
   profile_type_dup_attributes:
-    description: The profile type duplicate attributes
     type: array
     items: 
       type: object
       properties:
         id:
-          description: the id
           type: string
           format: uuid
-          example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+          description: The ID of the properties that are used for duplication protection.
+          example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
         uid:
-          description: the uid
           type: string
           minLength: 32
           maxLength: 32
-          example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+          description: The uid of the properties that are used for duplication protection.
+          example: attribute-uid
         profile_type_id:
-          description: the profile type id
           type: string
           format: uuid
-          example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+          description: The ID of the profile type.
+          example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
         ne_attribute_id:
-          description: the ne attribute id
           type: string
           format: uuid
-          example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
-    example: 
-      - id: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
-        uid: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9f
-        profile_type_id: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9g
-        ne_attribute_id: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9h          
+          description: The ID of the ne attribute.
+          example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
   profile_type_namings:
-    description: the profile type namings
     type: array
     items: 
       type: object
       properties:
         id:
-          description: the id
           type: string
           format: uuid
-          example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+          description: The ID of the profile type naming.
+          example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
         uid:
-          description: the uid
           type: string
           minLength: 32
           maxLength: 32
-          example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+          description: The UID of the profile type naming.
+          example: profile-type-name
         profile_type_id:
-          description: the profile type id
           type: string
           format: uuid
-          example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+          description: The ID of the associated profile type.
+          example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
         ne_attribute_id:
-          description: the ne attribute id
           type: string
           format: uuid
-          example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+          description: The ID of the associated ne attribute.
+          example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
         order:
-          description: the order
           type: integer
-          format: int32
           minimum: 0
+          description: The order that the namings are used in.
           example: 0
-    example: 
-      - id: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
-        uid: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9f
-        profile_type_id: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9g
-        ne_attribute_id: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9h
-        order: 0       

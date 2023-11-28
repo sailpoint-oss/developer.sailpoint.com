@@ -7,31 +7,35 @@
   margin-right: 5px;
   margin-top: 5px;
   margin-bottom: 5px;
-  border-style: solid;
+  /* border-style: solid;
   border-width: 1px;
-  border-color: var(--dev-text-color-normal);
+  border-color: var(--dev-text-color-normal); */
   transition: background-color 500ms;
 }
 
 .tagSelected {
   font-size: 16px;
-  font-weight: 500;
-  background-color: var(--dev-secondary-text);
-  color: var(--dev-tag-selected-text);
+  font-weight: 600;
+  /* background-color: var(--dev-secondary-text);
+  color: var(--dev-tag-selected-text); */
   padding: 8px;
   margin-right: 5px;
   margin-bottom: 5px;
   margin-top: 5px;
-  border-style: solid;
+  /* border-style: solid;
   border-width: 1px;
-  border-color: var(--dev-text-color-normal);
+  border-color: var(--dev-text-color-normal); */
   transition: background-color 500ms;
 }
-
+.sidebarButton:hover {
+  cursor: pointer;
+  font-weight: 600;
+}
 .tag:hover {
   cursor: pointer;
-  background-color: var(--dev-text-color-normal);
-  color: var(--dev-tag-selected-text);
+  font-weight: 600;
+  /* background-color: var(--dev-text-color-normal);
+  color: var(--dev-tag-selected-text); */
 }
 
 /* .radio {

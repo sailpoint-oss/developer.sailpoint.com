@@ -10,7 +10,7 @@ post:
 
     **This will cause a live run of the workflow, which could result in unintended modifications to your IDN tenant.**
   security:
-    - oauth2: [sp:workflow-execute:external]
+    - UserContextAuth: [sp:workflow-execute:external]
   parameters:
     - name: id
       in: path

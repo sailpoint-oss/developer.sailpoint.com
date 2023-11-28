@@ -26,11 +26,14 @@ get:
       description: >-
         Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
 
+
         Filtering is supported for the following fields and operators:
+
 
         **internal**: *eq*
 
-        **name**: *eq*, *sw*
+
+        **name**: *eq, sw*
       required: false
       style: form
       explode: true
@@ -45,7 +48,7 @@ get:
           schema:
             type: array
             items:
-              $ref: '../schemas/Transform.yaml'
+              $ref: '../schemas/TransformRead.yaml'
           example:
             - id: 2cd78adghjkja34jh2b1hkjhasuecd
               name: Timestamp To Date
@@ -70,7 +73,7 @@ get:
     "500":
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:transform:read]
+    - UserContextAuth: [idn:transform:read, idn:transform:manage]
 post:
   tags:
     - Transforms
@@ -100,7 +103,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../schemas/Transform.yaml'
+            $ref: '../schemas/TransformRead.yaml'
     "400":
       $ref: '../../v3/responses/400.yaml'
     "401":
@@ -114,4 +117,4 @@ post:
     "500":
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:transform:update]
+    - UserContextAuth: [idn:transform:manage]

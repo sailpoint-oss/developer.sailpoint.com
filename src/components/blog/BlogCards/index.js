@@ -14,9 +14,23 @@ export default function BlogCards({
   const getPosts = async () => {
     const data = await getBlogPosts(filterCallback.join('+'));
     const resultset = []
-    if (data.topics) {
-      for (const topic of data.topics) {
-        resultset.push(await getPostList(topic))
+    if (data.topic_list.topics) {
+      for (const topic of data.topic_list.topics) {
+        if (topic.tags.length > 0) {
+          let poster = {}
+          for (let topicUser of topic.posters) {
+            if (topicUser.description.includes("Original Poster")) {
+              for (let user of data.users) {
+                if (user.id === topicUser.user_id) {
+                  poster = user
+                }
+              }
+            }
+          }
+
+          resultset.push(await getPostList(topic, poster));
+        }
+
       }
       setCardData(resultset);
     } else {
@@ -31,7 +45,7 @@ export default function BlogCards({
     setLoadingCards(true);
   }, [filterCallback]);
 
-  if (cardData) {
+  if (cardData && cardData.length > 0) {
     return (
       <div className={styles.center}>
         <div className={styles.gridContainer}>
@@ -74,25 +88,25 @@ export default function BlogCards({
   }
 }
 
-async function getPostList(topic) {
-  const fullTopic = await getTopic(topic.id);
+async function getPostList(topic, user) {
+  console.log(topic)
   return {
-    name: fullTopic.details.created_by.name,
+    name: user.name,
     excerpt: styleExcerpt(topic.excerpt),
-    creatorImage: getavatarURL(fullTopic.details.created_by.avatar_template),
+    creatorImage: getavatarURL(user.avatar_template),
     tags: topic.tags,
-    image: fullTopic.image_url,
+    image: topic.image_url,
     link:
     discourseBaseURL() + 't/' +
       topic.slug +
       '/' +
       topic.id,
     title: topic.title,
-    views: fullTopic.views,
+    views: topic.views,
     liked: topic.like_count,
-    replies: fullTopic.posts_count,
+    replies: topic.posts_count,
     solution: topic.has_accepted_answer,
-    readTime: parseInt(fullTopic.word_count/100),
+    readTime: parseInt(500 / 100),
   };
 }
 

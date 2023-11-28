@@ -4,6 +4,9 @@ get:
     - Certification Campaigns
   summary: Get a Campaign Template
   description: Fetches a campaign template by ID.
+  security:
+    - UserContextAuth: [ idn:campaign-template:read ]
+  deprecated: true
   parameters:
     - in: path
       name: id
@@ -46,6 +49,9 @@ patch:
     - Certification Campaigns
   summary: Update a Campaign Template
   description: Allows updating individual fields on a campaign template using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+  deprecated: true
+  security:
+    - UserContextAuth: [ idn:campaign-template:update ]
   parameters:
     - in: path
       name: id
@@ -69,7 +75,7 @@ patch:
         schema:
           type: array
           items:
-            type: object
+            $ref: "../schemas/JsonPatchOperation.yaml"
         example:
             - op: "replace"
               path: "/description"
@@ -112,6 +118,9 @@ delete:
     - Certification Campaigns
   summary: Delete a Campaign Template
   description: Deletes a campaign template by ID.
+  deprecated: true
+  security:
+    - UserContextAuth: [ idn:campaign-template:delete ]
   parameters:
     - in: path
       name: id
@@ -123,7 +132,7 @@ delete:
   responses:
     '204':
       $ref: '../../v3/responses/204.yaml'
-      description: The Source was successfully deleted.
+      description: The campaign template was successfully deleted.
     '400':
       $ref: '../../v3/responses/400.yaml'
     '404':

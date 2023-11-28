@@ -30,7 +30,15 @@ get:
         type: boolean
     - in: query
       name: sorters
-      description: sort by popularity, default order descending
+      description: >-
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+
+        Sorting is supported for the following fields: **popularity**
+
+
+        The default sort is **popularity** in descending order. 
+      example: popularity
       required: false
       style: form
       explode: true
@@ -38,7 +46,18 @@ get:
         type: string
     - in: query
       name: filters
-      description: Filter parameter by "starts with" for the applicationName and entitlementRef.name.
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **applicationName**: *sw*
+
+
+        **entitlementRef.name**: *sw*
+      example: applicationName sw "AD"
       required: false
       style: form
       explode: true

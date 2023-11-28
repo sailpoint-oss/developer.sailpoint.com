@@ -32,13 +32,16 @@ properties:
     type: boolean
     description: Flag indicating whether or not the attribute is multi-valued.
     example: false
+    default: false
   isEntitlement:
     type: boolean
     description: Flag indicating whether or not the attribute is an entitlement.
     example: false
+    default: false
   isGroup:
     type: boolean
     description: |
       Flag indicating whether or not the attribute represents a group.
-      This can only be `true` if `isEntitlement` is also `true` **and** there is a schema defined for the attribute..
+      This can only be `true` if `isEntitlement` is also `true` **and** there is a schema defined for the attribute.
     example: false
+    default: false

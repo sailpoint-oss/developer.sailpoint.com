@@ -16,8 +16,9 @@ post:
     can complete a certification even if all items have not been completed.
 
     Requires roles of CERT_ADMIN and ORG_ADMIN
-  # security:
-  #   - oauth2: [CERT_ADMIN,ORG_ADMIN]
+  deprecated: true
+  security:
+    - UserContextAuth: [idn:campaign:update]
   requestBody:
     description:
       Optional. Default behavior is for the campaign to auto-approve upon completion,

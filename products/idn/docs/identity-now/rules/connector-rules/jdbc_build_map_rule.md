@@ -35,7 +35,7 @@ This rule manipulates raw input data provided by the rows and columns in a file 
 
 | Argument | Type | Purpose |
 | --- | --- | --- |
-| map | java.utl.Map | Map of names/values representing a row of data from the JDBC resource. |
+| map | java.util.Map | Map of names/values representing a row of data from the JDBC resource. |
 
 ## Template
 

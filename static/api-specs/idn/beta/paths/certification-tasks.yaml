@@ -4,14 +4,18 @@ get:
     - Certifications
     - Certification Campaigns
   summary: List of Pending Certification Tasks
+  deprecated: true
   description: >-
     This API returns a list of pending (`QUEUED` or `IN_PROGRESS`) certification tasks. Any authenticated token can call
     this API, but only certification tasks you are authorized to review will be returned.
+  security:
+    - UserContextAuth: [ idn:certification:read ]
   parameters:
     - in: query
       name: reviewer-identity
       schema:
         type: string
+        example: Ada.1de82e55078344
       description: The ID of reviewer identity. *me* indicates the current user.
       required: false
     - $ref: '../../v3/parameters/limit.yaml'
@@ -21,6 +25,7 @@ get:
       name: filters
       schema:
         type: string
+        example: type eq "ADMIN_REASSIGN"
       description: >-
         Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
 

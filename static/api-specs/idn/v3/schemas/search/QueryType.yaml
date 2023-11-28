@@ -8,6 +8,7 @@ type: string
 enum:
 - DSL
 - SAILPOINT
+- TEXT
 - TYPEAHEAD
 default: SAILPOINT
 example: SAILPOINT

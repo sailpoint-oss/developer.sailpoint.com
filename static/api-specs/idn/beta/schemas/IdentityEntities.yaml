@@ -1,0 +1,17 @@
+type: object
+properties:
+  identityEntity:
+    type: object
+    properties:
+      id:
+        type: string
+        description: id of the resource to which the identity is associated
+        example: 031034e97f094a4096c1be53f75f6b91
+      name:
+        type: string
+        description: name of the resource to which the identity is associated
+        example: Gaston.800ddf9640a
+      type:
+        type: string
+        description: type of the resource to which the identity is associated
+        example: CAMPAIGN_CAMPAIGNER

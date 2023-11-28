@@ -1,9 +1,11 @@
 type: object
-nullable: true
+nullable: false
 description: The owner of this object.
 properties:
   type:
-    $ref: '../DtoType.yaml'
+    type: string 
+    enum: 
+      - IDENTITY
     description: Owner type. This field must be either left null or set to 'IDENTITY' on input, otherwise a 400 Bad Request error will result.
     example: 'IDENTITY'
   id:

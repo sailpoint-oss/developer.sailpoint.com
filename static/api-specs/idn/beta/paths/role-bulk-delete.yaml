@@ -26,7 +26,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+            $ref: '../../v3/schemas/TaskResultDto.yaml'
           example:
             {
               "type": "TASK_RESULT",
@@ -76,4 +76,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:role-unchecked:manage, idn:role-checked:manage]
+    - UserContextAuth: [idn:role-unchecked:manage, idn:role-checked:manage]

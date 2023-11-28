@@ -19,6 +19,7 @@ module.exports = {
         {to: '#', label: 'Tools', className: 'navbar__section'},
         {to: 'idn/tools/cli', label: 'CLI', className: 'indent'},
         {to: 'idn/tools/sdk', label: 'SDKs', className: 'indent'},
+        {to: 'idn/tools/rule-development-kit', label: 'Rule Development Kit', className: 'indent'},
         {to: '#', label: 'External Links', className: 'navbar__section'},
         {
           href: 'https://documentation.sailpoint.com',
@@ -41,7 +42,7 @@ module.exports = {
         {to: '/iiq/api', label: 'IIQ APIs', className: 'indent'},
         {to: '#', label: 'External Links', className: 'navbar__section'},
         {
-          href: 'https://documentation.sailpoint.com',
+          href: 'https://documentation.sailpoint.com/#identityiq',
           label: 'Product Documentation',
           className: 'indent',
         },

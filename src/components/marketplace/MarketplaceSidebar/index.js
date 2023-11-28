@@ -5,6 +5,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Link from '@docusaurus/Link';
 import { getCatagories, getTags } from '../../../services/DiscourseService';
 import MarketplaceSidebarButton from './MarketplaceSidebarButton';
+import {discourseMarketplaceCatagoryId, discourseProductTag} from '../../../util/util'
 
 export default function MarketplaceSidebar({
   filterCallback,
@@ -25,7 +26,7 @@ export default function MarketplaceSidebar({
 
     for (const category of categoryData.category_list.categories) {
       // 59 for production marketplace, 57 for staging marketplace
-      if (category.id === 59) {
+      if (category.id === discourseMarketplaceCatagoryId()) {
         for (const subCategory of category.subcategory_list) {
           
           catIntegrationType.push({"name": subCategory.name, "slug": subCategory.slug})
@@ -34,7 +35,7 @@ export default function MarketplaceSidebar({
     }
     for (const tagGroup of tagData.extras.tag_groups) {
       // 20 for production marketplace, 11 for staging marketplace
-      if (tagGroup.id === 20) {
+      if (tagGroup.id === discourseProductTag()) {
         for (const tag of tagGroup.tags) {
           tagProductResultset.push(tag.text)
         }
@@ -53,6 +54,19 @@ export default function MarketplaceSidebar({
   function toggleSeeAll() {
     filterTags ? setFilterTags(false) : setFilterTags(true)
   }
+
+  function uppercaseText(text) {
+    if (text === 'identitynow') {
+      return 'IdentityNow'
+    }
+    if (text === 'identityiq') {
+      return 'IdentityIQ'
+    }
+    if (text === 'nerm') {
+      return 'NERM'
+    }
+
+  }
   
 
   React.useEffect(() => {
@@ -67,7 +81,7 @@ export default function MarketplaceSidebar({
         <div className={styles.tagHeader}>Items by Product</div>
         <div className={styles.tagContainer}>
             {tagProductData.map(function(a, index){
-              return <MarketplaceSidebarButton key={a} text={a} id={a} filterCallback={filterCallback}></MarketplaceSidebarButton>
+              return <MarketplaceSidebarButton key={a} text={uppercaseText(a)} id={a} filterCallback={filterCallback}></MarketplaceSidebarButton>
             })}
         </div>
         <div className={styles.tagHeader}>Items by Integration Type</div>

@@ -8,7 +8,7 @@ get:
     
     A token with ORG_ADMIN authority is required to call this API.
   security:
-    - oauth2: [idn:accounts:read, idn:accounts:manage]
+    - UserContextAuth: [idn:accounts:read, idn:accounts:manage]
   parameters:
     - in: query
       name: detailLevel
@@ -61,7 +61,7 @@ get:
         Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
 
 
-        Sorting is supported for the following fields: **id**, **name**, **created**, **modified**
+        Sorting is supported for the following fields: **id, name, created, modified**
   responses:
     '200':
       description: List of account objects
@@ -138,7 +138,7 @@ post:
 
     A token with ORG_ADMIN authority is required to call this API.
   security:
-    - oauth2: [idn:accounts:manage]
+    - UserContextAuth: [idn:accounts:manage]
   requestBody:
     required: true
     content:

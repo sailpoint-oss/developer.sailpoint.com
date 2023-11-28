@@ -10,16 +10,16 @@ export async function getTopPosts() {
     return [];
   }
 }
-export async function getAmbassadors(expert) {
+export async function getAmbassadors(expert, limit, offset) {
   try {
     if (expert) {
       const response = await fetch(
-        discourseBaseURL() + 'groups/ambassador_expert/members.json',
+        discourseBaseURL() + 'groups/ambassador_expert/members.json?limit=' + limit + '&offset=' + offset,
       );
       return await response.json();
     } else {
       const response = await fetch(
-        discourseBaseURL() + 'groups/ambassador/members.json',
+        discourseBaseURL() + 'groups/ambassador/members.json?limit=' + limit + '&offset=' + offset,
       );
       return await response.json();
     }
@@ -56,9 +56,9 @@ export async function checkImage(url) {
 export async function getBlogPosts(tags) {
   let url = ''
   if (tags) {
-    url = discourseBaseURL() + 'search.json?q=category:blog-posts+tags:' + tags
+    url = discourseBaseURL() + 'c/blog/blog-posts/l/latest.json?tags=' + tags
   } else {
-    url = discourseBaseURL() + 'search.json?q=category:blog-posts'
+    url = discourseBaseURL() + 'c/blog/blog-posts/l/latest.json'
   }
   try {
     const response = await fetch(
@@ -71,15 +71,15 @@ export async function getBlogPosts(tags) {
 }
 
 export async function getMarketplacePosts(tags, category) {
-  let filterCategory = 'marketplace'
-  if (category) {
-    filterCategory = category
+  let filterCategory = 'colab'
+  if (category && category != 'colab') {
+    filterCategory = filterCategory + '/' + category
   }
   let url = ''
   if (tags) {
-    url = discourseBaseURL() + 'search.json?q=category:' + filterCategory + '+tags:' + tags
+    url = discourseBaseURL() + 'c/' + filterCategory + '/l/latest.json?tags=' + tags
   } else {
-    url = discourseBaseURL() + 'search.json?q=category:' + filterCategory
+    url = discourseBaseURL() + 'c/' + filterCategory + '/l/latest.json'
   }
   try {
     const response = await fetch(

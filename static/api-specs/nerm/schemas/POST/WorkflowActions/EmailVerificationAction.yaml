@@ -1,0 +1,36 @@
+type: object
+properties:
+  workflow_id:
+    type: string
+    format: uuid
+    required: true
+    description: The workflow the workflow action belongs to.
+    example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+  description:
+    type: string
+    required: true
+    description: The description of the workflow action.
+    example: Have the user verify their email address.
+  email_expiration:
+    type: integer
+    format: int32
+    required: true
+    description: The email expiration time, in minutes.
+    example: 20
+  token_expiration:
+    type: integer
+    format: int32
+    required: true
+    description: The token expiration time, coordinates with token_expiration_type.
+    example: 1
+  token_expiration_type:
+    type: string
+    required: true
+    enum: [hours, days, login attempts, always]
+    description: The token expiration type, coordinates with token_expiration.
+    example: days
+  archived:
+    type: boolean
+    default: false
+    description: If the workflow action is archived or not.
+    example: false

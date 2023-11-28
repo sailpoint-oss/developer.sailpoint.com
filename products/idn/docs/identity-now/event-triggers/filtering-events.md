@@ -70,7 +70,7 @@ Operators provide more options to filter JSON structures.
 | anyof | **Any of** - Evaluates to `true` if the left operand has an intersection with the right. | $[?($.warnings anyof ['Account skipped','Invalid account'])] |
 | noneof | **None of** - Evaluates to `true` if the left operand **does not** have an intersection with the right. | $[?($.warnings anyof ['Account skipped','Invalid account'])] |
 | size | **Size** - Evaluates to `true` if the size of the left (array or string) matches the right. | $[?($.warnings size 1] |
-| && | Logical **AND** operator that evaluates `true` only if both conditions are `true`. | $.changes[?(@.attribute == "cloudLifecycleState" && @.newValue == "terminated")] |
+| && | Logical **AND** operator that evaluates `true` only if both conditions are `true`. You can only use this operator when both operands are part of the same item. | $.changes[?(@.attribute == "cloudLifecycleState" && @.newValue == "terminated")] |
 | ! | **Not** - Negates the boolean expression. | $.identity.attributes[?(!@.alternateEmail)] |
 | \|\| | Logical **OR** operator that evaluates `true` if at least one condition is `true`. | $.changes[?(@.attribute == "cloudLifecycleState" \|\| @.attribute == "department")] |
 | contains | **Contains** - Checks whether a string contains the specified substring (case sensitive). | $[?($.identity.name contains "john")] |

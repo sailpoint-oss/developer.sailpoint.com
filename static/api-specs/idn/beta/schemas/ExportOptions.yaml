@@ -13,6 +13,7 @@ properties:
       - CAMPAIGN_FILTER
       - FORM_DEFINITION
       - GOVERNANCE_GROUP
+      - IDENTITY_OBJECT_CONFIG
       - IDENTITY_PROFILE
       - LIFECYCLE_STATE
       - NOTIFICATION_TEMPLATE
@@ -21,12 +22,14 @@ properties:
       - PUBLIC_IDENTITIES_CONFIG
       - ROLE
       - RULE
+      - SEGMENT
       - SERVICE_DESK_INTEGRATION
       - SOD_POLICY
       - SOURCE
+      - TAG
       - TRANSFORM
       - TRIGGER_SUBSCRIPTION
-      - WORKFLOWS
+      - WORKFLOW
       example: "SOURCE"
   includeTypes:
     description: Object type names to be included in an sp-config export command. IncludeTypes takes precedence over excludeTypes.
@@ -41,6 +44,7 @@ properties:
       - CAMPAIGN_FILTER
       - FORM_DEFINITION
       - GOVERNANCE_GROUP
+      - IDENTITY_OBJECT_CONFIG
       - IDENTITY_PROFILE
       - LIFECYCLE_STATE
       - NOTIFICATION_TEMPLATE
@@ -49,12 +53,14 @@ properties:
       - PUBLIC_IDENTITIES_CONFIG
       - ROLE
       - RULE
+      - SEGMENT
       - SERVICE_DESK_INTEGRATION
       - SOD_POLICY
       - SOURCE
+      - TAG
       - TRANSFORM
       - TRIGGER_SUBSCRIPTION
-      - WORKFLOWS
+      - WORKFLOW
       example: "TRIGGER_SUBSCRIPTION"
   objectOptions:
     description: Additional options targeting specific objects related to each item in the includeTypes field

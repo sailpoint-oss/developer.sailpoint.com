@@ -1,0 +1,25 @@
+title: IDENTITY_PROFILE_IDENTITY_ERROR
+type: object
+description: >-
+  Arguments for Identity Profile Identity Error report (IDENTITY_PROFILE_IDENTITY_ERROR)
+required:
+  - authoritativeSource
+  - defaultS3Bucket
+properties:
+  authoritativeSource:
+    type: string
+    description: >-
+      Source Id to be checked on errors of identity profiles aggregation
+    example: 1234sourceId5678902
+  defaultS3Bucket:
+    type: boolean
+    description: >-
+      Use it to set default s3 bucket where generated report will be saved. 
+      In case this argument is false and 's3Bucket' argument is null or absent there will be default
+      s3Bucket assigned to the report.
+    example: true
+  s3Bucket:
+    type: string
+    description: >-
+      If you want to be specific you could use this argument with defaultS3Bucket = false.
+    example: the-dev-bucket

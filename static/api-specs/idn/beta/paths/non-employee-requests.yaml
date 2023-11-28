@@ -1,7 +1,7 @@
 post:
   operationId: createNonEmployeeRequest
   security:
-    - oauth2: [idn:nelm:manage]
+    - UserContextAuth: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
   summary: Create Non-Employee Request
@@ -59,7 +59,7 @@ post:
 get:
   operationId: listNonEmployeeRequests
   security:
-    - oauth2: [idn:nelm:read]
+    - UserContextAuth: [idn:nelm:read]
   tags:
     - Non-Employee Lifecycle Management
   summary: List Non-Employee Requests
@@ -86,12 +86,10 @@ get:
         format: comma-separated
       example: approvalStatus,firstName
       description: >-
-        Sort results using the standard syntax described in [V3 API Standard
-        Collection
-        Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
-        Sorting is supported for the following fields: **created,
-        approvalStatus, firstName, lastName, email, phone, accountName,
-        startDate, endDate**
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+
+        Sorting is supported for the following fields: **created, approvalStatus, firstName, lastName, email, phone, accountName, startDate, endDate**
     - in: query
       name: filters
       required: false
@@ -99,12 +97,13 @@ get:
         type: string
       example: sourceId eq "2c91808568c529c60168cca6f90c1313"
       description: >-
-        Filter results using the standard syntax described in [V3 API Standard
-        Collection
-        Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
         Filtering is supported for the following fields and operators:
-        **sourceId**: *eq*  *Example:* sourceId eq
-        "2c91808568c529c60168cca6f90c1313"
+
+
+        **sourceId**: *eq*
   responses:
     "200":
       description: List of non-employee request objects.

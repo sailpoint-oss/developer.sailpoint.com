@@ -1,7 +1,7 @@
 post:
   operationId: importNonEmployeeRecordsInBulk
   security:
-    - oauth2: [idn:nelm:manage]
+    - UserContextAuth: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
   summary: Imports, or Updates, Non-Employee Records

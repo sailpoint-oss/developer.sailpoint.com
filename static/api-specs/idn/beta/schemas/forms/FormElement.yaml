@@ -1,14 +1,12 @@
 properties:
-  config:
-    additionalProperties: { }
-    description: Config is a config object
-    example:
-      label: Department
-    type: object
-    x-go-name: Config
+  id:
+    description: Form element identifier.
+    example: 00000000-0000-0000-0000-000000000000
+    type: string
+    x-go-name: ID
   elementType:
     description: |-
-      ElementType is a FormElementType value
+      FormElementType value. 
       TEXT FormElementTypeText
       TOGGLE FormElementTypeToggle
       TEXTAREA FormElementTypeTextArea
@@ -32,6 +30,14 @@ properties:
       - COLUMNS
     example: TEXT
     type: string
+    x-go-name: ElementType
+  config:
+    additionalProperties: { }
+    description: Config object.
+    example:
+      label: Department
+    type: object
+    x-go-name: Config
     x-go-enum-desc: |-
       TEXT FormElementTypeText
       TOGGLE FormElementTypeToggle
@@ -42,15 +48,9 @@ properties:
       SELECT FormElementTypeSelect
       DATE FormElementTypeDate
       SECTION FormElementTypeSection
-      COLUMNS FormElementTypeColumns
-    x-go-name: ElementType
-  id:
-    description: ID is a form element identifier
-    example: 00000000-0000-0000-0000-000000000000
-    type: string
-    x-go-name: ID
+      COLUMNS FormElementTypeColumnsn
   key:
-    description: Key is the technical key
+    description: Technical key.
     example: department
     type: string
     x-go-name: Key

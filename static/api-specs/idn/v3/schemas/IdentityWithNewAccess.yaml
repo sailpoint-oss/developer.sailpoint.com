@@ -5,14 +5,15 @@ required:
 type: object
 properties:
   identityId:
-    description: Set of identity id's to be checked.
+    description: Set of identity IDs to be checked.
     type: string
     example: '2c91809050db617d0150e0bf3215385e'
   accessRefs:
     description: The bundle of access profiles to be added to the identities specified. All references must be ENTITLEMENT type.
     type: array
     items:
-      $ref: './BaseReferenceDto.yaml'
+      allOf: 
+      - $ref: './EntitlementRef.yaml'
   clientMetadata:
     type: object
     additionalProperties:

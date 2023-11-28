@@ -69,7 +69,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:service-desk-admin:read,idn:service-desk-integration:read]
+    - UserContextAuth: [idn:service-desk-admin:read,idn:service-desk-integration:read]
 post:
   tags:
     - Service Desk Integration
@@ -103,4 +103,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [idn:service-desk-admin:manage,idn:service-desk-integration:manage]
+    - UserContextAuth: [idn:service-desk-admin:manage,idn:service-desk-integration:manage]

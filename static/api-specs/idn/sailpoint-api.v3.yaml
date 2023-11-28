@@ -23,6 +23,12 @@ servers:
         default: sailpoint
         description:
           This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}/v3
+    description: This is the V3 API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
 
 tags:
   - name: Access Profiles
@@ -161,39 +167,41 @@ tags:
       - Password Change: These include password changes on sources.
 
       Refer to [Account Activity](https://documentation.sailpoint.com/saas/help/search/index.html#account-activity) for more information about account activities.
+  - name: Auth User
+    description: Authentication service user retrieval and user capabilities update
   - name: Certification Campaigns
     description: |
       Use this API to implement certification campaign functionality.
       With this functionality in place, administrators can create, customize, and manage certification campaigns for their organizations' use. 
-      Certification campaigns provide IdentityNow (IDN) users with an interactive review process they can use to identify and verify access to systems. 
+      Certification campaigns provide IdentityNow users with an interactive review process they can use to identify and verify access to systems. 
       Campaigns help organizations reduce risk of inappropriate access and satisfy audit requirements. 
 
-      A certification refers to IDN's mechanism for reviewing a user's access to entitlements (sets of permissions) and approving or removing that access. 
+      A certification refers to IdentityNow's mechanism for reviewing a user's access to entitlements (sets of permissions) and approving or removing that access. 
       These certifications serve as a way of showing that a user's access has been reviewed and approved. 
       Multiple certifications by different reviewers are often required to approve a user's access. 
       A set of multiple certifications is called a certification campaign. 
 
       For example, an organization may use a Manager Certification campaign as a way of showing that a user's access has been reviewed and approved by multiple managers. 
-      Once this campaign has been completed, IDN would provision all the access the user needs, nothing more. 
+      Once this campaign has been completed, IdentityNow would provision all the access the user needs, nothing more. 
 
-      IDN provides two simple campaign types users can create without using search queries, Manager and Source Owner campaigns:
+      IdentityNow provides two simple campaign types users can create without using search queries, Manager and Source Owner campaigns:
 
-      You can create these types of campaigns without using any search queries in IDN: 
+      You can create these types of campaigns without using any search queries in IdentityNow: 
       
-      - ManagerCampaign: IDN provides this campaign type as a way to ensure that an identity's access is certified by their managers. 
+      - ManagerCampaign: IdentityNow provides this campaign type as a way to ensure that an identity's access is certified by their managers. 
       You only need to provide a name and description to create one. 
       
-      - Source Owner Campaign: IDN provides this campaign type as a way to ensure that an identity's access to a source is certified by its source owners. 
+      - Source Owner Campaign: IdentityNow provides this campaign type as a way to ensure that an identity's access to a source is certified by its source owners. 
       You only need to provide a name and description to create one. 
       You can specify the sources whose owners you want involved or just run it across all sources. 
 
       For more information about these campaign types, refer to [Starting a Manager or Source Owner Campaign](https://documentation.sailpoint.com/saas/help/certs/starting_campaign.html).
 
-      One useful way to create certification campaigns in IDN is to use a specific search and then run a campaign on the results returned by that search. 
+      One useful way to create certification campaigns in IdentityNow is to use a specific search and then run a campaign on the results returned by that search. 
       This allows you to be much more specific about whom you are certifying in your campaigns and what access you are certifying in your campaigns. 
       For example, you can search for all identities who are managed by "Amanda.Ross" and also have the access to the "Accounting" role and then run a certification campaign based on that search to ensure that the returned identities are appropriately certified. 
       
-      You can use IDN search queries to create these types of campaigns: 
+      You can use IdentityNow search queries to create these types of campaigns: 
 
       - Identities: Use this campaign type to review and revoke access items for specific identities. 
       You can either build a search query and create a campaign certifying all identities returned by that query, or you can search for individual identities and add those identities to the certification campaign. 
@@ -204,7 +212,7 @@ tags:
       - Role Composition: Use this campaign type to review a role's composition, including its title, description, and membership criteria. 
       You can either build a search query and create a campaign certifying all roles returned by that query, or you can search for individual roles and add those roles to the certification campaign. 
 
-      - Uncorrelated Accounts: Use this campaign type to certify source accounts that aren't linked to an authoritative identity in IDN. 
+      - Uncorrelated Accounts: Use this campaign type to certify source accounts that aren't linked to an authoritative identity in IdentityNow. 
       You can use this campaign type to view all the uncorrelated accounts for a source and certify them. 
 
       For more information about search-based campaigns, refer to [Starting a Campaign from Search](https://documentation.sailpoint.com/saas/help/certs/starting_search_campaign.html).
@@ -212,7 +220,7 @@ tags:
       Once you have generated your campaign, it becomes available for preview. 
       An administrator can review the campaign and make changes, or if it's ready and accurate, activate it. 
       
-      Once the campaign is active, organization administrators or certification administrators can designate other IDN users as certification reviewers. 
+      Once the campaign is active, organization administrators or certification administrators can designate other IdentityNow users as certification reviewers. 
       Those reviewers can view any of the certifications they either need to review (active) or have already reviewed (completed).
 
       When a certification campaign is in progress, certification reviewers see the listed active certifications whose involved identities they can review. 
@@ -270,7 +278,41 @@ tags:
       Once this certification has been completed, IdentityNow  would provision all the access the user needs, nothing more. 
 
       Certification summaries provide information about identity certification campaigns such as the identities involved, the number of decisions made, and the access changed. 
-      For example, an administrator or designated certification reviewer can examine the Manager Certification campaign to get an overview of how many entitlement decisions are made in that campaign as opposed to role decisions, which identities would be affected by changes to the campaign, and how those identities' access would be affected.  
+      For example, an administrator or designated certification reviewer can examine the Manager Certification campaign to get an overview of how many entitlement decisions are made in that campaign as opposed to role decisions, which identities would be affected by changes to the campaign, and how those identities' access would be affected.
+  - name: Certification Campaign Filters
+    description: |
+      Use this API to implement the certification campaign filter functionality. These filters can be used to create a certification campaign that includes a subset of your entitlements or users to certify.
+      
+      For example, if for a certification campaign an organization wants to certify only specific users or entitlements, then those can be included/excluded on the basis of campaign filters.
+      
+      For more information about creating a campaign filter, refer to [Creating a Campaign Filter](https://documentation.sailpoint.com/saas/help/certs/campaign_filters.html#creating-a-campaign-filter)
+      
+      You can create campaign filters using any of the following criteria types:
+      
+      - Access Profile : This criteria type includes or excludes access profiles from a campaign.
+      
+      - Account Attribute : This criteria type includes or excludes certification items that match a specified value in an account attribute.
+      
+      - Entitlement : This criteria type includes or excludes entitlements from a campaign.
+      
+      - Identity : This criteria type includes or excludes specific identities from your campaign.
+      
+      - Identity Attribute : This criteria type includes or excludes identities based on whether they have an identity attribute that matches criteria you've chosen.
+      
+      - Role : This criteria type includes or excludes roles, as opposed to identities.
+      
+      - Source : This criteria type includes or excludes entitlements from a source you select.
+      
+      For more information about these criteria types, refer to [Types of Campaign Filters](https://documentation.sailpoint.com/saas/help/certs/campaign_filters.html#types-of-campaign-filters)
+      
+      Once the campaign filter is created, it can be linked while creating the campaign. The generated campaign will have the items to review as per the campaign filter.
+      
+      For example, An inclusion campaign filter is created with a source of Source 1, an operation of Equals, and an entitlement of Entitlement 1. When this filter is selected, only users who have Entitlement 1 are included in the campaign, and only Entitlement 1 is shown in the certification.
+  - name: Global Tenant Security Settings
+    description: |
+      Use this API to implement and customize global tenant security settings.
+      With this functionality in place, administrators can manage the global security settings that a tenant/org has.
+      This API can be used to configure the networks and Geographies allowed to access IdentityNow URLs.
   - name: Lifecycle States
     description: |
       Use this API to implement and customize lifecycle state functionality.
@@ -301,7 +343,7 @@ tags:
       To maintain access across multiple lifecycle states, administrators must grant the access profiles in each lifecycle state. 
       For example, if an administrator wants users with the 'HR Employee' identity profile to maintain their building access in both the 'Active' and 'Leave of Absence' lifecycle states, the administrator must grant the access profile for that building access to both lifecycle states.
 
-      During scheduled refreshes, IdentityNow evaluates lifFecycle states to determine whether their assigned identities have the access defined in the lifecycle states' access profiles. 
+      During scheduled refreshes, IdentityNow evaluates lifecycle states to determine whether their assigned identities have the access defined in the lifecycle states' access profiles. 
       If the identities are missing access, IdentityNow provisions that access. 
 
       Administrators can also use the 'Provisioning' tab to configure email notifications for IdentityNow to send whenever an identity with that identity profile has a lifecycle state change. 
@@ -360,7 +402,7 @@ tags:
     description: |
       Use this API to implement OAuth client functionality.   
       With this functionality in place, users with the appropriate security scopes can create and configure OAuth clients to use as a way to obtain authorization to use the IdentityNow REST API.
-      Refer to [Authentication](https://developer.sailpoint.com/idn/api/authentication) for more information about OAuth and how it works with the IdentityNow REST API. 
+      Refer to [Authentication](https://developer.sailpoint.com/idn/api/authentication) for more information about OAuth and how it works with the IdentityNow REST API.
   - name: Password Configuration
     description: |
       Use this API to implement organization password configuration functionality. 
@@ -508,6 +550,9 @@ tags:
 
       For example, a non-administrator deciding whether to approve another identity's request for access to the Workday application, whose access may be restricted to members of the HR department, would want to know whether the identity is a member of the HR department. 
       If an administrator has used [Update Public Identity Config](https://developer.sailpoint.com/idn/api/v3/update-public-identity-config) to make the "department" attribute public, the approver can see the department and make a decision without requesting any more information.
+  - name: Reports Data Extraction
+    description: |
+      Use this API to implement reports lifecycle managing and monitoring.
   - name: Requestable Objects
     description: |
       Use this API to implement requestable object functionality. 
@@ -551,7 +596,7 @@ tags:
       - Access Requests: Configure roles to be requestable and establish an approval process for any requests that the role be granted or revoked. 
       Do not configure a role to be requestable without establishing a secure access request approval process for that role first. 
 
-      Refer to [Working with Roles](https://documentation.sailpoint.com/saas/help/provisioning/roles.html) for more information about roles.
+      Refer to [Working with Roles](https://documentation.sailpoint.com/saas/help/access/roles.html) for more information about roles.
   - name: Saved Search
     description: |
       Use this API to implement saved search functionality. 
@@ -618,6 +663,24 @@ tags:
       Depending on the system load, this can take a few seconds to a few minutes. 
       Please keep this latency in mind when you use search. 
   - name: Segments
+    description: |
+      Use this API to implement and customize access request segment functionality. 
+      With this functionality in place, administrators can create and manage access request segments. 
+      Segments provide organizations with a way to make the access their users have even more granular - this can simply the access request process for the organization's users and improves security by reducing the risk of overprovisoning access. 
+
+      Segments represent sets of identities, all grouped by specified identity attributes, who are only able to see and access the access items associated with their segments.
+      For example, administrators could group all their organization's London office employees into one segment, "London Office Employees," by their shared location. 
+      The administrators could then define the access items the London employees would need, and the identities in the "London Office Employees" would then only be able to see and access those items.
+
+      In IdentityNow, administrators can use the 'Access' drop-down menu and select 'Segments' to reach the 'Access Requests Segments' page. 
+      This page lists all the existing access request segments, along with their statuses, enabled or disabled. 
+      Administrators can use this page to create, edit, enable, disable, and delete segments. 
+      To create a segment, an administrator must provide a name, define the identities grouped in the segment, and define the items the identities in the segment can access.
+      These items can be access profiles, roles, or entitlements. 
+
+      When administrators use the API to create and manage segments, they use a JSON expression in the `visibilityCriteria` object to define the segment's identities and access items. 
+
+      Refer to [Managing Access Request Segments](https://documentation.sailpoint.com/saas/help/requests/segments.html) for more information about segments in IdentityNow. 
   - name: Service Desk Integration
     description: |
       Use this API to build an integration between IdentityNow and a service desk ITSM (IT service management) solution. 
@@ -645,9 +708,35 @@ tags:
 
       - [Zendesk Service Desk](https://documentation.sailpoint.com/connectors/zendesk/help/integrating_zendesk_sd/introduction.html)
   - name: SOD Policy
-    description: Operations for Creating & Executing SOD (Seperation of Duties) policies
+    description: |
+      Use this API to implement and manage "separation of duties" (SOD) policies. 
+      With SOD policy functionality in place, administrators can organize the access in their tenants to prevent individuals from gaining conflicting or excessive access. 
+
+      "Separation of duties" refers to the concept that people shouldn't have conflicting sets of access - all their access should be configured in a way that protects your organization's assets and data.  
+      For example, people who record monetary transactions shouldn't be able to issue payment for those transactions.
+      Any changes to major system configurations should be approved by someone other than the person requesting the change. 
+
+      Organizations can use "separation of duties" (SOD) policies to enforce and track their internal security rules throughout their tenants.
+      These SOD policies limit each user's involvement in important processes and protects the organization from individuals gaining excessive access. 
+
+      To create SOD policies in IdentityNow, administrators use 'Search' and then access 'Policies'.
+      To create a policy, they must configure two lists of access items. Each access item can only be added to one of the two lists.
+      They can search for the entitlements they want to add to these access lists.
+
+      >Note: You can have a maximum of 500 policies of any type (including general policies) in your organization. In each access-based SOD policy, you can have a maximum of 50 entitlements in each access list.  
+
+      Once a SOD policy is in place, if an identity has access items on both lists, a SOD violation will trigger. 
+      These violations are included in SOD violation reports that other users will see in emails at regular intervals if they're subscribed to the SOD policy.
+      The other users can then better help to enforce these SOD policies. 
+
+      To create a subscription to a SOD policy in IdentityNow, administrators use 'Search' and then access 'Layers'.
+      They can create a subscription to the policy and schedule it to run at a regular interval. 
+
+      Refer to [Managing Policies](https://documentation.sailpoint.com/saas/help/sod/manage-policies.html) for more information about SOD policies. 
+
+      Refer to [Subscribe to a SOD Policy](https://documentation.sailpoint.com/saas/help/sod/policy-violations.html#subscribe-to-an-sod-policy) for more information about SOD policy subscriptions. 
   - name: SOD Violations
-    description: Operations for Predicting SOD (Seperation of Duties) violations
+    description: Operations for Predicting SOD (Separation of Duties) violations
   - name: Sources
     description: |
       Use this API to implement and customize source functionality. 
@@ -705,7 +794,7 @@ tags:
       Admins can also delete sources, but they must first ensure that the sources no longer have any active connections: the source must not be associated with any identity profile or any app, and it must not be referenced by any transform.
       Refer to [Deleting Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html#deleting-sources) for more information about deleting sources. 
 
-      Well organized, mappped out connections between sources and IdentityNow are essential to achieving comprehensive identity access governance across all the source systems organizations need. 
+      Well organized, mapped out connections between sources and IdentityNow are essential to achieving comprehensive identity access governance across all the source systems organizations need. 
       Refer to [Managing Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html) for more information about all the different things admins can do with sources once they are connected. 
   - name: Tagged Objects
   - name: Transforms
@@ -732,6 +821,16 @@ tags:
       When they complete the work item, they can select 'Mark Complete' to add it to their list of completed work items. 
 
       Refer to [Task Manager](https://documentation.sailpoint.com/saas/user-help/task_manager.html) for more information about work items, including the different types of work items users may need to complete.
+  - name: Source Usages
+    description: |
+      Use this API to implement source usage insight functionality.
+      With this functionality in place, administrators can gather information and insights about how their tenants' sources are being used.
+      This allows organizations to get the information they need to start optimizing and securing source usage.
+  - name: Account Usages
+    description: |
+      Use this API to implement account usage insight functionality.
+      With this functionality in place, administrators can gather information and insights about how their tenants' source accounts are being used.
+      This allows organizations to get the information they need to start optimizing and securing source account usage.
 paths:
   /access-profiles:
     $ref: './v3/paths/access-profiles.yaml'
@@ -779,6 +878,10 @@ paths:
     $ref: "./v3/paths/account-activity-list.yaml"
   /account-activities/{id}:
     $ref: "./v3/paths/account-activity-get-one.yaml"
+  /auth-org/network-config:
+    $ref: "./v3/paths/auth-org-network-config.yaml"
+  /auth-users/{id}:
+    $ref: "./v3/paths/auth-user.yaml"
   /campaigns:
     $ref: './v3/paths/campaigns.yaml'
   /campaigns/{id}:
@@ -787,6 +890,32 @@ paths:
     $ref: './v3/paths/campaign-admin-cert-reassign.yaml'
   /campaigns/{id}/activate:
     $ref: './v3/paths/campaign-activate.yaml'
+  /campaigns/{id}/complete:
+    $ref: './v3/paths/campaign-complete.yaml'
+  /campaigns/delete:
+    $ref: './v3/paths/campaigns-delete.yaml'
+  /campaigns/{id}/run-remediation-scan:
+    $ref: './v3/paths/campaign-run-remediation-scan.yaml'
+  /campaigns/{id}/reports:
+    $ref: './v3/paths/campaign-reports.yaml'
+  /campaigns/{id}/run-report/{type}:
+    $ref: './v3/paths/campaign-run-report.yaml'
+  /campaigns/reports-configuration:
+    $ref: './v3/paths/campaign-reports-configuration.yaml'
+  /campaign-filters:
+    $ref: './v3/paths/campaign-filters.yaml'
+  /campaign-filters/{id}:
+    $ref: './v3/paths/campaign-filter.yaml'
+  /campaign-filters/delete:
+    $ref: './v3/paths/campaign-filters-delete.yaml'
+  /campaign-templates:
+    $ref: './v3/paths/campaign-templates.yaml'
+  /campaign-templates/{id}:
+    $ref: './v3/paths/campaign-template.yaml'
+  /campaign-templates/{id}/schedule:
+    $ref: './v3/paths/campaign-template-schedule.yaml'
+  /campaign-templates/{id}/generate:
+    $ref: './v3/paths/campaign-template-generate.yaml'
   /certifications:
     $ref: "./v3/paths/identity-certifications.yaml"
   /certifications/{id}:
@@ -807,6 +936,16 @@ paths:
     $ref: "./v3/paths/identity-certifications-access-summaries.yaml"
   /certifications/{id}/identity-summaries/{identitySummaryId}:
     $ref: "./v3/paths/identity-certifications-identity-summary.yaml"
+  /certifications/{certificationId}/access-review-items/{itemId}/permissions:
+    $ref: "./v3/paths/identity-certifications-item-permissions.yaml"
+  /certifications/{id}/reviewers:
+    $ref: "./v3/paths/certifications-reviewers.yaml"
+  /certifications/{id}/reassign-async:
+    $ref: './v3/paths/certifications-reassign-async.yaml'
+  /certification-tasks/{id}:
+    $ref: "./v3/paths/certification-task.yaml"
+  /certification-tasks:
+    $ref: "./v3/paths/certification-tasks.yaml"
   /identities/{identity-id}/set-lifecycle-state:
     $ref: "./v3/paths/identity-set-lifecycle-state.yaml"
   /identity-profiles/{identity-profile-id}/lifecycle-states:
@@ -815,6 +954,8 @@ paths:
     $ref: "./v3/paths/identity-profile-lifecycle-state.yaml"
   /identity-profiles:
     $ref: "./v3/paths/identity-profiles.yaml"
+  /identity-profiles/bulk-delete:
+    $ref: './v3/paths/identity-profiles-bulk-delete.yaml'
   /identity-profiles/export:
     $ref: "./v3/paths/identity-profiles-export.yaml"
   /identity-profiles/import:
@@ -823,6 +964,8 @@ paths:
     $ref: "./v3/paths/identity-profile.yaml"
   /identity-profiles/{identity-profile-id}/default-identity-attribute-config:
     $ref: "./v3/paths/identity-profile-default-config.yaml"
+  /identity-profiles/{identity-profile-id}/process-identities:
+    $ref: "./v3/paths/identity-profile-process-identities.yaml"
   /non-employee-records:
     $ref: "./v3/paths/non-employee-records.yaml"
   /non-employee-records/{id}:
@@ -883,6 +1026,8 @@ paths:
     $ref: './v3/paths/roles.yaml'
   /roles/{id}:
     $ref: './v3/paths/role.yaml'
+  /roles/bulk-delete:
+    $ref: './v3/paths/role-bulk-delete.yaml'
   /roles/{id}/assigned-identities:
     $ref: './v3/paths/role-assigned-identities.yaml'
   /saved-searches:
@@ -929,6 +1074,14 @@ paths:
     $ref: './v3/paths/password-dictionary.yaml'
   /password-org-config:
     $ref: './v3/paths/password-org-config.yaml'
+  /reports/{taskResultId}/result:
+    $ref: './v3/paths/reports-result.yaml'
+  /reports/run:
+    $ref: './v3/paths/reports-run.yaml'
+  /reports/{id}/cancel:
+    $ref: './v3/paths/reports-cancel.yaml'
+  /reports/{taskResultId}:
+    $ref: './v3/paths/reports-get-file.yaml'
   /sod-policies:
     $ref: './v3/paths/sod-policies.yaml'
   /sod-policies/{id}:
@@ -1013,16 +1166,23 @@ paths:
     $ref: "./v3/paths/work-items-bulk-reject-approval-item.yaml"
   /work-items/{id}/submit-account-selection:
     $ref: "./v3/paths/work-items-account-selection.yaml"
+  /source-usages/{sourceId}/status:
+    $ref: "./v3/paths/source-usage-status.yaml"
+  /source-usages/{sourceId}/summaries:
+    $ref: "./v3/paths/source-usages.yaml"
+  /account-usages/{accountId}/summaries:
+    $ref: "./v3/paths/account-usages.yaml"
 
 security:
-  - oauth2: []
+  - UserContextAuth: []
 
 components:
   securitySchemes:
-    oauth2:
+    UserContextAuth:
       type: oauth2
       description: |
-        OAuth2 Bearer token (JWT). See [IdentityNow REST API Authentication](https://developer.sailpoint.com/idn/api/authentication) for more information.
+        OAuth2 Bearer token (JWT) generated using either a Personal Access token or through the Authorization Code flow. 
+        See [IdentityNow REST API Authentication](https://developer.sailpoint.com/idn/api/authentication) for more information.
         - Directions for generating a [personal access token](https://developer.sailpoint.com/idn/api/authentication#personal-access-tokens)
         - Directions using [client credentials flow](https://developer.sailpoint.com/idn/api/authentication#client-credentials-grant-flow)
         - Directions for using [authorization code flow](https://developer.sailpoint.com/idn/api/authentication#authorization-code-grant-flow)
@@ -1042,6 +1202,21 @@ components:
           scopes:
             "sp:scopes:default": "default scope"
             "sp:scopes:all": "access to all scopes"
+    ApplicationOnlyAuth:
+      type: oauth2
+      description: |
+        OAuth2 Bearer token (JWT) generated using client credentials flow. 
+        See [IdentityNow REST API Authentication](https://developer.sailpoint.com/idn/api/authentication) for more information.
+        - Directions using [client credentials flow](https://developer.sailpoint.com/idn/api/authentication#client-credentials-grant-flow)
+
+        Which authentication method should I choose?  See our [guide](https://developer.sailpoint.com/idn/api/authentication#which-oauth-20-grant-flow-should-i-use)
+
+        Learn more about how to find your `tokenUrl` and `authorizationUrl` [in our docs](https://developer.sailpoint.com/idn/api/authentication#find-your-tenants-oauth-details)
+      flows:
+        clientCredentials:
+          tokenUrl: https://tenant.api.identitynow.com/oauth/token
+          scopes:
+            "sp:scopes:default": "default scope"
 
   # TODO: add the Entitlement, AccessProfile and Role models
   # and the other new models?
@@ -1064,16 +1239,12 @@ components:
       $ref: "./v3/schemas/search/model/account/activity/AccountActivityDocument.yaml"
     AccountAttributes:
       $ref: "./v3/schemas/AccountAttributes.yaml"
-    AccountDocument:
-      $ref: "./v3/schemas/search/model/account/AccountDocument.yaml"
     AccountsAsyncResult:
       $ref: "./v3/schemas/AccountsAsyncResult.yaml"
     AccountToggleRequest:
       $ref: "./v3/schemas/AccountToggleRequest.yaml"
     AccountUnlockRequest:
       $ref: "./v3/schemas/AccountUnlockRequest.yaml"
-    Aggregation:
-      $ref: "./v3/schemas/search/model/aggregation/AggregationDocument.yaml"
     ApprovalItems:
       $ref: "./v3/schemas/ApprovalItemDetails.yaml"
     Campaign:
@@ -1144,3 +1315,9 @@ components:
       $ref: "./v3/schemas/WorkItemsCount.yaml"
     WorkItemsSummary:
       $ref: "./v3/schemas/WorkItemsSummary.yaml"
+    AccountUsage:
+      $ref: './v3/schemas/AccountUsage.yaml'
+    SourceUsage:
+      $ref: './v3/schemas/SourceUsage.yaml'
+    SourceUsageStatus:
+      $ref: './v3/schemas/SourceUsageStatus.yaml'

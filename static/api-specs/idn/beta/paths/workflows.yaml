@@ -6,7 +6,7 @@ post:
   description: >-
     Create a new workflow with the desired trigger and steps specified in the request body.
   security:
-    - oauth2: [sp:workflow:manage]
+    - UserContextAuth: [sp:workflow:manage]
   requestBody:
     required: true
     content:
@@ -132,7 +132,7 @@ get:
   description: >-
     List all workflows in the tenant.
   security:
-    - oauth2: [sp:workflow:read]
+    - UserContextAuth: [sp:workflow:read]
   responses:
     '200':
       description: >-

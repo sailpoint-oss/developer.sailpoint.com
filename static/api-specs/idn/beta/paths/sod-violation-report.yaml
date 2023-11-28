@@ -3,12 +3,13 @@ get:
   tags:
     - SOD Policy
   summary: Get SOD violation report status
+  deprecated: true
+  security:
+    - UserContextAuth: [ idn:sod-violation:read ]
   description: >-
     This gets the status for a violation report run task that has already been invoked.
 
     Requires role of ORG_ADMIN.
-  # security:
-  #   - oauth2: [ORG_ADMIN]
   parameters:
     - in: path
       name: id

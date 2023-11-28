@@ -1,7 +1,7 @@
 get:
   operationId: listOauthClients
   security:
-    - oauth2: [sp:oauth-client:manage]
+    - UserContextAuth: [sp:oauth-client:manage]
   tags:
     - OAuth Clients
   summary: List OAuth Clients
@@ -47,7 +47,7 @@ get:
 post:
   operationId: createOauthClient
   security:
-    - oauth2: [sp:oauth-client:manage]
+    - UserContextAuth: [sp:oauth-client:manage]
   tags:
     - OAuth Clients
   summary: Create OAuth Client

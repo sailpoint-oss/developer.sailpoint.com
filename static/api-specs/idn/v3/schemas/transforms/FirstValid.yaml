@@ -32,5 +32,6 @@ properties:
     type: boolean
     description: a true or false value representing to move on to the next option if an error (like an Null Pointer Exception) were to occur.
     example: false
+    default: false
   requiresPeriodicRefresh:
     $ref: './RequiresPeriodicRefresh.yaml'

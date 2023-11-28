@@ -3,6 +3,9 @@ get:
   tags:
     - SOD Policy
   summary: Get multi-report run task status
+  deprecated: true
+  security:
+    - UserContextAuth: [ idn:sod-violation:read ]
   description: >-
     This endpoint gets the status for a violation report for all policy run.
 

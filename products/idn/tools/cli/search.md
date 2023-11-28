@@ -11,76 +11,164 @@ slug: /tools/cli/search
 tags: ['CLI']
 ---
 
-## Search
+# Search
 
 Learn how to use the CLI to search your IDN tenant in this guide.
 
 In IdentityNow (IDN), you can search across all the sources connected to your tenant and return virtually any information you have access to. The `search` command allows you to access IDN search functionality within the CLI. For more information about the `search` command, refer to the CLI [Search guide](/idn/tools/cli/search). For more information about search in IDN, refer to [Search](idn/api/v3/search).
 
-## Commands
+In IdentityNow, you can search all the sources connected to your tenant and return virtually any information you have access to. To learn more about search in IdentityNow, refer to [Search](https://documentation.sailpoint.com/saas/help/search/index.html).
 
-To use the CLI to search your IDN tenant, you can use these commands:
+The `search` command makes it easy to search in IdentityNow with the SailPoint CLI. Read this guide to learn how to use the `query` and `template` commands to search IdentityNow with the CLI. 
 
 - [Search](#search)
-- [Commands](#commands)
   - [Query](#query)
+    - [Command](#command)
     - [Flags](#flags)
+      - [Indices](#indices)
+      - [Sort](#sort)
+      - [Output Types](#output-types)
+      - [Folder Path](#folder-path)
   - [Template](#template)
+    - [Command](#command-1)
     - [Flags](#flags-1)
+      - [Output Types](#output-types-1)
+      - [Folder Path](#folder-path-1)
 
-### Query
+## Query
 
-Search queries in IDN are flexible - they can be very broad or very narrow, and you can further narrow your results by using IDN's specific syntax to structure your queries. Refer to [Building a Search Query](https://documentation.sailpoint.com/saas/help/search/building-query.html) for more information about how specific search queries are constructed in IDN.
+Search queries in IdentityNow are flexible - they can be very broad or very narrow, and you can further narrow your results by using IdentityNow's specific syntax to structure your queries. To learn about structuring search queries, refer to [Building a Search Query](https://documentation.sailpoint.com/saas/help/search/building-query.html). 
 
-To create a search query, run this command and provide your desired search attributes:
+The `query` command allows you to search IdentityNow for a query you specify. 
+
+To use the `query` command to search IdentityNow, you must understand how to format your search queries. 
+
+The basic format of a query is "field:term", so an example `query` command would like this: 
 
 ```shell
-sail search query {search query string} --indices {index to search}
+sail search query "name:a*" --indices identities 
 ```
 
-For example, running this command would return all identities starting with the letter "a":
+The CLI will use the [V3 Search endpoint](https://developer.sailpoint.com/idn/api/v3/search-post) to search for all identities starting with names starting with the letter "a". 
+The CLI will then generate a JSON file containing the search results. This JSON file will be located in a folder titled "search_results", within the current working directory, unless a folder path is specified. 
+
+### Command
+
+This example can help you understand the `query` command structure: 
+
+```shell
+sail search query <search query string> --indices <index to search> 
+```
+
+You must start your search query with `sail search query`, and you must specify a query string to search for and a set of indices to search. 
+
+### Flags
+
+You can append a number of flags to the `query` command to refine it: 
+- The first flag, `indices`, is required. It specifies the indices to run the search operation on. 
+- The second possible flag, `sort`, allows you to specify the sort strings to use for the search query, as well as the sorting arrangement for the results. 
+- The third possible flag, `outputTypes`, allows you to specify the output data format as either `json` or `csv`. 
+- The fourth possible flag, `folderPath`, allows you to specify the folder path where you want to save the search query result files. 
+ 
+#### Indices
+
+Use the `indices` flag to specify the indices you want to search. The `indices` flag is required to use the `query` command.
+
+Here is an example of a `query` command with specified `indices`: 
 
 ```shell
 sail search query "name:a*" --indices identities
 ```
 
-#### Flags
+You can search multiple indices. 
 
-You can add these flags to the `query` command:
-
-- `indices`: Use this flag to specify the indices you want to search. The following indices are searchable: identities, roles, access profiles, entitlements, events, and account activities. The earlier example shows how to specify a single index in a search query. You can also search multiple indices. For example, running this command would return all identities and access profiles starting with the letter "a": `shell sail search query "name:a*" --indices identities --indices accessprofiles `
-- `sort`: Use this flag to specify the sort strings your search query uses. You can also specify multiple sorting criteria. For example, running this command would sort search results by starting with the letter "a" first by the `name` attribute in ascending order and then the `created` attribute in descending order, as indicated by the `-` prefix:
-  ```shell
-  sail search query "name:a*" --indices identities --sort name --sort "-created"
-  ```
-- `outputTypes`: Use this flag to specify the output data type. This example shows how running this command would return search results in a `json` output. Currently only `csv` and `json` are supported.
-- `folderPath`: Use this flag to specify the folder path you want to save the search results in. If the directory doesn't exist, the CLI creates it. The default folder path is the current working directory.
-
-### Template
-
-For more detailed search queries, you can provide a predefined template instead of constructing the whole query every time. This allows you to run very detailed search queries quickly and easily. To search with a predefined template, run this command and provide your template filename:
+Here is an example of a `query` command with multiple specified `indices`. 
 
 ```shell
-sail search template {template name}
+sail search query "name:a*" --indices identities --indices accessprofiles
 ```
 
-For example, if you had a template, "all-provisioning-events-90-days," which provided everything you needed to search for all provisioning events performed within your tenant in the last 90 days, you could run this command to search with the template:
+#### Sort
+
+Use the `sort` flag to specify the sort strings you want to use to determine the sorting arrangement of your search query results. 
+When you specify a string to sort by, like `name`, the CLI sorts results by `name` in ascending order. If you add a "-" before the sort string, like `-name`, the CLI will sort the results in descending order instead.
+
+Here is an example of a `query` command that sorts the results in descending order based on the identities' `created` dates: 
+
+```shell
+sail search query "name:a*" --indices identities --sort "-created"
+```
+
+You can specify multiple sort strings for your search queries. 
+
+Here is an example of a `query` command that sorts the results in ascending order based on `name`, as well as in descending order based on the identities' `created` dates: 
+
+```shell
+sail search query "name:a*" --indices identities --sort name --sort "-created"
+```
+
+#### Output Types
+
+Use the `outputTypes` flag to specify the output data format for the search query results. Currently, the only supported output types are `json` and `csv`. 
+
+Here is an example of a `query` command that specifies the `json` output type: 
+
+```shell
+sail search query "name:a*" --indices identities --outputTypes json
+```
+
+#### Folder Path
+
+Use the `folderPath` flag to specify the folder path to save the search results in. 
+If you don't specify a `folderPath`, the results will save to a folder called "search_results", located within your current working directory. 
+
+Here is an example of a `query` command that specifies a `folderPath`: 
+
+```shell
+sail search query "name:a*" --indices identities --folderPath ./local/folder/path
+```
+
+## Template
+
+For more detailed search queries, you can provide a predefined template instead of constructing the whole query every time. This allows you to run very detailed search queries quickly and easily.
+
+The `template` command allows you to use predefined templates to search IdentityNow. 
+ 
+### Command
+
+This example shows the essential `template` command structure: 
 
 ```shell
 sail search template all-provisioning-events-90-days
 ```
 
-#### Flags
+The specified template file will give the CLI all the information it needs to perform its search in IdentityNow. 
 
-You can add these flags to your `template` command:
+### Flags
 
-- `outputTypes`: Use this flag to specify the output data type. In this example, running this command would return search results in a `json` output:
-  ```shell
-  sail search template all-provisioning-events-90-days --outputTypes json
-  ```
-  Currently only `csv` and `json` are supported.
-- `folderPath`: Use this flag to specify the folder path you want to save the search results in. For example, running this command would save search results to "./local/folder/path":
-  ```shell
-  sail search template all-provisioning-events-90-days --folderPath ./local/folder/path
-  ```
-  If the directory doesn't exist, the CLI creates it. The default folder path is the current working directory.
+
+You can append two flags to the `template` command to refine it: 
+- The first possible flag, `outputTypes`, allows you to specify the output data format as either `json` or `csv`. 
+- The second possible flag, `folderPath`, allows you to specify the folder path where you want to save the search query result files. 
+
+#### Output Types
+
+Use the `outputTypes` flag to specify the output data format for the search template query results. Currently, the only supported output types are `json` and `csv`. 
+
+Here is an example of a `template` command that specifies the `json` output type: 
+
+```shell
+sail search template all-provisioning-events-90-days --outputTypes json
+```
+
+#### Folder Path
+
+Use the `folderPath` flag to specify the folder path to save the search results in. 
+If you don't specify a `folderPath`, the results will save to a folder called "search_results", located within your current working directory. 
+
+Here is an example of a `template` command that specifies a `folderPath`: 
+
+```shell
+sail search template all-provisioning-events-90-days --folderPath ./local/folder/path
+```
+

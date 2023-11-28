@@ -77,7 +77,7 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [sp:trigger-service-subscriptions:manage]
+    - UserContextAuth: [sp:trigger-service-subscriptions:manage]
   
 get:
   operationId: listSubscriptions
@@ -107,7 +107,7 @@ get:
         **triggerId**: *eq*
 
 
-        **type**: *eq*
+        **type**: *eq, le*
       example: id eq "12cff757-c0c0-413b-8ad7-2a47956d1e89"
     - in: query
       name: sorters
@@ -119,11 +119,7 @@ get:
         Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
 
 
-        Sorting is supported for the following fields:
-
-
-        **triggerId**
-        **triggerName**
+        Sorting is supported for the following fields: **triggerId, triggerName**
       example: triggerName
   responses:
     '200':
@@ -193,4 +189,4 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - oauth2: [sp:trigger-service-subscriptions:read]
+    - UserContextAuth: [sp:trigger-service-subscriptions:read]

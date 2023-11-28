@@ -12,7 +12,7 @@ tags: ['Rules']
 
 ## Overview
 
-This rule generates complex account attribute values during provisioning, e.g. when creating an account. You would typically use this rule when you are creating an account to generate attributes like usernames.
+This rule generates complex account attribute values during provisioning, e.g. when creating an account. You would typically use this rule when you are creating an account to generate attributes like usernames, first time passwords, or email addresses.
 
 ## Execution
 

@@ -19,7 +19,7 @@ You can use the CLI to perform many functions you would have otherwise used Post
 
 Learn how to use the SailPoint command line interface (CLI) in this guide.
 
-![Sail](./assets/img/vhs/Sail.gif)
+![Sail](https://github.com/sailpoint-oss/sailpoint-cli/blob/main/assets/img/vhs/Sail.gif?raw=true)
 
 ## Contents
 
@@ -110,7 +110,7 @@ To configure the CLI to connect and authenticate to your IDN tenant, you must do
 
 - Find your tenant name. To learn how to find it, refer to [Getting Started](/idn/api/getting-started#find-your-tenant-name). The CLI will use this tenant name to connect to your IDN instance.
 - OAuth
-- PAT | Create a personal access token (PAT). Make sure to note the "client ID" and "client secret." The CLI needs this information to authenticate successfully. To learn how to create a PAT, refer to [Personal Access Tokens](/idn/api/authentication#personal-access-tokens).
+- PAT | Create a personal access token (PAT). Make sure to note the "Client ID" and "Client Secret." The CLI needs this information to authenticate successfully. To learn how to create a PAT, refer to [Personal Access Tokens](/idn/api/authentication#personal-access-tokens).
 
 To configure your first environment for OAuth run the following command:
 ```bash
@@ -129,10 +129,10 @@ Just make sure OAuth is your selected authentication method, this can be done by
 
 ### PAT Authentication
 
-After you have configured your environment, if you want to use PAT authentication, run the `sail configure` command. 
+After you have configured your environment, if you want to use PAT authentication, run the `sail set pat` command. 
 You can then provide your PAT client ID and client secret.
 
-![Configure PAT](./assets/img/vhs/configure-pat.gif)
+![Configure PAT](https://github.com/sailpoint-oss/sailpoint-cli/blob/main/assets/img/vhs/configure/configure-pat.gif?raw=true)
 
 Once you have provided your client ID and client secret, you can swap your auth method to PAT using `sail set auth pat`.
 
@@ -179,6 +179,8 @@ These commands are available:
 - `spconfig`: Run this command to access IDN SP Config functionality. For more information about the `spconfig` command, refer to the CLI [SPConfig guide](/idn/tools/cli/spconfig). 
 - `transform`: This command is a CLI interface that makes it easy to create, manage, and test transforms. For more information about the `transform` command, refer to the CLI [Transforms guide](/idn/tools/cli/transforms). 
 - `va`: Run this command to access VAs connected to your tenant. For more information about the `va` command, refer to the CLI [VA guide](/idn/tools/cli/va).
+- `cluster`: Run this command to access VA clusters connected to your tenant. For more information about the `cluster` command, refer to the CLI [Clusters guide](/idn/tools/cli/cluster).
+- `workflow`: Run this command to create and manage workflows within the CLI. For more information about the `workflow` command, refer to the CLI [Workflows guide](/idn/tools/cli/workflow).
 
 ## GitHub
 

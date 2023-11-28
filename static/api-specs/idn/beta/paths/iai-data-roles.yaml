@@ -18,7 +18,7 @@ get:
         Filtering is supported for the following fields and operators:
 
 
-        **isAssignable**: *eq* "true" or "false"
+        **isAssignable**: *eq*
       required: false
       style: form
       explode: true

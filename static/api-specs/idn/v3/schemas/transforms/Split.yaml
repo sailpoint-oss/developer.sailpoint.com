@@ -26,6 +26,7 @@ properties:
       
       If not provided, the transform will default to false and return a null
     example: true
+    default: false
   requiresPeriodicRefresh:
     $ref: './RequiresPeriodicRefresh.yaml'
   input:

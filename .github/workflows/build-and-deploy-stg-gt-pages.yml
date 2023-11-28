@@ -20,12 +20,19 @@ env:
 
 permissions:
   id-token: write   # This is required for requesting the JWT
+  contents: read
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
+      - name: Configure AWS credentials from Test account
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          role-to-assume: arn:aws:iam::176038645705:role/github-action-role
+          role-session-name: deploy-to-staging
+          aws-region: us-east-1
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Check out repo
         uses: actions/checkout@v3
@@ -41,12 +48,6 @@ jobs:
           npm ci 
           npm run gen-api-docs-all
           npm run build
-      - name: Configure AWS credentials from Test account
-        uses: aws-actions/configure-aws-credentials@v3
-        with:
-          role-to-assume: arn:aws:iam::1234567890:role/example-role
-          role-session-name: deploy-to-staging
-          aws-region: us-east-1
 
       # push these files to AWS
       - name: Copy files to the test website with the AWS CLI

@@ -1,0 +1,394 @@
+---
+id: go-sdk
+title: Go SDK
+pagination_label: Go SDK
+sidebar_label: Golang
+sidebar_position: 2
+sidebar_class_name: gosdk
+keywords: ['go', 'golang', 'sdk']
+description: Learn how to use the Golang SDK in this guide. 
+slug: /tools/sdk/go
+tags: ['SDK', 'Software Development Kit']
+---
+
+Read this guide to learn how to use the Go SDK. The Go SDK has some pre-built code examples you can use to learn how to build tools that can interact with IdentityNow.
+
+## Requirements
+
+You need the following to use the Go SDK:
+
+- Golang version 1.18 or above. You can download it [here](https://go.dev/dl/). You can use `go version` to check your version. 
+
+- Your tenant name in IdentityNow. To learn how to find it, refer to [Getting Started](/idn/api/getting-started#find-your-tenant-name). The SDK will use this tenant name to connect to your IdentityNow instance.
+
+- A PAT with a client secret and ID. To learn how to create one in IDN, refer to [Personal Access Tokens](https://documentation.sailpoint.com/saas/help/common/api_keys.html#generating-a-personal-access-token). The SDK will use this PAT to authenticate with the SailPoint APIs.
+
+
+## Setup
+
+<details>
+<summary>CLI Assisted <em>(Recommended)</em></summary>
+
+The SailPoint CLI offers a few commands that will allow you to quickly get started with the Go SDK. To learn how to install and use the SailPoint CLI, refer to [SailPoint CLI](https://developer.sailpoint.com/idn/tools/cli#get-the-cli).
+
+Once the CLI is installed and configured, run the following command to create a new Go project with our Go SDK.
+
+```bash
+sail sdk init golang go-example
+```
+
+This will create the structure for your project.
+
+```text
+|-- go-example
+|   |-- go.mod
+|   |-- go.sum
+|   |-- sdk.go
+```
+
+Navigate into your project folder and run the following command to install the required dependencies.
+
+```bash
+go mod tidy
+```
+
+The SDK is now installed. To configure the SDK see [Configure](#configure).
+
+
+</details>
+
+<details>
+<summary>Manual Installation</summary>
+
+To begin your go project, you will need to create a directory for your project.
+
+```bash
+mkdir golang-example
+```
+
+Now change into your project directory:
+
+```bash
+cd golang-example
+```
+
+Use the following command in your project directory. Doing so initializes your project and creates the `go.mod` file. You will edit this file to add the SailPoint SDK to your project.
+
+```go
+go mod init github.com/github-repo-name/golang-example
+```
+
+Install the SailPoint SDK with the following command:
+
+```go
+go get github.com/sailpoint-oss/golang-sdk
+```
+
+The SDK is now installed. To configure the SDK see [Configure](#configure).
+
+</details>
+
+## Configure
+
+In order for the SDK to authenticate to your SailPoint tenant and make API calls you will need to provide configuration. This can be done through a configuration file `config.json` or through environment variables.
+
+### Configuration File
+
+The SDK requires a configuration file to be named `config.json` and provide the following key/value pairs `ClientID`, `ClientSecret`, `BaseUrl`.
+
+<details>
+<summary>CLI Assisted <em>(Recommended)</em></summary>
+The SailPoint CLI offers a command to generate the config.json file with your currently configured CLI credentials.
+
+```bash
+sail sdk init config
+```
+
+If you have multiple environments configured with the CLI you can pass an additional parameter to state the environment you wish to create a `config.json` for.
+
+```bash
+sail sdk init config --env devrel
+```
+
+#### Example `config.json`
+
+```json
+{
+  "ClientID": "g0567b766b413b22c05c66e75d532f1b",
+  "ClientSecret": "cabd0e950a7230b63c1ff45be33fb22065b382b6251a73c61177a8bb5482fcc7",
+  "BaseUrl": "https://[tenant].api.identitynow.com"
+}
+```
+
+</details>
+
+<details>
+<summary>Manual Configuration</summary>
+
+Create a file named `config.json` and provide `ClientID`, `ClientSecret`, `BaseUrl`.
+
+#### Example `config.json`
+
+```json
+{
+  "ClientID": "g0567b766b413b22c05c66e75d532f1b",
+  "ClientSecret": "cabd0e950a7230b63c1ff45be33fb22065b382b6251a73c61177a8bb5482fcc7",
+  "BaseUrl": "https://[tenant].api.identitynow.com"
+}
+```
+
+</details>
+
+### Environment variable configuration
+
+You can also store your configuration in environment variables.
+
+To get your environment variables to persist across terminal sessions, add these exports to your shell profile, something like `~/.bash_profile`.
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+<TabItem value="linux_mac" label="Linux/Mac" default>
+
+```bash
+export SAIL_BASE_URL=https://[tenant].api.identitynow.com
+export SAIL_CLIENT_ID=[clientID]
+export SAIL_CLIENT_SECRET=[clientSecret]
+```
+
+</TabItem>
+<TabItem value="windows" label="Windows PowerShell">
+
+```bash
+$env:SAIL_BASE_URL=https://[tenant].api.identitynow.com
+$env:SAIL_CLIENT_ID=[clientID]
+$env:SAIL_CLIENT_SECRET=[clientSecret]
+```
+
+To get your environment variables to persist across PowerShell sessions, use these commands instead:
+
+```powershell
+[System.Environment]::SetEnvironmentVariable('SAIL_BASE_URL','https://[tenant].api.identitynow.com')
+[System.Environment]::SetEnvironmentVariable('SAIL_CLIENT_ID','[clientID]')
+[System.Environment]::SetEnvironmentVariable('SAIL_CLIENT_SECRET','[clientSecret]')
+```
+
+</TabItem>
+</Tabs>
+
+## Getting started with the Go SDK
+
+Once your SDK is installed and configured, you can start accessing the SDK's different functionalities. We will go through these now with some examples.
+
+
+### List Transforms
+
+Create a file in your project called `sdk.go` with the following contents.
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+
+	sailpoint "github.com/sailpoint-oss/golang-sdk"
+)
+
+func main() {
+
+	ctx := context.TODO()
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+
+	resp, r, err := apiClient.V3.TransformsApi.ListTransforms(ctx).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TransformsApi.ListTransforms``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	fmt.Fprintf(os.Stdout, "All Transforms from `TransformsApi.ListTransforms`: %v\n", resp)
+
+}
+```
+
+To run the code run the following command:
+
+```go
+go run sdk.go
+```
+
+### Paginate Results
+
+By default, your requests will return a maximum of 250 records. To return more, you must implement pagination. To learn more about pagination, refer to [Paginating Results](/idn/api/standard-collection-parameters/#paginating-results).
+
+Pagination is implemented with the SDK in the following code block on line 18.
+
+```go showLineNumbers
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+
+	sailpoint "github.com/sailpoint-oss/golang-sdk"
+	v3 "github.com/sailpoint-oss/golang-sdk/v3"
+)
+
+func main() {
+
+	ctx := context.TODO()
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+
+	resp, r, err := sailpoint.PaginateWithDefaults[v3.Account](apiClient.V3.AccountsApi.ListAccounts(ctx))
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountsApi.ListAccount``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListAccounts`: []Account
+	fmt.Fprintf(os.Stdout, "First response from `AccountsApi.ListAccount`: %v\n", resp[0].Name)
+}
+```
+
+The `PaginateWithDefaults` function takes a return type `v3.Account` and the list method to invoke, in this case `ListAccounts` from the AccountsApi. By default, the `PaginateWithDefaults` method gets 10000 results at an increment of 250.
+
+To change the limit and increment, the `Paginate` function is available to you.
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+
+	sailpoint "github.com/sailpoint-oss/golang-sdk"
+	v3 "github.com/sailpoint-oss/golang-sdk/v3"
+)
+
+func main() {
+
+	ctx := context.TODO()
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+
+	resp, r, err := sailpoint.Paginate[v3.Account](apiClient.V3.AccountsApi.ListAccounts(ctx), 0, 250, 150000)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountsApi.ListAccount``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListAccounts`: []Account
+	fmt.Fprintf(os.Stdout, "First response from `AccountsApi.ListAccount`: %v\n", resp[0].Name)
+}
+```
+
+The `Paginate` function must be provided the return type `v3.Account`, the list endpoint `ListAccounts`, initial offset `0`, increment `250`, and limit `150000`.
+
+### Search
+
+The Go SDK provides you access to IdentityNow's [Search](https://documentation.sailpoint.com/saas/help/search/index.html) functionality.
+
+Here is an example search you can copy into your Go code to try it out:
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+
+	sailpoint "github.com/sailpoint-oss/golang-sdk"
+	v3 "github.com/sailpoint-oss/golang-sdk/v3"
+)
+
+func main() {
+
+	ctx := context.TODO()
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+
+	search := v3.NewSearchWithDefaults()
+	search.Indices = append(search.Indices, "identities")
+	searchString := []byte(`
+	{
+	"indices": [
+		"identities"
+	],
+	"query": {
+		"query": "*"
+	},
+    "sort": [
+        "-name"
+    ]
+	}
+	  `)
+	search.UnmarshalJSON(searchString)
+	resp, r, err := apiClient.V3.SearchApi.SearchPost(ctx).Search(*search).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SearchPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `search`
+	for i := 0; i < len(resp); i++ {
+		fmt.Println(resp[i]["name"])
+	}
+}
+```
+
+### Paginate Search Results
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+
+	sailpoint "github.com/sailpoint-oss/golang-sdk"
+	v3 "github.com/sailpoint-oss/golang-sdk/v3"
+)
+
+func main() {
+
+	ctx := context.TODO()
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+
+	search := v3.NewSearchWithDefaults()
+	search.Indices = append(search.Indices, "identities")
+	searchString := []byte(`
+	{
+	"indices": [
+		"identities"
+	],
+	"query": {
+		"query": "*"
+	},
+    "sort": [
+        "-name"
+    ]
+	}
+	  `)
+	search.UnmarshalJSON(searchString)
+	resp, r, err := sailpoint.PaginateSearchApi(ctx, apiClient, *search, 0, 10, 10000)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountsApi.ListAccount``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `search`
+	for i := 0; i < len(resp); i++ {
+		fmt.Println(resp[i]["name"])
+	}
+}
+```
+
+### Retries
+
+## Discuss
+
+You can use this SDK to build new tools that extend your IDN platform and improve experiences across your organization. Use this guide to get started, and if you have questions, don't hesitate to reach out on the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss! 

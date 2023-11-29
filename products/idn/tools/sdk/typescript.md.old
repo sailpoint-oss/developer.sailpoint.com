@@ -272,7 +272,7 @@ You can also provide an `initialOffset` value to specify the record number to st
 
 To find out whether an endpoint supports pagination, refer to its documentation. Any API supporting pagination lists the optional query parameters detailed in [Paginating Results](/idn/api/standard-collection-parameters/#paginating-results).
 
-### Search 
+### Search
 
 To try using the IDN [search functionality](/idn/api/v3/search-post) along with pagination, copy this code into your "index.ts" file:
 

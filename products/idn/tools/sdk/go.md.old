@@ -70,7 +70,7 @@ Create an "sdk.go" file in your project and copy this code example into the file
 package main
 
 import (
-    "context"`
+    "context"
     "fmt"
     "os"
 

@@ -110,3 +110,35 @@ get:
       $ref: '../responses/429.yaml'
     '500':
       $ref: '../responses/500.yaml'
+delete:
+  operationId: deleteCampaignTemplate
+  tags:
+    - Certification Campaigns
+  summary: Delete a Campaign Template
+  description: Deletes a campaign template by ID.
+  security:
+    - UserContextAuth: [ idn:campaign-template:delete ]
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The ID of the campaign template being deleted.
+      example: 2c9180835d191a86015d28455b4a2329
+  responses:
+    '204':
+      $ref: '../responses/204.yaml'
+      description: The campaign template was successfully deleted.
+    '400':
+      $ref: '../responses/400.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

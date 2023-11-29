@@ -13,14 +13,7 @@ properties:
     example: 4b4d982dddff4267ab12f0f1e72b5a6d
   requestedFor:
     allOf:
-    - $ref: '../../../../v3/schemas/BaseReferenceDto.yaml'
-    description: The identity for whom the access is requested for.
-    properties:
-      type:
-        enum:
-        - "IDENTITY"
-        example: "IDENTITY"
-        description: The type of object that is referenced
+    - $ref: './AccessItemRequestedForDto.yaml'
   requestedItems:
     description: The access items that are being requested.
     type: array
@@ -65,11 +58,4 @@ properties:
           example: William needs this access for his day to day job activities.
   requestedBy:
     allOf:
-    - $ref: '../../../../v3/schemas/BaseReferenceDto.yaml'
-    description: The identity that initiated the access request.
-    properties:
-      type:
-        enum:
-        - "IDENTITY"
-        example: "IDENTITY"
-        description: The type of object that is referenced
+    - $ref: './AccessItemRequesterDto.yaml'

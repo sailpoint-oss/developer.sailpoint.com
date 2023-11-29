@@ -5,13 +5,13 @@ required:
 type: object
 properties:
   identityId:
-    description: Set of identity id's to be checked.
+    description: Set of identity IDs to be checked.
     type: string
   accessRefs:
     description: The bundle of access profiles to be added to the identities specified. All references must be ENTITLEMENT type.
     type: array
     items:
-      $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+      $ref: './EntitlementRef.yaml'
   clientMetadata:
     type: object
     additionalProperties:

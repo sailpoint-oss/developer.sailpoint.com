@@ -27,14 +27,11 @@ properties:
     $ref: '../../v3/schemas/AccessRequestType.yaml'
     description: If the access-request was for granting or revoking access.
   requester:
-    $ref: '../../v3/schemas/BaseReferenceDto.yaml'
-    description: The identity that requested the item.
+    $ref: './AccessItemRequesterDto.yaml'
   requestedFor:
-    $ref: '../../v3/schemas/BaseReferenceDto.yaml'
-    description: The identity for whom the item is requested for.
+    $ref: './AccessItemRequestedForDto.yaml'
   owner:
-    $ref: '../../v3/schemas/BaseReferenceDto.yaml'
-    description: The owner or approver of the approval.
+    $ref: './AccessItemOwnerDto.yaml'
   requestedObject:
     $ref: './RequestableObjectReference.yaml'
     description: The requested access item.

@@ -1,6 +1,5 @@
 type: object
 properties:
   state:
-    description: The role mining session status. Can be one of these states - CREATED|UPDATED|IDENTITIES_OBTAINED|PRUNE_THRESHOLD_OBTAINED|POTENTIAL_ROLES_PROCESSING|POTENTIAL_ROLES_CREATED
-    type: string
-    example: "CREATED"
+    $ref: './RoleMiningSessionState.yaml'
+    description: Role mining session state

@@ -1,10 +1,11 @@
 post:
-  operationId: runSodAllPoliciesForOrg
+  operationId: startSodAllPoliciesForOrg
   tags:
     - SOD Policy
   summary: Runs all policies for org
-  # security:
-  #   - oauth2: [ORG_ADMIN]
+  deprecated: true
+  security:
+    - UserContextAuth: [idn:sod-violation:write]
   description: >-
     Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy.
     If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided.

@@ -21,44 +21,33 @@ allOf:
         default: ServiceNowSDIM
         example: ServiceNowSDIM
       ownerRef:
-        allOf:
-          - $ref: '../schemas/BaseReferenceDto.yaml'
-        description: Reference to the identity that is the owner of this Service Desk integration
+        type: object
+        description: Source for Service Desk integration template. 
         properties:
           type:
-            description: The type of object being referenced
-            enum:
-              - IDENTITY
-            example: IDENTITY
+            type: string 
+            description: DTO type of source for service desk integration template. 
+            enum: 
+              - SOURCE
+            example: SOURCE
           id:
-            description: ID of the identity
-            example: 2c91808568c529c60168cca6f90c1313
+            type: string
+            description: ID of source for service desk integration template. 
+            example: 2c9180835d191a86015d28455b4b232a
           name:
-            description: Human-readable display name of the identity
-            example: MyName
+            type: string
+            description: Human-readable name of source for service desk integration template. 
+            example: HR Active Directory
       clusterRef:
         allOf:
-          - $ref: '../schemas/BaseReferenceDto.yaml'
-        description: Reference to the source cluster for this Service Desk integration
-        properties:
-          type:
-            description: The type of object being referenced
-            enum:
-              - CLUSTER
-            example: CLUSTER
-          id:
-            description: ID of the cluster
-            example: 2c9180866166b5b0016167c32ef31a66
-          name:
-            description: Human-readable display name of the cluster
-            example: Corporate Cluster
+          - $ref: '../../v3/schemas/SourceClusterDto.yaml'
       cluster:
-        description: ID of the cluster for the Service Desk integration (replaced by clusterRef, retained for backward compatibility)
+        description: ID of the cluster for the Service Desk integration (replaced by clusterRef, retained for backward compatibility).
         type: string
         example: xyzzy999
         deprecated: true
       managedSources:
-        description: Source IDs for the Service Desk integration (replaced by provisioningConfig.managedSResourceRefs, but retained here for backward compatibility)
+        description: Source IDs for the Service Desk integration (replaced by provisioningConfig.managedSResourceRefs, but retained here for backward compatibility).
         type: array
         items:
           type: string
@@ -79,17 +68,4 @@ allOf:
         }
       beforeProvisioningRule:
         allOf:
-          - $ref: '../schemas/BaseReferenceDto.yaml'
-        description: Reference to beforeProvisioningRule for this Service Desk integration
-        properties:
-          type:
-            description: The type of object being referenced
-            enum:
-              - RULE
-            example: RULE
-          id:
-            description: ID of the rule
-            example: 2c91808568c529c60168cca6f90c1333
-          name:
-            description: Human-readable display name of the rule
-            example: Example Rule
+          - $ref: '../../v3/schemas/BeforeProvisioningRuleDto.yaml'

@@ -137,7 +137,7 @@ delete:
     - Lifecycle States
   summary: Delete Lifecycle State by ID
   description: >-
-    This endpoint deletes the Lifecycle State using it's ID.
+    This endpoint deletes the Lifecycle State using its ID.
 
     A token with API, or ORG_ADMIN authority is required to call this API.
   security:
@@ -163,7 +163,7 @@ delete:
       content:
         application/json:
           schema:
-            $ref: '../schemas/BaseReferenceDto.yaml'
+            $ref: '../../v3/schemas/LifecyclestateDeleted.yaml'
     '400':
       $ref: '../responses/400.yaml'
     '401':

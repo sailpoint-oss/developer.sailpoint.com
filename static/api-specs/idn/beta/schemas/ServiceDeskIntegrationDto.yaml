@@ -1,14 +1,14 @@
 allOf:
   - $ref: './BaseCommonDto.yaml'
   - type: object
-    description: Specification of a Service Desk integration
+    description: Specification of a Service Desk integration.
     required:
       - description
       - type
       - attributes
     properties:
       description:
-        description: Description of the Service Desk integration
+        description: Description of the Service Desk integration.
         type: string
         example: A very nice Service Desk integration
       type:
@@ -22,43 +22,17 @@ allOf:
         example: ServiceNowSDIM
       ownerRef:
         allOf:
-          - $ref: '../../v3/schemas/BaseReferenceDto.yaml'
-        description: Reference to the identity that is the owner of this Service Desk integration
-        properties:
-          type:
-            description: The type of object being referenced
-            enum:
-              - IDENTITY
-            example: IDENTITY
-          id:
-            description: ID of the identity
-            example: 2c91808568c529c60168cca6f90c1313
-          name:
-            description: Human-readable display name of the identity
-            example: MyName
+          - $ref: '../../v3/schemas/OwnerDto.yaml'
       clusterRef:
         allOf:
-          - $ref: '../../v3/schemas/BaseReferenceDto.yaml'
-        description: Reference to the source cluster for this Service Desk integration
-        properties:
-          type:
-            description: The type of object being referenced
-            enum:
-              - CLUSTER
-            example: CLUSTER
-          id:
-            description: ID of the cluster
-            example: 2c9180866166b5b0016167c32ef31a66
-          name:
-            description: Human-readable display name of the cluster
-            example: Corporate Cluster
+          - $ref: '../../v3/schemas/SourceClusterDto.yaml'
       cluster:
-        description: ID of the cluster for the Service Desk integration (replaced by clusterRef, retained for backward compatibility)
+        description: ID of the cluster for the Service Desk integration (replaced by clusterRef, retained for backward compatibility).
         type: string
         example: xyzzy999
         deprecated: true
       managedSources:
-        description: Source IDs for the Service Desk integration (replaced by provisioningConfig.managedSResourceRefs, but retained here for backward compatibility)
+        description: Source IDs for the Service Desk integration (replaced by provisioningConfig.managedSResourceRefs, but retained here for backward compatibility).
         type: array
         items:
           type: string
@@ -79,17 +53,4 @@ allOf:
         }
       beforeProvisioningRule:
         allOf:
-          - $ref: '../../v3/schemas/BaseReferenceDto.yaml'
-        description: Reference to beforeProvisioningRule for this Service Desk integration
-        properties:
-          type:
-            description: The type of object being referenced
-            enum:
-              - RULE
-            example: RULE
-          id:
-            description: ID of the rule
-            example: 2c91808568c529c60168cca6f90c1333
-          name:
-            description: Human-readable display name of the rule
-            example: Example Rule
+          - $ref: '../../v3/schemas/BeforeProvisioningRuleDto.yaml'

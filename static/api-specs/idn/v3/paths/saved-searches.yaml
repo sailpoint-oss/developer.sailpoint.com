@@ -40,20 +40,17 @@ get:
     in: query
     schema:
       type: string
-    description: |
-      An expression used to constrain the result set using the filtering syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results).
+    description: >-
+      Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
 
-      Allowed filter properties: *owner.id*, *public*
 
-      Allowed filter operator: *eq*
+      Filtering is supported for the following fields and operators:
 
-      **Example filters**:
 
-      ```owner.id eq "0de46054-fe90-434a-b84e-c6b3359d0c64"``` -- returns saved searches for the specified owner ID
+      **owner.id**: *eq*
 
-      ```public eq true``` -- returns all public saved searches
 
-      ```owner.id eq me or public eq true``` -- returns all of the current user's saved searches as well as all public saved searches belonging to other users in the current org
+      **publiic**: *eq*
     example: public eq true
   responses:
     '200':

@@ -115,6 +115,7 @@ module.exports = [
         nerm: {
           specPath: 'static/api-specs/nerm/openapi.yaml',
           outputDir: 'products/nerm/api',
+          downloadUrl: 'https://raw.githubusercontent.com/sailpoint-oss/api-specs/main/dereferenced/deref-sailpoint-api.nerm.yaml',
           sidebarOptions: {
             groupPathsBy: 'tag',
             categoryLinkSource: 'tag',

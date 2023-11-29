@@ -3,7 +3,7 @@ id: cli-template-search
 title: Search Template
 pagination_label: CLI Templates Search
 sidebar_label: Search
-sidebar_position: 7
+sidebar_position: 10
 sidebar_class_name: cli-template-search
 keywords: ['cli', 'template', 'search']
 description: Learn about the commands you can use to run search templates from the CLI.

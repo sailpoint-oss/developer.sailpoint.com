@@ -5,13 +5,56 @@ pagination_label: Account Read
 sidebar_label: Account Read
 keywords: ['connectivity', 'connectors', 'Account Read']
 description: Intercept the account read command.
-slug: /docs/saas-connectivity/connector-customizers/commands/account-read
+slug: /docs/saas-connectivity/customizers/commands/account-read
 tags: ['Connectivity', 'Connector Command']
 ---
 
 ## Overview
 
 Use these commands to intercept the [account-read](../../commands/account-read) command.
+
+
+| Input/Output |      Data Type       |
+| :----------- | :------------------: |
+| Input        | StdAccountReadInput  |
+| Output       | StdAccountReadOutput |
+
+### Example StdAccountReadInput
+
+```javascript
+"identity": "john.doe",
+"key": {
+    "simple": {
+        "id": "john.doe"
+    }
+}
+```
+
+### Example StdAccountReadOutput
+
+```javascript
+{
+    "identity": "john.doe",
+    "key": {
+        "simple": {
+            "id": "john.doe"
+        }
+    },
+    "disabled": false,
+    "locked": false,
+    "attributes": {
+        "id": "john.doe",
+        "displayName": "John Doe",
+        "email": "example@sailpoint.com",
+        "entitlements": [
+            "administrator",
+            "sailpoint"
+        ]
+    }
+}
+```
+## Implementation
+
 
 ### Before account-read command
 

@@ -32,6 +32,7 @@ This similar looking list of instances will be returned:
 | 05da3fa2-17f0-4bd4-9e2a-ab93d7dffe68 | Discourse                |               |
 | 069b9398-8ed9-433d-943f-3cb32952524f | github                   |               |
 | 0dbb53b0-2e62-4a8e-9efe-97555755025d | Smartsheet               |               |
+| edfc9bfb-b55c-482f-b1aa-b4d51caf7558 | Discourse-Current-V2     |               |
 +--------------------------------------+--------------------------+---------------+
 ```
 

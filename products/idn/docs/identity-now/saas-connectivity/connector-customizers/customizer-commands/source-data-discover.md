@@ -5,13 +5,48 @@ pagination_label: Source Data Discover
 sidebar_label: Source Data Discover
 keywords: ['connectivity', 'connectors', 'Source Data Discover']
 description: Intercept the source data discover command.
-slug: /docs/saas-connectivity/connector-customizers/commands/source-data-discover
+slug: /docs/saas-connectivity/customizers/commands/source-data-discover
 tags: ['Connectivity', 'Connector Command']
 ---
 
 ## Overview
 
 Use these commands to intercept the [source-data-discover](../../commands/source-data-discover) command.
+
+
+| Input/Output |            Data Type        |
+| :----------- | :-------------------------: |
+| Input        | StdSourceDataDiscoverInput  |
+| Output       | StdSourceDataDiscoverOutput |
+
+### Example StdSourceDataDiscoverInput
+
+```javascript
+{
+    "queryInput": {
+        "query": "fetchAll",
+        "limit": 10
+    }
+}
+```
+
+### Example StdSourceDataDiscoverOutput
+
+```javascript
+[
+    {
+        key: 'id',
+        label: 'Id',
+        subLabel: 'Airtable Base Id'
+    },
+    {
+        key: 'name',
+        label: 'Name',
+        subLabel: 'Airtable Source Table Name'
+    }
+]
+```
+## Implementation
 
 ### Before source-data-discover command
 

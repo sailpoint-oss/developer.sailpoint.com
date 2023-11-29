@@ -1,17 +1,24 @@
 type: object
 properties:
-  minNumIdentitiesInPotentialRole:
-    type: integer
-    description: Minimum number of identities in a potential role
-    example: 20
-    format: int32
+  id:
+    type: string
+    description: The ID of the role mining session
+    example: "9f36f5e5-1e81-4eca-b087-548959d91c71"
   name:
     type: string
     description: The session's saved name
+    nullable: true
     example: "Saved RM Session - 07/10"
+  minNumIdentitiesInPotentialRole:
+    type: integer
+    description: Minimum number of identities in a potential role
+    nullable: true
+    example: 20
+    format: int32
   pruneThreshold:
     type: integer
     description: The prune threshold to be used or null to calculate prescribedPruneThreshold
+    nullable: true
     example: 5
     format: int32
   saved:
@@ -40,7 +47,7 @@ properties:
     $ref: './iai/RoleMiningRoleType.yaml'
     description: Role mining potential type
   state:
-    $ref: './RoleMiningSessionStatus.yaml'
+    $ref: './RoleMiningSessionState.yaml'
     description: Role mining session state
   scopingMethod:
     $ref: './RoleMiningSessionScopingMethod.yaml'

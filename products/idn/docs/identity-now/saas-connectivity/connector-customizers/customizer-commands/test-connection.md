@@ -5,13 +5,27 @@ pagination_label: Test Connection
 sidebar_label: Test Connection
 keywords: ['connectivity', 'connectors', 'test connection']
 description: Intercept the test connection command.
-slug: /docs/saas-connectivity/connector-customizers/commands/test-connection
+slug: /docs/saas-connectivity/customizers/commands/test-connection
 tags: ['Connectivity', 'Connector Command']
 ---
 
 ## Overview
 
 Use these commands to intercept the [Test-Connection](../../commands/test-connection) command.
+
+
+| Input/Output |        Data Type        |
+| :----------- | :---------------------: |
+| Input        |        undefined        |
+| Output       | StdTestConnectionOutput |
+
+### Example StdTestConnectionOutput
+
+```javascript
+{
+}
+```
+## Implementation
 
 ### Before test-connection command
 

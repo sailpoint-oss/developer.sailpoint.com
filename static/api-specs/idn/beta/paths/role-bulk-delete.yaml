@@ -26,7 +26,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+            $ref: '../../v3/schemas/TaskResultDto.yaml'
           example:
             {
               "type": "TASK_RESULT",

@@ -3,12 +3,13 @@ get:
   tags:
     - SOD Policy
   summary: Get SOD policy schedule
+  deprecated: true
+  security:
+    - UserContextAuth: [ idn:sod-policy:read ]
   description: >-
     This endpoint gets a specified SOD policy's schedule.
 
     Requires the role of ORG_ADMIN.
-  # security:
-  #   - oauth2: [ORG_ADMIN]
   parameters:
     - in: path
       name: id
@@ -35,12 +36,13 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
 put:
-  operationId: updatePolicySchedule
+  operationId: putPolicySchedule
   tags:
     - SOD Policy
   summary: Update SOD Policy schedule
-  # security:
-  #   - oauth2: [ORG_ADMIN]
+  deprecated: true
+  security:
+    - UserContextAuth: [ idn:sod-policy:write ]
   description: >-
     This updates schedule for a specified SOD policy.
 
@@ -81,8 +83,9 @@ delete:
   tags:
     - SOD Policy
   summary: Delete SOD policy schedule
-  # security:
-  #   - oauth2: [ORG_ADMIN]
+  deprecated: true
+  security:
+    - UserContextAuth: [idn:sod-policy:write]
   description: >-
     This deletes schedule for a specified SOD policy.
 

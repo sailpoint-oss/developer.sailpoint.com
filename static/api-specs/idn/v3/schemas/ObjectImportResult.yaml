@@ -21,7 +21,7 @@ properties:
     description: References to objects that were created or updated by the import.
     type: array
     items:
-      $ref: '../schemas/BaseReferenceDto.yaml'
+      $ref: '../../v3/schemas/ImportObject.yaml'
 required:
   - infos
   - warnings

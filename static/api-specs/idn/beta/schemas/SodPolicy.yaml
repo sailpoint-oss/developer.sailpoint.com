@@ -2,12 +2,12 @@ type: object
 properties:
   id:
     type: string
-    description: Policy id
+    description: Policy ID.
     example: "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde"
     readOnly: true
   name:
     type: string
-    description: Policy Business Name
+    description: Policy business name. 
     example: "policy-xyz"
   created:
     type: string
@@ -23,51 +23,51 @@ properties:
     readOnly: true
   description:
     type: string
-    description: Optional description of the SOD policy
+    description: Optional description of the SOD policy.
     example: "This policy ensures compliance of xyz"
     nullable: true
   ownerRef:
-    $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+    $ref: '../../v3/schemas/OwnerDto.yaml'
   externalPolicyReference:
     type: string
-    description: Optional External Policy Reference
+    description: Optional external policy reference. 
     example: "XYZ policy"
     nullable: true
   policyQuery:
     type: string
-    description: Search query of the SOD policy
+    description: Search query of the SOD policy.
     example: "@access(id:0f11f2a4-7c94-4bf3-a2bd-742580fe3bdg) AND @access(id:0f11f2a4-7c94-4bf3-a2bd-742580fe3bdf)"
   compensatingControls:
     type: string
-    description: Optional compensating controls(Mitigating Controls)
+    description: Optional compensating controls (Mitigating Controls).
     example: "Have a manager review the transaction decisions for their \"out of compliance\" employee"
     nullable: true
   correctionAdvice:
     type: string
-    description: Optional correction advice
+    description: Optional correction advice.
     example: "Based on the role of the employee, managers should remove access that is not required for their job function."
     nullable: true
   state:
     type: string
-    description: whether the policy is enforced or not
+    description: Whether the policy is enforced or not.
     enum:
       - ENFORCED
       - NOT_ENFORCED
     example: ENFORCED
   tags:
     type: array
-    description: tags for this policy object
+    description: Tags for the policy object.
     example: ["TAG1", "TAG2"]
     items:
       type: string
   creatorId:
     type: string
-    description: Policy's creator ID
+    description: Policy's creator ID.
     example: "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde"
     readOnly: true
   modifierId:
     type: string
-    description: Policy's modifier ID
+    description: Policy's modifier ID.
     example: "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde"
     nullable : true
     readOnly: true
@@ -76,12 +76,12 @@ properties:
     nullable: true
   scheduled:
     type: boolean
-    description: defines whether a policy has been scheduled or not
+    description: Defines whether a policy has been scheduled or not.
     example: true
     default: false
   type:
     type: string
-    description: whether a policy is query based or conflicting access based
+    description: Whether a policy is query based or conflicting access based.
     default: GENERAL
     enum:
       - GENERAL

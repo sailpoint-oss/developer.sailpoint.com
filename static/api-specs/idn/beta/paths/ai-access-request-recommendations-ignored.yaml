@@ -47,7 +47,7 @@ get:
       schema:
         type: string
       description: >-
-        Filter recommendations using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
 
 
         Filtering is supported for the following fields and operators:
@@ -60,6 +60,7 @@ get:
 
 
         **identityId**: *eq, in*
+      example: identityId eq "2c9180846b0a0583016b299f210c1314"
     - in: query
       name: sorters
       schema:
@@ -70,6 +71,7 @@ get:
 
 
         Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp**
+      example: access.id
   responses:
     '200':
       description: Returns list of ignored access request recommendations.

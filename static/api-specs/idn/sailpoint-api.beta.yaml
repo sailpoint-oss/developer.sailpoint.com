@@ -143,6 +143,11 @@ tags:
       In Account Aggregation, administrators can view the account aggregations' statuses and details in the Account Activity Log.
 
       Refer to [Loading Account Data](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html) for more information about account aggregations.
+  - name: Account Usages
+    description: |
+      Use this API to implement account usage insight functionality.
+      With this functionality in place, administrators can gather information and insights about how their tenants' source accounts are being used.
+      This allows organizations to get the information they need to start optimizing and securing source account usage.
   - name: Accounts
     description: |
       Use this API to implement and customize account functionality.
@@ -253,7 +258,7 @@ tags:
       Once this certification has been completed, IdentityNow  would provision all the access the user needs, nothing more.
 
       This API enables administrators and reviewers to get useful information about certifications at a high level, such as the reviewers involved, and at a more granular level, such as the permissions affected by changes to entitlements within those certifications.
-      It also provides the useful ability to reassign identities and items within certifications to other reviewers, rather than [reassigning the entire certifications themselves](https://developer.sailpoint.com/idn/api/beta/reassign-identity-certs-async).
+      It also provides the useful ability to reassign identities and items within certifications to other reviewers, rather than [reassigning the entire certifications themselves](https://developer.sailpoint.com/idn/api/beta/submit-reassign-certs-async/).
   - name: Connector Rule Management
   - name: Connectors
     description: |
@@ -279,7 +284,7 @@ tags:
       Forms are composed of sections and fields. Sections split the form into logical groups of fields and fields are the data collection points within the form. Configure conditions to modify elements of the form as the responder provides input. Create form inputs to pass information from a calling feature, like a workflow, to your form.
 
       Forms can be used within workflows as an action or as a trigger. The Form Action allows you to assign a form as a step in a running workflow, suspending the workflow until the form is submitted or times out, and the workflow resumes. The Form Submitted Trigger initiates a workflow when a form is submitted. The trigger can be configured to initiate on submission of a full form, a form element with any value, or a form element with a particular value.
-  
+      
       Refer to [Forms](https://documentation.sailpoint.com/saas/help/forms/index.html) for more information about using forms in IdentityNow.
   - name: Custom Password Instructions
     description: |
@@ -287,7 +292,7 @@ tags:
       With this functionality in place, administrators can create custom password instructions to help users reset their passwords, change them, unlock their accounts, or recover their usernames.
       This allows administrators to emphasize password policies or provide organization-specific instructions.
 
-      Administrators must first use [Update Password Org Config](https://developer.sailpoint.com/idn/api/beta/update-password-org-config) to set `customInstructionsEnabled` to `true`.
+      Administrators must first use [Update Password Org Config](https://developer.sailpoint.com/idn/api/beta/put-password-org-config) to set `customInstructionsEnabled` to `true`.
 
       Once they have enabled custom instructions, they can use [Create Custom Password Instructions](https://developer.sailpoint.com/idn/api/beta/create-custom-password-instructions) to create custom page content for the specific pageId they select.
 
@@ -434,6 +439,8 @@ tags:
     description: Operations for accessing and managing client Clusters, including Log Configuration
   - name: MFA Configuration
     description: Configure and test multifactor authentication (MFA) methods
+  - name: MFA Controller
+    description: This API used for multifactor authentication functionality belong to gov-multi-auth service. This controller allow you to verify authentication by specified method
   - name: Non-Employee Lifecycle Management
     description: |
       Use this API to implement non-employee lifecycle management functionality.
@@ -661,7 +668,7 @@ tags:
       - Access Requests: Configure roles to be requestable and establish an approval process for any requests that the role be granted or revoked.
       Do not configure a role to be requestable without establishing a secure access request approval process for that role first.
 
-      Refer to [Working with Roles](https://documentation.sailpoint.com/saas/help/provisioning/roles.html) for more information about roles.
+      Refer to [Working with Roles](https://documentation.sailpoint.com/saas/help/access/roles.html) for more information about roles.
   - name: Search Attribute Configuration
   - name: Segments
     description: |
@@ -756,6 +763,11 @@ tags:
       This second option is a good way to prevent SOD violations from triggering at all. 
 
       Refer to [Handling Policy Violations](https://documentation.sailpoint.com/saas/help/sod/policy-violations.html) for more information about SOD policy violations. 
+  - name: Source Usages
+    description: |
+      Use this API to implement source usage insight functionality.
+      With this functionality in place, administrators can gather information and insights about how their tenants' sources are being used.
+      This allows organizations to get the information they need to start optimizing and securing source usage.
   - name: Sources
     description: |
       Use this API to implement and customize source functionality.
@@ -848,7 +860,7 @@ tags:
       | Certification Signed Off | idn:certification-signed-off | FIRE_AND_FORGET | After a certification is signed off by its reviewer. |
       | [Identity Attributes Changed](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/account-aggregation-completed) | idn:identity-attributes-changed | FIRE_AND_FORGET | After One or more identity attributes changed. |
       | [Identity Created](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/identity-created) | idn:identity-created | FIRE_AND_FORGET | After an identity is created. |
-      | [Provisioning Action Completed](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/provisioning-action-completed) |  idn:post-provisioning | FIRE_AND_FORGET | After a provisioning action completed on a source. |
+      | [Provisioning Action Completed](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/provisioning-completed) |  idn:post-provisioning | FIRE_AND_FORGET | After a provisioning action completed on a source. |
       | [Scheduled Search](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/scheduled-search) |  idn:saved-search-complete | FIRE_AND_FORGET | After a scheduled search completed. |
       | [Source Created](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/source-created) | idn:source-created | FIRE_AND_FORGET | After a source is created. |
       | [Source Deleted](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/source-deleted) | idn:source-deleted | FIRE_AND_FORGET | After a source is deleted. |
@@ -882,20 +894,21 @@ tags:
       When they complete the work item, they can select 'Mark Complete' to add it to their list of completed work items.
 
       Refer to [Task Manager](https://documentation.sailpoint.com/saas/user-help/task_manager.html) for more information about work items, including the different types of work items users may need to complete.
+  - name: Work Reassignment
+    description: |
+      Use this API to implement work reassignment functionality.
+
+      Work Reassignment allows access request reviews, certifications, and manual provisioning tasks assigned to a user to be reassigned to a different user. This is primarily used for:
+
+      - Temporarily redirecting work for users who are out of office, such as on vacation or sick leave
+      - Permanently redirecting work for users who should not be assigned these tasks at all, such as senior executives or service identities
+      
+      Users can define reassignments for themselves, managers can add them for their team members, and administrators can configure them on any user’s behalf. Work assigned during the specified reassignment timeframes will be automatically reassigned to the designated user as it is created.
+      
+      Refer to [Work Reassignment](https://documentation.sailpoint.com/saas/help/users/work_reassignment.html) for more information about this topic.
   - name: Workflows
     description: |
       Workflows allow administrators to create custom automation scripts directly within IdentityNow.  These automation scripts respond to [event triggers](https://developer.sailpoint.com/idn/docs/event-triggers#how-to-get-started-with-event-triggers) and perform a series of actions to perform tasks that are either too cumbersome or not available in the IdentityNow UI.  Workflows can be configured via a graphical user interface within IdentityNow, or by creating and uploading a JSON formatted script to the Workflow service.  The Workflows API collection provides the necessary functionality to create, manage, and test your workflows via REST.
-  - name: Source Usages
-    description: |
-      Use this API to implement source usage insight functionality.
-      With this functionality in place, administrators can gather information and insights about how their tenants' sources are being used.
-      This allows organizations to get the information they need to start optimizing and securing source usage.
-  - name: Account Usages
-    description: |
-      Use this API to implement account usage insight functionality.
-      With this functionality in place, administrators can gather information and insights about how their tenants' source accounts are being used.
-      This allows organizations to get the information they need to start optimizing and securing source account usage.
-
 security:
   - UserContextAuth: [ ]
 
@@ -1235,10 +1248,22 @@ paths:
     $ref: './beta/paths/mail-from-attributes.yaml'
   /mail-from-attributes/{identity}:
     $ref: './beta/paths/mail-from-attribute.yaml'
-  /mfa/{method}/config:
-    $ref: './beta/paths/mfa-config.yaml'
+  /mfa/okta-verify/config:
+    $ref: './beta/paths/mfa-okta-config.yaml'
+  /mfa/duo-web/config:
+    $ref: './beta/paths/mfa-duo-config.yaml'
   /mfa/{method}/test:
     $ref: './beta/paths/mfa-config-test.yaml'
+  /mfa/{method}/delete:
+    $ref: './beta/paths/mfa-config-delete.yaml'
+  /mfa/{method}/poll:
+    $ref: './beta/paths/mfa-poll.yaml'
+  /mfa/kba/authenticate:
+    $ref: './beta/paths/mfa-kba-authenticate.yaml'
+  /mfa/token/authenticate:
+    $ref: './beta/paths/mfa-token-authenticate.yaml'
+  /mfa/token/send:
+    $ref: './beta/paths/mfa-token-send.yaml'
   /notification-template-defaults:
     $ref: './beta/paths/notification-template-defaults.yaml'
   /notification-templates:
@@ -1365,8 +1390,14 @@ paths:
     $ref: './beta/paths/role-mining-potential-role-provision.yaml'
   /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/excluded-entitlements:
     $ref: './beta/paths/role-mining-potential-role-excluded-entitlements.yaml'
-  /role-mining-sessions/{sessionId}/potential-roles/draft-roles:
-    $ref: './beta/paths/role-mining-session-draft-roles.yaml'
+  /role-mining-potential-roles:
+    $ref: './beta/paths/role-mining-potential-role-summaries.yaml'
+  /role-mining-potential-roles/{potentialRoleId}:
+    $ref: './beta/paths/role-mining-potential-role.yaml'
+  /role-mining-potential-roles/saved:
+    $ref: './beta/paths/role-mining-potential-roles-draft.yaml'
+  /role-mining-potential-roles/{potentialRoleId}/sources/{sourceId}/identityUsage:
+    $ref: './beta/paths/role-mining-potential-role-source-identity-usage.yaml'
   /roles:
     $ref: './beta/paths/roles.yaml'
   /roles/{id}:
@@ -1585,12 +1616,18 @@ paths:
     $ref: './beta/paths/form-definition-forms-action-dynamic-schema.yaml'
   /form-definitions/import:
     $ref: './beta/paths/form-definitions-import.yaml'
+  /form-definitions/{formDefinitionID}/upload:
+    $ref: './beta/paths/form-definition-files.yaml'
+  /form-definitions/{formDefinitionID}/file/{fileID}:
+    $ref: './beta/paths/form-definition-file.yaml'
   /form-instances:
     $ref: './beta/paths/form-instances.yaml'
   /form-instances/{formInstanceID}:
     $ref: './beta/paths/form-instance.yaml'
   /form-instances/{formInstanceID}/data-source/{formElementID}:
     $ref: './beta/paths/form-instance-data-source.yaml'
+  /form-instances/{formInstanceID}/file/{fileID}:
+    $ref: './beta/paths/form-instance-file.yaml'
   /form-definitions/predefined-select-options:
     $ref: './beta/paths/form-definitions-predefined-select-options.yaml'
   /source-usages/{sourceId}/status:

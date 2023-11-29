@@ -550,6 +550,9 @@ tags:
 
       For example, a non-administrator deciding whether to approve another identity's request for access to the Workday application, whose access may be restricted to members of the HR department, would want to know whether the identity is a member of the HR department. 
       If an administrator has used [Update Public Identity Config](https://developer.sailpoint.com/idn/api/v3/update-public-identity-config) to make the "department" attribute public, the approver can see the department and make a decision without requesting any more information.
+  - name: Reports Data Extraction
+    description: |
+      Use this API to implement reports lifecycle managing and monitoring.
   - name: Requestable Objects
     description: |
       Use this API to implement requestable object functionality. 
@@ -593,7 +596,7 @@ tags:
       - Access Requests: Configure roles to be requestable and establish an approval process for any requests that the role be granted or revoked. 
       Do not configure a role to be requestable without establishing a secure access request approval process for that role first. 
 
-      Refer to [Working with Roles](https://documentation.sailpoint.com/saas/help/provisioning/roles.html) for more information about roles.
+      Refer to [Working with Roles](https://documentation.sailpoint.com/saas/help/access/roles.html) for more information about roles.
   - name: Saved Search
     description: |
       Use this API to implement saved search functionality. 
@@ -903,14 +906,16 @@ paths:
     $ref: './v3/paths/campaign-filters.yaml'
   /campaign-filters/{id}:
     $ref: './v3/paths/campaign-filter.yaml'
+  /campaign-filters/delete:
+    $ref: './v3/paths/campaign-filters-delete.yaml'
   /campaign-templates:
     $ref: './v3/paths/campaign-templates.yaml'
   /campaign-templates/{id}:
     $ref: './v3/paths/campaign-template.yaml'
-  /campaign-templates/{id}/generate:
-    $ref: './v3/paths/campaign-template-generate.yaml'
   /campaign-templates/{id}/schedule:
     $ref: './v3/paths/campaign-template-schedule.yaml'
+  /campaign-templates/{id}/generate:
+    $ref: './v3/paths/campaign-template-generate.yaml'
   /certifications:
     $ref: "./v3/paths/identity-certifications.yaml"
   /certifications/{id}:
@@ -1069,6 +1074,14 @@ paths:
     $ref: './v3/paths/password-dictionary.yaml'
   /password-org-config:
     $ref: './v3/paths/password-org-config.yaml'
+  /reports/{taskResultId}/result:
+    $ref: './v3/paths/reports-result.yaml'
+  /reports/run:
+    $ref: './v3/paths/reports-run.yaml'
+  /reports/{id}/cancel:
+    $ref: './v3/paths/reports-cancel.yaml'
+  /reports/{taskResultId}:
+    $ref: './v3/paths/reports-get-file.yaml'
   /sod-policies:
     $ref: './v3/paths/sod-policies.yaml'
   /sod-policies/{id}:
@@ -1226,16 +1239,12 @@ components:
       $ref: "./v3/schemas/search/model/account/activity/AccountActivityDocument.yaml"
     AccountAttributes:
       $ref: "./v3/schemas/AccountAttributes.yaml"
-    AccountDocument:
-      $ref: "./v3/schemas/search/model/account/AccountDocument.yaml"
     AccountsAsyncResult:
       $ref: "./v3/schemas/AccountsAsyncResult.yaml"
     AccountToggleRequest:
       $ref: "./v3/schemas/AccountToggleRequest.yaml"
     AccountUnlockRequest:
       $ref: "./v3/schemas/AccountUnlockRequest.yaml"
-    Aggregation:
-      $ref: "./v3/schemas/search/model/aggregation/AggregationDocument.yaml"
     ApprovalItems:
       $ref: "./v3/schemas/ApprovalItemDetails.yaml"
     Campaign:

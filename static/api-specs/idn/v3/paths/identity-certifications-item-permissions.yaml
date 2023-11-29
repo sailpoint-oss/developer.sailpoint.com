@@ -18,7 +18,7 @@ get:
         Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
 
 
-        Supported fields and primitive operators:
+        Filtering is supported for the following fields and operators:
 
 
         **target**: *eq, sw*
@@ -27,29 +27,19 @@ get:
         **rights**: *ca*
 
 
-        Supported composite operators:
-
-
-        *and, or*
+        Supported composite operators: *and, or*
 
 
         All field values (second filter operands) are case-insensitive for this API.
 
 
-        Only a single *and* or *or* composite filter operator may be used. It must also be used between
-        a target filter and a rights filter, not between 2 filters for the same field.
-
-        For example,
+        Only a single *and* or *or* composite filter operator may be used. It must also be used between a target filter and a rights filter, not between 2 filters for the same field.
 
 
-        The following is valid:
-
-        *?filters=rights+ca+(%22CREATE%22)+and+target+eq+%22SYS.OBJAUTH2%22*
+        For example, the following is valid: `?filters=rights+ca+(%22CREATE%22)+and+target+eq+%22SYS.OBJAUTH2%22`
 
 
-        The following is invalid:
-
-        *?filters=rights+ca+(%22CREATE%22)+and+rights+ca+(%SELECT%22)*
+        The following is invalid: 1?filters=rights+ca+(%22CREATE%22)+and+rights+ca+(%SELECT%22)1
       example: target eq "SYS.OBJAUTH2"
     - in: path
       name: certificationId

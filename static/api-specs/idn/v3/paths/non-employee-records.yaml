@@ -57,12 +57,10 @@ get:
         format: comma-separated
       example: accountName,sourceId
       description: >-
-        Sort results using the standard syntax described in [V3 API Standard
-        Collection
-        Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407#toc-hId-2058949)
-        Sorting is supported for the following fields: **id, accountName,
-        sourceId, manager, firstName, lastName, email, phone, startDate,
-        endDate, created, modified**
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+
+        Sorting is supported for the following fields: **id, accountName, sourceId, manager, firstName, lastName, email, phone, startDate, endDate, created, modified**
     - in: query
       name: filters
       required: false
@@ -70,12 +68,13 @@ get:
         type: string
       example: sourceId eq "2c91808568c529c60168cca6f90c1313"
       description: >-
-        Filter results using the standard syntax described in [V3 API Standard
-        Collection
-        Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407)
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
         Filtering is supported for the following fields and operators:
-        **sourceId**: *eq*  *Example:* sourceId eq
-        "2c91808568c529c60168cca6f90c1313"
+        
+        
+        **sourceId**: *eq*
   responses:
     "200":
       description: Non-Employee record objects

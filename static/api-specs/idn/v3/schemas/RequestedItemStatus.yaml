@@ -51,11 +51,9 @@ properties:
     description: When the request was created.
     example: "2019-08-23T18:40:35.772Z"
   requester:
-    $ref: './BaseReferenceDto.yaml'
-    description: The identity that requested the item.
+    $ref: './AccessItemRequester.yaml'
   requestedFor:
-    $ref: './BaseReferenceDto.yaml'
-    description: The identity for whom the Access Request Status is requested for.
+    $ref: './AccessItemRequestedFor.yaml'
   requesterComment:
     $ref: './CommentDto.yaml'
     nullable: true

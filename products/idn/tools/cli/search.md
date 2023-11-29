@@ -27,12 +27,10 @@ The `search` command makes it easy to search in IdentityNow with the SailPoint C
     - [Flags](#flags)
       - [Indices](#indices)
       - [Sort](#sort)
-      - [Output Types](#output-types)
       - [Folder Path](#folder-path)
   - [Template](#template)
     - [Command](#command-1)
     - [Flags](#flags-1)
-      - [Output Types](#output-types-1)
       - [Folder Path](#folder-path-1)
 
 ## Query
@@ -67,8 +65,7 @@ You must start your search query with `sail search query`, and you must specify 
 You can append a number of flags to the `query` command to refine it: 
 - The first flag, `indices`, is required. It specifies the indices to run the search operation on. 
 - The second possible flag, `sort`, allows you to specify the sort strings to use for the search query, as well as the sorting arrangement for the results. 
-- The third possible flag, `outputTypes`, allows you to specify the output data format as either `json` or `csv`. 
-- The fourth possible flag, `folderPath`, allows you to specify the folder path where you want to save the search query result files. 
+- The third possible flag, `folderPath`, allows you to specify the folder path where you want to save the search query result files. 
  
 #### Indices
 
@@ -114,7 +111,7 @@ Use the `outputTypes` flag to specify the output data format for the search quer
 Here is an example of a `query` command that specifies the `json` output type: 
 
 ```shell
-sail search query "name:a*" --indices identities --outputTypes json
+sail search query "name:a*" --indices identities
 ```
 
 #### Folder Path
@@ -147,19 +144,9 @@ The specified template file will give the CLI all the information it needs to pe
 ### Flags
 
 
-You can append two flags to the `template` command to refine it: 
-- The first possible flag, `outputTypes`, allows you to specify the output data format as either `json` or `csv`. 
-- The second possible flag, `folderPath`, allows you to specify the folder path where you want to save the search query result files. 
+You can append one flag to the `template` command to refine it: 
+- The flag, `folderPath`, allows you to specify the folder path where you want to save the search query result files. 
 
-#### Output Types
-
-Use the `outputTypes` flag to specify the output data format for the search template query results. Currently, the only supported output types are `json` and `csv`. 
-
-Here is an example of a `template` command that specifies the `json` output type: 
-
-```shell
-sail search template all-provisioning-events-90-days --outputTypes json
-```
 
 #### Folder Path
 

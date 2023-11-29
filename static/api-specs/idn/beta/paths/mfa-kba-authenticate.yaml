@@ -1,0 +1,59 @@
+post:
+  operationId: sendKbaAnswers
+  tags:
+    - MFA Controller
+  summary: Authenticate KBA provided MFA method
+  description: >-
+    This API Authenticate user in KBA MFA method.
+  security:
+    - UserContextAuth: [idn:mfa-kba:authenticate]
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+              $ref: "../schemas/KbaAnswerRequest.yaml"
+        example:
+              {"answers": [
+                {
+                  "questionId": "089899f13a8f4da7824996191587bab9",
+                  "answer": "Your answer"
+                },
+                {
+                  "questionId": "067899f13a8f4da7824996191587bab9",
+                  "answer": "Your answer1"
+                }
+                          ]
+              }
+
+  responses:
+    "200":
+      description: KBA authenticated status.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/KbaAuthResponse.yaml"
+          example:
+            {
+              "kbaAuthResponseItem": [
+                {
+                  "questionId": "089899f13a8f4da7824996191587bab9",
+                  "IsVerified": false
+                },
+                {
+                  "questionId": "089899f13a8f4da7824996191587bda8",
+                  "IsVerified": true
+                }
+              ],
+              "status": "PENDING"
+            }
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

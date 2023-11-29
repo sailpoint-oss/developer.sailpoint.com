@@ -1,0 +1,19 @@
+type: object
+properties:
+  kbaAuthResponseItems:
+    type: array
+    example:
+       -  questionId: 089899f13a8f4da7824996191587bab9
+          isVerified: false
+    items:
+      $ref: '../schemas/KbaAuthResponseItem.yaml'
+  status:
+    type: string
+    enum:
+        - PENDING
+        - SUCCESS
+        - FAILED
+        - LOCKOUT
+        - NOT_ENOUGH_DATA
+    description: MFA Authentication status
+    example: PENDING

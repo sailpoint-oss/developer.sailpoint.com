@@ -219,6 +219,16 @@ To run the code run the following command:
 go run sdk.go
 ```
 
+You can make changes to the API you are calling by changing the following line:
+
+```go
+resp, r, err := apiClient.V3.TransformsApi.ListTransforms(ctx).Execute()
+```
+
+- To call a different version of the APIs, change `V3` to `Beta`, `V2`, or `CC`. 
+- To call a different API collection, change `TransformsApi` to another collection, like `SourcesApi`, for example. 
+- To call a different endpoint, change `ListTransforms` to another endpoint, like `GetTransform`, for example.
+
 ### Paginate Results
 
 By default, your requests will return a maximum of 250 records. To return more, you must implement pagination. To learn more about pagination, refer to [Paginating Results](/idn/api/standard-collection-parameters/#paginating-results).
@@ -289,76 +299,10 @@ The `Paginate` function must be provided the return type `v3.Account`, the list 
 
 ### Search
 
-The Go SDK provides you access to IdentityNow's [Search](https://documentation.sailpoint.com/saas/help/search/index.html) functionality.
-
-Here is an example search you can copy into your Go code to try it out:
+To try using the IDN [search functionality](/idn/api/v3/search-post) along with pagination, copy this code into your "sdk.go" file following the main code:
 
 ```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-
-	sailpoint "github.com/sailpoint-oss/golang-sdk"
-	v3 "github.com/sailpoint-oss/golang-sdk/v3"
-)
-
-func main() {
-
-	ctx := context.TODO()
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
-
-	search := v3.NewSearchWithDefaults()
-	search.Indices = append(search.Indices, "identities")
-	searchString := []byte(`
-	{
-	"indices": [
-		"identities"
-	],
-	"query": {
-		"query": "*"
-	},
-    "sort": [
-        "-name"
-    ]
-	}
-	  `)
-	search.UnmarshalJSON(searchString)
-	resp, r, err := apiClient.V3.SearchApi.SearchPost(ctx).Search(*search).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SearchPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `search`
-	for i := 0; i < len(resp); i++ {
-		fmt.Println(resp[i]["name"])
-	}
-}
-```
-
-### Paginate Search Results
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-
-	sailpoint "github.com/sailpoint-oss/golang-sdk"
-	v3 "github.com/sailpoint-oss/golang-sdk/v3"
-)
-
-func main() {
-
-	ctx := context.TODO()
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
-
+func getSearchResults(ctx context.Context, apiClient *sailpoint.APIClient) {
 	search := v3.NewSearchWithDefaults()
 	search.Indices = append(search.Indices, "identities")
 	searchString := []byte(`
@@ -387,7 +331,85 @@ func main() {
 }
 ```
 
+Use `go run sdk.go` to run the search. This example lists all the identities it finds in your tenant.
+
+There are two ways to configure the search: 
+1. You can edit the `searchString` JSON:
+
+```go showLineNumbers
+	searchString := []byte(`
+	{
+	"indices": [
+		"identities"
+	],
+	"query": {
+		"query": "*"
+	},
+    "sort": [
+        "-name"
+    ]
+	}
+	  `)
+```
+
+In this example, changing the `"indices"` on line 3 from `"identities"` to `"access profiles"` makes the search return access profiles instead of identities. 
+
+2. You can edit the string at the end of this `search.Indices` line to do the same thing as a shortcut: 
+
+```go
+search.Indices = append(search.Indices, "identities")
+```
+
+In this example, the `"identities"` string represents an unmarshalled JSON. Changing `append(search.Indices, "identities")` to `append(search.Indices, "access profiles")` does the same thing editing the `searchString` JSON does.
+
+### Paginate search results
+The search example includes the syntax you can use to paginate search results. Edit this line to configure the search result pagination: 
+
+```go
+resp, r, err := sailpoint.PaginateSearchApi(ctx, apiClient, *search, 0, 10, 10000)
+```
+
+The first value refers to the `initialOffset`, the starting number for the results, the second refers to the `increment`, the number of records per page, and the third refers to the `limit`, the last record that can be returned. 
+
+For example, changing the first number to `21`, the second to `20`, and the third to `40` would configure the search to return records 21 to 40 and then stop. 
+
+
 ### Retries
+
+The SDK uses the [go-retryablehttp](https://github.com/hashicorp/go-retryablehttp) module to support retry logic. 
+
+In the example below on line 17-18 the SDK is set to retry if there is an unexpected error up to 10 times and waits 2 seconds between each retry.
+
+```go showLineNumbers
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+
+	sailpoint "github.com/sailpoint-oss/golang-sdk"
+)
+
+func main() {
+
+	ctx := context.TODO()
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+
+	configuration.HTTPClient.RetryMax = 10
+    configuration.HTTPClient.RetryWaitMax = time.Second * 2
+
+	resp, r, err := apiClient.V3.TransformsApi.ListTransforms(ctx).Filters("This is an incorrect string").Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountsApi.ListAccount``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListAccounts`: []Account
+	fmt.Fprintf(os.Stdout, "First response from `AccountsApi.ListAccount`: %v\n", resp)
+
+}
+```
 
 ## Discuss
 

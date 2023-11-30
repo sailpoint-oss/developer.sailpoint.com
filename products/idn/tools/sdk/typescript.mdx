@@ -21,7 +21,7 @@ You need the following to use the TypeScript SDK:
 
 - **Node**. To learn how to download it and set it up, go [here](https://nodejs.org/en/download).
 
-- **TypeScript**. You can use `npm` to install TypeScript globally, this means that you can use the `tsc` command anywhere in your terminal. To do this, run
+- **TypeScript**. You can use `npm` to install TypeScript globally. This means that you can use the `tsc` command anywhere in your terminal. To do so, run this command:
 
 ```bash
 npm install -g typescript
@@ -38,13 +38,13 @@ npm install -g typescript
 
 The SailPoint CLI offers a few commands that will allow you to quickly get started with the Typescript SDK. To learn how to install and use the SailPoint CLI, refer to [SailPoint CLI](https://developer.sailpoint.com/idn/tools/cli#get-the-cli).
 
-Once the CLI is installed and configured, run the following command to create a new Typescript project with our Typescript SDK.
+Once the CLI is installed and configured, run this command to create a new Typescript project with the Typescript SDK:
 
 ```bash
 sail sdk init typescript typescript-example
 ```
 
-This will create the structure for your project.
+Running the command creates the structure for your project:
 
 ```text
 |-- typescript-example
@@ -54,46 +54,48 @@ This will create the structure for your project.
 |   |-- tsconfig.json
 ```
 
-Navigate into your project folder and run the following command to install the required dependencies.
+Navigate into your project folder and run this command to install the required dependencies:
 
 ```bash
 npm install
 ```
 
-The SDK is now installed. To configure the SDK see [Configure](#configure).
+The SDK is now installed. To learn how to configure the SDK, refer to the [Configure section](#configure).
 
 </details>
 
 <details>
 <summary>Manual Installation</summary>
 
-To begin your typescript project, you will need to create a directory for your project:
+To begin your typescript project, you will need to create a directory for your project. Run this command to create your project directory:
 
 ```bash
 mkdir typescript-example
 ```
 
-Now change into your project directory:
+Then run this command to change into your project directory:
 
 ```bash
 cd typescript-example
 ```
 
-Use the following command in your project directory. Doing so initializes your project and creates the `package.json` file. You will update this file with the dependencies necessary to use the SDK.
+To initialize your project directory and create the "package.json" file, run this command in your project directory. 
 
 ```bash
 npm init
 ```
 
-Create a source folder named `src`. The SDK will include the `"src/**/*"` folder path when it compiles, so your SDK file must be there.
+You will update this file with the dependencies necessary to use the SDK.
+
+Create a source folder named "src". The SDK will include the "src/**/*" folder path when it compiles, so your SDK file must be there. Run this command to create the "src" folder:
 
 ```bash
 mkdir src
 ```
 
-Go to the `src` folder and create a file named `index.ts` in there. You will need to compile the `index.ts` file to run the SDK. You can leave this `index.ts` file empty for now.
+Go to the `src` folder and create a file named "index.ts". You will need to compile the "index.ts" file to run the SDK. You can leave this "index.ts" file empty for now.
 
-Go to the project directory and create a file named `tsconfig.json` in there. This file will contain your compiler configuration. Copy this information into your `tsconfig.json` file:
+Go to the project directory and create a file named "tsconfig.json". This file will contain your compiler configuration. Copy this information into your "tsconfig.json" file:
 
 ```typescript
 {
@@ -114,29 +116,29 @@ Go to the project directory and create a file named `tsconfig.json` in there. Th
   }
 ```
 
-Use the following command to add the SailPoint SDK to your project's dependencies:
+Run this command to add the SailPoint SDK to your project's dependencies:
 
 ```bash
 npm install sailpoint-api-client
 ```
 
-or
+Or run this command to do the same:
 
 ```bash
 yarn add sailpoint-api-client
 ```
 
-The SDK is now installed. To configure the SDK see [Configure](#configure).
+The SDK is now installed. To learn how to configure the SDK, refer to the [Configure section](#configure).
 
 </details>
 
 ## Configure
 
-In order for the SDK to authenticate to your SailPoint tenant and make API calls you will need to provide configuration. This can be done through a configuration file `config.json` or through environment variables.
+You must provide configuration to the SDK so that it can authenticate to your SailPoint tenant and make API calls. To do so, you can use a configuration file, "config.json", or environment variables.
 
 ### Configuration File
 
-The SDK requires a configuration file to be named `config.json` and provide the following key/value pairs `ClientID`, `ClientSecret`, `BaseUrl`.
+The SDK requires a configuration file to be named "config.json". Within the file, provide these key/value pairs: `ClientID`, `ClientSecret`, `BaseUrl`.
 
 <details>
 <summary>CLI Assisted <em>(Recommended)</em></summary>
@@ -146,13 +148,15 @@ The SailPoint CLI offers a command to generate the config.json file with your cu
 sail sdk init config
 ```
 
-If you have multiple environments configured with the CLI you can pass an additional parameter to state the environment you wish to create a `config.json` for.
+If you have multiple environments configured with the CLI, you can pass an additional parameter to state the environment you wish to create a "config.json" for. 
+
+To pass an additional parameter that states the environment you want to configure, run this command: 
 
 ```bash
 sail sdk init config --env devrel
 ```
 
-#### Example `config.json`
+#### Example "config.json"
 
 ```json
 {
@@ -167,9 +171,9 @@ sail sdk init config --env devrel
 <details>
 <summary>Manual Configuration</summary>
 
-Create a file named `config.json` and provide `ClientID`, `ClientSecret`, `BaseUrl`.
+Create a file named "config.json", and provide these key/value pairs: `ClientID`, `ClientSecret`, `BaseUrl`.
 
-#### Example `config.json`
+#### Example "config.json"
 
 ```json
 {
@@ -208,7 +212,7 @@ $env:SAIL_CLIENT_ID=[clientID]
 $env:SAIL_CLIENT_SECRET=[clientSecret]
 ```
 
-To get your environment variables to persist across PowerShell sessions, use these commands instead:
+To get your environment variables to persist across PowerShell sessions, run these commands instead:
 
 ```powershell
 [System.Environment]::SetEnvironmentVariable('SAIL_BASE_URL','https://[tenant].api.identitynow.com')
@@ -221,9 +225,9 @@ To get your environment variables to persist across PowerShell sessions, use the
 
 ## Getting started with the Typescript SDK
 
-Once your SDK is installed and configured, you can start accessing the SDK's different functionalities. We will go through these now with some examples.
+Once your SDK is installed and configured, you can start accessing the SDK's different functionalities. This guide will walk through some examples of this functionality.
 
-To make sure that your SDK is connecting to the APIs you need, you can specify the API within the curly brackets in `import {}` at the top of the "index.ts" file. In this example, you could add `Configuration` and `TransformsApi` to add the functionality to list Transforms.
+To make sure that your SDK is connecting to the APIs you need, you can specify the API within the curly brackets in `import {}` at the top of the "index.ts" file. In this example, you could add `Configuration` and `TransformsApi` to add the functionality to list transforms.
 
 ### List Transforms in your tenant
 
@@ -251,12 +255,11 @@ To compile the file, first run the `tsc src/index.ts` command. This command crea
 
 To run the SDK, run the `node src/index.js` command. This command sends the request and outputs a list of transforms stored in your tenant.
 
+### Use query parameters to filter your tenant's transform list 
 
-### List Transforms in your tenant filtering by query parameters
+Using the same SDK function, you can list your transforms but limit the results to only what you want. This example wants a list of no more than 10 transforms that start with the name "Test":
 
-Using the same SDK function, you can list your transforms but limit the results to only what you want. In this example we want a list of no more than 10 transforms that start with the name "Test".
-
-See [List Transforms](https://developer.sailpoint.com/idn/api/v3/list-transforms) for all its supported query parameters.
+Refer to [List Transforms](https://developer.sailpoint.com/idn/api/v3/list-transforms) for all its supported query parameters.
 
 ```typescript
 import {Configuration, TransformsApi} from "sailpoint-api-client"
@@ -271,13 +274,13 @@ const getTransforms = async() => {
 getTransforms()
 ```
 
-To compile, run `tsc src/index.ts` and to run the code `node src/index.js`.
+To compile, run `tsc src/index.ts`. Then run `node src/index.js` to run the code.
 
 ### Paginate results
 
 By default, your requests will return a maximum of 250 records. To return more, you must implement pagination. To learn more about pagination, refer to [Paginating Results](/idn/api/standard-collection-parameters/#paginating-results).
 
-Pagination is implemented with the SDK in the following code block on line 7.
+Pagination is implemented with the SDK in the following code block on line 7:
 
 ```typescript showLineNumbers
 import {Configuration, AccountsApi, Paginator} from "sailpoint-api-client"
@@ -294,11 +297,11 @@ const getPaginatedAccounts = async () => {
 getPaginatedAccounts()
 ```
 
-The function takes a few paramters, the first is the api instance that you wish to call, created on line 5. The next parameter is the function in which you want to invoke the pagination against. In the example above we want to list accounts so we call `api.listAccounts`.
+The function takes a few paramters: the first is the API instance that you wish to call, created on line 5. The next parameter is the function in which you want to invoke the pagination against. The earlier example wants to list accounts, so it calls `api.listAccounts`.
 
 The `limit` specifies the total number of results you can return, 1000. The following unlabeled number, 250, refers to the `increment`, the number of records per page. For example, changing the `limit` to 50 and the following "250" to 5 would change the request to return a total of 50 records, 5 at a time. 
 
-You can also provide an `offset` value to specify the record number to start the request on. For example, you can provide add `{offset: 11}` to start getting accounts from 11 instead of 0. 
+You can also provide an `offset` value to specify the record number to start the request on. For example, you can add `{offset: 11}` to start getting accounts from 11 instead of 0. 
 
 To find out whether an endpoint supports pagination, refer to its documentation. Any API supporting pagination lists the optional query parameters detailed in [Paginating Results](/idn/api/standard-collection-parameters/#paginating-results).
 
@@ -331,13 +334,13 @@ const search = async () => {
 ```
 This example returns 1000 identities, 100 at a time, and sorts them in descending order by name. You can also change the search pagination by changing "100" and "1000", respectively. 
 
-The two main ways you can manipulate this example are to change the `indices` or the `query`. If you add `"access profiles"` to the indices, and the SDK will search access profiles too. If you change the query to "a*", the search will return all records starting with the letter "a". 
+The two main ways you can manipulate this example are to change the `indices` or the `query`. For example, if you add `"access profiles"` to the indices, the SDK will search access profiles too. If you change the query to "a*", the search will return all records starting with the letter "a". 
 
 You can also change the sorting logic in the brackets next to `sort`. 
 
 ### Retries
 
-The SDK supports retry logic in the case of an unexpected error. See lines 7-12, you are able to configure the number of retries and the delay between retries.
+The SDK supports retry logic in the case of an unexpected error. You are able to configure the number of retries and the delay between retries. This logic is implemented in lines 7-12:
 
 ```typescript showLineNumbers
 import {Configuration, axiosRetry, AccountsApi, Paginator} from "sailpoint-api-client"

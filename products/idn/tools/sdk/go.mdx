@@ -31,13 +31,13 @@ You need the following to use the Go SDK:
 
 The SailPoint CLI offers a few commands that will allow you to quickly get started with the Go SDK. To learn how to install and use the SailPoint CLI, refer to [SailPoint CLI](https://developer.sailpoint.com/idn/tools/cli#get-the-cli).
 
-Once the CLI is installed and configured, run the following command to create a new Go project with our Go SDK.
+Once the CLI is installed and configured, run this command to create a new Go project with the Go SDK:
 
 ```bash
 sail sdk init golang go-example
 ```
 
-This will create the structure for your project.
+Running the command will create the structure for your project:
 
 ```text
 |-- go-example
@@ -46,13 +46,13 @@ This will create the structure for your project.
 |   |-- sdk.go
 ```
 
-Navigate into your project folder and run the following command to install the required dependencies.
+Navigate into your project folder and run this command to install the required dependencies:
 
 ```bash
 go mod tidy
 ```
 
-The SDK is now installed. To configure the SDK see [Configure](#configure).
+The SDK is now installed. To learn how to configure the SDK, refer to the [Configure section](#configure).
 
 
 </details>
@@ -62,55 +62,61 @@ The SDK is now installed. To configure the SDK see [Configure](#configure).
 
 To begin your go project, you will need to create a directory for your project.
 
+To create a project directory, run this command:
+
 ```bash
 mkdir golang-example
 ```
 
-Now change into your project directory:
+Then run this command to change into your project directory:
 
 ```bash
 cd golang-example
 ```
 
-Use the following command in your project directory. Doing so initializes your project and creates the `go.mod` file. You will edit this file to add the SailPoint SDK to your project.
+To initialize your project and create the `go.mod` file, run this command in your project directory: 
 
 ```go
 go mod init github.com/github-repo-name/golang-example
 ```
 
-Install the SailPoint SDK with the following command:
+You will edit this file to add the SailPoint SDK to your project.
+
+To install the SailPoint SDK, run this command:
 
 ```go
 go get github.com/sailpoint-oss/golang-sdk
 ```
 
-The SDK is now installed. To configure the SDK see [Configure](#configure).
+The SDK is now installed. To learn how to configure the SDK, refer to the [Configure section](#configure).
 
 </details>
 
 ## Configure
 
-In order for the SDK to authenticate to your SailPoint tenant and make API calls you will need to provide configuration. This can be done through a configuration file `config.json` or through environment variables.
+You must provide configuration to the SDK so that it can authenticate to your SailPoint tenant and make API calls. To do so, you can use a configuration file, "config.json", or environment variables.
 
 ### Configuration File
 
-The SDK requires a configuration file to be named `config.json` and provide the following key/value pairs `ClientID`, `ClientSecret`, `BaseUrl`.
+The SDK requires a configuration file to be named "config.json". Within the file, provide these key/value pairs: `ClientID`, `ClientSecret`, `BaseUrl`.
 
 <details>
 <summary>CLI Assisted <em>(Recommended)</em></summary>
-The SailPoint CLI offers a command to generate the config.json file with your currently configured CLI credentials.
+The SailPoint CLI offers a command to generate the "config.json" file with your currently configured CLI credentials.
 
 ```bash
 sail sdk init config
 ```
 
-If you have multiple environments configured with the CLI you can pass an additional parameter to state the environment you wish to create a `config.json` for.
+If you have multiple environments configured with the CLI, you can pass an additional parameter to state the environment you wish to create a "config.json" for. 
+
+To pass an additional parameter that states the environment you want to configure, run this command: 
 
 ```bash
 sail sdk init config --env devrel
 ```
 
-#### Example `config.json`
+#### Example "config.json"
 
 ```json
 {
@@ -125,9 +131,9 @@ sail sdk init config --env devrel
 <details>
 <summary>Manual Configuration</summary>
 
-Create a file named `config.json` and provide `ClientID`, `ClientSecret`, `BaseUrl`.
+Create a file named "config.json", and provide these key/value pairs: `ClientID`, `ClientSecret`, `BaseUrl`.
 
-#### Example `config.json`
+#### Example "config.json"
 
 ```json
 {
@@ -166,7 +172,7 @@ $env:SAIL_CLIENT_ID=[clientID]
 $env:SAIL_CLIENT_SECRET=[clientSecret]
 ```
 
-To get your environment variables to persist across PowerShell sessions, use these commands instead:
+To get your environment variables to persist across PowerShell sessions, run these commands instead:
 
 ```powershell
 [System.Environment]::SetEnvironmentVariable('SAIL_BASE_URL','https://[tenant].api.identitynow.com')
@@ -179,12 +185,11 @@ To get your environment variables to persist across PowerShell sessions, use the
 
 ## Getting started with the Go SDK
 
-Once your SDK is installed and configured, you can start accessing the SDK's different functionalities. We will go through these now with some examples.
-
+Once your SDK is installed and configured, you can start accessing the SDK's different functionalities. This guide will walk through some examples of this functionality.
 
 ### List Transforms
 
-Create a file in your project called `sdk.go` with the following contents.
+Create a file in your project called `sdk.go` with the following content:
 
 ```go
 package main
@@ -213,13 +218,13 @@ func main() {
 }
 ```
 
-To run the code run the following command:
+To run the code, run this command: 
 
 ```go
 go run sdk.go
 ```
 
-You can make changes to the API you are calling by changing the following line:
+You can make changes to the API you are calling by changing this line:
 
 ```go
 resp, r, err := apiClient.V3.TransformsApi.ListTransforms(ctx).Execute()
@@ -233,7 +238,7 @@ resp, r, err := apiClient.V3.TransformsApi.ListTransforms(ctx).Execute()
 
 By default, your requests will return a maximum of 250 records. To return more, you must implement pagination. To learn more about pagination, refer to [Paginating Results](/idn/api/standard-collection-parameters/#paginating-results).
 
-Pagination is implemented with the SDK in the following code block on line 18.
+Pagination is implemented with the SDK in the following code block on line 18:
 
 ```go showLineNumbers
 package main
@@ -263,9 +268,9 @@ func main() {
 }
 ```
 
-The `PaginateWithDefaults` function takes a return type `v3.Account` and the list method to invoke, in this case `ListAccounts` from the AccountsApi. By default, the `PaginateWithDefaults` method gets 10000 results at an increment of 250.
+The `PaginateWithDefaults` function takes a return type, `v3.Account`, and the list method to invoke, in this case `ListAccounts` from the AccountsApi. By default, the `PaginateWithDefaults` method gets 10000 results at an increment of 250.
 
-To change the limit and increment, the `Paginate` function is available to you.
+To change the limit and increment, you can use the available 'Paginate' function:
 
 ```go
 package main
@@ -295,11 +300,11 @@ func main() {
 }
 ```
 
-The `Paginate` function must be provided the return type `v3.Account`, the list endpoint `ListAccounts`, initial offset `0`, increment `250`, and limit `150000`.
+You must provide the `Paginate` function with the following: the return type, `v3.Account`, the list endpoint, `ListAccounts`, the initial offset, `0`, the increment, `250`, and the limit, `150000`.
 
 ### Search
 
-To try using the IDN [search functionality](/idn/api/v3/search-post) along with pagination, copy this code into your "sdk.go" file following the main code:
+To try using the IDN [search functionality](/idn/api/v3/search-post) along with pagination, copy this code into your "sdk.go" file, following the main code:
 
 ```go
 func getSearchResults(ctx context.Context, apiClient *sailpoint.APIClient) {
@@ -331,7 +336,7 @@ func getSearchResults(ctx context.Context, apiClient *sailpoint.APIClient) {
 }
 ```
 
-Use `go run sdk.go` to run the search. This example lists all the identities it finds in your tenant.
+To run the search, run this command: `go run sdk.go` This example lists all the identities it finds in your tenant.
 
 There are two ways to configure the search: 
 1. You can edit the `searchString` JSON:
@@ -360,7 +365,7 @@ In this example, changing the `"indices"` on line 3 from `"identities"` to `"acc
 search.Indices = append(search.Indices, "identities")
 ```
 
-In this example, the `"identities"` string represents an unmarshalled JSON. Changing `append(search.Indices, "identities")` to `append(search.Indices, "access profiles")` does the same thing editing the `searchString` JSON does.
+In this example, the `"identities"` string represents an unmarshalled JSON. Changing `append(search.Indices, "identities")` to `append(search.Indices, "access profiles")` does the same thing that editing the `searchString` JSON does.
 
 ### Paginate search results
 The search example includes the syntax you can use to paginate search results. Edit this line to configure the search result pagination: 
@@ -378,7 +383,7 @@ For example, changing the first number to `21`, the second to `20`, and the thir
 
 The SDK uses the [go-retryablehttp](https://github.com/hashicorp/go-retryablehttp) module to support retry logic. 
 
-In the example below on line 17-18 the SDK is set to retry if there is an unexpected error up to 10 times and waits 2 seconds between each retry.
+On line 17-18 of the following example, the SDK is set to retry if there is an unexpected error up to 10 times and wait 2 seconds between each retry:
 
 ```go showLineNumbers
 package main

@@ -30,13 +30,13 @@ You need the following to use the PowerShell SDK:
 
 The SailPoint CLI offers a few commands that will allow you to quickly get started with the PowerShell SDK. To learn how to install and use the SailPoint CLI, refer to [SailPoint CLI](https://developer.sailpoint.com/idn/tools/cli#get-the-cli).
 
-Once the CLI is installed and configured, run the following command to create a new PowerShell project with our PowerShell SDK.
+Once the CLI is installed and configured, run this command to create a new PowerShell project with the PowerShell SDK:
 
 ```bash
 sail sdk init powershell
 ```
 
-This will create the structure for your project.
+Running the command create the structure for your project:
 
 ```text
 |-- powershell-template
@@ -48,13 +48,13 @@ This will create the structure for your project.
 |   |-- transform.ps1
 ```
 
-Run the following command to install the required dependencies.
+Run this command to install the required dependencies:
 
 ```powershell
 Install-Module -Name PSSailpoint
 ```
 
-This command installs the SailPoint PowerShell SDK module. You will be prompted to confirm that you are sure you want to install the module from 'PSGallery'. Enter "A" to say "Yes to All".
+The command installs the SailPoint PowerShell SDK module. You will be prompted to confirm that you want to install the module from 'PSGallery'. Enter "A" to say "Yes to All".
 
 If you already have a version of the PowerShell SDK installed, you can install a new version side-by-side with it by adding the `-Force` parameter to the end of your `Install-Module` commmand:
 
@@ -62,18 +62,18 @@ If you already have a version of the PowerShell SDK installed, you can install a
 Install-Module -Name PSSailpoint -Force
 ```
 
-To validate the module is installed, run `Get-Module -ListAvailable PSSailpoint` and verify that the module is listed. Additionally, you can run `Get-Command -Module PSSailpoint` to see the available commands included in the module.
+To validate that the module is installed, run this command, `Get-Module -ListAvailable PSSailpoint`, and verify that the module is listed. Additionally, you can run this command, `Get-Command -Module PSSailpoint`, to see the available commands included in the module.
 
-The SDK is now installed. To configure the SDK see [Configure](#configure).
+The SDK is now installed. To learn how to configure the SDK, refer to the [Configure section](#configure).
 
 </details>
 
 <details>
     <summary>Manual Installation</summary>
 
-### Manually Install the SDK
+### Manually install the SDK
 
-If access to the PowerShell Gallery isn't available, you can also install the PowerShell SDK manually. Follow these steps to do so:
+If access to the PowerShell Gallery isn't available, you can also install the PowerShell SDK manually. 
 
 :::caution
 
@@ -81,28 +81,28 @@ If you manually install the module on a machine without access to the PowerShell
 
 :::
 
-To manually install the PowerShell module:
+Follow these steps to manually install the PowerShell module:
 
-1. Download the source code zip from the most recent release on [GitHub](https://github.com/sailpoint-oss/powershell-sdk/releases)
-2. Open the ZIP file, then open then folder labeled `powershell-sdk-x.x.x` with the `x.x.x` representing the version you downloaded
+1. Download the source code zip from the most recent release on [GitHub](https://github.com/sailpoint-oss/powershell-sdk/releases).
+2. Open the ZIP file, then open then folder labeled `powershell-sdk-x.x.x`, with the `x.x.x` representing the version you downloaded.
 3. Extract the `PSSailpoint` module folder inside to one of the following locations:
    - To install for the Current user: `C:\Users\<username>\Documents\WindowsPowerShell\Modules\PSSailpoint`
    - To install for All users (requires Administrator privileges): `C:\Program Files\WindowsPowerShell\Modules\PSSailpoint`
 4. Run `Import-Module PSSailpoint` to import the module into the current session.
-5. To validate the module is installed, run `Get-Module -ListAvailable PSSailpoint` and verify that the module is listed. Additionally, you can run `Get-Command -Module PSSailpoint` to see the available commands included in the module.
+5. To validate that the module is installed, run `Get-Module -ListAvailable PSSailpoint` and verify that the module is listed. Additionally, you can run `Get-Command -Module PSSailpoint` to see the module's available commands.
 
-The SDK is now installed. To configure the SDK see [Configure](#configure).
+The SDK is now installed. To learn how to configure the SDK, refer to the [Configure section](#configure).
 
 </details>
 
 
 ## Configure
 
-In order for the SDK to authenticate to your SailPoint tenant and make API calls you will need to provide configuration. This can be done through a configuration file `config.json` or through environment variables.
+You must provide configuration to the SDK so that it can authenticate to your SailPoint tenant and make API calls. To do so, you can use a configuration file, `config.json`, or environment variables.
 
 ### Configuration File
 
-The SDK requires a configuration file to be named `config.json` and provide the following key/value pairs `ClientID`, `ClientSecret`, `BaseUrl`.
+The SDK requires a configuration file to be named "config.json". Within the file, provide these key/value pairs: `ClientID`, `ClientSecret`, `BaseUrl`.
 
 <details>
 <summary>CLI Assisted <em>(Recommended)</em></summary>
@@ -112,7 +112,9 @@ The SailPoint CLI offers a command to generate the config.json file with your cu
 sail sdk init config
 ```
 
-If you have multiple environments configured with the CLI you can pass an additional parameter to state the environment you wish to create a `config.json` for.
+If you have multiple environments configured with the CLI, you can pass an additional parameter to state the environment you wish to create a `config.json` for. 
+
+To pass an additional parameter that states the environment you want to configure, run this command: 
 
 ```bash
 sail sdk init config --env devrel
@@ -133,7 +135,7 @@ sail sdk init config --env devrel
 <details>
 <summary>Manual Configuration</summary>
 
-Create a file named `config.json` and provide `ClientID`, `ClientSecret`, `BaseUrl`.
+Create a file named "config.json", and provide these key/value pairs: `ClientID`, `ClientSecret`, `BaseUrl`.
 
 #### Example `config.json`
 
@@ -174,7 +176,7 @@ $env:SAIL_CLIENT_ID=[clientID]
 $env:SAIL_CLIENT_SECRET=[clientSecret]
 ```
 
-To get your environment variables to persist across PowerShell sessions, use these commands instead:
+To get your environment variables to persist across PowerShell sessions, run these commands instead:
 
 ```powershell
 [System.Environment]::SetEnvironmentVariable('SAIL_BASE_URL','https://[tenant].api.identitynow.com')
@@ -187,13 +189,13 @@ To get your environment variables to persist across PowerShell sessions, use the
 
 ## Getting started with the PowerShell SDK
 
-To get an idea of what cmdlets the SDK offers run the following command. This lists all available Get cmdlets within the SDK.
+To get an idea of what cmdlets the SDK offers run the following command. This command lists all available Get cmdlets within the SDK:
 
 ```powershell
 Get-Command -Module PSSailpoint | where-object {$_.name -like "*Get-*" } | Sort-Object Name | Get-Help | Format-Table Name, Synopsis
 ```
 
-The following output is returned
+The SDK returns this output: 
 
 ```powershell
 Name                             Synopsis
@@ -216,13 +218,13 @@ Get-ActiveCampaigns              List Campaigns
 
 ### List Transforms
 
-Let's say that you wanted to see all the transforms available in your tenant. You can search for the cmdlet like so.
+Let's say that you wanted to see all the transforms available in your tenant. You can search for the cmdlet:
 
 ```powershell
 Get-Command -Module PSSailpoint | where-object {$_.name -like "Get-*Transform*" } | Sort-Object Name | Get-Help | Format-Table Name, Synopsis
 ```
 
-The following output is returned. All beta endpoints will be designated by the Beta prefix.
+The SDK returns this output (all beta endpoints are designated by the Beta prefix): 
 
 ```powershell
 Name               Synopsis
@@ -233,7 +235,7 @@ Get-Transform      Transform by ID
 Get-Transforms     List transforms
 ```
 
-To get syntax, description and parameters for a single cmdlet, run the following command.
+To get syntax, description and parameters for a single cmdlet, run this command:
 
 ```powershell
 Get-Help Get-Transforms -Detailed
@@ -256,49 +258,49 @@ SYNTAX
     
     
 DESCRIPTION
-    Gets a list of all saved transform objects. A token with transforms-list read authority is required to call this API.
+    Gets a list of all saved transform objects. A token with 'transforms-list read' authority is required to call this API.
     
 
 PARAMETERS
     -Offset <Nullable`1>
-        Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection 
-        Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        Offset into the full result set. Usually specified with *limit* to paginate through the results. For more information, refer to [V3 API Standard Collection 
+        Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters).
         
     -Limit <Nullable`1>
-        Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        Max number of results to return. For more information, refer to [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters).
         
     -Count <Nullable`1>
         If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a 
-        performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection 
-        Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        performance impact, it is recommended not to send **count=true** if that value will not be used. For more information, refer to [V3 API Standard Collection 
+        Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters).
         
     -Name <String>
         Name of the transform to retrieve from the list.
         
     -Filters <String>
-        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is 
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results). Filtering is 
         supported for the following fields and operators:  **internal**: *eq*  **name**: *eq, sw*
         
     -WithHttpInfo [<SwitchParameter>]
-        A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+        A switch that, when enabled, will return a hash table of Response, StatusCode and Headers, instead of just the Response.
         
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        OutBuffer, PipelineVariable, and OutVariable. For more information, refer to
         about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 ```
 </details>
 
 Running `Get-Transforms` will return a list of all transforms in your tenant.
 
-Running `Get-Transforms -Limit 10 -Filter 'name sw Test"'` will return a list of no more than 10 transforms whose name starts with `Test`
+Running `Get-Transforms -Limit 10 -Filter 'name sw Test"'` will return a list of no more than 10 transforms whose names start with `Test`.
 
 ### Paginate Results
 
 By default, your requests will return a maximum of 250 records. To return more, you must implement pagination. To learn more about pagination, refer to [Paginating Results](/idn/api/standard-collection-parameters/#paginating-results).
 
-Pagination is implemented with the SDK in the following code block on line 8.
+Pagination is implemented with the SDK in the following code block on line 8:
 
 ```powershell showLineNumbers
 $Parameters = @{
@@ -318,7 +320,7 @@ try {
 ```
 
 
-The `Invoke-Paginate` cmdlet takes a few paramters, the first is the cmdlet you wish to call.
+The `Invoke-Paginate` cmdlet takes a few paramters. The first is the cmdlet you wish to call.
 
 The `-Function` specifies the name of the cmdlet you wish to call. This only works on list endpoints.
 
@@ -326,7 +328,7 @@ The `-Increment` specifies the number of results returned in each call to the en
 
 The `-Limit` specifies the total number of results you can return, 1000.
 
-The `-Parameters` specifies a hashtable of additional values passed to the API endpoint. You would use this for `filters`, `sorters` and any other query parameters.
+The `-Parameters` specifies a hashtable of additional values passed to the API endpoint. You would use this for `filters`, `sorters`, and any other query parameters.
 
 You can also provide an `-InitialOffset` value to specify the record number to start the request on. For example, you can provide add `-InitialOffset 10` to start getting accounts from 11 instead of 0. 
 
@@ -402,18 +404,22 @@ try {
 }
 ```
 
-This example searches your IdentityNow tenant for all identities and sorts them by their `displayName` in descending order. The search returns a maximum of 150000 records, the `Limit`, and 5000 records per page, the `Increment`.
+This example searches your IdentityNow tenant for all identities and sorts them by their `displayName` in descending order. The search returns a maximum of 150000 records (the `Limit`) and 5000 records per page (the `Increment`).
 
-To paginate the search results, you can specify these parameters: -`Increment`: The number of records to return per page. -`Limit`: The maximum number of records to return per request. The default is 10000. -`Offset`: The number of the first record to return with the request. The default is 0.
+To paginate the search results, you can specify these parameters: 
+
+- `-Increment`: The number of records to return per page. 
+- `-Limit`: The maximum number of records to return per request. The default is 10000. 
+- `-Offset`: The number of the first record to return with the request. The default is 0.
 
 ### Retries
 
-The SDK supports retry logic in the case of an unexpected error. The two configuration options you have available are as follows:
+The SDK supports retry logic in the case of an unexpected error. You have these two retry configuration options:
 
 * MaximumRetryCount - How many times to retry the request. Default is 10 retries.
 * RetryIntervalSeconds - How many seconds to wait between retries. Default is 5 seconds.
 
-The following code will tell the SDK to retry 2 times after an unexpected error. It will wait 3 seconds in between retries.
+The following code will tell the SDK to retry 2 times after an unexpected error and wait 3 seconds between retries.
 
 ```powershell
 Set-DefaultConfiguration -MaximumRetryCount 2 -RetryIntervalSeconds 3

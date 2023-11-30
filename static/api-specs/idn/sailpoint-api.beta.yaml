@@ -1256,6 +1256,10 @@ paths:
     $ref: './beta/paths/mfa-config-test.yaml'
   /mfa/{method}/delete:
     $ref: './beta/paths/mfa-config-delete.yaml'
+  /mfa/okta-verify/verify:
+    $ref: './beta/paths/mfa-okta-verify.yaml'
+  /mfa/duo-web/verify:
+    $ref: './beta/paths/mfa-duo-verify.yaml'
   /mfa/{method}/poll:
     $ref: './beta/paths/mfa-poll.yaml'
   /mfa/kba/authenticate:

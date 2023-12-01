@@ -52,5 +52,5 @@ jobs:
       # push these files to AWS
       - name: Copy files to the test website with the AWS CLI
         run: |
-          aws s3 sync ./build s3://developer-sailpoint-site-developersailpointwebsite-kvgtkr2ctxdh
+          aws s3 sync ./build s3://developer-sailpoint-site-developersailpointwebsit-f5ep4vkofeu3
 

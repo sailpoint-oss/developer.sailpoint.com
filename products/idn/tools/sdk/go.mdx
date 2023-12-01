@@ -264,11 +264,11 @@ func main() {
 
 	resp, r, err := sailpoint.PaginateWithDefaults[v3.Account](apiClient.V3.AccountsApi.ListAccounts(ctx))
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountsApi.ListAccount``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `PaginateWithDefaults[v3.Account]``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `ListAccounts`: []Account
-	fmt.Fprintf(os.Stdout, "First response from `AccountsApi.ListAccount`: %v\n", resp[0].Name)
+	fmt.Fprintf(os.Stdout, "First response from `PaginateWithDefaults[v3.Account]`: %v\n", resp[0].Name)
 }
 ```
 
@@ -296,11 +296,11 @@ func main() {
 
 	resp, r, err := sailpoint.Paginate[v3.Account](apiClient.V3.AccountsApi.ListAccounts(ctx), 0, 250, 150000)
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountsApi.ListAccount``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `Paginate[v3.Account]``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `ListAccounts`: []Account
-	fmt.Fprintf(os.Stdout, "First response from `AccountsApi.ListAccount`: %v\n", resp[0].Name)
+	fmt.Fprintf(os.Stdout, "First response from `Paginate[v3.Account]`: %v\n", resp[0].Name)
 }
 ```
 
@@ -330,7 +330,7 @@ func getSearchResults(ctx context.Context, apiClient *sailpoint.APIClient) {
 	search.UnmarshalJSON(searchString)
 	resp, r, err := sailpoint.PaginateSearchApi(ctx, apiClient, *search, 0, 10, 10000)
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountsApi.ListAccount``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `PaginateSearchApi``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `search`
@@ -411,12 +411,37 @@ func main() {
 
 	resp, r, err := apiClient.V3.TransformsApi.ListTransforms(ctx).Filters("This is an incorrect string").Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountsApi.ListAccount``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TransformsApi.ListTransforms``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `ListAccounts`: []Account
-	fmt.Fprintf(os.Stdout, "First response from `AccountsApi.ListAccount`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "First response from `TransformsApi.ListTransforms`: %v\n", resp)
 
+}
+```
+
+### Error Handling
+
+The SDK returns the response object, request and error object for each method. The error object will be defined for any response status that falls out of the range of 2xx.
+
+Using an if statement we can check if there are any errors with the request and take actions on the results, such as logging the message or performing additional actions before exiting the program.
+
+```go
+resp, r, err := apiClient.V3.TransformsApi.ListTransforms(ctx).Filters("This is an incorrect string").Execute()
+if err != nil {
+	fmt.Fprintf(os.Stderr, "Error when calling `TransformsApi.ListTransforms``: %v\n", err)
+	fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+}
+```
+
+The program will continue running unless you specify to end it. Use `os.Exit(0)` within the error check to stop execution after an error is found.
+
+```go
+resp, r, err := apiClient.V3.TransformsApi.ListTransforms(ctx).Filters("This is an incorrect string").Execute()
+if err != nil {
+	fmt.Fprintf(os.Stderr, "Error when calling `TransformsApi.ListTransforms``: %v\n", err)
+	fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	os.Exit(0)
 }
 ```
 

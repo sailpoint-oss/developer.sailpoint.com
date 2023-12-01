@@ -300,6 +300,20 @@ Running `Get-Transforms` will return a list of all transforms in your tenant.
 
 Running `Get-Transforms -Limit 10 -Filter 'name sw Test"'` will return a list of no more than 10 transforms whose names start with `Test`.
 
+### WithHttpInfo Switch
+
+By default, the cmdlets return just the response from the API without including any information about status code or headers returned. Use the `-WithHttpInfo` switch to return this information with the response.
+
+```powershell
+Get-Transforms -WithHttpInfo
+
+Name                           Value
+----                           -----
+Headers                        {[Date, System.String[]], [Transfer-Encoding, System.String[]], [Connection, System.String[]], [Server, System.String[]]…}
+StatusCode                     200
+Response                       {System.Management.Automation.OrderedHashtable, System.Management.Automation.OrderedHashtable, System.Management.Automation.Ordered…
+```
+
 ### Paginate Results
 
 By default, your requests will return a maximum of 250 records. To return more, you must implement pagination. To learn more about pagination, refer to [Paginating Results](/idn/api/standard-collection-parameters/#paginating-results).
@@ -427,6 +441,41 @@ The following code will tell the SDK to retry 2 times after an unexpected error 
 
 ```powershell
 Set-DefaultConfiguration -MaximumRetryCount 2 -RetryIntervalSeconds 3
+```
+
+### Error Handling
+
+The SDK uses the Invoke-WebRequest cmdlet to handle HTTP requests. Invoke-WebRequest will throw a terminating error for any response that falls out of the range of 2xx. A non-2xx response will immediately halt the program and produce a stack trace.
+
+Using a try/catch function, you can intercept any non success response and take actions on the results, such as logging the message or performing additional actions before exiting the program.
+
+```powershell
+# Catch any non 2xx response and log the status code and error message
+try {
+    Get-Transforms -Filters "id eq" 
+}
+catch {
+    Write-Host $_.Exception.Response.StatusCode.value__
+    Write-Host $_.ErrorDetails
+}
+```
+
+Using the catch block will handle the error and the script execution will continue. If you wish to stop the scripts execution, include an `Exit` in the catch block.
+
+In the following code, the `Get-AccessProfiles` cmdlet will never be called.
+
+```powershell
+# Catch any non 2xx response and log the status code and error message. Stop the script with the Exit keyword.
+try {
+    Get-Transforms -Filters "id eq" 
+}
+catch {
+    Write-Host $_.Exception.Response.StatusCode.value__
+    Write-Host $_.ErrorDetails
+    Exit
+}
+
+Get-AccessProfiles
 ```
 
 ## Discuss

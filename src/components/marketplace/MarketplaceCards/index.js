@@ -139,7 +139,7 @@ async function getPostList(topic, user) {
     tags: topic.tags,
     image: topic.image_url,
     link:
-    discourseBaseURL() + '/t/' +
+    discourseBaseURL() + 't/' +
       topic.slug +
       '/' +
       topic.id,

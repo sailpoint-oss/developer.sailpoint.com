@@ -86,6 +86,11 @@ module.exports = {
       to: 'https://developer.sailpoint.com/discuss/',
     },
     {
+      position: 'left',
+      label: 'Video Library',
+      to: '/video-library',
+    },
+    {
       type: 'dropdown',
       label: 'Support',
       position: 'right',

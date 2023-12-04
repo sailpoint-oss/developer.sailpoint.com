@@ -13,7 +13,7 @@ tags: ['SDK', 'Software Development Kit']
 
 The SDK returns the response object, request and error object for each method. The error object will be defined for any response status that falls out of the range of 2xx.
 
-Using an if statement we can check if there are any errors with the request and take actions on the results, such as logging the message or performing additional actions before exiting the program.
+You can use an `if` statement to check whether there are any errors with the request and take actions on the results, such as logging the message or performing additional actions before exiting the program:
 
 ```go
 resp, r, err := apiClient.V3.TransformsApi.ListTransforms(ctx).Filters("This is an incorrect string").Execute()

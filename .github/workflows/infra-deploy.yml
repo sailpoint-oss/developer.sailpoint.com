@@ -1,11 +1,12 @@
-name: Build/Deploy to AWS S3 Staging
+name: Build/Deploy to AWS
 
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ['stage']
+    branches: ['main', 'stage']
     paths-ignore:
       - 'README.md'
+  pull_request:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -31,16 +32,28 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v3
         with:
           role-to-assume: arn:aws:iam::176038645705:role/github-action-role
-          role-session-name: deploy-to-staging
+          role-session-name: deploy-developer-site-infra-to-aws
           aws-region: us-east-1
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Check out repo
         uses: actions/checkout@v3
-      # Node is required for npm
-      - name: Set up Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
+      - name: setup SAM
+        uses: aws-actions/setup-sam@v2
+      - name: set env vars
+        run: |
+          if [ "${{ github.ref }}" = "refs/heads/main" ]; then
+            echo "STACK=developer-sailpoint-site" >> $GITHUB_ENV
+          elif [[ ${{ github.ref }} == refs/pull/* ]]; then
+            PR_NUMBER=$(echo ${{ github.ref }} | awk -F '/' '{print $3}')
+            echo "STACK=developer-sailpoint-site-$PR_NUMBER" >> $GITHUB_ENV
+          elif [ "${{ github.ref }}" = "refs/heads/stage" ]; then
+            echo "STACK=developer-sailpoint-site-stage" >> $GITHUB_ENV
+          fi
+      # push these files to AWS
+      - name: run SAM build
+        run: |
+          sam build
+          sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --stack-name $STACK --s3_prefix $STACK
       # Install and build Developer Community site
       - name: Build Developer Community site
         run: |
@@ -48,9 +61,11 @@ jobs:
           npm ci 
           npm run gen-api-docs-all
           npm run build
-
+      - name: Get S3 bucket location
+        run: |
+          export S3_BUCKET=$(aws cloudformation describe-stacks --stack-name $STACK --query "Stacks[0].Outputs[?OutputKey=='DeveloperSailpointWebS3BucketName'].OutputValue" --output text)
+          echo "S3_BUCKET=$S3_BUCKET" >> $GITHUB_ENV
       # push these files to AWS
       - name: Copy files to the test website with the AWS CLI
         run: |
-          aws s3 sync ./build s3://developer-sailpoint-site-developersailpointwebsit-f5ep4vkofeu3
-
+          aws s3 sync ./build s3://$S3_BUCKET

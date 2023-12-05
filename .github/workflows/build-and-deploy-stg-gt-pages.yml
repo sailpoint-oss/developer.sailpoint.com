@@ -6,7 +6,6 @@ on:
     branches: ['stage']
     paths-ignore:
       - 'README.md'
-      - '.github/**'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -19,11 +18,21 @@ concurrency:
 env:
   BASE_URL: '/'
 
+permissions:
+  id-token: write   # This is required for requesting the JWT
+  contents: read
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
+      - name: Configure AWS credentials from Test account
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          role-to-assume: arn:aws:iam::176038645705:role/github-action-role
+          role-session-name: deploy-to-staging
+          aws-region: us-east-1
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Check out repo
         uses: actions/checkout@v3
@@ -39,15 +48,9 @@ jobs:
           npm ci 
           npm run gen-api-docs-all
           npm run build
-      - name: Configure AWS credentials from Test account
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{secrets.SITE_AWS_ACCESS_KEY_ID}}
-          aws-secret-access-key: ${{secrets.SITE_AWS_SECRET_ACCESS_KEY}}
-          aws-region: us-east-1
 
       # push these files to AWS
       - name: Copy files to the test website with the AWS CLI
         run: |
-          aws s3 sync ./build s3://spt-developer
+          aws s3 sync ./build s3://developer-sailpoint-site-developersailpointwebsit-f5ep4vkofeu3
 

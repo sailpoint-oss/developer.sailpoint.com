@@ -54,10 +54,12 @@ jobs:
         run: |
           sam build
           sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --stack-name $STACK --s3-prefix $STACK
-      - name: Get S3 bucket location
+      - name: Get S3 bucket location and cloudfront url
         run: |
           export S3_BUCKET=$(aws cloudformation describe-stacks --stack-name $STACK --query "Stacks[0].Outputs[?OutputKey=='DeveloperSailpointWebS3BucketName'].OutputValue" --output text)
           echo "S3_BUCKET=$S3_BUCKET" >> $GITHUB_ENV
+          export CLOUDFRONT_URL=$(aws cloudformation describe-stacks --stack-name $STACK --query "Stacks[0].Outputs[?OutputKey=='DeveloperSailpointCloudFrontDistributionDomainName'].OutputValue" --output text)
+          echo "CLOUDFRONT_URL=$CLOUDFRONT_URL" >> $GITHUB_ENV
       # Install and build Developer Community site
       - name: Build Developer Community site
         run: |
@@ -69,3 +71,9 @@ jobs:
       - name: Copy files to the test website with the AWS CLI
         run: |
           aws s3 sync ./build s3://$S3_BUCKET
+      - name: add cloudfront url to PR
+        if: github.event_name == 'pull_request'
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+            The site preview is now available at: ${{ env.CLOUDFRONT_URL }}

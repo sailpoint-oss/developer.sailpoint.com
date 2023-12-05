@@ -74,10 +74,18 @@ jobs:
       - name: Copy files to the test website with the AWS CLI
         run: |
           aws s3 sync ./build s3://$S3_BUCKET
+      - name: Find Comment
+        uses: peter-evans/find-comment@v2
+        id: find-comment
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body-includes: Visit the preview URL for this PR
       - name: add cloudfront url to PR
         if: github.event_name == 'pull_request'
         uses: peter-evans/create-or-update-comment@v2
         with:
+          comment-id: ${{ steps.find-comment.outputs.comment-id }}
           issue-number: ${{ github.event.pull_request.number }}
           body: |
             🌎🌎🌎 Visit the preview URL for this PR [HERE](https://${{ env.CLOUDFRONT_URL }})
+          edit-mode: 'update'

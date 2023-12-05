@@ -53,7 +53,11 @@ jobs:
       - name: run SAM build
         run: |
           sam build
-          sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --stack-name $STACK --s3_prefix $STACK
+          sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --stack-name $STACK --s3-prefix $STACK
+      - name: Get S3 bucket location
+        run: |
+          export S3_BUCKET=$(aws cloudformation describe-stacks --stack-name $STACK --query "Stacks[0].Outputs[?OutputKey=='DeveloperSailpointWebS3BucketName'].OutputValue" --output text)
+          echo "S3_BUCKET=$S3_BUCKET" >> $GITHUB_ENV
       # Install and build Developer Community site
       - name: Build Developer Community site
         run: |
@@ -61,10 +65,6 @@ jobs:
           npm ci 
           npm run gen-api-docs-all
           npm run build
-      - name: Get S3 bucket location
-        run: |
-          export S3_BUCKET=$(aws cloudformation describe-stacks --stack-name $STACK --query "Stacks[0].Outputs[?OutputKey=='DeveloperSailpointWebS3BucketName'].OutputValue" --output text)
-          echo "S3_BUCKET=$S3_BUCKET" >> $GITHUB_ENV
       # push these files to AWS
       - name: Copy files to the test website with the AWS CLI
         run: |

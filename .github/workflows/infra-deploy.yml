@@ -80,4 +80,4 @@ jobs:
         with:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
-            🌎🌎🌎 Visit the preview URL for this PR [here](https://${{ env.CLOUDFRONT_URL }})🌎🌎🌎
+            🌎🌎🌎 Visit the preview URL for this PR [HERE](https://${{ env.CLOUDFRONT_URL }})

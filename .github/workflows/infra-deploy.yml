@@ -15,7 +15,7 @@ on:
 
 # Allow one concurrent deployment
 concurrency:
-  group: 'aws'
+  group: ${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) ||  github.event_name == 'push' && 'main' }}
   cancel-in-progress: true
 
 env:
@@ -80,6 +80,7 @@ jobs:
         with:
           issue-number: ${{ github.event.pull_request.number }}
           body-includes: Visit the preview URL for this PR
+        continue-on-error: true
       - name: add cloudfront url to PR
         if: github.event_name == 'pull_request'
         uses: peter-evans/create-or-update-comment@v2
@@ -89,3 +90,4 @@ jobs:
           edit-mode: replace
           body: |
             🌎🌎🌎 Visit the preview URL for this PR [HERE](https://${{ env.CLOUDFRONT_URL }})
+        continue-on-error: true

@@ -55,4 +55,8 @@ jobs:
       - name: run SAM delete
         run: |
           aws s3 rm s3://$S3_BUCKET --recursive
+          aws s3api list-object-versions --bucket $S3_BUCKET --query 'DeleteMarkers[].[Key,VersionId]' --output text > delete-markers.txt
+          while read -r key versionId; do
+            aws s3api delete-object --bucket $S3_BUCKET --key "$key" --version-id "$versionId"
+          done < delete-markers.txt
           sam delete --stack-name $STACK --no-prompts

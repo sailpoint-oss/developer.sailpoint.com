@@ -1,0 +1,91 @@
+name: Build/Deploy to AWS
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ['main', 'stage']
+    paths-ignore:
+      - 'README.md'
+  pull_request:
+    branches:
+      - main
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Allow one concurrent deployment
+concurrency:
+  group: 'aws'
+  cancel-in-progress: true
+
+env:
+  BASE_URL: '/'
+
+permissions:
+  id-token: write   # This is required for requesting the JWT
+  contents: read
+  pull-requests: write
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure AWS credentials from Test account
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          role-to-assume: arn:aws:iam::176038645705:role/github-action-role
+          role-session-name: deploy-developer-site-infra-to-aws
+          aws-region: us-east-1
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Check out repo
+        uses: actions/checkout@v3
+      - name: setup SAM
+        uses: aws-actions/setup-sam@v2
+      - name: set env vars
+        run: |
+          if [ "${{ github.ref }}" = "refs/heads/main" ]; then
+            echo "STACK=developer-sailpoint-site" >> $GITHUB_ENV
+          elif [[ ${{ github.ref }} == refs/pull/* ]]; then
+            PR_NUMBER=$(echo ${{ github.ref }} | awk -F '/' '{print $3}')
+            echo "STACK=developer-sailpoint-site-$PR_NUMBER" >> $GITHUB_ENV
+          elif [ "${{ github.ref }}" = "refs/heads/stage" ]; then
+            echo "STACK=developer-sailpoint-site-stage" >> $GITHUB_ENV
+          fi
+      # push these files to AWS
+      - name: run SAM build
+        run: |
+          sam build
+          sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --stack-name $STACK --s3-prefix $STACK
+      - name: Get S3 bucket location and cloudfront url
+        run: |
+          export S3_BUCKET=$(aws cloudformation describe-stacks --stack-name $STACK --query "Stacks[0].Outputs[?OutputKey=='DeveloperSailpointWebS3BucketName'].OutputValue" --output text)
+          echo "S3_BUCKET=$S3_BUCKET" >> $GITHUB_ENV
+          export CLOUDFRONT_URL=$(aws cloudformation describe-stacks --stack-name $STACK --query "Stacks[0].Outputs[?OutputKey=='DeveloperSailpointCloudFrontDistributionDomainName'].OutputValue" --output text)
+          echo "CLOUDFRONT_URL=$CLOUDFRONT_URL" >> $GITHUB_ENV
+      # Install and build Developer Community site
+      - name: Build Developer Community site
+        run: |
+          export NODE_OPTIONS="--max_old_space_size=4096"
+          npm ci 
+          npm run gen-api-docs-all
+          npm run build
+      # push these files to AWS
+      - name: Copy files to the test website with the AWS CLI
+        run: |
+          aws s3 sync ./build s3://$S3_BUCKET
+      - name: Find Comment
+        uses: peter-evans/find-comment@v2
+        id: find-comment
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body-includes: Visit the preview URL for this PR
+      - name: add cloudfront url to PR
+        if: github.event_name == 'pull_request'
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          comment-id: ${{ steps.find-comment.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          edit-mode: replace
+          body: |
+            🌎🌎🌎 Visit the preview URL for this PR [HERE](https://${{ env.CLOUDFRONT_URL }})

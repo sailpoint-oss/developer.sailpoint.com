@@ -34,47 +34,14 @@ get:
       $ref: "../../v3/responses/429.yaml"
     "500":
       $ref: "../../v3/responses/500.yaml"
-post:
-  operationId: createIdentityAttribute
-  tags:
-    - Identity Attributes
-  summary: Create Identity Attribute
-  description: >-
-    This creates a new identity attribute.
-  security:
-    - UserContextAuth: [ idn:identity-profile-attribute:create ]
-  requestBody:
-    required: true
-    content:
-      application/json:
-        schema:
-          $ref: "../../v3/schemas/identity-attributes/IdentityAttribute.yaml"
-  responses:
-    "201":
-      description: The identity attribute was created successfully
-      content:
-        application/json:
-          schema:
-            $ref: "../../v3/schemas/identity-attributes/IdentityAttribute.yaml"
-    "400":
-      $ref: "../../v3/responses/400.yaml"
-    "401":
-      $ref: "../../v3/responses/401.yaml"
-    "403":
-      $ref: "../../v3/responses/403.yaml"
-    "404":
-      $ref: "../../v3/responses/404.yaml"
-    "429":
-      $ref: "../../v3/responses/429.yaml"
-    "500":
-      $ref: "../../v3/responses/500.yaml"
 put:
   operationId: putIdentityAttribute
   tags:
     - Identity Attributes
   summary: Update Identity Attribute
   description: >-
-    This updates an existing identity attribute.
+    This updates an existing identity attribute. 
+    Making an attribute searchable requires that the `system`, `standard`, and `multi` properties be set to false.
   security:
     - UserContextAuth: [ idn:identity-profile-attribute:create ]
   parameters:
@@ -92,8 +59,8 @@ put:
         schema:
           $ref: "../../v3/schemas/identity-attributes/IdentityAttribute.yaml"
   responses:
-    "201":
-      description: The identity attribute was created successfully
+    "200":
+      description: The identity attribute was updated successfully
       content:
         application/json:
           schema:
@@ -116,7 +83,8 @@ delete:
     - Identity Attributes
   summary: Delete Identity Attribute
   description: >-
-    This deletes an identity attribute for a given technical name.
+    This deletes an identity attribute with the given name. 
+    The `system` and `standard` properties must be set to false before you can delete an identity attribute.
   security:
     - UserContextAuth: [ idn:identity-profile-attribute:delete ]
   parameters:

@@ -1,0 +1,23 @@
+openapi: 3.0.1
+info:
+  title: SailPoint SaaS API
+  version: 3.1.0-internal
+  description: >-
+    See authentication for these APIs here:
+    https://developer.sailpoint.com/idn/api/authentication
+tags:
+  - name: Batch Account 90 Days Usage
+    description: |
+      Internal endpoint for requesting 90 day usages data for a batch of IDN account IDs
+components:
+  securitySchemes:
+    http:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    bearerAuth:
+      $ref: "./beta/securitySchemes/OAuth2.yaml"
+
+paths:
+  /batch-account-90-days-usage:
+    $ref: "./internal/paths/batch-account-90-days-usage.yaml"

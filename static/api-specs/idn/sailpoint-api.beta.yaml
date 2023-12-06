@@ -357,6 +357,7 @@ tags:
       A governance group is a group of users that can make governance decisions about access. If your organization has the Access Request or Certifications service, you can configure governance groups to review access requests or certifications. A governance group can determine whether specific access is appropriate for a user.
 
       Refer to [Creating and Managing Governance Groups](https://documentation.sailpoint.com/saas/help/common/users/governance_groups.html) for more information about how to build Governance Groups in the visual builder in the IdentityNow UI.
+  - name: IAI Message Catalogs
   - name: IAI Access Request Recommendations
   - name: IAI Common Access
   - name: IAI Outliers
@@ -439,6 +440,8 @@ tags:
     description: Operations for accessing and managing client Clusters, including Log Configuration
   - name: MFA Configuration
     description: Configure and test multifactor authentication (MFA) methods
+  - name: MFA Controller
+    description: This API used for multifactor authentication functionality belong to gov-multi-auth service. This controller allow you to verify authentication by specified method
   - name: Non-Employee Lifecycle Management
     description: |
       Use this API to implement non-employee lifecycle management functionality.
@@ -1254,6 +1257,18 @@ paths:
     $ref: './beta/paths/mfa-config-test.yaml'
   /mfa/{method}/delete:
     $ref: './beta/paths/mfa-config-delete.yaml'
+  /mfa/okta-verify/verify:
+    $ref: './beta/paths/mfa-okta-verify.yaml'
+  /mfa/duo-web/verify:
+    $ref: './beta/paths/mfa-duo-verify.yaml'
+  /mfa/{method}/poll:
+    $ref: './beta/paths/mfa-poll.yaml'
+  /mfa/kba/authenticate:
+    $ref: './beta/paths/mfa-kba-authenticate.yaml'
+  /mfa/token/authenticate:
+    $ref: './beta/paths/mfa-token-authenticate.yaml'
+  /mfa/token/send:
+    $ref: './beta/paths/mfa-token-send.yaml'
   /notification-template-defaults:
     $ref: './beta/paths/notification-template-defaults.yaml'
   /notification-templates:

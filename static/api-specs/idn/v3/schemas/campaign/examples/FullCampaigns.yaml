@@ -9,7 +9,6 @@ value:
     emailNotificationEnabled: false
     autoRevokeAllowed: false
     recommendationsEnabled: false
-    created: 2022-08-02T20:29:51.065Z
     modified: 2022-08-02T20:29:51.331Z
     filter:
       type: CAMPAIGN_FILTER
@@ -29,14 +28,6 @@ value:
         - b15d609fc5c8434b865fe552315fda8f
       query: null
       description: null
-    alerts:
-      - level: ERROR
-        localizations:
-          - locale: en
-            localeOrigin: DEFAULT
-            text: Composite criterion must have children non-composite criterion must not.
-    totalCertifications: 0
-    completedCertifications: 0
     sourcesWithOrphanEntitlements: null
     mandatoryCommentRequirement: NO_DECISIONS
   - id: 1be8fc1103914bf0a4e14e316b6a7b7c
@@ -48,7 +39,6 @@ value:
     emailNotificationEnabled: false
     autoRevokeAllowed: false
     recommendationsEnabled: false
-    created: 2022-08-02T19:00:27.731Z
     modified: 2022-08-02T19:00:34.391Z
     filter:
       type: CAMPAIGN_FILTER
@@ -58,9 +48,6 @@ value:
     sourceOwnerCampaignInfo: null
     searchCampaignInfo: null
     roleCompositionCampaignInfo: null
-    alerts: null
-    totalCertifications: 5
-    completedCertifications: 0
     sourcesWithOrphanEntitlements: []
     mandatoryCommentRequirement: NO_DECISIONS
   - id: 7e1a731e3fb845cfbe58112ba4673ee4
@@ -72,7 +59,6 @@ value:
     emailNotificationEnabled: false
     autoRevokeAllowed: false
     recommendationsEnabled: false
-    created: 2022-07-25T15:42:18.276Z
     modified: 2022-07-25T15:42:53.718Z
     filter:
       type: CAMPAIGN_FILTER
@@ -91,9 +77,6 @@ value:
       identityIds: null
       accessConstraints: []
     roleCompositionCampaignInfo: null
-    alerts: null
-    totalCertifications: 6
-    completedCertifications: 0
     sourcesWithOrphanEntitlements: []
     mandatoryCommentRequirement: NO_DECISIONS
   - id: ad3cf3dd50394b1bad646de4bc51b999
@@ -105,7 +88,6 @@ value:
     emailNotificationEnabled: true
     autoRevokeAllowed: false
     recommendationsEnabled: false
-    created: 2022-07-27T17:04:19.027Z
     modified: 2022-07-27T17:09:13.925Z
     filter:
       type: CAMPAIGN_FILTER
@@ -117,9 +99,6 @@ value:
         - 2c91808781fd5aea01821200dc88318e
     searchCampaignInfo: null
     roleCompositionCampaignInfo: null
-    alerts: null
-    totalCertifications: 2
-    completedCertifications: 0
     sourcesWithOrphanEntitlements: []
     correlatedStatus: CORRELATED
     mandatoryCommentRequirement: NO_DECISIONS

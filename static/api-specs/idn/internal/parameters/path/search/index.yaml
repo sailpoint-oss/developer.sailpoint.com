@@ -1,0 +1,10 @@
+in: path
+name: index
+description: |
+  The index from which to fetch the specified document.
+
+  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*.
+schema:
+  type: string
+required: true
+example: accounts

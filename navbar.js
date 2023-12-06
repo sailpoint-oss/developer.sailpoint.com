@@ -40,6 +40,8 @@ module.exports = {
       items: [
         {to: '#', label: 'API Specifications', className: 'navbar__section'},
         {to: '/iiq/api', label: 'IIQ APIs', className: 'indent'},
+        {to: '#', label: 'Documentation', className: 'navbar__section'},
+        {to: 'iiq/docs', label: 'IIQ Documentation', className: 'indent'},
         {to: '#', label: 'External Links', className: 'navbar__section'},
         {
           href: 'https://documentation.sailpoint.com/#identityiq',

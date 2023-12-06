@@ -143,3 +143,40 @@ When you are mapping values like a username, focus on primary accounts from a pa
   "name": "Account Attribute Transform"
 }
 ```
+
+To determine whether an identity is a member of an entitlement.
+
+- `input` contains the condition to be evaluated (is member of an entitlement or not). If the user doesn't meet the below conditions, the `firstValid` retuns "FALSE".
+   - `sourceName` is "Active Directory" because that is the source this data is coming from.
+   - `attributeName` is "sAMAccountName" because you are mapping the username of the user.
+   - `accountPropertyFilter` is filtering accounts that are members of an entitlement that contains "All AD Users-rshwart".
+- `table` contains the boolean results: FALSE or TRUE (default).
+
+```json
+{
+    "attributes": {
+        "input": {
+            "attributes": {
+                "values": [
+                    {
+                        "attributes": {
+                            "accountPropertyFilter": "(memberOf.contains(\"All AD Users-rshwart\"))",
+                            "attributeName": "sAMAccountName",
+                            "sourceName": "Active Directory"
+                        },
+                        "type": "accountAttribute"
+                    },
+                    "FALSE"
+                ]
+            },
+            "type": "firstValid"
+        },
+        "table": {
+            "FALSE": "FALSE",
+            "default": "TRUE"
+        }
+    },
+    "id": "Contains IT Access",
+    "type": "lookup"
+}
+```

@@ -1,0 +1,34 @@
+post:
+  tags:
+    - Batch Account 90 Days Usage
+  summary: 90 days usage for accountIDs
+  description: >-
+    This API returns a account usage for the past 90 days for the requested batch of IDN account IDs
+  operationId: showBatchAccount90Days
+  security:
+    - UserContextAuth: [ idn:activity-insights:read ]
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/BatchAccount90DaysUsageRequest.yaml'
+  responses:
+    '200':
+      description: Summary of account usage insights for the requested account IDs for the past 90 days.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/BatchAccount90DaysUsageResponse.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

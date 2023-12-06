@@ -116,6 +116,9 @@ get:
 
 
         **modified**: *gt, lt, ge, le*
+
+        
+        **owner.id**: *eq, in*
       example: attribute eq "memberOf"
       required: false
       style: form

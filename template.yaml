@@ -144,7 +144,7 @@ Resources:
         ServerSideEncryptionConfiguration:
           - BucketKeyEnabled: true
       VersioningConfiguration:
-        Status: Enabled
+        Status: Disabled
   DeveloperSailpointWebSiteBucketPolicy:
     Type: "AWS::S3::BucketPolicy"
     Properties:

@@ -15,7 +15,10 @@ on:
 
 # Allow one concurrent deployment
 concurrency:
-  group: 'aws'
+  group: ${{
+    github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) ||
+    github.event_name == 'push' && 'main'
+  }}
   cancel-in-progress: true
 
 env:

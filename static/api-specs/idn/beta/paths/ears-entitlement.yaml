@@ -83,7 +83,7 @@ patch:
 
 
     The following fields are patchable:
-    **requestable**, **privileged**, **segments**, **owner**, **name**, **description**.
+    **requestable**, **privileged**, **segments**, **owner**, **name**, **description**, and **manuallyUpdatedFields**
 
 
     When you're patching owner, only owner type and owner id must be provided. Owner name is optional, and it won't be

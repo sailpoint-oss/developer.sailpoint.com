@@ -61,6 +61,3 @@ flows:
       idn:entitlement:update: Right to update entitlements
       idn:entitlement:create: Right to create entitlements
       idn:entitlement:delete: Right to delete entitlements
-      idn:attr-sync-source-config:read: Right to read attribute sync source config
-      idn:attr-sync-source-config:manage: Right to manage attribute sync source config
-

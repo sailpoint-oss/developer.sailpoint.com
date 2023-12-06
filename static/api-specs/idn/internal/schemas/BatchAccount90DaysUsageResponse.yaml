@@ -1,0 +1,27 @@
+type: object
+description: Batch Account 90 Day Usage Response
+properties:
+  accountId:
+    type: string
+    description:
+      The accountID assigned by IDN to a specific user and source combination. Globally unique across all users/sources within IDN.
+    example: '77212b6a6bf54b3a98bb5f2616665fe3'
+  usageDays:
+    type: integer
+    format: int64
+    description: >-
+      The number of days within the past 90 days that the user was a active in a source (as represented by the requested IDN accountID).
+      This value must be ignored if `usageDaysState != COMPLETE`.
+    example: 10
+  usageDaysState:
+    type: string
+    description: >-
+      Source Usage Status. Possible values are:
+        - COMPLETE
+            - This status means that an activity data source has been setup and usage insights are available for the source.
+        - UNKNOWN
+            - This status means that an activity data source has not been setup and usage insights are not available for the source.
+    example: COMPLETE
+    enum:
+      - COMPLETE
+      - UNKNOWN

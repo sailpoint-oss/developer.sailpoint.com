@@ -77,7 +77,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ['http', 'java', 'ruby', 'php', 'csharp'],
+        additionalLanguages: ['http', 'java', 'ruby', 'php', 'csharp', 'powershell', 'bash', 'go', 'python'],
       },
       mermaid: {
         options: {

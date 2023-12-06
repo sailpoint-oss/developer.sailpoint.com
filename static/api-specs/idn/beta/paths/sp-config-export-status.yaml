@@ -1,7 +1,7 @@
 get:
   operationId: getSpConfigExportStatus
-  # security:
-  #   - oauth2: [sp:config:export]
+  security:
+    - UserContextAuth: [ sp:config:read, sp:config:manage]
   tags:
     - SP-Config
   summary: Get export job status
@@ -27,7 +27,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../../beta/schemas/SpConfigJob.yaml'
+            $ref: '../../beta/schemas/SpConfigExportJobStatus.yaml'
           example:
             {
               "jobId": "1e824aa0-4c6e-4f14-95e9-e7dc5234aa51",

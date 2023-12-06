@@ -143,8 +143,6 @@ Resources:
       BucketEncryption:
         ServerSideEncryptionConfiguration:
           - BucketKeyEnabled: true
-      VersioningConfiguration:
-        Status: Suspended
   DeveloperSailpointWebSiteBucketPolicy:
     Type: "AWS::S3::BucketPolicy"
     Properties:

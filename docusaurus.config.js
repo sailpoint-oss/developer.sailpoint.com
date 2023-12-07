@@ -53,7 +53,7 @@ const config = {
       algolia: {
         appId: 'TB01H1DFAM',
         apiKey: '726952a7a9389c484b6c96808a3e0010',
-        indexName: 'prod_DEVELOPER_SAILPOINT_COM',
+        indexName: 'crawler_Developer_Documentation',
         searchPagePath: false,
         placeholder: 'Search the Developer Community',
       },

@@ -1,5 +1,0 @@
-description: Client Error - Returned if the request body is invalid.
-content:
-  application/json:
-    schema:
-      $ref: '../../internal/schemas/ErrorResponseDto.yaml'

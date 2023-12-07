@@ -56,6 +56,7 @@ const config = {
         indexName: 'crawler_Developer_Documentation',
         searchPagePath: false,
         placeholder: 'Search the Developer Community',
+        contextualSearch: false,
       },
       docs: {
         sidebar: {

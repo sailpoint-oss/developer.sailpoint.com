@@ -33,14 +33,7 @@ jobs:
         uses: aws-actions/setup-sam@v2
       - name: set env vars
         run: |
-          if [ "${{ github.ref }}" = "refs/heads/main" ]; then
-            echo "STACK=developer-sailpoint-site" >> $GITHUB_ENV
-          elif [[ ${{ github.ref }} == refs/pull/* ]]; then
-            PR_NUMBER=$(echo ${{ github.ref }} | awk -F '/' '{print $3}')
-            echo "STACK=developer-sailpoint-site-$PR_NUMBER" >> $GITHUB_ENV
-          elif [ "${{ github.ref }}" = "refs/heads/stage" ]; then
-            echo "STACK=developer-sailpoint-site-stage" >> $GITHUB_ENV
-          fi
+          echo "STACK=developer-sailpoint-site-$PR_NUMBER" >> $GITHUB_ENV
       - name: Get S3 bucket location and cloudfront url
         run: |
           export S3_BUCKET=$(aws cloudformation describe-stacks --stack-name $STACK --query "Stacks[0].Outputs[?OutputKey=='DeveloperSailpointWebS3BucketName'].OutputValue" --output text)

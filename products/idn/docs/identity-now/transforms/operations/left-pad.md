@@ -5,7 +5,7 @@ pagination_label: Left Pad
 sidebar_label: Left Pad
 sidebar_class_name: leftPad
 keywords: ['transforms', 'operations', 'left', 'pad']
-description: Convert a string into an ISO 3166 country code value.
+description: Left pad of the input string.
 slug: /docs/transforms/operations/left-pad
 tags: ['Transforms', 'Transform Operations']
 ---

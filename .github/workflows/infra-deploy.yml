@@ -90,4 +90,5 @@ jobs:
           edit-mode: replace
           body: |
             🌎🌎🌎 Visit the preview URL for this PR [HERE](https://${{ env.CLOUDFRONT_URL }})
+            built from commit ${{ github.event.pull_request.head.sha }}
         continue-on-error: true

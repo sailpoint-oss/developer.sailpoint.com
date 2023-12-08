@@ -99,7 +99,7 @@ get:
         Filtering is supported for the following fields and operators:
 
 
-        **accountActivityItemId**: *eq, in, co, ge, gt, le, lt, ne, isnull, sw*
+        **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*
       required: false
     - in: query
       name: sorters

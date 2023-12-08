@@ -20,7 +20,7 @@ get:
         Filtering is supported for the following fields and operators:
 
 
-        **email**: *eq, co, ge, le, sw*
+        **email**: *eq, ge, le, sw*
       example: email eq "john.doe@company.com"
     - in: query
       name: sorters

@@ -70,7 +70,7 @@ get:
 
         **id**: *eq, in*
 
-        **name**: *eq, in, sw, co*
+        **name**: *eq, in, sw*
       required: false
     - in: query
       name: sorters

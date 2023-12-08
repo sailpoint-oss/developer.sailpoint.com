@@ -33,7 +33,7 @@ jobs:
         uses: aws-actions/setup-sam@v2
       - name: set env vars
         run: |
-          echo "STACK=developer-sailpoint-site-$PR_NUMBER" >> $GITHUB_ENV
+          echo "STACK=developer-sailpoint-site-${{ github.event.pull_request.number }}" >> $GITHUB_ENV
       - name: Get S3 bucket location and cloudfront url
         run: |
           export S3_BUCKET=$(aws cloudformation describe-stacks --stack-name $STACK --query "Stacks[0].Outputs[?OutputKey=='DeveloperSailpointWebS3BucketName'].OutputValue" --output text)

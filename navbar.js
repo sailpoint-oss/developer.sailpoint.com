@@ -87,8 +87,8 @@ module.exports = {
     },
     {
       position: 'left',
-      label: 'Video Library',
-      to: '/video-library',
+      label: 'Videos',
+      to: '/videos',
     },
     {
       type: 'dropdown',

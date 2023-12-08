@@ -1,66 +1,67 @@
 /* Getting Started Card */
 .card {
-    position: relative;
-    margin-top: 20px;
-    height: 500px;
-    /* UI Properties */
-    background: var(--dev-card-background);
-    box-shadow: var(--dev-card-shadow);
-    border: 1px solid var(--dev-card-background);
-    border-radius: 40px;
-    opacity: 1;
-    transition: all  0.3s;
-    max-width: 400px;
-  }
-  
-  .card:hover {
-    cursor: pointer;
-    transform: translate(0px, -5px);
-    box-shadow: var(--dev-card-selected);
-  }
-  
-  .cardText {
-    display: flex;
-    flex-direction: column;
-    margin: 22px;
-    min-width: 170px;
-    margin-bottom: 75px;
-  }
-  
-  .cardImage {
-    border-radius: 4px;
-    justify-content: center;
-    aspect-ratio: 16/9;
-  }
-  
-  
-  .cardTitle {
-    margin-top: 25px;
-    padding: 10px;
-    font-size: 22px;
-    font-weight: 700;
-  }
-  
-  .cardBody {
-    font-size: 16px;
-    font-weight: 500;
-    left: 0;
-    margin-top: 5px;
-    padding: 10px;
-  }
-  
+  position: relative;
+  margin-top: 20px;
+  height: 600px;
+  /* UI Properties */
+  background: var(--dev-card-background);
+  box-shadow: var(--dev-card-shadow);
+  border: 1px solid var(--dev-card-background);
+  border-radius: 40px;
+  opacity: 1;
+  transition: all  0.3s;
+  max-width: 400px;
+}
 
-  
-  
-  
+.card:hover {
+  cursor: pointer;
+  transform: translate(0px, -5px);
+  box-shadow: var(--dev-card-selected);
+}
 
-  
-  
-  
+.cardText {
+  display: flex;
+  flex-direction: column;
+  margin: 22px;
+  min-width: 170px;
+  margin-bottom: 75px;
+}
 
-  
+.cardImage {
+  border-radius: 4px;
+  justify-content: center;
+  aspect-ratio: 16/9;
+}
 
-  
-  
-  
-  
+.cardTitle {
+  margin-top: 25px;
+  padding: 10px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.cardBody {
+  font-size: 16px;
+  font-weight: 500;
+  left: 0;
+  margin-top: 5px;
+  padding: 10px;
+}
+
+.tag {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--dev-secondary-text);
+  background-color: var(--dev-tag-highlight);
+  padding: 0px 8px;
+  margin-right: 5px;
+  margin-top: 5px;
+}
+
+.tags {
+  margin: 0px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}

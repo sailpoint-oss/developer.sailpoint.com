@@ -2,6 +2,7 @@ import React from 'react';
 import Video from '../../Video.js';
 import styles from './styles.module.css';
 import Layout from '@theme/Layout';
+import DiscourseEmbed from '../VideoComments/index.js';
 
 const VideoCardDetail = (props) => {
   const base = 'https://play.vidyard.com/';
@@ -18,6 +19,9 @@ const VideoCardDetail = (props) => {
           </div>
           <div>
             <p>{props.route.customProps.body}</p>
+          </div>
+          <div>
+            <DiscourseEmbed></DiscourseEmbed>
           </div>
         </div>
       </main>

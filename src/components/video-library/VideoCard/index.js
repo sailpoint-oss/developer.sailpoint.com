@@ -3,9 +3,6 @@ import styles from './styles.module.css';
 import Link from '@docusaurus/Link';
 
 export default function VideoCard({videoURL, thubnail, title, body, tags}) {
-  React.useEffect(() => {
-    console.log(videoURL);
-  }, []);
 
   return (
     <Link to={videoURL}>

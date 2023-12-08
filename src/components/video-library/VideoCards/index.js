@@ -23,6 +23,7 @@ export default function VideoCards() {
         {videos.map(function (a, index) {
           return (
             <VideoCard
+              key={a.uuid}
               videoURL={getVideoUrl(a.uuid)}
               thubnail={getThumbnailURL(a.uuid)}
               title={a.title}

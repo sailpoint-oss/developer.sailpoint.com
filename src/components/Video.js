@@ -9,7 +9,7 @@ export default function Video({ children, source, container = "youtube" }) {
     }}
     src={source}
     title="YouTube video player"
-    frameborder="0"
+    frameBorder="0"
     allow="accelerometer; 
   autoplay; 
   clipboard-write; 
@@ -17,12 +17,12 @@ export default function Video({ children, source, container = "youtube" }) {
   gyroscope; 
   picture-in-picture; 
   web-share"
-    allowfullscreen
+    allowFullScreen
   ></iframe>
 
 
   if (container === "vidyard") {
-    html = <iframe class="vidyard_iframe"
+    html = <iframe className="vidyard_iframe"
       style={{
         width: '100%',
         aspectRatio: '16/9',
@@ -30,9 +30,9 @@ export default function Video({ children, source, container = "youtube" }) {
       title="Authoring - Create New Sheets"
       src={source}
       scrolling="no" 
-      frameborder="0" 
+      frameBorder="0" 
       allowtransparency="true" 
-      allowfullscreen>
+      allowFullScreen>
 
       </iframe>
 

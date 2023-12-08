@@ -186,6 +186,8 @@ paths:
     $ref: "./paths/workflow_actions/update_profile_action.yaml"
   /workflow_actions/username_password_actions:
     $ref: "./paths/workflow_actions/username_password_action.yaml"
+  /workflow_actions:
+    $ref: "./paths/workflow_actions/workflow_action.yaml"
 # Workflow Sessions
   /workflow_sessions:
     $ref: "./paths/workflow_sessions.yaml"

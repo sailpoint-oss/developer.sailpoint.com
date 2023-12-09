@@ -53,9 +53,10 @@ const config = {
       algolia: {
         appId: 'TB01H1DFAM',
         apiKey: '726952a7a9389c484b6c96808a3e0010',
-        indexName: 'prod_DEVELOPER_SAILPOINT_COM',
+        indexName: 'crawler_Developer_Documentation',
         searchPagePath: false,
         placeholder: 'Search the Developer Community',
+        contextualSearch: false,
       },
       docs: {
         sidebar: {
@@ -77,7 +78,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ['http', 'java', 'ruby', 'php', 'csharp'],
+        additionalLanguages: ['http', 'java', 'ruby', 'php', 'csharp', 'powershell', 'bash', 'go', 'python'],
       },
       mermaid: {
         options: {

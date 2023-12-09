@@ -357,6 +357,7 @@ tags:
       A governance group is a group of users that can make governance decisions about access. If your organization has the Access Request or Certifications service, you can configure governance groups to review access requests or certifications. A governance group can determine whether specific access is appropriate for a user.
 
       Refer to [Creating and Managing Governance Groups](https://documentation.sailpoint.com/saas/help/common/users/governance_groups.html) for more information about how to build Governance Groups in the visual builder in the IdentityNow UI.
+  - name: IAI Message Catalogs
   - name: IAI Access Request Recommendations
   - name: IAI Common Access
   - name: IAI Outliers

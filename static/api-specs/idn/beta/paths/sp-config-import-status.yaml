@@ -1,7 +1,7 @@
 get:
   operationId: getSpConfigImportStatus
-  # security:
-  #   - oauth2: [sp:config:import]
+  security:
+    - UserContextAuth: [ sp:config:manage ]
   tags:
     - SP-Config
   summary: Get import job status
@@ -28,7 +28,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../../beta/schemas/SpConfigJob.yaml'
+            $ref: '../../beta/schemas/SpConfigImportJobStatus.yaml'
           example:
             {
               "jobId": "4fb10503-1c49-4603-8f8d-886e1f6aa47b",

@@ -40,7 +40,8 @@ put:
     - Identity Attributes
   summary: Update Identity Attribute
   description: >-
-    This updates an existing identity attribute.
+    This updates an existing identity attribute. 
+    Making an attribute searchable requires that the `system`, `standard`, and `multi` properties be set to false.
   security:
     - UserContextAuth: [ idn:identity-profile-attribute:create ]
   parameters:
@@ -58,7 +59,7 @@ put:
         schema:
           $ref: "../../v3/schemas/identity-attributes/IdentityAttribute.yaml"
   responses:
-    "202":
+    "200":
       description: The identity attribute was updated successfully
       content:
         application/json:
@@ -82,7 +83,8 @@ delete:
     - Identity Attributes
   summary: Delete Identity Attribute
   description: >-
-    This deletes an identity attribute for a given technical name.
+    This deletes an identity attribute with the given name. 
+    The `system` and `standard` properties must be set to false before you can delete an identity attribute.
   security:
     - UserContextAuth: [ idn:identity-profile-attribute:delete ]
   parameters:

@@ -108,7 +108,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: "../schemas/SpConfigJob.yaml"
+            $ref: "../schemas/SpConfigExportJob.yaml"
     "400":
       description: |
         Client Error - Returned if the request body is invalid.

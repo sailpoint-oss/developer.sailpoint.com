@@ -8,7 +8,7 @@ const DiscourseEmbed = () => {
     // };
 
      window.DiscourseEmbed = {
-      discourseUrl: 'https://developer.identitysoon.com/discuss',
+      discourseUrl: 'https://developer.identitysoon.com/discuss/',
       topicId: 627,
     };
 

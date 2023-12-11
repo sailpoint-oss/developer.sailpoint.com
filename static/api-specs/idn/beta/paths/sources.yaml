@@ -26,16 +26,16 @@ get:
         Filtering is supported for the following fields and operators:
 
 
-        **id**: *eq, in, co, ge, gt, le, lt, ne, isnull, sw*
+        **id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*
 
 
         **name**: *co, eq, in, sw, ge, gt, ne, isnull*
 
 
-        **type**: *eq, in, co, ge, gt, ne, isnull, sw*
+        **type**: *eq, in, ge, gt, ne, isnull, sw*
 
 
-        **owner.id**: *eq, in, co, ge, gt, le, lt, ne, isnull, sw*
+        **owner.id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*
 
 
         **features**: *ca, co*
@@ -47,7 +47,7 @@ get:
         **modified**: *eq*
 
 
-        **managementWorkgroup.id**: *eq, co, ge, gt, in, le, lt, ne, isnull, sw*
+        **managementWorkgroup.id**: *eq, ge, gt, in, le, lt, ne, isnull, sw*
 
 
         **description**: *eq, sw*
@@ -59,13 +59,13 @@ get:
         **healthy**: *isnull*
 
 
-        **status**: *eq, in, co, ge, gt, le, lt, ne, isnull, sw*
+        **status**: *eq, in, ge, gt, le, lt, ne, isnull, sw*
 
 
-        **connectionType**: *eq, co, ge, gt, in, le, lt, ne, isnull, sw*
+        **connectionType**: *eq, ge, gt, in, le, lt, ne, isnull, sw*
 
 
-        **connectorName**: *eq, co, ge, gt, in, ne, isnull, sw*
+        **connectorName**: *eq, ge, gt, in, ne, isnull, sw*
     - in: query
       name: sorters
       schema:

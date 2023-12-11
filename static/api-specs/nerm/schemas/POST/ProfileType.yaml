@@ -4,6 +4,11 @@ properties:
     type: string
     description: This is the name of the profile type.
     example: Worker
+  category:
+    type: string
+    enum: ['employee', 'non-employee', 'organization', 'assignment', 'other']
+    description: This is the category the profile type falls into.
+    example: employee
   bypass_dup_protection:
     type: boolean
     default: false

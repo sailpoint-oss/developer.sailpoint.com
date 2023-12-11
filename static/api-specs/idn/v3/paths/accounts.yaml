@@ -27,19 +27,19 @@ get:
         Filtering is supported for the following fields and operators:
 
 
-        **id**: *eq, in, co, ge, gt, le, lt, ne, isnull, sw*
+        **id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*
 
 
-        **identityId**: *eq, co, ge, gt, in, le, lt, ne, isnull, sw*
+        **identityId**: *eq, ge, gt, in, le, lt, ne, isnull, sw*
 
 
-        **name**: *eq, in, co, ge, gt, ne, isnull, sw*
+        **name**: *eq, in, ge, gt, ne, isnull, sw*
 
 
-        **nativeIdentity**: *eq, in, co, ge, gt, le, lt, ne, isnull, sw*
+        **nativeIdentity**: *eq, in, ge, gt, le, lt, ne, isnull, sw*
 
 
-        **sourceId**: *eq, in, co, ge, gt, le, lt, ne, isnull, sw*
+        **sourceId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*
 
 
         **uncorrelated**: *eq*

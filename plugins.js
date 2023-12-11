@@ -1,11 +1,10 @@
 const path = require('path');
 const videos = require('./static/videos/videos.json');
+const videoCardDetails = require.resolve('./src/components/video-library/videoCardDetails/index.js');
 const routes = videos.map((video) => ({
   path: video.path,
   exact: false,
-  component: require.resolve(
-    './src/components/video-library/videoCardDetails/index.js',
-  ),
+  component: videoCardDetails,
   customProps: {
     uuid: video.uuid,
     title: video.title,

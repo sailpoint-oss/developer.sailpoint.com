@@ -1,0 +1,84 @@
+/* Getting Started Card container */
+.gridContainer {
+  display: flex;
+  /* place-content: center; */
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+.gridContainer::after {
+  content: '';
+  flex: auto;
+}
+
+@media only screen and (max-width: 870px) {
+  .gridContainer {
+    place-content: center;
+  }
+  .gridContainer::after {
+    display: none;
+  }
+}
+
+.center {
+  margin: 0px auto;
+  margin-bottom: 50px;
+}
+
+.space {
+  height: 200px;
+}
+
+.noFound {
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--dev-secondary-text);
+  padding: 8px;
+  margin: 50px;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  background-color: var(--dev-popup-background);
+  max-height: 80%;
+  max-width: 90%;
+  min-height: 80%;
+  scroll-behavior: auto;
+  overflow-y: auto;
+}
+
+.cardExit {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  fill: #96a9bb;
+  /* computed from codepen https://codepen.io/sosuke/pen/Pjoqqp */
+  filter: invert(79%) sepia(12%) saturate(484%) hue-rotate(168deg)
+    brightness(84%) contrast(84%);
+  margin-left: 5px;
+  height: 24px;
+  width: 24px;
+  transition: all 0.2s;
+}
+
+.cardExit:hover {
+  top: 8px;
+  cursor: pointer;
+  height: 23px;
+  width: 23px;
+}
+
+.spinnerCenter {
+  margin: 100px auto;
+  max-width: 1300px;
+  margin-bottom: 50px;
+}

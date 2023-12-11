@@ -19,7 +19,11 @@ module.exports = {
         {to: '#', label: 'Tools', className: 'navbar__section'},
         {to: 'idn/tools/cli', label: 'CLI', className: 'indent'},
         {to: 'idn/tools/sdk', label: 'SDKs', className: 'indent'},
-        {to: 'idn/tools/rule-development-kit', label: 'Rule Development Kit', className: 'indent'},
+        {
+          to: 'idn/tools/rule-development-kit',
+          label: 'Rule Development Kit',
+          className: 'indent',
+        },
         {to: '#', label: 'External Links', className: 'navbar__section'},
         {
           href: 'https://documentation.sailpoint.com',
@@ -67,8 +71,8 @@ module.exports = {
           href: 'https://documentation.sailpoint.com',
           label: 'Product Documentation',
           className: 'indent',
-        }
-      ]
+        },
+      ],
     },
     {
       position: 'left',
@@ -84,6 +88,11 @@ module.exports = {
       position: 'left',
       label: 'Discuss',
       to: 'https://developer.sailpoint.com/discuss/',
+    },
+    {
+      position: 'left',
+      label: 'Videos',
+      to: '/videos',
     },
     {
       type: 'dropdown',

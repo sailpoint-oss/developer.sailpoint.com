@@ -462,3 +462,18 @@ div[class^='announcementBar_'] {
 div[class^='responseTabsContainer_'] {
   max-width: 590px !important;
 }
+div[class^='openapi-tabs__response-container'] {
+  max-width: 600px !important;
+}
+
+div[class^='container padding-top--md padding-bottom--lg'] {
+  max-width: 85% !important;
+}
+
+code[class^='openapi-explorer__code-block'] {
+  max-height: 400px !important;
+}
+
+iframe#webpack-dev-server-client-overlay{
+  display:none!important
+}

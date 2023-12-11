@@ -42,7 +42,7 @@ jobs:
       - name: Build Developer Community site
         run: |
           export NODE_OPTIONS="--max_old_space_size=4096"
-          npm ci 
+          npm ci --legacy-peer-deps
           npm run gen-api-docs-all
           npm run build
       - name: Deploy to GitHub Pages

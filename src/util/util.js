@@ -20,3 +20,5 @@ export function discourseProductTag() {
     return 20
   }
 }
+
+export function CMSBaseURL() { return 'https://dtdw9zosa1.execute-api.us-east-1.amazonaws.com/Prod/'}

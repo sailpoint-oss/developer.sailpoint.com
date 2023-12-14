@@ -21,4 +21,4 @@ export function discourseProductTag() {
   }
 }
 
-export function CMSBaseURL() { return 'https://dtdw9zosa1.execute-api.us-east-1.amazonaws.com/Prod/'}
+export function CMSBaseURL() { return process.env.CMS_APP_API_ENDPOINT}

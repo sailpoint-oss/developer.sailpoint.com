@@ -26,40 +26,6 @@ Resources:
         AllowMethods: "'OPTIONS, POST, GET'"
         AllowHeaders: "'Content-Type'"
         AllowOrigin: "'*'" #DO NOT USE THIS VALUE IN PRODUCTION - https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html
-
-  # This is a Lambda function config associated with the source code: get-by-id.js
-  developerSailpointGetAllItemsFunction:
-    Type: AWS::Serverless::Function
-    Properties:
-      CodeUri: backend/
-      Handler: src/handlers/get-all-items.getAllItemsHandler
-      Runtime: nodejs18.x
-      Architectures:
-        - x86_64
-      MemorySize: 128
-      Timeout: 100
-      Description: A simple example includes a HTTP get method to get all items by id from a DynamoDB table.
-      Policies:
-        # Give Create/Read/Update/Delete Permissions to the CMSTable
-        - DynamoDBCrudPolicy:
-            TableName: !Ref CMSTable
-      Environment:
-        Variables:
-          # Make table name accessible as environment variable from function code during execution
-          SAMPLE_TABLE: !Ref CMSTable
-          # Make DynamoDB endpoint accessible as environment variable from function code during execution
-          ENDPOINT_OVERRIDE: ""
-      Events:
-        Api:
-          Type: Api
-          Properties:
-            Path: /
-            Method: GET
-            RestApiId:
-              Ref: DeveloperSailpointApiGatewayApi
-  # Each Lambda function is defined by properties:
-  # https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
-
   # This is a Lambda function config associated with the source code: get-by-id.js
   developerSailpointGetByIdFunction:
     Type: AWS::Serverless::Function
@@ -92,39 +58,6 @@ Resources:
               Ref: DeveloperSailpointApiGatewayApi
   # Each Lambda function is defined by properties:
   # https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
-
-  # This is a Lambda function config associated with the source code: put-item.js
-  developerSailpointPutItemFunction:
-    Type: AWS::Serverless::Function
-    Properties:
-      CodeUri: backend/
-      Handler: src/handlers/put-item.putItemHandler
-      Runtime: nodejs18.x
-      Architectures:
-        - x86_64
-      MemorySize: 128
-      Timeout: 100
-      Description: A simple example includes a HTTP post method to add one item to a DynamoDB table.
-      Policies:
-        # Give Create/Read/Update/Delete Permissions to the CMSTable
-        - DynamoDBCrudPolicy:
-            TableName: !Ref CMSTable
-      Environment:
-        Variables:
-          SAMPLE_TABLE: !Ref CMSTable
-          # Make DynamoDB endpoint accessible as environment variable from function code during execution
-          ENDPOINT_OVERRIDE: ""
-      Events:
-        Api:
-          Type: Api
-          Properties:
-            Path: /
-            Method: POST
-            RestApiId:
-              Ref: DeveloperSailpointApiGatewayApi
-  # Simple syntax to create a DynamoDB table with a single attribute primary key, more in
-  # https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesssimpletable
-
   # DynamoDB table to store item: {id: &lt;ID&gt;, name: &lt;NAME&gt;}
   CMSTable:
     Type: AWS::Serverless::SimpleTable
@@ -133,11 +66,97 @@ Resources:
         Name: id
         Type: String
       ProvisionedThroughput:
-        ReadCapacityUnits: 2
+        ReadCapacityUnits: 20
         WriteCapacityUnits: 2
+  # S3 Bucket to host single page app website
+  DeveloperSailpointWebSiteBucket:
+    Type: "AWS::S3::Bucket"
+    Properties:
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - BucketKeyEnabled: true
+  DeveloperSailpointWebSiteBucketPolicy:
+    Type: "AWS::S3::BucketPolicy"
+    Properties:
+      Bucket: !Ref DeveloperSailpointWebSiteBucket
+      PolicyDocument:
+        Version: "2012-10-17"
+        Id: "PolicyForCloudFrontPrivateContent"
+        Statement:
+        - Sid: "AllowCloudFrontServicePrincipal"
+          Effect: "Allow"
+          Principal:
+            Service: "cloudfront.amazonaws.com"
+          Action: "s3:GetObject"
+          Resource: !Join [ "", [ "arn:aws:s3:::", !Ref DeveloperSailpointWebSiteBucket, "/*" ] ]
+          Condition:
+            StringEquals:
+              "AWS:SourceArn": !Join [ "", [ "arn:aws:cloudfront::", !Ref "AWS::AccountId", ":distribution/", !Ref DeveloperSailpointCloudFrontDistribution ] ]
 
+  # CloudFront Distribution for hosting the single page app website
+  DeveloperSailpointCloudFrontDistribution:
+    Type: "AWS::CloudFront::Distribution"
+    Properties:
+      DistributionConfig:
+        Origins:
+        - DomainName: !GetAtt DeveloperSailpointWebSiteBucket.RegionalDomainName
+          Id: "DeveloperSailpointWebS3Origin"
+          OriginAccessControlId: !GetAtt CloudFrontOriginAccessControl.Id
+          S3OriginConfig: 
+            OriginAccessIdentity: ""
+        Enabled: true
+        DefaultRootObject: "index.html"
+        HttpVersion: "http2"
+        DefaultCacheBehavior:
+          AllowedMethods:
+          - "DELETE"
+          - "GET"
+          - "HEAD"
+          - "OPTIONS"
+          - "PATCH"
+          - "POST"
+          - "PUT"
+          CachedMethods:
+          - "GET"
+          - "HEAD"
+          TargetOriginId: "DeveloperSailpointWebS3Origin"
+          ForwardedValues:
+            QueryString: false
+            Cookies:
+              Forward: "none"
+          ViewerProtocolPolicy: "allow-all"
+          MinTTL: 0
+          DefaultTTL: 3600
+          MaxTTL: 86400
+        PriceClass: "PriceClass_200"
+        Restrictions:
+          GeoRestriction:
+            RestrictionType: "whitelist"
+            Locations:
+            - "US"
+            - "CA"
+            - "GB"
+            - "DE"
+        ViewerCertificate:
+          CloudFrontDefaultCertificate: true
+  CloudFrontOriginAccessControl:
+    Type: "AWS::CloudFront::OriginAccessControl"
+    Properties:
+      OriginAccessControlConfig:
+        Name: !Sub "${AWS::StackName}-OAC"
+        OriginAccessControlOriginType: "s3"
+        SigningBehavior: "always"
+        SigningProtocol: "sigv4"
 Outputs:
   DeveloperSailpointAPIGatewayEndpoint:
     Description: "API Gateway endpoint URL for Prod stage"
     Value: !Sub "https://${DeveloperSailpointApiGatewayApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
-  
+  DeveloperSailpointCloudFrontDistributionId:
+    Description: "CloudFront Distribution ID for hosting web front end"
+    Value: !Ref DeveloperSailpointCloudFrontDistribution
+  DeveloperSailpointCloudFrontDistributionDomainName:
+    Description: "CloudFront Distribution Domain Name for accessing web front end"
+    Value: !GetAtt DeveloperSailpointCloudFrontDistribution.DomainName
+  DeveloperSailpointWebS3BucketName:
+    Description: "S3 Bucket for hosting web frontend"
+    Value: !Ref DeveloperSailpointWebSiteBucket

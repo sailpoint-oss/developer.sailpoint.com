@@ -63,7 +63,7 @@ jobs:
           echo "S3_BUCKET=$S3_BUCKET" >> $GITHUB_ENV
           export CLOUDFRONT_URL=$(aws cloudformation describe-stacks --stack-name $STACK --query "Stacks[0].Outputs[?OutputKey=='DeveloperSailpointCloudFrontDistributionDomainName'].OutputValue" --output text)
           echo "CLOUDFRONT_URL=$CLOUDFRONT_URL" >> $GITHUB_ENV
-          export API_GATEWAY_URL=$(aws cloudformation describe-stacks --stack-name $stack_name --query "Stacks[0].Outputs[?OutputKey=='DeveloperSailpointAPIGatewayEndpoint	'].OutputValue" --output text)
+          export API_GATEWAY_URL=$(aws cloudformation describe-stacks --stack-name $STACK --query "Stacks[0].Outputs[?OutputKey=='DeveloperSailpointAPIGatewayEndpoint	'].OutputValue" --output text)
           echo "API_GATEWAY_URL=$API_GATEWAY_URL" >> $GITHUB_ENV
       # Install and build Developer Community site
       - name: Build Developer Community site

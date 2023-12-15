@@ -19,13 +19,18 @@ Resources:
 
   # This is an API gateway associated with the developerSailpointGetByIdFunction and developerSailpointPutItemFunctions
   DeveloperSailpointApiGatewayApi:
-    Type: AWS::Serverless::Api
+    Type: AWS::Serverless::HttpApi
     Properties:
       StageName: Prod
-      Cors:
-        AllowMethods: "'OPTIONS, POST, GET'"
-        AllowHeaders: "'Content-Type'"
-        AllowOrigin: "'*'" #DO NOT USE THIS VALUE IN PRODUCTION - https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html
+      CorsConfiguration:
+        AllowMethods: 
+          - "OPTIONS"
+          - "GET"
+          - "POST"
+        AllowHeaders: 
+          - "Content-Type"
+        AllowOrigins:
+          - "https://developer.sailpoint.com"
   # This is a Lambda function config associated with the source code: get-by-id.js
   developerSailpointGetByIdFunction:
     Type: AWS::Serverless::Function
@@ -50,11 +55,11 @@ Resources:
           ENDPOINT_OVERRIDE: ""
       Events:
         Api:
-          Type: Api
+          Type: HttpApi
           Properties:
             Path: /{id}
             Method: GET
-            RestApiId:
+            ApiId:
               Ref: DeveloperSailpointApiGatewayApi
   # Each Lambda function is defined by properties:
   # https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction

@@ -69,7 +69,7 @@ jobs:
           echo "API_GATEWAY_ID=$API_GATEWAY_ID" >> $GITHUB_ENV
       - name: set CORS policy on API Gateway
         run: |
-          aws apigatewayv2 update-api --api-id ${{ API_GATEWAY_ID }} --cors-configuration AllowOrigins='["https://${{ CLOUDFRONT_URL }}","https://developer.sailpoint.com"]',AllowMethods='["OPTIONS","GET","POST"]',AllowHeaders='["Content-Type"]'
+          aws apigatewayv2 update-api --api-id $API_GATEWAY_ID --cors-configuration AllowOrigins='["https://${{ env.CLOUDFRONT_URL }}","https://developer.sailpoint.com"]',AllowMethods='["OPTIONS","GET","POST"]',AllowHeaders='["Content-Type"]'
 
       # Install and build Developer Community site
       - name: Build Developer Community site

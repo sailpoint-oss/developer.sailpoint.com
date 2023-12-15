@@ -160,3 +160,6 @@ Outputs:
   DeveloperSailpointWebS3BucketName:
     Description: "S3 Bucket for hosting web frontend"
     Value: !Ref DeveloperSailpointWebSiteBucket
+  ApiGatewayRestApiId:
+    Description: "API Gateway endpoint URL for Prod stage"
+    Value: !Ref DeveloperSailpointApiGatewayApi

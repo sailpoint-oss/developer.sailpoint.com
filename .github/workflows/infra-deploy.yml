@@ -65,6 +65,12 @@ jobs:
           echo "CLOUDFRONT_URL=$CLOUDFRONT_URL" >> $GITHUB_ENV
           export API_GATEWAY_URL=$(aws cloudformation describe-stacks --stack-name $STACK --query "Stacks[0].Outputs[?OutputKey=='DeveloperSailpointAPIGatewayEndpoint'].OutputValue" --output text)
           echo "API_GATEWAY_URL=$API_GATEWAY_URL" >> $GITHUB_ENV
+          export API_GATEWAY_ID=$(aws cloudformation describe-stacks --stack-name $STACK --query "Stacks[0].Outputs[?OutputKey=='ApiGatewayRestApiId'].OutputValue" --output text)
+          echo "API_GATEWAY_ID=$API_GATEWAY_ID" >> $GITHUB_ENV
+      - name: set CORS policy on API Gateway
+        run: |
+          aws apigatewayv2 update-api --api-id $API_GATEWAY_ID --cors-configuration AllowOrigins=https://$CLOUDFRONT_URL,https://developer.sailpoint.com
+
       # Install and build Developer Community site
       - name: Build Developer Community site
         run: |

@@ -23,8 +23,9 @@ env:
 
 permissions:
   id-token: write   # This is required for requesting the JWT
-  contents: read
+  contents: write
   pull-requests: write
+  pages: write
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -101,3 +102,12 @@ jobs:
             🌎🌎🌎 Visit the preview URL for this PR [HERE](https://${{ env.CLOUDFRONT_URL }})
             built from commit ${{ github.event.pull_request.head.sha }}
         continue-on-error: true
+      - name: deploy to prod
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        id: deploy_github_pages
+        uses: crazy-max/ghaction-github-pages@v3
+        with:
+          target_branch: gh-pages
+          build_dir: build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

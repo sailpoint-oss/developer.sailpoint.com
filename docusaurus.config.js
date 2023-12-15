@@ -69,9 +69,10 @@ const config = {
         respectPrefersColorScheme: true,
       },
       announcementBar: {
-        id: 'java_docs_announcement',
+        id: 'newAnnouncement3',
+        isCloseable: true,
         content:
-          'Checkout our latest announcement in the SailPoint Developer Community Forum: <a target="_blank" rel="noopener noreferrer" href="https://developer.sailpoint.com/discuss/t/the-developer-community-colab-a-new-way-to-find-build-and-collaborate-on-extensibility-solutions/18847">Announcing the Developer Community CoLab!</a> 🎉',
+          'our latest announcement in the SailPoint Developer Community Forum: <a target="_blank" rel="noopener noreferrer" href="https://developer.sailpoint.com/discuss/t/the-developer-community-colab-a-new-way-to-find-build-and-collaborate-on-extensibility-solutions/18847">Announcing the Developer Community CoLab!</a> 🎉',
       },
       navbar: navbar,
       footer: footer,

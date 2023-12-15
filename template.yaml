@@ -18,7 +18,7 @@ Resources:
   # https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 
   # This is an API gateway associated with the developerSailpointGetByIdFunction and developerSailpointPutItemFunctions
-  DeveloperSailpointApiGatewayApi:
+  DeveloperSailpointApiGatewayApiv2:
     Type: AWS::Serverless::HttpApi
     Properties:
       StageName: Prod
@@ -60,7 +60,7 @@ Resources:
             Path: /{id}
             Method: GET
             ApiId:
-              Ref: DeveloperSailpointApiGatewayApi
+              Ref: DeveloperSailpointApiGatewayApiv2
   # Each Lambda function is defined by properties:
   # https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
   # DynamoDB table to store item: {id: &lt;ID&gt;, name: &lt;NAME&gt;}
@@ -155,7 +155,7 @@ Resources:
 Outputs:
   DeveloperSailpointAPIGatewayEndpoint:
     Description: "API Gateway endpoint URL for Prod stage"
-    Value: !Sub "https://${DeveloperSailpointApiGatewayApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
+    Value: !Sub "https://${DeveloperSailpointApiGatewayApiv2}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
   DeveloperSailpointCloudFrontDistributionId:
     Description: "CloudFront Distribution ID for hosting web front end"
     Value: !Ref DeveloperSailpointCloudFrontDistribution
@@ -167,4 +167,4 @@ Outputs:
     Value: !Ref DeveloperSailpointWebSiteBucket
   ApiGatewayRestApiId:
     Description: "API Gateway endpoint URL for Prod stage"
-    Value: !Ref DeveloperSailpointApiGatewayApi
+    Value: !Ref DeveloperSailpointApiGatewayApiv2

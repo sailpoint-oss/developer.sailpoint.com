@@ -78,3 +78,17 @@ allOf:
         type: boolean
         description: Indicates if the account has entitlements
         example: true
+      identity:
+        $ref: './BaseReferenceDto.yaml'
+        description: The identity this account is correlated to
+        example:
+          id: "2c918084660f45d6016617daa9210584"
+          type: "IDENTITY"
+          name: "Adam Kennedy"
+      sourceOwner:
+        $ref: './BaseReferenceDto.yaml'
+        description: The owner of the source this account belongs to
+        example:
+          id: "4c5c8534e99445de98eef6c75e25eb01"
+          type: "IDENTITY"
+          name: "SailPoint Support"

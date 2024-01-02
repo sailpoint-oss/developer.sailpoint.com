@@ -1,6 +1,8 @@
 const path = require('path');
 const videos = require('./static/videos/videos.json');
-const videoCardDetails = require.resolve('./src/components/video-library/VideoCardDetails/index.js');
+const videoCardDetails = require.resolve(
+  './src/components/video-library/VideoCardDetails/index.js',
+);
 const routes = videos.map((video) => ({
   path: video.path,
   exact: false,
@@ -21,7 +23,12 @@ module.exports = [
       routes,
     },
   ],
-
+  [
+    'docusaurus2-dotenv',
+    {
+      path: './.env',
+    },
+  ],
   [
     '@docusaurus/plugin-google-tag-manager',
     {

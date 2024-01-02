@@ -23,8 +23,9 @@ env:
 
 permissions:
   id-token: write   # This is required for requesting the JWT
-  contents: read
+  contents: write
   pull-requests: write
+  pages: write
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -57,17 +58,26 @@ jobs:
         run: |
           sam build
           sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --stack-name $STACK --s3-prefix $STACK
-      - name: Get S3 bucket location and cloudfront url
+      - name: Get S3 bucket location, cloudfront url, and api gateway url
         run: |
           export S3_BUCKET=$(aws cloudformation describe-stacks --stack-name $STACK --query "Stacks[0].Outputs[?OutputKey=='DeveloperSailpointWebS3BucketName'].OutputValue" --output text)
           echo "S3_BUCKET=$S3_BUCKET" >> $GITHUB_ENV
           export CLOUDFRONT_URL=$(aws cloudformation describe-stacks --stack-name $STACK --query "Stacks[0].Outputs[?OutputKey=='DeveloperSailpointCloudFrontDistributionDomainName'].OutputValue" --output text)
           echo "CLOUDFRONT_URL=$CLOUDFRONT_URL" >> $GITHUB_ENV
+          export API_GATEWAY_URL=$(aws cloudformation describe-stacks --stack-name $STACK --query "Stacks[0].Outputs[?OutputKey=='DeveloperSailpointAPIGatewayEndpoint'].OutputValue" --output text)
+          echo "API_GATEWAY_URL=$API_GATEWAY_URL" >> $GITHUB_ENV
+          export API_GATEWAY_ID=$(aws cloudformation describe-stacks --stack-name $STACK --query "Stacks[0].Outputs[?OutputKey=='ApiGatewayRestApiId'].OutputValue" --output text)
+          echo "API_GATEWAY_ID=$API_GATEWAY_ID" >> $GITHUB_ENV
+      - name: set CORS policy on API Gateway
+        run: |
+          aws apigatewayv2 update-api --api-id $API_GATEWAY_ID --cors-configuration AllowOrigins='["https://${{ env.CLOUDFRONT_URL }}","https://developer.sailpoint.com"]',AllowMethods='["OPTIONS","GET","POST"]',AllowHeaders='["Content-Type"]'
+
       # Install and build Developer Community site
       - name: Build Developer Community site
         run: |
+          echo "CMS_APP_API_ENDPOINT=$API_GATEWAY_URL" >> .env
           export NODE_OPTIONS="--max_old_space_size=4096"
-          npm ci 
+          npm ci --legacy-peer-deps
           npm run gen-api-docs-all
           npm run build
       # push these files to AWS
@@ -92,3 +102,12 @@ jobs:
             🌎🌎🌎 Visit the preview URL for this PR [HERE](https://${{ env.CLOUDFRONT_URL }})
             built from commit ${{ github.event.pull_request.head.sha }}
         continue-on-error: true
+      - name: deploy to prod
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        id: deploy_github_pages
+        uses: crazy-max/ghaction-github-pages@v3
+        with:
+          target_branch: gh-pages
+          build_dir: build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

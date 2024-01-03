@@ -21,6 +21,16 @@ Resources:
   DeveloperSailpointApiGatewayApiv2:
     Type: AWS::Serverless::HttpApi
     Properties:
+      StageName: Prod
+      CorsConfiguration:
+        AllowMethods: 
+          - "OPTIONS"
+          - "GET"
+          - "POST"
+        AllowHeaders: 
+          - "Content-Type"
+        AllowOrigins:
+          - "https://developer.sailpoint.com"
       Auth:
         DefaultAuthorizer: LambdaAuthorizer
         Authorizers:
@@ -32,17 +42,6 @@ Resources:
                 - Authorization
             AuthorizerPayloadFormatVersion: 2.0
             EnableSimpleResponses: true
-    Properties:
-      StageName: Prod
-      CorsConfiguration:
-        AllowMethods: 
-          - "OPTIONS"
-          - "GET"
-          - "POST"
-        AllowHeaders: 
-          - "Content-Type"
-        AllowOrigins:
-          - "https://developer.sailpoint.com"
   DeveloperSailpointAuthFunction:
     Type: AWS::Serverless::Function
     Properties:

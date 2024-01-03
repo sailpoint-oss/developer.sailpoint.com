@@ -98,6 +98,12 @@ To submit a fix, follow these steps:
 Once you create the pull request, the SailPoint Developer Relations Team will be tagged. 
 Someone will then review the pull request and merge it in! 
 
+:::note
+
+You cannot directly make changes to the API specifications. These files are regularly pulled from a private repository and auto-generated. 
+
+:::
+
 ## Submit a new feature
 
 We will always respond to your feature requests and implement them as soon as we can. 
@@ -115,6 +121,12 @@ To submit a new feature, follow these steps:
 
 Once you create the pull request, the SailPoint Developer Relations Team will be tagged. 
 Someone will then review the pull request and merge it in! 
+
+:::note
+
+You cannot directly make changes to the API specifications. These files are regularly pulled from a private repository and auto-generated. 
+
+:::
 
 ## Report general issues 
 

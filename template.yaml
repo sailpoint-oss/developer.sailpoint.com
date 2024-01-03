@@ -21,6 +21,18 @@ Resources:
   DeveloperSailpointApiGatewayApiv2:
     Type: AWS::Serverless::HttpApi
     Properties:
+      Auth:
+        DefaultAuthorizer: LambdaAuthorizer
+        Authorizers:
+          LambdaAuthorizer:
+            FunctionArn: !GetAtt DeveloperSailpointAuthFunction.Arn
+            FunctionInvokeRole: !GetAtt DeveloperSailpointAuthFunctionRole.Arn
+            Identity:
+              Headers:
+                - Authorization
+            AuthorizerPayloadFormatVersion: 2.0
+            EnableSimpleResponses: true
+    Properties:
       StageName: Prod
       CorsConfiguration:
         AllowMethods: 
@@ -31,6 +43,20 @@ Resources:
           - "Content-Type"
         AllowOrigins:
           - "https://developer.sailpoint.com"
+  DeveloperSailpointAuthFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Environment:
+        Variables:
+          AUTH_USERNAME: !Ref AuthUsername
+          AUTH_PASSWORD: !Ref AuthPassword
+      CodeUri: backend/
+      Handler: src/handlers/auth.handler
+      Runtime: nodejs18.x
+      Architectures:
+        - x86_64
+      MemorySize: 128
+      Timeout: 100
   # This is a Lambda function config associated with the source code: get-by-id.js
   developerSailpointGetByIdFunction:
     Type: AWS::Serverless::Function
@@ -152,6 +178,13 @@ Resources:
         OriginAccessControlOriginType: "s3"
         SigningBehavior: "always"
         SigningProtocol: "sigv4"
+Parameters:
+  AuthUsername:
+    Type: String
+    Description: Username for basic auth
+  AuthPassword:
+    Type: String
+    Description: Password for basic auth
 Outputs:
   DeveloperSailpointAPIGatewayEndpoint:
     Description: "API Gateway endpoint URL for Prod stage"

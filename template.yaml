@@ -50,7 +50,7 @@ Resources:
           AUTH_USERNAME: !Ref AuthUsername
           AUTH_PASSWORD: !Ref AuthPassword
       CodeUri: backend/
-      Handler: src/auth/auth.authHandler
+      Handler: src/auth/auth.handler
       Runtime: nodejs18.x
       Architectures:
         - x86_64

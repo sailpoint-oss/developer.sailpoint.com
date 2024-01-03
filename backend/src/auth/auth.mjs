@@ -1,5 +1,5 @@
 
-export const authHandler = async (event) => {
+exports.handler = async (event) => {
     const token = event.authorizationToken;
     try {
         console.log(event)

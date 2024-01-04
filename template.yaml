@@ -34,7 +34,7 @@ Resources:
       DefaultRouteSettings:
         DetailedMetricsEnabled: true
       AccessLogSettings:
-        DestinationArn: !GetAtt ApiGatewayAccessLogs.Arn
+        DestinationArn: arn:aws:logs:us-east-1:176038645705:log-group:temp-api-gateway-logs
         Format: '{"requestId":"$context.requestId","ip":"$context.identity.sourceIp","caller":"$context.identity.caller","user":"$context.identity.user","requestTime":"$context.requestTime","httpMethod":"$context.httpMethod","resourcePath":"$context.resourcePath","status":"$context.status","protocol":"$context.protocol","responseLength":"$context.responseLength"}'
       Auth:
         DefaultAuthorizer: LambdaAuthorizer
@@ -47,11 +47,6 @@ Resources:
                 - Authorization
             AuthorizerPayloadFormatVersion: 2.0
             EnableSimpleResponses: true
-  ApiGatewayAccessLogs:
-    Type: AWS::Logs::LogGroup
-    Properties:
-      LogGroupName: !Sub "/aws/api-gateway/developer-sailpoint-site-/${DeveloperSailpointApiGatewayApiv2}"
-      RetentionInDays: 7
   DeveloperSailpointAuthFunction:
     Type: AWS::Serverless::Function
     Properties:

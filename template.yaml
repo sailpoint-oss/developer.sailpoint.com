@@ -43,7 +43,6 @@ Resources:
             Identity:
               Headers:
                 - Authorization
-            AuthorizerPayloadFormatVersion: 2.0
             EnableSimpleResponses: true
   DeveloperSailpointAuthFunction:
     Type: AWS::Serverless::Function

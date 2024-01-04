@@ -31,6 +31,11 @@ Resources:
           - "Content-Type"
         AllowOrigins:
           - "https://developer.sailpoint.com"
+      DefaultRouteSettings:
+        DetailedMetricsEnabled: true
+      AccessLogSettings:
+        DestinationArn: !GetAtt ApiGatewayAccessLogs.Arn
+        Format: '{"requestId":"$context.requestId","ip":"$context.identity.sourceIp","caller":"$context.identity.caller","user":"$context.identity.user","requestTime":"$context.requestTime","httpMethod":"$context.httpMethod","resourcePath":"$context.resourcePath","status":"$context.status","protocol":"$context.protocol","responseLength":"$context.responseLength"}'
       Auth:
         DefaultAuthorizer: LambdaAuthorizer
         Authorizers:
@@ -42,6 +47,11 @@ Resources:
                 - Authorization
             AuthorizerPayloadFormatVersion: 2.0
             EnableSimpleResponses: true
+  ApiGatewayAccessLogs:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/aws/apigateway/${DeveloperSailpointApiGatewayApiv2}"
+      RetentionInDays: 7
   DeveloperSailpointAuthFunction:
     Type: AWS::Serverless::Function
     Properties:

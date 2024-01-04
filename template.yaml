@@ -35,8 +35,8 @@ Resources:
         DefaultAuthorizer: LambdaAuthorizer
         Authorizers:
           LambdaAuthorizer:
+            FunctionPayloadType: REQUEST
             FunctionArn: !GetAtt DeveloperSailpointAuthFunction.Arn
-            FunctionInvokeRole: !GetAtt DeveloperSailpointAuthFunctionRole.Arn
             Identity:
               Headers:
                 - Authorization

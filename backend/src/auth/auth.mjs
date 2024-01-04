@@ -1,40 +1,47 @@
-
 exports.handler = async (event) => {
-    const token = event.authorizationToken;
+    const token = event.headers.Authorization;
+    
+    // Expected credentials
+    const expectedUsername = process.env.AUTH_USERNAME;
+    const expectedPassword = process.env.AUTH_PASSWORD;
+
     try {
-        console.log(event)
-        // decode and check the auth token
-        const base64Credentials = token.split(' ')[1];
-        const credentials = Buffer.from(base64Credentials, 'base64').toString('utf8');
-        const [username, password] = credentials.split(':');
-
-        // replace these with your own values
-        const expectedUsername = process.env.AUTH_USERNAME;
-        const expectedPassword = process.env.AUTH_PASSWORD;
-
+        const { username, password } = decodeAuthToken(token);
         if (username === expectedUsername && password === expectedPassword) {
-            return generatePolicy('user', 'Allow', event.methodArn);
+            return generatePolicy('user', 'Allow', event.routeArn);
         } else {
-            return generatePolicy('user', 'Deny', event.methodArn);
+            throw new Error('Unauthorized');
         }
-    } catch (e) {
-        return generatePolicy('user', 'Deny', event.methodArn);
+    } catch (err) {
+        console.log(err.message);
+        return generatePolicy('user', 'Deny', event.routeArn);
     }
 };
 
-const generatePolicy = (principalId, effect, resource) => {
-    const authResponse = {};
-    authResponse.principalId = principalId;
-    if (effect && resource) {
-        const policyDocument = {};
-        policyDocument.Version = '2012-10-17';
-        policyDocument.Statement = [];
-        const statementOne = {};
-        statementOne.Action = 'execute-api:Invoke';
-        statementOne.Effect = effect;
-        statementOne.Resource = resource;
-        policyDocument.Statement[0] = statementOne;
-        authResponse.policyDocument = policyDocument;
+function decodeAuthToken(token) {
+    if (!token || !token.startsWith('Basic ')) {
+        throw new Error('Missing or invalid Authorization header');
     }
-    return authResponse;
-};
+
+    const base64Credentials = token.split(' ')[1];
+    const credentials = Buffer.from(base64Credentials, 'base64').toString('ascii');
+    const [username, password] = credentials.split(':');
+    return { username, password };
+}
+
+function generatePolicy(principalId, effect, resource) {
+    return {
+        principalId,
+        policyDocument: {
+            Version: '2012-10-17',
+            Statement: [
+                {
+                    Action: 'execute-api:Invoke',
+                    Effect: effect,
+                    Resource: resource
+                }
+            ]
+        }
+    };
+}
+

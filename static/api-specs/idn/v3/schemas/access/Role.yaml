@@ -62,7 +62,7 @@ properties:
         nullable: true
         description: Access request configuration for this object
     revocationRequestConfig:
-        $ref: './Revocability.yaml'
+        $ref: './RevocabilityForRole.yaml'
         nullable: true
         default: null
         description: >-

@@ -33,31 +33,7 @@ Resources:
           - "https://developer.sailpoint.com"
       DefaultRouteSettings:
         DetailedMetricsEnabled: true
-      Auth:
-        DefaultAuthorizer: LambdaAuthorizer
-        Authorizers:
-          LambdaAuthorizer:
-            FunctionArn: !GetAtt DeveloperSailpointAuthFunction.Arn
-            FunctionInvokeRole: !GetAtt DeveloperSailpointAuthFunctionRole.Arn
-            Identity:
-              Headers:
-                - Authorization
-            AuthorizerPayloadFormatVersion: 2.0
-            EnableSimpleResponses: false
-  DeveloperSailpointAuthFunction:
-    Type: AWS::Serverless::Function
-    Properties:
-      Environment:
-        Variables:
-          AUTH_USERNAME: !Ref AuthUsername
-          AUTH_PASSWORD: !Ref AuthPassword
-      CodeUri: backend/
-      Handler: src/auth/auth.handler
-      Runtime: nodejs18.x
-      Architectures:
-        - x86_64
-      MemorySize: 128
-      Timeout: 100
+
   # This is a Lambda function config associated with the source code: get-by-id.js
   developerSailpointGetByIdFunction:
     Type: AWS::Serverless::Function

@@ -43,7 +43,7 @@ Resources:
               Headers:
                 - Authorization
             AuthorizerPayloadFormatVersion: 2.0
-            EnableSimpleResponses: true
+            EnableSimpleResponses: false
   DeveloperSailpointAuthFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -84,7 +84,7 @@ Resources:
         Api:
           Type: HttpApi
           Properties:
-            Path: /{id}
+            Path: /
             Method: GET
             ApiId:
               Ref: DeveloperSailpointApiGatewayApiv2

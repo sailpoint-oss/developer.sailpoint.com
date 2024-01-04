@@ -33,9 +33,6 @@ Resources:
           - "https://developer.sailpoint.com"
       DefaultRouteSettings:
         DetailedMetricsEnabled: true
-      AccessLogSettings:
-        DestinationArn: arn:aws:logs:us-east-1:176038645705:log-group:temp-api-gateway-logs
-        Format: '{"requestId":"$context.requestId","ip":"$context.identity.sourceIp","caller":"$context.identity.caller","user":"$context.identity.user","requestTime":"$context.requestTime","httpMethod":"$context.httpMethod","resourcePath":"$context.resourcePath","status":"$context.status","protocol":"$context.protocol","responseLength":"$context.responseLength"}'
       Auth:
         DefaultAuthorizer: LambdaAuthorizer
         Authorizers:

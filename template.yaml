@@ -68,6 +68,10 @@ Resources:
                 - Authorization
             AuthorizerPayloadFormatVersion: 2.0
             EnableSimpleResponses: false
+      Routes:
+        - Path: /{id}
+          Method: GET
+          AuthorizationType: NONE
   DeveloperSailpointAuthFunction:
     Type: AWS::Serverless::Function
     Properties:

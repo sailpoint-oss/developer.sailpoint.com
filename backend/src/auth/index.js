@@ -1,5 +1,6 @@
 exports.authHandler = async (event) => {
     const token = event.headers.Authorization;
+    console.log(event);
     
     // Expected credentials
     const expectedUsername = process.env.AUTH_USERNAME;

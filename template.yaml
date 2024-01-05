@@ -68,10 +68,6 @@ Resources:
                 - Authorization
             AuthorizerPayloadFormatVersion: 2.0
             EnableSimpleResponses: false
-      Routes:
-        - Path: /{id}
-          Method: GET
-          AuthorizationType: NONE
   DeveloperSailpointAuthFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -116,6 +112,8 @@ Resources:
             Method: GET
             ApiId:
               Ref: DeveloperSailpointApiGatewayApiv2
+            Auth:
+              Authorizer: NONE
   # Each Lambda function is defined by properties:
   # https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
   # DynamoDB table to store item: {id: &lt;ID&gt;, name: &lt;NAME&gt;}

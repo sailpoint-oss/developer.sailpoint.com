@@ -108,7 +108,7 @@ Resources:
         Api:
           Type: HttpApi
           Properties:
-            Path: /
+            Path: /{id}
             Method: GET
             ApiId:
               Ref: DeveloperSailpointApiGatewayApiv2

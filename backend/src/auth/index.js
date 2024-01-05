@@ -3,6 +3,7 @@ exports.authHandler = async (event) => {
     console.log(event);
     
     // Expected credentials
+    console.log(process.env.AUTH_USERNAME);
     const expectedUsername = process.env.AUTH_USERNAME;
     const expectedPassword = process.env.AUTH_PASSWORD;
 

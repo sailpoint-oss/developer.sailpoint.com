@@ -52,8 +52,8 @@ Resources:
         Variables:
           AUTH_USERNAME: !Ref AuthUsername
           AUTH_PASSWORD: !Ref AuthPassword
-      CodeUri: backend/
-      Handler: src/auth/auth.handler
+      CodeUri: backend/src/auth/
+      Handler: index.authHandler
       Runtime: nodejs18.x
       Architectures:
         - x86_64
@@ -63,8 +63,8 @@ Resources:
   developerSailpointGetByIdFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: backend/
-      Handler: src/handlers/get-by-id.getByIdHandler
+      CodeUri: backend/src/handlers/
+      Handler: get-by-id.getByIdHandler
       Runtime: nodejs18.x
       Architectures:
         - x86_64

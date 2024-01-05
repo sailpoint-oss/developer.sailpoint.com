@@ -1,4 +1,4 @@
-exports.handler = async (event) => {
+exports.authHandler = async (event) => {
     const token = event.headers.Authorization;
     
     // Expected credentials

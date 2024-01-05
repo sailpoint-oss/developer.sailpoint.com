@@ -18,6 +18,29 @@ Resources:
   # https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 
   # This is an API gateway associated with the developerSailpointGetByIdFunction and developerSailpointPutItemFunctions
+
+  MessageApiAuthRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Principal:
+              Service:
+                - "apigateway.amazonaws.com"
+            Action:
+              - sts:AssumeRole
+      Policies:
+        - PolicyName: "InvokeMessageAuthFunction"
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: "Allow"
+                Action:
+                  - lambda:InvokeAsync
+                  - lambda:InvokeFunction
+                Resource: !GetAtt DeveloperSailpointAuthFunction.Arn
   DeveloperSailpointApiGatewayApiv2:
     Type: AWS::Serverless::HttpApi
     Properties:
@@ -39,7 +62,7 @@ Resources:
           LambdaAuthorizer:
             FunctionPayloadType: REQUEST
             FunctionArn: !GetAtt DeveloperSailpointAuthFunction.Arn
-            FunctionInvokeRole: !GetAtt DeveloperSailpointAuthFunctionRole.Arn
+            FunctionInvokeRole: !GetAtt MessageApiAuthRole.Arn
             Identity:
               Headers:
                 - Authorization

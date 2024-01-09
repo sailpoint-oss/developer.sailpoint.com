@@ -2,7 +2,6 @@ summary: Identity
 value:
   id: '2c9180865c45e7e3015c46c434a80622'
   name: 'ad.admin'
-  _type: 'identity'
   firstName: 'AD'
   lastName: 'Admin'
   displayName: 'AD Admin'

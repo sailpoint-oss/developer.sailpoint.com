@@ -2,7 +2,6 @@ summary: Role
 value:
   id: '2c91808c6faadea6016fb4f2bc69077b'
   name: 'IT Role'
-  _type: 'role'
   description: 'IT role'
   created: '2020-01-17T19:20:15.040Z'
   modified: null

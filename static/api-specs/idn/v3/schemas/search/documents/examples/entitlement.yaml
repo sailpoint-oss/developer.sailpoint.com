@@ -2,7 +2,6 @@ summary: Entitlement
 value:
   id: '2c9180946ed0c43d016eec1a80892fbd'
   name: 'entitlement.aa415ae7'
-  _type: 'entitlement'
   description: 'null'
   attribute: 'groups'
   value: 'entitlement.aa415ae7'

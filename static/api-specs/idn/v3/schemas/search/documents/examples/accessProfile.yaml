@@ -2,7 +2,6 @@ summary: AccessProfile
 value:
   id: '2c9180825a6c1adc015a71c9023f0818'
   name: 'Cloud Eng'
-  _type: 'accessprofile'
   description: 'Cloud Eng'
   created: '2017-02-24T20:21:23.145Z'
   modified: '2019-05-24T20:36:04.312Z'

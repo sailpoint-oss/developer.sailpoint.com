@@ -33,10 +33,10 @@ properties:
     description: The schedule expiration date. Latest possible expiration date is '2038-01-19T03:14:07+0000'
     $ref: ../search/model/base/DateTime.yaml
   timeZoneId:
-    description: The GMT formatted timezone the schedule will run in (ex. GMT-06:00).  If no timezone is specified, the org's default timezone is used.
+    description: The canonical TZ identifier the schedule will run in (ex. America/New_York).  If no timezone is specified, the org's default timezone is used.
     nullable: true
     type: string
-    example: 'GMT-06:00'
+    example: 'America/Chicago'
 required:
 - type
 - hours

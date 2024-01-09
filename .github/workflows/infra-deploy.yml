@@ -57,7 +57,7 @@ jobs:
       - name: run SAM build
         run: |
           sam build
-          sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --stack-name $STACK --s3-prefix $STACK
+          sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --stack-name $STACK --s3-prefix $STACK --parameter-overrides ParameterKey=AuthUsername,ParameterValue='${{ secrets.AUTH_USERNAME }}' ParameterKey=AuthPassword,ParameterValue='${{ secrets.AUTH_PASSWORD }}'
       - name: Get S3 bucket location, cloudfront url, and api gateway url
         run: |
           export S3_BUCKET=$(aws cloudformation describe-stacks --stack-name $STACK --query "Stacks[0].Outputs[?OutputKey=='DeveloperSailpointWebS3BucketName'].OutputValue" --output text)

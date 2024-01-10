@@ -1,0 +1,126 @@
+.formContainer {
+  margin-top: 2%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60vh;
+  border: 0;
+  border-radius: 6px;
+  padding: 2%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  display: block;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.formheader {
+  display: flex;
+  margin-top: 2%;
+}
+
+.registrationText {
+  margin-left: 10%;
+  text-align: left;
+  margin-bottom: 2%;
+}
+
+.requiredText {
+  margin-left: 30%;
+  margin-top: 1%;
+  font-style: italic;
+  text-align: right;
+  margin-bottom: 2%;
+}
+
+form {
+  text-align: center;
+  margin: auto;
+}
+
+label {
+  font-size: x-large;
+  width: 55%;
+  text-align: left;
+  margin-left: 10%;
+  padding-top: 1%;
+}
+
+input {
+  font-size: x-large;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  border-radius: 0.25rem;
+  padding: 2%;
+  width: 80%;
+}
+
+select {
+  font-size: x-large;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0.25rem;
+  padding: 0.65rem 3rem 0.897rem 0.5rem;
+  width: 80%;
+}
+
+.submit {
+  border: none;
+  border-radius: var(--ifm-global-radius);
+  padding: 0.5rem 1.5rem;
+  margin-top: 2rem;
+  background-color: var(--ifm-color-primary-light);
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+  transition: 300ms;
+}
+
+@media only screen and (max-width: 628px) {
+  .submit {
+    margin-bottom: 2%;
+  }
+}
+
+.inputContainer {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fieldContainer {
+  display: grid;
+  /* margin-bottom: 1%; */
+}
+
+em {
+  color: #c02b0a;
+}
+
+.required {
+  color: #c02b0a;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+}
+
+.errormessage {
+  margin-top: 5%;
+}
+
+.dropdownSpacing {
+  padding-top: 3%;
+}
+

@@ -37,8 +37,8 @@ export default function Ambassador() {
         <div className={styles.imageContainer}>
           <div className={styles.spanLeft}></div>
           <img
-            className={styles.ambassadorImage}
-            src={useBaseUrl('/icons/ExpertAmbassador.svg')}></img>
+            className={styles.expertImage}
+            src={useBaseUrl('/img/AmbassadorExpert.png')}></img>
           <div className={styles.spanLeft}></div>
         </div>
         <div className={styles.ambassadorCardContainer}>

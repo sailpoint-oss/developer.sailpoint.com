@@ -8,6 +8,37 @@
   margin-top: -5.5%;
   margin-left: 75%;
 }
+
+@media only screen and (max-width: 3000px) {
+  .arrow {
+    margin-top: -5%;
+  }
+}
+
+@media only screen and (max-width: 628px) {
+  .arrow {
+    margin-top: -6.5%;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .arrow {
+    margin-top: -9%;
+  }
+}
+
+/* @media only screen and (max-height: 1500px) {
+  .arrow {
+    margin-top: -6%;
+  }
+}
+
+@media only screen and (max-height: 1100px) {
+  .arrow {
+    margin-top: -8%;
+  }
+} */
+
 .rotate {
   transform: rotateX(180deg);
 }

@@ -20,7 +20,7 @@ module.exports = [
           from: ['/conf', '/developerdays/agenda'],
         },
         {
-          to: '/develperdays',
+          to: '/developerdays',
           from: ['/devdays', '/registration'],
         },
       ],

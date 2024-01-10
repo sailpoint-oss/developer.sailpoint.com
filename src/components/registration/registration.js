@@ -22,9 +22,6 @@ export default function registration() {
           method: 'POST',
           mode: 'no-cors',
           body: JSON.stringify({email: email}),
-          headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-          },
         },
       );
       return await response.json();

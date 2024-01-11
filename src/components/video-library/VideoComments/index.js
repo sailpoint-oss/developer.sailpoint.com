@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react';
-import styles from './styles.module.css';
 
 const DiscourseEmbed = () => {
   useEffect(() => {

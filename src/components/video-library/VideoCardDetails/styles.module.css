@@ -5,7 +5,7 @@
   margin: auto;
 }
 
-#discourse-container {
+.discourse-container {
   border-radius: 0.5em;
   height: 400px;
 }

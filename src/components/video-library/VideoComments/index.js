@@ -2,11 +2,6 @@ import React, {useEffect} from 'react';
 
 const DiscourseEmbed = () => {
   useEffect(() => {
-    // window.DiscourseEmbed = {
-    //   discourseUrl: 'https://developer.sailpoint.com/discuss/',
-    //   topicId: 22376,
-    // };
-
      window.DiscourseEmbed = {
       discourseUrl: 'https://developer.identitysoon.com/discuss/',
       topicId: 627,

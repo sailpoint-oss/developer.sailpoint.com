@@ -20,7 +20,7 @@ const VideoCardDetail = (props) => {
           <div>
             <p>{props.route.customProps.body}</p>
           </div>
-          <div>
+          <div id="discourse-container">
             <DiscourseEmbed></DiscourseEmbed>
           </div>
         </div>

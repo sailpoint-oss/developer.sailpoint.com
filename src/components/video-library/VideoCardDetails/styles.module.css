@@ -5,6 +5,7 @@
   margin: auto;
 }
 
-/* iframe#discourse-embed-frame {
-  height: 200px !important;
-} */
+#discourse-container {
+  border-radius: 0.5em;
+  height: 400px;
+}

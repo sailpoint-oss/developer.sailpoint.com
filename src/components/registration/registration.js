@@ -3,7 +3,7 @@ import {useForm, FieldApi} from '@tanstack/react-form';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './registration.module.css';
 import Layout from '@theme/Layout';
-import SearchableDropdown from '../dropdown/searchabledropdown';
+import SearchableDropdown from '../dropdown/index';
 import {countries} from '../dropdown/dropdownList/countries';
 import {title} from '../dropdown/dropdownList/title';
 // import {FieldApi} from '@tanstack/react-form';
@@ -17,12 +17,15 @@ export default function registration() {
   async function getHash(email) {
     try {
       const response = await fetch(
-        'https://4gulgbmwr3.execute-api.us-east-1.amazonaws.com/hash',
+        'https://286bhgrdwd.execute-api.us-east-1.amazonaws.com/Prod/hash',
         {
           method: 'POST',
           mode: 'no-cors',
           body: JSON.stringify({email: email}),
         },
+        {
+          headers: { 'Content-Type': 'application/json', accept: '*/*'}
+        }
       );
       return await response.json();
     } catch (error) {

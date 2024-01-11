@@ -1,4 +1,4 @@
 #discourse-embed-frame {
-    height: 300px;
-    border-radius: 0.5em;
+  height: 300px important;
+  border-radius: 0.5em important;
 }

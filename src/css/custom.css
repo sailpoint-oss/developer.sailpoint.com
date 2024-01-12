@@ -489,3 +489,8 @@ iframe[id^='discourse-embed-frame'] {
   height: 300px !important;
   border-radius: 0.5em !important;
 }
+
+div[id^='discourseContainer'] {
+  border-radius: 0.5em;
+  height: 400px;
+}

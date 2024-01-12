@@ -486,6 +486,6 @@ iframe#webpack-dev-server-client-overlay {
 }
 
 iframe[id^='discourse-embed-frame'] {
-  height: 300px important;
-  border-radius: 0.5em important;
+  height: 300px !important;
+  border-radius: 0.5em !important;
 }

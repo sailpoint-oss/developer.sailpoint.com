@@ -109,7 +109,7 @@ sudo yum localinstall /path/to/rpm/package/sail_x.x.x_linux_amd64.rpm
 To configure the CLI to connect and authenticate to your IDN tenant, you must do the following:
 
 - Find your tenant name. To learn how to find it, refer to [Getting Started](/idn/api/getting-started#find-your-tenant-name). The CLI will use this tenant name to connect to your IDN instance.
-- OAuth
+- OAuth | You can use Oauht authentication immediately after install.
 - PAT | Create a personal access token (PAT). Make sure to note the "Client ID" and "Client Secret." The CLI needs this information to authenticate successfully. To learn how to create a PAT, refer to [Personal Access Tokens](/idn/api/authentication#personal-access-tokens).
 
 To configure your first environment for OAuth run the following command:

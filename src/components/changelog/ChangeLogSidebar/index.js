@@ -3,9 +3,10 @@ import styles from './styles.module.css';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Link from '@docusaurus/Link';
 import ChangeLogSidebarButton from '../../changelog/ChangeLogSidebar/ChangeLogSideBarButton';
-import changeset from '../../../../static/data/changeset.json';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+
+const changeset = require('./../../../../static/data/changeset.json');
 
 export default function ChangeLogSidebar({filterCallback}) {
   const [filterTags, setFilterTags] = React.useState(true);

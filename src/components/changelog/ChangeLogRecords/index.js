@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './styles.module.css';
 import ChangeLogRecord from '../ChangeLogRecord';
 import BounceLoader from 'react-spinners/BounceLoader';
-import changeset from '../../../../static/data/changeset.json';
+const changeset = require('./../../../../static/data/changeset.json');
 
 export default function ChangeLogRecords({filterCallback}) {
   const [cardData, setCardData] = React.useState();

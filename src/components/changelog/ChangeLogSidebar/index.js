@@ -6,7 +6,7 @@ import ChangeLogSidebarButton from '../../changelog/ChangeLogSidebar/ChangeLogSi
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-const changeset = require('./../../../../static/data/changeset.json');
+const changeset = require('./changeset.json');
 
 export default function ChangeLogSidebar({filterCallback}) {
   const [filterTags, setFilterTags] = React.useState(true);

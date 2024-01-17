@@ -5,22 +5,17 @@
   padding-left: 1%;
   padding-right: 1%;
   padding-bottom: 1%;
-  padding-top: 1%;
-  margin-top: 3%;
   position: fixed;
 }
 
 .topTagHeader {
-  padding-top: 5%;
-  margin-top: 30px;
-  font-size: 22px;
-  font-weight: 700;
+  font-size: medium;
+  font-weight: 400;
 }
 
 .tagHeader {
-  margin-top: 30px;
-  font-size: 22px;
-  font-weight: 700;
+  font-size: medium;
+  font-weight: 400;
 }
 
 .tagContainer {
@@ -60,7 +55,7 @@
 input {
   border: none;
   outline: none;
-  font-size: larger;
+  font-size: medium;
   width: 100%;
 }
 
@@ -103,7 +98,7 @@ input {
   .react-datepicker__triangle::after {
   box-sizing: content-box;
   position: absolute;
-  border: 8px solid transparent;
+  border: 4px solid transparent;
   height: 0;
   width: 1px;
   content: '';
@@ -825,9 +820,9 @@ input {
   font-size: 16px;
   font-weight: 500;
   color: var(--dev-secondary-text);
-  padding: 8px;
+  padding: 4px;
   margin-right: 5px;
-  margin-top: 5px;
+  margin-top: 3px;
   margin-bottom: 5px;
   border-style: solid;
   border-width: 1px;

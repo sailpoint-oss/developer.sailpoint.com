@@ -1,7 +1,7 @@
 .date {
   margin-top: 1%;
   margin-bottom: 1%;
-  font-size: 64px;
+  font-size: 50px;
 }
 
 .col250 {
@@ -46,14 +46,21 @@
     width: 22%;
     display: grid;
     text-align: left;
-    font-size: x-large;
+    font-size: medium;
   }
 
   .col250 {
     width: 15%;
     display: grid;
     text-align: left;
-    font-size: x-large;
+    font-size: medium;
+  }
+
+  .col2000 {
+    width: 55%;
+    display: grid;
+    text-align: left;
+    font-size: medium;
   }
 }
 

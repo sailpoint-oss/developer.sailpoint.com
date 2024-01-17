@@ -71,7 +71,7 @@ export default function ChangeLogSidebar({filterCallback}) {
   if (versionData && changeTypeData && levelData) {
     return (
       <div className={styles.sidebar}>
-        <h1>Filter Results</h1>
+        <h3>Filter Results</h3>
         <div className={styles.topTagHeader}>Version</div>
         <div className={styles.tagContainer}>
           {versions.map(function (a, index) {

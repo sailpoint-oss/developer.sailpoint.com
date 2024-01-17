@@ -6,5 +6,11 @@
 }
 
 .changeLogRecords {
-    margin: auto;
+    padding-left: 17%;
 }
+
+/* @media only screen and (max-width: 2400px) {    
+    .changeLogRecords {
+        margin-left: 25% ;
+    }
+} */

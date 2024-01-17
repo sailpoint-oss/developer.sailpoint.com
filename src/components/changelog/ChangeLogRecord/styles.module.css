@@ -41,6 +41,22 @@
   display: none;
 }
 
+@media only screen and (max-width: 1920px) {
+  .col400 {
+    width: 22%;
+    display: grid;
+    text-align: left;
+    font-size: x-large;
+  }
+
+  .col250 {
+    width: 15%;
+    display: grid;
+    text-align: left;
+    font-size: x-large;
+  }
+}
+
 @media only screen and (max-width: 1710px) {
   .tableContainer {
     display: block;

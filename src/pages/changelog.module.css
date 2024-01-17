@@ -1,0 +1,10 @@
+.changeLog {
+    font-family: Poppins !important;
+}
+.changelogContainer {
+    display:flex
+}
+
+.changeLogRecords {
+    margin: auto;
+}

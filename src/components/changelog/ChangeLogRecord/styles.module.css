@@ -1,0 +1,85 @@
+.date {
+  margin-top: 1%;
+  margin-bottom: 1%;
+  font-size: 64px;
+}
+
+.col250 {
+  width: 10%;
+  display: grid;
+  text-align: left;
+  font-size: x-large;
+}
+
+.col400 {
+  width: 17%;
+  display: grid;
+  text-align: left;
+  font-size: x-large;
+}
+
+.col2000 {
+  width: 55%;
+  display: grid;
+  text-align: left;
+  font-size: x-large;
+}
+
+.tableContainer {
+  display: flex;
+}
+
+.header {
+  font-weight: bolder;
+}
+
+.headerDesc {
+  font-weight: bolder;
+}
+
+.showonmobile {
+  display: none;
+}
+
+@media only screen and (max-width: 1710px) {
+  .tableContainer {
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .col250,
+  .col400,
+  .col2000 {
+    width: 100%;
+    display: flex;
+    text-align: left;
+    font-size: x-large;
+    padding-bottom: 1%;
+  }
+
+  .recordContainer {
+    border-style: solid;
+    border-width: 1px;
+    padding: 2%;
+  }
+
+  .hideonmobile {
+    display: none;
+  }
+
+  .showonmobile {
+    display: block;
+    padding-right: 2%;
+    width: 30%;
+  }
+
+  .header, .headerDesc {
+    display: none;
+  }
+
+  .value {
+    width: 60%
+  }
+}

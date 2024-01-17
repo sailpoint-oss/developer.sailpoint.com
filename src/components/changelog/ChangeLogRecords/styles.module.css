@@ -1,0 +1,23 @@
+
+.container {
+  margin-left: 2%;
+  width: 90%
+}
+
+.space {
+  height: 200px;
+}
+
+.noFound {
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--dev-secondary-text);
+  padding: 8px;
+  margin: 50px;
+}
+
+.spinnerCenter {
+  margin: 100px auto;
+  max-width: 1300px;
+  margin-bottom: 50px;
+}

@@ -141,7 +141,7 @@ export default function ChangeLogRecords({filterCallback}) {
     return (
       <div className={styles.noFound}>
         {' '}
-        No Blogposts Found with the Given Search Criteria
+        No results found with the given search criteria
       </div>
     );
   }

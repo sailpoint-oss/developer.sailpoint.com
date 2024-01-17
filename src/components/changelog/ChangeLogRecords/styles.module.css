@@ -21,3 +21,11 @@
   max-width: 1300px;
   margin-bottom: 50px;
 }
+
+
+@media only screen and (max-width: 900px) { 
+  .container {
+    margin: 1%;
+    width: 98%
+  }
+}

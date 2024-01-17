@@ -7,10 +7,19 @@
 
 .changeLogRecords {
     padding-left: 17%;
+    width: 100%;
+    padding-bottom: 5%;
 }
 
-/* @media only screen and (max-width: 2400px) {    
-    .changeLogRecords {
-        margin-left: 25% ;
+@media only screen and (max-width: 900px) {
+    .changelogContainer {
+        display:block
     }
-} */
+
+    .changeLogRecords {
+        padding-left: 0%;
+        padding-right: 0%;
+        width: 100%;
+    }
+}
+

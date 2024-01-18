@@ -5,6 +5,7 @@ properties:
     description: Specifies whether this configuration is used to manage provisioning requests for all sources from the org.  If true, no managedResourceRefs are allowed.
     type: boolean
     readOnly: true
+    default: false
     example: true
   managedResourceRefs:
     description: References to sources for the Service Desk integration template.  May only be specified if universalManager is false.
@@ -43,6 +44,7 @@ properties:
   noProvisioningRequests:
     description: Name of an attribute that when true disables the saving of ProvisioningRequest objects whenever plans are sent through this integration.
     type: boolean
+    default: false
     example: true
   provisioningRequestExpiration:
     description: When saving pending requests is enabled, this defines the number of hours the request is allowed to live before it is considered expired and no longer affects plan compilation.

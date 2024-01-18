@@ -1,19 +1,23 @@
 allOf:
-  - $ref: './BaseCommonDto.yaml'
   - type: object
-    description: Specification of a Service Desk integration
+    description: Service Desk integration's specification. 
     required:
+      - name
       - description
       - type
       - attributes
     properties:
+      name: 
+        description: Service Desk integration's name. The name must be unique. 
+        type: string
+        example: Service Desk Integration Name
       description:
-        description: Description of the Service Desk integration
+        description: Service Desk integration's description. 
         type: string
         example: A very nice Service Desk integration
       type:
         description: |
-          Service Desk integration types
+          Service Desk integration types:
 
           - ServiceNowSDIM
           - ServiceNow
@@ -21,28 +25,13 @@ allOf:
         default: ServiceNowSDIM
         example: ServiceNowSDIM
       ownerRef:
-        type: object
-        description: Source for Service Desk integration template. 
-        properties:
-          type:
-            type: string 
-            description: DTO type of source for service desk integration template. 
-            enum: 
-              - SOURCE
-            example: SOURCE
-          id:
-            type: string
-            description: ID of source for service desk integration template. 
-            example: 2c9180835d191a86015d28455b4b232a
-          name:
-            type: string
-            description: Human-readable name of source for service desk integration template. 
-            example: HR Active Directory
+        allOf:
+          - $ref: '../../v3/schemas/OwnerDto.yaml'
       clusterRef:
         allOf:
           - $ref: '../../v3/schemas/SourceClusterDto.yaml'
       cluster:
-        description: ID of the cluster for the Service Desk integration (replaced by clusterRef, retained for backward compatibility).
+        description: Cluster ID for the Service Desk integration (replaced by clusterRef, retained for backward compatibility).
         type: string
         example: xyzzy999
         deprecated: true
@@ -59,7 +48,7 @@ allOf:
         description: The 'provisioningConfig' property specifies the configuration used to provision integrations.
         $ref: './ProvisioningConfig.yaml'
       attributes:
-        description: Attributes of the Service Desk integration.  Validation constraints enforced by the implementation.
+        description: Service Desk integration's attributes. Validation constraints enforced by the implementation.
         type: object
         additionalProperties: true
         example: {

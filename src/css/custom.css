@@ -490,10 +490,6 @@ iframe[id^='discourse-embed-frame'] {
   border-radius: 0.5em !important;
 }
 
-iframe[id^='discourse-embed-frame'] body {
-  padding: 2% !important;
-}
-
 div[id^='discourseContainer'] {
   border-radius: 0.5em;
   height: 400px;

@@ -10,7 +10,7 @@
 .card {
   position: relative;
   margin-top: 20px;
-  min-height: 500px;
+  min-height: 560px;
   
   /* UI Properties */
   background: var(--dev-card-background);

@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 
 const DiscourseEmbed = () => {
   useEffect(() => {
-     window.DiscourseEmbed = {
+    window.DiscourseEmbed = {
       discourseUrl: 'https://developer.identitysoon.com/discuss/',
       topicId: 627,
     };
@@ -15,6 +15,13 @@ const DiscourseEmbed = () => {
     const container = document.getElementById('discourse-comments');
     if (container) {
       container.appendChild(d);
+    }
+
+    var iframe = document.getElementById('discourse-embed-frame');
+    if (iframe && iframe.contentWindow && iframe.contentWindow.document) {
+      var style = document.createElement('style');
+      style.textContent = 'html { padding: 2% }';
+      iframe.contentWindow.document.head.appendChild(style);
     }
 
     return () => {

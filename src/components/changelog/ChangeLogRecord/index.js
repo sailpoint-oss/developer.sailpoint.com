@@ -44,11 +44,32 @@ export default function ChangeLogRecord({data}) {
                     <hr className={styles.hideonmobile} />
                   </div>
                   <span className={styles.showonmobile}>Severity:</span>
-                  <span className={styles.value}>
-                    {a.attributes.level == 1 && 'info'}
-                    {a.attributes.level == 2 && 'warning'}
-                    {a.attributes.level == 3 && 'error'}
-                  </span>
+                  <div
+                    className={
+                      a.attributes.level == 1
+                        ? styles.info
+                        : a.attributes.level == 2
+                        ? styles.warning
+                        : styles.error
+                    }>
+                    <div className={styles.tooltip}>
+                      <span className={styles.value}>
+                        {a.attributes.level == 1 && 'info'}
+                        {a.attributes.level == 2 && 'warning'}
+                        {a.attributes.level == 3 && 'error'}
+                      </span>
+
+                      <span className={styles.tooltiptext}>
+                        {' '}
+                        {a.attributes.level == 1 &&
+                          'Info is something developers should be aware of but does not effect the core functionality of the code'}
+                        {a.attributes.level == 2 &&
+                          'Warnings are potential breaking changes which developers should be aware of.'}
+                        {a.attributes.level == 3 &&
+                          'Errors are categorized as a breaking change.'}{' '}
+                      </span>
+                    </div>
+                  </div>
                 </div>
                 <div className={styles.col400}>
                   <div>

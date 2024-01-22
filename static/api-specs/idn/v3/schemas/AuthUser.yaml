@@ -10,15 +10,15 @@ properties:
     example: 2c91808458ae7a4f0158b1bbf8af0628
   uid:
     type: string
-    description: Identity unique identitifier.
+    description: Identity's unique identitifier.
     example: "will.smith"
   profile:
     type: string
-    description: ID of the auth profile associated with this auth user.
+    description: ID of the auth profile associated with the auth user.
     example: 2c91808458ae7a4f0158b1bbf8af0756
   identificationNumber:
     type: string
-    description: Auth user employee number.
+    description: Auth user's employee number.
     example: "19-5588452"
   email:
     type: string
@@ -54,7 +54,7 @@ properties:
     example: will.smith
   lastPasswordChangeDate:
     type: string
-    description: the date of last password change
+    description: Date of last password change.
     example: "2021-03-08T22:37:33.901Z"
   lastLoginTimestamp:
     description: Timestamp of the last login (long type value).
@@ -67,8 +67,28 @@ properties:
     format: int64
     example: 1656327185832
   capabilities:
-    description: Array of capabilities for this auth user.
+    description: Array of the auth user's capabilities.
     type: array
     items:
       type: string
+      enum: 
+        - CERT_ADMIN
+        - CLOUD_GOV_ADMIN
+        - CLOUD_GOV_USER
+        - DASHBOARD
+        - HELPDESK
+        - ORG_ADMIN
+        - REPORT_ADMIN
+        - ROLE_ADMIN
+        - ROLE_SUBADMIN
+        - SAAS_MANAGEMENT_ADMIN
+        - SAAS_MANAGEMENT_READER
+        - SOURCE_ADMIN 
+        - SOURCE_SUBADMIN
+        - das:ui-administrator
+        - das:ui-compliance_manager
+        - das:ui-auditor
+        - das:ui-data-scope
+        - sp:aic-dashboard-read
+        - sp:aic-dashboard-write
       example: "ORG_ADMIN"

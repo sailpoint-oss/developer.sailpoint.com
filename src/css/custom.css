@@ -463,7 +463,7 @@ div[class^='announcementBar_'] {
   div[class^='announcementBar_'] {
     background: repeating-linear-gradient(145deg,rgba(0,51,161,1),rgba(0,79,181,1),rgba(0,113,206,1));
     color: #ffffff;
-    height: 70px;
+    height: 52.5px;
   }
 }
 

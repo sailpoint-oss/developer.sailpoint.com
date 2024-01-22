@@ -815,6 +815,60 @@ tags:
       Well organized, mapped out connections between sources and IdentityNow are essential to achieving comprehensive identity access governance across all the source systems organizations need. 
       Refer to [Managing Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html) for more information about all the different things admins can do with sources once they are connected. 
   - name: Tagged Objects
+    description: |
+      Use this API to implement object tagging functionality. 
+      With object tagging functionality in place, any user in an organization can use tags as a way to group objects together and find them more quickly when the user searches IdentityNow. 
+
+      In IdentityNow, users can search their tenants for information and add tags objects they find.
+      Tagging an object provides users with a way of grouping objects together and makes it easier to find these objects in the future. 
+
+      For example, if a user is searching for an entitlement that grants a risky level of access to Active Directory, it's possible that the user may have to search through hundreds of entitlements to find the correct one. 
+      Once the user finds that entitlement, the user can add a tag to the entitlement, "AD_RISKY" to make it easier to find the entitlement again.
+      The user can add the same tag to multiple objects the user wants to group together for an easy future search, and the user can also do so in bulk.
+      When the user wants to find that tagged entitlement again, the user can search for "tags:AD_RISKY" to find all objects with that tag. 
+
+      With the API, you can tag even more different object types than you can in IdentityNow (access profiles, entitlements, identities, and roles). 
+      You can use the API to tag all these objects:
+
+      - Access profiles 
+
+      - Applications 
+
+      - Certification campaigns
+
+      - Entitlements
+
+      - Identities 
+
+      - Roles 
+
+      - SOD (separation of duties) policies
+
+      - Sources 
+
+      You can also use the API to directly find, create, and manage tagged objects without using search queries. 
+
+      There are limits to tags: 
+
+      - You can have up to 500 different tags in your tenant.
+
+      - You can apply up to 30 tags to one object. 
+
+      - You can have up to 10,000 tag associations, pairings of 1 tag to 1 object, in your tenant. 
+
+      Because of these limits, it is recommended that you work with your governance experts and security teams to establish a list of tags that are most expressive of governance objects and access managed by IdentityNow. 
+
+      These are the types of information often expressed in tags: 
+
+      - Affected departments
+
+      - Compliance and regulatory categories 
+
+      - Remediation urgency levels 
+
+      - Risk levels 
+
+      Refer to [Tagging Items in Search](https://documentation.sailpoint.com/saas/help/search/index.html?h=tags#tagging-items-in-search) for more information about tagging objects in IdentityNow. 
   - name: Transforms
     description: |
       The purpose of this API is to expose functionality for the manipulation of Transform objects.

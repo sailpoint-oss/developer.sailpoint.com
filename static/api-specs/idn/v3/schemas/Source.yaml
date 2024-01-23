@@ -293,6 +293,16 @@ properties:
     type: string
     description: The connector implementation id
     example: "delimited-file"
+  created:
+    type: string
+    description: The date-time when the source was created
+    format: date-time
+    example: 2022-02-08T14:50:03.827Z
+  modified:
+    type: string
+    description: The date-time when the source was last modified
+    format: date-time
+    example: 2024-01-23T18:08:50.897Z
 required:
   - name
   - owner

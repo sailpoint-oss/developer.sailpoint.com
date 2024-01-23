@@ -12,3 +12,19 @@ allOf:
       type: integer
     tags:
       $ref: '../base/Tags.yaml'
+    segments:
+      type: array
+      items:
+        $ref: '../base/Reference.yaml'
+    segmentCount:
+      type: integer
+      format: int32
+      example: 1
+    entitlements:
+      type: array
+      items:
+        $ref: '../access/AccessProfileRole.yaml'
+    entitlementCount:
+      type: integer
+      format: int32
+      example: 3

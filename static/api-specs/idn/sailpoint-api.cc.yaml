@@ -36,7 +36,7 @@ components:
             "sp:scopes:default": "default scope"
             "sp:scopes:all": "access to all scopes"
         authorizationCode:
-          authorizationUrl: https://tenant.identitynow.com/oauth/authorize
+          authorizationUrl: https://tenant.login.sailpoint.com/oauth/authorize
           tokenUrl: https://tenant.api.identitynow.com/oauth/token
           scopes:
             "sp:scopes:default": "default scope"

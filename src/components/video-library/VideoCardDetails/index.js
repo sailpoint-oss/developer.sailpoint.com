@@ -10,22 +10,23 @@ const VideoCardDetail = (props) => {
   useEffect(() => {
     // This code would be part of your iframe's JavaScript
     window.addEventListener('message', (event) => {
-      if (event.origin !== 'https://developer.identitysoon.com') {
-        // Replace with the actual domain of the parent
-        console.log('Message not from parent! Ignoring.');
-        return; // Only accept messages from the specified origin
-      }
-
-      console.log('Received message from parent: ', event.data);
-      const data = event.data;
-
-      if (data.action === 'changeStyle') {
-        Object.keys(data.styles).forEach((key) => {
-          document.body.style[key] = data.styles[key];
-        });
+      console.log(event);
+      if (event.origin === 'https://developer.identitysoon.com') {
+        // The data that was sent from the iframe
+        console.log(event.data);
+        setIframeStyle();
       }
     });
   }, []);
+
+  const setIframeStyle = () => {
+    const iframe = document.getElementById('discourse-embed-frame');
+    if (iframe && iframe.contentWindow && iframe.contentWindow.document) {
+      const style = document.createElement('style');
+      style.textContent = 'html { padding: 2% }';
+      iframe.contentWindow.document.head.appendChild(style);
+    }
+  };
 
   return (
     <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">

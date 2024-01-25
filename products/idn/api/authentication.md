@@ -93,7 +93,7 @@ This is an example of the OAuth details of the tenant, "iga-acme-sb":
 {
   "tenantId": "cc31a307-8a8d-49e8-93b9-c7cbe20e2e6b",
   "tenantName": "iga-acme-sb",
-  "authorizeEndpoint": "https://iga-sb.acme.com/oauth/authorize",
+  "authorizeEndpoint": "https://iga-sb.acme.login.sailpoint.com/oauth/authorize",
   "tokenEndpoint": "https://iga-sb.api.identitynow.com/oauth/token",
   "cloudDomainUrl": "https://iga-sb.acme.com",
   "logoutUrl": "https://iga-sb.acme.com/logout",

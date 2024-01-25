@@ -93,7 +93,7 @@ This is an example of the OAuth details of the tenant, "iga-acme-sb":
 {
   "tenantId": "cc31a307-8a8d-49e8-93b9-c7cbe20e2e6b",
   "tenantName": "iga-acme-sb",
-  "authorizeEndpoint": "https://iga-sb.acme.com/oauth/authorize",
+  "authorizeEndpoint": "https://iga-sb.login.sailpoint.com/oauth/authorize",
   "tokenEndpoint": "https://iga-sb.api.identitynow.com/oauth/token",
   "cloudDomainUrl": "https://iga-sb.acme.com",
   "logoutUrl": "https://iga-sb.acme.com/logout",
@@ -273,7 +273,7 @@ sequenceDiagram
     participant I as IdentityNow
 
     U->>W: Click login link
-    W->>I: Authorization request to https://{tenant}.identitynow.com/oauth/authorize
+    W->>I: Authorization request to https://{tenant}.login.sailpoint.com/oauth/authorize
     I->>U: Redirect to login prompt
     U->>I: Authentication
     I->>W: Authorization code granted
@@ -290,7 +290,7 @@ This is the overall authorization flow:
 2. The web app sends an authorization request to IDN in this form:
 
 ```Text
-GET https://{tenant}.identitynow.com/oauth/authorize?client_id={client-id}&client_secret={client-secret}&response_type=code&redirect_uri={redirect-url}
+GET https://{tenant}.login.sailpoint.com/oauth/authorize?client_id={client-id}&client_secret={client-secret}&response_type=code&redirect_uri={redirect-url}
 ```
 
 3. IDN redirects the user to a login prompt to authenticate to IdentityNow.

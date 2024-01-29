@@ -72,6 +72,9 @@ paths:
     $ref: "./paths/profile_types.yaml"
   /profile_types/{id}:
     $ref: "./paths/profile_types_id.yaml"
+# Synced attributes
+  /profile_types/{profile_type_id}/synced_attributes:
+    $ref: "./paths/synced_attributes.yaml"
 # Profile Type Roles
   /profile_type_roles:
     $ref: "./paths/profile_type_roles.yaml" 

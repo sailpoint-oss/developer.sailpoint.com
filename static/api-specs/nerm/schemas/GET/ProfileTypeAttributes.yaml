@@ -1,0 +1,11 @@
+type: object
+properties:
+  count:
+    type: integer
+    format: int32
+    description: How many ne attribute records exist
+    example: 5
+  records:
+    type: array
+    items:
+      $ref: './ProfileTypeAttribute.yaml'

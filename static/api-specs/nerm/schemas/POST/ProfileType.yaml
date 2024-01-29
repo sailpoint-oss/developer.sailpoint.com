@@ -26,6 +26,11 @@ properties:
       format: uuid
     description: The role ids that are permitted for this profile type.
     example: ['33f072dd-13b4-41e1-8ea0-16f2a59b57c8']
+  isc_synced:
+    type: boolean
+    default: false
+    description: Is this profile type synced with ics
+    example: false
   profile_type_dup_attributes:
     type: array
     items: 

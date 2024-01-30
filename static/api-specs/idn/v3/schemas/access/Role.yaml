@@ -34,6 +34,11 @@ properties:
         items:
             $ref: './AccessProfileRef.yaml'
         nullable: true
+    Entitlements:
+        type: array
+        items:
+            $ref: './EntitlementRef.yaml'
+        nullable: true
     membership:
         $ref: './RoleMembershipSelector.yaml'
         nullable: true

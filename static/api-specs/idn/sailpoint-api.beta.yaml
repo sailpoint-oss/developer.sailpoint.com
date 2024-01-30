@@ -1465,6 +1465,8 @@ paths:
     $ref: './beta/paths/role-bulk-delete.yaml'
   /roles/{id}/assigned-identities:
     $ref: './beta/paths/role-assigned-identities.yaml'
+  /roles/{id}/entitlements:
+    $ref: './beta/paths/role-entitlements.yaml'
   /segments:
     $ref: './beta/paths/segments.yaml'
   /segments/{id}:

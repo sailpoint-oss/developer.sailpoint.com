@@ -467,6 +467,14 @@ div[class^='announcementBar_'] {
   }
 }
 
+@media screen and (max-width: 450px) {
+  div[class^='announcementBar_'] {
+    background: repeating-linear-gradient(145deg,rgba(0,51,161,1),rgba(0,79,181,1),rgba(0,113,206,1));
+    color: #ffffff;
+    height: 79.5px;
+  }
+}
+
 div[class^='responseTabsContainer_'] {
   max-width: 590px !important;
 }

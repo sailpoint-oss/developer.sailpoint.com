@@ -72,6 +72,11 @@ module.exports = {
     },
     {
       position: 'left',
+      label: 'CoLab',
+      to: '/colab',
+    },
+    {
+      position: 'left',
       label: 'Blog',
       to: '/blog',
     },

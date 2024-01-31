@@ -56,17 +56,24 @@ export default function MarketplaceSidebar({
   }
 
   function uppercaseText(text) {
-    if (text === 'identitynow') {
-      return 'IdentityNow'
-    }
-    if (text === 'identityiq') {
-      return 'IdentityIQ'
-    }
-    if (text === 'nerm') {
-      return 'NERM'
-    }
+  switch (text) {
+    case "identitynow":
+      return "IdentityNow";
 
+    case "identityiq":
+      return "IdentityIQ";
+
+    case "nerm":
+      return "NERM";
+
+    default:
+      return text
+        .split("-")
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ");
   }
+}
+
   
 
   React.useEffect(() => {

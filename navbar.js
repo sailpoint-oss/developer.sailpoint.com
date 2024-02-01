@@ -71,14 +71,14 @@ module.exports = {
       ]
     },
     {
+      type: 'dropdown',
+      label: 'Community Programs',
       position: 'left',
-      label: 'CoLab',
-      to: '/colab',
-    },
-    {
-      position: 'left',
-      label: 'Blog',
-      to: '/blog',
+      items: [
+        {to: '/colab', label: 'CoLab', className: 'indent'},
+        {to: '/blog', label: 'Blog', className: 'indent'},
+        {to: '/ambassadors', label: 'Ambassador Program', className: 'indent'},
+      ]
     },
     {
       position: 'left',

@@ -8,6 +8,24 @@ module.exports = {
   items: [
     {
       type: 'dropdown',
+      label: 'Community',
+      position: 'left',
+      items: [
+        {to: '#', label: 'Forum', className: 'navbar__section'},
+        {
+          to: 'https://developer.sailpoint.com/discuss/',
+          label: 'Discuss',
+          className: 'indent',
+        },
+        {to: '#', label: 'Programs', className: 'navbar__section'},
+        {to: '/colab', label: 'CoLab', className: 'indent'},
+        {to: '/blog', label: 'Blog', className: 'indent'},
+        {to: '/ambassadors', label: 'Ambassador Program', className: 'indent'},
+        {to: 'https://ideas.sailpoint.com', label: 'Ideas', className: 'indent'}
+      ],
+    },
+    {
+      type: 'dropdown',
       label: 'IdentityNow',
       position: 'left',
       items: [
@@ -19,7 +37,11 @@ module.exports = {
         {to: '#', label: 'Tools', className: 'navbar__section'},
         {to: 'idn/tools/cli', label: 'CLI', className: 'indent'},
         {to: 'idn/tools/sdk', label: 'SDKs', className: 'indent'},
-        {to: 'idn/tools/rule-development-kit', label: 'Rule Development Kit', className: 'indent'},
+        {
+          to: 'idn/tools/rule-development-kit',
+          label: 'Rule Development Kit',
+          className: 'indent',
+        },
         {to: '#', label: 'External Links', className: 'navbar__section'},
         {
           href: 'https://documentation.sailpoint.com',
@@ -67,28 +89,8 @@ module.exports = {
           href: 'https://documentation.sailpoint.com',
           label: 'Product Documentation',
           className: 'indent',
-        }
-      ]
-    },
-    {
-      type: 'dropdown',
-      label: 'Community Programs',
-      position: 'left',
-      items: [
-        {to: '/colab', label: 'CoLab', className: 'indent'},
-        {to: '/blog', label: 'Blog', className: 'indent'},
-        {to: '/ambassadors', label: 'Ambassador Program', className: 'indent'},
-      ]
-    },
-    {
-      position: 'left',
-      label: 'Ideas',
-      to: 'https://ideas.sailpoint.com',
-    },
-    {
-      position: 'left',
-      label: 'Discuss',
-      to: 'https://developer.sailpoint.com/discuss/',
+        },
+      ],
     },
     {
       type: 'dropdown',

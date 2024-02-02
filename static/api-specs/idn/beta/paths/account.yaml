@@ -4,7 +4,7 @@ get:
     - Accounts
   summary: Account Details
   description: >-
-    This API returns the details for a single account based on the ID.  
+    Use this API to return the details for a single account by its ID.  
 
     A token with ORG_ADMIN authority is required to call this API.
   security:
@@ -15,11 +15,11 @@ get:
       schema:
         type: string
       required: true
-      description: The account ID
+      description: Account ID.
       example: ef38f94347e94562b5bb8424a56397d8
   responses:
     "200":
-      description: An account object
+      description: Account object.
       content:
         application/json:
           schema:
@@ -42,7 +42,9 @@ patch:
     - Accounts
   summary: Update Account
   description: >-
-    This updates account details.  
+    Use this endpoint to update an account with a PATCH request. 
+
+    The request must provide a JSONPatch payload.
 
     A token with ORG_ADMIN authority is required to call this API.
   security:
@@ -53,7 +55,7 @@ patch:
       schema:
         type: string
       required: true
-      description: The account ID
+      description: Account ID.
       example: ef38f94347e94562b5bb8424a56397d8
   requestBody:
     required: true
@@ -92,9 +94,13 @@ put:
     - Accounts
   summary: Update Account
   description: >-
-    This API submits an account update task and returns the task ID.  
+    Use this API to update an account with a PUT request. 
+    
+    This endpoint submits an account update task and returns the task ID.  
 
     A token with ORG_ADMIN authority is required to call this API.
+
+    >**NOTE: You can only use this PUT endpoint to update accounts from sources of the "DelimitedFile" type.**
   security:
     - UserContextAuth: [idn:accounts:manage]
   parameters:
@@ -103,7 +109,7 @@ put:
       schema:
         type: string
       required: true
-      description: The account ID
+      description: Account ID.
       example: ef38f94347e94562b5bb8424a56397d8
   requestBody:
     required: true
@@ -113,7 +119,7 @@ put:
           $ref: "../schemas/AccountAttributes.yaml"
   responses:
     "202":
-      description: Async task details
+      description: Async task details.
       content:
         application/json:
           schema:
@@ -136,9 +142,13 @@ delete:
     - Accounts
   summary: Delete Account
   description: >-
-    This API submits an account delete task and returns the task ID.  
+    Use this API to delete an account. 
+
+    This endpoint submits an account delete task and returns the task ID. 
 
     A token with ORG_ADMIN authority is required to call this API.
+
+    >**NOTE:** You can only delete accounts from sources of the "DelimitedFile" type.**
   security:
     - UserContextAuth: [idn:accounts:manage]
   parameters:
@@ -147,11 +157,11 @@ delete:
       schema:
         type: string
       required: true
-      description: The account ID
+      description: Account ID.
       example: ef38f94347e94562b5bb8424a56397d8
   responses:
     "202":
-      description: Async task details
+      description: Async task details.
       content:
         application/json:
           schema:

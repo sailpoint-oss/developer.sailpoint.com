@@ -75,7 +75,6 @@ properties:
         - CERT_ADMIN
         - CLOUD_GOV_ADMIN
         - CLOUD_GOV_USER
-        - DASHBOARD
         - HELPDESK
         - ORG_ADMIN
         - REPORT_ADMIN

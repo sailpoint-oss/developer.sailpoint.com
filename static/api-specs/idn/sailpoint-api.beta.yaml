@@ -96,6 +96,12 @@ tags:
       They can use the My Requests tab under Request Center to track and/or cancel the requests.
 
       Refer to [Requesting Access](https://documentation.sailpoint.com/saas/user-help/requests/requesting_access.html) for more information about access requests.
+  - name: Access Request Identity Metrics
+    description: |
+      Use this API to implement access request identity metrics functionality.
+      With this functionality in place, access request reviewers can see relevant details about the requested access item and associated source activity. 
+      This allows reviewers to see how many of the identities who share a manager with the access requester have this same type of access and how many of them have had activity in the related source. 
+      This additional context about whether the access has been granted before and how often it has been used can help those approving access requests make more informed decisions.
   - name: Account Activities
     description: |
       Use this API to implement account activity tracking functionality.
@@ -1697,3 +1703,5 @@ paths:
     $ref: "./beta/paths/source-usages.yaml"
   /account-usages/{accountId}/summaries:
     $ref: "./beta/paths/account-usages.yaml"
+  /access-request-identity-metrics/{identityId}/requested-objects/{requestedObjectId}/type/{type}:
+    $ref: "./beta/paths/access-request-identity-metrics.yaml"

@@ -1,0 +1,25 @@
+name: Run Checkmarx SAST Script
+
+on:
+  workflow_dispatch
+
+jobs:
+  run_script:
+    runs-on: self-hosted, oss-runner
+
+    permissions:
+      contents: read # for actions/checkout to fetch code
+      security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
+
+    steps:
+    - uses: actions/checkout@v3
+
+    # Run local script
+    - name: Run Checkmarx SAST Script
+      run: python3 scan-with-cxflow.py ${{github.repository}}
+
+    # Upload the Report for CodeQL/Security Alerts
+    - name: Upload SARIF file
+      uses: github/codeql-action/upload-sarif@v3
+      with:
+        sarif_file: cx.sarif

@@ -4,14 +4,14 @@ title: Initial Value
 pagination_label: Initial Value
 sidebar_label: Initial Value
 keywords: ['connectivity', 'connectors','connector-spec', 'sourceConfigInitialValues']
-description: Details on using the sourceConfigInitialValues field
+description: How to use the sourceConfigInitialValues field
 slug: /docs/saas-connectivity/connector-spec/initial-value
 tags: ['Connectivity', 'Connector Spec']
 ---
 
 ## How to use the sourceConfigInitialValues in the connector spec
 
-If you have a field in the connector spec configuration that you want to be pre-populated with an initial value, you can use the sourceConfigInitialValues in the connector spec to specify them. This can be utilized across all items, all you need to provide is the key of the item and the corrisponding default value for the item. A simple example using a textbox is shown below.
+If you want to prepopulate a field in the connector spec configuration with an initial value, you can use the `sourceConfigInitialValues` field in the connector spec to specify the prepopulated value. This can be used across all items. All you need to provide is the key of the item and the item's corresponding default value. This is a simple example using a textbox:
 
 ```json
 "sourceConfigInitialValues": {

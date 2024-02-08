@@ -11,7 +11,7 @@ tags: ['Connectivity', 'Connector Spec']
 
 ## How to use the sourceConfigInitialValues in the connector spec
 
-If you want to prepopulate a field in the connector spec configuration with an initial value, you can use the `sourceConfigInitialValues` field in the connector spec to specify the prepopulated value. This can be used across all items. All you need to provide is the key of the item and the item's corresponding default value. This is a simple example using a textbox:
+If you want to prepopulate a field in the connector spec configuration with an initial value, you can use the `sourceConfigInitialValues` field in the connector spec to specify the prepopulated value. This can be used across all items. All you need to provide is the item's key and its corresponding default value. This is a simple example using a textbox:
 
 ```json
 "sourceConfigInitialValues": {

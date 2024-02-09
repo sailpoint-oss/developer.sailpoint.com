@@ -1069,6 +1069,8 @@ paths:
     $ref: './beta/paths/access-profile.yaml'
   /access-profiles/bulk-delete:
     $ref: './beta/paths/access-profile-bulk-delete.yaml'
+  /access-profiles/bulk-update-requestable:
+    $ref: './beta/paths/access-profile-bulk-update-requestable.yaml'
   /access-profiles/{id}/entitlements:
     $ref: './beta/paths/access-profile-entitlements.yaml'
   /access-requests:

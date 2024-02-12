@@ -34,7 +34,7 @@ properties:
         items:
             $ref: './AccessProfileRef.yaml'
         nullable: true
-    Entitlements:
+    entitlements:
         type: array
         items:
             $ref: './EntitlementRef.yaml'

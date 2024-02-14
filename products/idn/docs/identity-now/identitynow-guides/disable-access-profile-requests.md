@@ -9,7 +9,6 @@ keywords: ['access', 'request', 'access profile', 'request center', 'disable']
 description: Read this guide to learn how to disable access requests for access profiles. 
 slug: /docs/disable-access-profile-requests
 tags: ['AccessProfileRequestManagement']
-hide_table_of_contents: true
 ---
 
 ## Overview 

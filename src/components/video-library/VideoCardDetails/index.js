@@ -42,7 +42,7 @@ const VideoCardDetail = (props) => {
             <p>{props.route.customProps.body}</p>
           </div>
           <div id="discourseContainer" className={styles.discourseContainer}>
-            <DiscourseEmbed discourseEmbedUrl={props.route.customProps.title}></DiscourseEmbed>
+            <DiscourseEmbed></DiscourseEmbed>
           </div>
         </div>
       </main>

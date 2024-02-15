@@ -13,7 +13,9 @@ tags: ['SDK']
 
 You can use the SDK to delete resources.
 
-Here is an example script that searches for the Workgroup created in [Create a resource](./creating-resources.md) by name and calls the delete method to remove it from your environment.
+For example, you can run a script that searches by name for a created work group, also known as a [governance group](https://documentation.sailpoint.com/saas/help/common/users/governance_groups.html), and calls the delete method to remove it from your environment. 
+
+This script searches by name for the work group created in the example in [Creating resources](./creating-resources.md) and calls the delete method to remove it from your environment. Copy the script into your Python project to try it out: 
 
 ```python
 import sailpoint
@@ -48,7 +50,7 @@ Run this command to run the code:
 python sdk.go
 ```
 
-The deletionStatus is returned by the SDK with a value of 204.
+The SDK returns the `deletionStatus` with a value of 204.
 
 ```python
 The response of GovernanceGroupsApi->patch_workgroup:

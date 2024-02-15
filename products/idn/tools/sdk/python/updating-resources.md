@@ -13,7 +13,9 @@ tags: ['SDK']
 
 You can use the SDK to update resources.
 
-Here is an example update WorkGroup script which will update the description for the Workgroup created in [Create a Resource](./creating-resources.md):
+For example, you can run a script to update a work group, also known as a [governance group](https://documentation.sailpoint.com/saas/help/common/users/governance_groups.html). 
+
+This example 'update WorkGroup' script updates the description for the work group created in [Create a Resource](./creating-resources.md). Copy it into your Python project to try it out: 
 
 ```python
 import sailpoint
@@ -52,7 +54,9 @@ Run this command to run the code:
 python sdk.go
 ```
 
-The updated WorkGroup will be returned by the SDK:
+The example uses a PATCH `replace` operation to update the value in the `/description` path to "This is an updated description for the workgroup."
+
+The SDK will return the updated work group with its new description:
 
 ```python
 The response of GovernanceGroupsApi->patch_workgroup:

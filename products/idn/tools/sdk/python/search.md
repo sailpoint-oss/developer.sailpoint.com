@@ -11,7 +11,9 @@ slug: /tools/sdk/python/search
 tags: ['SDK']
 ---
 
-To try using the IDN [search functionality](/idn/api/v3/search-post) along with pagination, copy this code into your "sdk.py" file:
+One of the most useful functionalities you can access with the Python SDK is IdentityNow's [search functionality](/idn/api/v3/search-post). 
+
+Here is an example of how you can implement Search, along with pagination. Copy this code into your "sdk.py" file to try it out: 
 
 ```python
 
@@ -40,8 +42,13 @@ Run this command to run the code:
 python sdk.py
 ```
 
-This example returns 1000 identities, 100 at a time, and sorts them in descending order by name. You can also change the search pagination by changing "100" and "1000", respectively.
+This example returns 1000 identities, 100 per page, and sorts them in descending order by name (`'-name'`). You can also change the search pagination by changing "100" and "1000", respectively.
 
-The two main ways you can manipulate this example are to change the `indices` or the `query`. For example, if you add `"access profiles"` to the indices, the SDK will search access profiles too. If you change the query to "a*", the search will return all records starting with the letter "a".
+There are two main ways you can manipulate this example to search for the results you want: 
 
-You can also change the sorting logic in the brackets next to `sort`.
+The first way is to change the `indices`, the document types you want to limit your search to. For example, if you add `"access profiles"` to the indices, the SDK will search access profiles too. To see all the indices you can search, refer to the [Search endpoint specification](/idn/api/v3/search-post). 
+
+The second way is to change the `query`, the value you're searching for. For example, if you change the query to "a*", the search will return all records starting with the letter "a". To learn more about how to build search queries, refer to [Building a Search Query](https://documentation.sailpoint.com/saas/help/search/building-query.html). 
+
+You can also change the sorting logic in the brackets next to `sort`. For more information about sorting results, refer to [Sorting Results](/idn/api/standard-collection-parameters/#sorting-results).
+

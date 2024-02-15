@@ -11,9 +11,9 @@ slug: /tools/sdk/python/retries
 tags: ['SDK']
 ---
 
-This SDK uses the [urllib3 retry](https://urllib3.readthedocs.io/en/stable/reference/urllib3.util.html) module to support retry logic.
+The Python SDK uses the [urllib3 retry](https://urllib3.readthedocs.io/en/stable/reference/urllib3.util.html) module to support retry logic.
 
-This logic is implemented on line 8. With the following configuration, if the returned status code from the api is equal to 502, 503, or 504 the SDK will retry the call up to 5 times.
+Here is an example of the retry logic, implemented on line 8. With this configuration, if the returned status code from the API is equal to 502, 503, or 504, the SDK will retry the call up to 5 times: 
 
 ```python showLineNumbers
 import sailpoint

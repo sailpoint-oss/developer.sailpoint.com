@@ -13,7 +13,9 @@ tags: ['SDK']
 
 You can use the SDK to create new resources.
 
-Here is an example create workgroup script from the beta APIs you can copy into your python project to try it out:
+For example, you can run a script to create a work group, also known as a [governance group](https://documentation.sailpoint.com/saas/help/common/users/governance_groups.html). 
+
+Copy this 'create WorkGroup' script from the beta APIs into your Python project to try it out:
 
 ```python showLineNumbers
 import sailpoint
@@ -54,11 +56,11 @@ Run this command to run the code:
 python sdk.py
 ```
 
-The example uses the `getPublicIdentities` method from the `PublicIdentitiesApi` to pull an identity needed to be the owner of the Workgroup.
+The example uses the `getPublicIdentities` method from the `PublicIdentitiesApi` to pull an identity needed to be the owner of the work group.
 
-The create workgroup request is initialized on lines 18-22 using the identity's name and id in the owner object.
+The `create_workgroup` request is initialized on lines 18-22, using the identity's `name` and `id` in the owner object.
 
-The WorkGroup will be returned by the SDK:
+The SDK will return the created work group:
 
 ```bash
 id='d287a1e2-81fc-474e-bc0c-155bd8ab0899' 

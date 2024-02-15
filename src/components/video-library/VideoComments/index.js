@@ -1,44 +1,36 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 
-const DiscourseEmbed = ({discourseEmbedUrl}) => {
+const DiscourseEmbed = ({ discourseEmbedUrl }) => {
   useEffect(() => {
-    window.DiscourseEmbed = {
-      discourseUrl: 'https://developer.identitysoon.com/discuss/',
-      discourseEmbedUrl: 'https://d1vrqvoe9hgpx0.cloudfront.net/videos/' + discourseEmbedUrl,
-      // topicId: 627,
-    };
+    const discourseUrl = 'https://developer.identitysoon.com/discuss/';
+    const embedUrl = `https://d1vrqvoe9hgpx0.cloudfront.net/videos/${discourseEmbedUrl}`;
 
-    const meta = document.createElement('meta');
-    meta.name = 'discourse-username';
-    meta.content = 'Darrell-Thobe';
-    document.getElementsByTagName('head')[0].appendChild(meta);
+    // Set up Discourse Embed
+    window.DiscourseEmbed = { discourseUrl, discourseEmbedUrl: embedUrl };
 
-    const d = document.createElement('script');
-    d.type = 'text/javascript';
-    d.async = true;
-    d.src = window.DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
+    // Create and append meta tag for discourse username
+    const metaTag = document.createElement('meta');
+    metaTag.name = 'discourse-username';
+    metaTag.content = 'Darrell-Thobe';
+    document.head.appendChild(metaTag);
 
-    const container = document.getElementById('discourse-comments');
-    if (container) {
-      container.appendChild(d);
-    }
+    // Create and append Discourse embed script
+    const scriptTag = document.createElement('script');
+    scriptTag.type = 'text/javascript';
+    scriptTag.async = true;
+    scriptTag.src = `${discourseUrl}javascripts/embed.js`;
+    document.body.appendChild(scriptTag); // Append to body to avoid duplicating if component re-renders
 
-    var iframe = document.getElementById('discourse-embed-frame');
-    if (iframe && iframe.contentWindow && iframe.contentWindow.document) {
-      var style = document.createElement('style');
-      style.textContent = 'html { padding: 2% }';
-      iframe.contentWindow.document.head.appendChild(style);
-    }
-
+    // Cleanup on component unmount
     return () => {
-      // Clean up the script when the component unmounts
-      if (container && d && d.parentNode) {
-        container.removeChild(d);
+      scriptTag.remove(); // Remove script tag
+      if (metaTag.parentNode) {
+        metaTag.parentNode.removeChild(metaTag); // Remove meta tag if it has been appended
       }
     };
-  }, []);
+  }, [discourseEmbedUrl]); // Effect dependency array includes discourseEmbedUrl
 
-  return <div id="discourse-comments"></div>;
+  return <div id="discourse-comments"></div>; // Container for the Discourse comments
 };
 
 export default DiscourseEmbed;

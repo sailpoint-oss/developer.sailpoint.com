@@ -1,11 +1,17 @@
 import React, {useEffect} from 'react';
 
-const DiscourseEmbed = () => {
+const DiscourseEmbed = ({discourseEmbedUrl}) => {
   useEffect(() => {
     window.DiscourseEmbed = {
       discourseUrl: 'https://developer.identitysoon.com/discuss/',
-      topicId: 627,
+      discourseEmbedUrl: discourseEmbedUrl,
+      // topicId: 627,
     };
+
+    const meta = document.createElement('meta');
+    meta.name = 'discourse-username';
+    meta.content = 'Darrell-Thobe';
+    document.getElementsByTagName('head')[0].appendChild(meta);
 
     const d = document.createElement('script');
     d.type = 'text/javascript';

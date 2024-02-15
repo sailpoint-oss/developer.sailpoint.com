@@ -4,7 +4,7 @@ const DiscourseEmbed = ({discourseEmbedUrl}) => {
   useEffect(() => {
     window.DiscourseEmbed = {
       discourseUrl: 'https://developer.identitysoon.com/discuss/',
-      discourseEmbedUrl: 'https://d1vrqvoe9hgpx0.cloudfront.net/videos',
+      discourseEmbedUrl: 'https://d1vrqvoe9hgpx0.cloudfront.net/videos/' + discourseEmbedUrl,
       // topicId: 627,
     };
 

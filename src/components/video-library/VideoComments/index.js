@@ -6,7 +6,7 @@ const DiscourseEmbed = ({ discourseEmbedUrl }) => {
     const embedUrl = `https://d1vrqvoe9hgpx0.cloudfront.net/videos/${discourseEmbedUrl}`;
 
     // Set up Discourse Embed
-    window.DiscourseEmbed = { discourseUrl, discourseEmbedUrl: embedUrl };
+    window.DiscourseEmbed = { discourseUrl, discourseEmbedUrl: embedUrl, className: 'EMBEDDED_BODY' };
 
     // Create and append meta tag for discourse username
     const metaTag = document.createElement('meta');

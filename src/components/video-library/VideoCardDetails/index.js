@@ -36,7 +36,7 @@ const VideoCardDetail = (props) => {
             source={base + props.route.customProps.uuid}
             container="vidyard"></Video>
           <div>
-            <h1>{props.route.customProps.title}</h1>
+            <h1 className={styles.videoTitle}>{props.route.customProps.title}</h1>
           </div>
           <div>
             <p>{props.route.customProps.body}</p>

@@ -14,13 +14,16 @@ const DiscourseEmbed = ({discourseEmbedUrl}) => {
 
     // Create and append meta tag for discourse username
 
-    let metaTag = document.querySelector('meta[name="discourse-username"]');
-    if (!metaTag) {
-      metaTag = document.createElement('meta');
-      metaTag.name = 'discourse-username';
-      document.getElementsByTagName('head')[0].appendChild(metaTag); // Append to head to avoid duplicating if component re-renders
-    }
-    metaTag.content = 'Darrell-Thobe';
+    const metaTag = document.createElement('meta');
+    metaTag.name = 'discourse-username';
+    metaTag.content = 'Darrell-Thobe'; // Replace with your Discourse username
+    metaTag.setAttribute('discourse-embed-url', embedUrl); // Add attribute to meta tag for Discourse Embed URL
+    metaTag.setAttribute('discourse-embed-class-name', 'EMBEDDED_BODY'); // Add attribute to meta tag for Discourse Embed class name (optional)
+    metaTag.setAttribute('discourse-embed-title', 'SailPoint Developer Community'); // Add attribute to meta tag for Discourse Embed title (optional)
+    metaTag.setAttribute('discourse-embed-description', 'The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.'); // Add attribute to meta tag for Discourse Embed description (optional)
+    metaTag.setAttribute('discourse-embed-color', '#00A2E8'); // Add attribute to meta tag for Discourse Embed color (optional)
+    document.getElementsByTagName('head')[0].appendChild(metaTag); // Append to head to avoid duplicating if component re-renders
+    
 
     // Create and append Discourse embed script
     const scriptTag = document.createElement('script');

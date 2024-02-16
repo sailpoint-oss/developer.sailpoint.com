@@ -1,12 +1,16 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 
-const DiscourseEmbed = ({ discourseEmbedUrl }) => {
+const DiscourseEmbed = ({discourseEmbedUrl}) => {
   useEffect(() => {
     const discourseUrl = 'https://developer.identitysoon.com/discuss/';
     const embedUrl = `https://d1vrqvoe9hgpx0.cloudfront.net/videos/${discourseEmbedUrl}/index.html`;
 
     // Set up Discourse Embed
-    window.DiscourseEmbed = { discourseUrl, discourseEmbedUrl: embedUrl, className: 'EMBEDDED_BODY' };
+    window.DiscourseEmbed = {
+      discourseUrl,
+      discourseEmbedUrl: embedUrl,
+      className: 'EMBEDDED_BODY',
+    };
 
     // Create and append meta tag for discourse username
 
@@ -15,9 +19,8 @@ const DiscourseEmbed = ({ discourseEmbedUrl }) => {
       metaTag = document.createElement('meta');
       metaTag.name = 'discourse-username';
       document.getElementsByTagName('head')[0].appendChild(metaTag); // Append to head to avoid duplicating if component re-renders
-    }  
+    }
     metaTag.content = 'Darrell-Thobe';
-  
 
     // Create and append Discourse embed script
     const scriptTag = document.createElement('script');
@@ -35,7 +38,13 @@ const DiscourseEmbed = ({ discourseEmbedUrl }) => {
     };
   }, [discourseEmbedUrl]); // Effect dependency array includes discourseEmbedUrl
 
-  return <div id="discourse-comments"></div>; // Container for the Discourse comments
+  return (
+    <>
+      <meta name="discourse-username" content="Darrell-Thobe" />
+      <meta name="discourse-embed-url" content={discourseEmbedUrl} />
+      <div id="discourse-comments"></div>
+    </>
+  ); // Container for the Discourse comments
 };
 
 export default DiscourseEmbed;

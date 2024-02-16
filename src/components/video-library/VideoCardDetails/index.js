@@ -14,19 +14,19 @@ const VideoCardDetail = (props) => {
       if (event.origin === 'https://developer.identitysoon.com') {
         // The data that was sent from the iframe
         console.log(event.data);
-        setIframeStyle();
+        // setIframeStyle();
       }
     });
   }, []);
 
-  const setIframeStyle = () => {
-    const iframe = document.getElementById('discourse-embed-frame');
-    if (iframe && iframe.contentWindow && iframe.contentWindow.document) {
-      const style = document.createElement('style');
-      style.textContent = 'html { padding: 2% }';
-      iframe.contentWindow.document.head.appendChild(style);
-    }
-  };
+  // const setIframeStyle = () => {
+  //   const iframe = document.getElementById('discourse-embed-frame');
+  //   if (iframe && iframe.contentWindow && iframe.contentWindow.document) {
+  //     const style = document.createElement('style');
+  //     style.textContent = 'html { padding: 2% }';
+  //     iframe.contentWindow.document.head.appendChild(style);
+  //   }
+  // };
 
   return (
     <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">

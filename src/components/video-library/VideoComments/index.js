@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 const DiscourseEmbed = ({ discourseEmbedUrl }) => {
   useEffect(() => {
     const discourseUrl = 'https://developer.identitysoon.com/discuss/';
-    const embedUrl = `https://d1vrqvoe9hgpx0.cloudfront.net/videos/${discourseEmbedUrl}`;
+    const embedUrl = `https://d1vrqvoe9hgpx0.cloudfront.net/videos/${discourseEmbedUrl}/index.html`;
 
     // Set up Discourse Embed
     window.DiscourseEmbed = { discourseUrl, discourseEmbedUrl: embedUrl, className: 'EMBEDDED_BODY' };

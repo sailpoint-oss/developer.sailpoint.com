@@ -9,10 +9,15 @@ const DiscourseEmbed = ({ discourseEmbedUrl }) => {
     window.DiscourseEmbed = { discourseUrl, discourseEmbedUrl: embedUrl, className: 'EMBEDDED_BODY' };
 
     // Create and append meta tag for discourse username
-    const metaTag = document.createElement('meta');
-    metaTag.name = 'discourse-username';
+
+    let metaTag = document.querySelector('meta[name="discourse-username"]');
+    if (!metaTag) {
+      metaTag = document.createElement('meta');
+      metaTag.name = 'discourse-username';
+      document.getElementsByTagName('head')[0].appendChild(metaTag); // Append to head to avoid duplicating if component re-renders
+    }  
     metaTag.content = 'Darrell-Thobe';
-    document.head.appendChild(metaTag);
+  
 
     // Create and append Discourse embed script
     const scriptTag = document.createElement('script');

@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 
 const DiscourseEmbed = ({discourseEmbedUrl}) => {
   useEffect(() => {
-    const discourseUrl = 'https://developer.identitysoon.com/discuss/';
+    const discourseUrl = 'https://developer.sailpoint.com/discuss/';
     const embedUrl = `https://d1vrqvoe9hgpx0.cloudfront.net/videos/${discourseEmbedUrl}/index.html`;
 
     // Set up Discourse Embed
@@ -16,7 +16,7 @@ const DiscourseEmbed = ({discourseEmbedUrl}) => {
 
     const metaTag = document.createElement('meta');
     metaTag.name = 'discourse-username';
-    metaTag.content = 'Darrell-Thobe'; // Replace with your Discourse username
+    metaTag.content = 'Darrell'; // Replace with your Discourse username
     metaTag.setAttribute('discourse-embed-url', embedUrl); // Add attribute to meta tag for Discourse Embed URL
     metaTag.setAttribute('discourse-embed-class-name', 'EMBEDDED_BODY'); // Add attribute to meta tag for Discourse Embed class name (optional)
     metaTag.setAttribute('discourse-embed-title', 'SailPoint Developer Community'); // Add attribute to meta tag for Discourse Embed title (optional)

@@ -4,7 +4,7 @@ import MarketplaceCard from '../MarketplaceCard';
 import Modal from 'react-modal';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import BounceLoader from 'react-spinners/BounceLoader';
-import {discourseBaseURL, developerWebsiteDomain} from '../../../util/util';
+import {discourseBaseURL, developerWebsiteDomain} from '../../../util/util.ts';
 
 import {
   getMarketplacePosts,

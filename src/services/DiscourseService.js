@@ -1,4 +1,4 @@
-import {discourseBaseURL} from '../util/util';
+import {discourseBaseURL} from '../util/util.ts';
 
 export async function getTopPosts() {
   try {

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles.module.css';
 import DiscussCard from '../DiscussCard';
-import {discourseBaseURL, developerWebsiteDomain} from '../../../util/util';
+import {discourseBaseURL, developerWebsiteDomain} from '../../../util/util.ts';
 
 import {getTopPosts} from '../../../services/DiscourseService';
 export default function HomepageDiscuss() {

@@ -318,6 +318,22 @@ tags:
       Once the campaign filter is created, it can be linked while creating the campaign. The generated campaign will have the items to review as per the campaign filter.
       
       For example, An inclusion campaign filter is created with a source of Source 1, an operation of Equals, and an entitlement of Entitlement 1. When this filter is selected, only users who have Entitlement 1 are included in the campaign, and only Entitlement 1 is shown in the certification.
+  - name: Connectors
+    description: |
+      Use this API to implement connector functionality.
+      With this functionality in place, administrators can view available connectors.
+
+      Connectors are the bridges IdentityNow uses to communicate with and aggregate data from sources.
+      For example, if it is necessary to set up a connection between IdentityNow and the Active Directory source, a connector can bridge the two and enable IdentityNow to synchronize data between the systems.
+      This ensures account entitlements and states are correct throughout the organization.
+
+      In IdentityNow, administrators can use the Connections drop-down menu and select Sources to view the available source connectors.
+
+      Refer to [IdentityNow Connectors](https://documentation.sailpoint.com/connectors/identitynow/landingpages/help/landingpages/identitynow_connectivity_landing.html) for more information about the connectors available in IdentityNow.
+
+      Refer to [SaaS Connectivity](https://developer.sailpoint.com/idn/docs/saas-connectivity) for more information about the SaaS custom connectors that do not need VAs (virtual appliances) to communicate with their sources.
+
+      Refer to [Managing Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html) for more information about using connectors in IdentityNow.
   - name: Global Tenant Security Settings
     description: |
       Use this API to implement and customize global tenant security settings.
@@ -1029,6 +1045,18 @@ paths:
     $ref: "./v3/paths/certification-task.yaml"
   /certification-tasks:
     $ref: "./v3/paths/certification-tasks.yaml"
+  /connectors:
+    $ref: './v3/paths/connectors-create-custom-connector.yaml'
+  /connectors/{scriptName}:
+    $ref: './v3/paths/connectors.yaml'
+  /connectors/{scriptName}/source-config:
+    $ref: './v3/paths/connectors-source-config.yaml'
+  /connectors/{scriptName}/translations/{locale}:
+    $ref: './v3/paths/connectors-translations.yaml'
+  /connectors/{scriptName}/source-template:
+    $ref: './v3/paths/connectors-source-template.yaml'
+  /connectors/{scriptName}/correlation-config:
+    $ref: './v3/paths/connectors-correlation-config.yaml'
   /identities/{identity-id}/set-lifecycle-state:
     $ref: "./v3/paths/identity-set-lifecycle-state.yaml"
   /identity-profiles/{identity-profile-id}/lifecycle-states:

@@ -1,0 +1,26 @@
+type: object
+properties:
+  message:
+    type: string
+    description: The detailed message for an update. Typically the relevent error message when status is error.
+    example: "unsupported xsd version, please ensure latest xsd version http://www.sailpoint.com/xsd/sailpoint_form_2_0.xsd is used for source config"
+  scriptName:
+    type: string
+    description: The connector script name
+    example: "servicenow"
+  updatedFiles:
+    type: array
+    description: The list of updated files supported by the connector
+    nullable: true
+    items:
+      type: string
+    example: ["pod/org/connectorFiles/testconnector/test1.jar"]
+  status:
+    type: string
+    enum:
+      - ERROR
+      - UPDATED
+      - UNCHANGED
+      - SKIPPED
+    description: The connector update status
+    example: "ERROR"

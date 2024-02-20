@@ -88,6 +88,8 @@ post:
 
     The `sourceId` where this account will be created must be included in the `attributes` object.
 
+    >**Note: This API only supports account creation for file based sources.**
+
     A token with ORG_ADMIN authority is required to call this API.
   security:
     - UserContextAuth: [idn:accounts:manage]

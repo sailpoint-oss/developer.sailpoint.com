@@ -29,7 +29,12 @@ properties:
   requester:
     $ref: './AccessItemRequester.yaml'
   requestedFor:
-    $ref: './AccessItemRequestedFor.yaml'
+    type: array
+    description: Identities access was requested for. 
+    items: 
+      $ref: './AccessItemRequestedFor.yaml'
+    minItems: 1
+    maxItems: 10
   reviewedBy:
     $ref: './AccessItemReviewedBy.yaml'
   owner:
@@ -43,6 +48,7 @@ properties:
   reviewerComment:
     allOf:
       - $ref: './CommentDto.yaml'
+    type: object
     description: The approval's reviewer's comment.
     nullable: true
   previousReviewersComments:
@@ -57,6 +63,7 @@ properties:
     description: The history of approval forward action.
   commentRequiredWhenRejected:
     type: boolean
+    default: false
     description: When true the rejector has to provide comments when rejecting
     example: true
   state:
@@ -70,6 +77,7 @@ properties:
     nullable: true
   removeDateUpdateRequested:
     type: boolean
+    default: false
     description: If true, then the request was to change the remove date or sunset date.
     example: true
   currentRemoveDate:

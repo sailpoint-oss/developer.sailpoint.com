@@ -29,7 +29,12 @@ properties:
   requester:
     $ref: './AccessItemRequesterDto.yaml'
   requestedFor:
-    $ref: './AccessItemRequestedForDto.yaml'
+    type: array
+    description: Identities access was requested for. 
+    items: 
+      $ref: './AccessItemRequestedForDto.yaml'
+    minItems: 1
+    maxItems: 10
   owner:
     $ref: './AccessItemOwnerDto.yaml'
   requestedObject:
@@ -50,6 +55,7 @@ properties:
     description: The history of approval forward action.
   commentRequiredWhenRejected:
     type: boolean
+    default: false
     example: true
     description: When true the rejector has to provide comments when rejecting
   actionInProcess:
@@ -62,6 +68,7 @@ properties:
     example: '2020-07-11T00:00:00Z'
   removeDateUpdateRequested:
     type: boolean
+    default: false
     example: true
     description: If true, then the request is to change the remove date or sunset date.
   currentRemoveDate:

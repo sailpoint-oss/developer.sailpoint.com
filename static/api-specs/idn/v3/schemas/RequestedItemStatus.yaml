@@ -53,7 +53,12 @@ properties:
   requester:
     $ref: './AccessItemRequester.yaml'
   requestedFor:
-    $ref: './AccessItemRequestedFor.yaml'
+    type: array
+    description: Identities access was requested for. 
+    items: 
+      $ref: './AccessItemRequestedFor.yaml'
+    minItems: 1
+    maxItems: 10
   requesterComment:
     $ref: './CommentDto.yaml'
     nullable: true
@@ -85,6 +90,7 @@ properties:
     example: "2019-10-23T00:00:00.000Z"
   cancelable:
     type: boolean
+    default: false
     description: True if the request can be canceled.
     example: true
   accessRequestId:

@@ -2,6 +2,7 @@ type : object
 properties:
   forwarded:
     type: boolean
+    default: false
     description: True if the request for this item was forwarded from one owner to another.
     example: true
   originalOwner:

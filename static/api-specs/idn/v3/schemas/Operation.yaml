@@ -7,5 +7,6 @@ enum:
   - ENDS_WITH
   - AND
   - OR
+  - null
 description: Operation on a specific criteria
 example: EQUALS

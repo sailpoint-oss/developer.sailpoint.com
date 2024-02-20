@@ -23,6 +23,7 @@ properties:
   planInitializerScript:
     description: This is a reference to a plan initializer script.
     type: object
+    nullable: true
     properties:
       source:
         description: This is a Rule that allows provisioning instruction changes.

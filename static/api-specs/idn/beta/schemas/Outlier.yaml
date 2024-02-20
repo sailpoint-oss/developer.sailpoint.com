@@ -48,15 +48,19 @@ properties:
     enum:
       - MANUAL
       - AUTOMATIC
+      - null
     description: Enum value of if the outlier manually or automatically un-ignored. Will be NULL if outlier is not ignored
     example: MANUAL
+    nullable: true
   unignoreDate:
     type: string
     format: date-time
     description: shows date when last time has been unignored outlier
     example: "2021-06-01T18:40:35.772Z"
+    nullable: true
   ignoreDate:
     type: string
     format: date-time
     description: shows date when last time has been ignored outlier
     example: "2021-06-01T18:40:35.772Z"
+    nullable: true

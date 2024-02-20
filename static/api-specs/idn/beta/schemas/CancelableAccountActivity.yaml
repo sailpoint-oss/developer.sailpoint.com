@@ -13,16 +13,19 @@ properties:
     example: '2017-07-11T18:45:37.098Z'
   modified:
     type: string
+    nullable: true
     format: 'date-time'
     example: '2018-06-25T20:22:28.104Z'
   completed:
     type: string
+    nullable: true
     format: 'date-time'
     example: '2018-10-19T13:49:37.385Z'
   completionStatus:
     $ref: '../../v3/schemas/CompletionStatus.yaml'
   type:
     type: string
+    nullable: true
     example: appRequest
   requesterIdentitySummary:
     $ref: '../../v3/schemas/IdentitySummary.yaml'
@@ -30,22 +33,26 @@ properties:
     $ref: '../../v3/schemas/IdentitySummary.yaml'
   errors:
     type: array
+    nullable: true
     items:
       type: string
     example: ["sailpoint.connector.ConnectorException: java.lang.InterruptedException: Timeout waiting for response to message 0 from client 57a4ab97-ab3f-4aef-9fe2-0eaf15c73d26 after 60 seconds."]
   warnings:
     type: array
+    nullable: true
     items:
       type: string
     example: null
   items:
     type: array
+    nullable: true
     items:
       $ref: '../../v3/schemas/AccountActivityItem.yaml'
   executionStatus:
     $ref: '../../v3/schemas/ExecutionStatus.yaml'
   clientMetadata:
     type: object
+    nullable: true
     additionalProperties:
       type: string
     description: >-

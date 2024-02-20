@@ -98,6 +98,43 @@ post:
                     }
                 ]
               }
+          Annual Search:
+            description: A search that executes each year on the defined months, days, and times.
+            value:
+              {
+                "savedSearchId": "9c620e13-cd33-4804-a13d-403bd7bcdbad",
+                "schedule": {
+                  "type": "ANNUALLY",
+                  "months": {
+                    "type": "LIST",
+                    "values": [
+                      "1"
+                    ],
+                    "interval": 3
+                  },
+                  "days": {
+                    "type": "LIST",
+                    "values": [
+                      "1",
+                      "7",
+                      "14",
+                      "L"
+                    ]
+                  },
+                  "hours": {
+                    "type": "LIST",
+                    "values": [
+                      "9"
+                    ]
+                  }
+                },
+                "recipients": [
+                    {
+                        "type": "IDENTITY",
+                        "id": "2c9180867624cbd7017642d8c8c81f67"
+                    }
+                ]
+              }
           Calendar Search:
             description: A search that executes on specific calendar days
             value:

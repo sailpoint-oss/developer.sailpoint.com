@@ -40,10 +40,10 @@ get:
         **features**: *ca, co*
 
 
-        **created**: *eq*
+        **created**: *eq, ge, gt, in, le, lt, ne, isnull, sw*
 
 
-        **modified**: *eq*
+        **modified**: *eq, ge, gt, in, le, lt, ne, isnull, sw*
 
 
         **managementWorkgroup.id**: *eq, ge, gt, in, le, lt, ne, isnull, sw*

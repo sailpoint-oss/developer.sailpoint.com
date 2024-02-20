@@ -70,9 +70,7 @@ get:
           schema:
             type: array
             items:
-              anyOf:
-                - $ref: '../schemas/SlimAccount.yaml'
-                - $ref: '../schemas/FullAccount.yaml'
+              $ref: "../schemas/Account.yaml"
           examples:
             SlimAccounts:
               description: List of slim accounts that would result with *detailLevel = SLIM*

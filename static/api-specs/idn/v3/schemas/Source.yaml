@@ -34,6 +34,7 @@ properties:
   cluster:
     description: Reference to the associated Cluster
     type: object
+    nullable: true
     required: 
       - name 
       - id 
@@ -56,6 +57,7 @@ properties:
   accountCorrelationConfig:
     description: Reference to an Account Correlation Config object
     type: object
+    nullable: true
     properties:
       type:
         description: The type of object being referenced
@@ -76,6 +78,7 @@ properties:
       Reference to a Rule that can do COMPLEX correlation, should only be used when accountCorrelationConfig can't
       be used.
     type: object
+    nullable: true
     properties:
       type:
         description: The type of object being referenced
@@ -92,14 +95,17 @@ properties:
         description: Human-readable display name of the rule
         example: Example Rule
   managerCorrelationMapping:
-    $ref: '../../v3/schemas/ManagerCorrelationMapping.yaml'
-    description: >-
-      Filter Object used during manager correlation to match incoming manager values to an existing manager's
-      Account/Identity
+    allOf:
+    - $ref: '../../v3/schemas/ManagerCorrelationMapping.yaml'
+    - nullable: true
+      description: |
+        Filter Object used during manager correlation to match incoming manager values to an existing manager's
+        Account/Identity
   managerCorrelationRule:
     description: >-
        Reference to the ManagerCorrelationRule, only used when a simple filter isn't sufficient.
     type: object
+    nullable: true
     properties:
       type:
         description: The type of object being referenced
@@ -119,6 +125,7 @@ properties:
     description: >-
        Rule that runs on the CCG and allows for customization of provisioning plans before the connector is called.
     type: object
+    nullable: true
     properties:
       type:
         description: The type of object being referenced
@@ -164,6 +171,7 @@ properties:
         name: "group"
   passwordPolicies:
     type: array
+    nullable: true
     items:
       type: object
       properties:
@@ -246,6 +254,7 @@ properties:
   managementWorkgroup:
     description: Reference to Management Workgroup for this Source
     type: object
+    nullable: true
     properties:
       type:
         description: The type of object being referenced

@@ -26,12 +26,15 @@ properties:
         description: Display name of original approval owner. 
         example: Michael Michaels
   currentOwner:
-    $ref: './AccessItemReviewedBy.yaml'
+    allOf:
+    - $ref: './AccessItemReviewedBy.yaml'
+    - nullable: true
   modified:
     type: string
     format: date-time
     description: Time at which item was modified.
     example: "2019-08-23T18:52:57.398Z"
+    nullable: true
   status:
     $ref: "./ManualWorkItemState.yaml"
   scheme:
@@ -42,10 +45,12 @@ properties:
       $ref: "./ErrorMessageDto.yaml"
     description: >-
       If the request failed, includes any error messages that were generated.
+    nullable: true
   comment:
     type: string
     description: Comment, if any, provided by the approver.
     example: I approve this request
+    nullable: true
   removeDate:
     type: string
     description:
@@ -53,3 +58,4 @@ properties:
       identity.
     format: "date-time"
     example: "2020-07-11T00:00:00Z"
+    nullable: true

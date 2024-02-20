@@ -7,6 +7,7 @@ properties:
     example: true
   originalOwner:
     type: object
+    nullable: true
     description: Identity of original work item owner, if the work item has been forwarded.
     properties:
       type:
@@ -26,7 +27,8 @@ properties:
         example: Michael Michaels
   currentOwner: 
     type: object
-    description: Identity of current work item owner. 
+    description: Identity of current work item owner.
+    nullable: true
     properties:
       type:
         type: string 
@@ -52,6 +54,7 @@ properties:
     $ref: './ManualWorkItemState.yaml'
   forwardHistory:
     type: array
+    nullable: true
     items:
       $ref: './ApprovalForwardHistory.yaml'
     description: >-

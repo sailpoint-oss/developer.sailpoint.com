@@ -38,7 +38,6 @@ properties:
         type: array
         items:
             $ref: './EntitlementRef.yaml'
-        nullable: true
     membership:
         $ref: './RoleMembershipSelector.yaml'
         nullable: true

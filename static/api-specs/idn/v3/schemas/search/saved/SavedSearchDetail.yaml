@@ -44,6 +44,18 @@ properties:
     items:
       type: string
     example: [ 'disabled' ]
+  orderBy:
+    description: |
+      Sort by index. This takes precedence over the `sort` property.
+    type: object
+    additionalProperties:
+      type: array
+      items:
+        type: string
+    nullable: true
+    example:
+      identity: ["lastName", "firstName"]
+      role: ["name"]
   sort:
     description: |
       The fields to be used to sort the search results.
@@ -51,6 +63,7 @@ properties:
     items:
       type: string
     example: [ 'displayName' ]
+    nullable: true
   filters:
     nullable: true
     allOf:

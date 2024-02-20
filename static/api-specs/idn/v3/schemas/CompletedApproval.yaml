@@ -43,14 +43,14 @@ properties:
     $ref: './RequestableObjectReference.yaml'
     description: The requested access item.
   requesterComment:
-    $ref: './CommentDto.yaml'
-    description: The requester's comment.
+    allOf:
+    - $ref: './CommentDto.yaml'
+    - description: The requester's comment. 
   reviewerComment:
     allOf:
-      - $ref: './CommentDto.yaml'
-    type: object
-    description: The approval's reviewer's comment.
-    nullable: true
+    - $ref: './CommentDto.yaml'
+    - description: The approval's reviewer's comment.
+      nullable: true
   previousReviewersComments:
     type: array
     items:
@@ -89,3 +89,36 @@ properties:
   sodViolationContext:
     $ref: './SodViolationContextCheckCompleted.yaml'
     description: The details of the SOD violations for the associated approval.
+  preApprovalTriggerResult:
+    nullable: true
+    type: object
+    description: If the access request submitted event trigger is configured and this access request was intercepted by it, then this is the result of the trigger's decision to either approve or deny the request.
+    properties:
+      comment:
+        type: string
+        description: The comment from the trigger
+        example: This request was autoapproved by our automated ETS subscriber
+      decision:
+        $ref: './CompletedApprovalState.yaml'
+        description: The approval decision of the trigger
+      reviewer:
+        type: string
+        description: The name of the approver
+        example: Automated AR Approval
+      date:
+        type: string
+        format: date-time
+        example: '2022-06-07T19:18:40.748Z'
+        description: The date and time the trigger decided on the request
+  clientMetadata:
+    type: object
+    additionalProperties:
+      type: string
+    description: >-
+      Arbitrary key-value pairs provided during the request.
+    example:
+      requestedAppName: test-app
+      requestedAppId: 2c91808f7892918f0178b78da4a305a1
+  requestedAccounts:
+    type: string
+    nullable: true

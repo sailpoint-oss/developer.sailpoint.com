@@ -12,6 +12,7 @@ properties:
   description:
     type: string
     description: Common access description
+    nullable: true
   ownerName:
     type: string
     description: Common access owner name

@@ -3,6 +3,19 @@ description: The schedule information.
 properties:
   type:
     $ref: 'ScheduleType.yaml'
+  months:
+    allOf:
+    - $ref: Selector.yaml
+    - description: |
+        The months to execute the search. This only applies to schedules with a type of `ANNUALLY`.
+      example:
+        type: 'LIST'
+        values:
+          - "3"
+          - "6"
+          - "9"
+          - "12"
+      nullable: true
   days:
     allOf:
     - $ref: Selector.yaml
@@ -11,7 +24,7 @@ properties:
         
         If `type` is `WEEKLY`, the values will be `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, and `SUN`.
 
-        If `type` is `MONTHLY`, the values will be a number in double quotes, like `"1"`, `"10"`, or `"28"`.  Optionally, the value `"L"` can be used to refer to the last day of the month.
+        If `type` is `MONTHLY` or `ANNUALLY`, the values will be a number in double quotes, like `"1"`, `"10"`, or `"28"`.  Optionally, the value `"L"` can be used to refer to the last day of the month.
       example:
           type: 'LIST'
           values:

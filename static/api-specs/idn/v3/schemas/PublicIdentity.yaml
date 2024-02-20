@@ -25,6 +25,19 @@ properties:
     type: string
     description: The lifecycle status for the identity
     example: 'Active'
+  identityState:
+    nullable: true
+    type: string
+    enum:
+    - ACTIVE
+    - INACTIVE_SHORT_TERM
+    - INACTIVE_LONG_TERM
+    - null
+    example: ACTIVE
+    description: |
+      The current state of the identity, which determines how Identity Security Cloud interacts with the identity.
+      An identity that is Active will be included identity picklists in Request Center, identity processing, and more.
+      Identities that are Inactive will be excluded from these features.
   manager:
     $ref: './IdentityReference.yaml'
     description: An identity reference to the manager of this identity

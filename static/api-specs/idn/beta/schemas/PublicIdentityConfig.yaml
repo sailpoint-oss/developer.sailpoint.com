@@ -13,3 +13,4 @@ properties:
     description: "the date/time of the modification"
     format: 'date-time'
     example: '2018-06-25T20:22:28.104Z'
+    nullable: true

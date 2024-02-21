@@ -2,9 +2,6 @@
 # hosted in AWS. The flow has 3 parts: 1) start the ec2 runner instance 2) carry out the scans via CxFlow and 
 # 3) stop the ec2 runner instance. It uses the following GitHub secrets:
 #           AWS_EC2_INSTANCE_ID
-#           AWS_ACCESS_KEY_ID
-#           AWS_SECRET_ACCESS_KEY
-#           AWS_REGION
 #           CHECKMARX_URL
 #           CHECKMARX_USERNAME
 #           CHECKMARX_PASSWORD
@@ -26,14 +23,16 @@ jobs:
     name: Start self-hosted EC2 runner
     runs-on: ubuntu-latest
     steps:
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          role-to-assume: arn:aws:iam::143694264087:role/GithubActions
+          role-session-name: github-actions-runner-start-ec2
+          aws-region: us-east-1
       - name: Start AWS EC2
         # Run AWS Command on the GitHub Hosted runner which starts the instance
         run: |
           aws ec2 start-instances --instance-ids ${{secrets.AWS_EC2_INSTANCE_ID }}
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
 
   run-cxflow:
     name: Execute CxFlow
@@ -44,6 +43,7 @@ jobs:
       pull-requests: write # for checkmarx-ts/checkmarx-cxflow-github-action to write feedback to PR
       security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
       actions: read # only required for a private repository by github/codeql-action/upload-sarif to get the Action run status
+      id-token: write # For OIDC connection
     needs: start-runner # required to start the main job when the runner is ready
     runs-on: [self-hosted, AWS, AppSec]
     # Steps require - checkout code, run CxFlow Action, Upload SARIF report (optional)

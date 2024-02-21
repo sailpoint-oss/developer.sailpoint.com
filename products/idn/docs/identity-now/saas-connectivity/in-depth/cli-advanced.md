@@ -11,11 +11,11 @@ slug: /docs/saas-connectivity/in-depth/cli-advanced
 tags: ['Connectivity']
 ---
 
-The CLI can be used to invoke a number of calls in IdentityNow, including calls that are not specifically defined by the CLI. Below are some examples of making such calls.
+You can use the CLI to invoke a number of calls in IdentityNow, including calls that aren't specifically defined by the CLI. This section includes examples that show how you can invoke those calls: 
 
-## Using provided CLI invoke calls
+## Use provided CLI invoke calls
 
-to find commands that are supported by the CLI you can use the `sail conn invoke -h` command:
+To find commands supported by the CLI, you can use the `sail conn invoke -h` command:
 
 ```bash
 Available Commands:
@@ -33,7 +33,7 @@ Available Commands:
   source-data-read        Invoke a std:source-data:read command
   test-connection         Invoke a std:test-connection command
 ```
-And to understand required parameters to invoke a command from the CLI, you can use the help command to get a list of required parameters. For example, in order to read an account using the CLI, you can first call `sail conn invoke account-read -h` and the CLI will respond with the required input:
+To understand the required parameters to invoke a command from the CLI, you can use the help command to get a list of required parameters. For example, to read an account using the CLI, first call `sail conn invoke account-read -h`. The CLI will respond with the required input:
 
 ```bash
 Usage:
@@ -63,17 +63,17 @@ The config file will look something like this:
 }
 ```
 
-And the command to invoke account-read will look like the following:
+The command to invoke account-read will look like this:
 
 ```bash
 sail conn invoke account-read philip.ellis -c 4b12cf79-b2ac-44ac-842b-b5a6268548f5 -p config.json
 ```
 
-## Using sail conn invoke raw
+## Use sail conn invoke raw
 
-Even if a command is not supported by the CLI, you can still invoke it. The `invoke raw` command allows you to specify the entire json object used to invoke the command. 
+Even if a command isn't supported by the CLI, you can still invoke it. The `invoke raw` command allows you to specify the entire JSON object used to invoke the command. 
 
-You can use the Postman collection as a way to build the json object needed to invoke the command. For example, if you want to run the `account-disable` command, you can create a json object with the required fields. If you look at the example below, you will note it closely resembles the same information that is sent when debugging the command using Postman.
+You can use the Postman collection as a way to build the JSON object needed to invoke the command. For example, if you want to run the `account-disable` command, you can create a JSON object with the required fields. If you look at this example, you will see that it closely resembles the same information that is sent when debugging the command using Postman:
 
 ```
 {
@@ -83,7 +83,7 @@ You can use the Postman collection as a way to build the json object needed to i
     }
 }
 ```
-Running the `raw` command is similar to the others except now you pass the json file created above with the `-f` flag:
+Running the `raw` command is similar to running the other commands, except now you pass the JSON file created earlier with the `-f` flag:
 
 ```
 sail conn invoke raw -c 4b12cf79-b2ac-44ac-842b-b5a6268548f5 -f account-disable.json -p config.json

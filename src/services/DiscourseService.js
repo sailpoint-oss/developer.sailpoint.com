@@ -1,3 +1,4 @@
+
 import {discourseBaseURL} from '../util/util';
 
 export async function getTopPosts() {
@@ -80,6 +81,24 @@ export async function getMarketplacePosts(tags, category) {
     url = discourseBaseURL() + 'c/' + filterCategory + '/l/latest.json?tags=' + tags
   } else {
     url = discourseBaseURL() + 'c/' + filterCategory + '/l/latest.json'
+  }
+  try {
+    const response = await fetch(
+      url,
+    );
+    return await response.json();
+  } catch (error) {
+    return [];
+  }
+}
+
+export async function getAllPosts(tags, category) {
+  let url = ''
+  if (tags) {
+    url = discourseBaseURL() + 'c/' + category + '/l/latest.json?tags=' + tags
+  } else {
+    url = discourseBaseURL() + 'c/' + category + '/l/latest.json'
+    console.log(url);
   }
   try {
     const response = await fetch(

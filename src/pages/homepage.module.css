@@ -1,0 +1,37 @@
+.community {
+    background-color: var(--dev-card-background);
+}
+.catContainer {
+    padding-left: 2%;
+    padding-right: 2%;
+    margin-top: 2%;
+}
+
+.topicContainer {
+    padding-left: 2%;
+    padding-right: 2%;
+    margin-top: -2%;
+}
+
+.react-multi-carousel-list {
+    overflow: visible !important
+}
+
+.mainContainer {
+    padding-bottom: 5%;
+}
+.headerBackground {
+    background-color: #1d4aac;
+    height: 75px;
+}
+.headerContainer {
+    margin: auto;
+    width: 50%;
+    margin-top: 2%;
+    padding: 1%;
+}
+
+.header {
+    text-align: center;
+    color: white;
+}

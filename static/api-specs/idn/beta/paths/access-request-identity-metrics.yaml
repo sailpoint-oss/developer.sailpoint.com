@@ -8,7 +8,7 @@ get:
   parameters:
     - name: identityId
       in: path
-      description: Identity's ID. 
+      description: Manager's identity ID.
       required: true
       schema:
         type: string
@@ -33,7 +33,7 @@ get:
     - UserContextAuth: [idn:access-request-approvals:read]
   responses:
     '200':
-      description: Summary of the resource access and source activity for the group of identities sharing a manager with the provided identity.
+      description: Summary of the resource access and source activity for the direct reports of the provided manager.
       content:
         application/json:
           schema:

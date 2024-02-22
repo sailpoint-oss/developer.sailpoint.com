@@ -8,6 +8,7 @@ import Categories from '../components/homepage/Categories/index.js';
 import CategoryButtons from '../components/homepage/Categories/CategoryButtons/index.js';
 import {getCatagories} from '../services/DiscourseService';
 import TopicCards from '../components/homepage/Topics/TopicCards/index.js';
+import DeveloperDays from '../components/homepage/DeveloperDays/index.js';
 
 export default function HomePage() {
   const [filteredRecords, setFilteredRecords] = React.useState([]);
@@ -45,6 +46,7 @@ export default function HomePage() {
     <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
       <main>
         <div className={styles.mainContainer}>
+          <div><DeveloperDays/></div>
           <div className={styles.headerBackground}>
             <div className={styles.headerContainer}>
               <h2 className={styles.header}>

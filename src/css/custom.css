@@ -499,16 +499,16 @@ code[class^='openapi-explorer__code-block'] {
 }
 
 div[class^='react-multi-carousel-list'] {
-  overflow: visible !important;
+  /* overflow: visible !important; */
   padding-bottom: 3%;
 }
 
 button[class^='react-multiple-carousel__arrow react-multiple-carousel__arrow--right ']  {
-  margin-right: -6% !important;
+  margin-right: -3% !important;
 }
 
 button[class^='react-multiple-carousel__arrow react-multiple-carousel__arrow--left ']  {
-  margin-left: -6% !important;
+  margin-left: -3% !important;
 }
 
 iframe#webpack-dev-server-client-overlay {

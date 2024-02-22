@@ -121,6 +121,17 @@ export async function getTopic(id) {
   }
 }
 
+export async function getDeveloperDaysTopic(id) {
+  try {
+    const response = await fetch(
+      discourseBaseURL() + 't/developer-days-2024-register-today-for-sailpoint-s-annual-conference-for-developers-in-identity/24732.json',
+    );
+    return await response.json();
+  } catch (error) {
+    return [];
+  }
+}
+
 export async function getMarketplaceTopic(id) {
   try {
     const response = await fetch(

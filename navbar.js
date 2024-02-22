@@ -72,6 +72,11 @@ module.exports = {
     },
     {
       position: 'left',
+      label: 'HomePage',
+      to: '/homepage',
+    },
+    {
+      position: 'left',
       label: 'Blog',
       to: '/blog',
     },

@@ -10,7 +10,8 @@
     opacity: 1;
     transition: all  0.3s;
     max-width: 100%;
-    margin: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
   }
   
   .card:hover {
@@ -36,12 +37,12 @@
   .cardTitle {
     margin-top: 25px;
     padding: 10px;
-    font-size: 22px;
-    font-weight: 700;
+    font-size: 18px;
+    font-weight: 600;
   }
   
   .cardBody {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     left: 0;
     margin-top: 5px;
@@ -49,7 +50,7 @@
   }
   
   .tag {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     color: var(--dev-secondary-text);
     background-color: var(--dev-tag-highlight);

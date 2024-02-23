@@ -5,10 +5,18 @@ import styles from './homepage.module.css';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import Categories from '../components/homepage/Categories/index.js';
-import CategoryButtons from '../components/homepage/Categories/CategoryButtons/index.js';
-import {getCatagories} from '../services/DiscourseService';
 import TopicCards from '../components/homepage/Topics/TopicCards/index.js';
 import DeveloperDays from '../components/homepage/DeveloperDays/index.js';
+import Ambassador from '../components/homepage/Ambassador/index.js';
+
+const responsive = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: {max: 4000, min: 0},
+    items: 1,
+    partialVisibilityGutter: 30,
+  },
+};
 
 export default function HomePage() {
   const [filteredRecords, setFilteredRecords] = React.useState([]);
@@ -46,7 +54,19 @@ export default function HomePage() {
     <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
       <main>
         <div className={styles.mainContainer}>
-          <div><DeveloperDays/></div>
+          <Carousel
+            autoPlay={true}
+            autoPlaySpeed={3000}
+            infinite={true}
+            partialVisible={false}
+            responsive={responsive}>
+            <div>
+              <DeveloperDays />
+            </div>
+            <div>
+              <Ambassador />
+            </div>
+          </Carousel>
           <div className={styles.headerBackground}>
             <div className={styles.headerContainer}>
               <h2 className={styles.header}>
@@ -56,7 +76,7 @@ export default function HomePage() {
           </div>
           <div className={styles.community}>
             <div className={styles.catContainer}>
-              <h5>
+              <h5 className={styles.filterCatTitle}>
                 Select categories to filter by and see what the community is
                 discussing
               </h5>

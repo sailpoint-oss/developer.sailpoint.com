@@ -4,15 +4,12 @@ get:
     - Notifications
   summary: Get Notification Template Context
   description: >-
-    The notification service (Hermes) maintains metadata to construct the notification templates or supply any information during the event propagation. 
-    The data-store where this information is retrieved is  called "Global Context" (a.k.a. notification template context). It defines a set of attributes
+    The notification service maintains metadata to construct the notification templates or supply any information during the event propagation.
+    The data-store where this information is retrieved is called "Global Context" (a.k.a. notification template context). It defines a set of attributes
      that will be available per tenant (organization).
-    
-    Regarding authorization, the access token contains the tenant and will grant access to the one requested.
 
-    Requires the following security scope:  idn:notification-templates:read
-  # security:
-  #   - oauth2: [idn:notification-templates:read]
+  security:
+  - UserContextAuth: [ idn:notification-templates:read ]
 
   responses:
     '200':

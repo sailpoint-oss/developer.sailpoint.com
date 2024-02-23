@@ -4,7 +4,9 @@ post:
     - Notifications
   summary: Bulk Delete Notification Templates
   description: >-
-    This lets you bulk delete templates that you previously created for your site. Since this is a beta feature, you can only delete a subset of your notifications, i.e. ones that show up in the list call.
+    This lets you bulk delete templates that you previously created for your site. Since this is a beta feature, please contact support to enable usage.
+  security:
+  - UserContextAuth: [ idn:notification-templates:delete ]
   requestBody:
     required: true
     content:

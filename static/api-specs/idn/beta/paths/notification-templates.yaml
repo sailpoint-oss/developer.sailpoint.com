@@ -4,7 +4,9 @@ get:
     - Notifications
   summary: List Notification Templates
   description: >-
-    This lists the templates that you have modified for your site. Since this is a beta feature, it doesn't include all your modified templates.
+    This lists the templates that you have modified for your site.
+  security:
+  - UserContextAuth: [ idn:notification-templates:read ]
   parameters:
     - $ref: '../../v3/parameters/limit.yaml'
     - $ref: '../../v3/parameters/offset.yaml'
@@ -58,6 +60,8 @@ post:
     
     You can also use this endpoint to update a template.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/idn/api/beta/get-notification-template) for a template you wish to update and paste it into the request body for this endpoint.  
     Modify the fields you want to change and submit the POST request when ready.
+  security:
+  - UserContextAuth: [ idn:notification-templates:create]
   requestBody:
     required: true
     content:

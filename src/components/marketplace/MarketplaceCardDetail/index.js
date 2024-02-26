@@ -3,12 +3,12 @@ import styles from './styles.module.css';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import ThemedImage from '@theme/ThemedImage';
-import { addDarkToFileName } from '../../../util/util';
+import { addDarkToFileName } from '../../../util/util.ts';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import ReactMarkdown from 'react-markdown';
 import BounceLoader from 'react-spinners/BounceLoader';
-import {discourseBaseURL, developerWebsiteDomain} from '../../../util/util';
+import {discourseBaseURL, developerWebsiteDomain} from '../../../util/util.ts';
 export default function MarketplaceCardDetail({ details, rawPost }) {
   const getDivText = (data, id) => {
     const requirementPosition = data.indexOf('id="' + id + '"');

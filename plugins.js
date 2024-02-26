@@ -1,4 +1,5 @@
 module.exports = [
+  '@gracefullight/docusaurus-plugin-tailwind',
   [
     'docusaurus2-dotenv',
     {

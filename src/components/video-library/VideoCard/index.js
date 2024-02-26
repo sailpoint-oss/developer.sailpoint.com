@@ -2,13 +2,13 @@ import React from 'react';
 import styles from './styles.module.css';
 import Link from '@docusaurus/Link';
 
-export default function VideoCard({videoURL, thubnail, title, body, tags}) {
+export default function VideoCard({videoURL, thumbnail, title, body, tags}) {
 
   return (
     <Link to={videoURL}>
       <div className={styles.card}>
         <div className={styles.cardText}>
-          <img className={styles.cardImage} src={thubnail}></img>
+          <img className={styles.cardImage} src={thumbnail}></img>
           <div className={styles.cardTitle}>{title}</div>
           <div className={styles.tags}>
             {tags?.map((tag, index) => {

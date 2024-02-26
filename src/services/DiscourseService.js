@@ -70,6 +70,23 @@ export async function getBlogPosts(tags) {
   }
 }
 
+export async function getVideoPosts(tags) {
+  let url = ''
+  if (tags) {
+    url = discourseBaseURL() + 'c/community/videos/l/latest.json?tags=' + tags
+  } else {
+    url = discourseBaseURL() + 'c/community/videos/l/latest.json'
+  }
+  try {
+    const response = await fetch(
+      url,
+    );
+    return await response.json();
+  } catch (error) {
+    return [];
+  }
+}
+
 export async function getMarketplacePosts(tags, category) {
   let filterCategory = 'colab'
   if (category && category != 'colab') {

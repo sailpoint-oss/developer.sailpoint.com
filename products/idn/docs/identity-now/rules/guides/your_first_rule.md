@@ -428,7 +428,7 @@ return generateUsername( identity.getFirstname(), identity.getLastname() );
 
 Before you send the rule to the professional services team to upload your rule to your tenant for use, you can send it through the rule validator to check for any errors.
 
-Refer to [Rule Validator](../rule-validator) for installation.
+Refer to [Rule Validator](https://community.sailpoint.com/t5/Professional-Services/IdentityNow-Rule-Validator/ta-p/166116) for installation.
 
 Run the rule validator against your newly written rule.
 

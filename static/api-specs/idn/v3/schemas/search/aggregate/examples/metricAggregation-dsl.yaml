@@ -1,6 +1,6 @@
 summary: MetricAggregation using DSL
 value:
-  indices:  [ 'aggregations' ]
+  indices:  [ 'identities' ]
   aggregationType: 'DSL'
   aggregationsDsl:
     How Many Locations:

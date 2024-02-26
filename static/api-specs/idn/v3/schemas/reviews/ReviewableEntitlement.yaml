@@ -17,6 +17,7 @@ properties:
   privileged:
     type: boolean
     example: false
+    default: false
     description: Indicates if the entitlement is a privileged entitlement
   owner:
     $ref: '../IdentityReferenceWithNameAndEmail.yaml'
@@ -40,22 +41,37 @@ properties:
     type: string
     description: The type of the source for which the entitlement belongs
     example: Active Directory - Direct
+  sourceId:
+    type: string
+    description: The ID of the source for which the entitlement belongs
+    example: 78ca6be511cb41fbb86dba2fcca7780c
   hasPermissions:
     type: boolean
+    default: false
     description: Indicates if the entitlement has permissions
     example: false
   isPermission:
     type: boolean
+    default: false
     description: Indicates if the entitlement is a representation of an account permission
     example: false
   revocable:
     type: boolean
+    default: false
     description: Indicates whether the entitlement can be revoked
     example: true
   cloudGoverned:
     type: boolean
+    default: false
     description: True if the entitlement is cloud governed
     example: false
+  containsDataAccess:
+    type: boolean
+    description: True if the entitlement has DAS data
+    default: false
+    example: true
+  dataAccess:
+    $ref: '../DataAccess.yaml'
   account:
     type: object
     nullable: true
@@ -67,10 +83,12 @@ properties:
         example: 'CN=Alison Ferguso'
       disabled:
         type: boolean
+        default: false
         example: false
         description: Indicates whether this account is currently disabled
       locked:
         type: boolean
+        default: false
         example: false
         description: Indicates whether this account is currently locked
       type:
@@ -97,3 +115,5 @@ properties:
         format: date-time
         description: When the account was last modified
         example: '2020-05-20T18:57:16.987Z'
+      activityInsights:
+        $ref: '../ActivityInsights.yaml'

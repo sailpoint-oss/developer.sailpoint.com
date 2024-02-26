@@ -28,9 +28,4 @@ allOf:
         description: Determines if this Entitlement is goverened in the cloud.
         type: boolean
       source:
-        $ref: '../../v3/schemas/BaseReferenceDto.yaml'
-        description: Reference to the source this entitlment belongs to.
-        example:
-          - type: 'SOURCE'
-            id: '2c9180835d191a86015d28455b4b232a'
-            name: 'HR Active Directory'
+        $ref: '../../v3/schemas/EntitlementSource.yaml'

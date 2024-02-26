@@ -1,0 +1,15 @@
+in: query
+name: limit
+description: >-
+  Max number of results to return.
+
+  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters)
+  for more information.
+required: false
+example: 10000
+schema:
+  type: integer
+  format: int32
+  minimum: 0
+  maximum: 10000
+  default: 10000

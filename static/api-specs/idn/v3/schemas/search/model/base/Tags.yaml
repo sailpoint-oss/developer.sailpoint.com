@@ -1,4 +1,5 @@
 type: array
+description: Tags that have been applied to the object.
 items:
   type: string
 example:

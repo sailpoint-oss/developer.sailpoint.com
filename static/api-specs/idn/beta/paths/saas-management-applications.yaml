@@ -13,7 +13,7 @@ get:
       schema:
         type: string
       description: >-
-        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407)
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
 
 
         Filtering is supported for the following fields and operators:
@@ -29,6 +29,7 @@ get:
 
 
         **integrationState**: *eq, in*
+      example: id eq ""
     - $ref: '../../v3/parameters/limit.yaml'
     - $ref: '../../v3/parameters/offset.yaml'
     - $ref: '../../v3/parameters/count.yaml'

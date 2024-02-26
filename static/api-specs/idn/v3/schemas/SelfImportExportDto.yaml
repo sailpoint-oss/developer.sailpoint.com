@@ -1,0 +1,40 @@
+type: object
+description: Self block for imported/exported object. 
+properties:
+  type:
+    type: string 
+    description: Imported/exported object's DTO type. Import is currently only possible with the IDENTITY_OBJECT_CONFIG, IDENTITY_PROFILE, RULE, SOURCE, TRANSFORM, and TRIGGER_SUBSCRIPTION object types.
+    enum: 
+      - ACCESS_PROFILE
+      - ACCESS_REQUEST_CONFIG
+      - ATTR_SYNC_SOURCE_CONFIG
+      - AUTH_ORG
+      - CAMPAIGN_FILTER
+      - FORM_DEFINITION
+      - GOVERNANCE_GROUP
+      - IDENTITY_OBJECT_CONFIG
+      - IDENTITY_PROFILE
+      - LIFECYCLE_STATE
+      - NOTIFICATION_TEMPLATE
+      - PASSWORD_POLICY
+      - PASSWORD_SYNC_GROUP
+      - PUBLIC_IDENTITIES_CONFIG
+      - ROLE
+      - RULE
+      - SEGMENT
+      - SERVICE_DESK_INTEGRATION
+      - SOD_POLICY
+      - SOURCE
+      - TAG
+      - TRANSFORM
+      - TRIGGER_SUBSCRIPTION
+      - WORKFLOW
+    example: SOURCE
+  id:
+    type: string
+    description: Imported/exported object's ID. 
+    example: 2c9180835d191a86015d28455b4b232a
+  name:
+    type: string
+    description: Imported/exported object's display name. 
+    example: HR Active Directory

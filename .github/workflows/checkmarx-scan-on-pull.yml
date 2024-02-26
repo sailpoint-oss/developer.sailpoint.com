@@ -2,9 +2,6 @@
 # hosted in AWS. The flow has 3 parts: 1) start the ec2 runner instance 2) carry out the scans via CxFlow and 
 # 3) stop the ec2 runner instance. It uses the following GitHub secrets:
 #           AWS_EC2_INSTANCE_ID
-#           AWS_ACCESS_KEY_ID
-#           AWS_SECRET_ACCESS_KEY
-#           AWS_REGION
 #           CHECKMARX_URL
 #           CHECKMARX_USERNAME
 #           CHECKMARX_PASSWORD
@@ -24,16 +21,20 @@ on:
 jobs:
   start-runner:
     name: Start self-hosted EC2 runner
+    permissions:
+      id-token: write # For OIDC connection
     runs-on: ubuntu-latest
     steps:
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::143694264087:role/GithubActions
+          role-session-name: github-actions-runner-start-ec2
+          aws-region: us-east-1
       - name: Start AWS EC2
         # Run AWS Command on the GitHub Hosted runner which starts the instance
         run: |
           aws ec2 start-instances --instance-ids ${{secrets.AWS_EC2_INSTANCE_ID }}
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
 
   run-cxflow:
     name: Execute CxFlow
@@ -49,13 +50,13 @@ jobs:
     # Steps require - checkout code, run CxFlow Action, Upload SARIF report (optional)
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     # Runs the Checkmarx Scan leveraging the latest version of CxFlow - REFER to Action README for list of inputs
     - name: Checkmarx CxFlow Action
       uses: checkmarx-ts/checkmarx-cxflow-github-action@49d8269b14ca87910ba003d47a31fa0c7a11f2fe
       with:
-        project: SAILPOINT-${{ github.event.repository.name }}
-        team: CxServer/SAILPOINT
+        project: sailpoint-oss-${{ github.event.repository.name }}
+        team: CxServer/OSS
         # sast secrets
         checkmarx_url: ${{ secrets.CHECKMARX_URL }}
         checkmarx_username: ${{ secrets.CHECKMARX_USERNAME }}
@@ -70,26 +71,15 @@ jobs:
         sca_tenant: sailpoint
         scanners: sast, sca
         params: --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --cx-flow.filter-severity=high --cx-flow.filter-category --checkmarx.disable-clubbing=true --repo-url=${{ github.event.repository.url }} 
+
     # Upload the Report for CodeQL/Security Alerts
     - name: Upload SARIF file
       uses: github/codeql-action/upload-sarif@v2
       with:
         sarif_file: cx.sarif
-      #post-job task is a script referenced in .env file (cleans up the _work directory)
+    #  post-job task is a script referenced in .env file (cleans up the _work directory)
       
-  stop-runner:
-    name: Stop self-hosted EC2 runner
-    needs:
-      - start-runner # required to get output from the start-runner job
-      - run-cxflow # required to wait when the main job is done
-    runs-on: ubuntu-latest
-    if: ${{ always() }} # required to stop the runner even if the error happened in the previous jobs
-    steps:
-      - name: Stop AWS EC2
-        # Run AWS Command on the GitHub Hosted runner which starts the instance using AWS authentication stored in GitHub Secrets (see below how to add)
-        run: |
-          aws ec2 stop-instances --instance-ids ${{secrets.AWS_EC2_INSTANCE_ID }}
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}   
+  #############################
+  # We can't shut down the runner, as another workflow run might be queued up already.
+  # Shutdown will be handled with a CloudWatch Alarm
+  #############################

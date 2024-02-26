@@ -41,7 +41,7 @@ sail conn init my-first-project
 
 The CLI init command creates a new folder with your project name in the location where you run the command.
 
-Run npm install to change the directory to the project folder and install the dependencies. You may need to provide your GitHub credentials because the CLI tool depends on a SailPoint internal GitHub repository.
+Change the directory to the project folder and run ```npm install to install`` the dependencies.
 
 ### Source Files
 

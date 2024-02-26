@@ -22,7 +22,7 @@ Use the following optional query parameters to achieve pagination:
 
 | Name | Description | Default | Constraints |
 | --- | --- | --- | --- |
-| `limit` | Integer specifying the maximum number of records to return in a single API call. If it is not specified, a default limit is used. | `250` | Maxiumum of 250 records per page |
+| `limit` | Integer specifying the maximum number of records to return in a single API call. If it is not specified, a default limit is used. | `250` for list endpoints, `10000` for search endpoint | Maxiumum of 250 records per page for list endpoints, 10000 records per page for the [Search endpoint](https://developer.sailpoint.com/idn/api/v3/search) |
 | `offset` | Integer specifying the offset of the first result from the beginning of the collection. The **offset** value is record-based, not page-based, and the index starts at 0. For example, **offset=0** and **limit=20** returns records 0-19, but **offset=1** and **limit=20** returns records 1-20. | `0` | Between 0 and the last record index. |
 | `count` | Boolean indicating whether a total count is returned, factoring in any filter parameters, in the **X-Total-Count** response header. The value is the total size of the collection that would be returned if **limit** and **offset** were ignored. For example, if the total number of records is 1000, then count=true would return 1000 in the **X-Total-Count** header. Because requesting a total count can have performance impact, do not send **count=true** if that value is not being used. | `false` | Must be `true` or `false` |
 
@@ -123,6 +123,7 @@ These filter operators apply directly to fields and their values:
 | `lt` | True if the value of the field indicated by the first operand is less than the value specified by the second operand. | daysUntilEscalation lt 7 name lt "Genaro" created lt 2018-12-18T23:05:55Z |
 | `ne` | True if the value of the field indicated by the first operand is not equal to the value specified by the second operand. | type ne "ROLE" |
 | `pr` | True if the field is present, that is, not null. | pr accountRequestInfo |
+| `isnull` | True if the field is null. | lastUsed isnull |
 | `sw` | True if the value of the field starts with the specified value.(Applicable to string-valued fields only.) | name sw "Rajesh" |
 
 ### Composite Operators

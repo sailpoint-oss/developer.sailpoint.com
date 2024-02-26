@@ -43,3 +43,15 @@ properties:
     minimum: 1
     default: 100
     example: 100
+  sort:
+    description: >-
+      The sort order of the returned records.
+    type: string
+    default: 'desc'
+    example: 'asc'
+  sortByValue:
+    description: >-
+      The flag that defines the sort type, by count or value.
+    type: boolean
+    default: false
+    example: true

@@ -1,22 +1,12 @@
 properties:
-  description:
-    description: Description is the description for this form input value
-    example: A single dynamic scalar value (i.e. number, string, date, etc.) that can be passed into the form for use in conditional logic
-    type: string
-    x-go-name: Description
   id:
-    description: ID is a unique identifier
+    description: Unique identifier for the form input.
     example: 00000000-0000-0000-0000-000000000000
     type: string
     x-go-name: ID
-  label:
-    description: Label is the name for this form input value
-    example: input1
-    type: string
-    x-go-name: Label
   type:
     description: |-
-      Type is a FormDefinitionInputType value
+      FormDefinitionInputType value.
       STRING FormDefinitionInputTypeString
     enum:
       - STRING
@@ -24,5 +14,15 @@ properties:
     type: string
     x-go-enum-desc: STRING FormDefinitionInputTypeString
     x-go-name: Type
+  label:
+    description: Name for the form input.
+    example: input1
+    type: string
+    x-go-name: Label
+  description:
+    description: Form input's description. 
+    example: A single dynamic scalar value (i.e. number, string, date, etc.) that can be passed into the form for use in conditional logic
+    type: string
+    x-go-name: Description
 type: object
 x-go-package: github.com/sailpoint/sp-forms/domain

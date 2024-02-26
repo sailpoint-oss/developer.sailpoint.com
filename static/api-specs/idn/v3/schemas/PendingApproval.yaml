@@ -27,14 +27,32 @@ properties:
     $ref: './AccessRequestType.yaml'
     description: If the access-request was for granting or revoking access.
   requester:
-    $ref: './BaseReferenceDto.yaml'
-    description: The identity that requested the item.
+    $ref: './AccessItemRequester.yaml'
   requestedFor:
-    $ref: './BaseReferenceDto.yaml'
-    description: The identity for whom the item is requested for.
+    type: array
+    description: Identities access was requested for. 
+    items: 
+      $ref: './AccessItemRequestedFor.yaml'
+    minItems: 1
+    maxItems: 10
   owner:
-    $ref: './BaseReferenceDto.yaml'
-    description: The owner or approver of the approval.
+    type: object
+    description: Access item owner's identity. 
+    properties:
+      type:
+        type: string 
+        description: Access item owner's DTO type. 
+        enum: 
+          - IDENTITY
+        example: IDENTITY
+      id:
+        type: string
+        description: Access item owner's identity ID.
+        example: 2c9180a46faadee4016fb4e018c20639
+      name:
+        type: string
+        description: Access item owner's human-readable display name. 
+        example: Support
   requestedObject:
     $ref: './RequestableObjectReference.yaml'
     description: The requested access item.
@@ -53,6 +71,7 @@ properties:
     description: The history of approval forward action.
   commentRequiredWhenRejected:
     type: boolean
+    default: false
     description: When true the rejector has to provide comments when rejecting
     example: true
   actionInProcess:
@@ -65,6 +84,7 @@ properties:
     example: '2020-07-11T00:00:00Z'
   removeDateUpdateRequested:
     type: boolean
+    default: false
     description: If true, then the request is to change the remove date or sunset date.
     example: true
   currentRemoveDate:

@@ -3,6 +3,7 @@ type: object
 properties:
   existing:
     type: boolean
+    default: false
     example: true
     description: If the entitlement already belonged to the user or not.
   type:

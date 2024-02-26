@@ -13,9 +13,14 @@ get:
       schema:
         type: string
         enum:
-          - ROLE
+          - ACCESS_PROFILE
+          - APPLICATION
+          - CAMPAIGN
+          - ENTITLEMENT
           - IDENTITY
+          - ROLE
           - SOD_POLICY
+          - SOURCE
       required: true
       description: The type of tagged object to retrieve.
       example: ROLE
@@ -58,9 +63,14 @@ put:
       schema:
         type: string
         enum:
-          - ROLE
+          - ACCESS_PROFILE
+          - APPLICATION
+          - CAMPAIGN
+          - ENTITLEMENT
           - IDENTITY
+          - ROLE
           - SOD_POLICY
+          - SOURCE
       required: true
       description: The type of tagged object to update.
       example: ROLE
@@ -109,9 +119,14 @@ delete:
       schema:
         type: string
         enum:
-          - ROLE
+          - ACCESS_PROFILE
+          - APPLICATION
+          - CAMPAIGN
+          - ENTITLEMENT
           - IDENTITY
+          - ROLE
           - SOD_POLICY
+          - SOURCE
       required: true
       description: The type of tagged object to delete.
       example: ROLE

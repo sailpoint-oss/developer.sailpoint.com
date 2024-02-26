@@ -6,13 +6,13 @@ get:
   description: >-
     Returns the notification preferences for tenant.  Note that if the key doesn't exist, then a 404 will be returned.
 
-    Request will require the following legacy roles:  ORG_ADMIN and API
-  # security:
-  #   - oauth2: [ORG_ADMIN,API]
+  security:
+  - UserContextAuth: [ idn:notification-preferences:read ]
   parameters:
     - in: path
       name: key
       required: true
+      example: cloud_manual_work_item_summary
       schema:
         type: string
       description: The notification key.
@@ -33,28 +33,24 @@ get:
       $ref: '../../v3/responses/404.yaml'
     '429':
       $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
 put:
   operationId: putNotificationPreference
   tags:
     - Notifications
-  summary: Overwrite the preferences for the given notification key.
+  summary: Overwrite preferences notification key.
   description: >- 
-    In the notification world, a notification flows through these salient stages - 
-     1. Interest matching, 
-     2. Preferences 
-     3. Template Rendering. 
-    
-    The default notification preferences make up a part of the second stage, along with user preferences (which is a future goal). The expectation is for 
-    admins to be able to set default preferences for their org, like opting in to or out of certain notifications, and configuring future preferences as 
-    we tack on more features. The key in the Dto is not necessary but if it is provided and doesn't match the key in the URI, then a 400 will be thrown. 
+    Allows admins to opt in to or out of certain notifications for their org. The default state is opted in. `key` is optional but if it is provided and doesn't match the key in the URI, then a 400 will be thrown.
 
-    Request will require the following legacy roles:  ORG_ADMIN and API
-  # security:
-  #   - oauth2: [ORG_ADMIN,API]
+  security:
+  - UserContextAuth: [ idn:notification-preferences:create ]
+
   parameters:
     - in: path
       name: key
       required: true
+      example: cloud_manual_work_item_summary
       schema:
         type: string
       description: The notification key.
@@ -81,6 +77,5 @@ put:
       $ref: '../../v3/responses/404.yaml'
     '429':
       $ref: '../../v3/responses/429.yaml'
-
-
-
+    '500':
+      $ref: '../../v3/responses/500.yaml'

@@ -103,6 +103,11 @@ tags:
       They can use the My Requests tab under Request Center to track and/or cancel the requests.
 
       Refer to [Requesting Access](https://documentation.sailpoint.com/saas/user-help/requests/requesting_access.html) for more information about access requests.
+  - name: Account Usages
+    description: |
+      Use this API to implement account usage insight functionality.
+      With this functionality in place, administrators can gather information and insights about how their tenants' source accounts are being used.
+      This allows organizations to get the information they need to start optimizing and securing source account usage.
   - name: Accounts
     description: |
       Use this API to implement and customize account functionality.
@@ -169,6 +174,11 @@ tags:
       Refer to [Account Activity](https://documentation.sailpoint.com/saas/help/search/index.html#account-activity) for more information about account activities.
   - name: Auth User
     description: Authentication service user retrieval and user capabilities update
+  - name: Branding
+    description: |
+      Use this API to implement and customize branding functionality. 
+      With this functionality in place, administrators can get list of existing branding items, create new branding and configure them for use throughout IdentityNow. 
+      It allows to customise color of navigation bar, action buttons, logo and emailFromAddress.
   - name: Certification Campaigns
     description: |
       Use this API to implement certification campaign functionality.
@@ -279,6 +289,51 @@ tags:
 
       Certification summaries provide information about identity certification campaigns such as the identities involved, the number of decisions made, and the access changed. 
       For example, an administrator or designated certification reviewer can examine the Manager Certification campaign to get an overview of how many entitlement decisions are made in that campaign as opposed to role decisions, which identities would be affected by changes to the campaign, and how those identities' access would be affected.
+  - name: Certification Campaign Filters
+    description: |
+      Use this API to implement the certification campaign filter functionality. These filters can be used to create a certification campaign that includes a subset of your entitlements or users to certify.
+      
+      For example, if for a certification campaign an organization wants to certify only specific users or entitlements, then those can be included/excluded on the basis of campaign filters.
+      
+      For more information about creating a campaign filter, refer to [Creating a Campaign Filter](https://documentation.sailpoint.com/saas/help/certs/campaign_filters.html#creating-a-campaign-filter)
+      
+      You can create campaign filters using any of the following criteria types:
+      
+      - Access Profile : This criteria type includes or excludes access profiles from a campaign.
+      
+      - Account Attribute : This criteria type includes or excludes certification items that match a specified value in an account attribute.
+      
+      - Entitlement : This criteria type includes or excludes entitlements from a campaign.
+      
+      - Identity : This criteria type includes or excludes specific identities from your campaign.
+      
+      - Identity Attribute : This criteria type includes or excludes identities based on whether they have an identity attribute that matches criteria you've chosen.
+      
+      - Role : This criteria type includes or excludes roles, as opposed to identities.
+      
+      - Source : This criteria type includes or excludes entitlements from a source you select.
+      
+      For more information about these criteria types, refer to [Types of Campaign Filters](https://documentation.sailpoint.com/saas/help/certs/campaign_filters.html#types-of-campaign-filters)
+      
+      Once the campaign filter is created, it can be linked while creating the campaign. The generated campaign will have the items to review as per the campaign filter.
+      
+      For example, An inclusion campaign filter is created with a source of Source 1, an operation of Equals, and an entitlement of Entitlement 1. When this filter is selected, only users who have Entitlement 1 are included in the campaign, and only Entitlement 1 is shown in the certification.
+  - name: Connectors
+    description: |
+      Use this API to implement connector functionality.
+      With this functionality in place, administrators can view available connectors.
+
+      Connectors are the bridges IdentityNow uses to communicate with and aggregate data from sources.
+      For example, if it is necessary to set up a connection between IdentityNow and the Active Directory source, a connector can bridge the two and enable IdentityNow to synchronize data between the systems.
+      This ensures account entitlements and states are correct throughout the organization.
+
+      In IdentityNow, administrators can use the Connections drop-down menu and select Sources to view the available source connectors.
+
+      Refer to [IdentityNow Connectors](https://documentation.sailpoint.com/connectors/identitynow/landingpages/help/landingpages/identitynow_connectivity_landing.html) for more information about the connectors available in IdentityNow.
+
+      Refer to [SaaS Connectivity](https://developer.sailpoint.com/idn/docs/saas-connectivity) for more information about the SaaS custom connectors that do not need VAs (virtual appliances) to communicate with their sources.
+
+      Refer to [Managing Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html) for more information about using connectors in IdentityNow.
   - name: Global Tenant Security Settings
     description: |
       Use this API to implement and customize global tenant security settings.
@@ -521,6 +576,11 @@ tags:
 
       For example, a non-administrator deciding whether to approve another identity's request for access to the Workday application, whose access may be restricted to members of the HR department, would want to know whether the identity is a member of the HR department. 
       If an administrator has used [Update Public Identity Config](https://developer.sailpoint.com/idn/api/v3/update-public-identity-config) to make the "department" attribute public, the approver can see the department and make a decision without requesting any more information.
+  - name: Reports Data Extraction
+    description: |
+      Use this API to implement reports lifecycle managing and monitoring.
+      With this functionality in place, users can run reports, view their results, and cancel reports in progress. 
+      This can be potentially helpful for auditing purposes. 
   - name: Requestable Objects
     description: |
       Use this API to implement requestable object functionality. 
@@ -564,7 +624,7 @@ tags:
       - Access Requests: Configure roles to be requestable and establish an approval process for any requests that the role be granted or revoked. 
       Do not configure a role to be requestable without establishing a secure access request approval process for that role first. 
 
-      Refer to [Working with Roles](https://documentation.sailpoint.com/saas/help/provisioning/roles.html) for more information about roles.
+      Refer to [Working with Roles](https://documentation.sailpoint.com/saas/help/access/roles.html) for more information about roles.
   - name: Saved Search
     description: |
       Use this API to implement saved search functionality. 
@@ -576,7 +636,7 @@ tags:
       
       In IdentityNow, users can save searches under a name, and then they can access that saved search and run it again when they want. 
 
-      Refer to [Managing Saved Searches](https://documentation.sailpoint.com/saas/help/search/saved-searches.html) for more information about saving searches and using them. 
+      Refer to [Managing Saved Searches](https://documentation.sailpoint.com/saas/help/search/saved-searches.html) for more information about saving searches and using them.
   - name: Scheduled Search
     description: |
       Use this API to implement scheduled search functionality. 
@@ -629,7 +689,7 @@ tags:
       However, data from the operational databases (ex. identities, roles, events, etc) has to be ingested into Elasticsearch. 
       This ingestion process introduces a latency from when the operational data is created to when it is available in search. 
       Depending on the system load, this can take a few seconds to a few minutes. 
-      Please keep this latency in mind when you use search. 
+      Please keep this latency in mind when you use search.
   - name: Segments
     description: |
       Use this API to implement and customize access request segment functionality. 
@@ -648,7 +708,7 @@ tags:
 
       When administrators use the API to create and manage segments, they use a JSON expression in the `visibilityCriteria` object to define the segment's identities and access items. 
 
-      Refer to [Managing Access Request Segments](https://documentation.sailpoint.com/saas/help/requests/segments.html) for more information about segments in IdentityNow. 
+      Refer to [Managing Access Request Segments](https://documentation.sailpoint.com/saas/help/requests/segments.html) for more information about segments in IdentityNow.
   - name: Service Desk Integration
     description: |
       Use this API to build an integration between IdentityNow and a service desk ITSM (IT service management) solution. 
@@ -702,9 +762,32 @@ tags:
 
       Refer to [Managing Policies](https://documentation.sailpoint.com/saas/help/sod/manage-policies.html) for more information about SOD policies. 
 
-      Refer to [Subscribe to a SOD Policy](https://documentation.sailpoint.com/saas/help/sod/policy-violations.html#subscribe-to-an-sod-policy) for more information about SOD policy subscriptions. 
+      Refer to [Subscribe to a SOD Policy](https://documentation.sailpoint.com/saas/help/sod/policy-violations.html#subscribe-to-an-sod-policy) for more information about SOD policy subscriptions.
   - name: SOD Violations
-    description: Operations for Predicting SOD (Separation of Duties) violations
+    description: |
+      Use this API to check for current "separation of duties" (SOD) policy violations as well as potential future SOD policy violations. 
+      With SOD violation functionality in place, administrators can get information about current SOD policy violations and predict whether an access change will trigger new violations, which helps to prevent them from occurring at all. 
+
+      "Separation of duties" refers to the concept that people shouldn't have conflicting sets of access - all their access should be configured in a way that protects your organization's assets and data.  
+      For example, people who record monetary transactions shouldn't be able to issue payment for those transactions.
+      Any changes to major system configurations should be approved by someone other than the person requesting the change. 
+
+      Organizations can use "separation of duties" (SOD) policies to enforce and track their internal security rules throughout their tenants.
+      These SOD policies limit each user's involvement in important processes and protects the organization from individuals gaining excessive access. 
+
+      Once a SOD policy is in place, if an identity has conflicting access items, a SOD violation will trigger. 
+      These violations are included in SOD violation reports that other users will see in emails at regular intervals if they're subscribed to the SOD policy.
+      The other users can then better help to enforce these SOD policies.
+
+      Administrators can use the SOD violations APIs to check a set of identities for any current SOD violations, and they can use them to check whether adding an access item would potentially trigger a SOD violation. 
+      This second option is a good way to prevent SOD violations from triggering at all. 
+
+      Refer to [Handling Policy Violations](https://documentation.sailpoint.com/saas/help/sod/policy-violations.html) for more information about SOD policy violations. 
+  - name: Source Usages
+    description: |
+      Use this API to implement source usage insight functionality.
+      With this functionality in place, administrators can gather information and insights about how their tenants' sources are being used.
+      This allows organizations to get the information they need to start optimizing and securing source usage.
   - name: Sources
     description: |
       Use this API to implement and customize source functionality. 
@@ -763,8 +846,62 @@ tags:
       Refer to [Deleting Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html#deleting-sources) for more information about deleting sources. 
 
       Well organized, mapped out connections between sources and IdentityNow are essential to achieving comprehensive identity access governance across all the source systems organizations need. 
-      Refer to [Managing Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html) for more information about all the different things admins can do with sources once they are connected. 
+      Refer to [Managing Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html) for more information about all the different things admins can do with sources once they are connected.
   - name: Tagged Objects
+    description: |
+      Use this API to implement object tagging functionality. 
+      With object tagging functionality in place, any user in an organization can use tags as a way to group objects together and find them more quickly when the user searches IdentityNow. 
+
+      In IdentityNow, users can search their tenants for information and add tags objects they find.
+      Tagging an object provides users with a way of grouping objects together and makes it easier to find these objects in the future. 
+
+      For example, if a user is searching for an entitlement that grants a risky level of access to Active Directory, it's possible that the user may have to search through hundreds of entitlements to find the correct one. 
+      Once the user finds that entitlement, the user can add a tag to the entitlement, "AD_RISKY" to make it easier to find the entitlement again.
+      The user can add the same tag to multiple objects the user wants to group together for an easy future search, and the user can also do so in bulk.
+      When the user wants to find that tagged entitlement again, the user can search for "tags:AD_RISKY" to find all objects with that tag. 
+
+      With the API, you can tag even more different object types than you can in IdentityNow (access profiles, entitlements, identities, and roles). 
+      You can use the API to tag all these objects:
+
+      - Access profiles 
+
+      - Applications 
+
+      - Certification campaigns
+
+      - Entitlements
+
+      - Identities 
+
+      - Roles 
+
+      - SOD (separation of duties) policies
+
+      - Sources 
+
+      You can also use the API to directly find, create, and manage tagged objects without using search queries. 
+
+      There are limits to tags: 
+
+      - You can have up to 500 different tags in your tenant.
+
+      - You can apply up to 30 tags to one object. 
+
+      - You can have up to 10,000 tag associations, pairings of 1 tag to 1 object, in your tenant. 
+
+      Because of these limits, it is recommended that you work with your governance experts and security teams to establish a list of tags that are most expressive of governance objects and access managed by IdentityNow. 
+
+      These are the types of information often expressed in tags: 
+
+      - Affected departments
+
+      - Compliance and regulatory categories 
+
+      - Remediation urgency levels 
+
+      - Risk levels 
+
+      Refer to [Tagging Items in Search](https://documentation.sailpoint.com/saas/help/search/index.html?h=tags#tagging-items-in-search) for more information about tagging objects in IdentityNow. 
   - name: Transforms
     description: |
       The purpose of this API is to expose functionality for the manipulation of Transform objects.
@@ -789,16 +926,6 @@ tags:
       When they complete the work item, they can select 'Mark Complete' to add it to their list of completed work items. 
 
       Refer to [Task Manager](https://documentation.sailpoint.com/saas/user-help/task_manager.html) for more information about work items, including the different types of work items users may need to complete.
-  - name: Source Usages
-    description: |
-      Use this API to implement source usage insight functionality.
-      With this functionality in place, administrators can gather information and insights about how their tenants' sources are being used.
-      This allows organizations to get the information they need to start optimizing and securing source usage.
-  - name: Account Usages
-    description: |
-      Use this API to implement account usage insight functionality.
-      With this functionality in place, administrators can gather information and insights about how their tenants' source accounts are being used.
-      This allows organizations to get the information they need to start optimizing and securing source account usage.
 paths:
   /access-profiles:
     $ref: './v3/paths/access-profiles.yaml'
@@ -850,6 +977,10 @@ paths:
     $ref: "./v3/paths/auth-org-network-config.yaml"
   /auth-users/{id}:
     $ref: "./v3/paths/auth-user.yaml"
+  /brandings:
+    $ref: './v3/paths/brandings.yaml'
+  /brandings/{name}:
+    $ref: './v3/paths/branding.yaml'
   /campaigns:
     $ref: './v3/paths/campaigns.yaml'
   /campaigns/{id}:
@@ -870,10 +1001,18 @@ paths:
     $ref: './v3/paths/campaign-run-report.yaml'
   /campaigns/reports-configuration:
     $ref: './v3/paths/campaign-reports-configuration.yaml'
+  /campaign-filters:
+    $ref: './v3/paths/campaign-filters.yaml'
+  /campaign-filters/{id}:
+    $ref: './v3/paths/campaign-filter.yaml'
+  /campaign-filters/delete:
+    $ref: './v3/paths/campaign-filters-delete.yaml'
   /campaign-templates:
     $ref: './v3/paths/campaign-templates.yaml'
   /campaign-templates/{id}:
     $ref: './v3/paths/campaign-template.yaml'
+  /campaign-templates/{id}/schedule:
+    $ref: './v3/paths/campaign-template-schedule.yaml'
   /campaign-templates/{id}/generate:
     $ref: './v3/paths/campaign-template-generate.yaml'
   /certifications:
@@ -906,6 +1045,18 @@ paths:
     $ref: "./v3/paths/certification-task.yaml"
   /certification-tasks:
     $ref: "./v3/paths/certification-tasks.yaml"
+  /connectors:
+    $ref: './v3/paths/connectors-create-custom-connector.yaml'
+  /connectors/{scriptName}:
+    $ref: './v3/paths/connectors.yaml'
+  /connectors/{scriptName}/source-config:
+    $ref: './v3/paths/connectors-source-config.yaml'
+  /connectors/{scriptName}/translations/{locale}:
+    $ref: './v3/paths/connectors-translations.yaml'
+  /connectors/{scriptName}/source-template:
+    $ref: './v3/paths/connectors-source-template.yaml'
+  /connectors/{scriptName}/correlation-config:
+    $ref: './v3/paths/connectors-correlation-config.yaml'
   /identities/{identity-id}/set-lifecycle-state:
     $ref: "./v3/paths/identity-set-lifecycle-state.yaml"
   /identity-profiles/{identity-profile-id}/lifecycle-states:
@@ -986,6 +1137,8 @@ paths:
     $ref: './v3/paths/roles.yaml'
   /roles/{id}:
     $ref: './v3/paths/role.yaml'
+  /roles/bulk-delete:
+    $ref: './v3/paths/role-bulk-delete.yaml'
   /roles/{id}/assigned-identities:
     $ref: './v3/paths/role-assigned-identities.yaml'
   /saved-searches:
@@ -1032,6 +1185,14 @@ paths:
     $ref: './v3/paths/password-dictionary.yaml'
   /password-org-config:
     $ref: './v3/paths/password-org-config.yaml'
+  /reports/{taskResultId}/result:
+    $ref: './v3/paths/reports-result.yaml'
+  /reports/run:
+    $ref: './v3/paths/reports-run.yaml'
+  /reports/{id}/cancel:
+    $ref: './v3/paths/reports-cancel.yaml'
+  /reports/{taskResultId}:
+    $ref: './v3/paths/reports-get-file.yaml'
   /sod-policies:
     $ref: './v3/paths/sod-policies.yaml'
   /sod-policies/{id}:
@@ -1147,7 +1308,7 @@ components:
             "sp:scopes:default": "default scope"
             "sp:scopes:all": "access to all scopes"
         authorizationCode:
-          authorizationUrl: https://tenant.identitynow.com/oauth/authorize
+          authorizationUrl: https://tenant.login.sailpoint.com/oauth/authorize
           tokenUrl: https://tenant.api.identitynow.com/oauth/token
           scopes:
             "sp:scopes:default": "default scope"
@@ -1189,16 +1350,12 @@ components:
       $ref: "./v3/schemas/search/model/account/activity/AccountActivityDocument.yaml"
     AccountAttributes:
       $ref: "./v3/schemas/AccountAttributes.yaml"
-    AccountDocument:
-      $ref: "./v3/schemas/search/model/account/AccountDocument.yaml"
     AccountsAsyncResult:
       $ref: "./v3/schemas/AccountsAsyncResult.yaml"
     AccountToggleRequest:
       $ref: "./v3/schemas/AccountToggleRequest.yaml"
     AccountUnlockRequest:
       $ref: "./v3/schemas/AccountUnlockRequest.yaml"
-    Aggregation:
-      $ref: "./v3/schemas/search/model/aggregation/AggregationDocument.yaml"
     ApprovalItems:
       $ref: "./v3/schemas/ApprovalItemDetails.yaml"
     Campaign:
@@ -1275,3 +1432,7 @@ components:
       $ref: './v3/schemas/SourceUsage.yaml'
     SourceUsageStatus:
       $ref: './v3/schemas/SourceUsageStatus.yaml'
+    BrandingItem:
+      $ref: './v3/schemas/BrandingItem.yaml'
+    BrandingItemCreate:
+      $ref: './v3/schemas/BrandingItemCreate.yaml'

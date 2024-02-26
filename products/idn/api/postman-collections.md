@@ -23,19 +23,18 @@ Each IDN API version is broken out into a separate collection within the workspa
 
 | API | Postman Collection |
 |------|----------------------------|
-| V3 API | <GitHubPublicFileComponent source="https://raw.githubusercontent.com/sailpoint-oss/api-specs/main/postman/links/v3-link.txt"></GitHubPublicFileComponent> |
-| Beta API | <GitHubPublicFileComponent source="https://raw.githubusercontent.com/sailpoint-oss/api-specs/main/postman/links/beta-link.txt"></GitHubPublicFileComponent> |
-| V2 API | <GitHubPublicFileComponent source="https://raw.githubusercontent.com/sailpoint-oss/api-specs/main/postman/links/v2-link.txt"></GitHubPublicFileComponent> |
-| cc/private API | <GitHubPublicFileComponent source="https://raw.githubusercontent.com/sailpoint-oss/api-specs/main/postman/links/cc-link.txt"></GitHubPublicFileComponent> |
+| V3 API | [![Run in Postman](./img/button.svg)](https://god.gw.postman.com/run-collection/23226990-3721beea-5615-44b4-9459-e858a0ca7aed?action=collection%2Ffork&collection-url=entityId%3D23226990-3721beea-5615-44b4-9459-e858a0ca7aed%26entityType%3Dcollection%26workspaceId%3D80af54be-a333-4712-af5e-41aa9eccbdd0) |
+| Beta API | [![Run in Postman](./img/button.svg)](https://god.gw.postman.com/run-collection/23226990-3b87172a-cd55-40a2-9ace-1560a1158a4e?action=collection%2Ffork&collection-url=entityId%3D23226990-3b87172a-cd55-40a2-9ace-1560a1158a4e%26entityType%3Dcollection%26workspaceId%3D80af54be-a333-4712-af5e-41aa9eccbdd0) |
+| NERM API | [![Run in Postman](./img/button.svg)](https://god.gw.postman.com/run-collection/23226990-20d718e3-b9b3-43ad-850c-637b00864ae2?action=collection%2Ffork&collection-url=entityId%3D23226990-20d718e3-b9b3-43ad-850c-637b00864ae2%26entityType%3Dcollection%26workspaceId%3D80af54be-a333-4712-af5e-41aa9eccbdd0) |
 | SaaS Connectivity | [![Run in Postman](./img/button.svg)](https://god.gw.postman.com/run-collection/23226990-a0b5c429-d8dd-4fe2-a4a2-eb7ff85322ef?action=collection%2Ffork&collection-url=entityId%3D23226990-a0b5c429-d8dd-4fe2-a4a2-eb7ff85322ef%26entityType%3Dcollection%26workspaceId%3D80af54be-a333-4712-af5e-41aa9eccbdd0) |
 
 You can also fork a collection by selecting the ellipses to the right of the collection and selecting 'Create a fork.'
 
-When you fork the collection, even if you check the 'Watch original collection' checkbox to get notifications when there are changes to the collection because of limitations of Postman, to get the most recent version of changes to the collection, you will need to click the link to fork the most up to date collection.
+When you fork the collection, when you check the 'Watch original collection' checkbox to get notifications when there are changes to the collection, you will be notified by email whenever a collection changes.
 
 ## Update your collections
 
-SailPoint is often making improvements to the IDN API collections. To keep your workspace in sync with updates to one of SailPoint's public collections, you will need to visit the [sailpoint workspace](https://www.postman.com/sailpoint/workspace/identitynow) and create a fork of the most recently published version or click the links above to fork the most recent version.
+SailPoint is often making improvements to the IDN API collections. To keep your workspace in sync with updates to one of SailPoint's public collections, you can right click on the forked collection and select "pull changes". sometimes this process will fail because of the size of our collection and limitations of the Postman tool. In that case, in order to update, you will need to visit the [sailpoint workspace](https://www.postman.com/sailpoint/workspace/identitynow) and create a fork of the most recently published version or click the links above to fork the most recent version.
 
 ## Configure your environment
 

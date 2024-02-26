@@ -2,7 +2,7 @@ type: object
 properties:
   policy:
     allOf:
-    - $ref: '../../BaseReferenceDto.yaml'
+    - $ref: './SodPolicyDto.yaml'
     - type: object
       properties:
         type:

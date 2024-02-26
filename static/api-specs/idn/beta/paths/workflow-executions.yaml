@@ -41,20 +41,17 @@ get:
         type: string
       example: status eq "Failed"
       description: >-
-        Filter results using the standard syntax described in [V3 API Standard
-        Collection
-        Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
 
 
         Filtering is supported for the following fields and operators:
 
 
-        **start_time**: *eq, lt, lte, gt, gte*
+        **startTime**: *eq, lt, le, gt, ge*
 
 
         **status**: *eq*
       required: false  
-   
   responses:
     '200':
       description: >-

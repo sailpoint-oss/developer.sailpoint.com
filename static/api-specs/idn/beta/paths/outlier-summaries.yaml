@@ -26,9 +26,12 @@ get:
       description: >-
         Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
 
-        Filtering is supported for the following field and operators: 
+
+        Filtering is supported for the following fields and operators:
+
         
         **snapshotDate**: *ge, le*
+      example: snapshotDate ge "2022-02-07T20:13:29.356648026Z"
     - in: query
       name: sorters
       schema:
@@ -37,7 +40,8 @@ get:
       description: >-
         Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
 
-        Sorting is supported for the following field: **snapshotDate**
+
+        Sorting is supported for the following fields: **snapshotDate**
       example: snapshotDate
       required: false
   responses:

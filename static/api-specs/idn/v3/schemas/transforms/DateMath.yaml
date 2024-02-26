@@ -25,6 +25,7 @@ properties:
 
       `false` indicates the transform should round down (i.e., truncate the fractional date/time component indicated)
     example: false
+    default: false
   requiresPeriodicRefresh:
     $ref: './RequiresPeriodicRefresh.yaml' 
   input:

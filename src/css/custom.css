@@ -458,3 +458,30 @@ div[class^='announcementBar_'] {
   color: #ffffff;
   height: 35px;
 }
+
+@media screen and (max-width: 750px) {
+  div[class^='announcementBar_'] {
+    background: repeating-linear-gradient(145deg,rgba(0,51,161,1),rgba(0,79,181,1),rgba(0,113,206,1));
+    color: #ffffff;
+    height: 52.5px;
+  }
+}
+
+div[class^='responseTabsContainer_'] {
+  max-width: 590px !important;
+}
+div[class^='openapi-tabs__response-container'] {
+  max-width: 600px !important;
+}
+
+div[class^='container padding-top--md padding-bottom--lg'] {
+  max-width: 85% !important;
+}
+
+code[class^='openapi-explorer__code-block'] {
+  max-height: 400px !important;
+}
+
+iframe#webpack-dev-server-client-overlay{
+  display:none!important
+}

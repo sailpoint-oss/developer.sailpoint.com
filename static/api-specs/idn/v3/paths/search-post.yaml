@@ -10,10 +10,12 @@ post:
     description: Learn more about search.
     url: https://documentation.sailpoint.com/saas/help/search/index.html
   operationId: searchPost
+  security:
+    - UserContextAuth: [ sp:search:read ]
   summary: "Perform Search"
   parameters:
   - $ref: '../parameters/offset.yaml'
-  - $ref: '../parameters/limit.yaml'
+  - $ref: '../parameters/searchlimit.yaml'
   - $ref: '../parameters/count.yaml'
   requestBody:
     content:

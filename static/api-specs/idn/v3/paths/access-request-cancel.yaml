@@ -1,5 +1,7 @@
 post:
   operationId: cancelAccessRequest
+  security:
+    - UserContextAuth: [ idn:access-request:cancel ]
   tags:
     - Access Requests
   summary: Cancel Access Request

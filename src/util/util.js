@@ -20,3 +20,5 @@ export function discourseProductTag() {
     return 20
   }
 }
+
+export function CMSBaseURL() { return process.env.CMS_APP_API_ENDPOINT}

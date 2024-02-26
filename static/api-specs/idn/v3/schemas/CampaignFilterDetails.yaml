@@ -1,0 +1,74 @@
+type: object
+description: Campaign Filter Details
+properties:
+  id:
+    type: string
+    description: Id of the campaign filter
+    example: e9f9a1397b842fd5a65842087040d3ac
+  name:
+    type: string
+    description: This is campaign filter's name.
+    example: Identity Attribute Campaign Filter
+  description:
+    type: string
+    description: This is campaign filter's description.
+    example: Campaign filter to certify data based on specified property of Identity Attribute.
+  owner:
+    type: string
+    description: The owner of this filter. This field is automatically populated at creation time with the current user.
+    example: SailPoint Support
+    nullable: true
+  mode:
+    description: >-
+      The mode/type of Filter, where it is of INCLUSION or EXCLUSION type. INCLUSION type will include the data in generated campaign 
+      as per specified in criteria, whereas EXCLUSION type will exclude the the data in generated campaign as per specified in criteria.
+    enum:
+      - "INCLUSION"
+      - "EXCLUSION"
+    example: INCLUSION
+  criteriaList:
+    type: array
+    description: List of criteria.
+    items:
+      type: object
+      properties:
+        type:
+          $ref: './CriteriaType.yaml'
+        operation:
+          allOf:
+          - $ref: './Operation.yaml'
+          - nullable: true
+        property:
+          type: string
+          description: The specified key from the Type of criteria.
+          example: displayName
+          nullable: true
+        value:
+          type: string
+          description: The value for the specified key from the Type of Criteria
+          example: Allie
+          nullable: true
+      required:
+        - type
+        - property
+        - value
+        - operation
+    example: [
+      {
+        "type": "IDENTITY_ATTRIBUTE",
+        "property": "displayName",
+        "value": "support",
+        "operation": "CONTAINS",
+        "negateResult": false,
+        "shortCircuit": false,
+        "recordChildMatches": false,
+        "id": null,
+        "suppressMatchedItems": false,
+        "children": null
+      }
+    ]
+required:
+  - name
+  - description
+  - owner
+  - mode

@@ -11,7 +11,7 @@ get:
     - UserContextAuth: [idn:campaign-report:read]
   parameters:
     - in: path
-      name: campaignId
+      name: id
       schema:
         type: string
         example: 2c91808571bcfcf80171c23e4b4221fc

@@ -11,6 +11,7 @@ properties:
     type: string
     description: Name for the attribute
     example: "location"
+    nullable: true
   value:
     $ref: './Value.yaml'
   children:
@@ -18,5 +19,25 @@ properties:
     nullable: true
     description: List of expressions
     items:
-      $ref: './Value.yaml'
+      type: object
+      properties:
+        operator:
+          type: string
+          description: Operator for the expression
+          enum:
+            - AND 
+            - EQUALS
+          example: "EQUALS"
+        attribute:
+          type: string
+          description: Name for the attribute
+          example: "location"
+          nullable: true
+        value:
+          $ref: './Value.yaml'
+        children:
+          type: string
+          nullable: true
+          description: There cannot be anymore nested children. This will always be null.
+          example: null
     example: []

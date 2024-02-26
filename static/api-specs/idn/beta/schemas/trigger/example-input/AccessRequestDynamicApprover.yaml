@@ -12,15 +12,12 @@ properties:
       The unique ID of the access request object. Can be used with the [access request status endpoint](https://developer.sailpoint.com/idn/api/beta/list-access-request-status) to get the status of the request.
     example: 4b4d982dddff4267ab12f0f1e72b5a6d
   requestedFor:
-    allOf:
-    - $ref: '../../../../v3/schemas/BaseReferenceDto.yaml'
-    description: The identity for whom the access is requested for.
-    properties:
-      type:
-        enum:
-        - "IDENTITY"
-        example: "IDENTITY"
-        description: The type of object that is referenced
+    type: array
+    description: Identities access was requested for. 
+    items: 
+      $ref: './AccessItemRequestedForDto.yaml'
+    minItems: 1
+    maxItems: 10
   requestedItems:
     description: The access items that are being requested.
     type: array
@@ -63,13 +60,8 @@ properties:
           type: string
           description: A comment from the requestor on why the access is needed.
           example: William needs this access for his day to day job activities.
+    minItems: 1
+    maxItems: 25
   requestedBy:
     allOf:
-    - $ref: '../../../../v3/schemas/BaseReferenceDto.yaml'
-    description: The identity that initiated the access request.
-    properties:
-      type:
-        enum:
-        - "IDENTITY"
-        example: "IDENTITY"
-        description: The type of object that is referenced
+    - $ref: './AccessItemRequesterDto.yaml'

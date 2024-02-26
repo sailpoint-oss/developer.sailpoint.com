@@ -1,12 +1,12 @@
 properties:
   count:
-    description: Count number of Results
+    description: Count number of results.
     example: 1
     format: int64
     type: integer
     x-go-name: Count
   results:
-    description: Results holds a list of FormDefinitionResponse items
+    description: List of FormDefinitionResponse items.
     items:
       $ref: './FormDefinitionResponse.yaml'
     type: array

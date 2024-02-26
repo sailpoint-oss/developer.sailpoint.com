@@ -38,10 +38,18 @@ properties:
         }
     }
   defaultReferences:
-    description: List of BaseRefenceDtos that can be used to resolve references on import.
+    description: List of object types that can be used to resolve references on import.
     type: array
     items:
-      $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+      type: string
+      enum: 
+        - IDENTITY_OBJECT_CONFIG
+        - IDENTITY_PROFILE
+        - RULE
+        - SOURCE
+        - TRANSFORM
+        - TRIGGER_SUBSCRIPTION
+      example: "TRIGGER_SUBSCRIPTION"  
   excludeBackup:
     description: By default, every import will first export all existing objects supported by sp-config as a backup before the import is attempted. If excludeBackup is true, the backup will not be performed.
     type: boolean

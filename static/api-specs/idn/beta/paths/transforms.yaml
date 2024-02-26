@@ -26,11 +26,14 @@ get:
       description: >-
         Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
 
+
         Filtering is supported for the following fields and operators:
+
 
         **internal**: *eq*
 
-        **name**: *eq*, *sw*
+
+        **name**: *eq, sw*
       required: false
       style: form
       explode: true

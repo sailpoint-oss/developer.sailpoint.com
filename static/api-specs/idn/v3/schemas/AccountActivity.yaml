@@ -26,7 +26,9 @@ properties:
     nullable: true
     example: "2018-10-19T13:49:37.385Z"
   completionStatus:
-    $ref: "./CompletionStatus.yaml"
+    allOf:
+    - $ref: "./CompletionStatus.yaml"
+    - nullable: true
   type:
     nullable: true
     type: string    
@@ -72,6 +74,7 @@ properties:
       type: string
     example: ["Some warning, another warning"]
   items:
+    nullable: true
     type: array
     description: Individual actions performed as part of this account activity
     items:

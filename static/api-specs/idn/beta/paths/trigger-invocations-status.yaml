@@ -26,6 +26,8 @@ get:
 
 
         **triggerId**: *eq*
+
+
         **subscriptionId**: *eq*
       example: 'triggerId eq "idn:access-request-dynamic-approver"'
     - in: query
@@ -38,13 +40,7 @@ get:
         Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
 
 
-        Sorting is supported for the following fields:
-
-
-        **triggerId**
-        **subscriptionName**
-        **created**
-        **completed**
+        Sorting is supported for the following fields: **triggerId, subscriptionName, created, completed**
       example: 'created'
   responses:
     '200':

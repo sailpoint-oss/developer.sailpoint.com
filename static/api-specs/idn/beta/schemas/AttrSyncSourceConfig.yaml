@@ -6,12 +6,7 @@ required:
   - attributes
 properties:
   source:
-    $ref: '../../v3/schemas/BaseReferenceDto.yaml'
-    description: Reference to the source which is the target of the attribute synchronization
-    example:
-      - type: 'SOURCE'
-        id: '2c9180835d191a86015d28455b4b232a'
-        name: 'HR Active Directory'
+    $ref: '../../v3/schemas/AttrSyncSource.yaml'
   attributes:
     type: array
     description: Attribute synchronization configuration for specific identity attributes in the context of a source

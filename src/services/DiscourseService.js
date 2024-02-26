@@ -14,12 +14,12 @@ export async function getAmbassadors(expert, limit, offset) {
   try {
     if (expert) {
       const response = await fetch(
-        discourseBaseURL() + 'groups/ambassador_expert/members.json?limit=' + limit + '&offset=' + offset,
+        discourseBaseURL() + 'groups/expert_ambassadors/members.json?limit=' + limit + '&offset=' + offset,
       );
       return await response.json();
     } else {
       const response = await fetch(
-        discourseBaseURL() + 'groups/ambassador/members.json?limit=' + limit + '&offset=' + offset,
+        discourseBaseURL() + 'groups/ambassadors/members.json?limit=' + limit + '&offset=' + offset,
       );
       return await response.json();
     }
@@ -56,9 +56,9 @@ export async function checkImage(url) {
 export async function getBlogPosts(tags) {
   let url = ''
   if (tags) {
-    url = discourseBaseURL() + 'search.json?q=category:blog-posts+tags:' + tags
+    url = discourseBaseURL() + 'c/blog/blog-posts/l/latest.json?tags=' + tags
   } else {
-    url = discourseBaseURL() + 'search.json?q=category:blog-posts'
+    url = discourseBaseURL() + 'c/blog/blog-posts/l/latest.json'
   }
   try {
     const response = await fetch(

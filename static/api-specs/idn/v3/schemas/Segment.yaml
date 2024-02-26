@@ -25,7 +25,9 @@ properties:
   owner:
     $ref: '../../v3/schemas/access/OwnerReferenceSegments.yaml'
   visibilityCriteria:
-    $ref: './VisibilityCriteria.yaml'
+    allOf:
+    - $ref: './VisibilityCriteria.yaml'
+    - nullable: true
   active:
     type: boolean
     description: This boolean indicates whether the segment is currently active. Inactive segments have no effect.

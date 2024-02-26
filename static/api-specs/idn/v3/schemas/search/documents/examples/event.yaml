@@ -2,7 +2,6 @@ summary: Event
 value:
   id: 'e092842f-c904-4b59-aac8-2544abeeef4b'
   name: 'Update Task Schedule Passed'
-  _type: 'event'
   created: '2020-02-17T16:23:18.327Z'
   synced: '2020-02-17T16:23:18.388Z'
   action: 'TASK_SCHEDULE_UPDATE_PASSED'

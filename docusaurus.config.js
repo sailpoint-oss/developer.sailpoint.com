@@ -53,9 +53,10 @@ const config = {
       algolia: {
         appId: 'TB01H1DFAM',
         apiKey: '726952a7a9389c484b6c96808a3e0010',
-        indexName: 'prod_DEVELOPER_SAILPOINT_COM',
+        indexName: 'crawler_Developer_Documentation',
         searchPagePath: false,
         placeholder: 'Search the Developer Community',
+        contextualSearch: false,
       },
       docs: {
         sidebar: {
@@ -68,16 +69,17 @@ const config = {
         respectPrefersColorScheme: true,
       },
       announcementBar: {
-        id: 'java_docs_announcement',
+        id: 'newAnnouncement3',
+        isCloseable: true,
         content:
-          'Checkout our latest announcement in the SailPoint Developer Community Forum: <a target="_blank" rel="noopener noreferrer" href="https://developer.sailpoint.com/discuss/t/announcing-developer-community-events/14633">Announcing Developer Community Events!</a> 🎉',
+          'our latest announcement in the SailPoint Developer Community Forum: <a target="_blank" rel="noopener noreferrer" href="https://developer.sailpoint.com/discuss/t/the-developer-community-colab-a-new-way-to-find-build-and-collaborate-on-extensibility-solutions/18847">Announcing the Developer Community CoLab!</a> 🎉',
       },
       navbar: navbar,
       footer: footer,
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ['http', 'java', 'ruby', 'php', 'csharp'],
+        additionalLanguages: ['http', 'java', 'ruby', 'php', 'csharp', 'powershell', 'bash', 'go', 'python'],
       },
       mermaid: {
         options: {

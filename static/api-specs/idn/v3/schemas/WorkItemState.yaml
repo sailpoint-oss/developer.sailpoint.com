@@ -6,5 +6,6 @@ enum:
   - EXPIRED
   - PENDING
   - CANCELED
+  - null
 example: FINISHED
 description: The state of a work item

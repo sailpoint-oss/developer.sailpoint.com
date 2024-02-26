@@ -1,6 +1,6 @@
 summary: BucketAggregation using DSL
 value:
-  indices:  [ 'aggregations' ]
+  indices:  [ 'identities' ]
   aggregationType: 'DSL'
   aggregationsDsl:
     Identity Locations:

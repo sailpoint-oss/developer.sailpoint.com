@@ -1,14 +1,15 @@
 get:
-  operationId: downloadDefaultViolationReport
+  operationId: getDefaultViolationReport
   tags:
     - SOD Policy
   summary: Download violation report
+  deprecated: true
+  security:
+    - UserContextAuth: [ idn:sod-violation:read ]
   description: >-
     This allows to download a violation report for a given report reference.
 
     Requires role of ORG_ADMIN.
-  # security:
-  #   - oauth2: [ORG_ADMIN]
   parameters:
     - in: path
       name: reportResultId

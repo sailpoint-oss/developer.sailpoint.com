@@ -12,6 +12,7 @@ allOf:
         type: string
         description: The email address of the identity
         example: 'sender@example.com'
+        nullable: true
       processingState:
         type: string
         nullable: true
@@ -19,6 +20,7 @@ allOf:
         enum:
           - ERROR
           - OK
+          - null
         example: ERROR
       identityStatus:
         type: string
@@ -36,7 +38,24 @@ allOf:
           - LOCKED
         example: LOCKED
       managerRef:
-        $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+        type: object
+        description: Identity's manager.
+        nullable: true
+        properties:
+          type:
+            type: string 
+            description: DTO type of identity's manager. 
+            enum: 
+              - IDENTITY
+            example: IDENTITY
+          id:
+            type: string
+            description: ID of identity's manager. 
+            example: 2c4180a46faadee4016fb4e018c20626
+          name:
+            type: string
+            description: Human-readable display name of identity's manager.
+            example: Robert Robinson
       isManager:
         type: boolean
         description: Whether this identity is a manager of another identity
@@ -52,5 +71,7 @@ allOf:
         description: A map with the identity attributes for the identity
         example: '{"uid":"Walter White","firstname":"walter","cloudStatus":"UNREGISTERED","displayName":"Walter White","identificationNumber":"942","lastSyncDate":1470348809380,"email":"walter@gmail.com","lastname":"white"}'
       lifecycleState:
-        $ref: '../../v3/schemas/LifecycleStateDto.yaml'
-        description: Lifecycle state details that include lifecycle state name and whether this lifecycle state has been set manually
+        allOf:
+        - $ref: '../../v3/schemas/LifecycleStateDto.yaml'
+        - nullable: true
+          description: Lifecycle state details that include lifecycle state name and whether this lifecycle state has been set manually

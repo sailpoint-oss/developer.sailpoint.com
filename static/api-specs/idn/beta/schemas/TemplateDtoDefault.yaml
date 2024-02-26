@@ -28,6 +28,7 @@ properties:
       "You have $numberOfPendingTasks $taskTasks to complete in
       ${__global.productName}."
     description: The subject of the default template
+    nullable: true
   header:
     type: string
     nullable: true
@@ -48,12 +49,16 @@ properties:
     type: string
     example: "$__global.emailFromAddress"
     description: The "From:" address of the default template
+    nullable: true
   replyTo:
     type: string
     example: "$__global.emailFromAddress"
     description: The "Reply To" field of the default template
+    nullable: true
   description:
     type: string
     example:
       "Daily digest - sent if number of outstanding tasks for task owner > 0"
     description: The description of the default template
+    nullable: true
+

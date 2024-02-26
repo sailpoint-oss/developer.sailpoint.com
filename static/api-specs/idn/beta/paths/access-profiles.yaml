@@ -44,7 +44,10 @@ get:
         **name**: *eq, sw*
 
 
-        **created, modified**: *gt, lt, ge, le*
+        **created**: *gt, lt, ge, le*
+
+
+        **modified**: *gt, lt, ge, le*
 
 
         **owner.id**: *eq, in*

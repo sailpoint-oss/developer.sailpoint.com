@@ -4,60 +4,112 @@ allOf:
 - $ref: '../base/DisplayReference.yaml'
 - type: object
   properties:
-    firstName:
-      type: string
-      description: The first name of the identity
-      example: Carol
-    lastName:
-      type: string
-      description: The last name of the identity
-      example: Adams
     displayName:
       type: string
       example: Carol.Adams
-      description: The display name of the identity
+      description: Identity's display name. 
+    firstName:
+      type: string
+      description: Identity's first name. 
+      example: Carol
+    lastName:
+      type: string
+      description: Identity's last name. 
+      example: Adams
     email:
       type: string
-      description: The identity's primary email address
+      description: Identity's primary email address.
       example: Carol.Adams@sailpointdemo.com
     created:
-      $ref: '../base/DateTime.yaml'
+      type: string
+      description: ISO-8601 date-time referring to the time when the object was created. 
+      nullable: true
+      format: 'date-time'
+      example: '2018-06-25T20:22:28.104Z'
     modified:
-      $ref: '../base/DateTime.yaml'
-    synced:
-      $ref: '../base/DateTime.yaml'
+      type: string
+      description: ISO-8601 date-time referring to the time when the object was last modified. 
+      nullable: true
+      format: 'date-time'
+      example: '2018-06-25T20:22:28.104Z'
     phone:
       type: string
-      description: The phone number of the identity
+      description: Identity's phone number.
       example: "+1 440-527-3672"
+    synced:
+      type: string
+      description: >-
+        ISO-8601 date-time referring to the date-time when object was queued to be synced into search database for use in the search API.  
+
+        This date-time changes anytime there is an update to the object, which triggers a synchronization event being sent to the search database. 
+
+        There may be some delay between the `synced` time and the time when the updated data is actually available in the search API. 
     inactive:
       type: boolean
-      description: Indicates if the identity is inactive
+      description: Indicates whether the identity is inactive.
+      default: false
       example: false
     protected:
       type: boolean
+      description: Indicates whether the identity is protected. 
+      default: false
       example: false
     status:
       type: string
-      description: The identity's status in SailPoint
+      description: Identity's status in SailPoint.
       example: UNREGISTERED
     employeeNumber:
       type: string
+      description: Identity's employee number. 
       example: 1a2a3d4e
     manager:
-      $ref: '../base/DisplayReference.yaml'
+      type: object
+      description: Identity's manager. 
       nullable: true
+      properties:
+        id:
+          type: string
+          description: ID of identity's manager. 
+          example: 2c9180867dfe694b017e208e27c05799
+        name:
+          type: string
+          description: Name of identity's manager. 
+          example: Amanda.Ross
+        displayName:
+          type: string
+          description: Display name of identity's manager. 
+          example: Amanda.Ross
     isManager:
       type: boolean
-      description: Indicates if this identity is a manager of other identities
+      description: Indicates whether the identity is a manager of other identities.
       example: false
     identityProfile:
-      $ref: '../base/Reference.yaml'
+      type: object
+      description: Identity's identity profile. 
+      properties: 
+        id: 
+          type: string
+          description: Identity profile's ID. 
+          example: 3bc8ad26b8664945866b31339d1ff7d2
+        name: 
+          type: string 
+          description: Identity profile's name. 
+          example: HR Employees
     source:
-      $ref: '../base/Reference.yaml'
+      type: object
+      description: Identity's source. 
+      properties: 
+        id: 
+          type: string
+          description: ID of identity's source. 
+          example: 2c91808b6e9e6fb8016eec1a2b6f7b5f
+        name: 
+          type: string
+          description: Display name of identity's source.
+          example: ODS-HR-Employees
     attributes:
       type: object
-      description: "a map or dictionary of key/value pairs"
+      description: Map or dictionary of key/value pairs.
       additionalProperties: true
       example:
         country: "US"
@@ -65,54 +117,67 @@ allOf:
         cloudStatus: "UNREGISTERED"
     processingState:
       type: string
+      description: Identity's processing state. 
       nullable: true
       example: null
     processingDetails:
       $ref: 'ProcessingDetails.yaml'
+      description: Identity's processing details. 
       nullable: true
     accounts:
       type: array
-      description: List of accounts associated with the identity
+      description: List of accounts associated with the identity.
       items:
         $ref: '../account/BaseAccount.yaml'
     accountCount:
       type: integer
-      description: Number of accounts associated with the identity
+      description: Number of accounts associated with the identity.
       format: int32
       example: 3
     apps:
       type: array
-      description: The list of applications the identity has access to
+      description: List of applications the identity has access to.
       items:
         $ref: 'App.yaml'
     appCount:
       type: integer
       format: int32
-      description: The number of applications the identity has access to
+      description: Number of applications the identity has access to.
       example: 2
     access:
       type: array
-      description: The list of access items assigned to the identity
+      description: List of access items assigned to the identity.
       items:
         $ref: 'IdentityAccess.yaml'
     accessCount:
       type: integer
       format: int32
-      description: The number of access items assigned to the identity
+      description: Number of access items assigned to the identity.
       example: 5
-    accessProfileCount:
-      type: integer
-      description: The number of access profiles assigned to the identity
-      example: 1
     entitlementCount:
       type: integer
-      description: The number of entitlements assigned to the identity
+      format: int32
+      description: Number of entitlements assigned to the identity.
       example: 10
     roleCount:
       type: integer
-      description: The number of roles assigned to the identity
+      format: int32
+      description: Number of roles assigned to the identity.
+      example: 1
+    accessProfileCount:
+      type: integer
+      format: int32
+      description: Number of access profiles assigned to the identity.
       example: 1
     owns:
-      $ref: 'Owns.yaml'
+      type: array
+      description: Access items the identity owns. 
+      items: 
+        $ref: 'Owns.yaml'
+    ownsCount: 
+      type: integer
+      format: int32
+      description: Number of access items the identity owns. 
+      example: 5
     tags:
       $ref: '../base/Tags.yaml'

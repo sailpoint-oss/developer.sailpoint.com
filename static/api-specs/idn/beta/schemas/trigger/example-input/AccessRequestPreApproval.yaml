@@ -15,15 +15,12 @@ properties:
     - id
     - type
     - name
-    allOf:
-    - $ref: '../../../../v3/schemas/BaseReferenceDto.yaml'
-    description: The identity who the access request is for.
-    properties:
-      type:
-        enum:
-        - "IDENTITY"
-        example: "IDENTITY"
-        description: The type of object that is referenced
+    type: array
+    description: Identities access was requested for. 
+    items: 
+      $ref: './AccessItemRequestedForDto.yaml'
+    minItems: 1
+    maxItems: 10
   requestedItems:
     description: Details of the access items being requested.
     type: array
@@ -66,17 +63,12 @@ properties:
           type: string
           description: A comment from the identity requesting the access.
           example: William needs this access to do his job.
+    minItems: 1
+    maxItems: 25
   requestedBy:
     required:
     - id
     - type
     - name
     allOf:
-    - $ref: '../../../../v3/schemas/BaseReferenceDto.yaml'
-    description: The identity that initiated the access request.
-    properties:
-      type:
-        enum:
-        - "IDENTITY"
-        example: "IDENTITY"
-        description: The type of object that is referenced
+    - $ref: './AccessItemRequesterDto.yaml'

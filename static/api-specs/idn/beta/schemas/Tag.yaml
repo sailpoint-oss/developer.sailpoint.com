@@ -23,8 +23,31 @@ properties:
     readOnly: true
   tagCategoryRefs:
     type: array
-    items:
-      $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+    items: 
+      type: object
+      description: Tagged object's category. 
+      properties:
+        type:
+          type: string 
+          description: DTO type of the tagged object's category. 
+          enum: 
+            - ACCESS_PROFILE
+            - APPLICATION
+            - CAMPAIGN
+            - ENTITLEMENT
+            - IDENTITY
+            - ROLE
+            - SOD_POLICY
+            - SOURCE
+          example: ENTITLEMENT
+        id:
+          type: string
+          description: Tagged object's ID. 
+          example: 2c91809773dee32014e13e122092014e
+        name:
+          type: string
+          description: Tagged object's display name. 
+          example: "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local"
     readOnly: true
 required:
   - id

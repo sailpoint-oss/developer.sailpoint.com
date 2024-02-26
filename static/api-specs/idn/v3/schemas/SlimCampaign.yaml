@@ -78,3 +78,27 @@ properties:
       - CORRELATED
       - UNCORRELATED
     example: CORRELATED
+  created:
+    type: string
+    readOnly: true
+    format: date-time
+    description: Created time of the campaign
+    example: '2020-03-03T22:15:13.611Z'
+  totalCertifications:
+    type: integer
+    format: int32
+    description: The total number of certifications in this campaign.
+    readOnly: true
+    example: 100
+  completedCertifications:
+    type: integer
+    format: int32
+    description: The number of completed certifications in this campaign.
+    readOnly: true
+    example: 10
+  alerts:
+    type: array
+    description: A list of errors and warnings that have accumulated.
+    readOnly: true
+    items:
+      $ref: './CampaignAlert.yaml'

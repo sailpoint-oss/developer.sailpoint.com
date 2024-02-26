@@ -1,0 +1,97 @@
+get:
+  operationId: getMFADuoConfig
+  tags:
+    - MFA Configuration
+  summary: Configuration of Duo MFA method
+  description: >-
+    This API returns the configuration of an Duo MFA method.
+    A token with ORG_ADMIN authority is required to call this API.
+  security:
+    - UserContextAuth: [idn:mfa-configuration:read, idn:mfa-configuration:manage]
+  responses:
+    "200":
+      description: The configuration of an Duo MFA method.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/MfaDuoConfig.yaml"
+          example:
+            {
+              "mfaMethod": "duo-web",
+              "enabled": true,
+              "host": "www.example.com",
+              "accessKey": "d******Y",
+              "identityAttribute": "email",
+              "configProperties": {
+                "skey": "6******B",
+                "ikey": "Q123WE45R6TY7890ZXCV"
+              }
+            }
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"
+
+put:
+  operationId: setMFADuoConfig
+  tags:
+    - MFA Configuration
+  summary: Set Duo MFA configuration
+  description: >-
+    This API sets the configuration of an Duo MFA method.
+    A token with ORG_ADMIN authority is required to call this API.
+  security:
+    - UserContextAuth: [idn:mfa-configuration:manage]
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/MfaDuoConfig.yaml"
+        example:
+          {
+            "mfaMethod": "duo-web",
+            "enabled": true,
+            "host": "www.example.com",
+            "accessKey": "qw123Y3QlA5UqocYpdU3rEkzrK2D497y",
+            "identityAttribute": "email",
+            "configProperties": {
+              "skey": "12q3WERlcUHWJmiMqyCXI3uOF7EaDJTbdeOp6E2B",
+              "ikey": "Q123WE45R6TY7890ZXCV"
+            }
+          }
+  responses:
+    "200":
+      description: MFA configuration of an Duo MFA method.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/MfaDuoConfig.yaml"
+          example:
+            {
+              "mfaMethod": "duo-web",
+              "enabled": true,
+              "host": "www.example.com",
+              "accessKey": "q******y",
+              "identityAttribute": "email",
+              "configProperties": {
+                "skey": "1******B",
+                "ikey": "Q123WE45R6TY7890ZXCV"
+              }
+            }
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

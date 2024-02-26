@@ -3,7 +3,7 @@ id: cli-template-report
 title: Report Template
 pagination_label: CLI Templates Report
 sidebar_label: Report
-sidebar_position: 7
+sidebar_position: 10
 sidebar_class_name: cli-template-report
 keywords: ['cli', 'template', 'report']
 description: Learn about the commands you can use to run report templates from the CLI.

@@ -1,0 +1,46 @@
+delete:
+  operationId: deleteMFAConfig
+  tags:
+    - MFA Configuration
+  summary: Delete MFA method configuration
+  description: >-
+    This API removes the configuration for the specified MFA method.
+
+    A token with ORG_ADMIN authority is required to call this API.
+  security:
+    - UserContextAuth: [idn:mfa-configuration:manage]
+  parameters:
+    - in: path
+      name: method
+      schema:
+        type: string
+        example: okta-verify
+      required: true
+      description: >-
+        The name of the MFA method.
+        The currently supported method names are 'okta-verify' and 'duo-web'.
+  responses:
+    "200":
+      description: MFA configuration of an MFA method.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/MfaOktaConfig.yaml"
+          example:
+            {
+              "mfaMethod": "okta-verify",
+              "enabled": true,
+              "host": "www.example.com",
+              "accessKey": "d******Y",
+              "identityAttribute": "email",
+            }
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

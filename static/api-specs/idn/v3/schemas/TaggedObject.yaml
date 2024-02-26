@@ -1,4 +1,5 @@
 type: object
+description: Tagged object.
 properties:
   objectRef:
     $ref: '../../v3/schemas/TaggedObjectDto.yaml'

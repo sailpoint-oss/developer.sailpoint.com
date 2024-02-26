@@ -85,11 +85,7 @@ If you have admin access but don't know your tenant name, you can learn it by fo
 1. Log into your IDN instance.
 2. Select the 'Dashboard' dropdown. 
 3. Select 'Overview'. 
-4. Find the tenant name in the dashboard's `Org Details` section. 
-
-If you don't have admin access and don't know your tenant name either, you can learn it by following these steps instead: 
-1. Change your IDN URL to the following: `https://{your-IdentityNow-hostname}.com/ui/session, where {your-IdentityNow-hostname} is your company's domain name for accessing IDN. 
-2. Find tenant name in the `baseUrl` session detail: `https://{tenant}.api.identitynow.com` 
+4. Find the tenant name ('Org Name') in the dashboard's `Org Details` section. 
 
 This is an example of the OAuth details of the tenant, "iga-acme-sb": 
 
@@ -97,7 +93,7 @@ This is an example of the OAuth details of the tenant, "iga-acme-sb":
 {
   "tenantId": "cc31a307-8a8d-49e8-93b9-c7cbe20e2e6b",
   "tenantName": "iga-acme-sb",
-  "authorizeEndpoint": "https://iga-sb.acme.com/oauth/authorize",
+  "authorizeEndpoint": "https://iga-sb.login.sailpoint.com/oauth/authorize",
   "tokenEndpoint": "https://iga-sb.api.identitynow.com/oauth/token",
   "cloudDomainUrl": "https://iga-sb.acme.com",
   "logoutUrl": "https://iga-sb.acme.com/logout",
@@ -163,7 +159,7 @@ The guide will detail the three different authorization grant flows you can use 
 
 ### Request access token with client credentials grant flow 
 
-Clients use the 'Client Credentials' grant type to obtain access tokens without user invovlement. This is the simplest authentication flow.
+Clients use the 'Client Credentials' grant type to obtain access tokens without user involvement. This is the simplest authentication flow.
 
 API endpoints that require [user level permissions](https://documentation.sailpoint.com/saas/help/common/users/user_level_matrix.html) require the use of Personal access tokens (PATs). Correspondingly, the endpoints a personal access token (PAT) can call depends on the permissions of the user who generated it and the configuration of IDN.
 
@@ -277,7 +273,7 @@ sequenceDiagram
     participant I as IdentityNow
 
     U->>W: Click login link
-    W->>I: Authorization request to https://{tenant}.identitynow.com/oauth/authorize
+    W->>I: Authorization request to https://{tenant}.login.sailpoint.com/oauth/authorize
     I->>U: Redirect to login prompt
     U->>I: Authentication
     I->>W: Authorization code granted
@@ -294,7 +290,7 @@ This is the overall authorization flow:
 2. The web app sends an authorization request to IDN in this form:
 
 ```Text
-GET https://{tenant}.identitynow.com/oauth/authorize?client_id={client-id}&client_secret={client-secret}&response_type=code&redirect_uri={redirect-url}
+GET https://{tenant}.login.sailpoint.com/oauth/authorize?client_id={client-id}&client_secret={client-secret}&response_type=code&redirect_uri={redirect-url}
 ```
 
 3. IDN redirects the user to a login prompt to authenticate to IdentityNow.
@@ -523,15 +519,12 @@ This section describes some different use cases and which grant flow you would w
 
 #### Daily work or quick actions
 
-For daily work or short, quick administrative actions, you may not really need to worry about grant types because you can easily generate an access token in the user interface (UI). 
+For daily work or short, quick administrative actions, you can just use a PAT. This makes the process easier because you don't really need to worry about grant types - you can easily generate a PAT in the user interface (UI).
 
 Follow these steps to do so: 
-1. Login to IDN.
-2. Go to `https://{tenant}.identitynow.com/ui/session`.
-3. The `accessToken` is visible in the UI.
-4. Use this access token in the `Authorization` header when you're making API calls. If the access token expires, log back into IDN and get the new access token.
-
-While this is simple to use, the disadvantage is that the `accessToken` is only valid for a few minutes. 
+1. Log in to IDN.
+2. Go to 'Preferences', then 'Personal Access Tokens', and [generate a PAT](#generate-a-personal-access-token). 
+3. The PAT's `client_id` and `client_secret` provide the necessary authentication to send API requests, without any grant flow. 
 
 #### Postman
 [Postman](https://www.postman.com/) is a popular HTTP client you can use to design, build, test, and iterate your APIs. Postman users and teams can create public workspaces they can use to make it easy to access their API collections and environments and get started. SailPoint maintains a [public workspace for the IdentityNow API collections](https://www.postman.com/sailpoint/workspace/identitynow). You can use this workspace to access all the IDN API collections and stay up to date.

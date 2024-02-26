@@ -127,6 +127,5 @@ sail spconfig template
 
 You can add these flags to the `template` command:
 
-- `outputTypes`: Use this flag to specify the output data type for the template. This example shows how running this command would generate the template in a `json` output. Currently only `csv` and `json` are supported.
 - `folderPath`: Use this flag to specify the folder path you want to save the template in. If the directory doesn't exist, the CLI creates it. The default folder path is the current working directory.
 - `wait`: Use this boolean to specify whether the CLI should wait for the export job to finish before downloading the results. This flag is false by default. Setting it to true sets the CLI to wait until the job finishes before downloading the results.

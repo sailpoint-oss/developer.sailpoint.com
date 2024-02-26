@@ -29,7 +29,8 @@ get:
           Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
 
 
-          Filtering is supported for the following Entitlement fields and operators:
+          Filtering is supported for the following fields and operators:
+
 
           **id**: *eq, in*
 
@@ -43,7 +44,10 @@ get:
           **value**: *eq, sw*
 
 
-          **created, modified**: *gt, lt, ge, le*
+          **created**: *gt, lt, ge, le*
+
+
+          **modified**: *gt, lt, ge, le*
 
 
           **owner.id**: *eq, in*

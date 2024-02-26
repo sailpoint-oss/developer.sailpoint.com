@@ -30,7 +30,7 @@ The following describes in detail the different fields in the connector spec:
   - For example, the stdAccountRead command input is the StdAccountReadInput. if you select keyType as “simple,” then the StdAccountReadInput.key will be the type SimpleKey.
 
 - **commands:** The list of commands the connector supports. A full list of available commands can be found [here](../connector-commands/index.md).
-
+- **[sourceConfigInitialValues](./connector-spec/initial-value):** Key value pair of source config item keys and the default value that should be associated with them.
 - **sourceConfig** A list of configuration items you must provide when you create a source in IDN. The order of these items is preserved in the UI.
   - **type:** This is always “menu” - it indicates a new menu for the sidebar. You can have multiple sections defined for complex connector configurations
   - **label:** This label indicates the text that will show up on the sidebar in IDN

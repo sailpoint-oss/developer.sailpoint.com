@@ -8,31 +8,34 @@ allOf:
     executionCount:
       type: integer
       format: int32
-      description: The number of times this workflow has been executed
+      description: The number of times this workflow has been executed.
       example: 2
     failureCount:
       type: integer
       format: int32
-      description: The number of times this workflow has failed during execution
+      description: The number of times this workflow has failed during execution.
       example: 0
     created:
       type: string
       format: date-time
-      description: The date and time the workflow was created
+      description: The date and time the workflow was created.
       example: "2022-01-10T16:06:16.636381447Z"
     creator:
-      allOf:
-      - $ref: '../../v3/schemas/BaseReferenceDto.yaml'
-      description: The identity that created the workflow.
+      type: object
+      description: Workflow creator's identity. 
       properties:
         type:
-          enum:
-          - "IDENTITY"
-          example: "IDENTITY"
-          description: The type of object that is referenced
-      example: {
-        "type": "IDENTITY",
-        "id": "2c91808568c529c60168cca6f90c1313",
-        "name": "William Wilson"
-      }
+          type: string 
+          description: Workflow creator's DTO type. 
+          enum: 
+            - IDENTITY
+          example: IDENTITY
+        id:
+          type: string
+          description: Workflow creator's identity ID.
+          example: 2c7180a46faadee4016fb4e018c20642
+        name:
+          type: string
+          description: Workflow creator's display name. 
+          example: Michael Michaels
 - $ref: './WorkflowBody.yaml'

@@ -1,0 +1,10 @@
+type: string
+description: Role mining session status
+enum:
+  - CREATED
+  - UPDATED
+  - IDENTITIES_OBTAINED
+  - PRUNE_THRESHOLD_OBTAINED
+  - POTENTIAL_ROLES_PROCESSING
+  - POTENTIAL_ROLES_CREATED
+example: CREATED

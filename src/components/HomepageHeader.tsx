@@ -6,28 +6,25 @@ import 'atropos/css';
 
 export default function HomepageHeader() {
   return (
-    <div className="grid place-content-center py-40">
+    <div className="grid place-content-center">
       <Atropos
         alwaysActive
+        shadow={false}
         highlight={false}
-        className="my-atropos overflow-visible">
-        <Card className="max-w-[800px] overflow-visible z-0">
-          <CardContent className="z-20 text-3xl flex flex-col gap-4 overflow-visible font-semibold text-center p-6">
-            <p data-atropos-offset="5" className="py-2 my-0 ">
-              Welcome to the
-            </p>
+        className="my-atropos overflow-visible text-3xl flex flex-col gap-4 font-semibold text-center p-6 py-60">
+        <p data-atropos-offset="2" className="py-2 my-0 ">
+          Welcome to the
+        </p>
 
-            <img
-              data-atropos-offset="15"
-              className="z-50"
-              src={useBaseUrl('/img/SailPoint-Developer-Community-Lockup.png')}
-            />
+        <img
+          data-atropos-offset="7"
+          className="z-50 px-20"
+          src={useBaseUrl('/img/SailPoint-Developer-Community-Lockup.png')}
+        />
 
-            <p data-atropos-offset="5" className="py-2 my-0">
-              Where code meets community
-            </p>
-          </CardContent>
-        </Card>
+        <p data-atropos-offset="2" className="py-2 my-0">
+          Where code meets community
+        </p>
       </Atropos>
     </div>
   );

@@ -9,6 +9,9 @@ module.exports = {
   darkMode: ['class', '[data-theme="dark"]'],
   content: ['./src/**/*.{js,jsx,ts,tsx,html}'],
   theme: {
+    colors: {
+      aqua: 'hsl(var(--color-aqua) / <alpha-value>)',
+    },
     container: {
       center: true,
       padding: '2rem',
@@ -17,6 +20,9 @@ module.exports = {
       },
     },
     extend: {
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
@@ -61,6 +67,10 @@ module.exports = {
         sans: ['var(--font-sans)', ...fontFamily.sans],
       },
       keyframes: {
+        border: {
+          '0%, 100%': {backgroundPosition: '0% 50%'},
+          '50%': {backgroundPosition: '100% 50%'},
+        },
         'accordion-down': {
           from: {height: '0'},
           to: {height: 'var(--radix-accordion-content-height)'},
@@ -71,6 +81,7 @@ module.exports = {
         },
       },
       animation: {
+        border: 'border 3s ease infinite',
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
       },

@@ -24,48 +24,15 @@ module.exports = [
           from: ['/ambassador-program'],
         },
       ],
-    },
-  ],
-  [
-    '@docusaurus/plugin-content-docs',
-    {
-      id: 'idn',
-      path: 'products/idn',
-      routeBasePath: 'idn',
-      editUrl:
-        'https://github.com/sailpoint-oss/developer-community-site/edit/main/',
-      showLastUpdateAuthor: true,
-      showLastUpdateTime: true,
-      sidebarPath: require.resolve('./products/idn/sidebar.js'),
-      docItemComponent: '@theme/ApiItem',
-    },
-  ],
-  [
-    '@docusaurus/plugin-content-docs',
-    {
-      id: 'iiq',
-      path: 'products/iiq',
-      routeBasePath: 'iiq',
-      editUrl:
-        'https://github.com/sailpoint-oss/developer-community-site/edit/main/',
-      showLastUpdateAuthor: true,
-      showLastUpdateTime: true,
-      sidebarPath: require.resolve('./products/iiq/sidebar.js'),
-      docItemComponent: '@theme/ApiItem',
-    },
-  ],
-  [
-    '@docusaurus/plugin-content-docs',
-    {
-      id: 'nerm',
-      path: 'products/nerm',
-      routeBasePath: 'nerm',
-      editUrl:
-        'https://github.com/sailpoint-oss/developer-community-site/edit/main/',
-      showLastUpdateAuthor: true,
-      showLastUpdateTime: true,
-      sidebarPath: require.resolve('./products/nerm/sidebar.js'),
-      docItemComponent: '@theme/ApiItem',
+      createRedirects(existingPath) {
+        if (existingPath.includes('/idn')) {
+          // Redirect from /docs/team/X to /community/X and /docs/support/X to /community/X
+          return [
+            existingPath.replace('/idn', '/docs'),
+          ];
+        }
+        return undefined; // Return a falsy value: no redirect created
+      }
     },
   ],
   [
@@ -76,7 +43,7 @@ module.exports = [
       config: {
         idn_v3: {
           specPath: 'static/api-specs/idn/sailpoint-api.v3.yaml',
-          outputDir: 'products/idn/api/v3',
+          outputDir: 'docs/api/v3',
           downloadUrl:
             'https://raw.githubusercontent.com/sailpoint-oss/api-specs/main/dereferenced/deref-sailpoint-api.v3.yaml',
           sidebarOptions: {
@@ -87,7 +54,7 @@ module.exports = [
         },
         idn_beta: {
           specPath: 'static/api-specs/idn/sailpoint-api.beta.yaml',
-          outputDir: 'products/idn/api/beta',
+          outputDir: 'docs/api/beta',
           downloadUrl:
             'https://raw.githubusercontent.com/sailpoint-oss/api-specs/main/dereferenced/deref-sailpoint-api.beta.yaml',
           sidebarOptions: {
@@ -107,7 +74,7 @@ module.exports = [
       config: {
         iiq: {
           specPath: 'static/api-specs/iiq/sailpoint-api.iiq.yaml',
-          outputDir: 'products/iiq/api',
+          outputDir: 'docs/api/iiq',
           downloadUrl:
             'https://raw.githubusercontent.com/sailpoint-oss/api-specs/main/iiq/sailpoint-api.iiq.yaml',
           sidebarOptions: {
@@ -127,7 +94,7 @@ module.exports = [
       config: {
         nerm: {
           specPath: 'static/api-specs/nerm/openapi.yaml',
-          outputDir: 'products/nerm/api',
+          outputDir: 'docs/api/nerm',
           downloadUrl:
             'https://raw.githubusercontent.com/sailpoint-oss/api-specs/main/dereferenced/deref-sailpoint-api.nerm.yaml',
           sidebarOptions: {

@@ -7,7 +7,7 @@ sidebar_position: 1
 sidebar_class_name: plugin_developer_guide_overview
 keywords: ['plugin']
 description: IdentityIQ Plugin Developer Guide Overview
-slug: /plugin-developer-guide/overview
+slug: /iiq/plugin-developer-guide/overview
 tags: ['plugin','guide','identityiq']
 ---
 

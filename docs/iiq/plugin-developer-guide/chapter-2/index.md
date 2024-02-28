@@ -7,7 +7,7 @@ sidebar_position: 2
 sidebar_class_name: plugin_developer_guide_manifest
 keywords: ['plugin']
 description: IdentityIQ Plugin Manifest File
-slug: /plugin-developer-guide/manifest
+slug: /iiq/plugin-developer-guide/manifest
 tags: ['plugin','guide','identityiq']
 ---
 

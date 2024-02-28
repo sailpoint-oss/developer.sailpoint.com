@@ -7,7 +7,7 @@ sidebar_position: 10
 sidebar_class_name: plugin_developer_guide_appendix_migration
 keywords: ['plugin']
 description: Migration from IdentityIQ 7.0 to 7.1
-slug: /plugin-developer-guide/appendix-migration
+slug: /iiq/plugin-developer-guide/appendix-migration
 tags: ['plugin','guide','identityiq']
 ---
 

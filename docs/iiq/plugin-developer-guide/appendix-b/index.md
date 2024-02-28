@@ -7,7 +7,7 @@ sidebar_position: 11
 sidebar_class_name: plugin_developer_guide_updates
 keywords: ['plugin']
 description: IdentityIQ 8.0 Updates
-slug: /plugin-developer-guide/updates
+slug: /iiq/plugin-developer-guide/updates
 tags: ['plugin','guide','identityiq']
 ---
 # Appendix B - 8.0 Updates

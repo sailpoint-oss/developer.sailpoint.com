@@ -7,7 +7,7 @@ sidebar_position: 6
 sidebar_class_name: plugin_developer_guide_xml_artifacts
 keywords: ['plugin']
 description: IdentityIQ Plugin XML Artifacts
-slug: /plugin-developer-guide/xml-artifacts
+slug: /iiq/plugin-developer-guide/xml-artifacts
 tags: ['plugin','guide','identityiq']
 ---
 

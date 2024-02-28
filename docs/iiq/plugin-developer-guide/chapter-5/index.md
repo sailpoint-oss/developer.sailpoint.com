@@ -7,7 +7,7 @@ sidebar_position: 5
 sidebar_class_name: plugin_developer_guide_ui_elements
 keywords: ['plugin']
 description: IdentityIQ Plugin UI Elements
-slug: /plugin-developer-guide/ui-elements
+slug: /iiq/plugin-developer-guide/ui-elements
 tags: ['plugin','guide','identityiq']
 ---
 # UI Elements

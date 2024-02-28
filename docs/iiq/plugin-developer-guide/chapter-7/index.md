@@ -7,7 +7,7 @@ sidebar_position: 7
 sidebar_class_name: plugin_developer_guide_java_rest_resources
 keywords: ['plugin']
 description: IdentityIQ Plugin Java Classes REST Resources 
-slug: /plugin-developer-guide/java-classes-rest-resources
+slug: /iiq/plugin-developer-guide/java-classes-rest-resources
 tags: ['plugin','guide','identityiq']
 ---
 

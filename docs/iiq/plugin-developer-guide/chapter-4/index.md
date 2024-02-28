@@ -7,7 +7,7 @@ sidebar_position: 4
 sidebar_class_name: plugin_developer_guide_database_scripts
 keywords: ['plugin']
 description: IdentityIQ Plugin Database Scripts
-slug: /plugin-developer-guide/database-scripts
+slug: /iiq/plugin-developer-guide/database-scripts
 tags: ['plugin','guide','identityiq']
 ---
 

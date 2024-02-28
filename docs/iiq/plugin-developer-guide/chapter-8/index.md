@@ -7,7 +7,7 @@ sidebar_position: 8
 sidebar_class_name: plugin_developer_guide_java_executors
 keywords: ['plugin']
 description: IdentityIQ Plugin Java Class Plugin Executors
-slug: /plugin-developer-guide/java-classes-executors
+slug: /iiq/plugin-developer-guide/java-classes-executors
 tags: ['plugin','guide','identityiq']
 ---
 

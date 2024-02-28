@@ -7,7 +7,7 @@ sidebar_position: 9
 sidebar_class_name: plugin_developer_guide_installation
 keywords: ['plugin']
 description: IdentityIQ Plugin Installation
-slug: /plugin-developer-guide/installation
+slug: /iiq/plugin-developer-guide/installation
 tags: ['plugin','guide','identityiq']
 ---
 

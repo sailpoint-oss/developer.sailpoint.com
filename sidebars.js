@@ -13,11 +13,19 @@ const sidebars = {
           type: 'category',
           label: 'API Specifications',
           collapsible: true,
+          link: {
+            type: 'doc',
+            id: 'api/api-specifications',
+          },
           items: [
             {
               type: 'category',
               label: 'Identity Security Cloud',
               collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'api/identity-security-cloud',
+              },
               items: [
                 {
                   type: 'doc',
@@ -79,6 +87,10 @@ const sidebars = {
               type: 'category',
               label: 'NERM',
               collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'api/non-employee',
+              },
               items: [
                 {
                   type: 'doc',
@@ -100,7 +112,7 @@ const sidebars = {
                     title: 'NERM v1 API',
                     description:
                       'These are the Non-employee Risk Management APIs for SailPoint. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.',
-                    slug: '/api/nerm',
+                    slug: '/api/nerm/v1',
                   },
                   // @ts-ignore
                   items: require('./docs/api/nerm/sidebar.js'),
@@ -228,6 +240,16 @@ const sidebars = {
                 dirName: 'iiq/plugin-developer-guide',
               },
             ],
+          },
+          {
+            type: 'link',
+            label: 'Product Documentation',
+            href: 'https://documentation.sailpoint.com/#identityiq',
+          },
+          {
+            type: 'link',
+            label: 'Certifications',
+            href: 'https://university.sailpoint.com/Saba/Web_spf/NA10P1PRD075/guest/categorydetail/categ000000000003042/true/xxemptyxx/',
           },
       ],
     },

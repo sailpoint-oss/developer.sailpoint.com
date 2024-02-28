@@ -7,7 +7,7 @@ sidebar_position: 3
 sidebar_class_name: plugin_developer_guide_build_file
 keywords: ['plugin']
 description: IdentityIQ Plugin Build File
-slug: /plugin-developer-guide/build-file
+slug: /iiq/plugin-developer-guide/build-file
 tags: ['plugin','guide','identityiq']
 ---
 

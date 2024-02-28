@@ -1,14 +1,14 @@
 import React from 'react';
+import clsx from 'clsx';
 import styles from './styles.module.css';
-import VideoCard from '../VideoCard';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import Link from '@docusaurus/Link';
+import {getCatagories, getTags} from '../../../services/DiscourseService';
+import MarketplaceSidebarButton from './VideoSidebarButton';
 import {
-  videoBaseURL,
-  videoThumbnailBaseURL,
-  discourseBaseURL,
+  discourseMarketplaceCatagoryId,
+  discourseProductTag,
 } from '../../../util/util';
-import BounceLoader from 'react-spinners/BounceLoader';
-import videos from '../../../../static/videos/videos.json';
-import {getVideoPosts} from '../../../services/DiscourseService';
 
 const topicData = {
   users: [
@@ -398,111 +398,72 @@ const topicData = {
   },
 };
 
-export default function VideoCards(filterCallback) {
-  const [cardData, setCardData] = React.useState();
-  const [loadingCards, setLoadingCards] = React.useState(true);
+export default function MarketplaceSidebar({filterCallback, selectedCategory}) {
+  const [tagProductData, setTagProductData] = React.useState();
+  const [filterTags, setFilterTags] = React.useState(true);
 
-  function buildTopicUrl(slug, id) {
-    return discourseBaseURL() + `t/${slug}/${id}`;
-  }
-
-  function parseVideoDetails(inputStr) {
-    // Split the string by the known separator for the description
-    const parts = inputStr.split('\n\nDescription\n');
-    const videoUrl = parts[0].trim(); // Get the video URL, trimming any whitespace
-    const description = parts.length > 1 ? parts[1].trim() : ''; // Get the description if it exists
-
-    return {
-      videoUrl,
-      description,
-    };
-  }
-
-  const getVideoTopics = async () => {
-    console.log(filterCallback);
+  const getTagData = async () => {
     // const data = await getVideoPosts(filterCallback.tags.join('+'));
+    const uniqueTags = new Set();
+
     const data = await topicData;
     const resultset = [];
     if (data.topic_list) {
       for (const topic of data.topic_list.topics) {
         if (topic.tags.length > 0) {
-          let {videoUrl, description} = parseVideoDetails(topic.excerpt);
-          let thumbnail = videoUrl.replace('.html', '.jpg');
-
-          if (videoUrl && description) {
-            resultset.push({
-              key: topic.id,
-              title: topic.title,
-              tags: topic.tags,
-              body: description,
-              thumbnail: thumbnail,
-              url: buildTopicUrl(topic.slug, topic.id),
-            });
-          } else {
-            resultset.push({
-              key: topic.id,
-              title: topic.title,
-              tags: topic.tags,
-              body: topic.excerpt,
-              thumbnail: topic.image_url,
-              url: buildTopicUrl(topic.slug, topic.id),
-            });
-          }
+          topic.tags.forEach((tag) => {
+            uniqueTags.add(tag);
+          });
         }
       }
-    } else {
-      setCardData(undefined);
     }
-    setCardData(resultset);
-    setLoadingCards(false);
+    setTagProductData(Array.from(uniqueTags));
   };
 
-  React.useEffect(() => {
-    getVideoTopics();
-    setCardData(undefined);
-    setLoadingCards(true);
-  }, [filterCallback]);
+  // function toggleSeeAll() {
+  //   filterTags ? setFilterTags(false) : setFilterTags(true);
+  // }
 
-  if (cardData && cardData.length > 0) {
+  function displayText(text) {
+    if (text === 'identitynow') {
+      return 'IdentityNow';
+    }
+    if (text === 'access-intelligence-center') {
+      return 'Access Intelligence Center';
+    }
+    if (text === 'developer-days-2023') {
+      return 'Developer Days 2023';
+    }
+  }
+
+  React.useEffect(() => {
+    getTagData();
+  }, []);
+
+  const filterText = filterTags ? 'See All Tags' : 'See Less Tags';
+
+  if (tagProductData) {
     return (
-      <div className={styles.center}>
-        <div className={styles.gridContainer}>
-          {cardData.map(function (a, index) {
+      <div className={styles.sidebar}>
+        <div className={styles.tagHeader}>Video Search</div>
+        <div className={styles.tagContainer}>
+         <input type="text" id="search" placeholder="Search for Video" />
+        </div>
+        <div className={styles.tagHeader}>Video Tags</div>
+        <div className={styles.tagContainer}>
+          {tagProductData.map(function (a, index) {
             return (
-              <VideoCard
-                key={a.key}
-                videoURL={a.url}
-                thumbnail={a.thumbnail}
-                title={a.title}
-                body={a.body}
-                tags={a.tags}></VideoCard>
+              <MarketplaceSidebarButton
+                key={a}
+                text={displayText(a)}
+                id={a}
+                filterCallback={filterCallback}></MarketplaceSidebarButton>
             );
           })}
         </div>
       </div>
     );
-  } else if (loadingCards) {
-    return (
-      <BounceLoader
-        className={styles.spinnerCenter}
-        color={'#0033a1'}
-        loading={true}
-        size={150}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-      />
-    );
   } else {
-    return (
-      <div className={styles.noFound}>
-        {' '}
-        Hey there, looks like no integrations match your search criteria. Check
-        out our{' '}
-        <a href="https://developer.sailpoint.com/discuss/t/about-the-sailpoint-developer-community-colab/11230">
-          getting started guide
-        </a>
-        , and consider being the first to contribute this integration!
-      </div>
-    );
+    return <div></div>;
   }
 }

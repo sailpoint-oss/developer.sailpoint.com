@@ -6,7 +6,7 @@ sidebar_label: Rules
 sidebar_position: 2
 sidebar_class_name: rules
 keywords: ['rules']
-description: Documentation for rule development in IdentityNow.
+description: Advanced configurations with custom logic.
 slug: /rules
 tags: ['Rules']
 ---

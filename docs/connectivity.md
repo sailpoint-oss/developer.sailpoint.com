@@ -6,7 +6,7 @@ sidebar_label: Connectivity
 sidebar_position: 1
 sidebar_class_name: connectivity
 keywords: ['connectivity']
-description: Building extensibility in IdentityNow
+description: Build and expand ISC connectivity. 
 slug: /connectivity
 tags: ['connectivity']
 ---

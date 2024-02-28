@@ -6,7 +6,7 @@ sidebar_label: Secure Data Share
 sidebar_position: 6
 sidebar_class_name: secureDataShare
 keywords: ['data listing', 'data share', 'secure data sharing']
-description: Secure Data Share is an easy way to get IDN data of your organization in a structured format.
+description: Share ISC data with Snowflake.
 slug: /reporting/secure-data-share
 tags: ['SecureDataShare']
 hide_table_of_contents: true

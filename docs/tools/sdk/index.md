@@ -6,18 +6,22 @@ sidebar_label: SDKs
 sidebar_position: 2
 sidebar_class_name: sdk
 keywords: ['sdk']
-description: A SailPoint SDK makes it easy to access the SailPoint API and extend your IDN platform. 
+description: Easy ISC development in your preferred coding language.
 slug: /tools/sdk
 tags: ['SDK']
 ---
 
-## SDKs
+## Overview
 
-A SailPoint software development kit (SDK) makes it easy to access the SailPoint APIs and extend your IDN platform. 
+The SailPoint software development kits (SDKs) make it easier for developers to leverage the Identity Security Cloud (ISC) APIs, extensibility options, and connectivity while they build with their preferred coding languages. 
 
-In addition to the APIs, each SDK includes SaaS connector, IDN search, and transform functionality. Each SDK also includes prebuilt examples you can use to learn how to get started. 
+```mdx-code-block
+import DocCardList from '@theme/DocCardList';
+import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
-Try one of these SDKs to get started: 
-- [Go SDK](./go/index.mdx)
-- [Powershell SDK](./powershell/index.mdx)
-- [TypeScript SDK](./typescript/index.mdx)
+<DocCardList items={useCurrentSidebarCategory().items}/>
+```
+
+## Discuss 
+
+To learn more about the ISC SDKs and discuss them with SailPoint Developer Community members, go to the [Forum](https://developer.sailpoint.com/discuss/tags/c/isc/6). 

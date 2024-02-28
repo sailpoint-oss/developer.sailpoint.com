@@ -6,7 +6,7 @@ sidebar_label: Transforms
 sidebar_position: 1
 sidebar_class_name: transforms
 keywords: ['transforms']
-description: Building Transforms in IdentityNow
+description: Modify attribute data without code.
 slug: /transforms
 tags: ['Transforms']
 ---

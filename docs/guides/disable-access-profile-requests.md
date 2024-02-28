@@ -6,8 +6,8 @@ sidebar_label: Disable Access Profile Requests
 sidebar_position: 1
 sidebar_class_name: disableAccessProfileRequests
 keywords: ['access', 'request', 'access profile', 'request center', 'disable']
-description: Read this guide to learn how to disable access requests for access profiles. 
-slug: /disable-access-profile-requests
+description: Bulk disable access profile requests.
+slug: /guides/disable-access-profile-requests
 tags: ['AccessProfileRequestManagement']
 ---
 

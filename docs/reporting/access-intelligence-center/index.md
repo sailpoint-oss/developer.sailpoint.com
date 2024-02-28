@@ -6,7 +6,7 @@ sidebar_label: Access Intelligence Center
 sidebar_position: 5
 sidebar_class_name: AccessIntelligenceCenter
 keywords: ['data listing', 'data share', 'secure data sharing']
-description: Access Intelligence Center is an easy way to get IDN data of your organization in a structured format.
+description: Custom dashboards for data analysis.
 slug: /reporting/access-intelligence-center
 tags: ['AccessIntelligenceCenter', 'AIC']
 hide_table_of_contents: true

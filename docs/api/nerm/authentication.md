@@ -6,7 +6,7 @@ sidebar_label: Authentication
 sidebar_position: 2
 sidebar_class_name: authentication
 keywords: ['authentication']
-description: A guide on how to use  API credentials to authenticate to NERM APIs.
+description: Authenticate to the NERM APIs.
 slug: /api/nerm/authentication
 tags: ['Authentication']
 ---

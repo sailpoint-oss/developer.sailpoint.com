@@ -6,7 +6,7 @@ sidebar_label: Postman Collections
 sidebar_position: 7
 sidebar_class_name: postmanCollections
 keywords: ['postman']
-description: How to run the APIs in Postman.
+description: Run ISC APIs in Postman. 
 tags: ['postman']
 ---
 

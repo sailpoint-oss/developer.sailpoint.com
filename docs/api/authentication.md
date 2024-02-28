@@ -6,7 +6,7 @@ sidebar_label: Authentication
 sidebar_position: 2
 sidebar_class_name: authentication
 keywords: ['authentication']
-description: A guide on how to generate API credentials to authenticate to SailPoint's APIs.
+description: Authenticate to the ISC APIs.
 slug: /api/authentication
 tags: ['Authentication']
 ---

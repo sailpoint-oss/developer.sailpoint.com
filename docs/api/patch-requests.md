@@ -6,7 +6,7 @@ sidebar_label: Patch Requests
 sidebar_position: 8
 sidebar_class_name: patchRequests
 keywords: ['patch']
-description: Read this guide to learn how to send PATCH requests to SailPoint's IdentityNow APIs. 
+description: Send PATCH ISC API requests.
 tags: ['patch', 'guide']
 ---
 

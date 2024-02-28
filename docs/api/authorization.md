@@ -6,7 +6,7 @@ sidebar_label: Authorization
 sidebar_position: 3
 sidebar_class_name: authorization
 keywords: ['authorization','scope','permission']
-description: A guide on how to restrict an API token's level of access.
+description: Authorize your ISC API requests.
 slug: /api/authorization
 tags: ['Authorization','Scopes','Permissions']
 ---

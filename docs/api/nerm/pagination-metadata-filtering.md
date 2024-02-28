@@ -6,7 +6,7 @@ sidebar_label: Pagination, Metadata and Filtering
 sidebar_position: 3
 sidebar_class_name: paginationMetadataFiltering
 keywords: ['pagination metadata filtering']
-description: Many endpoints in the NERM API support a generic syntax for paginating and filtering, and sorting the results.
+description: NERM API pagination, metadata, and filtering.
 slug: /api/nerm/pagination-metadata-filtering
 tags: ['Pagination Metadata Filtering']
 ---

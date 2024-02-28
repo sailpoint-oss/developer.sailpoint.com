@@ -6,12 +6,19 @@ sidebar_label: Docs
 sidebar_position: 1
 sidebar_class_name: docs
 keywords: ['docs']
-description: Building extensibility in IdentityNow
+description: The Identity Security Cloud Developer Documentation. 
 slug: /
 tags: ['docs']
 ---
 
 ## Overview 
+
+:::caution What about IdentityNow?
+
+Looking for IdentityNow? You're in the right place! IdentityNow has an updated brand in Identity Security Cloud. 
+
+:::
+
 Identity Security Cloud (ISC) is a unified, multi-tenant identity governance and security platform. ISC provides organizations with the ability to ensure that their users, known as identities in ISC, have secure access to different data sources, and it makes identity access management fast and easy. 
 
 The ISC platform out of the box will often meet all your identity governance and security needs, but it's possible that it won't. The beauty of ISC is that even if it doesn't quite meet all your needs, you can extend the platform's functionality and build custom solutions that do! 

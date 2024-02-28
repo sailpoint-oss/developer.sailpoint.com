@@ -6,7 +6,7 @@ sidebar_label: Getting Started
 sidebar_position: 1
 sidebar_class_name: gettingStarted
 keywords: ['getting started']
-description: This is this place to get started with IdentityNow APIs.
+description: Start using the ISC APIs. 
 slug: /api/getting-started
 tags: ['Getting Started']
 ---

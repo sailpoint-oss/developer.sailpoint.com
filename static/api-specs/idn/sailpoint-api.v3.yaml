@@ -926,6 +926,9 @@ tags:
       When they complete the work item, they can select 'Mark Complete' to add it to their list of completed work items. 
 
       Refer to [Task Manager](https://documentation.sailpoint.com/saas/user-help/task_manager.html) for more information about work items, including the different types of work items users may need to complete.
+  - name: Workflows
+    description: |
+      Workflows allow administrators to create custom automation scripts directly within IdentityNow.  These automation scripts respond to [event triggers](https://developer.sailpoint.com/idn/docs/event-triggers#how-to-get-started-with-event-triggers) and perform a series of actions to perform tasks that are either too cumbersome or not available in the IdentityNow UI.  Workflows can be configured via a graphical user interface within IdentityNow, or by creating and uploading a JSON formatted script to the Workflow service.  The Workflows API collection provides the necessary functionality to create, manage, and test your workflows via REST.
 paths:
   /access-profiles:
     $ref: './v3/paths/access-profiles.yaml'
@@ -1277,6 +1280,34 @@ paths:
     $ref: "./v3/paths/work-items-bulk-reject-approval-item.yaml"
   /work-items/{id}/submit-account-selection:
     $ref: "./v3/paths/work-items-account-selection.yaml"
+  /workflows:
+    $ref: './v3/paths/workflows/workflows.yaml'
+  /workflows/{id}:
+    $ref: './v3/paths/workflows/workflow.yaml'
+  /workflows/{id}/test:
+    $ref: './v3/paths/workflows/workflow-test.yaml'
+  /workflows/{id}/executions:
+    $ref: './v3/paths/workflows/workflow-executions.yaml'
+  /workflow-executions/{id}:
+    $ref: './v3/paths/workflows/workflow-execution.yaml'
+  /workflow-executions/{id}/history:
+    $ref: './v3/paths/workflows/workflow-execution-history.yaml'
+  /workflow-executions/{id}/cancel:
+    $ref: './v3/paths/workflows/workflow-execution-cancel.yaml'
+  /workflow-library:
+    $ref: './v3/paths/workflows/workflow-library.yaml'
+  /workflow-library/actions:
+    $ref: './v3/paths/workflows/workflow-library-actions.yaml'
+  /workflow-library/triggers:
+    $ref: './v3/paths/workflows/workflow-library-triggers.yaml'
+  /workflow-library/operators:
+    $ref: './v3/paths/workflows/workflow-library-operators.yaml'
+  /workflows/{id}/external/oauth-clients:
+    $ref: './v3/paths/workflows/workflow-external-oauth-client.yaml'
+  /workflows/execute/external/{id}:
+    $ref: './v3/paths/workflows/workflow-external-execute.yaml'
+  /workflows/execute/external/{id}/test:
+    $ref: './v3/paths/workflows/workflow-external-execute-test.yaml'
   /source-usages/{sourceId}/status:
     $ref: "./v3/paths/source-usage-status.yaml"
   /source-usages/{sourceId}/summaries:

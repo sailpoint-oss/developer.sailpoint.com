@@ -1,0 +1,20 @@
+type: object
+description: The trigger that starts the workflow
+required:
+  - type
+  - attributes
+properties:
+  type:
+    type: string
+    enum:
+      - EVENT
+      - EXTERNAL
+      - SCHEDULED
+    example: EVENT
+    description: The trigger type
+  attributes:
+    oneOf:
+      - $ref: './trigger-attributes/EventAttributes.yaml'
+      - $ref: './trigger-attributes/ExternalAttributes.yaml'
+      - $ref: './trigger-attributes/ScheduledAttributes.yaml'
+    description: Workflow Trigger Attributes.

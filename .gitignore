@@ -28,7 +28,10 @@ yarn.lock
 /products/iiq/api
 /products/nerm/api
 
-/docs/api
+/docs/api/v3
+/docs/api/beta
+/docs/api/iiq
+/docs/api/nerm
 
 #Alogolia env file
 /algolia/.env

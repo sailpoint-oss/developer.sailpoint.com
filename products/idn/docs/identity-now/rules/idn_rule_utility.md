@@ -191,7 +191,7 @@ sailpoint.object.Identity identity = plan.getIdentity();
 String sAMAccountName = identity.getAttribute("adUsername");
 
 sailpoint.rule.Identity foundIdentity = idn.getIdentityById("uid");
-String email = foundIdentity.getAttribute("email");
+String email = foundIdentity.getEmail();
 ```
 
 The below section provides a full accounting of the methods available to rule writers using the IdnRuleUtil class:

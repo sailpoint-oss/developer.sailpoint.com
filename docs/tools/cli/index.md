@@ -6,7 +6,7 @@ sidebar_label: CLI
 sidebar_position: 1
 sidebar_class_name: cli
 keywords: ['cli']
-description: The SailPoint CLI is a terminal-based tool you can use to interact with your IDN tenant.
+description: Terminal-based tool for interaction with ISC.
 slug: /tools/cli
 tags: ['CLI']
 ---

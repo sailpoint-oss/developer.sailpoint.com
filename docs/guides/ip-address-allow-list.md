@@ -3,15 +3,13 @@ id: ip-address-allow-list
 title: IP Address Allow List
 pagination_label: IP Address Allow List
 sidebar_label: IP Address Allow List
-sidebar_position: 8
+sidebar_position: 2
 sidebar_class_name: allowList
 keywords: ['connectivity', 'connectors', 'workflows', 'allowlist','ip address']
-description: This document outlines how to create an IP Address Allow List for secure access to internal resources by certain IdentityNow services, and how to find your tenant's hosting region to set up this list​.
-slug: /global-platform-resources/ip-address-allow-list
+description: Create an IP Address Allow List​.
+slug: /guides/ip-address-allow-list
 tags: ['Connectivity', 'connectors', 'workflows', 'allowlist','ip address']
 ---
-
-# IP Address Allow List
 
 ## Overview
 

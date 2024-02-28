@@ -11,18 +11,24 @@ export default function HomepageHeader() {
         alwaysActive
         shadow={false}
         highlight={false}
-        className="my-atropos overflow-visible text-3xl flex flex-col gap-4 font-semibold text-center p-6 py-60">
-        <p data-atropos-offset="2" className="py-2 my-0 ">
+        className="my-atropos text-3xl flex flex-col gap-4 font-semibold text-center p-6 py-40">
+        <p data-atropos-offset="1" className="py-2 my-0 ">
           Welcome to the
         </p>
 
-        <img
+        <h1
+          data-atropos-offset="5"
+          className="inline-block bg-clip-text text-[transparent] bg-gradient-to-r from-[#0033A1] from-40% via-[#004FB5] via-65% to-[#0071CE] to-100% z-50 px-20 text-6xl">
+          SailPoint Developer Community
+        </h1>
+
+        {/* <img
           data-atropos-offset="7"
           className="z-50 px-20"
           src={useBaseUrl('/img/SailPoint-Developer-Community-Lockup.png')}
-        />
+        /> */}
 
-        <p data-atropos-offset="2" className="py-2 my-0">
+        <p data-atropos-offset="1" className="py-2 my-0">
           Where code meets community
         </p>
       </Atropos>

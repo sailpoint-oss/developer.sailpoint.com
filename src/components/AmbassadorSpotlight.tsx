@@ -24,7 +24,12 @@ export default function AmbassadorSpotlight() {
 
   return (
     <div className="py-4">
-      <h2 className="text-center pb-2">Meet our Ambassadors</h2>
+      <h2 className="text-center m-0">Meet our Ambassadors</h2>
+      <a
+        className="text-center text-sm block pb-2"
+        href="https://developer.sailpoint.com/discuss/t/announcing-the-developer-community-ambassador-program/10634">
+        How to become an ambassador
+      </a>
       <Carousel
         opts={{loop: true, dragFree: true}}
         plugins={[

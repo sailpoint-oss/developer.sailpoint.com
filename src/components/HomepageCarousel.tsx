@@ -44,7 +44,7 @@ export default function HomepageCarousel() {
       <CarouselContent>
         <CarouselItem>
           <div className="bg-background flex aspect-square items-center justify-center">
-            <span className="text-4xl font-semibold">
+            <span className="text-4xl font-semibold text-center">
               Join the discussion on our{' '}
               <a
                 className="text-[#0188f7]"

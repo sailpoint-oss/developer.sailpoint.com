@@ -4,6 +4,12 @@ import {Card, CardContent, CardHeader} from '@site/src/components/ui/card';
 export default function DeveloperResources() {
   const cards = [
     {
+      title: 'API Documentation',
+      description:
+        'The IdentityNow API documentation provides you with the information you need to interact with your IdentityNow tenant. The documentation includes information on the available endpoints, request and response examples, and more.',
+      link: '/idn/api/v3',
+    },
+    {
       title: 'CLI',
       description:
         'The SailPoint CLI is a terminal-based tool you can use to to interact with your IdentityNow (IDN) tenant. The CLI provides a text-based environment you can use to run operations known as "commands" to interact with your tenant however you want.',

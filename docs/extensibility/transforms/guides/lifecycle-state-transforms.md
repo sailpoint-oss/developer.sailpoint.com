@@ -7,7 +7,7 @@ sidebar_class_name: lifecycleStateTransform
 keywords: ['transforms', 'guides', 'nested', 'lifecycle']
 description: Learn how to build a lifecycle state transform.
 sidebar_position: 4
-slug: /transforms/guides/lifecycle-state-transform
+slug: /extensibility/transforms/guides/lifecycle-state-transform
 tags: ['Transforms', 'Guides', 'Lifecycle']
 ---
 

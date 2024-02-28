@@ -7,7 +7,7 @@ sidebar_class_name: identityContextTransform
 keywords: ['transforms', 'guides', 'nested', 'lifecycle']
 description: Examples on how you might use the identity attribute context.
 sidebar_position: 5
-slug: /transforms/guides/identity-context-examples
+slug: /extensibility/transforms/guides/identity-context-examples
 tags: ['Transforms', 'Guides', 'identity']
 ---
 
@@ -23,7 +23,7 @@ The following variables are available to the Apache Velocity template engine whe
 | attributeDefinition | sailpoint.object.ObjectAttribute | This is the definition of the attribute being promoted. |
 | oldValue | Object | This is the attribute's previous value. |
 
-For available methods on these objects see our [Rules Java Docs](https://developer.sailpoint.com/idn/docs/rules/java-docs).
+For available methods on these objects see our [Rules Java Docs](https://developer.sailpoint.com/docs/extensibility/rules/java-docs).
 
 ## Examples 
 

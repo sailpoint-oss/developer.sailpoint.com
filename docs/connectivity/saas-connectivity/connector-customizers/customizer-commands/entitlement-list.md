@@ -5,7 +5,7 @@ pagination_label: Entitlement List
 sidebar_label: Entitlement List
 keywords: ['connectivity', 'connectors', 'Entitlement List']
 description: Intercept the entitlement list command.
-slug: /saas-connectivity/customizers/commands/entitlement-list
+slug: /connectivity/saas-connectivity/customizers/commands/entitlement-list
 tags: ['Connectivity', 'Connector Command']
 ---
 
@@ -42,4 +42,4 @@ The `input` object can be mutated and returned, but the same data type must stil
 
 ### After entitlement-list command
 
-After entitlement-list is not available for customization at this time. If you need to modify the values of the response, it is recommended that you use [Transforms](https://developer.sailpoint.com/idn/docs/transforms/).
+After entitlement-list is not available for customization at this time. If you need to modify the values of the response, it is recommended that you use [Transforms](https://developer.sailpoint.com/docs/extensibility/transforms/).

@@ -5,7 +5,7 @@ pagination_label: Card
 sidebar_label: Card
 keywords: ['connectivity', 'connectors','connector-spec', 'card']
 description: Details on using the card item
-slug: /saas-connectivity/connector-spec/card
+slug: /connectivity/saas-connectivity/connector-spec/card
 tags: ['Connectivity', 'Connector Spec']
 ---
 

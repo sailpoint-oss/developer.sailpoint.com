@@ -7,7 +7,7 @@ sidebar_position: 6
 sidebar_class_name: respondingResponseRequiredTriggers
 keywords: ['event', 'trigger', 'request_response']
 description: Specify how your application interacts with response required type trigger services.
-slug: /event-triggers/responding-request-response-trigger
+slug: /extensibility/event-triggers/responding-request-response-trigger
 tags: ['Event Triggers']
 ---
 
@@ -190,4 +190,4 @@ POST `https://{tenant}.api.identitynow.com/beta/trigger-invocations/e9103ca9-02c
 
 ## Trigger invocation status
 
-To check the status of a particular trigger invocation, you can use the [list invocation statuses](/idn/api/beta/list-trigger-invocation-status) endpoint. The status endpoint works for both `REQUEST_RESPONSE` and `FIRE_AND_FORGET` triggers. However, the status of `FIRE_AND_FORGET` trigger invocations will contain null values in their `completeInvocationInput` since `FIRE_AND_FORGET` triggers don't need a response to complete.
+To check the status of a particular trigger invocation, you can use the [list invocation statuses](/docs/api/beta/list-trigger-invocation-status) endpoint. The status endpoint works for both `REQUEST_RESPONSE` and `FIRE_AND_FORGET` triggers. However, the status of `FIRE_AND_FORGET` trigger invocations will contain null values in their `completeInvocationInput` since `FIRE_AND_FORGET` triggers don't need a response to complete.

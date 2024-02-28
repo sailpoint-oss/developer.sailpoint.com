@@ -7,7 +7,7 @@ sidebar_position: 6
 sidebar_class_name: handlingRateLimits
 keywords: ['connectivity', 'connectors', 'rate limits']
 description: Rate limiting for SaaS Connectivity.
-slug: /saas-connectivity/in-depth/handling-rate-limits
+slug: /connectivity/saas-connectivity/in-depth/handling-rate-limits
 tags: ['Connectivity']
 ---
 

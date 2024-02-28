@@ -5,7 +5,7 @@ pagination_label: Account Unlock
 sidebar_label: Account Unlock
 keywords: ['connectivity', 'connectors', 'account unlock']
 description: Lock and unlock an account on the source.
-slug: /saas-connectivity/commands/account-unlock
+slug: /connectivity/saas-connectivity/commands/account-unlock
 tags: ['Connectivity', 'Connector Command']
 ---
 

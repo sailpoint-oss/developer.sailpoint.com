@@ -6,7 +6,7 @@ sidebar_label: Guides
 sidebar_class_name: transforms
 keywords: ['transforms', 'guides']
 description: Transform Guides
-slug: /transforms/guides
+slug: /extensibility/transforms/guides
 tags: ['Transforms', 'Guides']
 ---
 

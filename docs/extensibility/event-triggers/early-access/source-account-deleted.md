@@ -6,7 +6,7 @@ sidebar_label: Source Account Deleted
 sidebar_class_name: sourceAccountDeleted
 keywords: ['event', 'trigger', 'source', 'account', 'deleted', 'early access']
 description: Fires after a source account is deleted.
-slug: /event-triggers/triggers/source-account-deleted
+slug: /extensibility/event-triggers/triggers/source-account-deleted
 tags: ['Event Triggers', 'Early Access Event Triggers', 'Fire and Forget']
 ---
 

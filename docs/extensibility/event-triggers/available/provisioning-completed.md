@@ -7,7 +7,7 @@ sidebar_class_name: provisioningCompleted
 keywords:
   ['event', 'trigger', 'provisioning', 'action', 'completed', 'available']
 description: Fires after a provisioning action completed on a source.
-slug: /event-triggers/triggers/provisioning-completed
+slug: /extensibility/event-triggers/triggers/provisioning-completed
 tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 ---
 

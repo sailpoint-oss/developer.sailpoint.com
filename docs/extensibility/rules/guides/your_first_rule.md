@@ -7,7 +7,7 @@ sidebar_class_name: yourFirstRule
 keywords: ['rules', 'guides', 'first']
 description: Learn to build your first rule!
 sidebar_position: 1
-slug: /rules/guides/your-first-rule
+slug: /extensibility/rules/guides/your-first-rule
 tags: ['Rules', 'Guides', 'First']
 ---
 
@@ -105,7 +105,7 @@ flowchart TD
 
 ## Write the Rule
 
-Create a new xml file with this naming scheme [rule file naming](/idn/docs/rules/cloud-rules#review-guidelines).
+Create a new xml file with this naming scheme [rule file naming](/docs/extensibility/rules/cloud-rules#review-guidelines).
 
 Open that file in your preferred editor.
 

@@ -7,7 +7,7 @@ sidebar_position: 1
 sidebar_class_name: cliAdvanced
 keywords: ['connectivity', 'connectors', 'cli']
 description: Using the CLI to properly test and debug your connector in IdentityNow
-slug: /saas-connectivity/in-depth/cli-advanced
+slug: /connectivity/saas-connectivity/in-depth/cli-advanced
 tags: ['Connectivity']
 ---
 

@@ -6,7 +6,7 @@ sidebar_label: Native Change Account Updated
 sidebar_class_name: nativeChangeAccountUpdated
 keywords: ['account', 'updated', 'available']
 description: Fires after an account is updated outside of Identity Security Platform
-slug: /event-triggers/triggers/native-change-account-updated
+slug: /extensibility/event-triggers/triggers/native-change-account-updated
 tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 ---
 
@@ -16,7 +16,7 @@ tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 
 You must have at least one source configured for Native Change Detection (NCD) before you will receive events from this trigger.  There are two ways you can configure a source for NCD:
 
-1. Invoke the [update native change detection configuration](https://developer.sailpoint.com/idn/api/beta/put-native-change-detection-config) for each source you want to receive events for NCD.
+1. Invoke the [update native change detection configuration](https://developer.sailpoint.com/docs/api/beta/put-native-change-detection-config) for each source you want to receive events for NCD.
 2. Configure the NCD options on the source in the source configuration UI.
 
 :::

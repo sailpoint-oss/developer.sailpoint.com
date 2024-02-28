@@ -6,7 +6,7 @@ sidebar_label: Index Of
 sidebar_class_name: indexOf
 keywords: ['transforms', 'operations', 'index', 'of']
 description: Get the location of a specific substring within a value.
-slug: /transforms/operations/index-of
+slug: /extensibility/transforms/operations/index-of
 tags: ['Transforms', 'Transform Operations']
 ---
 

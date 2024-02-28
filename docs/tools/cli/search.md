@@ -15,7 +15,7 @@ tags: ['CLI']
 
 Learn how to use the CLI to search your IDN tenant in this guide.
 
-In IdentityNow (IDN), you can search across all the sources connected to your tenant and return virtually any information you have access to. The `search` command allows you to access IDN search functionality within the CLI. For more information about the `search` command, refer to the CLI [Search guide](/idn/tools/cli/search). For more information about search in IDN, refer to [Search](idn/api/v3/search).
+In IdentityNow (IDN), you can search across all the sources connected to your tenant and return virtually any information you have access to. The `search` command allows you to access IDN search functionality within the CLI. For more information about the `search` command, refer to the CLI [Search guide](docs/tools/cli/search). For more information about search in IDN, refer to [Search](docs/api/v3/search).
 
 In IdentityNow, you can search all the sources connected to your tenant and return virtually any information you have access to. To learn more about search in IdentityNow, refer to [Search](https://documentation.sailpoint.com/saas/help/search/index.html).
 
@@ -47,7 +47,7 @@ The basic format of a query is "field:term", so an example `query` command would
 sail search query "name:a*" --indices identities 
 ```
 
-The CLI will use the [V3 Search endpoint](https://developer.sailpoint.com/idn/api/v3/search-post) to search for all identities starting with names starting with the letter "a". 
+The CLI will use the [V3 Search endpoint](https://developer.sailpoint.com/docs/api/v3/search-post) to search for all identities starting with names starting with the letter "a". 
 The CLI will then generate a JSON file containing the search results. This JSON file will be located in a folder titled "search_results", within the current working directory, unless a folder path is specified. 
 
 ### Command

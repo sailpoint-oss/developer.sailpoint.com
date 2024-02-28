@@ -6,7 +6,7 @@ sidebar_label: Correlation Rule
 sidebar_class_name: Correlation Rule
 keywords: ['cloud', 'rules', 'correlation']
 description: This rule associates or correlates an account to an identity, based on complex logic.
-slug: /rules/cloud-rules/correlation-rule
+slug: /extensibility/rules/cloud-rules/correlation-rule
 tags: ['Rules']
 ---
 

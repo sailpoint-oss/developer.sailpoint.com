@@ -7,7 +7,7 @@ sidebar_position: 4
 sidebar_class_name: saasConnectivity
 keywords: ['connectivity', 'connectors']
 description: SaaS Connectivity is a cloud based connector runtime that makes developing and deploying web service connectors easy.
-slug: /saas-connectivity
+slug: /connectivity/saas-connectivity
 tags: ['Connectivity']
 ---
 

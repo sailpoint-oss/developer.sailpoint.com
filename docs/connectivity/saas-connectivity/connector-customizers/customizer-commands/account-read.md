@@ -5,7 +5,7 @@ pagination_label: Account Read
 sidebar_label: Account Read
 keywords: ['connectivity', 'connectors', 'Account Read']
 description: Intercept the account read command.
-slug: /saas-connectivity/customizers/commands/account-read
+slug: /connectivity/saas-connectivity/customizers/commands/account-read
 tags: ['Connectivity', 'Connector Command']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Account Disable
 sidebar_label: Account Disable
 keywords: ['connectivity', 'connectors', 'Account Disable']
 description: Intercept the account disable command. 
-slug: /saas-connectivity/customizers/commands/account-disable
+slug: /connectivity/saas-connectivity/customizers/commands/account-disable
 tags: ['Connectivity', 'Connector Command']
 ---
 

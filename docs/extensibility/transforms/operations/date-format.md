@@ -6,7 +6,7 @@ sidebar_label: Date Format
 sidebar_class_name: dateFormat
 keywords: ['transforms', 'operations', 'date', 'format']
 description: Convert datetime strings from one format to another.
-slug: /transforms/operations/date-format
+slug: /extensibility/transforms/operations/date-format
 tags: ['Transforms', 'Transform Operations']
 ---
 

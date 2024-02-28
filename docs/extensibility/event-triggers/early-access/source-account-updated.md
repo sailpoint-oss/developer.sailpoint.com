@@ -6,7 +6,7 @@ sidebar_label: Source Account Updated
 sidebar_class_name: sourceAccountUpdated
 keywords: ['event', 'trigger', 'source', 'account', 'updated', 'early access']
 description: Fires after a source account is updated.
-slug: /event-triggers/triggers/source-account-updated
+slug: /extensibility/event-triggers/triggers/source-account-updated
 tags: ['Event Triggers', 'Early Access Event Triggers', 'Fire and Forget']
 ---
 

@@ -6,7 +6,7 @@ sidebar_label: Source Created
 sidebar_class_name: sourceCreated
 keywords: ['event', 'trigger', 'source', 'created', 'available']
 description: Fires after a source is created.
-slug: /event-triggers/triggers/source-created
+slug: /extensibility/event-triggers/triggers/source-created
 tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 ---
 

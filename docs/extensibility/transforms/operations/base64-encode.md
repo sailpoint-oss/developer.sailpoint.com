@@ -6,7 +6,7 @@ sidebar_label: Base64 Encode
 sidebar_class_name: base64Encode
 keywords: ['transforms', 'operations', 'base64', 'encode']
 description: Encode data with a Base64-based text encoding scheme.
-slug: /transforms/operations/base64-encode
+slug: /extensibility/transforms/operations/base64-encode
 tags: ['Transforms', 'Transform Operations']
 ---
 

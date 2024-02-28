@@ -5,7 +5,7 @@ pagination_label: Source Data Discover
 sidebar_label: Source Data Discover
 keywords: ['connectivity', 'connectors', 'Source Data Discover']
 description: Discover potential source data types. 
-slug: /saas-connectivity/commands/source-data-discover
+slug: /connectivity/saas-connectivity/commands/source-data-discover
 tags: ['Connectivity', 'Connector Command']
 ---
 

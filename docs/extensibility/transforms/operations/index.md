@@ -6,7 +6,7 @@ sidebar_label: Operations
 sidebar_class_name: operations
 keywords: ['transforms', 'operations']
 description: A list of transform operations.
-slug: /transforms/operations
+slug: /extensibility/transforms/operations
 tags: ['Transforms', 'Transform Operations']
 ---
 

@@ -7,7 +7,7 @@ sidebar_position: 6
 sidebar_class_name: postmanCollection
 keywords: ['connectivity', 'connectors', 'postman']
 description: Use the following Postman Collection file to run tests for each of the commands locally.
-slug: /saas-connectivity/postman-collection
+slug: /connectivity/saas-connectivity/postman-collection
 tags: ['Connectivity', 'Postman']
 ---
 

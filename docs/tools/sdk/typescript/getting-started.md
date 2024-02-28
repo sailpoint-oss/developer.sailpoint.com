@@ -47,7 +47,7 @@ To run the SDK, run the `node src/index.js` command. This command sends the requ
 
 Using the same SDK function, you can list your transforms but limit the results to only what you want. This example wants a list of no more than 10 transforms that start with the name "Test":
 
-Refer to [List Transforms](https://developer.sailpoint.com/idn/api/v3/list-transforms) for all its supported query parameters.
+Refer to [List Transforms](https://developer.sailpoint.com/docs/api/v3/list-transforms) for all its supported query parameters.
 
 ```typescript
 import {Configuration, TransformsApi} from "sailpoint-api-client"

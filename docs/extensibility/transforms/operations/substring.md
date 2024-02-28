@@ -6,7 +6,7 @@ sidebar_label: Substring
 sidebar_class_name: substring
 keywords: ['transforms', 'operations', 'substring']
 description: Get the inner portion of a string passed into the transform.
-slug: /transforms/operations/substring
+slug: /extensibility/transforms/operations/substring
 tags: ['Transforms', 'Transform Operations']
 ---
 

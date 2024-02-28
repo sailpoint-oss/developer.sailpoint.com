@@ -6,7 +6,7 @@ sidebar_label: Replace
 sidebar_class_name: replace
 keywords: ['transforms', 'operations', 'replace']
 description: Find and replace all instances of a single string.
-slug: /transforms/operations/replace
+slug: /extensibility/transforms/operations/replace
 tags: ['Transforms', 'Transform Operations']
 ---
 

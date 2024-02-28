@@ -6,7 +6,7 @@ sidebar_label: Web Services After Operation Rule
 sidebar_class_name: webServicesAfterOperationRule
 keywords: ['cloud', 'rules', 'webservices']
 description: This rule calculates attributes after a web-service operation call.
-slug: /rules/connector-rules/webservices-after-provisioning-rule
+slug: /extensibility/rules/connector-rules/webservices-after-provisioning-rule
 tags: ['Rules']
 ---
 

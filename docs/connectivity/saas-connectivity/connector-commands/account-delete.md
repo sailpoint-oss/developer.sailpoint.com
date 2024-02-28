@@ -5,7 +5,7 @@ pagination_label: Account Delete
 sidebar_label: Account Delete
 keywords: ['connectivity', 'connectors', 'account delete']
 description: Remove account from a source.
-slug: /saas-connectivity/commands/account-delete
+slug: /connectivity/saas-connectivity/commands/account-delete
 tags: ['Connectivity', 'Connector Command']
 ---
 

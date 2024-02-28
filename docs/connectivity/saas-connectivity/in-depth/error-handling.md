@@ -7,7 +7,7 @@ sidebar_position: 3
 sidebar_class_name: errorHandling
 keywords: ['connectivity', 'connectors', 'error handling']
 description: If the code fails due to validation issues, connectivity, or configuration errors, you can handle the error and provide the user with information about what went wrong.
-slug: /saas-connectivity/in-depth/error-handling
+slug: /connectivity/saas-connectivity/in-depth/error-handling
 tags: ['Connectivity']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Account List
 sidebar_label: Account List
 keywords: ['connectivity', 'connectors', 'account list']
 description: Aggregate all accounts from the source into IdentityNow.
-slug: /saas-connectivity/commands/account-list
+slug: /connectivity/saas-connectivity/commands/account-list
 tags: ['Connectivity', 'Connector Command']
 ---
 

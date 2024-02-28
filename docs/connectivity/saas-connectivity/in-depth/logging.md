@@ -7,7 +7,7 @@ sidebar_position: 5
 sidebar_class_name: logging
 keywords: ['connectivity', 'connectors', 'logging']
 description: You can use this feature to read the logs of your connectors.
-slug: /saas-connectivity/in-depth/logging
+slug: /connectivity/saas-connectivity/in-depth/logging
 tags: ['Connectivity']
 ---
 

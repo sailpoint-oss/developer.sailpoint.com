@@ -6,7 +6,7 @@ sidebar_label: Base64 Decode
 sidebar_class_name: base64Decode
 keywords: ['transforms', 'operations', 'base64', 'decode']
 description: Render base64 data in its original binary format.
-slug: /transforms/operations/base64-decode
+slug: /extensibility/transforms/operations/base64-decode
 tags: ['Transforms', 'Transform Operations']
 ---
 

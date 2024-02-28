@@ -7,7 +7,7 @@ sidebar_position: 1.2
 sidebar_class_name: connectorTimeouts
 keywords: ['connectivity', 'connectors', 'timeout']
 description: IdentityNow will throw an error if your connector does not send a response in 3 minutes. For connector commands that might take longer than 3 minutes, make sure to send data at regular intervals to prevent a timeout.
-slug: /saas-connectivity/in-depth/connector-timeouts
+slug: /connectivity/saas-connectivity/in-depth/connector-timeouts
 tags: ['Connectivity']
 ---
 

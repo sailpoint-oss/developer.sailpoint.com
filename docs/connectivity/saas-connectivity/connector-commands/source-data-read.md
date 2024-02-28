@@ -5,7 +5,7 @@ pagination_label: Source Data Read
 sidebar_label: Source Data Read
 keywords: ['connectivity', 'connectors', 'Source Data Read']
 description: Read source data. 
-slug: /saas-connectivity/commands/source-data-read
+slug: /connectivity/saas-connectivity/commands/source-data-read
 tags: ['Connectivity', 'Connector Command']
 ---
 

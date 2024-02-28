@@ -6,7 +6,7 @@ sidebar_label: Form Submitted
 sidebar_class_name: formSubmitted
 keywords: ['event', 'trigger', 'form', 'submitted', 'available']
 description: Triggered when a form is submitted.
-slug: /event-triggers/triggers/form-submitted
+slug: /extensibility/event-triggers/triggers/form-submitted
 tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 ---
 

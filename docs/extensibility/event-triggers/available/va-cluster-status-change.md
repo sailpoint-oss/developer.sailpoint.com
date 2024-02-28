@@ -6,7 +6,7 @@ sidebar_label: VA Cluster Status Change
 sidebar_class_name: vaClusterStatusChange
 keywords: ['event', 'trigger', 'va', 'cluster', 'status', 'change', 'available']
 description: Fires after the status of a VA cluster has changed.
-slug: /event-triggers/triggers/va-cluster-status-change
+slug: /extensibility/event-triggers/triggers/va-cluster-status-change
 tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 ---
 

@@ -6,7 +6,7 @@ sidebar_label: Campaign Activated
 sidebar_class_name: campaignActivated
 keywords: ['event', 'trigger', 'campaign', 'activated', 'available']
 description: Triggered when a campaign is activated.
-slug: /event-triggers/triggers/campaign-activated
+slug: /extensibility/event-triggers/triggers/campaign-activated
 tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 ---
 

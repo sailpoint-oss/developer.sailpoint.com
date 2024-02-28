@@ -5,7 +5,7 @@ pagination_label: Account Update
 sidebar_label: Account Update
 keywords: ['connectivity', 'connectors', 'Account Update']
 description: Intercept the account update command.
-slug: /saas-connectivity/customizers/commands/account-update
+slug: /connectivity/saas-connectivity/customizers/commands/account-update
 tags: ['Connectivity', 'Connector Command']
 ---
 

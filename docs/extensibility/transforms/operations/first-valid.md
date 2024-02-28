@@ -6,7 +6,7 @@ sidebar_label: First Valid
 sidebar_class_name: firstValid
 keywords: ['transforms', 'operations', 'first', 'valid']
 description: Return the first piece of data that is not null.
-slug: /transforms/operations/first-valid
+slug: /extensibility/transforms/operations/first-valid
 tags: ['Transforms', 'Transform Operations']
 ---
 

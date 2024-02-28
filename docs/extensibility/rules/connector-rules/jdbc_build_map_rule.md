@@ -6,7 +6,7 @@ sidebar_label: JDBC BuildMap Rule
 sidebar_class_name: jdbcBuildMapRule
 keywords: ['cloud', 'rules']
 description: This rule manipulates raw input data provided by the rows and columns in a file and builds a map from the incoming data.
-slug: /rules/connector-rules/jdbc-buildmap-rule
+slug: /extensibility/rules/connector-rules/jdbc-buildmap-rule
 tags: ['Rules']
 ---
 

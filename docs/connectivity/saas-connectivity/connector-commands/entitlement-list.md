@@ -5,7 +5,7 @@ pagination_label: Entitlement List
 sidebar_label: Entitlement List
 keywords: ['connectivity', 'connectors', 'entitlement list']
 description: Gather a list of all entitlements available on the source.
-slug: /saas-connectivity/commands/entitlement-list
+slug: /connectivity/saas-connectivity/commands/entitlement-list
 tags: ['Connectivity', 'Connector Command']
 ---
 

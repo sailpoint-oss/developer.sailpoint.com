@@ -7,7 +7,7 @@ sidebar_position: 7
 sidebar_class_name: saasConnectivity
 keywords: ['connectivity', 'connectors', customizers]
 description: Full connectivity customizer example.
-slug: /saas-connectivity/customizers/example
+slug: /connectivity/saas-connectivity/customizers/example
 tags: ['Connectivity']
 ---
 

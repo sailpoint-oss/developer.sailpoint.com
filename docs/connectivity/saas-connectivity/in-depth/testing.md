@@ -7,7 +7,7 @@ sidebar_position: 7
 sidebar_class_name: testing
 keywords: ['connectivity', 'connectors', 'testing']
 description: Testing SaaS Connectivity.
-slug: /saas-connectivity/in-depth/testing
+slug: /connectivity/saas-connectivity/in-depth/testing
 tags: ['Connectivity']
 ---
 

@@ -7,7 +7,7 @@ sidebar_position: 2
 sidebar_class_name: testBuildDeploy
 keywords: ['connectivity', 'connectors', 'test', 'build', 'deploy']
 description: As you implement command handlers, you must test them. The connector SDK provides some utility methods to locally run your connector to test, build, and deploy.
-slug: /saas-connectivity/test-build-deploy
+slug: /connectivity/saas-connectivity/test-build-deploy
 tags: ['Connectivity']
 ---
 

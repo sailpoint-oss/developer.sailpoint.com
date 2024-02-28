@@ -5,7 +5,7 @@ pagination_label: Account Update
 sidebar_label: Account Update
 keywords: ['connectivity', 'connectors', 'account update']
 description: Update an account on the source.
-slug: /saas-connectivity/commands/account-update
+slug: /connectivity/saas-connectivity/commands/account-update
 tags: ['Connectivity', 'Connector Command']
 ---
 

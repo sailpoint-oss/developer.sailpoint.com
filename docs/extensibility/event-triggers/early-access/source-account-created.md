@@ -6,7 +6,7 @@ sidebar_label: Source Account Created
 sidebar_class_name: sourceAccountCreated
 keywords: ['event', 'trigger', 'source', 'account', 'created', 'early access']
 description: Fires after a source account is created.
-slug: /event-triggers/triggers/source-account-created
+slug: /extensibility/event-triggers/triggers/source-account-created
 tags: ['Event Triggers', 'Early Access Event Triggers', 'Fire and Forget']
 ---
 

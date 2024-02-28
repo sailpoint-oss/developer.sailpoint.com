@@ -7,7 +7,7 @@ sidebar_position: 4
 sidebar_class_name: ruleUtility
 keywords: ['rule', 'utility']
 description: Using IDNRuleUtil as a Wrapper for Common Rule Operations
-slug: /rules/rule-utility
+slug: /extensibility/rules/rule-utility
 tags: ['Rules']
 ---
 
@@ -39,7 +39,7 @@ You need the following information to create search attributes:
 
 - Display name for the new attribute configuration.
 
-The following example shows how to create a new attribute with the [Search Attributes API](/idn/api/beta/create-search-attribute-config):
+The following example shows how to create a new attribute with the [Search Attributes API](/docs/api/beta/create-search-attribute-config):
 
 Your company has two sources. The first is Active Directory, and the second is Workday. When the system aggregates new accounts, the company wants to query IdentityNow to see whether an email address already exists. If the email address is not in use, you can assign it to the new account. If it is in use, you can iterate on the email address value (add a 1 for example). You can then query IdentityNow once more to see whether your incremented email address is in use. You can repeat this procedure until you have determined that an email address is unique.
 

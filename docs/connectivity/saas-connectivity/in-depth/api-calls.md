@@ -7,7 +7,7 @@ sidebar_position: 1
 sidebar_class_name: apiCalls
 keywords: ['connectivity', 'connectors', 'api calls']
 description: Calling API endpoints sequentially for hundreds or thousands of accounts is slow. If several API calls are required to build a user’s account, then it is recommended that you use asynchronous functions to speed up this task.
-slug: /saas-connectivity/in-depth/api-calls
+slug: /connectivity/saas-connectivity/in-depth/api-calls
 tags: ['Connectivity']
 ---
 

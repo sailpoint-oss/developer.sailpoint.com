@@ -6,7 +6,7 @@ sidebar_label: SAP BuildMap Rule
 sidebar_class_name: sapBuildMapRule
 keywords: ['cloud', 'rules', 'sap']
 description: This rule gathers additional attributes from SAP systems to build accounts. This rule is implemented using SAP's Java Connector (JCo) framework provided by a supplied SAP connection.
-slug: /rules/connector-rules/sap-buildmap-rule
+slug: /extensibility/rules/connector-rules/sap-buildmap-rule
 tags: ['Rules']
 ---
 

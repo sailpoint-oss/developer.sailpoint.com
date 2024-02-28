@@ -6,7 +6,7 @@ sidebar_position: 3
 sidebar_class_name: saasConfiguration
 keywords: ['configuration']
 description: Use SaaS Configuration APIs to import and export configurations.
-slug: /configuration-management/saas-configuration
+slug: /extensibility/configuration-management/saas-configuration
 tags: ['SaaS Configuration']
 ---
 
@@ -111,7 +111,7 @@ The available supported objects are also available via REST API! See List Config
 
 **Description**
 
-[This endpoint](https://developer.sailpoint.com/idn/api/beta/list-sp-config-objects) gets the list of object configurations known to the tenant export/import service. 
+[This endpoint](https://developer.sailpoint.com/docs/api/beta/list-sp-config-objects) gets the list of object configurations known to the tenant export/import service. 
 Object configurations containing "importUrl" and "exportUrl" are available for export/import.
 
 <Tabs>
@@ -216,7 +216,7 @@ Content-Type: application/json
 
 **Description**
 
-[This endpoint](https://developer.sailpoint.com/idn/api/beta/export-sp-config) exports selected objects from the tenant to a JSON configuration file.
+[This endpoint](https://developer.sailpoint.com/docs/api/beta/export-sp-config) exports selected objects from the tenant to a JSON configuration file.
 
 <Tabs>
   <TabItem value="request" label="Request" default>
@@ -298,7 +298,7 @@ You can only use the `includedIds` and `includedNames` filters when you're expor
 
 **Description**
 
-[This endpoint](https://developer.sailpoint.com/idn/api/beta/export-sp-config-job-status) gets the status of the export job identified by its `id` parameter.
+[This endpoint](https://developer.sailpoint.com/docs/api/beta/export-sp-config-job-status) gets the status of the export job identified by its `id` parameter.
 
 This request requires one of the following security scopes: 
 
@@ -339,7 +339,7 @@ Content-Type: application/json
 
 **Description**
 
-[This endpoint](https://developer.sailpoint.com/idn/api/beta/export-sp-config-download) gets the export job's resulting export file by using the requested `id` and downloads it to a file.
+[This endpoint](https://developer.sailpoint.com/docs/api/beta/export-sp-config-download) gets the export job's resulting export file by using the requested `id` and downloads it to a file.
 
 This request requires one of the following security scopes:
 
@@ -503,7 +503,7 @@ Content-Type: application/json
 
 **Description**
 
-[This endpoint](https://developer.sailpoint.com/idn/api/beta/import-sp-config) imports objects from a JSON configuration file into a tenant. 
+[This endpoint](https://developer.sailpoint.com/docs/api/beta/import-sp-config) imports objects from a JSON configuration file into a tenant. 
 By default, every import job first exports all existing objects supported by sp-config as a backup before attempting the import. 
 The import job provides a backup so the configuration's import status is available for inspection or restore if needed. 
 You can skip the backup by setting `excludeBackup` to `true` in the import options. 
@@ -559,7 +559,7 @@ Example: POST /beta/sp-config/import?preview=true
 
 **Description**
 
-[This endpoint](https://developer.sailpoint.com/idn/api/beta/import-sp-config-job-status) gets the status of the import job identified by its `id` parameter. 
+[This endpoint](https://developer.sailpoint.com/docs/api/beta/import-sp-config-job-status) gets the status of the import job identified by its `id` parameter. 
 
 This request requires the following security scope: 
 
@@ -600,7 +600,7 @@ Content-Type: application/json
 
 **Description**
 
-[This endpoint](https://developer.sailpoint.com/idn/api/beta/import-sp-config-download) gets the import job's resulting import file by using the requested `id` and downloads the file. 
+[This endpoint](https://developer.sailpoint.com/docs/api/beta/import-sp-config-download) gets the import job's resulting import file by using the requested `id` and downloads the file. 
 The downloaded file will contain the import job's results, including any associated error, warning or informational messages.
 
 This request requires the following security scope:

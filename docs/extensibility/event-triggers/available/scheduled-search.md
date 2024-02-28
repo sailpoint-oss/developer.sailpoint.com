@@ -6,7 +6,7 @@ sidebar_label: Scheduled Search
 sidebar_class_name: scheduledSearch
 keywords: ['event', 'trigger', 'saved', 'scheduled', 'search', 'complete', 'available']
 description: Fires after a scheduled search completes.
-slug: /event-triggers/triggers/scheduled-search
+slug: /extensibility/event-triggers/triggers/scheduled-search
 tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 ---
 
@@ -16,7 +16,7 @@ tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 
 Users can subscribe to saved searches and receive an email of a report generated from the saved search. For example, a user can save a search query called "Identities with upcoming end dates" and create a subscription to receive a daily report showing identities with an end date within 10 days from the current date. This event trigger can also notify an external HTTP application that a report generated from a saved search subscription is available to be processed.
 
-'Scheduled search' events occur based on the schedules set for saved search subscriptions. For example, if you have a scheduled saved search for Monday, Tuesday, Wednesday, Thursday, Friday at 6:00 GMT, your HTTP endpoint will also receive a notification at those times. This can be set using the `schedule` object in the [create scheduled search endpoint](/idn/api/v3/create-scheduled-search).
+'Scheduled search' events occur based on the schedules set for saved search subscriptions. For example, if you have a scheduled saved search for Monday, Tuesday, Wednesday, Thursday, Friday at 6:00 GMT, your HTTP endpoint will also receive a notification at those times. This can be set using the `schedule` object in the [create scheduled search endpoint](/docs/api/v3/create-scheduled-search).
 
 To receive this event when a saved search query does not have any results, set `emailEmptyResults` to `TRUE`. You can also set the expiration date in the `expiration` field within the `schedule` object. Your HTTP endpoint will stop receiving these events when the scheduled search expires.
 

@@ -6,7 +6,7 @@ sidebar_label: Certification Signed Off
 sidebar_class_name: certificationSignedOff
 keywords: ['event', 'trigger', 'certification', 'available']
 description: Triggered when a certification is signed off by its reviewer.
-slug: /event-triggers/triggers/certification-signed-off
+slug: /extensibility/event-triggers/triggers/certification-signed-off
 tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 ---
 

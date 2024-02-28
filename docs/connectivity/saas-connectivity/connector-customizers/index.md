@@ -7,7 +7,7 @@ sidebar_position: 7.1
 sidebar_class_name: saasConnectivity
 keywords: ['connectivity', 'connectors', customizers]
 description: Connectivity customizers can customize out of the box SaaS connectors. 
-slug: /saas-connectivity/customizers
+slug: /connectivity/saas-connectivity/customizers
 tags: ['Connectivity']
 ---
 

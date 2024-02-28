@@ -6,7 +6,7 @@ sidebar_label: Replace All
 sidebar_class_name: replaceAll
 keywords: ['transforms', 'operations', 'replace all']
 description: Find and replace all instances of all patterns.
-slug: /transforms/operations/replace-all
+slug: /extensibility/transforms/operations/replace-all
 tags: ['Transforms', 'Transform Operations']
 ---
 

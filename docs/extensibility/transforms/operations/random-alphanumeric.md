@@ -6,7 +6,7 @@ sidebar_label: Random Alphanumeric
 sidebar_class_name: randomAlphanumeric
 keywords: ['transforms', 'operations', 'random alphanumeric']
 description: Generate a random string of any length.
-slug: /transforms/operations/random-alphanumeric
+slug: /extensibility/transforms/operations/random-alphanumeric
 tags: ['Transforms', 'Transform Operations']
 ---
 

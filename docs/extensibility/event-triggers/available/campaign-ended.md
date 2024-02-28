@@ -6,7 +6,7 @@ sidebar_label: Campaign Ended
 sidebar_class_name: campaignEnded
 keywords: ['event', 'trigger', 'campaign', 'ended', 'available']
 description: Triggered when a campaign is ended.
-slug: /event-triggers/triggers/campaign-ended
+slug: /extensibility/event-triggers/triggers/campaign-ended
 tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 ---
 

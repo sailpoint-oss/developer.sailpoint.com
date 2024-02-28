@@ -6,7 +6,7 @@ sidebar_label: Static
 sidebar_class_name: static
 keywords: ['transforms', 'operations', 'static']
 description: Return a fixed string value.
-slug: /transforms/operations/static
+slug: /extensibility/transforms/operations/static
 tags: ['Transforms', 'Transform Operations']
 ---
 

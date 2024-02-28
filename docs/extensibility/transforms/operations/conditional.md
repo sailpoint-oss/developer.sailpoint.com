@@ -6,7 +6,7 @@ sidebar_label: Conditional
 sidebar_class_name: conditional
 keywords: ['transforms', 'operations', 'conditional']
 description: Output different values depending on simple conditional logic.
-slug: /transforms/operations/conditional
+slug: /extensibility/transforms/operations/conditional
 tags: ['Transforms', 'Transform Operations']
 ---
 

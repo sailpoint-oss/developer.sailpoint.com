@@ -5,7 +5,7 @@ pagination_label: Change Password
 sidebar_label: Change Password
 keywords: ['connectivity', 'connectors', 'Change Password']
 description: Intercept the change password command.
-slug: /saas-connectivity/customizers/commands/change-password
+slug: /connectivity/saas-connectivity/customizers/commands/change-password
 tags: ['Connectivity', 'Connector Command']
 ---
 

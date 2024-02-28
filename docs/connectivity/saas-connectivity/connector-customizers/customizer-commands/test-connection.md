@@ -5,7 +5,7 @@ pagination_label: Test Connection
 sidebar_label: Test Connection
 keywords: ['connectivity', 'connectors', 'test connection']
 description: Intercept the test connection command.
-slug: /saas-connectivity/customizers/commands/test-connection
+slug: /connectivity/saas-connectivity/customizers/commands/test-connection
 tags: ['Connectivity', 'Connector Command']
 ---
 

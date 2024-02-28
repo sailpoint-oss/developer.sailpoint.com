@@ -5,7 +5,7 @@ pagination_label: Source Data Read
 sidebar_label: Source Data Read
 keywords: ['connectivity', 'connectors', 'Source Data Read']
 description: Intercept the source data read command.
-slug: /saas-connectivity/customizers/commands/source-data-read
+slug: /connectivity/saas-connectivity/customizers/commands/source-data-read
 tags: ['Connectivity', 'Connector Command']
 ---
 

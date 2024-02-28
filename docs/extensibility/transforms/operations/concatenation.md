@@ -6,7 +6,7 @@ sidebar_label: Concatenation
 sidebar_class_name: concatenation
 keywords: ['transforms', 'operations', 'concatenation']
 description: Join two or more string values into a combined output.
-slug: /transforms/operations/concatenation
+slug: /extensibility/transforms/operations/concatenation
 tags: ['Transforms', 'Transform Operations']
 ---
 

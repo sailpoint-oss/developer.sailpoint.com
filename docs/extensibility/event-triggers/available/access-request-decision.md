@@ -17,7 +17,7 @@ keywords:
     'available',
   ]
 description: Fires after an access request is approved.
-slug: /event-triggers/triggers/access-request-decision
+slug: /extensibility/event-triggers/triggers/access-request-decision
 tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 ---
 

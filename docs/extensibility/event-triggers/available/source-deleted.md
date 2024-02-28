@@ -6,7 +6,7 @@ sidebar_label: Source Deleted
 sidebar_class_name: sourceDeleted
 keywords: ['event', 'trigger', 'source', 'deleted', 'available']
 description: Fires after a source is deleted.
-slug: /event-triggers/triggers/source-deleted
+slug: /extensibility/event-triggers/triggers/source-deleted
 tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 ---
 

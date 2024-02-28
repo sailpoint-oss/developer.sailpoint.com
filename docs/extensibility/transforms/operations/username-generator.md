@@ -6,7 +6,7 @@ sidebar_label: Username Generator
 sidebar_class_name: usernameGenerator
 keywords: ['transforms', 'operations', 'username', 'generator']
 description: Derive a unique value for an attribute in an account create profile.
-slug: /transforms/operations/username-generator
+slug: /extensibility/transforms/operations/username-generator
 tags: ['Transforms', 'Transform Operations']
 ---
 

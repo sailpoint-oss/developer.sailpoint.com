@@ -5,7 +5,7 @@ pagination_label: Key Value
 sidebar_label: Key Value
 keywords: ['connectivity', 'connectors','connector-spec', 'keyValue']
 description: Details on using the key value item
-slug: /saas-connectivity/connector-spec/key-value
+slug: /connectivity/saas-connectivity/connector-spec/key-value
 tags: ['Connectivity', 'Connector Spec']
 ---
 

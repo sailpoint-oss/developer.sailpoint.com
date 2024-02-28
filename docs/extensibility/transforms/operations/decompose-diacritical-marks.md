@@ -6,7 +6,7 @@ sidebar_label: Decompose Diacritial Marks
 sidebar_class_name: decomposeDiacriticalMarks
 keywords: ['transforms', 'operations', 'decompose', 'diacritical', 'marks']
 description: Clean or standardize symbols used within language.
-slug: /transforms/operations/decompose-diacritical-marks
+slug: /extensibility/transforms/operations/decompose-diacritical-marks
 tags: ['Transforms', 'Transform Operations']
 ---
 

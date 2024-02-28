@@ -5,7 +5,7 @@ pagination_label: Account Discover
 sidebar_label: Account Discover
 keywords: ['connectivity', 'connectors', 'account discover']
 description: Dynamically determine account schema from the source.
-slug: /saas-connectivity/commands/account-discover
+slug: /connectivity/saas-connectivity/commands/account-discover
 tags: ['Connectivity', 'Connector Command']
 ---
 

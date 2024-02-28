@@ -5,7 +5,7 @@ pagination_label: Account Enable
 sidebar_label: Account Enable
 keywords: ['connectivity', 'connectors', 'Account Enable']
 description: Intercept the account enable command.
-slug: /saas-connectivity/customizers/commands/account-enable
+slug: /connectivity/saas-connectivity/customizers/commands/account-enable
 tags: ['Connectivity', 'Connector Command']
 ---
 

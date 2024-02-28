@@ -6,7 +6,7 @@ sidebar_label: Identity Attribute Rule
 sidebar_class_name: identityAttributeRule
 keywords: ['cloud', 'rules', 'identity attribute']
 description: This rule calculates and returns an identity attribute for a specific identity.
-slug: /rules/cloud-rules/identity-attribute-rule
+slug: /extensibility/rules/cloud-rules/identity-attribute-rule
 tags: ['Rules']
 ---
 

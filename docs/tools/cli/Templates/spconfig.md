@@ -69,7 +69,7 @@ Use variables to dynamically populate values in the following content during com
         "exportBody": {
 ```
 
-The following object matches that detailed in the [API docs](https://developer.sailpoint.com/idn/api/beta/export-sp-config)
+The following object matches that detailed in the [API docs](https://developer.sailpoint.com/docs/api/beta/export-sp-config)
 
 ```json
         "description": "Export all available objects",

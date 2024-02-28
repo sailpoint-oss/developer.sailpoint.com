@@ -5,7 +5,7 @@ pagination_label: Radio
 sidebar_label: Radio
 keywords: ['connectivity', 'connectors','connector-spec', 'radio']
 description: Details on using the Radio item
-slug: /saas-connectivity/connector-spec/radio
+slug: /connectivity/saas-connectivity/connector-spec/radio
 tags: ['Connectivity', 'Connector Spec']
 ---
 

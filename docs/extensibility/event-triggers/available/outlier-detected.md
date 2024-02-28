@@ -7,7 +7,7 @@ sidebar_class_name: outlierDetected
 keywords:
   ['event', 'trigger', 'outlier', 'detected']
 description: Fires after an identity was detected as an outlier.
-slug: /event-triggers/triggers/outlier-detected
+slug: /extensibility/event-triggers/triggers/outlier-detected
 tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 ---
 

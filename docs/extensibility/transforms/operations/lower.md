@@ -6,7 +6,7 @@ sidebar_label: Lower
 sidebar_class_name: lower
 keywords: ['transforms', 'operations', 'lower']
 description: Convert an input string into all lowercase letters.
-slug: /transforms/operations/lower
+slug: /extensibility/transforms/operations/lower
 tags: ['Transforms', 'Transform Operations']
 ---
 

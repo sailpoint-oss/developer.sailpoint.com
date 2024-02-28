@@ -6,7 +6,7 @@ sidebar_label: Get End of String
 sidebar_class_name: getEndOfString
 keywords: ['transforms', 'operations', 'get', 'end', 'string']
 description: Get the rightmost N characters of a string.
-slug: /transforms/operations/get-end-of-string
+slug: /extensibility/transforms/operations/get-end-of-string
 tags: ['Transforms', 'Transform Operations']
 ---
 

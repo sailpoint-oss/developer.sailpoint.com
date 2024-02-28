@@ -7,7 +7,7 @@ sidebar_position: 5
 sidebar_class_name: saasConnectivity
 keywords: ['connectivity', 'connectors', customizers]
 description: Build and upload connectivity customizers.
-slug: /saas-connectivity/customizers/upload
+slug: /connectivity/saas-connectivity/customizers/upload
 tags: ['Connectivity']
 ---
 

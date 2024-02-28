@@ -6,7 +6,7 @@ sidebar_label: Before and After Rule Operations
 sidebar_class_name: beforeAndAfterRuleOperations
 keywords: ['cloud', 'rules']
 description: This rule executes PowerShell commands on the IQService component after a source account has an operation performed on it.
-slug: /rules/connector-rules/before-and-after-rule-operations
+slug: /extensibility/rules/connector-rules/before-and-after-rule-operations
 tags: ['Rules']
 ---
 

@@ -6,7 +6,7 @@ sidebar_label: Campaign Generated
 sidebar_class_name: campaignGenerated
 keywords: ['event', 'trigger', 'campaign', 'generated', 'available']
 description: Triggered when a campaign finishes generating.
-slug: /event-triggers/triggers/campaign-generated
+slug: /extensibility/event-triggers/triggers/campaign-generated
 tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 ---
 

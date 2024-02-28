@@ -7,7 +7,7 @@ sidebar_position: 4
 sidebar_class_name: saasConnectivity
 keywords: ['connectivity', 'connectors', customizers]
 description: Get started with connectivity customizers.
-slug: /saas-connectivity/customizers/getting-started
+slug: /connectivity/saas-connectivity/customizers/getting-started
 tags: ['Connectivity']
 ---
 

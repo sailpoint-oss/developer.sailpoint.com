@@ -5,7 +5,7 @@ pagination_label: List
 sidebar_label: List
 keywords: ['connectivity', 'connectors','connector-spec', 'list']
 description: Details on using the list item
-slug: /saas-connectivity/connector-spec/list
+slug: /connectivity/saas-connectivity/connector-spec/list
 tags: ['Connectivity', 'Connector Spec']
 ---
 

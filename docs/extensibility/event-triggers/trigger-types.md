@@ -7,7 +7,7 @@ sidebar_position: 1
 sidebar_class_name: triggerTypes
 keywords: ['event', 'trigger', 'types']
 description: These are the different trigger types you can use. 
-slug: /event-triggers/trigger-types
+slug: /extensibility/event-triggers/trigger-types
 tags: ['Event Triggers']
 ---
 

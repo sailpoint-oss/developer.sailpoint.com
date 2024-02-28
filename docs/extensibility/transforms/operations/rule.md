@@ -6,7 +6,7 @@ sidebar_label: Rule
 sidebar_class_name: rule
 keywords: ['transforms', 'operations', 'rule']
 description: Reuse rule logic that has already been written for a previous use case.
-slug: /transforms/operations/rule
+slug: /extensibility/transforms/operations/rule
 tags: ['Transforms', 'Transform Operations']
 ---
 

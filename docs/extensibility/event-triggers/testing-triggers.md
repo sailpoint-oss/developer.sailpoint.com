@@ -7,7 +7,7 @@ sidebar_position: 5
 sidebar_class_name: testingTriggers
 keywords: ['event', 'trigger', 'testing']
 description: It is important to test your trigger subscription configuration with your actual subscribing service before enabling your subscription for production use.
-slug: /event-triggers/testing-triggers
+slug: /extensibility/event-triggers/testing-triggers
 tags: ['Event Triggers']
 ---
 
@@ -21,7 +21,7 @@ The easiest way to send a test event to your subscribing service is to use the *
 
 Doing so sends a test event to your subscribing service, using the default example payload for the specific trigger you are subscribing to. This is an easy way to validate that your service can receive events, but it lacks the ability to modify the event payload to test your filter against different payloads. However, there is an API endpoint you can use to modify the test payload.
 
-If you want to control the test input to validate your filter against a more robust set of data, you can use the [test invocation](/idn/api/beta/start-test-trigger-invocation) API endpoint. You can use this API to send an input payload with any values that you want. This is an example of an invocation of this API:
+If you want to control the test input to validate your filter against a more robust set of data, you can use the [test invocation](/docs/api/beta/start-test-trigger-invocation) API endpoint. You can use this API to send an input payload with any values that you want. This is an example of an invocation of this API:
 
 ```text
 POST `https://{tenant}.api.identitynow.com/beta/trigger-invocations/test`
@@ -69,7 +69,7 @@ Check the **Created** date with the time you sent the test events. If they are b
 
 ![debug connection](./img/debug-connection.png)
 
-You can also view the activity log by using the [list latest invocation statuses](/idn/api/beta/list-trigger-invocation-status) endpoint.
+You can also view the activity log by using the [list latest invocation statuses](/docs/api/beta/list-trigger-invocation-status) endpoint.
 
 ### Filter Issues
 

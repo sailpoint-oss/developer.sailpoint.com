@@ -7,7 +7,7 @@ sidebar_position: 6
 sidebar_class_name: saasConnectivity
 keywords: ['connectivity', 'connectors', customizers]
 description: Link connectivity customizers to sources.
-slug: /saas-connectivity/customizers/linking
+slug: /connectivity/saas-connectivity/customizers/linking
 tags: ['Connectivity']
 ---
 

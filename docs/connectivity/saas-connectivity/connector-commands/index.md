@@ -7,7 +7,7 @@ sidebar_position: 7
 sidebar_class_name: connectorCommands
 keywords: ['connectivity', 'connector', 'commands']
 description: All commands available to implement in a SaaS Connector.
-slug: /saas-connectivity/connector-commands
+slug: /connectivity/saas-connectivity/connector-commands
 tags: ['Connectivity']
 ---
 

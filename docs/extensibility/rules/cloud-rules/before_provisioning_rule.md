@@ -6,7 +6,7 @@ sidebar_label: Before Provisioning Rule
 sidebar_class_name: beforeProvisioningRule
 keywords: ['cloud', 'rules', 'before provisioning']
 description: This rule runs before provisioning to a source.
-slug: /rules/cloud-rules/before-provisioning-rule
+slug: /extensibility/rules/cloud-rules/before-provisioning-rule
 tags: ['Rules']
 ---
 

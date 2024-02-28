@@ -22,7 +22,7 @@ Use the following optional query parameters to achieve pagination:
 
 | Name | Description | Default | Constraints |
 | --- | --- | --- | --- |
-| `limit` | Integer specifying the maximum number of records to return in a single API call. If it is not specified, a default limit is used. | `250` for list endpoints, `10000` for search endpoint | Maxiumum of 250 records per page for list endpoints, 10000 records per page for the [Search endpoint](https://developer.sailpoint.com/idn/api/v3/search) |
+| `limit` | Integer specifying the maximum number of records to return in a single API call. If it is not specified, a default limit is used. | `250` for list endpoints, `10000` for search endpoint | Maxiumum of 250 records per page for list endpoints, 10000 records per page for the [Search endpoint](https://developer.sailpoint.com/docs/api/v3/search) |
 | `offset` | Integer specifying the offset of the first result from the beginning of the collection. The **offset** value is record-based, not page-based, and the index starts at 0. For example, **offset=0** and **limit=20** returns records 0-19, but **offset=1** and **limit=20** returns records 1-20. | `0` | Between 0 and the last record index. |
 | `count` | Boolean indicating whether a total count is returned, factoring in any filter parameters, in the **X-Total-Count** response header. The value is the total size of the collection that would be returned if **limit** and **offset** were ignored. For example, if the total number of records is 1000, then count=true would return 1000 in the **X-Total-Count** header. Because requesting a total count can have performance impact, do not send **count=true** if that value is not being used. | `false` | Must be `true` or `false` |
 
@@ -34,7 +34,7 @@ Examples:
 
 ## Paginating Search Queries
 
-The [search API](https://developer.sailpoint.com/idn/api/v3/search) in IdentityNow leverages [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/elasticsearch-intro.html) functionality, which returns a maximum of 10,000 records by default. However, you can page more than 10,000 records by using the "searchAfter" property.
+The [search API](https://developer.sailpoint.com/docs/api/v3/search) in IdentityNow leverages [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/elasticsearch-intro.html) functionality, which returns a maximum of 10,000 records by default. However, you can page more than 10,000 records by using the "searchAfter" property.
 
 The `searchAfter` capability provides the ability to page on sorted field values, instead of offset paging. For example, if you sort by ID and page 100 records at a time, you can take the 1st page of 100 records, pass the last ID from that record set into your next search, and the next search will return the next 100 records after that ID. You continue that pattern of using the last value passed into `searchAfter` until the end of the result set. This allows you to page past the 10,000 record limit until you reach the final record.
 

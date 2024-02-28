@@ -6,7 +6,7 @@ sidebar_label: Random Numeric
 sidebar_class_name: randomNumeric
 keywords: ['transforms', 'operations', 'random numeric']
 description: Generate a random number of any length.
-slug: /transforms/operations/random-numeric
+slug: /extensibility/transforms/operations/random-numeric
 tags: ['Transforms', 'Transform Operations']
 ---
 

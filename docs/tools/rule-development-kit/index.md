@@ -92,9 +92,9 @@ Create a new Java class under `src/main/java`, called `UsernameGenerator`.
 
 ## Import the classes and initialize the objects the rule needs
 
-Each rule type has inputs provided to the rule. You can view available inputs for each rule type by clicking the rule type [here](/idn/docs/rules/cloud-rules#supported-cloud-rules).
+Each rule type has inputs provided to the rule. You can view available inputs for each rule type by clicking the rule type [here](/docs/extensibility/rules/cloud-rules#supported-cloud-rules).
 
-The 'Username Generator' rule uses the `AttributeGenerator` rule type. See [Attribute Generator](/idn/docs/rules/cloud-rules/account-profile-attribute-generator#input) for the available inputs.
+The 'Username Generator' rule uses the `AttributeGenerator` rule type. See [Attribute Generator](/docs/extensibility/rules/cloud-rules/account-profile-attribute-generator#input) for the available inputs.
 
 In your IDE, import the classes needed, and initialize these inputs within your newly created class.
 
@@ -117,7 +117,7 @@ public class UsernameGenerator {
 
 ## Write your rule logic
 
-You can see the completed code for the 'Username Generator' in the following code. If you want to dive deeper into how this rule was written, follow [this guide](/idn/docs/rules/guides/your-first-rule).
+You can see the completed code for the 'Username Generator' in the following code. If you want to dive deeper into how this rule was written, follow [this guide](/docs/extensibility/rules/guides/your-first-rule).
 
 <details>
   <summary>Completed Username Generator Code</summary>
@@ -230,7 +230,7 @@ public class UsernameGenerator {
 
 ## Convert the rule to XML format
 
-The final step required before you can test your rule is converting it to XML format. These XML files are stored under the `/src/main/resources/rules` directory in the RDK. You can find the `AttributeGenerator` template file [here](/idn/docs/rules/cloud-rules/account-profile-attribute-generator#template). 
+The final step required before you can test your rule is converting it to XML format. These XML files are stored under the `/src/main/resources/rules` directory in the RDK. You can find the `AttributeGenerator` template file [here](/docs/extensibility/rules/cloud-rules/account-profile-attribute-generator#template). 
 
 Replace `Example Rule` with the preferred name of your rule, and add a short description.
 

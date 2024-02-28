@@ -5,7 +5,7 @@ pagination_label: Account Unlock
 sidebar_label: Account Unlock
 keywords: ['connectivity', 'connectors', 'Account Unlock']
 description: Intercept the account unlock command.
-slug: /saas-connectivity/customizers/commands/account-unlock
+slug: /connectivity/saas-connectivity/customizers/commands/account-unlock
 tags: ['Connectivity', 'Connector Command']
 ---
 

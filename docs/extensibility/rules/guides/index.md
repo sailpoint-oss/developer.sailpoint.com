@@ -7,7 +7,7 @@ sidebar_position: 1
 sidebar_class_name: Rules
 keywords: ['rules', 'guides']
 description: Rule Guides
-slug: /rules/guides
+slug: /extensibility/rules/guides
 tags: ['Rules', 'Guides']
 ---
 

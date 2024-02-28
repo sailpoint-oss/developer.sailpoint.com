@@ -6,7 +6,7 @@ sidebar_label: Account Attribute
 sidebar_class_name: accountAttribute
 keywords: ['transforms', 'operations', 'account', 'attribute']
 description: Look up an account for a particular source on an identity.
-slug: /transforms/operations/account-attribute
+slug: /extensibility/transforms/operations/account-attribute
 tags: ['Transforms', 'Transform Operations']
 ---
 

@@ -7,7 +7,7 @@ sidebar_position: 4
 sidebar_class_name: connectorSpecFile
 keywords: ['connectivity', 'connectors', 'spec', 'specification']
 description: The connector spec file tells IDN how the connector should interact between IDN and the custom connector. It is the glue between IDN and the connector, so understanding the different sections are key to understanding how to build a custom connectors.
-slug: /saas-connectivity/connector-spec
+slug: /connectivity/saas-connectivity/connector-spec
 tags: ['Connectivity']
 ---
 

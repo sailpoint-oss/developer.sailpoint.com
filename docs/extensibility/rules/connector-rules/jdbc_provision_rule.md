@@ -6,7 +6,7 @@ sidebar_label: JDBC Provision Rule
 sidebar_class_name: jdbcProvisionRule
 keywords: ['cloud', 'rules', 'jdbc']
 description: This rule performs provisioning actions from a provisioning plan provided by a supplied JDBC connection. These actions typically issue SQL commands, such as insert, update, select, and delete.
-slug: /rules/connector-rules/jdbc-provisioning-rule
+slug: /extensibility/rules/connector-rules/jdbc-provisioning-rule
 tags: ['Rules']
 ---
 

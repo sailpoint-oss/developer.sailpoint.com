@@ -5,7 +5,7 @@ pagination_label: Account Delete
 sidebar_label: Account Delete
 keywords: ['connectivity', 'connectors', 'Account Delete']
 description: Intercept the account delete command. 
-slug: /saas-connectivity/customizers/commands/account-delete
+slug: /connectivity/saas-connectivity/customizers/commands/account-delete
 tags: ['Connectivity', 'Connector Command']
 ---
 

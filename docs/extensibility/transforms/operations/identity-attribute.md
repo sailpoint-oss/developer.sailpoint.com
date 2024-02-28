@@ -6,7 +6,7 @@ sidebar_label: Identity Attribute
 sidebar_class_name: identityAttribute
 keywords: ['transforms', 'operations', 'identity', 'attribute']
 description: Get a user's identity attribute's value.
-slug: /transforms/operations/identity-attribute
+slug: /extensibility/transforms/operations/identity-attribute
 tags: ['Transforms', 'Transform Operations']
 ---
 

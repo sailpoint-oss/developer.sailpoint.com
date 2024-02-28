@@ -6,7 +6,7 @@ sidebar_label: SAP HR Provisioning Modify Rule
 sidebar_class_name: sapHRProvisioningModifyRule
 keywords: ['cloud', 'rules', 'sap']
 description: This rule performs SAP HR modification operations during provisioning. This rule is typically used for attribute sync to custom SAP HR attributes.
-slug: /rules/connector-rules/sap-provisioning-modify-rule
+slug: /extensibility/rules/connector-rules/sap-provisioning-modify-rule
 tags: ['Rules']
 ---
 

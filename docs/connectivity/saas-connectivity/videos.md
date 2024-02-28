@@ -7,7 +7,7 @@ sidebar_position: 1.5
 sidebar_class_name: videos
 keywords: ['connectivity', 'connectors', 'videos']
 description: Helpful videos on using SaaS connectivity
-slug: /saas-connectivity/videos
+slug: /connectivity/saas-connectivity/videos
 tags: ['Connectivity']
 ---
 import Video from '@site/src/components/Video';

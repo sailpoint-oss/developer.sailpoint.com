@@ -6,7 +6,7 @@ sidebar_label: Left Pad
 sidebar_class_name: leftPad
 keywords: ['transforms', 'operations', 'left', 'pad']
 description: Left pad of the input string.
-slug: /transforms/operations/left-pad
+slug: /extensibility/transforms/operations/left-pad
 tags: ['Transforms', 'Transform Operations']
 ---
 

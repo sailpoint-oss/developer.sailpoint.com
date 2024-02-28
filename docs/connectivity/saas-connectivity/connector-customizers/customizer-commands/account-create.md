@@ -5,7 +5,7 @@ pagination_label: Account Create
 sidebar_label: Account Create
 keywords: ['connectivity', 'connectors', 'Account Create']
 description: Intercept the account create command. 
-slug: /saas-connectivity/customizers/commands/account-create
+slug: /connectivity/saas-connectivity/customizers/commands/account-create
 tags: ['Connectivity', 'Connector Command']
 ---
 

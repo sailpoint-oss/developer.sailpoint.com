@@ -7,7 +7,7 @@ sidebar_position: 3
 sidebar_class_name: commonCliCommands
 keywords: ['connectivity', 'connectors', 'commands', 'cli']
 description: These are the CLI commands most commonly used when building SaaS Connectors.
-slug: /saas-connectivity/common-cli-commands
+slug: /connectivity/saas-connectivity/common-cli-commands
 tags: ['Connectivity']
 ---
 

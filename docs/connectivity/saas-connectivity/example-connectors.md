@@ -7,7 +7,7 @@ sidebar_position: 5
 sidebar_class_name: exampleConnectors
 keywords: ['connectivity', 'connectors', 'example']
 description: Here are a few example connectors that were built for you to download and learn from.
-slug: /saas-connectivity/example-connectors
+slug: /connectivity/saas-connectivity/example-connectors
 tags: ['Connectivity']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Account Create
 sidebar_label: Account Create
 keywords: ['connectivity', 'connectors', 'account create']
 description: Create account on the source.
-slug: /saas-connectivity/commands/account-create
+slug: /connectivity/saas-connectivity/commands/account-create
 tags: ['Connectivity', 'Connector Command']
 ---
 

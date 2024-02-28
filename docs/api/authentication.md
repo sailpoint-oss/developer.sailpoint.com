@@ -133,7 +133,7 @@ After you create the token, the value of the `Client ID` will be visible in the 
 
 4. Copy both values somewhere that will be secure and accessible to you when you need to use the the token.
 
-To generate a personal access token from the API, use the [create personal access token endpoint](/idn/api/beta/create-personal-access-token).
+To generate a personal access token from the API, use the [create personal access token endpoint](/docs/api/beta/create-personal-access-token).
 
 Once you have created the PAT and you know its `Client ID` and `Client Secret`, you have everything you need to follow the [Client Credentials Grant Flow](#request-access-token-with-client-credentials-grant-flow) and use the PAT to generate an `access_token`. 
 You will need this `access_token` to authenticate your requests to the APIs. 
@@ -149,7 +149,7 @@ This document covers these three common flows:
 3. [**Refresh Token**](https://oauth.net/2/grant-types/refresh-token/) - Clients use this grant type to exchange a refresh token for a new `access_token` when the existing `access_token` has expired. This allows clients to continue using the APIs without having to re-authenticate as frequently. This grant type is commonly used together with `Authorization Code` to prevent a user from having to log in several times per day.
 
 One way to determine which authorization flow you need to use is to look at the specification for the endpoint you want to use. 
-The endpoint will have the supported OAuth flows listed under the 'Authorization' dropdown, like the [List Access Profiles endpoint](https://developer.sailpoint.com/idn/api/beta/list-access-profiles):
+The endpoint will have the supported OAuth flows listed under the 'Authorization' dropdown, like the [List Access Profiles endpoint](https://developer.sailpoint.com/docs/api/beta/list-access-profiles):
 
 ![Authorization Dropdown](./img/authorization/authorization-dropdown.png)
 
@@ -440,7 +440,7 @@ However, the `refresh_token` will only be present if the API client has the `REF
 - The `user_id` and `identity_id` define the identity context of the person who authenticated. 
 However, these values aren't set for the client credentials grant type because it doesn't have a user context.
 
-With the JWT `access_token`, you can now successfully send authenticated IDN API requests. To learn more about authorization and the scopes you can apply to further control access to the APIs, refer to [Authorization](/idn/api/authorization). 
+With the JWT `access_token`, you can now successfully send authenticated IDN API requests. To learn more about authorization and the scopes you can apply to further control access to the APIs, refer to [Authorization](/docs/api/authorization). 
 
 ## More Information
 
@@ -614,7 +614,7 @@ You can also view all of the active clients in the UI by going to `https://{tena
 ```
 
 4. If you're using an [Authorization Code](#authorization-code-grant-flow) grant flow, verify that the redirect URL(s) for your application match the `redirectUris` value in the client. 
-You can check this by calling the [List OAuth Clients endpoint](/idn/api/beta/list-oauth-clients).
+You can check this by calling the [List OAuth Clients endpoint](/docs/api/beta/list-oauth-clients).
 
 ### Verify OAuth calls
 Verify that the OAuth call flow is going to the right URLs, with the correct query parameters and data values. 

@@ -5,7 +5,7 @@ pagination_label: Select
 sidebar_label: Select
 keywords: ['connectivity', 'connectors','connector-spec', 'select']
 description: Details on using the select item
-slug: /saas-connectivity/connector-spec/select
+slug: /connectivity/saas-connectivity/connector-spec/select
 tags: ['Connectivity', 'Connector Spec']
 ---
 

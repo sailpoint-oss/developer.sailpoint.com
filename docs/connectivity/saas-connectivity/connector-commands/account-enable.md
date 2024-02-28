@@ -5,7 +5,7 @@ pagination_label: Account Enable
 sidebar_label: Account Enable
 keywords: ['connectivity', 'connectors', 'account enable']
 description: Enable an account on the source.
-slug: /saas-connectivity/commands/account-enable
+slug: /connectivity/saas-connectivity/commands/account-enable
 tags: ['Connectivity', 'Connector Command']
 ---
 

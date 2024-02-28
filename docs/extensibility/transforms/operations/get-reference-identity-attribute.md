@@ -7,7 +7,7 @@ sidebar_class_name: getReferenceIdentityAttribute
 keywords:
   ['transforms', 'operations', 'get', 'reference', 'identity', 'attribute']
 description: Get another user's identity attribute.
-slug: /transforms/operations/get-reference-identity-attribute
+slug: /extensibility/transforms/operations/get-reference-identity-attribute
 tags: ['Transforms', 'Transform Operations']
 ---
 

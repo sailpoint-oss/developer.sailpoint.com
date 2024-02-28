@@ -5,7 +5,7 @@ pagination_label: Account List
 sidebar_label: Account List
 keywords: ['connectivity', 'connectors', 'Account List']
 description: Intercept the account list command.
-slug: /saas-connectivity/customizers/commands/account-list
+slug: /connectivity/saas-connectivity/customizers/commands/account-list
 tags: ['Connectivity', 'Connector Command']
 ---
 
@@ -40,4 +40,4 @@ The `input` object can be mutated and returned, but the same data type must stil
 
 ### After account-list command
 
-After account-list is not available for customization at this time. If you need to modify the values of the response, it is recommended that you use [Transforms](https://developer.sailpoint.com/idn/docs/transforms/).
+After account-list is not available for customization at this time. If you need to modify the values of the response, it is recommended that you use [Transforms](https://developer.sailpoint.com/docs/extensibility/transforms/).

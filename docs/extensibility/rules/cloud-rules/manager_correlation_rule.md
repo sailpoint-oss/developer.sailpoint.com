@@ -6,7 +6,7 @@ sidebar_label: Manager Correlation Rule
 sidebar_class_name: managerCorrelationRule
 keywords: ['cloud', 'rules', 'manager correlation']
 description: This rule calculates a manager relationship between identities.
-slug: /rules/cloud-rules/manager-correlation-rule
+slug: /extensibility/rules/cloud-rules/manager-correlation-rule
 tags: ['Rules']
 ---
 

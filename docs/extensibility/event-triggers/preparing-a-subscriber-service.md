@@ -7,7 +7,7 @@ sidebar_position: 2
 sidebar_class_name: preparingSubscriberService
 keywords: ['event', 'triggers', 'subscriber']
 description: Before you can subscribe to an event trigger, you must prepare a service that can accept incoming HTTP requests from the event trigger service.
-slug: /event-triggers/preparing-subscriber-service
+slug: /extensibility/event-triggers/preparing-subscriber-service
 tags: ['Event Triggers']
 ---
 

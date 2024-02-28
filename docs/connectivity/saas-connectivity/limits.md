@@ -7,7 +7,7 @@ sidebar_position: 6.8
 sidebar_class_name: limits
 keywords: ['connectivity', 'connectors', 'commands', 'cli']
 description: This describes certain limits that are in place when running a SaaS Connector
-slug: /saas-connectivity/limits
+slug: /connectivity/saas-connectivity/limits
 tags: ['Connectivity']
 ---
 

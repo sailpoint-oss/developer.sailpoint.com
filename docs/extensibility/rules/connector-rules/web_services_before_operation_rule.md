@@ -6,7 +6,7 @@ sidebar_label: Web Services Before Operation Rule
 sidebar_class_name: webServicesBeforeOperationRule
 keywords: ['cloud', 'rules', 'webservices']
 description: This rule calculates attributes before a web-service operation call.
-slug: /rules/connector-rules/webservices-before-provisioning-rule
+slug: /extensibility/rules/connector-rules/webservices-before-provisioning-rule
 tags: ['Rules']
 ---
 

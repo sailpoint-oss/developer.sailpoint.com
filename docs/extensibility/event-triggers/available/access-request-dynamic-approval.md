@@ -7,7 +7,7 @@ sidebar_class_name: accessRequestDynamicApproval
 keywords:
   ['event', 'trigger', 'access', 'request', 'dynamic', 'approval', 'available']
 description: Fires after an access request is submitted.
-slug: /event-triggers/triggers/access-request-dynamic-approval
+slug: /extensibility/event-triggers/triggers/access-request-dynamic-approval
 tags: ['Event Triggers', 'Available Event Triggers', 'Request Response']
 ---
 

@@ -7,7 +7,7 @@ sidebar_position: 6
 sidebar_class_name: saasConnectivity
 keywords: ['connectivity', 'connectors', customizers]
 description: Test and debug connectors with customizers. 
-slug: /saas-connectivity/customizers/testing
+slug: /connectivity/saas-connectivity/customizers/testing
 tags: ['Connectivity']
 ---
 

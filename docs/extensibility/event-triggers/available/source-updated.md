@@ -6,7 +6,7 @@ sidebar_label: Source Updated
 sidebar_class_name: sourceUpdated
 keywords: ['event', 'trigger', 'source', 'updated', 'available']
 description: Fires after a source is updated.
-slug: /event-triggers/triggers/source-updated
+slug: /extensibility/event-triggers/triggers/source-updated
 tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 ---
 

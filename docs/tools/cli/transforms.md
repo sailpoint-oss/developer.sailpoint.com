@@ -15,7 +15,7 @@ tags: ['CLI']
 
 Learn about the CLI commands you can use to create, manage, and test transforms in this guide. 
 
-In IdentityNow (IDN), you can use transforms to manipulate attribute data without writing any code. For more information about transforms, refer to [Transforms](/idn/docs/transforms). 
+In IdentityNow (IDN), you can use transforms to manipulate attribute data without writing any code. For more information about transforms, refer to [Transforms](/docs/extensibility/transforms). 
 
 With the `transforms` command, it's it easy to create, manage, and test transforms in the CLI. 
 

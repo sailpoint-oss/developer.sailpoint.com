@@ -6,7 +6,7 @@ sidebar_label: Lookup
 sidebar_class_name: lookup
 keywords: ['transforms', 'operations', 'lookup']
 description: Look up and return a key's matching value.
-slug: /transforms/operations/lookup
+slug: /extensibility/transforms/operations/lookup
 tags: ['Transforms', 'Transform Operations']
 ---
 

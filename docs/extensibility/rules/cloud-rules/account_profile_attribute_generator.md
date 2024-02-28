@@ -6,7 +6,7 @@ sidebar_label: Account Profile Attribute Generator
 sidebar_class_name: accountProfileAttributeGenerator
 keywords: ['cloud', 'rules', 'account profile', 'attribute generator']
 description: This rule generates complex account attribute values during provisioning, e.g. when creating an account.
-slug: /rules/cloud-rules/account-profile-attribute-generator
+slug: /extensibility/rules/cloud-rules/account-profile-attribute-generator
 tags: ['Rules']
 ---
 

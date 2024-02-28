@@ -5,7 +5,7 @@ pagination_label: Source Data Discover
 sidebar_label: Source Data Discover
 keywords: ['connectivity', 'connectors', 'Source Data Discover']
 description: Intercept the source data discover command.
-slug: /saas-connectivity/customizers/commands/source-data-discover
+slug: /connectivity/saas-connectivity/customizers/commands/source-data-discover
 tags: ['Connectivity', 'Connector Command']
 ---
 

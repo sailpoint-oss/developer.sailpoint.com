@@ -6,7 +6,7 @@ sidebar_label: Upper
 sidebar_class_name: upper
 keywords: ['transforms', 'operations', 'upper']
 description: Convert an input string into all uppercase letters.
-slug: /transforms/operations/upper
+slug: /extensibility/transforms/operations/upper
 tags: ['Transforms', 'Transform Operations']
 ---
 

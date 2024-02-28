@@ -5,7 +5,7 @@ pagination_label: Entitlement Read
 sidebar_label: Entitlement Read
 keywords: ['connectivity', 'connectors', 'Entitlement Read']
 description: Intercept the entitlement read command.
-slug: /saas-connectivity/customizers/commands/entitlement-read
+slug: /connectivity/saas-connectivity/customizers/commands/entitlement-read
 tags: ['Connectivity', 'Connector Command']
 ---
 

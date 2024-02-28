@@ -6,7 +6,7 @@ sidebar_label: Generate Random String
 sidebar_class_name: generateRandomString
 keywords: ['transforms', 'operations', 'generate', 'random', 'string']
 description: Generate a random string of any length.
-slug: /transforms/operations/generate-random-string
+slug: /extensibility/transforms/operations/generate-random-string
 tags: ['Transforms', 'Transform Operations']
 ---
 

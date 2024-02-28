@@ -5,7 +5,7 @@ pagination_label: Change Password
 sidebar_label: Change Password
 keywords: ['connectivity', 'connectors', 'change password']
 description: Change password for an account on the source.
-slug: /saas-connectivity/commands/change-password
+slug: /connectivity/saas-connectivity/commands/change-password
 tags: ['Connectivity', 'Connector Command']
 ---
 

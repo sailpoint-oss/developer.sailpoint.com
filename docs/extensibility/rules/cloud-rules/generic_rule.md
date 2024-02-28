@@ -6,7 +6,7 @@ sidebar_label: Generic Rule
 sidebar_class_name: Generic Rule
 keywords: ['cloud', 'rules', 'generic']
 description: This rule performs transforms.
-slug: /rules/cloud-rules/generic-rule
+slug: /extensibility/rules/cloud-rules/generic-rule
 tags: ['Rules']
 ---
 

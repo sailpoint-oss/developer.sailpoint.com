@@ -6,7 +6,7 @@ sidebar_label: Name Normalizer
 sidebar_class_name: nameNormalizer
 keywords: ['transforms', 'operations', 'name normalizer']
 description: Clean or standardize the spelling of strings coming in from source systems.
-slug: /transforms/operations/name-normalizer
+slug: /extensibility/transforms/operations/name-normalizer
 tags: ['Transforms', 'Transform Operations']
 ---
 

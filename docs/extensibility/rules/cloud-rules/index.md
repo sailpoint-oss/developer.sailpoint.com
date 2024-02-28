@@ -7,7 +7,7 @@ sidebar_position: 2
 sidebar_class_name: cloudExecutedRules
 keywords: ['cloud', 'rules']
 description: Overview of cloud-executed rules
-slug: /rules/cloud-rules
+slug: /extensibility/rules/cloud-rules
 tags: ['Rules']
 ---
 

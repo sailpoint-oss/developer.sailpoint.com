@@ -7,7 +7,7 @@ sidebar_position: 4
 sidebar_class_name: linting
 keywords: ['connectivity', 'connectors', 'linting']
 description: Automatically check your connector source code for programmatic and stylistic errors.
-slug: /saas-connectivity/in-depth/linting
+slug: /connectivity/saas-connectivity/in-depth/linting
 tags: ['Connectivity']
 ---
 

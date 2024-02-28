@@ -6,7 +6,7 @@ sidebar_label: Last Index Of
 sidebar_class_name: lastIndexOf
 keywords: ['transforms', 'operations', 'last', 'index', 'of']
 description: Returns last location of specific substring.
-slug: /transforms/operations/last-index-of
+slug: /extensibility/transforms/operations/last-index-of
 tags: ['Transforms', 'Transform Operations']
 ---
 

@@ -76,6 +76,7 @@ jobs:
       - name: Build Developer Community site
         run: |
           echo "CMS_APP_API_ENDPOINT=$API_GATEWAY_URL" >> .env
+          echo ${{ secrets.NPM_FONTAWESOME_CONFIG }} | base64 -d >> .npmrc
           export NODE_OPTIONS="--max_old_space_size=4096"
           npm ci --legacy-peer-deps
           npm run gen-api-docs-all

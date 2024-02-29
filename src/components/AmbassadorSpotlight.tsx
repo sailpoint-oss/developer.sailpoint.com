@@ -28,7 +28,7 @@ export default function AmbassadorSpotlight() {
       <a
         className="text-center text-sm block pb-2"
         href="https://developer.sailpoint.com/discuss/t/announcing-the-developer-community-ambassador-program/10634">
-        How to become an ambassador
+        Become an ambassador
       </a>
       <Carousel
         opts={{loop: true, dragFree: true}}

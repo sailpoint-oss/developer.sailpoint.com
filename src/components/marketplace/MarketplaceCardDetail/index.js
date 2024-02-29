@@ -44,9 +44,6 @@ export default function MarketplaceCardDetail({ details, rawPost }) {
     }
   };
 
-  const goToLink = (link) => {
-    window.open(link, '_blank');
-  };
 
   if (details) {
     return (
@@ -60,18 +57,19 @@ export default function MarketplaceCardDetail({ details, rawPost }) {
         </div>
 
         <Tabs className={styles.detailTabs}>
-          <button
+          <a
             className={styles.modalButton}
-            onClick={async () => {
-              goToLink(details.link);
-            }}>
+            href={details.link}
+            rel="noreferrer"
+            target="_blank"
+              >
             <div className={styles.modalButtonText}>
               <img
                 className={styles.buttonImage}
                 src={useBaseUrl('/icons/discourse.svg')}></img>
               Go to Download
             </div>
-          </button>
+          </a>
           <TabList>
             <Tab>Overview</Tab>
             <Tab>Requirements</Tab>

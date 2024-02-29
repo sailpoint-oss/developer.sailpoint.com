@@ -5,7 +5,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import AmbassadorBanner from '../components/ambassador/AmbassadorBanner';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import styles from './ambassador.module.css';
+import styles from './ambassadors.module.css';
 import AmbassadorCards from '../components/ambassador/AmbassadorCards';
 
 export default function Ambassador() {

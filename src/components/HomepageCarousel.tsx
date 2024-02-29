@@ -44,7 +44,7 @@ export default function HomepageCarousel() {
       <CarouselContent>
         <CarouselItem>
           <div className="bg-background flex aspect-square items-center justify-center">
-            <span className="text-4xl font-semibold text-center">
+            <span className="text-3xl font-semibold text-center">
               Join the discussion on our{' '}
               <a
                 className="text-[#0188f7]"
@@ -56,7 +56,7 @@ export default function HomepageCarousel() {
         </CarouselItem>
         <CarouselItem>
           <div className="bg-background flex aspect-square items-center justify-center">
-            <span className="text-4xl font-semibold text-center">
+            <span className="text-3xl font-semibold text-center">
               Take a look at the workflows, tools, and connectors <br /> from
               the community in the{' '}
               <a className="text-[#0188f7]" href="/colab/">

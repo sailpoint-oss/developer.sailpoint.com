@@ -64,7 +64,7 @@ export default function StartBuilding() {
                 <h3 className="my-auto">{card.title}</h3>
 
                 {card.icon && (
-                  <card.icon className="w-10  dark:fill-white my-auto" />
+                  <card.icon className="w-10 dark:fill-white" />
                 )}
               </CardHeader>
 

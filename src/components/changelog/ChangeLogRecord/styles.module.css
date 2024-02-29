@@ -1,0 +1,230 @@
+.date {
+  margin-top: 1%;
+  margin-bottom: 1%;
+  font-size: 50px;
+}
+
+.col250 {
+  width: 10%;
+  display: grid;
+  text-align: left;
+  font-size: x-large;
+}
+
+.col400 {
+  width: 17%;
+  display: grid;
+  text-align: left;
+  font-size: x-large;
+}
+
+.col2000 {
+  width: 55%;
+  display: grid;
+  text-align: left;
+  font-size: x-large;
+}
+
+.tableContainer {
+  display: flex;
+}
+
+.header {
+  font-weight: bolder;
+}
+
+.headerDesc {
+  font-weight: bolder;
+}
+
+.showonmobile {
+  display: none;
+}
+
+.info {
+  border: 1px solid #0000;
+  border-radius: 0.25rem;
+  color: #fff;
+  flex-shrink: 0;
+  font-size: 17px;
+  font-weight: 600;
+  height: 30px;
+  line-height: 25px;
+  margin-right: var(--ifm-spacing-horizontal);
+  text-align: center;
+  width: 85px;
+  background-color: var(--ifm-color-primary);
+}
+
+.warning {
+  border: 1px solid #0000;
+  border-radius: 0.25rem;
+  color: #fff;
+  flex-shrink: 0;
+  font-size: 17px;
+  font-weight: 600;
+  height: 30px;
+  line-height: 25px;
+  margin-right: var(--ifm-spacing-horizontal);
+  text-align: center;
+  width: 85px;
+  background-color: var(--openapi-code-orange);
+}
+
+.error {
+  border: 1px solid #0000;
+  border-radius: 0.25rem;
+  color: #fff;
+  flex-shrink: 0;
+  font-size: 17px;
+  font-weight: 600;
+  height: 30px;
+  line-height: 25px;
+  margin-right: var(--ifm-spacing-horizontal);
+  text-align: center;
+  width: 85px;
+  background-color: var(--openapi-code-red);
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 500px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 2%;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+@media only screen and (max-width: 2200px) {
+  .col400 {
+    width: 22%;
+    display: grid;
+    text-align: left;
+    font-size: medium;
+  }
+
+  .col250 {
+    width: 15%;
+    display: grid;
+    text-align: left;
+    font-size: medium;
+  }
+
+  .col2000 {
+    width: 55%;
+    display: grid;
+    text-align: left;
+    font-size: medium;
+  }
+}
+
+@media only screen and (max-width: 1710px) {
+  .tableContainer {
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .col250,
+  .col400,
+  .col2000 {
+    width: 100%;
+    display: flex;
+    text-align: left;
+    font-size: medium;
+    padding-bottom: 1%;
+  }
+
+  .recordContainer {
+    border-style: solid;
+    border-width: 1px;
+    padding: 2%;
+  }
+
+  .hideonmobile {
+    display: none;
+  }
+
+  .showonmobile {
+    display: block;
+    padding-right: 2%;
+    width: 18%;
+  }
+
+  .header,
+  .headerDesc {
+    display: none;
+  }
+
+  .value {
+    width: 60%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .tableContainer {
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .col250,
+  .col400,
+  .col2000 {
+    width: 100%;
+    display: flex;
+    text-align: left;
+    font-size: medium;
+    padding-bottom: 1%;
+  }
+
+  .recordContainer {
+    border-style: solid;
+    border-width: 1px;
+    padding: 2%;
+  }
+
+  .hideonmobile {
+    display: none;
+  }
+
+  .showonmobile {
+    display: block;
+    padding-right: 2%;
+    width: 30%;
+  }
+
+  .header,
+  .headerDesc {
+    display: none;
+  }
+
+  .value {
+    width: 70%;
+  }
+  .date {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    font-size: 50px;
+    text-align: center;
+  }
+}

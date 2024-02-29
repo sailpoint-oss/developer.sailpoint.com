@@ -14,6 +14,7 @@ module.exports = {
         {to: '#', label: 'API Specifications', className: 'navbar__section'},
         {to: '/idn/api/v3', label: 'V3 APIs', className: 'indent'},
         {to: '/idn/api/beta', label: 'Beta APIs', className: 'indent'},
+        {to: '/changelog', label: 'Change log', className: 'indent'},
         {to: '#', label: 'Documentation', className: 'navbar__section'},
         {to: 'idn/docs', label: 'IDN Documentation', className: 'indent'},
         {to: '#', label: 'Tools', className: 'navbar__section'},

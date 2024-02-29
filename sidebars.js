@@ -26,6 +26,9 @@ const sidebars = {
                 type: 'doc',
                 id: 'api/identity-security-cloud',
               },
+              customProps: {
+                description: "ISC API specifications."
+              },
               items: [
                 {
                   type: 'doc',
@@ -90,6 +93,9 @@ const sidebars = {
               link: {
                 type: 'doc',
                 id: 'api/non-employee',
+              },
+              customProps: {
+                description: "NERM API specifications."
               },
               items: [
                 {

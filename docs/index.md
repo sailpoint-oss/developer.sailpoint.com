@@ -11,11 +11,11 @@ slug: /
 tags: ['docs']
 ---
 
-## Overview 
+## Overview
 
-:::caution What about Identity Security Cloud?
+:::caution What about IdentityNow?
 
-Looking for Identity Security Cloud? You're in the right place! Identity Security Cloud has an updated brand in Identity Security Cloud. 
+Looking for IdentityNow? You're in the right place! IdentityNow has an updated brand in Identity Security Cloud. 
 
 :::
 

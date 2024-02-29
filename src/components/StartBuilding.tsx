@@ -7,8 +7,11 @@ import Swap from '@site/static/icons/swap-arrows-light.svg';
 import Progress from '@site/static/icons/arrow-progress-light.svg';
 import Blocks from '@site/static/icons/cubes-stacked-light.svg';
 import Cloud from '@site/static/icons/cloud-binary-light.svg';
+import {useColorMode} from '@docusaurus/theme-common';
 
 export default function StartBuilding() {
+  const {colorMode, setColorMode} = useColorMode();
+
   const cards = [
     {
       title: 'Workflows',
@@ -64,7 +67,10 @@ export default function StartBuilding() {
                 <h3 className="my-auto">{card.title}</h3>
 
                 {card.icon && (
-                  <card.icon className="w-10 dark:fill-white" />
+                  <card.icon
+                    fill={colorMode === 'dark' ? 'white' : 'black'}
+                    className="w-10 my-auto"
+                  />
                 )}
               </CardHeader>
 

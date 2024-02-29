@@ -10,7 +10,7 @@ description: ISC API pagination, filtering, and sorting.
 tags: ['Standard Collection Parameters']
 ---
 
-Many endpoints in the IdentityNow API support a generic syntax for paginating, filtering and sorting the results. A collection endpoint has the following characteristics:
+Many endpoints in the Identity Security Cloud API support a generic syntax for paginating, filtering and sorting the results. A collection endpoint has the following characteristics:
 
 - The HTTP verb is always GET.
 - The last component in the URL is a plural noun (ex. `/v3/public-identities`).
@@ -34,7 +34,7 @@ Examples:
 
 ## Paginating Search Queries
 
-The [search API](https://developer.sailpoint.com/docs/api/v3/search) in IdentityNow leverages [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/elasticsearch-intro.html) functionality, which returns a maximum of 10,000 records by default. However, you can page more than 10,000 records by using the "searchAfter" property.
+The [search API](https://developer.sailpoint.com/docs/api/v3/search) in Identity Security Cloud leverages [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/elasticsearch-intro.html) functionality, which returns a maximum of 10,000 records by default. However, you can page more than 10,000 records by using the "searchAfter" property.
 
 The `searchAfter` capability provides the ability to page on sorted field values, instead of offset paging. For example, if you sort by ID and page 100 records at a time, you can take the 1st page of 100 records, pass the last ID from that record set into your next search, and the next search will return the next 100 records after that ID. You continue that pattern of using the last value passed into `searchAfter` until the end of the result set. This allows you to page past the 10,000 record limit until you reach the final record.
 

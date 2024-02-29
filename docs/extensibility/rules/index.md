@@ -17,40 +17,40 @@ In SailPoint solutions, rules serve as a flexible configuration framework implem
 
 ## Java Beanshell
 
-Rules in IdentityNow are written in Java Beanshell, a lightweight scripting language that allows you to define custom logic and behavior within the rules. Java Beanshell provides a familiar syntax similar to Java, making it easier for implementers to create and maintain rule configurations.
+Rules in Identity Security Cloud are written in Java Beanshell, a lightweight scripting language that allows you to define custom logic and behavior within the rules. Java Beanshell provides a familiar syntax similar to Java, making it easier for implementers to create and maintain rule configurations.
 
 For more information about Java Beanshell, you can refer to the [Java Beanshell Documentation](https://github.com/beanshell/beanshell/wiki).
 
 ## Rule Execution
 
-IdentityNow (IDN) is a multi-tenant cloud solution, and its architecture varies differently from other SailPoint products like IdentityIQ (IIQ). Therefore, the way rules execute within IDN reflects the architectural design considerations the platform was built on. These considerations determine the rule's limitations.
+Identity Security Cloud (ISC) is a multi-tenant cloud solution, and its architecture varies differently from other SailPoint products like IdentityIQ (IIQ). Therefore, the way rules execute within ISC reflects the architectural design considerations the platform was built on. These considerations determine the rule's limitations.
 
 There are two primary places where you can execute rules:
 
-- **Cloud Execution** - These rules are executed in the IDN multi-tenant cloud.
-- **Connector Execution** - These rules are executed on the on-premise IDN virtual appliance.
+- **Cloud Execution** - These rules are executed in the ISC multi-tenant cloud.
+- **Connector Execution** - These rules are executed on the on-premise ISC virtual appliance.
 
 ![Rule Execution](./img/rule_execution.png)
 
-**Cloud-Executed Rules** or **Cloud Rules** typically only perform a specific function, such as calculating attribute values. Many of these rules may be able to query the IDN data-model in a read-only fashion, but they do not have the ability to commit transactions, save objects, etc.
+**Cloud-Executed Rules** or **Cloud Rules** typically only perform a specific function, such as calculating attribute values. Many of these rules may be able to query the ISC data-model in a read-only fashion, but they do not have the ability to commit transactions, save objects, etc.
 
 Because these rules execute in a multi-tenant cloud environment, they have a restricted context, and they are closely scrutinized to ensure that they execute in an efficient and secure manner.
 
 For more details, see [Cloud Rules](./cloud-rules/index.md).
 
-**Connector-Executed Rules** or **Connector Rules** are rules executed in the IDN virtual appliance, and they are often an extension connector itself. The rules are commonly used for performing complex connector-related functions, so they are specific to only certain connectors. Because these rules execute in the virtual appliance, they do not have access to query the IDN data model or fetch information from IDN. They rely instead on contextual information sent from IDN. Connector-executed rules may also have managed connections supplied in their contexts to support querying end systems or sources. Though you may use these managed connections, you cannot make making additional connections or call-outs.
+**Connector-Executed Rules** or **Connector Rules** are rules executed in the ISC virtual appliance, and they are often an extension connector itself. The rules are commonly used for performing complex connector-related functions, so they are specific to only certain connectors. Because these rules execute in the virtual appliance, they do not have access to query the ISC data model or fetch information from ISC. They rely instead on contextual information sent from ISC. Connector-executed rules may also have managed connections supplied in their contexts to support querying end systems or sources. Though you may use these managed connections, you cannot make making additional connections or call-outs.
 
 For more details, see the [Connector Rules](./connector-rules/index.md).
 
 ## Support Considerations
 
-Though IDN shares some common functionality with other SailPoint products like IIQ, the same rules are not necessarily supported, nor do they necessarily execute the same way or with the same context and variables. SailPoint recommends that you become familiar with which rules execute with which products, as well as the nuances in their execution contexts.
+Though ISC shares some common functionality with other SailPoint products like IIQ, the same rules are not necessarily supported, nor do they necessarily execute the same way or with the same context and variables. SailPoint recommends that you become familiar with which rules execute with which products, as well as the nuances in their execution contexts.
 
-From a SailPoint support perspective, rules are considered configurations. SailPoint supports the underlying platform but not the rule configurations themselves. Any problems with the way rules are implemented or run over time are the responsibilities the customer or implementer must manage. SailPoint's IDN Expert Services need hours to cover any rule configuration work (e.g., creating rules, best practices reviews, application to your IDN environment, and promotion between sandbox & prod environments). Contact your Customer Success Manager with any questions. While rules allow some advanced flexibility, you must consider these support implications when you are deciding whether to implement rules. Consider rule usage a last resort, and use IdentityNow features instead whenever you can.
+From a SailPoint support perspective, rules are considered configurations. SailPoint supports the underlying platform but not the rule configurations themselves. Any problems with the way rules are implemented or run over time are the responsibilities the customer or implementer must manage. SailPoint's ISC Expert Services need hours to cover any rule configuration work (e.g., creating rules, best practices reviews, application to your ISC environment, and promotion between sandbox & prod environments). Contact your Customer Success Manager with any questions. While rules allow some advanced flexibility, you must consider these support implications when you are deciding whether to implement rules. Consider rule usage a last resort, and use Identity Security Cloud features instead whenever you can.
 
 ## Best Practices for Rule deployments
 
-SailPoint IDN deployments often require the deployment of rules to the client’s IDN tenants. Because IDN is a multi-tenant solution, rules that are poorly written can have negative performance implications on other tenants in the same cloud. As such, SailPoint requires all rules to be reviewed prior to deployment. The time to complete these reviews requires an expert services contract to leverage billable hours.
+SailPoint ISC deployments often require the deployment of rules to the client’s ISC tenants. Because ISC is a multi-tenant solution, rules that are poorly written can have negative performance implications on other tenants in the same cloud. As such, SailPoint requires all rules to be reviewed prior to deployment. The time to complete these reviews requires an expert services contract to leverage billable hours.
 
 This article covers common topics around this process including best practices, rule review expectations, and more.
 
@@ -76,7 +76,7 @@ In the case of rejection, we recommend submitting a new ticket to avoid a scenar
 
 ## Promote Rules from Sandbox to Production
 
-A rule that has been approved in a sandbox tenant through the SailPoint rule review process, like an IdentityAttribute, Correlation or ManagerCorrelation rule or any other rule type, for example, can be migrated to the production IDN tenant.
+A rule that has been approved in a sandbox tenant through the SailPoint rule review process, like an IdentityAttribute, Correlation or ManagerCorrelation rule or any other rule type, for example, can be migrated to the production ISC tenant.
 
 This applies to all rule types, as the signature has been approved/verified during the SailPoint rule review process, the sp-config API allows you to import ANY ‘approved’ tenant rules. (this includes cloud rules!)
 
@@ -198,7 +198,7 @@ Log4j
 Logger.getLogger​
 ```
 
-Note that the earlier code fragments are not allowed within [connector-executed rules](./connector-rules/index.md#supported-connector-rules) because they are not valid at the connector level. They will, for a short time, still be allowed for pre-existing [cloud-executed rules](./cloud-rules/index.md) as a review exception. However, any new rules using these constructs will be returned to the submitter, and the submitter will be asked to rewrite the rule, using the [IDN Rule Utility](./idn_rule_utility.md) helper methods instead:
+Note that the earlier code fragments are not allowed within [connector-executed rules](./connector-rules/index.md#supported-connector-rules) because they are not valid at the connector level. They will, for a short time, still be allowed for pre-existing [cloud-executed rules](./cloud-rules/index.md) as a review exception. However, any new rules using these constructs will be returned to the submitter, and the submitter will be asked to rewrite the rule, using the [ISC Rule Utility](./idn_rule_utility.md) helper methods instead:
 
 - context
 - .getObjectById()
@@ -209,11 +209,11 @@ Note that the earlier code fragments are not allowed within [connector-executed 
 
 ## Other Rules
 
-While IDN shares some common functionality with other SailPoint products like IIQ, the same rules are not necessarily supported, nor do they necessarily execute the same way. SailPoint recommends that you become familiar with which rules execute with which products, as well as the nuances in their execution contexts. IDN considers any other rules not mentioned in the Cloud-Executed Rules or Connector-Executed Rules sections to be unsupported.
+While ISC shares some common functionality with other SailPoint products like IIQ, the same rules are not necessarily supported, nor do they necessarily execute the same way. SailPoint recommends that you become familiar with which rules execute with which products, as well as the nuances in their execution contexts. ISC considers any other rules not mentioned in the Cloud-Executed Rules or Connector-Executed Rules sections to be unsupported.
 
 ## Deprecated Rules
 
-The following rules have been deprecated in IDN. SailPoint recommends using supported product functionality instead of these rules:
+The following rules have been deprecated in ISC. SailPoint recommends using supported product functionality instead of these rules:
 
 - **Certification Exclusion Rules** - Use configurable certification campaign filters instead.
 - **Identity Selector Rules** - Use role standard assignment criteria instead.

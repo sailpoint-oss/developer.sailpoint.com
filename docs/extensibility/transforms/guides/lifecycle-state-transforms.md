@@ -15,7 +15,7 @@ tags: ['Transforms', 'Guides', 'Lifecycle']
 
 In this guide, you will walk through a lifecycle state transform that requires you to nest multiple transforms together to achieve your desired result.
 
-A lifecycle state is a status an identity can be in, such as `active`, `inactive` and `terminated`, for example. You can then use this lifecycle state in IdentityNow to determine an identity's access. 
+A lifecycle state is a status an identity can be in, such as `active`, `inactive` and `terminated`, for example. You can then use this lifecycle state in Identity Security Cloud to determine an identity's access. 
 
 ## Determine lifecycle state from end date attribute
 

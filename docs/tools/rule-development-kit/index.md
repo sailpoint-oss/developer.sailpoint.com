@@ -60,7 +60,7 @@ src/
 
 * **`src/main/java/`** Use this folder to develop your rules before putting them into the rule XML format. Import objects as needed from `sailpoint.*`
 
-* **`src/main/resources/rules/`** Use this folder to store your rules in the XML format you would expect to upload to IdentityNow (IDN).
+* **`src/main/resources/rules/`** Use this folder to store your rules in the XML format you would expect to upload to Identity Security Cloud (ISC).
 
 * **`src/test/java/sailpoint/`** Use this folder for test classes to test your rules.
 
@@ -84,7 +84,7 @@ The rule development kit provides you with intellisense when writing rules, you 
 
 ## Create your new rule
 
-To get syntax highlighting and the features from the IDE, this guide shows how to write the rule in native Java and move it over to the XML format needed when you're storing it in IdentityNow (IDN).
+To get syntax highlighting and the features from the IDE, this guide shows how to write the rule in native Java and move it over to the XML format needed when you're storing it in Identity Security Cloud (ISC).
 
 This guide will walk through an example of how to duplicate writing the 'Username Generator' rule that ships with the RDK.
 
@@ -527,7 +527,7 @@ Interpreter i = new Interpreter();
 
 ### Mock the objects and return the mocked data
 
-Anywhere your rule uses data from IDN, you will need to mock out those objects. In the 'Username Generator' example, the objects used are `IdnRuleUtil`, `Application`, and `Identity`.
+Anywhere your rule uses data from ISC, you will need to mock out those objects. In the 'Username Generator' example, the objects used are `IdnRuleUtil`, `Application`, and `Identity`.
 
 ```java
 IdnRuleUtil idn = mock();

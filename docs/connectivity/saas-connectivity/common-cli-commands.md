@@ -18,21 +18,21 @@ Below is a list of commands and their usages:
   - Create a customizer on your local system `sail conn customizers init "my-customizer-project"`
   - Test your connector or customizer locally: `npm run debug`
 - **Deployment**
-  - Create an empty connector in your IDN Org (used to get id so you can upload): `sail conn create "my-project"`
-  - Create an empty customizer in your IDN Org (used to get id so you can upload): `sail conn customizers create "my-customizer-project"`
+  - Create an empty connector in your ISC Org (used to get id so you can upload): `sail conn create "my-project"`
+  - Create an empty customizer in your ISC Org (used to get id so you can upload): `sail conn customizers create "my-customizer-project"`
   - Build a project: `npm run pack-zip`
-  - Upload your connector to your IDN Org: `sail conn upload -c [connectorID | connectorAlias] -f dist/[connector filename].zip`
-  - Upload your customizer to your IDN Org: `sail conn customizers upload -c [customizerID] -f dist/[customizer filename].zip`
+  - Upload your connector to your ISC Org: `sail conn upload -c [connectorID | connectorAlias] -f dist/[connector filename].zip`
+  - Upload your customizer to your ISC Org: `sail conn customizers upload -c [customizerID] -f dist/[customizer filename].zip`
 - **Exploring**
-  - List connectors in your IDN Org: `sail conn list`
-  - List customizers in your IDN Org: `sail conn customizers list`
-  - List source instances in your IDN Org: `sail conn instances list`
+  - List connectors in your ISC Org: `sail conn list`
+  - List customizers in your ISC Org: `sail conn customizers list`
+  - List source instances in your ISC Org: `sail conn instances list`
   - List your connector tags: `sail conn tags list -c [connectorID | connectorAlias]`
 - **Testing and Debugging**
-  - Test your connector on the IDN Org: `sail connectors invoke [action] -c [connectorID | connectorAlias] -p config.json`
+  - Test your connector on the ISC Org: `sail connectors invoke [action] -c [connectorID | connectorAlias] -p config.json`
   - Get a list of actions: `sail conn invoke -h`
   - Run read-only integration tests against your connector: `sail conn validate -p config.json -c [connectorID | connectorAlias] -r`
-  - Tail IDN Org connector logs: `sail conn logs tail`
+  - Tail ISC Org connector logs: `sail conn logs tail`
 - **Delete**
   - Delete a connector: `sail conn delete -c [connectorID | connectorAlias]`
 - **Linking**

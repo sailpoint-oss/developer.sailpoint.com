@@ -45,7 +45,7 @@ tags: ['Connectivity', 'Connector Command']
 
 ## Description
 
-Use the source data read command to query a source in IdentityNow and return a set of data. This data is typically used to populate a dropdown menu for selection purposes. This functionality is typically useful for IdentityNow forms, but it can be used for any type of implementation that requires you to get other information from a source, information that is not normally retrieved from identites or entitlements.
+Use the source data read command to query a source in Identity Security Cloud and return a set of data. This data is typically used to populate a dropdown menu for selection purposes. This functionality is typically useful for Identity Security Cloud forms, but it can be used for any type of implementation that requires you to get other information from a source, information that is not normally retrieved from identites or entitlements.
 
 This is a simple example of the source data read command. It is implemented to retrieve the base ID name. The `sourceDataKey` is required, the ```source data read``` command should return it.
 

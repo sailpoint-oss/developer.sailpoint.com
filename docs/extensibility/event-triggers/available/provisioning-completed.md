@@ -83,7 +83,7 @@ To provision to a target application, the connector for the source must support 
 - `PROVISIONING` - Can write to accounts. Currently, the trigger does not include attribute synchronization.
 - `PASSWORD` - Can update password for accounts.
 
-For a list of supported connectors and features, see [Supported Connectors for IdentityNow](https://community.sailpoint.com/t5/Connectors/Supported-Sources-Connectors-for-IdentityNow/ta-p/80019).
+For a list of supported connectors and features, see [Supported Connectors for Identity Security Cloud](https://community.sailpoint.com/t5/Connectors/Supported-Sources-Connectors-for-Identity Security Cloud/ta-p/80019).
 
 For information about configuring sources for provisioning, see [How can I edit the Create Profile on a source?](https://community.sailpoint.com/t5/Connectors/How-can-I-edit-the-Create-Profile-on-a-source/ta-p/74429).
 
@@ -110,7 +110,7 @@ The following steps must be completed:
 - Access profile using source entitlements. Role setup is optional.
 - Application enabled for Access Request.
 
-> **NOTE:** There is no indication to the approver in the IdentityNow UI that the approval is for a revoke action. This must be considered for all usage of these APIs.
+> **NOTE:** There is no indication to the approver in the Identity Security Cloud UI that the approval is for a revoke action. This must be considered for all usage of these APIs.
 
 ![Flow](./img/provisioning-access-request-2.png)
 

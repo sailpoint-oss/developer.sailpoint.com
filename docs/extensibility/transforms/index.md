@@ -26,17 +26,17 @@ flowchart LR
 
 </div>
 
-Because there is no code to write, an administrator can configure these by using a JSON object structure and uploading them into IdentityNow using [IdentityNow's Transform REST APIs](/docs/api/v3/transforms).
+Because there is no code to write, an administrator can configure these by using a JSON object structure and uploading them into Identity Security Cloud using [Identity Security Cloud's Transform REST APIs](/docs/api/v3/transforms).
 
 :::info
 
-Sometimes transforms are referred to as Seaspray, the codename for transforms. IdentityNow Transforms and Seaspray are essentially the same.
+Sometimes transforms are referred to as Seaspray, the codename for transforms. Identity Security Cloud Transforms and Seaspray are essentially the same.
 
 :::
 
 ## How Transforms Work
 
-Transforms typically have an input(s) and output(s). The way the transformation occurs mainly depends on the type of transform. Refer to [Operations in IdentityNow Transforms](./operations/index.md) for more information.
+Transforms typically have an input(s) and output(s). The way the transformation occurs mainly depends on the type of transform. Refer to [Operations in Identity Security Cloud Transforms](./operations/index.md) for more information.
 
 For example, a [Lower transform](./operations/lower.md) transforms any input text strings into lowercase versions as output. So if the input were `Foo`, the lowercase output of the transform would be `foo`:
 
@@ -76,7 +76,7 @@ flowchart LR
 
 ### Complex Nested Transforms
 
-For more complex use cases, a single transform may not be enough. It is possible to link several transforms together. IdentityNow calls these 'nested' transforms because they are transform objects within other transform objects.
+For more complex use cases, a single transform may not be enough. It is possible to link several transforms together. Identity Security Cloud calls these 'nested' transforms because they are transform objects within other transform objects.
 
 An example of a nested transform would be using the previous [Concat transform](./operations/concatenation.md) and passing its output as an input to another [Lower transform](./operations/lower.md). If the inputs `Foo` and `Bar` were passed into the transforms, the ultimate output would be `foobar`, concatenated and in lowercase.
 
@@ -127,7 +127,7 @@ Transforms are JSON objects. Prior to this, the transforms have been shown as fl
 
 There are three main components of a transform object:
 
-1. `name` - This specifies the name of the transform. It refers to a transform in the IdentityNow API or User Interface (UI). Only provide a name on the root-level transform. Nested transforms do not have names.
+1. `name` - This specifies the name of the transform. It refers to a transform in the Identity Security Cloud API or User Interface (UI). Only provide a name on the root-level transform. Nested transforms do not have names.
 
 2. `type` - This specifies the transform type, which ultimately determines the transform's behavior.
 
@@ -135,7 +135,7 @@ There are three main components of a transform object:
 
 :::caution
 
-When uploading a transform to IdentityNow it cannot exceed 400KB.
+When uploading a transform to Identity Security Cloud it cannot exceed 400KB.
 
 :::
 
@@ -172,7 +172,7 @@ The following variables are available to the Apache Velocity template engine whe
 
 ## Implicit vs Explicit Input
 
-A special configuration attribute available to all transforms is input. If the input attribute is not specified, this is referred to as implicit input, and the system determines the input based on what is configured. If the input attribute is specified, then this is referred to as explicit input, and the system's input is ignored in favor of whatever the transform explicitly specifies. A good way to understand this concept is to walk through an example. Imagine that IdentityNow has the following:
+A special configuration attribute available to all transforms is input. If the input attribute is not specified, this is referred to as implicit input, and the system determines the input based on what is configured. If the input attribute is specified, then this is referred to as explicit input, and the system's input is ignored in favor of whatever the transform explicitly specifies. A good way to understand this concept is to walk through an example. Imagine that Identity Security Cloud has the following:
 
 - An account on Source 1 with department set to `Services`.
 - An account on Source 2 with department set to `Engineering`.
@@ -240,13 +240,13 @@ These transforms are configured separately from the transforms applied via the i
 :::
 #### Configuration
 
-These can be configured in IdentityNow by going to **Admin** > **Sources** > (A Source) > **Accounts** (tab) > **Create Account**.
+These can be configured in Identity Security Cloud by going to **Admin** > **Sources** > (A Source) > **Accounts** (tab) > **Create Account**.
 
 The available options on this page are constructed as transforms behind the scenes. For example, the identity attribute mapping choice is saved as an [identity attribute transform](./operations/identity-attribute.md) definition within the saved create profile.
 
-These can also be configured with IdentityNow REST APIs. You can define any kind of transform you want for any field in the create profile policy, to calculate account attributes in ways beyond what the UI offers. See [Transforms in Provisioning Policies](./guides/provisioning-policy-transform.md).
+These can also be configured with Identity Security Cloud REST APIs. You can define any kind of transform you want for any field in the create profile policy, to calculate account attributes in ways beyond what the UI offers. See [Transforms in Provisioning Policies](./guides/provisioning-policy-transform.md).
 
-For more information on the IdentityNow REST API endpoints used to managed transform objects in APIs, refer to [IdentityNow Transform REST APIs](/docs/api/v3/transforms).
+For more information on the Identity Security Cloud REST API endpoints used to managed transform objects in APIs, refer to [Identity Security Cloud Transform REST APIs](/docs/api/v3/transforms).
 
 :::tip
 
@@ -290,9 +290,9 @@ To test a transform for account data, you must provision a new account on that s
 
 Sometimes it can be difficult to decide when to implement a transform and when to implement a rule. Both transforms and rules can calculate values for identity or account attributes.
 
-Despite their functional similarity, transforms and rules have very different implementations. Transforms are JSON-based configurations, editable with IdentityNow's transform REST APIs. Rules are implemented with code (typically [BeanShell](https://github.com/beanshell/beanshell), a Java-like syntax), so they must follow the [IdentityNow Rule Guidelines](https://community.sailpoint.com/docs/DOC-12122), and they require SailPoint to be reviewed and installed into the tenant. Rules, however, can do things that transforms cannot in some cases.
+Despite their functional similarity, transforms and rules have very different implementations. Transforms are JSON-based configurations, editable with Identity Security Cloud's transform REST APIs. Rules are implemented with code (typically [BeanShell](https://github.com/beanshell/beanshell), a Java-like syntax), so they must follow the [Identity Security Cloud Rule Guidelines](https://community.sailpoint.com/docs/DOC-12122), and they require SailPoint to be reviewed and installed into the tenant. Rules, however, can do things that transforms cannot in some cases.
 
-Because transforms have easier and more accessible implementations, they are generally recommended. With transforms, any IdentityNow administrator can view, create, edit, and delete transforms directly with REST API without SailPoint involvement.
+Because transforms have easier and more accessible implementations, they are generally recommended. With transforms, any Identity Security Cloud administrator can view, create, edit, and delete transforms directly with REST API without SailPoint involvement.
 
 If something cannot be done with a transform, then consider using a rule. When you are transitioning from a transform to a rule, you must take special consideration when you decide where the rule executes.
 
@@ -300,6 +300,6 @@ If something cannot be done with a transform, then consider using a rule. When y
 
 - If you are calculating account attributes (during provisioning), you can use [Attribute Generator rules](https://community.sailpoint.com/docs/DOC-12645) instead of account transforms.
 
-- All rules you build must follow the [IdentityNow Rule Guidelines](https://community.sailpoint.com/docs/DOC-12122).
+- All rules you build must follow the [Identity Security Cloud Rule Guidelines](https://community.sailpoint.com/docs/DOC-12122).
 
 If you use a rule, make note of it for administrative purposes. The best practice is to check in these types of artifacts into some sort of version control (e.g., GitHub, et. Al.) for records.

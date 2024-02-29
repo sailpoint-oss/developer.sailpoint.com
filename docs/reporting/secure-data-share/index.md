@@ -14,9 +14,9 @@ hide_table_of_contents: true
 
 import MermaidViewer from '@site/src/components/MermaidViewer';
 
-Secure Data Sharing (SDS) makes SailPoint's Identity data available directly to customer via their Snowflake account. DataSet comprises of structured Identity and audit data. Includes relationship tables that connects Identity with other domain entities like entitlements, roles, access profiles, accounts and Apps. This dataset has an additional Audit events table that is a flattened representation of all the events happening in IdentityNow for your organization.
+Secure Data Sharing (SDS) makes SailPoint's Identity data available directly to customer via their Snowflake account. DataSet comprises of structured Identity and audit data. Includes relationship tables that connects Identity with other domain entities like entitlements, roles, access profiles, accounts and Apps. This dataset has an additional Audit events table that is a flattened representation of all the events happening in Identity Security Cloud for your organization.
 
-## IdentityNow Documentation
+## Identity Security Cloud Documentation
 For information on how to use SDS in your environment, see the documentation [here](https://documentation.sailpoint.com/saas/help/secure_data_share/secure_data_share.html).
 
 ## Technical Documentation

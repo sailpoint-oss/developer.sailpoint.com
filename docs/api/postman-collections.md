@@ -13,11 +13,11 @@ tags: ['postman']
 
 import GitHubPublicFileComponent from '@site/src/components/GitHubLink';
 
-[Postman](https://www.postman.com/) is a platform you can use to design, build, test, and iterate your APIs. Postman users and teams can create public workspaces they can use to make it easy to access their API collections and environments and get started. SailPoint maintains a [public workspace for the IdentityNow API collections](https://www.postman.com/sailpoint/workspace/identitynow). You can use this workspace to access all the IDN API collections and stay up to date.
+[Postman](https://www.postman.com/) is a platform you can use to design, build, test, and iterate your APIs. Postman users and teams can create public workspaces they can use to make it easy to access their API collections and environments and get started. SailPoint maintains a [public workspace for the Identity Security Cloud API collections](https://www.postman.com/sailpoint/workspace/identitynow). You can use this workspace to access all the ISC API collections and stay up to date.
 
 ## Run in Postman
 
-Each IDN API version is broken out into a separate collection within the workspace. The following table lists the available IDN API collections. To import a collection into your workspace, select the 'Run in Postman' button for your desired version. Doing so forks the collection into your workspace.
+Each ISC API version is broken out into a separate collection within the workspace. The following table lists the available ISC API collections. To import a collection into your workspace, select the 'Run in Postman' button for your desired version. Doing so forks the collection into your workspace.
 
 
 
@@ -34,7 +34,7 @@ When you fork the collection, when you check the 'Watch original collection' che
 
 ## Update your collections
 
-SailPoint is often making improvements to the IDN API collections. To keep your workspace in sync with updates to one of SailPoint's public collections, you can right click on the forked collection and select "pull changes". sometimes this process will fail because of the size of our collection and limitations of the Postman tool. In that case, in order to update, you will need to visit the [sailpoint workspace](https://www.postman.com/sailpoint/workspace/identitynow) and create a fork of the most recently published version or click the links above to fork the most recent version.
+SailPoint is often making improvements to the ISC API collections. To keep your workspace in sync with updates to one of SailPoint's public collections, you can right click on the forked collection and select "pull changes". sometimes this process will fail because of the size of our collection and limitations of the Postman tool. In that case, in order to update, you will need to visit the [sailpoint workspace](https://www.postman.com/sailpoint/workspace/identitynow) and create a fork of the most recently published version or click the links above to fork the most recent version.
 
 ## Configure your environment
 
@@ -47,7 +47,7 @@ To send API requests in Postman, you must authenticate to the APIs. To authentic
 
 | Environment Variable | Required | Description |
 | ----------- | ----------- | ----------- |
-| tenant | Yes | Your IDN tenant, typically your company's name |
+| tenant | Yes | Your ISC tenant, typically your company's name |
 | clientId | Yes | The client ID for the API client or personal access token |
 | clientSecret | Yes | The client secret for the API client or personal access token |
 | domain | No | This optional field is only necessary for those who have a domain in their API URL that isn't "identitynow". |

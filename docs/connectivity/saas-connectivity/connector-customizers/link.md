@@ -15,7 +15,7 @@ tags: ['Connectivity']
 
 ### Initial requirements
 
-Before you can link a connector customizer to a source, you must have a SaaS source in IdentityNow, as well as a Customizer built and deployed. You can use the following commands to get a list of valid sources, as well as customizers:
+Before you can link a connector customizer to a source, you must have a SaaS source in Identity Security Cloud, as well as a Customizer built and deployed. You can use the following commands to get a list of valid sources, as well as customizers:
 
 Use this command to find sources:
 

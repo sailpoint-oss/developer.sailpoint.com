@@ -44,9 +44,9 @@ tags: ['Connectivity', 'Connector Command']
 
 ## Description
 
-Use the source data discover command to identify the types of data your source can return. Different sources can send different types of data to IdentityNow. For example, one source may be able to send a list of the different languages it supports, while another may be able to send values describing source details normally sent through accounts and entitlements. You can use the source data discover command to discover these possibilities. 
+Use the source data discover command to identify the types of data your source can return. Different sources can send different types of data to Identity Security Cloud. For example, one source may be able to send a list of the different languages it supports, while another may be able to send values describing source details normally sent through accounts and entitlements. You can use the source data discover command to discover these possibilities. 
 
-One typical use for the source data discover command is found in IdentityNow customer forms for dropdown menus: they use the command to identify the additional source types their sources can provide to IdentityNow and use that information to populate the dropdown menus. 
+One typical use for the source data discover command is found in Identity Security Cloud customer forms for dropdown menus: they use the command to identify the additional source types their sources can provide to Identity Security Cloud and use that information to populate the dropdown menus. 
 
 This is a simple example of the source data discover command. It has been implemented to list two types of queries that the Airtable source can supply. 
 

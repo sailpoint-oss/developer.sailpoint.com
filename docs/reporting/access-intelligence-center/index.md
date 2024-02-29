@@ -25,7 +25,7 @@ The AIC Audit dashboard focuses on more tangible audit events, such as access re
 With Reader permission, users can view any public sheets available and make selections to further filter the data. With Authoring permission, users can view public sheets, create new public or private sheets, and bookmark certain filters for future use.
 
 
-## IdentityNow Documentation
+## Identity Security Cloud Documentation
 For information on how to use AIC in your environment, see the documentation [here](https://documentation.sailpoint.com/saas/help/ai/access_insights/access_intelligence.html)
 
 ## Technical Documentation and Videos

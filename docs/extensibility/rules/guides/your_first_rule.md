@@ -25,7 +25,7 @@ In this guide you'll learn the end to end process of writing a cloud rule to gen
 
 This rule generates complex account attribute values during provisioning, e.g. when creating an account. You would typically use this rule when you are creating an account to generate attributes like usernames.
 
-This rule executes in the IdentityNow (IDN) cloud, and it has read-only access to IDN data models, but it doesn't have access to on-premise sources or connectors.
+This rule executes in the Identity Security Cloud (ISC) cloud, and it has read-only access to ISC data models, but it doesn't have access to on-premise sources or connectors.
 
 Refer to [Attribute Generator Rule](../cloud-rules/account_profile_attribute_generator.md) to learn more about the inputs available to you during the rule execution.
 
@@ -209,7 +209,7 @@ Add a description and the necessary imports for your rule. This rule will need `
 
 ### Logic if the Proposed Username Exceeds the Max Length
 
-If the full name exceeds the `MAX_USERNAME_LENGTH` the rule will check whether the length of the first name is greater than the MAX_USERNAME_LENGTH minus 2 (in the case below 10) characters of the first name - this allows for the period `.` and the first character of the last name to take up the remaining two characters. If the first name is less than the `MAX_USERNAME_LENGTH` the rule will use the full first name for the username with the period `.` and the first character of the last name appended. After the username is determined, a call to `isUnique( username )` is made. This uses the IDNRuleUtil class to check Active Directory if the username exists. You will add in that function shortly.
+If the full name exceeds the `MAX_USERNAME_LENGTH` the rule will check whether the length of the first name is greater than the MAX_USERNAME_LENGTH minus 2 (in the case below 10) characters of the first name - this allows for the period `.` and the first character of the last name to take up the remaining two characters. If the first name is less than the `MAX_USERNAME_LENGTH` the rule will use the full first name for the username with the period `.` and the first character of the last name appended. After the username is determined, a call to `isUnique( username )` is made. This uses the ISCRuleUtil class to check Active Directory if the username exists. You will add in that function shortly.
 
 ```java
 if(fullName.length() > MAX_USERNAME_LENGTH) {
@@ -280,7 +280,7 @@ else{
 
 ### Add Function `isUnique()` To Check Active Directory for Username
 
-The `isUnique()` function takes the username as a string and uses the `accountExistsByDisplayName()` function from the IDNRuleUtil class to search Active Directory and return a true or false result, depending on whether the username is taken. The function takes an application name and username to test against. The variables `idn` and `application` are included as inputs to the attribute generator rule and are already initialized. Refer to [inputs](../cloud-rules/account_profile_attribute_generator.md#input) to see all inputs available to attribute generator rules.
+The `isUnique()` function takes the username as a string and uses the `accountExistsByDisplayName()` function from the ISCRuleUtil class to search Active Directory and return a true or false result, depending on whether the username is taken. The function takes an application name and username to test against. The variables `idn` and `application` are included as inputs to the attribute generator rule and are already initialized. Refer to [inputs](../cloud-rules/account_profile_attribute_generator.md#input) to see all inputs available to attribute generator rules.
 
 ```java
 public boolean isUnique ( String username ) throws GeneralException {
@@ -428,7 +428,7 @@ return generateUsername( identity.getFirstname(), identity.getLastname() );
 
 Before you send the rule to the professional services team to upload your rule to your tenant for use, you can send it through the rule validator to check for any errors.
 
-Refer to [Rule Validator](https://community.sailpoint.com/t5/Professional-Services/IdentityNow-Rule-Validator/ta-p/166116) for installation.
+Refer to [Rule Validator](https://community.sailpoint.com/t5/Professional-Services/Identity Security Cloud-Rule-Validator/ta-p/166116) for installation.
 
 Run the rule validator against your newly written rule.
 
@@ -488,7 +488,7 @@ To submit your Cloud Rule for review, approval, and inclusion in the SailPoint p
 
 ## Add Rule To Account Creation
 
-Log into your IDN tenant and navigate to **Admin** -> **Connections** -> **Sources** -> **{Source Name}** -> **Accounts** -> **Create Account**. Scroll to the attribute you wish to use the rule for generating the username. Check the generator radio button and pick your new rule from the drop down.
+Log into your ISC tenant and navigate to **Admin** -> **Connections** -> **Sources** -> **{Source Name}** -> **Accounts** -> **Create Account**. Scroll to the attribute you wish to use the rule for generating the username. Check the generator radio button and pick your new rule from the drop down.
 
 ![Account Create](./img/account-create.png)
 

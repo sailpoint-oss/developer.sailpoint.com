@@ -13,7 +13,7 @@ tags: ['Transforms', 'Guides', 'Provisioning', 'Policies']
 
 ## Overview
 
-In this guide, you will learn how to use [IdentityNow's Transforms](/docs/api/v3/transforms) in a provisioning policy for a source. This can be useful if you need to hide the attribute in your identity attribute list but still need the attribute during provisioning.
+In this guide, you will learn how to use [Identity Security Cloud's Transforms](/docs/api/v3/transforms) in a provisioning policy for a source. This can be useful if you need to hide the attribute in your identity attribute list but still need the attribute during provisioning.
 
 ## Create provisioning policy
 

@@ -15,7 +15,7 @@ tags: ['CLI']
 
 Learn about the CLI commands you can use to create, manage, and test transforms in this guide. 
 
-In IdentityNow (IDN), you can use transforms to manipulate attribute data without writing any code. For more information about transforms, refer to [Transforms](/docs/extensibility/transforms). 
+In Identity Security Cloud (ISC), you can use transforms to manipulate attribute data without writing any code. For more information about transforms, refer to [Transforms](/docs/extensibility/transforms). 
 
 With the `transforms` command, it's it easy to create, manage, and test transforms in the CLI. 
 
@@ -73,7 +73,7 @@ To update a transform from a `json` file, run the following command. Use the `-f
 sail transform update -f transform.json
 ```
 
-A common workflow is to first download the transforms, then make edits to the transform file, and then use the update command to save those edits in IDN.
+A common workflow is to first download the transforms, then make edits to the transform file, and then use the update command to save those edits in ISC.
 
 ## Delete transform
 

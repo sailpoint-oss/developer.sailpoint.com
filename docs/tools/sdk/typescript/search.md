@@ -11,7 +11,7 @@ slug: /tools/sdk/typescript/search
 tags: ['SDK']
 ---
 
-To try using the IDN [search functionality](/docs/api/v3/search-post) along with pagination, copy this code into your "index.ts" file:
+To try using the ISC [search functionality](/docs/api/v3/search-post) along with pagination, copy this code into your "index.ts" file:
 
 ```typescript
 const search = async () => {

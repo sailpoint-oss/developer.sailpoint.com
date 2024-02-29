@@ -168,7 +168,7 @@ This is an example input from this trigger:
 - `multiValueAttributeChanges` List of multivalued attributes that were aggregated with the account.  Only `removedValues` will appear for account deleted events.
   - it will include ALL account attributes if the config is `"allNonEntitlementAttributes": true`
   - it will include the enumerated list of attributes contained in `"selectedNonEntitlementAttributes": []`
-- `account` The details of the account as it appears in IdentityNow.  This information can be used to query the account API for more information.
+- `account` The details of the account as it appears in Identity Security Cloud.  This information can be used to query the account API for more information.
 
 ## Additional Information and Links
 

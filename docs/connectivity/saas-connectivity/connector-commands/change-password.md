@@ -34,7 +34,7 @@ tags: ['Connectivity', 'Connector Command']
 
 ## Description
 
-The change password command is triggered in IDN when a user changes their password through IDN. When this occurs, if your source has change password enabled, then you can change the user password on the source system through IDN. 
+The change password command is triggered in ISC when a user changes their password through ISC. When this occurs, if your source has change password enabled, then you can change the user password on the source system through ISC. 
 
 ## The Provisioning Plan
 
@@ -46,6 +46,6 @@ The change password command sends the password change event to your connector wh
 })
 ```
 
-## Testing in IdentityNow
+## Testing in Identity Security Cloud
 
-In order to test in IdentityNow, the source application must be configured so that it is able to accept password change requests through the Password Manager. Once this setup is complete, you can log in as a user whose identity exists in the configured application and change their password in the Password Manager. 
+In order to test in Identity Security Cloud, the source application must be configured so that it is able to accept password change requests through the Password Manager. Once this setup is complete, you can log in as a user whose identity exists in the configured application and change their password in the Password Manager. 

@@ -13,13 +13,13 @@ tags: ['Service Account', 'Authentication']
 
 ## Service Accounts
 
-Service accounts are identities in IdentityNow (IDN) that aren't real people. Their purpose is to provide credentials for automation services that can be managed and controlled separately from real identities. As a developer of integrations with IDN, there are two main advantages of creating service accounts: you can scope access to the least privilege necessary to do the job, and you can ensure that your integration's access doesn't end when you leave your organization. If you use your user account to generate credentials for integrations, they are tied to your level of access (i.e. admin) and can be revoked when you leave the organization - this could cause downtime in your integrations.
+Service accounts are identities in Identity Security Cloud (ISC) that aren't real people. Their purpose is to provide credentials for automation services that can be managed and controlled separately from real identities. As a developer of integrations with ISC, there are two main advantages of creating service accounts: you can scope access to the least privilege necessary to do the job, and you can ensure that your integration's access doesn't end when you leave your organization. If you use your user account to generate credentials for integrations, they are tied to your level of access (i.e. admin) and can be revoked when you leave the organization - this could cause downtime in your integrations.
 
 Read this guide to learn how to create service accounts and implement them. 
 
 ### Implementing service accounts
 
-Any authoritative source can be used to create and manage service accounts, with Active Directory (AD) being a likely choice. Using AD to create service accounts is advantageous because doing so provisions your service accounts with unique email addresses that can be used to log in to IDN as the service account. However, if you don't want to create service accounts by using AD, you can use a flat file source to create and manage your accounts. 
+Any authoritative source can be used to create and manage service accounts, with Active Directory (AD) being a likely choice. Using AD to create service accounts is advantageous because doing so provisions your service accounts with unique email addresses that can be used to log in to ISC as the service account. However, if you don't want to create service accounts by using AD, you can use a flat file source to create and manage your accounts. 
 
 ### Create a delimited file source
 
@@ -39,7 +39,7 @@ Then open the CSV and add a new service account:
 
 - Set the `id` to a unique value that won't be duplicated anywhere in this file (ex. `SA-001`).
 - Set the `name` to quickly describe the account's purpose (ex. `audit01`).
-- Set the `e-mail` to a valid email address that you have access to. This is important - you will receive the IDN invite as an email to set the password and login as the service account. This can be your email address or any other email address you have access to (ex `admin@company.com`). You can also reuse this email address as many times as you want.
+- Set the `e-mail` to a valid email address that you have access to. This is important - you will receive the ISC invite as an email to set the password and login as the service account. This can be your email address or any other email address you have access to (ex `admin@company.com`). You can also reuse this email address as many times as you want.
 - Set the `purpose` to a brief description of what this account is used for. This can help you identify accounts later on when you need to manage and delete old accounts (ex. `Automate monthly audit report`).
 
 Save the CSV and upload it to your source from the 'Import Accounts' tab.

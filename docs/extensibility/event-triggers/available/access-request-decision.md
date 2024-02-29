@@ -23,7 +23,7 @@ tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 
 ## Event Context
 
-The SailPoint IdentityNow platform now includes event triggers within the access request approval workflow. The 'Access Request Decision' event trigger provides more proactive governance and ensures users can quickly obtain needed access.
+The SailPoint Identity Security Cloud platform now includes event triggers within the access request approval workflow. The 'Access Request Decision' event trigger provides more proactive governance and ensures users can quickly obtain needed access.
 
 ![Flow](./img/access-request-postapproval-path.png)
 

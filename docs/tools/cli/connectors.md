@@ -15,7 +15,7 @@ tags: ['CLI']
 
 Learn how to use the CLI to create, manage, and test SaaS connectors in this guide.
 
-You can use SaaS connectors to serve as bridges between your IdentityNow (IDN) tenant and other source systems without the use of a Virtual Appliance (VA). For more information about the SaaS connectors, refer to the [SaaS Connectivity](/docs/connectivity/saas-connectivity) guide. 
+You can use SaaS connectors to serve as bridges between your Identity Security Cloud (ISC) tenant and other source systems without the use of a Virtual Appliance (VA). For more information about the SaaS connectors, refer to the [SaaS Connectivity](/docs/connectivity/saas-connectivity) guide. 
 
 The `connectors` command is a CLI interface for the SaaS Connectivity platform. The CLI is the best way to create, manage, and test SaaS connectors within your tenant. 
 
@@ -46,7 +46,7 @@ This command creates a folder named `connectorProjectName` in your working direc
 
 ### Create connector
 
-To create a connector entry in your IDN tenant, run this command:
+To create a connector entry in your ISC tenant, run this command:
 
 ```shell
 sail conn create [connectorAlias]
@@ -56,7 +56,7 @@ This command registers your connector and gives it a unique ID. For more informa
 
 ### Upload connector
 
-To upload a connector to your IDN tenant, run `npm run pack-zip` in the project directory to package the connector into a zip file. Then run this command:
+To upload a connector to your ISC tenant, run `npm run pack-zip` in the project directory to package the connector into a zip file. Then run this command:
 
 ```shell
 sail conn upload -c [connectorID | connectorAlias] -f connector.zip
@@ -80,7 +80,7 @@ The entitlement commands require an additional flag (`-t [entitlementType]`), li
 sail conn invoke entitlement-list -t [entitlementType] -c [connectorID | connectorAlias] -p [config.json] -v [version]
 ```
 
-For more information about invoking commands, refer to the [Test your connector in IdentityNow](/docs/connectivity/saas-connectivity/test-build-deploy#test-your-connector-in-identitynow) section of the SaaS Connectivity documentation. 
+For more information about invoking commands, refer to the [Test your connector in Identity Security Cloud](/docs/connectivity/saas-connectivity/test-build-deploy#test-your-connector-in-identitynow) section of the SaaS Connectivity documentation. 
 
 ### List connectors
 
@@ -120,7 +120,7 @@ sail conn delete -c [connectorID]
 
 ### Manage tags
 
-You can use tags to create multiple instances of your connector that can be used in IDN. The `latest` tag is created by default and is the primary instance, typically used for production purposes. Tags are similar to branches in a version control system, like git or CVS. You can create a tag for actively developing the connector, or for any other purpose you want. 
+You can use tags to create multiple instances of your connector that can be used in ISC. The `latest` tag is created by default and is the primary instance, typically used for production purposes. Tags are similar to branches in a version control system, like git or CVS. You can create a tag for actively developing the connector, or for any other purpose you want. 
 
 A common pattern is to create a `development` tag on a connector from a specific version, like the latest version.
 
@@ -134,7 +134,7 @@ As the connector is developed and the version number increases, update the `deve
 sail conn tags update -c [connectorID | connectorAlias] -n [tagName] -v [version]
 ```
 
-You can test the connector in IDN by selecting the connector instance with the `development` tag. The CLI will use the version you point to with the update command.
+You can test the connector in ISC by selecting the connector instance with the `development` tag. The CLI will use the version you point to with the update command.
 
 To see a connector's tags and the versions they point to, run this command:
 

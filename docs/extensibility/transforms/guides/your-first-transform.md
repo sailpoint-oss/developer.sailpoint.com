@@ -13,15 +13,15 @@ tags: ['Transforms', 'Guides', 'First']
 
 ## Overview
 
-In this guide, you will learn how to use [IdentityNow's Transform REST APIs](/docs/api/v3/transforms) to do the following:
+In this guide, you will learn how to use [Identity Security Cloud's Transform REST APIs](/docs/api/v3/transforms) to do the following:
 
-- [List Transforms in Your IdentityNow Tenant](#list-transforms-in-your-identitynow-tenant)
+- [List Transforms in Your Identity Security Cloud Tenant](#list-transforms-in-your-identitynow-tenant)
 - [Create a Transform](#create-a-transform)
 - [Get Transform by ID](#get-transform-by-id)
 - [Update a Transform](#update-a-transform)
 - [Delete a Transform](#delete-a-transform)
 
-## List Transforms in your IdentityNow Tenant
+## List Transforms in your Identity Security Cloud Tenant
 
 To call the APIs for transforms, you need a personal access token and your tenant's name to provide with the request. For more information about how to get a personal access token, see [Personal Access Tokens](../../../api/authentication.md#personal-access-tokens). For more information about how to get the name of your tenant, see [Finding Your Organization Tenant Name](../../../api/getting-started.md#finding-your-orgtenant-name).
 
@@ -118,7 +118,7 @@ curl --location --request POST 'https://{tenant}.api.identitynow.com/v3/transfor
 }
 ```
 
-Once you have created the transform, you can find it in IdentityNow by going to **Admin** > **Identities** > **Identity Profiles** > (An Identity Profile) > **Mappings** (tab).
+Once you have created the transform, you can find it in Identity Security Cloud by going to **Admin** > **Identities** > **Identity Profiles** > (An Identity Profile) > **Mappings** (tab).
 
 ![Mappings Tab](./img/mappings_tab.png)
 

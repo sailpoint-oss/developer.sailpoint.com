@@ -37,17 +37,17 @@ As you implement command handlers, you must test them. The connector SDK provide
 
 ## Create and Upload Connector Bundle
 
-Follow these steps to use the CLI to package a connector bundle, create it in your IdentityNow org, and upload it to IdentityNow.
+Follow these steps to use the CLI to package a connector bundle, create it in your Identity Security Cloud org, and upload it to Identity Security Cloud.
 
 ### Package Connector Files
 
-You must compress the files in the connector project into a zip file before uploading them to IdentityNow.
+You must compress the files in the connector project into a zip file before uploading them to Identity Security Cloud.
 
 Use the CLI to run `npm run pack-zip` to build and package the connector bundle. Put the resulting zip file in the `dist` folder.
 
 ### Create Connector In Your Org
 
-Before uploading the zip file, you must create an entry for the connector in your IdentityNow org. Run `sail conn create "my-project"` to create a connector entry.
+Before uploading the zip file, you must create an entry for the connector in your Identity Security Cloud org. Run `sail conn create "my-project"` to create a connector entry.
 
 The response to this command contains a connector ID you can use to manage this connector.
 
@@ -76,9 +76,9 @@ $ sail conn list
 +--------------------------------------+----------------------------+
 ```
 
-### Upload Connector Zip File to IdentityNow
+### Upload Connector Zip File to Identity Security Cloud
 
-Run `sail conn upload -c [connectorID | connectorAlias] -f dist/[connector filename].zip` to upload the zip file built from the previous step to IdentityNow.
+Run `sail conn upload -c [connectorID | connectorAlias] -f dist/[connector filename].zip` to upload the zip file built from the previous step to Identity Security Cloud.
 
 ```bash
 $ sail conn upload -c example-connector -f dist/example-connector-0.1.0.zip
@@ -103,15 +103,15 @@ $ sail conn tags list -c example-connector
 :::caution Important
 
 Make sure that you implement a form of version control or regular backup process for your connectors.
-You cannot recover the source code from IDN because it gets sent to IDN as a compiled and minified JavaScript (JS) bundle that cannot be easily expanded into its original source code structure. 
+You cannot recover the source code from ISC because it gets sent to ISC as a compiled and minified JavaScript (JS) bundle that cannot be easily expanded into its original source code structure. 
 
 :::
 
-## Test Your Connector in IdentityNow
+## Test Your Connector in Identity Security Cloud
 
-Follow these steps to test a connector bundle in both IdentityNow and the IdentityNow user interface (UI).
+Follow these steps to test a connector bundle in both Identity Security Cloud and the Identity Security Cloud user interface (UI).
 
-### Test Your Connector Bundle In IdentityNow
+### Test Your Connector Bundle In Identity Security Cloud
 
 The connector CLI provides ways to test invoking commands with any connector upload version. Before running a command, create a file, **config.json**, in the root project folder. Include any configuration items required to interact with the target web service in this file, such as API token, username, password, organization, version, etc. The following snippet is an example:
 
@@ -141,8 +141,8 @@ $ sail connectors invoke account-list -c example-connector -p config.json
 >
 > Ensure that you add config.json to your .gitignore file so you do not accidentally store secrets in your code repository.
 
-## Test Your Connector from IdentityNow UI
+## Test Your Connector from Identity Security Cloud UI
 
-Go to your IdentityNow org’s source section. Create a source from the connector you just uploaded. This connector will display in the dropdown list: **example-connector (tag: latest)**
+Go to your Identity Security Cloud org’s source section. Create a source from the connector you just uploaded. This connector will display in the dropdown list: **example-connector (tag: latest)**
 
-After creating a source, you can to test connection, aggregate account, etc. from the IdentityNow UI.
+After creating a source, you can to test connection, aggregate account, etc. from the Identity Security Cloud UI.

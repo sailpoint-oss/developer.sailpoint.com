@@ -42,7 +42,7 @@ tags: ['Connectivity', 'Connector Command']
 
 ## Description
 
-The entitlement list command triggers during a manual or scheduled entitlement aggregation operation within IDN. This operation gathers a list of all entitlements available on the target source, usually multi-valued entitlements like groups or roles. This operation provides IDN administrators with a list of entitlements available on the source so they can create access profiles and roles accordingly, and it provides IDN with more details about the entitlements. The entitlement schema’s minimum requirements are name and ID, but you can add other values, such as created date, updated date, status, etc.
+The entitlement list command triggers during a manual or scheduled entitlement aggregation operation within ISC. This operation gathers a list of all entitlements available on the target source, usually multi-valued entitlements like groups or roles. This operation provides ISC administrators with a list of entitlements available on the source so they can create access profiles and roles accordingly, and it provides ISC with more details about the entitlements. The entitlement schema’s minimum requirements are name and ID, but you can add other values, such as created date, updated date, status, etc.
 
 ![Discover Schema 4](./img/entitlement_list_idn.png)
 
@@ -106,13 +106,13 @@ private buildStandardObject(): StdEntitlementReadOutput | StdEntitlementListOutp
 ```
 :::caution Important
 
-IDN will throw a connection timeout error if your connector doesn't respond within 3 minutes, and there are memory limitations involved with aggregating data. To prevent large memory utilization or timeout errors, you should set up your connectors to send data to IDN as it's retrieved from your source system. For more details and an example, refer to [Connector Timeouts](../in-depth/connector-timeouts.md).
+ISC will throw a connection timeout error if your connector doesn't respond within 3 minutes, and there are memory limitations involved with aggregating data. To prevent large memory utilization or timeout errors, you should set up your connectors to send data to ISC as it's retrieved from your source system. For more details and an example, refer to [Connector Timeouts](../in-depth/connector-timeouts.md).
 
 :::
 
 :::caution Important
 
-IDN supports [delta aggregation](#delta-aggregation-state). If your source has a large number of entitlements that will be syncronized with IDN, then it is highly recommended to utilize [delta aggregation](#delta-aggregation-state) for the source. 
+ISC supports [delta aggregation](#delta-aggregation-state). If your source has a large number of entitlements that will be syncronized with ISC, then it is highly recommended to utilize [delta aggregation](#delta-aggregation-state) for the source. 
 
 :::
 
@@ -133,7 +133,7 @@ If your source can keep track of changes to the data in some way, then delta agg
 }
 ```
 
-2. In the ```stdEntitlementList``` command, when you are done sending entitlments, you need to also send the state to IDN so it knows where to start the next time it sends a list request:
+2. In the ```stdEntitlementList``` command, when you are done sending entitlments, you need to also send the state to ISC so it knows where to start the next time it sends a list request:
 
 ```javascript
 const state = {"data": Date.now().toString()}

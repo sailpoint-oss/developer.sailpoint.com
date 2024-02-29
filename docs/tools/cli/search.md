@@ -6,20 +6,20 @@ sidebar_label: Search
 sidebar_position: 3
 sidebar_class_name: cli
 keywords: ['cli', 'search']
-description: Learn how to use the CLI to search your IDN tenant in this guide.
+description: Learn how to use the CLI to search your ISC tenant in this guide.
 slug: /tools/cli/search
 tags: ['CLI']
 ---
 
 # Search
 
-Learn how to use the CLI to search your IDN tenant in this guide.
+Learn how to use the CLI to search your ISC tenant in this guide.
 
-In IdentityNow (IDN), you can search across all the sources connected to your tenant and return virtually any information you have access to. The `search` command allows you to access IDN search functionality within the CLI. For more information about the `search` command, refer to the CLI [Search guide](docs/tools/cli/search). For more information about search in IDN, refer to [Search](docs/api/v3/search).
+In Identity Security Cloud (ISC), you can search across all the sources connected to your tenant and return virtually any information you have access to. The `search` command allows you to access ISC search functionality within the CLI. For more information about the `search` command, refer to the CLI [Search guide](docs/tools/cli/search). For more information about search in ISC, refer to [Search](docs/api/v3/search).
 
-In IdentityNow, you can search all the sources connected to your tenant and return virtually any information you have access to. To learn more about search in IdentityNow, refer to [Search](https://documentation.sailpoint.com/saas/help/search/index.html).
+In Identity Security Cloud, you can search all the sources connected to your tenant and return virtually any information you have access to. To learn more about search in Identity Security Cloud, refer to [Search](https://documentation.sailpoint.com/saas/help/search/index.html).
 
-The `search` command makes it easy to search in IdentityNow with the SailPoint CLI. Read this guide to learn how to use the `query` and `template` commands to search IdentityNow with the CLI. 
+The `search` command makes it easy to search in Identity Security Cloud with the SailPoint CLI. Read this guide to learn how to use the `query` and `template` commands to search Identity Security Cloud with the CLI. 
 
 - [Search](#search)
   - [Query](#query)
@@ -35,11 +35,11 @@ The `search` command makes it easy to search in IdentityNow with the SailPoint C
 
 ## Query
 
-Search queries in IdentityNow are flexible - they can be very broad or very narrow, and you can further narrow your results by using IdentityNow's specific syntax to structure your queries. To learn about structuring search queries, refer to [Building a Search Query](https://documentation.sailpoint.com/saas/help/search/building-query.html). 
+Search queries in Identity Security Cloud are flexible - they can be very broad or very narrow, and you can further narrow your results by using Identity Security Cloud's specific syntax to structure your queries. To learn about structuring search queries, refer to [Building a Search Query](https://documentation.sailpoint.com/saas/help/search/building-query.html). 
 
-The `query` command allows you to search IdentityNow for a query you specify. 
+The `query` command allows you to search Identity Security Cloud for a query you specify. 
 
-To use the `query` command to search IdentityNow, you must understand how to format your search queries. 
+To use the `query` command to search Identity Security Cloud, you must understand how to format your search queries. 
 
 The basic format of a query is "field:term", so an example `query` command would like this: 
 
@@ -129,7 +129,7 @@ sail search query "name:a*" --indices identities --folderPath ./local/folder/pat
 
 For more detailed search queries, you can provide a predefined template instead of constructing the whole query every time. This allows you to run very detailed search queries quickly and easily.
 
-The `template` command allows you to use predefined templates to search IdentityNow. 
+The `template` command allows you to use predefined templates to search Identity Security Cloud. 
  
 ### Command
 
@@ -139,7 +139,7 @@ This example shows the essential `template` command structure:
 sail search template all-provisioning-events-90-days
 ```
 
-The specified template file will give the CLI all the information it needs to perform its search in IdentityNow. 
+The specified template file will give the CLI all the information it needs to perform its search in Identity Security Cloud. 
 
 ### Flags
 

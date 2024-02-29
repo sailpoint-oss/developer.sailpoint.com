@@ -57,13 +57,13 @@ tags: ['Connectivity', 'Connector Command']
 
 ## Description
 
-The account create command triggers whenever IDN is told to provision entitlements for an identity on the target source, but no account for the identity on the target source exists yet. For example, if you create an access profile that grants a group on the target source and then add that access profile to a role, any identity matching that role’s membership criteria will be granted to the group. IDN determines which identities do not have accounts on the target source and triggers the account create command for each identity. If an identity already has an account, then it invokes the account update command.
+The account create command triggers whenever ISC is told to provision entitlements for an identity on the target source, but no account for the identity on the target source exists yet. For example, if you create an access profile that grants a group on the target source and then add that access profile to a role, any identity matching that role’s membership criteria will be granted to the group. ISC determines which identities do not have accounts on the target source and triggers the account create command for each identity. If an identity already has an account, then it invokes the account update command.
 
 ## The Provisioning Plan
 
-The account create command accepts a provisioning plan from IDN and creates the corresponding account(s) in the target source. When you configure your source in IDN, you must set up ‘Create Profile’ to tell IDN how to provision new accounts for your source.
+The account create command accepts a provisioning plan from ISC and creates the corresponding account(s) in the target source. When you configure your source in ISC, you must set up ‘Create Profile’ to tell ISC how to provision new accounts for your source.
 
-You can create the provisioning plan through the `accountCreateTemplate` in the `connector-spec.json` file, and you can also modify its behavior in IDN using the create profile screen:
+You can create the provisioning plan through the `accountCreateTemplate` in the `connector-spec.json` file, and you can also modify its behavior in ISC using the create profile screen:
 
 ![Account Create](./img/account_create_idn.png)
 
@@ -177,7 +177,7 @@ public static createWithStdAccountCreateInput(record: StdAccountCreateInput): Ai
 
 ## The return object
 
-When the account is returned to IDN, any values you set are updated in IDN. So if an account ID is auto-generated on the source system, you must send the account ID back to IDN so IDN is aware of it for future account update activities. This is useful for the compound key type.
+When the account is returned to ISC, any values you set are updated in ISC. So if an account ID is auto-generated on the source system, you must send the account ID back to ISC so ISC is aware of it for future account update activities. This is useful for the compound key type.
 
 ## Password Handling
 
@@ -224,9 +224,9 @@ async createAccount(input: StdAccountCreateInput): Promise<AirtableAccount> {
 }
 ```
 
-## Testing in IdentityNow
+## Testing in Identity Security Cloud
 
-One way to test whether the account create code works in IDN is to set up an access profile and role that grants members an entitlement from the connector’s target source. Start by creating an access profile that grants one or more entitlements from the target source.
+One way to test whether the account create code works in ISC is to set up an access profile and role that grants members an entitlement from the connector’s target source. Start by creating an access profile that grants one or more entitlements from the target source.
 
 ![Testing 1](./img/testing1.png)
 

@@ -16,8 +16,8 @@ Use the account attribute transform to look up an account for a particular sourc
 
 :::note Other Considerations
 
-- If there are multiple accounts, then IdentityNow by default takes the value from the oldest account (based on the account created date). You can configure this behavior by specifying `accountSortAttribute` and `accountSortDescending` attributes.
-- If there are multiple accounts and the oldest account has a null attribute value, by default IdentityNow moves to the next account that can have a value (if there are any). You can override this behavior with the `accountReturnFirstLink` property.
+- If there are multiple accounts, then Identity Security Cloud by default takes the value from the oldest account (based on the account created date). You can configure this behavior by specifying `accountSortAttribute` and `accountSortDescending` attributes.
+- If there are multiple accounts and the oldest account has a null attribute value, by default Identity Security Cloud moves to the next account that can have a value (if there are any). You can override this behavior with the `accountReturnFirstLink` property.
 - You can filter the multiple accounts returned based on the data they contain so that you can target specific accounts. This is often used to target accounts that are "active" instead of those that are not.
 
 :::

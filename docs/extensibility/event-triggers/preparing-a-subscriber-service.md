@@ -15,7 +15,7 @@ Before you can subscribe to an event trigger, you must prepare a service that ca
 
 ## Webhook Testing Service
 
-There are many webhook testing websites that generate a unique URL you can use to subscribe to an event trigger and explore the data sent by the trigger. One site is https://webhook.site. This site generates a unique URL whenever you open it, which you can copy and paste into the subscription configuration in IdentityNow. Any events that the trigger generates will be sent to this website for you to analyze.
+There are many webhook testing websites that generate a unique URL you can use to subscribe to an event trigger and explore the data sent by the trigger. One site is https://webhook.site. This site generates a unique URL whenever you open it, which you can copy and paste into the subscription configuration in Identity Security Cloud. Any events that the trigger generates will be sent to this website for you to analyze.
 
 ![Webhook.site](./img/webhook-site.png)
 

@@ -13,7 +13,7 @@ tags: ['Connectivity']
 
 ## Printing Logs with the CLI
 
-Fetch logs from IDN by issuing the `sail conn logs` command:
+Fetch logs from ISC by issuing the `sail conn logs` command:
 
 ```bash
 $ sail conn logs

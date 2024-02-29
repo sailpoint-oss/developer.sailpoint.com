@@ -115,7 +115,7 @@ const sidebars = {
                     slug: '/api/nerm/v1',
                   },
                   // @ts-ignore
-                  items: require('./docs/api/nerm/sidebar.js'),
+                  items: require('./docs/api/nerm/v1/sidebar.js'),
                 },
               ],
             },
@@ -232,7 +232,7 @@ const sidebars = {
             label: 'Plugin Developer Guide',
             link: {
               type: 'doc',
-              id: 'iiq/plugin-developer-guide/plugin-developer-guide',
+              id: 'plugin-developer-guide',
             },
             items: [
               {

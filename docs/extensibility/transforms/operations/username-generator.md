@@ -25,7 +25,7 @@ Use the username generator transform to specify logic to use when it derives a u
 
 The username generator transform is intended for use as a configuration within the account create profile for a source. Thus, this transform's structure is more extensive than a typical Seaspray implementation -- it must be assigned to a create profile attribute (designated by `name`) and provide certain uniqueness check attributes such as `cloudMaxSize`, `cloudMaxUniqueChecks`, and `cloudRequired`.
 
-The `cloudMaxSize` attribute denotes the maximum length of generated data allowable as a result of the generator logic. The transform truncates any characters over the `cloudMaxSize`. The `cloudMaxUniqueChecks` attribute determines the maximum number of iterations the generator must attempt before failing to generate a value. The `cloudRequired` attribute is an internal flag required for the IdentityNow platform - leave it as `true`.
+The `cloudMaxSize` attribute denotes the maximum length of generated data allowable as a result of the generator logic. The transform truncates any characters over the `cloudMaxSize`. The `cloudMaxUniqueChecks` attribute determines the maximum number of iterations the generator must attempt before failing to generate a value. The `cloudRequired` attribute is an internal flag required for the Identity Security Cloud platform - leave it as `true`.
 
 Provide the username generator transform itself in the create profile attribute entry's `transform` parameter.
 
@@ -101,9 +101,9 @@ Provide the username generator transform itself in the create profile attribute 
     > **Note** that you can leverage `$uniqueCounter` here to automatically increment a counter if the generated value is not available and you want to try appending numeric values (i.e., 1, 2, 3, etc.) instead of progressing beyond the current pattern.
 
 - **Optional Attributes**
-  - **sourceCheck** - This boolean value (true/false) indicates whether the generator must check only the IdentityNow database's representation of accounts for uniqueness, or whether it must query the target system directly. If no value is provided, the attribute defaults to `false`.
+  - **sourceCheck** - This boolean value (true/false) indicates whether the generator must check only the Identity Security Cloud database's representation of accounts for uniqueness, or whether it must query the target system directly. If no value is provided, the attribute defaults to `false`.
     - `true` indicates the generator must check the target system directly. The generator only respects this setting if the system supports the `getObject` functionality. For systems that lack the ability to query for single account objects, the generator ignores this setting and defaults to `false`. The generator only checks the attribute identified in the account schema as the `accountID`.
-    - `false` indicates the generator must check only the IdentityNow database of accounts. The generator only checks the `accountID`.
+    - `false` indicates the generator must check only the Identity Security Cloud database of accounts. The generator only checks the `accountID`.
 
 ## Examples
 

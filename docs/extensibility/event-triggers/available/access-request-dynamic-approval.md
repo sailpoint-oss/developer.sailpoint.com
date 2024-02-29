@@ -18,12 +18,12 @@ The Access Request Dynamic Approval event trigger provides a way to route a requ
 When an access request is submitted, the Access Request Dynamic Approval trigger does the following:
 
 - Sends data about the access request and expects a response including the ID of an existing identity or workgroup (i.e. governance group) to add to the approval workflow.
-- Based on the ID received, an approval task is assigned to the identity or governance group in IdentityNow for a decision as an additional step after other configured approval requirements are met.
+- Based on the ID received, an approval task is assigned to the identity or governance group in Identity Security Cloud for a decision as an additional step after other configured approval requirements are met.
 - If the new approver is also the target identity for this request, the manager is assigned instead. If the identity has no manager, a random org admin is assigned.
 - If the ID of the additional approver is wrong, then a random org admin is assigned.
 - You can choose to **NOT** add an additional approver by providing an empty object as the response to the triggered REST request.
 
-You can use this trigger to develop logic outside of IdentityNow’s out-of-the-box offerings to route an approval step to users such as the following:
+You can use this trigger to develop logic outside of Identity Security Cloud’s out-of-the-box offerings to route an approval step to users such as the following:
 
 - The recipient’s department head
 - The recipient’s cost center

@@ -1,31 +1,31 @@
 ---
 id: rule-utility
-title: Using IDNRuleUtil as a Wrapper for Common Rule Operations
-pagination_label: IdentityNow Rule Utility
-sidebar_label: IdentityNow Rule Utility
+title: Using ISCRuleUtil as a Wrapper for Common Rule Operations
+pagination_label: Identity Security Cloud Rule Utility
+sidebar_label: Identity Security Cloud Rule Utility
 sidebar_position: 4
 sidebar_class_name: ruleUtility
 keywords: ['rule', 'utility']
-description: Using IDNRuleUtil as a Wrapper for Common Rule Operations
+description: Using ISCRuleUtil as a Wrapper for Common Rule Operations
 slug: /extensibility/rules/rule-utility
 tags: ['Rules']
 ---
 
 ## Overview
 
-Use this guide to learn how to configure searchable account attributes within IdentityNow and then leverage them within the IDNRuleUtil wrapper class when searching accounts for attributes such as uniqueness checks. There are also methods in the IDNRuleUtil wrapper class you can use without the additional searchable attributes.
+Use this guide to learn how to configure searchable account attributes within Identity Security Cloud and then leverage them within the ISCRuleUtil wrapper class when searching accounts for attributes such as uniqueness checks. There are also methods in the ISCRuleUtil wrapper class you can use without the additional searchable attributes.
 
-Search attributes allow you to search across accounts and sources to determine whether a specific attribute value is being used in your IdentityNow environment.
+Search attributes allow you to search across accounts and sources to determine whether a specific attribute value is being used in your Identity Security Cloud environment.
 
 There are three critical components involves with working with searchable attributes:
 
-- [Configuration of search attributes within IdentityNow](#configuration-of-search-attributes-within-identitynow)
+- [Configuration of search attributes within Identity Security Cloud](#configuration-of-search-attributes-within-identitynow)
   - Seed data for accounts already aggregated into the system.
   - Ensure attribute promotion happens for new/changed accounts that are aggregated.
 - [Create rules that can be used to query the newly created attribute values](#create-rules-that-can-be-used-to-query-the-newly-created-attribute-values)
 - [Implement rules within the Create Profile section of each source an account is being provisioned for](#implement-rules-within-the-create-profile-section-of-each-source-for-which-an-account-is-being-provisioned)
 
-## Configuration of Search Attributes within IdentityNow
+## Configuration of Search Attributes within Identity Security Cloud
 
 When you are planning to implement search attributes, it is important that you consider the way new accounts' values will be generated and which attributes should be used as references.
 
@@ -41,7 +41,7 @@ You need the following information to create search attributes:
 
 The following example shows how to create a new attribute with the [Search Attributes API](/docs/api/beta/create-search-attribute-config):
 
-Your company has two sources. The first is Active Directory, and the second is Workday. When the system aggregates new accounts, the company wants to query IdentityNow to see whether an email address already exists. If the email address is not in use, you can assign it to the new account. If it is in use, you can iterate on the email address value (add a 1 for example). You can then query IdentityNow once more to see whether your incremented email address is in use. You can repeat this procedure until you have determined that an email address is unique.
+Your company has two sources. The first is Active Directory, and the second is Workday. When the system aggregates new accounts, the company wants to query Identity Security Cloud to see whether an email address already exists. If the email address is not in use, you can assign it to the new account. If it is in use, you can iterate on the email address value (add a 1 for example). You can then query Identity Security Cloud once more to see whether your incremented email address is in use. You can repeat this procedure until you have determined that an email address is unique.
 
 The following information is necessary to create your search attribute:
 
@@ -62,7 +62,7 @@ The following information is necessary to create your search attribute:
 - Display name for the new attribute configuration:
   - `Promoted Email Address`
 
-### Create the New Search Attribute in IdentityNow
+### Create the New Search Attribute in Identity Security Cloud
 
 To call the APIs for search attributes, you need a personal access token and the name of your tenant to provide with the request. To retrieve a personal access token, see [Personal Access Tokens](../../api/authentication.md#personal-access-tokens). To get the name of your tenant, see [Finding Your Organization Tenant Name](../../api/getting-started.md#find-your-tenant-name)
 
@@ -91,7 +91,7 @@ Aggregation only processes new and/or changed accounts for many sources. If an a
 
 If this source has already been aggregated before the account search configuration was created, a non-optimized aggregation must now be performed to seed the new attribute data for all existing accounts.
 
-At this point, the configuration exists to promote attributes on any new/changed account that comes into IdentityNow. These attributes and their associated values are stored for use in custom rules. Each account that exists on either of these sources will now have a new attribute called “promotedEmailAddress”. _The value of this attribute will be the value of `mail` if it is the Active Directory Source or `emailAddress` if it is the Workday source._
+At this point, the configuration exists to promote attributes on any new/changed account that comes into Identity Security Cloud. These attributes and their associated values are stored for use in custom rules. Each account that exists on either of these sources will now have a new attribute called “promotedEmailAddress”. _The value of this attribute will be the value of `mail` if it is the Active Directory Source or `emailAddress` if it is the Workday source._
 
 ## Create Rules that Can Be Used to Query the Newly Created Attribute values
 

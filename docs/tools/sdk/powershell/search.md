@@ -11,7 +11,7 @@ slug: /tools/sdk/powershell/search
 tags: ['SDK']
 ---
 
-The PowerShell SDK provides you access to IdentityNow's [Search](https://documentation.sailpoint.com/saas/help/search/index.html) functionality.
+The PowerShell SDK provides you access to Identity Security Cloud's [Search](https://documentation.sailpoint.com/saas/help/search/index.html) functionality.
 
 Here is an example search you can copy into your PowerShell instance to try it out:
 
@@ -79,7 +79,7 @@ try {
 }
 ```
 
-This example searches your IdentityNow tenant for all identities and sorts them by their `displayName` in descending order. The search returns a maximum of 150000 records (the `Limit`) and 5000 records per page (the `Increment`).
+This example searches your Identity Security Cloud tenant for all identities and sorts them by their `displayName` in descending order. The search returns a maximum of 150000 records (the `Limit`) and 5000 records per page (the `Increment`).
 
 To paginate the search results, you can specify these parameters:
 

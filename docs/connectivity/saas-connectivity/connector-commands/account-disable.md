@@ -54,7 +54,7 @@ You typically invoke the `account disable` command during the joiner, mover, lea
 
 Disabling accounts is generally preferred if the source supports account disabling so the account data remains for later reactivation or inspection. If the source does not support account disabling, or deleting accounts is preferred when an identity leaves the organization, the connector can perform the necessary steps to delete an account with the account disable function.
 
-> 🚧 It is important to note that although SaaS Connectivity supports the account delete command, IDN never sends the account delete command, only the account disable command. The connector’s developer determines the appropriate action for account disable on the source.
+> 🚧 It is important to note that although SaaS Connectivity supports the account delete command, ISC never sends the account delete command, only the account disable command. The connector’s developer determines the appropriate action for account disable on the source.
 
 Account disable is similar to implementing the account update command. If you have implemented your source call to modify any of the values on your source, then you can use the same method to implement the command. The following code implements disable:
 

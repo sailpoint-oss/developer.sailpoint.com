@@ -23,7 +23,7 @@ Authorization and authentication are two related concepts that help secure APIs.
 sequenceDiagram
     autonumber
     participant H as HTTP Client
-    participant I as IdentityNow
+    participant I as Identity Security Cloud
 
     H->>I: Request to delete a source
     I->>I: Authenticate access token

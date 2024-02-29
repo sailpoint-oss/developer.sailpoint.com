@@ -13,7 +13,7 @@ tags: ['Event Triggers']
 
 ## What Are Triggers
 
-The result of any action performed in a service is called an **event**. Services like IdentityNow constantly generate events like an update to a setting or the completion of an account aggregation. Most events a service generates are of little value to clients, so services create event triggers, also known as web hooks, that allow clients to subscribe to specific events they are interested in. Similar to news letters or RSS feeds, each subscription tells the service what event a client is interested in and where to send the client the notification.
+The result of any action performed in a service is called an **event**. Services like Identity Security Cloud constantly generate events like an update to a setting or the completion of an account aggregation. Most events a service generates are of little value to clients, so services create event triggers, also known as web hooks, that allow clients to subscribe to specific events they are interested in. Similar to news letters or RSS feeds, each subscription tells the service what event a client is interested in and where to send the client the notification.
 
 ## How Are Triggers Different from APIs
 

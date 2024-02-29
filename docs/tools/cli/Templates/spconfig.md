@@ -11,7 +11,7 @@ slug: /tools/cli/templates/spconfig
 tags: ['CLI']
 ---
 
-Use SPConfig templates to perform complex import and export operations with IdentityNow (IDN) configurations.
+Use SPConfig templates to perform complex import and export operations with Identity Security Cloud (ISC) configurations.
 
 This is an example of a template file with one SPConfig template populated:
 

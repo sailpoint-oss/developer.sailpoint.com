@@ -45,7 +45,7 @@ export class AirtableClient {
 
 ## Not Found Error Type
 
-The connector SDK offers a special error type of "Not Found". This error signals to IDN that the specific account is not in the source system. If the account should be in the source system, IDN will then call the connector ```std:account:create``` command to create the account. 
+The connector SDK offers a special error type of "Not Found". This error signals to ISC that the specific account is not in the source system. If the account should be in the source system, ISC will then call the connector ```std:account:create``` command to create the account. 
 
 Here is an example: 
 
@@ -54,7 +54,7 @@ Here is an example:
     const account = await myClient.getAccount(input.identity)
     if (!account) {
         // account was not found, but identity now has the account and expects it to be there! 
-        // Send an error message to IdentityNow so the account is automatically created
+        // Send an error message to Identity Security Cloud so the account is automatically created
         if (!account) {
             throw new ConnectorError("account is not found", ConnectorErrorType.NotFound)
         }

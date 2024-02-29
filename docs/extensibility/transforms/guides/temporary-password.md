@@ -580,7 +580,7 @@ curl --location --request POST 'https://{tenant}.api.identitynow.com/v3/transfor
 
 Once you have created the transform successfully, you can apply the new transform and preview what the password will look like for each user.
 
-Log in to your IdentityNow tenant and go to **Admin** > **Identities** > **Identity Profiles**. Select the name of the profile you created earlier, Transform Example. Select the **Mappings** tab, scroll to the bottom and select **Add New Attribute**. Name the attribute `Temporary Password`. To save the new mappings, you must fill out the id, email, first name and last name mappings.
+Log in to your Identity Security Cloud tenant and go to **Admin** > **Identities** > **Identity Profiles**. Select the name of the profile you created earlier, Transform Example. Select the **Mappings** tab, scroll to the bottom and select **Add New Attribute**. Name the attribute `Temporary Password`. To save the new mappings, you must fill out the id, email, first name and last name mappings.
 
 ![Attribute Mapping](./img/temporary_password_attribute_mapping.png)
 

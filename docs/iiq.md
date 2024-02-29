@@ -6,7 +6,7 @@ sidebar_label: Identity IQ
 sidebar_position: 1
 sidebar_class_name: docs
 keywords: ['docs']
-description: Building extensibility in IdentityNow
+description: Building extensibility in Identity Security Cloud
 slug: /iiq
 tags: ['docs']
 ---

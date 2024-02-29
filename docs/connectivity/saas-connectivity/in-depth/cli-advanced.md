@@ -6,12 +6,12 @@ sidebar_label: CLI - Advanced
 sidebar_position: 1
 sidebar_class_name: cliAdvanced
 keywords: ['connectivity', 'connectors', 'cli']
-description: Using the CLI to properly test and debug your connector in IdentityNow
+description: Using the CLI to properly test and debug your connector in Identity Security Cloud
 slug: /connectivity/saas-connectivity/in-depth/cli-advanced
 tags: ['Connectivity']
 ---
 
-You can use the CLI to invoke a number of calls in IdentityNow, including calls that aren't specifically defined by the CLI. This section includes examples that show how you can invoke those calls: 
+You can use the CLI to invoke a number of calls in Identity Security Cloud, including calls that aren't specifically defined by the CLI. This section includes examples that show how you can invoke those calls: 
 
 ## Use provided CLI invoke calls
 

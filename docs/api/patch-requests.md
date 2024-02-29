@@ -12,7 +12,7 @@ tags: ['patch', 'guide']
 
 ## PATCH requests 
 
-You can use the IdentityNow APIs to update existing resources. Many of the APIs offer multiple ways to do so: 
+You can use the Identity Security Cloud APIs to update existing resources. Many of the APIs offer multiple ways to do so: 
 
 - You can send a **PUT** request to replace the existing resource with a new one. For example, if you wanted to update one of John Doe's source accounts, you could use the [Put Account](https://developer.sailpoint.com/docs/api/v3/put-account) endpoint to replace John Doe's existing source account with a new one. This is a viable way to update a resource, but it requires you to update the entire resource each time. 
 
@@ -24,9 +24,9 @@ This guide will focus on the partial update method, PATCH requests. Read this gu
 
 To use PATCH to update a resource, you first need to know the resource ID. 
 
-Not all resource IDs are available in the IdentityNow UI, so you may need to use the API to find the ID for the resource you want to update. 
+Not all resource IDs are available in the Identity Security Cloud UI, so you may need to use the API to find the ID for the resource you want to update. 
 
-For example, account IDs aren't avilable in the IdentityNow UI. If you want to use the [Patch Account](https://developer.sailpoint.com/docs/api/v3/update-account) endpoint to make a change to a specific account, you first need to find out the account's ID. 
+For example, account IDs aren't avilable in the Identity Security Cloud UI. If you want to use the [Patch Account](https://developer.sailpoint.com/docs/api/v3/update-account) endpoint to make a change to a specific account, you first need to find out the account's ID. 
 
 You can use the [List Accounts](https://developer.sailpoint.com/docs/api/v3/list-accounts) endpoint to view all the accounts in your tenant, along with their details, such as their identities. You can find your account and its ID in this list. 
 
@@ -660,6 +660,6 @@ When the request is successful, the API will return the updated resource.
 
 ## Get started 
 
-Now you can use PATCH requests partially update resources. For more information about PATCH requests, refer to this [documentation](https://datatracker.ietf.org/doc/html/rfc6902).  For more information about the IdentityNow PATCH endpoints and which paths can be changed for each one, refer to their API specifications. 
+Now you can use PATCH requests partially update resources. For more information about PATCH requests, refer to this [documentation](https://datatracker.ietf.org/doc/html/rfc6902).  For more information about the Identity Security Cloud PATCH endpoints and which paths can be changed for each one, refer to their API specifications. 
 
 Use this guide to get started, and if you have questions, don't hesitate to reach out on the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss!

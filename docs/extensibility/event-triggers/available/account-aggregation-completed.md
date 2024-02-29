@@ -19,9 +19,9 @@ The platform has introduced an event trigger within the Source Aggregation workf
 
 After the initial collection of accounts in the source system during aggregation completes, some uses cases for this trigger include the following:
 
-- Notify an administrator that IdentityNow was able to successfully connect to the source system and collect source accounts.
+- Notify an administrator that Identity Security Cloud was able to successfully connect to the source system and collect source accounts.
 - Notify an administrator when the aggregation is terminated manually during the account collection phase.
-- Notify an administrator or system (e.g. PagerDuty) that IdentityNow failed to collect accounts during aggregation and indicate required remediation for the source system.
+- Notify an administrator or system (e.g. PagerDuty) that Identity Security Cloud failed to collect accounts during aggregation and indicate required remediation for the source system.
 
 :::info
 

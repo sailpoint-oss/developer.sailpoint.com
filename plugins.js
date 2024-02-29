@@ -24,6 +24,436 @@ module.exports = [
           from: ['/ambassador-program'],
         },
         {
+          from: ['/idn/docs/event-triggers'],
+          to: '/docs/extensibility/event-triggers',
+        },
+        {
+          from: ['/idn/docs/event-triggers/available'],
+          to: '/docs/extensibility/event-triggers/available',
+        },
+        {
+          from: ['/idn/docs/event-triggers/early-access'],
+          to: '/docs/extensibility/event-triggers/early-access',
+        },
+        {
+          from: ['/idn/docs/event-triggers/filtering-events'],
+          to: '/docs/extensibility/event-triggers/filtering-events',
+        },
+        {
+          from: ['/idn/docs/event-triggers/preparing-subscriber-service'],
+          to: '/docs/extensibility/event-triggers/preparing-subscriber-service',
+        },
+        {
+          from: [
+            '/idn/docs/event-triggers/responding-request-response-trigger',
+          ],
+          to: '/docs/extensibility/event-triggers/responding-request-response-trigger',
+        },
+        {
+          from: ['/idn/docs/event-triggers/subscribing-to-trigger'],
+          to: '/docs/extensibility/event-triggers/subscribing-to-trigger',
+        },
+        {
+          from: ['/idn/docs/event-triggers/testing-triggers'],
+          to: '/docs/extensibility/event-triggers/testing-triggers',
+        },
+        {
+          from: ['/idn/docs/event-triggers/trigger-types'],
+          to: '/docs/extensibility/event-triggers/trigger-types',
+        },
+        {
+          from: ['/idn/docs/event-triggers/triggers/access-request-decision'],
+          to: '/docs/extensibility/event-triggers/triggers/access-request-decision',
+        },
+        {
+          from: [
+            '/idn/docs/event-triggers/triggers/access-request-dynamic-approval',
+          ],
+          to: '/docs/extensibility/event-triggers/triggers/access-request-dynamic-approval',
+        },
+        {
+          from: ['/idn/docs/event-triggers/triggers/access-request-submitted'],
+          to: '/docs/extensibility/event-triggers/triggers/access-request-submitted',
+        },
+        {
+          from: [
+            '/idn/docs/event-triggers/triggers/account-aggregation-completed',
+          ],
+          to: '/docs/extensibility/event-triggers/triggers/account-aggregation-completed',
+        },
+        {
+          from: ['/idn/docs/event-triggers/triggers/campaign-activated'],
+          to: '/docs/extensibility/event-triggers/triggers/campaign-activated',
+        },
+        {
+          from: ['/idn/docs/event-triggers/triggers/campaign-ended'],
+          to: '/docs/extensibility/event-triggers/triggers/campaign-ended',
+        },
+        {
+          from: ['/idn/docs/event-triggers/triggers/campaign-generated'],
+          to: '/docs/extensibility/event-triggers/triggers/campaign-generated',
+        },
+        {
+          from: ['/idn/docs/event-triggers/triggers/certification-signed-off'],
+          to: '/docs/extensibility/event-triggers/triggers/certification-signed-off',
+        },
+        {
+          from: ['/idn/docs/event-triggers/triggers/form-submitted'],
+          to: '/docs/extensibility/event-triggers/triggers/form-submitted',
+        },
+        {
+          from: [
+            '/idn/docs/event-triggers/triggers/identity-attribute-changed',
+          ],
+          to: '/docs/extensibility/event-triggers/triggers/identity-attribute-changed',
+        },
+        {
+          from: ['/idn/docs/event-triggers/triggers/identity-created'],
+          to: '/docs/extensibility/event-triggers/triggers/identity-created',
+        },
+        {
+          from: ['/idn/docs/event-triggers/triggers/identity-deleted'],
+          to: '/docs/extensibility/event-triggers/triggers/identity-deleted',
+        },
+        {
+          from: [
+            '/idn/docs/event-triggers/triggers/native-change-account-created',
+          ],
+          to: '/docs/extensibility/event-triggers/triggers/native-change-account-created',
+        },
+        {
+          from: [
+            '/idn/docs/event-triggers/triggers/native-change-account-deleted',
+          ],
+          to: '/docs/extensibility/event-triggers/triggers/native-change-account-deleted',
+        },
+        {
+          from: [
+            '/idn/docs/event-triggers/triggers/native-change-account-updated',
+          ],
+          to: '/docs/extensibility/event-triggers/triggers/native-change-account-updated',
+        },
+        {
+          from: ['/idn/docs/event-triggers/triggers/outlier-detected'],
+          to: '/docs/extensibility/event-triggers/triggers/outlier-detected',
+        },
+        {
+          from: ['/idn/docs/event-triggers/triggers/provisioning-completed'],
+          to: '/docs/extensibility/event-triggers/triggers/provisioning-completed',
+        },
+        {
+          from: ['/idn/docs/event-triggers/triggers/scheduled-search'],
+          to: '/docs/extensibility/event-triggers/triggers/scheduled-search',
+        },
+        {
+          from: ['/idn/docs/event-triggers/triggers/source-account-created'],
+          to: '/docs/extensibility/event-triggers/triggers/source-account-created',
+        },
+        {
+          from: ['/idn/docs/event-triggers/triggers/source-account-deleted'],
+          to: '/docs/extensibility/event-triggers/triggers/source-account-deleted',
+        },
+        {
+          from: ['/idn/docs/event-triggers/triggers/source-account-updated'],
+          to: '/docs/extensibility/event-triggers/triggers/source-account-updated',
+        },
+        {
+          from: ['/idn/docs/event-triggers/triggers/source-created'],
+          to: '/docs/extensibility/event-triggers/triggers/source-created',
+        },
+        {
+          from: ['/idn/docs/event-triggers/triggers/source-deleted'],
+          to: '/docs/extensibility/event-triggers/triggers/source-deleted',
+        },
+        {
+          from: ['/idn/docs/event-triggers/triggers/source-updated'],
+          to: '/docs/extensibility/event-triggers/triggers/source-updated',
+        },
+        {
+          from: ['/idn/docs/event-triggers/triggers/va-cluster-status-change'],
+          to: '/docs/extensibility/event-triggers/triggers/va-cluster-status-change',
+        },
+        {
+          from: ['/idn/docs/rules'],
+          to: '/docs/extensibility/rules',
+        },
+        {
+          from: ['/idn/docs/rules/cloud-rules'],
+          to: '/docs/extensibility/rules/cloud-rules',
+        },
+        {
+          from: [
+            '/idn/docs/rules/cloud-rules/account-profile-attribute-generator',
+          ],
+          to: '/docs/extensibility/rules/cloud-rules/account-profile-attribute-generator',
+        },
+        {
+          from: [
+            '/idn/docs/rules/cloud-rules/account-profile-attribute-generator-template',
+          ],
+          to: '/docs/extensibility/rules/cloud-rules/account-profile-attribute-generator-template',
+        },
+        {
+          from: ['/idn/docs/rules/cloud-rules/before-provisioning-rule'],
+          to: '/docs/extensibility/rules/cloud-rules/before-provisioning-rule',
+        },
+        {
+          from: ['/idn/docs/rules/cloud-rules/buildmap-rule'],
+          to: '/docs/extensibility/rules/cloud-rules/buildmap-rule',
+        },
+        {
+          from: ['/idn/docs/rules/cloud-rules/correlation-rule'],
+          to: '/docs/extensibility/rules/cloud-rules/correlation-rule',
+        },
+        {
+          from: ['/idn/docs/rules/cloud-rules/generic-rule'],
+          to: '/docs/extensibility/rules/cloud-rules/generic-rule',
+        },
+        {
+          from: ['/idn/docs/rules/cloud-rules/identity-attribute-rule'],
+          to: '/docs/extensibility/rules/cloud-rules/identity-attribute-rule',
+        },
+        {
+          from: ['/idn/docs/rules/cloud-rules/manager-correlation-rule'],
+          to: '/docs/extensibility/rules/cloud-rules/manager-correlation-rule',
+        },
+        {
+          from: ['/idn/docs/rules/connector-rules'],
+          to: '/docs/extensibility/rules/connector-rules',
+        },
+        {
+          from: [
+            '/idn/docs/rules/connector-rules/before-and-after-rule-operations',
+          ],
+          to: '/docs/extensibility/rules/connector-rules/before-and-after-rule-operations',
+        },
+        {
+          from: ['/idn/docs/rules/connector-rules/jdbc-buildmap-rule'],
+          to: '/docs/extensibility/rules/connector-rules/jdbc-buildmap-rule',
+        },
+        {
+          from: ['/idn/docs/rules/connector-rules/jdbc-provisioning-rule'],
+          to: '/docs/extensibility/rules/connector-rules/jdbc-provisioning-rule',
+        },
+        {
+          from: ['/idn/docs/rules/connector-rules/sap-buildmap-rule'],
+          to: '/docs/extensibility/rules/connector-rules/sap-buildmap-rule',
+        },
+        {
+          from: [
+            '/idn/docs/rules/connector-rules/sap-provisioning-modify-rule',
+          ],
+          to: '/docs/extensibility/rules/connector-rules/sap-provisioning-modify-rule',
+        },
+        {
+          from: [
+            '/idn/docs/rules/connector-rules/webservices-after-provisioning-rule',
+          ],
+          to: '/docs/extensibility/rules/connector-rules/webservices-after-provisioning-rule',
+        },
+        {
+          from: [
+            '/idn/docs/rules/connector-rules/webservices-before-provisioning-rule',
+          ],
+          to: '/docs/extensibility/rules/connector-rules/webservices-before-provisioning-rule',
+        },
+        {
+          from: ['/idn/docs/rules/guides'],
+          to: '/docs/extensibility/rules/guides',
+        },
+        {
+          from: ['/idn/docs/rules/guides/your-first-rule'],
+          to: '/docs/extensibility/rules/guides/your-first-rule',
+        },
+        {
+          from: ['/idn/docs/rules/java-docs'],
+          to: '/docs/extensibility/rules/java-docs',
+        },
+        {
+          from: ['/idn/docs/rules/rule-utility'],
+          to: '/docs/extensibility/rules/rule-utility',
+        },
+        {
+          from: ['/idn/docs/transforms'],
+          to: '/docs/extensibility/transforms',
+        },
+        {
+          from: ['/idn/docs/transforms/guides'],
+          to: '/docs/extensibility/transforms/guides',
+        },
+        {
+          from: ['/idn/docs/transforms/guides/identity-context-examples'],
+          to: '/docs/extensibility/transforms/guides/identity-context-examples',
+        },
+        {
+          from: ['/idn/docs/transforms/guides/lifecycle-state-transform'],
+          to: '/docs/extensibility/transforms/guides/lifecycle-state-transform',
+        },
+        {
+          from: ['/idn/docs/transforms/guides/temporary-password'],
+          to: '/docs/extensibility/transforms/guides/temporary-password',
+        },
+        {
+          from: [
+            '/idn/docs/transforms/guides/transforms-in-provisioning-policies',
+          ],
+          to: '/docs/extensibility/transforms/guides/transforms-in-provisioning-policies',
+        },
+        {
+          from: ['/idn/docs/transforms/guides/your-first-transform'],
+          to: '/docs/extensibility/transforms/guides/your-first-transform',
+        },
+        {
+          from: ['/idn/docs/transforms/operations'],
+          to: '/docs/extensibility/transforms/operations',
+        },
+        {
+          from: ['/idn/docs/transforms/operations/account-attribute'],
+          to: '/docs/extensibility/transforms/operations/account-attribute',
+        },
+        {
+          from: ['/idn/docs/transforms/operations/base64-decode'],
+          to: '/docs/extensibility/transforms/operations/base64-decode',
+        },
+        {
+          from: ['/idn/docs/transforms/operations/base64-encode'],
+          to: '/docs/extensibility/transforms/operations/base64-encode',
+        },
+        {
+          from: ['/idn/docs/transforms/operations/concatenation'],
+          to: '/docs/extensibility/transforms/operations/concatenation',
+        },
+        {
+          from: ['/idn/docs/transforms/operations/conditional'],
+          to: '/docs/extensibility/transforms/operations/conditional',
+        },
+        {
+          from: ['/idn/docs/transforms/operations/date-compare'],
+          to: '/docs/extensibility/transforms/operations/date-compare',
+        },
+        {
+          from: ['/idn/docs/transforms/operations/date-format'],
+          to: '/docs/extensibility/transforms/operations/date-format',
+        },
+        {
+          from: ['/idn/docs/transforms/operations/date-math'],
+          to: '/docs/extensibility/transforms/operations/date-math',
+        },
+        {
+          from: ['/idn/docs/transforms/operations/decompose-diacritical-marks'],
+          to: '/docs/extensibility/transforms/operations/decompose-diacritical-marks',
+        },
+        {
+          from: ['/idn/docs/transforms/operations/e164-phone'],
+          to: '/docs/extensibility/transforms/operations/e164-phone',
+        },
+        {
+          from: ['/idn/docs/transforms/operations/first-valid'],
+          to: '/docs/extensibility/transforms/operations/first-valid',
+        },
+        {
+          from: ['/idn/docs/transforms/operations/generate-random-string'],
+          to: '/docs/extensibility/transforms/operations/generate-random-string',
+        },
+        {
+          from: ['/idn/docs/transforms/operations/get-end-of-string'],
+          to: '/docs/extensibility/transforms/operations/get-end-of-string',
+        },
+        {
+          from: [
+            '/idn/docs/transforms/operations/get-reference-identity-attribute',
+          ],
+          to: '/docs/extensibility/transforms/operations/get-reference-identity-attribute',
+        },
+        {
+          from: ['/idn/docs/transforms/operations/identity-attribute'],
+          to: '/docs/extensibility/transforms/operations/identity-attribute',
+        },
+        {
+          from: ['/idn/docs/transforms/operations/index-of'],
+          to: '/docs/extensibility/transforms/operations/index-of',
+        },
+        {
+          from: ['/idn/docs/transforms/operations/iso-3166'],
+          to: '/docs/extensibility/transforms/operations/iso-3166',
+        },
+        {
+          from: ['/idn/docs/transforms/operations/last-index-of'],
+          to: '/docs/extensibility/transforms/operations/last-index-of',
+        },
+        {
+          from: ['/idn/docs/transforms/operations/left-pad'],
+          to: '/docs/extensibility/transforms/operations/left-pad',
+        },
+        {
+          from: ['/idn/docs/transforms/operations/lookup'],
+          to: '/docs/extensibility/transforms/operations/lookup',
+        },
+        {
+          from: ['/idn/docs/transforms/operations/lower'],
+          to: '/docs/extensibility/transforms/operations/lower',
+        },
+        {
+          from: ['/idn/docs/transforms/operations/name-normalizer'],
+          to: '/docs/extensibility/transforms/operations/name-normalizer',
+        },
+        {
+          from: ['/idn/docs/transforms/operations/random-alphanumeric'],
+          to: '/docs/extensibility/transforms/operations/random-alphanumeric',
+        },
+        {
+          from: ['/idn/docs/transforms/operations/random-numeric'],
+          to: '/docs/extensibility/transforms/operations/random-numeric',
+        },
+        {
+          from: ['/idn/docs/transforms/operations/reference'],
+          to: '/docs/extensibility/transforms/operations/reference',
+        },
+        {
+          from: ['/idn/docs/transforms/operations/replace'],
+          to: '/docs/extensibility/transforms/operations/replace',
+        },
+        {
+          from: ['/idn/docs/transforms/operations/replace-all'],
+          to: '/docs/extensibility/transforms/operations/replace-all',
+        },
+        {
+          from: ['/idn/docs/transforms/operations/right-pad'],
+          to: '/docs/extensibility/transforms/operations/right-pad',
+        },
+        {
+          from: ['/idn/docs/transforms/operations/rule'],
+          to: '/docs/extensibility/transforms/operations/rule',
+        },
+        {
+          from: ['/idn/docs/transforms/operations/split'],
+          to: '/docs/extensibility/transforms/operations/split',
+        },
+        {
+          from: ['/idn/docs/transforms/operations/static'],
+          to: '/docs/extensibility/transforms/operations/static',
+        },
+        {
+          from: ['/idn/docs/transforms/operations/substring'],
+          to: '/docs/extensibility/transforms/operations/substring',
+        },
+        {
+          from: ['/idn/docs/transforms/operations/trim'],
+          to: '/docs/extensibility/transforms/operations/trim',
+        },
+        {
+          from: ['/idn/docs/transforms/operations/upper'],
+          to: '/docs/extensibility/transforms/operations/upper',
+        },
+        {
+          from: ['/idn/docs/transforms/operations/username-generator'],
+          to: '/docs/extensibility/transforms/operations/username-generator',
+        },
+        {
+          from: ['/idn/docs/transforms/operations/uuid-generator'],
+          to: '/docs/extensibility/transforms/operations/uuid-generator',
+        },
+        {
           from: ['/idn/docs/access-intelligence-center'],
           to: '/docs/reporting/access-intelligence-center',
         },
@@ -534,10 +964,6 @@ module.exports = [
           to: '/docs/api/iiq/get-workflow-by-id',
         },
         {
-          from: ['/iiq/api/identityiq-scim-rest-api'],
-          to: '/docs/api/iiq/identityiq-scim-rest-api',
-        },
-        {
           from: ['/iiq/api/launch-workflow'],
           to: '/docs/api/iiq/launch-workflow',
         },
@@ -607,7 +1033,7 @@ module.exports = [
         },
         {
           from: ['/nerm/api/nerm-api'],
-          to: '/docs/api/nerm/nerm-api'
+          to: '/docs/api/nerm/v1/nerm-api',
         },
         {
           from: ['/nerm/api'],
@@ -615,7 +1041,7 @@ module.exports = [
         },
         {
           from: ['/nerm/api/authentication'],
-          to: '/docs/api/nerm/v1/authentication',
+          to: '/docs/api/nerm/authentication',
         },
         {
           from: ['/nerm/api/create-approval-action'],
@@ -972,10 +1398,6 @@ module.exports = [
         {
           from: ['/nerm/api/getting-started'],
           to: '/docs/api/nerm/getting-started',
-        },
-        {
-          from: ['/nerm/api/nerm-api'],
-          to: '/docs/api/nerm/v1/nerm-api',
         },
         {
           from: ['/nerm/api/pagination-metadata-filtering'],

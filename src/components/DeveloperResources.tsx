@@ -32,12 +32,17 @@ export default function DeveloperResources() {
       description:
         "The RDK provides you with the available classes and methods available when you're developing a rule. You can mock out these classes and run your rule locally to test your logic before submitting it for review.",
       link: '/idn/tools/rule-development-kit',
+    }, {
+      title: 'Admin Console',
+      description:
+        "The RDK provides you with the available classes and methods available when you're developing a rule. You can mock out these classes and run your rule locally to test your logic before submitting it for review.",
+      link: '/idn/tools/rule-development-kit',
     },
   ];
 
   return (
     <div className="py-8">
-      <h2 className="text-center pb-2">Developer Resources</h2>
+      <h2 className="text-center pb-2 text-4xl">Developer Resources</h2>
       <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-2 justify-center">
         {cards.map((card, index) => (
           <div className="hover:scale-[101%] transition-all duration-200 flex">

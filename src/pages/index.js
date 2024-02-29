@@ -13,9 +13,9 @@ export default function Home() {
       <div className="bg-background">
         <HomepageHeader />
         <HomepageCarousel />
+        <StartBuilding />
         <DeveloperResources />
         <AmbassadorSpotlight />
-        <StartBuilding />
       </div>
     </Layout>
   );

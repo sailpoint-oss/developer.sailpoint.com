@@ -58,7 +58,7 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         text DEPARTMENT "Department of the identity"
         text EMAIL "The email address of the identity"
         text MANAGER "manager of the identity"
-        text STATUS "name of the lifecycle state Ex: Active, leaver, dormant etc."
+        text LIFECYCLE_STATE "name of the lifecycle state Ex: Active, leaver, dormant etc."
         timestamp_ntz SYNC_DATE "When the row is last synced"
     }
     IDENTITY_ROLES {

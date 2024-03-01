@@ -26,10 +26,10 @@ export default function AmbassadorSpotlight() {
 
   return (
     <div
-      className="pt-4 pb-12 mb-12">
-      <h2 className="text-center m-0 text-4xl">Meet our Ambassadors</h2>
+      className="pt-4 pb-12 mb-12 bg-gradient-to-r dark:from-[#0071CE] dark:via-[#004FB5] dark:to-[#0033A1] from-[#0033A1] from-40% via-[#004FB5] via-65% to-[#0071CE] to-100%">
+      <h2 className="text-center m-0 text-4xl text-white">Meet our Ambassadors</h2>
       <a
-        className="text-center text-sm block pb-2"
+        className="text-center text-lg block pb-2"
         href="https://developer.sailpoint.com/discuss/t/announcing-the-developer-community-ambassador-program/10634">
         Become an ambassador
       </a>
@@ -51,7 +51,7 @@ export default function AmbassadorSpotlight() {
                 return (
                   <div key={ambassador.id} className="">
                     <CarouselItem className="">
-                      <Card className="shadow-xl w-[250px] h-[280px] hover:scale-[104%] transition-transform ease-in-out animate-border p-1 rounded-md bg-background hover:bg-gradient-radial dark:from-[#0033A1] dark:via-[#004FB5] dark:to-[#0071CE] from-aqua/0 via-aqua/60 to-aqua bg-[length:400%400%] flex">
+                      <Card className="shadow-xl w-[250px] h-[280px] hover:scale-[104%] transition-transform ease-in-out animate-border p-1 rounded-md bg-background hover:bg-gradient-radial dark:from-[#7ecfee] dark:via-[#3ca6fa] dark:to-[#0071CE] from-[#0033A1] from-40% via-[#004FB5] via-65% to-[#0071CE] to-100% bg-[length:400%400%] flex">
                         <a
                           href={`https://developer.sailpoint.com/discuss/u/${ambassador.username}/summary`}
                           key={ambassador.id}

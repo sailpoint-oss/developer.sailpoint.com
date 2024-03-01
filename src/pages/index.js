@@ -14,8 +14,9 @@ export default function Home() {
         <HomepageHeader />
         <HomepageCarousel />
         <StartBuilding />
-        <DeveloperResources />
         <AmbassadorSpotlight />
+        <DeveloperResources />
+        
       </div>
     </Layout>
   );

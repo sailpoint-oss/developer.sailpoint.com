@@ -40,6 +40,7 @@ export default function HomepageCarousel() {
       opts={{loop: true}}
       onMouseEnter={() => setMouseOver(true)}
       onMouseLeave={() => setMouseOver(false)}
+      style={{backgroundColor: 'blue'}}
       className="flex justify-center items-center rounded-xl px-6 pt-16 pb-20 h-[100px] overflow-hidden z-0">
       <CarouselContent>
         <CarouselItem>
@@ -55,7 +56,7 @@ export default function HomepageCarousel() {
           </div>
         </CarouselItem>
         <CarouselItem>
-          <div className="bg-background flex aspect-square items-center justify-center">
+          <div  className="bg-background flex aspect-square items-center justify-center">
             <span className="text-3xl font-semibold text-center">
               Take a look at the workflows, tools, and connectors <br /> from
               the community in the{' '}

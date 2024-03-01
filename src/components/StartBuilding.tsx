@@ -17,7 +17,7 @@ export default function StartBuilding() {
   const cards = [
     {
       title: 'Workflows',
-      description: 'Create custom workflows to automate identity processes',
+      description: 'Create custom workflows to automate identity processes.',
       link: 'https://documentation.sailpoint.com/saas/help/workflows/workflow-basics.html',
       icon: (
         <FontAwesomeIcon
@@ -30,7 +30,7 @@ export default function StartBuilding() {
     },
     {
       title: 'Custom Forms',
-      description: 'Create custom forms to collect and display identity data',
+      description: 'Create custom forms to collect and display identity data.',
       link: 'https://documentation.sailpoint.com/saas/help/forms/index.html',
       icon: (
         <FontAwesomeIcon
@@ -43,7 +43,7 @@ export default function StartBuilding() {
     },
     {
       title: 'Rules',
-      description: 'Create custom rules to enforce identity policies',
+      description: 'Create custom rules to enforce identity policies.',
       link: '/idn/docs/rules',
       icon: (
         <FontAwesomeIcon
@@ -56,7 +56,7 @@ export default function StartBuilding() {
     },
     {
       title: 'Transforms',
-      description: 'Create custom transforms to manipulate identity data',
+      description: 'Create custom transforms to manipulate identity data.',
       link: '/idn/docs/transforms',
       icon: (
         <FontAwesomeIcon
@@ -69,7 +69,7 @@ export default function StartBuilding() {
     },
     {
       title: 'SAAS Connectivity',
-      description: 'Connect to SAAS applications to manage identity',
+      description: 'Connect to SAAS applications to manage identity.',
       link: '/idn/docs/saas-connectivity',
       icon: (
         <FontAwesomeIcon
@@ -83,7 +83,7 @@ export default function StartBuilding() {
     {
       title: 'Event Triggers',
       description:
-        'Create custom event triggers to automate identity processes',
+        'Create custom event triggers to automate identity processes.',
       link: '/idn/docs/event-triggers',
       icon: (
         <FontAwesomeIcon

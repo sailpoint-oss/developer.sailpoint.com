@@ -2,7 +2,7 @@ module.exports = {
   style: 'light',
   links: [
     {
-      title: 'IdentityNow',
+      title: 'Identity Security Cloud',
       items: [
         {
           label: 'Your First API Call',

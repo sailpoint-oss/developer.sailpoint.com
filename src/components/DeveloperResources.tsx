@@ -17,8 +17,8 @@ export default function DeveloperResources() {
     {
       title: 'API Documentation',
       description:
-        'The IdentityNow API documentation provides you with the information you need to interact with your IdentityNow tenant. The documentation includes information on the available endpoints, request and response examples, and more.',
-      link: '/idn/api/v3',
+        'Comprehensive documentation for the Identity Security Cloud APIs.',
+      link: '/docs/api',
       icon: (
         <FontAwesomeIcon
           icon={faFileInvoice}
@@ -31,7 +31,7 @@ export default function DeveloperResources() {
     {
       title: 'CLI',
       description:
-        'The SailPoint CLI is a terminal-based tool you can use to to interact with your IdentityNow (IDN) tenant. The CLI provides a text-based environment you can use to run operations known as "commands" to interact with your tenant however you want.',
+        'Terminal based tool for interaction with ISC.',
       link: '/idn/tools/cli',
       icon: (
         <FontAwesomeIcon
@@ -45,7 +45,7 @@ export default function DeveloperResources() {
     {
       title: 'SDKs',
       description:
-        'In addition to the APIs, each SDK includes SaaS connector, IDN search, and transform functionality. Each SDK also includes prebuilt examples you can use to learn how to get started.',
+        'Streamlined development in your language of choice.',
       link: '/idn/tools/sdk',
       icon: (
         <FontAwesomeIcon
@@ -59,7 +59,7 @@ export default function DeveloperResources() {
     {
       title: 'Rule Development Kit',
       description:
-        "The RDK provides you with the available classes and methods available when you're developing a rule. You can mock out these classes and run your rule locally to test your logic before submitting it for review.",
+        "Rule development made quick and easy.",
       link: '/idn/tools/rule-development-kit',
       icon: (
         <FontAwesomeIcon
@@ -80,7 +80,7 @@ export default function DeveloperResources() {
           <div className="hover:scale-[101%] transition-all duration-200 flex">
             <Card
               key={index}
-              className="animate-border p-1 rounded-md bg-background hover:bg-gradient-radial dark:from-[#7ecfee] dark:via-[#3ca6fa] dark:to-[#0071CE] from-[#0033A1] from-40% via-[#004FB5] via-65% to-[#0071CE] to-100% bg-[length:400%400%] flex">
+              className="animate-border p-1 rounded-md bg-background hover:bg-gradient-radial dark:from-[#7ecfee] dark:via-[#3ca6fa] dark:to-[#0071CE] from-[#0033A1] from-40% via-[#004FB5] via-65% to-[#0071CE] to-100% bg-[length:400%400%] grow">
               <a
                 href={card.link}
                 className="hover:no-underline block hover:text-card-foreground text-card-foreground rounded-xl bg-card p-4 font-bold grow">

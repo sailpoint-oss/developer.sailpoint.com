@@ -40,7 +40,7 @@ export default function HomepageCarousel() {
       opts={{loop: true}}
       onMouseEnter={() => setMouseOver(true)}
       onMouseLeave={() => setMouseOver(false)}
-      className="flex justify-center items-center rounded-xl px-6 py-24 h-[100px] overflow-hidden z-0">
+      className="flex justify-center items-center rounded-xl px-6 pt-16 pb-20 h-[100px] overflow-hidden z-0">
       <CarouselContent>
         <CarouselItem>
           <div className="bg-background flex aspect-square items-center justify-center">
@@ -65,6 +65,33 @@ export default function HomepageCarousel() {
             </span>
           </div>
         </CarouselItem>
+        <CarouselItem>
+          <div className="bg-background flex aspect-square items-center justify-center">
+            <span className="text-3xl font-semibold text-center">
+              Checkout what{' '}
+              <a
+                className="text-[#0188f7]"
+                href="https://developer.sailpoint.com/discuss/c/community/events/76">
+                events
+              </a>
+              {' '}are happenging in the community
+            </span>
+          </div>
+        </CarouselItem>
+        <CarouselItem>
+          <div className="bg-background flex aspect-square items-center justify-center">
+            <span className="text-3xl font-semibold text-center">
+              Learn about {' '}
+              <a
+                className="text-[#0188f7]"
+                href="https://developer.sailpoint.com/discuss/t/announcing-sailpoints-developer-days-2024/19918">
+                Developer Days
+              </a>
+              
+            </span>
+          </div>
+        </CarouselItem>
+
       </CarouselContent>
     </Carousel>
   );

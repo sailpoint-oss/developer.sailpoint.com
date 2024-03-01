@@ -53,7 +53,7 @@ export default function StartBuilding() {
   ];
 
   return (
-    <div className="py-8">
+    <div  style={colorMode === 'dark' ? {background: "#2a2b2d"} : {background: "#e9e9e963"}}className="pt-8 pb-16">
       <h2 className="text-center pb-2 text-4xl">Start building today</h2>
       <div className="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
         {cards.map((card, index) => (

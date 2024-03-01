@@ -9,9 +9,11 @@ import AutoScroll from 'embla-carousel-auto-scroll';
 import axios from 'axios';
 import {shuffleArray} from '../util/util';
 import {checkImage} from '../services/DiscourseService';
+import {useColorMode} from '@docusaurus/theme-common';
 
 export default function AmbassadorSpotlight() {
   let [ambassadors, setAmbassadors] = useState<any>();
+  const {colorMode, setColorMode} = useColorMode();
 
   useEffect(() => {
     axios
@@ -23,8 +25,14 @@ export default function AmbassadorSpotlight() {
   }, []);
 
   return (
-    <div className="py-4">
-      <h2 className="text-center m-0">Meet our Ambassadors</h2>
+    <div
+      style={
+        colorMode === 'dark'
+          ? {background: '#2a2b2d'}
+          : {background: '#e9e9e963'}
+      }
+      className="pt-4 pb-12 mb-12">
+      <h2 className="text-center m-0 text-4xl">Meet our Ambassadors</h2>
       <a
         className="text-center text-sm block pb-2"
         href="https://developer.sailpoint.com/discuss/t/announcing-the-developer-community-ambassador-program/10634">

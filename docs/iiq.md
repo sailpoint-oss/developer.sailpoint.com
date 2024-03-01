@@ -1,12 +1,12 @@
 ---
 id: iiq
-title: Identity IQ
-pagination_label: Identity IQ
-sidebar_label: Identity IQ
+title: IdentityIQ
+pagination_label: IdentityIQ
+sidebar_label: IdentityIQ
 sidebar_position: 1
 sidebar_class_name: docs
 keywords: ['docs']
-description: Building extensibility in Identity Security Cloud
+description: Building extensibility in IdentityIQ
 slug: /iiq
 tags: ['docs']
 ---

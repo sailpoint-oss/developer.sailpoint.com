@@ -24,7 +24,7 @@ export default function HomepageGettingStarted() {
           <div className={styles.gridContainer}>
             <HomepageCard
               link={'/docs'}
-              title={'Get Started with IdentityNow'}
+              title={'Get Started with Identity Security Cloud'}
               image={'/homepage/cloud.png'}></HomepageCard>
             <HomepageCard
               link={

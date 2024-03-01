@@ -13,8 +13,13 @@ module.exports = {
     },
     {
       position: 'left',
-      label: 'Identity IQ',
+      label: 'IdentityIQ',
       to: '/docs/iiq',
+    },
+    {
+      position: 'left',
+      label: 'CoLab',
+      to: '/colab',
     },
     {
       position: 'left',

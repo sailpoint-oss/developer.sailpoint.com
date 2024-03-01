@@ -8,17 +8,17 @@ export default function HomepageTrainingGuides() {
     <div className={styles.center}>
       <div className={styles.gridContainer}>
         <HomepageCard
-          product={'idn'}
+          product={'isc'}
           link={'/docs/api/getting-started'}
           title={'Make Your First API Call'}
           image={'/homepage/cloud.png'}></HomepageCard>
         <HomepageCard
-          product={'idn'}
+          product={'isc'}
           link={'/docs/extensibility/transforms/guides/your-first-transform'}
           title={'Build a Transform'}
           image={'/homepage/cloud.png'}></HomepageCard>
         <HomepageCard
-          product={'idn'}
+          product={'isc'}
           link={'/docs/connectivity/saas-connectivity'}
           title={'Build a SaaS Connector'}
           image={'/homepage/cloud.png'}></HomepageCard>

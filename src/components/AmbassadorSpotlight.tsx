@@ -26,11 +26,6 @@ export default function AmbassadorSpotlight() {
 
   return (
     <div
-      style={
-        colorMode === 'dark'
-          ? {background: '#2a2b2d'}
-          : {background: '#e9e9e963'}
-      }
       className="pt-4 pb-12 mb-12">
       <h2 className="text-center m-0 text-4xl">Meet our Ambassadors</h2>
       <a

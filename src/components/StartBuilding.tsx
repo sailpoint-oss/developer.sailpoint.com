@@ -1,13 +1,8 @@
 import React from 'react';
 import {Card, CardContent, CardHeader} from '@site/src/components/ui/card';
-import Network from '@site/static/icons/network-wired-light.svg';
-import Sign from '@site/static/icons/signs-post-light.svg';
-import Form from '@site/static/icons/paperclip-sharp-light.svg';
-import Swap from '@site/static/icons/swap-arrows-light.svg';
-import Progress from '@site/static/icons/arrow-progress-light.svg';
-import Blocks from '@site/static/icons/cubes-stacked-light.svg';
-import Cloud from '@site/static/icons/cloud-binary-light.svg';
 import {useColorMode} from '@docusaurus/theme-common';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowProgress, faCloudBinary, faCubesStacked, faPenField, faSignsPost, faNetworkWired, faSwapArrows  } from '@fortawesome/pro-duotone-svg-icons'
 
 export default function StartBuilding() {
   const {colorMode, setColorMode} = useColorMode();
@@ -17,43 +12,43 @@ export default function StartBuilding() {
       title: 'Workflows',
       description: 'Create custom workflows to automate identity processes',
       link: 'https://documentation.sailpoint.com/saas/help/workflows/workflow-basics.html',
-      icon: Progress,
+      icon: <FontAwesomeIcon icon={faArrowProgress} style={{marginRight: "0.5em"}} color={colorMode === 'dark' ? '#7ecfee' : '#0033a1'} size='5x'/>,
     },
     {
       title: 'Custom Forms',
       description: 'Create custom forms to collect and display identity data',
       link: 'https://documentation.sailpoint.com/saas/help/forms/index.html',
-      icon: Form,
+      icon: <FontAwesomeIcon icon={faPenField} style={{marginRight: "0.5em"}} color={colorMode === 'dark' ? '#7ecfee' : '#0033a1'} size='5x'/>,
     },
     {
       title: 'Rules',
       description: 'Create custom rules to enforce identity policies',
       link: '/idn/docs/rules',
-      icon: Sign,
+      icon: <FontAwesomeIcon icon={faSignsPost} style={{marginRight: "0.5em"}} color={colorMode === 'dark' ? '#7ecfee' : '#0033a1'} size='5x'/>,
     },
     {
       title: 'Transforms',
       description: 'Create custom transforms to manipulate identity data',
       link: '/idn/docs/transforms',
-      icon: Blocks,
+      icon: <FontAwesomeIcon icon={faCubesStacked} style={{marginRight: "0.5em"}} color={colorMode === 'dark' ? '#7ecfee' : '#0033a1'} size='5x'/>,
     },
     {
       title: 'SAAS Connectivity',
       description: 'Connect to SAAS applications to manage identity',
       link: '/idn/docs/saas-connectivity',
-      icon: Network,
+      icon: <FontAwesomeIcon icon={faNetworkWired} style={{marginRight: "0.5em"}} color={colorMode === 'dark' ? '#7ecfee' : '#0033a1'} size='5x'/>,
     },
     {
       title: 'Event Triggers',
       description:
         'Create custom event triggers to automate identity processes',
       link: '/idn/docs/event-triggers',
-      icon: Cloud,
+      icon: <FontAwesomeIcon icon={faCloudBinary} style={{marginRight: "0.5em"}} color={colorMode === 'dark' ? '#7ecfee' : '#0033a1'} size='5x'/>,
     },
   ];
 
   return (
-    <div  style={colorMode === 'dark' ? {background: "#2a2b2d"} : {background: "#e9e9e963"}}className="pt-8 pb-16">
+    <div className="pt-8 pb-16">
       <h2 className="text-center pb-2 text-4xl">Start building today</h2>
       <div className="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
         {cards.map((card, index) => (
@@ -66,12 +61,8 @@ export default function StartBuilding() {
               <CardHeader className="flex flex-row justify-between">
                 <h3 className="my-auto">{card.title}</h3>
 
-                {card.icon && (
-                  <card.icon
-                    fill={colorMode === 'dark' ? 'white' : 'black'}
-                    className="w-10 my-auto"
-                  />
-                )}
+               {card.icon}
+
               </CardHeader>
 
               <CardContent>

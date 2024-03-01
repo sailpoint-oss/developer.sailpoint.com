@@ -22,18 +22,7 @@ export default function DeveloperResources() {
       link: '/idn/tools/sdk',
     },
     {
-      title: 'UI Development Kit',
-      description:
-        'The UI Development Kit provides you with a framework to build your own applications or processes on the IdentityNow platform.',
-      link: '/idn/tools/ui-development-kit',
-    },
-    {
       title: 'Rule Development Kit',
-      description:
-        "The RDK provides you with the available classes and methods available when you're developing a rule. You can mock out these classes and run your rule locally to test your logic before submitting it for review.",
-      link: '/idn/tools/rule-development-kit',
-    }, {
-      title: 'Admin Console',
       description:
         "The RDK provides you with the available classes and methods available when you're developing a rule. You can mock out these classes and run your rule locally to test your logic before submitting it for review.",
       link: '/idn/tools/rule-development-kit',

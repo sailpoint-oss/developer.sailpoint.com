@@ -25,8 +25,8 @@ export default function AmbassadorSpotlight() {
   }, []);
 
   return (
-    <div className="pt-4 pb-8 mb-12 bg-gradient-to-r dark:from-[#0071CE]  dark:via-[#004FB5] via-65% dark:to-[#0033A1] from-[#0033A1] from-40% via-[#004FB5] via-65% to-[#0071CE] to-100%">
-      <h2 style={{color: 'white'}} className="text-center m-0 text-4xl pb-8">
+    <div className="pt-4 pb-12 mb-12 bg-gradient-to-r dark:from-[#0071CE]  dark:via-[#004FB5] via-65% dark:to-[#0033A1] from-[#0033A1] from-40% via-[#004FB5] via-65% to-[#0071CE] to-100%">
+      <h2 style={{color: 'white'}} className="text-center m-0 text-4xl pt-8 pb-20">
         Meet our Ambassadors
       </h2>
       
@@ -76,7 +76,7 @@ export default function AmbassadorSpotlight() {
             })}
         </CarouselContent>
       </Carousel>
-      <div className='pt-8 flex flex-row justify-center'>
+      <div className='pt-20 flex flex-row justify-center'>
         <a
           style={{backgroundColor: '#cc27b0', color: 'white'}}
           className="font-semibold text-white h-12 text-center text-lg block w-80 px-8 pb-10 py-4 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 rounded-[5px] dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline dark:focus:ring-blue-800"

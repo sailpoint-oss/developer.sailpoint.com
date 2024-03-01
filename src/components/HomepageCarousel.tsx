@@ -35,6 +35,9 @@ export default function HomepageCarousel() {
   }, [mouseOver, api]);
 
   return (
+    <div style={{zIndex: 50}} className='bg-gradient-to-r dark:from-[#0071CE]  dark:via-[#004FB5] via-65% dark:to-[#0033A1] from-[#0033A1] from-40% via-[#004FB5] via-65% to-[#0071CE] to-100%'>
+
+   
     <Carousel
       setApi={setApi}
       opts={{loop: true}}
@@ -94,5 +97,6 @@ export default function HomepageCarousel() {
 
       </CarouselContent>
     </Carousel>
+    </div>
   );
 }

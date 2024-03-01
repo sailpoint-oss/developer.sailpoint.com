@@ -6,7 +6,7 @@ import 'atropos/css';
 
 export default function HomepageHeader() {
   return (
-    <div className="grid place-content-center relative bg-gradient-to-r dark:from-[#0071CE]  dark:via-[#004FB5] via-65% dark:to-[#0033A1] from-[#0033A1] from-40% via-[#004FB5] via-65% to-[#0071CE] to-100%">
+    <div className="pt-32 grid place-content-center relative bg-gradient-to-r dark:from-[#0071CE]  dark:via-[#004FB5] via-65% dark:to-[#0033A1] from-[#0033A1] from-40% via-[#004FB5] via-65% to-[#0071CE] to-100%">
       <Atropos
         alwaysActive
         shadow={false}

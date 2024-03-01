@@ -40,7 +40,6 @@ export default function HomepageCarousel() {
       opts={{loop: true}}
       onMouseEnter={() => setMouseOver(true)}
       onMouseLeave={() => setMouseOver(false)}
-      style={{backgroundColor: 'blue'}}
       className="flex justify-center items-center rounded-xl px-6 pt-16 pb-20 h-[100px] overflow-hidden z-0">
       <CarouselContent>
         <CarouselItem>

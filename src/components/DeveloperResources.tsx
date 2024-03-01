@@ -75,9 +75,9 @@ export default function DeveloperResources() {
   return (
     <div className="py-8">
       <h2 className="text-center pb-2 text-4xl">Developer Resources</h2>
-      <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-3 justify-center">
+      <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-3 justify-center ">
         {cards.map((card, index) => (
-          <div className="hover:scale-[101%] transition-all duration-200 flex">
+          <div className="hover:scale-[101%] transition-all duration-200 flex w-[800px]">
             <Card
               key={index}
               className="animate-border p-1 rounded-md bg-background hover:bg-gradient-radial dark:from-[#7ecfee] dark:via-[#3ca6fa] dark:to-[#0071CE] from-[#0033A1] from-40% via-[#004FB5] via-65% to-[#0071CE] to-100% bg-[length:400%400%] grow">

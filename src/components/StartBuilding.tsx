@@ -97,8 +97,8 @@ export default function StartBuilding() {
   ];
 
   return (
-    <div className="pt-8 pb-16">
-      <h2 className="text-center pb-2 text-4xl">Launch into development now</h2>
+    <div className="pt-32 pb-32">
+      <h2 className="text-center pb-8 text-4xl">Launch into development now</h2>
       <div className="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
         {cards.map((card, index) => (
           <Card

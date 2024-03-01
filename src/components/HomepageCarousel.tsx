@@ -40,11 +40,11 @@ export default function HomepageCarousel() {
       opts={{loop: true}}
       onMouseEnter={() => setMouseOver(true)}
       onMouseLeave={() => setMouseOver(false)}
-      className="flex justify-center items-center rounded-xl px-6 pt-16 pb-20 h-[100px] overflow-hidden z-0">
+      className="flex justify-center items-center px-6 pt-16 pb-20 h-[100px] overflow-hidden z-0 bg-gradient-to-r dark:from-[#0071CE]  dark:via-[#004FB5] via-65% dark:to-[#0033A1] from-[#0033A1] from-40% via-[#004FB5] via-65% to-[#0071CE] to-100%">
       <CarouselContent>
         <CarouselItem>
-          <div className="bg-background flex aspect-square items-center justify-center">
-            <span className="text-3xl font-semibold text-center">
+          <div className="bg-gradient-to-r dark:from-[#0071CE]  dark:via-[#004FB5] via-65% dark:to-[#0033A1] from-[#0033A1] from-40% via-[#004FB5] via-65% to-[#0071CE] to-100% flex aspect-square items-center justify-center">
+            <span style={{color: 'white'}} className="text-3xl font-semibold text-center">
               Join the discussion on our{' '}
               <a
                 className="text-[#0188f7]"
@@ -55,8 +55,8 @@ export default function HomepageCarousel() {
           </div>
         </CarouselItem>
         <CarouselItem>
-          <div  className="bg-background flex aspect-square items-center justify-center">
-            <span className="text-3xl font-semibold text-center">
+          <div  className="bg-gradient-to-r dark:from-[#0071CE]  dark:via-[#004FB5] via-65% dark:to-[#0033A1] from-[#0033A1] from-40% via-[#004FB5] via-65% to-[#0071CE] to-100% flex aspect-square items-center justify-center ">
+            <span style={{color: 'white'}} className="text-3xl font-semibold text-center">
               Take a look at the workflows, tools, and connectors <br /> from
               the community in the{' '}
               <a className="text-[#0188f7]" href="/colab/">
@@ -66,8 +66,8 @@ export default function HomepageCarousel() {
           </div>
         </CarouselItem>
         <CarouselItem>
-          <div className="bg-background flex aspect-square items-center justify-center">
-            <span className="text-3xl font-semibold text-center">
+          <div className="bg-gradient-to-r dark:from-[#0071CE]  dark:via-[#004FB5] via-65% dark:to-[#0033A1] from-[#0033A1] from-40% via-[#004FB5] via-65% to-[#0071CE] to-100% flex aspect-square items-center justify-center">
+            <span style={{color: 'white'}} className="text-3xl font-semibold text-center">
               Checkout what{' '}
               <a
                 className="text-[#0188f7]"
@@ -79,8 +79,8 @@ export default function HomepageCarousel() {
           </div>
         </CarouselItem>
         <CarouselItem>
-          <div className="bg-background flex aspect-square items-center justify-center">
-            <span className="text-3xl font-semibold text-center">
+          <div className="bg-gradient-to-r dark:from-[#0071CE]  dark:via-[#004FB5] via-65% dark:to-[#0033A1] from-[#0033A1] from-40% via-[#004FB5] via-65% to-[#0071CE] to-100% flex aspect-square items-center justify-center">
+            <span style={{color: 'white'}} className="text-3xl font-semibold text-center">
               Learn about {' '}
               <a
                 className="text-[#0188f7]"

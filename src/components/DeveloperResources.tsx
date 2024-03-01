@@ -73,8 +73,8 @@ export default function DeveloperResources() {
   ];
 
   return (
-    <div className="py-8">
-      <h2 className="text-center pb-2 text-4xl">Developer Resources</h2>
+    <div className="py-32">
+      <h2 className="text-center pb-8 text-4xl">Developer Resources</h2>
       <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-3 justify-center ">
         {cards.map((card, index) => (
           <div className="hover:scale-[101%] transition-all duration-200 flex w-[800px]">

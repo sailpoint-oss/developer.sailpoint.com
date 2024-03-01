@@ -6,7 +6,7 @@ import 'atropos/css';
 
 export default function HomepageHeader() {
   return (
-    <div className="grid place-content-center relative">
+    <div className="grid place-content-center relative bg-gradient-to-r dark:from-[#0071CE]  dark:via-[#004FB5] via-65% dark:to-[#0033A1] from-[#0033A1] from-40% via-[#004FB5] via-65% to-[#0071CE] to-100%">
       <Atropos
         alwaysActive
         shadow={false}
@@ -16,14 +16,15 @@ export default function HomepageHeader() {
           <div>
             <p
               data-atropos-offset="1"
-              style={{zIndex: 10}}
+              style={{zIndex: 10, color: 'white'}}
               className="py-2 my-0">
               Welcome to the
             </p>
 
             <h1
               data-atropos-offset="5"
-              className="inline-block bg-clip-text text-[transparent] bg-gradient-to-r from-[#0033A1] from-40% via-[#004FB5] via-65% to-[#0071CE] to-100% z-50 px-20 text-4xl">
+              style={{color: 'white'}}
+              className="inline-block bg-clip-text text-[transparent] z-50 px-20 text-4xl">
               SailPoint Developer Community
             </h1>
 
@@ -33,7 +34,7 @@ export default function HomepageHeader() {
           src={useBaseUrl('/img/SailPoint-Developer-Community-Lockup.png')}
         /> */}
 
-            <p data-atropos-offset="1" className="py-2 my-0">
+            <p data-atropos-offset="1" style={{color: 'white'}} className="py-2 my-0">
               Where code meets community
             </p>
           </div>

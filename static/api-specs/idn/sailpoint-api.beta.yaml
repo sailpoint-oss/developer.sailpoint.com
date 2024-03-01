@@ -1137,6 +1137,10 @@ paths:
     $ref: './beta/paths/account-activity.yaml'
   /account-aggregations/{id}/status:
     $ref: './beta/paths/account-aggregation-status.yaml'
+  /auth-profiles:
+    $ref: './beta/paths/auth-profiles.yaml'
+  /auth-profiles/{id}:
+    $ref: './beta/paths/auth-profile.yaml'
   /campaigns:
     $ref: './beta/paths/campaigns.yaml'
   /campaigns/delete:

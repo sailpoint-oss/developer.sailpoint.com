@@ -2,7 +2,7 @@
   "index_name": "dev_DEVELOPER_SAILPOINT_COM",
   "start_urls": [
     {
-      "url": "https://developer.sailpoint.com/idn/docs/transforms",
+      "url": "https://developer.sailpoint.com/docs/extensibility/transforms",
       "tags": ["IDN Documentation", "Transforms"]
     }
   ],

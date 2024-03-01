@@ -5,7 +5,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Link from '@docusaurus/Link';
 import { getCatagories, getTags } from '../../../services/DiscourseService';
 import MarketplaceSidebarButton from './MarketplaceSidebarButton';
-import {discourseMarketplaceCatagoryId, discourseProductTag} from '../../../util/util'
+import {discourseMarketplaceCatagoryId, discourseProductTag} from '../../../util/util.ts'
 
 export default function MarketplaceSidebar({
   filterCallback,

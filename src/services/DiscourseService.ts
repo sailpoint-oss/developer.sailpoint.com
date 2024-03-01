@@ -1,0 +1,143 @@
+import {discourseBaseURL} from '../util/util';
+
+export async function getTopPosts() {
+  try {
+    const response = await fetch(discourseBaseURL() + 'top.json');
+    return await response.json();
+  } catch (error) {
+    return [];
+  }
+}
+export async function getAmbassadors(
+  expert: boolean,
+  limit: number,
+  offset: number,
+) {
+  try {
+    if (expert) {
+      const response = await fetch(
+        discourseBaseURL() +
+          'groups/expert_ambassadors/members.json?limit=' +
+          limit +
+          '&offset=' +
+          offset,
+      );
+      return await response.json();
+    } else {
+      const response = await fetch(
+        discourseBaseURL() +
+          'groups/ambassadors/members.json?limit=' +
+          limit +
+          '&offset=' +
+          offset,
+      );
+      return await response.json();
+    }
+  } catch (error) {
+    return [];
+  }
+}
+
+export async function getAmbassadorDetails(id: string[]) {
+  try {
+    const response = await fetch(
+      discourseBaseURL() + 'user-cards.json?user_ids=' + id.join(','),
+    );
+    return await response.json();
+  } catch (error) {
+    return [];
+  }
+}
+
+export async function checkImage(url: string) {
+  try {
+    const response = await fetch(url);
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
+
+export async function getBlogPosts(tags) {
+  let url = '';
+  if (tags) {
+    url = discourseBaseURL() + 'c/blog/blog-posts/l/latest.json?tags=' + tags;
+  } else {
+    url = discourseBaseURL() + 'c/blog/blog-posts/l/latest.json';
+  }
+  try {
+    const response = await fetch(url);
+    return await response.json();
+  } catch (error) {
+    return [];
+  }
+}
+
+export async function getMarketplacePosts(tags, category) {
+  let filterCategory = 'colab';
+  if (category && category != 'colab') {
+    filterCategory = filterCategory + '/' + category;
+  }
+  let url = '';
+  if (tags) {
+    url =
+      discourseBaseURL() +
+      'c/' +
+      filterCategory +
+      '/l/latest.json?tags=' +
+      tags;
+  } else {
+    url = discourseBaseURL() + 'c/' + filterCategory + '/l/latest.json';
+  }
+  try {
+    const response = await fetch(url);
+    return await response.json();
+  } catch (error) {
+    return [];
+  }
+}
+
+export async function getTopic(id) {
+  try {
+    const response = await fetch(discourseBaseURL() + 't/' + id + '.json');
+    return await response.json();
+  } catch (error) {
+    return [];
+  }
+}
+
+export async function getMarketplaceTopic(id) {
+  try {
+    const response = await fetch(discourseBaseURL() + 't/' + id + '.json');
+    return await response.json();
+  } catch (error) {
+    return [];
+  }
+}
+
+export async function getMarketplaceTopicRaw(id) {
+  try {
+    const response = await fetch(discourseBaseURL() + 'raw/' + id + '.json');
+    return await response.text();
+  } catch (error) {
+    return [];
+  }
+}
+
+export async function getTags() {
+  try {
+    const response = await fetch(discourseBaseURL() + 'tags.json');
+    return await response.json();
+  } catch (error) {
+    return [];
+  }
+}
+
+export async function getCatagories() {
+  try {
+    const response = await fetch(discourseBaseURL() + 'categories.json');
+    return await response.json();
+  } catch (error) {
+    return [];
+  }
+}

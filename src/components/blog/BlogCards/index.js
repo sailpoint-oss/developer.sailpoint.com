@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './styles.module.css';
 import BlogCard from '../BlogCard';
 import BounceLoader from 'react-spinners/BounceLoader';
-import {discourseBaseURL, developerWebsiteDomain} from '../../../util/util';
+import {discourseBaseURL, developerWebsiteDomain} from '../../../util/util.ts';
 
 import {getBlogPosts, getTopic} from '../../../services/DiscourseService';
 export default function BlogCards({

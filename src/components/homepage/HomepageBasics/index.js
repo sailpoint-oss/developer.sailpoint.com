@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './styles.module.css';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import {addDarkToFileName} from '../../../util/util';
+import {addDarkToFileName} from '../../../util/util.ts';
 import ThemedImage from '@theme/ThemedImage';
 export default function HomepageBasics({
   link,

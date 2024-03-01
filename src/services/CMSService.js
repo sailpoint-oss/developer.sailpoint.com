@@ -1,4 +1,4 @@
-import {CMSBaseURL} from '../util/util';
+import {CMSBaseURL} from '../util/util.ts';
 
 export async function getBanner() {
   try {

@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './styles.module.css';
 import AmbassadorCard from '../AmbassadorCard';
 import BounceLoader from 'react-spinners/BounceLoader';
-import {discourseBaseURL, developerWebsiteDomain} from '../../../util/util';
+import {discourseBaseURL, developerWebsiteDomain} from '../../../util/util.ts';
 
 import {getAmbassadors, getAmbassadorDetails} from '../../../services/DiscourseService';
 export default function AmbassadorCards({

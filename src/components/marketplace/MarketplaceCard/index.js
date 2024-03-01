@@ -3,7 +3,7 @@ import styles from './styles.module.css';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import ThemedImage from '@theme/ThemedImage';
-import {addDarkToFileName} from '../../../util/util';
+import {addDarkToFileName} from '../../../util/util.ts';
 import ReactMarkdown from 'react-markdown'
 export default function MarketplaceCard({
   post,

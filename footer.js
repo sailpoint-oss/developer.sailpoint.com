@@ -2,19 +2,19 @@ module.exports = {
   style: 'light',
   links: [
     {
-      title: 'IdentityNow',
+      title: 'Identity Security Cloud',
       items: [
         {
           label: 'Your First API Call',
-          to: 'idn/api/getting-started',
+          to: 'docs/api/getting-started',
         },
         {
           label: 'Build A Transform',
-          to: 'idn/docs/transforms/guides/your-first-transform',
+          to: 'docs/extensibility/transforms/guides/your-first-transform',
         },
         {
           label: 'Build A SaaS Connector',
-          to: 'idn/docs/saas-connectivity',
+          to: 'docs/connectivity/saas-connectivity',
         },
         {
           label: 'Get Certified',

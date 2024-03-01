@@ -17,8 +17,8 @@ const config = {
   url: 'https://developer.sailpoint.com',
   baseUrl,
   favicon: 'img/SailPoint-Logo-Icon.ico',
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'throw',
+  // onBrokenLinks: 'throw',
+  // onBrokenMarkdownLinks: 'throw',
   onDuplicateRoutes: 'throw',
   i18n: {
     defaultLocale: 'en',

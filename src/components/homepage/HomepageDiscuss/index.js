@@ -66,7 +66,8 @@ function getPostList(posts, index) {
   return {
     tags: posts.topic_list.topics[index].tags,
     link:
-    discourseBaseURL() + 't/' +
+      discourseBaseURL() +
+      't/' +
       posts.topic_list.topics[index].slug +
       '/' +
       posts.topic_list.topics[index].id,

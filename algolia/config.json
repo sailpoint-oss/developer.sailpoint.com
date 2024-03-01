@@ -2,74 +2,74 @@
   "index_name": "prod_DEVELOPER_SAILPOINT_COM",
   "start_urls": [
     {
-      "url": "https://developer.sailpoint.com/idn/docs/transforms",
+      "url": "https://developer.sailpoint.com/docs/extensibility/transforms",
       "tags": ["IDN Documentation", "Transforms"]
     },
     {
-      "url": "https://developer.sailpoint.com/idn/docs/rules",
+      "url": "https://developer.sailpoint.com/docs/extensibility/rules",
       "tags": ["IDN Documentation", "Rules"]
     },
     {
-      "url": "https://developer.sailpoint.com/idn/docs/event-triggers",
+      "url": "https://developer.sailpoint.com/docs/extensibility/event-triggers",
       "tags": ["IDN Documentation", "Event Triggers"]
     },
     {
-      "url": "https://developer.sailpoint.com/idn/docs/saas-configuration",
+      "url": "https://developer.sailpoint.com/docs/extensibility/configuration-management/saas-configuration",
       "tags": ["IDN Documentation", "SaaS Configuration"]
     },
     {
-      "url": "https://developer.sailpoint.com/idn/docs/saas-connectivity",
+      "url": "https://developer.sailpoint.com/docs/connectivity/saas-connectivity",
       "tags": ["IDN Documentation", "SaaS Connectivity"]
     },
     {
-      "url": "https://developer.sailpoint.com/idn/docs/",
+      "url": "https://developer.sailpoint.com/docs/",
       "tags": ["IDN Documentation"]
     },
 
     {
-      "url": "https://developer.sailpoint.com/idn/tools/cli",
+      "url": "https://developer.sailpoint.com/docs/tools/cli",
       "tags": ["IDN Tools", "CLI"],
       "selectors_key": "tools"
     },
     {
-      "url": "https://developer.sailpoint.com/idn/tools/sdk",
+      "url": "https://developer.sailpoint.com/docs/tools/sdk",
       "tags": ["IDN Tools", "SDKs"],
       "selectors_key": "tools"
     },
 
     {
-      "url": "https://developer.sailpoint.com/idn/api/getting-started",
+      "url": "https://developer.sailpoint.com/docs/api/getting-started",
       "selectors_key": "api_v3",
       "tags": ["IDN API Documenation"]
     },
     {
-      "url": "https://developer.sailpoint.com/idn/api/authentication",
+      "url": "https://developer.sailpoint.com/docs/api/authentication",
       "selectors_key": "api_v3",
       "tags": ["IDN API Documenation"]
     },
     {
-      "url": "https://developer.sailpoint.com/idn/api/standard-collection-parameters",
+      "url": "https://developer.sailpoint.com/docs/api/standard-collection-parameters",
       "selectors_key": "api_v3",
       "tags": ["IDN API Documenation"]
     },
     {
-      "url": "https://developer.sailpoint.com/idn/api/rate-limit",
+      "url": "https://developer.sailpoint.com/docs/api/rate-limit",
       "selectors_key": "api_v3",
       "tags": ["IDN API Documenation"]
     },
 
     {
-      "url": "https://developer.sailpoint.com/idn/api/v3",
+      "url": "https://developer.sailpoint.com/docs/api/v3",
       "selectors_key": "api_v3",
       "tags": ["IDN V3 APIs"]
     },
     {
-      "url": "https://developer.sailpoint.com/idn/api/beta",
+      "url": "https://developer.sailpoint.com/docs/api/beta",
       "selectors_key": "api_v3",
       "tags": ["IDN Beta APIs"]
     },
     {
-      "url": "https://developer.sailpoint.com/iiq/api",
+      "url": "https://developer.sailpoint.com/docs/api/iiq",
       "selectors_key": "api_iiq",
       "tags": ["IIQ APIs"]
     }

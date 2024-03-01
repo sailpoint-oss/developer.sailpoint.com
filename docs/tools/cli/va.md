@@ -14,7 +14,7 @@ tags: ['CLI']
 
 Learn about the CLI commands you can use to interact with VAs in this guide. 
 
-A virtual appliance (VA) is a Linux-based virtual machine that connects to your sources and applications in IDN by using APIs, connectors, and other integrations SailPoint has made available. 
+A virtual appliance (VA) is a Linux-based virtual machine that connects to your sources and applications in ISC by using APIs, connectors, and other integrations SailPoint has made available. 
 
 For more information about VAs, refer to the [Virtual Appliance Reference Guide](https://community.sailpoint.com/t5/IdentityNow-Connectors/Virtual-Appliance-Reference-Guide/ta-p/74641?_ga=2.265747530.43742715.1681135659-1245631791.1680185785&_gl=1*1bevvkq*_ga*MTI0NTYzMTc5MS4xNjgwMTg1Nzg1*_ga_SS72Z4HXJM*MTY4MTMwOTc1MC4yOS4xLjE2ODEzMDk5MzkuMjguMC4w). 
 

@@ -78,10 +78,10 @@ export default function AmbassadorSpotlight() {
       </Carousel>
       <div className='pt-8 flex flex-row justify-center'>
         <a
-          style={{backgroundColor: 'white'}}
-          className="font-semibold text-[#0071ce] h-12 text-center text-lg block w-80 px-8 pb-10 py-4 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 rounded-[5px] dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline dark:focus:ring-blue-800"
+          style={{backgroundColor: '#cc27b0', color: 'white'}}
+          className="font-semibold text-white h-12 text-center text-lg block w-80 px-8 pb-10 py-4 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 rounded-[5px] dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline dark:focus:ring-blue-800"
           href="https://developer.sailpoint.com/discuss/t/announcing-the-developer-community-ambassador-program/10634">
-          Become an ambassador
+          Become an Ambassador
         </a>
       </div>
     </div>

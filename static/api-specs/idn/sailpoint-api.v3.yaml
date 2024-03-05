@@ -1048,8 +1048,6 @@ paths:
     $ref: "./v3/paths/certification-task.yaml"
   /certification-tasks:
     $ref: "./v3/paths/certification-tasks.yaml"
-  /connectors:
-    $ref: './v3/paths/connectors-create-custom-connector.yaml'
   /connectors/{scriptName}:
     $ref: './v3/paths/connectors.yaml'
   /connectors/{scriptName}/source-config:
@@ -1060,6 +1058,8 @@ paths:
     $ref: './v3/paths/connectors-source-template.yaml'
   /connectors/{scriptName}/correlation-config:
     $ref: './v3/paths/connectors-correlation-config.yaml'
+  /connectors:
+    $ref: './v3/paths/connectors-create-custom-connector.yaml'
   /identities/{identity-id}/set-lifecycle-state:
     $ref: "./v3/paths/identity-set-lifecycle-state.yaml"
   /identity-profiles/{identity-profile-id}/lifecycle-states:

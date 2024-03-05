@@ -20,8 +20,8 @@ module.exports = [
           from: ['/conf', '/developerdays', '/developerdays/agenda'],
         },
         {
-          to: '/ambassador',
-          from: ['/ambassador-program'],
+          to: '/ambassadors',
+          from: ['/ambassador-program', '/ambassador'],
         },
         { 
           from: ['/idn/docs/saas-configuration'],

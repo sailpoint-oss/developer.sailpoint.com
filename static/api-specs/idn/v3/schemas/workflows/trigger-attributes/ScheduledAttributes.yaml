@@ -1,0 +1,13 @@
+title: Scheduled Trigger Attributes
+type: object
+description: Attributes related to a scheduled trigger
+required:
+- cronString
+properties:
+  cronString:
+    type: string
+    description: A valid CRON expression
+    externalDocs:
+      description: CRON expression editor
+      url: https://crontab.guru/
+    example: "0 * */3 */5 *"

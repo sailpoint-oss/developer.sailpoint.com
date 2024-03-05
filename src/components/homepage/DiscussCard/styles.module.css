@@ -119,7 +119,16 @@
 }
 
 .tags {
+  grid-gap: 10px;
+  bottom: 50px;
+  display: grid;
+  grid-template-columns: auto auto;
+  left: 0;
+  margin: 20px;
   position: absolute;
+  max-width: 250px;
+
+  /* position: absolute;
   margin: 20px;
   width: 230px;
   bottom: 50px;
@@ -127,7 +136,7 @@
 
   display: grid;
   grid-template-columns: max-content max-content max-content;
-  grid-gap: 10px;
+  grid-gap: 10px; */
 }
 
 .idn {

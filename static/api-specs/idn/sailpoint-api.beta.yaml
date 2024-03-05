@@ -892,6 +892,8 @@ tags:
 
       Refer to [Tagging Items in Search](https://documentation.sailpoint.com/saas/help/search/index.html?h=tags#tagging-items-in-search) for more information about tagging objects in IdentityNow. 
   - name: Task Management
+  - name: Tenant
+    description: API for reading tenant details.
   - name: Transforms
     description: Operations for creating, managing, and deleting transforms
   - name: Triggers
@@ -1563,6 +1565,8 @@ paths:
     $ref: './beta/paths/bulk-add-tagged-objects.yaml'
   /tagged-objects/bulk-remove:
     $ref: './beta/paths/bulk-remove-tagged-objects.yaml'
+  /tenant:
+    $ref: './beta/paths/tenant.yaml'
   /transforms:
     $ref: './beta/paths/transforms.yaml'
   /transforms/{id}:

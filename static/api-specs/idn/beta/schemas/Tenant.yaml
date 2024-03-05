@@ -1,0 +1,31 @@
+type: object
+properties:
+  id:
+    type: string
+    readOnly: true
+    description: The unique identifier for the Tenant
+    example: "2c91808568c529c60168cca6f90c1324"
+  name:
+    type: string
+    description: Abbreviated name of the Tenant
+    example: acme
+  fullName:
+    type: string
+    description: Human-readable name of the Tenant
+    example: Acme, Inc
+  pod:
+    type: string
+    description: Deployment pod for the Tenant
+    example: example-pod
+  region:
+    type: string
+    description: Deployment region for the Tenant
+    example: us-east-1
+  description:
+    type: string
+    description: Description of the Tenant
+    example: Description of the Tenant
+  products:
+    type: array
+    items:
+      $ref: './Product.yaml'

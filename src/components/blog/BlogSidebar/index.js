@@ -18,7 +18,7 @@ export default function BlogSidebar({
     const tagTechnologyResultset = []
     const tagProductResultset = []
     for (const tagGroup of data.extras.tag_groups) {
-      if (tagGroup.id === 20) {
+      if (tagGroup.id === 45) {
         for (const tag of tagGroup.tags) {
           tagProductResultset.push(tag.text)
         }

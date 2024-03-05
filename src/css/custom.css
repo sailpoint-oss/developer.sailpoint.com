@@ -243,7 +243,8 @@
   --dev-boarder-color-theme: black;
   --dev-text-color-normal: #415364;
   --dev-text-color-secondary: #0033a1;
-  --dev-icon-color-primary: invert(12%) sepia(90%) saturate(3876%) hue-rotate(221deg) brightness(89%) contrast(102%);
+  --dev-icon-color-primary: invert(12%) sepia(90%) saturate(3876%)
+    hue-rotate(221deg) brightness(89%) contrast(102%);
 
   --dev-secondary-text: #415364;
   --dev-tag-highlight: #eaeef1;
@@ -286,7 +287,8 @@
   --dev-sailpoint-small-logo: url('../../static/img/SailPoint-Logo-RGB-Inverse.png');
   --dev-text-color-normal: #dae1e9;
   --dev-text-color-secondary: #54c0e8;
-  --dev-icon-color-primary: invert(87%) sepia(26%) saturate(6104%) hue-rotate(165deg) brightness(96%) contrast(89%);
+  --dev-icon-color-primary: invert(87%) sepia(26%) saturate(6104%)
+    hue-rotate(165deg) brightness(96%) contrast(89%);
 
   --text-on-primary: #ffffff;
 
@@ -309,7 +311,7 @@
   margin-right: 0.5rem;
 }
 
-@media only screen and (max-width: 1291px) {
+@media only screen and (max-width: 1415px) {
   .navbar__logo {
     content: var(--dev-sailpoint-small-logo);
   }
@@ -317,6 +319,16 @@
 @media only screen and (max-width: 1043px) {
   .navbar__item {
     padding: 4px 8px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  button[class^='navbar__toggle clean-btn'] {
+    display: inherit !important;
+  }
+
+  a[class^='navbar__item navbar__link'] {
+    display: none;
   }
 }
 
@@ -460,14 +472,24 @@ ul {
 }
 
 div[class^='announcementBar_'] {
-  background: repeating-linear-gradient(145deg,rgba(0,51,161,1),rgba(0,79,181,1),rgba(0,113,206,1));
+  background: repeating-linear-gradient(
+    145deg,
+    rgba(0, 51, 161, 1),
+    rgba(0, 79, 181, 1),
+    rgba(0, 113, 206, 1)
+  );
   color: #ffffff;
   height: 35px;
 }
 
 @media screen and (max-width: 750px) {
   div[class^='announcementBar_'] {
-    background: repeating-linear-gradient(145deg,rgba(0,51,161,1),rgba(0,79,181,1),rgba(0,113,206,1));
+    background: repeating-linear-gradient(
+      145deg,
+      rgba(0, 51, 161, 1),
+      rgba(0, 79, 181, 1),
+      rgba(0, 113, 206, 1)
+    );
     color: #ffffff;
     height: 52.5px;
   }
@@ -488,6 +510,6 @@ code[class^='openapi-explorer__code-block'] {
   max-height: 400px !important;
 }
 
-iframe#webpack-dev-server-client-overlay{
-  display:none!important
+iframe#webpack-dev-server-client-overlay {
+  display: none !important;
 }

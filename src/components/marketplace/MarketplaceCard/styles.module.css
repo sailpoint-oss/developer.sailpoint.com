@@ -2,7 +2,7 @@
 .card {
   position: relative;
   margin-top: 20px;
-  height: 500px;
+  height: 575px;
   /* UI Properties */
   background: var(--dev-card-background);
   box-shadow: var(--dev-card-shadow);
@@ -10,7 +10,8 @@
   border-radius: 40px;
   opacity: 1;
   transition: all  0.3s;
-  max-width: 400px;
+  width: 415px;
+  max-width: 415px;
 }
 
 .card:hover {
@@ -39,8 +40,10 @@
 
 
 .cardTitle {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
+  padding-top: 2%;
+  padding-bottom: 2%;
 }
 
 .cardBody {

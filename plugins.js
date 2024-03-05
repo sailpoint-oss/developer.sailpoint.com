@@ -23,6 +23,10 @@ module.exports = [
           to: '/ambassador',
           from: ['/ambassador-program'],
         },
+        { 
+          from: ['/idn/docs/saas-configuration'],
+          to: '/docs/extensibility/configuration-management/saas-configuration/',
+        },
         {
           from: ['/idn/docs/event-triggers'],
           to: '/docs/extensibility/event-triggers',

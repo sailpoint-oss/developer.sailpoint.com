@@ -414,6 +414,12 @@ html[data-theme='dark'] .header-github-link:before {
   border-bottom: 1px solid var(--ifm-color-emphasis-400);
 }
 
+.navbar__section__link {
+  font-weight: bolder;
+  background-color: transparent !important;
+  border-radius: 0;
+}
+
 .indent {
   padding-left: 1rem;
 }

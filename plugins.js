@@ -25,7 +25,7 @@ module.exports = [
         },
         { 
           from: ['/idn/docs/saas-configuration'],
-          to: '/docs/extensibility/configuration-management/saas-configuration/',
+          to: '/docs/extensibility/configuration-management/saas-configuration',
         },
         {
           from: ['/idn/docs/event-triggers'],

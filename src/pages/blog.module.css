@@ -3,15 +3,26 @@
 }
 
 .blogSidbarContainer {
-    flex: 5%;
-}
-
-@media only screen and (max-width: 870px) {
-    .blogSidbarContainer {
-      display: none;
-    }
+    flex: 20%;
+    margin-left: 1%;
 }
 
 .blogCardContainer {
-    flex: 95%;
+    flex: 65%;
+    margin-right: 4%;
 }
+
+@media only screen and (max-width: 1625px) {
+    .blogContainer {
+        display: block;
+    }
+
+    .blogCardContainer {
+        flex: 90%;
+    }
+
+    .blogSidbarContainer {
+        flex: 0%;
+    }
+}
+

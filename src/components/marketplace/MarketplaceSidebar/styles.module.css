@@ -1,8 +1,13 @@
-
 .sidebar {
   width: 400px;
   height: 100%;
   margin-left: 50px;
+}
+
+@media only screen and (max-width: 950px) {
+  .sidebar {
+    margin-left: 0px;
+  }
 }
 
 .tagHeader {
@@ -17,7 +22,6 @@
   flex-direction: column;
 }
 
-
 .hidden {
   display: none;
 }
@@ -31,7 +35,6 @@
   width: 100%;
   transition: background-color 500ms;
   text-align: center;
-  
 }
 
 .seeAll:hover {

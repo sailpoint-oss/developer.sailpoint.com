@@ -8,7 +8,7 @@
   margin-right: 40px;
 }
 .gridContainer::after {
-  content: "";
+  content: '';
   flex: auto;
 }
 
@@ -20,8 +20,6 @@
     display: none;
   }
 }
-
-
 
 .center {
   margin: 0px auto;
@@ -39,9 +37,6 @@
   padding: 8px;
   margin: 50px;
 }
-
-
-
 
 .modal {
   position: absolute;
@@ -61,20 +56,18 @@
   overflow-y: auto;
 }
 
-
-
-
 .cardExit {
   position: absolute;
   top: 6px;
   right: 6px;
   fill: #96a9bb;
   /* computed from codepen https://codepen.io/sosuke/pen/Pjoqqp */
-  filter: invert(79%) sepia(12%) saturate(484%) hue-rotate(168deg) brightness(84%) contrast(84%);
+  filter: invert(79%) sepia(12%) saturate(484%) hue-rotate(168deg)
+    brightness(84%) contrast(84%);
   margin-left: 5px;
   height: 24px;
   width: 24px;
-  transition: all  0.2s;
+  transition: all 0.2s;
 }
 
 .cardExit:hover {
@@ -83,7 +76,6 @@
   height: 23px;
   width: 23px;
 }
-
 
 .spinnerCenter {
   margin: 100px auto;

@@ -14,17 +14,19 @@ export default function BlogCard({
   name,
   views,
   replies,
-  readTime
+  readTime,
 }) {
-
   return (
     <Link to={link}>
-      <div className={styles.card} >
-
+      <div className={styles.card}>
         <div className={styles.cardData}>
-          <img className={styles.cardEye} src={useBaseUrl('/blog/eye-regular.svg')}></img>
+          <img
+            className={styles.cardEye}
+            src={useBaseUrl('/blog/eye-regular.svg')}></img>
           <div className={styles.cardCommentText}>{views}</div>
-          <img className={styles.cardComment} src={useBaseUrl('/blog/comment-light.svg')}></img>
+          <img
+            className={styles.cardComment}
+            src={useBaseUrl('/blog/comment-light.svg')}></img>
           <div className={styles.cardCommentText}>{replies}</div>
         </div>
 
@@ -33,24 +35,26 @@ export default function BlogCard({
           <div className={styles.cardName}>{name}</div>
         </div>
 
-
         <div className={styles.cardText}>
           <img className={styles.cardImage} src={useBaseUrl(image)}></img>
           <div className={styles.cardTitle}>{title}</div>
+          <div></div>
+
           <div className={styles.tags}>
             {tags?.map((tag, index) => {
               if (index > 2) {
                 return '';
               }
-              return <div key={tag} className={styles.tag}>{tag}</div>;
+              return (
+                <div key={tag} className={styles.tag}>
+                  {tag}
+                </div>
+              );
             })}
           </div>
+
           <div className={styles.cardBody}>{excerpt}</div>
         </div>
-        
-
-
-
       </div>
     </Link>
   );

@@ -48,9 +48,9 @@ export default function VideoLibrary() {
           <div className={styles.blogCardContainer}>
             <VideoCards filterCallback={filteredProduct} />
           </div>
-          <div id="discourseContainer" className={styles.discourseContainer}>
-            <DiscourseEmbed discourseEmbedUrl={"test"}></DiscourseEmbed>
-          </div>
+        </div>
+        <div id="discourseContainer" className={styles.discourseContainer}>
+          <DiscourseEmbed discourseEmbedUrl={'test'}></DiscourseEmbed>
         </div>
       </main>
     </Layout>

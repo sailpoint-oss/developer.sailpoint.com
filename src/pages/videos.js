@@ -3,6 +3,7 @@ import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import VideoCards from '../components/video-library/VideoCards';
 import VideoSidebar from '../components/video-library/VideoSidebar';
+import DiscourseEmbed from '../components/video-library/VideoComments';
 import styles from './exchange.module.css';
 
 export default function VideoLibrary() {
@@ -48,7 +49,7 @@ export default function VideoLibrary() {
             <VideoCards filterCallback={filteredProduct} />
           </div>
           <div id="discourseContainer" className={styles.discourseContainer}>
-            <DiscourseEmbed discourseEmbedUrl={props.route.customProps.uuid}></DiscourseEmbed>
+            <DiscourseEmbed discourseEmbedUrl={"test"}></DiscourseEmbed>
           </div>
         </div>
       </main>

@@ -1,4 +1,6 @@
 post:
+  security:
+    - UserContextAuth: [sp:saved-search:create]
   tags:
     - Saved Search
   description: |
@@ -23,14 +25,22 @@ post:
             $ref: '../schemas/search/saved/SavedSearch.yaml'
     '400':
       $ref: '../responses/400.yaml'
-    '403':
-      $ref: '../responses/403.yaml'
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"
 get:
+  security:
+    - UserContextAuth: [sp:saved-search:read]
   tags:
     - Saved Search
   description: |
     Returns a list of saved searches.
-  summary: Return a list of Saved Searches
+  summary: A list of Saved Searches
   operationId: listSavedSearches
   parameters:
   - $ref: '../parameters/offset.yaml'
@@ -48,10 +58,7 @@ get:
 
 
       **owner.id**: *eq*
-
-
-      **publiic**: *eq*
-    example: public eq true
+    example: owner.id eq "7a724640-0c17-4ce9-a8c3-4a89738459c8"
   responses:
     '200':
       description: The list of requested saved searches.
@@ -69,5 +76,11 @@ get:
           example: 5
     '400':
       $ref: '../responses/400.yaml'
-    '403':
-      $ref: '../responses/403.yaml'
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"

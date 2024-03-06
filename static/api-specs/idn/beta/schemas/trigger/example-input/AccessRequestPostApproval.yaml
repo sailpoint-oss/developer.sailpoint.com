@@ -15,8 +15,12 @@ properties:
     - id
     - type
     - name
-    allOf:
-    - $ref: './AccessItemRequestedForDto.yaml'
+    type: array
+    description: Identities access was requested for. 
+    items: 
+      $ref: './AccessItemRequestedForDto.yaml'
+    minItems: 1
+    maxItems: 10
   requestedItemsStatus:
     description: Details on the outcome of each access item.
     type: array

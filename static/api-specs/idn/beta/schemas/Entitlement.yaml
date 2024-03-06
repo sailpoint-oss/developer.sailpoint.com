@@ -22,6 +22,7 @@ properties:
     type: string
     description: The entitlement attribute name
     example: "memberOf"
+    nullable: true
   value:
     type: string
     description: The value of the entitlement
@@ -42,6 +43,7 @@ properties:
     example: true
   description:
     type: string
+    nullable: true
     description: The description of the entitlement
     example: "CN=LauncherTest2,OU=LauncherTestOrg,OU=slpt-automation,DC=TestAutomationAD,DC=local"
   requestable:
@@ -69,8 +71,11 @@ properties:
         type: string
         description: The source name
         example: ODS-AD-Source
+        nullable: true
   owner:
-    $ref: '../schemas/gov-entitlement/OwnerReferenceDto.yaml'
+    allOf:
+    - $ref: '../schemas/gov-entitlement/OwnerReferenceDto.yaml'
+    - nullable: true
   directPermissions:
     type: array
     items:
@@ -86,14 +91,16 @@ properties:
         "29cb6c06-1da8-43ea-8be4-b3125f248f2a"
     ]
   manuallyUpdatedFields:
-    description: >-
-      Object contains entitlement manually updated fields.
-      Field value is true if is was updated manually via entitlement import csv or patch endpoint.
-      Field value is false if that property value has not been changed after first entitlement aggregation.
-      Values for all manually updatable fields must be specified.
-      For now only two entitlement fields support this: DISPLAY_NAME and DESCRIPTION.
-    example: {
-        "DISPLAY_NAME": true,
-        "DESCRIPTION": true
-    }
-    $ref: '../schemas/gov-entitlement/ManuallyUpdatedFieldsDTO.yaml'
+    allOf:
+    - $ref: '../schemas/gov-entitlement/ManuallyUpdatedFieldsDTO.yaml'
+    - nullable: true
+      description: >-
+        Object contains entitlement manually updated fields.
+        Field value is true if is was updated manually via entitlement import csv or patch endpoint.
+        Field value is false if that property value has not been changed after first entitlement aggregation.
+        Values for all manually updatable fields must be specified.
+        For now only two entitlement fields support this: DISPLAY_NAME and DESCRIPTION.
+      example: {
+          "DISPLAY_NAME": true,
+          "DESCRIPTION": true
+      }

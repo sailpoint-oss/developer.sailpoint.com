@@ -20,5 +20,6 @@ allOf:
         example: false
       features:
         type: string
+        nullable: true
         description: A string list containing the owning source's features
         example: 'ENABLE'

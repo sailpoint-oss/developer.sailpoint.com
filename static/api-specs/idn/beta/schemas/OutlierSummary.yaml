@@ -20,5 +20,7 @@ properties:
     type: integer
     description: Total number of identities for the customer making the request
     example: 5000
-
-
+  totalIgnored:
+    type: integer
+    default: 0
+    example: 0

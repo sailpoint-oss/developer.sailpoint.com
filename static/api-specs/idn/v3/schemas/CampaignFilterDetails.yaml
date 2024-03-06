@@ -17,6 +17,7 @@ properties:
     type: string
     description: The owner of this filter. This field is automatically populated at creation time with the current user.
     example: SailPoint Support
+    nullable: true
   mode:
     description: >-
       The mode/type of Filter, where it is of INCLUSION or EXCLUSION type. INCLUSION type will include the data in generated campaign 
@@ -34,15 +35,19 @@ properties:
         type:
           $ref: './CriteriaType.yaml'
         operation:
-          $ref: './Operation.yaml'
+          allOf:
+          - $ref: './Operation.yaml'
+          - nullable: true
         property:
           type: string
           description: The specified key from the Type of criteria.
           example: displayName
+          nullable: true
         value:
           type: string
           description: The value for the specified key from the Type of Criteria
           example: Allie
+          nullable: true
       required:
         - type
         - property

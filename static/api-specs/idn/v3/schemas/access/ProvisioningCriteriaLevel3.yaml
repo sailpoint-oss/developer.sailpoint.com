@@ -17,5 +17,12 @@ properties:
             NOT_EQUALS, or CONTAINS, this field is required. Otherwise, specifying it is an error. If the Attribute is
             not String-typed, it will be converted to the appropriate type.
         example: "carlee.cert1c9f9b6fd@mailinator.com"
+    children:
+        type: string
+        description: >-
+            Array of child criteria. Required if the operation is AND or OR, otherwise it must be left null. A maximum
+            of three levels of criteria are supported, including leaf nodes.
+        example: null
+        nullable: true
 
             

@@ -1,4 +1,13 @@
 /* Getting Started Card container */
+.bottomGridContainer {
+  display: grid;
+  place-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
+  grid-gap: 30px;
+  margin-right: 170px;
+  margin-left: 190px;
+}
+
 .gridContainer {
   display: grid;
   place-content: center;

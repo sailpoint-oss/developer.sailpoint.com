@@ -18,8 +18,6 @@ import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import Markdown from "@theme/Markdown";
-import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
 <h1 className={"openapi__heading"}>Get user role pairings</h1>
@@ -32,7 +30,7 @@ This endpoint can retrieve user role pairings from Lifecycle or you can search f
 
 ## Request
 
-<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Query Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"query","in":"query","description":"Allows for pagination and sorting.","required":false,"schema":{"type":"object","properties":{"limit":{"type":"integer","example":100},"offset":{"type":"integer","example":50},"order":{"type":"string","example":"created_at"}},"example":{"limit":100,"offset":50,"order":"created_at"}},"style":"deepObject","explode":true}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"user_id","in":"query","description":"The ID of a user for filtering","required":false,"schema":{"type":"string","format":"uuid","example":"bba9cfb2-96c1-4acb-ac79-a21732527265"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"role_id","in":"query","description":"The ID of a role for filtering","required":false,"schema":{"type":"string","format":"uuid"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"metadata","in":"query","description":"Returns batching metadata in the response","required":false,"schema":{"type":"boolean","default":false,"example":true}}}></ParamsItem></ul></div></details><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Query Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"query","in":"query","description":"Allows for pagination and sorting.","required":false,"schema":{"type":"object","properties":{"limit":{"type":"integer","example":100},"offset":{"type":"integer","example":50},"order":{"type":"string","example":"created_at"}},"example":{"limit":100,"offset":50,"order":"created_at"}},"style":"deepObject","explode":true}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"user_id","in":"query","description":"The ID of a user for filtering","required":false,"schema":{"type":"string","format":"uuid","example":"bba9cfb2-96c1-4acb-ac79-a21732527265"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"role_id","in":"query","description":"The ID of a role for filtering","required":false,"schema":{"type":"string","format":"uuid"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"metadata","in":"query","description":"Returns batching metadata in the response","required":false,"schema":{"type":"boolean","default":false,"example":true}}}></ParamsItem></ul></div></details><div><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
 
 Expected response to a valid request
 

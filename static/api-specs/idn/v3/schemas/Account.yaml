@@ -92,3 +92,8 @@ allOf:
           id: "4c5c8534e99445de98eef6c75e25eb01"
           type: "IDENTITY"
           name: "SailPoint Support"
+      features:
+        type: string
+        description: A string list containing the owning source's features
+        example: 'ENABLE'
+        nullable: true

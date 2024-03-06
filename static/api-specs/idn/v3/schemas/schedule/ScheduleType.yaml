@@ -8,4 +8,5 @@ enum:
 - WEEKLY
 - MONTHLY
 - CALENDAR
+- ANNUALLY
 example: WEEKLY

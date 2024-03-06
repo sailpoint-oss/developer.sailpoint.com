@@ -18,6 +18,29 @@ Resources:
   # https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 
   # This is an API gateway associated with the developerSailpointGetByIdFunction and developerSailpointPutItemFunctions
+
+  MessageApiAuthRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Principal:
+              Service:
+                - "apigateway.amazonaws.com"
+            Action:
+              - sts:AssumeRole
+      Policies:
+        - PolicyName: "InvokeMessageAuthFunction"
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: "Allow"
+                Action:
+                  - lambda:InvokeAsync
+                  - lambda:InvokeFunction
+                Resource: !GetAtt DeveloperSailpointAuthFunction.Arn
   DeveloperSailpointApiGatewayApiv2:
     Type: AWS::Serverless::HttpApi
     Properties:
@@ -31,12 +54,40 @@ Resources:
           - "Content-Type"
         AllowOrigins:
           - "https://developer.sailpoint.com"
+      DefaultRouteSettings:
+        DetailedMetricsEnabled: true
+      Auth:
+        DefaultAuthorizer: LambdaAuthorizer
+        Authorizers:
+          LambdaAuthorizer:
+            FunctionPayloadType: REQUEST
+            FunctionArn: !GetAtt DeveloperSailpointAuthFunction.Arn
+            FunctionInvokeRole: !GetAtt MessageApiAuthRole.Arn
+            Identity:
+              Headers:
+                - Authorization
+            AuthorizerPayloadFormatVersion: 2.0
+            EnableSimpleResponses: false
+  DeveloperSailpointAuthFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Environment:
+        Variables:
+          AUTH_USERNAME: !Ref AuthUsername
+          AUTH_PASSWORD: !Ref AuthPassword
+      CodeUri: backend/src/auth/
+      Handler: index.authHandler
+      Runtime: nodejs18.x
+      Architectures:
+        - x86_64
+      MemorySize: 128
+      Timeout: 100
   # This is a Lambda function config associated with the source code: get-by-id.js
   developerSailpointGetByIdFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: backend/
-      Handler: src/handlers/get-by-id.getByIdHandler
+      CodeUri: backend/src/handlers/
+      Handler: get-by-id.getByIdHandler
       Runtime: nodejs18.x
       Architectures:
         - x86_64
@@ -61,6 +112,8 @@ Resources:
             Method: GET
             ApiId:
               Ref: DeveloperSailpointApiGatewayApiv2
+            Auth:
+              Authorizer: NONE
   # Each Lambda function is defined by properties:
   # https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
   # DynamoDB table to store item: {id: &lt;ID&gt;, name: &lt;NAME&gt;}
@@ -152,6 +205,13 @@ Resources:
         OriginAccessControlOriginType: "s3"
         SigningBehavior: "always"
         SigningProtocol: "sigv4"
+Parameters:
+  AuthUsername:
+    Type: String
+    Description: Username for basic auth
+  AuthPassword:
+    Type: String
+    Description: Password for basic auth
 Outputs:
   DeveloperSailpointAPIGatewayEndpoint:
     Description: "API Gateway endpoint URL for Prod stage"

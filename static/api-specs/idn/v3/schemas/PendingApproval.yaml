@@ -29,7 +29,12 @@ properties:
   requester:
     $ref: './AccessItemRequester.yaml'
   requestedFor:
-    $ref: './AccessItemRequestedFor.yaml'
+    type: array
+    description: Identities access was requested for. 
+    items: 
+      $ref: './AccessItemRequestedFor.yaml'
+    minItems: 1
+    maxItems: 10
   owner:
     type: object
     description: Access item owner's identity. 
@@ -66,6 +71,7 @@ properties:
     description: The history of approval forward action.
   commentRequiredWhenRejected:
     type: boolean
+    default: false
     description: When true the rejector has to provide comments when rejecting
     example: true
   actionInProcess:
@@ -78,6 +84,7 @@ properties:
     example: '2020-07-11T00:00:00Z'
   removeDateUpdateRequested:
     type: boolean
+    default: false
     description: If true, then the request is to change the remove date or sunset date.
     example: true
   currentRemoveDate:

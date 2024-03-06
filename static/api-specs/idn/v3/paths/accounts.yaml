@@ -58,7 +58,7 @@ get:
         Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
 
 
-        Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated, identity.name**
+        Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, identity.id, nativeIdentity, uuid, manuallyCorrelated, identity.name**
   responses:
     "200":
       description: List of account objects
@@ -87,6 +87,8 @@ post:
     This API submits an account creation task and returns the task ID.  
 
     The `sourceId` where this account will be created must be included in the `attributes` object.
+
+    >**Note: This API only supports account creation for file based sources.**
 
     A token with ORG_ADMIN authority is required to call this API.
   security:

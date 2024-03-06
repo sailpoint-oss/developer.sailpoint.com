@@ -1,7 +1,12 @@
 type: object
 description: Type of Reassignment Configuration.
 properties:
+  priority:
+    type: integer
+    example: 1
   internalName:
+    $ref: 'ConfigTypeEnumCamel.yaml'
+  internalNameCamel:
     $ref: 'ConfigTypeEnum.yaml'
   displayName:
     type: string

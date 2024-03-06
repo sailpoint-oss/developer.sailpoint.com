@@ -45,9 +45,13 @@ get:
         Event will be created if there is any result present by requested taskResultId.
   responses:
     '200':
-      description: Details about running report task.
+      description: Report file in selected format. CSV by default.
       content:
-        application/octet-stream:
+        application/csv:
+          schema:
+            type: string
+            format: binary
+        application/pdf:
           schema:
             type: string
             format: binary

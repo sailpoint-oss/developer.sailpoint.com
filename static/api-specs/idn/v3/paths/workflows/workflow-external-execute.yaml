@@ -1,0 +1,60 @@
+post:
+  operationId: createExternalExecuteWorkflow
+  tags:
+    - Workflows
+  summary: Execute Workflow via External Trigger
+  description: >-
+    This endpoint allows a service outside of IdentityNow to initiate a workflow that uses the "External Trigger" step.  The external service will invoke this endpoint with the input data it wants to send to the workflow in the body.
+  security:
+    - UserContextAuth: [sp:workflow-execute:external]
+  parameters:
+    - name: id
+      in: path
+      description: Id of the workflow
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: c17bea3a-574d-453c-9e04-4365fbf5af0b
+  requestBody:
+    required: false
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            input:
+              type: object
+              description: The input for the workflow
+              example: {
+                "customAttribute1": "value1",
+                "customAttribute2": "value2"
+              }
+  responses:
+    '200':
+      description: The Workflow object
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              workflowExecutionId:
+                type: string
+                description: The workflow execution id
+                example: 0e11cefa-96e7-4b67-90d0-065bc1da5753
+              message:
+                type: string
+                description: An error message if any errors occurred
+                example: Workflow was not executed externally. Check enabled flag on workflow definition
+
+    '400':
+      $ref: '../../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../../v3/responses/500.yaml'

@@ -9,5 +9,7 @@ enum:
   - UNLOCK
   - LOCK
   - REMOVE
+  - SET
+  - null
 description: Represents an operation in an account activity item
 example: ADD

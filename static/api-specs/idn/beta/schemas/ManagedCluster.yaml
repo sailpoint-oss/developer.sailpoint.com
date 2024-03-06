@@ -112,3 +112,15 @@ properties:
     type: string
     default: "0"
     example: "1533"
+  createdAt:
+    description: The date/time this cluster was created
+    example: '2023-08-04T20:48:01.865Z'
+    nullable: true
+    type: string
+    format: date-time
+  updatedAt:
+    description: The date/time this cluster was last updated
+    example: '2023-08-04T20:48:01.865Z'
+    nullable: true
+    type: string
+    format: date-time

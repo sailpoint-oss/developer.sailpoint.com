@@ -1,0 +1,52 @@
+type: object
+properties:
+  identitiesWithAccess:
+    type: integer
+    format: int64
+    nullable: true
+    description:
+      A count of the provided manager's direct reports that have already been granted the access item in question.
+    example: 8
+  identitiesWithActivity:
+    type: integer
+    format: int64
+    nullable: true
+    description: >-
+      A count of the provided manager's direct reports that have activity within the associated source.
+    example: 5
+  totalIdentities:
+    type: integer
+    format: int64
+    nullable: true
+    description: >-
+      Total number of identities who share a manager with the identity requesting access.
+    example: 10
+  squadAvailable:
+    type: boolean
+    default: false
+    description: >-
+      True if the manager's ID can be found.
+      False if the manager's ID cannot be found.
+    example: true
+  validActivityObject:
+    type: boolean
+    default: false
+    description: >-
+      True if the requested access item is associated with a single Activity Data Insights connector source. 
+      False if the requested access item type is a role. If it's a role, it matches to multiple sources,
+      so a single relevant source can't be determined for activity metrics.
+    example: true
+  activitySourceConfigured:
+    type: boolean
+    default: false
+    description: >-
+      True if the Activity Data Insights connector is configured for the source associated with the requested access item.
+      False if the matching Activity Data Insights connector is not configured.
+    example: true
+  requestedObjectActive:
+    type: boolean
+    default: false
+    description: >-
+      True if the requested access item exists and is available.
+      False if the requested access item is either missing or deleted.
+    example: true

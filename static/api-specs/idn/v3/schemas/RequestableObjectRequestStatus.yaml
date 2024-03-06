@@ -3,6 +3,7 @@ enum:
   - AVAILABLE
   - PENDING
   - ASSIGNED
+  - null
 description: >-
   Status indicating the ability of an access request for the object to be made by or on behalf of the identity
   specified by *identity-id*. *AVAILABLE* indicates the object is available to request. *PENDING* indicates the object

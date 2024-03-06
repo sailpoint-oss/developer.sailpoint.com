@@ -1,0 +1,15 @@
+name: sort
+in: query
+description: How records should be sorted
+required: false
+schema:
+  type: object
+  example: { attr: "sync", order: "asc" }
+  properties:
+    attr:
+      type: string
+      example: sync
+    order:
+      type: string
+      enum: [asc, desc]
+      example: asc

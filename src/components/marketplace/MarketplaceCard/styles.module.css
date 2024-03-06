@@ -9,7 +9,7 @@
   border: 1px solid var(--dev-card-background);
   border-radius: 40px;
   opacity: 1;
-  transition: all  0.3s;
+  transition: all 0.3s;
   width: 415px;
   max-width: 415px;
 }
@@ -19,10 +19,6 @@
   transform: translate(0px, -5px);
   box-shadow: var(--dev-card-selected);
 }
-
-
-
-
 
 .cardText {
   display: flex;
@@ -37,7 +33,6 @@
   justify-content: center;
   aspect-ratio: 16/9;
 }
-
 
 .cardTitle {
   font-size: 20px;
@@ -71,10 +66,6 @@
   margin-bottom: 10px;
 }
 
-
-
-
-
 .cardUser {
   position: absolute;
   bottom: 10px;
@@ -95,10 +86,6 @@
   margin-left: 10px;
 }
 
-
-
-
-
 .cardData {
   position: absolute;
   bottom: 20px;
@@ -110,7 +97,8 @@
 .cardEye {
   fill: #96a9bb;
   /* computed from codepen https://codepen.io/sosuke/pen/Pjoqqp */
-  filter: invert(79%) sepia(12%) saturate(484%) hue-rotate(168deg) brightness(84%) contrast(84%);
+  filter: invert(79%) sepia(12%) saturate(484%) hue-rotate(168deg)
+    brightness(84%) contrast(84%);
   margin-left: 5px;
   height: 18px;
   width: 18px;
@@ -120,7 +108,8 @@
   margin-left: 10px;
   fill: #96a9bb;
   /* computed from codepen https://codepen.io/sosuke/pen/Pjoqqp */
-  filter: invert(79%) sepia(12%) saturate(484%) hue-rotate(168deg) brightness(84%) contrast(84%);
+  filter: invert(79%) sepia(12%) saturate(484%) hue-rotate(168deg)
+    brightness(84%) contrast(84%);
   height: 18px;
   width: 18px;
   margin-bottom: 4px;
@@ -134,9 +123,6 @@
   height: 20px;
   font-size: 16px;
 }
-
-
-
 
 /* .cardBadge {
   position: absolute;
@@ -168,7 +154,6 @@
   margin-left: -19px;
   margin-top: 15px;
 }
-
 
 .cardBadgeCertified {
   position: absolute;

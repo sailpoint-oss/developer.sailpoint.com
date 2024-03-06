@@ -89,7 +89,6 @@ export default function BlogCards({
 }
 
 async function getPostList(topic, user) {
-  console.log(topic)
   return {
     name: user.name,
     excerpt: styleExcerpt(topic.excerpt),

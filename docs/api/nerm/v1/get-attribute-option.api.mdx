@@ -1,0 +1,47 @@
+---
+id: get-attribute-option
+sidebar_label: Find option based attribute value by id
+hide_title: true
+hide_table_of_contents: true
+api: eJydVdtuGzcQ/RWCTy2gm2W5TRfog4o6hYomLmy3L4YQjHZnJSa75IYXRYvF/ntnSMmWI9WN6wdrSc5wzpk5M+ykadCCV0YvCpnJNfq591atgsebhrflQBbocqvSKpMLXRpRGitAuAZzVapcmHgoVuCwEHC4QGyhCkgXeFg7mT3Ip5Pk4ORyIBuwUKNHyyad1LSgKKogP8XxGvCbUxC/ClMKv6GbVh8x98IbYZFuxy0ORGgK8PRLIAus6G7yt/g5KItE0tuAA+nyDdYgs076tuGIjrz1miyJWw2edkKIKHAHdVOxycV09kPxZnU5hHz603A2ubgavrm4mg0LhNnscgY/XpYg+37J0VxD/NBxgOlkwj/PGVzvKHme0nUwZQrAKVO89zmg8xQ8N9qj9uwPTVOpPNZq/NHxJd0pi5QOcmwsV9arBEHjh8fkfzB7DP/lROy/IT0WobjRVZsS2w9kOO9XK/0H6jUVM7uc0hJ2x8uTW54h/hYk5HNCbG/a05lXPtbwK3kPp3TKfwM5O1emX6AQt6kaYiiChlUVK5Ub1oTH0WtqZDTelFHlXyf+gG6howB+Z9d+8O92f7NVDHNtraHW6ZeJxNU5EgvCZzVU4g7tFq2IPkSHOiZYTRqk3g16A7qoaIG7HFN7vorcy1pCDnmKbC5qdA7WKNL+isoV2zrZHzffnbG2Fc7QrNiw1RdCJb5YE+u7LyGfmf0cYwg8OjI5PqN+N+5U0ZONiylJsyfYisw33jcuG4874g3av6eB1I801Y6AmBZxRLUfQ6PIeQtWsSIixSfzxLOEULE6Ia8xNycj7D6aC553ApxTay4EKys4TyQts1oyvjxY5dsIcIVg0c4D03pYHh/fcR0SjmOjx7IwKbmferxORrSTPt4eWunefEJNMOj/z60JNn3GDlI0+PlGTleicDGajCZHqnx/fftOzP9cnHKlih4ORQ70UqAILvGFPCcJCBKfqE2hylZwVk1wPBkJAZ0KpUUEg3qrqOI1lZ61SWpEmpxxwKVn493iPmJtjPM16KOTt4oCvPROiVUr4kB7Br17aoD/9fKl7Hvc+XFTgeKuTjLr9up8ODebHblmBIYKvCEmbNV1HOMvW/U9b9NEsqyJ5ZMIo0IK5fibeqCEyuELbL673b+I34vXv6Znee03QbexNTgDmaTPT9imF52GFBGiSU/KY7DpYJ7zvDlyOZkzLPTH1v7tmkv8D4nXBUk=
+sidebar_class_name: "get api-method"
+info_path: docs/api/nerm/v1/nerm-api
+custom_edit_url: "https://github.com/sailpoint-oss/developer.sailpoint.com/issues/new?assignees=&labels=&template=bug-report.md&title=%5BBug%5D+Your+Bug+Report+Here Requesting changes to 'Find option based attribute value by id' (get-attribute-option)"
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Find option based attribute value by id</h1>
+
+<MethodEndpoint method={"get"} path={"/ne_attribute_options/{id}"}></MethodEndpoint>
+
+
+
+Info for a specific option based attribute value
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"id","in":"path","description":"ID of the object to retrieve, update, or delete","required":true,"schema":{"type":"string","format":"uuid","example":"1246d8b3-ac29-4015-8154-dea4434a73fa"}}}></ParamsItem></ul></div></details><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+
+Expected response to a valid request
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>ne_attribute_option</strong><span className={"openapi-schema__name"}> object</span></span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"id"} required={false} schemaName={"uuid"} qualifierMessage={undefined} schema={{"type":"string","format":"uuid","readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"uid"} required={false} schemaName={"string"} qualifierMessage={"**Possible values:** `>= 32 characters` and `<= 32 characters`"} schema={{"type":"string","minLength":32,"maxLength":32,"readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"ne_attribute_id"} required={false} schemaName={"uuid"} qualifierMessage={undefined} schema={{"type":"string","format":"uuid"}}></SchemaItem><SchemaItem collapsible={false} name={"option"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem></div></details></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"ne_attribute_option\": {\n    \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\n    \"uid\": \"string\",\n    \"ne_attribute_id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\n    \"option\": \"string\"\n  }\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request - unable to complete.
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div><span className={"badge badge--info"}>oneOf</span><SchemaTabs><TabItem label={"InvalidJson"} value={"0-item-properties"}><SchemaItem collapsible={false} name={"error"} required={false} schemaName={""} qualifierMessage={undefined} schema={{"example":"Invalid JSON syntax. Please check your syntax and try again."}}></SchemaItem></TabItem><TabItem label={"ValidationErrors"} value={"1-item-properties"}><SchemaItem collapsible={false} name={"error"} required={false} schemaName={""} qualifierMessage={undefined} schema={{"example":"The <object> failed to create/update"}}></SchemaItem><SchemaItem collapsible={false} name={"errors"} required={false} schemaName={""} qualifierMessage={undefined} schema={{"example":{"attribute":"can't be blank"}}}></SchemaItem></TabItem></SchemaTabs></div></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"500"} value={"500"}><div>
+
+Internal Server Error - returned on unhandled exceptions.
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"error"} required={false} schemaName={""} qualifierMessage={undefined} schema={{"description":"A message describing the error","example":"Sorry something went wrong"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"error\": \"Sorry something went wrong\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>

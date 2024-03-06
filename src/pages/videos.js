@@ -47,6 +47,9 @@ export default function VideoLibrary() {
           <div className={styles.blogCardContainer}>
             <VideoCards filterCallback={filteredProduct} />
           </div>
+          <div id="discourseContainer" className={styles.discourseContainer}>
+            <DiscourseEmbed discourseEmbedUrl={props.route.customProps.uuid}></DiscourseEmbed>
+          </div>
         </div>
       </main>
     </Layout>

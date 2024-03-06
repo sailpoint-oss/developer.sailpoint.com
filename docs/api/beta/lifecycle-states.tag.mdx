@@ -1,0 +1,56 @@
+---
+id: lifecycle-states
+title: "Lifecycle States"
+description: "Lifecycle States"
+custom_edit_url: null
+---
+
+
+
+Use this API to implement and customize lifecycle state functionality.
+With this functionality in place, administrators can view and configure custom lifecycle states for use across their organizations, which is key to controlling which users have access, when they have access, and the access they have.
+
+A lifecycle state describes a user's status in a company. For example, two lifecycle states come by default with IdentityNow: 'Active' and 'Inactive.'
+When an active employee takes an extended leave of absence from a company, his or her lifecycle state may change to 'Inactive,' for security purposes.
+The inactive employee would lose access to all the applications, sources, and sensitive data during the leave of absence, but when the employee returns and becomes active again, all that access would be restored.
+This saves administrators the time that would otherwise be spent provisioning the employee's access to each individual tool, reviewing the employee's certification history, etc.
+
+Administrators must define the criteria for being in each lifecycle state, and they must define how IdentityNow manages users' access to apps and sources for each lifecycle state.
+
+In IdentityNow, administrators can manage lifecycle states by going to Admin > Identities > Identity Profile, selecting the identity profile whose lifecycle states they want to manage, selecting the 'Provisioning' tab, and using the left panel to select the lifecycle state they want to modify.
+
+In the 'Provisioning' tab, administrators can make the following access changes to an identity profile's lifecycle state:
+
+- Enable/disable the lifecycle state for the identity profile.
+
+- Enable/disable source accounts for the identity profile's lifecycle state.
+
+- Add existing access profiles to grant to the identity profiles in that lifecycle state.
+
+- Create a new access profile to grant to the identity profile in that lifecycle state.
+
+Access profiles granted in a previous lifecycle state are automatically revoked when the identity moves to a new lifecycle state.
+To maintain access across multiple lifecycle states, administrators must grant the access profiles in each lifecycle state.
+For example, if an administrator wants users with the 'HR Employee' identity profile to maintain their building access in both the 'Active' and 'Leave of Absence' lifecycle states, the administrator must grant the access profile for that building access to both lifecycle states.
+
+During scheduled refreshes, IdentityNow evaluates lifecycle states to determine whether their assigned identities have the access defined in the lifecycle states' access profiles.
+If the identities are missing access, IdentityNow provisions that access.
+
+Administrators can also use the 'Provisioning' tab to configure email notifications for IdentityNow to send whenever an identity with that identity profile has a lifecycle state change.
+Refer to [Configuring Lifecycle State Notifications](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html#configuring-lifecycle-state-notifications) for more information on how to do so.
+
+An identity's lifecycle state can have four different statuses: the lifecycle state's status can be 'Active,' it can be 'Not Set,' it can be 'Not Valid,' or it 'Does Not Match Technical Name Case.'
+Refer to [Moving Identities into Lifecycle States](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html#moving-identities-into-lifecycle-states) for more information about these different lifecycle state statuses.
+
+Refer to [Setting Up Lifecycle States](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html) for more information about lifecycle states.
+
+
+
+
+```mdx-code-block
+import DocCardList from '@theme/DocCardList';
+import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
+
+<DocCardList items={useCurrentSidebarCategory().items}/>
+```
+      

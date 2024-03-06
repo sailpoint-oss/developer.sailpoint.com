@@ -1,17 +1,22 @@
 .blogContainer {
-    display: flex;
+  display: flex;
 }
 
 .blogSidbarContainer {
-    flex: 5%;
+  flex: 5%;
 }
 
 @media only screen and (max-width: 870px) {
-    .blogSidbarContainer {
-      display: none;
-    }
+  .blogSidbarContainer {
+    display: none;
+  }
 }
 
 .blogCardContainer {
-    flex: 95%;
+  flex: 95%;
+}
+
+.discourseContainer {
+  border-radius: 0.5em;
+  height: 400px;
 }

@@ -1,0 +1,51 @@
+---
+id: delete-user-profile
+sidebar_label: Delete a user profile assignment
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVdtuGzcQ/RWCTy2gm225TQT0wYEVQEWTBr7kJRCK0e6sxWRFbkmubGGx/94zpBzLlVvEepC4nJmdc2bOjDrtGvYUjbOLUs90yTVHvg3sP3lXmZr1AHeh8KYRH3hcJg9FqoWTarKXohDMnd2wjQiIdBf07Is+9Ah6OdANedog2ou50xYPeKMpEWPk3Q3F9VHCxaVylYprVm71lYuoolOeoze85YFqm5Iifp1XGTviPf/dGs/gE33LAx2KNW9Izzodd41kDIi2d/CsnN9QxE3bJhT8QJumFpeT0+kv5ZvV2ZCK07fD6eTkfPjm5Hw6LJmm07Mp/XpWke77pWQLjbMBDJHgdDKRn+cMbg8rdU8BSIHA7VhSFs5GKRuiqGlqU6RmjL8GCe2OseciIHXfD/T0pXTvqFRXKAGSqKFqLa2QFkUrnHCLPHpNVmf5zyp163l+dNnEVKmF3VJtyt8ltB/8t99n8Upp5t47SKBfZhLnL5FYAJ+3VKtr9luUL8WADjrfesulchbU1mTLGg/8UHCKDK8i92+o6BGmIZrcS5aUx8gu1IZDoDtW+X4FKSV5Zv9DEV0773cqOGh+LV73QKXuvYP2+vwZaLG5p9ETFDIFMz2W8flrL5txZ8oetpCqkcen9TXc1jE2YTYed6BMNn7ETPUji7YBAyTGI7R9TI1B8Ja8ETEkdk/umWJFbS2TQMWGC3c0hTfJXcnI7ocdZRdRtSGCnxdCS8FXtN7EXQK4YvLsL1qh82V5aL6WFmQch07fOyKk9H5w5Tk74SYf3j+O7Y37xhYw8P3bzrU+H7XU1djKyRulXJnCyWgymhwI8uP86oO6+LQ45opmPhpVQVatWLZd4ktFge4r6E5tXGmqnZKqujZAmQEIYFXGqgSG7dag2bIVRZYQImNPCKj95vuwuElYGxfihuyB5Qe27DPM3ZPof2hD5zJHfojjpiYjk5v11O3ll7f3o/wQMsOCRAfXgCrWrltR4Ftf971cY9t4afrySWVJAqUJcoa+K6oD/w/qn672W/tn9fqN/yKf/SXZXdJ+3coTjt94l/91sIBAiKmEtARsNlwUsksOQo52iCj5+9hezv+Y38zRxn8AwwOEIQ==
+sidebar_class_name: "delete api-method"
+info_path: docs/api/nerm/v1/nerm-api
+custom_edit_url: "https://github.com/sailpoint-oss/developer.sailpoint.com/issues/new?assignees=&labels=&template=bug-report.md&title=%5BBug%5D+Your+Bug+Report+Here Requesting changes to 'Delete a user profile assignment' (delete-user-profile)"
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Delete a user profile assignment</h1>
+
+<MethodEndpoint method={"delete"} path={"/user_profile/{id}"}></MethodEndpoint>
+
+
+
+Delete a user profile assignment
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"id","in":"path","description":"ID of the object to retrieve, update, or delete","required":true,"schema":{"type":"string","format":"uuid","example":"1246d8b3-ac29-4015-8154-dea4434a73fa"}}}></ParamsItem></ul></div></details><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+
+User profile was destroyed
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}>
+
+object
+
+</div></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request - unable to complete.
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div><span className={"badge badge--info"}>oneOf</span><SchemaTabs><TabItem label={"InvalidJson"} value={"0-item-properties"}><SchemaItem collapsible={false} name={"error"} required={false} schemaName={""} qualifierMessage={undefined} schema={{"example":"Invalid JSON syntax. Please check your syntax and try again."}}></SchemaItem></TabItem><TabItem label={"ValidationErrors"} value={"1-item-properties"}><SchemaItem collapsible={false} name={"error"} required={false} schemaName={""} qualifierMessage={undefined} schema={{"example":"The <object> failed to create/update"}}></SchemaItem><SchemaItem collapsible={false} name={"errors"} required={false} schemaName={""} qualifierMessage={undefined} schema={{"example":{"attribute":"can't be blank"}}}></SchemaItem></TabItem></SchemaTabs></div></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"500"} value={"500"}><div>
+
+Internal Server Error - returned on unhandled exceptions.
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"error"} required={false} schemaName={""} qualifierMessage={undefined} schema={{"description":"A message describing the error","example":"Sorry something went wrong"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"error\": \"Sorry something went wrong\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>

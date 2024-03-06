@@ -1,0 +1,30 @@
+---
+id: public-identities-config
+title: "Public Identities Config"
+description: "Public Identities Config"
+custom_edit_url: null
+---
+
+
+
+Use this API to implement public identity configuration functionality.
+With this functionality in place, administrators can make up to 5 identity attributes publicly visible so other non-administrator users can see the relevant information they need to make decisions.
+This can be helpful for access approvers, certification reviewers, managers viewing their direct reports' access, and source owners viewing their tasks.
+
+By default, non-administrators can select an identity and view the following attributes: email, lifecycle state, and manager.
+However, it may be helpful for a non-administrator reviewer to see other identity attributes like department, region, title, etc.
+Administrators can use this API to make those necessary identity attributes public to non-administrators.
+
+For example, a non-administrator deciding whether to approve another identity's request for access to the Workday application, whose access may be restricted to members of the HR department, would want to know whether the identity is a member of the HR department.
+If an administrator has used [Update Public Identity Config](https://developer.sailpoint.com/idn/api/beta/update-public-identity-config) to make the "department" attribute public, the approver can see the department and make a decision without requesting any more information.
+
+
+
+
+```mdx-code-block
+import DocCardList from '@theme/DocCardList';
+import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
+
+<DocCardList items={useCurrentSidebarCategory().items}/>
+```
+      

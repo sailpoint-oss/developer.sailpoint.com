@@ -1,0 +1,39 @@
+---
+id: delete-account
+sidebar_label: Deletes an existing Account.
+hide_title: true
+hide_table_of_contents: true
+api: eJytVE1vGjEQ/Ssjn1qEWJoiEe0tajggtVIb6CnlYLyzWauLvfEHAa32v3fG7CaQpD0VITG2x+M3772hFbZBJ4O2ZlmIXBRYY8AbpWw0QYxFkA9e5Pei3/FiM6Ycr5xu+A7dWFcIaIrGahMgeiwgWDiVAWmgvwgOvY1O4QRGo3WlPdDXWN7fo/N6W+NkNKIHG+nkju46frYVhhb0iDxVIYhjofnVRoaKYq8q3EmRtyIcG070wWnzQCd4kLum5i01V3P6qDmW8zlyOEfkSH4qp7PZTHTvtaQLsCUEivoOJlTU4WPUDomo4CJ2G97xjTUePWO4ms7457LYHYbojAcJdAxPOlTUNwz3YGuLI+hyYOxJevBRKfS+jPVEdASO6KjsiziJJOo+F9mgStY+E9QxK+j2A4HR1ZRZhdDkWVZbJevK+pBfT6+nmS7QBB2O+jHzSu+y/ZV4TcWyT1n+gNWX5Tc4lYat9MggSOECUkCi33xfEuANv6+io0sJAKVqdRMZ8P3m/HTF2p2IO8t5VpIhDwrzOuUkPrQp7Vuez5DeLVZrWAyeXBpyUykVwq1VcUdZye5QWpd6+mXomWTCVOd68pl9r0Myz+v+U2lqlE3TEJE7aRhKb9PbJJBn3+NB+0BWPLfPBeBWKEvIaMr++wz1DAY8hKypJQ0MoU1GaHvrnA30WOQv00XysD04oW1Z5J+u7jrefozoWFAK99JpuWV6SN5Ce47JnqWsPf6jyQ93/fR8hL8O2LvI+01pjiyUrCOvKPyNx4u/hm5zPiy3i6+L9YIM8wcydqig
+sidebar_class_name: "delete api-method"
+info_path: docs/api/iiq/identityiq-scim-rest-api
+custom_edit_url: "https://github.com/sailpoint-oss/developer.sailpoint.com/issues/new?assignees=&labels=&template=bug-report.md&title=%5BBug%5D+Your+Bug+Report+Here Requesting changes to 'Deletes an existing Account.' (delete-account)"
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Deletes an existing Account.</h1>
+
+<MethodEndpoint method={"delete"} path={"/Accounts/{accountId}"}></MethodEndpoint>
+
+
+
+The endpoint used to delete an Account resource. **This is not reversible.**
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"accountId","in":"path","schema":{"type":"string","example":"c7c7777c7ef77e77777ee77e7a1f0444"},"description":"The id of the Account.","required":true}}></ParamsItem></ul></div></details><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"204"} value={"204"}><div>
+
+Returns a 204 with no response body if delete was successful.
+
+</div><div></div></TabItem></ApiTabs></div></div>

@@ -6,9 +6,11 @@ const DiscourseEmbed = ({discourseEmbedUrl}) => {
     const embedUrl = `https://d1vrqvoe9hgpx0.cloudfront.net/videos/${discourseEmbedUrl}/index.html`;
 
     // Set up Discourse Embed
+   
     window.DiscourseEmbed = {
       discourseUrl,
-      discourseEmbedUrl: embedUrl,
+      topicId: 24732,
+       // discourseEmbedUrl: embedUrl,
       className: 'EMBEDDED_BODY',
     };
 

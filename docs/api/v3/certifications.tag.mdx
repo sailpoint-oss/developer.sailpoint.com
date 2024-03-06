@@ -1,0 +1,45 @@
+---
+id: certifications
+title: "Certifications"
+description: "Certifications"
+custom_edit_url: null
+---
+
+
+
+Use this API to implement certification functionality. 
+With this functionality in place, administrators and designated certification reviewers can review users' access certifications and decide whether to approve access, revoke it, or reassign the review to another reviewer. 
+Implementing certifications improves organizations' data security by reducing inappropriate access through a distributed review process and helping them satisfy audit and regulatory requirements. 
+
+A certification refers to IdentityNow's mechanism for reviewing a user's access to entitlements (sets of permissions) and approving or removing that access. 
+These serve as a way of showing that a user's access has been reviewed and approved. 
+Multiple certifications by different reviewers are often required to approve a user's access. 
+A set of multiple certifications is called a certification campaign.
+
+For example, an organization may use a Manager Certification as a way of showing that a user's access has been reviewed and approved by their manager, or if the certification is part of a campaign, that the user's access has been reviewed and approved by multiple managers. 
+Once this certification has been completed, IdentityNow  would provision all the access the user needs, nothing more. 
+
+Organization administrators or certification administrators can designate other IdentityNow users as certification reviewers. 
+Those reviewers can select the 'Certifications' tab to view any of the certifications they either need to review or have already reviewed under the 'Active' and 'Completed' tabs, respectively. 
+
+When a certification campaign is in progress, certification reviewers will see certifications listed under 'Active,' where they can review the involved identities. 
+Under the 'Decision' column on the right, next to each access item, reviewers can select the checkmark to approve access, select the 'X' to revoke access, or they can toggle the 'More Options' menu to reassign the certification to another reviewer and provide a reason for reassignment in the form of a comment. 
+
+Once a reviewer has made decisions on all the certification's involved access items, he or she must select 'Sign Off' to complete the review process.
+Doing so converts the certification into read-only status, preventing any further changes to the review decisions and deleting the work item (task) from the reviewer's list of work items. 
+
+Once all the reviewers have signed off, the certification campaign either completes or, if any reviewers decided to revoke access for any of the involved identities, it moves into a remediation phase. In the remediation phase, identities' entitlements are altered to remove any entitlements marked for revocation.
+In this situation, the certification campaign completes once all the remediation requests are completed. 
+
+Refer to [Certifications](https://documentation.sailpoint.com/saas/user-help/certifications.html) for more information about certifications.
+
+
+
+
+```mdx-code-block
+import DocCardList from '@theme/DocCardList';
+import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
+
+<DocCardList items={useCurrentSidebarCategory().items}/>
+```
+      

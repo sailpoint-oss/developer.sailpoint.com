@@ -1,0 +1,47 @@
+---
+id: get-profile-upload
+sidebar_label: Retrieves the URL of an attachment attribute value from a profile
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vdtu20YQ/ZXFPjWAJMq23KYC+uCiTqAgN8h2XwIhGJFDaRNyl9mLYoLgv3dmV7LlSHHrIKgfLHJ3lnvOzJkznTQNWvDK6Fkhp3KF/r01parwpqkMFHIgC3S5VQ2HUMAcvVW4QSf8GsXN/LUwpQAtwHvI1zVqz49WLYNHsYEqoCitqQWIJn2Xvuhh5eT0g9yuOLkYyAYs1OjR8k4nNb3QbYoBKL63Ab8+ADP7i29nIGb5CXMvvBF2C3AgQlOAp19jRYEVfZvOW/wSlEWi6m3AgXT5GmuQ0076tuEbHZ3WK4osja3B00oIEQXeQt1UHHJyOvm1eL48G0J++vtwMj45Hz4/OZ8MC4TJ5GwCv52VIPt+cMfiLiEf/4XPNTFRxY7TsZT+vxQWfJtrjHZUJLrgdDzmn4egL28bSj0WYhfKVQCuveK1LwGdp8tzoz1R4fPQNJXKo+iyT44/0h2ySBWlg6QSkqhXCUKw1eNUaZ9RQ/FOV23KEdVCeuUj8xva73temRwj8ycUYp4wi6EIGpZV5JMbzpzH0VOYGI3vyijnbznt0Mx0TNMrPsqC+V7c3xwVr7m01lCP9ItE4vwYiRnhsxoqcYV2g1bEM0SHWiNYTZUymqitQRcVveBtjvGkexK5x8uEfOUhsgtRo3OwQpHWl1S9qPUUvy/RK2NtK5whU1hz1Ffug6/WULn79DeQvGe2tsUQuKemMtv5Stapos9CNLKs2+/CnqJdTE6ym6gqufa+cdMs6ygDoP1b6t5+pKmKBMm0iCNSQQaNosMbsIq1EcnehyfGJYSKtQh5jbk57PIYLtgcBDinVlwS1lhwnuha5rdgfHmwyrcR4BLBor0ITPDDYn/7iiuScOwH3RWIScmtS/B7CqKV9PBi1zjX5jNqgkH//2hNsOmRfYwMqzT8RU5XonAyGo/Ge/p8ezl/Iy7ez4462m5T5DQnliiCS3whz0kMNDwKUZtCla3grJrg2EkIAe0KpUUEg3qjqPZshqxS0iWS0zCorce+mV1HrI1xvga9t/MzJtYDUt19k/yccZgK5fHWZ00Fiq1g53NJ0nujciCn0cvDbjxPH0wXEsaaMsBHum4JDsnv+p6XydMsa2lxL96orEI5fqYuKqFy+AjXX+bbyfNMPH3wHiW5XQTdxpai7NAbPX7GNg1/9sQfAvifJukPYHqQbDJhSjeNGuonTmUKucjZT/cOH/got++ddb28ZOH+A5V0Rvg=
+sidebar_class_name: "get api-method"
+info_path: docs/api/nerm/v1/nerm-api
+custom_edit_url: "https://github.com/sailpoint-oss/developer.sailpoint.com/issues/new?assignees=&labels=&template=bug-report.md&title=%5BBug%5D+Your+Bug+Report+Here Requesting changes to 'Retrieves the URL of an attachment attribute value from a profile' (get-profile-upload)"
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Retrieves the URL of an attachment attribute value from a profile</h1>
+
+<MethodEndpoint method={"get"} path={"/profiles/{id}/upload/{attribute_id}"}></MethodEndpoint>
+
+
+
+Retrieves the URL of an attachment attribute value from a profile
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"id","in":"path","description":"ID of the object to retrieve, update, or delete","required":true,"schema":{"type":"string","format":"uuid","example":"1246d8b3-ac29-4015-8154-dea4434a73fa"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"attribute_id","in":"path","description":"The id of the attachment attribute","required":true,"schema":{"type":"string","format":"uuid","example":"1246d8b3-ac29-4015-8154-dea4434a73fa"}}}></ParamsItem></ul></div></details><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+
+Expected response to a valid request
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"url"} required={false} schemaName={"url"} qualifierMessage={undefined} schema={{"type":"string","format":"url","readOnly":true}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"url\": \"string\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request - unable to complete.
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div><span className={"badge badge--info"}>oneOf</span><SchemaTabs><TabItem label={"InvalidJson"} value={"0-item-properties"}><SchemaItem collapsible={false} name={"error"} required={false} schemaName={""} qualifierMessage={undefined} schema={{"example":"Invalid JSON syntax. Please check your syntax and try again."}}></SchemaItem></TabItem><TabItem label={"ValidationErrors"} value={"1-item-properties"}><SchemaItem collapsible={false} name={"error"} required={false} schemaName={""} qualifierMessage={undefined} schema={{"example":"The <object> failed to create/update"}}></SchemaItem><SchemaItem collapsible={false} name={"errors"} required={false} schemaName={""} qualifierMessage={undefined} schema={{"example":{"attribute":"can't be blank"}}}></SchemaItem></TabItem></SchemaTabs></div></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"500"} value={"500"}><div>
+
+Internal Server Error - returned on unhandled exceptions.
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"error"} required={false} schemaName={""} qualifierMessage={undefined} schema={{"description":"A message describing the error","example":"Sorry something went wrong"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"error\": \"Sorry something went wrong\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>

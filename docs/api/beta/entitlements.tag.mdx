@@ -1,0 +1,69 @@
+---
+id: entitlements
+title: "Entitlements"
+description: "Entitlements"
+custom_edit_url: null
+---
+
+
+
+Use this API to implement and customize entitlement functionality.
+With this functionality in place, administrators can view entitlements and configure them for use throughout IdentityNow in certifications, access profiles, and roles.
+Administrators in IdentityNow can then grant users access to the entitlements or configure them so users themselves can request access to the entitlements whenever they need them.
+With a good approval process, this entitlement functionality allows users to gain the specific access they need on sources quickly and securely.
+
+Entitlements represent access rights on sources.
+Entitlements are the most granular form of access in IdentityNow.
+Entitlements are often grouped into access profiles, and access profiles themselves are often grouped into roles, the broadest form of access in IdentityNow.
+
+For example, an Active Directory source in IdentityNow can have multiple entitlements: the first, 'Employees,' may represent the access all employees have at the organization, and a second, 'Developers,' may represent the access all developers have at the organization.
+
+An administrator can then create a broader set of access in the form of an access profile, 'AD Developers' grouping the 'Employees' entitlement with the 'Developers' entitlement.
+
+An administrator can then create an even broader set of access in the form of a role grouping the 'AD Developers' access profile with another profile, 'GitHub Developers,' grouping entitlements for the GitHub source.
+
+When users only need Active Directory employee access, they can request access to the 'Employees' entitlement.
+
+When users need both Active Directory employee and developer access, they can request access to the 'AD Developers' access profile.
+
+When users need both the 'AD Developers' access profile and the 'GitHub Developers' access profile, they can request access to the role grouping both.
+
+Administrators often use roles and access profiles within those roles to manage access so that users can gain access more quickly, but the hierarchy of access all starts with entitlements.
+
+Anywhere entitlements appear, you can select them to find more information about the following:
+
+- Cloud Access Details: These provide details about the cloud access entitlements on cloud-enabled sources.
+
+- Permissions: Permissions represent individual units of read/write/admin access to a system.
+
+- Relationships: These list each entitlement's parent and child relationships.
+
+- Type: This is the entitlement's type. Some sources support multiple types, each with a different attribute schema.
+
+IdentityNow uses entitlements in many features, including the following:
+
+- Certifications: Entitlements can be revoked from an identity that no longer needs them.
+
+- Roles: Roles can group access profiles which themselves group entitlements. You can grant and revoke access on a broad level with roles. Role membership criteria can grant roles to identities based on whether they have certain entitlements or attributes.
+
+- Access Profiles: Access profiles group entitlements.
+They are the most important units of access in IdentityNow.
+IdentityNow uses them in provisioning, certifications, and access requests, and administrators can configure them to grant very broad or very granular access.
+
+You cannot delete entitlements directly from IdentityNow.
+Entitlements are deleted based on their inclusion in aggregations.
+
+Refer to [Deleting Entitlements](https://documentation.sailpoint.com/saas/help/access/entitlements.html#deleting-entitlements) more information about deleting entitlements.
+
+Refer to [Entitlements](https://documentation.sailpoint.com/saas/help/access/entitlements.html) for more information about entitlements.
+
+
+
+
+```mdx-code-block
+import DocCardList from '@theme/DocCardList';
+import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
+
+<DocCardList items={useCurrentSidebarCategory().items}/>
+```
+      

@@ -1,0 +1,43 @@
+---
+id: post-role-profile
+sidebar_label: Create a role-profile contributor relationship
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVdtuGjEQ/RXLz9wCgbRIfUirVEJqLkroU4qqYXcWnOzaW19oViv+vTNeCCCiivahXSRY28f2mTNnhlqaEi14ZfQklWNZGufvTY531mQqR9mSKbrEqpIRtP7JIngUICyB2mWDEonR3qp58MYKi3k8zi1VSds9LJwcP0rGiw3eyVlLWvwR0PmPJq3kuI5DZZE4eBuwJflI1J6XoCxzlcRDu0+OadTSJUssgN98VSIRM/MnTDxdSHdQRF7RLXwsXft9c+2JaJXuAR3FpRcEzIwtgOjIEAiwjjv50NPghPfKMwW5r+46PqyFK0mxhkS/1+OfQ92vXkoijKnYQoU3lIUV5IrnopTyP6l2igIcI6S3Oq+aBFPQ4e19hdJfUC/8Uo4HfRrCy/7w6JR/nLJ2/zVp573hcZ4mukmJ0mXw8ZAC/dJsS4u1A45Fdg80bkmHdoWWS6WWweaEWHpfunG3W1NGQfsbKHDd0UZjUeamQuwkpuhCqWjzCqyCed6kYwdv6GUQcg4LkgITc1TR0wgXmvACnFMLTS4jcyXBeVOg5XhnzC8JVvkqEpwjWLSXgSN5nO0vP7DDGh77oFe1OSiONsJo3IBopnn5vM3B1DyjJhr0/aEywTavUVA28/2ueVy9AAmCb9n21RtykMG7YTY6bw8vzi7a58NRvz0fZEm7n7wfDbLRCDIYyUODnLaHCSmdGb6O89doetbpdXpyZ6Cbq/trcXk3ORZ/iWK7KBLQYo4iuCYBkCTonACdisKkKqsEp9kExz2AJKFVspmI6qBeKWt0QbXfoUuo8JF6BJPS0QfyejKNXNmEBei9lT/u6AcR1LuW8xf/DY0nPL74bpmD0lyk0fz1pkweD3NKRltyFdF8Xc/B4Vebr9c8TXaw7M3ZrhiiNWkDdQxyGNv2GSum2RBuT/l2hueBWRz1y3Vru+OSMlH632Jne4V+d/swZUdv/tkoebzHwk/ugvQ9lt/oQwMTRWw6Ls/XMge9CLBgfHMuP78A7Huitg==
+sidebar_class_name: "post api-method"
+info_path: docs/api/nerm/v1/nerm-api
+custom_edit_url: "https://github.com/sailpoint-oss/developer.sailpoint.com/issues/new?assignees=&labels=&template=bug-report.md&title=%5BBug%5D+Your+Bug+Report+Here Requesting changes to 'Create a role-profile contributor relationship' (post-role-profile)"
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Create a role-profile contributor relationship</h1>
+
+<MethodEndpoint method={"post"} path={"/role_profile"}></MethodEndpoint>
+
+
+
+Create a role-profile contributor relationship
+
+## Request
+
+<MimeTabs className={"openapi-tabs__mime"}><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} className={"openapi-markdown__details mime"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-mime"}><h3 className={"openapi-markdown__details-summary-header-body"}>Body</h3><strong className={"openapi-schema__required"}>required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>role_profile</strong><span className={"openapi-schema__name"}> object</span></span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"role_id"} required={false} schemaName={"uuid"} qualifierMessage={undefined} schema={{"type":"string","format":"uuid"}}></SchemaItem><SchemaItem collapsible={false} name={"profile_id"} required={false} schemaName={"uuid"} qualifierMessage={undefined} schema={{"type":"string","format":"uuid"}}></SchemaItem></div></details></SchemaItem></ul></details></TabItem></MimeTabs><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+
+Expected response to a valid request
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>role_profile</strong><span className={"openapi-schema__name"}> object</span></span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"id"} required={false} schemaName={"uuid"} qualifierMessage={undefined} schema={{"type":"string","format":"uuid","readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"uid"} required={false} schemaName={"string"} qualifierMessage={"**Possible values:** `>= 32 characters` and `<= 32 characters`"} schema={{"type":"string","minLength":32,"maxLength":32,"readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"role_id"} required={false} schemaName={"uuid"} qualifierMessage={undefined} schema={{"type":"string","format":"uuid"}}></SchemaItem><SchemaItem collapsible={false} name={"profile_id"} required={false} schemaName={"uuid"} qualifierMessage={undefined} schema={{"type":"string","format":"uuid"}}></SchemaItem></div></details></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"role_profile\": {\n    \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\n    \"uid\": \"string\",\n    \"role_id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\n    \"profile_id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\"\n  }\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"405"} value={"405"}><div>
+
+Invalid input
+
+</div><div></div></TabItem></ApiTabs></div></div>

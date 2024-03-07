@@ -1205,6 +1205,8 @@ paths:
     $ref: './beta/paths/ears-entitlement-bulk-update.yaml'
   /entitlements/{id}/entitlement-request-config:
     $ref: "./beta/paths/entitlement-request-config.yaml"
+  /entitlements/aggregate/sources/{id}:
+    $ref: "./beta/paths/load-entitlements.yaml"
   /generate-password-reset-token/digit:
     $ref: './beta/paths/password-reset-digit-token.yaml'
   /historical-identities:

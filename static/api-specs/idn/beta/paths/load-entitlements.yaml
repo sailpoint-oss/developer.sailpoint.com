@@ -1,0 +1,46 @@
+post:
+  tags:
+    - Entitlements
+  summary: Import Entitlement CSV File
+  operationId: importEntitlementCsv
+  description: >-
+    Uploads a comma separated file (CSV) to a delimited file source and starts an entitlement aggregation on the source.   
+
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: Source Id
+      example: ef38f94347e94562b5bb8424a56397d8
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            data:
+              type: string
+              format: binary
+          required:
+            - data
+  responses:
+    "202":
+      description: Load Entitlements Task
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/LoadEntitlementTask.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    "500":
+      $ref: "../../v3/responses/500.yaml"
+  security:
+    - UserContextAuth: [ idn:entitlements:manage ]

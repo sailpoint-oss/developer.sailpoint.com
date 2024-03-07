@@ -19,15 +19,6 @@ const VideoCardDetail = (props) => {
     });
   }, []);
 
-  // const setIframeStyle = () => {
-  //   const iframe = document.getElementById('discourse-embed-frame');
-  //   if (iframe && iframe.contentWindow && iframe.contentWindow.document) {
-  //     const style = document.createElement('style');
-  //     style.textContent = 'html { padding: 2% }';
-  //     iframe.contentWindow.document.head.appendChild(style);
-  //   }
-  // };
-
   return (
     <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
       <main>
@@ -36,13 +27,19 @@ const VideoCardDetail = (props) => {
             source={base + props.route.customProps.uuid}
             container="vidyard"></Video>
           <div>
-            <h1 className={styles.videoTitle}>{props.route.customProps.title}</h1>
+            <h1 className={styles.videoTitle}>
+              {props.route.customProps.title}
+            </h1>
           </div>
           <div>
-            <p>{props.route.customProps.body}</p>
+            <p>
+              {props.route.customProps.body}
+            </p>
           </div>
           <div id="discourseContainer" className={styles.discourseContainer}>
-            <DiscourseEmbed discourseEmbedUrl={props.route.customProps.uuid}></DiscourseEmbed>
+            <DiscourseEmbed
+              discourseEmbedUrl={props.route.customProps.uuid}
+              topicId={props.route.customProps.id}></DiscourseEmbed>
           </div>
         </div>
       </main>

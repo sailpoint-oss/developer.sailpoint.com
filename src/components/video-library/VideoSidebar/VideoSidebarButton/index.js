@@ -30,22 +30,12 @@ export default function MarketplaceSidebarButton({
   }
   //const activeClass = isActive ? styles.tagSelected : ''
   function setFilters(e, id) {
-    if (isCategory) {
-      if (category === id) {
-        filterCallback({ "category": "colab" })
-        setIsActive(false)
-      } else {
-        filterCallback({ "category": id })
-        setIsActive(true)
-      }
-
-    } else {
       filterCallback({ "tag": id })
       setIsActive(current => !current);
     }
 
 
-  }
+  
   return (
     <div>
       <input onClick={(e) => setFilters(e, id)} id={id} type='checkbox' className={styles.sidebarButton + ' ' + radioClass} checked={activeClass != ''} onChange={handleChange}></input>

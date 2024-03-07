@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 
-const DiscourseEmbed = ({discourseEmbedUrl}) => {
+const DiscourseEmbed = ({discourseEmbedUrl, topicId}) => {
   useEffect(() => {
     const discourseUrl = 'https://developer.sailpoint.com/discuss/';
     const embedUrl = `https://d1vrqvoe9hgpx0.cloudfront.net/videos/${discourseEmbedUrl}/index.html`;
@@ -9,7 +9,7 @@ const DiscourseEmbed = ({discourseEmbedUrl}) => {
    
     window.DiscourseEmbed = {
       discourseUrl,
-      topicId: 24732,
+      topicId: topicId,
        // discourseEmbedUrl: embedUrl,
       className: 'EMBEDDED_BODY',
     };
@@ -26,7 +26,6 @@ const DiscourseEmbed = ({discourseEmbedUrl}) => {
     metaTag.setAttribute('discourse-embed-color', '#00A2E8'); // Add attribute to meta tag for Discourse Embed color (optional)
     document.getElementsByTagName('head')[0].appendChild(metaTag); // Append to head to avoid duplicating if component re-renders
     
-
     // Create and append Discourse embed script
     const scriptTag = document.createElement('script');
     scriptTag.type = 'text/javascript';
@@ -47,7 +46,7 @@ const DiscourseEmbed = ({discourseEmbedUrl}) => {
     <>
       <meta name="discourse-username" content="Darrell-Thobe" />
       <meta name="discourse-embed-url" content={discourseEmbedUrl} />
-      <div id="discourse-comments"></div>
+      <div style={{display: 'flex', paddingBottom: '2%'}} id="discourse-comments"></div>
     </>
   ); // Container for the Discourse comments
 };

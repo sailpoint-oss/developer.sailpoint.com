@@ -1,0 +1,22 @@
+.videosContainer {
+  display: flex;
+}
+
+.videosSidbarContainer {
+  flex: 5%;
+}
+
+@media only screen and (max-width: 870px) {
+  .videosSidbarContainer {
+    display: none;
+  }
+}
+
+.videosCardContainer {
+  flex: 95%;
+}
+
+.discourseContainer {
+  border-radius: 0.5em;
+  height: 100%;
+}

@@ -4,11 +4,10 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import VideoCards from '../components/video-library/VideoCards';
 import VideoSidebar from '../components/video-library/VideoSidebar';
 import DiscourseEmbed from '../components/video-library/VideoComments';
-import styles from './exchange.module.css';
+import styles from './videos.module.css';
 
 export default function VideoLibrary() {
   const [filteredProduct, setFilteredProduct] = React.useState({
-    category: 'colab',
     tags: [],
   });
   const {siteConfig} = useDocusaurusContext();
@@ -24,33 +23,23 @@ export default function VideoLibrary() {
         tempFilter.push(data.tag);
       }
     }
-
-    if (data.category) {
-      setFilteredProduct({category: data.category, tags: tempFilter});
-    } else {
-      setFilteredProduct({
-        category: filteredProduct.category,
-        tags: tempFilter,
-      });
-    }
+    console.log('tempFilter', tempFilter);
+    setFilteredProduct({tags: tempFilter});
   };
 
   return (
     <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
       <main>
-        <div className={styles.blogContainer}>
-          <div className={styles.blogSidbarContainer}>
+        <div className={styles.videosContainer}>
+          <div className={styles.videosSidbarContainer}>
             <VideoSidebar
-              selectedCategory={filteredProduct.category}
+              selectedCategory={filteredProduct}
               filterCallback={handleClick}
             />
           </div>
-          <div className={styles.blogCardContainer}>
+          <div className={styles.videosCardContainer}>
             <VideoCards filterCallback={filteredProduct} />
           </div>
-        </div>
-        <div id="discourseContainer" className={styles.discourseContainer}>
-          <DiscourseEmbed discourseEmbedUrl={'test'}></DiscourseEmbed>
         </div>
       </main>
     </Layout>

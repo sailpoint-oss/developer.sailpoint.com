@@ -3,9 +3,9 @@
   display: flex;
   /* place-content: center; */
   flex-wrap: wrap;
-  gap: 40px;
-  margin-left: 40px;
-  margin-right: 40px;
+  gap: 5px;
+  margin-left: 20px;
+ 
 }
 .gridContainer::after {
   content: '';
@@ -18,6 +18,18 @@
   }
   .gridContainer::after {
     display: none;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .gridContainer {
+    display: flex;
+    
+    flex-wrap: wrap;
+    gap: 0px;
+    margin-left: 0px;
+    margin-top: -5%;
+   
   }
 }
 

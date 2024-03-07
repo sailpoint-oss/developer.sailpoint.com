@@ -12,6 +12,7 @@ const routes = videos.map((video) => ({
     title: video.title,
     body: video.body,
     tags: video.tags,
+    id: video.id,
   },
 }));
 

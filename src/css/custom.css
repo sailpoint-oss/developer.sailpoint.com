@@ -519,7 +519,7 @@ div[id^='discourseContainer'] {
   overflow-y: scroll;
 }
 
-div[id^='discourseComments'] {
+div[id^='discourse-comments'] {
   display: flex;
-  padding-bottom: 5%;
+  padding-bottom: 2%;
 }

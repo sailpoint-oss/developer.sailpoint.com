@@ -474,7 +474,12 @@ div[class^='announcementBar_'] {
 
 @media screen and (max-width: 750px) {
   div[class^='announcementBar_'] {
-    background: repeating-linear-gradient(145deg,rgba(0,51,161,1),rgba(0,79,181,1),rgba(0,113,206,1));
+    background: repeating-linear-gradient(
+      145deg,
+      rgba(0, 51, 161, 1),
+      rgba(0, 79, 181, 1),
+      rgba(0, 113, 206, 1)
+    );
     color: #ffffff;
     height: 52.5px;
   }
@@ -500,11 +505,21 @@ iframe#webpack-dev-server-client-overlay {
 }
 
 iframe[id^='discourse-embed-frame'] {
-  height: 275px !important;
   border-radius: 0.5em !important;
+  border: solid;
+  border-width: thin;
+  width: 60%;
+  margin: auto;
+  padding-bottom: -15%;
+  align-items: center;
 }
 
 div[id^='discourseContainer'] {
   border-radius: 0.5em;
-  height: 400px;
+  overflow-y: scroll;
+}
+
+div[id^='discourseComments'] {
+  display: flex;
+  padding-bottom: 5%;
 }

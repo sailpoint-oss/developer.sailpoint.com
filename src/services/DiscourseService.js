@@ -1,3 +1,4 @@
+
 import {discourseBaseURL} from '../util/util';
 
 export async function getTopPosts() {
@@ -91,10 +92,39 @@ export async function getMarketplacePosts(tags, category) {
   }
 }
 
+export async function getAllPosts(tags, category) {
+  let url = ''
+  if (tags) {
+    url = discourseBaseURL() + 'c/' + category + '/l/latest.json?tags=' + tags
+  } else {
+    url = discourseBaseURL() + 'c/' + category + '/l/latest.json'
+    console.log(url);
+  }
+  try {
+    const response = await fetch(
+      url,
+    );
+    return await response.json();
+  } catch (error) {
+    return [];
+  }
+}
+
 export async function getTopic(id) {
   try {
     const response = await fetch(
       discourseBaseURL() + 't/' + id + '.json',
+    );
+    return await response.json();
+  } catch (error) {
+    return [];
+  }
+}
+
+export async function getDeveloperDaysTopic(id) {
+  try {
+    const response = await fetch(
+      discourseBaseURL() + 't/developer-days-2024-register-today-for-sailpoint-s-annual-conference-for-developers-in-identity/24732.json',
     );
     return await response.json();
   } catch (error) {

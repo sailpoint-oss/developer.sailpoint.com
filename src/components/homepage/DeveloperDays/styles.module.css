@@ -1,0 +1,67 @@
+.mainContainer {
+  display: flex;
+  padding-top: 2%;
+  padding-left: 20%;
+  padding-right: 20%;
+  background-color: var(--dev-card-background);
+}
+
+.devdaysimg {
+  width: 75%;
+  padding-bottom: 2%;
+}
+
+.devdayscontent {
+  width: 75%;
+}
+
+.headingTitle {
+  padding-bottom: 1%;
+}
+
+.subtitle {
+  margin-bottom: 1%;
+}
+
+.splitdiv {
+  width: 60%;
+}
+
+.button:hover {
+  cursor: pointer;
+  top: -2px;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  background-color: var(--dev-button-hover);
+  color: #cc27b0;
+  text-decoration: none;
+}
+
+.button {
+  text-decoration: none;
+  text-align: center;
+  margin: 5% 25%;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 100%;
+
+  /* Layout Properties */
+  width: 259px;
+  height: 61px;
+  line-height: 61px;
+  /* UI Properties */
+  background: transparent 0% 0% no-repeat padding-box;
+  opacity: 1;
+
+  box-shadow: 0px 20px 60px #00000015;
+  border: 2px solid #df61ca;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+.link {
+  color: #df61ca;
+}
+.link:hover {
+  color: #df61ca;
+  text-decoration: none;
+}

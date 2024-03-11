@@ -1,0 +1,10 @@
+type: object
+properties:
+  requestedContext:
+    type: array
+    items:
+      $ref: "./ContextAttributeDto.yaml"
+  assignedContext:
+    type: array
+    items:
+      $ref: "./RoleMatchDto.yaml"

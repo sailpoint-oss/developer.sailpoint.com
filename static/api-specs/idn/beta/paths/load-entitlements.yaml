@@ -24,7 +24,7 @@ post:
               type: string
               format: binary
           required:
-            - data
+            - csvFile
   responses:
     "202":
       description: Load Entitlements Task

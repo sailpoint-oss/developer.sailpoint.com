@@ -1,70 +1,55 @@
 import React from 'react';
-import clsx from 'clsx';
 import styles from './styles.module.css';
-import useBaseUrl from '@docusaurus/useBaseUrl';
-import Link from '@docusaurus/Link';
-import { getTags } from '../../../services/DiscourseService';
-import BlogSidebarButton from './BlogSidebarButton';
+import {getTags} from '../../../services/DiscourseService';
 
-export default function BlogSidebar({
-  filterCallback
-  }) {
+export default function BlogSidebar({filterCallback}) {
   const [tagProductData, setTagProductData] = React.useState();
-  const [tagTechnologyData, setTagTechnologyData] = React.useState();
-  const [filterTags, setFilterTags] = React.useState(true);
+  const [isChecked, setIsChecked] = React.useState(false);
+
+  const handleChange = () => {
+    setIsChecked(!isChecked);
+    let value = isChecked ? 'Identity-Security-Cloud' : 'Identityiq';
+    filterCallback(value);
+  };
 
   const getTagData = async () => {
     const data = await getTags();
-    const tagTechnologyResultset = []
-    const tagProductResultset = []
+    const tagTechnologyResultset = [];
+    const tagProductResultset = [];
     for (const tagGroup of data.extras.tag_groups) {
       if (tagGroup.id === 45) {
         for (const tag of tagGroup.tags) {
-          tagProductResultset.push(tag.text)
-        }
-      }
-      if (tagGroup.id === 17) {
-        for (const tag of tagGroup.tags) {
-          tagTechnologyResultset.push(tag.text)
+          tagProductResultset.push(tag.text);
         }
       }
     }
-    setTagProductData(tagProductResultset)
-    setTagTechnologyData(tagTechnologyResultset)
+    setTagProductData(tagProductResultset);
   };
-
-  function toggleSeeAll() {
-    filterTags ? setFilterTags(false) : setFilterTags(true)
-  }
-  
 
   React.useEffect(() => {
     getTagData();
   }, []);
 
-  const filterText = filterTags ? 'See All Tags' : 'See Less Tags'
-
-  if (tagProductData && tagTechnologyData) {
+  if (tagProductData) {
     return (
-      <div className={styles.sidebar}>
-        <div className={styles.tagHeader}>Blogs by Product</div>
-        <div className={styles.tagContainer}>
-            {tagProductData.map(function(a, index){
-              return <BlogSidebarButton key={a} text={a} filterCallback={filterCallback}></BlogSidebarButton>
-            })}
-        </div>
-        <div className={styles.tagHeader}>Blogs by Identity Governance</div>
-        <div className={styles.tagContainer}>
-            {tagTechnologyData.map(function(a, index){
-              return <div key={'div' + a} className={index > 10 && filterTags ? styles.hidden : ''} > <BlogSidebarButton key={a} text={a} filterCallback={filterCallback}></BlogSidebarButton></div>
-            })}
-        </div>
-        <div className={styles.seeAll} onClick={(e) => toggleSeeAll()}>
-          {filterText}
-          {/* <img className={styles.caretDown} src={useBaseUrl('/blog/caret-down-thin.svg')}></img> */}
+      <div className={styles.toggleContainer}>
+        <div className={styles.toggleWrapper}>
+          <input
+            type="checkbox"
+            id="product-toggle"
+            className={styles.toggleCheckbox}
+            checked={isChecked}
+            onChange={handleChange}
+          />
+          <label htmlFor="product-toggle" className={styles.toggleLabel}>
+            <div className={styles.toggleBackground}></div>
+            <span className={styles.toggleTextLeft}>
+              Identity Security Cloud
+            </span>
+            <span className={styles.toggleTextRight}>IdentityIQ</span>
+          </label>
         </div>
       </div>
-      
     );
   } else {
     return <div></div>;

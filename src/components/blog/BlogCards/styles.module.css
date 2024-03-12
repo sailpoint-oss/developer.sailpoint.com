@@ -1,21 +1,39 @@
 /* Getting Started Card container */
 .gridContainer {
-  display: grid;
-  place-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(345px, 1fr));
-  grid-gap: 40px;
-  margin-left: 40px;
-  margin-right: 40px;
+  display: flex;
+  /* place-content: center; */
+  flex-wrap: wrap;
+  gap: 23px;
+}
+.gridContainer::after {
+  content: '';
+  flex: auto;
+}
+
+@media only screen and (max-width: 870px) {
+  .gridContainer {
+    place-content: center;
+  }
+  .gridContainer::after {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .gridContainer {
+    display: flex;
+
+    flex-wrap: wrap;
+    gap: 0px;
+    margin-left: 0px;
+    margin-top: -5%;
+  }
 }
 
 .center {
   margin: 0px auto;
-  max-width: 1300px;
   margin-bottom: 50px;
-}
-
-.space {
-  height: 200px;
+  width: 50%;
 }
 
 .noFound {
@@ -25,8 +43,6 @@
   padding: 8px;
   margin: 50px;
 }
-
-
 
 .spinnerCenter {
   margin: 100px auto;

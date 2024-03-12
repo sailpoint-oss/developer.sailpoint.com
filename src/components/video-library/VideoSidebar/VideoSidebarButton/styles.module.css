@@ -1,59 +1,35 @@
-
 .tag {
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 300;
   color: var(--dev-secondary-text);
-  padding: 8px;
-  margin-right: 5px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  /* border-style: solid;
+  text-align: center;
+  margin-right: 0.5%;
+  margin-top: 0.5%;
+  padding: 1%;
+  border-style: solid;
   border-width: 1px;
-  border-color: var(--dev-text-color-normal); */
+  border-color: var(--dev-text-color-normal);
   transition: background-color 500ms;
+  border-radius: 0.5rem;
 }
 
 .tagSelected {
-  font-size: 16px;
-  font-weight: 600;
-  /* background-color: var(--dev-secondary-text);
-  color: var(--dev-tag-selected-text); */
-  padding: 8px;
-  margin-right: 5px;
-  margin-bottom: 5px;
-  margin-top: 5px;
-  /* border-style: solid;
+  font-size: 13px;
+  font-weight: 300;
+  background-color: var(--dev-secondary-text);
+  color: var(--dev-card-background);
+  text-align: center;
+  margin-right: 0.5%;
+  margin-top: 0.5%;
+  padding: 1%;
+  border-style: solid;
   border-width: 1px;
-  border-color: var(--dev-text-color-normal); */
+  border-color: var(--dev-text-color-normal);
   transition: background-color 500ms;
 }
-.sidebarButton:hover {
-  cursor: pointer;
-  font-weight: 600;
-}
+
 .tag:hover {
   cursor: pointer;
-  font-weight: 600;
-  /* background-color: var(--dev-text-color-normal);
-  color: var(--dev-tag-selected-text); */
+  background-color: var(--dev-text-color-normal);
+  color: var(--dev-card-background);
 }
-
-/* .radio {
-  visibility: hidden;
-  position: absolute;
-}
-.radio + label:before{
-  height:12px;
-  width:12px;
-  margin-right: 2px;
-  content: " ";
-  display:inline-block;
-  vertical-align: baseline;
-  border:1px solid #777;
-}
-.radio:checked + label:before{
-  background-color: var(--ifm-color-primary);
-}
-.radio + label:before{
-  border-radius:50%;
-} */

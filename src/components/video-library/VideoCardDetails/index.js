@@ -39,7 +39,7 @@ const VideoCardDetail = (props) => {
           <div id="discourseContainer" className={styles.discourseContainer}>
             <DiscourseEmbed
               discourseEmbedUrl={props.route.customProps.uuid}
-              topicId={props.route.customProps.id}></DiscourseEmbed>
+              topicId={props.route.customProps.topicid}></DiscourseEmbed>
           </div>
         </div>
       </main>

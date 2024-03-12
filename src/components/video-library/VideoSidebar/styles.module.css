@@ -1,4 +1,3 @@
-
 .sidebar {
   width: 400px;
   height: 100%;
@@ -10,13 +9,6 @@
   font-size: 22px;
   font-weight: 700;
 }
-
-.tagContainer {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-}
-
 
 .hidden {
   display: none;
@@ -31,11 +23,86 @@
   width: 100%;
   transition: background-color 500ms;
   text-align: center;
-  
 }
 
 .seeAll:hover {
   cursor: pointer;
   background-color: var(--dev-text-color-normal);
   color: var(--dev-card-background);
+}
+
+.tagContainer {
+  margin: auto;
+  width: 60%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.dropdownContainer {
+  position: relative;
+  display: inline-block;
+  margin-left: 2%;
+}
+
+.dropdownButton {
+  background-color: var(--dropdown-background); /* Dropdown background color */ /* Text color */
+  padding: 10px 40px; /* Padding inside the dropdown button */
+  border: 2px solid #cccccc; /* Border around the dropdown */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Change mouse cursor to indicate it's clickable */
+  position: relative; /* To position the arrow icon correctly */
+  display: inline-block; /* To keep the button's block behavior */
+}
+
+.dropdownButton:after {
+  content: '▼'; /* Adds a dropdown arrow after the button text */
+  position: absolute;
+  right: 10px; /* Position the arrow to the right */
+  top: 50%; /* Align vertically */
+  transform: translateY(-50%); /* Center the arrow vertically */
+  pointer-events: none; /* Prevent the arrow from being clickable */
+}
+
+.dropdownButton:hover {
+  background-color: var(--dev-card-background); /* Lighter background on hover */
+}
+
+.dropdownButton:focus {
+  outline: none; /* Remove default focus outline */
+  border-color: #666666; /* Darker border color when focused */
+}
+
+.dropdownContent {
+  display: none;
+  position: absolute;
+  background-color: var(--dropdown-background);
+  min-width: 300px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.dropdownContainer .dropdownContent label {
+  display: flex;
+  margin: 5px 5px;
+}
+
+.dropdownContainer:hover .dropdownContent {
+  display: block;
+}
+
+.dropdownItem {
+  display: flex;
+}
+
+.dropdownItem:hover {
+  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color),
+    0 1px 2px -1px var(--tw-shadow-color);
+  box-shadow: 0 0 transparent, 0 0 transparent, 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  background-color: var(--dev-tag-highlight);
 }

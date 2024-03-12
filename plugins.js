@@ -10,9 +10,7 @@ const routes = videos.map((video) => ({
   customProps: {
     uuid: video.uuid,
     title: video.title,
-    body: video.body,
-    tags: video.tags,
-    id: video.id,
+    topicid: video.topicid,
   },
 }));
 
@@ -48,7 +46,7 @@ module.exports = [
           to: '/ambassadors',
           from: ['/ambassador-program', '/ambassador'],
         },
-        { 
+        {
           from: ['/idn/docs/saas-configuration'],
           to: '/docs/extensibility/configuration-management/saas-configuration',
         },

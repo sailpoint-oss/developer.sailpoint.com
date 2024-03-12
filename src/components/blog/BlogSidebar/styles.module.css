@@ -1,8 +1,33 @@
-
 .sidebar {
-  width: 400px;
-  height: 100%;
+  margin-top: 50px;
   margin-left: 50px;
+  display: flex;
+}
+
+
+
+.toggleContainer {
+  margin: auto;
+  width: 31%;
+  margin-bottom: 3%;
+}
+
+@media screen and (max-width: 2100px) {
+  .toggleContainer {
+    width: 43%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .toggleContainer {
+    width: 82%;
+  }
+}
+
+.title {
+  margin-left: 2%;
+  margin-bottom: 2%;
+  margin-top: 2%;
 }
 
 .tagHeader {
@@ -15,7 +40,6 @@
   display: flex;
   flex-wrap: wrap;
 }
-
 
 .hidden {
   display: none;
@@ -30,11 +54,179 @@
   width: 100%;
   transition: background-color 500ms;
   text-align: center;
-  
 }
 
 .seeAll:hover {
   cursor: pointer;
   background-color: var(--dev-text-color-normal);
   color: var(--dev-card-background);
+}
+
+.dropdownContainer {
+  position: relative;
+  display: inline-block;
+  margin-left: 2%;
+}
+
+.buttonText {
+  float: left;
+  margin-left: 5%;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.dropdownButton {
+  background-color: var(
+    --dropdown-background
+  ); /* Dropdown background color */ /* Text color */
+  padding: 14px 45px; /* Padding inside the dropdown button */
+  border: 2px solid #cccccc; /* Border around the dropdown */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Change mouse cursor to indicate it's clickable */
+  position: relative; /* To position the arrow icon correctly */
+  display: inline-block; /* To keep the button's block behavior */
+  margin-bottom: 10%;
+  padding-left: 1%;
+  width: 220px;
+  height: 50px;
+}
+
+.dropdownButton:after {
+  content: '▼'; /* Adds a dropdown arrow after the button text */
+  position: absolute;
+  right: 10px; /* Position the arrow to the right */
+  top: 50%; /* Align vertically */
+  transform: translateY(-50%); /* Center the arrow vertically */
+  pointer-events: none; /* Prevent the arrow from being clickable */
+}
+
+.dropdownButton:hover {
+  background-color: var(
+    --dev-card-background
+  ); /* Lighter background on hover */
+}
+
+.dropdownButton:focus {
+  outline: none; /* Remove default focus outline */
+  border-color: #666666; /* Darker border color when focused */
+}
+
+.dropdownContent {
+  display: none;
+  position: absolute;
+  background-color: var(--dropdown-background);
+  min-width: 300px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  padding: 10px;
+  border-radius: 5px;
+  overflow-y: scroll;
+  max-height: 400px;
+}
+
+.dropdownContainer .dropdownContent label {
+  display: flex;
+  margin: 5px 5px;
+}
+
+.dropdownContainer:hover .dropdownContent {
+  display: block;
+}
+
+.dropdownItem {
+  display: flex;
+}
+
+.dropdownItem:hover {
+  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color),
+    0 1px 2px -1px var(--tw-shadow-color);
+  box-shadow: 0 0 transparent, 0 0 transparent, 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  background-color: var(--dev-tag-highlight);
+}
+
+.toggleWrapper {
+  position: relative;
+  width: 400px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #ddd;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.toggleCheckbox {
+  display: none;
+}
+
+.toggleCheckbox:checked + .toggleLabel .toggleBackground {
+  transform: translateX(100%);
+  background-color: #93d500; /* IIQ color */
+}
+
+.toggleCheckbox:not(:checked) + .toggleLabel .toggleBackground {
+  background-color: #cc27b0;
+}
+
+.toggleLabel {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  cursor: pointer;
+}
+
+.toggleBackground {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background-color: #cc27b0; /* Default color for "Identity Security Cloud" */
+  border-radius: 25px;
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.toggleText {
+  width: 50%;
+  text-align: center;
+  z-index: 1;
+  transition: color 0.25s;
+}
+
+.toggleCheckbox:not(:checked) + .toggleLabel .toggleTextLeft {
+  width: 50%;
+  text-align: center;
+  z-index: 1;
+  transition: color 0.25s;
+  color: white; /* "Identity Security Cloud" highlighted */
+  z-index: 9999;
+}
+
+.toggleCheckbox:not(:checked) + .toggleLabel .toggleTextRight {
+  width: 50%;
+  text-align: center;
+  z-index: 1;
+  transition: color 0.25s;
+  color: #415364; /* "IdentityIQ" not highlighted */
+}
+
+.toggleCheckbox:checked + .toggleLabel .toggleTextRight {
+  width: 50%;
+  text-align: center;
+  z-index: 1;
+  transition: color 0.25s;
+  color: white; /* "IdentityIQ" highlighted */
+  z-index: 9999;
+}
+
+.toggleCheckbox:checked + .toggleLabel .toggleTextLeft {
+  width: 50%;
+  text-align: center;
+  z-index: 1;
+  transition: color 0.25s;
+  color: #415364; /* "Identity Security Cloud" not highlighted */
 }

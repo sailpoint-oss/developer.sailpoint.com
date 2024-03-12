@@ -6,14 +6,8 @@ import Link from '@docusaurus/Link';
 
 export default function BlogBanner() {
   return (
-    <div>
-
-      <div className={styles.imageContainer}>
-      <img className={styles.headerImage} src={useBaseUrl('/blog/blog_banner_template.png')}></img>
-        <div className={styles.blogHeaderText}>
-          Blog
-        </div>
-      </div >
+    <div className={styles.titleContainer}>
+      <h1 className={styles.blogTitle}>Blog</h1>
     </div>
   );
 }

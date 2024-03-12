@@ -6,7 +6,7 @@ import ThemedImage from '@theme/ThemedImage';
 import {addDarkToFileName} from '../../../util/util';
 
 export default function HomepageCard({link, title, image, product}) {
-  const productStyles = product === 'idn' ? styles.idn : styles.iiq;
+  const productStyles = product === 'isc' ? styles.idn : styles.iiq;
 
   return (
     <Link to={link}>

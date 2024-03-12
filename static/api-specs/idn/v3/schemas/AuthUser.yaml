@@ -90,4 +90,7 @@ properties:
         - das:ui-data-scope
         - sp:aic-dashboard-read
         - sp:aic-dashboard-write
+        - sp:ui-config-hub-admin
+        - sp:ui-config-hub-backup-admin
+        - sp:ui-config-hub-read
       example: "ORG_ADMIN"

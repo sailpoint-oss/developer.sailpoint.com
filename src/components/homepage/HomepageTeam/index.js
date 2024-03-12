@@ -7,13 +7,6 @@ export default function HomepageTeam() {
   return (
     <div className={styles.center}>
       <div className={styles.gridContainer}>
-      <TeamCard
-          link={'https://developer.sailpoint.com/discuss/u/danielleg/summary'}
-          name={'Danielle Gaitan'}
-          title={'Community Manager'.toUpperCase()}
-          expertise={''}
-          image={'/homepage/danielle-gaitan.png'}
-        />
         <TeamCard
           link={
             'https://developer.sailpoint.com/discuss/u/colin_mckibben/summary'
@@ -39,9 +32,6 @@ export default function HomepageTeam() {
           expertise={'DEVELOPER DOCUMENTATION'}
           image={'/homepage/james-haytko.png'}
         />
-      </div>
-
-      <div className={styles.gridContainer}>
         <TeamCard
           link={
             'https://developer.sailpoint.com/discuss/u/philip-ellis/summary'
@@ -51,6 +41,9 @@ export default function HomepageTeam() {
           expertise={'DEVELOPER TOOLS'}
           image={'/homepage/phil-ellis.png'}
         />
+      </div>
+
+      <div className={styles.bottomGridContainer}>
         <TeamCard
           link={'https://developer.sailpoint.com/discuss/u/Darrell/summary'}
           name={'Darrell Thobe'}
@@ -65,7 +58,7 @@ export default function HomepageTeam() {
           expertise={'DEVELOPER TOOLS'}
           image={'/homepage/lukehagar.png'}
         />
-        <TeamCard
+         <TeamCard
           link={
             'https://developer.sailpoint.com/discuss/u/jordan_violet/summary'
           }

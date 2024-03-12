@@ -20,7 +20,7 @@ post:
         schema:
           type: object
           properties:
-            data:
+            csvFile:
               type: string
               format: binary
           required:

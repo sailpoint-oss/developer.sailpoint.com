@@ -1,10 +1,8 @@
-import {discourseBaseURL} from '../util/util';
+import {discourseBaseURL, removeRecordsWithCategoryId} from '../util/util';
 
 export async function getTopPosts() {
   try {
-    const response = await fetch(
-      discourseBaseURL() + 'top.json',
-    );
+    const response = await fetch(discourseBaseURL() + 'top.json');
     return await response.json();
   } catch (error) {
     return [];
@@ -14,16 +12,23 @@ export async function getAmbassadors(expert, limit, offset) {
   try {
     if (expert) {
       const response = await fetch(
-        discourseBaseURL() + 'groups/expert_ambassadors/members.json?limit=' + limit + '&offset=' + offset,
+        discourseBaseURL() +
+          'groups/expert_ambassadors/members.json?limit=' +
+          limit +
+          '&offset=' +
+          offset,
       );
       return await response.json();
     } else {
       const response = await fetch(
-        discourseBaseURL() + 'groups/ambassadors/members.json?limit=' + limit + '&offset=' + offset,
+        discourseBaseURL() +
+          'groups/ambassadors/members.json?limit=' +
+          limit +
+          '&offset=' +
+          offset,
       );
       return await response.json();
     }
-
   } catch (error) {
     return [];
   }
@@ -40,30 +45,24 @@ export async function getAmbassadorDetails(id) {
   }
 }
 
-
 export async function checkImage(url) {
   try {
-    const response = await fetch(
-      url,
-    );
-    return true
+    const response = await fetch(url);
+    return true;
   } catch (error) {
     return false;
   }
 }
 
-
 export async function getBlogPosts(tags) {
-  let url = ''
+  let url = '';
   if (tags) {
-    url = discourseBaseURL() + 'c/blog/blog-posts/l/latest.json?tags=' + tags
+    url = discourseBaseURL() + 'c/blog/l/latest.json?tags=' + tags;
   } else {
-    url = discourseBaseURL() + 'c/blog/blog-posts/l/latest.json'
+    url = discourseBaseURL() + 'c/blog/l/latest.json';
   }
   try {
-    const response = await fetch(
-      url,
-    );
+    const response = await fetch(url);
     return await response.json();
   } catch (error) {
     return [];
@@ -71,20 +70,23 @@ export async function getBlogPosts(tags) {
 }
 
 export async function getMarketplacePosts(tags, category) {
-  let filterCategory = 'colab'
+  let filterCategory = 'colab';
   if (category && category != 'colab') {
-    filterCategory = filterCategory + '/' + category
+    filterCategory = filterCategory + '/' + category;
   }
-  let url = ''
+  let url = '';
   if (tags) {
-    url = discourseBaseURL() + 'c/' + filterCategory + '/l/latest.json?tags=' + tags
+    url =
+      discourseBaseURL() +
+      'c/' +
+      filterCategory +
+      '/l/latest.json?tags=' +
+      tags;
   } else {
-    url = discourseBaseURL() + 'c/' + filterCategory + '/l/latest.json'
+    url = discourseBaseURL() + 'c/' + filterCategory + '/l/latest.json';
   }
   try {
-    const response = await fetch(
-      url,
-    );
+    const response = await fetch(url);
     return await response.json();
   } catch (error) {
     return [];
@@ -93,9 +95,7 @@ export async function getMarketplacePosts(tags, category) {
 
 export async function getTopic(id) {
   try {
-    const response = await fetch(
-      discourseBaseURL() + 't/' + id + '.json',
-    );
+    const response = await fetch(discourseBaseURL() + 't/' + id + '.json');
     return await response.json();
   } catch (error) {
     return [];
@@ -104,9 +104,7 @@ export async function getTopic(id) {
 
 export async function getMarketplaceTopic(id) {
   try {
-    const response = await fetch(
-      discourseBaseURL() + 't/' + id + '.json',
-    );
+    const response = await fetch(discourseBaseURL() + 't/' + id + '.json');
     return await response.json();
   } catch (error) {
     return [];
@@ -115,9 +113,7 @@ export async function getMarketplaceTopic(id) {
 
 export async function getMarketplaceTopicRaw(id) {
   try {
-    const response = await fetch(
-      discourseBaseURL() + 'raw/' + id + '.json',
-    );
+    const response = await fetch(discourseBaseURL() + 'raw/' + id + '.json');
     return await response.text();
   } catch (error) {
     return [];
@@ -126,9 +122,7 @@ export async function getMarketplaceTopicRaw(id) {
 
 export async function getTags() {
   try {
-    const response = await fetch(
-      discourseBaseURL() + 'tags.json',
-    );
+    const response = await fetch(discourseBaseURL() + 'tags.json');
     return await response.json();
   } catch (error) {
     return [];
@@ -137,9 +131,7 @@ export async function getTags() {
 
 export async function getCatagories() {
   try {
-    const response = await fetch(
-      discourseBaseURL() + 'categories.json',
-    );
+    const response = await fetch(discourseBaseURL() + 'categories.json');
     return await response.json();
   } catch (error) {
     return [];

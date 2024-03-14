@@ -5,32 +5,31 @@ import BounceLoader from 'react-spinners/BounceLoader';
 import {discourseBaseURL, developerWebsiteDomain} from '../../../util/util';
 
 import {getBlogPosts, getTopic} from '../../../services/DiscourseService';
-export default function BlogCards({
-  filterCallback
-  }) {
+export default function BlogCards({filterCallback}) {
   const [cardData, setCardData] = React.useState();
   const [loadingCards, setLoadingCards] = React.useState(true);
 
   const getPosts = async () => {
     const data = await getBlogPosts(filterCallback.join('+'));
-    const resultset = []
+
+    const resultset = [];
     if (data.topic_list.topics) {
       for (const topic of data.topic_list.topics) {
         if (topic.tags.length > 0) {
-          let poster = {}
+          let poster = {};
           for (let topicUser of topic.posters) {
-            if (topicUser.description.includes("Original Poster")) {
+            if (topicUser.description.includes('Original Poster')) {
               for (let user of data.users) {
                 if (user.id === topicUser.user_id) {
-                  poster = user
+                  poster = user;
                 }
               }
             }
           }
-
-          resultset.push(await getPostList(topic, poster));
+          if (topic.category_id !== 57) {
+            resultset.push(await getPostList(topic, poster));
+          }
         }
-
       }
       setCardData(resultset);
     } else {
@@ -49,20 +48,22 @@ export default function BlogCards({
     return (
       <div className={styles.center}>
         <div className={styles.gridContainer}>
-          {cardData.map(function(a, index){
-            return <BlogCard 
-            key={a.link}
-            id={index + a.link}
-            excerpt={a.excerpt}
-            name={a.name}
-            tags={a.tags}
-            link={a.link}
-            image={a.image}
-            title={a.title}
-            views={a.views}
-            replies={a.replies}
-            readTime={a.readTime}
-            creatorImage={a.creatorImage}></BlogCard>
+          {cardData.map(function (a, index) {
+            return (
+              <BlogCard
+                key={a.link}
+                id={index + a.link}
+                excerpt={a.excerpt}
+                name={a.name}
+                tags={a.tags}
+                link={a.link}
+                image={a.image}
+                title={a.title}
+                views={a.views}
+                replies={a.replies}
+                readTime={a.readTime}
+                creatorImage={a.creatorImage}></BlogCard>
+            );
           })}
         </div>
       </div>
@@ -89,18 +90,14 @@ export default function BlogCards({
 }
 
 async function getPostList(topic, user) {
-  console.log(topic)
+  console.log(topic);
   return {
     name: user.name,
     excerpt: styleExcerpt(topic.excerpt),
     creatorImage: getavatarURL(user.avatar_template),
     tags: topic.tags,
     image: topic.image_url,
-    link:
-    discourseBaseURL() + 't/' +
-      topic.slug +
-      '/' +
-      topic.id,
+    link: discourseBaseURL() + 't/' + topic.slug + '/' + topic.id,
     title: topic.title,
     views: topic.views,
     liked: topic.like_count,
@@ -112,17 +109,18 @@ async function getPostList(topic, user) {
 
 function getavatarURL(avatar) {
   if (avatar.includes(developerWebsiteDomain())) {
-    return "https://" + developerWebsiteDomain() + avatar.replace("{size}", "120")
+    return (
+      'https://' + developerWebsiteDomain() + avatar.replace('{size}', '120')
+    );
   } else {
-    return avatar.replace("{size}", "120")
+    return avatar.replace('{size}', '120');
   }
 }
 
 function styleExcerpt(excerpt) {
   if (excerpt.length > 150) {
-    return excerpt.slice(0, 150) + "..."
+    return excerpt.slice(0, 150) + '...';
   } else {
-    return excerpt.replace("&hellip;", "")
+    return excerpt.replace('&hellip;', '');
   }
 }
-

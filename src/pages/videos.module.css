@@ -1,11 +1,5 @@
-
 .videosCardContainer {
   flex: 95%;
-}
-
-.discourseContainer {
-  border-radius: 0.5em;
-  height: 100%;
 }
 
 .videosTitle {

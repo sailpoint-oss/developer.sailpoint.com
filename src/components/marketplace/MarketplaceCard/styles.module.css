@@ -1,16 +1,21 @@
 /* Getting Started Card */
 .card {
   position: relative;
-  margin-top: 20px;
-  height: 500px;
-  /* UI Properties */
-  background: var(--dev-card-background);
-  box-shadow: var(--dev-card-shadow);
-  border: 1px solid var(--dev-card-background);
-  border-radius: 40px;
+  margin-top: 30px;
+  margin-bottom: 30px;
   opacity: 1;
-  transition: all  0.3s;
-  max-width: 400px;
+  transition: all 0.3s;
+  max-width: 300px;
+  background: var(--dev-new-car-background);
+  border-radius: 0.5rem;
+  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color),
+    0 1px 2px -1px var(--tw-shadow-color);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 transparent, 0 0 transparent, 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .card:hover {
@@ -19,121 +24,36 @@
   box-shadow: var(--dev-card-selected);
 }
 
-
-
-
-
 .cardText {
   display: flex;
   flex-direction: column;
-  margin: 22px;
-  min-width: 170px;
-  margin-bottom: 75px;
 }
-
 .cardImage {
-  border-radius: 4px;
-  justify-content: center;
-  aspect-ratio: 16/9;
+  overflow: hidden;
+  position: relative;
+  height: 144px;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
 }
-
-
 .cardTitle {
-  font-size: 22px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  text-align: left;
+  height: 50px;
 }
 
 .cardBody {
-  font-size: 16px;
-  font-weight: 500;
-  top: 10px;
-  left: 0;
+  height: 80px;
+  margin-top: 1rem;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  text-align: left;
 }
-
-.tag {
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--dev-secondary-text);
-  background-color: var(--dev-tag-highlight);
-  padding: 0px 8px;
-  margin-right: 5px;
-  margin-top: 5px;
-}
-
-.tags {
-  margin: 0px;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 10px;
-}
-
-
-
-
-
-.cardUser {
-  position: absolute;
-  bottom: 10px;
-  left: 25px;
-  display: flex;
-}
-
-.cardFace {
-  border-radius: 9999px;
-  margin: auto;
-  height: 40px;
-  width: 40px;
-}
-
-.cardName {
-  min-width: 170px;
-  margin-top: 7px;
-  margin-left: 10px;
-}
-
-
-
-
-
-.cardData {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  display: flex;
-  align-items: center;
-}
-
-.cardEye {
-  fill: #96a9bb;
-  /* computed from codepen https://codepen.io/sosuke/pen/Pjoqqp */
-  filter: invert(79%) sepia(12%) saturate(484%) hue-rotate(168deg) brightness(84%) contrast(84%);
-  margin-left: 5px;
-  height: 18px;
-  width: 18px;
-}
-
-.cardComment {
-  margin-left: 10px;
-  fill: #96a9bb;
-  /* computed from codepen https://codepen.io/sosuke/pen/Pjoqqp */
-  filter: invert(79%) sepia(12%) saturate(484%) hue-rotate(168deg) brightness(84%) contrast(84%);
-  height: 18px;
-  width: 18px;
-  margin-bottom: 4px;
-}
-
-.cardCommentText {
-  color: #96a9ba;
-  /* computed from codepen https://codepen.io/sosuke/pen/Pjoqqp */
-  margin-left: 5px;
-  margin-bottom: 5px;
-  height: 20px;
-  font-size: 16px;
-}
-
-
-
 
 /* .cardBadge {
   position: absolute;
@@ -165,7 +85,6 @@
   margin-left: -19px;
   margin-top: 15px;
 }
-
 
 .cardBadgeCertified {
   position: absolute;

@@ -1,15 +1,18 @@
 /* Getting Started Card container */
 .gridContainer {
-  display: flex;
-  /* place-content: center; */
-  flex-wrap: wrap;
-  gap: 40px;
-  margin-left: 40px;
-  margin-right: 40px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 23px;
 }
 .gridContainer::after {
-  content: "";
+  content: '';
   flex: auto;
+}
+
+@media only screen and (max-width: 2100px) {
+  .gridContainer div:nth-child(4) {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 870px) {
@@ -20,8 +23,6 @@
     display: none;
   }
 }
-
-
 
 .center {
   margin: 0px auto;
@@ -39,9 +40,6 @@
   padding: 8px;
   margin: 50px;
 }
-
-
-
 
 .modal {
   position: absolute;
@@ -61,20 +59,18 @@
   overflow-y: auto;
 }
 
-
-
-
 .cardExit {
   position: absolute;
   top: 6px;
   right: 6px;
   fill: #96a9bb;
   /* computed from codepen https://codepen.io/sosuke/pen/Pjoqqp */
-  filter: invert(79%) sepia(12%) saturate(484%) hue-rotate(168deg) brightness(84%) contrast(84%);
+  filter: invert(79%) sepia(12%) saturate(484%) hue-rotate(168deg)
+    brightness(84%) contrast(84%);
   margin-left: 5px;
   height: 24px;
   width: 24px;
-  transition: all  0.2s;
+  transition: all 0.2s;
 }
 
 .cardExit:hover {
@@ -83,7 +79,6 @@
   height: 23px;
   width: 23px;
 }
-
 
 .spinnerCenter {
   margin: 100px auto;

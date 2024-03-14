@@ -30,13 +30,13 @@ export default function VideoLibrary() {
   return (
     <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
       <main>
-        <div className={styles.videosContainer}>
+        <div>
           <div className={styles.titleContainer}>
             <h1 className={styles.videosTitle}>Video Library</h1>
           </div>
 
           <div>
-            <div className={styles.videosSidbarContainer}>
+            <div>
               <VideoSidebar
                 selectedCategory={filteredProduct}
                 filterCallback={handleClick}

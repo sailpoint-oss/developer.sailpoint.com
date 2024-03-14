@@ -1,0 +1,15 @@
+.filterContainer {
+  margin: auto;
+  width: 50%;
+  margin-top: 3%;
+}
+
+@media screen and (max-width: 500px) {
+  .filterContainer {
+    width: 100%;
+  }
+}
+
+.blogCardContainer {
+  flex: 95%;
+}

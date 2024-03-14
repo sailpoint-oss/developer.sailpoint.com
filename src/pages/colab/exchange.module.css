@@ -1,7 +1,5 @@
 .blogContainer {
   display: flex;
-  width: 50%;
-  margin: auto;
 }
 
 .blogSidbarContainer {
@@ -21,15 +19,4 @@
 .discourseContainer {
   border-radius: 0.5em;
   height: 100%;
-}
-
-.title {
-  margin-top: 1%;
-  margin-left: 3%;
-  width: 300px;
-}
-
-.link {
-  margin-top: 3%;
-  margin-left: 4%;
 }

@@ -12,30 +12,32 @@ import {
   getMarketplaceTopicRaw,
 } from '../../../services/DiscourseService';
 import MarketplaceCardDetail from '../MarketplaceCardDetail';
-export default function MarketplaceCards({filterCallback}) {
+export default function MarketplaceCards({filterCallback, limit}) {
   const [cardData, setCardData] = React.useState();
   const [detailsOpen, setDetailsOpen] = React.useState(false);
   const [details, setDetails] = React.useState('');
   const [loadingCards, setLoadingCards] = React.useState(true);
 
-
   const handleCloseModal = () => {
     setDetailsOpen(false);
-  }
+  };
 
   const getPosts = async () => {
-    const data = await getMarketplacePosts(filterCallback.tags.join('+'), filterCallback.category);
-    
+    const data = await getMarketplacePosts(
+      filterCallback.tags.join('+'),
+      filterCallback.category,
+    );
+
     const resultset = [];
     if (data.topic_list) {
       for (const topic of data.topic_list.topics) {
         if (topic.tags.length > 0) {
-          let poster = {}
+          let poster = {};
           for (let topicUser of topic.posters) {
-            if (topicUser.description.includes("Original Poster")) {
+            if (topicUser.description.includes('Original Poster')) {
               for (let user of data.users) {
                 if (user.id === topicUser.user_id) {
-                  poster = user
+                  poster = user;
                 }
               }
             }
@@ -44,7 +46,11 @@ export default function MarketplaceCards({filterCallback}) {
           resultset.push(await getPostList(topic, poster));
         }
       }
-      setCardData(resultset);
+      if (limit) {
+        setCardData(resultset.slice(0, limit));
+      } else {
+        setCardData(resultset);
+      }
     } else {
       setCardData(undefined);
     }
@@ -72,8 +78,7 @@ export default function MarketplaceCards({filterCallback}) {
     setLoadingCards(true);
   }, [filterCallback]);
 
-
-  const xImage = useBaseUrl('/icons/circle-xmark-regular.svg')
+  const xImage = useBaseUrl('/icons/circle-xmark-regular.svg');
 
   if (cardData && cardData.length > 0) {
     return (
@@ -124,26 +129,40 @@ export default function MarketplaceCards({filterCallback}) {
     return (
       <div className={styles.noFound}>
         {' '}
-        Hey there, looks like no integrations match your search criteria. Check out our <a href='https://developer.sailpoint.com/discuss/t/about-the-sailpoint-developer-community-colab/11230'>getting started guide</a>, and consider being the first to contribute this integration!
+        Hey there, looks like no integrations match your search criteria. Check
+        out our{' '}
+        <a href="https://developer.sailpoint.com/discuss/t/about-the-sailpoint-developer-community-colab/11230">
+          getting started guide
+        </a>
+        , and consider being the first to contribute this integration!
       </div>
     );
   }
+}
+function shortenTitle(title) {
+  if (title.length > 63) {
+    return title.substring(0, 62) + '...';
+  }
+  return title;
+}
+
+function shortenDesc(desc) {
+  if (desc.length > 93) {
+    return desc.substring(0, 93) + '...';
+  }
+  return desc;
 }
 
 async function getPostList(topic, user) {
   return {
     id: topic.id,
     name: user.name,
-    excerpt: styleExcerpt(topic.excerpt),
+    excerpt: shortenDesc(styleExcerpt(topic.excerpt)),
     creatorImage: getavatarURL(user.avatar_template),
     tags: topic.tags,
     image: topic.image_url,
-    link:
-    discourseBaseURL() + 't/' +
-      topic.slug +
-      '/' +
-      topic.id,
-    title: topic.title,
+    link: discourseBaseURL() + 't/' + topic.slug + '/' + topic.id,
+    title: shortenTitle(topic.title),
     views: topic.views,
     liked: topic.like_count,
     replies: topic.posts_count,
@@ -154,9 +173,11 @@ async function getPostList(topic, user) {
 
 function getavatarURL(avatar) {
   if (avatar.includes(developerWebsiteDomain())) {
-    return "https://" + developerWebsiteDomain() + avatar.replace("{size}", "120")
+    return (
+      'https://' + developerWebsiteDomain() + avatar.replace('{size}', '120')
+    );
   } else {
-    return avatar.replace("{size}", "120")
+    return avatar.replace('{size}', '120');
   }
 }
 
@@ -165,9 +186,9 @@ function styleExcerpt(excerpt) {
     // remove any strings that have colons between them
     excerpt = excerpt.replace(/:[^:]*:/g, '');
     // get text between "Description" and "Legal Agreement"
-    const match = excerpt.match(/Description([\s\S]*?)Legal Agreement/)
+    const match = excerpt.match(/Description([\s\S]*?)Legal Agreement/);
     if (match) {
-      excerpt = match[1].trim()
+      excerpt = match[1].trim();
     }
     if (excerpt.length > 150) {
       return excerpt.slice(0, 100) + '...';

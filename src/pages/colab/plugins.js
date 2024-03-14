@@ -39,7 +39,7 @@ export default function Workflows() {
             <BlogSidebar filterCallback={handleClick} isChecked={true} />
           </div>
           <div className={styles.blogCardContainer}>
-            <MarketplaceCards filterCallback={filteredProduct} />
+            <MarketplaceCards filterCallback={filteredProduct}/>
           </div>
         </div>
       </main>

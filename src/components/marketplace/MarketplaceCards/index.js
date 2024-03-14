@@ -17,6 +17,7 @@ export default function MarketplaceCards({filterCallback, limit}) {
   const [detailsOpen, setDetailsOpen] = React.useState(false);
   const [details, setDetails] = React.useState('');
   const [loadingCards, setLoadingCards] = React.useState(true);
+ 
 
   const handleCloseModal = () => {
     setDetailsOpen(false);

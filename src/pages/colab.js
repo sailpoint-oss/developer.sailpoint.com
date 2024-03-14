@@ -81,7 +81,7 @@ export default function Marketplace() {
                   View All &#8594;
                 </Link>
               </div>
-              <MarketplaceCards filterCallback={plugins} limit={3} />
+              <MarketplaceCards filterCallback={plugins} limit={4} />
             </div>
       
             <div className={styles.blogCardContainer}>
@@ -101,7 +101,7 @@ export default function Marketplace() {
                   View All &#8594;
                 </Link>
               </div>
-              <MarketplaceCards filterCallback={workflows} limit={3} />
+              <MarketplaceCards filterCallback={workflows} limit={4} />
             </div>
             <div className={styles.blogCardContainer}>
               <div className={styles.titleContainer}>
@@ -110,7 +110,7 @@ export default function Marketplace() {
                   View All &#8594;
                 </Link>
               </div>
-              <MarketplaceCards filterCallback={saas} limit={3} />
+              <MarketplaceCards filterCallback={saas} limit={4} />
             </div>
             <div className={styles.blogCardContainer}>
               <div className={styles.titleContainer}>
@@ -119,7 +119,7 @@ export default function Marketplace() {
                   View All &#8594;
                 </Link>
               </div>
-              <MarketplaceCards filterCallback={rules} limit={3} />
+              <MarketplaceCards filterCallback={rules} limit={4} />
             </div>
             <div className={styles.blogCardContainer}>
               <div className={styles.titleContainer}>
@@ -128,7 +128,7 @@ export default function Marketplace() {
                   View All &#8594;
                 </Link>
               </div>
-              <MarketplaceCards filterCallback={transforms} limit={3} />
+              <MarketplaceCards filterCallback={transforms} limit={4} />
             </div>
           </div>
         </div>

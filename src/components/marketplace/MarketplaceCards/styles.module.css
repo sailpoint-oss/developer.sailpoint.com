@@ -1,7 +1,7 @@
 /* Getting Started Card container */
 .gridContainer {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 23px;
 }
 .gridContainer::after {
@@ -10,12 +10,33 @@
 }
 
 @media only screen and (max-width: 2100px) {
-  .gridContainer div:nth-child(4) {
+  .gridContainer {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .gridContainer > div:nth-child(4) {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .gridContainer {
+    grid-template-columns: 1fr 1fr;
+  }
+  .gridContainer > div:nth-child(3),
+  .gridContainer > div:nth-child(4) {
     display: none;
   }
 }
 
 @media only screen and (max-width: 870px) {
+  .gridContainer {
+    grid-template-columns: 1fr;
+  }
+  .gridContainer > div:nth-child(2),
+  .gridContainer > div:nth-child(3),
+  .gridContainer > div:nth-child(4) {
+    display: none;
+  }
   .gridContainer {
     place-content: center;
   }

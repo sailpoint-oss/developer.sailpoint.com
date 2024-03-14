@@ -11,5 +11,6 @@
 }
 
 .blogCardContainer {
-  flex: 95%;
+  width: 50%;
+  margin: auto;
 }

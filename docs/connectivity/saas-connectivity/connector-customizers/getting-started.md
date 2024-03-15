@@ -13,6 +13,8 @@ tags: ['Connectivity']
 
 # Get Started
 
+import Video from '@site/src/components/Video';
+
 ## Video Tutorial
 
 <Video source="https://play.vidyard.com/watch/YtrUm1a5B29VbADR2ryhWa"></Video>

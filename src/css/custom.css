@@ -532,21 +532,4 @@ div[id^='discourse-comments'] {
   display: flex;
   padding-bottom: 2%;
 }
-div[class^='react-multi-carousel-list'] {
-  /* overflow: visible !important; */
-  padding-bottom: 3%;
-  position: initial !important;
-}
-
-button[class^='react-multiple-carousel__arrow react-multiple-carousel__arrow--right ']  {
-  margin-right: 13% !important;
-}
-
-button[class^='react-multiple-carousel__arrow react-multiple-carousel__arrow--left ']  {
-  margin-left: 13% !important;
-}
-
-li[class^='react-multi-carousel-item'] {
-  max-width: 250px !important;
-}
 

@@ -28,8 +28,9 @@ export default function BlogCards({filterCallback}) {
               }
             }
           }
-
-          resultset.push(await getPostList(topic, poster));
+          if (topic.category_id !== 57) {
+            resultset.push(await getPostList(topic, poster));
+          }
         }
       }
       setCardData(resultset);

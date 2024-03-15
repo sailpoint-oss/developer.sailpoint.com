@@ -1208,14 +1208,16 @@ export default function VideoCards({filterCallback}) {
     );
   } else {
     return (
-      <div className={styles.noFound}>
-        {' '}
-        Hey there, looks like no integrations match your search criteria. Check
-        out our{' '}
-        <a href="https://developer.sailpoint.com/discuss/t/about-the-sailpoint-developer-community-colab/11230">
-          getting started guide
-        </a>
-        , and consider being the first to contribute this integration!
+      <div>
+        <div className={styles.noFound}>
+          {' '}
+          Hey there, looks like no integrations match your search criteria.
+          Check out our{' '}
+          <a href="https://developer.sailpoint.com/discuss/t/about-the-sailpoint-developer-community-colab/11230">
+            getting started guide
+          </a>
+          , and consider being the first to contribute this integration!
+        </div>
       </div>
     );
   }

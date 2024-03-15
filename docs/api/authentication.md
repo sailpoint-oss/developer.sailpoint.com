@@ -246,7 +246,6 @@ The redirect URLs must also match the list in the client as well:
  "name": "My Application",
  "description": "My Application",
  "id": "b61429f5-203d-494c-94c3-04f54e17bc5c",
- "secret": null,
  "grantTypes": [
   "AUTHORIZATION_CODE"
  ],
@@ -290,7 +289,7 @@ This is the overall authorization flow:
 2. The web app sends an authorization request to ISC in this form:
 
 ```Text
-GET https://{tenant}.login.sailpoint.com/oauth/authorize?client_id={client-id}&client_secret={client-secret}&response_type=code&redirect_uri={redirect-url}
+GET https://{tenant}.login.sailpoint.com/oauth/authorize?client_id={client-id}&response_type=code&redirect_uri={redirect-url}
 ```
 
 3. ISC redirects the user to a login prompt to authenticate to Identity Security Cloud.
@@ -302,7 +301,7 @@ GET https://{tenant}.login.sailpoint.com/oauth/authorize?client_id={client-id}&c
 6. The web app submits an OAuth 2.0 token request to ISC in this form:
 
 ```text
-POST https://{tenant}.api.identitynow.com/oauth/token?grant_type=authorization_code&client_id={client-id}&client_secret={client-secret}&code={code}&redirect_uri={redirect-url}
+POST https://{tenant}.api.identitynow.com/oauth/token?grant_type=authorization_code&client_id={client-id}&code={code}&redirect_uri={redirect-url}
 ```
 
 :::info
@@ -320,7 +319,6 @@ These are the query parameters in the OAuth 2.0 token request for the authorizat
 | --- | --- |
 | `grant_type` | Set this to `authorization_code` for the authorization code grant type. |
 | `client_id` | This is the client ID for the API client (e.g. `b61429f5-203d-494c-94c3-04f54e17bc5c`). This can be generated at `https://{tenant}.identitynow.com/ui/admin/#admin:global:security:apimanagementpanel` |
-| `client_secret` | This is the client secret for the API client (e.g. `c924417c85b19eda40e171935503d8e9747ca60ddb9b48ba4c6bb5a7145fb6c5`). This can be generated at `https://{tenant}.identitynow.com/ui/admin/#admin:global:security:apimanagementpanel` |
 | `code` | This is a code returned by `/oauth/authorize`. |
 | `redirect_uri` | This is the application URL to redirect to once the token has been granted. |
 
@@ -328,7 +326,7 @@ Here is an example OAuth 2.0 token request for the authorization code grant type
 
 ```bash
 curl -X POST \
- 'https://example.api.identitynow.com/oauth/token?grant_type=authorization_code&client_id=b61429f5-203d-494c-94c3-04f54e17bc5c&client_secret=c924417c85b19eda40e171935503d8e9747ca60ddb9b48ba4c6bb5a7145fb6c5&code=6688LQJB0y652z6ZjFmkCKuBUjv2sTIqKS2JthWrZ7qlPgI9TClJ6FnpweEhO6w7&redirect_uri=https://myappdomain.com/oauth/redirect' \
+ 'https://example.api.identitynow.com/oauth/token?grant_type=authorization_code&client_id=b61429f5-203d-494c-94c3-04f54e17bc5c&code=6688LQJB0y652z6ZjFmkCKuBUjv2sTIqKS2JthWrZ7qlPgI9TClJ6FnpweEhO6w7&redirect_uri=https://myappdomain.com/oauth/redirect' \
  -H 'cache-control: no-cache'
  
 ```

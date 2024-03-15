@@ -13,6 +13,10 @@ tags: ['Connectivity']
 
 # Get Started
 
+## Video Tutorial
+
+<Video source="https://play.vidyard.com/watch/YtrUm1a5B29VbADR2ryhWa"></Video>
+
 ## Required software
 
 You need to have the same software installed to create a customizer that you need to create a SaaS Connector. You can find the lists of Prerequisites [here](../prerequisites).

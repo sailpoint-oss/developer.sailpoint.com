@@ -2,9 +2,10 @@ import React from 'react';
 import styles from './styles.module.css';
 import {getTags} from '../../../services/DiscourseService';
 
-export default function BlogSidebar({filterCallback}) {
+export default function BlogSidebar({filterCallback, defaultValue}) {
   const [tagProductData, setTagProductData] = React.useState();
-  const [isChecked, setIsChecked] = React.useState(false);
+  let initialCheckState = defaultValue === 'Identityiq' ? true : false;
+  const [isChecked, setIsChecked] = React.useState(initialCheckState);
 
   const handleChange = () => {
     setIsChecked(!isChecked);
@@ -28,7 +29,7 @@ export default function BlogSidebar({filterCallback}) {
 
   React.useEffect(() => {
     getTagData();
-  }, []);
+  });
 
   if (tagProductData) {
     return (

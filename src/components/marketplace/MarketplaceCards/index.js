@@ -73,7 +73,10 @@ export default function MarketplaceCards({filterCallback, limit}) {
 
   Modal.setAppElement('#__docusaurus');
   React.useEffect(() => {
-    getPosts();
+    const timer = setTimeout(() => {
+      getPosts();
+    }, 1000);
+
     setCardData(undefined);
     setLoadingCards(true);
   }, [filterCallback]);

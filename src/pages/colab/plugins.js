@@ -10,7 +10,7 @@ import MarketplaceCards from '../../components/marketplace/MarketplaceCards';
 export default function Workflows() {
   const [filteredProduct, setFilteredProduct] = React.useState({
     category: 'colab-iiq-plugins',
-    tags: ['identity-security-cloud'],
+    tags: ['Identityiq'],
   });
 
   const {siteConfig} = useDocusaurusContext();
@@ -36,7 +36,7 @@ export default function Workflows() {
       <main>
         <div>
           <div className={styles.filterContainer}>
-            <BlogSidebar filterCallback={handleClick} isChecked={true} />
+            <BlogSidebar filterCallback={handleClick} isChecked={true} defaultValue={'Identityiq'}/>
           </div>
           <div className={styles.blogCardContainer}>
             <MarketplaceCards filterCallback={filteredProduct}/>

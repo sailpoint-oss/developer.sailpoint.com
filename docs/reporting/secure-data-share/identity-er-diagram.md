@@ -2,11 +2,11 @@
 id: secure-data-share-er-diagram
 title: Secure Data Share ER Diagram
 pagination_label: Secure Data Share ER Diagram
-sidebar_label: Entity Relationship Diagram
+sidebar_label: Identity Entity Relationship Diagram
 sidebar_position: 1
 sidebar_class_name: secureDataShare
 keywords: ['data listing', 'data share', 'secure data sharing']
-description: Secure Data Share Entity Relationship Diagram
+description: Secure Data Share Identity Entity Relationship Diagram
 slug: /reporting/sds-er-diagram
 tags: ['SecureDataShare', 'SDS']
 hide_table_of_contents: true
@@ -14,7 +14,7 @@ hide_table_of_contents: true
 
 import MermaidViewer from '@site/src/components/MermaidViewer';
 
-# Secure Data Share ER Diagram
+# Secure Data Share Identity ER Diagram
 
 
 <MermaidViewer diagram='erDiagram

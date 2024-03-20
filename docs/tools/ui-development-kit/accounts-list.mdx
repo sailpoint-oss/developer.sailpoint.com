@@ -1,0 +1,556 @@
+---
+id: udk-accounts-list
+title: Implementing the Account List Page
+pagination_label: UDK
+sidebar_label: Account List Page
+sidebar_position: 2
+sidebar_class_name: rudk
+keywords: ['UI', 'development', 'kit']
+description: Develop custom user interfaces.
+slug: /tools/ui-development-kit/accounts-list
+tags: ['UI']
+---
+
+## Overview
+
+This guide will walk you through implementing a new page to list all accounts in your tenant.
+
+This is a continuation of the [getting started guide](./getting-started#add-route-and-new-page). You must have created your routes and pages before continuing with this guide.
+
+At the end of this guide you will be able to:
+
+- List all accounts in your tenant
+- Paginate accounts by page limits of 5, 10, 50, 100, 250
+- Click through each page of results
+- View the json response of the account from your tenant
+- Sort the results using the sort syntax on the [list accounts](https://developer.sailpoint.com/docs/api/v3/list-accounts) API.
+- Filter the results using the filter syntax on the [list accounts](https://developer.sailpoint.com/docs/api/v3/list-accounts) API.
+
+## Get Account Data
+
+First, retrieve the account data from the list accounts endpoint to show.
+
+Add this logic to the server side of the accounts list page at `src/routes/accounts/account-list/+page.server.ts`.
+
+```typescript
+// Import classes needed
+import {createConfiguration} from '$lib/sailpoint/sdk.js';
+import type {Account} from 'sailpoint-api-client';
+import {AccountsApi} from 'sailpoint-api-client';
+
+export const load = async ({locals}) => {
+  // Create a typescript SDK configuration object using the
+  // baseUrl and access_token pulled from the logged in user.
+  const config = createConfiguration(
+    locals.session!.baseUrl,
+    locals.idnSession!.access_token,
+  );
+  // Initialize the api client for the account api
+  const api = new AccountsApi(config);
+
+  // Call list account with count=true so that we get the header of total accounts back
+  const reportResp = api.listAccounts({count: true});
+
+  const totalCount = new Promise<number>((resolve) => {
+    reportResp.then((response) => {
+      resolve(response.headers['x-total-count']);
+    });
+  });
+
+  const accountData = new Promise<Account[]>((resolve) => {
+    reportResp.then((response) => {
+      console.log(response.data); // Logs out the account response in the console
+      resolve(response.data);
+    });
+  });
+
+  // Return the data to the UI
+  return {accountData, totalCount};
+};
+```
+
+Navigate back to your accounts list page and in your IDE you will see the response of the accounts after the page loads.
+
+Now that we have our account data, add a table to the UI and display our results.
+
+Add the following code to `src/routes/accounts/account-list/+page.svelte`:
+
+<details>
+
+<summary>Show Code</summary>
+
+```html
+<script lang="ts">
+	import Progress from '$lib/Components/Progress.svelte';
+	import {
+		TriggerCodeModal,
+		formatDate
+	} from '$lib/Utils.js';
+	import { getModalStore } from '@skeletonlabs/skeleton';
+
+	export let data;
+
+	const modalStore = getModalStore();
+
+</script>
+
+<div class="flex justify-center flex-col align-middle gap-2">
+	<div class="card p-4">
+		<p class="text-2xl text-center">List of all accounts</p> <!-- Page title -->
+	</div>
+	{#await data.accountData}
+		<div class="grid h-full place-content-center p-8">
+			<Progress width="w-[100px]" />
+		</div>
+	{:then accountData}
+    <!-- If there is no account data show a message to the user -->
+		{#if accountData.length === 0} 
+			<div class="card p-4">
+				<p class=" text-center text-success-500">No Accounts found</p>
+			</div>
+		{:else}
+			<div class="table-container">
+				<table class="table">
+					<thead class="table-head"> <!-- Table headers -->
+						<th> Name </th>
+						<th> Native Identity </th>
+						<th> Source </th>
+						<th> Created </th>
+						<th> Modified </th>
+						<th> Authoritative </th>
+						<th> Features </th>
+						<th> Has Entitlements </th>
+						<th></th>
+					</thead>
+					<tbody class="table-body">
+						{#each accountData as account} <!-- Create a table row for each account -->
+							<tr>
+								<td>
+									{account.name}
+								</td>
+								<td>
+									{account.nativeIdentity}
+								</td>
+								<td>
+									{account.sourceName}
+								</td>
+								<td>
+									{formatDate(account.created)}
+								</td>
+								<td>
+									{formatDate(account.modified)}
+								</td>
+								<td>
+									{account.authoritative}
+								</td>
+								<td>
+									{account.features}
+								</td>
+								<td>
+									{account.hasEntitlements}
+								</td>
+								<td>
+									<div class="flex flex-col justify-center gap-1">
+                                        <!-- Trigger code modal view to see raw account data -->
+										<button
+											on:click={() => TriggerCodeModal(account, modalStore)}
+											class="btn btn-sm variant-filled-primary text-sm !text-white"
+										>
+											View
+										</button>
+									</div>
+								</td>
+							</tr>
+						{/each}
+					</tbody>
+				</table>
+			</div>
+		{/if}
+	{/await}
+</div>
+```
+
+</details>
+
+Save the `+page.svelte` file and navigate back to the accounts list page and you will see up to 250 accounts in the table.
+
+## Pagination
+
+You will likely have more than 250 accounts in your tenant, to handle more than 250 account you must implement pagination on your front end page.
+
+Add the following code to allow you to paginate accounts in groups of 5, 10, 50, 100 and 250 depending on your requirement.
+
+The highlighted portions of the code are the changes made to the previous code to allow for pagination.
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+<TabItem value="accounts_page" label="account-list/+page.svelte" default>
+
+```html
+<script lang="ts">
+	// highlight-next-line
+	import Paginator from '$lib/Components/Paginator.svelte';
+    import Progress from '$lib/Components/Progress.svelte';
+	import {
+		TriggerCodeModal,
+		formatDate,
+		// highlight-start
+        createOnPageChange,
+        createOnAmountChange
+		// highlight-end
+	} from '$lib/Utils.js';
+	import { getModalStore } from '@skeletonlabs/skeleton';
+
+	export let data;
+
+	const modalStore = getModalStore();
+
+	// highlight-start
+    $: onPageChange = createOnPageChange(
+		{ ...data.params, filters: '', sorters: ''},
+		'/accounts/account-list'
+	);
+	$: onAmountChange = createOnAmountChange(
+		{ ...data.params, filters: '', sorters: ''},
+		'/accounts/account-list'
+	);
+	// highlight-end
+
+</script>
+
+<div class="flex justify-center flex-col align-middle gap-2">
+	<div class="card p-4">
+		<p class="text-2xl text-center">List of all accounts</p>
+	</div>
+	{#await data.accountData}
+		<div class="grid h-full place-content-center p-8">
+			<Progress width="w-[100px]" />
+		</div>
+	{:then accountData}
+	<!-- highlight-start -->
+        {#await data.totalCount then totalCount}
+            {#if totalCount > 250 || Number(data.params.limit) < totalCount}
+                <div class="card p-4">
+                    <Paginator
+                        {onAmountChange}
+                        {onPageChange}
+                        settings={{
+                            page: Number(data.params.page),
+                            limit: Number(data.params.limit),
+                            size: totalCount,
+                            amounts: [5, 10, 50, 100, 250]
+                        }}
+                        {totalCount}
+                    />
+                </div>
+            {/if}
+        {/await}
+		<!-- highlight-end -->
+		{#if accountData.length === 0}
+			<div class="card p-4">
+				<p class=" text-center text-success-500">No Accounts found</p>
+			</div>
+		{:else}
+			<div class="table-container">
+				<table class="table">
+					<thead class="table-head">
+						<th> Name </th>
+						<th> Native Identity </th>
+						<th> Source </th>
+						<th> Created </th>
+						<th> Modified </th>
+						<th> Authoritative </th>
+						<th> Features </th>
+						<th> Has Entitlements </th>
+						<th></th>
+					</thead>
+					<tbody class="table-body">
+						{#each accountData as account}
+							<tr>
+								<td>
+									{account.name}
+								</td>
+								<td>
+									{account.nativeIdentity}
+								</td>
+								<td>
+									{account.sourceName}
+								</td>
+								<td>
+									{formatDate(account.created)}
+								</td>
+								<td>
+									{formatDate(account.modified)}
+								</td>
+								<td>
+									{account.authoritative}
+								</td>
+								<td>
+									{account.features}
+								</td>
+								<td>
+									{account.hasEntitlements}
+								</td>
+								<td>
+									<div class="flex flex-col justify-center gap-1">
+										<button
+											on:click={() => TriggerCodeModal(account, modalStore)}
+											class="btn btn-sm variant-filled-primary text-sm !text-white"
+										>
+											View
+										</button>
+									</div>
+								</td>
+							</tr>
+						{/each}
+					</tbody>
+				</table>
+			</div>
+		{/if}
+	{/await}
+</div>
+```
+
+</TabItem>
+<TabItem value="accounts_list_server" label="accounts-list/+page.server.ts">
+
+```typescript
+import { createConfiguration } from '$lib/sailpoint/sdk.js';
+// highlight-next-line
+import { getLimit, getPage } from '$lib/Utils.js';
+import type { Account } from 'sailpoint-api-client';
+import { AccountsApi } from 'sailpoint-api-client';
+
+export const load = async ({ url, locals }) => {
+    const config = createConfiguration(locals.session!.baseUrl, locals.idnSession!.access_token);
+	const api = new AccountsApi(config);
+
+	// highlight-start
+    const page = getPage(url);
+	const limit = getLimit(url);
+	// highlight-end
+
+	// highlight-next-line
+    const reportResp = api.listAccounts({count: true, limit: Number(limit), offset: Number(page) * Number(limit)});
+
+	const totalCount = new Promise<number>((resolve) => {
+		reportResp.then((response) => {
+			resolve(response.headers['x-total-count']);
+		});
+	});
+
+	const accountData = new Promise<Account[]>((resolve) => {
+		reportResp.then((response) => {
+			resolve(response.data);
+		});
+	});
+
+	// highlight-next-line
+	return { accountData, totalCount, params: {page, limit}};
+};
+
+```
+
+</TabItem>
+</Tabs>
+
+Navigate back to the accounts list page and you will see the paginator at the top of the page. You can now paginate through the accounts in your tenant.
+
+## Sort and Filter
+
+Add the following highlighted code to allow you to sort and filter accounts in your tenant.
+
+Once a user types in a filter or sorter and clicks the go button, the `onCreateGo` function is called and the page is reloaded with the new sorters and filters.
+
+On the server side, the `getFilters` and `getSorters` functions are used to get the filters and sorters from the url. These are then passed to the list accounts endpoint to filter and sort the accounts.
+
+<Tabs>
+<TabItem value="accounts_page" label="account-list/+page.svelte" default>
+
+```typescript
+<script lang="ts">
+    import Paginator from '$lib/Components/Paginator.svelte';
+    import Progress from '$lib/Components/Progress.svelte';
+    import {
+        TriggerCodeModal,
+        formatDate,
+        createOnPageChange,
+        createOnAmountChange,
+		// highlight-next-line
+        createOnGo
+    } from '$lib/Utils.js';
+    import { getModalStore } from '@skeletonlabs/skeleton';
+
+    export let data;
+
+    const modalStore = getModalStore();
+
+    $: onPageChange = createOnPageChange(
+        { ...data.params, filters, sorters},
+        '/accounts/account-list'
+    );
+    $: onAmountChange = createOnAmountChange(
+        { ...data.params, filters, sorters},
+        '/accounts/account-list'
+    );
+	// highlight-start
+    $: onGo = createOnGo(
+		{ ...data.params, filters, sorters },
+		'/accounts/account-list'
+	);
+
+    let filters = data.params.filters || '';
+	let sorters = data.params.sorters || '';
+	// highlight-end
+</script>
+
+<div class="flex justify-center flex-col align-middle gap-2">
+    <div class="card p-4">
+        <p class="text-2xl text-center">List of all accounts</p>
+    </div>
+    {#await data.accountData}
+        <div class="grid h-full place-content-center p-8">
+            <Progress width="w-[100px]" />
+        </div>
+    {:then accountData}
+        {#await data.totalCount then totalCount}
+            {#if totalCount > 250 || Number(data.params.limit) < totalCount}
+                <div class="card p-4">
+                    <Paginator
+                        {onAmountChange}
+						// highlight-next-line
+                        {onGo}
+                        {onPageChange}
+                        settings={{
+                            page: Number(data.params.page),
+                            limit: Number(data.params.limit),
+                            size: totalCount,
+                            amounts: [5, 10, 50, 100, 250]
+                        }}
+						// highlight-start
+                        bind:sorters
+                        bind:filters
+						// highlight-end
+                        {totalCount}
+                    />
+                </div>
+            {/if}
+        {/await}
+        {#if accountData.length === 0}
+            <div class="card p-4">
+                <p class=" text-center text-success-500">No Accounts found</p>
+            </div>
+        {:else}
+            <div class="table-container">
+                <table class="table">
+                    <thead class="table-head">
+                        <th> Name </th>
+                        <th> Native Identity </th>
+                        <th> Source </th>
+                        <th> Created </th>
+                        <th> Modified </th>
+                        <th> Authoritative </th>
+                        <th> Features </th>
+                        <th> Has Entitlements </th>
+                        <th></th>
+                    </thead>
+                    <tbody class="table-body">
+                        {#each accountData as account}
+                            <tr>
+                                <td>
+                                    {account.name}
+                                </td>
+                                <td>
+                                    {account.nativeIdentity}
+                                </td>
+                                <td>
+                                    {account.sourceName}
+                                </td>
+                                <td>
+                                    {formatDate(account.created)}
+                                </td>
+                                <td>
+                                    {formatDate(account.modified)}
+                                </td>
+                                <td>
+                                    {account.authoritative}
+                                </td>
+                                <td>
+                                    {account.features}
+                                </td>
+                                <td>
+                                    {account.hasEntitlements}
+                                </td>
+                                <td>
+                                    <div class="flex flex-col justify-center gap-1">
+                                        <button
+                                            on:click={() => TriggerCodeModal(account, modalStore)}
+                                            class="btn btn-sm variant-filled-primary text-sm !text-white"
+                                        >
+                                            View
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        {/each}
+                    </tbody>
+                </table>
+            </div>
+        {/if}
+    {/await}
+</div>
+```
+
+</TabItem>
+<TabItem value="accounts_list_server" label="accounts-list/+page.server.ts">
+
+```typescript
+import { createConfiguration } from '$lib/sailpoint/sdk.js';
+// highlight-next-line
+import { getFilters, getLimit, getPage, getSorters } from '$lib/Utils.js';
+import type { Account } from 'sailpoint-api-client';
+import { AccountsApi } from 'sailpoint-api-client';
+
+export const load = async ({ url, locals }) => {
+    const config = createConfiguration(locals.session!.baseUrl, locals.idnSession!.access_token);
+    const api = new AccountsApi(config);
+
+    const page = getPage(url);
+    const limit = getLimit(url);
+	// highlight-start
+    const sorters = getSorters(url);
+    const filters = getFilters(url);
+	// highlight-end
+
+	// highlight-next-line
+    const reportResp = api.listAccounts({count: true, sorters: sorters, filters: filters, limit: Number(limit), offset: Number(page) * Number(limit)});
+
+    const totalCount = new Promise<number>((resolve) => {
+        reportResp.then((response) => {
+            resolve(response.headers['x-total-count']);
+        });
+    });
+
+    const accountData = new Promise<Account[]>((resolve) => {
+        reportResp.then((response) => {
+            resolve(response.data);
+        });
+    });
+
+	// highlight-next-line
+    return { accountData, totalCount, params: {page, limit, sorters, filters}};
+};
+```
+
+</TabItem>
+</Tabs>
+
+## Next Steps
+
+You have now implemented a new page to list all accounts in your tenant. You can now paginate, sort and filter the accounts in your tenant.
+
+If you provide an invalid filter or sorter, the list accounts endpoint will return a 400 error. You can handle this error by adding a try catch block to the server side of the accounts list page.
+
+Read the [error handling](./error-handling) guide to learn how to handle errors in your UI.

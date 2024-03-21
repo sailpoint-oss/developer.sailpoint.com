@@ -33,6 +33,11 @@ module.exports = {
     },
     {
       position: 'left',
+      label: 'Ambassador Program',
+      to: 'https://developer.sailpoint.com/ambassadors/',
+    },
+    {
+      position: 'left',
       label: 'Discuss',
       to: 'https://developer.sailpoint.com/discuss/',
     },

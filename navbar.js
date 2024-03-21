@@ -34,7 +34,7 @@ module.exports = {
     {
       position: 'left',
       label: 'Ambassador Program',
-      to: 'https://developer.sailpoint.com/ambassadors/',
+      to: 'https://developer.sailpoint.com/ambassadors',
     },
     {
       position: 'left',

@@ -43,7 +43,7 @@ This project is built on [Svelte-Kit](https://kit.svelte.dev/) and ultimately bu
 
 Setting up the project is simple. The environment and application building process are configured so you can start creating custom UIs immediately. However, it is still helpful to understand the project structure. 
 
-Most of your activity will involve the `src` folder, such as adding new pages, routes, and sidebar items. You will learn more about these processes later in [Add a New Component](./adding-a-new-component). 
+Most of your activity will involve the `src` folder, such as adding new pages, routes, and sidebar items. You can learn more about these processes in [Getting Started](./getting-started.mdx). 
 
 This is the project structure: 
 

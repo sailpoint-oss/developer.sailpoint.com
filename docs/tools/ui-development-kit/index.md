@@ -89,7 +89,7 @@ npm run dev
 
 ## Get started
 
-To start learning how to use the UI Development Kit and explore its possibilities, refer to [Getting Started](./getting-started.md). 
+To start learning how to use the UI Development Kit and explore its possibilities, refer to [Getting Started](./getting-started.mdx). 
 
 ## Discuss 
 

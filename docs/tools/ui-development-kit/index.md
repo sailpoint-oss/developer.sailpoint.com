@@ -15,21 +15,21 @@ tags: ['UI']
 
 The SailPoint UI Development Kit is a project you can use to quickly develop custom user interfaces that interact with Identity Security Cloud (ISC).
 
-The UI Development Kit provides you with a framework to build your own applications or processes on the ISC platform.
+The UI Development Kit provides you with a framework you can use to build your own applications or processes on the ISC platform.
 
-Learn how to use the SailPoint UI Development Kit in this guide.
+Read this guide to learn how to use the SailPoint UI Development Kit.
 
 ## Requirements
 
-You need the following to use the UI Development Kit:
+These are the requirements to use the UI Development Kit:
 
-- **Node**. To learn how to download it and set it up, go [here](https://nodejs.org/en/download).
+- **Node**: To learn how to download Node and set it up, go [here](https://nodejs.org/en/download).
 
-- Your tenant name in ISC. To learn how to find it, refer to [Getting Started](/docs/api/getting-started#find-your-tenant-name). The SDK will use this tenant name to connect to your ISC instance.
+- **Your ISC tenant name**. To learn how to find it, refer to [Getting Started](/docs/api/getting-started#find-your-tenant-name). The SDK will use this tenant name to connect to your ISC instance.
 
 ## Clone the project
 
-You can find the UI Development Kit and its examples in the Github repo [here](https://github.com/sailpoint-oss/ui-development-kit).
+The first step to setting up the UI Development Kit is to clone the project from its GitHub repository. You can find the UI Development Kit and its examples in the Github repository [here](https://github.com/sailpoint-oss/ui-development-kit).
 
 To clone the project, you can run this command:
 
@@ -39,11 +39,13 @@ git clone git@github.com:sailpoint-oss/ui-development-kit.git
 
 ## Project structure
 
-This project is built on [Svelte-Kit](https://kit.svelte.dev/) and ultimately builds an [electron](https://www.electronjs.org/) app.
+This project is built on [Svelte-Kit](https://kit.svelte.dev/) and ultimately builds an [Electron](https://www.electronjs.org/) application.
 
-We have configured the environment and building of the application so that all you are left to do is create your custom user interface without having to worry about those details.
+Setting up the project is simple. The environment and application building process are configured so you can start creating custom UIs immediately. However, it is still helpful to understand the project structure. 
 
-You will spend most of your time in the `src` folder, adding new pages, routes and sidebar items. This will be explained later in [adding a new component](./adding-a-new-component). For now, you can run and develop the project locally by following [these steps](#run-the-application-for-local-development).
+Most of your activity will involve the `src` folder, such as adding new pages, routes, and sidebar items. You will learn more about these processes later in [Add a New Component](./adding-a-new-component). 
+
+This is the project structure: 
 
 ```bash
 .
@@ -71,16 +73,26 @@ You will spend most of your time in the `src` folder, adding new pages, routes a
 
 ## Run the application for local development
 
-In the root of the project run this command to install dependencies:
+To run and develop the project locally, follow these steps: 
+
+1. In the root of the project run this command to install dependencies:
 
 ```bash
 npm install
 ```
 
-To start the application run:
+2. To start the application, run this command:
 
 ```bash
 npm run dev
 ```
 
-Continue to [Exploring the UI Development Kit](./getting-started.md)
+## Get started
+
+To start learning how to use the UI Development Kit and explore its possibilities, refer to [Getting Started](./getting-started.md). 
+
+## Discuss 
+
+The most valuable resource for ISC developers is the SailPoint Developer Community itself, where ISC users and experts all over the world come together to ask questions and provide solutions. 
+
+To learn more about the ISC UI Development Kit and discuss it with SailPoint Developer Community members, go to the [SailPoint Developer Community Forum](https://developer.sailpoint.com/discuss/c/identity-security-cloud/6). 

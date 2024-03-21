@@ -13,24 +13,24 @@ tags: ['UI']
 
 ## Overview
 
-This guide will walk you through implementing a new page to list all accounts in your tenant.
+This guide will walk you through the process of implementing a new page that lists all the accounts in your tenant. This serves as an example you can use to learn how to implement many different types of custom UI pages. 
 
-This is a continuation of the [getting started guide](./getting-started#add-route-and-new-page). You must have created your routes and pages before continuing with this guide.
+This guide is a continuation of [Getting Started](./getting-started). To implement a new page, you must have already created your routes and pages. To learn how to do so, refer to the [Add New Route and Page section](./getting-started#add-route-and-new-page).
 
-At the end of this guide you will be able to:
+At the end of this guide you will be able to do the following:
 
 - List all accounts in your tenant
 - Paginate accounts by page limits of 5, 10, 50, 100, 250
 - Click through each page of results
-- View the json response of the account from your tenant
-- Sort the results using the sort syntax on the [list accounts](https://developer.sailpoint.com/docs/api/v3/list-accounts) API.
-- Filter the results using the filter syntax on the [list accounts](https://developer.sailpoint.com/docs/api/v3/list-accounts) API.
+- View the JSON response of the account from your tenant
+- Sort the results, using the sort syntax on the [List Accounts endpoint](https://developer.sailpoint.com/docs/api/v3/list-accounts).
+- Filter the results, using the filter syntax on the [List Accounts endpoint](https://developer.sailpoint.com/docs/api/v3/list-accounts).
 
-## Get Account Data
+## Get account data
 
-First, retrieve the account data from the list accounts endpoint to show.
+The first thing your new page needs to do is get the account data to show. You can implement this by using the [List Accounts endpoint](https://developer.sailpoint.com/docs/api/v3/list-accounts).
 
-Add this logic to the server side of the accounts list page at `src/routes/accounts/account-list/+page.server.ts`.
+To do so, add this logic to the server side of the accounts list page at `src/routes/accounts/account-list/+page.server.ts`:
 
 ```typescript
 // Import classes needed
@@ -69,11 +69,11 @@ export const load = async ({locals}) => {
 };
 ```
 
-Navigate back to your accounts list page and in your IDE you will see the response of the accounts after the page loads.
+Return to your accounts list page. In your IDE, you will see the response containing the accounts after the page loads.
 
-Now that we have our account data, add a table to the UI and display our results.
+Now that you have your account data, you need to display the data. You can add a table to the UI and display your results.
 
-Add the following code to `src/routes/accounts/account-list/+page.svelte`:
+To do so, add this code to `src/routes/accounts/account-list/+page.svelte`:
 
 <details>
 
@@ -172,15 +172,16 @@ Add the following code to `src/routes/accounts/account-list/+page.svelte`:
 
 </details>
 
-Save the `+page.svelte` file and navigate back to the accounts list page and you will see up to 250 accounts in the table.
+Save the `+page.svelte` file and return to the accounts list page. You will see up to 250 accounts in the table.
 
 ## Pagination
 
-You will likely have more than 250 accounts in your tenant, to handle more than 250 account you must implement pagination on your front end page.
+You will likely have more than 250 accounts in your tenant. To handle more than 250 accounts, you must implement pagination on your front end page. 
+Pagination is the process of paging through your records. With pagination, you can handle 1000 accounts in 4 pages of 250, for example. 
 
-Add the following code to allow you to paginate accounts in groups of 5, 10, 50, 100 and 250 depending on your requirement.
+To implement pagination, add the following code. This code allows you to paginate accounts in groups of 5, 10, 50, 100 and 250, depending on your requirement:
 
-The highlighted portions of the code are the changes made to the previous code to allow for pagination.
+The highlighted portions of the code are the changes made to the previous code to allow pagination.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -356,15 +357,20 @@ export const load = async ({ url, locals }) => {
 </TabItem>
 </Tabs>
 
-Navigate back to the accounts list page and you will see the paginator at the top of the page. You can now paginate through the accounts in your tenant.
+Return to the accounts list page. You will see the paginator at the top of the page. You can now paginate through the accounts in your tenant.
 
-## Sort and Filter
+## Sort and filter
 
-Add the following highlighted code to allow you to sort and filter accounts in your tenant.
+To better view and organize the data displayed in your accounts list page, you may want to implement sorting and filtering. 
+Sorting is the process of organizing the data. You may want to provide users with a way to sort the data in ascending or descending alphabetical order based on the account name, for example. 
+Filtering is the process of limiting the displayed data based on specified details. You may want to provide users with a way to filter the data to only include accounts associated with one source, for example. 
 
-Once a user types in a filter or sorter and clicks the go button, the `onCreateGo` function is called and the page is reloaded with the new sorters and filters.
+To implement sorting and filtering, add the following highlighted code. It allows you to sort and filter the accounts in your tenant:
 
-On the server side, the `getFilters` and `getSorters` functions are used to get the filters and sorters from the url. These are then passed to the list accounts endpoint to filter and sort the accounts.
+With this implementation, once a user types in a filter or sorter and clicks the 'Go' button, the UI Development Kit calls the `onCreateGo` function and reloads the page with the new sorters and filters.
+
+On the server side, the kit uses the `getFilters` and `getSorters` functions to get the filters and sorters from the URL. 
+The kit then passes these functions to the [List Accounts endpoint](https://developer.sailpoint.com/docs/api/v3/list-accounts) to filter and sort the accounts.
 
 <Tabs>
 <TabItem value="accounts_page" label="account-list/+page.svelte" default>
@@ -547,10 +553,17 @@ export const load = async ({ url, locals }) => {
 </TabItem>
 </Tabs>
 
-## Next Steps
+## Error Handling
 
-You have now implemented a new page to list all accounts in your tenant. You can now paginate, sort and filter the accounts in your tenant.
+You have now implemented a new page that lists all the accounts in your tenant, and you can now paginate, sort and filter the accounts in your tenant. 
 
-If you provide an invalid filter or sorter, the list accounts endpoint will return a 400 error. You can handle this error by adding a try catch block to the server side of the accounts list page.
+Ideally, everything in your custom UIs will work smoothly, but you will likely encounter errors at some point when you're implementing a page. If you provide an invalid filter or sorter, the list accounts endpoint will return a 400 error, for example. 
+You can handle this error by adding a `try catch` block to the server side of the accounts list page.
 
-Read the [error handling](./error-handling) guide to learn how to handle errors in your UI.
+To learn more about handling errors in your UI, refer to [Error Handling](./error-handling). 
+
+## Discuss 
+
+The most valuable resource for ISC developers is the SailPoint Developer Community itself, where ISC users and experts all over the world come together to ask questions and provide solutions. 
+
+To learn more about the ISC UI Development Kit and discuss it with SailPoint Developer Community members, go to the [SailPoint Developer Community Forum](https://developer.sailpoint.com/discuss/c/identity-security-cloud/6). 

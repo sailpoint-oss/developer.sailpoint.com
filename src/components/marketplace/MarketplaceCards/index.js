@@ -10,6 +10,7 @@ import {
   getMarketplacePosts,
   getMarketplaceTopic,
   getMarketplaceTopicRaw,
+  getUserTitle,
 } from '../../../services/DiscourseService';
 import MarketplaceCardDetail from '../MarketplaceCardDetail';
 export default function MarketplaceCards({filterCallback, limit}) {
@@ -29,6 +30,7 @@ export default function MarketplaceCards({filterCallback, limit}) {
     );
 
     const resultset = [];
+    const titleList = [];
     if (data.topic_list) {
       for (const topic of data.topic_list.topics) {
         if (topic.tags.length > 0) {
@@ -37,6 +39,22 @@ export default function MarketplaceCards({filterCallback, limit}) {
             if (topicUser.description.includes('Original Poster')) {
               for (let user of data.users) {
                 if (user.id === topicUser.user_id) {
+                  if (
+                    !titleList.find((x) => x.group === user.primary_group_name)
+                  ) {
+                    console.log(titleList);
+                    console.log('getting title for ' + user.primary_group_name);
+                    let usertitle = await getUserTitle(user.primary_group_name);
+                    titleList.push({
+                      group: user.primary_group_name,
+                      title: usertitle.group.title,
+                    });
+                    user.title = usertitle.group.title;
+                  } else {
+                    user.title = titleList.find(
+                      (x) => x.group === user.primary_group_name,
+                    ).title;
+                  }
                   poster = user;
                 }
               }
@@ -161,9 +179,10 @@ function shortenDesc(desc) {
 async function getPostList(topic, user) {
   return {
     id: topic.id,
-    name: user.name,
+    creatorName: user.name,
     excerpt: shortenDesc(styleExcerpt(topic.excerpt)),
     creatorImage: getavatarURL(user.avatar_template),
+    creatorTitle: user.title,
     tags: topic.tags,
     image: topic.image_url,
     link: discourseBaseURL() + 't/' + topic.slug + '/' + topic.id,

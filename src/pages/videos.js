@@ -23,7 +23,7 @@ export default function VideoLibrary() {
         tempFilter.push(data.tag);
       }
     }
-    console.log('tempFilter', tempFilter);
+
     setFilteredProduct({tags: tempFilter});
   };
 

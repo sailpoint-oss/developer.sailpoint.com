@@ -4,7 +4,8 @@ import BlogCard from '../BlogCard';
 import BounceLoader from 'react-spinners/BounceLoader';
 import {discourseBaseURL, developerWebsiteDomain} from '../../../util/util';
 
-import {getBlogPosts} from '../../../services/DiscourseService';
+import {getBlogPosts, getUserTitle} from '../../../services/DiscourseService';
+import {get} from 'lodash';
 export default function BlogCards({filterCallback}) {
   const [cardData, setCardData] = React.useState();
   const [loadingCards, setLoadingCards] = React.useState(true);
@@ -15,6 +16,7 @@ export default function BlogCards({filterCallback}) {
     }
     const data = await getBlogPosts(filterCallback.join('+'));
     const resultset = [];
+    const titleList = [];
     if (data.topic_list.topics) {
       for (const topic of data.topic_list.topics) {
         if (topic.tags.length > 0) {
@@ -23,7 +25,20 @@ export default function BlogCards({filterCallback}) {
             if (topicUser.description.includes('Original Poster')) {
               for (let user of data.users) {
                 if (user.id === topicUser.user_id) {
-                  console.log(user);
+                  if (
+                    !titleList.find((x) => x.group === user.primary_group_name)
+                  ) {
+                    let usertitle = await getUserTitle(user.primary_group_name);
+                    titleList.push({
+                      group: user.primary_group_name,
+                      title: usertitle.group.title,
+                    });
+                    user.title = usertitle.group.title;
+                  } else {
+                    user.title = titleList.find(
+                      (x) => x.group === user.primary_group_name,
+                    ).title;
+                  }
                   poster = user;
                 }
               }
@@ -72,7 +87,8 @@ export default function BlogCards({filterCallback}) {
                 views={a.views}
                 replies={a.replies}
                 readTime={a.readTime}
-                creatorImage={a.creatorImage}></BlogCard>
+                creatorImage={a.creatorImage}
+                creatorTitle={a.creatorTitle}></BlogCard>
             );
           })}
         </div>
@@ -104,6 +120,7 @@ async function getPostList(topic, user) {
     name: user.name,
     excerpt: styleExcerpt(topic.excerpt),
     creatorImage: getavatarURL(user.avatar_template),
+    creatorTitle: user.title,
     tags: topic.tags,
     image: topic.image_url,
     link: discourseBaseURL() + 't/' + topic.slug + '/' + topic.id,

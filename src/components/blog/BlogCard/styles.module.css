@@ -32,6 +32,7 @@
 .cardImage {
   overflow: hidden;
   position: relative;
+  width: 300px;
   height: 144px;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
@@ -72,6 +73,14 @@
   margin-top: 7px;
   margin-left: 10px;
   display: flex;
+  color: var(--text-color);
+}
+
+.cardCreatorTitle {
+  min-width: 170px;
+  margin-left: 10px;
+  display: flex;
+  color: var(--text-color);
 }
 
 .split {

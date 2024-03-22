@@ -1091,7 +1091,6 @@ export default function VideoCards({filterCallback}) {
     const lastSegment = videoUrl.split('/').pop();
     const page = lastSegment.replace('.html', '');
     const description = parts.length > 1 ? parts[1].trim() : ''; // Get the description if it exists
-    console.log(videoUrl);
     return {
       videoUrl,
       description,
@@ -1108,7 +1107,7 @@ export default function VideoCards({filterCallback}) {
 
   const getVideoTopics = async () => {
     let tags = filterCallback.tags;
-    console.log(tags);
+
     const data = await getVideoPosts(tags ? filterCallback.tags.join('+') : '');
     // const data = await topicData;
     const resultset = [];

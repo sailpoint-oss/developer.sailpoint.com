@@ -26,3 +26,8 @@
 .cardDescription {
   font-size: 0.9rem;
 }
+
+.docCardIcon {
+  margin-right: 0.5em;
+  color: var(--ifm-color-primary);
+}

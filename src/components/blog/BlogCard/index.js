@@ -9,6 +9,7 @@ export default function BlogCard({
   title,
   tags,
   creatorImage,
+  creatorTitle,
   image,
   excerpt,
   name,
@@ -31,6 +32,7 @@ export default function BlogCard({
               src={useBaseUrl(creatorImage)}></img>
 
             <div className={styles.cardName}>{name}</div>
+            <div className={styles.cardCreatorTitle}>{creatorTitle}</div>
 
             <div></div>
           </div>

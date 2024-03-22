@@ -1,10 +1,9 @@
 import React from 'react';
 import styles from './styles.module.css';
-import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import ThemedImage from '@theme/ThemedImage';
-import {addDarkToFileName} from '../../../util/util';
-import ReactMarkdown from 'react-markdown';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faShieldCheck, faAward} from '@fortawesome/pro-solid-svg-icons';
+
 export default function MarketplaceCard({post, openDialogFunc}) {
   function setFilters(e) {
     openDialogFunc({
@@ -27,11 +26,18 @@ export default function MarketplaceCard({post, openDialogFunc}) {
     );
   } else if (post.tags.includes('sailpoint-certified')) {
     badge = (
-      <div className={styles.cardBadgeCertified}>
-        <img
-          className={styles.cardBadgeCertifiedImage}
-          src={useBaseUrl('/marketplace/award-simple-sharp-solid.svg')}></img>
-        <span>SailPoint Certified</span>
+      <div className={styles.badgeContainer}>
+        <div className={styles.certifiedText}>
+          <span className={styles.badgeText}>SailPoint Certified</span>
+        </div>
+
+        <div className={styles.cardBadgeCertified}>
+          <FontAwesomeIcon
+            icon={faShieldCheck}
+            className={styles.docCardIcon}
+            size="2x"
+          />
+        </div>
       </div>
     );
   }
@@ -41,24 +47,19 @@ export default function MarketplaceCard({post, openDialogFunc}) {
       <div className={styles.card}>
         <div className={styles.cardText}>
           <img className={styles.cardImage} src={useBaseUrl(post.image)}></img>
+          <div className={styles.split}></div>
           <div className={styles.cardTitle}>{post.title}</div>
-          {/* <div className={styles.tags}>
-            {post.tags?.map((tag, index) => {
-              if (
-                index > 2 ||
-                tag == 'sailpoint-certified' ||
-                tag == 'sailpoint-authored'
-              ) {
-                return '';
-              }
-              return (
-                <div key={tag} className={styles.tag}>
-                  {tag}
-                </div>
-              );
-            })}
-          </div> */}
-          <div className={styles.cardBody}>{post.excerpt}</div>
+
+          <div className={styles.cardUser}>
+            <img
+              className={styles.cardFace}
+              src={useBaseUrl(post.creatorImage)}></img>
+
+            <div className={styles.cardName}>{post.creatorName}</div>
+            <div className={styles.cardCreatorTitle}>{post.creatorTitle}</div>
+
+            <div></div>
+          </div>
         </div>
 
         {badge}

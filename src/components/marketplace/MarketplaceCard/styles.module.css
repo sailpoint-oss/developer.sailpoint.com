@@ -5,8 +5,8 @@
   margin-bottom: 30px;
   opacity: 1;
   transition: all 0.3s;
-  width: 325px;
-  height: 360px;
+  width: 300px;
+  height: 393.17px;
   background: var(--dev-new-car-background);
   border-radius: 0.5rem;
   --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
@@ -36,6 +36,16 @@
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
 }
+.split {
+  background: linear-gradient(
+    145deg,
+    rgba(0, 51, 161, 1) 40%,
+    rgba(0, 79, 181, 1) 65%,
+    rgba(0, 113, 206, 1) 100%
+  );
+  height: 15px;
+}
+
 .cardTitle {
   font-size: 16px;
   font-weight: 500;
@@ -45,10 +55,13 @@
   padding-right: 0.5rem;
   padding-left: 0.5rem;
   text-align: left;
-  height: 50px;
+  height: 80px;
+  color: var(--ifm-color-primary);
 }
 
 .cardBody {
+  font-size: 14px;
+  font-weight: 400;
   height: 80px;
   margin-top: 1rem;
   padding-right: 0.5rem;
@@ -56,14 +69,32 @@
   text-align: left;
 }
 
-/* .cardBadge {
-  position: absolute;
-  right: 5px;
-  bottom: 0px;
-  margin-left: 5px;
-  height: 80px;
-  width: 80px;
-} */
+.cardUser {
+  margin-top: 15px;
+  margin-bottom: 5%;
+}
+
+.cardFace {
+  border-radius: 9999px;
+  margin-left: 2%;
+  height: 40px;
+  width: 40px;
+}
+
+.cardName {
+  min-width: 170px;
+  margin-top: 7px;
+  margin-left: 10px;
+  display: flex;
+  color: var(--text-color);
+}
+
+.cardCreatorTitle {
+  min-width: 170px;
+  margin-left: 10px;
+  display: flex;
+  color: var(--text-color);
+}
 
 .cardBadge {
   position: absolute;
@@ -82,19 +113,24 @@
   width: 80px;
 }
 
+.certifiedText {
+  position: absolute;
+  top: 107px;
+  left: 107px;
+  color: var(--dev-text-color-secondary);
+  visibility: hidden;
+}
+
 .cardBadgeText {
-  margin-left: -19px;
   margin-top: 15px;
+  color: var(--dev-text-color-secondary);
 }
 
 .cardBadgeCertified {
   position: absolute;
-  display: flex;
-  right: 85px;
-  bottom: 5px;
-  margin-left: 5px;
-  height: 50px;
-  width: 50px;
+  width: 250px;
+  left: 253px;
+  top: 93px;
   color: var(--dev-text-color-secondary);
 }
 
@@ -103,4 +139,19 @@
   height: 50px;
   width: 50px;
   filter: var(--dev-icon-color-primary);
+}
+
+.docCardIcon {
+  margin-right: 0.5em;
+  color: var(--ifm-color-primary);
+  padding-top: 4%;
+  padding-left: 4%;
+}
+
+.badgeText {
+  margin-top: 6%;
+}
+
+.badgeContainer:hover .certifiedText {
+  visibility: visible;
 }

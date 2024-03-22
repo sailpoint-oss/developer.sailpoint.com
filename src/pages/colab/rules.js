@@ -22,7 +22,6 @@ export default function Rules() {
     } else {
       tempFilter.push(data);
     }
-    console.log(tempFilter);
 
     setFilteredProduct({
       category: 'colab-rules',

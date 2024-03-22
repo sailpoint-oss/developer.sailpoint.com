@@ -22,7 +22,6 @@ export default function SaasConnector() {
     } else {
       tempFilter.push(data);
     }
-    console.log(tempFilter);
 
     setFilteredProduct({
       category: 'colab-saas-connectors',

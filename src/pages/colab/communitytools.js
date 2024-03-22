@@ -20,7 +20,6 @@ export default function CommunityTools() {
     } else {
       tempFilter.push(data);
     }
-    console.log(tempFilter);
 
     setFilteredProduct({
       category: 'colab-community-tools',

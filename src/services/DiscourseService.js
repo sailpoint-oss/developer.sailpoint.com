@@ -69,17 +69,26 @@ export async function getBlogPosts(tags) {
   }
 }
 
+export async function getUserTitle(primary_group_name) {
+  let url = discourseBaseURL() + 'g/' + primary_group_name + '.json';
+
+  try {
+    const response = await fetch(url);
+    return await response.json();
+  } catch (error) {
+    return [];
+  }
+}
+
 export async function getVideoPosts(tags) {
-  let url = ''
+  let url = '';
   if (tags) {
-    url = discourseBaseURL() + 'c/community/videos/l/latest.json?tags=' + tags
+    url = discourseBaseURL() + 'c/community/videos/l/latest.json?tags=' + tags;
   } else {
-    url = discourseBaseURL() + 'c/community/videos/l/latest.json'
+    url = discourseBaseURL() + 'c/community/videos/l/latest.json';
   }
   try {
-    const response = await fetch(
-      url,
-    );
+    const response = await fetch(url);
     return await response.json();
   } catch (error) {
     return [];

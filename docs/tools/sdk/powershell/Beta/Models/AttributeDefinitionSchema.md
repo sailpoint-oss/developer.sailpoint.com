@@ -1,0 +1,39 @@
+---
+id: attribute-definition-schema
+title: AttributeDefinitionSchema
+pagination_label: AttributeDefinitionSchema
+sidebar_label: AttributeDefinitionSchema
+sidebar_class_name: powershellsdk
+keywords: ['go', 'golang', 'sdk', 'AttributeDefinitionSchema'] 
+slug: /tools/sdk/powershell/beta/models/attribute-definition-schema
+tags: ['SDK', 'Software Development Kit', 'AttributeDefinitionSchema']
+---
+
+
+# AttributeDefinitionSchema
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Type** |  Pointer to  **Enum** [  "CONNECTOR_SCHEMA" ] | The type of object being referenced | [optional] 
+**Id** |  Pointer to **String** | The object ID this reference applies to. | [optional] 
+**Name** |  Pointer to **String** | The human-readable display name of the object. | [optional] 
+
+## Examples
+
+- Prepare the resource
+```powershell
+$AttributeDefinitionSchema = Initialize-PSSailpointBetaAttributeDefinitionSchema  -Type CONNECTOR_SCHEMA `
+ -Id 2c91808568c529c60168cca6f90c1313 `
+ -Name group
+```
+
+- Convert the resource to JSON
+```powershell
+$AttributeDefinitionSchema | ConvertTo-JSON
+```
+
+
+[[Back to top]](#) 
+

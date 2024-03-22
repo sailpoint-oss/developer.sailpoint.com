@@ -1,0 +1,678 @@
+---
+id: workflows
+title: Workflows
+pagination_label: Workflows
+sidebar_label: Workflows
+sidebar_class_name: gosdk
+keywords: ['go', 'golang', 'sdk', 'Workflows'] 
+slug: /tools/sdk/go/v3/methods/workflows
+tags: ['SDK', 'Software Development Kit', 'Workflows']
+---
+
+
+# Workflows
+
+All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**CancelWorkflowExecution**](#cancel-workflow-execution) | **Post** /workflow-executions/{id}/cancel | Cancel Workflow Execution by ID
+[**CreateExternalExecuteWorkflow**](#create-external-execute-workflow) | **Post** /workflows/execute/external/{id} | Execute Workflow via External Trigger
+[**CreateWorkflow**](#create-workflow) | **Post** /workflows/{id} | Create Workflow
+[**CreateWorkflowExternalTrigger**](#create-workflow-external-trigger) | **Post** /workflows/{id}/external/oauth-clients | Generate External Trigger OAuth Client
+[**DeleteWorkflow**](#delete-workflow) | **Delete** /workflows/{id} | Delete Workflow By Id
+[**GetWorkflow**](#get-workflow) | **Get** /workflows/{id} | Get Workflow By Id
+[**GetWorkflowExecution**](#get-workflow-execution) | **Get** /workflow-executions/{id} | Get a Workflow Execution
+[**GetWorkflowExecutionHistory**](#get-workflow-execution-history) | **Get** /workflow-executions/{id}/history | Get Workflow Execution History
+[**ListCompleteWorkflowLibrary**](#list-complete-workflow-library) | **Get** /workflow-library | List Complete Workflow Library
+[**ListWorkflowExecutions**](#list-workflow-executions) | **Get** /workflows/{id}/executions | List Workflow Executions
+[**ListWorkflowLibraryActions**](#list-workflow-library-actions) | **Get** /workflow-library/actions | List Workflow Library Actions
+[**ListWorkflowLibraryOperators**](#list-workflow-library-operators) | **Get** /workflow-library/operators | List Workflow Library Operators
+[**ListWorkflowLibraryTriggers**](#list-workflow-library-triggers) | **Get** /workflow-library/triggers | List Workflow Library Triggers
+[**ListWorkflows**](#list-workflows) | **Get** /workflows | List Workflows
+[**PatchWorkflow**](#patch-workflow) | **Patch** /workflows/{id} | Patch Workflow
+[**PutWorkflow**](#put-workflow) | **Put** /workflows/{id} | Update Workflow
+[**TestExternalExecuteWorkflow**](#test-external-execute-workflow) | **Post** /workflows/execute/external/{id}/test | Test Workflow via External Trigger
+[**TestWorkflow**](#test-workflow) | **Post** /workflows/{id}/test | Test Workflow By Id
+
+
+
+## cancel-workflow-execution
+
+
+Use this API to cancel a running workflow execution.
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **string** | True  | The workflow execution ID
+
+	
+### Return type
+
+ (empty response body)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) 
+
+
+## create-external-execute-workflow
+
+
+This endpoint allows a service outside of IdentityNow to initiate a workflow that uses the "External Trigger" step.  The external service will invoke this endpoint with the input data it wants to send to the workflow in the body.
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **string** | True  | Id of the workflow
+ Body  | createExternalExecuteWorkflowRequest | [**CreateExternalExecuteWorkflowRequest**](../models/create-external-execute-workflow-request) |   (optional) | 
+
+	
+### Return type
+
+[**CreateExternalExecuteWorkflow200Response**](../models/create-external-execute-workflow200-response)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | The Workflow object | CreateExternalExecuteWorkflow200Response
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) 
+
+
+## create-workflow
+
+
+Create a new workflow with the desired trigger and steps specified in the request body.
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | createWorkflowRequest | [**CreateWorkflowRequest**](../models/create-workflow-request) | True  | 
+
+	
+### Return type
+
+[**Workflow**](../models/workflow)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | The Workflow object | Workflow
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) 
+
+
+## create-workflow-external-trigger
+
+
+Create OAuth client ID, client secret, and callback URL for use in an external trigger.  External triggers will need this information to generate an access token to authenticate to the callback URL and submit a trigger payload that will initiate the workflow.
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **string** | True  | Id of the workflow
+
+	
+### Return type
+
+[**WorkflowOAuthClient**](../models/workflow-o-auth-client)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | The OAuth Client object | WorkflowOAuthClient
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) 
+
+
+## delete-workflow
+
+
+Delete a workflow.  **Enabled workflows cannot be deleted**.  They must first be disabled.
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **string** | True  | Id of the Workflow
+
+	
+### Return type
+
+ (empty response body)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) 
+
+
+## get-workflow
+
+
+Get a single workflow by id.
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **string** | True  | Id of the workflow
+
+	
+### Return type
+
+[**Workflow**](../models/workflow)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | The workflow object | Workflow
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) 
+
+
+## get-workflow-execution
+
+
+Get a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **string** | True  | Id of the workflow execution
+
+	
+### Return type
+
+**map[string]interface{}**
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | The workflow execution | map[string]interface{}
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) 
+
+
+## get-workflow-execution-history
+
+
+Get a detailed history of a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **string** | True  | Id of the workflow execution
+
+	
+### Return type
+
+[**[]WorkflowExecutionEvent**](../models/workflow-execution-event)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | List of workflow execution events for the given workflow execution | []WorkflowExecutionEvent
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) 
+
+
+## list-complete-workflow-library
+
+
+This lists all triggers, actions, and operators in the library
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | limit | **int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | offset | **int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+	
+### Return type
+
+[**[]ListCompleteWorkflowLibrary200ResponseInner**](../models/list-complete-workflow-library200-response-inner)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | List of workflow steps | []ListCompleteWorkflowLibrary200ResponseInner
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) 
+
+
+## list-workflow-executions
+
+
+This lists the executions for a given workflow. Workflow executions are available for up to 90 days before being archived. By default, you can get a maximum of 250 executions. To get executions past the first 250 records, you can do the following:
+1. Use the [Get Workflows](https://developer.sailpoint.com/idn/api/beta/list-workflows) endpoint to get your workflows.
+2. Get your workflow ID from the response.
+3. You can then do either of the following:
+
+  - Filter to find relevant workflow executions.
+  For example, you can filter for failed workflow executions: `GET /workflows/:workflowID/executions?filters=status eq "Failed"`
+
+  - You can paginate through results with the `offset` parameter.
+  For example, you can page through 50 executions per page and use that as a way to get to the records past the first 250.
+  Refer to [Paginating Results](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results) for more information about the query parameters you can use to achieve pagination.
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **string** | True  | Id of the workflow
+  Query | limit | **int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | offset | **int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | count | **bool** |   (optional) (default to false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | filters | **string** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **startTime**: *eq, lt, le, gt, ge*  **status**: *eq*
+
+	
+### Return type
+
+[**[]WorkflowExecution**](../models/workflow-execution)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | List of workflow executions for the given workflow | []WorkflowExecution
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) 
+
+
+## list-workflow-library-actions
+
+
+This lists the workflow actions available to you.
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | limit | **int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | offset | **int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | filters | **string** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*
+
+	
+### Return type
+
+[**[]WorkflowLibraryAction**](../models/workflow-library-action)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | List of workflow actions | []WorkflowLibraryAction
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) 
+
+
+## list-workflow-library-operators
+
+
+This lists the workflow operators available to you
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+
+	
+### Return type
+
+[**[]WorkflowLibraryOperator**](../models/workflow-library-operator)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | List of workflow operators | []WorkflowLibraryOperator
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) 
+
+
+## list-workflow-library-triggers
+
+
+This lists the workflow triggers available to you
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | limit | **int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | offset | **int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | filters | **string** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*
+
+	
+### Return type
+
+[**[]WorkflowLibraryTrigger**](../models/workflow-library-trigger)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | List of workflow triggers | []WorkflowLibraryTrigger
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) 
+
+
+## list-workflows
+
+
+List all workflows in the tenant.
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+
+	
+### Return type
+
+[**[]Workflow**](../models/workflow)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | List of workflows | []Workflow
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) 
+
+
+## patch-workflow
+
+
+Partially update an existing Workflow using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **string** | True  | Id of the Workflow
+ Body  | jsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | 
+
+	
+### Return type
+
+[**Workflow**](../models/workflow)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | The Workflow object | Workflow
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+
+### HTTP request headers
+
+- **Content-Type**: application/json-patch+json
+- **Accept**: application/json
+
+[[Back to top]](#) 
+
+
+## put-workflow
+
+
+Perform a full update of a workflow.  The updated workflow object is returned in the response.
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **string** | True  | Id of the Workflow
+ Body  | workflowBody | [**WorkflowBody**](../models/workflow-body) | True  | 
+
+	
+### Return type
+
+[**Workflow**](../models/workflow)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | The Workflow object | Workflow
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) 
+
+
+## test-external-execute-workflow
+
+
+Validate a workflow with an "External Trigger" can receive input.  The response includes the input that the workflow received, which can be used to validate that the input is intact when it reaches the workflow.
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **string** | True  | Id of the workflow
+ Body  | testExternalExecuteWorkflowRequest | [**TestExternalExecuteWorkflowRequest**](../models/test-external-execute-workflow-request) |   (optional) | 
+
+	
+### Return type
+
+[**TestExternalExecuteWorkflow200Response**](../models/test-external-execute-workflow200-response)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | Responds with the test input | TestExternalExecuteWorkflow200Response
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) 
+
+
+## test-workflow
+
+
+Test a workflow with the provided input data.  The input data should resemble the input that the trigger will send the workflow.  See the [event trigger documentation](https://developer.sailpoint.com/idn/docs/event-triggers/available) for an example input for the trigger that initiates this workflow.
+This endpoint will return an execution ID, which can be used to lookup more information about the execution using the `Get a Workflow Execution` endpoint.
+**This will cause a live run of the workflow, which could result in unintended modifications to your IDN tenant.**
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **string** | True  | Id of the workflow
+ Body  | testWorkflowRequest | [**TestWorkflowRequest**](../models/test-workflow-request) | True  | 
+
+	
+### Return type
+
+[**TestWorkflow200Response**](../models/test-workflow200-response)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | The Workflow object | TestWorkflow200Response
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) 
+

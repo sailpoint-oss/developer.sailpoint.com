@@ -1,0 +1,39 @@
+---
+id: violation-context-policy
+title: ViolationContextPolicy
+pagination_label: ViolationContextPolicy
+sidebar_label: ViolationContextPolicy
+sidebar_class_name: powershellsdk
+keywords: ['go', 'golang', 'sdk', 'ViolationContextPolicy'] 
+slug: /tools/sdk/powershell/beta/models/violation-context-policy
+tags: ['SDK', 'Software Development Kit', 'ViolationContextPolicy']
+---
+
+
+# ViolationContextPolicy
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Type** |  Pointer to  **Enum** [  "ENTITLEMENT" ] | The type of object supported for SOD policy violations. | [optional] 
+**Id** |  Pointer to **String** | SOD policy ID. | [optional] 
+**Name** |  Pointer to **String** |  | [optional] 
+
+## Examples
+
+- Prepare the resource
+```powershell
+$ViolationContextPolicy = Initialize-PSSailpointBetaViolationContextPolicy  -Type ENTITLEMENT `
+ -Id 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde `
+ -Name A very cool policy name
+```
+
+- Convert the resource to JSON
+```powershell
+$ViolationContextPolicy | ConvertTo-JSON
+```
+
+
+[[Back to top]](#) 
+

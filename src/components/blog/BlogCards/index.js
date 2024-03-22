@@ -23,6 +23,7 @@ export default function BlogCards({filterCallback}) {
             if (topicUser.description.includes('Original Poster')) {
               for (let user of data.users) {
                 if (user.id === topicUser.user_id) {
+                  console.log(user);
                   poster = user;
                 }
               }

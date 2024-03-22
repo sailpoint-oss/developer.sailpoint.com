@@ -1,19 +1,17 @@
 import React from 'react';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 
 import styles from './filter.module.css';
 
 import BlogSidebar from '../../components/blog/BlogSidebar';
 import MarketplaceCards from '../../components/marketplace/MarketplaceCards';
+import MarketplaceBanner from '../../components/marketplace/MarketplaceBanner';
 
 export default function Transforms() {
   const [filteredProduct, setFilteredProduct] = React.useState({
     category: 'colab-transforms',
     tags: ['identity-security-cloud'],
   });
-
-  const {siteConfig} = useDocusaurusContext();
 
   const handleClick = (data) => {
     var tempFilter = [];
@@ -34,6 +32,7 @@ export default function Transforms() {
   return (
     <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
       <main>
+        <MarketplaceBanner />
         <div>
           <div className={styles.filterContainer}>
             <BlogSidebar filterCallback={handleClick} isChecked={true} />

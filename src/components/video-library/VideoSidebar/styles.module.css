@@ -4,6 +4,10 @@
   margin-left: 50px;
 }
 
+.filterBy {
+  margin-top: 1%;
+}
+
 .tagHeader {
   margin-top: 30px;
   font-size: 22px;
@@ -46,12 +50,15 @@
 
 .dropdownButton {
   background-color: var(--dropdown-background); /* Dropdown background color */ /* Text color */
-  padding: 10px 40px; /* Padding inside the dropdown button */
-  border: 2px solid #cccccc; /* Border around the dropdown */
+  padding: 5px 15px; /* Padding inside the dropdown button */
+  border: .5px solid #cccccc; /* Border around the dropdown */
   border-radius: 5px; /* Rounded corners */
   cursor: pointer; /* Change mouse cursor to indicate it's clickable */
   position: relative; /* To position the arrow icon correctly */
   display: inline-block; /* To keep the button's block behavior */
+  width: 200px;
+  height: 50px;
+  text-align: left;
 }
 
 .dropdownButton:after {

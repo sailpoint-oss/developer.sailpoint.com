@@ -67,23 +67,27 @@ export default function Marketplace() {
       <main>
         <MarketplaceBanner />
         <div className={styles.blogContainer}>
-          {/* <div className={styles.blogSidbarContainer}>
-            <MarketplaceSidebar
-              selectedCategory={filteredProduct.category}
-              filterCallback={handleClick}
-            />
-          </div> */}
           <div>
             <div className={styles.blogCardContainer}>
-              <div>
-                <h1 className={styles.title}>Plugins</h1>
-                <Link to={'/colab/plugins'} className={styles.link}>
+              <div className={styles.titleContainer}>
+                <h1 className={styles.title}>Workflows</h1>
+                <Link to={'/colab/workflows'} className={styles.link}>
                   View All &#8594;
                 </Link>
               </div>
-              <MarketplaceCards filterCallback={plugins} limit={4} />
+              <MarketplaceCards filterCallback={workflows} limit={4} />
             </div>
-      
+
+            <div className={styles.blogCardContainer}>
+              <div className={styles.titleContainer}>
+                <h1 className={styles.title}>SaaS Connectors</h1>
+                <Link to={'/colab/saasconnectors'} className={styles.link}>
+                  View All &#8594;
+                </Link>
+              </div>
+              <MarketplaceCards filterCallback={saas} limit={4} />
+            </div>
+
             <div className={styles.blogCardContainer}>
               <div className={styles.titleContainer}>
                 <h1 className={styles.title}>Community Tools</h1>
@@ -96,24 +100,6 @@ export default function Marketplace() {
 
             <div className={styles.blogCardContainer}>
               <div className={styles.titleContainer}>
-                <h1 className={styles.title}>Workflows</h1>
-                <Link to={'/colab/workflows'} className={styles.link}>
-                  View All &#8594;
-                </Link>
-              </div>
-              <MarketplaceCards filterCallback={workflows} limit={4} />
-            </div>
-            <div className={styles.blogCardContainer}>
-              <div className={styles.titleContainer}>
-                <h1 className={styles.title}>SaaS Connectors</h1>
-                <Link to={'/colab/saasconnectors'} className={styles.link}>
-                  View All &#8594;
-                </Link>
-              </div>
-              <MarketplaceCards filterCallback={saas} limit={4} />
-            </div>
-            <div className={styles.blogCardContainer}>
-              <div className={styles.titleContainer}>
                 <h1 className={styles.title}>Rules</h1>
                 <Link to={'/colab/rules'} className={styles.link}>
                   View All &#8594;
@@ -121,6 +107,7 @@ export default function Marketplace() {
               </div>
               <MarketplaceCards filterCallback={rules} limit={4} />
             </div>
+
             <div className={styles.blogCardContainer}>
               <div className={styles.titleContainer}>
                 <h1 className={styles.title}>Transforms</h1>
@@ -129,6 +116,16 @@ export default function Marketplace() {
                 </Link>
               </div>
               <MarketplaceCards filterCallback={transforms} limit={4} />
+            </div>
+
+            <div className={styles.blogCardContainer}>
+              <div>
+                <h1 className={styles.title}>IIQ Plugins</h1>
+                <Link to={'/colab/plugins'} className={styles.link}>
+                  View All &#8594;
+                </Link>
+              </div>
+              <MarketplaceCards filterCallback={plugins} limit={4} />
             </div>
           </div>
         </div>

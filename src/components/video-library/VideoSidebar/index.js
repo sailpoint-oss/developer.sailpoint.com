@@ -1129,7 +1129,7 @@ export default function MarketplaceSidebar({filterCallback}) {
   if (tagProductData) {
     return (
       <div className={styles.tagContainer}>
-        <h4>Filter by: </h4>
+        <h4 className={styles.filterBy}>Filter by: </h4>
         <div className={styles.dropdownContainer}>
           <button onClick={toggleDropdown} className={styles.dropdownButton}>
             Tags

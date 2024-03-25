@@ -65,6 +65,9 @@ get:
 
 
         **connectorName**: *eq, ge, gt, in, ne, isnull, sw*
+
+
+        **category**: *co, eq, ge, gt, in, le, lt, ne, sw*
     - in: query
       name: sorters
       schema:

@@ -5,11 +5,11 @@ properties:
     description: Name of the attribute that is being previewed.
     example: email
   value:
-    type: object
+    type: string
     description: Value that was derived during the preview.
     example: email@mail.com
   previousValue:
-    type: object
+    type: string
     description: The value of the attribute before the preview.
     example: oldEmail@mail.com
   errorMessages:

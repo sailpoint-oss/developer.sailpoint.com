@@ -1,0 +1,290 @@
+get:
+  operationId: getProvisioningPolicy
+  tags:
+    - Sources
+  summary: Get Provisioning Policy by UsageType
+  description: >-
+    This end-point retrieves the ProvisioningPolicy with the specified usage on the specified Source in IdentityNow.
+
+    A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+  security:
+    - UserContextAuth: [idn:provisioning-policy:read, idn:provisioning-policy-source:read, idn:provisioning-policy:manage, idn:provisioning-policy-source-admin-operations:manage]
+  parameters:
+    - in: path
+      name: sourceId
+      required: true
+      schema:
+        type: string
+      description: The Source ID.
+      example: 2c9180835d191a86015d28455b4a2329
+    - in: path
+      name: usageType
+      required: true
+      description: >-
+        The type of provisioning policy usage. 
+      
+        In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations. 
+        Each usage type is considered a provisioning policy. 
+        A source can have any number of these provisioning policies defined. 
+      
+        These are the common usage types: 
+      
+        CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.  
+      
+        UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source.
+      
+        ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created. 
+      
+        DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source. 
+      
+        You can use these four usage types for all your provisioning policy needs. 
+      example: CREATE
+      schema:
+        $ref: '../schemas/UsageType.yaml'
+  responses:
+    '200':
+      description: The requested ProvisioningPolicyDto was successfully retrieved.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ProvisioningPolicyDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+put:
+  operationId: putProvisioningPolicy
+  tags:
+    - Sources
+  summary: Update Provisioning Policy by UsageType
+  description: >-
+    This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow.
+
+    Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
+    
+    Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
+
+    A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+  security:
+    - UserContextAuth: [idn:provisioning-policy:manage, idn:provisioning-policy-source-admin-operations:manage]
+  parameters:
+    - in: path
+      name: sourceId
+      required: true
+      schema:
+        type: string
+      description: The Source ID.
+      example: 2c9180835d191a86015d28455b4a2329
+    - in: path
+      name: usageType
+      required: true
+      description: >-
+        The type of provisioning policy usage. 
+      
+        In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations. 
+        Each usage type is considered a provisioning policy. 
+        A source can have any number of these provisioning policies defined. 
+      
+        These are the common usage types: 
+      
+        CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.  
+      
+        UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source.
+      
+        ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created. 
+      
+        DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source. 
+      
+        You can use these four usage types for all your provisioning policy needs. 
+      example: CREATE
+      schema:
+        $ref: '../schemas/UsageType.yaml'
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/ProvisioningPolicyDto.yaml'
+  responses:
+    '200':
+      description: The ProvisioningPolicyDto was successfully replaced.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ProvisioningPolicyDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+patch:
+  operationId: updateProvisioningPolicy
+  tags:
+    - Sources
+  summary: Partial update of Provisioning Policy
+  description: >-
+    This API selectively updates an existing Provisioning Policy using a JSONPatch payload.
+
+    Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
+    
+    Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
+
+    A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+  security:
+    - UserContextAuth: [idn:provisioning-policy:update]
+  parameters:
+    - in: path
+      name: sourceId
+      required: true
+      schema:
+        type: string
+      description: The Source id.
+      example: 2c9180835d191a86015d28455b4a2329
+    - in: path
+      name: usageType
+      required: true
+      description: >-
+        The type of provisioning policy usage. 
+      
+        In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations. 
+        Each usage type is considered a provisioning policy. 
+        A source can have any number of these provisioning policies defined. 
+      
+        These are the common usage types: 
+      
+        CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.  
+      
+        UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source.
+      
+        ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created. 
+      
+        DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source. 
+      
+        You can use these four usage types for all your provisioning policy needs. 
+      example: CREATE
+      schema:
+        $ref: '../schemas/UsageType.yaml'
+  requestBody:
+    required: true
+    description: The JSONPatch payload used to update the schema.
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: '../schemas/JsonPatchOperation.yaml'
+        examples:
+          add-field:
+            summary: Add a field to the beginning of the list
+            value: [
+                {
+                    "op": "add",
+                    "path": "/fields/0",
+                    "value": {
+                        "name": "email",
+                        "transform": {
+                            "type": "identityAttribute",
+                            "attributes": {
+                                "name": "email"
+                            }
+                        },
+                        "attributes": {},
+                        "isRequired": false,
+                        "type": "string",
+                        "isMultiValued": false
+                    }
+                }
+            ]
+  responses:
+    '200':
+      description: The ProvisioningPolicyDto was successfully updated.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ProvisioningPolicyDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+delete:
+  operationId: deleteProvisioningPolicy
+  tags:
+    - Sources
+  summary: Delete Provisioning Policy by UsageType
+  description: >-
+    Deletes the provisioning policy with the specified usage on an application.
+
+    A token with API, or ORG_ADMIN authority is required to call this API.
+  security:
+    - UserContextAuth: [idn:provisioning-policy:manage]
+  parameters:
+    - in: path
+      name: sourceId
+      required: true
+      schema:
+        type: string
+      description: The Source ID.
+      example: 2c9180835d191a86015d28455b4a2329
+    - in: path
+      name: usageType
+      required: true
+      description: >-
+        The type of provisioning policy usage. 
+      
+        In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations. 
+        Each usage type is considered a provisioning policy. 
+        A source can have any number of these provisioning policies defined. 
+      
+        These are the common usage types: 
+      
+        CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.  
+      
+        UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source.
+      
+        ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created. 
+      
+        DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source. 
+      
+        You can use these four usage types for all your provisioning policy needs. 
+      example: CREATE
+      schema:
+        $ref: '../schemas/UsageType.yaml'
+  responses:
+    '204':
+      $ref: '../../v3/responses/204.yaml'
+      description: The ProvisioningPolicyDto was successfully deleted.
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

@@ -1,0 +1,20 @@
+type: object
+properties:
+  comments:
+    type: array
+    items:
+      $ref: "ApprovalComment.yaml"
+  created:
+    $ref: "../../base/DateTime.yaml"
+  modified:
+    $ref: "../../base/DateTime.yaml"
+  owner:
+    $ref: "../AccountSource.yaml"
+  result:
+    type: string
+    description: The result of the approval
+    example: Finished
+  type:
+    type: string
+    nullable: true
+    example: null

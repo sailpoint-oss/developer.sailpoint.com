@@ -1,0 +1,35 @@
+post:
+  operationId: approveAccessRequest
+  summary: Approves an access request approval.
+  tags:
+    - Access Request Approvals
+  description: >-
+    This endpoint approves an access request approval. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
+  parameters:
+    - in: path
+      name: approvalId
+      schema:
+        type: string
+      required: true
+      description: The id of the approval.
+      example: 2c91808b7294bea301729568c68c002e
+  requestBody:
+    description: Reviewer's comment.
+    required: false
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/CommentDto.yaml"
+  responses:
+    '202':
+      $ref: '../../v3/responses/202.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

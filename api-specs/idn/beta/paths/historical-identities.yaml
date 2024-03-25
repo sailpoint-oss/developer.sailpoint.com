@@ -1,0 +1,52 @@
+get:
+  operationId: listHistoricalIdentities
+  summary: Lists all the identities
+  description: >-
+    This gets the list of identities for the customer. This list end point does not support count=true request param. The total 
+    count of identities would never be returned even if the count param is specified in the request
+    Requires authorization scope of 'idn:identity-history:read'
+  security:
+    - UserContextAuth:
+      - "idn:identity-history:read" 
+  tags:
+    - Identity History
+  parameters:
+    - in: query
+      name: starts-with-query
+      schema:
+        type: string
+      description: This param is used for starts-with search for first, last and display name of the identity
+      example: Ada
+    - in: query
+      name: is-deleted
+      schema:
+        type: boolean
+      description: Indicates if we want to only list down deleted identities or not.
+      example: true
+    - in: query
+      name: is-active
+      schema:
+        type: boolean
+      description: Indicates if we want to only list active or inactive identities.
+      example: true  
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/offset.yaml'
+  responses:
+    '200':
+      description: List of identities for the customer.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/IdentityListItem.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

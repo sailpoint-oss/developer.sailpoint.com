@@ -1,0 +1,62 @@
+get:
+  operationId: listReassignmentConfigurations
+  tags:
+    - Work Reassignment
+  summary: List Reassignment Configurations
+  description: >-
+    Gets all Reassignment configuration for the current org.
+  security:
+    - UserContextAuth: [idn:reassignment-configuration:read]
+  responses:
+    '200':
+      description: A list of Reassignment Configurations for an org
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/work-reassignment/ConfigurationResponse.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+post:
+  operationId: createReassignmentConfiguration
+  tags:
+    - Work Reassignment
+  summary: Create a Reassignment Configuration
+  description: >-
+    Creates a new Reassignment Configuration for the specified identity.
+  security:
+    - UserContextAuth: [idn:reassignment-configuration:create]
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/work-reassignment/ConfigurationItemRequest.yaml'
+  responses:
+    '201':
+      description: The newly created Reassignment Configuration object
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/work-reassignment/ConfigurationItemResponse.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

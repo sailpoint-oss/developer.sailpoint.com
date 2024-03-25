@@ -1,0 +1,71 @@
+get:
+  operationId: getNonEmployeeRequest
+  security:
+    - UserContextAuth: [idn:nelm:read]
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: Get a Non-Employee Request
+  description: >-
+    This gets a non-employee request.
+  parameters:
+    - in: path
+      name: id
+      example: 2c91808b6ef1d43e016efba0ce470904
+      description: >-
+        Non-Employee request id (UUID)
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Non-Employee request object.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/NonEmployeeRequest.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+delete:
+  operationId: deleteNonEmployeeRequest
+  security:
+    - UserContextAuth: [idn:nelm:manage]
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: Delete Non-Employee Request
+  description: >-
+    This request will delete a non-employee request.
+  parameters:
+    - in: path
+      name: id
+      description: >-
+        Non-Employee request id in the UUID format
+      required: true
+      example: 2c91808b6ef1d43e016efba0ce470904
+      schema:
+        type: string
+        format: uuid
+  responses:
+    '204':
+      $ref: '../../v3/responses/204.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

@@ -1,0 +1,78 @@
+type: object
+properties:
+  key:
+    type: string
+    example: "cloud_manual_work_item_summary"
+    description: The key of the template
+  name:
+    type: string
+    example: "Task Manager Subscription"
+    description: The name of the Task Manager Subscription
+  medium:
+    type: string
+    description: The message medium. More mediums may be added in the future.
+    enum:
+      - EMAIL
+      - PHONE
+      - SMS
+      - SLACK
+      - TEAMS
+    example: EMAIL
+  locale:
+    type: string
+    description: The locale for the message text, a BCP 47 language tag.
+    example: "en"
+  subject:
+    type: string
+    example:
+      "You have $numberOfPendingTasks $taskTasks to complete in
+      ${__global.productName}."
+    description: The subject line in the template
+  header:
+    type: string
+    nullable: true
+    example: null
+    deprecated: true
+    description: The header value is now located within the body field. If included with non-null values, will result in a 400.
+  body:
+    type: string
+    example: "Please go to the task manager"
+    description: The body in the template
+  footer:
+    type: string
+    nullable: true
+    example: null
+    deprecated: true
+    description: The footer value is now located within the body field. If included with non-null values, will result in a 400.
+  from:
+    type: string
+    example: "$__global.emailFromAddress"
+    description: The "From:" address in the template
+  replyTo:
+    type: string
+    example: "$__global.emailFromAddress"
+    description: The "Reply To" line in the template
+  description:
+    type: string
+    example:
+      "Daily digest - sent if number of outstanding tasks for task owner > 0"
+    description: The description in the template
+  id:
+    type: string
+    example: "c17bea3a-574d-453c-9e04-4365fbf5af0b"
+    description: This is auto-generated.
+  created:
+    type: string
+    format: date-time
+    description: The time when this template is created. This is auto-generated.
+    example: "2020-01-01T00:00:00.000000Z"
+  modified:
+    type: string
+    format: date-time
+    description:
+      The time when this template was last modified. This is auto-generated.
+    example: "2020-01-01T00:00:00.000000Z"
+required:
+  - key
+  - medium
+  - locale

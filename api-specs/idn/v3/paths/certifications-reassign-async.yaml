@@ -1,0 +1,45 @@
+post:
+  operationId: submitReassignCertsAsync
+  tags:
+    - Certifications
+  summary: Reassign Certifications Asynchronously
+  description: >-
+    This API initiates a task to reassign up to 500 identities or items in an identity campaign certification to another
+    reviewer. The `certification-tasks` API can be used to get an updated status on the task and determine when the
+    reassignment is complete. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for
+    this certification can also call this API.
+  security:
+    - UserContextAuth: [idn:certification:write]
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The identity campaign certification ID
+      example: ef38f94347e94562b5bb8424a56397d8
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/ReviewReassign.yaml"
+  responses:
+    '200':
+      description: A certification task object for the reassignment which can be queried for status.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/CertificationTask.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

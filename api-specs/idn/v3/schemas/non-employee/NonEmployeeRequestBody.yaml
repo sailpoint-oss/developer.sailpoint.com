@@ -1,0 +1,58 @@
+type: object
+properties:
+  accountName:
+    type: string
+    description: Requested identity account name.
+    example: william.smith
+  firstName:
+    type: string
+    description: Non-Employee's first name.
+    example: William
+  lastName:
+    type: string
+    description: Non-Employee's last name.
+    example: Smith
+  email:
+    type: string
+    description: Non-Employee's email.
+    example: william.smith@example.com
+  phone:
+    type: string
+    description: Non-Employee's phone.
+    example: "5555555555"
+  manager:
+    type: string
+    description: The account ID of a valid identity to serve as this non-employee's manager.
+    example: jane.doe
+  sourceId:
+    type: string
+    description: Non-Employee's source id.
+    example: "2c91808568c529c60168cca6f90c1313"
+  data:
+    type: object
+    additionalProperties:
+      type: string
+      #maxItems: 10
+    description: Attribute blob/bag for a non-employee, 10 attributes is the maximum size supported.
+    example:
+      description: Auditing
+  startDate:
+    type: string
+    format: date-time
+    description: Non-Employee employment start date.
+    example: "2020-03-24T00:00:00-05:00"
+  endDate:
+    type: string
+    format: date-time
+    description: Non-Employee employment end date.
+    example: "2021-03-25T00:00:00-05:00"
+required:
+  - accountName
+  - firstName
+  - lastName
+  - email
+  - phone
+  - manager
+  - sourceId
+  - startDate
+  - endDate

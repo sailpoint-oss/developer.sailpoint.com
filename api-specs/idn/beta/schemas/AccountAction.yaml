@@ -1,0 +1,18 @@
+type : object
+properties:
+  action:
+    type: string
+    example: ENABLE
+    description: Describes if action will be enabled or disabled
+    enum:
+      - ENABLE
+      - DISABLE
+  sourceIds:
+    type: array
+    items:
+      example: 2c918084660f45d6016617daa9210584
+      description: Source Id
+      type: string
+    example: ["2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500"]
+    description: List of source IDs. The sources must have the ENABLE feature or flat file source.
+      See "/sources" endpoint for source features.

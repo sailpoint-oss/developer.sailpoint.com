@@ -1,0 +1,42 @@
+get:
+  tags:
+  - Search
+  description: >-
+    Fetches a single document from the specified index, using the specified document ID.
+  operationId: searchGet
+  security:
+    - UserContextAuth: [ sp:search:read ]
+  summary: "Get a Document by ID"
+  parameters:
+  - $ref: '../parameters/path/search/index.yaml'
+  - $ref: '../parameters/path/search/id.yaml'
+  responses:
+    '200':
+      description: The requested document.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/search/documents/SearchDocument.yaml'
+          examples: 
+            accessProfile:
+              $ref: '../schemas/search/documents/examples/accessProfile.yaml'
+            entitlement:
+              $ref: '../schemas/search/documents/examples/entitlement.yaml'
+            event:
+              $ref: '../schemas/search/documents/examples/event.yaml'
+            identity:
+              $ref: '../schemas/search/documents/examples/identity.yaml'
+            role:
+              $ref: '../schemas/search/documents/examples/role.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

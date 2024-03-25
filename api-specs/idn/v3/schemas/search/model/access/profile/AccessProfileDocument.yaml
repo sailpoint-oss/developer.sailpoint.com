@@ -1,0 +1,56 @@
+description: >- 
+  More complete representation of an access profile.  
+allOf:
+- $ref: '../BaseAccess.yaml'
+- type: object
+  required: ["id", "name", "_type"]
+  properties:
+    id: 
+      type: string
+      description: Access profile's ID. 
+      example: 2c9180825a6c1adc015a71c9023f0818
+    name: 
+      type: string
+      description: Access profile's name. 
+      example: Cloud Eng
+    _type: 
+      description: >-
+        Access profile's document type. 
+
+        This enum represents the currently supported document types.
+      
+        Additional values may be added in the future without notice.
+      type: string
+      enum:
+        - accessprofile
+        - accountactivity
+        - account
+        - aggregation
+        - entitlement
+        - event
+        - identity
+        - role
+      example: accessprofile
+    source:
+      type: object
+      description: Access profile's source. 
+      properties: 
+        id: 
+          type: string
+          description: Source's ID. 
+          example: ff8081815757d4fb0157588f3d9d008f
+        name: 
+          type: string
+          description: Source's name. 
+          example: Employees
+    entitlements:
+      type: array
+      description: Entitlements the access profile has access to. 
+      items:
+        $ref: '../../entitlement/BaseEntitlement.yaml'
+    entitlementCount:
+      type: integer
+      description: Number of entitlements. 
+      example: 5
+    tags:
+      $ref: '../../base/Tags.yaml'

@@ -1,0 +1,73 @@
+title: Workflow Trigger
+type: object
+properties:
+  id:
+    type: string
+    description: Trigger ID. This is a static namespaced ID for the trigger.
+    example: "idn:identity-attributes-changed"
+  type:
+    description: Trigger type
+    enum:
+      - EVENT
+      - SCHEDULED
+      - EXTERNAL
+    example: EVENT
+  name:
+    type: string
+    description: Trigger Name
+    example: Identity Attributes Changed
+  description:
+    type: string
+    description: Trigger Description
+    example: One or more identity attributes changed.
+  isDynamicSchema:
+    type: boolean
+    description: Determines whether the dynamic output schema is returned in place of the action's output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields.
+    example: false
+  inputExample:
+    type: object
+    description: Example trigger payload if applicable
+    nullable: true
+    externalDocs:
+      description: List of triggers and their input schemas
+      url: https://developer.sailpoint.com/idn/docs/event-triggers/available
+    example: 
+      {
+        "changes": [
+            {
+                "attribute": "department",
+                "newValue": "marketing",
+                "oldValue": "sales"
+            },
+            {
+                "attribute": "manager",
+                "newValue": {
+                    "id": "ee769173319b41d19ccec6c235423236c",
+                    "name": "mean.guy",
+                    "type": "IDENTITY"
+                },
+                "oldValue": {
+                    "id": "ee769173319b41d19ccec6c235423237b",
+                    "name": "nice.guy",
+                    "type": "IDENTITY"
+                }
+            },
+            {
+                "attribute": "email",
+                "newValue": "john.doe@gmail.com",
+                "oldValue": "john.doe@hotmail.com"
+            }
+        ],
+        "identity": {
+            "id": "ee769173319b41d19ccec6cea52f237b",
+            "name": "john.doe",
+            "type": "IDENTITY"
+        }
+      }
+  formFields:
+    type: array
+    nullable: true
+    description: One or more inputs that the trigger accepts
+    example: []
+    items:
+      $ref: './WorkflowLibraryFormFields.yaml'

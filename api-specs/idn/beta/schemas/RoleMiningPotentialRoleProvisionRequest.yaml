@@ -1,0 +1,18 @@
+type : object
+properties:
+  roleName:
+    type: string
+    description: Name of the new role being created
+    example: "Finance - Accounting"
+  roleDescription:
+    type: string
+    description: Short description of the new role being created
+    example: "General access for accounting department"
+  ownerId:
+    type: string
+    description: ID of the identity that will own this role
+    example: "2b568c65bc3c4c57a43bd97e3a8e41"
+example:
+  roleName: "Finance - Accounting"
+  roleDescription: "General access for accounting department"
+  ownerId: "2b568c65bc3c4c57a43bd97e3a8e41"

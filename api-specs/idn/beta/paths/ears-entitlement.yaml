@@ -1,0 +1,233 @@
+get:
+  operationId: getEntitlement
+  tags:
+    - Entitlements
+  summary: Get an entitlement
+  description: >-
+    This API returns an entitlement by its ID.
+  security:
+    - UserContextAuth: [idn:entitlement:read, idn:entitlement:manage]
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The entitlement ID
+      example: 2c91808874ff91550175097daaec161c
+  responses:
+    '200':
+      description: An entitlement
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Entitlement.yaml'
+          example:
+            {
+              "sourceSchemaObjectType": "group",
+              "attribute": "memberOf",
+              "attributes": {
+                "GroupType": "Security",
+                "sAMAccountName": "LauncherTest1",
+                "GroupScope": "Global",
+                "objectguid": "{01a6e70b-9705-4155-a5c6-492a9bcc8c64}",
+                "objectSid": "S-1-5-21-3585869415-1648031554-2909195034-1633",
+                "cn": "LauncherTest1",
+                "msDS-PrincipalName": "AUTOMATIONAD\\LauncherTest1"
+              },
+              "value": "CN=LauncherTest1,OU=LauncherTestOrg,OU=slpt-automation,DC=TestAutomationAD,DC=local",
+              "description": "some description",
+              "privileged": false,
+              "cloudGoverned": false,
+              "source": {
+                "type": "SOURCE",
+                "id": "2c9180877504c40e0175097d5ce707c8",
+                "name": "EndToEnd-ADSource"
+              },
+              "owner": {
+                "id": "2c9180858315595501831958427e5424",
+                "name": "Addie Smith",
+                "type": "IDENTITY"
+              },
+              "segments": [
+                "1d126fe0-45e2-4aea-bc64-a07e9344ef26"
+              ],
+              "manuallyUpdatedFields": {
+                "DISPLAY_NAME": true,
+                "DESCRIPTION": true
+              },
+              "id": "2c91808c74ff913f0175097daa9d59cd",
+              "name": "LauncherTest1",
+              "created": "2020-10-08T18:33:52.029Z",
+              "modified": "2021-01-19T16:53:35.707Z"
+            }
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+patch:
+  operationId: patchEntitlement
+  tags:
+    - Entitlements
+  summary: Patch an entitlement
+  description: >-
+    This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
+
+
+    The following fields are patchable:
+    **requestable**, **privileged**, **segments**, **owner**, **name**, **description**, and **manuallyUpdatedFields**
+
+
+    When you're patching owner, only owner type and owner id must be provided. Owner name is optional, and it won't be
+    modified. If the owner name is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.
+
+
+    A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
+  security:
+    - UserContextAuth: [idn:entitlement:manage]
+  parameters:
+    - name: id
+      in: path
+      description: ID of the entitlement to patch
+      required: true
+      schema:
+        type: string
+        example: 2c91808a7813090a017814121e121518
+  requestBody:
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: '../schemas/JsonPatchOperation.yaml'
+          example: [
+            {
+              "op": "replace",
+              "path": "/requestable",
+              "value": true
+            }
+          ]
+        examples:
+          Make an entitlement requestable and privileged in one call:
+            description: This example shows how multiple fields may be updated with a single patch call.
+            value:
+              [
+                {
+                  "op": "replace",
+                  "path": "/requestable",
+                  "value": true
+                },
+                {
+                  "op": "replace",
+                  "path": "/privileged",
+                  "value": true
+                }
+              ]
+
+          Assign an entitlement to a segment:
+            description: >-
+              This example shows how to use patch to assign an entitlement to a segment by adding the segment's ID to the
+              entitlement's segments array.
+            value:
+              [
+                {
+                  "op": "add",
+                  "path": "/segments/-",
+                  "value": "f7b1b8a3-5fed-4fd4-ad29-82014e137e19"
+                }
+              ]
+          Assign an owner to an entitlement:
+            description: >-
+              This example shows how to use patch to assign an owner to an entitlement by adding the owner's
+              info to the entitlement.
+            value:
+              [
+                {
+                  "op": "add",
+                  "path": "/owner",
+                  "value": {
+                    "type": "IDENTITY",
+                    "id": "2c9180858315595501831958427e5424"
+                  }
+                }
+              ]
+          Replace an owner for an entitlement:
+            description: >-
+              This example shows how to use patch to replace an entitlement's owner by replacing the
+              owner's info to the entitlement.
+            value:
+              [
+                {
+                  "op": "replace",
+                  "path": "/owner",
+                  "value": {
+                    "type": "IDENTITY",
+                    "id": "2c9180858315595501831958427e5424"
+                  }
+                }
+              ]
+          Set entitlement manually updated fields:
+            description: >-
+              This example shows how to set an entitlement's manually updated fields values with patch request.
+              Values for all manually updateable fields must be specified in the request.
+              For now only two entitlement fields support this: DISPLAY_NAME and DESCRIPTION.
+            value:
+              [
+                {
+                  "op": "replace",
+                  "path": "/manuallyUpdatedFields",
+                  "value": {
+                    "DISPLAY_NAME": true,
+                    "DESCRIPTION": true
+                  }
+                }
+              ]
+          Add the description for an entitlement:
+            description: >-
+              This example shows how to use patch to add a description for the entitlement.
+            value:
+              [
+                {
+                  "op": "add",
+                  "path": "/description",
+                  "value": "new description for the entitlement"
+                }
+              ]
+          Update the name for an entitlement:
+            description: >-
+              This example shows how to use patch to update an entitlement's name.
+            value:
+              [
+                {
+                  "op": "replace",
+                  "path": "/name",
+                  "value": "entitlement new name"
+                }
+              ]
+  responses:
+    '200':
+      description: Responds with the entitlement as updated.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Entitlement.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

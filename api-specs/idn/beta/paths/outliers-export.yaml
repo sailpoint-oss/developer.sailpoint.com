@@ -1,0 +1,38 @@
+get:
+  operationId: exportOutliersZip
+  tags:
+    - IAI Outliers
+  summary: IAI Identity Outliers Export
+  description: >-
+    This API exports a list of ignored outliers to a CSV as well as list of non-ignored outliers to a CSV. These two CSVs will be zipped and exported
+    Columns will include: identityID, type, firstDetectionDate, latestDetectionDate, ignored, & attributes (defined set of identity attributes)
+
+    Requires authorization scope of 'iai:outliers-management:read'
+  parameters:
+    - name: type
+      in: query
+      description: Type of the identity outliers snapshot to filter on
+      required: false
+      schema:
+        type: string
+        enum:
+          - LOW_SIMILARITY
+          - STRUCTURAL
+  responses:
+    '200':
+      description: Succeeded. Returns zip of 2 CSVs to download. 1 CSV for ignored outliers and 1 for non-ignored outliers
+      content:
+        application/zip:
+          schema:
+            type: string
+            format: binary
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

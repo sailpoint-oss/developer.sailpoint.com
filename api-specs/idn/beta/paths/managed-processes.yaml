@@ -1,0 +1,91 @@
+get:
+  tags:
+    - Managed Processes
+  summary: Get Managed Processes
+  description: >-
+    Get a list of Managed Processes.
+
+    AMS Security: Devops, Internal
+    A token with SaaS Platform Internal or DevOps is required to access this endpoint.
+  operationId: getManagedProcesses
+  parameters:
+    - name: process
+      in: query
+      description: Configuration process
+      schema:
+        type: string
+        example: charon
+    - name: pod
+      in: query
+      description: Configuration pod
+      schema:
+        type: string
+        example: megapod-useast1
+    - name: org
+      in: query
+      description: Configuration org
+      schema:
+        type: string
+        example: denali-xyz
+  responses:
+    "200":
+      description: Responds with a list of ManagedProcess based on the query params provided
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/ManagedProcess.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [idn:managed-process:read, idn:managed-process:manage]
+post:
+  tags:
+    - Managed Processes
+  summary: Create new Managed Processes
+  description: >-
+    Create a new Managed Process.
+
+    AMS Security: Devops, Internal
+    A token with SaaS Platform Internal or DevOps is required to access this endpoint.
+
+    The API returns a result that includes the Managed Process ID.
+  operationId: createManagedProcess
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/ManagedProcess.yaml'
+  responses:
+    "200":
+      description: The created ManagedProcess
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ManagedProcess.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [idn:managed-process:manage]

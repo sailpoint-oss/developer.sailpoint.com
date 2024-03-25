@@ -1,0 +1,47 @@
+title: dateCompare
+type: object
+required:
+- firstDate
+- secondDate
+- operator
+- positiveCondition
+- negativeCondition
+properties:
+  firstDate:
+    description: >-
+      This is the first date to consider (The date that would be on the left hand side of the comparison operation).
+    oneOf:
+    - $ref: './AccountAttribute.yaml'
+    - $ref: './DateFormat.yaml'
+  secondDate:
+    description: >-
+      This is the second date to consider (The date that would be on the right hand side of the comparison operation).
+    oneOf:
+    - $ref: './AccountAttribute.yaml'
+    - $ref: './DateFormat.yaml'
+  operator:
+    type: string
+    description: |
+      This is the comparison to perform.
+      | Operation | Description |
+      | --------- | ------- |
+      | LT        | Strictly less than: firstDate < secondDate |
+      | LTE       | Less than or equal to: firstDate <= secondDate |
+      | GT        | Strictly greater than: firstDate > secondDate |
+      | GTE       | Greater than or equal to: firstDate >= secondDate |
+    enum: ['LT', 'LTE', 'GT', 'GTE']
+    example: 'LT'
+  positiveCondition:
+    type: string
+    description: >-
+      The output of the transform if the expression evalutes to true
+    example: "true"
+  negativeCondition:
+    type: string
+    description: >-
+      The output of the transform if the expression evalutes to false
+    example: false
+  requiresPeriodicRefresh:
+    $ref: './RequiresPeriodicRefresh.yaml'
+  input:
+    $ref: './input.yaml'

@@ -1,0 +1,126 @@
+get:
+  operationId: getSodExceptionById
+  tags:
+    - SOD Exception
+  summary: Get SOD exception by ID
+  # security:
+  #   - oauth2: [API]
+  description: >-
+    This API returns the specified SOD exception.
+
+
+    A token with API authority is required to call this API.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The ID of the object reference to retrieve.
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    '200':
+      $ref: '../schemas/sod/responses/200.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+patch:
+  operationId: patchExceptionById
+  tags:
+    - SOD Exception
+  summary: Update SOD exception
+  # security:
+  #   - oauth2: [API]
+  description: >-
+    This API allows updating SOD exception fields other than ["id", "created", "origin"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+
+
+    A token with API authority is required to call this API.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The ID of the SOD exception to update.
+      example: ef38f94347e94562b5bb8424a56397d8
+  requestBody:
+    required: true
+    description: |
+      A list of SOD policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+
+      The following fields are patchable:
+      * policyId
+      * identityId
+      * start
+      * end
+      * businessJustification
+      * mitigatingControl
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            type: object
+        examples:
+          Update exception:
+            $ref: '../schemas/sod/examples/exception-body-patch.yaml'
+  responses:
+    '200':
+      $ref: '../schemas/sod/responses/200-patch.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+delete:
+  operationId: deleteSodExceptionById
+  tags:
+    - SOD Exception
+  summary: Delete SOD exception by ID
+  # security:
+  #   - oauth2: [API]
+  description: >-
+    This API deletes the specified SOD exception.
+
+
+    A token with API authority is required to call this API.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The ID of the SOD exception to delete.
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    '204':
+      description: No content.
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

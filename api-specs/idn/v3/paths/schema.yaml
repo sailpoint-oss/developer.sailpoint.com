@@ -1,0 +1,230 @@
+
+get:
+  operationId: getSourceSchema
+  tags:
+    - Sources
+  summary: Get Source Schema by ID
+  description: |
+    Get the Source Schema by ID in IdentityNow.
+  parameters:
+    - in: path
+      name: sourceId
+      required: true
+      schema:
+        type: string
+      description: The Source id.
+      example: 2c9180835d191a86015d28455b4a2329
+    - in: path
+      name: schemaId
+      schema:
+        type: string
+      required: true
+      description: The Schema id.
+      example: 2c9180835d191a86015d28455b4a2329
+  responses:
+    '200':
+      description: The requested Schema was successfully retrieved.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Schema.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+put:
+  operationId: putSourceSchema
+  tags:
+    - Sources
+  summary: Update Source Schema (Full)
+  description: |
+    This API will completely replace an existing Schema with the submitted payload. Some fields of the Schema cannot be updated. These fields are listed below.
+
+    * id
+    * name
+    * created
+    * modified
+
+    Any attempt to modify these fields will result in an error response with a status code of 400.
+
+    > `id` must remain in the request body, but it cannot be changed.  If `id` is omitted from the request body, the result will be a 400 error.
+  parameters:
+    - in: path
+      name: sourceId
+      required: true
+      schema:
+        type: string
+      description: The Source id.
+      example: 2c9180835d191a86015d28455b4a2329
+    - in: path
+      name: schemaId
+      schema:
+        type: string
+      required: true
+      description: The Schema id.
+      example: 2c9180835d191a86015d28455b4a2329
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/Schema.yaml'
+  responses:
+    '200':
+      description: The Schema was successfully replaced.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Schema.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+patch:
+  operationId: updateSourceSchema
+  tags:
+    - Sources
+  summary: Update Source Schema (Partial)
+  description: |
+    Use this API to selectively update an existing Schema using a JSONPatch payload. 
+    
+    The following schema fields are immutable and cannot be updated:
+
+    - id
+    - name
+    - created
+    - modified
+
+
+    To switch an account attribute to a group entitlement, you need to have the following in place:
+
+    - `isEntitlement: true`
+    - Must define a schema for the group and [add it to the source](https://developer.sailpoint.com/idn/api/v3/create-source-schema) before updating the `isGroup` flag.  For example, here is the `group` account attribute referencing a schema that defines the group:
+    ```json
+    {
+        "name": "groups",
+        "type": "STRING",
+        "schema": {
+            "type": "CONNECTOR_SCHEMA",
+            "id": "2c9180887671ff8c01767b4671fc7d60",
+            "name": "group"
+        },
+        "description": "The groups, roles etc. that reference account group objects",
+        "isMulti": true,
+        "isEntitlement": true,
+        "isGroup": true
+    }
+    ```
+  parameters:
+    - in: path
+      name: sourceId
+      required: true
+      schema:
+        type: string
+      description: The Source id.
+      example: 2c9180835d191a86015d28455b4a2329
+    - in: path
+      name: schemaId
+      schema:
+        type: string
+      required: true
+      description: The Schema id.
+      example: 2c9180835d191a86015d28455b4a2329
+  requestBody:
+    required: true
+    description: The JSONPatch payload used to update the schema.
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: '../schemas/JsonPatchOperation.yaml'
+        examples:
+          add-attribute:
+            summary: Add an attribute to the end of the list
+            value: [
+                {
+                    "op": "add",
+                    "path": "/attributes/-",
+                    "value": {
+                        "name": "location",
+                        "type": "STRING",
+                        "schema": null,
+                        "description": "Employee location",
+                        "isMulti": false,
+                        "isEntitlement": false,
+                        "isGroup": false
+                    }
+                }
+            ]
+  responses:
+    '200':
+      description: The Schema was successfully updated.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Schema.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+delete:
+  operationId: deleteSourceSchema
+  tags:
+    - Sources
+  summary: Delete Source Schema by ID
+  parameters:
+    - in: path
+      name: sourceId
+      required: true
+      schema:
+        type: string
+      description: The Source id.
+      example: 2c9180835d191a86015d28455b4a2329
+    - in: path
+      name: schemaId
+      schema:
+        type: string
+      required: true
+      description: The Schema id.
+      example: 2c9180835d191a86015d28455b4a2329
+  responses:
+    '204':
+      $ref: '../../v3/responses/204.yaml'
+      description: The Schema was successfully deleted.
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

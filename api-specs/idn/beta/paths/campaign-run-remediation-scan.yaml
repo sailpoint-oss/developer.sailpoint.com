@@ -1,0 +1,35 @@
+post:
+  operationId: startCampaignRemediationScan
+  tags:
+    - Certification Campaigns
+  summary: Run Campaign Remediation Scan
+  description: >- 
+    Kicks off remediation scan task for a certification campaign.
+
+    Requires roles of CERT_ADMIN and ORG_ADMIN
+  deprecated: true
+  security:
+    - UserContextAuth: [idn:campaign-report:run]
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+        example: 2c91808571bcfcf80171c23e4b4221fc
+      required: true
+      description: The ID of the campaign for which remediation scan is being run.
+  responses:
+    '202':
+      $ref: '../../v3/responses/202.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

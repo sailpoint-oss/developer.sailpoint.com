@@ -1,0 +1,42 @@
+post:
+  operationId: approveNonEmployeeRequest
+  security:
+    - UserContextAuth: []
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: Approve a Non-Employee Request
+  description: >-
+    Approves a non-employee approval request and notifies the next approver. The
+    current user must be the requested approver.
+  parameters:
+    - in: path
+      name: id
+      description: >-
+        Non-Employee approval item id (UUID)
+      required: true
+      schema:
+        type: string
+      example: e136567de87e4d029e60b3c3c55db56d
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/non-employee/NonEmployeeApprovalDecision.yaml"
+  responses:
+    "200":
+      description: Non-Employee approval item object.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/non-employee/NonEmployeeApprovalItem.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"

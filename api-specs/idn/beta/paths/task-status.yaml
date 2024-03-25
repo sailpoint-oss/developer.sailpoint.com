@@ -1,0 +1,83 @@
+#
+# Copyright (C) 2019-2020 SailPoint Technologies, Inc.  All rights reserved.
+#
+get:
+  tags:
+    - Task Management
+  summary: Get task status by ID.
+  description: Get a TaskStatus for a task by task ID.
+  operationId: getTaskStatus
+  parameters:
+    - name: id
+      in: path
+      description: Task ID of the TaskStatus to get
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: anId
+  responses:
+    "200":
+      description: Responds with a TaskStatus for the task with the given task ID.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/TaskStatus.yaml'
+    "403":
+      description: Forbidden, generally due to a lack of security rights
+    "404":
+      description: TaskStatus with the given id was not found.
+    "400":
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [idn:task-management:read]
+patch:
+  tags:
+    - Task Management
+  summary: Update task status by ID
+  description: Update a current TaskStatus for a task by task ID.
+  operationId: updateTaskStatus
+  parameters:
+    - name: id
+      in: path
+      description: Task ID of the task whose TaskStatus to update
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: anId
+  requestBody:
+    content:
+      application/json-patch+json:
+        schema:
+          $ref: '../schemas/JsonPatch.yaml'
+    required: true
+  responses:
+    "200":
+      description: Responds with the updated TaskStatus for the task with the given task ID.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/TaskStatus.yaml'
+    "400":
+      $ref: '../../v3/responses/400.yaml'
+    "403":
+      $ref: '../../v3/responses/403.yaml'
+    "404":
+      $ref: '../../v3/responses/404.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [idn:task-management:write]

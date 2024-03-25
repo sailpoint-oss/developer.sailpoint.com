@@ -1,0 +1,4 @@
+description: Set of FormElementValidation items.
+example: [ { "validationType": "REQUIRED" } ]
+type: object
+x-go-package: github.com/sailpoint/sp-forms/domain

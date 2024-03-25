@@ -1,0 +1,45 @@
+type: object
+properties:
+  helpText:
+    type: string
+    description: Describes the form field in the UI
+    example: The name to give to this certification campaign.
+  label:
+    type: string
+    description: A human readable name for this form field in the UI
+    example: Campaign Name
+  name:
+    type: string
+    description: The name of the input attribute
+    example: name
+  required:
+    type: boolean
+    description: Denotes if this field is a required attribute
+    example: false
+  type:
+    description: The type of the form field
+    nullable: true
+    enum:
+      - text
+      - textarea
+      - boolean
+      - email
+      - url
+      - number
+      - json
+      - checkbox
+      - jsonpath
+      - select
+      - multiType
+      - duration
+      - toggle
+      - identityPicker
+      - governanceGroupPicker
+      - string
+      - object
+      - array
+      - secret
+      - keyValuePairs
+      - emailPicker
+      - advancedToggle
+    example: text

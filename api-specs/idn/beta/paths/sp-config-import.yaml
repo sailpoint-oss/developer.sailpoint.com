@@ -1,0 +1,162 @@
+post:
+  operationId: importSpConfig
+  # security:
+  #   - oauth2: [sp:config:import]
+  tags:
+    - SP-Config
+  summary: Initiates configuration objects import job
+  description: >-
+    This post will import objects from a JSON configuration file into a tenant.
+    By default, every import will first export all existing objects supported by sp-config as a backup before the import is attempted.
+    The backup is provided so that the state of the configuration prior to the import is available for inspection or restore if needed.
+    The backup can be skipped by setting "excludeBackup" to true in the import options.
+    If a backup is performed, the id of the backup will be provided in the ImportResult as the "exportJobId". This can be downloaded 
+    using the /sp-config/export/{exportJobId}/download endpoint.
+
+    You cannot currently import from the Non-Employee Lifecycle Management (NELM) source. You cannot use this endpoint to back up or store NELM data. 
+
+    For more information about the object types that currently support import functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).
+
+    The request will need the following security scope:
+
+    - sp:config:manage
+  parameters:
+    - in: query
+      name: preview
+      schema:
+        type: boolean
+        default: false
+      required: false
+      description: >-
+        This option is intended to give the user information about how an import operation would proceed, without
+        having any effect on the target tenant.
+        If this parameter is "true", no objects will be imported. Instead, the import process will pre-process the import file and
+        attempt to resolve references within imported objects. The import result file will contain messages
+        pertaining to how specific references were resolved, any errors associated with the preprocessing,
+        and messages indicating which objects would be imported.
+      example: "true"
+  requestBody:
+    description: |
+      The form-data "name" attribute for the file content must be "data".
+
+      __Example__
+
+          data: "config_export_0340b957-5caa-44f6-ada2-d3c4c5bd0b19.json",
+          options: {
+            "excludeTypes": [],
+            "includeTypes": ["TRIGGER_SUBSCRIPTION"],
+            "objectOptions": {
+              "TRIGGER_SUBSCRIPTION": {
+                "includedIds": [ "193446a1-c431-4326-8ba7-d6eebf922948"],
+                "includedNames":[]
+              }
+            },
+            "defaultReferences": [
+              {
+                "type": "TRIGGER_SUBSCRIPTION",
+                "id": "be9e116d-08e1-49fc-ab7f-fa585e96c9e4",
+                "name": "Test Trigger"
+              }
+            ],
+            "excludeBackup": false
+          }
+
+      __Sample Import File__
+
+          {
+          	"version": 1,
+          	"timestamp": "2021-05-10T15:19:23.425041-05:00",
+          	"tenant": "sampleTenant",
+          	"options": {
+          		"excludeTypes": [],
+          		"includeTypes": ["TRIGGER_SUBSCRIPTION"],
+          		"objectOptions": null
+          	},
+          	"objects": [{
+          			"version": 1,
+          			"self": {
+          				"type": "TRIGGER_SUBSCRIPTION",
+          				"name": "test trigger",
+          				"id": "193446a1-c431-4326-8ba7-d6eebf922948"
+          			},
+          			"object": {
+          				"type": "HTTP",
+          				"enabled": true,
+          				"httpConfig": {
+          					"url": "https://localhost",
+          					"httpAuthenticationType": "NO_AUTH",
+          					"basicAuthConfig": null,
+          					"bearerTokenAuthConfig": null,
+          					"httpDispatchMode": "SYNC"
+          				},
+          				"triggerName": "Access Request Submitted",
+          				"responseDeadline": "PT1H",
+          				"name": "test trigger",
+          				"triggerId": "idn:access-request-pre-approval"
+          			}
+          		}
+          	]
+          }
+
+    required: true
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            data:
+              type: string
+              format: binary
+              description: JSON file containing the objects to be imported.
+            options:
+              $ref: '../../beta/schemas/ImportOptions.yaml'
+          required:
+            - data
+        # Redoc does not support rendering examples for multipart/form-data yet.
+        # Including it anyway for documentation.
+        example: {
+          data: "config_export_0340b957-5caa-44f6-ada2-d3c4c5bd0b19.json",
+          options: {
+            "excludeTypes": [],
+            "includeTypes": ["TRIGGER_SUBSCRIPTION"],
+            "objectOptions": {
+              "TRIGGER_SUBSCRIPTION": {
+                "includedIds": [ "be9e116d-08e1-49fc-ab7f-fa585e96c9e4"],
+                "includedNames":["Lori Test 2"]
+              }
+            },
+            "defaultReferences": [
+              {
+                "type": "TRIGGER_SUBSCRIPTION",
+                "id": "be9e116d-08e1-49fc-ab7f-fa585e96c9e4",
+                "name": "Test Trigger"
+              }
+            ],
+            "excludeBackup": false
+          }
+        }
+  responses:
+    '202':
+      description: >-
+        Import job accepted and queued for processing.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/SpConfigJob.yaml'
+    '400':
+      description: |
+        Client Error - Returned if the request body is invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '../../v3/schemas/ErrorResponseDto.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

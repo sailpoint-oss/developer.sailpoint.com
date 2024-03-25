@@ -1,0 +1,25 @@
+title: IDENTITIES
+type: object
+description: >-
+  Arguments for Identities report (IDENTITIES)
+required:
+  - defaultS3Bucket
+properties:
+  correlatedOnly:
+    type: boolean
+    description: >-
+      Boolean FLAG to specify if only correlated identities should be used in report processing
+    default: false
+    example: true
+  defaultS3Bucket:
+    type: boolean
+    description: >-
+      Use it to set default s3 bucket where generated report will be saved. 
+      In case this argument is false and 's3Bucket' argument is null or absent there will be default
+      s3Bucket assigned to the report.
+    example: true
+  s3Bucket:
+    type: string
+    description: >-
+      If you want to be specific you could use this argument with defaultS3Bucket = false.
+    example: the-dev-bucket

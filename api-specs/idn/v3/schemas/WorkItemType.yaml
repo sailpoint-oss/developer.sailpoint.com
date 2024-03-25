@@ -1,0 +1,19 @@
+type: string
+enum:
+  - UNKNOWN
+  - GENERIC
+  - CERTIFICATION
+  - REMEDIATION
+  - DELEGATION
+  - APPROVAL
+  - VIOLATIONREVIEW
+  - FORM
+  - POLICYVIOLATION
+  - CHALLENGE
+  - IMPACTANALYSIS
+  - SIGNOFF
+  - EVENT
+  - MANUALACTION
+  - TEST
+example: GENERIC
+description: The type of the work item

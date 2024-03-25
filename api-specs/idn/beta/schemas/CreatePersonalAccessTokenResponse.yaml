@@ -1,0 +1,36 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The ID of the personal access token (to be used as the username for Basic Auth).
+    example: "86f1dc6fe8f54414950454cbb11278fa"
+  secret:
+    type: string
+    description: The secret of the personal access token (to be used as the password for Basic Auth).
+    example: "1d1bef2b9f426383447f64f69349fc7cac176042578d205c256ba3f37c59adb9"
+  scope:
+    type: array
+    nullable: true
+    items:
+      type: string
+      default: "sp:scopes:all"
+    description: Scopes of the personal  access token.
+    example: [ "demo:personal-access-token-scope:first", "demo:personal-access-token-scope:second" ]
+  name:
+    type: string
+    description: The name of the personal access token. Cannot be the same as other personal access tokens owned by a user.
+    example: "NodeJS Integration"
+  owner:
+    $ref: '../../v3/schemas/PatOwner.yaml'
+  created:
+    type: string
+    format: 'date-time'
+    description: The date and time, down to the millisecond, when this personal access token was created.
+    example: '2017-07-11T18:45:37.098Z'
+required:
+  - id
+  - secret
+  - scope
+  - name
+  - owner
+  - created

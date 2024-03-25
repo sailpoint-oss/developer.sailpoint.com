@@ -1,0 +1,59 @@
+post:
+  security:
+    - UserContextAuth: [idn:sod-violation:read]
+  operationId: startViolationCheck
+  tags:
+    - SOD Violations
+  summary: Check SOD violations
+  description: >-
+    This API initiates a SOD policy verification asynchronously.
+
+
+    A token with ORG_ADMIN authority is required to call this API.
+
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/IdentityWithNewAccess.yaml'
+        example:
+          {
+            "identityId": "2c91808568c529c60168cca6f90c1313",
+            "accessRefs": [
+            {
+              "type": "ENTITLEMENT",
+              "id": "2c918087682f9a86016839c050861ab1",
+              "name": "CN=Information Access,OU=test,OU=test-service,DC=TestAD,DC=local"
+            },
+            {
+              "type": "ENTITLEMENT",
+              "id": "2c918087682f9a86016839c0509c1ab2",
+              "name": "CN=Information Technology,OU=test,OU=test-service,DC=TestAD,DC=local"
+            }
+            ],
+            "clientMetadata": {
+              "additionalProp1": "string",
+              "additionalProp2": "string",
+              "additionalProp3": "string"
+            }
+          }
+  responses:
+    '202':
+      description: Request ID with a timestamp.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/SodViolationCheck.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

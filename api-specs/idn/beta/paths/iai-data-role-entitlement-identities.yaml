@@ -1,0 +1,81 @@
+get:
+  operationId: getRoleEntitlementIdentities
+  summary: Get Identities for a Role by Entitlements with/without entitlement
+  tags:
+    - IAI Data Roles
+  description: >-
+    This endpoint returns the identities for a role with or without the specified entitlement.
+  parameters:
+    - in: path
+      name: roleId
+      schema:
+        type: string
+      required: true
+      description: The role ID
+      example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
+    - in: query
+      name: entitlementId
+      description: Returns only identities in the specified role that have the specified entitlement. If no entitlment is specified, all identities in the role are returned.
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string
+    - in: query
+      name: hasEntitlement
+      description: Do the identities have the entitlementId or not (if entitlementId included, otherwise ignored)
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        default: false
+    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/count.yaml'
+    - in: query
+      name: sorters
+      description: >-
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+
+        Sorting is supported for the following fields: **name**
+      required: false
+      style: form
+      explode: true
+      example: name
+      schema:
+        type: string
+    - in: query
+      name: filters
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **name**: *sw*
+      required: false
+      style: form
+      example: name sw "Admin"
+      explode: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Succeeded. Returns a list of identities for the role with/without the specified entitlement
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/IaiDataRoleEntitlementIdentity.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

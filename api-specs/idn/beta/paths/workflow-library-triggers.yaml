@@ -1,0 +1,49 @@
+get:
+  operationId: listWorkflowLibraryTriggers
+  tags:
+    - Workflows
+  summary: List Workflow Library Triggers
+  description: >-
+    This lists the workflow triggers available to you
+  externalDocs:
+    description: Additional documentation for each trigger
+    url: https://documentation.sailpoint.com/saas/help/workflows/workflow-steps.html#triggers
+  parameters:
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/offset.yaml'
+    - in: query
+      name: filters
+      required: false
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **id**: *eq*
+      example: id eq "idn:identity-attributes-changed"
+  security:
+    - UserContextAuth: [sp:workflow:read]
+  responses:
+    '200':
+      description: >-
+        List of workflow triggers
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/WorkflowLibraryTrigger.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

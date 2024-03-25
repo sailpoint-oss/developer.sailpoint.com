@@ -1,0 +1,9 @@
+description: Confirmation of a deleted object
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        info:
+          type: string
+          default: "The option '{Option Value}' has been deleted"

@@ -1,0 +1,21 @@
+type: object
+properties:
+  operator:
+    type: string
+    description: Operator for the expression
+    enum:
+      - AND 
+      - EQUALS
+    example: "EQUALS"
+  attribute:
+    type: string
+    description: Name for the attribute
+    example: "location"
+  value:
+    $ref: './Value.yaml'
+  children:
+    type: array
+    description: List of expressions
+    items:
+      $ref: './Value.yaml'
+    example: []

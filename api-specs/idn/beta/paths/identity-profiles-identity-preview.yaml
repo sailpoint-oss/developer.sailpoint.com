@@ -1,0 +1,38 @@
+post:
+  operationId: generateIdentityPreview
+  tags:
+    - Identity Profiles
+  summary: Generate Identity Profile Preview
+  description: >-
+    This generates a non-persisted IdentityDetails object that will represent
+    as the preview of the identities attribute when the given policy's
+    attribute config is applied.
+
+    A token with ORG_ADMIN authority is required to call this API to generate an identity preview.
+  requestBody:
+    description: Identity Preview request body.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/IdentityPreviewRequest.yaml'
+  responses:
+    '200':
+      description: >-
+        Object representing the preview object with all of the identity attributes using the current mappings.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/IdentityPreviewResponse.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [idn:identity-profile:manage]

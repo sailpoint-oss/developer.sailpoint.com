@@ -1,0 +1,55 @@
+type: object
+required:
+- id
+- name
+- type
+- campaignType
+- description
+- correlatedStatus
+- mandatoryCommentRequirement
+properties:
+  id:
+    type: string
+    description: The unique ID of the campaign.
+    example: ef38f94347e94562b5bb8424a56397d8
+  name:
+    type: string
+    description: The name of the campaign.
+    example: 'Campaign Name'
+  type:
+    type: string
+    enum:
+    - CAMPAIGN
+    description: The type of object that is being referenced.
+    example: CAMPAIGN
+  campaignType:
+    type: string
+    enum:
+    - MANAGER
+    - SOURCE_OWNER
+    - SEARCH
+    description: The type of the campaign.
+    example: MANAGER
+  description:
+    type: string
+    description: The description of the campaign set by the admin who created it.
+    nullable: true
+    example: 'A description of the campaign'
+  correlatedStatus:
+    description: >-
+      The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated.
+      An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source).
+    enum:
+      - "CORRELATED"
+      - "UNCORRELATED"
+    example: CORRELATED
+  mandatoryCommentRequirement:
+    type: string
+    description: >-
+      Determines whether comments are required for decisions during certification reviews. You can require comments
+      for all decisions, revoke-only decisions, or no decisions. By default, comments are not required for decisions.
+    enum:
+      - "ALL_DECISIONS"
+      - "REVOKE_ONLY_DECISIONS"
+      - "NO_DECISIONS"
+    example: NO_DECISIONS

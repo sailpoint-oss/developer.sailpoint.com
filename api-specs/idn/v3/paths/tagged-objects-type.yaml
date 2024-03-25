@@ -1,0 +1,68 @@
+get:
+  operationId: listTaggedObjectsByType
+  security:
+    - UserContextAuth: [ idn:tag:read, idn:tag:manage ]
+  tags:
+    - Tagged Objects
+  summary: List Tagged Objects by Type
+  description: >-
+    This API returns a list of all tagged objects by type.
+
+
+    Any authenticated token may be used to call this API.
+  parameters:
+    - in: path
+      name: type
+      schema:
+        type: string
+        enum:
+          - ACCESS_PROFILE
+          - APPLICATION
+          - CAMPAIGN
+          - ENTITLEMENT
+          - IDENTITY
+          - ROLE 
+          - SOD_POLICY
+          - SOURCE 
+      required: true
+      description: The type of tagged object to retrieve.
+      example: ROLE
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: '../../v3/parameters/count.yaml'
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+          Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+          Filtering is supported for the following fields and operators:
+
+
+          **objectRef.id**: *eq*
+        
+
+          **objectRef.type**: *eq*
+      example: objectRef.id eq "2c91808568c529c60168cca6f90c1313"
+      required: false
+  responses:
+    '200':
+      description: List of all tagged objects for specified type.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/TaggedObject.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

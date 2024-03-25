@@ -1,0 +1,37 @@
+post:
+  operationId: testApplicationMapping
+  tags:
+    - SaaS Management
+  summary: Test SaaS Management Application mapping
+  description: >-
+    This API tests if accounts on IdentityNow match those on the mapped SaaS Management Application,
+    or 404 if not mapped.
+
+    A token with ORG_ADMIN, SOURCE_ADMIN or SOURCE_SUBADMIN authority is required to call this API.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The IdentityNow source ID
+      example: 2c9180866166b5b0016167c32ef31a66
+  responses:
+    '200':
+      description: SaaS Management application object with the updated test result.
+      content:
+        application/json:
+          schema:
+            $ref: '../../beta/schemas/SaasManagementApplication.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

@@ -1,0 +1,88 @@
+get:
+  operationId: listNotificationTemplates
+  tags:
+    - Notifications
+  summary: List Notification Templates
+  description: >-
+    This lists the templates that you have modified for your site.
+  security:
+  - UserContextAuth: [ idn:notification-templates:read ]
+  parameters:
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/offset.yaml'
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **key**: *eq, in, sw*
+
+
+        **medium**: *eq, sw*
+
+
+        **locale**: *eq, sw*
+      example: 'medium eq "EMAIL"'
+  responses:
+    '200':
+      description: >-
+        A list of template objects for your site
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/TemplateDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+post:
+  operationId: createNotificationTemplate
+  tags:
+    - Notifications
+  summary: Create Notification Template
+  description: >-
+    This creates a template for your site. 
+    
+    
+    You can also use this endpoint to update a template.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/idn/api/beta/get-notification-template) for a template you wish to update and paste it into the request body for this endpoint.  
+    Modify the fields you want to change and submit the POST request when ready.
+  security:
+  - UserContextAuth: [ idn:notification-templates:create]
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/TemplateDto.yaml'
+  responses:
+    '200':
+      description: >-
+        A template object for your site
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/TemplateDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

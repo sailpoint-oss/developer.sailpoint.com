@@ -1,0 +1,42 @@
+post:
+  operationId: reassignCertsAsync
+  tags:
+    - Certifications
+  summary: Reassign Certifications Asynchronously
+  description: >-
+    This API initiates a task to reassign up to 500 identities or items in a certification to another reviewer. The
+    `certification-tasks` API can be used to get an updated status on the task and determine when the reassignment is
+    complete. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this
+    certification can also call this API.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The certification ID
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../v3/schemas/ReviewReassign.yaml"
+  responses:
+    '202':
+      description: A certification task object for the reassignment which can be queried for status.
+      content:
+        application/json:
+          schema:
+            $ref: '../../beta/schemas/CertificationTask.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

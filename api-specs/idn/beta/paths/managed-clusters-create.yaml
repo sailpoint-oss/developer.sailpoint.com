@@ -1,0 +1,36 @@
+post:
+  tags:
+    - Managed Clusters
+  summary: Create new Managed Cluster
+  description: >-
+    Create a new Managed Cluster.
+
+    The API returns a result that includes the Managed Cluster ID.
+  operationId: createManagedCluster
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/ManagedCluster.yaml'
+  responses:
+    "200":
+      description: The created ManagedClient
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ManagedCluster.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [idn:remote-client:manage]

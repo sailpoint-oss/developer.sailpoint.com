@@ -1,0 +1,32 @@
+get:
+  summary: Find attribute data by id
+  operationId: getAttribute
+  description: Info for a specific attribute
+  tags:
+    - attributes
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  responses:
+    '200':
+      $ref: "../responses/Attribute.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+patch:
+  summary: Update attribute data by id
+  operationId: updateAttribute
+  description: Update info for a specific attribute
+  tags:
+    - attributes
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  requestBody:
+    $ref: "../requestBodies/PATCH/Attribute.yaml"
+  responses:
+    '200':
+      $ref: "../responses/Attribute.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

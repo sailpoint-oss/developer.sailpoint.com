@@ -1,0 +1,30 @@
+type: object
+properties:
+  name:
+    type: string
+    description: the name of the governance event, such as the certification name or access request ID
+  date:
+    type: string
+    description: when the governance event occurred
+  type:
+    type: string
+    description: the type of instance that caused the event - either "certification" or "accessRequest"
+  governanceId:
+    type: string
+    description: the ID of the instance that caused the event - either the certification ID or accessRequest ID
+  governanceItemId:
+    type: string
+    description: the ID of the item that caused the event - either the certificationItem ID or identityRequestItem ID  
+  owners:
+    type: array
+    items:
+      $ref: './OwnerResponse.yaml'
+example:
+  name: AcctsReceivable
+  date: '2021-03-11T21:27:54.750Z'
+  type: Entitlement
+  governanceId: 2c91808a77ff216301782327a50f09bf
+  governanceItemId: 2c91808a77ff216301782327a50f09bf
+  owners:
+    - id: 2c91808a77ff216301782327a50f09bf
+      displayName: Approver1

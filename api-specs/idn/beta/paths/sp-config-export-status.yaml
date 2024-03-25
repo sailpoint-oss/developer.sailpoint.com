@@ -1,0 +1,54 @@
+get:
+  operationId: getSpConfigExportStatus
+  security:
+    - UserContextAuth: [ sp:config:read, sp:config:manage]
+  tags:
+    - SP-Config
+  summary: Get export job status
+  description: >-
+    This gets the status of the export job identified by the `id` parameter.
+
+    The request will need one of the following security scopes:
+
+    - sp:config:read
+    - sp:config:manage
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The ID of the export job whose status will be returned.
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    '200':
+      description: >-
+        Export job status successfully returned.
+      content:
+        application/json:
+          schema:
+            $ref: '../../beta/schemas/SpConfigExportJobStatus.yaml'
+          example:
+            {
+              "jobId": "1e824aa0-4c6e-4f14-95e9-e7dc5234aa51",
+              "status": "COMPLETE",
+              "type": "EXPORT",
+              "message": null,
+              "description": "Export Job 1 Test",
+              "expiration": "2021-05-20T15:04:24Z",
+              "created": "2021-05-13T15:04:24.112Z",
+              "modified": "2021-05-13T15:04:27.363Z",
+              "completed": "2021-05-13T15:04:27.358Z"
+            }
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

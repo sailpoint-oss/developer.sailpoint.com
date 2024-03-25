@@ -1,0 +1,26 @@
+get:
+  operationId: getProfileConfigList
+  tags:
+    - Auth Profile
+  summary: Get list of Auth Profiles.
+  description: >-
+    This API returns a list of auth profiles.
+  security:
+    - UserContextAuth: [sp:auth-profile:read]
+  responses:
+    '200':
+      description: List of Auth Profiles
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/AuthProfileSummary.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

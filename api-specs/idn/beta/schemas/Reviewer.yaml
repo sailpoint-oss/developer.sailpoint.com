@@ -1,0 +1,27 @@
+description: Details of the reviewer for certification.
+type: object
+required:
+- type
+- id
+- name
+properties:
+  type:
+    type: string
+    description: The reviewer's DTO type. 
+    enum:
+    - IDENTITY
+    - GOVERNANCE_GROUP
+    example: IDENTITY
+  id: 
+    type: string
+    description: The reviewer's ID. 
+    example: 2c7180a46faadee4016fb4e018c20642
+  name: 
+    type: string
+    description: The reviewer's display name. 
+    example: Michael Michaels
+  email:
+    type: string
+    nullable: true
+    description: The reviewing identity's email. Only applicable to `IDENTITY`.
+    example: reviewer@test.com

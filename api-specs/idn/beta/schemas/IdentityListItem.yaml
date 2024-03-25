@@ -1,0 +1,28 @@
+type: object
+properties:
+  id:
+    type: string
+    description: the identity ID
+    example: 'bc693f07e7b645539626c25954c58554'
+  displayName:
+    type: string
+    description: the display name of the identity
+    example: 'Adam Zampa'
+  firstName:
+    type: string
+    description: the first name of the identity
+    example: 'Adam'
+  lastName:
+    type: string
+    description: the last name of the identity
+    example: 'Zampa'
+  active:
+    type: boolean
+    default: true
+    description: indicates if an identity is active or not
+    example: true
+  deletedDate:
+    type: string
+    nullable: true
+    description: the date when the identity was deleted
+    example: '2007-03-01T13:00:00.000Z'

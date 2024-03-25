@@ -1,0 +1,24 @@
+type: object
+properties:
+  id:
+    type: string
+    description: ID of the form
+    example: 2c9180835d2e5168015d32f890ca1581
+  name:
+    type: string
+    description: Name of the form
+    example: AccountSelection Form
+  title:
+    type: string
+    description: The form title
+    example: Account Selection for John.Doe
+  subtitle:
+    type: string
+    description: The form subtitle.
+    example: Please select from the following
+  targetUser:
+    type: string
+    description: The name of the user that should be shown this form
+    example: Jane.Doe
+  sections:
+    $ref: './SectionDetails.yaml'

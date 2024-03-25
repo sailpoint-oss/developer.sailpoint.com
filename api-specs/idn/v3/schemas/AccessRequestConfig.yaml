@@ -1,0 +1,19 @@
+type : object
+properties:
+  approvalsMustBeExternal:
+    type: boolean
+    description: If true, then approvals must be processed by external system.
+    example: true
+  autoApprovalEnabled:
+    type: boolean
+    description:  If true and requester and reviewer are the same, then automatically approve the approval.
+    example: true
+  requestOnBehalfOfConfig:
+    $ref: './RequestOnBehalfOfConfig.yaml'
+    description: Request On Behalf Of Configuration.
+  approvalReminderAndEscalationConfig:
+    $ref: './ApprovalReminderAndEscalationConfig.yaml'
+    description: Approval Reminder and Escalation Configuration.
+  entitlementRequestConfig:
+    $ref: './EntitlementRequestConfig.yaml'
+    description: Entitlement Request Configuration.

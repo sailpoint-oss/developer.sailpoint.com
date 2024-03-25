@@ -1,0 +1,69 @@
+post:
+  tags:
+  - Search
+  description: >-
+    Performs a search query aggregation and returns the aggregation result.
+    By default, you can page a maximum of 10,000 search result records. 
+    To page past 10,000 records, you can use searchAfter paging. 
+    Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement searchAfter paging. 
+  operationId: searchAggregate
+  security:
+    - UserContextAuth: [ sp:search:read ]
+  summary: "Perform a Search Query Aggregation"
+  parameters:
+  - $ref: '../parameters/offset.yaml'
+  - $ref: '../parameters/limit.yaml'
+  - $ref: '../parameters/count.yaml'
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/search/Search.yaml'
+        examples:
+          metricAggregation:
+            $ref: '../schemas/search/aggregate/examples/metricAggregation.yaml'
+          metricAggregation-dsl:
+            $ref: '../schemas/search/aggregate/examples/metricAggregation-dsl.yaml'
+          bucketAggregation:
+            $ref: '../schemas/search/aggregate/examples/bucketAggregation.yaml'
+          bucketAggregation-dsl:
+            $ref: '../schemas/search/aggregate/examples/bucketAggregation-dsl.yaml'
+          nestedAggregation-bucketAggregation:
+            $ref: '../schemas/search/aggregate/examples/nestedAggregation-bucketAggregation.yaml'
+          nestedAggregation-bucketAggregation-dsl:
+            $ref: '../schemas/search/aggregate/examples/nestedAggregation-bucketAggregation-dsl.yaml'
+          nestedAggregation-filterAggregation-bucketAggregation:
+            $ref: '../schemas/search/aggregate/examples/nestedAggregation-filterAggregation-bucketAggregation.yaml'
+          nestedAggregation-filterAggregation-bucketAggregation-dsl:
+            $ref: '../schemas/search/aggregate/examples/nestedAggregation-filterAggregation-bucketAggregation-dsl.yaml'
+          bucketAggregation-subAggregation:
+            $ref: '../schemas/search/aggregate/examples/bucketAggregation-subAggregation.yaml'
+          bucketAggregation-subAggregation-dsl:
+            $ref: '../schemas/search/aggregate/examples/bucketAggregation-subAggregation-dsl.yaml'
+    required: true
+  responses:
+    '200':
+      description: Aggregation results.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/search/documents/AggregationResult.yaml'
+        text/csv:
+          schema:
+            $ref: '../schemas/search/documents/AggregationResult-csv.yaml'
+      headers:
+        X-Total-Count:
+          description: The total result count (returned only if the *count* parameter is specified as *true*).
+          schema:
+            type: integer
+          example: 5
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

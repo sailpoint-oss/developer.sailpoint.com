@@ -1,0 +1,59 @@
+title: Object Configuration Model
+description: Response model for get object configuration.
+type: object
+properties:
+  objectType:
+    type: string
+    description: >-
+      The object type this configuration is for.
+    example: "TRIGGER_SUBSCRIPTION"
+  resolveByIdUrl:
+    $ref: './SpConfigUrl.yaml'
+    description: >-
+      Url and query parameters to be used to resolve this type of object by Id.
+  resolveByNameUrl:
+    type: array
+    items:
+      $ref: './SpConfigUrl.yaml'
+    description: >-
+      Url and query parameters to be used to resolve this type of object by name.
+  exportUrl:
+    $ref: './SpConfigUrl.yaml'
+  exportRight:
+    type: string
+    description: >-
+      Rights needed by the invoker of sp-config/export in order to export this type of object.
+    example: idn:trigger-service-subscriptions:read
+  exportLimit:
+    type: integer
+    format: int32
+    description: >-
+      Pagination limit imposed by the target service for this object type.
+    example: 10
+  importUrl:
+    $ref: './SpConfigUrl.yaml'
+  importRight:
+    type: string
+    description: >-
+      Rights needed by the invoker of sp-config/import in order to import this type of object.
+    example: idn:trigger-service-subscriptions:create
+  importLimit:
+    type: integer
+    format: int32
+    description: >-
+      Pagination limit imposed by the target service for this object type.
+    example: 10
+  referenceExtractors:
+    type: array
+    nullable: true
+    description: >-
+      List of json paths within an exported object of this type that represent references that need to be resolved.
+    items:
+      type: string
+    example: ["$.owner"]
+  signatureRequired:
+    type: boolean
+    default: false
+    description: >-
+      If true, this type of object will be JWS signed and cannot be modified before import.
+    example: false

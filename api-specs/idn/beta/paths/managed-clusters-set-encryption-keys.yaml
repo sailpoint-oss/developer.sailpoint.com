@@ -1,0 +1,46 @@
+post:
+  tags:
+    - Managed Clusters
+  summary: New encryption keys for ManagedCluster
+  description: >-
+    Set new encryption keys for a Managed Cluster
+
+    AMS Security: idn:remote-client-management
+    A token with SaaS Platform idn:admin or sp:internal-service or idn:devops is required to access this endpoint.
+  operationId: setEncryptionKeys
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The Managed Cluster ID
+      example: aClusterId
+  requestBody:
+    required: true
+    description: The PublicCertificate used to update the keyPair value in persistence.
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/SetEncryptionKeysData.yaml'
+  responses:
+    "200":
+      description: Set new encryption keys for a Managed Cluster
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ManagedCluster.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [idn:remote-client:manage]

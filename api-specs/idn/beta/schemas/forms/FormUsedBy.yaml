@@ -1,0 +1,22 @@
+properties:
+  type:
+    description: |-
+      FormUsedByType value. 
+      WORKFLOW FormUsedByTypeWorkflow
+      SOURCE FormUsedByTypeSource
+    enum:
+      - WORKFLOW
+      - SOURCE
+    example: WORKFLOW
+    type: string
+    x-go-enum-desc: |-
+      WORKFLOW FormUsedByTypeWorkflow
+      SOURCE FormUsedByTypeSource
+    x-go-name: Type
+  id:
+    description: Unique identifier of the system using the form. 
+    example: 00000000-0000-0000-0000-000000000000
+    type: string
+    x-go-name: ID
+type: object
+x-go-package: github.com/sailpoint/sp-forms/domain

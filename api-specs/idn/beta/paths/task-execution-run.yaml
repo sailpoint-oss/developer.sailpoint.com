@@ -1,0 +1,28 @@
+#
+# Copyright (C) 2019-2020 SailPoint Technologies, Inc.  All rights reserved.
+#
+post:
+  tags:
+    - Task Management
+  summary: Run a task.
+  description: Run a task.
+  operationId: runTask
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/TaskInvocation.yaml'
+    required: true
+  responses:
+    "200":
+      description: Responds with an initial TaskStatus for the executed task.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/TaskStatus.yaml'
+    "400":
+      $ref: '../../v3/responses/400.yaml'
+    "403":
+      $ref: '../../v3/responses/403.yaml'
+  security:
+    - UserContextAuth: [idn:task-management:write]

@@ -1,0 +1,39 @@
+type: object
+properties:
+  accessType:
+    type: string
+    example: entitlement
+    description: the access item type. entitlement in this case
+  id:
+    type: string
+    example: 2c918087763e69d901763e72e97f006f
+    description: the access item id
+  attribute:
+    type: string
+    example: groups
+    description: the entitlement attribute 
+  value:
+    type: string
+    example: Upward mobility access
+    description: the associated value
+  entitlementType:
+    type: string
+    example: entitlement
+    description: the type of entitlement
+  sourceName:
+    type: string
+    example: DataScienceDataset
+    description: the name of the source
+  sourceId:
+    type: string
+    example: 2793o32dwd
+    description: the id of the source
+  description:
+    type: string
+    example: Entitlement - Workday/Citizenship access
+    description: the description for the entitlment
+  displayName:
+    type: string
+    example: Dr. Arden Rogahn MD
+    description: the display name of the identity
+  

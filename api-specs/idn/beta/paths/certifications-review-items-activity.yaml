@@ -1,0 +1,42 @@
+get:
+  operationId: listReviewItemsActivityData
+  tags:
+    - Certifications
+  summary: List of Review Items Activity Data
+  description: >-
+    This API returns activity data for a list of review items for an identity campaign certification. The activity data applies to the results of the previous call to review-items API. A token with ORG_ADMIN or
+    CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The certification ID
+      example: ef38f94347e94562b5bb8424a56397d8
+    - in: path
+      name: activityDataId
+      schema:
+        type: string
+      required: true
+      description: Id of the activity dataset, needs to match value of HTTP header “SLPT-Activity-Data-ID” returned by review-items call.
+      example: ff1567bf5d564996af4915f3ab061a1b
+  responses:
+    '200':
+      description: A list of review item ids with activity data
+      content:
+        application/json:
+          schema:
+            $ref: '../../beta/schemas/ReviewItemsActivityTask.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

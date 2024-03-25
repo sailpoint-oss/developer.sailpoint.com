@@ -1,0 +1,65 @@
+title: SEARCH_EXPORT
+type: object
+description: >-
+  Arguments for Search Export report (SEARCH_EXPORT)
+required:
+  - query
+  - defaultS3Bucket
+properties:
+  indices:
+    description: >-
+      The names of the Elasticsearch indices in which to search. If none are provided, then all indices will be searched.
+    externalDocs:
+      description: Learn more about search indices here.
+      url: https://documentation.sailpoint.com/saas/help/search/searchable-fields.html
+    type: array
+    items:
+      $ref: '../../search/Index.yaml'
+    example:
+      - entitlements
+  filters:
+    description: >-
+      The filters to be applied for each filtered field name.
+    type: object
+    additionalProperties:
+      $ref: '../../filter/Filter.yaml'
+    example:
+      source.id:
+        type: 'TERMS'
+        terms:
+          - '2c9180897termsId780bd2920576'
+      source.name.exact:
+        type: 'TERMS'
+        terms:
+          - 'IdentityNow'
+        exclude: true
+  query:
+    $ref: '../../search/Query.yaml'
+  includeNested:
+    description: >-
+      Indicates whether nested objects from returned search results should be included.
+    type: boolean
+    default: true
+    example: true
+  sort:
+    description: >-
+      The fields to be used to sort the search results.
+      Use + or - to specify the sort direction.
+    type: array
+    items:
+      type: string
+    example:
+      - 'displayName'
+      - '+id'
+  defaultS3Bucket:
+    type: boolean
+    description: >-
+      Use it to set default s3 bucket where generated report will be saved. 
+      In case this argument is false and 's3Bucket' argument is null or absent there will be default
+      s3Bucket assigned to the report.
+    example: true
+  s3Bucket:
+    type: string
+    description: >-
+      If you want to be specific you could use this argument with defaultS3Bucket = false.
+    example: the-dev-bucket

@@ -1,0 +1,36 @@
+get:
+  operationId: getHistoricalIdentity
+  tags:
+    - Identity History
+  summary: Get latest snapshot of identity
+  description: >-
+    This method retrieves a specified identity
+    Requires authorization scope of 'idn:identity-history:read'
+  security:
+    - UserContextAuth:
+      - "idn:identity-history:read"    
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The identity id
+      example: '8c190e6787aa4ed9a90bd9d5344523fb'
+  responses:
+    '200':
+      description: The identity object.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/IdentityHistoryResponse.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

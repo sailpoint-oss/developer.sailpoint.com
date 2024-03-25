@@ -1,0 +1,72 @@
+type: object
+properties:
+  createdBy:
+    $ref: './iai/EntityCreatedByDTO.yaml'
+    description: The session created by details.
+  density:
+    type: integer
+    description: The density of a potential role.
+    example: 75
+    format: int32
+  description:
+    type: string
+    description: The description of a potential role.
+    example: "Potential Role for Accounting dept"
+  entitlementCount:
+    type: integer
+    description: The number of entitlements in a potential role.
+    example: 25
+    format: int32
+  excludedEntitlements:
+    description: The list of entitlement ids to be excluded.
+    type: array
+    items:
+      type: string
+    example: ["07a0b4e2","13b4e2a0"]
+  freshness:
+    type: integer
+    description: The freshness of a potential role.
+    example: 75
+    format: int32
+  identityCount:
+    type: integer
+    description: The number of identities in a potential role.
+    example: 25
+    format: int32
+  identityDistribution:
+    description: Identity attribute distribution.
+    type: array
+    items:
+      $ref: './RoleMiningIdentityDistribution.yaml'
+  identityIds:
+    description: The list of ids in a potential role.
+    type: array
+    items:
+      type: string
+    example: ["07a0b4e2","13b4e2a0"]
+  name:
+    type: string
+    description: Name of the potential role.
+    example: "Saved Potential Role - 07/10"
+  provisionState:
+    $ref: './RoleMiningPotentialRoleProvisionState.yaml'
+    description: The provisioning state of a potential role.
+  quality:
+    type: integer
+    description: The quality of a potential role.
+    example: 100
+    format: int32
+  roleId:
+      type: string
+      description: The roleId of a potential role.
+      example: "07a0b4e2-7a76-44fa-bd0b-c64654b66519"
+  saved:
+    type: boolean
+    description: The potential role's saved status.
+    example: true
+  session:
+    $ref: './RoleMiningSessionParametersDto.yaml'
+    description: The session parameters of the potential role.
+  type:
+    $ref: './iai/RoleMiningRoleType.yaml'
+    description: Role mining potential type.

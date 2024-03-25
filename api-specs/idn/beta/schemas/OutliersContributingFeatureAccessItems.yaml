@@ -1,0 +1,31 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The ID of the access item
+    example: '2c938083633d259901633d2623ec0375'
+  displayName:
+    type: string
+    description: the display name of the access item
+    example: Applied Research Access
+  description:
+    type: string
+    description: Description of the access item.
+    example: Access to research information, lab results, and schematics
+  accessType:
+    type: string
+    example: ENTITLEMENT
+    description: The type of the access item.
+    enum:
+      - ENTITLEMENT
+      - ACCESS_PROFILE
+      - ROLE
+  sourceName:
+    type: string
+    example: appName
+    description: the associated source name if it exists
+  extremelyRare:
+    type: boolean
+    default: false
+    example: true
+    description: rarest access

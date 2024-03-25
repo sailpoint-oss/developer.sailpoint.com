@@ -1,0 +1,120 @@
+get:
+  operationId: getCampaign
+  tags:
+    - Certification Campaigns
+  summary: Get a campaign
+  description: >-
+    Retrieves information for an existing campaign using the campaign's ID. Authorized callers must be a
+    reviewer for this campaign, an ORG_ADMIN, or a CERT_ADMIN.
+  security:
+    - UserContextAuth: []
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The ID of the campaign to be retrieved
+      example: 2c91808571bcfcf80171c23e4b4221fc
+  responses:
+    '200':
+      description: A campaign object
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/SlimCampaign.yaml'
+          examples:
+            Manager:
+              $ref: '../schemas/campaign/examples/SlimCampaignManager.yaml'
+            Search:
+              $ref: '../schemas/campaign/examples/SlimCampaignSearch.yaml'
+            Source Owner:
+              $ref: '../schemas/campaign/examples/SlimCampaignSourceOwner.yaml'
+            RoleComposition:
+              $ref: '../schemas/campaign/examples/SlimCampaignRoleComposition.yaml'
+    '400':
+        $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+patch:
+  operationId: updateCampaign
+  tags:
+    - Certification Campaigns
+  summary: Update a Campaign
+  description: Allows updating individual fields on a campaign using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+  security:
+    - UserContextAuth: [idn:campaign:update,idn:campaign:read]
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The ID of the campaign template being modified.
+      example: 2c91808571bcfcf80171c23e4b4221fc
+  requestBody:
+    required: true
+    description: |
+      A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+      The fields that can be patched differ based on the status of the campaign.
+
+      In the *STAGED* status, the following fields can be patched:
+      * name
+      * description
+      * recommendationsEnabled
+      * deadline
+      * emailNotificationEnabled
+      * autoRevokeAllowed
+
+      In the *ACTIVE* status, the following fields can be patched:
+      * deadline
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: "../schemas/JsonPatchOperation.yaml"
+        example:
+          - op: "replace"
+            path: "/name"
+            value: "This field has been updated!"
+          - op: "copy"
+            from: "/name"
+            path: "/description"
+  responses:
+    '200':
+      description: >-
+        Indicates the PATCH operation succeeded, and returns the campaign's new representation.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/SlimCampaign.yaml'
+          examples:
+            Manager:
+              $ref: '../schemas/campaign/examples/SlimCampaignManager.yaml'
+            Search:
+              $ref: '../schemas/campaign/examples/SlimCampaignSearch.yaml'
+            Source Owner:
+              $ref: '../schemas/campaign/examples/SlimCampaignSourceOwner.yaml'
+            RoleComposition:
+              $ref: '../schemas/campaign/examples/SlimCampaignRoleComposition.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

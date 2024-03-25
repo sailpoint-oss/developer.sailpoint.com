@@ -1,0 +1,92 @@
+patch:
+  operationId: patchPersonalAccessToken
+  security:
+    - UserContextAuth: [sp:my-personal-access-tokens:manage]
+  tags:
+    - Personal Access Tokens
+  summary: Patch Personal Access Token
+  description: >-
+    This performs a targeted update to the field(s) of a Personal Access Token.
+
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The Personal Access Token id
+      example: ef38f94347e94562b5bb8424a56397d8
+  requestBody:
+    required: true
+    description: |
+      A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+
+      The following fields are patchable:
+      * name
+      * scope
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: '../schemas/JsonPatchOperation.yaml'
+        example:
+          - op: "replace"
+            path: "/name"
+            value: "New name"
+          - op: "replace"
+            path: "/scope"
+            value: ["sp:scopes:all"]
+  responses:
+    '200':
+      description: >-
+        Indicates the PATCH operation succeeded, and returns the PAT's new representation.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/GetPersonalAccessTokenResponse.yaml'
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"
+delete:
+  operationId: deletePersonalAccessToken
+  security:
+    - UserContextAuth: [sp:my-personal-access-tokens:manage, sp:all-personal-access-tokens:manage]
+  tags:
+    - Personal Access Tokens
+  summary: Delete Personal Access Token
+  description: >-
+    This deletes a personal access token.
+    
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The personal access token id
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    "204":
+      description: No content.
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

@@ -1,0 +1,120 @@
+get:
+  tags:
+    - Transforms
+  summary: List transforms
+  description: >-
+    Gets a list of all saved transform objects.
+
+    A token with transforms-list read authority is required to call this API.
+
+  operationId: listTransforms
+  parameters:
+    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/count.yaml'
+    - name: name
+      in: query
+      description: >-
+        Name of the transform to retrieve from the list.
+      required: false
+      style: form
+      schema:
+        type: string
+        example: "ExampleTransformName123"
+    - name: filters
+      in: query
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **internal**: *eq*
+
+
+        **name**: *eq, sw*
+      required: false
+      style: form
+      explode: true
+      example: name eq "Uppercase"
+      schema:
+        type: string
+  responses:
+    "200":
+      description: A list of transforms matching the given criteria.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/TransformRead.yaml'
+          example:
+            - id: 2cd78adghjkja34jh2b1hkjhasuecd
+              name: Timestamp To Date
+              type: dateFormat
+              attributes: { "inputFormat": "MMM-dd-yyyy, HH:mm:ss.SSS", "outputFormat": "yyyy/dd/MM" }
+              internal: false
+            - id: 2lkas8dhj4bkuakja77giih7l4ashh
+              name: PrefixSubstring
+              type: substring
+              attributes: { "begin": 0, "end": 3 }
+              internal: true
+    "400":
+      $ref: '../../v3/responses/400.yaml'
+    "401":
+      $ref: '../../v3/responses/401.yaml'
+    "403":
+      $ref: '../../v3/responses/403.yaml'
+    "404":
+      $ref: '../../v3/responses/404.yaml'
+    "429":
+      $ref: '../../v3/responses/429.yaml'
+    "500":
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [idn:transform:read, idn:transform:manage]
+post:
+  tags:
+    - Transforms
+  summary: Create transform
+  description: >-
+    Creates a new transform object immediately. By default, the internal flag is set to false to indicate that this is
+    a custom transform. Only SailPoint employees have the ability to create a transform with internal set to true.
+    Newly created Transforms can be used in the Identity Profile mappings within the UI. A token with transform write
+    authority is required to call this API.
+
+  operationId: createTransform
+  requestBody:
+    required: true
+    description: >-
+      The transform to be created.
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/Transform.yaml'
+        example:
+          name: Timestamp To Date
+          type: dateFormat
+          attributes: { "inputFormat": "MMM dd yyyy, HH:mm:ss.SSS", "outputFormat": "yyyy/dd/MM" }
+  responses:
+    "201":
+      description: Indicates the transform was successfully created and returns its representation.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/TransformRead.yaml'
+    "400":
+      $ref: '../../v3/responses/400.yaml'
+    "401":
+      $ref: '../../v3/responses/401.yaml'
+    "403":
+      $ref: '../../v3/responses/403.yaml'
+    "404":
+      $ref: '../../v3/responses/404.yaml'
+    "429":
+      $ref: '../../v3/responses/429.yaml'
+    "500":
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [idn:transform:manage]

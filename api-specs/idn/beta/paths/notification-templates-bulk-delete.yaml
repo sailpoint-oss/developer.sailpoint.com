@@ -1,0 +1,30 @@
+post:
+  operationId: deleteNotificationTemplatesInBulk
+  tags:
+    - Notifications
+  summary: Bulk Delete Notification Templates
+  description: >-
+    This lets you bulk delete templates that you previously created for your site. Since this is a beta feature, please contact support to enable usage.
+  security:
+  - UserContextAuth: [ idn:notification-templates:delete ]
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: '../schemas/TemplateBulkDeleteDto.yaml'
+  responses:
+    '204':
+      $ref: '../../v3/responses/204.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

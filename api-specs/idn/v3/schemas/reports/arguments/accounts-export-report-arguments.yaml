@@ -1,0 +1,31 @@
+title: ACCOUNTS
+type: object
+description: >-
+  Arguments for Account Export (ACCOUNTS)
+required:
+  - application
+  - sourceName
+  - defaultS3Bucket
+properties:
+  application:
+    type: string
+    description: >-
+      Id of the authoritative source to export related accounts e.g. identities
+    example: 2c9180897eSourceIde781782f705b9
+  sourceName:
+    type: string
+    description: >-
+      Name of the authoritative source for accounts export
+    example: DataScienceSourceName
+  defaultS3Bucket:
+    type: boolean
+    description: >-
+      Use it to set default s3 bucket where generated report will be saved. 
+      In case this argument is false and 's3Bucket' argument is null or absent there will be default
+      s3Bucket assigned to the report.
+    example: true
+  s3Bucket:
+    type: string
+    description: >-
+      If you want to be specific you could use this argument with defaultS3Bucket = false.
+    example: the-dev-bucket

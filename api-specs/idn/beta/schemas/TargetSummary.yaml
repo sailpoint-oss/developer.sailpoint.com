@@ -1,0 +1,25 @@
+# Replaces IdentitySummary.yaml
+description: The entity being targeted by a certification.
+type: object
+properties:
+  targetType:
+    type: string
+    description: The type of entity being targeted by this certification
+    enum:
+      - IDENTITY
+      - ROLE
+  id:
+    type: string
+    description: The ID of the target summary
+    example: 2c91808772a504f50172a9540e501ba7
+  name:
+    type: string
+    description: Name of the linked entity
+    example: Alison Ferguso
+  targetId:
+    type: string
+    description: The ID of the entity being targeted by a certification
+    example: 2c9180857182306001719937377a33de
+  completed:
+    type: boolean
+    description: Indicates whether the review items for the linked identity's certification have been completed

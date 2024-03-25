@@ -1,0 +1,57 @@
+# The Slim version of the Account DTO containing only data from the Account object
+type: object
+title: Slim Account
+allOf:
+  - $ref: './BaseCommonDto.yaml'
+  - type: object
+    properties:
+      uuid:
+        type: string
+        description: Unique ID from the owning source
+        example: '2c9180857893f12901789445619b0366'
+        nullable: true
+      nativeIdentity:
+        type: string
+        description: The native identifier of the account
+        example: brandin.gray
+      description:
+        type: string
+        description: The description for the account
+        example: 'Brandin Gray the CEO of Silly Inc.'
+        nullable: true
+      disabled:
+        type: boolean
+        description: Whether the account is disabled
+        example: false
+      locked:
+        type: boolean
+        description: Whether the account is locked
+        example: false
+      manuallyCorrelated:
+        type: boolean
+        description: Whether the account was manually correlated
+        example: false
+      hasEntitlements:
+        type: boolean
+        description: Whether the account has any entitlements associated with it
+        example: true
+      sourceId:
+        type: string
+        description: The ID of the source for which this account belongs
+        example: 2c9180835d2e5168015d32f890ca1581
+      sourceName:
+        type: string
+        description: The name of the source
+        example: Large Source
+      identityId:
+        type: string
+        description: The ID of the identity for which this account is correlated to if not uncorrelated
+        example: 4b9163835d2e5168015d32f890ca5936
+      attributes:
+        type: object
+        description: A map containing attributes associated with the account
+        additionalProperties: true
+        example:
+          firstName: "SailPoint"
+          lastName: "Support"
+          displayName: "SailPoint Support"

@@ -1,0 +1,35 @@
+summary: Role
+value:
+  id: '2c91808c6faadea6016fb4f2bc69077b'
+  name: 'IT Role'
+  description: 'IT role'
+  created: '2020-01-17T19:20:15.040Z'
+  modified: null
+  synced: '2020-02-18T05:30:20.145Z'
+  enabled: true
+  requestable: false
+  requestCommentsRequired: false
+  owner:
+    id: '2c9180a46faadee4016fb4e018c20639'
+    name: 'Cloud Support'
+    type: 'IDENTITY'
+    email: 'thomas.edison@acme-solar.com'
+  accessProfiles:
+  - id: '2c91809c6faade77016fb4f0b63407ae'
+    name: 'Admin Access'
+  accessProfileCount: 1
+  segments:
+    - id: '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde'
+      name: 'segment-xyz'
+      description: 'This segment represents xyz'
+  segmentCount: 1
+  entitlements:
+    - id: '2c91809c6faade77016fb4f0b63407ae'
+      name: 'Admin Access'
+      description: 'Access to everything'
+      privileged: true
+      hasPermissions: true
+  entitlementCount: 1
+  tags:
+  - 'TAG_1'
+  - 'TAG_2'

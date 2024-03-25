@@ -1,0 +1,15 @@
+type: object
+properties:
+  questionId:
+    type: string
+    nullable: false
+    description: Question Id
+    example: 089899f13a8f4da7824996191587bab9
+  answer:
+    type: string
+    nullable: false
+    description: An answer for the KBA question
+    example: Your answer
+required:
+  - questionId
+  - answer

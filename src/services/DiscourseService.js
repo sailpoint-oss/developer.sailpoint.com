@@ -96,6 +96,7 @@ export async function getVideoPosts(tags) {
 }
 
 export async function getMarketplacePosts(tags, category) {
+  console.log('getMarketplacePosts');
   let filterCategory = 'colab';
   if (category && category != 'colab') {
     filterCategory = filterCategory + '/' + category;

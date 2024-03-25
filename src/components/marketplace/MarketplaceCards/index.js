@@ -42,8 +42,6 @@ export default function MarketplaceCards({filterCallback, limit}) {
                   if (
                     !titleList.find((x) => x.group === user.primary_group_name)
                   ) {
-                    console.log(titleList);
-                    console.log('getting title for ' + user.primary_group_name);
                     let usertitle = await getUserTitle(user.primary_group_name);
                     titleList.push({
                       group: user.primary_group_name,

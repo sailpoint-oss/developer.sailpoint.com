@@ -303,6 +303,19 @@ properties:
     description: The date-time when the source was last modified
     format: date-time
     example: 2024-01-23T18:08:50.897Z
+  credentialProviderEnabled:
+    type: boolean
+    description: >-
+      Enables credential provider for this source. If credentialProvider is turned on 
+      then source can use credential provider(s) to fetch credentials.
+    default: false
+    example: false
+  category:
+      type: string
+      nullable: true
+      default: null
+      description: The category of source (e.g. null, CredentialProvider)
+      example: "CredentialProvider"
 required:
   - name
   - owner

@@ -52,11 +52,11 @@ export default function HomepageTeam() {
           image={'/homepage/darrell-thobe.png'}
         />
           <TeamCard
-          link={'https://developer.sailpoint.com/discuss/u/lukehagar/summary'}
-          name={'Luke Hagar'}
-          title={'Software Engineer'.toUpperCase()}
-          expertise={'DEVELOPER TOOLS'}
-          image={'/homepage/lukehagar.png'}
+          link={'https://developer.sailpoint.com/discuss/u/putty/summary'}
+          name={'Derek Putnam'}
+          title={'Community Manager'.toUpperCase()}
+          expertise={'DEVELOPER COMMUNITY'}
+          image={'/homepage/derek-putnam.png'}
         />
          <TeamCard
           link={

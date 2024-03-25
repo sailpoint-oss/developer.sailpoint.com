@@ -695,7 +695,7 @@ tags:
 
       When administrators use the API to create and manage segments, they use a JSON expression in the `visibilityCriteria` object to define the segment's identities and access items. 
 
-      Refer to [Managing Access Request Segments](https://documentation.sailpoint.com/saas/help/requests/segments.html) for more information about segments in IdentityNow. 
+      Refer to [Managing Access Request Segments](https://documentation.sailpoint.com/saas/help/requests/segments.html) for more information about segments in IdentityNow.
   - name: Service Desk Integration
     description: |
       Use this API to build an integration between IdentityNow and a service desk ITSM (IT service management) solution.
@@ -749,7 +749,7 @@ tags:
 
       Refer to [Managing Policies](https://documentation.sailpoint.com/saas/help/sod/manage-policies.html) for more information about SOD policies. 
 
-      Refer to [Subscribe to a SOD Policy](https://documentation.sailpoint.com/saas/help/sod/policy-violations.html#subscribe-to-an-sod-policy) for more information about SOD policy subscriptions. 
+      Refer to [Subscribe to a SOD Policy](https://documentation.sailpoint.com/saas/help/sod/policy-violations.html#subscribe-to-an-sod-policy) for more information about SOD policy subscriptions.
   - name: SOD Violations
     description: |
       Use this API to check for current "separation of duties" (SOD) policy violations as well as potential future SOD policy violations. 
@@ -769,7 +769,7 @@ tags:
       Administrators can use the SOD violations APIs to check a set of identities for any current SOD violations, and they can use them to check whether adding an access item would potentially trigger a SOD violation. 
       This second option is a good way to prevent SOD violations from triggering at all. 
 
-      Refer to [Handling Policy Violations](https://documentation.sailpoint.com/saas/help/sod/policy-violations.html) for more information about SOD policy violations. 
+      Refer to [Handling Policy Violations](https://documentation.sailpoint.com/saas/help/sod/policy-violations.html) for more information about SOD policy violations.
   - name: Source Usages
     description: |
       Use this API to implement source usage insight functionality.
@@ -890,7 +890,7 @@ tags:
 
       - Risk levels 
 
-      Refer to [Tagging Items in Search](https://documentation.sailpoint.com/saas/help/search/index.html?h=tags#tagging-items-in-search) for more information about tagging objects in IdentityNow. 
+      Refer to [Tagging Items in Search](https://documentation.sailpoint.com/saas/help/search/index.html?h=tags#tagging-items-in-search) for more information about tagging objects in IdentityNow.
   - name: Task Management
   - name: Tenant
     description: API for reading tenant details.
@@ -972,6 +972,10 @@ tags:
   - name: Workflows
     description: |
       Workflows allow administrators to create custom automation scripts directly within IdentityNow.  These automation scripts respond to [event triggers](https://developer.sailpoint.com/idn/docs/event-triggers#how-to-get-started-with-event-triggers) and perform a series of actions to perform tasks that are either too cumbersome or not available in the IdentityNow UI.  Workflows can be configured via a graphical user interface within IdentityNow, or by creating and uploading a JSON formatted script to the Workflow service.  The Workflows API collection provides the necessary functionality to create, manage, and test your workflows via REST.
+  - name: Icons
+    description: |
+      Use this API to implement functionality related to object icons (application icons for example). 
+      With this functionality in place, administrators can set or remove an icon for specific object type for use throughout IdentityNow.
 security:
   - UserContextAuth: [ ]
 
@@ -1725,3 +1729,5 @@ paths:
     $ref: "./beta/paths/account-usages.yaml"
   /access-request-identity-metrics/{identityId}/requested-objects/{requestedObjectId}/type/{type}:
     $ref: "./beta/paths/access-request-identity-metrics.yaml"
+  /icons/{objectType}/{objectId}:
+    $ref: './beta/paths/icon.yaml'

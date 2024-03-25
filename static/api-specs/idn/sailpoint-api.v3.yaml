@@ -585,7 +585,7 @@ tags:
     description: |
       Use this API to implement reports lifecycle managing and monitoring.
       With this functionality in place, users can run reports, view their results, and cancel reports in progress. 
-      This can be potentially helpful for auditing purposes. 
+      This can be potentially helpful for auditing purposes.
   - name: Requestable Objects
     description: |
       Use this API to implement requestable object functionality. 
@@ -787,7 +787,7 @@ tags:
       Administrators can use the SOD violations APIs to check a set of identities for any current SOD violations, and they can use them to check whether adding an access item would potentially trigger a SOD violation. 
       This second option is a good way to prevent SOD violations from triggering at all. 
 
-      Refer to [Handling Policy Violations](https://documentation.sailpoint.com/saas/help/sod/policy-violations.html) for more information about SOD policy violations. 
+      Refer to [Handling Policy Violations](https://documentation.sailpoint.com/saas/help/sod/policy-violations.html) for more information about SOD policy violations.
   - name: Source Usages
     description: |
       Use this API to implement source usage insight functionality.
@@ -906,7 +906,7 @@ tags:
 
       - Risk levels 
 
-      Refer to [Tagging Items in Search](https://documentation.sailpoint.com/saas/help/search/index.html?h=tags#tagging-items-in-search) for more information about tagging objects in IdentityNow. 
+      Refer to [Tagging Items in Search](https://documentation.sailpoint.com/saas/help/search/index.html?h=tags#tagging-items-in-search) for more information about tagging objects in IdentityNow.
   - name: Transforms
     description: |
       The purpose of this API is to expose functionality for the manipulation of Transform objects.

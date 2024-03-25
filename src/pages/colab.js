@@ -8,7 +8,7 @@ import MarketplaceCards from '../components/marketplace/MarketplaceCards';
 export default function Marketplace() {
   const [communityTools] = React.useState({
     category: 'colab-community-tools',
-    tags: [],
+    tags: ['identity-security-cloud'],
   });
 
   const [plugins] = React.useState({

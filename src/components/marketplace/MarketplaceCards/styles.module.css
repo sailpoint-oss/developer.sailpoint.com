@@ -1,7 +1,7 @@
 /* Getting Started Card container */
 .gridContainer {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   gap: 23px;
 }
 .gridContainer::after {
@@ -66,31 +66,57 @@
 }
 
 .spinnerCenter {
-  margin: 100px auto;
-  max-width: 1300px;
-  margin-bottom: 50px;
+  position: absolute;
+  left: 1200px;
 }
 
 @media only screen and (max-width: 2100px) {
   .gridContainer {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
   .gridContainer > div:nth-child(4) {
     display: none;
+  }
+
+  .spinnerCenter {
+    left: 885px;
   }
 }
 
 @media only screen and (max-width: 1400px) {
   .gridContainer {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
   .gridContainer > div:nth-child(3),
   .gridContainer > div:nth-child(4) {
     display: none;
   }
+  .spinnerCenter {
+    left: 465px;
+  }
 }
 
-@media only screen and (max-width: 870px) {
+@media only screen and (max-width: 1100px) {
+  .gridContainer {
+    grid-template-columns: 1fr 1fr;
+  }
+  .gridContainer > div:nth-child(2),
+  .gridContainer > div:nth-child(3),
+  .gridContainer > div:nth-child(4) {
+    display: none;
+  }
+  .gridContainer {
+    place-content: center;
+  }
+  .gridContainer::after {
+    display: none;
+  }
+  .spinnerCenter {
+    left: 270px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
   .gridContainer {
     grid-template-columns: 1fr;
   }
@@ -115,6 +141,6 @@
     padding-top: 8px;
     margin-bottom: 50px;
     width: 300px;
-    margin-left: -25px ;
+    margin-left: -25px;
   }
 }

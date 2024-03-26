@@ -5,7 +5,6 @@
   flex-wrap: wrap;
   gap: 5px;
   margin-left: 20px;
- 
 }
 .gridContainer::after {
   content: '';
@@ -24,12 +23,11 @@
 @media only screen and (max-width: 550px) {
   .gridContainer {
     display: flex;
-    
+
     flex-wrap: wrap;
     gap: 0px;
     margin-left: 0px;
     margin-top: -5%;
-   
   }
 }
 
@@ -91,7 +89,25 @@
 }
 
 .spinnerCenter {
-  margin: 100px auto;
-  max-width: 1300px;
-  margin-bottom: 50px;
+  position: absolute;
+  left: 1200px;
+  top: 300px;
+}
+
+@media only screen and (max-width: 2100px) {
+  .spinnerCenter {
+    left: 885px;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .spinnerCenter {
+    left: 465px;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .spinnerCenter {
+    left: 270px;
+  }
 }

@@ -15,7 +15,7 @@ export default function Workflows() {
       <main>
       <MarketplaceBanner />
         <div>
-          <div className={styles.blogCardContainer}>
+          <div className={styles.cardContainer}>
             <MarketplaceCards filterCallback={filteredProduct} />
           </div>
         </div>

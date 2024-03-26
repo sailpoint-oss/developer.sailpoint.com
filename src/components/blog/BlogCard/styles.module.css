@@ -5,7 +5,8 @@
   margin-bottom: 30px;
   opacity: 1;
   transition: all 0.3s;
-  max-width: 300px;
+  width: 275px;
+  max-width: 275px;
   background: var(--dev-new-car-background);
   border-radius: 0.5rem;
   --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
@@ -18,10 +19,24 @@
     var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+a:link {
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+a:active {
+  text-decoration: none;
+}
+
 .card:hover {
   cursor: pointer;
   transform: translate(0px, -5px);
   box-shadow: var(--dev-card-selected);
+  text-decoration: none;
 }
 
 .cardText {
@@ -70,6 +85,7 @@
 
 .cardName {
   min-width: 170px;
+  font-weight: 800;
   margin-top: 7px;
   margin-left: 10px;
   display: flex;

@@ -5,7 +5,7 @@
   margin-bottom: 30px;
   opacity: 1;
   transition: all 0.3s;
-  width: 300px;
+  width: 275px;
   height: 393.17px;
   background: var(--dev-new-car-background);
   border-radius: 0.5rem;
@@ -35,6 +35,7 @@
   height: 144px;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
+  aspect-ratio: 16/9;
 }
 .split {
   background: linear-gradient(
@@ -83,6 +84,7 @@
 
 .cardName {
   min-width: 170px;
+  font-weight: 800;
   margin-top: 7px;
   margin-left: 10px;
   display: flex;
@@ -116,7 +118,7 @@
 .certifiedText {
   position: absolute;
   top: 107px;
-  left: 107px;
+  left: 95px;
   color: var(--dev-text-color-secondary);
   visibility: hidden;
 }
@@ -129,7 +131,7 @@
 .cardBadgeCertified {
   position: absolute;
   width: 250px;
-  left: 253px;
+  left: 230px;
   top: 93px;
   color: var(--dev-text-color-secondary);
 }

@@ -34,7 +34,7 @@ export default function CommunityTools() {
           <div className={styles.filterContainer}>
             <BlogSidebar filterCallback={handleClick} isChecked={true} />
           </div>
-          <div className={styles.blogCardContainer}>
+          <div className={styles.cardContainer}>
             <MarketplaceCards filterCallback={filteredProduct} />
           </div>
         </div>

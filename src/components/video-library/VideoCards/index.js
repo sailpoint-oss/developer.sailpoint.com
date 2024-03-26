@@ -6,7 +6,7 @@ import {
   videoThumbnailBaseURL,
   discourseBaseURL,
 } from '../../../util/util';
-import BounceLoader from 'react-spinners/BounceLoader';
+import {newtonsCradle} from 'ldrs';
 import videos from '../../../../static/videos/videos.json';
 import {getVideoPosts} from '../../../services/DiscourseService';
 
@@ -1079,6 +1079,7 @@ const topicData = {
 export default function VideoCards({filterCallback}) {
   const [cardData, setCardData] = React.useState();
   const [loadingCards, setLoadingCards] = React.useState(true);
+  newtonsCradle.register();
 
   function buildTopicUrl(slug, id) {
     return discourseBaseURL() + `t/${slug}/${id}`;
@@ -1175,9 +1176,17 @@ export default function VideoCards({filterCallback}) {
     setLoadingCards(true);
   }, [filterCallback]);
 
-  if (cardData && cardData.length > 0) {
-    return (
-      <div className={styles.center}>
+  return (
+    <div className={styles.center}>
+      {loadingCards ? (
+        // Show loading icon when data is still loading
+        <div className={styles.spinnerCenter}>
+          <l-newtons-cradle
+            size="150"
+            speed="1.4"
+            color="#0033a1"></l-newtons-cradle>
+        </div>
+      ) : cardData && cardData.length > 0 ? (
         <div className={styles.gridContainer}>
           {cardData.map(function (a, index) {
             return (
@@ -1192,32 +1201,46 @@ export default function VideoCards({filterCallback}) {
             );
           })}
         </div>
-      </div>
-    );
-  } else if (loadingCards) {
-    return (
-      <BounceLoader
-        className={styles.spinnerCenter}
-        color={'#0033a1'}
-        loading={true}
-        size={150}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-      />
-    );
-  } else {
-    return (
-      <div>
-        <div className={styles.noFound}>
-          {' '}
-          Hey there, looks like no integrations match your search criteria.
-          Check out our{' '}
-          <a href="https://developer.sailpoint.com/discuss/t/about-the-sailpoint-developer-community-colab/11230">
-            getting started guide
-          </a>
-          , and consider being the first to contribute this integration!
+      ) : (
+        <div>
+          <div className={styles.noFound}>
+            {' '}
+            Hey there, looks like no integrations match your search criteria.
+            Check out our{' '}
+            <a href="https://developer.sailpoint.com/discuss/t/about-the-sailpoint-developer-community-colab/11230">
+              getting started guide
+            </a>
+            , and consider being the first to contribute this integration!
+          </div>
         </div>
-      </div>
-    );
-  }
+      )}
+    </div>
+  );
+
+  // } else if (loadingCards) {
+  //   return (
+  //     <BounceLoader
+  //       className={styles.spinnerCenter}
+  //       color={'#0033a1'}
+  //       loading={true}
+  //       size={150}
+  //       aria-label="Loading Spinner"
+  //       data-testid="loader"
+  //     />
+  //   );
+  // } else {
+  //   return (
+  //     <div>
+  //       <div className={styles.noFound}>
+  //         {' '}
+  //         Hey there, looks like no integrations match your search criteria.
+  //         Check out our{' '}
+  //         <a href="https://developer.sailpoint.com/discuss/t/about-the-sailpoint-developer-community-colab/11230">
+  //           getting started guide
+  //         </a>
+  //         , and consider being the first to contribute this integration!
+  //       </div>
+  //     </div>
+  //   );
+  // }
 }

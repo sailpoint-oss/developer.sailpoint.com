@@ -3,8 +3,15 @@
   width: 50%;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 1000px) {
   .blogSidbarContainer {
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .blogSidbarContainer {
+    width: 50%;
+    margin-right: 50%;
   }
 }

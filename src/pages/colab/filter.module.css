@@ -4,13 +4,20 @@
   margin-top: 3%;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 1100px) {
   .filterContainer {
     width: 100%;
   }
 }
 
-.blogCardContainer {
-  width: 50%;
+@media screen and (max-width: 600px) {
+  .filterContainer {
+    width: 50%;
+    margin-right: 50%;
+  }
+}
+
+.cardContainer {
+  width: 63%;
   margin: auto;
 }

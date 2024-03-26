@@ -4,6 +4,7 @@ import MarketplaceCard from '../MarketplaceCard';
 import Modal from 'react-modal';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import BounceLoader from 'react-spinners/BounceLoader';
+import {newtonsCradle} from 'ldrs';
 import {discourseBaseURL, developerWebsiteDomain} from '../../../util/util';
 
 import {
@@ -18,6 +19,11 @@ export default function MarketplaceCards({filterCallback, limit}) {
   const [detailsOpen, setDetailsOpen] = React.useState(false);
   const [details, setDetails] = React.useState('');
   const [loadingCards, setLoadingCards] = React.useState(true);
+  const xImage = useBaseUrl('/icons/circle-xmark-regular.svg');
+  newtonsCradle.register()
+
+
+  
 
   const handleCloseModal = () => {
     setDetailsOpen(false);
@@ -89,77 +95,71 @@ export default function MarketplaceCards({filterCallback, limit}) {
 
   Modal.setAppElement('#__docusaurus');
   React.useEffect(() => {
-    
-      getPosts();
-    
+    getPosts();
 
     setCardData(undefined);
     setLoadingCards(true);
   }, [filterCallback]);
 
-  const xImage = useBaseUrl('/icons/circle-xmark-regular.svg');
-
-  if (cardData && cardData.length > 0) {
-    return (
-      <div className={styles.center}>
-        <div className={styles.gridContainer}>
-          {cardData.map(function (a, index) {
-            return (
-              <MarketplaceCard
-                post={a}
-                key={index + a.link}
-                openDialogFunc={openDialog}></MarketplaceCard>
-            );
-          })}
+  return (
+    <div className={styles.center}>
+      {loadingCards ? (
+        // Show loading icon when data is still loading
+        <div className={styles.spinnerCenter}>
+          <l-newtons-cradle
+            size="150"
+            speed="1.4"
+            color="#0033a1"></l-newtons-cradle>
         </div>
-        <Modal
-          isOpen={detailsOpen}
-          className={styles.modal}
-          onRequestClose={handleCloseModal}
-          contentLabel="Details">
-          <div>
-            <div>
-              <MarketplaceCardDetail
-                details={details.data}
-                rawPost={details.raw}></MarketplaceCardDetail>
-            </div>
-            <img
-              className={styles.cardExit}
-              src={xImage}
-              onClick={async () => {
-                setDetailsOpen(false);
-              }}></img>
+      ) : cardData && cardData.length > 0 ? (
+        <div className={styles.center}>
+          <div className={styles.gridContainer}>
+            {cardData.map(function (a, index) {
+              return (
+                <MarketplaceCard
+                  post={a}
+                  key={index + a.link}
+                  openDialogFunc={openDialog}></MarketplaceCard>
+              );
+            })}
           </div>
-        </Modal>
-      </div>
-    );
-  } else if (loadingCards) {
-    return (
-      <BounceLoader
-        className={styles.spinnerCenter}
-        color={'#0033a1'}
-        loading={true}
-        size={150}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-      />
-    );
-  } else {
-    return (
-      <div>
-        <div className={styles.noFound}>
-          {' '}
-          Hey there, looks like no integrations match your search criteria.
-          Check out our{' '}
-          <a href="https://developer.sailpoint.com/discuss/t/about-the-sailpoint-developer-community-colab/11230">
-            getting started guide
-          </a>
-          , and consider being the first to contribute this integration!
+          <Modal
+            isOpen={detailsOpen}
+            className={styles.modal}
+            onRequestClose={handleCloseModal}
+            contentLabel="Details">
+            <div>
+              <div>
+                <MarketplaceCardDetail
+                  details={details.data}
+                  rawPost={details.raw}></MarketplaceCardDetail>
+              </div>
+              <img
+                className={styles.cardExit}
+                src={xImage}
+                onClick={async () => {
+                  setDetailsOpen(false);
+                }}></img>
+            </div>
+          </Modal>
         </div>
-      </div>
-    );
-  }
+      ) : (
+        <div>
+          <div className={styles.noFound}>
+            {' '}
+            Hey there, looks like no integrations match your search criteria.
+            Check out our{' '}
+            <a href="https://developer.sailpoint.com/discuss/t/about-the-sailpoint-developer-community-colab/11230">
+              getting started guide
+            </a>
+            , and consider being the first to contribute this integration!
+          </div>
+        </div>
+      )}
+    </div>
+  );
 }
+
 function shortenTitle(title) {
   if (title.length > 63) {
     return title.substring(0, 62) + '...';

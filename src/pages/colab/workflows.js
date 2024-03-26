@@ -36,7 +36,7 @@ export default function Workflows() {
           <div className={styles.filterContainer}>
             <BlogSidebar filterCallback={handleClick} />
           </div>
-          <div className={styles.blogCardContainer}>
+          <div className={styles.cardContainer}>
             <MarketplaceCards filterCallback={filteredProduct} />
           </div>
         </div>

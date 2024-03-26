@@ -1,14 +1,14 @@
 import React from 'react';
 import styles from './styles.module.css';
 import BlogCard from '../BlogCard';
-import BounceLoader from 'react-spinners/BounceLoader';
+import {newtonsCradle} from 'ldrs';
 import {discourseBaseURL, developerWebsiteDomain} from '../../../util/util';
-
 import {getBlogPosts, getUserTitle} from '../../../services/DiscourseService';
-import {get} from 'lodash';
+
 export default function BlogCards({filterCallback}) {
   const [cardData, setCardData] = React.useState();
   const [loadingCards, setLoadingCards] = React.useState(true);
+  newtonsCradle.register();
 
   const getPosts = async () => {
     if (!filterCallback) {
@@ -69,50 +69,44 @@ export default function BlogCards({filterCallback}) {
     setLoadingCards(true);
   }, [filterCallback]);
 
-  if (cardData && cardData.length > 0) {
-    return (
-      <div className={styles.center}>
-        <div className={styles.gridContainer}>
-          {cardData.map(function (a, index) {
-            return (
-              <BlogCard
-                key={a.link}
-                id={index + a.link}
-                excerpt={a.excerpt}
-                name={a.name}
-                tags={a.tags}
-                link={a.link}
-                image={a.image}
-                title={shortenTitle(a.title)}
-                views={a.views}
-                replies={a.replies}
-                readTime={a.readTime}
-                creatorImage={a.creatorImage}
-                creatorTitle={a.creatorTitle}></BlogCard>
-            );
-          })}
+  return (
+    <div className={styles.center}>
+      {loadingCards ? (
+        // Show loading icon when data is still loading
+        <div className={styles.spinnerCenter}>
+          <l-newtons-cradle
+            size="150"
+            speed="1.4"
+            color="#0033a1"></l-newtons-cradle>
         </div>
-      </div>
-    );
-  } else if (loadingCards) {
-    return (
-      <BounceLoader
-        className={styles.spinnerCenter}
-        color={'#0033a1'}
-        loading={true}
-        size={150}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-      />
-    );
-  } else {
-    return (
-      <div className={styles.noFound}>
-        {' '}
-        No Blogposts Found with the Given Search Criteria
-      </div>
-    );
-  }
+      ) : cardData && cardData.length > 0 ? (
+        // Show cards if not loading and cardData is available
+        <div className={styles.gridContainer}>
+          {cardData.map((a, index) => (
+            <BlogCard
+              key={a.link}
+              id={index + a.link}
+              excerpt={a.excerpt}
+              name={a.name}
+              tags={a.tags}
+              link={a.link}
+              image={a.image}
+              title={shortenTitle(a.title)}
+              views={a.views}
+              replies={a.replies}
+              readTime={a.readTime}
+              creatorImage={a.creatorImage}
+              creatorTitle={a.creatorTitle}></BlogCard>
+          ))}
+        </div>
+      ) : (
+        // Show no content message if not loading and no cardData
+        <div className={styles.noFound}>
+          No Blogposts Found with the Given Search Criteria
+        </div>
+      )}
+    </div>
+  );
 }
 
 async function getPostList(topic, user) {

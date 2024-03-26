@@ -39,7 +39,7 @@ Path   | ApprovalId | **String** | True  | The id of the approval.
 	
 ### Return type
 
-[**SystemCollectionsHashtable**](../models/system-collections-hashtable)
+[**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0)
 
 ### Responses
 Code | Description  | Data Type
@@ -75,7 +75,7 @@ Path   | ApprovalId | **String** | True  | The id of the approval.
 	
 ### Return type
 
-[**SystemCollectionsHashtable**](../models/system-collections-hashtable)
+[**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0)
 
 ### Responses
 Code | Description  | Data Type
@@ -224,7 +224,7 @@ Path   | ApprovalId | **String** | True  | The id of the approval.
 	
 ### Return type
 
-[**SystemCollectionsHashtable**](../models/system-collections-hashtable)
+[**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0)
 
 ### Responses
 Code | Description  | Data Type

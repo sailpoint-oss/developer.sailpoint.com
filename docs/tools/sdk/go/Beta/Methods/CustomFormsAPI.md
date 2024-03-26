@@ -265,7 +265,7 @@ Path   | fileID | **string** | True  | FileID  String specifying the hashed name
 	
 ### Return type
 
-[***os.File**](../models/os-file)
+[***os.File**](https://pkg.go.dev/os)
 
 ### Responses
 Code | Description  | Data Type
@@ -372,7 +372,7 @@ Path   | fileID | **string** | True  | FileID  String specifying the hashed name
 	
 ### Return type
 
-[***os.File**](../models/os-file)
+[***os.File**](https://pkg.go.dev/os)
 
 ### Responses
 Code | Description  | Data Type

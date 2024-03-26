@@ -67,7 +67,7 @@ Path   | Id | **String** | True  | The campaign id
 	
 ### Return type
 
-[**SystemCollectionsHashtable**](../models/system-collections-hashtable)
+[**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0)
 
 ### Responses
 Code | Description  | Data Type
@@ -240,7 +240,7 @@ Param Type | Name | Data Type | Required  | Description
 	
 ### Return type
 
-[**SystemCollectionsHashtable**](../models/system-collections-hashtable)
+[**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0)
 
 ### Responses
 Code | Description  | Data Type
@@ -674,7 +674,7 @@ Path   | Id | **String** | True  | The campaign id
 	
 ### Return type
 
-[**SystemCollectionsHashtable**](../models/system-collections-hashtable)
+[**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0)
 
 ### Responses
 Code | Description  | Data Type
@@ -710,7 +710,7 @@ Path   | Id | **String** | True  | The ID of the campaign for which remediation 
 	
 ### Return type
 
-[**SystemCollectionsHashtable**](../models/system-collections-hashtable)
+[**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0)
 
 ### Responses
 Code | Description  | Data Type
@@ -747,7 +747,7 @@ Path   | Type | [**ReportType**](../models/report-type) | True  | The type of th
 	
 ### Return type
 
-[**SystemCollectionsHashtable**](../models/system-collections-hashtable)
+[**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0)
 
 ### Responses
 Code | Description  | Data Type
@@ -816,7 +816,7 @@ Allows updating individual fields on a campaign using the [JSON Patch](https://t
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The ID of the campaign template being modified.
- Body  | RequestBody | [**[]SystemCollectionsHashtable**](../models/system-collections-hashtable) | True  | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  In the *STAGED* status, the following fields can be patched: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  In the *ACTIVE* status, the following fields can be patched: * deadline 
+ Body  | RequestBody | [**[]SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0) | True  | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  In the *STAGED* status, the following fields can be patched: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  In the *ACTIVE* status, the following fields can be patched: * deadline 
 
 	
 ### Return type

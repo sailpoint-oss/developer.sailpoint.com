@@ -306,7 +306,7 @@ Path   | IdentityProfileId | **String** | True  | The Identity Profile ID to be 
 	
 ### Return type
 
-[**SystemCollectionsHashtable**](../models/system-collections-hashtable)
+[**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0)
 
 ### Responses
 Code | Description  | Data Type

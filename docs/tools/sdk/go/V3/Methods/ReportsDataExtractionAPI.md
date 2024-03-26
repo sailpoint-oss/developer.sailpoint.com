@@ -73,7 +73,7 @@ Path   | taskResultId | **string** | True  | Unique identifier of the task resul
 	
 ### Return type
 
-[***os.File**](../models/os-file)
+[***os.File**](https://pkg.go.dev/os)
 
 ### Responses
 Code | Description  | Data Type

@@ -35,7 +35,7 @@ Path   | Type | **String** | True  | Requested access item's type.
 	
 ### Return type
 
-[**SystemCollectionsHashtable**](../models/system-collections-hashtable)
+[**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0)
 
 ### Responses
 Code | Description  | Data Type

@@ -130,7 +130,7 @@ Path   | exportId | **string** | True  | The id of a previously run export job f
 	
 ### Return type
 
-[***os.File**](../models/os-file)
+[***os.File**](https://pkg.go.dev/os)
 
 ### Responses
 Code | Description  | Data Type
@@ -164,7 +164,7 @@ Path   | potentialRoleId | **string** | True  | A potential role id in a role mi
 	
 ### Return type
 
-[***os.File**](../models/os-file)
+[***os.File**](https://pkg.go.dev/os)
 
 ### Responses
 Code | Description  | Data Type

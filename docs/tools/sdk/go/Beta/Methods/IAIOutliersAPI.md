@@ -42,7 +42,7 @@ Param Type | Name | Data Type | Required  | Description
 	
 ### Return type
 
-[***os.File**](../models/os-file)
+[***os.File**](https://pkg.go.dev/os)
 
 ### Responses
 Code | Description  | Data Type

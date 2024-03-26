@@ -158,7 +158,7 @@ Path   | fileName | **string** | True  | Custom Name for the  file.
 	
 ### Return type
 
-[***os.File**](../models/os-file)
+[***os.File**](https://pkg.go.dev/os)
 
 ### Responses
 Code | Description  | Data Type
@@ -194,7 +194,7 @@ Path   | reportResultId | **string** | True  | The ID of the report reference to
 	
 ### Return type
 
-[***os.File**](../models/os-file)
+[***os.File**](https://pkg.go.dev/os)
 
 ### Responses
 Code | Description  | Data Type

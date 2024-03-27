@@ -44,11 +44,19 @@ export default function MarketplaceCards({filterCallback, limit}) {
                     !titleList.find((x) => x.group === user.primary_group_name)
                   ) {
                     let usertitle = await getUserTitle(user.primary_group_name);
-                    titleList.push({
-                      group: user.primary_group_name,
-                      title: usertitle.group.title,
-                    });
-                    user.title = usertitle.group.title;
+
+                    if (usertitle.group === undefined) {
+                      titleList.push({
+                        group: user.primary_group_name,
+                        title: '',
+                      });
+                    } else {
+                      titleList.push({
+                        group: user.primary_group_name,
+                        title: usertitle.group.title || '',
+                      });
+                      user.title = usertitle.group.title;
+                    }
                   } else {
                     user.title = titleList.find(
                       (x) => x.group === user.primary_group_name,

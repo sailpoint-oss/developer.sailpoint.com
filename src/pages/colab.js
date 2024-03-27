@@ -6,11 +6,6 @@ import styles from './exchange.module.css';
 import MarketplaceCards from '../components/marketplace/MarketplaceCards';
 
 export default function Marketplace() {
-  const [communityTools] = React.useState({
-    category: 'colab-community-tools',
-    tags: ['identity-security-cloud'],
-  });
-
   const [plugins] = React.useState({
     category: 'colab-iiq-plugins',
     tags: [],
@@ -34,6 +29,11 @@ export default function Marketplace() {
   const [workflows] = React.useState({
     category: 'colab',
     tags: ['workflows'],
+  });
+
+  const [communityTools] = React.useState({
+    category: 'colab-community-tools',
+    tags: [],
   });
 
   return (

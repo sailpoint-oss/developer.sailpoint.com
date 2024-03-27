@@ -74,12 +74,13 @@
   .gridContainer {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
-  .gridContainer > div:nth-child(4) {
+  
+  .gridContainer > a:nth-child(4) {
     display: none;
   }
 
   .spinnerCenter {
-    left: 885px;
+    left: 930px;
   }
 }
 
@@ -87,8 +88,8 @@
   .gridContainer {
     grid-template-columns: 1fr 1fr 1fr;
   }
-  .gridContainer > div:nth-child(3),
-  .gridContainer > div:nth-child(4) {
+  .gridContainer > a:nth-child(3),
+  .gridContainer > a:nth-child(4) {
     display: none;
   }
   .spinnerCenter {
@@ -100,9 +101,9 @@
   .gridContainer {
     grid-template-columns: 1fr 1fr;
   }
-  .gridContainer > div:nth-child(2),
-  .gridContainer > div:nth-child(3),
-  .gridContainer > div:nth-child(4) {
+  .gridContainer > a:nth-child(2),
+  .gridContainer > a:nth-child(3),
+  .gridContainer > a:nth-child(4) {
     display: none;
   }
   .gridContainer {
@@ -120,9 +121,9 @@
   .gridContainer {
     grid-template-columns: 1fr;
   }
-  .gridContainer > div:nth-child(2),
-  .gridContainer > div:nth-child(3),
-  .gridContainer > div:nth-child(4) {
+  .gridContainer > a:nth-child(2),
+  .gridContainer > a:nth-child(3),
+  .gridContainer > a:nth-child(4) {
     display: none;
   }
   .gridContainer {

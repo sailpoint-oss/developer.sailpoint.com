@@ -3,8 +3,7 @@ import styles from './styles.module.css';
 import MarketplaceCard from '../MarketplaceCard';
 import Modal from 'react-modal';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import BounceLoader from 'react-spinners/BounceLoader';
-import {newtonsCradle} from 'ldrs';
+import NewtonsCradle from '../../newtonsCradle';
 import {discourseBaseURL, developerWebsiteDomain} from '../../../util/util';
 
 import {
@@ -20,10 +19,6 @@ export default function MarketplaceCards({filterCallback, limit}) {
   const [details, setDetails] = React.useState('');
   const [loadingCards, setLoadingCards] = React.useState(true);
   const xImage = useBaseUrl('/icons/circle-xmark-regular.svg');
-  newtonsCradle.register()
-
-
-  
 
   const handleCloseModal = () => {
     setDetailsOpen(false);
@@ -106,10 +101,7 @@ export default function MarketplaceCards({filterCallback, limit}) {
       {loadingCards ? (
         // Show loading icon when data is still loading
         <div className={styles.spinnerCenter}>
-          <l-newtons-cradle
-            size="150"
-            speed="1.4"
-            color="#0033a1"></l-newtons-cradle>
+          <NewtonsCradle />
         </div>
       ) : cardData && cardData.length > 0 ? (
         <div className={styles.center}>

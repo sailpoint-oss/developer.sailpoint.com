@@ -2,13 +2,13 @@ import React from 'react';
 import styles from './styles.module.css';
 import VideoCard from '../VideoCard';
 import {videoBaseURL, discourseBaseURL} from '../../../util/util';
-import {newtonsCradle} from 'ldrs';
+import NewtonsCradle from '../../newtonsCradle';
 import {getVideoPosts} from '../../../services/DiscourseService';
 
 export default function VideoCards({filterCallback}) {
   const [cardData, setCardData] = React.useState();
   const [loadingCards, setLoadingCards] = React.useState(true);
-  newtonsCradle.register();
+  
 
   function buildTopicUrl(slug, id) {
     return discourseBaseURL() + `t/${slug}/${id}`;
@@ -105,10 +105,7 @@ export default function VideoCards({filterCallback}) {
       {loadingCards ? (
         // Show loading icon when data is still loading
         <div className={styles.spinnerCenter}>
-          <l-newtons-cradle
-            size="150"
-            speed="1.4"
-            color="#0033a1"></l-newtons-cradle>
+          <NewtonsCradle />
         </div>
       ) : cardData && cardData.length > 0 ? (
         <div className={styles.gridContainer}>

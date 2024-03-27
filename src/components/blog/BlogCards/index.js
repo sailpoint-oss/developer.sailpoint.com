@@ -1,14 +1,13 @@
 import React from 'react';
 import styles from './styles.module.css';
 import BlogCard from '../BlogCard';
-import {newtonsCradle} from 'ldrs';
+import NewtonsCradle from '../../newtonsCradle';
 import {discourseBaseURL, developerWebsiteDomain} from '../../../util/util';
 import {getBlogPosts, getUserTitle} from '../../../services/DiscourseService';
 
 export default function BlogCards({filterCallback}) {
   const [cardData, setCardData] = React.useState();
   const [loadingCards, setLoadingCards] = React.useState(true);
-  newtonsCradle.register();
 
   const getPosts = async () => {
     if (!filterCallback) {
@@ -74,10 +73,7 @@ export default function BlogCards({filterCallback}) {
       {loadingCards ? (
         // Show loading icon when data is still loading
         <div className={styles.spinnerCenter}>
-          <l-newtons-cradle
-            size="150"
-            speed="1.4"
-            color="#0033a1"></l-newtons-cradle>
+          <NewtonsCradle/>
         </div>
       ) : cardData && cardData.length > 0 ? (
         // Show cards if not loading and cardData is available

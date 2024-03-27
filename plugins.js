@@ -1,27 +1,4 @@
-const path = require('path');
-const videos = require('./static/videos/videos.json');
-const videoCardDetails = require.resolve(
-  './src/components/video-library/VideoCardDetails/index.js',
-);
-const routes = videos.map((video) => ({
-  path: video.path,
-  exact: false,
-  component: videoCardDetails,
-  customProps: {
-    uuid: video.uuid,
-    title: video.title,
-    topicid: video.topicid,
-  },
-}));
-
 module.exports = [
-  [
-    path.resolve(__dirname, 'plugin-dynamic-routes'),
-    {
-      // this is the options object passed to the plugin
-      routes,
-    },
-  ],
   [
     'docusaurus2-dotenv',
     {

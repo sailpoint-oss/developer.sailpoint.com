@@ -182,8 +182,9 @@ tags:
   - name: Branding
     description: |
       Use this API to implement and customize branding functionality. 
-      With this functionality in place, administrators can get list of existing branding items, create new branding and configure them for use throughout IdentityNow. 
-      It allows to customise color of navigation bar, action buttons, logo and emailFromAddress.
+      With this functionality in place, administrators can get and manage existing branding items, and they can also create new branding items and configure them for use throughout Identity Security Cloud. 
+      The Branding APIs provide administrators with a way to customize branding items. 
+      This customization includes details like their colors, logos, and other information. 
   - name: Certification Campaigns
     description: |
       Use this API to implement certification campaign functionality.

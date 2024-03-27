@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Key** |  **String** | Message key. | 
 **Text** |  **String** | Message text. | 
-**Details** |  [**map[string]AnyType**](any-type) | Message details if any, in key:value pairs. | 
+**Details** |  [map[string] **Any**] | Message details if any, in key:value pairs. | 
 
 ## Examples
 

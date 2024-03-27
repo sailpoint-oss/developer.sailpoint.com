@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'AccountAttributes']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Attributes** |  [**SystemCollectionsHashtable**](system-collections-hashtable) | The schema attribute values for the account | 
+**Attributes** |  [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | The schema attribute values for the account | 
 
 ## Examples
 

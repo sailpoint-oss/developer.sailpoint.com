@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'ManagedClientStatusAggResponse']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Body** |  [**SystemCollectionsHashtable**](system-collections-hashtable) | ManagedClientStatus body information | 
+**Body** |  [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | ManagedClientStatus body information | 
 **Status** |  [**ManagedClientStatusEnum**](managed-client-status-enum) |  | 
 **Type** |  [**ManagedClientType**](managed-client-type) |  | 
 **Timestamp** |  **System.DateTime** | timestamp on the Client Status update | 

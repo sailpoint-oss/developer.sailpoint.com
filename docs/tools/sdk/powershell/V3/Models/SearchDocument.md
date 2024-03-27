@@ -57,7 +57,7 @@ Name | Type | Description | Notes
 **Stack** |  Pointer to **String** | The event&#39;s stack. | [optional] 
 **IpAddress** |  Pointer to **String** | Target system&#39;s IP address. | [optional] 
 **Details** |  Pointer to **String** | ID of event&#39;s details. | [optional] 
-**Attributes** |  Pointer to [**map[string]AnyType**](any-type) | Map or dictionary of key/value pairs. | [optional] 
+**Attributes** |  Pointer to [map[string] **Any**] | Map or dictionary of key/value pairs. | [optional] 
 **Objects** |  Pointer to **[]String** | Objects the event is happening to. | [optional] 
 **Operation** |  Pointer to **String** | Operation, or action, performed during the event. | [optional] 
 **TechnicalName** |  Pointer to **String** | Event&#39;s normalized name. This normalized name always follows the pattern of &#39;objects_operation_status&#39;. | [optional] 

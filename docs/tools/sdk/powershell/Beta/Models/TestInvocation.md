@@ -17,8 +17,8 @@ tags: ['SDK', 'Software Development Kit', 'TestInvocation']
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TriggerId** |  **String** | Trigger ID | 
-**VarInput** |  Pointer to [**SystemCollectionsHashtable**](system-collections-hashtable) | Mock input to use for test invocation.  This must adhere to the input schema defined in the trigger being invoked.  If this property is omitted, then the default trigger sample payload will be sent. | [optional] 
-**ContentJson** |  [**SystemCollectionsHashtable**](system-collections-hashtable) | JSON map of invocation metadata. | 
+**VarInput** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | Mock input to use for test invocation.  This must adhere to the input schema defined in the trigger being invoked.  If this property is omitted, then the default trigger sample payload will be sent. | [optional] 
+**ContentJson** |  [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | JSON map of invocation metadata. | 
 **SubscriptionIds** |  Pointer to **[]String** | Only send the test event to the subscription IDs listed.  If omitted, the test event will be sent to all subscribers. | [optional] 
 
 ## Examples

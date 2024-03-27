@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **Attribute** |  Pointer to **String** | Name of the entitlement attribute | [optional] 
 **Value** |  Pointer to **String** | Raw value of the entitlement | [optional] 
 **Description** |  Pointer to **String** | Entitlment description | [optional] 
-**Attributes** |  Pointer to [**map[string]AnyType**](any-type) | Entitlement attributes | [optional] 
+**Attributes** |  Pointer to [map[string] **Any**] | Entitlement attributes | [optional] 
 **SourceSchemaObjectType** |  Pointer to **String** | Schema objectType on the given application that maps to an Account Group | [optional] 
 **Privileged** |  Pointer to **Boolean** | Determines if this Entitlement is privileged. | [optional] 
 **CloudGoverned** |  Pointer to **Boolean** | Determines if this Entitlement is goverened in the cloud. | [optional] 

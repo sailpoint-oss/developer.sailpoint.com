@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** |  Pointer to **String** | Name of the FormItem | [optional] 
 **Label** |  Pointer to **String** | Label of the section | [optional] 
-**FormItems** |  Pointer to [**[]SystemCollectionsHashtable**](system-collections-hashtable) | List of FormItems. FormItems can be SectionDetails and/or FieldDetails | [optional] 
+**FormItems** |  Pointer to [**[]SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | List of FormItems. FormItems can be SectionDetails and/or FieldDetails | [optional] 
 
 ## Examples
 

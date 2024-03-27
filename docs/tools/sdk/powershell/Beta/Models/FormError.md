@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Key** |  Pointer to **String** | Key is the technical key | [optional] 
 **Messages** |  Pointer to [**[]ErrorMessage**](error-message) | Messages is a list of web.ErrorMessage items | [optional] 
-**Value** |  Pointer to [**SystemCollectionsHashtable**](system-collections-hashtable) | Value is the value associated with a Key | [optional] 
+**Value** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | Value is the value associated with a Key | [optional] 
 
 ## Examples
 

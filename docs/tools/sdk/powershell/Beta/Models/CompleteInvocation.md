@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Secret** |  **String** | Unique invocation secret that was generated when the invocation was created. Required to authenticate to the endpoint. | 
 **VarError** |  Pointer to **String** | The error message to indicate a failed invocation or error if any. | [optional] 
-**Output** |  [**SystemCollectionsHashtable**](system-collections-hashtable) | Trigger output to complete the invocation. Its schema is defined in the trigger definition. | 
+**Output** |  [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | Trigger output to complete the invocation. Its schema is defined in the trigger definition. | 
 
 ## Examples
 

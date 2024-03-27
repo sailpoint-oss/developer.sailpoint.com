@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** |  Pointer to  **Enum** [  "WorkflowExecutionScheduled",    "WorkflowExecutionStarted",    "WorkflowExecutionCompleted",    "WorkflowExecutionFailed",    "WorkflowTaskScheduled",    "WorkflowTaskStarted",    "WorkflowTaskCompleted",    "WorkflowTaskFailed",    "ActivityTaskScheduled",    "ActivityTaskStarted",    "ActivityTaskCompleted",    "ActivityTaskFailed" ] | The type of event | [optional] 
 **Timestamp** |  Pointer to **System.DateTime** | The date-time when the event occurred | [optional] 
-**Attributes** |  Pointer to [**SystemCollectionsHashtable**](system-collections-hashtable) | Additional attributes associated with the event | [optional] 
+**Attributes** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | Additional attributes associated with the event | [optional] 
 
 ## Examples
 

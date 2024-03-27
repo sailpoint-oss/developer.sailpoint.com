@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Key** |  **String** | Message key. | 
 **Text** |  **String** | Message text. | 
-**Details** |  [**map[string]SystemCollectionsHashtable**](system-collections-hashtable) | Message details if any, in key:value pairs. | 
+**Details** |  [**map[string]SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | Message details if any, in key:value pairs. | 
 
 ## Examples
 

@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **DirectConnect** |  Pointer to **Boolean** | true if the source is a direct connect source | [optional] 
 **FileUpload** |  Pointer to **Boolean** | Connector config&#39;s file upload attribute, false if not there | [optional] 
 **UploadedFiles** |  Pointer to **String** | List of uploaded file strings for the connector | [optional] 
-**ConnectorMetadata** |  Pointer to [**SystemCollectionsHashtable**](system-collections-hashtable) | Object containing metadata pertinent to the UI to be used | [optional] 
+**ConnectorMetadata** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | Object containing metadata pertinent to the UI to be used | [optional] 
 
 ## Examples
 

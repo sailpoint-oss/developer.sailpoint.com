@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'TestWorkflowRequest']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VarInput** |  [**SystemCollectionsHashtable**](system-collections-hashtable) | The test input for the workflow. | 
+**VarInput** |  [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | The test input for the workflow. | 
 
 ## Examples
 

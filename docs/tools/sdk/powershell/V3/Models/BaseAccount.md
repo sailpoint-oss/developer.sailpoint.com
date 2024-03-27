@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **Privileged** |  Pointer to **Boolean** | Indicates whether the account is privileged. | [optional] [default to $false]
 **ManuallyCorrelated** |  Pointer to **Boolean** | Indicates whether the account has been manually correlated to an identity. | [optional] [default to $false]
 **PasswordLastSet** |  Pointer to **System.DateTime** | A date-time in ISO-8601 format | [optional] 
-**EntitlementAttributes** |  Pointer to [**map[string]AnyType**](any-type) | Map or dictionary of key/value pairs. | [optional] 
+**EntitlementAttributes** |  Pointer to [map[string] **Any**] | Map or dictionary of key/value pairs. | [optional] 
 **Created** |  Pointer to **System.DateTime** | ISO-8601 date-time referring to the time when the object was created. | [optional] 
 
 ## Examples

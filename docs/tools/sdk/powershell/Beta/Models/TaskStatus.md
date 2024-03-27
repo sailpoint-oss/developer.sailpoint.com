@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 **CompletionStatus** |   **Enum** [  "Success",    "Warning",    "Error",    "Terminated",    "TempError" ] | Completion status of the task this TaskStatus represents | 
 **Messages** |  [**[]TaskStatusMessage**](task-status-message) | Messages associated with the task this TaskStatus represents | 
 **Returns** |  [**[]TaskReturnDetails**](task-return-details) | Return values from the task this TaskStatus represents | 
-**Attributes** |  [**map[string]AnyType**](any-type) | Attributes of the task this TaskStatus represents | 
+**Attributes** |  [map[string] **Any**] | Attributes of the task this TaskStatus represents | 
 **Progress** |  **String** | Current progress of the task this TaskStatus represents | 
 **PercentComplete** |  **Int32** | Current percentage completion of the task this TaskStatus represents | 
 

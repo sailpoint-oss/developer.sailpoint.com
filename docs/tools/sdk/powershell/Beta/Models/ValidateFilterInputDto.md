@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'ValidateFilterInputDto']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VarInput** |  [**SystemCollectionsHashtable**](system-collections-hashtable) | Mock input to evaluate filter expression against. | 
+**VarInput** |  [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | Mock input to evaluate filter expression against. | 
 **VarFilter** |  **String** | JSONPath filter to conditionally invoke trigger when expression evaluates to true. | 
 
 ## Examples

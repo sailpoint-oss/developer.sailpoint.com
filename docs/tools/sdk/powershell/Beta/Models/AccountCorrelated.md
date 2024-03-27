@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **Identity** |  [**AccountCorrelatedIdentity**](account-correlated-identity) |  | 
 **Source** |  [**AccountCorrelatedSource**](account-correlated-source) |  | 
 **Account** |  [**AccountCorrelatedAccount**](account-correlated-account) |  | 
-**Attributes** |  [**map[string]AnyType**](any-type) | The attributes associated with the account.  Attributes are unique per source. | 
+**Attributes** |  [map[string] **Any**] | The attributes associated with the account.  Attributes are unique per source. | 
 **EntitlementCount** |  Pointer to **Int32** | The number of entitlements associated with this account. | [optional] 
 
 ## Examples

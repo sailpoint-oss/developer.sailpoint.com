@@ -437,7 +437,7 @@ This API submits account selections. Either an admin, or the owning/current user
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The ID of the work item
- Body  | RequestBody | [**map[string]AnyType**](../models/any-type) | True  | Account Selection Data map, keyed on fieldName
+ Body  | RequestBody | [map[string] **Any**] | True  | Account Selection Data map, keyed on fieldName
 
 	
 ### Return type

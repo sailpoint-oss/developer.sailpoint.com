@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **FirstDetectionDate** |  Pointer to **System.DateTime** | The first date the outlier was detected | [optional] 
 **LatestDetectionDate** |  Pointer to **System.DateTime** | The most recent date the outlier was detected | [optional] 
 **Ignored** |  Pointer to **Boolean** | Flag whether or not the outlier has been ignored | [optional] 
-**Attributes** |  Pointer to [**SystemCollectionsHashtable**](system-collections-hashtable) | Object containing mapped identity attributes | [optional] 
+**Attributes** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | Object containing mapped identity attributes | [optional] 
 **Score** |  Pointer to **Double** | The outlier score determined by the detection engine ranging from 0..1 | [optional] 
 **UnignoreType** |  Pointer to  **Enum** [  "MANUAL",    "AUTOMATIC",    "null" ] | Enum value of if the outlier manually or automatically un-ignored. Will be NULL if outlier is not ignored | [optional] 
 **UnignoreDate** |  Pointer to **System.DateTime** | shows date when last time has been unignored outlier | [optional] 

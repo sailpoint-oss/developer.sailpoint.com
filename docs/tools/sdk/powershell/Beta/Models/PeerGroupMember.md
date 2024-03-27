@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **Id** |  Pointer to **String** | A unique identifier for the peer group member. | [optional] 
 **Type** |  Pointer to **String** | The type of the peer group member. | [optional] 
 **PeerGroupId** |  Pointer to **String** | The ID of the peer group. | [optional] 
-**Attributes** |  Pointer to [**map[string]SystemCollectionsHashtable**](system-collections-hashtable) | Arbitrary key-value pairs, belonging to the peer group member. | [optional] 
+**Attributes** |  Pointer to [**map[string]SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | Arbitrary key-value pairs, belonging to the peer group member. | [optional] 
 
 ## Examples
 

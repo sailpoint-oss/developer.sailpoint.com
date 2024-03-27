@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **HierarchyAttribute** |  Pointer to **String** | The name of the attribute whose values represent other objects in a hierarchy. Only relevant to group schemas. | [optional] 
 **IncludePermissions** |  Pointer to **Boolean** | Flag indicating whether or not the include permissions with the object data when aggregating the schema. | [optional] 
 **Features** |  Pointer to [**[]SourceFeature**](source-feature) | The features that the schema supports. | [optional] 
-**Configuration** |  Pointer to [**SystemCollectionsHashtable**](system-collections-hashtable) | Holds any extra configuration data that the schema may require. | [optional] 
+**Configuration** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | Holds any extra configuration data that the schema may require. | [optional] 
 **Attributes** |  Pointer to [**[]AttributeDefinition**](attribute-definition) | The attribute definitions which form the schema. | [optional] 
 **Created** |  Pointer to **System.DateTime** | The date the Schema was created. | [optional] 
 **Modified** |  Pointer to **System.DateTime** | The date the Schema was last modified. | [optional] 

@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **SourceName** |  **String** | The name of the source. | 
 **IdentityId** |  **String** | The ID of the identity that is correlated with this account. | 
 **IdentityName** |  **String** | The name of the identity that is correlated with this account. | 
-**Attributes** |  [**map[string]AnyType**](any-type) | The attributes of the account. The contents of attributes depends on the account schema for the source. | 
+**Attributes** |  [map[string] **Any**] | The attributes of the account. The contents of attributes depends on the account schema for the source. | 
 
 ## Examples
 

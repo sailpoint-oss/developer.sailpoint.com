@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **Type** |   **Enum** [  "ACCESS_PROFILE",    "ROLE",    "ENTITLEMENT" ] | The type of access item. | 
 **Operation** |   **Enum** [  "Add",    "Remove" ] | The action to perform on the access item. | 
 **Comment** |  Pointer to **String** | A comment from the identity requesting the access. | [optional] 
-**ClientMetadata** |  Pointer to [**map[string]AnyType**](any-type) | Additional customer defined metadata about the access item. | [optional] 
+**ClientMetadata** |  Pointer to [map[string] **Any**] | Additional customer defined metadata about the access item. | [optional] 
 **ApprovalInfo** |  [**[]AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner**](access-request-post-approval-requested-items-status-inner-approval-info-inner) | A list of one or more approvers for the access request. | 
 
 ## Examples

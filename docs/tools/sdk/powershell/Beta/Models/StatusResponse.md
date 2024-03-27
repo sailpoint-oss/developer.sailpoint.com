@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **Name** |  Pointer to **String** | Name of the source | [optional] [readonly] 
 **Status** |  Pointer to  **Enum** [  "SUCCESS",    "FAILURE" ] | The status of the health check. | [optional] [readonly] 
 **ElapsedMillis** |  Pointer to **Int32** | The number of milliseconds spent on the entire request. | [optional] [readonly] 
-**Details** |  Pointer to [**SystemCollectionsHashtable**](system-collections-hashtable) | The document contains the results of the health check. The schema of this document depends on the type of source used.  | [optional] [readonly] 
+**Details** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | The document contains the results of the health check. The schema of this document depends on the type of source used.  | [optional] [readonly] 
 
 ## Examples
 

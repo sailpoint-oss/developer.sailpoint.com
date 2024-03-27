@@ -29,8 +29,8 @@ Name | Type | Description | Notes
 **UploadedFiles** |  Pointer to **[]String** | The list of uploaded files supported by the connector. If there was any executable files uploaded to thee connector. Typically this be empty as the executable be uploaded at source creation. | [optional] 
 **FileUpload** |  Pointer to **Boolean** | true if the source is file upload | [optional] [default to $false]
 **DirectConnect** |  Pointer to **Boolean** | true if the source is a direct connect source | [optional] [default to $false]
-**TranslationProperties** |  Pointer to [**map[string]AnyType**](any-type) | A map containing translation attributes by loacale key | [optional] 
-**ConnectorMetadata** |  Pointer to [**map[string]AnyType**](any-type) | A map containing metadata pertinent to the UI to be used | [optional] 
+**TranslationProperties** |  Pointer to [map[string] **Any**] | A map containing translation attributes by loacale key | [optional] 
+**ConnectorMetadata** |  Pointer to [map[string] **Any**] | A map containing metadata pertinent to the UI to be used | [optional] 
 **Status** |  Pointer to  **Enum** [  "DEPRECATED",    "DEVELOPMENT",    "DEMO",    "RELEASED" ] | The connector status | [optional] 
 
 ## Examples

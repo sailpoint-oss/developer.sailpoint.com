@@ -17,7 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'Source1']
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** |  Pointer to **String** | The type of the source | [optional] 
-**Properties** |  Pointer to [**SystemCollectionsHashtable**](system-collections-hashtable) | The source properties | [optional] 
+**Properties** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | The source properties | [optional] 
 
 ## Examples
 

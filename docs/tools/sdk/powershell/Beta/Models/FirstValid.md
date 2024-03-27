@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'FirstValid']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Values** |  [**[]SystemCollectionsHashtable**](system-collections-hashtable) | An array of attributes to evaluate for existence. | 
+**Values** |  [**[]SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | An array of attributes to evaluate for existence. | 
 **IgnoreErrors** |  Pointer to **Boolean** | a true or false value representing to move on to the next option if an error (like an Null Pointer Exception) were to occur. | [optional] [default to $false]
 **RequiresPeriodicRefresh** |  Pointer to **Boolean** | A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process | [optional] [default to $false]
 

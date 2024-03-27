@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** |  **String** | The GUID of the application | 
 **Name** |  **String** | The name of the application | 
-**Attributes** |  [**map[string]AnyType**](any-type) | Custom map of attributes for a source.  This will only be populated if type is &#x60;SOURCE&#x60; and the source has a proxy. | 
+**Attributes** |  [map[string] **Any**] | Custom map of attributes for a source.  This will only be populated if type is &#x60;SOURCE&#x60; and the source has a proxy. | 
 
 ## Examples
 

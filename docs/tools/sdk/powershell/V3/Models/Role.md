@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **AccessProfiles** |  Pointer to [**[]AccessProfileRef**](access-profile-ref) |  | [optional] 
 **Entitlements** |  Pointer to [**[]EntitlementRef**](entitlement-ref) |  | [optional] 
 **Membership** |  Pointer to [**RoleMembershipSelector**](role-membership-selector) |  | [optional] 
-**LegacyMembershipInfo** |  Pointer to [**map[string]AnyType**](any-type) | This field is not directly modifiable and is generally expected to be *null*. In very rare instances, some Roles may have been created using membership selection criteria that are no longer fully supported. While these Roles will still work, they should be migrated to STANDARD or IDENTITY_LIST selection criteria. This field exists for informational purposes as an aid to such migration. | [optional] 
+**LegacyMembershipInfo** |  Pointer to [map[string] **Any**] | This field is not directly modifiable and is generally expected to be *null*. In very rare instances, some Roles may have been created using membership selection criteria that are no longer fully supported. While these Roles will still work, they should be migrated to STANDARD or IDENTITY_LIST selection criteria. This field exists for informational purposes as an aid to such migration. | [optional] 
 **Enabled** |  Pointer to **Boolean** | Whether the Role is enabled or not. | [optional] [default to $false]
 **Requestable** |  Pointer to **Boolean** | Whether the Role can be the target of access requests. | [optional] [default to $false]
 **AccessRequestConfig** |  Pointer to [**RequestabilityForRole**](requestability-for-role) |  | [optional] 

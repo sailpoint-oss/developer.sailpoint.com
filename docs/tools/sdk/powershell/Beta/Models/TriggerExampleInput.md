@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 **Identity** |  [**IdentityDeletedIdentity**](identity-deleted-identity) |  | 
 **Account** |  [**AccountUncorrelatedAccount**](account-uncorrelated-account) |  | 
 **Changes** |  [**[]IdentityAttributesChangedChangesInner**](identity-attributes-changed-changes-inner) | A list of one or more identity attributes that changed on the identity. | 
-**Attributes** |  [**map[string]AnyType**](any-type) | The attributes of the account. The contents of attributes depends on the account schema for the source. | 
+**Attributes** |  [map[string] **Any**] | The attributes of the account. The contents of attributes depends on the account schema for the source. | 
 **EntitlementCount** |  Pointer to **Int32** | The number of entitlements associated with this account. | [optional] 
 **Campaign** |  [**CampaignGeneratedCampaign**](campaign-generated-campaign) |  | 
 **Certification** |  [**CertificationSignedOffCertification**](certification-signed-off-certification) |  | 

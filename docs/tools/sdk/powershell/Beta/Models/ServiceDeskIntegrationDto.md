@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **Cluster** |  Pointer to **String** | Cluster ID for the Service Desk integration (replaced by clusterRef, retained for backward compatibility). | [optional] 
 **ManagedSources** |  Pointer to **[]String** | Source IDs for the Service Desk integration (replaced by provisioningConfig.managedSResourceRefs, but retained here for backward compatibility). | [optional] 
 **ProvisioningConfig** |  Pointer to [**ProvisioningConfig**](provisioning-config) |  | [optional] 
-**Attributes** |  [**map[string]AnyType**](any-type) | Service Desk integration&#39;s attributes. Validation constraints enforced by the implementation. | 
+**Attributes** |  [map[string] **Any**] | Service Desk integration&#39;s attributes. Validation constraints enforced by the implementation. | 
 **BeforeProvisioningRule** |  Pointer to [**BeforeProvisioningRuleDto**](before-provisioning-rule-dto) |  | [optional] 
 
 ## Examples

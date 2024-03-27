@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **CreatedBy** |  [**FormInstanceCreatedBy**](form-instance-created-by) |  | 
 **Expire** |  **String** | Expire is required | 
 **FormDefinitionId** |  **String** | FormDefinitionID is the id of the form definition that created this form | 
-**FormInput** |  Pointer to [**map[string]AnyType**](any-type) | FormInput is an object of form input labels to value | [optional] 
+**FormInput** |  Pointer to [map[string] **Any**] | FormInput is an object of form input labels to value | [optional] 
 **Recipients** |  [**[]FormInstanceRecipient**](form-instance-recipient) | Recipients is required | 
 **StandAloneForm** |  Pointer to **Boolean** | StandAloneForm is a boolean flag to indicate if this form should be available for users to complete via the standalone form UI or should this only be available to be completed by as an embedded form | [optional] [default to $false]
 **State** |  Pointer to  **Enum** [  "ASSIGNED",    "IN_PROGRESS",    "SUBMITTED",    "COMPLETED",    "CANCELLED" ] | State is required, if not present initial state is FormInstanceStateAssigned ASSIGNED FormInstanceStateAssigned IN_PROGRESS FormInstanceStateInProgress SUBMITTED FormInstanceStateSubmitted COMPLETED FormInstanceStateCompleted CANCELLED FormInstanceStateCancelled | [optional] 

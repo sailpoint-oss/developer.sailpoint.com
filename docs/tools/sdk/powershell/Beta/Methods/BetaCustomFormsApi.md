@@ -438,7 +438,7 @@ Parameter `{formDefinitionID}` should match a form definition ID.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | FormDefinitionID | **String** | True  | Form definition ID
- Body  | Body | [**[]System.Collections.Hashtable**](../models/map) |   (optional) | Body is the request payload to patch a form definition, check: https://jsonpatch.com
+ Body  | Body | https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 |   (optional) | Body is the request payload to patch a form definition, check: https://jsonpatch.com
 
 	
 ### Return type
@@ -474,7 +474,7 @@ Parameter `{formInstanceID}` should match a form instance ID.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | FormInstanceID | **String** | True  | Form instance ID
- Body  | Body | [**[]System.Collections.Hashtable**](../models/map) |   (optional) | Body is the request payload to patch a form instance, check: https://jsonpatch.com
+ Body  | Body | https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 |   (optional) | Body is the request payload to patch a form instance, check: https://jsonpatch.com
 
 	
 ### Return type

@@ -35,7 +35,7 @@ Name | Type | Description | Notes
 **IsManager** |  Pointer to **Boolean** | Indicates whether the identity is a manager of other identities. | [optional] 
 **IdentityProfile** |  Pointer to [**IdentityDocumentAllOfIdentityProfile**](identity-document-all-of-identity-profile) |  | [optional] 
 **Source** |  Pointer to [**IdentityDocumentAllOfSource**](identity-document-all-of-source) |  | [optional] 
-**Attributes** |  Pointer to [**map[string]AnyType**](any-type) | Map or dictionary of key/value pairs. | [optional] 
+**Attributes** |  Pointer to [map[string] **Any**] | Map or dictionary of key/value pairs. | [optional] 
 **ProcessingState** |  Pointer to **String** | Identity&#39;s processing state. | [optional] 
 **ProcessingDetails** |  Pointer to [**ProcessingDetails**](processing-details) |  | [optional] 
 **Accounts** |  Pointer to [**[]BaseAccount**](base-account) | List of accounts associated with the identity. | [optional] 

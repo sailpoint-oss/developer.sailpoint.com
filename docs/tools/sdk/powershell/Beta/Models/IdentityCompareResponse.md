@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'IdentityCompareResponse']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessItemDiff** |  Pointer to [**map[string]SystemCollectionsHashtable**](system-collections-hashtable) | Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on completion of the violation check. | [optional] 
+**AccessItemDiff** |  Pointer to [**map[string]SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on completion of the violation check. | [optional] 
 
 ## Examples
 

@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **Description** |  Pointer to **String** | The description of the task | [optional] 
 **Launcher** |  Pointer to **String** | The user who initiated the task | [optional] 
 **Created** |  Pointer to **System.DateTime** | The creation date of the task | [optional] 
-**Returns** |  Pointer to [**SystemCollectionsHashtable**](system-collections-hashtable) | Return values from the task | [optional] 
+**Returns** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | Return values from the task | [optional] 
 
 ## Examples
 

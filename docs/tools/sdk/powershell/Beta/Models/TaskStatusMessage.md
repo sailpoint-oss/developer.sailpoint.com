@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **Type** |   **Enum** [  "INFO",    "WARN",    "ERROR" ] | Type of the message | 
 **LocalizedText** |  [**LocalizedMessage**](localized-message) |  | 
 **Key** |  **String** | Key of the message | 
-**Parameters** |  [**[]SystemCollectionsHashtable**](system-collections-hashtable) | Message parameters for internationalization | 
+**Parameters** |  [**[]SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | Message parameters for internationalization | 
 
 ## Examples
 

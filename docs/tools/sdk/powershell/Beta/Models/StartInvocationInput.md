@@ -17,8 +17,8 @@ tags: ['SDK', 'Software Development Kit', 'StartInvocationInput']
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TriggerId** |  Pointer to **String** | Trigger ID | [optional] 
-**VarInput** |  Pointer to [**SystemCollectionsHashtable**](system-collections-hashtable) | Trigger input payload. Its schema is defined in the trigger definition. | [optional] 
-**ContentJson** |  Pointer to [**SystemCollectionsHashtable**](system-collections-hashtable) | JSON map of invocation metadata | [optional] 
+**VarInput** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | Trigger input payload. Its schema is defined in the trigger definition. | [optional] 
+**ContentJson** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | JSON map of invocation metadata | [optional] 
 
 ## Examples
 

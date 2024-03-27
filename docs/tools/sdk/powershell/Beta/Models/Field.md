@@ -20,8 +20,8 @@ Name | Type | Description | Notes
 **DisplayName** |  Pointer to **String** | Display name of the field | [optional] 
 **DisplayType** |  Pointer to **String** | Type of the field to display | [optional] 
 **Required** |  Pointer to **Boolean** | True if the field is required | [optional] 
-**AllowedValuesList** |  Pointer to [**[]SystemCollectionsHashtable**](system-collections-hashtable) | List of allowed values for the field | [optional] 
-**Value** |  Pointer to [**SystemCollectionsHashtable**](system-collections-hashtable) | Value of the field | [optional] 
+**AllowedValuesList** |  Pointer to [**[]SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | List of allowed values for the field | [optional] 
+**Value** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | Value of the field | [optional] 
 
 ## Examples
 

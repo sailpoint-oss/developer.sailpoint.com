@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **Created** |  Pointer to **System.DateTime** | Creation date of the Object | [optional] [readonly] 
 **Modified** |  Pointer to **System.DateTime** | Last modification date of the Object | [optional] [readonly] 
 **Type** |  **String** | The &#39;type&#39; property specifies the type of the Service Desk integration template. | [default to "Web Service SDIM"]
-**Attributes** |  [**map[string]AnyType**](any-type) | The &#39;attributes&#39; property value is a map of attributes available for integrations using this Service Desk integration template. | 
+**Attributes** |  [map[string] **Any**] | The &#39;attributes&#39; property value is a map of attributes available for integrations using this Service Desk integration template. | 
 **ProvisioningConfig** |  [**ProvisioningConfig**](provisioning-config) |  | 
 
 ## Examples

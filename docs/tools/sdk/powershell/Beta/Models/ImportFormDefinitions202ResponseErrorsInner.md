@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'ImportFormDefinitions202ResponseError
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Detail** |  Pointer to [**map[string]SystemCollectionsHashtable**](system-collections-hashtable) |  | [optional] 
+**Detail** |  Pointer to [**map[string]SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 |  | [optional] 
 **Key** |  Pointer to **String** |  | [optional] 
 **Text** |  Pointer to **String** |  | [optional] 
 

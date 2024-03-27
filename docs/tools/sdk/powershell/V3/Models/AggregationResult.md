@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'AggregationResult']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Aggregations** |  Pointer to [**SystemCollectionsHashtable**](system-collections-hashtable) | The document containing the results of the aggregation. This document is controlled by Elasticsearch and depends on the type of aggregation query that is run.  See Elasticsearch [Aggregations](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/search-aggregations.html) documentation for information.  | [optional] 
+**Aggregations** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | The document containing the results of the aggregation. This document is controlled by Elasticsearch and depends on the type of aggregation query that is run.  See Elasticsearch [Aggregations](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/search-aggregations.html) documentation for information.  | [optional] 
 **Hits** |  Pointer to [**[]SearchDocument**](search-document) | The results of the aggregation search query.  | [optional] 
 
 ## Examples

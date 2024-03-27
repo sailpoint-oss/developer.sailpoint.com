@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 **CompletionStatus** |  Pointer to  **Enum** [  "SUCCESS",    "WARNING",    "ERROR",    "TERMINATED",    "TEMP_ERROR" ] | Report completion status. | [optional] 
 **Messages** |  Pointer to [**[]TaskResultDetailsMessagesInner**](task-result-details-messages-inner) | List of the messages dedicated to the report.  From task definition perspective here usually should be warnings or errors. | [optional] 
 **Returns** |  Pointer to [**[]TaskResultDetailsReturnsInner**](task-result-details-returns-inner) | Task definition results, if necessary. | [optional] 
-**Attributes** |  Pointer to [**map[string]SystemCollectionsHashtable**](system-collections-hashtable) | Extra attributes map(dictionary) needed for the report. | [optional] 
+**Attributes** |  Pointer to [**map[string]SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | Extra attributes map(dictionary) needed for the report. | [optional] 
 **Progress** |  Pointer to **String** | Current report state. | [optional] 
 
 ## Examples

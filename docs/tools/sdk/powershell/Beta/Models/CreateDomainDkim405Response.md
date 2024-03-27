@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'CreateDomainDkim405Response']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ErrorName** |  Pointer to [**SystemCollectionsHashtable**](system-collections-hashtable) | A message describing the error | [optional] 
-**ErrorMessage** |  Pointer to [**SystemCollectionsHashtable**](system-collections-hashtable) | Description of the error | [optional] 
+**ErrorName** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | A message describing the error | [optional] 
+**ErrorMessage** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | Description of the error | [optional] 
 **TrackingId** |  Pointer to **String** | Unique tracking id for the error. | [optional] 
 
 ## Examples

@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Key** |  Pointer to **String** | The template notification key. | [optional] 
 **Medium** |  Pointer to  **Enum** [  "EMAIL",    "SLACK",    "TEAMS" ] | The notification medium. Has to be one of the following enum values. | [optional] 
-**Context** |  Pointer to [**SystemCollectionsHashtable**](system-collections-hashtable) | A Json object that denotes the context specific to the template. | [optional] 
+**Context** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | A Json object that denotes the context specific to the template. | [optional] 
 
 ## Examples
 

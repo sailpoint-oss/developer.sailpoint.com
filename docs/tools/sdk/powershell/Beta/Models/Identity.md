@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 **ManagerRef** |  Pointer to [**IdentityDtoManagerRef**](identity-dto-manager-ref) |  | [optional] 
 **IsManager** |  Pointer to **Boolean** | Whether this identity is a manager of another identity | [optional] [default to $false]
 **LastRefresh** |  Pointer to **System.DateTime** | The last time the identity was refreshed by the system | [optional] 
-**Attributes** |  Pointer to [**SystemCollectionsHashtable**](system-collections-hashtable) | A map with the identity attributes for the identity | [optional] 
+**Attributes** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | A map with the identity attributes for the identity | [optional] 
 **LifecycleState** |  Pointer to [**IdentityDtoLifecycleState**](identity-dto-lifecycle-state) |  | [optional] 
 
 ## Examples

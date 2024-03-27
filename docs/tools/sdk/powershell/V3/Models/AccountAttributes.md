@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'AccountAttributes']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Attributes** |  [**map[string]AnyType**](any-type) | The schema attribute values for the account | 
+**Attributes** |  [map[string] **Any**] | The schema attribute values for the account | 
 
 ## Examples
 

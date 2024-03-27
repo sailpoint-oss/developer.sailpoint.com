@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **ProductRight** |  Pointer to **String** | Right needed for the Product | [optional] 
 **ApiUrl** |  Pointer to **String** | API URL of the Product | [optional] 
 **Licenses** |  Pointer to [**[]License**](license) |  | [optional] 
-**Attributes** |  Pointer to [**map[string]AnyType**](any-type) | Additional attributes for a product | [optional] 
+**Attributes** |  Pointer to [map[string] **Any**] | Additional attributes for a product | [optional] 
 **Zone** |  Pointer to **String** | Zone | [optional] 
 **Status** |  Pointer to **String** | Status of the product | [optional] 
 **StatusDateTime** |  Pointer to **System.DateTime** | Status datetime | [optional] 

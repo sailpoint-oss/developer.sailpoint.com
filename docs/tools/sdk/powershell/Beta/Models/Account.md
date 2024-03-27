@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **SourceId** |  **String** | The unique ID of the source this account belongs to | 
 **SourceName** |  **String** | The display name of the source this account belongs to | 
 **IdentityId** |  Pointer to **String** | The unique ID of the identity this account is correlated to | [optional] 
-**Attributes** |  [**map[string]AnyType**](any-type) | The account attributes that are aggregated | 
+**Attributes** |  [map[string] **Any**] | The account attributes that are aggregated | 
 **Authoritative** |  **Boolean** | Indicates if this account is from an authoritative source | 
 **Description** |  Pointer to **String** | A description of the account | [optional] 
 **Disabled** |  **Boolean** | Indicates if the account is currently disabled | 

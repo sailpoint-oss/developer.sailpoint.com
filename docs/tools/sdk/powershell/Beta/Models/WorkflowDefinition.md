@@ -17,7 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'WorkflowDefinition']
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Start** |  Pointer to **String** | The name of the starting step. | [optional] 
-**Steps** |  Pointer to [**map[string]AnyType**](any-type) | One or more step objects that comprise this workflow.  Please see the Workflow documentation to see the JSON schema for each step type. | [optional] 
+**Steps** |  Pointer to [map[string] **Any**] | One or more step objects that comprise this workflow.  Please see the Workflow documentation to see the JSON schema for each step type. | [optional] 
 
 ## Examples
 

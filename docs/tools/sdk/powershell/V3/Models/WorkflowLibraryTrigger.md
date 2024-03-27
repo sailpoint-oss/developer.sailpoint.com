@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **Name** |  Pointer to **String** | Trigger Name | [optional] 
 **Description** |  Pointer to **String** | Trigger Description | [optional] 
 **IsDynamicSchema** |  Pointer to **Boolean** | Determines whether the dynamic output schema is returned in place of the action&#39;s output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields. | [optional] [default to $false]
-**InputExample** |  Pointer to [**SystemCollectionsHashtable**](system-collections-hashtable) | Example trigger payload if applicable | [optional] 
+**InputExample** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | Example trigger payload if applicable | [optional] 
 **FormFields** |  Pointer to [**[]WorkflowLibraryFormFields**](workflow-library-form-fields) | One or more inputs that the trigger accepts | [optional] 
 
 ## Examples

@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **VarHost** |  Pointer to **String** | The server host name or IP address of the MFA provider. | [optional] 
 **AccessKey** |  Pointer to **String** | The secret key for authenticating requests to the MFA provider. | [optional] 
 **IdentityAttribute** |  Pointer to **String** | Optional. The name of the attribute for mapping IdentityNow identity to the MFA provider. | [optional] 
-**ConfigProperties** |  Pointer to [**map[string]AnyType**](any-type) | A map with additional config properties for the given MFA method - duo-web. | [optional] 
+**ConfigProperties** |  Pointer to [map[string] **Any**] | A map with additional config properties for the given MFA method - duo-web. | [optional] 
 
 ## Examples
 

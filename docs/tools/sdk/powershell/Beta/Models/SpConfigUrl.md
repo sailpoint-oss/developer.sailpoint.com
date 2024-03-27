@@ -17,7 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'SpConfigUrl']
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Url** |  Pointer to **String** | URL for the target object endpoint. | [optional] 
-**Query** |  Pointer to [**SystemCollectionsHashtable**](system-collections-hashtable) | Any query parameters that are needed for the URL. | [optional] 
+**Query** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | Any query parameters that are needed for the URL. | [optional] 
 
 ## Examples
 

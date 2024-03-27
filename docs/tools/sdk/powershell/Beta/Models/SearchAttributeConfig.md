@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** |  Pointer to **String** | Name of the new attribute | [optional] 
 **DisplayName** |  Pointer to **String** | The display name of the new attribute | [optional] 
-**ApplicationAttributes** |  Pointer to [**SystemCollectionsHashtable**](system-collections-hashtable) | Map of application id and their associated attribute. | [optional] 
+**ApplicationAttributes** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | Map of application id and their associated attribute. | [optional] 
 
 ## Examples
 

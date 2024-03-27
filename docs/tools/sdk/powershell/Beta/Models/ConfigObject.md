@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Version** |  Pointer to **Int32** | Current version of configuration object. | [optional] 
 **Self** |  Pointer to [**SelfImportExportDto**](self-import-export-dto) |  | [optional] 
-**Object** |  Pointer to [**map[string]AnyType**](any-type) | Object details. Format dependant on the object type. | [optional] 
+**Object** |  Pointer to [map[string] **Any**] | Object details. Format dependant on the object type. | [optional] 
 
 ## Examples
 

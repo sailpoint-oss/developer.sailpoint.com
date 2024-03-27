@@ -17,8 +17,8 @@ tags: ['SDK', 'Software Development Kit', 'FieldDetailsDto']
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** |  Pointer to **String** | The name of the attribute. | [optional] 
-**Transform** |  Pointer to [**SystemCollectionsHashtable**](system-collections-hashtable) | The transform to apply to the field | [optional] 
-**Attributes** |  Pointer to [**SystemCollectionsHashtable**](system-collections-hashtable) | Attributes required for the transform | [optional] 
+**Transform** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | The transform to apply to the field | [optional] 
+**Attributes** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | Attributes required for the transform | [optional] 
 **IsRequired** |  Pointer to **Boolean** | Flag indicating whether or not the attribute is required. | [optional] [readonly] [default to $false]
 **Type** |  Pointer to **String** | The type of the attribute. | [optional] 
 **IsMultiValued** |  Pointer to **Boolean** | Flag indicating whether or not the attribute is multi-valued. | [optional] [default to $false]

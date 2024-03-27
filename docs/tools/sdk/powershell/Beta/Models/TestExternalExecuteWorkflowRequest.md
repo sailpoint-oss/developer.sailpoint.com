@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'TestExternalExecuteWorkflowRequest']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VarInput** |  Pointer to [**SystemCollectionsHashtable**](system-collections-hashtable) | The test input for the workflow | [optional] 
+**VarInput** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | The test input for the workflow | [optional] 
 
 ## Examples
 

@@ -17,8 +17,8 @@ tags: ['SDK', 'Software Development Kit', 'IdentityAttributePreview']
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** |  Pointer to **String** | Name of the attribute that is being previewed. | [optional] 
-**Value** |  Pointer to [**SystemCollectionsHashtable**](system-collections-hashtable) | Value that was derived during the preview. | [optional] 
-**PreviousValue** |  Pointer to [**SystemCollectionsHashtable**](system-collections-hashtable) | The value of the attribute before the preview. | [optional] 
+**Value** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | Value that was derived during the preview. | [optional] 
+**PreviousValue** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | The value of the attribute before the preview. | [optional] 
 **ErrorMessages** |  Pointer to [**[]ErrorMessageDto**](error-message-dto) |  | [optional] 
 
 ## Examples

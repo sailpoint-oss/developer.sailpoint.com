@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 **Created** |  Pointer to **System.DateTime** | Time when the entitlement was created | [optional] 
 **Modified** |  Pointer to **System.DateTime** | Time when the entitlement was last modified | [optional] 
 **Source** |  Pointer to [**EntitlementSource**](entitlement-source) |  | [optional] 
-**Attributes** |  Pointer to [**map[string]AnyType**](any-type) | A map of free-form key-value pairs from the source system | [optional] 
+**Attributes** |  Pointer to [map[string] **Any**] | A map of free-form key-value pairs from the source system | [optional] 
 **Segments** |  Pointer to **[]String** | List of IDs of segments, if any, to which this Entitlement is assigned. | [optional] 
 **DirectPermissions** |  Pointer to [**[]PermissionDto**](permission-dto) |  | [optional] 
 

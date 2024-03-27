@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **ScriptName** |  Pointer to **String** | The connector script name | [optional] 
 **Features** |  Pointer to **[]String** | The list of features supported by the connector | [optional] 
 **DirectConnect** |  Pointer to **Boolean** | true if the source is a direct connect source | [optional] [default to $false]
-**ConnectorMetadata** |  Pointer to [**SystemCollectionsHashtable**](system-collections-hashtable) | Object containing metadata pertinent to the UI to be used | [optional] 
+**ConnectorMetadata** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | Object containing metadata pertinent to the UI to be used | [optional] 
 **Status** |  Pointer to **String** | The connector status | [optional] 
 
 ## Examples

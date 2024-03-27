@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** |  Pointer to **String** | New UUID associated with domain to be verified | [optional] 
 **Domain** |  Pointer to **String** | A domain address | [optional] 
-**DkimEnabled** |  Pointer to [**SystemCollectionsHashtable**](system-collections-hashtable) | DKIM is enabled for this domain | [optional] 
+**DkimEnabled** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | DKIM is enabled for this domain | [optional] 
 **DkimTokens** |  Pointer to **[]String** | DKIM tokens required for authentication | [optional] 
 **DkimVerificationStatus** |  Pointer to **String** | Status of DKIM authentication | [optional] 
 

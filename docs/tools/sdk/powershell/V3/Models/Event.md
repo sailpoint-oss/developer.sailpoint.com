@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 **TrackingNumber** |  Pointer to **String** | ID of the group of events. | [optional] 
 **IpAddress** |  Pointer to **String** | Target system&#39;s IP address. | [optional] 
 **Details** |  Pointer to **String** | ID of event&#39;s details. | [optional] 
-**Attributes** |  Pointer to [**map[string]AnyType**](any-type) | Attributes involved in the event. | [optional] 
+**Attributes** |  Pointer to [map[string] **Any**] | Attributes involved in the event. | [optional] 
 **Objects** |  Pointer to **[]String** | Objects the event is happening to. | [optional] 
 **Operation** |  Pointer to **String** | Operation, or action, performed during the event. | [optional] 
 **Status** |  Pointer to **String** | Event status. Refer to [Event Statuses](https://documentation.sailpoint.com/saas/help/search/index.html#event-statuses) for a list of event statuses and their meanings. | [optional] 

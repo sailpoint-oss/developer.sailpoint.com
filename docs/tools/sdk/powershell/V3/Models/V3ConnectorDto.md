@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **ClassName** |  Pointer to **String** | The connector class name. | [optional] 
 **Features** |  Pointer to **[]String** | The list of features supported by the connector | [optional] 
 **DirectConnect** |  Pointer to **Boolean** | true if the source is a direct connect source | [optional] [default to $false]
-**ConnectorMetadata** |  Pointer to [**map[string]AnyType**](any-type) | A map containing metadata pertinent to the connector | [optional] 
+**ConnectorMetadata** |  Pointer to [map[string] **Any**] | A map containing metadata pertinent to the connector | [optional] 
 **Status** |  Pointer to  **Enum** [  "DEPRECATED",    "DEVELOPMENT",    "DEMO",    "RELEASED" ] | The connector status | [optional] 
 
 ## Examples

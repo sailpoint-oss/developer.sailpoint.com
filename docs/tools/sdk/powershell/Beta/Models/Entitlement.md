@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 **CloudGoverned** |  Pointer to **Boolean** | True if the entitlement is cloud governed | [optional] [default to $false]
 **Description** |  Pointer to **String** | The description of the entitlement | [optional] 
 **Requestable** |  Pointer to **Boolean** | True if the entitlement is requestable | [optional] [default to $false]
-**Attributes** |  Pointer to [**map[string]AnyType**](any-type) | A map of free-form key-value pairs from the source system | [optional] 
+**Attributes** |  Pointer to [map[string] **Any**] | A map of free-form key-value pairs from the source system | [optional] 
 **Source** |  Pointer to [**EntitlementSource**](entitlement-source) |  | [optional] 
 **Owner** |  Pointer to [**EntitlementOwner**](entitlement-owner) |  | [optional] 
 **DirectPermissions** |  Pointer to [**[]PermissionDto**](permission-dto) |  | [optional] 

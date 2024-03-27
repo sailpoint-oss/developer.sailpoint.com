@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **Type** |   **Enum** [  "BuildMap",    "ConnectorAfterCreate",    "ConnectorAfterDelete",    "ConnectorAfterModify",    "ConnectorBeforeCreate",    "ConnectorBeforeDelete",    "ConnectorBeforeModify",    "JDBCBuildMap",    "JDBCOperationProvisioning",    "JDBCProvision",    "PeopleSoftHRMSBuildMap",    "PeopleSoftHRMSOperationProvisioning",    "PeopleSoftHRMSProvision",    "RACFPermissionCustomization",    "SAPBuildMap",    "SapHrManagerRule",    "SapHrOperationProvisioning",    "SapHrProvision",    "SuccessFactorsOperationProvisioning",    "WebServiceAfterOperationRule",    "WebServiceBeforeOperationRule" ] | the type of rule | 
 **Signature** |  Pointer to [**ConnectorRuleCreateRequestSignature**](connector-rule-create-request-signature) |  | [optional] 
 **SourceCode** |  [**SourceCode**](source-code) |  | 
-**Attributes** |  Pointer to [**SystemCollectionsHashtable**](system-collections-hashtable) | a map of string to objects | [optional] 
+**Attributes** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | a map of string to objects | [optional] 
 **Id** |  **String** | the ID of the rule | 
 **Created** |  **String** | an ISO 8601 UTC timestamp when this rule was created | 
 **Modified** |  Pointer to **String** | an ISO 8601 UTC timestamp when this rule was last modified | [optional] 

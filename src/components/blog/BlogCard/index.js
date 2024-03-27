@@ -2,8 +2,6 @@ import React from 'react';
 import styles from './styles.module.css';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import ThemedImage from '@theme/ThemedImage';
-import {addDarkToFileName} from '../../../util/util';
 export default function BlogCard({
   link,
   title,
@@ -18,7 +16,7 @@ export default function BlogCard({
   readTime,
 }) {
   return (
-    <Link to={link} className={styles.BlogCard}>
+    <Link to={link}>
       <div className={styles.card}>
         <div className={styles.cardText}>
           <img className={styles.cardImage} src={useBaseUrl(image)}></img>

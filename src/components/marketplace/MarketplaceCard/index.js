@@ -3,17 +3,9 @@ import styles from './styles.module.css';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faShieldCheck, faAward} from '@fortawesome/pro-solid-svg-icons';
+import Link from '@docusaurus/Link';
 
-export default function MarketplaceCard({post, openDialogFunc}) {
-  function setFilters(e) {
-    openDialogFunc({
-      title: post.title,
-      image: post.image,
-      link: post.link,
-      id: post.id,
-    });
-  }
-
+export default function MarketplaceCard({post}) {
   let badge = <div></div>;
   if (post.tags.includes('sailpoint-developed')) {
     badge = (
@@ -43,27 +35,31 @@ export default function MarketplaceCard({post, openDialogFunc}) {
   }
 
   return (
-    <div onClick={(e) => setFilters(e)}>
-      <div className={styles.card}>
-        <div className={styles.cardText}>
-          <img className={styles.cardImage} src={useBaseUrl(post.image)}></img>
-          <div className={styles.split}></div>
-          <div className={styles.cardTitle}>{post.title}</div>
-
-          <div className={styles.cardUser}>
+    <Link to={post.link}>
+      {/* <div onClick={(e) => setFilters(e)}> */}
+        <div className={styles.card}>
+          <div className={styles.cardText}>
             <img
-              className={styles.cardFace}
-              src={useBaseUrl(post.creatorImage)}></img>
+              className={styles.cardImage}
+              src={useBaseUrl(post.image)}></img>
+            <div className={styles.split}></div>
+            <div className={styles.cardTitle}>{post.title}</div>
 
-            <div className={styles.cardName}>{post.creatorName}</div>
-            <div className={styles.cardCreatorTitle}>{post.creatorTitle}</div>
+            <div className={styles.cardUser}>
+              <img
+                className={styles.cardFace}
+                src={useBaseUrl(post.creatorImage)}></img>
 
-            <div></div>
+              <div className={styles.cardName}>{post.creatorName}</div>
+              <div className={styles.cardCreatorTitle}>{post.creatorTitle}</div>
+
+              <div></div>
+            </div>
           </div>
-        </div>
 
-        {badge}
-      </div>
-    </div>
+          {badge}
+        </div>
+      {/* </div> */}
+    </Link>
   );
 }

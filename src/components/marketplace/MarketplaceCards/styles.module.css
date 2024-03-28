@@ -65,8 +65,14 @@
   width: 23px;
 }
 
-.spinnerCenter {
+.spinnerCenterMultiple {
   position: absolute;
+  left: 1250px;
+}
+
+.spinnerCenterSingle {
+  position: absolute;
+  top: 300px;
   left: 1250px;
 }
 
@@ -74,12 +80,13 @@
   .gridContainer {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
-  
-  .gridContainer > a:nth-child(4) {
+
+  .gridContainer > a:nth-child(5) {
     display: none;
   }
 
-  .spinnerCenter {
+  .spinnerCenterMultiple,
+  .spinnerCenterSingle {
     left: 930px;
   }
 }
@@ -88,11 +95,12 @@
   .gridContainer {
     grid-template-columns: 1fr 1fr 1fr;
   }
-  .gridContainer > a:nth-child(3),
-  .gridContainer > a:nth-child(4) {
+  .gridContainer > a:nth-child(4),
+  .gridContainer > a:nth-child(5) {
     display: none;
   }
-  .spinnerCenter {
+  .spinnerCenterMultiple,
+  .spinnerCenterSingle {
     left: 465px;
   }
 }
@@ -101,9 +109,9 @@
   .gridContainer {
     grid-template-columns: 1fr 1fr;
   }
-  .gridContainer > a:nth-child(2),
   .gridContainer > a:nth-child(3),
-  .gridContainer > a:nth-child(4) {
+  .gridContainer > a:nth-child(4),
+  .gridContainer > a:nth-child(5) {
     display: none;
   }
   .gridContainer {
@@ -112,7 +120,8 @@
   .gridContainer::after {
     display: none;
   }
-  .spinnerCenter {
+  .spinnerCenterMultiple,
+  .spinnerCenterSingle {
     left: 270px;
   }
 }
@@ -121,9 +130,11 @@
   .gridContainer {
     grid-template-columns: 1fr;
   }
+
   .gridContainer > a:nth-child(2),
   .gridContainer > a:nth-child(3),
-  .gridContainer > a:nth-child(4) {
+  .gridContainer > a:nth-child(4),
+  .gridContainer > a:nth-child(5) {
     display: none;
   }
   .gridContainer {
@@ -134,14 +145,21 @@
   }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 550px) {
+  .center {
+    margin: auto;
+    margin-left: 50%;
+    margin-right: 50%;
+  }
+
+  .spinnerCenterMultiple,
+  .spinnerCenterSingle {
+    left: 200px;
+  }
+
   .noFound {
-    font-size: 28px;
-    font-weight: 500;
-    color: var(--dev-secondary-text);
-    padding-top: 8px;
-    margin-bottom: 50px;
-    width: 300px;
-    margin-left: -25px;
+    width: 350px;
+    position: absolute;
+    left: 10px;
   }
 }

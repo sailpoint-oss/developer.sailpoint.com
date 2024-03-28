@@ -32,7 +32,7 @@ export default function SaasConnector() {
     <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
       <main>
         <MarketplaceBanner />
-        <div>
+        <div className={styles.container}>
           <div className={styles.filterContainer}>
             <BlogSidebar filterCallback={handleClick} isChecked={true} />
           </div>

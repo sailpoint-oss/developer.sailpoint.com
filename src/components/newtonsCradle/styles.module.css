@@ -1,6 +1,6 @@
 .container {
   --uib-size: 150px;
-  --uib-color: #0033a1;
+  --uib-color: var(--ifm-color-primary);
   --uib-speed: 1.4s;
   position: relative;
   top: 28%;

@@ -1,3 +1,7 @@
+.blogContainer {
+  min-height: 600px;
+}
+
 .blogSidbarContainer {
   margin: auto;
   width: 50%;
@@ -15,3 +19,5 @@
     margin-right: 50%;
   }
 }
+
+

@@ -4,8 +4,6 @@
   display: flex;
 }
 
-
-
 .toggleContainer {
   margin: auto;
   width: 31%;
@@ -203,7 +201,6 @@
   z-index: 1;
   transition: color 0.25s;
   color: white; /* "Identity Security Cloud" highlighted */
-  z-index: 9999;
 }
 
 .toggleCheckbox:not(:checked) + .toggleLabel .toggleTextRight {
@@ -220,7 +217,6 @@
   z-index: 1;
   transition: color 0.25s;
   color: white; /* "IdentityIQ" highlighted */
-  z-index: 9999;
 }
 
 .toggleCheckbox:checked + .toggleLabel .toggleTextLeft {
@@ -229,4 +225,19 @@
   z-index: 1;
   transition: color 0.25s;
   color: #415364; /* "Identity Security Cloud" not highlighted */
+}
+
+@media only screen and (max-width: 550px) {
+  .toggleTextLeft {
+    font-size: 14px;
+  }
+
+  .toggleContainer {
+    width: 45%;
+  }
+
+  .toggleWrapper {
+    width: 325px;
+    height: 40px;
+  }
 }

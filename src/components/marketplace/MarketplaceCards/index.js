@@ -13,7 +13,7 @@ import {
   getUserTitle,
 } from '../../../services/DiscourseService';
 import MarketplaceCardDetail from '../MarketplaceCardDetail';
-export default function MarketplaceCards({filterCallback, limit}) {
+export default function MarketplaceCards({filterCallback, limit, multiple}) {
   const [cardData, setCardData] = React.useState();
   const [detailsOpen, setDetailsOpen] = React.useState(false);
   const [details, setDetails] = React.useState('');
@@ -108,7 +108,7 @@ export default function MarketplaceCards({filterCallback, limit}) {
     <div className={styles.center}>
       {loadingCards ? (
         // Show loading icon when data is still loading
-        <div className={styles.spinnerCenter}>
+        <div className={multiple ? styles.spinnerCenterMultiple : styles.spinnerCenterSingle}>
           <NewtonsCradle />
         </div>
       ) : cardData && cardData.length > 0 ? (

@@ -49,7 +49,7 @@ export default function Marketplace() {
                   View All &#8594;
                 </Link>
               </div>
-              <MarketplaceCards filterCallback={workflows} limit={5} />
+              <MarketplaceCards filterCallback={workflows} limit={5} multiple={true}/>
             </div>
 
             <div className={styles.cardContainer}>
@@ -59,7 +59,7 @@ export default function Marketplace() {
                   View All &#8594;
                 </Link>
               </div>
-              <MarketplaceCards filterCallback={saas} limit={5} />
+              <MarketplaceCards filterCallback={saas} limit={5} multiple={true}/>
             </div>
 
             <div className={styles.cardContainer}>
@@ -69,7 +69,7 @@ export default function Marketplace() {
                   View All &#8594;
                 </Link>
               </div>
-              <MarketplaceCards filterCallback={communityTools} limit={5} />
+              <MarketplaceCards filterCallback={communityTools} limit={5} multiple={true}/>
             </div>
 
             <div className={styles.cardContainer}>
@@ -79,7 +79,7 @@ export default function Marketplace() {
                   View All &#8594;
                 </Link>
               </div>
-              <MarketplaceCards filterCallback={rules} limit={5} />
+              <MarketplaceCards filterCallback={rules} limit={5} multiple={true}/>
             </div>
 
             <div className={styles.cardContainer}>
@@ -89,7 +89,7 @@ export default function Marketplace() {
                   View All &#8594;
                 </Link>
               </div>
-              <MarketplaceCards filterCallback={transforms} limit={5} />
+              <MarketplaceCards filterCallback={transforms} limit={5} multiple={true}/>
             </div>
 
             <div className={styles.cardContainer}>
@@ -99,7 +99,7 @@ export default function Marketplace() {
                   View All &#8594;
                 </Link>
               </div>
-              <MarketplaceCards filterCallback={plugins} limit={5} />
+              <MarketplaceCards filterCallback={plugins} limit={5} multiple={true}/>
             </div>
           </div>
         </div>

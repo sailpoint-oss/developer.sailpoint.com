@@ -1,3 +1,7 @@
+.colabContainer {
+  min-height: 600px;
+}
+
 .filterContainer {
   margin: auto;
   width: 50%;

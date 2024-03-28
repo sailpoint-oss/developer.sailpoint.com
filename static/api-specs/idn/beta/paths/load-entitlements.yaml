@@ -1,11 +1,12 @@
 post:
   tags:
     - Entitlements
-  summary: Import Entitlement CSV File
-  operationId: importEntitlementCsv
+  summary: Aggregate Entitlements
+  operationId: importEntitlements
   description: >-
-    Uploads a comma separated file (CSV) to a delimited file source and starts an entitlement aggregation on the source.   
-
+    Starts an entitlement aggregation on the specified source. 
+    
+    If the target source is a direct connection, then a request body is not needed. If the target source is a delimited file source, then the CSV file needs to be included in the request body.   
   parameters:
     - in: path
       name: id
@@ -27,7 +28,7 @@ post:
             - csvFile
   responses:
     "202":
-      description: Load Entitlements Task
+      description: Aggregate Entitlements Task
       content:
         application/json:
           schema:

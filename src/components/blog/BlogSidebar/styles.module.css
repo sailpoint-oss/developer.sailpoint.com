@@ -6,11 +6,11 @@
 
 .toggleContainer {
   margin: auto;
-  width: 31%;
+  /* width: 31%; */
   margin-bottom: 3%;
 }
 
-@media screen and (max-width: 2100px) {
+/* @media screen and (max-width: 2100px) {
   .toggleContainer {
     width: 43%;
   }
@@ -20,7 +20,7 @@
   .toggleContainer {
     width: 82%;
   }
-}
+} */
 
 .title {
   margin-left: 2%;
@@ -230,10 +230,6 @@
 @media only screen and (max-width: 550px) {
   .toggleTextLeft {
     font-size: 14px;
-  }
-
-  .toggleContainer {
-    width: 45%;
   }
 
   .toggleWrapper {

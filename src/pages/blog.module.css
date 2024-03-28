@@ -4,20 +4,11 @@
 
 .blogSidbarContainer {
   margin: auto;
-  width: 50%;
+  width: 400px;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 500px) {
   .blogSidbarContainer {
-    width: 100%;
+    width: 325px;
   }
 }
-
-@media screen and (max-width: 700px) {
-  .blogSidbarContainer {
-    width: 50%;
-    margin-right: 50%;
-  }
-}
-
-

@@ -67,13 +67,13 @@
 
 .spinnerCenterMultiple {
   position: absolute;
-  left: 1250px;
+  left: 50%;
 }
 
 .spinnerCenterSingle {
   position: absolute;
   top: 300px;
-  left: 1250px;
+  left: 50%;
 }
 
 @media only screen and (max-width: 2100px) {
@@ -85,10 +85,7 @@
     display: none;
   }
 
-  .spinnerCenterMultiple,
-  .spinnerCenterSingle {
-    left: 930px;
-  }
+
 }
 
 @media only screen and (max-width: 1400px) {
@@ -98,10 +95,6 @@
   .gridContainer > a:nth-child(4),
   .gridContainer > a:nth-child(5) {
     display: none;
-  }
-  .spinnerCenterMultiple,
-  .spinnerCenterSingle {
-    left: 465px;
   }
 }
 
@@ -119,10 +112,6 @@
   }
   .gridContainer::after {
     display: none;
-  }
-  .spinnerCenterMultiple,
-  .spinnerCenterSingle {
-    left: 270px;
   }
 }
 
@@ -152,11 +141,9 @@
     margin-right: 50%;
   }
 
-  .spinnerCenterMultiple,
-  .spinnerCenterSingle {
-    left: 200px;
+  .spinnerCenterMultiple, .spinnerCenterSingle {
+    left: 43%;
   }
-
   .noFound {
     width: 350px;
     position: absolute;

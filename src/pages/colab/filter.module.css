@@ -4,20 +4,13 @@
 
 .filterContainer {
   margin: auto;
-  width: 50%;
+  width: 400px;
   margin-top: 3%;
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 550px) {
   .filterContainer {
-    width: 100%;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .filterContainer {
-    width: 50%;
-    margin-right: 50%;
+    width: 325px;
   }
 }
 

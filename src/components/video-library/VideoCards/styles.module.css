@@ -90,24 +90,16 @@
 
 .spinnerCenter {
   position: absolute;
-  left: 1250px;
+  left: 50%;
   top: 300px;
 }
 
-@media only screen and (max-width: 2100px) {
-  .spinnerCenter {
-    left: 930px;
+@media only screen and (max-width: 550px) {
+  .center {
+    width: 100%;
   }
-}
 
-@media only screen and (max-width: 1400px) {
   .spinnerCenter {
-    left: 465px;
-  }
-}
-
-@media only screen and (max-width: 1100px) {
-  .spinnerCenter {
-    left: 270px;
+    left: 43%;
   }
 }

@@ -1,0 +1,35 @@
+.tag {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--dev-secondary-text);
+  text-align: center;
+  margin-right: 0.5%;
+  margin-top: 0.5%;
+  padding: 1%;
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--dev-text-color-normal);
+  transition: background-color 500ms;
+  border-radius: 0.5rem;
+}
+
+.tagSelected {
+  font-size: 13px;
+  font-weight: 300;
+  background-color: var(--dev-secondary-text);
+  color: var(--dev-card-background);
+  text-align: center;
+  margin-right: 0.5%;
+  margin-top: 0.5%;
+  padding: 1%;
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--dev-text-color-normal);
+  transition: background-color 500ms;
+}
+
+.tag:hover {
+  cursor: pointer;
+  background-color: var(--dev-text-color-normal);
+  color: var(--dev-card-background);
+}

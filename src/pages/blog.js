@@ -15,26 +15,29 @@ export default function Blog() {
   const {siteConfig} = useDocusaurusContext();
 
   const handleClick = (data) => {
-    var tempFilter = filteredProduct.slice()
+    var tempFilter = [];
 
     const index = tempFilter.indexOf(data);
     if (index !== -1) {
       tempFilter.splice(index, 1);
     } else {
-      tempFilter.push(data)
+      tempFilter.push(data);
     }
 
-    setFilteredProduct(tempFilter)
+    setFilteredProduct(tempFilter);
   };
   return (
     <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
-      <main>
-      <BlogBanner />
-      <div className={styles.blogContainer}>
-          <div className={styles.blogSidbarContainer}><BlogSidebar filterCallback={handleClick}/></div>
-          <div className={styles.blogCardContainer}><BlogCards filterCallback={filteredProduct}/></div>
-      </div>
-      
+      <main className={styles.main}>
+        <BlogBanner />
+        <div className={styles.blogContainer}>
+          <div className={styles.blogSidbarContainer}>
+            <BlogSidebar filterCallback={handleClick} />
+          </div>
+          <div className={styles.blogCardContainer}>
+            <BlogCards filterCallback={filteredProduct} />
+          </div>
+        </div>
       </main>
     </Layout>
   );

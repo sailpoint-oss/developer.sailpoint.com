@@ -1,0 +1,20 @@
+.colabContainer {
+  min-height: 600px;
+}
+
+.filterContainer {
+  margin: auto;
+  width: 400px;
+  margin-top: 3%;
+}
+
+@media screen and (max-width: 550px) {
+  .filterContainer {
+    width: 325px;
+  }
+}
+
+.cardContainer {
+  width: 63%;
+  margin: auto;
+}

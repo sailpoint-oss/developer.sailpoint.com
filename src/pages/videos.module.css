@@ -1,4 +1,9 @@
-.colabTitle {
+.videosCardContainer {
+  flex: 95%;
+  min-height: 600px;
+}
+
+.videosTitle {
   text-align: center;
   margin-bottom: 2%;
   color: #ffffff;

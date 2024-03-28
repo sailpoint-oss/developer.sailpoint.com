@@ -1,0 +1,11 @@
+.videoPlayer {
+  width: 40%;
+  height: 40%;
+  align-content: center;
+  margin: auto;
+}
+
+.discourseContainer {
+  border-radius: 0.5em;
+  height: 400px;
+}

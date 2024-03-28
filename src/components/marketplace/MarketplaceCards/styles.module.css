@@ -1,27 +1,13 @@
 /* Getting Started Card container */
 .gridContainer {
-  display: flex;
-  /* place-content: center; */
-  flex-wrap: wrap;
-  gap: 40px;
-  margin-left: 40px;
-  margin-right: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 23px;
 }
 .gridContainer::after {
-  content: "";
+  content: '';
   flex: auto;
 }
-
-@media only screen and (max-width: 870px) {
-  .gridContainer {
-    place-content: center;
-  }
-  .gridContainer::after {
-    display: none;
-  }
-}
-
-
 
 .center {
   margin: 0px auto;
@@ -39,9 +25,6 @@
   padding: 8px;
   margin: 50px;
 }
-
-
-
 
 .modal {
   position: absolute;
@@ -61,20 +44,18 @@
   overflow-y: auto;
 }
 
-
-
-
 .cardExit {
   position: absolute;
   top: 6px;
   right: 6px;
   fill: #96a9bb;
   /* computed from codepen https://codepen.io/sosuke/pen/Pjoqqp */
-  filter: invert(79%) sepia(12%) saturate(484%) hue-rotate(168deg) brightness(84%) contrast(84%);
+  filter: invert(79%) sepia(12%) saturate(484%) hue-rotate(168deg)
+    brightness(84%) contrast(84%);
   margin-left: 5px;
   height: 24px;
   width: 24px;
-  transition: all  0.2s;
+  transition: all 0.2s;
 }
 
 .cardExit:hover {
@@ -84,9 +65,88 @@
   width: 23px;
 }
 
+.spinnerCenterMultiple {
+  position: absolute;
+  left: 50%;
+}
 
-.spinnerCenter {
-  margin: 100px auto;
-  max-width: 1300px;
-  margin-bottom: 50px;
+.spinnerCenterSingle {
+  position: absolute;
+  top: 300px;
+  left: 50%;
+}
+
+@media only screen and (max-width: 2100px) {
+  .gridContainer {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .gridContainer > a:nth-child(5) {
+    display: none;
+  }
+
+
+}
+
+@media only screen and (max-width: 1400px) {
+  .gridContainer {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .gridContainer > a:nth-child(4),
+  .gridContainer > a:nth-child(5) {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .gridContainer {
+    grid-template-columns: 1fr 1fr;
+  }
+  .gridContainer > a:nth-child(3),
+  .gridContainer > a:nth-child(4),
+  .gridContainer > a:nth-child(5) {
+    display: none;
+  }
+  .gridContainer {
+    place-content: center;
+  }
+  .gridContainer::after {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .gridContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .gridContainer > a:nth-child(2),
+  .gridContainer > a:nth-child(3),
+  .gridContainer > a:nth-child(4),
+  .gridContainer > a:nth-child(5) {
+    display: none;
+  }
+  .gridContainer {
+    place-content: center;
+  }
+  .gridContainer::after {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .center {
+    margin: auto;
+    margin-left: 50%;
+    margin-right: 50%;
+  }
+
+  .spinnerCenterMultiple, .spinnerCenterSingle {
+    left: 43%;
+  }
+  .noFound {
+    width: 350px;
+    position: absolute;
+    left: 10px;
+  }
 }

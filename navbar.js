@@ -37,6 +37,11 @@ module.exports = {
       to: 'https://developer.sailpoint.com/discuss/',
     },
     {
+      position: 'left',
+      label: 'Videos',
+      to: '/videos',
+    },
+    {
       type: 'dropdown',
       label: 'Support',
       position: 'right',

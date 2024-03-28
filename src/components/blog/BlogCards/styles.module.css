@@ -1,21 +1,22 @@
 /* Getting Started Card container */
 .gridContainer {
-  display: grid;
-  place-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(345px, 1fr));
-  grid-gap: 40px;
-  margin-left: 40px;
-  margin-right: 40px;
+  display: flex;
+  /* place-content: center; */
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  flex-wrap: wrap;
+  gap: 23px;
+  width: 1500px;
+  min-height: 600px;
+}
+.gridContainer::after {
+  content: '';
+  flex: auto;
 }
 
 .center {
   margin: 0px auto;
-  max-width: 1300px;
   margin-bottom: 50px;
-}
-
-.space {
-  height: 200px;
+  width: 55%;
 }
 
 .noFound {
@@ -26,10 +27,68 @@
   margin: 50px;
 }
 
-
-
 .spinnerCenter {
-  margin: 100px auto;
-  max-width: 1300px;
-  margin-bottom: 50px;
+  position: absolute;
+  left: 48%;
+  top: 300px;
+}
+
+@media only screen and (max-width: 2100px) {
+  .gridContainer {
+    width: 1200px;
+  }
+
+  .center {
+    width: 62%;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .gridContainer {
+    width: 900px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .gridContainer {
+    width: 600px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .gridContainer {
+    width: 300px;
+  }
+
+  .spinnerCenter {
+    left: 45%;
+  }
+
+  .center {
+    width: 39%;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .gridContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0px;
+    margin-left: 0px;
+    margin-top: -5%;
+  }
+
+  .spinnerCenter {
+    left: 43%;
+  }
+
+  .center {
+    width: 60%;
+  }
+
+  .noFound {
+    width: 350px;
+    position: absolute;
+    left: 10px;
+  }
 }

@@ -11,8 +11,8 @@ module.exports = {
       label: 'Documentation',
       position: 'left',
       items: [
-        {to: '/docs', label: 'Identity Security Cloud'},
-        {to: '/docs/iiq', label: 'IdentityIQ'},
+        {label: 'Identity Security Cloud', to: '/docs'},
+        {label: 'IdentityIQ', to: '/docs/iiq'},
       ],
     },
 

@@ -22,16 +22,16 @@ module.exports = {
       position: 'left',
       items: [
         {
-          label: 'Forum',
+          label: 'Developer Forum',
           to: 'https://developer.sailpoint.com/discuss/',
         },
         {
-          label: 'CoLab',
+          label: 'CoLab Marketplace',
           to: '/colab',
         },
 
         {
-          label: 'Blog',
+          label: 'Developer Blog',
           to: '/blog',
         },
         {

@@ -40,6 +40,15 @@ export default function Marketplace() {
     <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
       <main>
         <MarketplaceBanner />
+        <div className={styles.description}>
+          <div className={styles.heroCard}>
+            <h4>
+              Welcome to the CoLab. Here you can find ready-to-use Workflows,
+              SaaS Connectors, Rules, Transforms, IIQ Plugins, and more built
+              and maintained by your fellow peers in the community.
+            </h4>
+          </div>
+        </div>
         <div className={styles.container}>
           <div>
             <div className={styles.cardContainer}>
@@ -49,7 +58,11 @@ export default function Marketplace() {
                   View All &#8594;
                 </Link>
               </div>
-              <MarketplaceCards filterCallback={workflows} limit={5} multiple={true}/>
+              <MarketplaceCards
+                filterCallback={workflows}
+                limit={5}
+                multiple={true}
+              />
             </div>
 
             <div className={styles.cardContainer}>
@@ -59,7 +72,11 @@ export default function Marketplace() {
                   View All &#8594;
                 </Link>
               </div>
-              <MarketplaceCards filterCallback={saas} limit={5} multiple={true}/>
+              <MarketplaceCards
+                filterCallback={saas}
+                limit={5}
+                multiple={true}
+              />
             </div>
 
             <div className={styles.cardContainer}>
@@ -69,7 +86,11 @@ export default function Marketplace() {
                   View All &#8594;
                 </Link>
               </div>
-              <MarketplaceCards filterCallback={communityTools} limit={5} multiple={true}/>
+              <MarketplaceCards
+                filterCallback={communityTools}
+                limit={5}
+                multiple={true}
+              />
             </div>
 
             <div className={styles.cardContainer}>
@@ -79,7 +100,11 @@ export default function Marketplace() {
                   View All &#8594;
                 </Link>
               </div>
-              <MarketplaceCards filterCallback={rules} limit={5} multiple={true}/>
+              <MarketplaceCards
+                filterCallback={rules}
+                limit={5}
+                multiple={true}
+              />
             </div>
 
             <div className={styles.cardContainer}>
@@ -89,7 +114,11 @@ export default function Marketplace() {
                   View All &#8594;
                 </Link>
               </div>
-              <MarketplaceCards filterCallback={transforms} limit={5} multiple={true}/>
+              <MarketplaceCards
+                filterCallback={transforms}
+                limit={5}
+                multiple={true}
+              />
             </div>
 
             <div className={styles.cardContainer}>
@@ -99,7 +128,11 @@ export default function Marketplace() {
                   View All &#8594;
                 </Link>
               </div>
-              <MarketplaceCards filterCallback={plugins} limit={5} multiple={true}/>
+              <MarketplaceCards
+                filterCallback={plugins}
+                limit={5}
+                multiple={true}
+              />
             </div>
           </div>
         </div>

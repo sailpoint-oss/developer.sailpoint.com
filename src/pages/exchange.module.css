@@ -2,10 +2,36 @@
   min-height: 400px;
 }
 
+.heroCard {
+  position: relative;
+  padding: 2%;
+  padding-bottom: 0%;
+  /* UI Properties */
+  background: var(--dev-card-background);
+  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color),
+    0 1px 2px -1px var(--tw-shadow-color);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 transparent, 0 0 transparent, 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  border: 1px solid var(--dev-card-background);
+  opacity: 1;
+  transition: all  0.3s;
+  opacity: 1;
+}
+
+
 .container {
   display: flex;
   width: 56%;
   margin: auto;
+}
+
+.description {
+  margin: auto;
+  width: 60%;
 }
 
 @media only screen and (max-width: 2100px) {

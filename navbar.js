@@ -7,38 +7,51 @@ module.exports = {
   },
   items: [
     {
+      type: 'dropdown',
+      label: 'Documentation',
       position: 'left',
-      label: 'Identity Security Cloud',
-      to: '/docs',
+      items: [
+        {to: '#', label: 'Identity Security Cloud', className: 'navbar__section'},
+        {
+          label: 'Developer Docs',
+          to: '/docs',
+        },
+        {
+          label: 'API Specifications',
+          to: '/docs/api',
+        },
+        {to: '#', label: 'IdentityIQ', className: 'navbar__section'},
+        {label: 'API Specifications', to: '/docs/iiq'},
+      ],
+    },
+
+    {
+      type: 'dropdown',
+      label: 'Community',
+      position: 'left',
+      items: [
+        {
+          label: 'Forum',
+          to: 'https://developer.sailpoint.com/discuss/',
+        },
+        {
+          label: 'CoLab',
+          to: '/colab',
+        },
+
+        {
+          label: 'Blog',
+          to: '/blog',
+        },
+        {
+          label: 'Ambassador Program',
+          to: '/ambassadors',
+        },
+      ],
     },
     {
       position: 'left',
-      label: 'IdentityIQ',
-      to: '/docs/iiq',
-    },
-    {
-      position: 'left',
-      label: 'CoLab',
-      to: '/colab',
-    },
-    {
-      position: 'left',
-      label: 'Blog',
-      to: '/blog',
-    },
-    {
-      position: 'left',
-      label: 'Ideas',
-      to: 'https://ideas.sailpoint.com',
-    },
-    {
-      position: 'left',
-      label: 'Discuss',
-      to: 'https://developer.sailpoint.com/discuss/',
-    },
-    {
-      position: 'left',
-      label: 'Videos',
+      label: 'Video Library',
       to: '/videos',
     },
     {

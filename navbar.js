@@ -11,17 +11,8 @@ module.exports = {
       label: 'Documentation',
       position: 'left',
       items: [
-        {to: '#', label: 'Identity Security Cloud', className: 'navbar__section'},
-        {
-          label: 'Developer Docs',
-          to: '/docs',
-        },
-        {
-          label: 'API Specifications',
-          to: '/docs/api',
-        },
-        {to: '#', label: 'IdentityIQ', className: 'navbar__section'},
-        {label: 'API Specifications', to: '/docs/iiq'},
+        {to: '/docs', label: 'Identity Security Cloud'},
+        {to: '/docs/iiq', label: 'IdentityIQ'},
       ],
     },
 

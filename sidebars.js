@@ -12,7 +12,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'API Specifications',
-          collapsible: true,
+          collapsible: false,
           link: {
             type: 'doc',
             id: 'api/api-specifications',
@@ -218,6 +218,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'API Specifications',
+          collapsible: false,
           link: {
             type: 'generated-index',
             title: 'API Specifications',

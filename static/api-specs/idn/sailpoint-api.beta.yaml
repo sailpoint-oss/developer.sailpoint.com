@@ -183,6 +183,11 @@ tags:
       Administrators can select the source account to view its attributes, entitlements, and the last time the account's password was changed.
 
       Refer to [Managing User Accounts](https://documentation.sailpoint.com/saas/help/common/users/user_access.html#managing-user-accounts) for more information about accounts.
+  - name: Auth Profile
+    description: |
+      Auth Profile - Represents authentication configuration for an Identity Profile. This object gets created when an Identity Profile is created.
+
+      APIs can be used to retrieve and update Auth Profiles.
   - name: Certification Campaigns
     description: |
       Use this API to implement certification campaign functionality.

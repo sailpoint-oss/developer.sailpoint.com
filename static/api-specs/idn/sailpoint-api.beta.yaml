@@ -1130,6 +1130,8 @@ paths:
     $ref: './beta/paths/accounts-id-disable.yaml'
   /accounts/{id}/unlock:
     $ref: './beta/paths/accounts-id-unlock.yaml'
+  /accounts/{id}/remove:
+    $ref: './beta/paths/remove-account.yaml'
   /identities-accounts/{id}/enable:
     $ref: './beta/paths/identity-accounts-id-enable.yaml'
   /identities-accounts/{id}/disable:
@@ -1554,6 +1556,8 @@ paths:
     $ref: './v3/paths/provisioning-policy.yaml'
   /sources/{sourceId}/provisioning-policies/bulk-update:
     $ref: './v3/paths/provisioning-policies-bulk-update.yaml'
+  /sources/{id}/remove-accounts:
+    $ref: './beta/paths/remove-accounts.yaml'
   /sources/{sourceId}/schemas:
     $ref: './beta/paths/schemas.yaml'
   /sources/{sourceId}/schemas/{schemaId}:

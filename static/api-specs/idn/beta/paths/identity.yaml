@@ -8,6 +8,7 @@ get:
   security:
     - UserContextAuth:
       - "idn:identity:read"
+      - "idn:identity:manage"
   parameters:
     - in: path
       name: id

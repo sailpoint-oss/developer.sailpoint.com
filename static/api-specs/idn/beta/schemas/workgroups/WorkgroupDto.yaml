@@ -1,8 +1,21 @@
 type: object
 properties:
   owner:
-    $ref: '../../../v3/schemas/OwnerDto.yaml'
-    description: Governance group owner. 
+    allOf:
+      - $ref: '../../../v3/schemas/OwnerDto.yaml'
+      - type: object
+        properties:
+          displayName:
+            readOnly: true
+            description: The display name of the identity
+            type: string
+            example: Support
+          emailAddress:
+            readOnly: true
+            description: The primary email address of the identity
+            type: string
+            example: support@sailpoint.com
+        description: Governance group owner. 
   id:
     type: string
     description: Governance group ID. 

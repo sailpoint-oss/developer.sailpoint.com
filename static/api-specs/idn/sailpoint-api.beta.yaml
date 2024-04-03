@@ -183,6 +183,11 @@ tags:
       Administrators can select the source account to view its attributes, entitlements, and the last time the account's password was changed.
 
       Refer to [Managing User Accounts](https://documentation.sailpoint.com/saas/help/common/users/user_access.html#managing-user-accounts) for more information about accounts.
+  - name: Auth Profile
+    description: |
+      Auth Profile - Represents authentication configuration for an Identity Profile. This object gets created when an Identity Profile is created.
+
+      APIs can be used to retrieve and update Auth Profiles.
   - name: Certification Campaigns
     description: |
       Use this API to implement certification campaign functionality.
@@ -972,6 +977,18 @@ tags:
   - name: Workflows
     description: |
       Workflows allow administrators to create custom automation scripts directly within IdentityNow.  These automation scripts respond to [event triggers](https://developer.sailpoint.com/idn/docs/event-triggers#how-to-get-started-with-event-triggers) and perform a series of actions to perform tasks that are either too cumbersome or not available in the IdentityNow UI.  Workflows can be configured via a graphical user interface within IdentityNow, or by creating and uploading a JSON formatted script to the Workflow service.  The Workflows API collection provides the necessary functionality to create, manage, and test your workflows via REST.
+  - name: Manual Discover Applications
+    description: |
+      Use this API to manually upload application names to be correlated to an IDN connector.
+  - name: Manual Discover Applications Template
+    description: |
+      Use this API to download the CSV template to send to the application discovery service.
+  - name: Discovered Applications
+    description: |
+      Use this API to retrieve all the available discovered apps for a given tenant id.
+  - name: Vendor Connector Mappings
+    description: |
+      Use this API to manage mappings between various SaaS vendors and IdentityNow (IDN) connectors.
   - name: Icons
     description: |
       Use this API to implement functionality related to object icons (application icons for example). 
@@ -1125,6 +1142,8 @@ paths:
     $ref: './beta/paths/accounts-id-disable.yaml'
   /accounts/{id}/unlock:
     $ref: './beta/paths/accounts-id-unlock.yaml'
+  /accounts/{id}/remove:
+    $ref: './beta/paths/remove-account.yaml'
   /identities-accounts/{id}/enable:
     $ref: './beta/paths/identity-accounts-id-enable.yaml'
   /identities-accounts/{id}/disable:
@@ -1549,6 +1568,8 @@ paths:
     $ref: './v3/paths/provisioning-policy.yaml'
   /sources/{sourceId}/provisioning-policies/bulk-update:
     $ref: './v3/paths/provisioning-policies-bulk-update.yaml'
+  /sources/{id}/remove-accounts:
+    $ref: './beta/paths/remove-accounts.yaml'
   /sources/{sourceId}/schemas:
     $ref: './beta/paths/schemas.yaml'
   /sources/{sourceId}/schemas/{schemaId}:
@@ -1729,5 +1750,13 @@ paths:
     $ref: "./beta/paths/account-usages.yaml"
   /access-request-identity-metrics/{identityId}/requested-objects/{requestedObjectId}/type/{type}:
     $ref: "./beta/paths/access-request-identity-metrics.yaml"
+  /manual-discover-applications:
+    $ref: "./beta/paths/manual-discover-applications.yaml"
+  /manual-discover-applications-template:
+    $ref: "./beta/paths/manual-discover-applications-template.yaml"
+  /discovered-applications:
+    $ref: "./beta/paths/discovered-applications.yaml"
+  /vendor-connector-mappings:
+    $ref: "./beta/paths/vendor-connector-mappings.yaml"
   /icons/{objectType}/{objectId}:
     $ref: './beta/paths/icon.yaml'

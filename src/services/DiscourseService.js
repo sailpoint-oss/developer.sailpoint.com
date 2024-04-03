@@ -57,9 +57,9 @@ export async function checkImage(url) {
 export async function getBlogPosts(tags) {
   let url = '';
   if (tags) {
-    url = discourseBaseURL() + 'c/blog/community-blog/l/latest.json?tags=' + tags;
+    url = discourseBaseURL() + 'c/content/community-blog/l/latest.json?tags=' + tags;
   } else {
-    url = discourseBaseURL() + 'c/blog/community-blog/l/latest.json';
+    url = discourseBaseURL() + 'c/content/community-blog/l/latest.json';
   }
   try {
     const response = await fetch(url);

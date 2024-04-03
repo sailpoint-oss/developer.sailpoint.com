@@ -84,9 +84,9 @@ export async function getUserTitle(primary_group_name) {
 export async function getVideoPosts(tags) {
   let url = '';
   if (tags) {
-    url = discourseBaseURL() + 'c/blog/video-library/l/latest.json?tags=' + tags;
+    url = discourseBaseURL() + 'c/content/video-library/l/latest.json?tags=' + tags;
   } else {
-    url = discourseBaseURL() + 'c/blog/video-library/l/latest.json';
+    url = discourseBaseURL() + 'c/content/video-library/l/latest.json';
   }
   try {
     const response = await fetch(url);

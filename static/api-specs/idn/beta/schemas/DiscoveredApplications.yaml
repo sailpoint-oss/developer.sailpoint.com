@@ -1,0 +1,45 @@
+type: array
+description: An array of discovered applications for a given tenant
+example:
+  - id: "app-123"
+    name: "ExampleApp"
+    discoverySource: "CSV"
+    discoveredVendor: "ExampleVendor"
+    description: "An application for managing examples."
+    recommendedConnectors: ["ConnectorA", "ConnectorB"]
+    discoveredTimestamp: "2023-01-01T12:00:00Z"
+items:
+  type: object
+  properties:
+    id:
+      type: string
+      format: uuid
+      description: Unique identifier for the discovered application.
+      example: 2d9180835d2e5168015d32f890ca1581
+    name:
+      type: string
+      description: Name of the discovered application.
+      example: "ExampleApp"
+    discoverySource:
+      type: string
+      description: Source from which the application was discovered.
+      example: "CSV"
+    discoveredVendor:
+      type: string
+      description: The vendor associated with the discovered application.
+      example: "ExampleVendor"
+    description:
+      type: string
+      description: A brief description of the discovered application.
+      example: "An application for managing examples."
+    recommendedConnectors:
+      type: array
+      items:
+        type: string
+      description: List of recommended connectors for the application.
+      example: ["ConnectorA", "ConnectorB"]
+    discoveredTimestamp:
+      type: string
+      format: date-time
+      description: The timestamp when the application was discovered, in ISO 8601 format.
+      example: "2023-01-01T12:00:00Z"

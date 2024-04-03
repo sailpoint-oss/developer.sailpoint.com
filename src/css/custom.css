@@ -256,6 +256,7 @@
   --dropdown-background: #ffffff;
 
   /*card css*/
+  --dev-card-border: #dadce0;
   --dev-card-background: #e9e9e963;
   --dev-tag-selected-text: #ffffffef;
   --dev-popup-background: #fdfdfd;
@@ -303,6 +304,7 @@
   --dropdown-background: #2a2b2d;
 
   /*card css*/
+  --dev-card-border: rgba(218,220,224,0.3);
   --dev-new-car-background: #2a2b2d;
   --dev-card-background: #2a2b2d;
   --dev-popup-background: #2a2b2d;

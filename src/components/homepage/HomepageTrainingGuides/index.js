@@ -16,7 +16,7 @@ export default function HomepageTrainingGuides() {
           product={'isc'}
           link={'/docs/extensibility/transforms/guides/your-first-transform'}
           title={'Build a Transform'}
-          image={'/homepage/flow-chart.svg'}></HomepageCard>
+          image={'/homepage/process.svg'}></HomepageCard>
         <HomepageCard
           product={'isc'}
           link={'/docs/connectivity/saas-connectivity'}

@@ -23,15 +23,17 @@ export default function HomepageGettingStarted() {
           </div>
           <div className={styles.gridContainer}>
             <HomepageCard
+              isThemedImage={true}
               link={'/docs'}
               title={'Get Started with Identity Security Cloud'}
-              image={'/homepage/SailPointIdentitySecurityCloud.png'}></HomepageCard>
+              image={'/homepage/SailPointIdentitySecurityCloud.svg'}></HomepageCard>
             <HomepageCard
               link={
                 'https://documentation.sailpoint.com/identityiq/help/iiqlandingpage.html'
               }
               title={'Get Started with IdentityIQ'}
-              image={'/homepage/IdentityIQ.png'}></HomepageCard>
+              image={'/homepage/IdentityIQ.svg'}
+              isThemedImage={true}></HomepageCard>
           </div>
         </div>
         <div className={styles.carousel}>

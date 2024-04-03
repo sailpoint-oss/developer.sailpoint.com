@@ -4,6 +4,8 @@ import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import ThemedImage from '@theme/ThemedImage';
 import {addDarkToFileName} from '../../../util/util';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faSquareCheck, faEye} from '@fortawesome/pro-duotone-svg-icons';
 export default function DiscussCard({
   link,
   title,
@@ -20,12 +22,11 @@ export default function DiscussCard({
   let linkText = <div className={styles.linkText}>Join the Discussion</div>;
   if (solution) {
     solved = (
-      <ThemedImage
+      <FontAwesomeIcon
+        icon={faSquareCheck}
         className={styles.cardSolved}
-        sources={{
-          light: useBaseUrl('/homepage/solved.png'),
-          dark: useBaseUrl(addDarkToFileName('/homepage/solved.png')),
-        }}></ThemedImage>
+        size="lg"
+      />
     );
     linkText = <div className={styles.linkSolvedText}>View the Solution</div>;
   }
@@ -44,12 +45,7 @@ export default function DiscussCard({
             light: useBaseUrl('/homepage/arrow-right.png'),
             dark: useBaseUrl('/homepage/arrow-right-dark.png'),
           }}></ThemedImage>
-        <ThemedImage
-          className={styles.cardEye}
-          sources={{
-            light: useBaseUrl('/homepage/eyeball.png'),
-            dark: useBaseUrl(addDarkToFileName('/homepage/eyeball.png')),
-          }}></ThemedImage>
+        <FontAwesomeIcon icon={faEye} className={styles.cardEye} size="lg" />
         <img
           className={styles.cardLiked}
           src={useBaseUrl('/homepage/liked.png')}></img>
@@ -64,7 +60,11 @@ export default function DiscussCard({
             if (index > 2) {
               return '';
             }
-            return <div key={tag} className={styles.tag}>{tag}</div>;
+            return (
+              <div key={tag} className={styles.tag}>
+                {tag}
+              </div>
+            );
           })}
         </div>
       </div>

@@ -28,7 +28,8 @@ export default function HomepageTrainingGuides() {
             'https://documentation.sailpoint.com/identityiq/help/plugins/identityiq_plugins.html'
           }
           title={'Build an IIQ Plugin'}
-          image={'/homepage/puzzle.svg'}></HomepageCard>
+          image={'/homepage/puzzle.svg'}
+          isThemedImage={true}></HomepageCard>
       </div>
     </div>
   );

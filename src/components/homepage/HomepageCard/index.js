@@ -13,7 +13,14 @@ export default function HomepageCard({link, title, image, product}) {
       <div className={styles.card}>
         {image && (
           <>
-            <img className={styles.cardIcon} src={useBaseUrl(image)} />
+            <ThemedImage
+              className={styles.cardIcon}
+              sources={{
+                light: useBaseUrl(image),
+                dark: useBaseUrl(addDarkToFileName(image)),
+              }}
+            />
+
             <ThemedImage
               className={styles.cardArrow}
               sources={{

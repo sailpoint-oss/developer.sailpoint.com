@@ -7,7 +7,7 @@ import Link from '@docusaurus/Link';
 export default function BlogBanner() {
   return (
     <div className={styles.titleContainer}>
-      <h1 className={styles.blogTitle}>Blog</h1>
+      {/* <h1 className={styles.blogTitle}>Blog</h1> */}
     </div>
   );
 }

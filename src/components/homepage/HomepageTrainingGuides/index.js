@@ -11,24 +11,24 @@ export default function HomepageTrainingGuides() {
           product={'isc'}
           link={'/docs/api/getting-started'}
           title={'Make Your First API Call'}
-          image={'/homepage/cloud.png'}></HomepageCard>
+          image={'/homepage/cloud-data.svg'}></HomepageCard>
         <HomepageCard
           product={'isc'}
           link={'/docs/extensibility/transforms/guides/your-first-transform'}
           title={'Build a Transform'}
-          image={'/homepage/cloud.png'}></HomepageCard>
+          image={'/homepage/flow-chart.svg'}></HomepageCard>
         <HomepageCard
           product={'isc'}
           link={'/docs/connectivity/saas-connectivity'}
           title={'Build a SaaS Connector'}
-          image={'/homepage/cloud.png'}></HomepageCard>
+          image={'/homepage/connectivity.svg'}></HomepageCard>
         <HomepageCard
           product={'iiq'}
           link={
             'https://documentation.sailpoint.com/identityiq/help/plugins/identityiq_plugins.html'
           }
           title={'Build an IIQ Plugin'}
-          image={'/homepage/cloud.png'}></HomepageCard>
+          image={'/homepage/puzzle.svg'}></HomepageCard>
       </div>
     </div>
   );

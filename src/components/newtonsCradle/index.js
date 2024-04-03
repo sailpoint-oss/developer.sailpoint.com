@@ -5,10 +5,18 @@ export default function NewtonsCradle() {
   return (
     <>
       <div className={Styles.container}>
-        <div className={Styles.dot}></div>
-        <div className={Styles.dot}></div>
-        <div className={Styles.dot}></div>
-        <div className={Styles.dot}></div>
+        <div className={Styles.line}></div>
+        <div className={Styles.line}></div>
+        <div className={Styles.line}></div>
+        <div className={Styles.line}></div>
+        <div className={Styles.line}></div>
+        <div className={Styles.line}></div>
+        <div className={Styles.line}></div>
+        <div className={Styles.line}></div>
+        <div className={Styles.line}></div>
+        <div className={Styles.line}></div>
+        <div className={Styles.line}></div>
+        <div className={Styles.line}></div>
       </div>
     </>
   );

@@ -1,17 +1,16 @@
 /* Getting Started Card container */
 .gridContainer {
-  display: grid;
-  place-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 40px;
-  margin-left: 40px;
-  margin-right: 40px;
+  width: 1800px;
 }
 
 .center {
   margin: 0px auto;
-  max-width: 1300px;
   margin-bottom: 50px;
+  width: 70%;
 }
 
 .space {
@@ -26,10 +25,61 @@
   margin: 50px;
 }
 
-
-
 .spinnerCenter {
-  margin: 100px auto;
-  max-width: 1300px;
+  margin: auto;
+  width: 4%;
   margin-bottom: 50px;
+}
+
+@media only screen and (max-width: 2100px) {
+  .gridContainer {
+    width: 1500px;
+  }
+
+  .spinnerCenter {
+    width: 5%;
+  }
+}
+
+@media only screen and (max-width: 1500px) {
+  .gridContainer {
+    width: 1200px;
+  }
+
+  .spinnerCenter {
+    width: 6%;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .gridContainer {
+    width: 600px;
+  }
+
+  .center {
+    width: 50%;
+  }
+
+  .spinnerCenter {
+    width: 10%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .center {
+    width: 77%;
+  }
+  .spinnerCenter {
+    width: 15%;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .center {
+    width: 93%;
+  }
+
+  .spinnerCenter {
+    width: 20%;
+  }
 }

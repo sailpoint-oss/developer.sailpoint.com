@@ -11,18 +11,18 @@ export default function HomepageCard({link, title, image, product}) {
   return (
     <Link to={link}>
       <div className={styles.card}>
-        <ThemedImage
-          className={styles.cardIcon}
-          sources={{
-            light: useBaseUrl(image),
-            dark: useBaseUrl(addDarkToFileName(image)),
-          }}></ThemedImage>
-        <ThemedImage
-          className={styles.cardArrow}
-          sources={{
-            light: useBaseUrl('/homepage/arrow-right.png'),
-            dark: useBaseUrl('/homepage/arrow-right-dark.png'),
-          }}></ThemedImage>
+        {image && (
+          <>
+            <img className={styles.cardIcon} src={useBaseUrl(image)} />
+            <ThemedImage
+              className={styles.cardArrow}
+              sources={{
+                light: useBaseUrl('/homepage/arrow-right.png'),
+                dark: useBaseUrl('/homepage/arrow-right-dark.png'),
+              }}
+            />
+          </>
+        )}
         <div className={styles.cardText}>{title}</div>
         <div className={`${styles.product} ${productStyles}`}>{product}</div>
       </div>

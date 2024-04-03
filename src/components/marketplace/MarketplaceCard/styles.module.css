@@ -17,6 +17,7 @@
     0 1px 2px -1px rgba(0, 0, 0, 0.1);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
     var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  border: 1px solid #dadce0;
 }
 
 .card:hover {
@@ -131,8 +132,8 @@
 .cardBadgeCertified {
   position: absolute;
   width: 250px;
-  left: 230px;
-  top: 93px;
+  left: 225px;
+  bottom: 10px;
   color: var(--dev-text-color-secondary);
 }
 

@@ -91,7 +91,7 @@
 .spinnerCenter {
   position: absolute;
   left: 50%;
-  top: 300px;
+  top: 725px;
 }
 
 @media only screen and (max-width: 550px) {

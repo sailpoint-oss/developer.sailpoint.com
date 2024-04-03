@@ -3,6 +3,7 @@ import styles from './styles.module.css';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 export default function BlogCard({
+  featured,
   link,
   title,
   tags,
@@ -17,16 +18,16 @@ export default function BlogCard({
 }) {
   return (
     <Link to={link}>
-      <div className={styles.card}>
+      <div className={featured ? styles.featuredCard : styles.card}>
         <div className={styles.cardText}>
-          <img className={styles.cardImage} src={useBaseUrl(image)}></img>
+          <img className={featured ? styles.featuredCardImage : styles.cardImage} src={useBaseUrl(image)}></img>
           <div className={styles.split}></div>
 
-          <div className={styles.cardTitle}>{title}</div>
+          <div className={featured ? styles.featuredCardTitle : styles.cardTitle}>{title}</div>
 
           <div className={styles.cardUser}>
             <img
-              className={styles.cardFace}
+              className={featured ? styles.featuredCardFace : styles.cardFace}
               src={useBaseUrl(creatorImage)}></img>
 
             <div className={styles.cardName}>{name}</div>

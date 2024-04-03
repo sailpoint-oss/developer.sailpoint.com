@@ -17,6 +17,37 @@
     0 1px 2px -1px rgba(0, 0, 0, 0.1);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
     var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  border: 1px solid #dadce0;
+}
+
+.featuredCard {
+  position: relative;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  opacity: 1;
+  transition: all 0.3s;
+  width: 500px;
+  height: 535px;
+  background: var(--dev-new-car-background);
+  border-radius: 0.5rem;
+  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color),
+    0 1px 2px -1px var(--tw-shadow-color);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 transparent, 0 0 transparent, 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  border: 1px solid #dadce0;
+}
+
+.featuredCardImage {
+  overflow: hidden;
+  position: relative;
+  width: 500px;
+  height: 281.25px;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
 }
 
 a:link {
@@ -32,7 +63,7 @@ a:active {
   text-decoration: none;
 }
 
-.card:hover {
+.card:hover, .featuredCard:hover {
   cursor: pointer;
   transform: translate(0px, -5px);
   box-shadow: var(--dev-card-selected);
@@ -53,6 +84,18 @@ a:active {
   border-top-right-radius: 0.5rem;
 }
 
+.featuredCardTitle {
+  font-size: 20px;
+  font-weight: 500;
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-right: 1.0rem;
+  padding-left: 1.0rem;
+  text-align: left;
+  height: 80px;
+}
+
 .cardTitle {
   font-size: 16px;
   font-weight: 500;
@@ -69,6 +112,12 @@ a:active {
   .cardText {
     margin-bottom: 0px;
   }
+
+  .featuredCard {
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+  }
 }
 
 .cardUser {
@@ -83,6 +132,13 @@ a:active {
   width: 40px;
 }
 
+.featuredCardFace {
+  border-radius: 9999px;
+  margin-left: 2%;
+  height: 50px;
+  width: 50px;
+}
+
 .cardName {
   min-width: 170px;
   font-weight: 800;
@@ -93,6 +149,22 @@ a:active {
 }
 
 .cardCreatorTitle {
+  min-width: 170px;
+  margin-left: 10px;
+  display: flex;
+  color: var(--text-color);
+}
+
+.featuredCardName {
+  min-width: 170px;
+  font-weight: 800;
+  margin-top: 7px;
+  margin-left: 10px;
+  display: flex;
+  color: var(--text-color);
+}
+
+.featuredCardCreatorTitle {
   min-width: 170px;
   margin-left: 10px;
   display: flex;

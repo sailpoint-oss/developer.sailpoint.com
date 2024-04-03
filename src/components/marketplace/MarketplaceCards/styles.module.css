@@ -76,7 +76,7 @@
   left: 50%;
 }
 
-@media only screen and (max-width: 2100px) {
+@media only screen and (max-width: 2150px) {
   .gridContainer {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }

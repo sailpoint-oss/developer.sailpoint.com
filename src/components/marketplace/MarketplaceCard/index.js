@@ -19,11 +19,7 @@ export default function MarketplaceCard({post}) {
   } else if (post.tags.includes('sailpoint-certified')) {
     badge = (
       <div className={styles.badgeContainer}>
-        <div className={styles.certifiedText}>
-          <span className={styles.badgeText}>SailPoint Certified</span>
-        </div>
-
-        <div className={styles.cardBadgeCertified}>
+        <div title="SailPoint Certified" className={styles.cardBadgeCertified}>
           <FontAwesomeIcon
             icon={faShieldCheck}
             className={styles.docCardIcon}
@@ -37,28 +33,26 @@ export default function MarketplaceCard({post}) {
   return (
     <Link to={post.link}>
       {/* <div onClick={(e) => setFilters(e)}> */}
-        <div className={styles.card}>
-          <div className={styles.cardText}>
+      <div className={styles.card}>
+        <div className={styles.cardText}>
+          <img className={styles.cardImage} src={useBaseUrl(post.image)}></img>
+          <div className={styles.split}></div>
+          <div className={styles.cardTitle}>{post.title}</div>
+
+          <div className={styles.cardUser}>
             <img
-              className={styles.cardImage}
-              src={useBaseUrl(post.image)}></img>
-            <div className={styles.split}></div>
-            <div className={styles.cardTitle}>{post.title}</div>
+              className={styles.cardFace}
+              src={useBaseUrl(post.creatorImage)}></img>
 
-            <div className={styles.cardUser}>
-              <img
-                className={styles.cardFace}
-                src={useBaseUrl(post.creatorImage)}></img>
+            <div className={styles.cardName}>{post.creatorName}</div>
+            <div className={styles.cardCreatorTitle}>{post.creatorTitle}</div>
 
-              <div className={styles.cardName}>{post.creatorName}</div>
-              <div className={styles.cardCreatorTitle}>{post.creatorTitle}</div>
-
-              <div></div>
-            </div>
+            <div></div>
           </div>
-
-          {badge}
         </div>
+
+        {badge}
+      </div>
       {/* </div> */}
     </Link>
   );

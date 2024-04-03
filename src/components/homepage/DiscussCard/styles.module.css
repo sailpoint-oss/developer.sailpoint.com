@@ -4,11 +4,19 @@
   margin-top: 20px;
   height: 300px;
   /* UI Properties */
-  background: var(--dev-card-background);
-  box-shadow: var(--dev-card-shadow);
-  border: 1px solid var(--dev-card-background);
-  border-radius: 40px;
   opacity: 1;
+  transition: all 0.3s;
+  background: var(--dev-new-car-background);
+  border-radius: 0.5rem;
+  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color),
+    0 1px 2px -1px var(--tw-shadow-color);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 transparent, 0 0 transparent, 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  border: 1px solid #dadce0;
 }
 
 .card:hover {

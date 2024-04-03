@@ -32,11 +32,11 @@ export default function Workflows() {
     <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
       <main>
         <MarketplaceBanner />
-        <div className={styles.colabContainer}>
+        <div className={styles.container}>
           <div className={styles.filterContainer}>
             <BlogSidebar filterCallback={handleClick} />
           </div>
-          <div className={styles.blogCardContainer}>
+          <div className={styles.cardContainer}>
             <MarketplaceCards filterCallback={filteredProduct} />
           </div>
         </div>

@@ -4,6 +4,7 @@ import MarketplaceBanner from '../components/marketplace/MarketplaceBanner';
 import Link from '@docusaurus/Link';
 import styles from './exchange.module.css';
 import MarketplaceCards from '../components/marketplace/MarketplaceCards';
+import HomepageCard from '../components/homepage/HomepageCard';
 
 export default function Marketplace() {
   const [plugins] = React.useState({
@@ -40,13 +41,37 @@ export default function Marketplace() {
     <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
       <main>
         <MarketplaceBanner />
-        <div className={styles.description}>
-          <div className={styles.heroCard}>
-            <h4>
-              Welcome to the CoLab. Here you can find ready-to-use Workflows,
-              SaaS Connectors, Rules, Transforms, IIQ Plugins, and more built
-              and maintained by your fellow peers in the community.
-            </h4>
+        <div>
+          <div className={styles.mainCard}>
+            <div className={styles.contentContainer}>
+              <div className={styles.gettingStartedText}>
+                <div className={styles.gettingStartedOne}>
+                  CoLab Marketplace
+                </div>
+                <div className={styles.gettingStartedTwo}>
+                  What is the CoLab?
+                </div>
+                <div className={styles.gettingStartedThree}>
+                  Jump into our{' '}
+                  <span className={styles.bold}>
+                    The community CoLab is a place where members of our
+                    community can build fully-featured solutions on our platform
+                    and share those solutions with each other. Users collaborate
+                    on these solutions to benefit both themselves and the
+                    community at large.
+                  </span>{' '}<br/><br/><a href="https://developer.sailpoint.com/discuss/t/developer-community-colab-getting-started-guide/11230">Get started with the CoLab &#8594;</a>
+                </div>
+              </div>
+            </div>
+            <div className={styles.carousel}>
+              <iframe
+                className={styles.video}
+                src="https://www.youtube.com/embed/N-JG8xjpKaI"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen></iframe>
+            </div>
           </div>
         </div>
         <div className={styles.container}>

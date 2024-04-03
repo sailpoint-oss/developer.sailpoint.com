@@ -2,36 +2,10 @@
   min-height: 400px;
 }
 
-.heroCard {
-  position: relative;
-  padding: 2%;
-  padding-bottom: 0%;
-  /* UI Properties */
-  background: var(--dev-card-background);
-  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
-  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color),
-    0 1px 2px -1px var(--tw-shadow-color);
-  border-radius: 0.5rem;
-  box-shadow: 0 0 transparent, 0 0 transparent, 0 1px 3px 0 rgba(0, 0, 0, 0.1),
-    0 1px 2px -1px rgba(0, 0, 0, 0.1);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
-    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-  border: 1px solid var(--dev-card-background);
-  opacity: 1;
-  transition: all  0.3s;
-  opacity: 1;
-}
-
-
 .container {
   display: flex;
   width: 56%;
   margin: auto;
-}
-
-.description {
-  margin: auto;
-  width: 60%;
 }
 
 @media only screen and (max-width: 2100px) {
@@ -64,3 +38,101 @@
     margin-right: 10%;
   }
 }
+
+
+.mainCard {
+  display: grid;
+  grid-gap: 20px;
+  max-width: 1180px;
+  justify-content: center;
+}
+
+.gettingStartedText {
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+.gettingStartedOne {
+  color: var(--ifm-color-primary);
+  font-size: 30px;
+  max-width: 396px;
+  font-weight: bold;
+  line-height: 100%;
+}
+
+.gettingStartedTwo {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.gettingStartedThree {
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+/* Getting Started Card container */
+.gridContainer {
+  display: grid;
+  margin-left: 50px;
+  margin-bottom: 50px;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  place-content: center;
+  margin-right: 40px;
+}
+
+.video {
+  width: 100%;
+  height: 300px;
+  max-width: 520px;
+}
+
+/* .carousel {
+  margin-right: 50px;
+} */
+
+@media only screen and (max-width: 1178px) {
+  .carousel {
+    margin-top: 0px;
+    margin-left: 50px;
+    margin-bottom: 50px;
+  }
+  .contentContainer {
+    width: 600px;
+  }
+}
+@media only screen and (min-width: 1179px) {
+  .carousel {
+    margin-top: 35px;
+    padding-bottom: 5%;
+  }
+  .mainCard {
+    grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+    /* UI Properties */
+    background: var(--main-hero-card-background);
+    box-shadow: var(--dev-main-card-shadow);
+    border: 1px solid var(--dev-card-background);
+    border-radius: 40px;
+    opacity: 1;
+    margin: 50px auto;
+    width: calc(100% - 100px);
+  }
+}
+@media only screen and (max-width: 570px) {
+  .video {
+    display: none;
+  }
+  .contentContainer {
+    width: auto;
+  }
+  .carousel {
+    margin-bottom: 0px;
+  }
+}
+

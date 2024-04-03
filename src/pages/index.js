@@ -23,7 +23,7 @@ export default function Home() {
           }
           link={'https://www.sailpoint.com/products/IdentityNow/'}
           title={'Start With the Basics'}
-          image={'/homepage/person-head.png'}
+          image={'user'}
           buttonText={'Explore our platform'}
         />
         <HomepageTrainingGuides />
@@ -33,7 +33,7 @@ export default function Home() {
           }
           link={'https://developer.sailpoint.com/discuss/'}
           title={'What is the Community saying?'}
-          image={'/homepage/discuss.png'}
+          image={'discuss'}
           buttonText={'Join the Discussion'}
         />
         <HomepageDiscuss />
@@ -42,7 +42,7 @@ export default function Home() {
             "The Developer Relations team is responsible for creating a better developer experience on our platform. Click on someone to reach out to them, or <a href='https://developer.sailpoint.com/discuss/new-message?groupname=developer_relations/'>contact our team directly</a>."
           }
           title={'Meet Our Team'}
-          image={'/homepage/team.png'}
+          image={'team'}
           buttonText={''}
         />
         <HomepageTeam />

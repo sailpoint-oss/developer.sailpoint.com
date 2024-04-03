@@ -5,7 +5,7 @@ import NewtonsCradle from '../../newtonsCradle';
 import {discourseBaseURL, developerWebsiteDomain} from '../../../util/util';
 import {getBlogPosts, getUserTitle} from '../../../services/DiscourseService';
 
-export default function BlogCards({filterCallback}) {
+export default function BlogCards({filterCallback, limit, featured}) {
   const [cardData, setCardData] = React.useState();
   const [loadingCards, setLoadingCards] = React.useState(true);
 
@@ -17,6 +17,7 @@ export default function BlogCards({filterCallback}) {
     const resultset = [];
     const titleList = [];
     if (data.topic_list.topics) {
+      let index = 0;
       for (const topic of data.topic_list.topics) {
         if (topic.tags.length > 0) {
           let poster = {};
@@ -44,11 +45,22 @@ export default function BlogCards({filterCallback}) {
             }
           }
           if (topic.category_id !== 57) {
-            resultset.push(await getPostList(topic, poster));
+            if (!featured && index >= 1) {
+              resultset.push(await getPostList(topic, poster));
+            }
+            if (featured) {
+              resultset.push(await getPostList(topic, poster));
+            }
           }
+
+          index++;
         }
       }
-      setCardData(resultset);
+      if (limit) {
+        setCardData(resultset.slice(0, limit));
+      } else {
+        setCardData(resultset);
+      }
     } else {
       setCardData(undefined);
     }
@@ -69,17 +81,24 @@ export default function BlogCards({filterCallback}) {
   }, [filterCallback]);
 
   return (
-    <div className={styles.center}>
+    <div className={featured ? null : styles.center}>
       {loadingCards ? (
         // Show loading icon when data is still loading
-        <div className={styles.spinnerCenter}>
-          <NewtonsCradle/>
+        <div
+          className={
+            featured ? styles.featuredSpinnerCenter : styles.spinnerCenter
+          }>
+          <NewtonsCradle />
         </div>
       ) : cardData && cardData.length > 0 ? (
         // Show cards if not loading and cardData is available
-        <div className={styles.gridContainer}>
+        <div
+          className={
+            featured ? styles.featuredGridContainer : styles.gridContainer
+          }>
           {cardData.map((a, index) => (
             <BlogCard
+              featured={featured}
               key={a.link}
               id={index + a.link}
               excerpt={a.excerpt}

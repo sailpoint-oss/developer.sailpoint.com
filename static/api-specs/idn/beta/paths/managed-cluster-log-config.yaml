@@ -3,6 +3,7 @@ get:
     - Managed Clusters
   summary: Get managed cluster's log configuration
   description: Get managed cluster's log configuration. 
+  deprecated: true
   operationId: getClientLogConfiguration
   parameters:
     - name: id
@@ -40,6 +41,7 @@ put:
     - Managed Clusters
   summary: Update managed cluster's log configuration
   description: Update managed cluster's log configuration
+  deprecated: true
   operationId: putClientLogConfiguration
   parameters:
     - name: id

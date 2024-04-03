@@ -3,6 +3,7 @@ get:
     - Managed Clients
   summary: Specified Managed Client Status.
   description: Retrieve Managed Client Status by ID.
+  deprecated: true
   operationId: getManagedClientStatus
   parameters:
     - name: id
@@ -45,6 +46,7 @@ post:
     - Managed Clients
   summary: Handle status request from client
   description: Update a status detail passed in from the client
+  deprecated: true
   operationId: updateManagedClientStatus
   parameters:
     - name: id

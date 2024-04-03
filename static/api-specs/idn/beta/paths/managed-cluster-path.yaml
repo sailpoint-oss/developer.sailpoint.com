@@ -3,6 +3,7 @@ get:
     - Managed Clusters
   summary: Get a specified ManagedCluster.
   description: Retrieve a ManagedCluster by ID.
+  deprecated: true
   operationId: getManagedCluster
   parameters:
     - name: id

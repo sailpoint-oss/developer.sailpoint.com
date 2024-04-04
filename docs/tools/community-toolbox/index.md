@@ -1,8 +1,8 @@
 ---
 id: community-toolbox
-title: ISC Community Toolbox
+title: Community Toolbox
 pagination_label: ADMIN
-sidebar_label: ISC Community Toolbox
+sidebar_label: Community Toolbox
 sidebar_position: 5
 sidebar_class_name: rudk
 keywords: ['UI', 'admin','console']

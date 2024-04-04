@@ -5,7 +5,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faShieldCheck, faAward} from '@fortawesome/pro-solid-svg-icons';
 import Link from '@docusaurus/Link';
 
-export default function MarketplaceCard({post}) {
+export default function MarketplaceCard({post, featured}) {
   let badge = <div></div>;
   if (post.tags.includes('sailpoint-developed')) {
     badge = (
@@ -33,15 +33,20 @@ export default function MarketplaceCard({post}) {
   return (
     <Link to={post.link}>
       {/* <div onClick={(e) => setFilters(e)}> */}
-      <div className={styles.card}>
+      <div className={featured ? styles.featuredCard : styles.card}>
         <div className={styles.cardText}>
-          <img className={styles.cardImage} src={useBaseUrl(post.image)}></img>
+          <img
+            className={featured ? styles.featuredCardImage : styles.cardImage}
+            src={useBaseUrl(post.image)}></img>
           <div className={styles.split}></div>
-          <div className={styles.cardTitle}>{post.title}</div>
+          <div
+            className={featured ? styles.featuredCardTitle : styles.cardTitle}>
+            {post.title}
+          </div>
 
           <div className={styles.cardUser}>
             <img
-              className={styles.cardFace}
+              className={featured ? styles.featuredCardFace : styles.cardFace}
               src={useBaseUrl(post.creatorImage)}></img>
 
             <div className={styles.cardName}>{post.creatorName}</div>

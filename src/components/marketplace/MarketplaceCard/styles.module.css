@@ -20,6 +20,36 @@
   border: 1px solid var(--dev-card-border);
 }
 
+.featuredCard {
+  position: relative;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  opacity: 1;
+  transition: all 0.3s;
+  width: 500px;
+  height: 535px;
+  background: var(--dev-new-car-background);
+  border-radius: 0.5rem;
+  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color),
+    0 1px 2px -1px var(--tw-shadow-color);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 transparent, 0 0 transparent, 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  border: 1px solid var(--dev-card-border);
+}
+
+.featuredCardImage {
+  overflow: hidden;
+  position: relative;
+  width: 500px;
+  height: 281.25px;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
 .card:hover {
   cursor: pointer;
   transform: translate(0px, -5px);
@@ -48,6 +78,18 @@
   height: 15px;
 }
 
+.featuredCardTitle {
+  font-size: 20px;
+  font-weight: 500;
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  text-align: left;
+  height: 80px;
+}
+
 .cardTitle {
   font-size: 16px;
   font-weight: 500;
@@ -74,6 +116,13 @@
 .cardUser {
   margin-top: 15px;
   margin-bottom: 5%;
+}
+
+.featuredCardFace {
+  border-radius: 9999px;
+  margin-left: 2%;
+  height: 50px;
+  width: 50px;
 }
 
 .cardFace {

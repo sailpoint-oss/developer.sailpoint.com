@@ -47,10 +47,16 @@
   display: inline-block;
 }
 
+.videoTypeFilter {
+  margin-left: 2%;
+}
+
 .dropdownButton {
-  background-color: var(--dropdown-background); /* Dropdown background color */ /* Text color */
+  background-color: var(
+    --dropdown-background
+  ); /* Dropdown background color */ /* Text color */
   padding: 5px 15px; /* Padding inside the dropdown button */
-  border: .5px solid #cccccc; /* Border around the dropdown */
+  border: 0.5px solid #cccccc; /* Border around the dropdown */
   border-radius: 5px; /* Rounded corners */
   cursor: pointer; /* Change mouse cursor to indicate it's clickable */
   position: relative; /* To position the arrow icon correctly */
@@ -70,7 +76,9 @@
 }
 
 .dropdownButton:hover {
-  background-color: var(--dev-card-background); /* Lighter background on hover */
+  background-color: var(
+    --dev-card-background
+  ); /* Lighter background on hover */
 }
 
 .dropdownButton:focus {
@@ -84,7 +92,7 @@
   background-color: var(--dropdown-background);
   min-width: 300px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  z-index: 25;
   padding: 10px;
   border-radius: 5px;
 }
@@ -111,4 +119,11 @@
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
     var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   background-color: var(--dev-tag-highlight);
+}
+
+@media only screen and (max-width: 550px) {
+  .tagContainer {
+    margin-top: 15%;
+    margin-bottom: 5%;
+  }
 }

@@ -13,13 +13,11 @@ export default function VideoLibrary() {
   const {siteConfig} = useDocusaurusContext();
 
   const handleClick = (data) => {
-    var tempFilter = filteredProduct.tags.slice();
-
-    if (data.tag) {
-      const index = tempFilter.indexOf(data.tag);
-      if (index !== -1) {
-        tempFilter.splice(index, 1);
-      } else {
+    // var tempFilter = filteredProduct.tags.slice(); // Clone the existing tags array
+    let tempFilter = [];
+    if (data.tag && data.tag.length !== 0) {
+      // Check if the tag is not already included before adding
+      if (!tempFilter.includes(data.tag)) {
         tempFilter.push(data.tag);
       }
     }
@@ -38,9 +36,6 @@ export default function VideoLibrary() {
               <div className={styles.contentContainer}>
                 <div className={styles.gettingStartedText}>
                   <div className={styles.gettingStartedOne}>Video Library</div>
-                  {/* <div className={styles.gettingStartedTwo}>
-                  What is the CoLab?
-                </div> */}
                   <div className={styles.gettingStartedThree}>
                     <span className={styles.bold}>
                       Our video library is a collection of educational videos
@@ -55,20 +50,18 @@ export default function VideoLibrary() {
                   </div>
                 </div>
               </div>
-              <div className={styles.carousel}>
-                <iframe
-                  className={styles.video}
-                  src="https://www.youtube.com/embed/N-JG8xjpKaI"
-                  title="YouTube video player"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen></iframe>
+              <div className={styles.featuredVideo} title="Featured Video">
+                <VideoCards
+                  filterCallback={filteredProduct}
+                  limit={1}
+                  featured={true}
+                />
               </div>
             </div>
           </div>
 
           <div>
-            <div>
+            <div className={styles.videoSideBar}>
               <VideoSidebar
                 selectedCategory={filteredProduct}
                 filterCallback={handleClick}

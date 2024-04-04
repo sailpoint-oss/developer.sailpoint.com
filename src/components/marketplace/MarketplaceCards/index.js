@@ -13,7 +13,12 @@ import {
   getUserTitle,
 } from '../../../services/DiscourseService';
 import MarketplaceCardDetail from '../MarketplaceCardDetail';
-export default function MarketplaceCards({filterCallback, limit, multiple}) {
+export default function MarketplaceCards({
+  filterCallback,
+  featured,
+  limit,
+  multiple,
+}) {
   const [cardData, setCardData] = React.useState();
   const [detailsOpen, setDetailsOpen] = React.useState(false);
   const [details, setDetails] = React.useState('');
@@ -25,8 +30,12 @@ export default function MarketplaceCards({filterCallback, limit, multiple}) {
   };
 
   const getPosts = async () => {
+    let tags = filterCallback.tags;
+    if (featured) {
+      tags = ['featured'];
+    }
     const data = await getMarketplacePosts(
-      filterCallback.tags.join('+'),
+      tags ? tags.join('+') : '',
       filterCallback.category,
     );
 
@@ -105,18 +114,35 @@ export default function MarketplaceCards({filterCallback, limit, multiple}) {
   }, [filterCallback]);
 
   return (
-    <div className={styles.center}>
+    <div className={featured ? null : styles.center}>
       {loadingCards ? (
         // Show loading icon when data is still loading
-        <div className={multiple ? styles.spinnerCenterMultiple : styles.spinnerCenterSingle}>
-          <NewtonsCradle />
+        <div>
+          {featured ? (
+            <div className={styles.featuredSpinnerCenter}>
+              <NewtonsCradle />
+            </div>
+          ) : (
+            <div
+              className={
+                multiple
+                  ? styles.spinnerCenterMultiple
+                  : styles.spinnerCenterSingle
+              }>
+              <NewtonsCradle />
+            </div>
+          )}
         </div>
       ) : cardData && cardData.length > 0 ? (
         <div className={styles.center}>
-          <div className={styles.gridContainer}>
+          <div
+            className={
+              featured ? styles.featuredGridContainer : styles.gridContainer
+            }>
             {cardData.map(function (a, index) {
               return (
                 <MarketplaceCard
+                  featured={featured}
                   post={a}
                   key={index + a.link}
                   openDialogFunc={openDialog}></MarketplaceCard>

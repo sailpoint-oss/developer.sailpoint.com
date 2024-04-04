@@ -7,6 +7,15 @@
   max-width: 300px;
 }
 
+.featuredCard {
+  position: relative;
+  margin-top: 30px;
+  opacity: 1;
+  transition: all 0.3s;
+  width: 400px;
+  height: 225px;
+}
+
 .card:hover .thumbContainer {
   cursor: pointer;
   transform: translate(0px, -5px);
@@ -19,6 +28,21 @@
   margin: 22px;
   min-width: 170px;
   margin-bottom: 75px;
+}
+
+.featuredThumbContainer {
+  border: 1px solid var(--dev-card-border);
+  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color),
+    0 1px 2px -1px var(--tw-shadow-color);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 transparent, 0 0 transparent, 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  overflow: hidden;
+  position: relative;
+  height: 225px;
 }
 
 .thumbContainer {
@@ -34,6 +58,14 @@
   overflow: hidden;
   position: relative;
   height: 144px;
+}
+
+.featuredCardImage {
+  height: auto;
+  max-width: 100%;
+  width: 400px;
+  height: 225px;
+  border-radius: 0.5rem;
 }
 
 .cardImage {
@@ -67,8 +99,22 @@
   z-index: 10;
 }
 
+.featuredTitleContainer {
+  height: 50px;
+}
+
 .titleContainer {
-  height: 40px;
+  height: 50px;
+}
+
+.featuredCardTitle {
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-right: 0.5rem;
+  text-align: left;
 }
 
 .cardTitle {

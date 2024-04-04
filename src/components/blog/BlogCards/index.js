@@ -13,11 +13,14 @@ export default function BlogCards({filterCallback, limit, featured}) {
     if (!filterCallback) {
       filterCallback = ['identity-security-cloud'];
     }
+
+    if (featured) {
+      filterCallback = ['featured'];
+    }
     const data = await getBlogPosts(filterCallback.join('+'));
     const resultset = [];
     const titleList = [];
     if (data.topic_list.topics) {
-      let index = 0;
       for (const topic of data.topic_list.topics) {
         if (topic.tags.length > 0) {
           let poster = {};
@@ -45,15 +48,10 @@ export default function BlogCards({filterCallback, limit, featured}) {
             }
           }
           if (topic.category_id !== 57) {
-            if (!featured && index >= 1) {
-              resultset.push(await getPostList(topic, poster));
-            }
-            if (featured) {
+            if (featured || (!featured && !topic.tags.includes('featured'))) {
               resultset.push(await getPostList(topic, poster));
             }
           }
-
-          index++;
         }
       }
       if (limit) {
@@ -138,7 +136,7 @@ async function getPostList(topic, user) {
     liked: topic.like_count,
     replies: topic.posts_count,
     solution: topic.has_accepted_answer,
-    readTime: parseInt(500 / 100),
+    readTime: parseInt(500 / 200),
   };
 }
 

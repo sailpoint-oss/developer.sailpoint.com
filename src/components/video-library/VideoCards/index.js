@@ -1,14 +1,17 @@
 import React from 'react';
 import styles from './styles.module.css';
 import VideoCard from '../VideoCard';
-import {videoBaseURL, discourseBaseURL} from '../../../util/util';
+import {
+  videoBaseURL,
+  discourseBaseURL,
+  developerWebsiteDomain,
+} from '../../../util/util';
 import NewtonsCradle from '../../newtonsCradle';
 import {getVideoPosts} from '../../../services/DiscourseService';
 
-export default function VideoCards({filterCallback}) {
+export default function VideoCards({filterCallback, limit, featured}) {
   const [cardData, setCardData] = React.useState();
   const [loadingCards, setLoadingCards] = React.useState(true);
-  
 
   function buildTopicUrl(slug, id) {
     return discourseBaseURL() + `t/${slug}/${id}`;
@@ -36,10 +39,9 @@ export default function VideoCards({filterCallback}) {
   }
 
   const getVideoTopics = async () => {
-    let tags = filterCallback.tags;
+    let tags = featured ? ['featured'] : filterCallback.tags;
 
-    const data = await getVideoPosts(tags ? filterCallback.tags.join('+') : '');
-    // const data = await topicData;
+    const data = await getVideoPosts(tags ? tags.join('+') : '');
     const resultset = [];
     if (data.topic_list) {
       for (const topic of data.topic_list.topics) {
@@ -47,6 +49,7 @@ export default function VideoCards({filterCallback}) {
           let {videoUrl, description} = parseVideoDetails(topic.excerpt);
           let thumbnail = videoUrl.replace('.html', '.jpg');
           let avatar = '';
+          let username = '';
           let ogPoster = '';
           for (const poster of topic.posters) {
             if (poster.description.includes('Original Poster')) {
@@ -57,31 +60,25 @@ export default function VideoCards({filterCallback}) {
 
           for (const user of data.users) {
             if (user.id === ogPoster.user_id) {
-              avatar =
-                'https://sea1.discourse-cdn.com/sailpoint' +
-                user.avatar_template.replace('{size}', '45');
+              username = user.name;
+              avatar = getavatarURL(user.avatar_template);
               break;
             }
           }
 
-          if (description) {
+          if (!description) {
+            thumbnail = topic.image_url;
+          }
+
+          if (featured || (!featured && !topic.tags.includes('featured'))) {
             resultset.push({
               key: topic.id,
               title: shortenTitle(topic.title),
               tags: topic.tags,
-              body: description,
+              body: description | topic.excerpt,
               thumbnail: thumbnail,
               avatar: avatar,
-              url: buildTopicUrl(topic.slug, topic.id),
-            });
-          } else {
-            resultset.push({
-              key: topic.id,
-              title: shortenTitle(topic.title),
-              tags: topic.tags,
-              body: topic.excerpt,
-              thumbnail: topic.image_url,
-              avatar: avatar,
+              username: username,
               url: buildTopicUrl(topic.slug, topic.id),
             });
           }
@@ -90,7 +87,11 @@ export default function VideoCards({filterCallback}) {
     } else {
       setCardData(undefined);
     }
-    setCardData(resultset);
+    if (limit) {
+      setCardData(resultset.slice(0, limit));
+    } else {
+      setCardData(resultset);
+    }
     setLoadingCards(false);
   };
 
@@ -101,17 +102,24 @@ export default function VideoCards({filterCallback}) {
   }, [filterCallback]);
 
   return (
-    <div className={styles.center}>
+    <div className={featured ? null : styles.center}>
       {loadingCards ? (
         // Show loading icon when data is still loading
-        <div className={styles.spinnerCenter}>
+        <div
+          className={
+            featured ? styles.featuredSpinnerCenter : styles.spinnerCenter
+          }>
           <NewtonsCradle />
         </div>
       ) : cardData && cardData.length > 0 ? (
-        <div className={styles.gridContainer}>
+        <div
+          className={
+            featured ? styles.featuredGridContainer : styles.gridContainer
+          }>
           {cardData.map(function (a, index) {
             return (
               <VideoCard
+                featured={featured}
                 key={a.key}
                 videoURL={a.url}
                 thumbnail={a.thumbnail}
@@ -137,31 +145,14 @@ export default function VideoCards({filterCallback}) {
       )}
     </div>
   );
+}
 
-  // } else if (loadingCards) {
-  //   return (
-  //     <BounceLoader
-  //       className={styles.spinnerCenter}
-  //       color={'#0033a1'}
-  //       loading={true}
-  //       size={150}
-  //       aria-label="Loading Spinner"
-  //       data-testid="loader"
-  //     />
-  //   );
-  // } else {
-  //   return (
-  //     <div>
-  //       <div className={styles.noFound}>
-  //         {' '}
-  //         Hey there, looks like no integrations match your search criteria.
-  //         Check out our{' '}
-  //         <a href="https://developer.sailpoint.com/discuss/t/about-the-sailpoint-developer-community-colab/11230">
-  //           getting started guide
-  //         </a>
-  //         , and consider being the first to contribute this integration!
-  //       </div>
-  //     </div>
-  //   );
-  // }
+function getavatarURL(avatar) {
+  if (avatar.includes(developerWebsiteDomain())) {
+    return (
+      'https://' + developerWebsiteDomain() + avatar.replace('{size}', '120')
+    );
+  } else {
+    return avatar.replace('{size}', '120');
+  }
 }

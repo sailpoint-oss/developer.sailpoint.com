@@ -52,7 +52,7 @@ export default function Blog() {
                 </div>
               </div>
             </div>
-            <div>
+            <div title='Featured Blog'>
               <BlogCards
                 filterCallback={filteredProduct}
                 limit={1}

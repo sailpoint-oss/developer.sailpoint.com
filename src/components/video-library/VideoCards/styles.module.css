@@ -1,4 +1,12 @@
 /* Getting Started Card container */
+.featuredGridContainer {
+  display: flex;
+  /* place-content: center; */
+  grid-template-columns: 1fr;
+  flex-wrap: wrap;
+  min-height: 300px;
+}
+
 .gridContainer {
   display: flex;
   /* place-content: center; */
@@ -88,6 +96,12 @@
   width: 23px;
 }
 
+.featuredSpinnerCenter {
+  width: 50%;
+  margin: auto;
+  margin-top: 25%;
+}
+
 .spinnerCenter {
   position: absolute;
   left: 50%;
@@ -97,6 +111,12 @@
 @media only screen and (max-width: 550px) {
   .center {
     width: 100%;
+  }
+
+  .featuredSpinnerCenter {
+    width: 35%;
+    margin: auto;
+    margin-top: 25%;
   }
 
   .spinnerCenter {

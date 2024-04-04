@@ -1,32 +1,36 @@
 import React from 'react';
 import styles from './styles.module.css';
-import {getVideoPosts} from '../../../services/DiscourseService';
+import {getVideoPosts, getTags} from '../../../services/DiscourseService';
+import {forEach} from 'lodash';
 
 export default function MarketplaceSidebar({filterCallback}) {
   const [tagProductData, setTagProductData] = React.useState();
+
   const [isOpen, setIsOpen] = React.useState(false);
-  const [checkedItems, setCheckedItems] = React.useState({});
+  const [checkedItemsProdcut, setCheckedItemsProduct] = React.useState(null);
   const toggleDropdown = () => setIsOpen(!isOpen);
 
-  const handleCheckboxChange = (event) => {
-    setCheckedItems({
-      ...checkedItems,
-      [event.target.name]: event.target.checked,
-    });
-    filterCallback({tag: event.target.name});
+  const handleCheckboxChangeProduct = (event) => {
+    const newCheckedItem = event.target.checked ? event.target.name : null;
+    setCheckedItemsProduct(newCheckedItem);
+    filterCallback({tag: newCheckedItem});
   };
-
   const getTagData = async () => {
     const uniqueTags = new Set();
-    const data = await getVideoPosts();
+    const data = await getTags();
 
-    const resultset = [];
-    if (data.topic_list) {
-      for (const topic of data.topic_list.topics) {
-        if (topic.tags.length > 0) {
-          topic.tags.forEach((tag) => {
-            uniqueTags.add(tag);
-          });
+    if (data.extras.tag_groups) {
+      for (const tagGroup of data.extras.tag_groups) {
+        if (tagGroup.name === 'Products') {
+          for (const tag of tagGroup.tags) {
+            uniqueTags.add(tag.name);
+          }
+        }
+
+        if (tagGroup.name === 'Video Library') {
+          for (const tag of tagGroup.tags) {
+            uniqueTags.add(tag.name);
+          }
         }
       }
     }
@@ -54,12 +58,12 @@ export default function MarketplaceSidebar({filterCallback}) {
   if (tagProductData) {
     return (
       <div className={styles.tagContainer}>
-        <div className={styles.dropdownContainer}>
-          <button onClick={toggleDropdown} className={styles.dropdownButton}>
-            Filter by Tag...
-          </button>
-          {
-            isOpen && (
+        <div>
+          <div className={styles.dropdownContainer}>
+            <button onClick={toggleDropdown} className={styles.dropdownButton}>
+              Filter by tag...
+            </button>
+            {isOpen && (
               <div className={styles.dropdownContent}>
                 {tagProductData.map(function (a, index) {
                   return (
@@ -68,21 +72,16 @@ export default function MarketplaceSidebar({filterCallback}) {
                         type="checkbox"
                         id={a}
                         name={a}
-                        checked={checkedItems[a] || false}
-                        onChange={handleCheckboxChange}
+                        checked={checkedItemsProdcut === a}
+                        onChange={handleCheckboxChangeProduct}
                       />
                       <label htmlFor={a}>{displayText(a)}</label>
                     </div>
                   );
                 })}
               </div>
-            )
-            /* <select name="cars" id="cars" onChange={e => setFilters(e, e.target.value)}>
-            {tagProductData.map(function (a, index) {
-              return <option type="checkbox" value={a}>{displayText(a)}</option>;
-            })}
-          </select> */
-          }
+            )}
+          </div>
         </div>
       </div>
     );

@@ -1,4 +1,12 @@
 /* Getting Started Card container */
+.featuredGridContainer {
+  display: flex;
+  /* place-content: center; */
+  grid-template-columns: 1fr;
+  flex-wrap: wrap;
+  min-height: 500px;
+}
+
 .gridContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -65,6 +73,12 @@
   width: 23px;
 }
 
+.featuredSpinnerCenter {
+  width: 50%;
+  margin: auto;
+  margin-top: 45%;
+}
+
 .spinnerCenterMultiple {
   position: absolute;
   left: 50%;
@@ -84,8 +98,6 @@
   .gridContainer > a:nth-child(5) {
     display: none;
   }
-
-
 }
 
 @media only screen and (max-width: 1400px) {
@@ -141,7 +153,14 @@
     margin-right: 50%;
   }
 
-  .spinnerCenterMultiple, .spinnerCenterSingle {
+  .featuredSpinnerCenter {
+    width: 20%;
+    margin: auto;
+    margin-top: 35%;
+  }
+
+  .spinnerCenterMultiple,
+  .spinnerCenterSingle {
     left: 43%;
   }
   .noFound {

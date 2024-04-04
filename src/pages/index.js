@@ -4,6 +4,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageGettingStarted from '@site/src/components/homepage/HomepageGettingStarted';
+import HomepageDeveloperDays from '@site/src/components/homepage/HomepageDeveloperDays';
 import HomepageBasics from '../components/homepage/HomepageBasics';
 import HomepageTrainingGuides from '../components/homepage/HomepageTrainingGuides';
 import HomepageDiscuss from '../components/homepage/HomepageDiscuss';
@@ -16,7 +17,8 @@ export default function Home() {
   return (
     <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
       <main>
-        <HomepageGettingStarted />
+        {/* <HomepageGettingStarted /> */}
+        <HomepageDeveloperDays />
         <HomepageBasics
           description={
             "If you still aren't sure where to get started, try one of the <b>Getting Started Guides</b> below, or see what our platform has to offer."

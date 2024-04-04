@@ -10,10 +10,10 @@ const VideoCardDetail = (props) => {
   useEffect(() => {
     // This code would be part of your iframe's JavaScript
     window.addEventListener('message', (event) => {
-      console.log(event);
+      // console.log(event);
       if (event.origin === 'https://developer.identitysoon.com') {
         // The data that was sent from the iframe
-        console.log(event.data);
+        // console.log(event.data);
         // setIframeStyle();
       }
     });

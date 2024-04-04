@@ -59,18 +59,23 @@ export default function Marketplace() {
                     and share those solutions with each other. Users collaborate
                     on these solutions to benefit both themselves and the
                     community at large.
-                  </span>{' '}<br/><br/><a href="https://developer.sailpoint.com/discuss/t/developer-community-colab-getting-started-guide/11230">Get started with the CoLab &#8594;</a>
+                  </span>{' '}
+                  <br />
+                  <br />
+                  <a href="https://developer.sailpoint.com/discuss/t/developer-community-colab-getting-started-guide/11230">
+                    Get started with the CoLab &#8594;
+                  </a>
                 </div>
               </div>
             </div>
             <div className={styles.carousel}>
-              <iframe
-                className={styles.video}
-                src="https://www.youtube.com/embed/N-JG8xjpKaI"
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen></iframe>
+              <div className={styles.featured} title="Featured CoLab">
+                <MarketplaceCards
+                  filterCallback={['']}
+                  limit={1}
+                  featured={true}
+                />
+              </div>
             </div>
           </div>
         </div>

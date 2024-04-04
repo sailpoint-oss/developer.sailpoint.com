@@ -20,10 +20,15 @@ export default function BlogCard({
     <Link to={link}>
       <div className={featured ? styles.featuredCard : styles.card}>
         <div className={styles.cardText}>
-          <img className={featured ? styles.featuredCardImage : styles.cardImage} src={useBaseUrl(image)}></img>
+          <img
+            className={featured ? styles.featuredCardImage : styles.cardImage}
+            src={useBaseUrl(image)}></img>
           <div className={styles.split}></div>
 
-          <div className={featured ? styles.featuredCardTitle : styles.cardTitle}>{title}</div>
+          <div
+            className={featured ? styles.featuredCardTitle : styles.cardTitle}>
+            {title}
+          </div>
 
           <div className={styles.cardUser}>
             <img

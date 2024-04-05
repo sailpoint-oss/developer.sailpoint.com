@@ -35,7 +35,7 @@ export default function HomepageGettingStarted() {
             </div>
           </div>
         </div>
-        <div>
+        <div className={styles.devDaysImageContainer}>
           <ThemedImage
             className={styles.cardIcon}
             sources={{

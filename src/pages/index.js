@@ -38,16 +38,19 @@ export default function Home() {
           image={'discuss'}
           buttonText={'Join the Discussion'}
         />
+
         <HomepageDiscuss />
-        <HomepageBasics
-          description={
-            "The Developer Relations team is responsible for creating a better developer experience on our platform. Click on someone to reach out to them, or <a href='https://developer.sailpoint.com/discuss/new-message?groupname=developer_relations/'>contact our team directly</a>."
-          }
-          title={'Meet Our Team'}
-          image={'team'}
-          buttonText={''}
-        />
-        <HomepageTeam />
+        <div>
+          <HomepageBasics
+            description={
+              "The Developer Relations team is responsible for creating a better developer experience on our platform. Click on someone to reach out to them, or <a href='https://developer.sailpoint.com/discuss/new-message?groupname=developer_relations/'>contact our team directly</a>."
+            }
+            title={'Meet Our Team'}
+            image={'team'}
+            buttonText={''}
+          />
+          <HomepageTeam />
+        </div>
       </main>
     </Layout>
   );

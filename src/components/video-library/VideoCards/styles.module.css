@@ -1,9 +1,5 @@
 /* Getting Started Card container */
 .featuredGridContainer {
-  display: flex;
-  /* place-content: center; */
-  grid-template-columns: 1fr;
-  flex-wrap: wrap;
   min-height: 300px;
 }
 
@@ -13,36 +9,21 @@
   flex-wrap: wrap;
   gap: 5px;
   margin-left: 20px;
+  justify-content: left;
 }
-.gridContainer::after {
+/* .gridContainer::after {
   content: '';
   flex: auto;
 }
-
-@media only screen and (max-width: 870px) {
-  .gridContainer {
-    place-content: center;
-  }
-  .gridContainer::after {
-    display: none;
-  }
-}
-
-@media only screen and (max-width: 550px) {
-  .gridContainer {
-    display: flex;
-
-    flex-wrap: wrap;
-    gap: 0px;
-    margin-left: 0px;
-    margin-top: -5%;
-  }
-}
+.gridContainer::before {
+  content: '';
+  flex: auto;
+} */
 
 .center {
   margin: 0px auto;
   margin-bottom: 50px;
-  width: 65%;
+  width: 62%;
 }
 
 .space {
@@ -108,18 +89,93 @@
   top: 725px;
 }
 
+@media only screen and (max-width: 2008px) {
+  .center {
+    width: 65%;
+  }
+}
+
+@media only screen and (max-width: 1447px) {
+  .center {
+    width: 75%;
+  }
+}
+
+@media only screen and (max-width: 1345px) {
+  .center {
+    width: 75%;
+  }
+}
+
+@media only screen and (max-width: 1256px) {
+  .center {
+    width: 81%;
+  }
+}
+
+@media only screen and (max-width: 1165px) {
+  .center {
+    width: 85%;
+  }
+}
+
+@media only screen and (max-width: 1111px) {
+  .center {
+    width: 87%;
+  }
+}
+
+@media only screen and (max-width: 1085px) {
+  .center {
+    width: 96%;
+  }
+}
+
+@media only screen and (max-width: 985px) {
+  .center {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 958px) {
+  .center {
+    width: 72%;
+  }
+
+  .spinnerCenter {
+    left: 47%;
+    top: 855px;
+  }
+}
+
+@media only screen and (max-width: 870px) {
+  .gridContainer {
+    place-content: center;
+  }
+  .center {
+    width: 100%;
+  }
+  .gridContainer::after {
+    display: none;
+  }
+}
+
 @media only screen and (max-width: 550px) {
+  .gridContainer {
+    margin-left: 0px;
+  }
+
   .center {
     width: 100%;
   }
 
   .featuredSpinnerCenter {
-    width: 35%;
-    margin: auto;
-    margin-top: 25%;
+    width: 100%;
+    margin-top: 30%;
   }
 
   .spinnerCenter {
-    left: 43%;
+    left: 40%;
+    top: 825px;
   }
 }

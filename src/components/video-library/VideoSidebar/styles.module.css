@@ -37,9 +37,8 @@
 
 .tagContainer {
   margin: auto;
-  width: 60%;
+  width: 59%;
   display: flex;
-  flex-wrap: wrap;
 }
 
 .dropdownContainer {
@@ -121,9 +120,51 @@
   background-color: var(--dev-tag-highlight);
 }
 
+@media only screen and (max-width: 1920px) {
+  .tagContainer {
+    width: 61%;
+  }
+}
+
+@media only screen and (max-width: 1447px) {
+  .tagContainer {
+    width: 69%;
+  }
+}
+
+@media only screen and (max-width: 1278px) {
+  .tagContainer {
+    width: 68%;
+  }
+}
+
+@media only screen and (max-width: 1179px) {
+  .tagContainer {
+    margin-top: 10%;
+    width: 83%;
+  }
+}
+
+@media only screen and (max-width: 1085px) {
+  .tagContainer {
+    margin-top: 10%;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 958px) {
+  .tagContainer {
+    width: 72%;
+  }
+}
+
 @media only screen and (max-width: 550px) {
   .tagContainer {
-    margin-top: 15%;
-    margin-bottom: 5%;
+    margin-top: 12%;
+    margin-bottom: 3%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
   }
 }

@@ -97,16 +97,9 @@ export async function getVideoPosts(tags) {
         tags;
     }
     if (tags.length === 2) {
-      if (
-        tags.includes('identityiq') &&
-        tags.includes('identity-security-cloud')
-      ) {
-        url = discourseBaseURL() + 'c/content/video-library/l/latest.json';
-      } else {
-        url =
-          discourseBaseURL() +
-          `filter.json?q=category%3Acontent%2Bvideo-library%20tag%3A${tags[0]}%2B${tags[1]}`;
-      }
+      url =
+        discourseBaseURL() +
+        `filter.json?q=category%3Acontent%2Bvideo-library%20tag%3A${tags[0]}%2B${tags[1]}`;
     }
 
     if (tags.length > 2) {

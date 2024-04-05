@@ -21,7 +21,6 @@ export default function VideoLibrary() {
       <main>
         <div>
           <div className={styles.titleContainer}></div>
-
           <div>
             <div className={styles.mainCard}>
               <div className={styles.contentContainer}>
@@ -49,18 +48,16 @@ export default function VideoLibrary() {
                 />
               </div>
             </div>
-          </div>
 
-          <div>
-            <div className={styles.videoSideBar}>
-              <VideoSidebar
-                selectedCategory={filteredProduct}
-                filterCallback={handleClick}
-              />
+            <div className={styles.videosCardContainer}>
+              <div className={styles.videoSideBar}>
+                <VideoSidebar
+                  selectedCategory={filteredProduct}
+                  filterCallback={handleClick}
+                />
+              </div>
+              <VideoCards filterCallback={filteredProduct} />
             </div>
-          </div>
-          <div className={styles.videosCardContainer}>
-            <VideoCards filterCallback={filteredProduct} />
           </div>
         </div>
       </main>

@@ -168,3 +168,14 @@
     align-content: center;
   }
 }
+
+@media only screen and (max-width: 450px) {
+  .tagContainer {
+    display: block;
+    width: 50%;
+  }
+  .videoTypeFilter {
+    margin-top: 5%;
+    margin-left: 0%;
+  }
+}

@@ -68,6 +68,9 @@ export default function Marketplace() {
                 </div>
               </div>
             </div>
+            <div className={styles.featuredGettingStartedText}>
+              <div className={styles.gettingStartedOne}>Featured</div>
+            </div>
             <div className={styles.carousel}>
               <div className={styles.featured} title="Featured CoLab">
                 <MarketplaceCards

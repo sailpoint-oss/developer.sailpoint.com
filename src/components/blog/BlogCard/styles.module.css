@@ -26,8 +26,8 @@
   margin-bottom: 30px;
   opacity: 1;
   transition: all 0.3s;
-  width: 500px;
-  height: 535px;
+  width: 400px;
+  height: 475px;
   background: var(--dev-new-car-background);
   border-radius: 0.5rem;
   --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
@@ -44,8 +44,8 @@
 .featuredCardImage {
   overflow: hidden;
   position: relative;
-  width: 500px;
-  height: 281.25px;
+  width: 400px;
+  height: 225px;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
 }
@@ -116,7 +116,6 @@ a:active {
   .featuredCard {
     margin-left: 5%;
     margin-right: 5%;
-    width: 90%;
   }
 }
 

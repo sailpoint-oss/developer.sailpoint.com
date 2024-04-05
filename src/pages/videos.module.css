@@ -36,7 +36,12 @@
   min-height: 400px;
 }
 
-.gettingStartedText {
+.featuredGettingStartedText {
+  display: none;
+}
+
+.gettingStartedText,
+.featuredGettingStartedText {
   margin-top: 50px;
   margin-left: 50px;
 }
@@ -72,12 +77,6 @@
 
 .contentContainer {
   margin-left: 75px;
-}
-
-@media only screen and (max-width: 1447px) {
-  .videoSideBar {
-    margin-left: 0%;
-  }
 }
 
 @media only screen and (max-width: 1178px) {
@@ -127,6 +126,9 @@
   }
 }
 @media only screen and (max-width: 570px) {
+  .featuredGettingStartedText {
+    display: flex;
+  }
   .contentContainer {
     width: auto;
     margin: auto;

@@ -40,6 +40,9 @@ export default function VideoLibrary() {
                   </div>
                 </div>
               </div>
+              <div className={styles.featuredGettingStartedText}>
+                <div className={styles.gettingStartedOne}>Featured</div>
+              </div>
               <div className={styles.featuredVideo} title="Featured Video">
                 <VideoCards
                   filterCallback={filteredProduct}

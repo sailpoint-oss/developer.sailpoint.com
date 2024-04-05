@@ -134,7 +134,7 @@ export default function MarketplaceCards({
           )}
         </div>
       ) : cardData && cardData.length > 0 ? (
-        <div className={styles.center}>
+        <div className={featured ? null : styles.center}>
           <div
             className={
               featured ? styles.featuredGridContainer : styles.gridContainer

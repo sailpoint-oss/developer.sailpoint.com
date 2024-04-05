@@ -1,30 +1,24 @@
 /* Getting Started Card container */
 .featuredGridContainer {
   display: flex;
-  /* place-content: center; */
-  grid-template-columns: 1fr;
-  flex-wrap: wrap;
-  min-height: 500px;
+  margin-left: 9%;
+  min-height: 600px;
 }
 
 .gridContainer {
   display: flex;
   /* place-content: center; */
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   flex-wrap: wrap;
   gap: 23px;
-  width: 1500px;
+  margin-left: 20px;
+  justify-content: left;
   min-height: 600px;
-}
-.gridContainer::after {
-  content: '';
-  flex: auto;
 }
 
 .center {
   margin: 0px auto;
   margin-bottom: 50px;
-  width: 55%;
+  width: 60%;
 }
 
 .noFound {
@@ -44,54 +38,110 @@
 .spinnerCenter {
   position: absolute;
   left: 48%;
-  top: 925px;
+  top: 1025px;
 }
 
-@media only screen and (max-width: 2150px) {
-  .gridContainer {
-    width: 1200px;
-  }
-
-
-}
-
-@media only screen and (max-width: 1400px) {
-  .gridContainer {
-    width: 900px;
-  }
-}
-
-@media only screen and (max-width: 1000px) {
-  .gridContainer {
-    width: 600px;
-  }
-}
-
-@media only screen and (max-width: 700px) {
-  .gridContainer {
-    width: 300px;
-  }
-
-  .spinnerCenter {
-    left: 45%;
-  }
-
+@media only screen and (max-width: 2008px) {
   .center {
-    width: 39%;
+    width: 65%;
+  }
+}
+
+@media only screen and (max-width: 1847px) {
+  .center {
+    width: 75%;
+  }
+}
+
+@media only screen and (max-width: 1602px) {
+  .center {
+    width: 78%;
+  }
+}
+
+@media only screen and (max-width: 1536px) {
+  .center {
+    width: 62%;
+  }
+}
+
+@media only screen and (max-width: 1454px) {
+  .center {
+    width: 67%;
+  }
+}
+
+@media only screen and (max-width: 1345px) {
+  .center {
+    width: 75%;
+  }
+}
+
+@media only screen and (max-width: 1256px) {
+  .center {
+    width: 81%;
+  }
+}
+
+@media only screen and (max-width: 1165px) {
+  .center {
+    width: 85%;
+  }
+}
+
+@media only screen and (max-width: 1111px) {
+  .center {
+    width: 87%;
+  }
+}
+
+@media only screen and (max-width: 1085px) {
+  .center {
+    width: 96%;
+  }
+}
+
+@media only screen and (max-width: 945px) {
+  .center {
+    width: 77%;
+  }
+}
+
+@media only screen and (max-width: 787px) {
+  .center {
+    width: 87%;
+  }
+}
+
+@media only screen and (max-width: 698px) {
+  .center {
+    width: 99%;
+  }
+}
+
+@media only screen and (max-width: 615px) {
+  .center {
+    width: 54%;
   }
 }
 
 @media only screen and (max-width: 550px) {
+  .featuredGridContainer {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
   .gridContainer {
     display: flex;
     flex-wrap: wrap;
-    gap: 0px;
-    margin-left: 0px;
-    margin-top: -5%;
+    margin-left: 10px;
   }
+
+  
 
   .spinnerCenter {
     left: 43%;
+    top: 1225px;
   }
 
   .featuredSpinnerCenter {

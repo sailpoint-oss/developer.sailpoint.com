@@ -5,6 +5,7 @@
   grid-template-columns: 1fr;
   flex-wrap: wrap;
   min-height: 500px;
+  margin-left: 9%;
 }
 
 .gridContainer {
@@ -147,6 +148,10 @@
 }
 
 @media only screen and (max-width: 550px) {
+  .featuredGridContainer {
+    margin-left: 0%;
+  }
+
   .center {
     margin: auto;
     margin-left: 50%;

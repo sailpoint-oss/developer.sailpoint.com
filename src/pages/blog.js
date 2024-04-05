@@ -52,7 +52,10 @@ export default function Blog() {
                 </div>
               </div>
             </div>
-            <div title='Featured Blog'>
+            <div className={styles.featuredBlogContainer} title="Featured Blog">
+              <div className={styles.featuredGettingStartedText}>
+                <div className={styles.gettingStartedOne}>Featured</div>
+              </div>
               <BlogCards
                 filterCallback={filteredProduct}
                 limit={1}

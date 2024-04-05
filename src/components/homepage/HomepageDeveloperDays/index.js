@@ -27,11 +27,6 @@ export default function HomepageGettingStarted() {
           </div>
           <div className={styles.gridContainer}>
             <div>
-              {/* <a
-                href="https://developer.sailpoint.com/discuss/developerdays"
-                className={styles.registerButton}>
-                Register now
-              </a> */}
               <a
                 href="https://developer.sailpoint.com/discuss/developerdays"
                 className={styles.registerButtonPink}>

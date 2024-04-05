@@ -57,7 +57,10 @@ export async function checkImage(url) {
 export async function getBlogPosts(tags) {
   let url = '';
   if (tags) {
-    url = discourseBaseURL() + 'c/content/community-blog/l/latest.json?tags=' + tags;
+    url =
+      discourseBaseURL() +
+      'c/content/community-blog/l/latest.json?tags=' +
+      tags;
   } else {
     url = discourseBaseURL() + 'c/content/community-blog/l/latest.json';
   }
@@ -84,7 +87,37 @@ export async function getUserTitle(primary_group_name) {
 export async function getVideoPosts(tags) {
   let url = '';
   if (tags) {
-    url = discourseBaseURL() + 'c/content/video-library/l/latest.json?tags=' + tags;
+    if (tags.length < 1) {
+      url = discourseBaseURL() + 'c/content/video-library/l/latest.json';
+    }
+    if (tags.length === 1) {
+      url =
+        discourseBaseURL() +
+        'c/content/video-library/l/latest.json?tags=' +
+        tags;
+    }
+    if (tags.length === 2) {
+      if (
+        tags.includes('identityiq') &&
+        tags.includes('identity-security-cloud')
+      ) {
+        url = discourseBaseURL() + 'c/content/video-library/l/latest.json';
+      } else {
+        url =
+          discourseBaseURL() +
+          `filter.json?q=category%3Acontent%2Bvideo-library%20tag%3A${tags[0]}%2B${tags[1]}`;
+      }
+    }
+
+    if (tags.length > 2) {
+      tags = tags.filter((item) => item !== 'identityiq');
+      tags = tags.filter((item) => item !== 'identity-security-cloud');
+
+      url =
+        discourseBaseURL() +
+        'c/content/video-library/l/latest.json?tags=' +
+        tags;
+    }
   } else {
     url = discourseBaseURL() + 'c/content/video-library/l/latest.json';
   }

@@ -68,3 +68,9 @@
 .iiq {
   color: #60b359;
 }
+
+@media only screen and (max-width: 570px) {
+  .cardIcon {
+    width: 15%;
+  }
+}

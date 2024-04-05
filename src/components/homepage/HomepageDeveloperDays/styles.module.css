@@ -136,4 +136,8 @@
   .carousel {
     margin-bottom: 0px;
   }
+  .cardIcon {
+    width: 100%;
+    margin-top: 20px;
+  }
 }

@@ -13,16 +13,7 @@ export default function VideoLibrary() {
   const {siteConfig} = useDocusaurusContext();
 
   const handleClick = (data) => {
-    // var tempFilter = filteredProduct.tags.slice(); // Clone the existing tags array
-    let tempFilter = [];
-    if (data.tag && data.tag.length !== 0) {
-      // Check if the tag is not already included before adding
-      if (!tempFilter.includes(data.tag)) {
-        tempFilter.push(data.tag);
-      }
-    }
-
-    setFilteredProduct({tags: tempFilter});
+    setFilteredProduct({tags: data.tag});
   };
 
   return (

@@ -324,6 +324,9 @@ tags:
 
       Certification summaries provide information about identity certification campaigns such as the identities involved, the number of decisions made, and the access changed. 
       For example, an administrator or designated certification reviewer can examine the Manager Certification campaign to get an overview of how many entitlement decisions are made in that campaign as opposed to role decisions, which identities would be affected by changes to the campaign, and how those identities' access would be affected.
+  - name: Configuration Hub
+    description: |
+      Upload configurations and manage object mappings between tenants.
   - name: Connectors
     description: |
       Use this API to implement connector functionality.
@@ -1054,6 +1057,14 @@ paths:
     $ref: "./v3/paths/certification-task.yaml"
   /certification-tasks:
     $ref: "./v3/paths/certification-tasks.yaml"
+  /configuration-hub/object-mappings/{sourceOrg}:
+    $ref: './v3/paths/configuration-hub/object-mapping.yaml'
+  /configuration-hub/object-mappings/{sourceOrg}/{objectMappingId}:
+    $ref: './v3/paths/configuration-hub/object-mapping-delete.yaml'
+  /configuration-hub/object-mappings/{sourceOrg}/bulk-create:
+    $ref: './v3/paths/configuration-hub/object-mapping-bulk-create.yaml'
+  /configuration-hub/object-mappings/{sourceOrg}/bulk-patch:
+    $ref: './v3/paths/configuration-hub/object-mapping-bulk-update.yaml'
   /connectors/{scriptName}:
     $ref: './v3/paths/connectors.yaml'
   /connectors/{scriptName}/source-config:

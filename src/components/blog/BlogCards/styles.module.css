@@ -127,17 +127,14 @@
 
 @media only screen and (max-width: 550px) {
   .featuredGridContainer {
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 0%;
+    min-height: 350px;
   }
 
-  .gridContainer {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: 10px;
+  .gridContainer,
+  .featuredGridContainer {
+    justify-content: center;
   }
-
-  
 
   .spinnerCenter {
     left: 43%;
@@ -151,7 +148,7 @@
   }
 
   .center {
-    width: 60%;
+    width: 100%;
   }
 
   .noFound {

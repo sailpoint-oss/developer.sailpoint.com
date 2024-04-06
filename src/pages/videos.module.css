@@ -96,6 +96,12 @@
   .videoSideBar {
     margin-left: 5%;
   }
+
+  .featuredGettingStartedText {
+    display: flex;
+  }
+ 
+
 }
 @media only screen and (min-width: 1179px) {
   .carousel {
@@ -124,11 +130,13 @@
   .carousel {
     margin-bottom: 1%;
   }
+
+  .gettingStartedThree {
+    padding-right: 15%;
+  }
 }
 @media only screen and (max-width: 570px) {
-  .featuredGettingStartedText {
-    display: flex;
-  }
+ 
   .contentContainer {
     width: auto;
     margin: auto;

@@ -63,7 +63,8 @@ a:active {
   text-decoration: none;
 }
 
-.card:hover, .featuredCard:hover {
+.card:hover,
+.featuredCard:hover {
   cursor: pointer;
   transform: translate(0px, -5px);
   box-shadow: var(--dev-card-selected);
@@ -90,8 +91,8 @@ a:active {
   display: flex;
   gap: 1rem;
   margin-top: 1rem;
-  padding-right: 1.0rem;
-  padding-left: 1.0rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
   text-align: left;
   height: 80px;
 }
@@ -106,17 +107,6 @@ a:active {
   padding-left: 0.5rem;
   text-align: left;
   height: 80px;
-}
-
-@media only screen and (max-width: 550px) {
-  .cardText {
-    margin-bottom: 0px;
-  }
-
-  .featuredCard {
-    margin-left: 5%;
-    margin-right: 5%;
-  }
 }
 
 .cardUser {
@@ -178,4 +168,32 @@ a:active {
     rgba(0, 113, 206, 1) 100%
   );
   height: 15px;
+}
+
+@media only screen and (max-width: 550px) {
+  .cardText {
+    margin-bottom: 0px;
+  }
+
+  .featuredCard {
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 275px;
+    max-width: 275px;
+    height: auto;
+  }
+
+  .featuredCardImage {
+    width: 275px;
+    height: 144px;
+  }
+
+  .featuredCardTitle {
+    font-size: 16px;
+  }
+
+  .featuredCardFace {
+    height: 40px;
+    width: 40px;
+  }
 }

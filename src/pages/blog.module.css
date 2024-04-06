@@ -84,6 +84,10 @@
     width: 600px;
     margin-left: 10%;
   }
+
+  .featuredGettingStartedText {
+    display: flex;
+  }
 }
 
 @media only screen and (min-width: 1179px) {
@@ -104,12 +108,12 @@
     height: 545px;
     min-height: 535px;
   }
+
+  
 }
 
 @media only screen and (max-width: 570px) {
-  .featuredGettingStartedText {
-    display: flex;
-  }
+  
 
   .gettingStartedThree {
     padding-right: 15%;

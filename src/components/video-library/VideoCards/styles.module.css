@@ -10,6 +10,7 @@
   gap: 5px;
   margin-left: 20px;
   justify-content: left;
+  width: 1525px;
 }
 /* .gridContainer::after {
   content: '';
@@ -23,7 +24,8 @@
 .center {
   margin: 0px auto;
   margin-bottom: 50px;
-  width: 62%;
+  width: 50%;
+  width: 1525px;
 }
 
 .space {
@@ -89,84 +91,56 @@
   top: 725px;
 }
 
-@media only screen and (max-width: 2008px) {
+@media only screen and (max-width: 1950px) {
+  .gridContainer {
+    width: 1225px;
+  }
+
   .center {
-    width: 65%;
+    width: 1225px;
   }
 }
 
-@media only screen and (max-width: 1447px) {
+@media only screen and (max-width: 1350px) {
+  .gridContainer {
+    width: 925px;
+  }
+
   .center {
-    width: 75%;
+    width: 925px;
   }
 }
 
-@media only screen and (max-width: 1345px) {
+@media only screen and (max-width: 1050px) {
+  .gridContainer {
+    width: 650px;
+  }
+
   .center {
-    width: 75%;
+    width: 650px;
   }
 }
 
-@media only screen and (max-width: 1256px) {
-  .center {
-    width: 81%;
+@media only screen and (max-width: 775px) {
+  .gridContainer {
+    width: 300px;
   }
-}
 
-@media only screen and (max-width: 1165px) {
   .center {
-    width: 85%;
-  }
-}
-
-@media only screen and (max-width: 1111px) {
-  .center {
-    width: 87%;
-  }
-}
-
-@media only screen and (max-width: 1085px) {
-  .center {
-    width: 96%;
-  }
-}
-
-@media only screen and (max-width: 985px) {
-  .center {
-    width: 100%;
+    width: 300px;
   }
 }
 
 @media only screen and (max-width: 958px) {
-  .center {
-    width: 72%;
-  }
-
   .spinnerCenter {
     left: 47%;
     top: 855px;
   }
 }
 
-@media only screen and (max-width: 870px) {
-  .gridContainer {
-    place-content: center;
-  }
-  .center {
-    width: 100%;
-  }
-  .gridContainer::after {
-    display: none;
-  }
-}
-
 @media only screen and (max-width: 550px) {
   .gridContainer {
     margin-left: 0px;
-  }
-
-  .center {
-    width: 100%;
   }
 
   .featuredSpinnerCenter {

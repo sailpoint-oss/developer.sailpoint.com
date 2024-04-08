@@ -4,6 +4,12 @@ import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import {addDarkToFileName} from '../../../util/util';
 import ThemedImage from '@theme/ThemedImage';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {
+  faComments,
+  faPeopleGroup,
+  faUser,
+} from '@fortawesome/pro-duotone-svg-icons';
 export default function HomepageBasics({
   link,
   title,
@@ -21,14 +27,47 @@ export default function HomepageBasics({
       </div>
     );
   }
+  let icon = '';
+  if (image) {
+    switch (image) {
+      case 'discuss': {
+        icon = (
+          <FontAwesomeIcon
+            icon={faComments}
+            className={styles.docCardIcon}
+            size="3x"
+          />
+        );
+        break;
+      }
+      case 'team': {
+        icon = (
+          <FontAwesomeIcon
+            icon={faPeopleGroup}
+            className={styles.docCardIcon}
+            size="3x"
+          />
+        );
+        break;
+      }
+      case 'user': {
+        icon = (
+          <FontAwesomeIcon
+            icon={faUser}
+            className={styles.docCardIcon}
+            size="3x"
+          />
+        );
+        break;
+      }
+      default: {
+        icon = '';
+      }
+    }
+  }
   return (
     <div className={styles.gettingStartedText}>
-      <ThemedImage
-        className={styles.gettingStartedCardIcon}
-        sources={{
-          light: useBaseUrl(image),
-          dark: useBaseUrl(addDarkToFileName(image)),
-        }}></ThemedImage>
+      {icon}
       <div className={styles.gettingStartedOne}>{title}</div>
       <div
         className={styles.gettingStartedThree}

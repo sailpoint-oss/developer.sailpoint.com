@@ -1,127 +1,197 @@
 /* Getting Started Card */
 .card {
   position: relative;
-  margin-top: 20px;
-  height: 650px;
-  /* UI Properties */
-  background: var(--dev-card-background);
-  box-shadow: var(--dev-card-shadow);
-  border: 1px solid var(--dev-card-background);
-  border-radius: 40px;
+  margin-top: 30px;
+  margin-bottom: 30px;
   opacity: 1;
-  transition: all  0.3s;
-  max-width: 600px;
+  transition: all 0.3s;
+  width: 275px;
+  max-width: 275px;
+  background: var(--dev-new-car-background);
+  border-radius: 0.5rem;
+  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color),
+    0 1px 2px -1px var(--tw-shadow-color);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 transparent, 0 0 transparent, 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  border: 1px solid var(--dev-card-border);
 }
 
-.card:hover {
+.featuredCard {
+  position: relative;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  opacity: 1;
+  transition: all 0.3s;
+  width: 400px;
+  height: 475px;
+  background: var(--dev-new-car-background);
+  border-radius: 0.5rem;
+  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color),
+    0 1px 2px -1px var(--tw-shadow-color);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 transparent, 0 0 transparent, 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  border: 1px solid var(--dev-card-border);
+}
+
+.featuredCardImage {
+  overflow: hidden;
+  position: relative;
+  width: 400px;
+  height: 225px;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+a:link {
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+a:active {
+  text-decoration: none;
+}
+
+.card:hover,
+.featuredCard:hover {
   cursor: pointer;
   transform: translate(0px, -5px);
   box-shadow: var(--dev-card-selected);
+  text-decoration: none;
 }
-
-
-
-
 
 .cardText {
-  position: absolute;
-  margin: 22px;
-  min-width: 170px;
-  top: 10px;
-  left: 0;
+  display: flex;
+  flex-direction: column;
 }
 
+.cardImage {
+  overflow: hidden;
+  position: relative;
+  width: 300px;
+  height: 144px;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.featuredCardTitle {
+  font-size: 20px;
+  font-weight: 500;
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  text-align: left;
+  height: 80px;
+}
 
 .cardTitle {
-  font-size: 22px;
-  font-weight: 700;
-}
-
-.cardBody {
   font-size: 16px;
   font-weight: 500;
-  top: 10px;
-  left: 0;
-}
-
-.tag {
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--dev-secondary-text);
-  background-color: var(--dev-tag-highlight);
-  padding: 0px 8px;
-  margin-left: 5px;
-  margin-top: 5px;
-}
-
-.tags {
-  margin: 0px;
-  width: 100%;
   display: flex;
-  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  text-align: left;
+  height: 80px;
 }
-
-
-
-
 
 .cardUser {
-  position: absolute;
-  bottom: 10px;
-  left: 25px;
-  display: flex;
+  margin-top: 15px;
+  margin-bottom: 5%;
 }
 
 .cardFace {
   border-radius: 9999px;
-  margin: auto;
+  margin-left: 2%;
   height: 40px;
   width: 40px;
 }
 
+.featuredCardFace {
+  border-radius: 9999px;
+  margin-left: 2%;
+  height: 50px;
+  width: 50px;
+}
+
 .cardName {
   min-width: 170px;
+  font-weight: 800;
   margin-top: 7px;
   margin-left: 10px;
-}
-
-
-
-
-
-.cardData {
-  position: absolute;
-  bottom: 50px;
-  left: 20px;
   display: flex;
-  align-items: center;
+  color: var(--text-color);
 }
 
-.cardEye {
-  fill: #96a9bb;
-  /* computed from codepen https://codepen.io/sosuke/pen/Pjoqqp */
-  filter: invert(79%) sepia(12%) saturate(484%) hue-rotate(168deg) brightness(84%) contrast(84%);
-  margin-left: 5px;
-  height: 18px;
-  width: 18px;
-}
-
-.cardComment {
+.cardCreatorTitle {
+  min-width: 170px;
   margin-left: 10px;
-  fill: #96a9bb;
-  /* computed from codepen https://codepen.io/sosuke/pen/Pjoqqp */
-  filter: invert(79%) sepia(12%) saturate(484%) hue-rotate(168deg) brightness(84%) contrast(84%);
-  height: 18px;
-  width: 18px;
-  margin-bottom: 4px;
+  display: flex;
+  color: var(--text-color);
 }
 
-.cardCommentText {
-  color: #96a9ba;
-  /* computed from codepen https://codepen.io/sosuke/pen/Pjoqqp */
-  margin-left: 5px;
-  margin-bottom: 5px;
-  height: 20px;
-  font-size: 16px;
+.featuredCardName {
+  min-width: 170px;
+  font-weight: 800;
+  margin-top: 7px;
+  margin-left: 10px;
+  display: flex;
+  color: var(--text-color);
 }
 
+.featuredCardCreatorTitle {
+  min-width: 170px;
+  margin-left: 10px;
+  display: flex;
+  color: var(--text-color);
+}
+
+.split {
+  background: linear-gradient(
+    145deg,
+    rgba(0, 51, 161, 1) 40%,
+    rgba(0, 79, 181, 1) 65%,
+    rgba(0, 113, 206, 1) 100%
+  );
+  height: 15px;
+}
+
+@media only screen and (max-width: 550px) {
+  .cardText {
+    margin-bottom: 0px;
+  }
+
+  .featuredCard {
+    width: 275px;
+    max-width: 275px;
+    height: auto;
+  }
+
+  .featuredCardImage {
+    width: 275px;
+    height: 144px;
+  }
+
+  .featuredCardTitle {
+    font-size: 16px;
+  }
+
+  .featuredCardFace {
+    height: 40px;
+    width: 40px;
+  }
+}

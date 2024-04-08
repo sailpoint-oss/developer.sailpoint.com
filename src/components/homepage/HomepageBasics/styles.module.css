@@ -57,7 +57,7 @@
   box-shadow: 0px 20px 60px #00000015;
   border: 2px solid #df61ca;
   border-radius: 5px;
-  transition: all  0.3s;
+  transition: all 0.3s;
 }
 
 .link {
@@ -66,4 +66,8 @@
 .link:hover {
   color: #df61ca;
   text-decoration: none;
+}
+
+.docCardIcon {
+  color: var(--ifm-color-primary);
 }

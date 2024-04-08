@@ -1,84 +1,64 @@
 import React from 'react';
 import styles from './styles.module.css';
-import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import ThemedImage from '@theme/ThemedImage';
-import {addDarkToFileName} from '../../../util/util';
-import ReactMarkdown from 'react-markdown'
-export default function MarketplaceCard({
-  post,
-  openDialogFunc,
-}) {
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faShieldCheck, faAward} from '@fortawesome/pro-solid-svg-icons';
+import Link from '@docusaurus/Link';
 
-  function setFilters(e) {
-    openDialogFunc({"title": post.title, "image": post.image, "link": post.link, "id": post.id});
-  }
-
-  let badge = (
-    <div></div>
-  );
-  if (post.tags.includes("sailpoint-developed")) {
+export default function MarketplaceCard({post, featured}) {
+  let badge = <div></div>;
+  if (post.tags.includes('sailpoint-developed')) {
     badge = (
       <div className={styles.cardBadge}>
-      <img
-        className={styles.cardBadgeImage}
-        src={useBaseUrl('/icons/SailPoint-LogoIcon-RGB-Color.svg')}></img>
+        <img
+          className={styles.cardBadgeImage}
+          src={useBaseUrl('/icons/SailPoint-LogoIcon-RGB-Color.svg')}></img>
         <span className={styles.cardBadgeText}>SailPoint Developed</span>
       </div>
-
     );
-  } else if (post.tags.includes("sailpoint-certified")) {
+  } else if (post.tags.includes('sailpoint-certified')) {
     badge = (
-      <div className={styles.cardBadgeCertified}>
-        <img
-        className={styles.cardBadgeCertifiedImage}
-        src={useBaseUrl('/marketplace/award-simple-sharp-solid.svg')}></img>
-        <span>SailPoint Certified</span>
+      <div className={styles.badgeContainer}>
+        <div title="SailPoint Certified" className={styles.cardBadgeCertified}>
+          <FontAwesomeIcon
+            icon={faShieldCheck}
+            className={styles.docCardIcon}
+            size="2x"
+          />
         </div>
+      </div>
     );
   }
 
-
   return (
-    <div onClick={(e) => setFilters(e)}>
-      <div className={styles.card} >
-
+    <Link to={post.link}>
+      {/* <div onClick={(e) => setFilters(e)}> */}
+      <div className={featured ? styles.featuredCard : styles.card}>
         <div className={styles.cardText}>
-          <img className={styles.cardImage} src={useBaseUrl(post.image)}></img>
-          <div className={styles.cardTitle}>{post.title}</div>
-          <div className={styles.tags}>
-            {post.tags?.map((tag, index) => {
-
-              if (index > 2 || tag == 'sailpoint-certified' || tag == 'sailpoint-authored') {
-                return '';
-              }
-              return <div key={tag} className={styles.tag}>{tag}</div>;
-            })}
+          <img
+            className={featured ? styles.featuredCardImage : styles.cardImage}
+            src={useBaseUrl(post.image)}></img>
+          <div className={styles.split}></div>
+          <div
+            className={featured ? styles.featuredCardTitle : styles.cardTitle}>
+            {post.title}
           </div>
-          <div className={styles.cardBody}>{post.excerpt}</div>
+
+          <div className={styles.cardUser}>
+            <img
+              className={featured ? styles.featuredCardFace : styles.cardFace}
+              src={useBaseUrl(post.creatorImage)}></img>
+
+            <div className={styles.cardName}>{post.creatorName}</div>
+            <div className={styles.cardCreatorTitle}>{post.creatorTitle}</div>
+
+            <div></div>
+          </div>
         </div>
-
-        <div className={styles.cardData}>
-          <img className={styles.cardEye} src={useBaseUrl('/blog/eye-regular.svg')}></img>
-          <div className={styles.cardCommentText}>{post.views}</div>
-          <img className={styles.cardComment} src={useBaseUrl('/blog/comment-light.svg')}></img>
-          <div className={styles.cardCommentText}>{post.replies}</div>
-        </div>
-
-        {/* <div className={styles.cardUser}>
-          <img className={styles.cardFace} src={useBaseUrl(post.creatorImage)}></img>
-          <div className={styles.cardName}>{post.name}</div>
-        </div> */}
-
 
         {badge}
-
-
-        
-
-
-
       </div>
-    </div>
+      {/* </div> */}
+    </Link>
   );
 }

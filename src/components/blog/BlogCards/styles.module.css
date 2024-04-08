@@ -75,11 +75,11 @@
 
 @media only screen and (max-width: 775px) {
   .gridContainer {
-    width: 300px;
+    width: 275px;
   }
 
   .center {
-    width: 300px;
+    width: 275px;
   }
 }
 
@@ -87,11 +87,18 @@
   .featuredGridContainer {
     margin-left: 0%;
     min-height: 350px;
+    width: 275px;
+    margin: auto;
+  }
+  .featuredCenter {
+    width: 275px;
+    margin: auto;
   }
 
   .gridContainer,
   .featuredGridContainer {
     justify-content: center;
+    margin-left: 0px;
   }
 
   .spinnerCenter {

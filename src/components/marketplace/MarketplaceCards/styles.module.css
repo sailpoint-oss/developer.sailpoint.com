@@ -149,13 +149,19 @@
 
 @media only screen and (max-width: 550px) {
   .featuredGridContainer {
-    margin-left: 4%;
+    margin-left: 0%;
+    min-height: 350px;
+    width: 275px;
+    margin: auto;
+  }
+  .featuredCenter {
+    width: 275px;
+    margin: auto;
   }
 
   .center {
     margin: auto;
-    margin-left: 50%;
-    margin-right: 50%;
+    width: 275px;
   }
 
   .featuredSpinnerCenter {

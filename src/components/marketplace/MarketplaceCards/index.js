@@ -114,7 +114,7 @@ export default function MarketplaceCards({
   }, [filterCallback]);
 
   return (
-    <div className={featured ? null : styles.center}>
+    <div className={featured ? styles.featuredCenter : styles.center}>
       {loadingCards ? (
         // Show loading icon when data is still loading
         <div>

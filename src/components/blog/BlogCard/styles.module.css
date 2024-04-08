@@ -176,8 +176,6 @@ a:active {
   }
 
   .featuredCard {
-    margin-left: 5%;
-    margin-right: 5%;
     width: 275px;
     max-width: 275px;
     height: auto;

@@ -34,10 +34,10 @@
 
 @media only screen and (max-width: 660px) {
   .gridContainer {
-    width: 300px;
+    width: 220px;
   }
 
   .center {
-    width: 300px;
+    width: 220px;
   }
 }

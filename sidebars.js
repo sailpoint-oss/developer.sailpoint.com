@@ -12,7 +12,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'API Specifications',
-          collapsible: true,
+          collapsible: false,
           link: {
             type: 'doc',
             id: 'api/api-specifications',
@@ -202,11 +202,6 @@ const sidebars = {
           label: 'Product Documentation',
           href: 'https://documentation.sailpoint.com',
         },
-        {
-          type: 'link',
-          label: 'Certifications',
-          href: 'https://university.sailpoint.com/Saba/Web_spf/NA10P1PRD075/guest/categorydetail/categ000000000003041/true/xxemptyxx/',
-        },
       ],
     },
   ],
@@ -223,6 +218,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'API Specifications',
+          collapsible: false,
           link: {
             type: 'generated-index',
             title: 'API Specifications',
@@ -251,11 +247,6 @@ const sidebars = {
             type: 'link',
             label: 'Product Documentation',
             href: 'https://documentation.sailpoint.com/#identityiq',
-          },
-          {
-            type: 'link',
-            label: 'Certifications',
-            href: 'https://university.sailpoint.com/Saba/Web_spf/NA10P1PRD075/guest/categorydetail/categ000000000003042/true/xxemptyxx/',
           },
       ],
     },

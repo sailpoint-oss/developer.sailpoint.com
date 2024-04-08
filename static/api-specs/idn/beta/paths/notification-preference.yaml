@@ -1,0 +1,81 @@
+get:
+  operationId: getNotificationPreference
+  tags:
+    - Notifications
+  summary: Get Notification Preference details
+  description: >-
+    Returns the notification preference details for tenant.  Note that if the key doesn't exist, then a 404 will be returned.
+
+  security:
+  - UserContextAuth: [ idn:notification-preferences:read ]
+  parameters:
+    - in: path
+      name: key
+      required: true
+      example: cloud_manual_work_item_summary
+      schema:
+        type: string
+      description: The notification key.
+  responses:
+    '200':
+      description: Return preference for the given notification key.
+      content:
+        application/json:
+          schema:
+              $ref: '../schemas/PreferencesDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+put:
+  operationId: putNotificationPreference
+  tags:
+    - Notifications
+  summary: Overwrite preferences notification key.
+  description: >- 
+    Allows admins to opt in to or out of certain notifications for their org. The default state is opted in. `key` is optional but if it is provided and doesn't match the key in the URI, then a 400 will be thrown.
+
+  security:
+  - UserContextAuth: [ idn:notification-preferences:create ]
+
+  parameters:
+    - in: path
+      name: key
+      required: true
+      example: cloud_manual_work_item_summary
+      schema:
+        type: string
+      description: The notification key.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/PreferencesDto.yaml'
+  responses:
+    '200':
+      description: The preferences were successfully replaced, and an echo of the new preferences are sent back to caller.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/PreferencesDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

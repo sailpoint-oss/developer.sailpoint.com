@@ -52,6 +52,10 @@ get:
                   type: string
                   description: Workgroup member identity display name. 
                   example: Michael Michaels
+                email:
+                  type: string
+                  description: Workgroup member identity email.
+                  example: michael.michaels@sailpoint.com
     '400':
       $ref: '../../../v3/responses/400.yaml'
     '401':

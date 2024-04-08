@@ -1,28 +1,20 @@
-
-.blogHeaderText {
-  position: relative;
+.colabTitle {
+  text-align: center;
+  margin-bottom: 2%;
   color: #ffffff;
-  font-size: 48px;
-  max-width: 459px;
-  font-weight: bold;
-  line-height: 130%;
-  top: -84px;
-  left: 101px;
+  position: relative;
+  top: 25px;
 }
 
-.background {
+.titleContainer {
   width: 100%;
-  object-fit: repeat;
-  height: 100%;
-}
-
-.imageContainer {
-  width: 100%;
-  height: 90px;
-  background: rgb(0,51,161);
-  background: linear-gradient(90deg, rgba(0,51,161,1) 0%, rgba(84,192,232,1) 100%);
-}
-
-.headerImage {
-  height: 90px;
+  height: 45px;
+  background: rgb(0, 51, 161);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 51, 161, 1) 0%,
+    rgba(84, 192, 232, 1) 100%
+  );
+  align-content: center;
+  margin-bottom: 2%;
 }

@@ -4,35 +4,49 @@ import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import ThemedImage from '@theme/ThemedImage';
 import {addDarkToFileName} from '../../../util/util';
-export default function AmbassadorCard({
-  data
-}) {
-
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {
+  faSquareCheck,
+  faCalendarClock,
+} from '@fortawesome/pro-duotone-svg-icons';
+export default function AmbassadorCard({data}) {
   return (
     <Link to={data.link} className={styles.link}>
-
-
       <div className={styles.card}>
         <div className={styles.cardFaceContainer}>
-          <img className={styles.cardFace} src={useBaseUrl(data.creatorImage)}></img>
+          <img
+            className={styles.cardFace}
+            src={useBaseUrl(data.creatorImage)}></img>
           <div className={styles.cardNameContainer}>
             <div className={styles.name}>{data.name}</div>
           </div>
         </div>
 
-        <div className={styles.bio} dangerouslySetInnerHTML={{__html: data.bio}}></div>
+        <div
+          className={styles.bio}
+          dangerouslySetInnerHTML={{__html: data.bio}}></div>
 
         <div className={styles.cardData}>
-          <img className={styles.cardEye} src={useBaseUrl('/icons/square-check-regular.svg')}></img>
-          <div className={styles.cardCommentText}>{data.answers} solutions</div>
+          <FontAwesomeIcon
+            icon={faSquareCheck}
+            className={styles.docCardIcon}
+            size="lg"
+          />
+          <div className={styles.cardCommentTextUpper}>
+            {data.answers} solutions
+          </div>
         </div>
         <div className={styles.cardDataLower}>
-          <img className={styles.cardEye} src={useBaseUrl('/icons/calendar-clock-light.svg')}></img>
-          <div className={styles.cardCommentText}>member since {data.member_since}</div>
+          <FontAwesomeIcon
+            icon={faCalendarClock}
+            className={styles.docCardIcon}
+            size="lg"
+          />
+          <div className={styles.cardCommentText}>
+            member since {data.member_since}
+          </div>
         </div>
-
       </div>
-
     </Link>
   );
 }

@@ -7,34 +7,43 @@ module.exports = {
   },
   items: [
     {
+      type: 'dropdown',
+      label: 'Documentation',
       position: 'left',
-      label: 'Identity Security Cloud',
-      to: '/docs',
+      items: [
+        {label: 'Identity Security Cloud', to: '/docs'},
+        {label: 'IdentityIQ', to: '/docs/iiq'},
+      ],
+    },
+
+    {
+      type: 'dropdown',
+      label: 'Community',
+      position: 'left',
+      items: [
+        {
+          label: 'Developer Forum',
+          to: 'https://developer.sailpoint.com/discuss/',
+        },
+        {
+          label: 'CoLab Marketplace',
+          to: '/colab',
+        },
+
+        {
+          label: 'Developer Blog',
+          to: '/blog',
+        },
+        {
+          label: 'Ambassador Program',
+          to: '/ambassadors',
+        },
+      ],
     },
     {
       position: 'left',
-      label: 'IdentityIQ',
-      to: '/docs/iiq',
-    },
-    {
-      position: 'left',
-      label: 'CoLab',
-      to: '/colab',
-    },
-    {
-      position: 'left',
-      label: 'Blog',
-      to: '/blog',
-    },
-    {
-      position: 'left',
-      label: 'Ideas',
-      to: 'https://ideas.sailpoint.com',
-    },
-    {
-      position: 'left',
-      label: 'Discuss',
-      to: 'https://developer.sailpoint.com/discuss/',
+      label: 'Video Library',
+      to: '/videos',
     },
     {
       type: 'dropdown',

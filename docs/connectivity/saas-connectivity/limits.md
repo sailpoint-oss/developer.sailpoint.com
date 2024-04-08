@@ -17,6 +17,6 @@ Below is a list of limits set in SaaS Connectivity:
   - The actual run time of a connector is not limited at this time, however a response in the form of `res.send()` must be recieved from a command at least every 3 minutes
   - If you have a long running call, you can use `res.keepAlive()` to send a heartbeat to Identity Security Cloud in between `res.send()` calls to let it know the connector is still running
 - **Response Size**
-  - The maximum size of a single `res.send()` call is 256 KiB. Not that some metadata is sent along with the call, so the max size of the payload sent will be slightly less than 256 KiB
+  - The maximum size of a single `res.send()` call is 256 KiB. Note that some metadata is sent along with the call, so the max size of the payload sent will be slightly less than 256 KiB
 - **Memory Limits**
   - Each instance of a running SaaS connector is limited to 512 MB

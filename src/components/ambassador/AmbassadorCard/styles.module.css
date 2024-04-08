@@ -10,16 +10,23 @@
 .card {
   position: relative;
   margin-top: 20px;
-  min-height: 500px;
-  
+  width: 365px;
+  min-height: 545px;
+
   /* UI Properties */
-  background: var(--dev-card-background);
-  box-shadow: var(--dev-card-shadow);
-  border: 1px solid var(--dev-card-background);
-  border-radius: 40px;
   opacity: 1;
-  transition: all  0.3s;
-  opacity: 1;
+  transition: all 0.3s;
+  background: var(--dev-new-car-background);
+  border-radius: 0.5rem;
+  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color),
+    0 1px 2px -1px var(--tw-shadow-color);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 transparent, 0 0 transparent, 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  border: 1px solid var(--dev-card-border);
 }
 
 .card:hover {
@@ -27,10 +34,6 @@
   transform: translate(0px, -5px);
   box-shadow: var(--dev-card-selected);
 }
-
-
-
-
 
 .cardFaceContainer {
   display: flex;
@@ -41,8 +44,8 @@
   border-radius: 99px;
   justify-content: center;
   display: flex;
-  height: 100px;
-  width: 100px;
+  height: 80px;
+  width: 80px;
 }
 
 .cardNameContainer {
@@ -53,7 +56,7 @@
 }
 
 .name {
-  font-size: 25px;
+  font-size: 22px;
   font-weight: 500;
   width: 100%;
   top: 124px;
@@ -89,18 +92,15 @@
   width: 20px;
 }
 
-
-
 .bio {
   margin: 30px auto;
   font-size: 16px;
   font-weight: 500;
   width: 100%;
   color: var(--ifm-color-primary);
-  padding: 30px;
+  padding: 0px 30px;
   margin-bottom: 50px;
 }
-
 
 .cardData {
   position: absolute;
@@ -113,7 +113,8 @@
 .cardEye {
   fill: #96a9bb;
   /* computed from codepen https://codepen.io/sosuke/pen/Pjoqqp */
-  filter: invert(79%) sepia(12%) saturate(484%) hue-rotate(168deg) brightness(84%) contrast(84%);
+  filter: invert(79%) sepia(12%) saturate(484%) hue-rotate(168deg)
+    brightness(84%) contrast(84%);
   margin-left: 5px;
   height: 18px;
   width: 18px;
@@ -128,10 +129,23 @@
   font-size: 16px;
 }
 
+.cardCommentTextUpper {
+  color: #96a9ba;
+  /* computed from codepen https://codepen.io/sosuke/pen/Pjoqqp */
+  margin-left: 10px;
+  margin-bottom: 5px;
+  height: 20px;
+  font-size: 16px;
+}
+
 .cardDataLower {
   position: absolute;
   bottom: 20px;
-  left: 22px;
+  left: 20px;
   display: flex;
   align-items: center;
+}
+
+.docCardIcon {
+  color: var(--ifm-color-primary);
 }

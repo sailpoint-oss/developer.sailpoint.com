@@ -25,10 +25,6 @@ export default function MarketplaceCards({
   const [loadingCards, setLoadingCards] = React.useState(true);
   const xImage = useBaseUrl('/icons/circle-xmark-regular.svg');
 
-  const handleCloseModal = () => {
-    setDetailsOpen(false);
-  };
-
   const getPosts = async () => {
     let tags = filterCallback.tags;
     if (featured) {
@@ -134,41 +130,36 @@ export default function MarketplaceCards({
           )}
         </div>
       ) : cardData && cardData.length > 0 ? (
-        <div className={featured ? null : styles.center}>
-          <div
-            className={
-              featured ? styles.featuredGridContainer : styles.gridContainer
-            }>
-            {cardData.map(function (a, index) {
-              return (
-                <MarketplaceCard
-                  featured={featured}
-                  post={a}
-                  key={index + a.link}
-                  openDialogFunc={openDialog}></MarketplaceCard>
-              );
-            })}
-          </div>
-          <Modal
-            isOpen={detailsOpen}
-            className={styles.modal}
-            onRequestClose={handleCloseModal}
-            contentLabel="Details">
-            <div>
-              <div>
-                <MarketplaceCardDetail
-                  details={details.data}
-                  rawPost={details.raw}></MarketplaceCardDetail>
-              </div>
-              <img
-                className={styles.cardExit}
-                src={xImage}
-                onClick={async () => {
-                  setDetailsOpen(false);
-                }}></img>
+        <>
+          {multiple ? (
+            <div className={styles.multipleGridContainer}>
+              {cardData.map(function (a, index) {
+                return (
+                  <MarketplaceCard
+                    featured={featured}
+                    post={a}
+                    key={index + a.link}
+                    openDialogFunc={openDialog}></MarketplaceCard>
+                );
+              })}
             </div>
-          </Modal>
-        </div>
+          ) : (
+            <div
+              className={
+                featured ? styles.featuredGridContainer : styles.gridContainer
+              }>
+              {cardData.map(function (a, index) {
+                return (
+                  <MarketplaceCard
+                    featured={featured}
+                    post={a}
+                    key={index + a.link}
+                    openDialogFunc={openDialog}></MarketplaceCard>
+                );
+              })}
+            </div>
+          )}
+        </>
       ) : (
         <div>
           <div className={styles.noFound}>

@@ -1,25 +1,16 @@
 .cardContainer {
   min-height: 400px;
+  width: 1500px;
 }
 
 .container {
   display: flex;
-  width: 56%;
   margin: auto;
+  width: 1500px;
 }
 
 .featured {
   margin-left: 8%;
-}
-
-@media only screen and (max-width: 2100px) {
-  .blogContainer {
-    width: 60%;
-  }
-
-  .container {
-    width: 59%;
-  }
 }
 
 .discourseContainer {
@@ -35,12 +26,6 @@
 .link {
   margin-top: 3%;
   margin-left: 1%;
-}
-
-@media screen and (max-width: 550px) {
-  .cardContainer {
-    margin-right: 10%;
-  }
 }
 
 .mainCard {
@@ -104,6 +89,43 @@
 
 .contentContainer {
   margin-left: 5%;
+}
+
+@media only screen and (max-width: 1950px) {
+  .container {
+    width: 1225px;
+  }
+  .cardContainer {
+    width: 1225px;
+  }
+}
+
+@media only screen and (max-width: 1350px) {
+  .container {
+    width: 950px;
+  }
+  .cardContainer {
+    width: 950px;
+  }
+}
+
+@media only screen and (max-width: 1050px) {
+  .container {
+    width: 675px;
+  }
+  .cardContainer {
+    width: 675px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .container {
+    width: 275px;
+  }
+
+  .cardContainer {
+    width: 275px;
+  }
 }
 
 @media only screen and (max-width: 1178px) {

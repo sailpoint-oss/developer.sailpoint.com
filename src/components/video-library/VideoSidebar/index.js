@@ -7,6 +7,8 @@ export default function MarketplaceSidebar({filterCallback}) {
   const [tagProductData, setTagProductData] = React.useState();
   const [videoTag, setVideoTag] = React.useState();
   const [isOpen, setIsOpen] = React.useState(false);
+  const [productTags, setProductTags] = React.useState('Filter by Product');
+  const [videoTags, setVideoTags] = React.useState('Filter by Video Type');
   const [checkedItemsProdcut, setCheckedItemsProduct] = React.useState({});
   const [checkedItemsVideo, setCheckedItemsVideo] = React.useState(null);
   const toggleDropdown = () => setIsOpen(!isOpen);
@@ -17,6 +19,17 @@ export default function MarketplaceSidebar({filterCallback}) {
       [event.target.name]: event.target.checked,
     });
 
+    let product = '';
+
+    if (event.target.checked) {
+      product = event.target.name;
+    } else {
+      console.log('productTags', productTags);
+      console.log('event.target.name', event.target.name);
+      product = productTags.replace(event.target.name, '');
+      console.log('product', product);
+    }
+
     let filters = [];
     if (event.target.checked) {
       filters.push(event.target.name);
@@ -25,11 +38,22 @@ export default function MarketplaceSidebar({filterCallback}) {
     forEach(checkedItemsProdcut, (value, key) => {
       if (key !== event.target.name && value === true) {
         filters.push(key);
+        if (!product.includes(key)) product = product + ' ' + key;
       }
     });
 
     if (checkedItemsVideo) {
       filters.push(checkedItemsVideo);
+    }
+
+    if (event.target.checked && product !== '') {
+      setProductTags(product);
+    } else {
+      setProductTags(product);
+    }
+
+    if (product === '') {
+      setProductTags('Filter by Product');
     }
 
     filterCallback({tag: filters});
@@ -38,6 +62,11 @@ export default function MarketplaceSidebar({filterCallback}) {
   const handleCheckboxChangeVideo = (event) => {
     const newCheckedItems = event.target.checked ? event.target.name : null;
     setCheckedItemsVideo(newCheckedItems);
+    if (event.target.checked) {
+      setVideoTags(event.target.name);
+    } else {
+      setVideoTags('Filter by Video Type');
+    }
     if (!checkedItemsProdcut) {
       filterCallback({tag: newCheckedItems});
     } else {
@@ -98,7 +127,7 @@ export default function MarketplaceSidebar({filterCallback}) {
         <div>
           <div className={styles.dropdownContainer}>
             <button onClick={toggleDropdown} className={styles.dropdownButton}>
-              Filter by Product...
+              {productTags}
             </button>
             {isOpen && (
               <div className={styles.dropdownContent}>
@@ -123,7 +152,7 @@ export default function MarketplaceSidebar({filterCallback}) {
         <div className={styles.videoTypeFilter}>
           <div className={styles.dropdownContainer}>
             <button onClick={toggleDropdown} className={styles.dropdownButton}>
-              Filter by Video Type...
+              {videoTags}
             </button>
             {isOpen && (
               <div className={styles.dropdownContent}>

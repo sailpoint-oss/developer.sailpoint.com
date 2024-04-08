@@ -52,8 +52,7 @@ export default function Marketplace() {
                   What is the CoLab?
                 </div>
                 <div className={styles.gettingStartedThree}>
-                  Jump into our{' '}
-                  <span className={styles.bold}>
+                  <span>
                     The community CoLab is a place where members of our
                     community can build fully-featured solutions on our platform
                     and share those solutions with each other. Users collaborate

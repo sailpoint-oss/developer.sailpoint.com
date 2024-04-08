@@ -37,7 +37,7 @@ export default function Blog() {
                 <div className={styles.gettingStartedOne}>Community Blog</div>
 
                 <div className={styles.gettingStartedThree}>
-                  <span className={styles.bold}>
+                  <span>
                     Our community blog is a collection of technical writings
                     provided by members of our community—your peers—discussing
                     detailed walkthroughs, challenges faced (and how they were

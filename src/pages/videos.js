@@ -27,7 +27,7 @@ export default function VideoLibrary() {
                 <div className={styles.gettingStartedText}>
                   <div className={styles.gettingStartedOne}>Video Library</div>
                   <div className={styles.gettingStartedThree}>
-                    <span className={styles.bold}>
+                    <span>
                       Our video library is a collection of educational videos
                       from our Developer Relations team, live streams,
                       conferences, and other community members.

@@ -9,8 +9,7 @@ import isInternalUrl from '@docusaurus/isInternalUrl';
 import {translate} from '@docusaurus/Translate';
 import styles from './styles.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFolderOpen, faLink, faBook, faArrowUpRightFromSquare } from '@fortawesome/pro-duotone-svg-icons'
-import { useColorMode } from '@docusaurus/theme-common';
+import { faFolderOpen, faBook, faArrowUpRightFromSquare } from '@fortawesome/pro-duotone-svg-icons'
 
 function CardContainer({href, children}) {
   return (
@@ -39,10 +38,6 @@ function CardLayout({href, icon, title, description}) {
 }
 function CardCategory({item}) {
   const href = findFirstCategoryLink(item);
-  const {colorMode} = useColorMode();
-  //const icon = colorMode === 'dark' ? <FontAwesomeIcon icon={faFolderOpen} style={{marginRight: "0.5em"}} color='#0033a1' /> : <FontAwesomeIcon icon={faFolderOpen} style={{marginRight: "0.5em"}} color='#7ecfee' />;
-  //const icon = <FontAwesomeIcon icon={faFolderOpen} style={{marginRight: "0.5em"}} color='#0033a1' />;
-  //console.log(item)
   // Unexpected: categories that don't have a link have been filtered upfront
   if (!href) {
     return null;
@@ -50,7 +45,7 @@ function CardCategory({item}) {
   return (
     <CardLayout
       href={href}
-      icon={<FontAwesomeIcon icon={faFolderOpen} style={{marginRight: "0.5em"}} color={colorMode === 'dark' ? '#7ecfee' : '#0033a1'} />}
+      icon={<FontAwesomeIcon icon={faFolderOpen} className={styles.docCardIcon} />}
       //icon={icon}
       title={item.label}
       description={
@@ -69,8 +64,7 @@ function CardCategory({item}) {
   );
 }
 function CardLink({item}) {
-  const {colorMode} = useColorMode();
-  const icon = isInternalUrl(item.href) ? <FontAwesomeIcon icon={faBook} style={{marginRight: "0.5em"}} color={colorMode === 'dark' ? '#7ecfee' : '#0033a1'} /> : <FontAwesomeIcon icon={faArrowUpRightFromSquare} style={{marginRight: "0.5em"}} color={colorMode === 'dark' ? '#7ecfee' : '#0033a1'} />;
+  const icon = isInternalUrl(item.href) ? <FontAwesomeIcon icon={faBook} className={styles.docCardIcon} /> : <FontAwesomeIcon icon={faArrowUpRightFromSquare} className={styles.docCardIcon} />;
   const doc = useDocById(item.docId ?? undefined);
   return (
     <CardLayout

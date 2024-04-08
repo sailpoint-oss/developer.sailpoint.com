@@ -1,16 +1,53 @@
 /* Getting Started Card */
 .card {
   position: relative;
-  margin-top: 20px;
-  height: 500px;
-  /* UI Properties */
-  background: var(--dev-card-background);
-  box-shadow: var(--dev-card-shadow);
-  border: 1px solid var(--dev-card-background);
-  border-radius: 40px;
+  margin-top: 30px;
+  margin-bottom: 30px;
   opacity: 1;
-  transition: all  0.3s;
-  max-width: 400px;
+  transition: all 0.3s;
+  width: 275px;
+  height: 393.17px;
+  background: var(--dev-new-car-background);
+  border-radius: 0.5rem;
+  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color),
+    0 1px 2px -1px var(--tw-shadow-color);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 transparent, 0 0 transparent, 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  border: 1px solid var(--dev-card-border);
+}
+
+.featuredCard {
+  position: relative;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  opacity: 1;
+  transition: all 0.3s;
+  width: 400px;
+  height: 475px;
+  background: var(--dev-new-car-background);
+  border-radius: 0.5rem;
+  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color),
+    0 1px 2px -1px var(--tw-shadow-color);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 transparent, 0 0 transparent, 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  border: 1px solid var(--dev-card-border);
+}
+
+.featuredCardImage {
+  overflow: hidden;
+  position: relative;
+  width: 400px;
+  height: 225px;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
 }
 
 .card:hover {
@@ -19,130 +56,97 @@
   box-shadow: var(--dev-card-selected);
 }
 
-
-
-
-
 .cardText {
   display: flex;
   flex-direction: column;
-  margin: 22px;
-  min-width: 170px;
-  margin-bottom: 75px;
 }
-
 .cardImage {
-  border-radius: 4px;
-  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  height: 144px;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
   aspect-ratio: 16/9;
 }
+.split {
+  background: linear-gradient(
+    145deg,
+    rgba(0, 51, 161, 1) 40%,
+    rgba(0, 79, 181, 1) 65%,
+    rgba(0, 113, 206, 1) 100%
+  );
+  height: 15px;
+}
 
+.featuredCardTitle {
+  font-size: 20px;
+  font-weight: 500;
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  text-align: left;
+  height: 80px;
+}
 
 .cardTitle {
-  font-size: 22px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  text-align: left;
+  height: 80px;
+  color: var(--ifm-color-primary);
 }
 
 .cardBody {
-  font-size: 16px;
-  font-weight: 500;
-  top: 10px;
-  left: 0;
+  font-size: 14px;
+  font-weight: 400;
+  height: 80px;
+  margin-top: 1rem;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  text-align: left;
 }
-
-.tag {
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--dev-secondary-text);
-  background-color: var(--dev-tag-highlight);
-  padding: 0px 8px;
-  margin-right: 5px;
-  margin-top: 5px;
-}
-
-.tags {
-  margin: 0px;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 10px;
-}
-
-
-
-
 
 .cardUser {
-  position: absolute;
-  bottom: 10px;
-  left: 25px;
-  display: flex;
+  margin-top: 15px;
+  margin-bottom: 5%;
+}
+
+.featuredCardFace {
+  border-radius: 9999px;
+  margin-left: 2%;
+  height: 50px;
+  width: 50px;
 }
 
 .cardFace {
   border-radius: 9999px;
-  margin: auto;
+  margin-left: 2%;
   height: 40px;
   width: 40px;
 }
 
 .cardName {
   min-width: 170px;
+  font-weight: 800;
   margin-top: 7px;
   margin-left: 10px;
-}
-
-
-
-
-
-.cardData {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
   display: flex;
-  align-items: center;
+  color: var(--text-color);
 }
 
-.cardEye {
-  fill: #96a9bb;
-  /* computed from codepen https://codepen.io/sosuke/pen/Pjoqqp */
-  filter: invert(79%) sepia(12%) saturate(484%) hue-rotate(168deg) brightness(84%) contrast(84%);
-  margin-left: 5px;
-  height: 18px;
-  width: 18px;
-}
-
-.cardComment {
+.cardCreatorTitle {
+  min-width: 170px;
   margin-left: 10px;
-  fill: #96a9bb;
-  /* computed from codepen https://codepen.io/sosuke/pen/Pjoqqp */
-  filter: invert(79%) sepia(12%) saturate(484%) hue-rotate(168deg) brightness(84%) contrast(84%);
-  height: 18px;
-  width: 18px;
-  margin-bottom: 4px;
+  display: flex;
+  color: var(--text-color);
 }
-
-.cardCommentText {
-  color: #96a9ba;
-  /* computed from codepen https://codepen.io/sosuke/pen/Pjoqqp */
-  margin-left: 5px;
-  margin-bottom: 5px;
-  height: 20px;
-  font-size: 16px;
-}
-
-
-
-
-/* .cardBadge {
-  position: absolute;
-  right: 5px;
-  bottom: 0px;
-  margin-left: 5px;
-  height: 80px;
-  width: 80px;
-} */
 
 .cardBadge {
   position: absolute;
@@ -161,20 +165,24 @@
   width: 80px;
 }
 
-.cardBadgeText {
-  margin-left: -19px;
-  margin-top: 15px;
+.certifiedText {
+  position: absolute;
+  top: 107px;
+  left: 95px;
+  color: var(--dev-text-color-secondary);
+  visibility: hidden;
 }
 
+.cardBadgeText {
+  margin-top: 15px;
+  color: var(--dev-text-color-secondary);
+}
 
 .cardBadgeCertified {
   position: absolute;
-  display: flex;
-  right: 85px;
-  bottom: 15px;
-  margin-left: 5px;
-  height: 50px;
-  width: 50px;
+  width: 250px;
+  left: 225px;
+  bottom: 10px;
   color: var(--dev-text-color-secondary);
 }
 
@@ -183,4 +191,45 @@
   height: 50px;
   width: 50px;
   filter: var(--dev-icon-color-primary);
+}
+
+.docCardIcon {
+  margin-right: 0.5em;
+  color: var(--ifm-color-primary);
+  padding-top: 4%;
+  padding-left: 4%;
+}
+
+.badgeText {
+  margin-top: 6%;
+}
+
+.badgeContainer:hover .certifiedText {
+  visibility: visible;
+}
+
+@media only screen and (max-width: 550px) {
+  .cardText {
+    margin-bottom: 0px;
+  }
+
+  .featuredCard {
+    width: 275px;
+    max-width: 275px;
+    height: 393.17px;
+  }
+
+  .featuredCardImage {
+    width: 275px;
+    height: 144px;
+  }
+
+  .featuredCardTitle {
+    font-size: 16px;
+  }
+
+  .featuredCardFace {
+    height: 40px;
+    width: 40px;
+  }
 }

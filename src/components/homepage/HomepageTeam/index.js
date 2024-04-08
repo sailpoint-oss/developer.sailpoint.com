@@ -25,7 +25,7 @@ export default function HomepageTeam() {
           expertise={'Identity Security Cloud'.toUpperCase()}
           image={'/homepage/tyler-mairose.png'}
         />
-               <TeamCard
+        <TeamCard
           link={'https://developer.sailpoint.com/discuss/u/jthaytko/summary'}
           name={'James Haytko'}
           title={'Technical Writer'.toUpperCase()}
@@ -41,9 +41,6 @@ export default function HomepageTeam() {
           expertise={'DEVELOPER TOOLS'}
           image={'/homepage/phil-ellis.png'}
         />
-      </div>
-
-      <div className={styles.bottomGridContainer}>
         <TeamCard
           link={'https://developer.sailpoint.com/discuss/u/Darrell/summary'}
           name={'Darrell Thobe'}
@@ -51,14 +48,14 @@ export default function HomepageTeam() {
           expertise={'DEVELOPER TOOLS'}
           image={'/homepage/darrell-thobe.png'}
         />
-          <TeamCard
-          link={'https://developer.sailpoint.com/discuss/u/lukehagar/summary'}
-          name={'Luke Hagar'}
-          title={'Software Engineer'.toUpperCase()}
-          expertise={'DEVELOPER TOOLS'}
-          image={'/homepage/lukehagar.png'}
+        <TeamCard
+          link={'https://developer.sailpoint.com/discuss/u/putty/summary'}
+          name={'Derek Putnam'}
+          title={'Community Manager'.toUpperCase()}
+          expertise={'DEVELOPER COMMUNITY'}
+          image={'/homepage/derek-putnam.png'}
         />
-         <TeamCard
+        <TeamCard
           link={
             'https://developer.sailpoint.com/discuss/u/jordan_violet/summary'
           }

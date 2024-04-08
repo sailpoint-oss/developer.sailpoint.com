@@ -57,9 +57,52 @@ export async function checkImage(url) {
 export async function getBlogPosts(tags) {
   let url = '';
   if (tags) {
-    url = discourseBaseURL() + 'c/blog/l/latest.json?tags=' + tags;
+    url =
+      discourseBaseURL() +
+      'c/content/community-blog/l/latest.json?tags=' +
+      tags;
   } else {
-    url = discourseBaseURL() + 'c/blog/l/latest.json';
+    url = discourseBaseURL() + 'c/content/community-blog/l/latest.json';
+  }
+  try {
+    const response = await fetch(url);
+    return await response.json();
+  } catch (error) {
+    return [];
+  }
+}
+
+export async function getUserTitle(primary_group_name) {
+  let url = discourseBaseURL() + 'g/' + primary_group_name + '.json';
+
+  try {
+    const response = await fetch(url);
+    return await response.json();
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+}
+
+export async function getVideoPosts(tags) {
+  let url = '';
+  if (tags) {
+    if (tags.length < 1) {
+      url = discourseBaseURL() + 'c/content/video-library/l/latest.json';
+    }
+    if (tags.length === 1) {
+      url =
+        discourseBaseURL() +
+        'c/content/video-library/l/latest.json?tags=' +
+        tags;
+    }
+    if (tags.length === 2) {
+      url =
+        discourseBaseURL() +
+        `filter.json?q=category%3Avideo-library%20tag%3A${tags[0]}%2B${tags[1]}`;
+    }
+  } else {
+    url = discourseBaseURL() + 'c/content/video-library/l/latest.json';
   }
   try {
     const response = await fetch(url);

@@ -4,6 +4,6 @@ content:
     schema:
       type: object
       properties:
-        ne_attribute_option:
+        ne_attribute:
           type: object
           $ref: "../../schemas/POST/Attribute.yaml"

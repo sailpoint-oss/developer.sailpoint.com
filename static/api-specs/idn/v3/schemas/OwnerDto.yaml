@@ -13,5 +13,5 @@ properties:
     example: 2c9180a46faadee4016fb4e018c20639
   name:
     type: string
-    description: Owner's display name. 
+    description: Owner's name. 
     example: Support

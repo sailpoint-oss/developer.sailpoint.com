@@ -15,7 +15,7 @@ export default function HomepageGettingStarted() {
               SailPoint Developer Days
             </div>
             <div className={styles.gettingStartedTwo}>
-              Join us for our annual conference for developers in April!
+              Join us live for developer days!
             </div>
             <div className={styles.gettingStartedThree}>
               Our largest conference for developers, architects, administrators,

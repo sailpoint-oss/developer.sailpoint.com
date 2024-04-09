@@ -314,7 +314,7 @@ tags:
       Refer to [Creating Custom Instruction Text](https://documentation.sailpoint.com/saas/help/pwd/pwd_reset.html#creating-custom-instruction-text) for more information about creating custom password instructions.
   - name: Discovered Applications
     description: |
-      Use this API to retrieve all the available discovered apps for a given tenant id.      
+      Use this API to retrieve all the available discovered apps for a given tenant id.
   - name: Entitlements
     description: |
       Use this API to implement and customize entitlement functionality.
@@ -856,6 +856,9 @@ tags:
       This allows organizations to get the information they need to start optimizing and securing source usage.
   - name: SP-Config
     description: Import and export configuration for some objects between tenants.
+  - name: Suggested Entitlement Description
+    description: |
+      Use this API to leverage power of LLM to generate suggested entitlement description.
   - name: Tagged Objects
     description: |
       Use this API to implement object tagging functionality. 
@@ -1763,3 +1766,13 @@ paths:
     $ref: "./beta/paths/vendor-connector-mappings.yaml"
   /icons/{objectType}/{objectId}:
     $ref: './beta/paths/icon.yaml'
+  /suggested-entitlement-description-batches/{batchId}/stats:
+    $ref: "./beta/paths/suggested-entitlement-description-batches-stats.yaml"
+  /suggested-entitlement-description-batches:
+    $ref: "./beta/paths/suggested-entitlement-description-batches.yaml"
+  /suggested-entitlement-description-approvals:
+    $ref: "./beta/paths/suggested-entitlement-description-approvals.yaml"
+  /suggested-entitlement-description-assignments:
+    $ref: "./beta/paths/suggested-entitlement-description-assignments.yaml"
+  /suggested-entitlement-descriptions:
+    $ref: "./beta/paths/suggested-entitlement-descriptions.yaml"

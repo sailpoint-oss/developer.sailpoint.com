@@ -1,0 +1,40 @@
+get:
+  tags:
+    - Suggested Entitlement Description
+  operationId: getSedBatchStats
+  summary: Submit Sed Batch Stats Request
+  description: >-
+    Submit Sed Batch Stats Request.
+
+    Submits batchId in the path param (e.g. {batchId}/stats).
+    API responses with stats of the batchId.
+  parameters:
+    - name: batchId
+      in: path
+      description: Batch Id
+      schema:
+        type: string
+        format: uuid
+      example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
+      required: true
+  responses:
+    '200':
+      description: Stats of Sed batch.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/SedBatchStats.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [ idn:sed:read ]

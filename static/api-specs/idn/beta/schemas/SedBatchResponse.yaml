@@ -1,0 +1,9 @@
+description: Sed Batch Response
+type: object
+properties:
+  batchId:
+    description: BatchId that groups all the ids together
+    format: uuid
+    type: string
+    example: 016629d1-1d25-463f-97f3-c6686846650
+

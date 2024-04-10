@@ -1,0 +1,17 @@
+name: Prettier Code Formatter
+
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  prettier:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: Prettify code
+        uses: creyD/prettier_action@v4.3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          prettier_options: --write **/*.{js,jsx,ts,tsx,json,css,scss,md}

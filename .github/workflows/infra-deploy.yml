@@ -22,7 +22,7 @@ env:
   BASE_URL: '/'
 
 permissions:
-  id-token: write   # This is required for requesting the JWT
+  id-token: write # This is required for requesting the JWT
   contents: write
   pull-requests: write
   pages: write
@@ -32,21 +32,27 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+      - name: Prettify code
+        uses: creyD/prettier_action@v4.3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          prettier_options: --write **/*.{js,jsx,ts,tsx,json,css,scss,md}
+          only_changed: true
       - name: Configure AWS credentials from Test account
         uses: aws-actions/configure-aws-credentials@v3
         with:
           role-to-assume: arn:aws:iam::176038645705:role/github-action-role
           role-session-name: deploy-developer-site-infra-to-aws
           aws-region: us-east-1
+
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Check out repo
         uses: actions/checkout@v3
-      - name: Prettify code
-        uses: creyD/prettier_action@v4.3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          prettier_options: --write **/*.{js,jsx,ts,tsx,json,css,scss,md}
-          only_changed: true  
       - name: setup SAM
         uses: aws-actions/setup-sam@v2
       - name: set env vars

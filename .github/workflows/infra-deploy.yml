@@ -29,26 +29,9 @@ permissions:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  prettier:
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-          ref: ${{ github.head_ref }}
-      - name: Prettify code
-        uses: creyD/prettier_action@v4.3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          prettier_options: --write **/*.{js,jsx,ts,tsx,json,css,scss,md}
-          only_changed: true
-
   publish:
-    needs: prettier
     runs-on: ubuntu-latest
     steps:
-      
       - name: Configure AWS credentials from Test account
         uses: aws-actions/configure-aws-credentials@v3
         with:
@@ -59,6 +42,10 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Check out repo
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+
       - name: setup SAM
         uses: aws-actions/setup-sam@v2
       - name: set env vars
@@ -130,3 +117,9 @@ jobs:
           build_dir: build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Prettify code
+        uses: creyD/prettier_action@v4.3
+        with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            prettier_options: --write **/*.{js,jsx,ts,tsx,json,css,scss,md}
+            only_changed: true

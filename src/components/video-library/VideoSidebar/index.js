@@ -52,7 +52,7 @@ export default function MarketplaceSidebar({filterCallback}) {
       setProductTags(product);
     }
 
-    if (product === '') {
+    if (product === '' || product === ' ') {
       setProductTags('Filter by Product');
     }
 

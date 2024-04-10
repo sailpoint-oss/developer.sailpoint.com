@@ -29,7 +29,7 @@ permissions:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  publish:
+  prettier:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -43,6 +43,12 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           prettier_options: --write **/*.{js,jsx,ts,tsx,json,css,scss,md}
           only_changed: true
+
+  publish:
+    needs: prettier
+    runs-on: ubuntu-latest
+    steps:
+      
       - name: Configure AWS credentials from Test account
         uses: aws-actions/configure-aws-credentials@v3
         with:

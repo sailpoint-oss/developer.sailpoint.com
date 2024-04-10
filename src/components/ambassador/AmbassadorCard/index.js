@@ -12,6 +12,7 @@ import {
 export default function AmbassadorCard({data}) {
   return (
     <Link to={data.link} className={styles.link}>
+      
       <div className={styles.card}>
         <div className={styles.cardFaceContainer}>
           <img

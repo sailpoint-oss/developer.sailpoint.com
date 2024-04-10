@@ -45,6 +45,15 @@ export async function getAmbassadorDetails(id) {
   }
 }
 
+export async function getAmbassadorPoints() {
+  try {
+    const response = await fetch(discourseBaseURL() + 'leaderboard/14.json');
+    return await response.json();
+  } catch (error) {
+    return [];
+  }
+}
+
 export async function checkImage(url) {
   try {
     const response = await fetch(url);

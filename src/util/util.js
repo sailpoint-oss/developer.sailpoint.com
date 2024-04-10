@@ -1,5 +1,5 @@
 export function addDarkToFileName(filename) {
-  const parts = filename.split('.')  ;
+  const parts = filename.split('.');
   return parts[0] + '-dark.' + parts[1];
 }
 export function videoThumbnailBaseURL() {
@@ -26,7 +26,7 @@ export function discourseProductTag() {
   if (discourseBaseURL().includes('soon')) {
     return 11;
   } else {
-    return 45
+    return 45;
   }
 }
 

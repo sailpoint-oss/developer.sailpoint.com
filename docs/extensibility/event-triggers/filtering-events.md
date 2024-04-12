@@ -80,7 +80,7 @@ Operators provide more options to filter JSON structures.
 Developing a filter can be faster when you use a tool like an online [JSONpath editor](https://www.javainuse.com/jsonpath). These tools can provide quick feedback on your filter, allowing you to focus on the exact filter expression you want before testing it on a trigger.  Just paste an example of your event trigger input and start crafting an expression to see its result.
 
 :::Warning
-Third party websites, like the one mentioned above, should be treated with caution. Please do not use real data from your tenant when interacting with these tools.
+Third party websites like the one mentioned earlier must be treated with caution. Do not use real data from your tenant when you're interacting with these tools.
 :::
 
 ![JSONPath editor](./img/jsonpath-editor.png)
@@ -183,7 +183,7 @@ POST https://{tenant}.api.identitynow.com/beta/trigger-subscriptions/validate-fi
 If SailPoint accepts your trigger filter, you must test whether it actually works. You must configure your trigger subscription to point to the URL of your testing service. [webhook.site](https://webhook.site) is an easy to use testing service. Just copy the unique URL it generates and paste it into your subscription's integration URL field. The easiest way to test a trigger subscription is to use the UI to fire off a test event.
 
 :::Warning
-Third party websites, like the one mentioned above, should be treated with caution. Please do not use real data from your tenant when interacting with these tools.
+Third party websites like the one mentioned earlier must be treated with caution. Do not use real data from your tenant when you're interacting with these tools.
 :::
 
 ![test subscription](./img/test-subscription.png)

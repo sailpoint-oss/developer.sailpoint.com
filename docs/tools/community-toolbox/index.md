@@ -26,14 +26,9 @@ You can find all the project's code in the Community Toolbox's GitHub repository
 
 The only requirement to use the Community Toolbox from a release is access to the ISC tenant you want to administer and troubleshoot.
 
-The easiest way to set up the Community Toolbox is to download the latest release for your desired OS [here](https://github.com/sailpoint-oss/isc-community-toolbox/releases). 
+The easiest way to set up the Community Toolbox is to download the latest release [here](https://github.com/sailpoint-oss/isc-community-toolbox/releases). 
 
-Pick your OS and download the relevant file from the latest release:
-| Platform | File Type |
-| -------- | --------- |
-| Windows  | exe, zip  |
-| Mac      | dmg, zip  |
-| Linux    | deb, rpm, zip |
+The Community Toolbox application will be named something like 'isc-community-toolbox-svelte-0.0.4-setup.exe' (0.0.4 refers to the release version).
 
 You can then launch the Community Toolbox application. 
 

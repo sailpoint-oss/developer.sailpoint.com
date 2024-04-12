@@ -1,7 +1,7 @@
 get:
   operationId: getSodPolicySchedule
   tags:
-    - SOD Policy
+    - SOD Policies
   summary: Get SOD policy schedule
   deprecated: true
   security:
@@ -38,7 +38,7 @@ get:
 put:
   operationId: putPolicySchedule
   tags:
-    - SOD Policy
+    - SOD Policies
   summary: Update SOD Policy schedule
   deprecated: true
   security:
@@ -81,7 +81,7 @@ put:
 delete:
   operationId: deleteSodPolicySchedule
   tags:
-    - SOD Policy
+    - SOD Policies
   summary: Delete SOD policy schedule
   deprecated: true
   security:

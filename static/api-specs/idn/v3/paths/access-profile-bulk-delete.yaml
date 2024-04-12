@@ -4,17 +4,20 @@ post:
   tags:
     - Access Profiles
   description: >-
-    This API initiates a bulk deletion of one or more Access Profiles.
+    This endpoint initiates a bulk deletion of one or more access profiles.
 
+    When the request is successful, the endpoint returns the bulk delete's task result ID. 
+    To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result's status and information. 
 
-    By default, if any of the indicated Access Profiles are in use, no deletions will be performed and the **inUse**
+    This endpoint can only bulk delete up to a limit of 50 access profiles per request. 
+
+    By default, if any of the indicated access profiles are in use, no deletions will be performed and the **inUse**
     field of the response indicates the usages that must be removed first. If the request field **bestEffortOnly** is
-    **true**, however, usages are reported in the **inUse** response field but all other indicated Access Profiles will
+    **true**, however, usages are reported in the **inUse** response field but all other indicated access profiles will
     be deleted.
 
-
-    A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition,
-    a SOURCE_SUBADMIN may only use this API to delete Access Profiles which are associated with Sources they are able
+    A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this endpoint. In addition,
+    a SOURCE_SUBADMIN can only use this endpoint to delete access profiles associated with sources they're able
     to administer.
   requestBody:
     required: true

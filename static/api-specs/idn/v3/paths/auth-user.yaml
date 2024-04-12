@@ -1,7 +1,7 @@
 get:
   operationId: getAuthUser
   tags:
-    - Auth User
+    - Auth Users
   summary: Auth User Details
   description: >-
     Return the specified user's authentication system details.
@@ -39,7 +39,7 @@ get:
 patch:
   operationId: patchAuthUser
   tags:
-    - Auth User
+    - Auth Users
   summary: Auth User Update
   description: >-
     Use a PATCH request to update an existing user in the authentication system.

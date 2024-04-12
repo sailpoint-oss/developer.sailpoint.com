@@ -3,7 +3,7 @@ post:
     - UserContextAuth: [idn:sod-violation:write]
   operationId: startSodPolicy
   tags:
-    - SOD Policy
+    - SOD Policies
   summary: Runs SOD policy violation report
   description: >-
     This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with

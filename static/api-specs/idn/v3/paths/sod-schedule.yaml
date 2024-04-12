@@ -3,7 +3,7 @@ get:
     - UserContextAuth: [idn:sod-policy:read]
   operationId: getSodPolicySchedule
   tags:
-    - SOD Policy
+    - SOD Policies
   summary: Get SOD policy schedule
   description: >-
     This endpoint gets a specified SOD policy's schedule.
@@ -37,7 +37,7 @@ put:
     - UserContextAuth: [idn:sod-policy:write]
   operationId: putPolicySchedule
   tags:
-    - SOD Policy
+    - SOD Policies
   summary: Update SOD Policy schedule
   description: >-
     This updates schedule for a specified SOD policy.
@@ -77,7 +77,7 @@ delete:
     - UserContextAuth: [idn:sod-policy:write]
   operationId: deleteSodPolicySchedule
   tags:
-    - SOD Policy
+    - SOD Policies
   summary: Delete SOD policy schedule
   description: >-
     This deletes schedule for a specified SOD policy by ID.

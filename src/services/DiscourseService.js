@@ -136,7 +136,6 @@ export async function getVideoPosts(tags) {
     }
     return allData;
   } catch (error) {
-    console.error(error);
     return [];
   }
 }

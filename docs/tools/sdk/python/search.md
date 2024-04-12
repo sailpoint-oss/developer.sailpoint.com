@@ -11,7 +11,7 @@ slug: /tools/sdk/python/search
 tags: ['SDK']
 ---
 
-One of the most useful functionalities you can access with the Python SDK is IdentityNow's [search functionality](/idn/api/v3/search-post). 
+One of the most useful functionalities you can access with the Python SDK is Identity Security Cloud's [search functionality](/idn/api/v3/search-post). 
 
 Here is an example of how you can implement Search, along with pagination. Copy this code into your "sdk.py" file to try it out: 
 

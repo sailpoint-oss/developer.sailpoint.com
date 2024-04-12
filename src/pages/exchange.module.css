@@ -36,12 +36,7 @@
   min-height: 535px;
 }
 
-.featuredGettingStartedText {
-  display: none;
-}
-
-.gettingStartedText,
-.featuredGettingStartedText {
+.gettingStartedText {
   margin-top: 50px;
   margin-left: 50px;
 }
@@ -85,10 +80,6 @@
   width: 100%;
   height: 300px;
   max-width: 520px;
-}
-
-.contentContainer {
-  margin-left: 5%;
 }
 
 @media only screen and (max-width: 1950px) {
@@ -136,10 +127,21 @@
   }
   .contentContainer {
     width: 600px;
-    margin-left: 10%;
+  }
+
+  .gettingStartedThree {
+    padding-right: 15%;
+  }
+  .carousel {
+    margin-top: 50px;
+    margin-left: 50px;
   }
 }
 @media only screen and (min-width: 1179px) {
+  .carousel {
+    margin-top: 50px;
+    margin-left: 15px;
+  }
   .mainCard {
     grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
     /* UI Properties */
@@ -150,11 +152,14 @@
     opacity: 1;
     margin: 50px auto;
     width: calc(100% - 100px);
-    height: 535px;
-    min-height: 535px;
+    min-height: 400px;
   }
 }
 @media only screen and (max-width: 570px) {
+  .carousel {
+    margin: 15px 20px;
+  }
+
   .featured {
     margin-left: 0%;
   }
@@ -163,14 +168,8 @@
     padding-right: 15%;
   }
 
-  .featuredGettingStartedText {
-    display: flex;
-  }
   .contentContainer {
     width: auto;
     margin-left: 0%;
-  }
-  .carousel {
-    margin: auto;
   }
 }

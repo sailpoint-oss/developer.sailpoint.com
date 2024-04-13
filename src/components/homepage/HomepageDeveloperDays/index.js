@@ -36,9 +36,9 @@ export default function HomepageGettingStarted() {
           </div>
         </div>
         <div className={styles.carousel}>
-          <iframe
+        <iframe
             className={styles.video}
-            src="https://www.youtube.com/embed/YdXfsniB-NQ?si=UixthWyDFiPSCyp7"
+            src="https://www.youtube.com/embed/e4542ajMu4w?si=EN9rX657QE-_jUPl"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

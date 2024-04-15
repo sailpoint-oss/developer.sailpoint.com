@@ -18,6 +18,7 @@ export default function BlogCards({filterCallback, limit, featured}) {
       filterCallback = ['featured'];
     }
     const data = await getBlogPosts(filterCallback.join('+'));
+    console.log(data);
     const resultset = [];
     const titleList = [];
     if (data.topic_list.topics) {
@@ -31,12 +32,17 @@ export default function BlogCards({filterCallback, limit, featured}) {
                   if (
                     !titleList.find((x) => x.group === user.primary_group_name)
                   ) {
-                    let usertitle = await getUserTitle(user.primary_group_name);
-                    titleList.push({
-                      group: user.primary_group_name,
-                      title: usertitle.group.title,
-                    });
-                    user.title = usertitle.group.title;
+                    if (user.primary_group_name) {
+                      let usertitle = await getUserTitle(
+                        user.primary_group_name,
+                      );
+
+                      titleList.push({
+                        group: user.primary_group_name,
+                        title: usertitle.group.title,
+                      });
+                      user.title = usertitle.group.title;
+                    }
                   } else {
                     user.title = titleList.find(
                       (x) => x.group === user.primary_group_name,

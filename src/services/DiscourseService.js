@@ -62,21 +62,22 @@ export async function getBlogPosts(tags) {
       topics: [],
     },
   };
-  if (tags) {
-    url = discourseBaseURL() + `/tags/c/content/community-blog/${tags}.json`;
+  if (tags.length < 1) {
+    url = discourseBaseURL() + 'c/content/community-blog/125.json';
   } else {
-    url = discourseBaseURL() + 'c/content/community-blog/l/latest.json';
+    url = discourseBaseURL() + `tags/c/content/community-blog/${tags}.json`;
   }
   try {
     let page = 0;
     while (true) {
-      const pageUrl =
-        page === 0 ? url : `${url}${tags.length > 1 ? '&' : '?'}page=${page}`;
+      const pageUrl = page === 0 ? url : `${url}${tags.length > 1 ? '&' : '?'}page=${page}`;
       const response = await fetch(pageUrl);
       const data = await response.json();
+
       allData.topic_list.topics = allData.topic_list.topics.concat(
         data.topic_list.topics,
       );
+
       allData.users = allData.users.concat(data.users);
 
       if (data.topic_list.topics.length < 30) {
@@ -85,6 +86,7 @@ export async function getBlogPosts(tags) {
       }
       page++;
     }
+    
     return allData;
   } catch (error) {
     return [];

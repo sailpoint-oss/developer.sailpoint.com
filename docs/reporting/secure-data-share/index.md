@@ -16,13 +16,13 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
 
 # Secure Data Share
 
-<div class="text--center">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Q-XZtjuv6XY?si=8o9qou1lEGsTx-Se" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
-
 Secure Data Share (SDS) makes your SailPoint identity data available directly in your own [AWS Snowflake](https://aws.amazon.com/financial-services/partner-solutions/snowflake/) account. The provided dataset comprises structured tables that include identity, audit event, entitlement, role, access profile, account, and application data. Secure Data Share is an alternative to SailPoint's [Search](https://documentation.sailpoint.com/saas/help/search/index.html). SDS uses SQL as the query language, whereas Search uses the [Elasticsearch Query Language](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html). SQL provides certain advantages over Elasticsearch: joining and aggregating data is easier in SQL, and the Snowflake interface has a built-in SQL explorer and allows you to download your search results in CSV format. SDS also allows you to connect your SailPoint data to your favorite data analytics tools, like [PowerBI](https://learn.microsoft.com/en-us/power-bi/connect-data/service-connect-snowflake) and [Tableau](https://help.tableau.com/current/pro/desktop/en-us/examples_snowflake.htm), further enhancing the reporting capabilities for your SailPoint data.
 
 If you would like to speak to a SailPoint representative about Secure Data Share, please [schedule a meeting here](https://calendly.com/jordan-mandernach/secure_data_share).
+
+<div class="text--center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Q-XZtjuv6XY?si=8o9qou1lEGsTx-Se" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
 ## Requirements
 

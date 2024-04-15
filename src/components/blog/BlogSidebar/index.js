@@ -9,7 +9,7 @@ export default function BlogSidebar({filterCallback, defaultValue}) {
 
   const handleChange = () => {
     setIsChecked(!isChecked);
-    let value = isChecked ? 'Identity-Security-Cloud' : 'Identityiq';
+    let value = isChecked ? 'identity-security-cloud' : 'Identityiq';
     filterCallback(value);
   };
 

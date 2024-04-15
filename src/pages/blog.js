@@ -11,7 +11,7 @@ import BlogSidebar from '../components/blog/BlogSidebar';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 export default function Blog() {
-  const [filteredProduct, setFilteredProduct] = React.useState([]);
+  const [filteredProduct, setFilteredProduct] = React.useState(['identity-security-cloud']);
 
   const handleClick = (data) => {
     var tempFilter = [];

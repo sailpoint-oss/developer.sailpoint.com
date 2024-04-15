@@ -18,7 +18,6 @@ export default function BlogCards({filterCallback, limit, featured}) {
       filterCallback = ['featured'];
     }
     const data = await getBlogPosts(filterCallback.join('+'));
-    console.log(data);
     const resultset = [];
     const titleList = [];
     if (data.topic_list.topics) {

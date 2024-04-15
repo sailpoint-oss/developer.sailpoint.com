@@ -56,17 +56,36 @@ export async function checkImage(url) {
 
 export async function getBlogPosts(tags) {
   let url = '';
+  let allData = {
+    users: [],
+    topic_list: {
+      topics: [],
+    },
+  };
   if (tags) {
-    url =
-      discourseBaseURL() +
-      'c/content/community-blog/l/latest.json?tags=' +
-      tags;
+    url = discourseBaseURL() + `/tags/c/content/community-blog/${tags}.json`;
   } else {
     url = discourseBaseURL() + 'c/content/community-blog/l/latest.json';
   }
   try {
-    const response = await fetch(url);
-    return await response.json();
+    let page = 0;
+    while (true) {
+      const pageUrl =
+        page === 0 ? url : `${url}${tags.length > 1 ? '&' : '?'}page=${page}`;
+      const response = await fetch(pageUrl);
+      const data = await response.json();
+      allData.topic_list.topics = allData.topic_list.topics.concat(
+        data.topic_list.topics,
+      );
+      allData.users = allData.users.concat(data.users);
+
+      if (data.topic_list.topics.length < 30) {
+        // Less than 30 topics means it's the last page
+        break;
+      }
+      page++;
+    }
+    return allData;
   } catch (error) {
     return [];
   }
@@ -86,27 +105,54 @@ export async function getUserTitle(primary_group_name) {
 
 export async function getVideoPosts(tags) {
   let url = '';
+  let allData = {
+    users: [],
+    topic_list: {
+      topics: [],
+    },
+  };
+
   if (tags) {
     if (tags.length < 1) {
-      url = discourseBaseURL() + 'c/content/video-library/l/latest.json';
+      url = discourseBaseURL() + 'c/content/video-library/127.json';
     }
     if (tags.length === 1) {
       url =
-        discourseBaseURL() +
-        'c/content/video-library/l/latest.json?tags=' +
-        tags;
+        discourseBaseURL() + `/tags/c/content/video-library/127/${tags}.json`;
     }
     if (tags.length === 2) {
       url =
         discourseBaseURL() +
         `filter.json?q=category%3Avideo-library%20tag%3A${tags[0]}%2B${tags[1]}`;
     }
+    if (tags.length === 3) {
+      url =
+        discourseBaseURL() +
+        `filter.json?q=category%3Avideo-library%20tag%3A${tags[0]}%2B${tags[1]}%2B${tags[2]}`;
+    }
   } else {
     url = discourseBaseURL() + 'c/content/video-library/l/latest.json';
   }
+
   try {
-    const response = await fetch(url);
-    return await response.json();
+    let page = 0;
+    while (true) {
+      const pageUrl =
+        page === 0 ? url : `${url}${tags.length > 1 ? '&' : '?'}page=${page}`;
+      const response = await fetch(pageUrl);
+      const data = await response.json();
+      allData.topic_list.topics = allData.topic_list.topics.concat(
+        data.topic_list.topics,
+      );
+      allData.users = allData.users.concat(data.users);
+
+      if (data.topic_list.topics.length < 30) {
+        // Less than 30 topics means it's the last page
+        break;
+      }
+      page++;
+    }
+    return allData;
   } catch (error) {
     return [];
   }

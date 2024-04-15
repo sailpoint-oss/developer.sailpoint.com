@@ -70,7 +70,7 @@ export default function Marketplace() {
             <div className={styles.carousel}>
               <iframe
                 className={styles.video}
-                src="https://www.youtube.com/embed/k52spcpVHzs?si=bEJPp6bv_3jOjCqw"
+                src="https://www.youtube.com/embed/J-Z1b654Vtk?si=YKK-tvGxL5N1WjNi"
                 title="YouTube video player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

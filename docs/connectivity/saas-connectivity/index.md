@@ -24,6 +24,12 @@ The primary driver for indroducing the SaaS Connectivity framework is to allow a
  - Features to customize the user interface when configuring the connector that are specific to the source
  - Support for more modern languages and frameworks
 
+## Getting Started
+
+<div class="text--center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1WPO7t0j1oc?si=RZjNJYUrDtKLmbvB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
 ## Architecture of SaaS Connectivity
 
 VA connectors always communicate with external sources through the Virtual Appliance (VA) as seen in the diagram below:

@@ -17,6 +17,10 @@ The SailPoint CLI is a terminal-based tool you can use to to interact with your 
 
 You can use the CLI to perform many functions you would have otherwise used Postman or custom scripts to perform before. For example, you can use the CLI to call the SailPoint APIs to do whatever you want in your ISC tenant, and you can do all this directly on the command line, with minimal setup.
 
+<div class="text--center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/JInlFmABuO8?si=CE8fw3RB1w7qFESv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
 Learn how to use the SailPoint command line interface (CLI) in this guide.
 
 ![Sail](https://github.com/sailpoint-oss/sailpoint-cli/blob/main/assets/img/vhs/Sail.gif?raw=true)

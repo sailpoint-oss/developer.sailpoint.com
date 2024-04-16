@@ -43,6 +43,7 @@
   overflow: hidden;
   position: relative;
   height: 225px;
+  width: 400px;
 }
 
 .thumbContainer {
@@ -155,6 +156,10 @@
 }
 
 @media only screen and (max-width: 550px) {
+  .featuredThumbContainer {
+    width: 350px;
+    height: 197px;
+  }
   .cardText {
     margin-bottom: 0px;
   }

@@ -4,7 +4,7 @@
 }
 
 .featuredVideo {
-  margin-left: 75px;
+  margin-left: 55px;
 }
 
 .videosTitle {
@@ -76,7 +76,7 @@
 }
 
 .contentContainer {
-  margin-left: 75px;
+  margin-left: 55px;
 }
 
 @media only screen and (max-width: 1178px) {
@@ -136,8 +136,8 @@
   }
 }
 @media only screen and (max-width: 570px) {
- 
-  .contentContainer {
+  
+  .contentContainer, .featuredVideo {
     width: auto;
     margin: auto;
   }

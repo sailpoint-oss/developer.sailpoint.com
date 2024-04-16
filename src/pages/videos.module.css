@@ -136,11 +136,7 @@
   }
 }
 @media only screen and (max-width: 570px) {
-
-  .featuredVideo {
-    margin-left: 0px;
-  }
- 
+  
   .contentContainer, .featuredVideo {
     width: auto;
     margin: auto;

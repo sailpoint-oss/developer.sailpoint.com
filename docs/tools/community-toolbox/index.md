@@ -6,7 +6,7 @@ sidebar_label: Community Toolbox
 sidebar_position: 5
 sidebar_class_name: rudk
 keywords: ['UI', 'admin','console']
-description: The Admin's toolbox.
+description: The ISC Community Toolbox is a project designed to enhance the capabilities of Identity Security Cloud (ISC) tenants by providing a platform for performing daily maintenance and administrative tasks efficiently. 
 slug: /tools/community-toolbox
 tags: ['UI']
 ---

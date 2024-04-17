@@ -1065,6 +1065,10 @@ paths:
     $ref: './v3/paths/configuration-hub/object-mapping-bulk-create.yaml'
   /configuration-hub/object-mappings/{sourceOrg}/bulk-patch:
     $ref: './v3/paths/configuration-hub/object-mapping-bulk-update.yaml'
+  /configuration-hub/backups/uploads:
+    $ref: './v3/paths/configuration-hub/backup-uploads.yaml'
+  /configuration-hub/backups/uploads/{id}:
+    $ref: './v3/paths/configuration-hub/backup-uploads-id.yaml'
   /connectors/{scriptName}:
     $ref: './v3/paths/connectors.yaml'
   /connectors/{scriptName}/source-config:

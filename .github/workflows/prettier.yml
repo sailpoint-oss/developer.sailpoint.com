@@ -1,8 +1,7 @@
 on:
   pull_request:
-  push:
-    branches:
-      - main
+    branches: [main]
+
 jobs:
   prettier:
     runs-on: ubuntu-latest

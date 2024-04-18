@@ -16,7 +16,6 @@ Use the date math transform to add, subtract, and round components of a timestam
 
 The output format for the DateMath transform is "yyyy-MM-dd'T'HH:mm". When you use this transform inside another transform (e.g., [dateCompare](./date-compare.md)), make sure to convert to [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) first.
 
-
 :::note Other Considerations
 
 - The input datetime value must always be in [ISO8601 format](https://en.wikipedia.org/wiki/ISO_8601), in UTC time zone:
@@ -90,6 +89,7 @@ Some examples of expressions are:
 
     - `true` indicates the transform rounds up (i.e., truncate the fractional date/time component indicated and then add one unit of that component).
     - `false` indicates the transform rounds down (i.e., truncate the fractional date/time component indicated).
+
   - **input** - This is an optional attribute that can explicitly define the input data passed into the transform logic. If no input is provided, the transform takes its input from the source and attribute combination configured with the UI.
 
 ## Examples

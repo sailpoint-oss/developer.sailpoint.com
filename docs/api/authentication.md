@@ -15,20 +15,13 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 
 ## Overview
 
-With SailPoint's Identity Security Cloud (ISC) APIs, you can extend your ISC platform far beyond its current capabilities. 
-	
-To be able to do so, you must first authenticate to the ISC APIs. 
-Authentication is the act of validating a user's identity, generally by passing some kind of credentials. 
-A fast, simple way to authenticate to the APIs is to generate a [personal access token](#generate-a-personal-access-token) and pass that token. 
+With SailPoint's Identity Security Cloud (ISC) APIs, you can extend your ISC platform far beyond its current capabilities. To be able to do so, you must first authenticate to the ISC APIs. Authentication is the act of validating a user's identity, generally by passing some kind of credentials. A fast, simple way to authenticate to the APIs is to generate a [personal access token](#generate-a-personal-access-token) and pass that token.
 
-If the PAT is valid, the API responds with a JSON Web Token (JWT) `access_token` that you can provide to authorize your API requests. 
-Authorization is the act of validating the user's permission to access a given resource. 
-A successful API request must include the `access_token` in the `Authorization` request header. 
+If the PAT is valid, the API responds with a JSON Web Token (JWT) `access_token` that you can provide to authorize your API requests. Authorization is the act of validating the user's permission to access a given resource. A successful API request must include the `access_token` in the `Authorization` request header.
 
-This JWT `access_token` grants access matching that of the user who generated the PAT. 
-For example, if the user who generated the PAT is an admin, the returned JWT `access_token` would grant admin access to the APIs. 
+This JWT `access_token` grants access matching that of the user who generated the PAT. For example, if the user who generated the PAT is an admin, the returned JWT `access_token` would grant admin access to the APIs.
 
-This diagram shows the flow of this authentication/authorization process: 
+This diagram shows the flow of this authentication/authorization process:
 
 <div align="center">
 
@@ -49,23 +42,23 @@ sequenceDiagram
 
 </div>
 
-The flow involves these four key steps: 
-1. **Access Token Request**: The HTTP client (a script, application, Postman, cURL, etc.) makes a request to ISC to get a JWT `access_token`.  
-2. **Access Token Response**: If the request is valid, ISC responds to the HTTP client with a JWT `access_token`. 
-3. **API Request**: The HTTP client makes a request to an ISC endpoint with the header, `Authorization: Bearer {access_token}`. 
-4. **API Response**: If both the request itself and the JWT `access_token` in its header are valid, ISC responds to the client. 
-If you encounter unexpected errors, refer to the [Troubleshooting](#troubleshooting) section of this document. 
+The flow involves these four key steps:
 
-The idea is that once you have authenticated to the ISC APIs and you have received an `access_token`, you can use that `access_token` to provide authorization for your API requests. 
+1. **Access Token Request**: The HTTP client (a script, application, Postman, cURL, etc.) makes a request to ISC to get a JWT `access_token`.
+2. **Access Token Response**: If the request is valid, ISC responds to the HTTP client with a JWT `access_token`.
+3. **API Request**: The HTTP client makes a request to an ISC endpoint with the header, `Authorization: Bearer {access_token}`.
+4. **API Response**: If both the request itself and the JWT `access_token` in its header are valid, ISC responds to the client. If you encounter unexpected errors, refer to the [Troubleshooting](#troubleshooting) section of this document.
 
-This document includes all the information you need to know to engage in this authentication/authorization process, as well as a guide on how to get started. 
+The idea is that once you have authenticated to the ISC APIs and you have received an `access_token`, you can use that `access_token` to provide authorization for your API requests.
+
+This document includes all the information you need to know to engage in this authentication/authorization process, as well as a guide on how to get started.
 
 ## Get started
 
-Read this guide to learn how to authenticate to SailPoint's ISC APIs. 
+Read this guide to learn how to authenticate to SailPoint's ISC APIs.
 
-To authenticate to the ISC APIs, you must be able to connect to your tenant to send the access token request. 
-To do so, you need to do the following: 
+To authenticate to the ISC APIs, you must be able to connect to your tenant to send the access token request. To do so, you need to do the following:
+
 1. [Find your tenant's OAuth details](#find-your-tenant's-oauth-details)
 2. [Generate personal access token](#generate-personal-access-token)
 3. [Choose authorization grant flow](#choose-authorization-grant-flow)
@@ -73,21 +66,19 @@ To do so, you need to do the following:
 
 ### Find your tenant's OAuth details
 
-Your tenant's OAuth details refer to the details you need to know to connect it to the APIs. 
-You need to know your tenant's name, its `authorizeEndpoint` URL, and its `tokenEndpoint` URL. 
+Your tenant's OAuth details refer to the details you need to know to connect it to the APIs. You need to know your tenant's name, its `authorizeEndpoint` URL, and its `tokenEndpoint` URL.
 
-Your ISC instance is likely using the domain name supplied by SailPoint (`{tenant}.api.identitynow.com`), in which case, the tenant name is in the URL. 
-This is assumed to be the case in this guide.  
-However, if your ISC instance is using a vanity URL, you must enter this URL into your browser to get your OAuth info:
-`https://{tenant}.api.identitynow.com/oauth/info`
+Your ISC instance is likely using the domain name supplied by SailPoint (`{tenant}.api.identitynow.com`), in which case, the tenant name is in the URL. This is assumed to be the case in this guide.  
+However, if your ISC instance is using a vanity URL, you must enter this URL into your browser to get your OAuth info: `https://{tenant}.api.identitynow.com/oauth/info`
 
-If you have admin access but don't know your tenant name, you can learn it by following these steps: 
+If you have admin access but don't know your tenant name, you can learn it by following these steps:
+
 1. Log into your ISC instance.
-2. Select the 'Dashboard' dropdown. 
-3. Select 'Overview'. 
-4. Find the tenant name ('Org Name') in the dashboard's `Org Details` section. 
+2. Select the 'Dashboard' dropdown.
+3. Select 'Overview'.
+4. Find the tenant name ('Org Name') in the dashboard's `Org Details` section.
 
-This is an example of the OAuth details of the tenant, "iga-acme-sb": 
+This is an example of the OAuth details of the tenant, "iga-acme-sb":
 
 ```json
 {
@@ -101,25 +92,21 @@ This is an example of the OAuth details of the tenant, "iga-acme-sb":
 }
 ```
 
-You can use the `authorizeEndpoint` and `tokenEndpoint` URLs from this example to test out the different authentication methods listed in this guide. 
+You can use the `authorizeEndpoint` and `tokenEndpoint` URLs from this example to test out the different authentication methods listed in this guide.
 
-### Generate a personal access token 
+### Generate a personal access token
 
-A personal access token (PAT) is a method of authenticating to an API as a user without providing a username and password.
-PATs are primarily used in scripts or programs that lack an easy way to implement an OAuth2 flow but need to call API endpoints that require user context. 
-PATs are also convenient for use in tools like [Postman](https://www.postman.com/) when you are exploring and testing the APIs. 
+A personal access token (PAT) is a method of authenticating to an API as a user without providing a username and password. PATs are primarily used in scripts or programs that lack an easy way to implement an OAuth2 flow but need to call API endpoints that require user context. PATs are also convenient for use in tools like [Postman](https://www.postman.com/) when you are exploring and testing the APIs.
 
-Any ISC user can generate a PAT. 
-To do so, follow these steps: 
-1. Select **Preferences** from the drop-down menu under your username, then **Personal Access Tokens** on the left. 
-You can also go directly to the page by using this URL (replace `{tenant}` with your Identity Security Cloud tenant): `https://{tenant}.identitynow.com/ui/d/user-preferences/personal-access-tokens`
+Any ISC user can generate a PAT. To do so, follow these steps:
+
+1. Select **Preferences** from the drop-down menu under your username, then **Personal Access Tokens** on the left. You can also go directly to the page by using this URL (replace `{tenant}` with your Identity Security Cloud tenant): `https://{tenant}.identitynow.com/ui/d/user-preferences/personal-access-tokens`
 
 2. Click **New Token** and enter a meaningful description to help differentiate the token from others.
 
 :::caution
 
-The **New Token** button will be disabled when you reach the limit of 10 personal access tokens per user. 
-To avoid reaching this limit, it is recommended that you delete any tokens that are no longer necessary.
+The **New Token** button will be disabled when you reach the limit of 10 personal access tokens per user. To avoid reaching this limit, it is recommended that you delete any tokens that are no longer necessary.
 
 :::
 
@@ -135,29 +122,25 @@ After you create the token, the value of the `Client ID` will be visible in the 
 
 To generate a personal access token from the API, use the [create personal access token endpoint](/docs/api/beta/create-personal-access-token).
 
-Once you have created the PAT and you know its `Client ID` and `Client Secret`, you have everything you need to follow the [Client Credentials Grant Flow](#request-access-token-with-client-credentials-grant-flow) and use the PAT to generate an `access_token`. 
-You will need this `access_token` to authenticate your requests to the APIs. 
+Once you have created the PAT and you know its `Client ID` and `Client Secret`, you have everything you need to follow the [Client Credentials Grant Flow](#request-access-token-with-client-credentials-grant-flow) and use the PAT to generate an `access_token`. You will need this `access_token` to authenticate your requests to the APIs.
 
 ### Choose authorization grant flow
 
-There are several different authorization flows that OAuth 2.0 supports, and each has a grant-type defining its different use cases. 
-You must choose the one that best serves your purposes. 
-This document covers these three common flows: 
+There are several different authorization flows that OAuth 2.0 supports, and each has a grant-type defining its different use cases. You must choose the one that best serves your purposes. This document covers these three common flows:
 
 1. [**Client Credentials**](https://oauth.net/2/grant-types/client-credentials/) - Clients use this grant type to obtain a JWT `access_token` without user involvement such as scripts, programs or system to system integration.
 2. [**Authorization Code**](https://oauth.net/2/grant-types/authorization-code/) - Clients use this grant type to exchange an authorization code for an `access_token`. Authorization codes are mainly used by web applications because there is a login into ISC with a subsequent redirect back to the web application/client.
 3. [**Refresh Token**](https://oauth.net/2/grant-types/refresh-token/) - Clients use this grant type to exchange a refresh token for a new `access_token` when the existing `access_token` has expired. This allows clients to continue using the APIs without having to re-authenticate as frequently. This grant type is commonly used together with `Authorization Code` to prevent a user from having to log in several times per day.
 
-One way to determine which authorization flow you need to use is to look at the specification for the endpoint you want to use. 
-The endpoint will have the supported OAuth flows listed under the 'Authorization' dropdown, like the [List Access Profiles endpoint](https://developer.sailpoint.com/docs/api/beta/list-access-profiles):
+One way to determine which authorization flow you need to use is to look at the specification for the endpoint you want to use. The endpoint will have the supported OAuth flows listed under the 'Authorization' dropdown, like the [List Access Profiles endpoint](https://developer.sailpoint.com/docs/api/beta/list-access-profiles):
 
 ![Authorization Dropdown](./img/authorization/authorization-dropdown.png)
 
 For more information about how to choose the best grant flow for your use case, refer to [Grant Flow Use Cases](#grant-flow-use-cases)
 
-The guide will detail the three different authorization grant flows you can use to request the access token you need to authenticate your requests. 
+The guide will detail the three different authorization grant flows you can use to request the access token you need to authenticate your requests.
 
-### Request access token with client credentials grant flow 
+### Request access token with client credentials grant flow
 
 Clients use the 'Client Credentials' grant type to obtain access tokens without user involvement. This is the simplest authentication flow.
 
@@ -185,25 +168,25 @@ An OAuth 2.0 client using the client credentials grant flow must have `CLIENT_CR
 This is the overall authorization flow:
 
 1. The client first submits an OAuth 2.0 token request to ISC in this form:
-  
+
 ```text
 POST https://{tenant}.api.identitynow.com/oauth/token
 ```
-  
-The request includes the client credential information passed in the request body, as shown in this example using [Postman](https://www.getpostman.com): 
+
+The request includes the client credential information passed in the request body, as shown in this example using [Postman](https://www.getpostman.com):
 
 ![OAuth Client Credentials Form Data](./img/authentication/oauth-client-credentials-form-data.png)
 
-This example shows how to pass the information with form-data in the request body. You can also use these options to pass in the information: 
+This example shows how to pass the information with form-data in the request body. You can also use these options to pass in the information:
 
-- Use x-www-form-urlencoded data to pass in the client credential information in the request body. 
-- Use query parameters to pass the information in the request URL. The request URL will look like this: 
+- Use x-www-form-urlencoded data to pass in the client credential information in the request body.
+- Use query parameters to pass the information in the request URL. The request URL will look like this:
   ```text
   https://{tenant}.api.identitynow.com/oauth/token?grant_type=client_credentials&client_id={{clientId}}&client_secret={{clientSecret}}
   ```
 - If you are using Postman, you can use the 'Authorization' tab to pass in the client credentials. If you use this option, you must also specify the access token URL: https://{tenant}.api.identitynow.com/oauth/token
 
-The OAuth 2.0 token request must include this information: 
+The OAuth 2.0 token request must include this information:
 
 | Key | Description |
 | --- | --- |
@@ -221,23 +204,19 @@ curl --location 'https://{tenant}.api.identitynow.com/oauth/token' \
 --form 'client_secret="{clientSecret}"'
 ```
 
-2. ISC validates the token request and responds. 
-If the request is successful, the response contains a JWT access token. 
-For more information about the JWT access token in the response, refer to [#OAuth-token-response](#oauth-token-response).
+2. ISC validates the token request and responds. If the request is successful, the response contains a JWT access token. For more information about the JWT access token in the response, refer to [#OAuth-token-response](#oauth-token-response).
 
-Once you have the JWT access token, you can pass the token as a basic "Authorization" header in your requests using the OAuth endpoints. 
+Once you have the JWT access token, you can pass the token as a basic "Authorization" header in your requests using the OAuth endpoints.
 
-To learn more about the OAuth client credentials grant flow, refer [here](https://oauth.net/2/grant-types/client-credentials/). 
+To learn more about the OAuth client credentials grant flow, refer [here](https://oauth.net/2/grant-types/client-credentials/).
 
-### Request access token with authorization code grant flow 
+### Request access token with authorization code grant flow
 
 Further Reading: [https://oauth.net/2/grant-types/authorization-code/](https://oauth.net/2/grant-types/authorization-code/)
 
-Clients use this grant type to exchange an authorization code for an `access_token`. 
-This is mainly used for web apps because there is a login into ISC with a subsequent redirect back to the web app/client.
+Clients use this grant type to exchange an authorization code for an `access_token`. This is mainly used for web apps because there is a login into ISC with a subsequent redirect back to the web app/client.
 
-The OAuth 2.0 client you are using must have `AUTHORIZATION_CODE` as one of its grant types. 
-The redirect URLs must also match the list in the client as well:
+The OAuth 2.0 client you are using must have `AUTHORIZATION_CODE` as one of its grant types. The redirect URLs must also match the list in the client as well:
 
 ```json
 {
@@ -258,9 +237,9 @@ The redirect URLs must also match the list in the client as well:
 
 <br></br>
 
-The authorization code grant flow looks a little different because it involves the exchange of the access token and authorization code. 
+The authorization code grant flow looks a little different because it involves the exchange of the access token and authorization code.
 
-This diagram shows the authorization code grant flow: 
+This diagram shows the authorization code grant flow:
 
 <div align="center">
 
@@ -310,8 +289,7 @@ The token endpoint URL is `{tenant}.api.identitynow.com`, and the authorize URL 
 
 :::
 
-7. ISC validates the token request and submits a response. If the request is successful, the response contains a JWT `access_token`.
-For more information about the JWT access token in the response, refer to [#OAuth-token-response](#oauth-token-response).
+7. ISC validates the token request and submits a response. If the request is successful, the response contains a JWT `access_token`. For more information about the JWT access token in the response, refer to [#OAuth-token-response](#oauth-token-response).
 
 These are the query parameters in the OAuth 2.0 token request for the authorization code grant:
 
@@ -328,14 +306,14 @@ Here is an example OAuth 2.0 token request for the authorization code grant type
 curl -X POST \
  'https://example.api.identitynow.com/oauth/token?grant_type=authorization_code&client_id=b61429f5-203d-494c-94c3-04f54e17bc5c&code=6688LQJB0y652z6ZjFmkCKuBUjv2sTIqKS2JthWrZ7qlPgI9TClJ6FnpweEhO6w7&redirect_uri=https://myappdomain.com/oauth/redirect' \
  -H 'cache-control: no-cache'
- 
+
 ```
 
-Once you have the JWT access token, you can pass the token as a basic "Authorization" header in your requests using the OAuth endpoints. 
+Once you have the JWT access token, you can pass the token as a basic "Authorization" header in your requests using the OAuth endpoints.
 
 For more information about the OAuth authorization code grant flow, refer [here](https://oauth.net/2/grant-types/authorization-code/).
 
-### Request access token with refresh token grant flow 
+### Request access token with refresh token grant flow
 
 Clients use this grant type in order to exchange a refresh token for a new `access_token` once the existing `access_token` has expired. This allows clients to continue to have a valid `access_token` without the need for the user to login as frequently.
 
@@ -386,9 +364,9 @@ curl -X POST \
  -H 'cache-control: no-cache'
 ```
 
-Once you have the `refresh_token`, you can pass the `refresh_token` as a basic "Authorization" header in your requests using the OAuth endpoints, allowing your requests to continue to succeed without being affected by the expired `access_token`. 
+Once you have the `refresh_token`, you can pass the `refresh_token` as a basic "Authorization" header in your requests using the OAuth endpoints, allowing your requests to continue to succeed without being affected by the expired `access_token`.
 
-For more information about the OAuth refresh token grant flow, refer [here](https://oauth.net/2/grant-types/refresh-token/). 
+For more information about the OAuth refresh token grant flow, refer [here](https://oauth.net/2/grant-types/refresh-token/).
 
 ### OAuth token response
 
@@ -415,9 +393,7 @@ A successful request using any of the grant flows to `https://{tenant}.api.ident
 }
 ```
 
-You can use the JWT `access_token` to authorize REST API calls through the ISC API gateway. 
-To use the `access_token`, simply include it in the `Authorization` header as a `Bearer` token. 
-This is an example V3 API request that has the access token in the header:
+You can use the JWT `access_token` to authorize REST API calls through the ISC API gateway. To use the `access_token`, simply include it in the `Authorization` header as a `Bearer` token. This is an example V3 API request that has the access token in the header:
 
 ```bash
 curl -X GET \
@@ -426,34 +402,27 @@ curl -X GET \
  -H 'cache-control: no-cache'
 ```
 
-Some of the other values can also be useful to know: 
-- The `expires_in` value describes the lifetime, in seconds, of the `access_token`. 
-For example, the value 749 means that the `access_token` will expire 12.5 minutes from the time the response was generated. 
-The exact expiration date is also contained within the `access_token`. 
-You can view this expiration time by decoding the JWT `access_token` using a tool like [jwt.io](https://jwt.io/).
+Some of the other values can also be useful to know:
 
-- The `refresh token` exists for use in the refresh token grant flow to replace the `access_token` when it expires. 
-However, the `refresh_token` will only be present if the API client has the `REFRESH_TOKEN` grant flow.
+- The `expires_in` value describes the lifetime, in seconds, of the `access_token`. For example, the value 749 means that the `access_token` will expire 12.5 minutes from the time the response was generated. The exact expiration date is also contained within the `access_token`. You can view this expiration time by decoding the JWT `access_token` using a tool like [jwt.io](https://jwt.io/).
 
-- The `user_id` and `identity_id` define the identity context of the person who authenticated. 
-However, these values aren't set for the client credentials grant type because it doesn't have a user context.
+- The `refresh token` exists for use in the refresh token grant flow to replace the `access_token` when it expires. However, the `refresh_token` will only be present if the API client has the `REFRESH_TOKEN` grant flow.
 
-With the JWT `access_token`, you can now successfully send authenticated ISC API requests. To learn more about authorization and the scopes you can apply to further control access to the APIs, refer to [Authorization](/docs/api/authorization). 
+- The `user_id` and `identity_id` define the identity context of the person who authenticated. However, these values aren't set for the client credentials grant type because it doesn't have a user context.
+
+With the JWT `access_token`, you can now successfully send authenticated ISC API requests. To learn more about authorization and the scopes you can apply to further control access to the APIs, refer to [Authorization](/docs/api/authorization).
 
 ## More Information
 
-This section of the document includes additional information about the authentication/authorization process, including some different use cases for the different authorization grant flows. 
+This section of the document includes additional information about the authentication/authorization process, including some different use cases for the different authorization grant flows.
 
-### OAuth 2.0 
-The SailPoint authentication/authorization model is fully [OAuth 2.0](https://oauth.net/2/) compliant. 
-[OAuth 2.0](https://oauth.net/2/) is an industry-standard protocol for authorization. 
-It provides a variety of authorization flows for web applications, desktop applications, mobile phones, and devices. 
-This specification and its extensions are developed within the [IETF OAuth Working Group](https://www.ietf.org/mailman/listinfo/oauth).
+### OAuth 2.0
+
+The SailPoint authentication/authorization model is fully [OAuth 2.0](https://oauth.net/2/) compliant. [OAuth 2.0](https://oauth.net/2/) is an industry-standard protocol for authorization. It provides a variety of authorization flows for web applications, desktop applications, mobile phones, and devices. This specification and its extensions are developed within the [IETF OAuth Working Group](https://www.ietf.org/mailman/listinfo/oauth).
 
 ### JSON Web Token
-The issued JWT `access_token` leverages the [JSON Web Token (JWT)](https://jwt.io/) standard. 
-JWT is an industry-standard protocol for creating access tokens which assert various claims about the resource who has authenticated. 
-The tokens have a specific structure consisting of a header, payload, and signature.
+
+The issued JWT `access_token` leverages the [JSON Web Token (JWT)](https://jwt.io/) standard. JWT is an industry-standard protocol for creating access tokens which assert various claims about the resource who has authenticated. The tokens have a specific structure consisting of a header, payload, and signature.
 
 A raw JWT might look like this:
 
@@ -513,43 +482,43 @@ You can check the JWT access token data online at [jwt.io](https://jwt.io).
 
 ### Grant flow use cases
 
-This section describes some different use cases and which grant flow you would want to use for the different cases. 
+This section describes some different use cases and which grant flow you would want to use for the different cases.
 
 #### Daily work or quick actions
 
 For daily work or short, quick administrative actions, you can just use a PAT. This makes the process easier because you don't really need to worry about grant types - you can easily generate a PAT in the user interface (UI).
 
-Follow these steps to do so: 
+Follow these steps to do so:
+
 1. Log in to ISC.
-2. Go to 'Preferences', then 'Personal Access Tokens', and [generate a PAT](#generate-a-personal-access-token). 
-3. The PAT's `client_id` and `client_secret` provide the necessary authentication to send API requests, without any grant flow. 
+2. Go to 'Preferences', then 'Personal Access Tokens', and [generate a PAT](#generate-a-personal-access-token).
+3. The PAT's `client_id` and `client_secret` provide the necessary authentication to send API requests, without any grant flow.
 
 #### Postman
+
 [Postman](https://www.postman.com/) is a popular HTTP client you can use to design, build, test, and iterate your APIs. Postman users and teams can create public workspaces they can use to make it easy to access their API collections and environments and get started. SailPoint maintains a [public workspace for the Identity Security Cloud API collections](https://www.postman.com/sailpoint/workspace/identitynow). You can use this workspace to access all the ISC API collections and stay up to date.
 
-If you're using Postman, you have some different ways to set up your authorization. 
-You can just leverage the accessToken as mentioned above, or you can configure Postman to use OAuth 2.0 directly.
-For more information about how to do so, refer [here](https://learning.postman.com/docs/sending-requests/authorization/). 
+If you're using Postman, you have some different ways to set up your authorization. You can just leverage the accessToken as mentioned above, or you can configure Postman to use OAuth 2.0 directly. For more information about how to do so, refer [here](https://learning.postman.com/docs/sending-requests/authorization/).
 
-#### Web applications 
+#### Web applications
+
 If you are making a web application, the best grant flow to use is the [Authorization Code grant flow](#request-access-token-with-authorization-grant-flow). This will allow users to be directed to ISC to login and then redirected back to the web application through a URL redirect. This also works well with Single Sign-on (SSO), strong authentication, and pass-through authentication mechanisms.
 
-SailPoint doesn't recommend using a password grant flow for web applications because doing so would involve entering ISC credentials in the web application. 
-This flow also doesn't allow you to work with SSO, strong authentication, or pass-through authentication.
+SailPoint doesn't recommend using a password grant flow for web applications because doing so would involve entering ISC credentials in the web application. This flow also doesn't allow you to work with SSO, strong authentication, or pass-through authentication.
 
 #### Scripts, programs or system to system integration
-If you are writing scripts, programs or system integrations that leverage the ISC APIs, the OAuth 2.0 grant you should use typically depends on what you're doing and the user context you need to operate under. 
+
+If you are writing scripts, programs or system integrations that leverage the ISC APIs, the OAuth 2.0 grant you should use typically depends on what you're doing and the user context you need to operate under.
 
 Because scripts, code, and programs lack an interactive web-interface, it is difficult, but not impossible, to implement a working authorization code grant flow. System to system integrations may require an elevated level of access and utilize a service account to make API calls beyond the privileges of the authenticated user.
 
-Most scripts, programs, and many integrations use the [Client Credentials grant flow](#request-access-token-with-client-credentials-grant-flow). 
-Using a PAT allows your API calls to work within a user context making client credentials ideal. 
+Most scripts, programs, and many integrations use the [Client Credentials grant flow](#request-access-token-with-client-credentials-grant-flow). Using a PAT allows your API calls to work within a user context making client credentials ideal.
 
 ## Troubleshooting
 
-Having issues? Follow these steps: 
+Having issues? Follow these steps:
 
-### Verify API endpoint calls 
+### Verify API endpoint calls
 
 1. Verify the structure of the API call:
 2. Verify that the API calls are going through the API gateway: `https://{tenant}.api.identitynow.com`
@@ -566,16 +535,15 @@ Having issues? Follow these steps:
 
 :::info
 
-You can also get a **403 Forbidden** response error when you call an API that expects a user, but your authorization grant type lacks a user context. Calling most admin APIs with a `CLIENT_CREDENTIAL` grant often produces this result. 
+You can also get a **403 Forbidden** response error when you call an API that expects a user, but your authorization grant type lacks a user context. Calling most admin APIs with a `CLIENT_CREDENTIAL` grant often produces this result.
 
 :::
 
-### Verify OAuth client 
+### Verify OAuth client
 
-1. Verify that the OAuth 2.0 client is not a legacy OAuth client. Legacy OAuth clients will not work. This can become very apparent when you look at the client ID - OAuth 2.0 client IDs have dashes. 
-Here are two examples that illustrate the difference: 
+1. Verify that the OAuth 2.0 client is not a legacy OAuth client. Legacy OAuth clients will not work. This can become very apparent when you look at the client ID - OAuth 2.0 client IDs have dashes. Here are two examples that illustrate the difference:
 
-Legacy Client ID: `G6xLlBBOKIcOAQuK` 
+Legacy Client ID: `G6xLlBBOKIcOAQuK`
 
 OAuth 2.0 Client ID: `b61429f5-203d-494c-94c3-04f54e17bc5c`
 
@@ -611,10 +579,8 @@ You can also view all of the active clients in the UI by going to `https://{tena
 }
 ```
 
-4. If you're using an [Authorization Code](#authorization-code-grant-flow) grant flow, verify that the redirect URL(s) for your application match the `redirectUris` value in the client. 
-You can check this by calling the [List OAuth Clients endpoint](/docs/api/beta/list-oauth-clients).
+4. If you're using an [Authorization Code](#authorization-code-grant-flow) grant flow, verify that the redirect URL(s) for your application match the `redirectUris` value in the client. You can check this by calling the [List OAuth Clients endpoint](/docs/api/beta/list-oauth-clients).
 
 ### Verify OAuth calls
-Verify that the OAuth call flow is going to the right URLs, with the correct query parameters and data values. 
-A common source of errors is using the wrong host for authorization and token API calls. 
-The token endpoint URL is `{tenant}.api.identitynow.com`, while the authorize URL is `{tenant}.identitynow.com`.
+
+Verify that the OAuth call flow is going to the right URLs, with the correct query parameters and data values. A common source of errors is using the wrong host for authorization and token API calls. The token endpoint URL is `{tenant}.api.identitynow.com`, while the authorize URL is `{tenant}.identitynow.com`.

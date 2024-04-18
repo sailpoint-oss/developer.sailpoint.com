@@ -16,18 +16,23 @@ By default, your requests will return a maximum of 250 records. To return more, 
 Pagination is implemented with the SDK in the following code block on line 7:
 
 ```typescript showLineNumbers
-import {Configuration, AccountsApi, Paginator} from "sailpoint-api-client"
+import {Configuration, AccountsApi, Paginator} from 'sailpoint-api-client';
 
 const getPaginatedAccounts = async () => {
-    let apiConfig = new Configuration()
-    let api = new AccountsApi(apiConfig)
-    
-    const val = await Paginator.paginate(api, api.listAccounts, {limit: 1000}, 250)
+  let apiConfig = new Configuration();
+  let api = new AccountsApi(apiConfig);
 
-    console.log(val)
-}
+  const val = await Paginator.paginate(
+    api,
+    api.listAccounts,
+    {limit: 1000},
+    250,
+  );
 
-getPaginatedAccounts()
+  console.log(val);
+};
+
+getPaginatedAccounts();
 ```
 
 Run this command to compile and run the code:

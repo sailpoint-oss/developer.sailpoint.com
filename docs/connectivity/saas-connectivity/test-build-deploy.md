@@ -102,8 +102,7 @@ $ sail conn tags list -c example-connector
 
 :::caution Important
 
-Make sure that you implement a form of version control or regular backup process for your connectors.
-You cannot recover the source code from ISC because it gets sent to ISC as a compiled and minified JavaScript (JS) bundle that cannot be easily expanded into its original source code structure. 
+Make sure that you implement a form of version control or regular backup process for your connectors. You cannot recover the source code from ISC because it gets sent to ISC as a compiled and minified JavaScript (JS) bundle that cannot be easily expanded into its original source code structure.
 
 :::
 

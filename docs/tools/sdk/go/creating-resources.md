@@ -6,7 +6,7 @@ sidebar_label: Create a resource
 sidebar_position: 2
 sidebar_class_name: gosdk
 keywords: ['go', 'golang', 'sdk', 'create']
-description: Learn how to create new resources the Golang SDK in this guide. 
+description: Learn how to create new resources the Golang SDK in this guide.
 slug: /tools/sdk/go/create
 tags: ['SDK', 'Software Development Kit']
 ---

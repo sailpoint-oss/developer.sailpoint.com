@@ -21,7 +21,7 @@ The following are examples of diacritical marks:
 > - Ň
 > - Ŵ
 
-The decomposeDiacriticalMarks transform uses the [Normalizer library](https://docs.oracle.com/javase/7/docs/api/java/text/Normalizer.html) to decompose the diacritical marks.  It specifically uses the Normalization Form KD (NFKD), as described in Sections 3.6, 3.10, and 3.11 of the Unicode Standard, also summarized under [Annex 4: Decomposition](https://www.unicode.org/reports/tr15/tr15-23.html#Decomposition).
+The decomposeDiacriticalMarks transform uses the [Normalizer library](https://docs.oracle.com/javase/7/docs/api/java/text/Normalizer.html) to decompose the diacritical marks. It specifically uses the Normalization Form KD (NFKD), as described in Sections 3.6, 3.10, and 3.11 of the Unicode Standard, also summarized under [Annex 4: Decomposition](https://www.unicode.org/reports/tr15/tr15-23.html#Decomposition).
 
 After decomposition, the transform uses a [Regex Replace](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html) to replace all diacritical marks by using the `InCombiningDiacriticalMarks` property of Unicode (ex. `replaceAll("[\\p{InCombiningDiacriticalMarks}]", "")`).
 
@@ -95,7 +95,7 @@ Output: "Dubcek"
 
 ## Testing
 
-To run some tests in code, use this java code to compare the results of what the transform does to what your code does: 
+To run some tests in code, use this java code to compare the results of what the transform does to what your code does:
 
 ```java
 import java.text.Normalizer;

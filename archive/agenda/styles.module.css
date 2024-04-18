@@ -149,7 +149,8 @@
 
 .stageButton:disabled {
   background: #ffffff;
-  box-shadow: inset -5.0934px -5.0934px 15.2802px rgba(255, 255, 255, 0.5),
+  box-shadow:
+    inset -5.0934px -5.0934px 15.2802px rgba(255, 255, 255, 0.5),
     inset 5.0934px 5.0934px 15.2802px rgba(136, 160, 183, 0.25);
   border-radius: 20.3736px;
 }

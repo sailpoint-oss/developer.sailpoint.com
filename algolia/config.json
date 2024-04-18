@@ -184,11 +184,7 @@
       "hierarchy.lvl0",
       "hierarchy.lvl1"
     ],
-    "searchableAttributes": [
-      "tags",
-      "hierarchy.lvl0",
-      "hierarchy.lvl1"
-    ]
+    "searchableAttributes": ["tags", "hierarchy.lvl0", "hierarchy.lvl1"]
   },
   "conversation_id": ["1090805758"],
   "nb_hits": 8687

@@ -11,7 +11,7 @@ export default function ConferenceHero() {
     <div className={styles.center}>
       <div className={styles.mainCard}>
         <div>
-            <div className={styles.conferenceText}>Developer Days</div>
+          <div className={styles.conferenceText}>Developer Days</div>
           <div className={styles.comingSoonText}>March 7th-9th, 2023</div>
           <div className={styles.descriptionText}>
             The conference for developers on SailPoint platforms.

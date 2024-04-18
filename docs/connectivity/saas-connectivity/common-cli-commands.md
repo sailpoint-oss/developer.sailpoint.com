@@ -37,4 +37,3 @@ Below is a list of commands and their usages:
   - Delete a connector: `sail conn delete -c [connectorID | connectorAlias]`
 - **Linking**
   - Link a customizer to your source instance: `sail conn customizers link -i [sourceInstanceID] -c [customizerID]`
-  

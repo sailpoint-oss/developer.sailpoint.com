@@ -131,16 +131,12 @@ The value key is a list. All available AfterCreate, AfterModify, BeforeCreate, a
 
 ```json
 [
-  {
-       "op": "add",
-       "path": "/connectorAttributes/nativeRules",
-       "value": [
-           "Example Rule 1",
-           "Example Rule 2"
-      ]
-  }
+  {
+    "op": "add",
+    "path": "/connectorAttributes/nativeRules",
+    "value": ["Example Rule 1", "Example Rule 2"]
+  }
 ]
-
 ```
 
 ### Correlation Rule

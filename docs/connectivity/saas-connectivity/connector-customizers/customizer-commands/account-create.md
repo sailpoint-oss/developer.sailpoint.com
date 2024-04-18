@@ -4,7 +4,7 @@ title: Account Create
 pagination_label: Account Create
 sidebar_label: Account Create
 keywords: ['connectivity', 'connectors', 'Account Create']
-description: Intercept the account create command. 
+description: Intercept the account create command.
 slug: /connectivity/saas-connectivity/customizers/commands/account-create
 tags: ['Connectivity', 'Connector Command']
 ---
@@ -12,7 +12,6 @@ tags: ['Connectivity', 'Connector Command']
 ## Overview
 
 Use these commands to intercept the [account-create](../../commands/account-create) command.
-
 
 | Input/Output |       Data Type        |
 | :----------- | :--------------------: |
@@ -60,11 +59,12 @@ Use these commands to intercept the [account-create](../../commands/account-crea
     }
 }
 ```
+
 ## Implementation
 
 ### Before account-create command
 
-Use this logic to implement the command: 
+Use this logic to implement the command:
 
 ```javascript
     .beforeStdAccountCreate(async (context: Context, input: StdAccountCreateInput) => {
@@ -72,11 +72,12 @@ Use this logic to implement the command:
         return input
     })
 ```
+
 The `input` object can be mutated and returned, but the same data type must still be returned.
 
 ### After account-create command
 
-Use this logic to implement the command: 
+Use this logic to implement the command:
 
 ```javascript
     .afterStdAccountCreate(async (context: Context, output: StdAccountCreateOutput) => {
@@ -84,4 +85,5 @@ Use this logic to implement the command:
         return output
     })
 ```
-The `output` object can be mutated and returned, but the same data type must still be returned. 
+
+The `output` object can be mutated and returned, but the same data type must still be returned.

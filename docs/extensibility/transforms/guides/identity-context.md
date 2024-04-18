@@ -15,7 +15,7 @@ tags: ['Transforms', 'Guides', 'identity']
 
 Transforms ship with the Apache Velocity template engine, which allows a transform to reference, transform, and render values passed into the transform context.
 
-The following variables are available to the Apache Velocity template engine when a transform is used to source an identity attribute: 
+The following variables are available to the Apache Velocity template engine when a transform is used to source an identity attribute:
 
 | Variable | Type | Description |
 | --- | --- | --- |
@@ -25,7 +25,7 @@ The following variables are available to the Apache Velocity template engine whe
 
 For available methods on these objects see our [Rules Java Docs](https://developer.sailpoint.com/docs/extensibility/rules/java-docs).
 
-## Examples 
+## Examples
 
 These examples will help you learn what you can do with the identity context.
 
@@ -56,14 +56,17 @@ You must use a `firstValid`. If the identity does not have a manager, `getManage
 {
   "type": "firstValid",
   "attributes": {
-    "values": ["$identity.getManager().getStringAttribute('country')", "no manager exists"]
+    "values": [
+      "$identity.getManager().getStringAttribute('country')",
+      "no manager exists"
+    ]
   }
 }
 ```
 
 ### Get manager status of the identity's manager
 
-This example would get the status of whether or not the identity's manager is currently actually a manager. 
+This example would get the status of whether or not the identity's manager is currently actually a manager.
 
 ```json
 {
@@ -76,7 +79,7 @@ This example would get the status of whether or not the identity's manager is cu
 
 ### Get an identity's accounts
 
-This example would get an identity's various associated source accounts. 
+This example would get an identity's various associated source accounts.
 
 ```json
 {
@@ -89,7 +92,7 @@ This example would get an identity's various associated source accounts.
 
 ### Get a comma separated list of account names from an application/source
 
-This is the velocity logic of the transform: 
+This is the velocity logic of the transform:
 
 ```java
 /* Loop through accounts returned from get accounts by application id */

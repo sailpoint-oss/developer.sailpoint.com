@@ -8,7 +8,7 @@ sidebar_class_name: plugin_developer_guide_installation
 keywords: ['plugin']
 description: IdentityIQ Plugin Installation
 slug: /iiq/plugin-developer-guide/installation
-tags: ['plugin','guide','identityiq']
+tags: ['plugin', 'guide', 'identityiq']
 ---
 
 # Plugin Installation
@@ -25,8 +25,8 @@ But wait, where do I get the .zip archive? If you have downloaded a published pl
 
 ![Plugin Dist File](../img/plugin_dist.png)
 
-When a plugin is installed, the database scripts from the 'db/install' folder run, creating any necessary tables for the plugin, importing the XML configuration files into the IdentityIQ database from the 'import/install' folder, loading any compiled classes into the unique plugin classloader, and importing the manifest file - this process creates the plugin object. 
+When a plugin is installed, the database scripts from the 'db/install' folder run, creating any necessary tables for the plugin, importing the XML configuration files into the IdentityIQ database from the 'import/install' folder, loading any compiled classes into the unique plugin classloader, and importing the manifest file - this process creates the plugin object.
 
-Uninstallation follows a similar path. You can launch uninstallation by clicking the small 'X' icon on the appropriate plugin card in the 'Settings->Plugin' interface. Database scripts responsible for cleaning up data run from the 'db/uninstall' folder, and the manifest file (the plugin object) is removed. Remember that the other XML objects created during installation are currently *not* uninstalled when a plugin is removed.
+Uninstallation follows a similar path. You can launch uninstallation by clicking the small 'X' icon on the appropriate plugin card in the 'Settings->Plugin' interface. Database scripts responsible for cleaning up data run from the 'db/uninstall' folder, and the manifest file (the plugin object) is removed. Remember that the other XML objects created during installation are currently _not_ uninstalled when a plugin is removed.
 
 ![Uninstall a Plugin](../img/delete_plugin.png)

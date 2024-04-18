@@ -129,13 +129,11 @@ This is an example create provisioning policy response for a source:
 }
 ```
 
-## Add to the Create policy 
+## Add to the Create policy
 
 This transform concatenates the identityAttributes `firstName`, `lastName`, the two digit month of the `hireDate` and the static string `Rt4e!` to form a temporaryPassword.
 
-:::caution
-You must use the `identityAttribute` type when you're writing transforms in provisioning policies. The `accountAttribute` type won't work during provisioning.
-:::
+:::caution You must use the `identityAttribute` type when you're writing transforms in provisioning policies. The `accountAttribute` type won't work during provisioning. :::
 
 ```json
 {
@@ -197,7 +195,7 @@ If you assume the given attributes have the following values, this transform wou
 
 Upload your complete CREATE provisioning policy by using the [Create Provisioning Policy API](/docs/api/v3/create-provisioning-policy), or use the [Update Provisioning Policy API](/docs/api/v3/put-provisioning-policy) to update an existing provisioning policy.
 
-This is the example response with the full policy, along with the new attribute: 
+This is the example response with the full policy, along with the new attribute:
 
 ```json
 {

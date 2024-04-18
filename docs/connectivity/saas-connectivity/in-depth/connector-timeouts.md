@@ -15,7 +15,7 @@ An Identity Security Cloud SaaS Connectivity connector will send a timeout error
 
 In the case of a long running API call to the source system, you can also optionally send `res.keepAlive()` to keep the connection to Identity Security Cloud open without having to send any data to Identity Security Cloud. If `res.keepAlive()` or `res.send()` is not called within 3 minutes, a connector timeout will occur.
 
-This is an example of how to set up this pagination: 
+This is an example of how to set up this pagination:
 
 ```javascript
 async getAccounts(res: Response<StdAccountListOutput>): Promise<boolean> {
@@ -25,7 +25,7 @@ async getAccounts(res: Response<StdAccountListOutput>): Promise<boolean> {
     // each page will be called recursively until there are no more records to fetch, at which case the promise is fulfilled
     ).eachPage((records, fetchNextPage) => {
         for (let record of records) {
-            // this is the part that sends the data to Identity Security Cloud. Since eachPage is called with just 10 records, 
+            // this is the part that sends the data to Identity Security Cloud. Since eachPage is called with just 10 records,
             // if there are 100 records total, we would send data back to ISC in 10 sets of 10 records.
             res.send({
                 identity: record.id,

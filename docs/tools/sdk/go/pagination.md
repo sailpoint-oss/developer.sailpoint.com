@@ -6,7 +6,7 @@ sidebar_label: Paginate Results
 sidebar_position: 5
 sidebar_class_name: gosdk
 keywords: ['go', 'golang', 'sdk', 'paginate']
-description: Learn how to paginate results with the Golang SDK in this guide. 
+description: Learn how to paginate results with the Golang SDK in this guide.
 slug: /tools/sdk/go/paginate
 tags: ['SDK', 'Software Development Kit']
 ---

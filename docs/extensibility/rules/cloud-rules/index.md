@@ -59,7 +59,7 @@ All submitted rules must follow proper rule submission guidelines.
 
 This is the file naming convention for rules: `Rule - {type} - {name}.xml`
 
-For example, this is the rule: 
+For example, this is the rule:
 
 `<Rule language="beanshell" name="Calculate Lifecycle" type="IdentityAttribute">`
 

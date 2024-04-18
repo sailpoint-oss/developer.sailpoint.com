@@ -6,27 +6,26 @@ sidebar_label: Java Classes - Rest Resources
 sidebar_position: 7
 sidebar_class_name: plugin_developer_guide_java_rest_resources
 keywords: ['plugin']
-description: IdentityIQ Plugin Java Classes REST Resources 
+description: IdentityIQ Plugin Java Classes REST Resources
 slug: /iiq/plugin-developer-guide/java-classes-rest-resources
-tags: ['plugin','guide','identityiq']
+tags: ['plugin', 'guide', 'identityiq']
 ---
 
 # Java Classes - REST Resources
 
-The plugin framework relies heavily on REST web services integration for the majority of CRUD (create, read, update, and delete) operations. To create a custom REST resource, there are a couple requirements. This guide will cover those requirements. 
+The plugin framework relies heavily on REST web services integration for the majority of CRUD (create, read, update, and delete) operations. To create a custom REST resource, there are a couple requirements. This guide will cover those requirements.
 
 ## Extend BasePluginResource
 
 The first step to creating a custom REST resource is to use the `BasePluginResource` class as the base class for all resources. It provides access to utility methods for accessing plugin settings, getting database connections and more.
 
 - **getConnection** - Gets connection to the datasource specified in the iiq.properties file for the plugins
-- **getPluginName** - This method should be overriden to return the plugin's correct name. 
+- **getPluginName** - This method should be overriden to return the plugin's correct name.
 - **getSettingBool** - Gets value of boolean plugin setting for plugin name returned by `getPluginName()`.
 - **getSettingInt** - Gets value of int plugin setting for plugin name returned by `getPluginName()`.
 - **getSettingString** - Gets value of String plugin setting for plugin name returned by `getPluginName()`.
 - **prepareStatement** - Convenience security method for getting Java `PreparedStatement` object for any required database queries - signature is `prepareStatement`(Connection, String, Object...) where the string would be the SQL statement you wish to execute and the object would be a list of the parameters values, if any, to be used.
-- **authorize** - This should be overridden by implementers, but by default it only ensures that SystemAdministrator can see everything.
-  Additional methods should be introduced to handle the various endpoints required by the plugin.
+- **authorize** - This should be overridden by implementers, but by default it only ensures that SystemAdministrator can see everything. Additional methods should be introduced to handle the various endpoints required by the plugin.
 
 ## Secure endpoints
 
@@ -48,11 +47,11 @@ An annotation should have at least three parts
 
 - **Line 1** - The HTTP method (GET, POST, PUT, DELETE, etc).
 - **Line 2** - The path or endpoint - this can be parameterized, which is useful for pulling back a single record. The earlier example uses parameterization by adding the variable within {} tags to the end of the URL and also declaring the @PathParam "appName" in the input arguments of the method signature.
-- **Line 3** - The authorization of the method. The following values are allowed: 
-    - **@AllowAll** - Allows anyone to interrogate the endpoint.
-    - **@RequiredRight("<SPRight/>")** - Allows users with the named SPRight to access the endpoint.
-    - **@SystemAdmin** - System administrator access only.
-    - **@Deferred** - Authorization is deferred to the method. When this option is selected, the implementer must also create an `Authorizer` class that implements the `sailpoint.authorization.Authorize`r interface. The `Authorizer` class should override the `authorize(UserContext)` method of the base `Authorizer` interface. Inside the REST resource method, the author would then call `authorize()`. Here is a simple example:
+- **Line 3** - The authorization of the method. The following values are allowed:
+  - **@AllowAll** - Allows anyone to interrogate the endpoint.
+  - **@RequiredRight("<SPRight/>")** - Allows users with the named SPRight to access the endpoint.
+  - **@SystemAdmin** - System administrator access only.
+  - **@Deferred** - Authorization is deferred to the method. When this option is selected, the implementer must also create an `Authorizer` class that implements the `sailpoint.authorization.Authorize`r interface. The `Authorizer` class should override the `authorize(UserContext)` method of the base `Authorizer` interface. Inside the REST resource method, the author would then call `authorize()`. Here is a simple example:
 
 ```java
 import sailpoint.authorization.Authorizer;
@@ -78,7 +77,7 @@ class CustomPluginAuthorizer implements Authorizer{
     public CustomPluginAuthorizer(CustomPluginObject cpo) {
         this.cpo = cpo
     }
-    
+
     /**
      * {@inheritDoc}
      */

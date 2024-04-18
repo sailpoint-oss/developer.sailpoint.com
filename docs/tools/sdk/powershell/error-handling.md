@@ -18,7 +18,7 @@ You can use a `try/catch` function to intercept any non success response and tak
 ```powershell
 # Catch any non 2xx response and log the status code and error message
 try {
-    Get-Transforms -Filters "id eq" 
+    Get-Transforms -Filters "id eq"
 }
 catch {
     Write-Host $_.Exception.Response.StatusCode.value__
@@ -33,7 +33,7 @@ This code ensures that the `Get-AccessProfiles` cmdlet will never be called:
 ```powershell
 # Catch any non 2xx response and log the status code and error message. Stop the script with the Exit keyword.
 try {
-    Get-Transforms -Filters "id eq" 
+    Get-Transforms -Filters "id eq"
 }
 catch {
     Write-Host $_.Exception.Response.StatusCode.value__

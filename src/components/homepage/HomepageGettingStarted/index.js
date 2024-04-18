@@ -25,7 +25,9 @@ export default function HomepageGettingStarted() {
             <HomepageCard
               link={'/docs'}
               title={'Get Started with Identity Security Cloud'}
-              image={'/homepage/SailPointIdentitySecurityCloud.svg'}></HomepageCard>
+              image={
+                '/homepage/SailPointIdentitySecurityCloud.svg'
+              }></HomepageCard>
             <HomepageCard
               link={
                 'https://documentation.sailpoint.com/identityiq/help/iiqlandingpage.html'

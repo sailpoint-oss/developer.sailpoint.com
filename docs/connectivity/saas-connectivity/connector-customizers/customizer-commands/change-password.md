@@ -13,9 +13,8 @@ tags: ['Connectivity', 'Connector Command']
 
 Use these commands to intercept the [change-password](../../commands/change-password) command.
 
-
-| Input/Output |       Data Type         |
-| :----------- | :--------------------:  |
+| Input/Output |        Data Type        |
+| :----------- | :---------------------: |
 | Input        | StdChangePasswordInput  |
 | Output       | StdChangePasswordOutput |
 
@@ -34,14 +33,15 @@ Use these commands to intercept the [change-password](../../commands/change-pass
 ### Example StdChangePasswordOutput
 
 ```javascript
-{}
+{
+}
 ```
-## Implementation
 
+## Implementation
 
 ### Before change-password command
 
-Use this logic to implement the command: 
+Use this logic to implement the command:
 
 ```javascript
     .beforeStdChangePassword(async (context: Context, input: StdChangePasswordInput) => {
@@ -49,11 +49,12 @@ Use this logic to implement the command:
         return input
     })
 ```
+
 The `input` object can be mutated and returned, but the same data type must still be returned.
 
 ### After change-password command
 
-Use this logic to implement the command: 
+Use this logic to implement the command:
 
 ```javascript
     .afterStdChangePassword(async (context: Context, output: StdChangePasswordOutput) => {
@@ -61,4 +62,5 @@ Use this logic to implement the command:
         return output
     })
 ```
+
 The `output` object can be mutated and returned, but the same data type must still be returned.

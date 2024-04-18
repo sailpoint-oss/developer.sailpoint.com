@@ -1,13 +1,12 @@
 .gridContainer {
-    display: grid;
-    place-content: center;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 40px;
-    margin-left: 20px;
-    margin-right: 40px;
-    text-align: center;
-  }
-  
+  display: grid;
+  place-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 40px;
+  margin-left: 20px;
+  margin-right: 40px;
+  text-align: center;
+}
 
 .center {
   margin: 20px auto;

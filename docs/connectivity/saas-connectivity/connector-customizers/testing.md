@@ -6,7 +6,7 @@ sidebar_label: Testing and Debugging
 sidebar_position: 6
 sidebar_class_name: saasConnectivity
 keywords: ['connectivity', 'connectors', customizers]
-description: Test and debug connectors with customizers. 
+description: Test and debug connectors with customizers.
 slug: /connectivity/saas-connectivity/customizers/testing
 tags: ['Connectivity']
 ---
@@ -25,7 +25,7 @@ You can then set breakpoints in your code step through processes in your IDE (in
 
 ### Test alongside a custom connector
 
-If you want to test alongside a SaaS custom connector, the easiest way to do so is to copy the customizer code into the connector code. 
+If you want to test alongside a SaaS custom connector, the easiest way to do so is to copy the customizer code into the connector code.
 
 For example, you want to test this connector:
 

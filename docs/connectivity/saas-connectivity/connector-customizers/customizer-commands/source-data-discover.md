@@ -13,8 +13,7 @@ tags: ['Connectivity', 'Connector Command']
 
 Use these commands to intercept the [source-data-discover](../../commands/source-data-discover) command.
 
-
-| Input/Output |            Data Type        |
+| Input/Output |          Data Type          |
 | :----------- | :-------------------------: |
 | Input        | StdSourceDataDiscoverInput  |
 | Output       | StdSourceDataDiscoverOutput |
@@ -34,23 +33,24 @@ Use these commands to intercept the [source-data-discover](../../commands/source
 
 ```javascript
 [
-    {
-        key: 'id',
-        label: 'Id',
-        subLabel: 'Airtable Base Id'
-    },
-    {
-        key: 'name',
-        label: 'Name',
-        subLabel: 'Airtable Source Table Name'
-    }
-]
+  {
+    key: 'id',
+    label: 'Id',
+    subLabel: 'Airtable Base Id',
+  },
+  {
+    key: 'name',
+    label: 'Name',
+    subLabel: 'Airtable Source Table Name',
+  },
+];
 ```
+
 ## Implementation
 
 ### Before source-data-discover command
 
-Use this logic to implement the command: 
+Use this logic to implement the command:
 
 ```javascript
     .beforeStdSourceDataDiscover(async (context: Context, input: StdSourceDataDiscoverInput) => {
@@ -58,11 +58,12 @@ Use this logic to implement the command:
         return input
     })
 ```
+
 The `input` object can be mutated and returned, but the same data type must still be returned.
 
 ### After source-data-discover command
 
-Use this logic to implement the command: 
+Use this logic to implement the command:
 
 ```javascript
     .afterStdSourceDataDiscover(async (context: Context, output: StdSourceDataDiscoverOutput) => {
@@ -70,4 +71,5 @@ Use this logic to implement the command:
         return output
     })
 ```
+
 The `output` object can be mutated and returned, but the same data type must still be returned.

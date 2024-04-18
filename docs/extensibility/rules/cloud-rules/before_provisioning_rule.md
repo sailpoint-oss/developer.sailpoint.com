@@ -16,9 +16,9 @@ Use this rule to modify a provisioning plan as provisioning is sent out. Do not 
 
 These are some examples of when to use this rule:
 
-* Disable account and remove groups during provisioning when the lifecycle state of an identity is set to terminated
-* Remove or add permissions when certain attribute criteria are met
-* Move users to a specific organizational unit (OU) in Active Directory based upon attribute criteria
+- Disable account and remove groups during provisioning when the lifecycle state of an identity is set to terminated
+- Remove or add permissions when certain attribute criteria are met
+- Move users to a specific organizational unit (OU) in Active Directory based upon attribute criteria
 
 ## Execution
 

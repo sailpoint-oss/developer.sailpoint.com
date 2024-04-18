@@ -1,4 +1,3 @@
-
 .sidebar {
   width: 400px;
   height: 100%;
@@ -17,7 +16,6 @@
   flex-direction: column;
 }
 
-
 .hidden {
   display: none;
 }
@@ -31,7 +29,6 @@
   width: 100%;
   transition: background-color 500ms;
   text-align: center;
-  
 }
 
 .seeAll:hover {

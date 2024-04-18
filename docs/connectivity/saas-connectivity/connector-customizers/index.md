@@ -6,7 +6,7 @@ sidebar_label: Customizers
 sidebar_position: 7.1
 sidebar_class_name: saasConnectivity
 keywords: ['connectivity', 'connectors', customizers]
-description: Connectivity customizers can customize out of the box SaaS connectors. 
+description: Connectivity customizers can customize out of the box SaaS connectors.
 slug: /connectivity/saas-connectivity/customizers
 tags: ['Connectivity']
 ---
@@ -17,9 +17,9 @@ SaaS Connectivity Customizers are cloud-based connector customizers that make cu
 
 ## How do they work?
 
-SaaS Connectivity Customizers work by sitting in between Identity Security Cloud and the connector. They intercept calls from Identity Security Cloud to the connector and calls from the connector to Identity Security Cloud. When the customizer intercepts a call, it can call custom code to mutate the data in any way necessary to change the connector behavior. 
+SaaS Connectivity Customizers work by sitting in between Identity Security Cloud and the connector. They intercept calls from Identity Security Cloud to the connector and calls from the connector to Identity Security Cloud. When the customizer intercepts a call, it can call custom code to mutate the data in any way necessary to change the connector behavior.
 
-This chart shows an example of this interception process - the ```stdAccountRead``` command is implemented with the customizer in place: 
+This chart shows an example of this interception process - the `stdAccountRead` command is implemented with the customizer in place:
 
 <div align="center">
 

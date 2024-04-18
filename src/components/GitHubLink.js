@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 export default function GitHubPublicFileComponent({children, source}) {
   const [fileContent, setFileContent] = useState('');
@@ -6,9 +6,7 @@ export default function GitHubPublicFileComponent({children, source}) {
   useEffect(() => {
     const fetchFileContent = async () => {
       try {
-        const response = await fetch(
-          source
-        );
+        const response = await fetch(source);
 
         if (response.ok) {
           const content = await response.text();
@@ -25,9 +23,8 @@ export default function GitHubPublicFileComponent({children, source}) {
   }, []);
 
   return (
-    
     <a href={fileContent} target="_blank">
-        <img src={useBaseUrl('/img/button.svg')}></img>
+      <img src={useBaseUrl('/img/button.svg')}></img>
     </a>
   );
-};
+}

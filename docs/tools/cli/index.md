@@ -57,11 +57,9 @@ Note this installer is only compatible with 64 bit Windows.
 
 :::
 
-Download the latest release from the [releases page](https://github.com/sailpoint-oss/sailpoint-cli/releases). 
-The release should include an MSI file named `sail_x.x.x_windows_amd64.msi` that can be installed on Windows, with `x.x.x` being the version of the most recent release.
+Download the latest release from the [releases page](https://github.com/sailpoint-oss/sailpoint-cli/releases). The release should include an MSI file named `sail_x.x.x_windows_amd64.msi` that can be installed on Windows, with `x.x.x` being the version of the most recent release.
 
 To install the MSI file, double click on it and follow the prompts in the installer.
-
 
 ### MacOS
 
@@ -75,8 +73,7 @@ Then make sure you can run the `sail` command.
 
 ### Linux
 
-Each release on the [releases page](https://github.com/sailpoint-oss/sailpoint-cli/releases) includes a tarball that can be extracted and run on Linux.
-Or you can install using the available .deb or .rpm packages.
+Each release on the [releases page](https://github.com/sailpoint-oss/sailpoint-cli/releases) includes a tarball that can be extracted and run on Linux. Or you can install using the available .deb or .rpm packages.
 
 #### Deb Package
 
@@ -87,6 +84,7 @@ Then install it using one of the following commands, with the `x.x.x` being the 
 ```bash
 sudo apt install ./sail_x.x.x_linux_amd64.deb
 ```
+
 ```bash
 sudo apt install /path/to/deb/package/sail_x.x.x_linux_amd64.deb
 ```
@@ -100,6 +98,7 @@ Then install it using one of the following commands, with the `x.x.x` being the 
 ```bash
 sudo yum localinstall ./sail_x.x.x_linux_amd64.rpm
 ```
+
 ```bash
 sudo yum localinstall /path/to/rpm/package/sail_x.x.x_linux_amd64.rpm
 ```
@@ -113,24 +112,25 @@ To configure the CLI to connect and authenticate to your ISC tenant, you must do
 - PAT | Create a personal access token (PAT). Make sure to note the "Client ID" and "Client Secret." The CLI needs this information to authenticate successfully. To learn how to create a PAT, refer to [Personal Access Tokens](/docs/api/authentication#personal-access-tokens).
 
 To configure your first environment for OAuth run the following command:
+
 ```bash
 sail env {environment}
 ```
+
 with `{environment}` being the name of the environment you wish to configure.
 
 You will be prompted for the following information:
+
 - The Tenant URL - The web URL used to access your Identity Security Cloud tenant (ex. https://tenant.identitynow.com), this is used during the OAuth process.
 - The API URL - The API URL used to access your Identity Security Cloud tenant (ex. https://tenant.api.identitynow.com), this is used for the api calls made by certain commands.
 
 ### OAuth Authentication
 
-With the default environment values populated you can immediately begin using the CLI with OAuth authentication.
-Just make sure OAuth is your selected authentication method, this can be done by running `sail set auth oauth`.
+With the default environment values populated you can immediately begin using the CLI with OAuth authentication. Just make sure OAuth is your selected authentication method, this can be done by running `sail set auth oauth`.
 
 ### PAT Authentication
 
-After you have configured your environment, if you want to use PAT authentication, run the `sail set pat` command. 
-You can then provide your PAT client ID and client secret.
+After you have configured your environment, if you want to use PAT authentication, run the `sail set pat` command. You can then provide your PAT client ID and client secret.
 
 ![Configure PAT](https://github.com/sailpoint-oss/sailpoint-cli/blob/main/assets/img/vhs/configure/configure-pat.gif?raw=true)
 
@@ -166,18 +166,17 @@ To get your environment variables to persist across PowerShell sessions, run thi
 [System.Environment]::SetEnvironmentVariable('SAIL_CLIENT_SECRET','clientSecret}')
 ```
 
-
 ## Usage
 
 Run the `sail` command for an overview of available commands and flags. You can use the `-h` flag with any command to see additional options for each command:
 
 These commands are available:
 
-- `connectors`: This command is a CLI interface for the SaaS Connectivity platform. The CLI is the best way to create and manage SaaS connectors within your tenant. For more information about the `connectors` command, refer to the CLI [Connectors guide](/docs/tools/cli/connectors). 
-- `search`: Run this command to access ISC search functionality within the CLI. For more information about the `search` command, refer to the CLI [Search guide](/docs/tools/cli/search). 
+- `connectors`: This command is a CLI interface for the SaaS Connectivity platform. The CLI is the best way to create and manage SaaS connectors within your tenant. For more information about the `connectors` command, refer to the CLI [Connectors guide](/docs/tools/cli/connectors).
+- `search`: Run this command to access ISC search functionality within the CLI. For more information about the `search` command, refer to the CLI [Search guide](/docs/tools/cli/search).
 - `set`: Run this command to configure your CLI settings. For more information about the `set` command, refer to the CLI [Set guide](/docs/tools/cli/set).
-- `spconfig`: Run this command to access ISC SP Config functionality. For more information about the `spconfig` command, refer to the CLI [SPConfig guide](/docs/tools/cli/spconfig). 
-- `transform`: This command is a CLI interface that makes it easy to create, manage, and test transforms. For more information about the `transform` command, refer to the CLI [Transforms guide](/docs/tools/cli/transforms). 
+- `spconfig`: Run this command to access ISC SP Config functionality. For more information about the `spconfig` command, refer to the CLI [SPConfig guide](/docs/tools/cli/spconfig).
+- `transform`: This command is a CLI interface that makes it easy to create, manage, and test transforms. For more information about the `transform` command, refer to the CLI [Transforms guide](/docs/tools/cli/transforms).
 - `va`: Run this command to access VAs connected to your tenant. For more information about the `va` command, refer to the CLI [VA guide](/docs/tools/cli/va).
 - `cluster`: Run this command to access VA clusters connected to your tenant. For more information about the `cluster` command, refer to the CLI [Clusters guide](/docs/tools/cli/cluster).
 - `workflow`: Run this command to create and manage workflows within the CLI. For more information about the `workflow` command, refer to the CLI [Workflows guide](/docs/tools/cli/workflow).

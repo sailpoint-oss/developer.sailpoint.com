@@ -3,14 +3,14 @@ import clsx from 'clsx';
 import styles from './styles.module.css';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Link from '@docusaurus/Link';
-import { getCatagories, getTags } from '../../../services/DiscourseService';
+import {getCatagories, getTags} from '../../../services/DiscourseService';
 import MarketplaceSidebarButton from './MarketplaceSidebarButton';
-import {discourseMarketplaceCatagoryId, discourseProductTag} from '../../../util/util'
+import {
+  discourseMarketplaceCatagoryId,
+  discourseProductTag,
+} from '../../../util/util';
 
-export default function MarketplaceSidebar({
-  filterCallback,
-  selectedCategory
-  }) {
+export default function MarketplaceSidebar({filterCallback, selectedCategory}) {
   const [tagProductData, setTagProductData] = React.useState();
   const [tagTechnologyData, setTagTechnologyData] = React.useState();
   const [catIntegrationTypeData, setCatIntegrationTypeData] = React.useState();
@@ -20,16 +20,18 @@ export default function MarketplaceSidebar({
     const tagData = await getTags();
     const categoryData = await getCatagories();
 
-    const tagTechnologyResultset = []
-    const tagProductResultset = []
-    const catIntegrationType = []
+    const tagTechnologyResultset = [];
+    const tagProductResultset = [];
+    const catIntegrationType = [];
 
     for (const category of categoryData.category_list.categories) {
       // 59 for production marketplace, 57 for staging marketplace
       if (category.id === discourseMarketplaceCatagoryId()) {
         for (const subCategory of category.subcategory_list) {
-          
-          catIntegrationType.push({"name": subCategory.name, "slug": subCategory.slug})
+          catIntegrationType.push({
+            name: subCategory.name,
+            slug: subCategory.slug,
+          });
         }
       }
     }
@@ -37,68 +39,79 @@ export default function MarketplaceSidebar({
       // 20 for production marketplace, 11 for staging marketplace
       if (tagGroup.id === discourseProductTag()) {
         for (const tag of tagGroup.tags) {
-          tagProductResultset.push(tag.text)
+          tagProductResultset.push(tag.text);
         }
       }
       if (tagGroup.id === 17) {
         for (const tag of tagGroup.tags) {
-          tagTechnologyResultset.push(tag.text)
+          tagTechnologyResultset.push(tag.text);
         }
       }
     }
-    setTagProductData(tagProductResultset)
-    setTagTechnologyData(tagTechnologyResultset)
-    setCatIntegrationTypeData(catIntegrationType)
+    setTagProductData(tagProductResultset);
+    setTagTechnologyData(tagTechnologyResultset);
+    setCatIntegrationTypeData(catIntegrationType);
   };
 
   function toggleSeeAll() {
-    filterTags ? setFilterTags(false) : setFilterTags(true)
+    filterTags ? setFilterTags(false) : setFilterTags(true);
   }
 
   function uppercaseText(text) {
-  switch (text) {
-    case "identitynow":
-      return "IdentityNow";
+    switch (text) {
+      case 'identitynow':
+        return 'IdentityNow';
 
-    case "identityiq":
-      return "IdentityIQ";
+      case 'identityiq':
+        return 'IdentityIQ';
 
-    case "nerm":
-      return "NERM";
+      case 'nerm':
+        return 'NERM';
 
-    default:
-      return text
-        .split("-")
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(" ");
+      default:
+        return text
+          .split('-')
+          .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(' ');
+    }
   }
-}
-
-  
 
   React.useEffect(() => {
     getTagData();
   }, []);
 
-  const filterText = filterTags ? 'See All Tags' : 'See Less Tags'
+  const filterText = filterTags ? 'See All Tags' : 'See Less Tags';
 
   if (tagProductData && catIntegrationTypeData) {
     return (
       <div className={styles.sidebar}>
         <div className={styles.tagHeader}>Items by Product</div>
         <div className={styles.tagContainer}>
-            {tagProductData.map(function(a, index){
-              return <MarketplaceSidebarButton key={a} text={uppercaseText(a)} id={a} filterCallback={filterCallback}></MarketplaceSidebarButton>
-            })}
+          {tagProductData.map(function (a, index) {
+            return (
+              <MarketplaceSidebarButton
+                key={a}
+                text={uppercaseText(a)}
+                id={a}
+                filterCallback={filterCallback}></MarketplaceSidebarButton>
+            );
+          })}
         </div>
         <div className={styles.tagHeader}>Items by Integration Type</div>
         <div className={styles.tagContainer}>
-            {catIntegrationTypeData.map(function(a, index){
-              return <MarketplaceSidebarButton category={selectedCategory} isCategory={true} key={a.slug} text={a.name} id={a.slug} filterCallback={filterCallback}></MarketplaceSidebarButton>
-            })}
+          {catIntegrationTypeData.map(function (a, index) {
+            return (
+              <MarketplaceSidebarButton
+                category={selectedCategory}
+                isCategory={true}
+                key={a.slug}
+                text={a.name}
+                id={a.slug}
+                filterCallback={filterCallback}></MarketplaceSidebarButton>
+            );
+          })}
         </div>
       </div>
-      
     );
   } else {
     return <div></div>;

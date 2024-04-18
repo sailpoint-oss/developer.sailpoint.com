@@ -9,10 +9,10 @@ slug: /connectivity/saas-connectivity/commands/account-enable
 tags: ['Connectivity', 'Connector Command']
 ---
 
-| Input/Output    |        Data Type        |
-| :-------------- | :---------------------: |
-| Input - Enable  |  StdAccountEnableInput  |
-| Output - Enable | StdAccountEnableOutput  |
+| Input/Output    |       Data Type        |
+| :-------------- | :--------------------: |
+| Input - Enable  | StdAccountEnableInput  |
+| Output - Enable | StdAccountEnableOutput |
 
 ### Example StdAccountEnableInput
 

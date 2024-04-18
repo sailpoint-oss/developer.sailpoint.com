@@ -13,7 +13,6 @@ tags: ['Connectivity', 'Connector Command']
 
 Use these commands to intercept the [account-update](../../commands/account-update) command.
 
-
 | Input/Output |       Data Type        |
 | :----------- | :--------------------: |
 | Input        | StdAccountUpdateInput  |
@@ -62,12 +61,12 @@ Use these commands to intercept the [account-update](../../commands/account-upda
     }
 }
 ```
-## Implementation
 
+## Implementation
 
 ### Before account-update command
 
-Use this logic to implement the command: 
+Use this logic to implement the command:
 
 ```javascript
     .beforeStdAccountUpdate(async (context: Context, input: StdAccountUpdateInput) => {
@@ -75,11 +74,12 @@ Use this logic to implement the command:
         return input
     })
 ```
+
 The `input` object can be mutated and returned, but the same data type must still be returned.
 
 ### After account-update command
 
-Use this logic to implement the command: 
+Use this logic to implement the command:
 
 ```javascript
     .afterStdAccountUpdate(async (context: Context, output: StdAccountUpdateOutput) => {
@@ -87,4 +87,5 @@ Use this logic to implement the command:
         return output
     })
 ```
+
 The `output` object can be mutated and returned, but the same data type must still be returned.

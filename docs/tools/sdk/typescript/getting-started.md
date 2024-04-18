@@ -20,23 +20,23 @@ To make sure that your SDK is connecting to the APIs you need, you can specify t
 ### List Transforms in your tenant
 
 ```typescript
-import {Configuration, TransformsApi} from "sailpoint-api-client"
+import {Configuration, TransformsApi} from 'sailpoint-api-client';
 
-const getTransforms = async() => {
-    // Initialize configuration, this requests a token using your configured credentials 
-    // to be able to call out to APIs
-    let apiConfig = new Configuration()
+const getTransforms = async () => {
+  // Initialize configuration, this requests a token using your configured credentials
+  // to be able to call out to APIs
+  let apiConfig = new Configuration();
 
-    // Initialize the TransformsApi, this creates an instance of the TransformsApi.
-    // The configuration object is passed in so that the API can add your token to the request
-    let api = new TransformsApi(apiConfig)
+  // Initialize the TransformsApi, this creates an instance of the TransformsApi.
+  // The configuration object is passed in so that the API can add your token to the request
+  let api = new TransformsApi(apiConfig);
 
-    // Call out to your tenant to get the list of transforms.
-    let transforms = await api.listTransforms()
-    console.log(transforms)
-}
+  // Call out to your tenant to get the list of transforms.
+  let transforms = await api.listTransforms();
+  console.log(transforms);
+};
 
-getTransforms()
+getTransforms();
 ```
 
 To compile the file, first run the `tsc src/index.ts` command. This command creates a corresponding `index.js` file you can use to run the SDK.
@@ -50,16 +50,19 @@ Using the same SDK function, you can list your transforms but limit the results 
 Refer to [List Transforms](https://developer.sailpoint.com/docs/api/v3/list-transforms) for all its supported query parameters.
 
 ```typescript
-import {Configuration, TransformsApi} from "sailpoint-api-client"
+import {Configuration, TransformsApi} from 'sailpoint-api-client';
 
-const getTransforms = async() => {
-    let apiConfig = new Configuration()
-    let api = new TransformsApi(apiConfig)
-    let transforms = await api.listTransforms({limit: 10, filters: 'name sw "Test"'})
-    console.log(transforms)
-}
+const getTransforms = async () => {
+  let apiConfig = new Configuration();
+  let api = new TransformsApi(apiConfig);
+  let transforms = await api.listTransforms({
+    limit: 10,
+    filters: 'name sw "Test"',
+  });
+  console.log(transforms);
+};
 
-getTransforms()
+getTransforms();
 ```
 
 Run this command to compile and run the code:

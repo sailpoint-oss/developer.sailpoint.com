@@ -100,8 +100,6 @@
   .featuredGettingStartedText {
     display: flex;
   }
- 
-
 }
 @media only screen and (min-width: 1179px) {
   .carousel {
@@ -136,7 +134,6 @@
   }
 }
 @media only screen and (max-width: 570px) {
- 
   .contentContainer {
     width: auto;
     margin: auto;

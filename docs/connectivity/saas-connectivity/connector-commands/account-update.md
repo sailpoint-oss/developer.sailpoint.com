@@ -105,4 +105,4 @@ Note: Testing the account update command for removing entitlements using this me
 
 ## Handling an account that is not found
 
-If an account can't be found in the source system, ISC can recreate the account by using the ```ConnectorErrorType.NotFound``` error type. For details and implementation, refer to [Error Handling](../in-depth/error-handling.md#not-found-error-type).
+If an account can't be found in the source system, ISC can recreate the account by using the `ConnectorErrorType.NotFound` error type. For details and implementation, refer to [Error Handling](../in-depth/error-handling.md#not-found-error-type).

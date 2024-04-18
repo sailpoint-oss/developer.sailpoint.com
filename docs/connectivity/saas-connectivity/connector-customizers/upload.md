@@ -21,7 +21,7 @@ Before you can upload a connector customizer, you must issue the create command 
 sail conn customizers create my-connector-customizer
 ```
 
-This will return the customizer ID. 
+This will return the customizer ID.
 
 ```bash
 +--------------------------------------+-------------------------+---------+
@@ -55,4 +55,5 @@ To upload the customizer to Identity Security Cloud, use the upload command:
 ```bash
 sail conn customizers upload -c 7b968fab-0f40-49f0-b13b-8bf529fc0b82 -f .\dist\my-connector-customizer-0.1.0.zip
 ```
+
 Now the customizer is ready to be used!

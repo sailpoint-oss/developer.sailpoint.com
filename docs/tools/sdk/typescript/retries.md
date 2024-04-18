@@ -14,28 +14,30 @@ tags: ['SDK']
 The SDK supports retry logic in the case of an unexpected error. You are able to configure the number of retries and the delay between retries. This logic is implemented in lines 7-12:
 
 ```typescript showLineNumbers
-import {Configuration, axiosRetry, AccountsApi, Paginator} from "sailpoint-api-client"
+import {
+  Configuration,
+  axiosRetry,
+  AccountsApi,
+  Paginator,
+} from 'sailpoint-api-client';
 
 const getPaginatedAccounts = async () => {
+  let apiConfig = new Configuration();
+  apiConfig.retriesConfig = {
+    retries: 4,
+    retryDelay: axiosRetry.exponentialDelay,
+    onRetry(retryCount, error, requestConfig) {
+      console.log(`retrying due to request error, try number ${retryCount}`);
+    },
+  };
+  let api = new AccountsApi(apiConfig);
 
-    
-    let apiConfig = new Configuration()
-    apiConfig.retriesConfig = {
-        retries: 4,
-        retryDelay: axiosRetry.exponentialDelay,
-        onRetry(retryCount, error, requestConfig) {
-            console.log(`retrying due to request error, try number ${retryCount}`)
-        },
-    }
-    let api = new AccountsApi(apiConfig)
-    
-    const val = await Paginator.paginate(api, api.listAccounts, {limit: 100}, 10)
+  const val = await Paginator.paginate(api, api.listAccounts, {limit: 100}, 10);
 
-    console.log(val)
+  console.log(val);
+};
 
-}
-
-getPaginatedAccounts()
+getPaginatedAccounts();
 ```
 
 Run this command to compile and run the code:

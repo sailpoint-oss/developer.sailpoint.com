@@ -22,6 +22,7 @@ Use this command to find sources:
 ```bash
 sail conn instances list
 ```
+
 This similar looking list of instances will be returned:
 
 ```bash
@@ -41,6 +42,7 @@ Use this command to find customizers:
 ```bash
 sail conn customizers list
 ```
+
 This similar looking list of customizers will be returned:
 
 ```bash
@@ -58,7 +60,9 @@ To link a source to a customizer, find the source ID in the instance list and a 
 ```bash
 sail conn customizers link -i edfc9bfb-b55c-482f-b1aa-b4d51caf7558 -c 7b968fab-0f40-49f0-b13b-8bf529fc0b82
 ```
+
 The output will indicate that the customizer has succesfully linked to the connector instance:
+
 ```bash
 +--------------------------------------+----------------------+--------------------------------------+
 |                  ID                  |         NAME         |            CUSTOMIZER ID             |
@@ -69,7 +73,7 @@ The output will indicate that the customizer has succesfully linked to the conne
 
 ### Unlink from a source
 
-To unlink a customizer from a source, issue the unlink command and pass the source instance ID: 
+To unlink a customizer from a source, issue the unlink command and pass the source instance ID:
 
 ```bash
 sail conn customizers unlink -i edfc9bfb-b55c-482f-b1aa-b4d51caf7558

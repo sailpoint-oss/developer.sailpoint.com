@@ -6,7 +6,7 @@ sidebar_label: Update a resource
 sidebar_position: 3
 sidebar_class_name: gosdk
 keywords: ['go', 'golang', 'sdk', 'update']
-description: Learn how to update resources with the Golang SDK. 
+description: Learn how to update resources with the Golang SDK.
 slug: /tools/sdk/go/update
 tags: ['SDK', 'Software Development Kit']
 ---
@@ -57,7 +57,7 @@ func main() {
 
 ```
 
-To run the code, run this command: 
+To run the code, run this command:
 
 ```go
 go run sdk.go

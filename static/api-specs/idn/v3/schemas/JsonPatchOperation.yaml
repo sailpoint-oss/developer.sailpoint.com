@@ -24,6 +24,9 @@ properties:
       - type: string
         example: "New description"
         title: string
+      - type: boolean
+        example: true
+        title: boolean 
       - type: integer
         example: 300
         title: integer

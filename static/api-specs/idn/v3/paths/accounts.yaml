@@ -45,7 +45,25 @@ get:
         **uncorrelated**: *eq*
 
 
+        **entitlements**: *eq*
+
+
         **identity.name**: *eq, in, sw*
+
+
+        **identity.correlated**: *eq*
+
+
+        **identity.identityState**: *eq, in*
+        
+
+        **source.displayableName**: *eq, in*
+
+
+        **source.authoritative**: *eq*
+
+
+        **source.connectionType**: *eq, in*
       required: false
     - in: query
       name: sorters
@@ -58,7 +76,7 @@ get:
         Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
 
 
-        Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, identity.id, nativeIdentity, uuid, manuallyCorrelated, identity.name**
+        Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, identity.id, nativeIdentity, uuid, manuallyCorrelated, entitlements, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType**
   responses:
     "200":
       description: List of account objects

@@ -1364,6 +1364,10 @@ paths:
     $ref: './beta/paths/mfa-okta-config.yaml'
   /mfa/duo-web/config:
     $ref: './beta/paths/mfa-duo-config.yaml'
+  /mfa/kba/config:
+    $ref: './beta/paths/mfa-kba-config.yaml'
+  /mfa/kba/config/answers:
+    $ref: './beta/paths/mfa-kba-config-answers.yaml'
   /mfa/{method}/test:
     $ref: './beta/paths/mfa-config-test.yaml'
   /mfa/{method}/delete:

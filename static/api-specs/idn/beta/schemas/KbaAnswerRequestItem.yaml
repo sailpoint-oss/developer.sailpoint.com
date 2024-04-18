@@ -1,15 +1,15 @@
 type: object
 properties:
-  questionId:
+  id:
     type: string
     nullable: false
     description: Question Id
-    example: 089899f13a8f4da7824996191587bab9
+    example: c54fee53-2d63-4fc5-9259-3e93b9994135
   answer:
     type: string
     nullable: false
     description: An answer for the KBA question
     example: Your answer
 required:
-  - questionId
+  - id
   - answer

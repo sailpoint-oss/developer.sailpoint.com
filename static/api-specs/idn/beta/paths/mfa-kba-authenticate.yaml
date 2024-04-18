@@ -12,20 +12,20 @@ post:
     content:
       application/json:
         schema:
-              $ref: "../schemas/KbaAnswerRequest.yaml"
+          type: array
+          items:
+            $ref: "../schemas/KbaAnswerRequestItem.yaml"
         example:
-              {"answers": [
-                {
-                  "questionId": "089899f13a8f4da7824996191587bab9",
-                  "answer": "Your answer"
-                },
-                {
-                  "questionId": "067899f13a8f4da7824996191587bab9",
-                  "answer": "Your answer1"
-                }
-                          ]
-              }
-
+          [
+            {
+              "id": "173423",
+              "answer": "822cd15d6c15aa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a0859a2fea34"
+            },
+            {
+              "id": "c54fee53-2d63-4fc5-9259-3e93b9994135",
+              "answer": "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08"
+            }
+          ]
   responses:
     "200":
       description: KBA authenticated status.

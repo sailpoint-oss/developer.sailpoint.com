@@ -1594,6 +1594,8 @@ paths:
     $ref: './beta/paths/source-synchronize-attributes.yaml'
   /sources/{id}/entitlement-request-config:
     $ref: './beta/paths/sources-entitlement-request-config.yaml'
+  /sources/{id}/load-accounts:
+    $ref: './beta/paths/load-accounts.yaml'
   /task-status/{id}:
     $ref: "./beta/paths/task-status.yaml"
   /task-status:

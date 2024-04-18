@@ -5,7 +5,7 @@ pagination_label: UDK
 sidebar_label: UI Development Kit
 sidebar_position: 4
 sidebar_class_name: rudk
-keywords: ['UI', 'development','kit']
+keywords: ['UI', 'development', 'kit']
 description: Develop custom user interfaces.
 slug: /tools/ui-development-kit
 tags: ['UI']
@@ -41,11 +41,11 @@ git clone git@github.com:sailpoint-oss/ui-development-kit.git
 
 This project is built on [Svelte-Kit](https://kit.svelte.dev/) and ultimately builds an [Electron](https://www.electronjs.org/) application.
 
-Setting up the project is simple. The environment and application building process are configured so you can start creating custom UIs immediately. However, it is still helpful to understand the project structure. 
+Setting up the project is simple. The environment and application building process are configured so you can start creating custom UIs immediately. However, it is still helpful to understand the project structure.
 
-Most of your activity will involve the `src` folder, such as adding new pages, routes, and sidebar items. You can learn more about these processes in [Getting Started](./getting-started.mdx). 
+Most of your activity will involve the `src` folder, such as adding new pages, routes, and sidebar items. You can learn more about these processes in [Getting Started](./getting-started.mdx).
 
-This is the project structure: 
+This is the project structure:
 
 ```bash
 .
@@ -73,7 +73,7 @@ This is the project structure:
 
 ## Run the application for local development
 
-To run and develop the project locally, follow these steps: 
+To run and develop the project locally, follow these steps:
 
 1. In the root of the project run this command to install dependencies:
 
@@ -89,10 +89,10 @@ npm run dev
 
 ## Get started
 
-To start learning how to use the UI Development Kit and explore its possibilities, refer to [Getting Started](./getting-started.mdx). 
+To start learning how to use the UI Development Kit and explore its possibilities, refer to [Getting Started](./getting-started.mdx).
 
-## Discuss 
+## Discuss
 
-The most valuable resource for ISC developers is the SailPoint Developer Community itself, where ISC users and experts all over the world come together to ask questions and provide solutions. 
+The most valuable resource for ISC developers is the SailPoint Developer Community itself, where ISC users and experts all over the world come together to ask questions and provide solutions.
 
-To learn more about the ISC UI Development Kit and discuss it with SailPoint Developer Community members, go to the [SailPoint Developer Community Forum](https://developer.sailpoint.com/discuss/c/identity-security-cloud/6). 
+To learn more about the ISC UI Development Kit and discuss it with SailPoint Developer Community members, go to the [SailPoint Developer Community Forum](https://developer.sailpoint.com/discuss/c/identity-security-cloud/6).

@@ -6,7 +6,7 @@ sidebar_label: Getting Started
 sidebar_position: 1
 sidebar_class_name: gosdk
 keywords: ['go', 'golang', 'sdk', 'start']
-description: Learn how to use the Golang SDK in this guide. 
+description: Learn how to use the Golang SDK in this guide.
 slug: /tools/sdk/go/getting-started
 tags: ['SDK', 'Software Development Kit']
 ---

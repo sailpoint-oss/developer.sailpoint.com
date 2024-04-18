@@ -5,10 +5,10 @@ pagination_label: IP Address Allow List
 sidebar_label: IP Address Allow List
 sidebar_position: 2
 sidebar_class_name: allowList
-keywords: ['connectivity', 'connectors', 'workflows', 'allowlist','ip address']
+keywords: ['connectivity', 'connectors', 'workflows', 'allowlist', 'ip address']
 description: Create an IP Address Allow List​.
 slug: /guides/ip-address-allow-list
-tags: ['Connectivity', 'connectors', 'workflows', 'allowlist','ip address']
+tags: ['Connectivity', 'connectors', 'workflows', 'allowlist', 'ip address']
 ---
 
 ## Overview
@@ -59,7 +59,7 @@ def find_aws_region(ip):
   print(region)
 
 # simply add your IP address here:
-find_aws_region('54.234.204.155') 
+find_aws_region('54.234.204.155')
 ```
 
 ## Using your region to create the allow-list URL
@@ -87,11 +87,11 @@ https://files.accessiq.sailpoint.com/network/us-east-1/source_ips.yaml
 which will result in a file similar to the following:
 
 ```yaml
-"region": "us-east-1"
-"source_ips":
-- "52.204.100.58/32"
-- "52.205.92.24/32"
-- "52.206.146.115/32"
+'region': 'us-east-1'
+'source_ips':
+  - '52.204.100.58/32'
+  - '52.205.92.24/32'
+  - '52.206.146.115/32'
 ```
 
 These IP Address ranges can now be used as an allow list to permit any call from your Identity Security Cloud tenant to access your internal network.

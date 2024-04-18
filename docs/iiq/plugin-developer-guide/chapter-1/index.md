@@ -8,7 +8,7 @@ sidebar_class_name: plugin_developer_guide_overview
 keywords: ['plugin']
 description: IdentityIQ Plugin Developer Guide Overview
 slug: /iiq/plugin-developer-guide/overview
-tags: ['plugin','guide','identityiq']
+tags: ['plugin', 'guide', 'identityiq']
 ---
 
 # Overview
@@ -19,7 +19,7 @@ The first iteration of the plugin framework was released as an add-on to Identit
 
 Developing a plugin requires a fairly robust knowledge of IdentityIQ and its object model, Java, JavaScript, CSS, and SQL. This document is designed to provide development guidance at a high level - it goes over what the components of a plugin are, which components are required, and how those objects interact. Language specific tutorials are beyond its scope. Throughout this document, examples will be taken and discussed from the 'TodoPlugin'.
 
-*A quick note about plugin loading...*
+_A quick note about plugin loading..._
 
 Before getting into the structure of a plugin project and why it is important, it may be helpful to understand how a plugin is represented in IdentityIQ once installed. IdentityIQ stores the '.zip' archive file of the plugin in the IdentityIQ database in a data LONGBLOB in the 'spt_file_bucket' table. The data in the 'spt_file_bucket' table is referenced (by 'id') to an entry in the 'spt_persisted_file' table as shown below.
 
@@ -33,20 +33,20 @@ A plugin is defined in IdentityIQ by the 'Plugin' XML object. This object define
 
 **Plugin Model Attributes**
 
-|**Attribute Name**|**Description**|
-| --- | --- |
-|name|Unique Name of the Plugin|
-|installDate|Date when plugin was installed|
-|displayName|Plugin's display name|
-|certificationLevel|Plugin's certification level|
-|disabled|Plugin's status|
-|rightRequired|SPRIGHT required for this plugin|
-|position|TBD|
-|version|Plugin's version|
-|minSystemVersion|Minimum IdentityIQ version the plugin will run on|
-|maxSystemVersion|Maximum IdentityIQ version the plugin will run on|
-|attributes|List of configurable attributes|
-|file|Reference to the persisted file in the database|
+| **Attribute Name** | **Description**                                   |
+| ------------------ | ------------------------------------------------- |
+| name               | Unique Name of the Plugin                         |
+| installDate        | Date when plugin was installed                    |
+| displayName        | Plugin's display name                             |
+| certificationLevel | Plugin's certification level                      |
+| disabled           | Plugin's status                                   |
+| rightRequired      | SPRIGHT required for this plugin                  |
+| position           | TBD                                               |
+| version            | Plugin's version                                  |
+| minSystemVersion   | Minimum IdentityIQ version the plugin will run on |
+| maxSystemVersion   | Maximum IdentityIQ version the plugin will run on |
+| attributes         | List of configurable attributes                   |
+| file               | Reference to the persisted file in the database   |
 
 ## Plugin Structure
 
@@ -54,7 +54,7 @@ A basic plugin will consist of a manifest file, database scripts, IdentityIQ obj
 
 ![File Structure](../img/plugin_structure.png)
 
-These are the main build components: 
+These are the main build components:
 
 1. Manifest file
 2. Build file(s)

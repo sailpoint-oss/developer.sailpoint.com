@@ -13,9 +13,8 @@ tags: ['Connectivity', 'Connector Command']
 
 Use these commands to intercept the [source-data-read](../../commands/source-data-read) command.
 
-
-| Input/Output |            Data Type        |
-| :----------- | :-------------------------: |
+| Input/Output |        Data Type        |
+| :----------- | :---------------------: |
 | Input        | StdSourceDataReadInput  |
 | Output       | StdSourceDataReadOutput |
 
@@ -35,23 +34,24 @@ Use these commands to intercept the [source-data-read](../../commands/source-dat
 
 ```javascript
 [
-    {
-        key: 'id',
-        label: 'Id',
-        subLabel: 'Airtable Base Id'
-    },
-    {
-        key: 'name',
-        label: 'Name',
-        subLabel: 'Airtable Source Table Name'
-    }
-]
+  {
+    key: 'id',
+    label: 'Id',
+    subLabel: 'Airtable Base Id',
+  },
+  {
+    key: 'name',
+    label: 'Name',
+    subLabel: 'Airtable Source Table Name',
+  },
+];
 ```
+
 ## Implementation
 
 ### Before source-data-read command
 
-Use this logic to implement the command: 
+Use this logic to implement the command:
 
 ```javascript
     .beforeStdSourceDataRead(async (context: Context, input: StdSourceDataReadInput) => {
@@ -59,11 +59,12 @@ Use this logic to implement the command:
         return input
     })
 ```
+
 The `input` object can be mutated and returned, but the same data type must still be returned.
 
 ### After source-data-read command
 
-Use this logic to implement the command: 
+Use this logic to implement the command:
 
 ```javascript
     .afterStdSourceDataRead(async (context: Context, output: StdSourceDataReadOutput) => {
@@ -71,4 +72,5 @@ Use this logic to implement the command:
         return output
     })
 ```
+
 The `output` object can be mutated and returned, but the same data type must still be returned.

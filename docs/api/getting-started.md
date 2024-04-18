@@ -6,14 +6,14 @@ sidebar_label: Getting Started
 sidebar_position: 1
 sidebar_class_name: gettingStarted
 keywords: ['getting started']
-description: Start using the ISC APIs. 
+description: Start using the ISC APIs.
 slug: /api/getting-started
 tags: ['Getting Started']
 ---
 
 ## Overview
 
-This guide is intended to help you quickly make your first API call to SailPoint Identity Security Cloud and assumes an intermediate level of understanding of APIs.  For beginners to APIs, we recommend you watch this presentation that covers the fundamentals of APIs with visual demonstrations of how to make an API call in SailPoint.
+This guide is intended to help you quickly make your first API call to SailPoint Identity Security Cloud and assumes an intermediate level of understanding of APIs. For beginners to APIs, we recommend you watch this presentation that covers the fundamentals of APIs with visual demonstrations of how to make an API call in SailPoint.
 
 <div class="text--center">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/YFRz8AcdWXg?si=9AvO6gMT1oCqYXAj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

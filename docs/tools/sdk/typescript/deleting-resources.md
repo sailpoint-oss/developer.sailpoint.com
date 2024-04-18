@@ -16,23 +16,31 @@ You can use the SDK to delete resources.
 Here is an example script that searches for the Workgroup created in [Create a resource](./creating-resources.md) by name and calls the delete method to remove it from your environment.
 
 ```typescript
-import {Configuration, GovernanceGroupsBetaApi, GovernanceGroupsBetaApiCreateWorkgroupRequest, GovernanceGroupsBetaApiPatchWorkgroupRequest, PublicIdentitiesApi} from "sailpoint-api-client"
+import {
+  Configuration,
+  GovernanceGroupsBetaApi,
+  GovernanceGroupsBetaApiCreateWorkgroupRequest,
+  GovernanceGroupsBetaApiPatchWorkgroupRequest,
+  PublicIdentitiesApi,
+} from 'sailpoint-api-client';
 
 const deleteWorkgroup = async () => {
-    let apiConfig = new Configuration()
-    let api = new GovernanceGroupsBetaApi(apiConfig)
+  let apiConfig = new Configuration();
+  let api = new GovernanceGroupsBetaApi(apiConfig);
 
-    let workgroup = (await api.listWorkgroups({filters: 'name eq "DB Access Governance Group"'})).data[0]
+  let workgroup = (
+    await api.listWorkgroups({filters: 'name eq "DB Access Governance Group"'})
+  ).data[0];
 
-    if (workgroup.id !== undefined) {
-        let deletionStatus = (await api.deleteWorkgroup({id: workgroup.id})).status
-        console.log(deletionStatus)
-    } else {
-        console.log("Workgroup was not found, id is missing for delete request.")
-    }
-}
+  if (workgroup.id !== undefined) {
+    let deletionStatus = (await api.deleteWorkgroup({id: workgroup.id})).status;
+    console.log(deletionStatus);
+  } else {
+    console.log('Workgroup was not found, id is missing for delete request.');
+  }
+};
 
-deleteWorkgroup()
+deleteWorkgroup();
 ```
 
 Run this command to compile and run the code:

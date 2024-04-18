@@ -7,8 +7,6 @@ export default function AnnouncementBarContent(props) {
   const {announcementBar} = useThemeConfig();
   const {content} = announcementBar;
 
-
-
   return (
     <div
       {...props}

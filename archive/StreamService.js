@@ -2,7 +2,6 @@ import md5 from 'crypto-js/md5';
 
 export const URL = 'https://developerdays.sailpoint.com';
 
-
 export async function getFAQ() {
   try {
     const response = await fetch(URL + '/faq');

@@ -36,7 +36,6 @@
   position: relative;
 }
 
-
 .modalButtonText {
   position: relative;
   top: -2px;
@@ -55,7 +54,7 @@
   position: absolute;
   right: 0px;
   top: -25px;
-  transition: all  0.3s;
+  transition: all 0.3s;
 }
 
 .modalButton:hover {
@@ -82,7 +81,8 @@
   top: 4px;
   fill: #96a9bb;
   /* computed from codepen https://codepen.io/sosuke/pen/Pjoqqp */
-  filter: invert(79%) sepia(12%) saturate(484%) hue-rotate(168deg) brightness(84%) contrast(84%);
+  filter: invert(79%) sepia(12%) saturate(484%) hue-rotate(168deg)
+    brightness(84%) contrast(84%);
   margin-left: 5px;
   height: 18px;
   width: 18px;

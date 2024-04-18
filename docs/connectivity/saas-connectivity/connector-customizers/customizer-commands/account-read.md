@@ -13,7 +13,6 @@ tags: ['Connectivity', 'Connector Command']
 
 Use these commands to intercept the [account-read](../../commands/account-read) command.
 
-
 | Input/Output |      Data Type       |
 | :----------- | :------------------: |
 | Input        | StdAccountReadInput  |
@@ -53,12 +52,12 @@ Use these commands to intercept the [account-read](../../commands/account-read) 
     }
 }
 ```
-## Implementation
 
+## Implementation
 
 ### Before account-read command
 
-Use this logic to implement the command: 
+Use this logic to implement the command:
 
 ```javascript
     .beforeStdAccountRead(async (context: Context, input: StdAccountReadInput) => {
@@ -66,11 +65,12 @@ Use this logic to implement the command:
         return input
     })
 ```
+
 The `input` object can be mutated and returned, but the same data type must still be returned.
 
 ### After account-read command
 
-Use this logic to implement the command: 
+Use this logic to implement the command:
 
 ```javascript
     .afterStdAccountRead(async (context: Context, output: StdAccountReadOutput) => {
@@ -78,4 +78,5 @@ Use this logic to implement the command:
         return output
     })
 ```
+
 The `output` object can be mutated and returned, but the same data type must still be returned.

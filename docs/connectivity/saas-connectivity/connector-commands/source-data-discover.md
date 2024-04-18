@@ -4,12 +4,12 @@ title: Source Data Discover
 pagination_label: Source Data Discover
 sidebar_label: Source Data Discover
 keywords: ['connectivity', 'connectors', 'Source Data Discover']
-description: Discover potential source data types. 
+description: Discover potential source data types.
 slug: /connectivity/saas-connectivity/commands/source-data-discover
 tags: ['Connectivity', 'Connector Command']
 ---
 
-| Input/Output |            Data Type        |
+| Input/Output |          Data Type          |
 | :----------- | :-------------------------: |
 | Input        | StdSourceDataDiscoverInput  |
 | Output       | StdSourceDataDiscoverOutput |
@@ -29,26 +29,26 @@ tags: ['Connectivity', 'Connector Command']
 
 ```javascript
 [
-    {
-        key: 'id',
-        label: 'Id',
-        subLabel: 'Airtable Base Id'
-    },
-    {
-        key: 'name',
-        label: 'Name',
-        subLabel: 'Airtable Source Table Name'
-    }
-]
+  {
+    key: 'id',
+    label: 'Id',
+    subLabel: 'Airtable Base Id',
+  },
+  {
+    key: 'name',
+    label: 'Name',
+    subLabel: 'Airtable Source Table Name',
+  },
+];
 ```
 
 ## Description
 
-Use the source data discover command to identify the types of data your source can return. Different sources can send different types of data to Identity Security Cloud. For example, one source may be able to send a list of the different languages it supports, while another may be able to send values describing source details normally sent through accounts and entitlements. You can use the source data discover command to discover these possibilities. 
+Use the source data discover command to identify the types of data your source can return. Different sources can send different types of data to Identity Security Cloud. For example, one source may be able to send a list of the different languages it supports, while another may be able to send values describing source details normally sent through accounts and entitlements. You can use the source data discover command to discover these possibilities.
 
-One typical use for the source data discover command is found in Identity Security Cloud customer forms for dropdown menus: they use the command to identify the additional source types their sources can provide to Identity Security Cloud and use that information to populate the dropdown menus. 
+One typical use for the source data discover command is found in Identity Security Cloud customer forms for dropdown menus: they use the command to identify the additional source types their sources can provide to Identity Security Cloud and use that information to populate the dropdown menus.
 
-This is a simple example of the source data discover command. It has been implemented to list two types of queries that the Airtable source can supply. 
+This is a simple example of the source data discover command. It has been implemented to list two types of queries that the Airtable source can supply.
 
 ```javascript
 .stdSourceDataDiscover(async (context: Context, input: StdSourceDataDiscoverInput, res: Response<StdSourceDataDiscoverOutput>) => {

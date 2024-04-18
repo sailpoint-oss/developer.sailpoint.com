@@ -40,7 +40,7 @@ export default function VideoCards({filterCallback, limit, featured}) {
 
   const getVideoTopics = async () => {
     let tags = featured ? ['featured'] : filterCallback.tags;
-   
+
     const data = await getVideoPosts(tags ? tags : '');
     const resultset = [];
     if (data.topic_list) {

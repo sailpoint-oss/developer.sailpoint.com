@@ -16,9 +16,7 @@ tags: ['Rules']
 
 This rule manipulates raw input data provided by the rows and columns in a file and builds a map from the incoming data. Use this rule to create a new value by combining two columns together. For example, if one column was `access` and another `permissions` you could combine these together to create an entitlement `admin-read`.
 
-:::info
-This rule runs in the cloud, but it's really a connector rule because it executes against the DelimitedFileConnector.
-:::
+:::info This rule runs in the cloud, but it's really a connector rule because it executes against the DelimitedFileConnector. :::
 
 ## Execution
 

@@ -240,6 +240,7 @@ Account attribute transforms are configured on the account create profiles. They
 These transforms are configured separately from the transforms applied via the identity profile mappings tab.
 
 :::
+
 #### Configuration
 
 These can be configured in Identity Security Cloud by going to **Admin** > **Sources** > (A Source) > **Accounts** (tab) > **Create Account**.

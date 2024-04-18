@@ -6,10 +6,9 @@ sidebar_label: Postman Collections
 sidebar_position: 7
 sidebar_class_name: postmanCollections
 keywords: ['postman']
-description: Run ISC APIs in Postman. 
+description: Run ISC APIs in Postman.
 tags: ['postman']
 ---
-
 
 import GitHubPublicFileComponent from '@site/src/components/GitHubLink';
 
@@ -19,10 +18,8 @@ import GitHubPublicFileComponent from '@site/src/components/GitHubLink';
 
 Each ISC API version is broken out into a separate collection within the workspace. The following table lists the available ISC API collections. To import a collection into your workspace, select the 'Run in Postman' button for your desired version. Doing so forks the collection into your workspace.
 
-
-
 | API | Postman Collection |
-|------|----------------------------|
+| --- | --- |
 | V3 API | [![Run in Postman](./img/button.svg)](https://god.gw.postman.com/run-collection/23226990-3721beea-5615-44b4-9459-e858a0ca7aed?action=collection%2Ffork&collection-url=entityId%3D23226990-3721beea-5615-44b4-9459-e858a0ca7aed%26entityType%3Dcollection%26workspaceId%3D80af54be-a333-4712-af5e-41aa9eccbdd0) |
 | Beta API | [![Run in Postman](./img/button.svg)](https://god.gw.postman.com/run-collection/23226990-3b87172a-cd55-40a2-9ace-1560a1158a4e?action=collection%2Ffork&collection-url=entityId%3D23226990-3b87172a-cd55-40a2-9ace-1560a1158a4e%26entityType%3Dcollection%26workspaceId%3D80af54be-a333-4712-af5e-41aa9eccbdd0) |
 | NERM API | [![Run in Postman](./img/button.svg)](https://god.gw.postman.com/run-collection/23226990-20d718e3-b9b3-43ad-850c-637b00864ae2?action=collection%2Ffork&collection-url=entityId%3D23226990-20d718e3-b9b3-43ad-850c-637b00864ae2%26entityType%3Dcollection%26workspaceId%3D80af54be-a333-4712-af5e-41aa9eccbdd0) |
@@ -41,12 +38,12 @@ SailPoint is often making improvements to the ISC API collections. To keep your 
 The SailPoint workspace provides an environment, a set of variables you can use in your requests, that you can fork and pull changes from to stay up to date the same way you can with collections. To import the environment into your workspace, select 'Run in Postman'.
 
 | Environment | [![Run in Postman](./img/button.svg)](https://www.postman.com/sailpoint/workspace/identitynow/environment/23226990-ed571d4f-37a3-4a2c-9105-5d8d8cce1d20/fork) |
-|------|----------------------------|
+| --- | --- |
 
 To send API requests in Postman, you must authenticate to the APIs. To authenticate to the APIs, you must specify these variables in your Postman environment:
 
 | Environment Variable | Required | Description |
-| ----------- | ----------- | ----------- |
+| --- | --- | --- |
 | tenant | Yes | Your ISC tenant, typically your company's name |
 | clientId | Yes | The client ID for the API client or personal access token |
 | clientSecret | Yes | The client secret for the API client or personal access token |

@@ -3,7 +3,8 @@ id: connector-spec-initial-value
 title: Initial Value
 pagination_label: Initial Value
 sidebar_label: Initial Value
-keywords: ['connectivity', 'connectors','connector-spec', 'sourceConfigInitialValues']
+keywords:
+  ['connectivity', 'connectors', 'connector-spec', 'sourceConfigInitialValues']
 description: How to use the sourceConfigInitialValues field
 slug: /connectivity/saas-connectivity/connector-spec/initial-value
 tags: ['Connectivity', 'Connector Spec']

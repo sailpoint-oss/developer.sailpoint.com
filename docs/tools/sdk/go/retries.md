@@ -6,12 +6,12 @@ sidebar_label: Retries
 sidebar_position: 7
 sidebar_class_name: gosdk
 keywords: ['go', 'golang', 'sdk', 'retry']
-description: Learn how to paginate results with the Golang SDK in this guide. 
+description: Learn how to paginate results with the Golang SDK in this guide.
 slug: /tools/sdk/go/retries
 tags: ['SDK', 'Software Development Kit']
 ---
 
-The SDK uses the [go-retryablehttp](https://github.com/hashicorp/go-retryablehttp) module to support retry logic. 
+The SDK uses the [go-retryablehttp](https://github.com/hashicorp/go-retryablehttp) module to support retry logic.
 
 On line 17-18 of the following example, the SDK is set to retry if there is an unexpected error up to 10 times and wait 2 seconds between each retry:
 

@@ -15,7 +15,7 @@ tags: ['Transforms', 'Guides', 'Lifecycle']
 
 In this guide, you will walk through a lifecycle state transform that requires you to nest multiple transforms together to achieve your desired result.
 
-A lifecycle state is a status an identity can be in, such as `active`, `inactive` and `terminated`, for example. You can then use this lifecycle state in Identity Security Cloud to determine an identity's access. 
+A lifecycle state is a status an identity can be in, such as `active`, `inactive` and `terminated`, for example. You can then use this lifecycle state in Identity Security Cloud to determine an identity's access.
 
 ## Determine lifecycle state from end date attribute
 
@@ -38,24 +38,24 @@ This example and dates assume that the `now` keyword in the dateMath expression 
 
 :::
 
-| id     | email                        | first_name | last_name | end_date   |
-| ------ | ---------------------------- | ---------- | --------- | ---------- |
-| 100010 | lewis.hamilton@sailpoint.com | Lewis      | Hamilton  | 2023-11-01 |
-| 100011 | frank.williams@sailpoint.com | Frank      | Williams  | 2023-11-09 |
-| 100012 | paddy.lowe@sailpoint.com     | Paddy      | Lowe      | 2023-11-25 |
+| id | email | first_name | last_name | end_date |
+| --- | --- | --- | --- | --- |
+| 100010 | lewis.hamilton@sailpoint.com | Lewis | Hamilton | 2023-11-01 |
+| 100011 | frank.williams@sailpoint.com | Frank | Williams | 2023-11-09 |
+| 100012 | paddy.lowe@sailpoint.com | Paddy | Lowe | 2023-11-25 |
 | 100013 | keifer.sutherland@sailpoint.com | Keifer | Sutherland | 2023-12-25 |
 
-### Check whether the end date was in the past 
+### Check whether the end date was in the past
 
 The first part of the transform will check whether the `end_date` attribute was in the past. You will use these transforms to do so: `dateCompare`, `dateFormat`, and `dateMath`.
 
-First, use the [dateCompare operation](../operations/date-compare.md) to check that today is less than the specified `end_date`. To use the `dateCompare` operation, the dates must be in the `ISO8601` format, so the transform will require the use of the [dateFormat operation](../operations/date-format.md) as well. 
+First, use the [dateCompare operation](../operations/date-compare.md) to check that today is less than the specified `end_date`. To use the `dateCompare` operation, the dates must be in the `ISO8601` format, so the transform will require the use of the [dateFormat operation](../operations/date-format.md) as well.
 
 On lines 10-17, the [dathMath operation](../operations/date-math.md) to pull the date `now`, which represents the current moment in time. The `dateFormat` operation then converts it into the `ISO8601` format for comparison.
 
-On lines 21-31, the `dateFormat` operation converts the end date provided from the source format (`YYYY-MM-dd`) into the `ISO8601` format. 
+On lines 21-31, the `dateFormat` operation converts the end date provided from the source format (`YYYY-MM-dd`) into the `ISO8601` format.
 
-Finally, lines 34-36 use the comparison operator greater than or equal to `gte`. If the current date is greater than or equal to the end date, the comparison will return `true`, meaning that the end date is in the past. This would result in identity's `terminated` lifecycle state. If the current date is still less than the end date, the comparison will return `false`. 
+Finally, lines 34-36 use the comparison operator greater than or equal to `gte`. If the current date is greater than or equal to the end date, the comparison will return `true`, meaning that the end date is in the past. This would result in identity's `terminated` lifecycle state. If the current date is still less than the end date, the comparison will return `false`.
 
 <details>
 <summary>Show Transform</summary>
@@ -108,11 +108,11 @@ Finally, lines 34-36 use the comparison operator greater than or equal to `gte`.
 
 ### Check whether end date is within 7 days
 
-Once you have ensured that the `end_date` is in fact in the past, the next step is to check whether the `end_date` is fewer than 7 days away, 7-25 days days away, or more than 25 days away, to determine their exact lifecycle states. Start by checking whether the `end_date` is fewer than 7 days away. You will again use `dateCompare`, `dateFormat`, and `dateMath` for this comparison. 
+Once you have ensured that the `end_date` is in fact in the past, the next step is to check whether the `end_date` is fewer than 7 days away, 7-25 days days away, or more than 25 days away, to determine their exact lifecycle states. Start by checking whether the `end_date` is fewer than 7 days away. You will again use `dateCompare`, `dateFormat`, and `dateMath` for this comparison.
 
 On line 27, use the `dateMath` operation to add 7 days to the current date: `now+7d`. It pulls in the `end_date` the same way it did before, and it converts both dates to the `ISO8601` format for comparison.
 
-Lines 34-36 use the comparison operator less than or equal to: `lte`. This uses the result from the previous check to ensure that if the `end_date` is not in the past and that it is also fewer than 7 days away, the `end_date` will indeed occur in the 0-7 days range. This would result in the identity's `inactivePendingTermination` lifecycle state. 
+Lines 34-36 use the comparison operator less than or equal to: `lte`. This uses the result from the previous check to ensure that if the `end_date` is not in the past and that it is also fewer than 7 days away, the `end_date` will indeed occur in the 0-7 days range. This would result in the identity's `inactivePendingTermination` lifecycle state.
 
 <details>
     <summary>Show Transform</summary>
@@ -169,7 +169,7 @@ Once you have ensured that the end date is in the past and that it is not fewer 
 
 On line 27, the `dateMath` operation adds 25 days to the current date `now+25d`. It pulls in the end date the same way it did before, and it converts both dates to the `ISO8601` format for comparison.
 
-Lines 34-36 use the comparison operator less than or equal to: `lte`. This uses the combination of the previous checks to ensure that if the `end_date` is not in the past, it is greater than 7 days away, and it returns `true` that it is fewer than 25 days away, then the `end_date` must fall between 7 and 25 days away. This would result in the identity's `activePendingTermination` lifecycle state. If it returns `false`, then the `end_date` must be more than 25 days away. This would result in the identity's `active` lifecycle state. 
+Lines 34-36 use the comparison operator less than or equal to: `lte`. This uses the combination of the previous checks to ensure that if the `end_date` is not in the past, it is greater than 7 days away, and it returns `true` that it is fewer than 25 days away, then the `end_date` must fall between 7 and 25 days away. This would result in the identity's `activePendingTermination` lifecycle state. If it returns `false`, then the `end_date` must be more than 25 days away. This would result in the identity's `active` lifecycle state.
 
 <details>
     <summary>Show Transform</summary>
@@ -236,7 +236,7 @@ Now that you have taken the time to understand each of the nested transforms, yo
 #end
 ```
 
-This is the logic within the static transform: 
+This is the logic within the static transform:
 
 ```json
 {
@@ -371,9 +371,9 @@ This is the logic within the static transform:
 
 These are the results of the transform on each identity, given that `now` returns 2023-11-07:
 
-| id     | email                        | first_name | last_name | end_date   | result |
-| ------ | ---------------------------- | ---------- | --------- | ---------- | ------ |
-| 100010 | lewis.hamilton@sailpoint.com | Lewis      | Hamilton  | 2023-11-01 | terminated |
-| 100011 | frank.williams@sailpoint.com | Frank      | Williams  | 2023-11-09 | inactivePendingTermination |
-| 100012 | paddy.lowe@sailpoint.com     | Paddy      | Lowe      | 2023-11-25 | activePendingTermination |
+| id | email | first_name | last_name | end_date | result |
+| --- | --- | --- | --- | --- | --- |
+| 100010 | lewis.hamilton@sailpoint.com | Lewis | Hamilton | 2023-11-01 | terminated |
+| 100011 | frank.williams@sailpoint.com | Frank | Williams | 2023-11-09 | inactivePendingTermination |
+| 100012 | paddy.lowe@sailpoint.com | Paddy | Lowe | 2023-11-25 | activePendingTermination |
 | 100013 | keifer.sutherland@sailpoint.com | Keifer | Sutherland | 2023-12-25 | active |

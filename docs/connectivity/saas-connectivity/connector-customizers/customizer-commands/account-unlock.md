@@ -13,7 +13,6 @@ tags: ['Connectivity', 'Connector Command']
 
 Use these commands to intercept the [account-unlock](../../commands/account-unlock) command.
 
-
 | Input/Output |       Data Type        |
 | :----------- | :--------------------: |
 | Input        | StdAccountUnlockInput  |
@@ -53,11 +52,12 @@ Use these commands to intercept the [account-unlock](../../commands/account-unlo
     }
 }
 ```
+
 ## Implementation
 
 ### Before account-unlock command
 
-Use this logic to implement the command: 
+Use this logic to implement the command:
 
 ```javascript
     .beforeStdAccountUnlock(async (context: Context, input: StdAccountUnlockInput) => {
@@ -65,11 +65,12 @@ Use this logic to implement the command:
         return input
     })
 ```
+
 The `input` object can be mutated and returned, but the same data type must still be returned.
 
 ### After account-unlock command
 
-Use this logic to implement the command: 
+Use this logic to implement the command:
 
 ```javascript
     .afterStdAccountUnlock(async (context: Context, output: StdAccountUnlockOutput) => {
@@ -77,4 +78,5 @@ Use this logic to implement the command:
         return output
     })
 ```
+
 The `output` object can be mutated and returned, but the same data type must still be returned.

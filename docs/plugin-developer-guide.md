@@ -8,7 +8,7 @@ sidebar_class_name: plugin_developer_guide
 keywords: ['plugin']
 description: IdentityIQ Plugin Developer Guide.
 slug: /iiq/plugin-developer-guide
-tags: ['plugin','guide','identityiq']
+tags: ['plugin', 'guide', 'identityiq']
 ---
 
 Introduced with IdentityIQ 7.1, the plugin framework provides the infrastructure and tools to enable developers to extend the Open Identity Platform to meet a variety of specialized use cases that one might encounter in a non-standard deployment. The plugin framework allows developers to create packaged functionality that integrates with IdentityIQ, in a upgrade safe and isolated manner. It gives implementers a safe option for creating User Interface extensions, REST services, Custom SailPoint configuration objects, and more. This guide is designed to walk through the basics of plugin development and installation.

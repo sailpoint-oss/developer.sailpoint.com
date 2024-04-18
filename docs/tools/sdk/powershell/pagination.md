@@ -32,7 +32,6 @@ try {
 }
 ```
 
-
 The `Invoke-Paginate` cmdlet takes a few paramters. The first is the cmdlet you wish to call.
 
 The `-Function` specifies the name of the cmdlet you wish to call. This only works on list endpoints.
@@ -43,6 +42,6 @@ The `-Limit` specifies the total number of results you can return, 1000.
 
 The `-Parameters` specifies a hashtable of additional values passed to the API endpoint. You would use this for `filters`, `sorters`, and any other query parameters.
 
-You can also provide an `-InitialOffset` value to specify the record number to start the request on. For example, you can provide add `-InitialOffset 10` to start getting accounts from 11 instead of 0. 
+You can also provide an `-InitialOffset` value to specify the record number to start the request on. For example, you can provide add `-InitialOffset 10` to start getting accounts from 11 instead of 0.
 
 To find out whether an endpoint supports pagination, refer to its documentation. Any API supporting pagination lists the optional query parameters detailed in [Paginating Results](/docs/api/standard-collection-parameters/#paginating-results).

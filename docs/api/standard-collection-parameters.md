@@ -6,7 +6,7 @@ sidebar_label: Standard Collection Parameters
 sidebar_position: 5
 sidebar_class_name: standardCollectionParameters
 keywords: ['standard collection parameters']
-description: ISC API pagination, filtering, and sorting. 
+description: ISC API pagination, filtering, and sorting.
 tags: ['Standard Collection Parameters']
 ---
 
@@ -40,11 +40,11 @@ The `searchAfter` capability provides the ability to page on sorted field values
 
 **Required Properties for Paginating Search Results**
 
-|**Property**|Description|
+| **Property** | Description |
 | --- | --- |
-|**query**|The Query JSON object. Refer to the following Query JSON Object table for details.|
-|**sort**|The array list of the fields to sort by. This is required if you are using the `searchAfter` approach. You can use `-fieldName` for descending searches (optional).|
-|**searchAfter**|You can use this instead of offset to get past the 10,000 paging result record limit, passing the last value(s) of your sort fields from the previous result set into the next result set until you get the total number of results or the end of results (optional).|
+| **query** | The Query JSON object. Refer to the following Query JSON Object table for details. |
+| **sort** | The array list of the fields to sort by. This is required if you are using the `searchAfter` approach. You can use `-fieldName` for descending searches (optional). |
+| **searchAfter** | You can use this instead of offset to get past the 10,000 paging result record limit, passing the last value(s) of your sort fields from the previous result set into the next result set until you get the total number of results or the end of results (optional). |
 
 ### Example of Paginating Search Results
 
@@ -54,15 +54,11 @@ Here is an example of a search API call with `searchAfter` paging. The first que
 
 ```json
 {
-    "indices": [
-        "identities"
-    ],
-    "query": {
-        "query": "*"
-    },
-    "sort": [
-        "id"
-    ]
+  "indices": ["identities"],
+  "query": {
+    "query": "*"
+  },
+  "sort": ["id"]
 }
 ```
 
@@ -72,16 +68,12 @@ This query will return 100 records. To get the next 100 records, find the last r
 
 ```json
 {
-    "indices": [
-        "identities"
-    ],
-    "query": {
-        "query": "*"
-    },
-    "sort": [
-        "id"
-    ],
-    "searchAfter": ["2c9180835d38ca0c015d606b50851b1e"]
+  "indices": ["identities"],
+  "query": {
+    "query": "*"
+  },
+  "sort": ["id"],
+  "searchAfter": ["2c9180835d38ca0c015d606b50851b1e"]
 }
 ```
 

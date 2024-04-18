@@ -33,7 +33,7 @@ After accounts are aggregated and the identity refresh process finds an identity
 
 :::info
 
-Identity Security Cloud will **hide** an identity from the identity list in the UI when the authoritative account is removed.  This does not necessarily mean that the identity has been deleted.  The identity will only be deleted when the above criteria are met.  The deletion task run each night, so there will be a delay from when the criteria are met to when the identity will actually be deleted.
+Identity Security Cloud will **hide** an identity from the identity list in the UI when the authoritative account is removed. This does not necessarily mean that the identity has been deleted. The identity will only be deleted when the above criteria are met. The deletion task run each night, so there will be a delay from when the criteria are met to when the identity will actually be deleted.
 
 :::
 

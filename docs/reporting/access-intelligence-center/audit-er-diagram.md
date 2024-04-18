@@ -16,7 +16,6 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
 
 # Access Intelligence Center Audit ER Diagram
 
-
 <MermaidViewer diagram='erDiagram
     AUDIT {
         varchar ID PK "The primary key"
@@ -45,6 +44,3 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         String NAME "The friendly name description of the Audit Event"
         Timestamp SYNC_DATE "Date Audit Event Synced"
     }'></MermaidViewer>
-
-
-

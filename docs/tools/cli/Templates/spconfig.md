@@ -6,7 +6,7 @@ sidebar_label: SPConfig
 sidebar_position: 10
 sidebar_class_name: cli-template-spconfig
 keywords: ['cli', 'template', 'spconfig']
-description: Learn about the SPConfig template commands you can use to import and export configurations from the CLI. 
+description: Learn about the SPConfig template commands you can use to import and export configurations from the CLI.
 slug: /tools/cli/templates/spconfig
 tags: ['CLI']
 ---
@@ -45,7 +45,7 @@ This is the SPConfig template anatomy:
         "name": "all-objects",
 ```
 
-This is the SPConfig template's name. 
+This is the SPConfig template's name.
 
 The SPConfig template name displays in the template list when you run `sail spconfig template`.
 
@@ -55,7 +55,7 @@ You can also provide this name as an argument: `sail spconfig template all-objec
         "description": "Export all available objects",
 ```
 
-This is the SPConfig template's description. 
+This is the SPConfig template's description.
 
 in the `sail spconfig template` list
 

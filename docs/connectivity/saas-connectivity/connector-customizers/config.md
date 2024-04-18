@@ -18,7 +18,7 @@ The connector config object holds all the config values that are set in the SaaS
 The config object is fetched during initialization of the connector
 
 ```typescript
-const config: Config = await readConfig()
+const config: Config = await readConfig();
 ```
 
 ### Example Config Object
@@ -27,36 +27,36 @@ Below is an example object model that can be used to type your config. Any value
 
 ```typescript
 export interface Config {
-    beforeProvisioningRule: any
-    cloudCacheUpdate: number
-    cloudDisplayName: string
-    cloudExternalId: string
-    connectionType: string
-    connectorName: string
-    deleteThresholdPercentage: number
-    deltaAggregation: DeltaAggregation
-    deltaAggregationEnabled: boolean
-    formPath: any
-    hasFullAggregationCompleted: boolean
-    healthCheckTimeout: number
-    healthy: boolean
-    idnProxyType: string
-    managementWorkgroup: any
-    managerCorrelationFilter: any
-    since: string
-    "slpt-source-diagnostics": string
-    sourceConnected: boolean
-    sourceDescription: string
-    spConnEnableStatefulCommands: boolean
-    spConnectorInstanceId: string
-    spConnectorSpecId: string
-    status: string
-    supportsDeltaAgg: boolean
-    templateApplication: string
-  }
-  
-  export interface DeltaAggregation {
-    "std:account:list": any
-    "std:entitlement:list": any
-  }
+  beforeProvisioningRule: any;
+  cloudCacheUpdate: number;
+  cloudDisplayName: string;
+  cloudExternalId: string;
+  connectionType: string;
+  connectorName: string;
+  deleteThresholdPercentage: number;
+  deltaAggregation: DeltaAggregation;
+  deltaAggregationEnabled: boolean;
+  formPath: any;
+  hasFullAggregationCompleted: boolean;
+  healthCheckTimeout: number;
+  healthy: boolean;
+  idnProxyType: string;
+  managementWorkgroup: any;
+  managerCorrelationFilter: any;
+  since: string;
+  'slpt-source-diagnostics': string;
+  sourceConnected: boolean;
+  sourceDescription: string;
+  spConnEnableStatefulCommands: boolean;
+  spConnectorInstanceId: string;
+  spConnectorSpecId: string;
+  status: string;
+  supportsDeltaAgg: boolean;
+  templateApplication: string;
+}
+
+export interface DeltaAggregation {
+  'std:account:list': any;
+  'std:entitlement:list': any;
+}
 ```

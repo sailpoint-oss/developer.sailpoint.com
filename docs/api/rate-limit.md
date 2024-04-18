@@ -6,7 +6,7 @@ sidebar_label: Rate Limiting
 sidebar_position: 6
 sidebar_class_name: rateLimit
 keywords: ['rate limit']
-description: ISC API rate limits. 
+description: ISC API rate limits.
 tags: ['Rate Limit']
 ---
 

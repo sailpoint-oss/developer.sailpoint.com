@@ -14,7 +14,7 @@ tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 
 :::info Important Setup Steps
 
-You must have at least one source configured for Native Change Detection (NCD) before you will receive events from this trigger.  There are two ways you can configure a source for NCD:
+You must have at least one source configured for Native Change Detection (NCD) before you will receive events from this trigger. There are two ways you can configure a source for NCD:
 
 1. Invoke the [update native change detection configuration](https://developer.sailpoint.com/docs/api/beta/put-native-change-detection-config) for each source you want to receive events for NCD.
 2. Configure the NCD options on the source in the source configuration UI.
@@ -38,7 +38,7 @@ flowchart TD
 
 </div>
 
-This event trigger can be used to immediately notify interested parties and remediate accounts that are deleted directly on the source.  Some examples of how this trigger can be used are as follows:
+This event trigger can be used to immediately notify interested parties and remediate accounts that are deleted directly on the source. Some examples of how this trigger can be used are as follows:
 
 - Notify the identity's manager and the source owner of the deleted account
 
@@ -46,129 +46,126 @@ This is an example input from this trigger:
 
 ```json
 {
-	"identity": {
-		"manager": {
-			"name": "Martena Heath",
-			"id": "2c91808378eb9fa30178fb8caf90097f",
-			"type": "IDENTITY",
-			"email": "martena.heath@sample_email.com"
-		},
-		"name": "Letty Wilson",
-		"alias": "Letty.Wilson",
-		"id": "2c91808978eb9fab0178fb8ca6d308fb",
-		"type": "IDENTITY",
-		"email": "letty.wilson@sample_email.com"
-	},
-	"singleValueAttributeChanges": [{
-			"newValue": null,
-			"name": "cn",
-			"oldValue": "Letty Wilson"
-		},
-		{
-			"newValue": null,
-			"name": "displayName",
-			"oldValue": "Letty Wilson"
-		},
-		{
-			"newValue": null,
-			"name": "distinguishedName",
-			"oldValue": "CN=Letty Wilson,OU=Austin,OU=Americas,OU=Demo,DC=seri,DC=sailpointdemo,DC=com"
-		}
-	],
-	"entitlementChanges": [{
-		"removed": [{
-				"owner": {
-					"id": "2c91808978eb9fab0178fb8ca9280919",
-					"name": "Gregory Brooks",
-					"type": "IDENTITY"
-				},
-				"name": "ProductionManagement",
-				"id": "2c91808778eb9fa30178fb9482f00c60",
-				"value": "CN=ProductionManagement,OU=Groups,OU=Demo,DC=seri,DC=sailpointdemo,DC=com"
-			},
-			{
-				"owner": null,
-				"name": "Employees",
-				"id": "2c91808378eb9fa30178fb94818e0af8",
-				"value": "CN=Employees,OU=BirthRight,OU=Groups,OU=Demo,DC=seri,DC=sailpointdemo,DC=com"
-			},
-			{
-				"owner": null,
-				"name": "WindowsAdministration",
-				"id": "2c91808378eb9fa30178fb9481c30b02",
-				"value": "CN=WindowsAdministration,OU=Groups,OU=Demo,DC=seri,DC=sailpointdemo,DC=com"
-			}
-		],
-		"added": [],
-		"attributeName": "memberOf"
-	}],
-	"eventType": "ACCOUNT_DELETED",
-	"source": {
-		"owner": {
-			"name": "Aaron Andrew",
-			"id": "2c9180867a7c46d0017a7ca099d50531",
-			"type": "IDENTITY",
-			"email": "aaron.andrew@sample_email.com"
-		},
-		"name": "Active Directory",
-		"alias": "Active Directory [source]",
-		"id": "2c91808a78efc63e0178fb8624b248c5",
-		"type": "SOURCE",
-		"governanceGroup": {
-			"id": "fd0d1393-35fb-47d8-9809-0e385b73f25e",
-			"name": "Active Directory Owners",
-			"type": "GOVERNANCE_GROUP"
-		}
-	},
-	"accountChangeTypes": [
-		"ATTRIBUTES_CHANGED",
-		"ENTITLEMENTS_REMOVED"
-	],
-	"multiValueAttributeChanges": [{
-			"removedValues": [
-				"top",
-				"person",
-				"organizationalPerson",
-				"user"
-			],
-			"addedValues": [],
-			"name": "objectClass"
-		},
-		{
-			"removedValues": [
-				"Normal User Account",
-				"Password Cannot Expire",
-				"User Account is Disabled"
-			],
-			"addedValues": [],
-			"name": "accountFlags"
-		}
-	],
-	"account": {
-		"name": "letty.wilson",
-		"id": "6805a47c09cc4dfca9083f1ce84552ee",
-		"type": "ACCOUNT",
-		"uuid": "{3c096158-9188-46f4-bb13-20ef9daafa7f}",
-		"correlated": true,
-		"nativeIdentity": "CN=Letty Wilson,OU=Austin,OU=Americas,OU=Demo,DC=seri,DC=sailpointdemo,DC=com"
-	}
+  "identity": {
+    "manager": {
+      "name": "Martena Heath",
+      "id": "2c91808378eb9fa30178fb8caf90097f",
+      "type": "IDENTITY",
+      "email": "martena.heath@sample_email.com"
+    },
+    "name": "Letty Wilson",
+    "alias": "Letty.Wilson",
+    "id": "2c91808978eb9fab0178fb8ca6d308fb",
+    "type": "IDENTITY",
+    "email": "letty.wilson@sample_email.com"
+  },
+  "singleValueAttributeChanges": [
+    {
+      "newValue": null,
+      "name": "cn",
+      "oldValue": "Letty Wilson"
+    },
+    {
+      "newValue": null,
+      "name": "displayName",
+      "oldValue": "Letty Wilson"
+    },
+    {
+      "newValue": null,
+      "name": "distinguishedName",
+      "oldValue": "CN=Letty Wilson,OU=Austin,OU=Americas,OU=Demo,DC=seri,DC=sailpointdemo,DC=com"
+    }
+  ],
+  "entitlementChanges": [
+    {
+      "removed": [
+        {
+          "owner": {
+            "id": "2c91808978eb9fab0178fb8ca9280919",
+            "name": "Gregory Brooks",
+            "type": "IDENTITY"
+          },
+          "name": "ProductionManagement",
+          "id": "2c91808778eb9fa30178fb9482f00c60",
+          "value": "CN=ProductionManagement,OU=Groups,OU=Demo,DC=seri,DC=sailpointdemo,DC=com"
+        },
+        {
+          "owner": null,
+          "name": "Employees",
+          "id": "2c91808378eb9fa30178fb94818e0af8",
+          "value": "CN=Employees,OU=BirthRight,OU=Groups,OU=Demo,DC=seri,DC=sailpointdemo,DC=com"
+        },
+        {
+          "owner": null,
+          "name": "WindowsAdministration",
+          "id": "2c91808378eb9fa30178fb9481c30b02",
+          "value": "CN=WindowsAdministration,OU=Groups,OU=Demo,DC=seri,DC=sailpointdemo,DC=com"
+        }
+      ],
+      "added": [],
+      "attributeName": "memberOf"
+    }
+  ],
+  "eventType": "ACCOUNT_DELETED",
+  "source": {
+    "owner": {
+      "name": "Aaron Andrew",
+      "id": "2c9180867a7c46d0017a7ca099d50531",
+      "type": "IDENTITY",
+      "email": "aaron.andrew@sample_email.com"
+    },
+    "name": "Active Directory",
+    "alias": "Active Directory [source]",
+    "id": "2c91808a78efc63e0178fb8624b248c5",
+    "type": "SOURCE",
+    "governanceGroup": {
+      "id": "fd0d1393-35fb-47d8-9809-0e385b73f25e",
+      "name": "Active Directory Owners",
+      "type": "GOVERNANCE_GROUP"
+    }
+  },
+  "accountChangeTypes": ["ATTRIBUTES_CHANGED", "ENTITLEMENTS_REMOVED"],
+  "multiValueAttributeChanges": [
+    {
+      "removedValues": ["top", "person", "organizationalPerson", "user"],
+      "addedValues": [],
+      "name": "objectClass"
+    },
+    {
+      "removedValues": [
+        "Normal User Account",
+        "Password Cannot Expire",
+        "User Account is Disabled"
+      ],
+      "addedValues": [],
+      "name": "accountFlags"
+    }
+  ],
+  "account": {
+    "name": "letty.wilson",
+    "id": "6805a47c09cc4dfca9083f1ce84552ee",
+    "type": "ACCOUNT",
+    "uuid": "{3c096158-9188-46f4-bb13-20ef9daafa7f}",
+    "correlated": true,
+    "nativeIdentity": "CN=Letty Wilson,OU=Austin,OU=Americas,OU=Demo,DC=seri,DC=sailpointdemo,DC=com"
+  }
 }
 ```
 
-- `identity` The identity correlated to this account.  If `account.correlated` is `false`, then this will be a system generated identity, not a real identity. For uncorrelated accounts, this system generated identity can be used to revoke entitlements on the account, or in any other API request that requires an identity ID.
-- `singleValueAttributeChanges` Contains a list of account attributes that have changed.  During an account deleted event, all aggregated account attributes will be listed, and their `newValue` will be null.
+- `identity` The identity correlated to this account. If `account.correlated` is `false`, then this will be a system generated identity, not a real identity. For uncorrelated accounts, this system generated identity can be used to revoke entitlements on the account, or in any other API request that requires an identity ID.
+- `singleValueAttributeChanges` Contains a list of account attributes that have changed. During an account deleted event, all aggregated account attributes will be listed, and their `newValue` will be null.
   - it will include ALL account attributes if the config is `"allNonEntitlementAttributes": true`
   - it will include the enumerated list of attributes contained in `"selectedNonEntitlementAttributes": []`
-- `entitlementChanges` Contains a list of entitlements that have been aggregated with the account.  the `added` list will always be empty for an account deleted event.
+- `entitlementChanges` Contains a list of entitlements that have been aggregated with the account. the `added` list will always be empty for an account deleted event.
 - `eventType` Will always be `ACCOUNT_DELETED` for account deleted events.
 - `source` The source where this account originated from.
 - `accountChangeTypes` A list of change types you can expect to see in the event input.
   - Possible values are `ATTRIBUTES_CHANGED` and `ENTITLEMENTS_REMOVED`.
-  - The above example lists both change types since both attributes and entitlements were removed.  If an event payload only contains attributes removed, then this list will only contain the `ATTRIBUTES_CHANGED` value.  This can be useful when filtering events based on change types, or quickly checking what types of objects changed in the account before continuing to process the input.
-- `multiValueAttributeChanges` List of multivalued attributes that were aggregated with the account.  Only `removedValues` will appear for account deleted events.
+  - The above example lists both change types since both attributes and entitlements were removed. If an event payload only contains attributes removed, then this list will only contain the `ATTRIBUTES_CHANGED` value. This can be useful when filtering events based on change types, or quickly checking what types of objects changed in the account before continuing to process the input.
+- `multiValueAttributeChanges` List of multivalued attributes that were aggregated with the account. Only `removedValues` will appear for account deleted events.
   - it will include ALL account attributes if the config is `"allNonEntitlementAttributes": true`
   - it will include the enumerated list of attributes contained in `"selectedNonEntitlementAttributes": []`
-- `account` The details of the account as it appears in Identity Security Cloud.  This information can be used to query the account API for more information.
+- `account` The details of the account as it appears in Identity Security Cloud. This information can be used to query the account API for more information.
 
 ## Additional Information and Links
 

@@ -6,7 +6,7 @@ sidebar_label: Error Handling
 sidebar_position: 8
 sidebar_class_name: gosdk
 keywords: ['go', 'golang', 'sdk', 'error']
-description: Learn how to handle errors with the Golang SDK in this guide. 
+description: Learn how to handle errors with the Golang SDK in this guide.
 slug: /tools/sdk/go/error-handling
 tags: ['SDK', 'Software Development Kit']
 ---

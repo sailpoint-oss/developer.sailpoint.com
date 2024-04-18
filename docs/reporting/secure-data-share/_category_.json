@@ -1,5 +1,5 @@
 {
-    "customProps": {
-        "description": "Securely share ISC data with Snowflake."
-    }
+  "customProps": {
+    "description": "Securely share ISC data with Snowflake."
+  }
 }

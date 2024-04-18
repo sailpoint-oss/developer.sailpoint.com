@@ -4,7 +4,8 @@ title: Scheduled Search
 pagination_label: Scheduled Search
 sidebar_label: Scheduled Search
 sidebar_class_name: scheduledSearch
-keywords: ['event', 'trigger', 'saved', 'scheduled', 'search', 'complete', 'available']
+keywords:
+  ['event', 'trigger', 'saved', 'scheduled', 'search', 'complete', 'available']
 description: Fires after a scheduled search completes.
 slug: /extensibility/event-triggers/triggers/scheduled-search
 tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']

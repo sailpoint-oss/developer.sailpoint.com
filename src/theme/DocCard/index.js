@@ -8,8 +8,12 @@ import {
 import isInternalUrl from '@docusaurus/isInternalUrl';
 import {translate} from '@docusaurus/Translate';
 import styles from './styles.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFolderOpen, faBook, faArrowUpRightFromSquare } from '@fortawesome/pro-duotone-svg-icons'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {
+  faFolderOpen,
+  faBook,
+  faArrowUpRightFromSquare,
+} from '@fortawesome/pro-duotone-svg-icons';
 
 function CardContainer({href, children}) {
   return (
@@ -24,11 +28,12 @@ function CardLayout({href, icon, title, description}) {
   return (
     <CardContainer href={href}>
       <h2 className={clsx('text--truncate', styles.cardTitle)} title={title}>
-        {icon}{title}
+        {icon}
+        {title}
       </h2>
       {description && (
         <p
-          className={styles.cardDescription}//{clsx('text--truncate', styles.cardDescription)}
+          className={styles.cardDescription} //{clsx('text--truncate', styles.cardDescription)}
           title={description}>
           {description}
         </p>
@@ -45,7 +50,9 @@ function CardCategory({item}) {
   return (
     <CardLayout
       href={href}
-      icon={<FontAwesomeIcon icon={faFolderOpen} className={styles.docCardIcon} />}
+      icon={
+        <FontAwesomeIcon icon={faFolderOpen} className={styles.docCardIcon} />
+      }
       //icon={icon}
       title={item.label}
       description={
@@ -64,7 +71,14 @@ function CardCategory({item}) {
   );
 }
 function CardLink({item}) {
-  const icon = isInternalUrl(item.href) ? <FontAwesomeIcon icon={faBook} className={styles.docCardIcon} /> : <FontAwesomeIcon icon={faArrowUpRightFromSquare} className={styles.docCardIcon} />;
+  const icon = isInternalUrl(item.href) ? (
+    <FontAwesomeIcon icon={faBook} className={styles.docCardIcon} />
+  ) : (
+    <FontAwesomeIcon
+      icon={faArrowUpRightFromSquare}
+      className={styles.docCardIcon}
+    />
+  );
   const doc = useDocById(item.docId ?? undefined);
   return (
     <CardLayout

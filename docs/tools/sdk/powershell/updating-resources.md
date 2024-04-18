@@ -19,7 +19,7 @@ To see a list of available create cmdlets, run this command:
 Get-Command -Module PSSailpoint | where-object {$_.name -like "*Update-*" } | Sort-Object Name | Get-Help | Format-Table Name, Synopsis
 ```
 
-The SDK returns this output (all beta endpoints are designated by the Beta prefix): 
+The SDK returns this output (all beta endpoints are designated by the Beta prefix):
 
 ```powershell
 Name                        Synopsis

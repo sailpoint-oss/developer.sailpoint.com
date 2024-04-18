@@ -8,7 +8,7 @@ sidebar_class_name: plugin_developer_guide_build_file
 keywords: ['plugin']
 description: IdentityIQ Plugin Build File
 slug: /iiq/plugin-developer-guide/build-file
-tags: ['plugin','guide','identityiq']
+tags: ['plugin', 'guide', 'identityiq']
 ---
 
 # Build File
@@ -24,7 +24,6 @@ version=2.0.0
 
 The earlier example illustrates how a properties file can be leveraged to allow multiple developers to use the same build process, despite having different build environments. The actual 'build.xml' file is fairly straightforward, and it's responsible for creating the build directory, compiling any java classes, packaging those compiled classes into a .jar archive, and then archiving the complete plugin in .zip format. A more detailed explanation is provided for the 'Todo' plugin build file.
 
-
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="Todo Plugin" default="package">
@@ -32,13 +31,13 @@ The earlier example illustrates how a properties file can be leveraged to allow 
   <property file="user.build.properties"/>
   <property file="build.properties"/>
   <property name="buildPlugins" location="build"/>
-    
+
   <target name="clean">
         <echo message="Starting clean target"/>
         <delete dir="${buildPlugins}"/>
     </target>
 
- 
+
 
   <target name="package">
       <property name="pluginBase" location="." />
@@ -47,30 +46,30 @@ The earlier example illustrates how a properties file can be leveraged to allow 
       <property name="pluginLib" location="${pluginBuild}/lib" />
       <property name="pluginClasses" location="${pluginBuild}/classes" />
       <property name="pluginContents" location="${pluginBuild}/contents" />
-          
+
       <mkdir dir="${pluginClasses}" />
-          
+
       <javac srcdir="${pluginSrc}" destdir="${pluginClasses}"
                  includeantruntime="false" target="1.7">
-        
+
           <classpath>
             <pathelement path="${iiq.home}/WEB-INF/classes"/>
             <fileset dir="${iiq.home}/WEB-INF/lib">
             <include name="**/*.jar"/>
             </fileset>
           </classpath>
-        
+
           <compilerarg value="-Xlint:deprecation" />
           <compilerarg value="-Xlint:unchecked" />
       </javac>
-          
+
       <mkdir dir="${pluginLib}" />
       <jar destfile="${pluginLib}/${pluginName}.jar">
           <fileset dir="${pluginClasses}">
             <include name="**/*" />
           </fileset>
       </jar>
-          
+
       <mkdir dir="${pluginContents}" />
       <copy todir="${pluginContents}">
           <fileset dir="${pluginBase}">
@@ -101,4 +100,4 @@ The earlier example illustrates how a properties file can be leveraged to allow 
 
 ## Java versions
 
-When you're developing a plugin, complications can arise when the plugin is built using a different version of Java (newer) than that deployed on the application server(s) hosting IdentityIQ. To avoid this issue, it is recommended that the 'javac' argument in the build.xml file be parametrized with the most compatible Java version available. IdentityIQ 7.1 supports both Java 1.7 and 1.8, so setting the compilation to be 1.7 compatible is a good idea. To do so, add the property 'target' to the 'javac' directive, and set it equal to '1.7', or whatever version is being targeted. You can find an example of this process in **line 24** of the earlier example. 
+When you're developing a plugin, complications can arise when the plugin is built using a different version of Java (newer) than that deployed on the application server(s) hosting IdentityIQ. To avoid this issue, it is recommended that the 'javac' argument in the build.xml file be parametrized with the most compatible Java version available. IdentityIQ 7.1 supports both Java 1.7 and 1.8, so setting the compilation to be 1.7 compatible is a good idea. To do so, add the property 'target' to the 'javac' directive, and set it equal to '1.7', or whatever version is being targeted. You can find an example of this process in **line 24** of the earlier example.

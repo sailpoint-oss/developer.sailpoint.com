@@ -79,7 +79,7 @@ ISC will throw a connection timeout error if your connector doesn't respond with
 
 :::caution Important
 
-ISC supports [delta aggregation](#delta-aggregation-state). If your source has a large number of accounts that will be syncronized with ISC, then it is highly recommended to utilize [delta aggregation](#delta-aggregation-state) for the source. 
+ISC supports [delta aggregation](#delta-aggregation-state). If your source has a large number of accounts that will be syncronized with ISC, then it is highly recommended to utilize [delta aggregation](#delta-aggregation-state) for the source.
 
 :::
 
@@ -180,7 +180,7 @@ The result of the account list command is not an array of objects but several in
 
 If your source can keep track of changes to the data in some way, then delta aggregation can be performed on a source. In order to implement, there are a few things that need to be configured
 
-1. In your connector-spec.json file, the feature needs to be enabled by adding the following key: ```"supportsStatefulCommands": true,``` and in the sourceConfig section, a checkbox needs to be added to enable state with the key ```spConnEnableStatefulCommands```:
+1. In your connector-spec.json file, the feature needs to be enabled by adding the following key: `"supportsStatefulCommands": true,` and in the sourceConfig section, a checkbox needs to be added to enable state with the key `spConnEnableStatefulCommands`:
 
 ```javascript
 "supportsStatefulCommands": true,
@@ -193,7 +193,7 @@ If your source can keep track of changes to the data in some way, then delta agg
 }
 ```
 
-2. In the ```stdAccountList``` command, when you are done sending accounts, you need to also send the state to ISC so it knows where to start the next time it sends a list request:
+2. In the `stdAccountList` command, when you are done sending accounts, you need to also send the state to ISC so it knows where to start the next time it sends a list request:
 
 ```javascript
 const state = {"data": Date.now().toString()}
@@ -205,11 +205,11 @@ In the above example, I am capturing the date, but you can use any value you wan
 
 :::caution Important
 
-The state that you send using the ```saveState``` command MUST be a json object, and it is recommend to only save strings to ensure proper serialization/deserialization of the data. You cannot send a simple string or number or it will not properly save the state.
+The state that you send using the `saveState` command MUST be a json object, and it is recommend to only save strings to ensure proper serialization/deserialization of the data. You cannot send a simple string or number or it will not properly save the state.
 
 :::
 
-3. In the ```stdAccountList``` command, you need to properly handle the state object. Something like below checks the stateful boolean as well as the state object and fetches accounts accordingly:
+3. In the `stdAccountList` command, you need to properly handle the state object. Something like below checks the stateful boolean as well as the state object and fetches accounts accordingly:
 
 ```javascript
 .stdAccountList(async (context: Context, input: StdAccountListInput, res: Response<StdAccountListOutput>) => {

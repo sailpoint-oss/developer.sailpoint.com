@@ -6,7 +6,7 @@ sidebar_label: Delete a resource
 sidebar_position: 4
 sidebar_class_name: gosdk
 keywords: ['go', 'golang', 'sdk', 'delete']
-description: Learn how to delete resources with the Golang SDK in this guide. 
+description: Learn how to delete resources with the Golang SDK in this guide.
 slug: /tools/sdk/go/delete
 tags: ['SDK', 'Software Development Kit']
 ---
@@ -49,7 +49,7 @@ func main() {
 }
 ```
 
-To run the code, run this command: 
+To run the code, run this command:
 
 ```go
 go run sdk.go

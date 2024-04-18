@@ -216,8 +216,8 @@ if(fullName.length() > MAX_USERNAME_LENGTH) {
 
         int firstNameLength = firstName.length();
 
-        //Checking if the firstname length is more than the MAX minus 2 chars. 
-        //If firstname is more then the MAX minus 2 we are picking MAX minus 2 characters from the firstname. 
+        //Checking if the firstname length is more than the MAX minus 2 chars.
+        //If firstname is more then the MAX minus 2 we are picking MAX minus 2 characters from the firstname.
         if(firstNameLength > (MAX_USERNAME_LENGTH - 2)){
             //lastNameLength represents the current pointer of lastlength.
             for(int lastNameLength = 0 ; lastNameLength < lastName.length() ; lastNameLength++){
@@ -229,7 +229,7 @@ if(fullName.length() > MAX_USERNAME_LENGTH) {
                         finalUserName = username;
                         return username;
                 }
-            }    
+            }
         }
         //If firstname is less than or equal to the MAX minus 2 chars then we are considering full firstname for username generation.
         else{
@@ -243,8 +243,8 @@ if(fullName.length() > MAX_USERNAME_LENGTH) {
                         finalUserName = username;
                         return username;
                 }
-            }   
-        }      
+            }
+        }
 }
 ```
 
@@ -263,7 +263,7 @@ if( isUnique( username ) ) {
         return username;
 }
 else{
-    //If the username was not unique with firstname.last name we then check uniqueness 
+    //If the username was not unique with firstname.last name we then check uniqueness
     // with firstname.firstLetterOfLastName, firstname.secondLetterOfLastName e.t.c...
     for(int lastNameLength = 0 ; lastNameLength < lastName.length() ; lastNameLength++){
         username = firstName + "." + lastName.charAt(lastNameLength);
@@ -290,8 +290,7 @@ public boolean isUnique ( String username ) throws GeneralException {
 
 ### Invoke `generateUsername()` With the Identity's First and Last Name
 
-This is the final part of the rule. Call the `generateUsername()` function, passing in the identity's first and last name.
-The `identity` variable is already initialized and included as input to our attribute generator rule.
+This is the final part of the rule. Call the `generateUsername()` function, passing in the identity's first and last name. The `identity` variable is already initialized and included as input to our attribute generator rule.
 
 ```java
 return generateUsername( identity.getFirstname(), identity.getLastname() );
@@ -354,8 +353,8 @@ return generateUsername( identity.getFirstname(), identity.getLastname() );
 
                 int firstNameLength = firstName.length();
 
-                //Checking if the firstname length is more than the MAX minus 2 chars. 
-                //If firstname is more then the MAX minus 2 we are picking MAX minus 2 characters from the firstname. 
+                //Checking if the firstname length is more than the MAX minus 2 chars.
+                //If firstname is more then the MAX minus 2 we are picking MAX minus 2 characters from the firstname.
                 if(firstNameLength > (MAX_USERNAME_LENGTH - 2)){
                     //lastNameLength represents the current pointer of lastlength.
                     for(int lastNameLength = 0 ; lastNameLength < lastName.length() ; lastNameLength++){
@@ -367,7 +366,7 @@ return generateUsername( identity.getFirstname(), identity.getLastname() );
                                 finalUserName = username;
                                 return username;
                         }
-                    }    
+                    }
                 }
                 //If firstname is less than or equal to the MAX minus 2 chars then we are considering full firstname for username generation.
                 else{
@@ -381,8 +380,8 @@ return generateUsername( identity.getFirstname(), identity.getLastname() );
                                 finalUserName = username;
                                 return username;
                         }
-                    }   
-                }      
+                    }
+                }
             } else {
                 //The full name is less than MAX_USERNAME_LENGTH minus 2 chars directly assign username to full name.
                 username = fullName;
@@ -394,7 +393,7 @@ return generateUsername( identity.getFirstname(), identity.getLastname() );
                         return username;
                 }
                 else{
-                    //If the username was not unique with firstname.last name we then check uniqueness 
+                    //If the username was not unique with firstname.last name we then check uniqueness
                     // with firstname.firstLetterOfLastName, firstname.secondLetterOfLastName e.t.c...
                     for(int lastNameLength = 0 ; lastNameLength < lastName.length() ; lastNameLength++){
                         username = firstName + "." + lastName.charAt(lastNameLength);
@@ -418,7 +417,7 @@ return generateUsername( identity.getFirstname(), identity.getLastname() );
         public boolean isUnique ( String username ) throws GeneralException {
             return !idn.accountExistsByDisplayName(application.getName(), username);
         }
-        
+
         return generateUsername( identity.getFirstname(), identity.getLastname() );
   ]]></Source>
 </Rule>
@@ -458,14 +457,14 @@ No errors found.
 
 Warnings: (3)
 
-  Line 55 - [LintValidatorForStatement(31)] For statement detected: for ( int lastNameLength = 0 ; .  .  "For Loops" can cause issues when looping with incorrect exit conditions. Ensure Looping exit conditions are correct. 
-    55: for ( int lastNameLength = 0 ; lastNameLength < lastName .length ( ) ; lastNameLength ++ ) { 
+  Line 55 - [LintValidatorForStatement(31)] For statement detected: for ( int lastNameLength = 0 ; .  .  "For Loops" can cause issues when looping with incorrect exit conditions. Ensure Looping exit conditions are correct.
+    55: for ( int lastNameLength = 0 ; lastNameLength < lastName .length ( ) ; lastNameLength ++ ) {
 
-  Line 70 - [LintValidatorForStatement(31)] For statement detected: for ( int lastNameLength = 0 ; .  .  "For Loops" can cause issues when looping with incorrect exit conditions. Ensure Looping exit conditions are correct. 
-    70: for ( int lastNameLength = 0 ; lastNameLength < lastName .length ( ) ; lastNameLength ++ ) { 
+  Line 70 - [LintValidatorForStatement(31)] For statement detected: for ( int lastNameLength = 0 ; .  .  "For Loops" can cause issues when looping with incorrect exit conditions. Ensure Looping exit conditions are correct.
+    70: for ( int lastNameLength = 0 ; lastNameLength < lastName .length ( ) ; lastNameLength ++ ) {
 
-  Line 95 - [LintValidatorForStatement(31)] For statement detected: for ( int lastNameLength = 0 ; .  .  "For Loops" can cause issues when looping with incorrect exit conditions. Ensure Looping exit conditions are correct. 
-    95: for ( int lastNameLength = 0 ; lastNameLength < lastName .length ( ) ; lastNameLength ++ ) { 
+  Line 95 - [LintValidatorForStatement(31)] For statement detected: for ( int lastNameLength = 0 ; .  .  "For Loops" can cause issues when looping with incorrect exit conditions. Ensure Looping exit conditions are correct.
+    95: for ( int lastNameLength = 0 ; lastNameLength < lastName .length ( ) ; lastNameLength ++ ) {
 
 
 ________________________________________________________________________________

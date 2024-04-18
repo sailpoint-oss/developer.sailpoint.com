@@ -60,9 +60,7 @@ export default function AmbassadorCards({expert}) {
   if (cardData) {
     return (
       <div className={styles.center}>
-        
         <div className={styles.gridContainer}>
-
           {cardData.map(function (a, index) {
             return <AmbassadorCard key={a.link} data={a}></AmbassadorCard>;
           })}

@@ -42,9 +42,6 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Check out repo
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-          ref: ${{ github.head_ref }}
 
       - name: setup SAM
         uses: aws-actions/setup-sam@v2
@@ -117,9 +114,3 @@ jobs:
           build_dir: build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Prettify code
-        uses: creyD/prettier_action@v4.3
-        with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            prettier_options: --write **/*.{js,jsx,ts,tsx,json,css,scss,md}
-            only_changed: true

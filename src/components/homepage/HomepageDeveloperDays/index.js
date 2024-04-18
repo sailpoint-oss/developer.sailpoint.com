@@ -35,14 +35,15 @@ export default function HomepageGettingStarted() {
             </div>
           </div>
         </div>
-        <div className={styles.devDaysImageContainer}>
-          <ThemedImage
-            className={styles.cardIcon}
-            sources={{
-              light: useBaseUrl('/homepage/devdays2024-sm.png'),
-              dark: useBaseUrl('/homepage/devdays2024-dark-sm.png'),
-            }}
-          />
+        <div className={styles.carousel}>
+        <iframe
+            className={styles.video}
+            src="https://www.youtube.com/embed/MYhWuqAAUvY?si=GPhe53efO7QLJ_RJ"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen></iframe>
         </div>
       </div>
     </div>

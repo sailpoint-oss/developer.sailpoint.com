@@ -19,6 +19,10 @@ The UI Development Kit provides you with a framework you can use to build your o
 
 Read this guide to learn how to use the SailPoint UI Development Kit.
 
+<div class="text--center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/bloIVw1-NzU?si=m7SRpu62WSciyiOr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
 ## Requirements
 
 These are the requirements to use the UI Development Kit:

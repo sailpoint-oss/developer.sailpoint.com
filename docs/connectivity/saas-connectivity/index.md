@@ -13,6 +13,10 @@ tags: ['Connectivity']
 
 SaaS Connectivity is a cloud based connector runtime that makes developing and deploying web service connectors easier than Connector 1.0 does. However, because the cloud hosts SaaS Connectivity, not a Virtual Appliance (VA), SaaS Connectivity is limited in the types of applications it can connect to. For example, you cannot use SaaS Connectivity to connect to on-prem services that can only communicate within an intranet (no public internet access). This excludes JDBC and Mainframe applications, to name a few.
 
+<div class="text--center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1WPO7t0j1oc?si=RZjNJYUrDtKLmbvB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
 ## What Are Connectors
 
 Connectors are the bridges between the SailPoint Identity Security Cloud (ISC) SaaS platform and the source systems that ISC needs to communicate with and aggregate data from. An example of a source system ISC may need to communicate with would be an Oracle HR system or GitHub. In these cases, ISC synchronizes data between systems to ensure account entitlements and state are correct through the organization.

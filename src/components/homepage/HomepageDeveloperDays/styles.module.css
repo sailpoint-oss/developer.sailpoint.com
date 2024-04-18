@@ -109,10 +109,18 @@
   .contentContainer {
     width: 600px;
   }
+  .gettingStartedThree {
+    padding-right: 15%;
+  }
+  .carousel {
+    margin-top: 50px;
+    margin-left: 50px;
+  }
 }
 @media only screen and (min-width: 1179px) {
   .carousel {
-    margin-top: 100px;
+    margin-top: 50px;
+    margin-left: 15px;
   }
   .mainCard {
     grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
@@ -124,21 +132,15 @@
     opacity: 1;
     margin: 50px auto;
     width: calc(100% - 100px);
-  }
-}
-@media only screen and (max-width: 1200px) {
-  .devDaysImageContainer {
-    display: none;
+    min-height: 400px;
   }
 }
 @media only screen and (max-width: 570px) {
-  .video {
-    display: none;
-  }
+
   .contentContainer {
     width: auto;
   }
   .carousel {
-    margin-bottom: 0px;
+    margin: 15px 20px;
   }
 }

@@ -3,7 +3,7 @@ get:
     - UserContextAuth: [idn:sod-policy:read]
   operationId: getSodPolicy
   tags:
-    - SOD Policy
+    - SOD Policies
   summary: Get SOD policy by ID
   description: >-
     This gets specified SOD policy.
@@ -130,7 +130,7 @@ put:
     - UserContextAuth: [idn:sod-policy:write]
   operationId: putSodPolicy
   tags:
-    - SOD Policy
+    - SOD Policies
   summary: Update SOD policy by ID
   description: >-
     This updates a specified SOD policy.
@@ -342,7 +342,7 @@ delete:
     - UserContextAuth: [idn:sod-policy:write]
   operationId: deleteSodPolicy
   tags:
-    - SOD Policy
+    - SOD Policies
   summary: Delete SOD policy by ID
   description: >-
     This deletes a specified SOD policy.
@@ -387,7 +387,7 @@ patch:
     - UserContextAuth: [idn:sod-policy:write]
   operationId: patchSodPolicy
   tags:
-    - SOD Policy
+    - SOD Policies
   summary: Patch SOD policy by ID
   description: >-
     Allows updating SOD Policy fields other than ["id","created","creatorId","policyQuery","type"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.

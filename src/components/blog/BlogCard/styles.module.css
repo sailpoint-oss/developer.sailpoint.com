@@ -7,6 +7,7 @@
   transition: all 0.3s;
   width: 275px;
   max-width: 275px;
+  min-height: 391.81px;
   background: var(--dev-new-car-background);
   border-radius: 0.5rem;
   --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);

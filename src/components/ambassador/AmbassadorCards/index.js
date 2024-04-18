@@ -7,6 +7,7 @@ import {discourseBaseURL, developerWebsiteDomain} from '../../../util/util';
 import {
   getAmbassadors,
   getAmbassadorDetails,
+  getAmbassadorPoints,
 } from '../../../services/DiscourseService';
 export default function AmbassadorCards({expert}) {
   const [cardData, setCardData] = React.useState();
@@ -14,6 +15,9 @@ export default function AmbassadorCards({expert}) {
 
   const getPosts = async () => {
     let data = await getAmbassadors(expert, 1, 0);
+    let pointsData = await getAmbassadorPoints();
+
+   
     const resultset = [];
 
     if (data.meta) {
@@ -36,6 +40,13 @@ export default function AmbassadorCards({expert}) {
             ) {
               resultset.push(await getMemberList(member, memberDetail));
             }
+
+            for (const points of pointsData.users) {
+              
+              if (points.id === member.id) {
+                resultset[resultset.length - 1].points = points.total_score;
+              }
+            }
           }
         }
       }
@@ -45,7 +56,8 @@ export default function AmbassadorCards({expert}) {
       return;
     }
 
-    resultset.sort((a, b) => a.date - b.date);
+    // resultset.sort((a, b) => a.date - b.date);
+    resultset.sort((a, b) => b.points - a.points);
     setCardData(resultset);
 
     setLoadingCards(false);
@@ -62,7 +74,7 @@ export default function AmbassadorCards({expert}) {
       <div className={styles.center}>
         <div className={styles.gridContainer}>
           {cardData.map(function (a, index) {
-            return <AmbassadorCard key={a.link} data={a}></AmbassadorCard>;
+            return  (<AmbassadorCard key={a.link} data={a} />)
           })}
         </div>
       </div>

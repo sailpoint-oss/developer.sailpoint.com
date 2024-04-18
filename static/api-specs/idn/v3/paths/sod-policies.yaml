@@ -3,7 +3,7 @@ post:
     - UserContextAuth: [idn:sod-policy:write]
   operationId: createSodPolicy
   tags:
-    - SOD Policy
+    - SOD Policies
   summary: Create SOD policy
   description: >-
     This creates both General and Conflicting Access Based policy, with a limit
@@ -234,7 +234,7 @@ get:
     - UserContextAuth: [idn:sod-policy:read]
   operationId: listSodPolicies
   tags:
-    - SOD Policy
+    - SOD Policies
   summary: List SOD policies
   description: >-
     This gets list of all SOD policies.

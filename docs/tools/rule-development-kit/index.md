@@ -21,6 +21,10 @@ The RDK provides you with the available classes and methods available when you'r
 
 Learn how to use the SailPoint RDK in this guide.
 
+<div class="text--center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/b2LvCaH59JY?si=owtL69BIkbuyHyA0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
 ## Requirements
 
 - [Java 11](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html)

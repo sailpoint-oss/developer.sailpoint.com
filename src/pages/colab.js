@@ -67,17 +67,15 @@ export default function Marketplace() {
                 </div>
               </div>
             </div>
-            <div className={styles.featuredGettingStartedText}>
-              <div className={styles.gettingStartedOne}>Featured</div>
-            </div>
             <div className={styles.carousel}>
-              <div className={styles.featured} title="Featured CoLab">
-                <MarketplaceCards
-                  filterCallback={['']}
-                  limit={1}
-                  featured={true}
-                />
-              </div>
+              <iframe
+                className={styles.video}
+                src="https://www.youtube.com/embed/J-Z1b654Vtk?si=YKK-tvGxL5N1WjNi"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen></iframe>
             </div>
           </div>
         </div>

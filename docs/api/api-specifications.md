@@ -15,7 +15,7 @@ tags: ['API Specifications']
 
 The Identity Security Cloud (ISC) APIs provide developers with a way to interact with the ISC platform and extend it. Developers can leverage these APIs to customize their platform experiences and build new solutions and integrations that meet their needs. 
 
-The API specifications contain detailed information of how to send requests to each API endpoint, as well as example requests and responses. They also include essential information about how to use the APIs and guides you can follow to get started.  
+The API specifications contain detailed information of how to send requests to each API endpoint, as well as example requests and responses.  They also include essential information about how to use the APIs and guides you can follow to get started.  
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';

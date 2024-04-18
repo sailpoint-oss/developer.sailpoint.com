@@ -26,7 +26,7 @@ Using the [WithHttpInfo Switch](./getting-started.md#withhttpinfo-switch) in the
 ```powershell
 Name                           Value
 ----                           -----
-Response                       
+Response
 StatusCode                     204
 Headers                        {[Date, System.String[]], [Connection, System.String[]], [Server, System.String[]], [Vary, System.String[]]…}
 ```

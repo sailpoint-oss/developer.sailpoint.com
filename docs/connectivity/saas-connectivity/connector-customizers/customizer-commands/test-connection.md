@@ -13,7 +13,6 @@ tags: ['Connectivity', 'Connector Command']
 
 Use these commands to intercept the [Test-Connection](../../commands/test-connection) command.
 
-
 | Input/Output |        Data Type        |
 | :----------- | :---------------------: |
 | Input        |        undefined        |
@@ -25,22 +24,24 @@ Use these commands to intercept the [Test-Connection](../../commands/test-connec
 {
 }
 ```
+
 ## Implementation
 
 ### Before test-connection command
 
-Use this logic to implement the command: 
+Use this logic to implement the command:
 
 ```javascript
     .beforeStdTestConnection(async (context: Context, input: undefined) => {
         logger.info('Running before test connection')
     })
 ```
+
 There is no input, so you cannot mutate any data. However, you can make web request calls or perform any type of logging or logic before calling the connector.
 
 ### After test-connection command
 
-Use this logic to implement the command: 
+Use this logic to implement the command:
 
 ```javascript
     .afterStdTestConnection(async (context: Context, output: StdTestConnectionOutput) => {
@@ -48,4 +49,5 @@ Use this logic to implement the command:
         return output
     })
 ```
+
 The output datatype is always an empty object handed down from the connector.

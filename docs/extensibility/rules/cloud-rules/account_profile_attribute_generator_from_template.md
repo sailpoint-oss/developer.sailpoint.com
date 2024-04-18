@@ -19,24 +19,24 @@ This rule generates complex account attribute values during provisioning, e.g. w
 In the following example, the template is `${firstname}.${lastname}${uniqueCounter}`, which is pulled in by the `Create Unique LDAP Attribute` rule and used to replace the `firstname`, `lastname` and `uniqueCounter` placeholders.
 
 ```json
-    {
-      "name": "userName",
-      "transform": {
-        "type": "rule",
-        "attributes": {
-          "name": "Create Unique LDAP Attribute"
-        }
-      },
-      "attributes": {
-        "template": "${firstname}.${lastname}${uniqueCounter}",
-        "cloudMaxUniqueChecks": "50",
-        "cloudMaxSize": "20",
-        "cloudRequired": "true"
-      },
-      "isRequired": false,
-      "type": "string",
-      "isMultiValued": false
+{
+  "name": "userName",
+  "transform": {
+    "type": "rule",
+    "attributes": {
+      "name": "Create Unique LDAP Attribute"
     }
+  },
+  "attributes": {
+    "template": "${firstname}.${lastname}${uniqueCounter}",
+    "cloudMaxUniqueChecks": "50",
+    "cloudMaxSize": "20",
+    "cloudRequired": "true"
+  },
+  "isRequired": false,
+  "type": "string",
+  "isMultiValued": false
+}
 ```
 
 ## Execution

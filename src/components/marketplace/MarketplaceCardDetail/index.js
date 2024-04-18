@@ -3,13 +3,13 @@ import styles from './styles.module.css';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import ThemedImage from '@theme/ThemedImage';
-import { addDarkToFileName } from '../../../util/util';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import {addDarkToFileName} from '../../../util/util';
+import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import ReactMarkdown from 'react-markdown';
 import BounceLoader from 'react-spinners/BounceLoader';
 import {discourseBaseURL, developerWebsiteDomain} from '../../../util/util';
-export default function MarketplaceCardDetail({ details, rawPost }) {
+export default function MarketplaceCardDetail({details, rawPost}) {
   const getDivText = (data, id) => {
     const requirementPosition = data.indexOf('id="' + id + '"');
     const requirementEndPosition = data.indexOf('</div>', requirementPosition);
@@ -19,8 +19,7 @@ export default function MarketplaceCardDetail({ details, rawPost }) {
         requirementEndPosition,
       );
       const incorrectURLPattern = /upload:\/\/([^"]+)/g;
-      const correctURLPattern =
-      discourseBaseURL() + 'uploads/short-url/$1';
+      const correctURLPattern = discourseBaseURL() + 'uploads/short-url/$1';
       return validContent.replace(incorrectURLPattern, correctURLPattern);
     } else {
       return 'No requirements found for this marketplace item';
@@ -36,8 +35,7 @@ export default function MarketplaceCardDetail({ details, rawPost }) {
         requirementEndPosition,
       );
       const incorrectURLPattern = /upload:\/\/([^"]+)/g;
-      const correctURLPattern =
-      discourseBaseURL() + 'uploads/short-url/$1';
+      const correctURLPattern = discourseBaseURL() + 'uploads/short-url/$1';
       return validContent.replace(incorrectURLPattern, correctURLPattern);
     } else {
       return 'No requirements found for this marketplace item';
@@ -56,7 +54,6 @@ export default function MarketplaceCardDetail({ details, rawPost }) {
           <img
             className={styles.detailImage}
             src={useBaseUrl(details.image)}></img>
-
         </div>
 
         <Tabs className={styles.detailTabs}>
@@ -90,7 +87,9 @@ export default function MarketplaceCardDetail({ details, rawPost }) {
           </TabPanel>
           <TabPanel>
             <ReactMarkdown className={styles.detailTabContent}>
-              The Developer Community CoLab has three different support models, depending on the integration. Please see the full integration page using the ``` Go To Download ``` button above.
+              The Developer Community CoLab has three different support models,
+              depending on the integration. Please see the full integration page
+              using the ``` Go To Download ``` button above.
             </ReactMarkdown>
           </TabPanel>
         </Tabs>

@@ -18,10 +18,10 @@ The first method is to use a `catch` function to intercept any unsuccessful resp
 ```typescript showLineNumbers
 // Catch any non 2xx response and log the error message and metadata
 let transforms = await api.listTransforms().catch(function (error) {
-    console.log(error.response.data);
-    console.log(error.response.status);
-    console.log(error.response.headers);
-})
+  console.log(error.response.data);
+  console.log(error.response.status);
+  console.log(error.response.headers);
+});
 ```
 
 The second method is to define which HTTP status codes should throw an error for a given request using the `validateStatus` option. This gives you an opportunity to recover from a bad request without exiting the program.
@@ -30,17 +30,31 @@ If you don't want the program to exit for 4xx response codes, you can use this c
 
 ```typescript showLineNumbers
 // Resolve only if the status code is less than 500
-let transforms = await api.listTransforms({filters: 'id eq'}, {validateStatus: function (status) { return status < 500 }})
+let transforms = await api.listTransforms(
+  {filters: 'id eq'},
+  {
+    validateStatus: function (status) {
+      return status < 500;
+    },
+  },
+);
 
 if (transforms.status === 200) {
-    console.log(transforms)
-} else if (transforms.status === 400 ) {
-    console.log("The filter is invalid.  Continuing execution.")
+  console.log(transforms);
+} else if (transforms.status === 400) {
+  console.log('The filter is invalid.  Continuing execution.');
 }
 ```
 
 If you don't want the program to exit for any error response, you can use this configuration:
 
 ```typescript
-await api.listTransforms({}, {validateStatus: function (status) { return true }})
+await api.listTransforms(
+  {},
+  {
+    validateStatus: function (status) {
+      return true;
+    },
+  },
+);
 ```

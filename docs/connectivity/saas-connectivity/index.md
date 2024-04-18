@@ -24,9 +24,10 @@ Connectors are the bridges between the SailPoint Identity Security Cloud (ISC) S
 ## Why We Are Introducing SaaS Connectivity
 
 The primary driver for indroducing the SaaS Connectivity framework is to allow a way to connect to other cloud based sources in a truly SaaS architecture, without the need to rely on a VA. There are also other benefits that come with the SaaS Connectivity framework:
- - Ability to develop, debug and test custom connectors locally without any dependencies on Identity Security Cloud
- - Features to customize the user interface when configuring the connector that are specific to the source
- - Support for more modern languages and frameworks
+
+- Ability to develop, debug and test custom connectors locally without any dependencies on Identity Security Cloud
+- Features to customize the user interface when configuring the connector that are specific to the source
+- Support for more modern languages and frameworks
 
 ## Architecture of SaaS Connectivity
 
@@ -46,4 +47,4 @@ With both SaaS connectivity and traditional VA connectivity in place, you can ha
 
 Any direct connectors that specify a virtual appliance (VA) use [Zero Knowledge Encryption](https://community.sailpoint.com/t5/Lighthouse/Protecting-Sensitive-Data-with-Zero-Knowledge-Encryption/ta-p/79657?attachment-id=452) schemes with an RSA 2048-bit asymmetric key pair: there is a private key on the VA for decryption and a public key in the cloud (as part of the VA cluster) for encryption.
 
-SaaS connectors cannot operate the same way because they do not communicate through VA clusters. Despite this, SaaS connectors can still leverage the asymmetric key pair scheme — the key pair simply resides in the cloud instead of on the VA. The key pair is only accessible to the Connectivity service and is managed to SailPoint standards for credential storage. Whenever you are storing secret data, use the ```secret``` or ```secrettextarea``` field types.
+SaaS connectors cannot operate the same way because they do not communicate through VA clusters. Despite this, SaaS connectors can still leverage the asymmetric key pair scheme — the key pair simply resides in the cloud instead of on the VA. The key pair is only accessible to the Connectivity service and is managed to SailPoint standards for credential storage. Whenever you are storing secret data, use the `secret` or `secrettextarea` field types.

@@ -16,7 +16,6 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
 
 # Secure Data Share Audit ER Diagram
 
-
 <MermaidViewer diagram='erDiagram
     AUDIT_EVENTS {
         text TENANT_ID "Unique Id for an Organization tenant"
@@ -35,6 +34,3 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         text STATUS "What was the status of the Audit Event, examples include PASSED, FAILED, TERMINATED, etc."
         timestamp_ntz SYNC_DATE "Date Audit Event Synced"
     }'></MermaidViewer>
-
-
-

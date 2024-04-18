@@ -3,14 +3,15 @@ id: connector-spec-select
 title: Select
 pagination_label: Select
 sidebar_label: Select
-keywords: ['connectivity', 'connectors','connector-spec', 'select']
+keywords: ['connectivity', 'connectors', 'connector-spec', 'select']
 description: Details on using the select item
 slug: /connectivity/saas-connectivity/connector-spec/select
 tags: ['Connectivity', 'Connector Spec']
 ---
 
 ## How to use the Select type in the connector spec
-You can use the Select type to create a dropdown for users to interact with to select from a predefined set of values. 
+
+You can use the Select type to create a dropdown for users to interact with to select from a predefined set of values.
 
 This is an example implementation:
 
@@ -34,6 +35,7 @@ This is an example implementation:
     ]
 }
 ```
+
 ![select input type](../img/select.png)
 
 You can also create dependencies on other fields so they are hidden until the selection is made. This same type of dependency can be built into any field and linked by using the parentKey/parentValue fields.

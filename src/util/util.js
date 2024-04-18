@@ -26,7 +26,7 @@ export function discourseProductTag() {
   if (discourseBaseURL().includes('soon')) {
     return 11;
   } else {
-    return 45
+    return 45;
   }
 }
 

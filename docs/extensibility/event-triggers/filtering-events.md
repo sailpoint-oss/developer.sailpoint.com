@@ -77,7 +77,7 @@ Operators provide more options to filter JSON structures.
 
 ### Developing Filters
 
-Developing a filter can be faster when you use a tool like an online [JSONpath editor](https://www.javainuse.com/jsonpath). These tools can provide quick feedback on your filter, allowing you to focus on the exact filter expression you want before testing it on a trigger.  Just paste an example of your event trigger input and start crafting an expression to see its result.
+Developing a filter can be faster when you use a tool like an online [JSONpath editor](https://www.javainuse.com/jsonpath). These tools can provide quick feedback on your filter, allowing you to focus on the exact filter expression you want before testing it on a trigger. Just paste an example of your event trigger input and start crafting an expression to see its result.
 
 :::Warning
 Third party websites like the one mentioned earlier must be treated with caution. Do not use real data from your tenant when you're interacting with these tools.

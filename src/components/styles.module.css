@@ -1,17 +1,18 @@
 .zoomIn {
-    fill: #96a9bb;
-    /* computed from codepen https://codepen.io/sosuke/pen/Pjoqqp */
-    filter: invert(79%) sepia(12%) saturate(484%) hue-rotate(168deg) brightness(84%) contrast(84%);
-    margin-left: 15px;
-    height: 26px;
-    width: 26px;
-  }
+  fill: #96a9bb;
+  /* computed from codepen https://codepen.io/sosuke/pen/Pjoqqp */
+  filter: invert(79%) sepia(12%) saturate(484%) hue-rotate(168deg)
+    brightness(84%) contrast(84%);
+  margin-left: 15px;
+  height: 26px;
+  width: 26px;
+}
 
-  .zoomIn:hover {
-    cursor: pointer;
-  }
+.zoomIn:hover {
+  cursor: pointer;
+}
 
-  .mermaidContainer {
-    overflow: hidden;
-    cursor: grab
-  }
+.mermaidContainer {
+  overflow: hidden;
+  cursor: grab;
+}

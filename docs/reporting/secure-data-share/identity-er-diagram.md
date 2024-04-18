@@ -16,7 +16,6 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
 
 # Secure Data Share Identity ER Diagram
 
-
 <MermaidViewer diagram='erDiagram
     IDENTITY_ACCOUNTS {
         text TENANT_ID "Unique Id for an Organization tenant"

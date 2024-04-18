@@ -108,17 +108,13 @@
     height: 545px;
     min-height: 535px;
   }
-
-  
 }
 
 @media only screen and (max-width: 570px) {
-  
-
   .gettingStartedThree {
     padding-right: 15%;
   }
-  
+
   .contentContainer {
     margin-left: 0%;
     width: auto;

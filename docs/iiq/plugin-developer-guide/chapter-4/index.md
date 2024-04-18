@@ -8,7 +8,7 @@ sidebar_class_name: plugin_developer_guide_database_scripts
 keywords: ['plugin']
 description: IdentityIQ Plugin Database Scripts
 slug: /iiq/plugin-developer-guide/database-scripts
-tags: ['plugin','guide','identityiq']
+tags: ['plugin', 'guide', 'identityiq']
 ---
 
 # Database Scripts

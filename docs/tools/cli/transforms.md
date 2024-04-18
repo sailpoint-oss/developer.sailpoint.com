@@ -6,22 +6,22 @@ sidebar_label: Transforms
 sidebar_position: 6
 sidebar_class_name: cli-transforms
 keywords: ['cli', 'cli transforms', 'transforms']
-description: Learn about the CLI commands you can use to create, manage, and test transforms in this guide. 
+description: Learn about the CLI commands you can use to create, manage, and test transforms in this guide.
 slug: /tools/cli/transforms
 tags: ['CLI']
 ---
 
 # Transforms
 
-Learn about the CLI commands you can use to create, manage, and test transforms in this guide. 
+Learn about the CLI commands you can use to create, manage, and test transforms in this guide.
 
-In Identity Security Cloud (ISC), you can use transforms to manipulate attribute data without writing any code. For more information about transforms, refer to [Transforms](/docs/extensibility/transforms). 
+In Identity Security Cloud (ISC), you can use transforms to manipulate attribute data without writing any code. For more information about transforms, refer to [Transforms](/docs/extensibility/transforms).
 
-With the `transforms` command, it's it easy to create, manage, and test transforms in the CLI. 
+With the `transforms` command, it's it easy to create, manage, and test transforms in the CLI.
 
 ## Commands
 
-To create, manage, and test transforms with the CLI, you can use these commands: 
+To create, manage, and test transforms with the CLI, you can use these commands:
 
 - [Transforms](#transforms)
   - [Commands](#commands)
@@ -33,13 +33,13 @@ To create, manage, and test transforms with the CLI, you can use these commands:
 
 ## List transforms
 
-To get a list of the transforms available in your tenant, run this command: 
+To get a list of the transforms available in your tenant, run this command:
 
 ```shell
 sail transform list
 ```
 
-This command produces a table of available transforms. 
+This command produces a table of available transforms.
 
 ![Transform List](./assets/img/vhs/transform-list.gif)
 
@@ -55,7 +55,7 @@ By default, this command will save the files in the current working directory. U
 
 ![Transform Download](./assets/img/vhs/transform-download.gif)
 
-This command will overwrite any existing files with the same name, so be careful when you run this in a directory that has transforms that have been modified but not yet saved. 
+This command will overwrite any existing files with the same name, so be careful when you run this in a directory that has transforms that have been modified but not yet saved.
 
 ## Create transform
 
@@ -89,9 +89,9 @@ To delete multiple transforms, use this syntax:
 sail transform delete <transform-id> <transform-id> <transform-id>
 ```
 
-You can use this command in conjunction with the `ls` command to find the ID of the transform you want to delete. 
+You can use this command in conjunction with the `ls` command to find the ID of the transform you want to delete.
 
-This is an example of how you can find a transform ID and delete it: 
+This is an example of how you can find a transform ID and delete it:
 
 ```shell
 sail transform list

@@ -19,7 +19,7 @@ To see a list of available create cmdlets, run this command:
 Get-Command -Module PSSailpoint | where-object {$_.name -like "*New-*" } | Sort-Object Name | Get-Help | Format-Table Name, Synopsis
 ```
 
-The SDK returns this output (all beta endpoints are designated by the Beta prefix): 
+The SDK returns this output (all beta endpoints are designated by the Beta prefix):
 
 ```powershell
 Name                     Synopsis
@@ -60,10 +60,10 @@ $JSON = @"
 
 $WorkGroup = ConvertFrom-BetaJsonToWorkgroupDto -Json $JSON
 
-$WorkGroup = Initialize-BetaWorkgroupDto -Name "DB Access Governance Group" -Description "Description of the Governance Group" -Owner @{ 
+$WorkGroup = Initialize-BetaWorkgroupDto -Name "DB Access Governance Group" -Description "Description of the Governance Group" -Owner @{
     "type" = "IDENTITY"
     "id" = $Identity.id
-    "name" = $Identity.name 
+    "name" = $Identity.name
 }
 
 New-BetaWorkgroup -WorkgroupDto $WorkGroup
@@ -86,6 +86,6 @@ memberCount                    0
 connectionCount                0
 id                             a241d625-d948-4c41-839e-869b790837a1
 name                           DB Access Governance Group
-created                        
-modified                       
+created
+modified
 ```

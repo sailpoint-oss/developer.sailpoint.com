@@ -13,11 +13,10 @@ tags: ['Connectivity', 'Connector Command']
 
 Use these commands to intercept the [account-enable](../../commands/account-enable) command.
 
-
-| Input/Output    |        Data Type        |
-| :-------------- | :---------------------: |
-| Input           |  StdAccountEnableInput  |
-| Output          |  StdAccountEnableOutput |
+| Input/Output |       Data Type        |
+| :----------- | :--------------------: |
+| Input        | StdAccountEnableInput  |
+| Output       | StdAccountEnableOutput |
 
 ### Example StdAccountEnableInput
 
@@ -53,11 +52,12 @@ Use these commands to intercept the [account-enable](../../commands/account-enab
     }
 }
 ```
+
 ## Implementation
 
 ### Before account-enable command
 
-Use this logic to implement the command: 
+Use this logic to implement the command:
 
 ```javascript
     .beforeStdAccountEnable(async (context: Context, input: StdAccountEnableInput) => {
@@ -65,11 +65,12 @@ Use this logic to implement the command:
         return input
     })
 ```
+
 The `input` object can be mutated and returned, but the same data type must still be returned.
 
 ### After account-enable command
 
-Use this logic to implement the command: 
+Use this logic to implement the command:
 
 ```javascript
     .afterStdAccountEnable(async (context: Context, output: StdAccountEnableOutput) => {
@@ -77,4 +78,5 @@ Use this logic to implement the command:
         return output
     })
 ```
+
 The `output` object can be mutated and returned, but the same data type must still be returned.

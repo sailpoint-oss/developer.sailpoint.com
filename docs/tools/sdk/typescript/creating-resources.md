@@ -16,33 +16,37 @@ You can use the SDK to create new resources.
 Here is an example create workgroup script from the beta APIs you can copy into your typescript project to try it out:
 
 ```typescript showLineNumbers
-import {Configuration, GovernanceGroupsBetaApi, GovernanceGroupsBetaApiCreateWorkgroupRequest, PublicIdentitiesApi} from "sailpoint-api-client"
+import {
+  Configuration,
+  GovernanceGroupsBetaApi,
+  GovernanceGroupsBetaApiCreateWorkgroupRequest,
+  PublicIdentitiesApi,
+} from 'sailpoint-api-client';
 
 const createWorkGroup = async () => {
-    let apiConfig = new Configuration()
-    let identitiesApi = new PublicIdentitiesApi(apiConfig)
+  let apiConfig = new Configuration();
+  let identitiesApi = new PublicIdentitiesApi(apiConfig);
 
-    let identity = (await identitiesApi.getPublicIdentities({limit: 1})).data[0]
+  let identity = (await identitiesApi.getPublicIdentities({limit: 1})).data[0];
 
-    let api = new GovernanceGroupsBetaApi(apiConfig)
-    let workgroup: GovernanceGroupsBetaApiCreateWorkgroupRequest = {
-        workgroupDtoBeta: {
-            name: "DB Access Governance Group",
-            description: "Description of the Governance Group",
-            owner: {
-                id: identity.id,
-                type: "IDENTITY",
-                name: identity.name
-            }
-        }
-    }
+  let api = new GovernanceGroupsBetaApi(apiConfig);
+  let workgroup: GovernanceGroupsBetaApiCreateWorkgroupRequest = {
+    workgroupDtoBeta: {
+      name: 'DB Access Governance Group',
+      description: 'Description of the Governance Group',
+      owner: {
+        id: identity.id,
+        type: 'IDENTITY',
+        name: identity.name,
+      },
+    },
+  };
 
-    let val = await api.createWorkgroup(workgroup)
-    console.log(val.data)
+  let val = await api.createWorkgroup(workgroup);
+  console.log(val.data);
+};
 
-}
-
-createWorkGroup()
+createWorkGroup();
 ```
 
 Run this command to compile and run the code:
@@ -73,5 +77,5 @@ The WorkGroup will be returned by the SDK:
   name: 'DB Access Governance Group',
   created: null,
   modified: null
-} 
+}
 ```

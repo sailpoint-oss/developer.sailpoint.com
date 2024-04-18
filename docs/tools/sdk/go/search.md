@@ -6,7 +6,7 @@ sidebar_label: Search
 sidebar_position: 5
 sidebar_class_name: gosdk
 keywords: ['go', 'golang', 'sdk', 'search']
-description: Learn how to search with the Golang SDK in this guide. 
+description: Learn how to search with the Golang SDK in this guide.
 slug: /tools/sdk/go/search
 tags: ['SDK', 'Software Development Kit']
 ---

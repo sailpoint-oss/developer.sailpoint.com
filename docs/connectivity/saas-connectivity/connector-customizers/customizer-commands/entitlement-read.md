@@ -13,7 +13,6 @@ tags: ['Connectivity', 'Connector Command']
 
 Use these commands to intercept the [entitlement-read](../../commands/entitlement-read) command.
 
-
 | Input/Output |        Data Type         |
 | :----------- | :----------------------: |
 | Input        | StdEntitlementReadInput  |
@@ -50,11 +49,12 @@ Use these commands to intercept the [entitlement-read](../../commands/entitlemen
     }
 }
 ```
+
 ## Implementation
 
 ### Before entitlement-read command
 
-Use this logic to implement the command: 
+Use this logic to implement the command:
 
 ```javascript
     .beforeStdEntitlementRead(async (context: Context, input: StdEntitlementReadInput) => {
@@ -62,11 +62,12 @@ Use this logic to implement the command:
         return input
     })
 ```
+
 The `input` object can be mutated and returned, but the same data type must still be returned.
 
 ### After entitlement-read command
 
-Use this logic to implement the command: 
+Use this logic to implement the command:
 
 ```javascript
     .afterStdEntitlementRead(async (context: Context, output: StdEntitlementReadOutput) => {
@@ -74,4 +75,5 @@ Use this logic to implement the command:
         return output
     })
 ```
+
 The `output` object can be mutated and returned, but the same data type must still be returned.

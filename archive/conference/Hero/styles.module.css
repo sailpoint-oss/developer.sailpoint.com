@@ -15,25 +15,25 @@
 }
 
 .conferenceText {
-    margin-top: 70px;
-    font-size: 55px;
-    color: var(--dev-text-color-cobalt);
-    font-family: input-mono;
+  margin-top: 70px;
+  font-size: 55px;
+  color: var(--dev-text-color-cobalt);
+  font-family: input-mono;
 }
 
 .comingSoonText {
-    color: var(--dev-text-color-cobalt);
-    font-size: 20px;
-    font-family: input-mono;
-    letter-spacing: 5.5px;
-    margin-top: -17px;
+  color: var(--dev-text-color-cobalt);
+  font-size: 20px;
+  font-family: input-mono;
+  letter-spacing: 5.5px;
+  margin-top: -17px;
 }
 
 .descriptionText {
-    margin-top: 27px;
-    color: var(--ifm-color-primary);
-    font-size: 36px;
-    font-family: input-mono;
+  margin-top: 27px;
+  color: var(--ifm-color-primary);
+  font-size: 36px;
+  font-family: input-mono;
 }
 
 .extensible {

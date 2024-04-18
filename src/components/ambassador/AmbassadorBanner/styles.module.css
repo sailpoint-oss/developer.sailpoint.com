@@ -1,4 +1,3 @@
-
 .ambassadorHeaderText {
   position: relative;
   color: #ffffff;
@@ -19,8 +18,12 @@
 .imageContainer {
   width: 100%;
   height: 90px;
-  background: rgb(0,51,161);
-  background: linear-gradient(90deg, rgba(0,51,161,1) 0%, rgba(84,192,232,1) 100%);
+  background: rgb(0, 51, 161);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 51, 161, 1) 0%,
+    rgba(84, 192, 232, 1) 100%
+  );
 }
 
 .headerImage {

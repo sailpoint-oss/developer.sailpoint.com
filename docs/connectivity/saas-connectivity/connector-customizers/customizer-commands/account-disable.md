@@ -4,7 +4,7 @@ title: Account Disable
 pagination_label: Account Disable
 sidebar_label: Account Disable
 keywords: ['connectivity', 'connectors', 'Account Disable']
-description: Intercept the account disable command. 
+description: Intercept the account disable command.
 slug: /connectivity/saas-connectivity/customizers/commands/account-disable
 tags: ['Connectivity', 'Connector Command']
 ---
@@ -13,11 +13,10 @@ tags: ['Connectivity', 'Connector Command']
 
 Use these commands to intercept the [account-disable](../../commands/account-disable) command.
 
-
-| Input/Output    |        Data Type        |
-| :-------------- | :---------------------: |
-| Input           | StdAccountDisableInput  |
-| Output          | StdAccountDisableOutput |
+| Input/Output |        Data Type        |
+| :----------- | :---------------------: |
+| Input        | StdAccountDisableInput  |
+| Output       | StdAccountDisableOutput |
 
 ### Example StdAccountDisableInput
 
@@ -53,11 +52,12 @@ Use these commands to intercept the [account-disable](../../commands/account-dis
     }
 }
 ```
+
 ## Implementation
 
 ### Before account-disable command
 
-Use this logic to implement the command: 
+Use this logic to implement the command:
 
 ```javascript
     .beforeStdAccountDisable(async (context: Context, input: StdAccountDisableInput) => {
@@ -65,11 +65,12 @@ Use this logic to implement the command:
         return input
     })
 ```
+
 The `input` object can be mutated and returned, but the same data type must still be returned.
 
 ### After account-disable command
 
-Use this logic to implement the command: 
+Use this logic to implement the command:
 
 ```javascript
     .afterStdAccountDisable(async (context: Context, output: StdAccountDisableOutput) => {
@@ -77,4 +78,5 @@ Use this logic to implement the command:
         return output
     })
 ```
+
 The `output` object can be mutated and returned, but the same data type must still be returned.

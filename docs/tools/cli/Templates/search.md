@@ -13,7 +13,7 @@ tags: ['CLI']
 
 Use search templates to run predefined search queries from the CLI.
 
-This is an example of a template file with 3 search templates populated: 
+This is an example of a template file with 3 search templates populated:
 
 ```json
 [
@@ -72,7 +72,7 @@ This is the search template anatomy:
   "name": "all-account-unlocks",
 ```
 
-This is the search template's name. 
+This is the search template's name.
 
 It displays in the template list when you run `sail search template`.
 
@@ -82,7 +82,7 @@ You can also provide this name as an argument: `sail search template all-account
   "description": "All account unlocks in the tenant for a given time range"
 ```
 
-This is the search template's description. 
+This is the search template's description.
 
 It displays following the template name in the `sail search template` list.
 
@@ -90,9 +90,9 @@ It displays following the template name in the `sail search template` list.
   "variables": [{"name": "days", "prompt": "Days before today"}],
 ```
 
-Use variables to dynamically populate values in the following content during command run time. 
+Use variables to dynamically populate values in the following content during command run time.
 
-For example, the variable in this template is configured so you can choose how many days back you want to search for account unlock events. When you run `sail search template all-account-unlocks`, a prompt displays, `Input Days before today:` The number you enter will then populate anywhere the variable is used in the following object, and then the query runs. 
+For example, the variable in this template is configured so you can choose how many days back you want to search for account unlock events. When you run `sail search template all-account-unlocks`, a prompt displays, `Input Days before today:` The number you enter will then populate anywhere the variable is used in the following object, and then the query runs.
 
 ```json
   "searchQuery": {

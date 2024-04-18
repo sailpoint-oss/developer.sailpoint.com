@@ -1,5 +1,5 @@
 {
-    "customProps": {
-        "description": "Export and import tenant configurations."
-    }
+  "customProps": {
+    "description": "Export and import tenant configurations."
+  }
 }

@@ -10,30 +10,34 @@ export default function AnnouncementBar() {
   const {isActive, close} = useAnnouncementBar();
   const {backgroundColor, textColor, isCloseable} = announcementBar;
 
-
-  const [bannerText, setBannerText] = React.useState("loading banner text ...");
+  const [bannerText, setBannerText] = React.useState('loading banner text ...');
   const [showBanner, setShowBanner] = React.useState(false);
 
   const closeButton = async () => {
     close();
     setShowBanner(false);
-  }
+  };
 
   const getBannerText = async () => {
     let data = await getBanner();
     if (data.Item) {
-      if (localStorage.getItem('docusaurus.aws.id') !== JSON.parse(data.Item).id && localStorage.getItem('docusaurus.announcement.dismiss') == 'true') {
+      if (
+        localStorage.getItem('docusaurus.aws.id') !==
+          JSON.parse(data.Item).id &&
+        localStorage.getItem('docusaurus.announcement.dismiss') == 'true'
+      ) {
         localStorage.setItem('docusaurus.announcement.dismiss', false);
         localStorage.setItem('docusaurus.aws.id', JSON.parse(data.Item).id);
         setShowBanner(true);
-      } else if (localStorage.getItem('docusaurus.announcement.dismiss') == 'false'){
+      } else if (
+        localStorage.getItem('docusaurus.announcement.dismiss') == 'false'
+      ) {
         setShowBanner(true);
       }
       setBannerText(JSON.parse(data.Item).message);
-      
     } else {
       setBannerText(undefined);
-      return
+      return;
     }
   };
 
@@ -42,7 +46,7 @@ export default function AnnouncementBar() {
   }, []);
 
   if (showBanner == false || !bannerText) {
-    return null
+    return null;
   }
   return (
     <div
@@ -50,7 +54,10 @@ export default function AnnouncementBar() {
       style={{backgroundColor, color: textColor}}
       role="banner">
       {isCloseable && <div className={styles.announcementBarPlaceholder} />}
-      <AnnouncementBarContent content={bannerText} className={styles.announcementBarContent} />
+      <AnnouncementBarContent
+        content={bannerText}
+        className={styles.announcementBarContent}
+      />
       {isCloseable && (
         <AnnouncementBarCloseButton
           onClick={closeButton}

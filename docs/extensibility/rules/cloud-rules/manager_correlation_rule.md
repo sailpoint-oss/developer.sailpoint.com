@@ -16,9 +16,9 @@ This rule calculates a manager relationship between identities.
 
 Use this rule to correlate an identity's manager for the following scenarios:
 
-* The authoritative source has multiple accounts for an identity and you must pick the manager data from the `active` account.
-* You need to do a lookup from an employee number to other data.
-* The identity changes types, for example, from consultant to employee with the manager coming from a different authoritative source.
+- The authoritative source has multiple accounts for an identity and you must pick the manager data from the `active` account.
+- You need to do a lookup from an employee number to other data.
+- The identity changes types, for example, from consultant to employee with the manager coming from a different authoritative source.
 
 The manager correlation rule runs before configured manager account correlation.
 

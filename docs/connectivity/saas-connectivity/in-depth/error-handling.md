@@ -45,15 +45,15 @@ export class AirtableClient {
 
 ## Not Found Error Type
 
-The connector SDK offers a special error type of "Not Found". This error signals to ISC that the specific account is not in the source system. If the account should be in the source system, ISC will then call the connector ```std:account:create``` command to create the account. 
+The connector SDK offers a special error type of "Not Found". This error signals to ISC that the specific account is not in the source system. If the account should be in the source system, ISC will then call the connector `std:account:create` command to create the account.
 
-Here is an example: 
+Here is an example:
 
 ```javascript
 .stdAccountUpdate(async (context: Context, input: StdAccountUpdateInput, res: Response<StdAccountUpdateOutput>) => {
     const account = await myClient.getAccount(input.identity)
     if (!account) {
-        // account was not found, but identity now has the account and expects it to be there! 
+        // account was not found, but identity now has the account and expects it to be there!
         // Send an error message to Identity Security Cloud so the account is automatically created
         if (!account) {
             throw new ConnectorError("account is not found", ConnectorErrorType.NotFound)
@@ -120,19 +120,25 @@ export class AirtableClient {
 ## Recommended custom exceptions and examples of when to use them
 
 #### InvalidConfigurationException
+
 - Use this exception during any operation if the connector requires a certain configuration to connect to the managed-system, but the configuration is either faulty or not provided. This could happen before sending a request to the managed system.
 
 #### InsufficientPermissionException
-- Use this exception during any operation if the connector gets a known managed system exception indicating a lack of permission. 
+
+- Use this exception during any operation if the connector gets a known managed system exception indicating a lack of permission.
 
 #### InvalidRequestException
+
 - Use this exception during any operation if the connector is creating messages to be sent to the managed system but is failing to create a message. This could happen before sending a request to the managed system.
 
 #### ObjectAlreadyExistsException
+
 - Use this exception during the provisioning operation of the type create(only) if the connector is trying to create an entity that already exists on the managed system.
 
 #### InvalidResponseException
+
 - Use this exception during aggregation or in the getObject when the connector is unable to parse data received from managed system. This could happen if something fails when converting a managed system response to a ResourceObject.
 
 #### TimeoutException
+
 - This is intended for cases in which the connector receives timeout related error/exceptions from the managed system.

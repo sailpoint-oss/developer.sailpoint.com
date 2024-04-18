@@ -13,10 +13,9 @@ tags: ['Connectivity', 'Connector Command']
 
 Use these commands to intercept the [entitlement-list](../../commands/entitlement-list) command.
 
-
-| Input/Output |        Data Type         |
-| :----------- | :----------------------: |
-| Input        | StdEntitlementListInput  |
+| Input/Output |        Data Type        |
+| :----------- | :---------------------: |
+| Input        | StdEntitlementListInput |
 
 ### Example StdEntitlementListInput
 
@@ -30,7 +29,7 @@ Use these commands to intercept the [entitlement-list](../../commands/entitlemen
 
 ### Before entitlement-list command
 
-Use this logic to implement the command: 
+Use this logic to implement the command:
 
 ```javascript
     .beforeStdEntitlementList(async (context: Context, input: StdEntitlementListInput) => {
@@ -38,6 +37,7 @@ Use this logic to implement the command:
         return input
     })
 ```
+
 The `input` object can be mutated and returned, but the same data type must still be returned.
 
 ### After entitlement-list command

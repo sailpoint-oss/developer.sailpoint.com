@@ -79,15 +79,25 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ['http', 'java', 'ruby', 'php', 'csharp', 'powershell', 'bash', 'go', 'python'],
+        additionalLanguages: [
+          'http',
+          'java',
+          'ruby',
+          'php',
+          'csharp',
+          'powershell',
+          'bash',
+          'go',
+          'python',
+        ],
       },
       mermaid: {
         options: {
           er: {
-            layoutDirection: 'RL'
-          }
+            layoutDirection: 'RL',
+          },
         },
-      }
+      },
     }),
 
   plugins: plugins,

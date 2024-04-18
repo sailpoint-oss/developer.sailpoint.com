@@ -43,9 +43,9 @@ This is the report template anatomy:
     "name": "provisioning-and-security",
 ```
 
-This is the report template's name. 
+This is the report template's name.
 
-It displays in the template list when you run `sail report`. 
+It displays in the template list when you run `sail report`.
 
 You can also provide the name as an argument: `sail report provisioning-and-security`
 
@@ -53,17 +53,17 @@ You can also provide the name as an argument: `sail report provisioning-and-secu
     "description": "All account unlocks in the tenant for a given time range",
 ```
 
-This is the report template's description. 
+This is the report template's description.
 
-It displays following the template name in the `sail report` list. 
+It displays following the template name in the `sail report` list.
 
 ```json
     "variables": [{"name": "days", "prompt": "Days before today"}],
 ```
 
-Use variables to dynamically populate values in the following content during command run time. 
+Use variables to dynamically populate values in the following content during command run time.
 
-For example, the variable in this template is configured so you can choose how many days back you want to search for provisioning-and-security events. When you run `sail report provisioning-and-security`, a prompt displays, `Input Days before today:` The number you enter will then populate anywhere the variable is used in the following object, and then the query runs. 
+For example, the variable in this template is configured so you can choose how many days back you want to search for provisioning-and-security events. When you run `sail report provisioning-and-security`, a prompt displays, `Input Days before today:` The number you enter will then populate anywhere the variable is used in the following object, and then the query runs.
 
 ```json
     "queries": [
@@ -81,4 +81,4 @@ For example, the variable in this template is configured so you can choose how m
 ]
 ```
 
-This is a list of the queries that will run. Currently, the variables for days populate. 
+This is a list of the queries that will run. Currently, the variables for days populate.

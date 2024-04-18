@@ -29,7 +29,7 @@ export default function BlogSidebar({filterCallback, defaultValue}) {
 
   React.useEffect(() => {
     getTagData();
-  },[]);
+  }, []);
 
   if (tagProductData) {
     return (

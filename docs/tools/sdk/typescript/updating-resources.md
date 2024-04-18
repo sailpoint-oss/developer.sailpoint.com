@@ -16,31 +16,41 @@ You can use the SDK to update resources.
 Here is an example update WorkGroup script which will update the description for the Workgroup created in [Create a Resource](./creating-resources.md):
 
 ```typescript
-import {Configuration, GovernanceGroupsBetaApi, GovernanceGroupsBetaApiCreateWorkgroupRequest, GovernanceGroupsBetaApiPatchWorkgroupRequest, PublicIdentitiesApi} from "sailpoint-api-client"
+import {
+  Configuration,
+  GovernanceGroupsBetaApi,
+  GovernanceGroupsBetaApiCreateWorkgroupRequest,
+  GovernanceGroupsBetaApiPatchWorkgroupRequest,
+  PublicIdentitiesApi,
+} from 'sailpoint-api-client';
 
 const updateWorkGroup = async () => {
-    let apiConfig = new Configuration()
-    let api = new GovernanceGroupsBetaApi(apiConfig)
+  let apiConfig = new Configuration();
+  let api = new GovernanceGroupsBetaApi(apiConfig);
 
-    let workgroup = (await api.listWorkgroups({filters: 'name eq "DB Access Governance Group"'})).data[0]
+  let workgroup = (
+    await api.listWorkgroups({filters: 'name eq "DB Access Governance Group"'})
+  ).data[0];
 
-    if (workgroup.id !== undefined) {
-        let updatedWorkgroup: GovernanceGroupsBetaApiPatchWorkgroupRequest = {
-            id: workgroup.id,
-            jsonPatchOperationBeta: [{
-                op: "replace",
-                path: "/description",
-                value: "This is an updated description for the workgroup."
-            }]
-        }
-        let val = await api.patchWorkgroup(updatedWorkgroup)
-        console.log(val.data)
-    } else {
-        console.log("Workgroup was not found, id is missing for patch request.")
-    }
-}
+  if (workgroup.id !== undefined) {
+    let updatedWorkgroup: GovernanceGroupsBetaApiPatchWorkgroupRequest = {
+      id: workgroup.id,
+      jsonPatchOperationBeta: [
+        {
+          op: 'replace',
+          path: '/description',
+          value: 'This is an updated description for the workgroup.',
+        },
+      ],
+    };
+    let val = await api.patchWorkgroup(updatedWorkgroup);
+    console.log(val.data);
+  } else {
+    console.log('Workgroup was not found, id is missing for patch request.');
+  }
+};
 
-updateWorkGroup()
+updateWorkGroup();
 ```
 
 Run this command to compile and run the code:

@@ -15,11 +15,11 @@ tags: ['Service Account', 'Authentication']
 
 Service accounts are identities in Identity Security Cloud (ISC) that aren't real people. Their purpose is to provide credentials for automation services that can be managed and controlled separately from real identities. As a developer of integrations with ISC, there are two main advantages of creating service accounts: you can scope access to the least privilege necessary to do the job, and you can ensure that your integration's access doesn't end when you leave your organization. If you use your user account to generate credentials for integrations, they are tied to your level of access (i.e. admin) and can be revoked when you leave the organization - this could cause downtime in your integrations.
 
-Read this guide to learn how to create service accounts and implement them. 
+Read this guide to learn how to create service accounts and implement them.
 
 ### Implementing service accounts
 
-Any authoritative source can be used to create and manage service accounts, with Active Directory (AD) being a likely choice. Using AD to create service accounts is advantageous because doing so provisions your service accounts with unique email addresses that can be used to log in to ISC as the service account. However, if you don't want to create service accounts by using AD, you can use a flat file source to create and manage your accounts. 
+Any authoritative source can be used to create and manage service accounts, with Active Directory (AD) being a likely choice. Using AD to create service accounts is advantageous because doing so provisions your service accounts with unique email addresses that can be used to log in to ISC as the service account. However, if you don't want to create service accounts by using AD, you can use a flat file source to create and manage your accounts.
 
 ### Create a delimited file source
 
@@ -52,7 +52,7 @@ If it's successful, you will see one account imported.
 
 ### Make the source authoritative
 
-The service account source must be authoritative to be able to create new identities for each service account. This will allow you to log in as the service account to generate access tokens. 
+The service account source must be authoritative to be able to create new identities for each service account. This will allow you to log in as the service account to generate access tokens.
 
 To make the service account source authoritative, you must create a new identity profile and link it to your source.
 
@@ -69,11 +69,11 @@ Configure the identity profile as you want. Once it's configured, go to the 'Map
 
 ![mappings](./img/service-accounts/mappings.png)
 
-Click 'Save' and then 'Apply Changes' to create the first identity from the service accounts source. Once the identity is created, you may need to manually send the invite. To do so, go to the identity list and search for the account's name (ex. `audit01`).  
+Click 'Save' and then 'Apply Changes' to create the first identity from the service accounts source. Once the identity is created, you may need to manually send the invite. To do so, go to the identity list and search for the account's name (ex. `audit01`).
 
 ![invite](./img/service-accounts/invite.png)
 
-If you have not received the invite, check your junk folder or deleted folder because the invite may have been automatically filtered by your email provider. Once you receive the invite, follow the steps to register your service account.  Once your service account user is registered, log in as the service account with the password you created for it.
+If you have not received the invite, check your junk folder or deleted folder because the invite may have been automatically filtered by your email provider. Once you receive the invite, follow the steps to register your service account. Once your service account user is registered, log in as the service account with the password you created for it.
 
 ![login](./img/service-accounts/login.png)
 

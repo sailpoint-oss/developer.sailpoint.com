@@ -12,8 +12,7 @@ tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 
 ## Event Context
 
-This event is triggered when a certification is signed-off and moves to End status.
-This is not to be confused with Campaign End/Expiration. 
+This event is triggered when a certification is signed-off and moves to End status. This is not to be confused with Campaign End/Expiration.
 
 This is an example input from this trigger:
 

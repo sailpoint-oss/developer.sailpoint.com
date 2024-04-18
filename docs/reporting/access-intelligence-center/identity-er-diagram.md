@@ -16,7 +16,6 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
 
 # Access Intelligence Center ER Diagram
 
-
 <MermaidViewer diagram='erDiagram
     IDENTITY_ATRIBUTE {
         varchar IDENTITY_ID "This contains the unique identifier for the identity"
@@ -203,6 +202,3 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
     CERTIFICATION_ITEM ||--o{ CERTIFICATION_IDENTITY_FULL : "associated to and owns"
     IDENTITY ||--o{ IDENTITY_REQUEST_IDENTITY_REQUEST_ITEM_FULL : "associated to and owns"
     IDENTITY_REQUEST_IDENTITY_REQUEST_ITEM_FULL ||--o{ IDENTITY_REQUEST_WITH_DURATION : "associated to and owns"'></MermaidViewer>
-
-
-

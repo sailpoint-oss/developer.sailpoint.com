@@ -4,13 +4,13 @@ title: Source Data Read
 pagination_label: Source Data Read
 sidebar_label: Source Data Read
 keywords: ['connectivity', 'connectors', 'Source Data Read']
-description: Read source data. 
+description: Read source data.
 slug: /connectivity/saas-connectivity/commands/source-data-read
 tags: ['Connectivity', 'Connector Command']
 ---
 
-| Input/Output |            Data Type        |
-| :----------- | :-------------------------: |
+| Input/Output |        Data Type        |
+| :----------- | :---------------------: |
 | Input        | StdSourceDataReadInput  |
 | Output       | StdSourceDataReadOutput |
 
@@ -30,24 +30,24 @@ tags: ['Connectivity', 'Connector Command']
 
 ```javascript
 [
-    {
-        key: 'id',
-        label: 'Id',
-        subLabel: 'Airtable Base Id'
-    },
-    {
-        key: 'name',
-        label: 'Name',
-        subLabel: 'Airtable Source Table Name'
-    }
-]
+  {
+    key: 'id',
+    label: 'Id',
+    subLabel: 'Airtable Base Id',
+  },
+  {
+    key: 'name',
+    label: 'Name',
+    subLabel: 'Airtable Source Table Name',
+  },
+];
 ```
 
 ## Description
 
 Use the source data read command to query a source in Identity Security Cloud and return a set of data. This data is typically used to populate a dropdown menu for selection purposes. This functionality is typically useful for Identity Security Cloud forms, but it can be used for any type of implementation that requires you to get other information from a source, information that is not normally retrieved from identites or entitlements.
 
-This is a simple example of the source data read command. It is implemented to retrieve the base ID name. The `sourceDataKey` is required, the ```source data read``` command should return it.
+This is a simple example of the source data read command. It is implemented to retrieve the base ID name. The `sourceDataKey` is required, the `source data read` command should return it.
 
 ```javascript
 .stdSourceDataRead(async (context: Context, input: StdSourceDataReadInput, res: Response<StdSourceDataReadOutput>) => {
@@ -63,7 +63,7 @@ This is a simple example of the source data read command. It is implemented to r
 })
 ```
 
-You can optionally use `input.queryInput.query` to make the list searchable. One way you could do this is to import a tool like [alasql](https://github.com/AlaSQL/alasql) and allow the user to implement a search on the dataset. This example from Airtable shows how you could use the source data read command to get accounts and allow a search to be performed with the Airtable API: 
+You can optionally use `input.queryInput.query` to make the list searchable. One way you could do this is to import a tool like [alasql](https://github.com/AlaSQL/alasql) and allow the user to implement a search on the dataset. This example from Airtable shows how you could use the source data read command to get accounts and allow a search to be performed with the Airtable API:
 
 ```javascript
 .stdSourceDataRead(async (context: Context, input: StdSourceDataReadInput, res: Response<StdSourceDataReadOutput>) => {

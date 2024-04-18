@@ -11,11 +11,11 @@ slug: /api/api-specifications
 tags: ['API Specifications']
 ---
 
-## Overview 
+## Overview
 
-The Identity Security Cloud (ISC) APIs provide developers with a way to interact with the ISC platform and extend it. Developers can leverage these APIs to customize their platform experiences and build new solutions and integrations that meet their needs. 
+The Identity Security Cloud (ISC) APIs provide developers with a way to interact with the ISC platform and extend it. Developers can leverage these APIs to customize their platform experiences and build new solutions and integrations that meet their needs.
 
-The API specifications contain detailed information of how to send requests to each API endpoint, as well as example requests and responses. They also include essential information about how to use the APIs and guides you can follow to get started.  
+The API specifications contain detailed information of how to send requests to each API endpoint, as well as example requests and responses. They also include essential information about how to use the APIs and guides you can follow to get started.
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
@@ -24,8 +24,8 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 <DocCardList items={useCurrentSidebarCategory().items}/>
 ```
 
-## Discuss 
+## Discuss
 
-The most valuable resource for ISC developers is the SailPoint Developer Community itself, where ISC users and experts all over the world come together to ask questions and provide solutions. 
+The most valuable resource for ISC developers is the SailPoint Developer Community itself, where ISC users and experts all over the world come together to ask questions and provide solutions.
 
-To learn more about the ISC APIs and discuss them with SailPoint Developer Community members, go to the [SailPoint Developer Community Forum](https://developer.sailpoint.com/discuss/tags/c/isc/6/apis). 
+To learn more about the ISC APIs and discuss them with SailPoint Developer Community members, go to the [SailPoint Developer Community Forum](https://developer.sailpoint.com/discuss/tags/c/isc/6/apis).

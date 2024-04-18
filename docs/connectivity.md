@@ -6,7 +6,7 @@ sidebar_label: Connectivity
 sidebar_position: 1
 sidebar_class_name: connectivity
 keywords: ['connectivity']
-description: Build and expand ISC connectivity. 
+description: Build and expand ISC connectivity.
 slug: /connectivity
 tags: ['connectivity']
 ---
@@ -24,6 +24,6 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
 ## Discuss
 
-The most valuable resource for ISC developers is the SailPoint Developer Community itself, where ISC users and experts all over the world come together to ask questions and provide solutions. 
+The most valuable resource for ISC developers is the SailPoint Developer Community itself, where ISC users and experts all over the world come together to ask questions and provide solutions.
 
-To learn more about ISC connectivity and discuss it with SailPoint Developer Community members, go to the [SailPoint Developer Community Forum](https://developer.sailpoint.com/discuss/c/isc/6). 
+To learn more about ISC connectivity and discuss it with SailPoint Developer Community members, go to the [SailPoint Developer Community Forum](https://developer.sailpoint.com/discuss/c/isc/6).

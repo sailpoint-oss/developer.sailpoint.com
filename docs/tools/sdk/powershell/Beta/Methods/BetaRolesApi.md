@@ -16,8 +16,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**bulkDeleteRoles**](#bulk-delete-roles) | **POST** /roles/bulk-delete | Delete Role(s)
 [**createRole**](#create-role) | **POST** /roles | Create a Role
+[**deleteBulkRoles**](#delete-bulk-roles) | **POST** /roles/bulk-delete | Delete Role(s)
 [**deleteRole**](#delete-role) | **DELETE** /roles/{id} | Delete a Role
 [**getRole**](#get-role) | **GET** /roles/{id} | Get a Role
 [**getRoleAssignedIdentities**](#get-role-assigned-identities) | **GET** /roles/{id}/assigned-identities | Identities assigned a Role
@@ -25,42 +25,6 @@ Method | HTTP request | Description
 [**listRoles**](#list-roles) | **GET** /roles | List Roles
 [**patchRole**](#patch-role) | **PATCH** /roles/{id} | Patch a specified Role
 
-
-
-## bulk-delete-roles
-
-
-This API initiates a bulk deletion of one or more Roles.
-
-A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Roles included in the request are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
-
-### Parameters 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | RoleBulkDeleteRequest | [**RoleBulkDeleteRequest**](../models/role-bulk-delete-request) | True  | 
-
-	
-### Return type
-
-[**TaskResultDto**](../models/task-result-dto)
-
-### Responses
-Code | Description  | Data Type
-------------- | ------------- | -------------
-202 | Returns an object with the id of the task performing the delete operation. | TaskResultDto
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
-
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) 
 
 
 ## create-role
@@ -85,6 +49,43 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 201 | Role created | Role
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) 
+
+
+## delete-bulk-roles
+
+
+This endpoint initiates a bulk deletion of one or more roles.
+When the request is successful, the endpoint returns the bulk delete's task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result's status and information. 
+This endpoint can only bulk delete up to a limit of 50 roles per request. 
+A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this endpoint. In addition, a token with ROLE_SUBADMIN authority can only call this endpoint if all roles included in the request are associated with sources with management workgroups the ROLE_SUBADMIN is a member of.
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | RoleBulkDeleteRequest | [**RoleBulkDeleteRequest**](../models/role-bulk-delete-request) | True  | 
+
+	
+### Return type
+
+[**TaskResultDto**](../models/task-result-dto)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+202 | Returns an object with the id of the task performing the delete operation. | TaskResultDto
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -297,11 +298,11 @@ Code | Description  | Data Type
 ## patch-role
 
 
-This API updates an existing Role using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
-
-The following fields are patchable: **name**, **description**, **enabled**, **owner**, **accessProfiles**, **membership**, **requestable**, **accessRequestConfig**, **revokeRequestConfig**, **segments**
-A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+This API updates an existing role using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
+The following fields are patchable: * name * description * enabled * owner * accessProfiles * membership * requestable * accessRequestConfig * revokeRequestConfig * segments
+A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
 The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles, however, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
+When you use this API to modify a role's membership identities, you can only modify up to a limit of 500 membership identities at a time. 
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

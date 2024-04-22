@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityExceptionReportReference1 = Initialize-PSSailpointBetaIdentityExceptionReportReference1  -TaskResultId 2b838de9-db9b-abcf-e646-d4f274ad4238 `
+$IdentityExceptionReportReference1 = Initialize-BetaIdentityExceptionReportReference1  -TaskResultId 2b838de9-db9b-abcf-e646-d4f274ad4238 `
  -ReportName My annual report
 ```
 

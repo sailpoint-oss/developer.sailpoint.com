@@ -39,7 +39,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SodPolicy = Initialize-PSSailpointSodPolicy  -Id 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde `
+$SodPolicy = Initialize-SodPolicy  -Id 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde `
  -Name policy-xyz `
  -Created 2020-01-01T00:00Z `
  -Modified 2020-01-01T00:00Z `
@@ -47,7 +47,7 @@ $SodPolicy = Initialize-PSSailpointSodPolicy  -Id 0f11f2a4-7c94-4bf3-a2bd-742580
  -OwnerRef null `
  -ExternalPolicyReference XYZ policy `
  -PolicyQuery @access(id:0f11f2a4-7c94-4bf3-a2bd-742580fe3bdg) AND @access(id:0f11f2a4-7c94-4bf3-a2bd-742580fe3bdf) `
- -CompensatingControls Have a manager review the transaction decisions for their &quot;out of compliance&quot; employee `
+ -CompensatingControls Have a manager review the transaction decisions for their "out of compliance" employee `
  -CorrectionAdvice Based on the role of the employee, managers should remove access that is not required for their job function. `
  -State ENFORCED `
  -Tags [TAG1, TAG2] `

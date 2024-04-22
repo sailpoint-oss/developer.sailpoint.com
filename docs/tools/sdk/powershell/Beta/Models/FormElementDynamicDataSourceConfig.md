@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FormElementDynamicDataSourceConfig = Initialize-PSSailpointBetaFormElementDynamicDataSourceConfig  -AggregationBucketField attributes.cloudStatus.exact `
+$FormElementDynamicDataSourceConfig = Initialize-BetaFormElementDynamicDataSourceConfig  -AggregationBucketField attributes.cloudStatus.exact `
  -Indices [identities] `
  -ObjectType IDENTITY `
  -Query *

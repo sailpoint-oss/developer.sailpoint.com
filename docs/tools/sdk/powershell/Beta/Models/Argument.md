@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Argument = Initialize-PSSailpointBetaArgument  -Name firstName `
+$Argument = Initialize-BetaArgument  -Name firstName `
  -Description the first name of the identity `
  -Type String
 ```

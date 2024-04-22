@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FormElementDynamicDataSource = Initialize-PSSailpointBetaFormElementDynamicDataSource  -Config null `
+$FormElementDynamicDataSource = Initialize-BetaFormElementDynamicDataSource  -Config null `
  -DataSourceType STATIC
 ```
 

@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentitiesReportArguments = Initialize-PSSailpointIdentitiesReportArguments  -CorrelatedOnly true `
+$IdentitiesReportArguments = Initialize-IdentitiesReportArguments  -CorrelatedOnly true `
  -DefaultS3Bucket true `
  -S3Bucket the-dev-bucket
 ```

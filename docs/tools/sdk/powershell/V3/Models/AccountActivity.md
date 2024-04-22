@@ -35,7 +35,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountActivity = Initialize-PSSailpointAccountActivity  -Id 2c9180835d2e5168015d32f890ca1581 `
+$AccountActivity = Initialize-AccountActivity  -Id 2c9180835d2e5168015d32f890ca1581 `
  -Name 2c9180835d2e5168015d32f890ca1581 `
  -Created 2017-07-11T18:45:37.098Z `
  -Modified 2018-06-25T20:22:28.104Z `
@@ -48,7 +48,7 @@ $AccountActivity = Initialize-PSSailpointAccountActivity  -Id 2c9180835d2e516801
  -Warnings [Some warning, another warning] `
  -Items null `
  -ExecutionStatus null `
- -ClientMetadata {customKey1&#x3D;custom value 1, customKey2&#x3D;custom value 2}
+ -ClientMetadata {customKey1=custom value 1, customKey2=custom value 2}
 ```
 
 - Convert the resource to JSON

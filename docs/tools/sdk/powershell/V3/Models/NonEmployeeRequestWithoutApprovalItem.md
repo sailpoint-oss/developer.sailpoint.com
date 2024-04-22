@@ -38,7 +38,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NonEmployeeRequestWithoutApprovalItem = Initialize-PSSailpointNonEmployeeRequestWithoutApprovalItem  -Id ac110005-7156-1150-8171-5b292e3e0084 `
+$NonEmployeeRequestWithoutApprovalItem = Initialize-NonEmployeeRequestWithoutApprovalItem  -Id ac110005-7156-1150-8171-5b292e3e0084 `
  -Requester null `
  -AccountName william.smith `
  -FirstName William `
@@ -47,7 +47,7 @@ $NonEmployeeRequestWithoutApprovalItem = Initialize-PSSailpointNonEmployeeReques
  -Phone 5555555555 `
  -Manager jane.doe `
  -NonEmployeeSource null `
- -VarData {description&#x3D;Auditing} `
+ -VarData {description=Auditing} `
  -ApprovalStatus null `
  -Comment approved `
  -CompletionDate 2020-03-24T11:11:41.139-05:00 `

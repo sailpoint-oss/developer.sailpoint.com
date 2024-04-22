@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$OutlierContributingFeature = Initialize-PSSailpointBetaOutlierContributingFeature  -Id 66e38828-5017-47af-92ff-9844871352c5 `
+$OutlierContributingFeature = Initialize-BetaOutlierContributingFeature  -Id 66e38828-5017-47af-92ff-9844871352c5 `
  -Name entitlement_count `
  -ValueType INTEGER `
  -Value null `

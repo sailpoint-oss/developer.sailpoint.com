@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ViolationPrediction = Initialize-PSSailpointViolationPrediction  -ViolationContexts null
+$ViolationPrediction = Initialize-ViolationPrediction  -ViolationContexts null
 ```
 
 - Convert the resource to JSON

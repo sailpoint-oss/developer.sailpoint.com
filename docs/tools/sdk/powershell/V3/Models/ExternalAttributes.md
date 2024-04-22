@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ExternalAttributes = Initialize-PSSailpointExternalAttributes  -Name search-and-notify `
+$ExternalAttributes = Initialize-ExternalAttributes  -Name search-and-notify `
  -Description Run a search and notify the results
 ```
 

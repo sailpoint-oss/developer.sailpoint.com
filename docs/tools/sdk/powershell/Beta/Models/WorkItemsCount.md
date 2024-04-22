@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkItemsCount = Initialize-PSSailpointBetaWorkItemsCount  -Count 29
+$WorkItemsCount = Initialize-BetaWorkItemsCount  -Count 29
 ```
 
 - Convert the resource to JSON

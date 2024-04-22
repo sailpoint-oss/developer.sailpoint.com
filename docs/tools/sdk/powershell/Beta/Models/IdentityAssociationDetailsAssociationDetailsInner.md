@@ -23,8 +23,8 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityAssociationDetailsAssociationDetailsInner = Initialize-PSSailpointBetaIdentityAssociationDetailsAssociationDetailsInner  -AssociationType CAMPAIGN_OWNER `
- -Entities {id&#x3D;b660a232f05b4e04812ca974b3011e0f, name&#x3D;Gaston.800ddf9640a, type&#x3D;CAMPAIGN_CAMPAIGNER}
+$IdentityAssociationDetailsAssociationDetailsInner = Initialize-BetaIdentityAssociationDetailsAssociationDetailsInner  -AssociationType CAMPAIGN_OWNER `
+ -Entities {id=b660a232f05b4e04812ca974b3011e0f, name=Gaston.800ddf9640a, type=CAMPAIGN_CAMPAIGNER}
 ```
 
 - Convert the resource to JSON

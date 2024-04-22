@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FormItem = Initialize-PSSailpointBetaFormItem  -Name Field1
+$FormItem = Initialize-BetaFormItem  -Name Field1
 ```
 
 - Convert the resource to JSON

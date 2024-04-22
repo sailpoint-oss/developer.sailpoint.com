@@ -23,8 +23,8 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TransformDefinition = Initialize-PSSailpointBetaTransformDefinition  -Type accountAttribute `
- -Attributes {attributeName&#x3D;e-mail, sourceName&#x3D;MySource, sourceId&#x3D;2c9180877a826e68017a8c0b03da1a53}
+$TransformDefinition = Initialize-BetaTransformDefinition  -Type accountAttribute `
+ -Attributes {attributeName=e-mail, sourceName=MySource, sourceId=2c9180877a826e68017a8c0b03da1a53}
 ```
 
 - Convert the resource to JSON

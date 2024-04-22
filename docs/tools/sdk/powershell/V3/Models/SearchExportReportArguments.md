@@ -28,8 +28,8 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SearchExportReportArguments = Initialize-PSSailpointSearchExportReportArguments  -Indices [entitlements] `
- -Filters {source.id&#x3D;{type&#x3D;TERMS, terms&#x3D;[2c9180897termsId780bd2920576]}, source.name.exact&#x3D;{type&#x3D;TERMS, terms&#x3D;[IdentityNow], exclude&#x3D;true}} `
+$SearchExportReportArguments = Initialize-SearchExportReportArguments  -Indices [entitlements] `
+ -Filters {source.id={type=TERMS, terms=[2c9180897termsId780bd2920576]}, source.name.exact={type=TERMS, terms=[IdentityNow], exclude=true}} `
  -Query null `
  -IncludeNested true `
  -Sort [displayName, +id] `

@@ -18,7 +18,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getEntitlement**](#get-entitlement) | **GET** /entitlements/{id} | Get an entitlement
 [**getEntitlementRequestConfig**](#get-entitlement-request-config) | **GET** /entitlements/{id}/entitlement-request-config | Get Entitlement Request Config
-[**importEntitlementCsv**](#import-entitlement-csv) | **POST** /entitlements/aggregate/sources/{id} | Import Entitlement CSV File
+[**importEntitlements**](#import-entitlements) | **POST** /entitlements/aggregate/sources/{id} | Aggregate Entitlements
 [**listEntitlementChildren**](#list-entitlement-children) | **GET** /entitlements/{id}/children | List of entitlements children
 [**listEntitlementParents**](#list-entitlement-parents) | **GET** /entitlements/{id}/parents | List of entitlements parents
 [**listEntitlements**](#list-entitlements) | **GET** /entitlements | Gets a list of entitlements.
@@ -99,10 +99,12 @@ Code | Description  | Data Type
 [[Back to top]](#) 
 
 
-## import-entitlement-csv
+## import-entitlements
 
 
-Uploads a comma separated file (CSV) to a delimited file source and starts an entitlement aggregation on the source.   
+Starts an entitlement aggregation on the specified source. 
+If the target source is a direct connection, then the request body must be empty. You will also need to make sure the Content-Type header is not set. If you set the Content-Type header without specifying a body, then you will receive a 500 error.
+If the target source is a delimited file source, then the CSV file needs to be included in the request body. You will also need to set the Content-Type header to `multipart/form-data`.
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -118,7 +120,7 @@ Path   | Id | **String** | True  | Source Id
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Load Entitlements Task | LoadEntitlementTask
+202 | Aggregate Entitlements Task | LoadEntitlementTask
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto

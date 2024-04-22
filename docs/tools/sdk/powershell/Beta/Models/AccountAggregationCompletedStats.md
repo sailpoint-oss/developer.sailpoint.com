@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountAggregationCompletedStats = Initialize-PSSailpointBetaAccountAggregationCompletedStats  -Scanned 200 `
+$AccountAggregationCompletedStats = Initialize-BetaAccountAggregationCompletedStats  -Scanned 200 `
  -Unchanged 190 `
  -Changed 6 `
  -Added 4 `

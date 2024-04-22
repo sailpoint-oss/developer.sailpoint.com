@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TenantConfigurationRequest = Initialize-PSSailpointBetaTenantConfigurationRequest  -ConfigDetails null
+$TenantConfigurationRequest = Initialize-BetaTenantConfigurationRequest  -ConfigDetails null
 ```
 
 - Convert the resource to JSON

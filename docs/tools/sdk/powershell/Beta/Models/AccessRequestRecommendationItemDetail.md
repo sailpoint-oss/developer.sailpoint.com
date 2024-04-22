@@ -28,13 +28,13 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessRequestRecommendationItemDetail = Initialize-PSSailpointBetaAccessRequestRecommendationItemDetail  -IdentityId 2c91808570313110017040b06f344ec9 `
+$AccessRequestRecommendationItemDetail = Initialize-BetaAccessRequestRecommendationItemDetail  -IdentityId 2c91808570313110017040b06f344ec9 `
  -Access null `
  -Ignored true `
  -Requested true `
  -Viewed true `
  -Messages null `
- -TranslationMessages [{key&#x3D;recommender-api.V2_WEIGHT_FEATURE_PRODUCT_INTERPRETATION_HIGH, values&#x3D;[75, department]}]
+ -TranslationMessages [{key=recommender-api.V2_WEIGHT_FEATURE_PRODUCT_INTERPRETATION_HIGH, values=[75, department]}]
 ```
 
 - Convert the resource to JSON

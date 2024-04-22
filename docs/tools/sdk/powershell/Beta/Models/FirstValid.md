@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FirstValid = Initialize-PSSailpointBetaFirstValid  -Values [{attributes&#x3D;{sourceName&#x3D;Active Directory, attributeName&#x3D;sAMAccountName}, type&#x3D;accountAttribute}, {attributes&#x3D;{sourceName&#x3D;Okta, attributeName&#x3D;login}, type&#x3D;accountAttribute}, {attributes&#x3D;{sourceName&#x3D;HR Source, attributeName&#x3D;employeeID}, type&#x3D;accountAttribute}] `
+$FirstValid = Initialize-BetaFirstValid  -Values [{attributes={sourceName=Active Directory, attributeName=sAMAccountName}, type=accountAttribute}, {attributes={sourceName=Okta, attributeName=login}, type=accountAttribute}, {attributes={sourceName=HR Source, attributeName=employeeID}, type=accountAttribute}] `
  -IgnoreErrors false `
  -RequiresPeriodicRefresh false
 ```

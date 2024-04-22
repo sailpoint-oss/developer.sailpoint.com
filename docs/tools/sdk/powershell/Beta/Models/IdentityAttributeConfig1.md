@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityAttributeConfig1 = Initialize-PSSailpointBetaIdentityAttributeConfig1  -Enabled true `
+$IdentityAttributeConfig1 = Initialize-BetaIdentityAttributeConfig1  -Enabled true `
  -AttributeTransforms null
 ```
 

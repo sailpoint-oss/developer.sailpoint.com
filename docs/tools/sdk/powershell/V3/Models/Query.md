@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Query = Initialize-PSSailpointQuery  -Query name:a* `
+$Query = Initialize-Query  -Query name:a* `
  -Fields [name] `
  -TimeZone America/Chicago `
  -InnerHit null

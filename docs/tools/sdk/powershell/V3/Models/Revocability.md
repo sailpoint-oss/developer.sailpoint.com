@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Revocability = Initialize-PSSailpointRevocability  -ApprovalSchemes null
+$Revocability = Initialize-Revocability  -ApprovalSchemes null
 ```
 
 - Convert the resource to JSON

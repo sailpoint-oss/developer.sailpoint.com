@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'WorkgroupDto']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Owner** |  Pointer to [**OwnerDto**](owner-dto) |  | [optional] 
+**Owner** |  Pointer to [**WorkgroupDtoOwner**](workgroup-dto-owner) |  | [optional] 
 **Id** |  Pointer to **String** | Governance group ID. | [optional] [readonly] 
 **Name** |  Pointer to **String** | Governance group name. | [optional] 
 **Description** |  Pointer to **String** | Governance group description. | [optional] 
@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkgroupDto = Initialize-PSSailpointBetaWorkgroupDto  -Owner null `
+$WorkgroupDto = Initialize-BetaWorkgroupDto  -Owner null `
  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name DB Access Governance Group `
  -Description Description of the Governance Group `

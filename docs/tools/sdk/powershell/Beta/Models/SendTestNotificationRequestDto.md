@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SendTestNotificationRequestDto = Initialize-PSSailpointBetaSendTestNotificationRequestDto  -Key cloud_manual_work_item_summary `
+$SendTestNotificationRequestDto = Initialize-BetaSendTestNotificationRequestDto  -Key cloud_manual_work_item_summary `
  -Medium null `
  -Context null
 ```

@@ -23,8 +23,8 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceCode = Initialize-PSSailpointBetaSourceCode  -Version 1.0 `
- -Script return &quot;Mr. &quot; + firstName;
+$SourceCode = Initialize-BetaSourceCode  -Version 1.0 `
+ -Script return "Mr. " + firstName;
 ```
 
 - Convert the resource to JSON

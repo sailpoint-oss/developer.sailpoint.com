@@ -40,7 +40,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$GetOAuthClientResponse = Initialize-PSSailpointBetaGetOAuthClientResponse  -Id 2c9180835d2e5168015d32f890ca1581 `
+$GetOAuthClientResponse = Initialize-BetaGetOAuthClientResponse  -Id 2c9180835d2e5168015d32f890ca1581 `
  -BusinessName Acme-Solar `
  -HomepageUrl http://localhost:12345 `
  -Name Demo API Client `

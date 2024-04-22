@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ErrorMessageDto = Initialize-PSSailpointErrorMessageDto  -Locale en-US `
+$ErrorMessageDto = Initialize-ErrorMessageDto  -Locale en-US `
  -LocaleOrigin null `
  -Text The request was syntactically correct but its content is semantically invalid.
 ```

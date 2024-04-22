@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ApprovalStatusDtoCurrentOwner = Initialize-PSSailpointBetaApprovalStatusDtoCurrentOwner  -Type IDENTITY `
+$ApprovalStatusDtoCurrentOwner = Initialize-BetaApprovalStatusDtoCurrentOwner  -Type IDENTITY `
  -Id 2c3780a46faadee4016fb4e018c20652 `
  -Name Allen Albertson
 ```

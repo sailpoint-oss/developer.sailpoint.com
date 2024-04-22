@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessRequestContext = Initialize-PSSailpointBetaAccessRequestContext  -RequestedContext null `
+$AccessRequestContext = Initialize-BetaAccessRequestContext  -RequestedContext null `
  -AssignedContext null
 ```
 

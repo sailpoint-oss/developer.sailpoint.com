@@ -16,15 +16,15 @@ tags: ['SDK', 'Software Development Kit', 'Source1']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to **String** | The type of the source | [optional] 
-**Properties** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | The source properties | [optional] 
+**Type** |  Pointer to **String** | Source type. | [optional] 
+**Properties** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | Source properties. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$Source1 = Initialize-PSSailpointBetaSource1  -Type rule `
- -Properties {attribute&#x3D;null, sourceName&#x3D;Employees}
+$Source1 = Initialize-BetaSource1  -Type rule `
+ -Properties {attribute=null, sourceName=Employees}
 ```
 
 - Convert the resource to JSON

@@ -33,7 +33,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ReportDetailsArguments = Initialize-PSSailpointReportDetailsArguments  -Application 2c9180897eSourceIde781782f705b9 `
+$ReportDetailsArguments = Initialize-ReportDetailsArguments  -Application 2c9180897eSourceIde781782f705b9 `
  -SourceName DataScienceSourceName `
  -DefaultS3Bucket true `
  -S3Bucket the-dev-bucket `
@@ -41,7 +41,7 @@ $ReportDetailsArguments = Initialize-PSSailpointReportDetailsArguments  -Applica
  -AuthoritativeSource 1234sourceId5678902 `
  -SelectedFormats [CSV] `
  -Indices [entitlements] `
- -Filters {source.id&#x3D;{type&#x3D;TERMS, terms&#x3D;[2c9180897termsId780bd2920576]}, source.name.exact&#x3D;{type&#x3D;TERMS, terms&#x3D;[IdentityNow], exclude&#x3D;true}} `
+ -Filters {source.id={type=TERMS, terms=[2c9180897termsId780bd2920576]}, source.name.exact={type=TERMS, terms=[IdentityNow], exclude=true}} `
  -Query null `
  -IncludeNested true `
  -Sort [displayName, +id]

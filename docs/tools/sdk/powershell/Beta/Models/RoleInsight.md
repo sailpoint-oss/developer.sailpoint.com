@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleInsight = Initialize-PSSailpointBetaRoleInsight  -Id 1467e61e-f284-439c-ba2d-c6cc11cf0941 `
+$RoleInsight = Initialize-BetaRoleInsight  -Id 1467e61e-f284-439c-ba2d-c6cc11cf0941 `
  -NumberOfUpdates 5 `
  -CreatedDate 2020-05-19T13:49:37.385Z `
  -Role null `

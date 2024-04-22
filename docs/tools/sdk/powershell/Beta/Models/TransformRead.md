@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TransformRead = Initialize-PSSailpointBetaTransformRead  -Name Timestamp To Date `
+$TransformRead = Initialize-BetaTransformRead  -Name Timestamp To Date `
  -Type dateFormat `
  -Attributes null `
  -Id 2cd78adghjkja34jh2b1hkjhasuecd `

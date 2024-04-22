@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkflowLibraryFormFields = Initialize-PSSailpointWorkflowLibraryFormFields  -HelpText The name to give to this certification campaign. `
+$WorkflowLibraryFormFields = Initialize-WorkflowLibraryFormFields  -HelpText The name to give to this certification campaign. `
  -Label Campaign Name `
  -Name name `
  -Required false `

@@ -36,7 +36,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$GetHistoricalIdentityEvents200ResponseInner = Initialize-PSSailpointBetaGetHistoricalIdentityEvents200ResponseInner  -AccessItem null `
+$GetHistoricalIdentityEvents200ResponseInner = Initialize-BetaGetHistoricalIdentityEvents200ResponseInner  -AccessItem null `
  -IdentityId null `
  -EventType null `
  -Dt null `
@@ -46,8 +46,8 @@ $GetHistoricalIdentityEvents200ResponseInner = Initialize-PSSailpointBetaGetHist
  -CertificationId 2c91808a77ff216301782327a50f09bf `
  -CertificationName Cert name `
  -SignedDate 2019-03-08T22:37:33.901Z `
- -Certifiers [{id&#x3D;8a80828f643d484f01643e14202e206f, displayName&#x3D;John Snow}] `
- -Reviewers [{id&#x3D;8a80828f643d484f01643e14202e206f, displayName&#x3D;John Snow}] `
+ -Certifiers [{id=8a80828f643d484f01643e14202e206f, displayName=John Snow}] `
+ -Reviewers [{id=8a80828f643d484f01643e14202e206f, displayName=John Snow}] `
  -Signer null `
  -Account null `
  -StatusChange null

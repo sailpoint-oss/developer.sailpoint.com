@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PostExternalExecuteWorkflow200Response = Initialize-PSSailpointBetaPostExternalExecuteWorkflow200Response  -WorkflowExecutionId 0e11cefa-96e7-4b67-90d0-065bc1da5753 `
+$PostExternalExecuteWorkflow200Response = Initialize-BetaPostExternalExecuteWorkflow200Response  -WorkflowExecutionId 0e11cefa-96e7-4b67-90d0-065bc1da5753 `
  -Message Workflow was not executed externally. Check enabled flag on workflow definition
 ```
 

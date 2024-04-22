@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CompletedApprovalReviewerComment = Initialize-PSSailpointBetaCompletedApprovalReviewerComment  -Comment This is a comment. `
+$CompletedApprovalReviewerComment = Initialize-BetaCompletedApprovalReviewerComment  -Comment This is a comment. `
  -Author null `
  -Created 2017-07-11T18:45:37.098Z
 ```

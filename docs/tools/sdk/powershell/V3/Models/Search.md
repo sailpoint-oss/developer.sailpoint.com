@@ -37,11 +37,11 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Search = Initialize-PSSailpointSearch  -Indices [identities] `
+$Search = Initialize-Search  -Indices [identities] `
  -QueryType null `
  -QueryVersion null `
  -Query null `
- -QueryDsl {match&#x3D;{name&#x3D;john.doe}} `
+ -QueryDsl {match={name=john.doe}} `
  -TextQuery null `
  -TypeAheadQuery null `
  -IncludeNested true `

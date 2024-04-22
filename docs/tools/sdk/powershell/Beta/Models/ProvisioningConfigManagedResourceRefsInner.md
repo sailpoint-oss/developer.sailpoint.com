@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ProvisioningConfigManagedResourceRefsInner = Initialize-PSSailpointBetaProvisioningConfigManagedResourceRefsInner  -Type SOURCE `
+$ProvisioningConfigManagedResourceRefsInner = Initialize-BetaProvisioningConfigManagedResourceRefsInner  -Type SOURCE `
  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name My Source
 ```

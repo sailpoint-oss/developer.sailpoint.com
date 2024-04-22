@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AttrSyncSourceAttributeConfig = Initialize-PSSailpointBetaAttrSyncSourceAttributeConfig  -Name email `
+$AttrSyncSourceAttributeConfig = Initialize-BetaAttrSyncSourceAttributeConfig  -Name email `
  -DisplayName Email `
  -Enabled true `
  -Target mail

@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Identity = Initialize-PSSailpointBetaIdentity  -Id id12345 `
+$Identity = Initialize-BetaIdentity  -Id id12345 `
  -Name aName `
  -Created 2023-01-03T21:16:22.432Z `
  -Modified 2023-01-03T21:16:22.432Z `
@@ -45,7 +45,7 @@ $Identity = Initialize-PSSailpointBetaIdentity  -Id id12345 `
  -ManagerRef null `
  -IsManager true `
  -LastRefresh 2020-11-22T15:42:31.123Z `
- -Attributes {&quot;uid&quot;:&quot;Walter White&quot;,&quot;firstname&quot;:&quot;walter&quot;,&quot;cloudStatus&quot;:&quot;UNREGISTERED&quot;,&quot;displayName&quot;:&quot;Walter White&quot;,&quot;identificationNumber&quot;:&quot;942&quot;,&quot;lastSyncDate&quot;:1470348809380,&quot;email&quot;:&quot;walter@gmail.com&quot;,&quot;lastname&quot;:&quot;white&quot;} `
+ -Attributes {"uid":"Walter White","firstname":"walter","cloudStatus":"UNREGISTERED","displayName":"Walter White","identificationNumber":"942","lastSyncDate":1470348809380,"email":"walter@gmail.com","lastname":"white"} `
  -LifecycleState null
 ```
 

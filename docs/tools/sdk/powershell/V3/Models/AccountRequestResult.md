@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountRequestResult = Initialize-PSSailpointAccountRequestResult  -Errors null `
+$AccountRequestResult = Initialize-AccountRequestResult  -Errors null `
  -Status failed `
  -TicketId null
 ```

@@ -16,15 +16,15 @@ tags: ['SDK', 'Software Development Kit', 'ManagerCorrelationMapping']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccountAttribute** |  Pointer to **String** | Name of the attribute to use for manager correlation. The value found on the account attribute will be used to lookup the manager&#39;s identity. | [optional] 
-**IdentityAttribute** |  Pointer to **String** | Name of the identity attribute to search when trying to find a manager using the value from the accountAttribute. | [optional] 
+**AccountAttributeName** |  Pointer to **String** | Name of the attribute to use for manager correlation. The value found on the account attribute will be used to lookup the manager&#39;s identity. | [optional] 
+**IdentityAttributeName** |  Pointer to **String** | Name of the identity attribute to search when trying to find a manager using the value from the accountAttribute. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$ManagerCorrelationMapping = Initialize-PSSailpointBetaManagerCorrelationMapping  -AccountAttribute manager `
- -IdentityAttribute manager
+$ManagerCorrelationMapping = Initialize-BetaManagerCorrelationMapping  -AccountAttributeName manager `
+ -IdentityAttributeName manager
 ```
 
 - Convert the resource to JSON

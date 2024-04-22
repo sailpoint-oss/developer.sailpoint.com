@@ -18,13 +18,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** |  Pointer to  **Enum** [  "IDENTITY" ] | Owner&#39;s DTO type. | [optional] 
 **Id** |  Pointer to **String** | Owner&#39;s identity ID. | [optional] 
-**Name** |  Pointer to **String** | Owner&#39;s display name. | [optional] 
+**Name** |  Pointer to **String** | Owner&#39;s name. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$ViolationOwnerAssignmentConfigOwnerRef = Initialize-PSSailpointViolationOwnerAssignmentConfigOwnerRef  -Type IDENTITY `
+$ViolationOwnerAssignmentConfigOwnerRef = Initialize-ViolationOwnerAssignmentConfigOwnerRef  -Type IDENTITY `
  -Id 2c9180a46faadee4016fb4e018c20639 `
  -Name Support
 ```

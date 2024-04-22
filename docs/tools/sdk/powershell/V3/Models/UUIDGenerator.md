@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$UUIDGenerator = Initialize-PSSailpointUUIDGenerator  -RequiresPeriodicRefresh false
+$UUIDGenerator = Initialize-UUIDGenerator  -RequiresPeriodicRefresh false
 ```
 
 - Convert the resource to JSON

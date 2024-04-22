@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceUsageStatus = Initialize-PSSailpointSourceUsageStatus  -Status COMPLETE
+$SourceUsageStatus = Initialize-SourceUsageStatus  -Status COMPLETE
 ```
 
 - Convert the resource to JSON

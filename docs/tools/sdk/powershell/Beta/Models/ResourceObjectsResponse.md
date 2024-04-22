@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ResourceObjectsResponse = Initialize-PSSailpointBetaResourceObjectsResponse  -Id 2c91808568c529c60168cca6f90c1313 `
+$ResourceObjectsResponse = Initialize-BetaResourceObjectsResponse  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name ODS-AD-Test [source-999999] `
  -ObjectCount 25 `
  -ElapsedMillis 1055 `

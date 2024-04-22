@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NonEmployeeSchemaAttribute = Initialize-PSSailpointNonEmployeeSchemaAttribute  -Id ac110005-7156-1150-8171-5b292e3e0084 `
+$NonEmployeeSchemaAttribute = Initialize-NonEmployeeSchemaAttribute  -Id ac110005-7156-1150-8171-5b292e3e0084 `
  -System true `
  -Modified 2019-08-23T18:52:59.162Z `
  -Created 2019-08-23T18:40:35.772Z `

@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PeerGroupMember = Initialize-PSSailpointBetaPeerGroupMember  -Id null `
+$PeerGroupMember = Initialize-BetaPeerGroupMember  -Id null `
  -Type null `
  -PeerGroupId null `
  -Attributes null

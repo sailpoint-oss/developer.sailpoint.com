@@ -29,13 +29,13 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$V3ConnectorDto = Initialize-PSSailpointV3ConnectorDto  -Name name `
+$V3ConnectorDto = Initialize-V3ConnectorDto  -Name name `
  -Type ServiceNow `
  -ScriptName servicenow `
  -ClassName sailpoint.connector.OpenConnectorAdapter `
  -Features [PROVISIONING, SYNC_PROVISIONING, SEARCH, UNSTRUCTURED_TARGETS] `
  -DirectConnect true `
- -ConnectorMetadata {supportedUI&#x3D;ANGULAR, platform&#x3D;ccg, shortDesc&#x3D;connector description} `
+ -ConnectorMetadata {supportedUI=ANGULAR, platform=ccg, shortDesc=connector description} `
  -Status RELEASED
 ```
 

@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CompletedApprovalPreApprovalTriggerResult = Initialize-PSSailpointCompletedApprovalPreApprovalTriggerResult  -Comment This request was autoapproved by our automated ETS subscriber `
+$CompletedApprovalPreApprovalTriggerResult = Initialize-CompletedApprovalPreApprovalTriggerResult  -Comment This request was autoapproved by our automated ETS subscriber `
  -Decision null `
  -Reviewer Automated AR Approval `
  -Date 2022-06-07T19:18:40.748Z

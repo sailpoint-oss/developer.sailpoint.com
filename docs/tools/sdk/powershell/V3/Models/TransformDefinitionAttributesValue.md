@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TransformDefinitionAttributesValue = Initialize-PSSailpointTransformDefinitionAttributesValue 
+$TransformDefinitionAttributesValue = Initialize-TransformDefinitionAttributesValue 
 ```
 
 - Convert the resource to JSON

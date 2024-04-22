@@ -23,14 +23,13 @@ Method | HTTP request | Description
 [**deleteVerifiedFromAddress**](#delete-verified-from-address) | **DELETE** /verified-from-addresses/{id} | Delete Verified From Address
 [**getDkimAttributes**](#get-dkim-attributes) | **GET** /verified-domains | Get DKIM Attributes
 [**getMailFromAttributes**](#get-mail-from-attributes) | **GET** /mail-from-attributes/{identity} | Get MAIL FROM Attributes
-[**getNotificationPreference**](#get-notification-preference) | **GET** /notification-preferences/{key} | Get Notification Preferences for tenant.
 [**getNotificationTemplate**](#get-notification-template) | **GET** /notification-templates/{id} | Get Notification Template By Id
 [**getNotificationsTemplateContext**](#get-notifications-template-context) | **GET** /notification-template-context | Get Notification Template Context
 [**listFromAddresses**](#list-from-addresses) | **GET** /verified-from-addresses | List From Addresses
+[**listNotificationPreferences**](#list-notification-preferences) | **GET** /notification-preferences/{key} | List Notification Preferences for tenant.
 [**listNotificationTemplateDefaults**](#list-notification-template-defaults) | **GET** /notification-template-defaults | List Notification Template Defaults
 [**listNotificationTemplates**](#list-notification-templates) | **GET** /notification-templates | List Notification Templates
 [**putMailFromAttributes**](#put-mail-from-attributes) | **PUT** /mail-from-attributes | Change MAIL FROM domain
-[**putNotificationPreference**](#put-notification-preference) | **PUT** /notification-preferences/{key} | Overwrite preferences notification key.
 [**sendTestNotification**](#send-test-notification) | **POST** /send-test-notification | Send Test Notification
 
 
@@ -276,41 +275,6 @@ Code | Description  | Data Type
 [[Back to top]](#) 
 
 
-## get-notification-preference
-
-
-Returns the notification preferences for tenant.  Note that if the key doesn't exist, then a 404 will be returned.
-
-### Parameters 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Key | **String** | True  | The notification key.
-
-	
-### Return type
-
-[**PreferencesDto**](../models/preferences-dto)
-
-### Responses
-Code | Description  | Data Type
-------------- | ------------- | -------------
-200 | Return preference for the given notification key. | PreferencesDto
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
-
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) 
-
-
 ## get-notification-template
 
 
@@ -404,6 +368,40 @@ Code | Description  | Data Type
 200 | List of Email Status | EmailStatusDto[]
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) 
+
+
+## list-notification-preferences
+
+
+Returns a list of notification preferences for tenant.
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+
+	
+### Return type
+
+[**PreferencesDto[]**](../models/preferences-dto)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | Return preference for the given notification key. | PreferencesDto[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
@@ -510,42 +508,6 @@ Code | Description  | Data Type
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
-
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) 
-
-
-## put-notification-preference
-
-
-Allows admins to opt in to or out of certain notifications for their org. The default state is opted in. `key` is optional but if it is provided and doesn't match the key in the URI, then a 400 will be thrown.
-
-### Parameters 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Key | **String** | True  | The notification key.
- Body  | PreferencesDto | [**PreferencesDto**](../models/preferences-dto) | True  | 
-
-	
-### Return type
-
-[**PreferencesDto**](../models/preferences-dto)
-
-### Responses
-Code | Description  | Data Type
-------------- | ------------- | -------------
-200 | The preferences were successfully replaced, and an echo of the new preferences are sent back to caller. | PreferencesDto
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 

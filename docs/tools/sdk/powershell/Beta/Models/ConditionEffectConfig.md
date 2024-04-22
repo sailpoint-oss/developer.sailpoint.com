@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConditionEffectConfig = Initialize-PSSailpointBetaConditionEffectConfig  -DefaultValueLabel Access to Remove `
+$ConditionEffectConfig = Initialize-BetaConditionEffectConfig  -DefaultValueLabel Access to Remove `
  -Element 8110662963316867
 ```
 

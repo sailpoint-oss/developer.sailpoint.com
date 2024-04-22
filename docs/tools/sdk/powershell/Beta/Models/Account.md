@@ -42,14 +42,14 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Account = Initialize-PSSailpointBetaAccount  -Id id12345 `
+$Account = Initialize-BetaAccount  -Id id12345 `
  -Name aName `
  -Created 2023-01-03T21:16:22.432Z `
  -Modified 2023-01-03T21:16:22.432Z `
  -SourceId 2c9180835d2e5168015d32f890ca1581 `
  -SourceName Employees `
  -IdentityId 2c9180835d2e5168015d32f890ca1581 `
- -Attributes {firstName&#x3D;SailPoint, lastName&#x3D;Support, displayName&#x3D;SailPoint Support} `
+ -Attributes {firstName=SailPoint, lastName=Support, displayName=SailPoint Support} `
  -Authoritative false `
  -Description null `
  -Disabled false `

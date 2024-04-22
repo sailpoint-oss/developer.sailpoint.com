@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$BaseAccount = Initialize-PSSailpointBaseAccount  -Id 2c91808568c529c60168cca6f90c1313 `
+$BaseAccount = Initialize-BaseAccount  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name John Doe `
  -AccountId John.Doe `
  -Source null `
@@ -41,7 +41,7 @@ $BaseAccount = Initialize-PSSailpointBaseAccount  -Id 2c91808568c529c60168cca6f9
  -Privileged false `
  -ManuallyCorrelated false `
  -PasswordLastSet 2018-06-25T20:22:28.104Z `
- -EntitlementAttributes {moderator&#x3D;true, admin&#x3D;true, trust_level&#x3D;4} `
+ -EntitlementAttributes {moderator=true, admin=true, trust_level=4} `
  -Created 2018-06-25T20:22:28.104Z
 ```
 

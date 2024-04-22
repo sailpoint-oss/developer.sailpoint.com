@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountAttributesChangedChangesInner = Initialize-PSSailpointBetaAccountAttributesChangedChangesInner  -Attribute sn `
+$AccountAttributesChangedChangesInner = Initialize-BetaAccountAttributesChangedChangesInner  -Attribute sn `
  -OldValue null `
  -NewValue null
 ```

@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$EvaluateResponse = Initialize-PSSailpointBetaEvaluateResponse  -ReassignToId 869320b6b6f34a169b6178b1a865e66f `
+$EvaluateResponse = Initialize-BetaEvaluateResponse  -ReassignToId 869320b6b6f34a169b6178b1a865e66f `
  -LookupTrail null
 ```
 

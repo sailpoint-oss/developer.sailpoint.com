@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ReviewableEntitlementAccount = Initialize-PSSailpointReviewableEntitlementAccount  -NativeIdentity CN&#x3D;Alison Ferguso `
+$ReviewableEntitlementAccount = Initialize-ReviewableEntitlementAccount  -NativeIdentity CN=Alison Ferguso `
  -Disabled false `
  -Locked false `
  -Type null `

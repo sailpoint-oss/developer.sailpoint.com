@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FormError = Initialize-PSSailpointBetaFormError  -Key department `
+$FormError = Initialize-BetaFormError  -Key department `
  -Messages null `
  -Value Engineering
 ```

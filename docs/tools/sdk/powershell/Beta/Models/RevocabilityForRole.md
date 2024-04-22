@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RevocabilityForRole = Initialize-PSSailpointBetaRevocabilityForRole  -CommentsRequired false `
+$RevocabilityForRole = Initialize-BetaRevocabilityForRole  -CommentsRequired false `
  -DenialCommentsRequired false `
  -ApprovalSchemes null
 ```

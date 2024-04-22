@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceManagementWorkgroup = Initialize-PSSailpointBetaSourceManagementWorkgroup  -Type GOVERNANCE_GROUP `
+$SourceManagementWorkgroup = Initialize-BetaSourceManagementWorkgroup  -Type GOVERNANCE_GROUP `
  -Id 2c91808568c529c60168cca6f90c2222 `
  -Name My Management Workgroup
 ```

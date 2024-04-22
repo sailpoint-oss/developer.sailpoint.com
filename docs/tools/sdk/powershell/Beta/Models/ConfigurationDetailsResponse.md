@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConfigurationDetailsResponse = Initialize-PSSailpointBetaConfigurationDetailsResponse  -ConfigType null `
+$ConfigurationDetailsResponse = Initialize-BetaConfigurationDetailsResponse  -ConfigType null `
  -TargetIdentity null `
  -StartDate 2022-07-21T11:13:12.345Z `
  -EndDate 0001-01-01T00:00Z `

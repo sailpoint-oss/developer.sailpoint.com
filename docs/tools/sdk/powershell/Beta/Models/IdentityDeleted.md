@@ -23,8 +23,8 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityDeleted = Initialize-PSSailpointBetaIdentityDeleted  -Identity null `
- -Attributes {firstname&#x3D;John}
+$IdentityDeleted = Initialize-BetaIdentityDeleted  -Identity null `
+ -Attributes {firstname=John}
 ```
 
 - Convert the resource to JSON

@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FormElementPreviewRequest = Initialize-PSSailpointBetaFormElementPreviewRequest  -DataSource null
+$FormElementPreviewRequest = Initialize-BetaFormElementPreviewRequest  -DataSource null
 ```
 
 - Convert the resource to JSON

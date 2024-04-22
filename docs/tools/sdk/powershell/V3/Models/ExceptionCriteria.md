@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ExceptionCriteria = Initialize-PSSailpointExceptionCriteria  -CriteriaList [{type&#x3D;ENTITLEMENT, id&#x3D;2c9180866166b5b0016167c32ef31a66, existing&#x3D;true}, {type&#x3D;ENTITLEMENT, id&#x3D;2c9180866166b5b0016167c32ef31a67, existing&#x3D;false}]
+$ExceptionCriteria = Initialize-ExceptionCriteria  -CriteriaList [{type=ENTITLEMENT, id=2c9180866166b5b0016167c32ef31a66, existing=true}, {type=ENTITLEMENT, id=2c9180866166b5b0016167c32ef31a67, existing=false}]
 ```
 
 - Convert the resource to JSON

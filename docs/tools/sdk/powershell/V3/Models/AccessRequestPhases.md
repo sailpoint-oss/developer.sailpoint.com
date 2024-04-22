@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessRequestPhases = Initialize-PSSailpointAccessRequestPhases  -Started 2020-07-11T00:00Z `
+$AccessRequestPhases = Initialize-AccessRequestPhases  -Started 2020-07-11T00:00Z `
  -Finished 2020-07-12T00:00Z `
  -Name APPROVAL_PHASE `
  -State COMPLETED `

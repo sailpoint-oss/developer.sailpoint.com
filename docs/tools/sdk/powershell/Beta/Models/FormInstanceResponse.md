@@ -36,15 +36,15 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FormInstanceResponse = Initialize-PSSailpointBetaFormInstanceResponse  -Created 2023-07-12T20:14:57.744860Z `
+$FormInstanceResponse = Initialize-BetaFormInstanceResponse  -Created 2023-07-12T20:14:57.744860Z `
  -CreatedBy null `
  -Expire 2023-08-12T20:14:57.74486Z `
  -FormConditions null `
- -FormData {department&#x3D;Engineering} `
+ -FormData {department=Engineering} `
  -FormDefinitionId 00000000-0000-0000-0000-000000000000 `
  -FormElements null `
  -FormErrors null `
- -FormInput {input1&#x3D;Sales} `
+ -FormInput {input1=Sales} `
  -Id 00000000-0000-0000-0000-000000000000 `
  -Modified 2023-07-12T20:14:57.744860Z `
  -Recipients null `

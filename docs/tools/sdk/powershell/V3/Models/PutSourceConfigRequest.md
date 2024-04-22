@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PutSourceConfigRequest = Initialize-PSSailpointPutSourceConfigRequest  -File null
+$PutSourceConfigRequest = Initialize-PutSourceConfigRequest  -File null
 ```
 
 - Convert the resource to JSON

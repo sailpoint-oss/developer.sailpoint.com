@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Reviewer = Initialize-PSSailpointBetaReviewer  -Type IDENTITY `
+$Reviewer = Initialize-BetaReviewer  -Type IDENTITY `
  -Id 2c7180a46faadee4016fb4e018c20642 `
  -Name Michael Michaels `
  -Email reviewer@test.com

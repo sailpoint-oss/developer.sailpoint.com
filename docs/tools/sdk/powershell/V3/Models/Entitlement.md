@@ -35,18 +35,18 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Entitlement = Initialize-PSSailpointEntitlement  -Id 2c91808874ff91550175097daaec161c `
+$Entitlement = Initialize-Entitlement  -Id 2c91808874ff91550175097daaec161c `
  -Name LauncherTest2 `
  -Attribute memberOf `
- -Value CN&#x3D;LauncherTest2,OU&#x3D;LauncherTestOrg,OU&#x3D;slpt-automation,DC&#x3D;TestAutomationAD,DC&#x3D;local `
+ -Value CN=LauncherTest2,OU=LauncherTestOrg,OU=slpt-automation,DC=TestAutomationAD,DC=local `
  -SourceSchemaObjectType group `
- -Description CN&#x3D;LauncherTest2,OU&#x3D;LauncherTestOrg,OU&#x3D;slpt-automation,DC&#x3D;TestAutomationAD,DC&#x3D;local `
+ -Description CN=LauncherTest2,OU=LauncherTestOrg,OU=slpt-automation,DC=TestAutomationAD,DC=local `
  -Privileged true `
  -CloudGoverned true `
  -Created 2020-10-08T18:33:52.029Z `
  -Modified 2020-10-08T18:33:52.029Z `
  -Source null `
- -Attributes {fieldName&#x3D;fieldValue} `
+ -Attributes {fieldName=fieldValue} `
  -Segments [f7b1b8a3-5fed-4fd4-ad29-82014e137e19, 29cb6c06-1da8-43ea-8be4-b3125f248f2a] `
  -DirectPermissions null
 ```

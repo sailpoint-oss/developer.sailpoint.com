@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessProfileEntitlement = Initialize-PSSailpointAccessProfileEntitlement  -Id 2c91808568c529c60168cca6f90c1313 `
+$AccessProfileEntitlement = Initialize-AccessProfileEntitlement  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name John Doe `
  -DisplayName John Q. Doe `
  -Type null `
@@ -39,7 +39,7 @@ $AccessProfileEntitlement = Initialize-PSSailpointAccessProfileEntitlement  -Id 
  -Source null `
  -Privileged false `
  -Attribute memberOf `
- -Value CN&#x3D;Buyer,OU&#x3D;Groups,OU&#x3D;Demo,DC&#x3D;seri,DC&#x3D;sailpointdemo,DC&#x3D;com `
+ -Value CN=Buyer,OU=Groups,OU=Demo,DC=seri,DC=sailpointdemo,DC=com `
  -Standalone false
 ```
 

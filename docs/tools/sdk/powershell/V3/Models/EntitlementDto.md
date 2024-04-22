@@ -33,14 +33,14 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$EntitlementDto = Initialize-PSSailpointEntitlementDto  -Id id12345 `
+$EntitlementDto = Initialize-EntitlementDto  -Id id12345 `
  -Name aName `
  -Created 2015-05-28T14:07:17Z `
  -Modified 2015-05-28T14:07:17Z `
  -Attribute authorizationType `
- -Value CN&#x3D;Users,dc&#x3D;sailpoint,dc&#x3D;com `
+ -Value CN=Users,dc=sailpoint,dc=com `
  -Description Active Directory DC `
- -Attributes {GroupType&#x3D;Security, sAMAccountName&#x3D;Buyer} `
+ -Attributes {GroupType=Security, sAMAccountName=Buyer} `
  -SourceSchemaObjectType group `
  -Privileged false `
  -CloudGoverned false `

@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConfigType = Initialize-PSSailpointBetaConfigType  -Priority 1 `
+$ConfigType = Initialize-BetaConfigType  -Priority 1 `
  -InternalName null `
  -InternalNameCamel null `
  -DisplayName Access Requests `

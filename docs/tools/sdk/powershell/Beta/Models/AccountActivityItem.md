@@ -37,7 +37,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountActivityItem = Initialize-PSSailpointBetaAccountActivityItem  -Id 48c545831b264409a81befcabb0e3c5a `
+$AccountActivityItem = Initialize-BetaAccountActivityItem  -Id 48c545831b264409a81befcabb0e3c5a `
  -Name 48c545831b264409a81befcabb0e3c5a `
  -Requested 2017-07-11T18:45:37.098Z `
  -ApprovalStatus null `
@@ -51,7 +51,7 @@ $AccountActivityItem = Initialize-PSSailpointBetaAccountActivityItem  -Id 48c545
  -NativeIdentity Sandie.Camero `
  -SourceId 2c91808363ef85290164000587130c0c `
  -AccountRequestInfo null `
- -ClientMetadata {customKey1&#x3D;custom value 1, customKey2&#x3D;custom value 2} `
+ -ClientMetadata {customKey1=custom value 1, customKey2=custom value 2} `
  -RemoveDate 2020-07-11T00:00Z
 ```
 

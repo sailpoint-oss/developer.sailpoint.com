@@ -38,7 +38,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NonEmployeeRequestWithoutApprovalItem = Initialize-PSSailpointBetaNonEmployeeRequestWithoutApprovalItem  -Id null `
+$NonEmployeeRequestWithoutApprovalItem = Initialize-BetaNonEmployeeRequestWithoutApprovalItem  -Id null `
  -Requester null `
  -AccountName william.smith `
  -FirstName William `

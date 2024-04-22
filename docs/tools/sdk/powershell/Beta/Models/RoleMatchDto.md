@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMatchDto = Initialize-PSSailpointBetaRoleMatchDto  -RoleName Engineer `
+$RoleMatchDto = Initialize-BetaRoleMatchDto  -RoleName Engineer `
  -MatchedAttributes null
 ```
 

@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CommentDto1 = Initialize-PSSailpointBetaCommentDto1  -Comment This is a comment. `
+$CommentDto1 = Initialize-BetaCommentDto1  -Comment This is a comment. `
  -Created 2017-07-11T18:45:37.098Z `
  -Author null
 ```

@@ -55,7 +55,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityDocument = Initialize-PSSailpointIdentityDocument  -Id 2c91808568c529c60168cca6f90c1313 `
+$IdentityDocument = Initialize-IdentityDocument  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name John Doe `
  -Type null `
  -DisplayName Carol.Adams `
@@ -74,7 +74,7 @@ $IdentityDocument = Initialize-PSSailpointIdentityDocument  -Id 2c91808568c529c6
  -IsManager false `
  -IdentityProfile null `
  -Source null `
- -Attributes {country&#x3D;US, firstname&#x3D;Carol, cloudStatus&#x3D;UNREGISTERED} `
+ -Attributes {country=US, firstname=Carol, cloudStatus=UNREGISTERED} `
  -ProcessingState null `
  -ProcessingDetails null `
  -Accounts null `

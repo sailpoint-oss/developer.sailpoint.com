@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AttributeDefinition = Initialize-PSSailpointAttributeDefinition  -Name sAMAccountName `
+$AttributeDefinition = Initialize-AttributeDefinition  -Name sAMAccountName `
  -Type null `
  -Schema null `
  -Description SAM Account Name `

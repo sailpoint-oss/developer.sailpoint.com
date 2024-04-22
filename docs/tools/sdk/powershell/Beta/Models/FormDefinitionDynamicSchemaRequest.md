@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FormDefinitionDynamicSchemaRequest = Initialize-PSSailpointBetaFormDefinitionDynamicSchemaRequest  -Attributes null `
+$FormDefinitionDynamicSchemaRequest = Initialize-BetaFormDefinitionDynamicSchemaRequest  -Attributes null `
  -Description A description `
  -Id 00000000-0000-0000-0000-000000000000 `
  -Type action `

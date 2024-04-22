@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PublicIdentityConfig = Initialize-PSSailpointBetaPublicIdentityConfig  -Attributes null `
+$PublicIdentityConfig = Initialize-BetaPublicIdentityConfig  -Attributes null `
  -ModifiedBy null `
  -Modified 2018-06-25T20:22:28.104Z
 ```

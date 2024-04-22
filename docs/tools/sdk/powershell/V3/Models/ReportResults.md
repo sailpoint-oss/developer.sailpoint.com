@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ReportResults = Initialize-PSSailpointReportResults  -ReportType IDENTITIES_DETAILS `
+$ReportResults = Initialize-ReportResults  -ReportType IDENTITIES_DETAILS `
  -TaskDefName Identities Details Report `
  -Id a248c16fe22222b2bd49615481311111 `
  -Created null `

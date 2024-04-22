@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMiningSessionDto = Initialize-PSSailpointBetaRoleMiningSessionDto  -Scope null `
+$RoleMiningSessionDto = Initialize-BetaRoleMiningSessionDto  -Scope null `
  -PruneThreshold 5 `
  -PrescribedPruneThreshold 10 `
  -MinNumIdentitiesInPotentialRole 20 `

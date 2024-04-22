@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CampaignReport = Initialize-PSSailpointCampaignReport  -Type REPORT_RESULT `
+$CampaignReport = Initialize-CampaignReport  -Type REPORT_RESULT `
  -Id 2c9180835d191a86015d28455b4b232a `
  -Name SOD Policy 1 Violation `
  -Status PENDING `

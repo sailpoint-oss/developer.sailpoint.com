@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$GetReferenceIdentityAttribute = Initialize-PSSailpointBetaGetReferenceIdentityAttribute  -Name Cloud Services Deployment Utility `
+$GetReferenceIdentityAttribute = Initialize-BetaGetReferenceIdentityAttribute  -Name Cloud Services Deployment Utility `
  -Operation getReferenceIdentityAttribute `
  -Uid 2c91808570313110017040b06f344ec9 `
  -RequiresPeriodicRefresh false

@@ -89,7 +89,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SearchDocument = Initialize-PSSailpointSearchDocument  -Id 2c91808568c529c60168cca6f90c1313 `
+$SearchDocument = Initialize-SearchDocument  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name John Doe `
  -Description The admin role `
  -Created 2018-06-25T20:22:28.104Z `
@@ -130,7 +130,7 @@ $SearchDocument = Initialize-PSSailpointSearchDocument  -Id 2c91808568c529c60168
  -Stack tpe `
  -IpAddress 52.52.97.85 `
  -Details 73b65dfbed1842548c207432a18c84b0 `
- -Attributes {country&#x3D;US, firstname&#x3D;Carol, cloudStatus&#x3D;UNREGISTERED} `
+ -Attributes {country=US, firstname=Carol, cloudStatus=UNREGISTERED} `
  -Objects null `
  -Operation REQUEST `
  -TechnicalName AUTHENTICATION_REQUEST_PASSED `

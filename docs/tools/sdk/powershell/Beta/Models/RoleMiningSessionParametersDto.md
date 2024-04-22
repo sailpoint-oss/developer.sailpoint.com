@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMiningSessionParametersDto = Initialize-PSSailpointBetaRoleMiningSessionParametersDto  -Id 9f36f5e5-1e81-4eca-b087-548959d91c71 `
+$RoleMiningSessionParametersDto = Initialize-BetaRoleMiningSessionParametersDto  -Id 9f36f5e5-1e81-4eca-b087-548959d91c71 `
  -Name Saved RM Session - 07/10 `
  -MinNumIdentitiesInPotentialRole 20 `
  -PruneThreshold 5 `

@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ViolationContextPolicy = Initialize-PSSailpointViolationContextPolicy  -Type ENTITLEMENT `
+$ViolationContextPolicy = Initialize-ViolationContextPolicy  -Type ENTITLEMENT `
  -Id 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde `
  -Name A very cool policy name
 ```

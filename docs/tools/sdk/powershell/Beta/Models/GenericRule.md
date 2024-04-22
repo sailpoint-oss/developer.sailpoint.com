@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$GenericRule = Initialize-PSSailpointBetaGenericRule  -Name Generic Calculation Rule `
+$GenericRule = Initialize-BetaGenericRule  -Name Generic Calculation Rule `
  -RequiresPeriodicRefresh false
 ```
 

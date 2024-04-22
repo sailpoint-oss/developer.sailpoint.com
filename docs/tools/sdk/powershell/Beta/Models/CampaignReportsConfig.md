@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CampaignReportsConfig = Initialize-PSSailpointBetaCampaignReportsConfig  -IdentityAttributeColumns [firstname, lastname]
+$CampaignReportsConfig = Initialize-BetaCampaignReportsConfig  -IdentityAttributeColumns [firstname, lastname]
 ```
 
 - Convert the resource to JSON

@@ -24,9 +24,9 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityWithNewAccess1 = Initialize-PSSailpointIdentityWithNewAccess1  -IdentityId 2c91809050db617d0150e0bf3215385e `
+$IdentityWithNewAccess1 = Initialize-IdentityWithNewAccess1  -IdentityId 2c91809050db617d0150e0bf3215385e `
  -AccessRefs null `
- -ClientMetadata {clientName&#x3D;client1, clientId&#x3D;2c91808f7892918f0178b78da4a305a1}
+ -ClientMetadata {clientName=client1, clientId=2c91808f7892918f0178b78da4a305a1}
 ```
 
 - Convert the resource to JSON

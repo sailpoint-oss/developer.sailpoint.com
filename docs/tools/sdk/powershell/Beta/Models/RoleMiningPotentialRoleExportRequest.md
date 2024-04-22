@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMiningPotentialRoleExportRequest = Initialize-PSSailpointBetaRoleMiningPotentialRoleExportRequest  -MinEntitlementPopularity 0 `
+$RoleMiningPotentialRoleExportRequest = Initialize-BetaRoleMiningPotentialRoleExportRequest  -MinEntitlementPopularity 0 `
  -IncludeCommonAccess true
 ```
 

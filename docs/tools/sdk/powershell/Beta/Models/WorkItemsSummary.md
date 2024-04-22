@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkItemsSummary = Initialize-PSSailpointBetaWorkItemsSummary  -Open 29 `
+$WorkItemsSummary = Initialize-BetaWorkItemsSummary  -Open 29 `
  -Completed 1 `
  -Total 30
 ```

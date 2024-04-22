@@ -39,7 +39,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$EventDocument = Initialize-PSSailpointEventDocument  -Id 2c91808375d8e80a0175e1f88a575222 `
+$EventDocument = Initialize-EventDocument  -Id 2c91808375d8e80a0175e1f88a575222 `
  -Name john.doe `
  -Type null `
  -Created 2018-06-25T20:22:28.104Z `
@@ -52,7 +52,7 @@ $EventDocument = Initialize-PSSailpointEventDocument  -Id 2c91808375d8e80a0175e1
  -TrackingNumber 63f891e0735f4cc8bf1968144a1e7440 `
  -IpAddress 52.52.97.85 `
  -Details 73b65dfbed1842548c207432a18c84b0 `
- -Attributes {pod&#x3D;stg03-useast1, org&#x3D;acme, sourceName&#x3D;SailPoint} `
+ -Attributes {pod=stg03-useast1, org=acme, sourceName=SailPoint} `
  -Objects null `
  -Operation REQUEST `
  -Status PASSED `

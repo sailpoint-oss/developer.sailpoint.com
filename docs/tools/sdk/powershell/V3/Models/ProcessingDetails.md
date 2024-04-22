@@ -26,11 +26,11 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ProcessingDetails = Initialize-PSSailpointProcessingDetails  -Date 2018-06-25T20:22:28.104Z `
+$ProcessingDetails = Initialize-ProcessingDetails  -Date 2018-06-25T20:22:28.104Z `
  -Stage In Process `
  -RetryCount 0 `
- -VarStackTrace &lt;stack trace&gt; `
- -Message &lt;message&gt;
+ -VarStackTrace <stack trace> `
+ -Message <message>
 ```
 
 - Convert the resource to JSON

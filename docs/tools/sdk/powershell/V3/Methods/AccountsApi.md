@@ -268,8 +268,8 @@ Param Type | Name | Data Type | Required  | Description
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **identity.name**: *eq, in, sw*
-  Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, identity.id, nativeIdentity, uuid, manuallyCorrelated, identity.name**
+  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*
+  Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, identity.id, nativeIdentity, uuid, manuallyCorrelated, entitlements, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType**
 
 	
 ### Return type
@@ -374,12 +374,13 @@ Code | Description  | Data Type
 
 
 This API submits a task to unlock an account and returns the task ID.  
+To use this endpoint to unlock an account that has the `forceProvisioning` option set to true, the `idn:accounts-provisioning:manage` scope is required. 
 A token with ORG_ADMIN authority is required to call this API.
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | The account id
+Path   | Id | **String** | True  | The account ID.
  Body  | AccountUnlockRequest | [**AccountUnlockRequest**](../models/account-unlock-request) | True  | 
 
 	
@@ -410,12 +411,8 @@ Code | Description  | Data Type
 ## update-account
 
 
-Use this API to update the account with a PATCH request.
-This endpoint can only modify these fields:
-* `identityId`
-* `manuallyCorrelated`
-The request must provide a JSONPatch payload.
-A token with ORG_ADMIN authority is required to call this API.
+This updates account details. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+This endpoint supports updating an account's correlation. It can only modify the identityId and manuallyCorrelated  attributes. To re-assign an account from one identity to another, replace the current identityId with a new value.  If the account you're assigning was provisioned by IdentityNow, it's possible IdentityNow could create a new account  for the previous identity as soon as the account is moved. If the account you're assigning is authoritative,  this will cause the previous identity to become uncorrelated and could even result in its deletion. All accounts  that are are reassigned will be set to manuallyCorrelated: true.
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

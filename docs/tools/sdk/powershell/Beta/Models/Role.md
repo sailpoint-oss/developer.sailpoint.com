@@ -36,7 +36,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Role = Initialize-PSSailpointBetaRole  -Id 2c918086749d78830174a1a40e121518 `
+$Role = Initialize-BetaRole  -Id 2c918086749d78830174a1a40e121518 `
  -Name Role 2567 `
  -Created 2021-03-01T22:32:58.104Z `
  -Modified 2021-03-02T20:22:28.104Z `
@@ -45,7 +45,7 @@ $Role = Initialize-PSSailpointBetaRole  -Id 2c918086749d78830174a1a40e121518 `
  -AccessProfiles null `
  -Entitlements null `
  -Membership null `
- -LegacyMembershipInfo {type&#x3D;IDENTITY_LIST} `
+ -LegacyMembershipInfo {type=IDENTITY_LIST} `
  -Enabled true `
  -Requestable true `
  -AccessRequestConfig null `

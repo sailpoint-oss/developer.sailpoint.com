@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TemplateDtoDefault = Initialize-PSSailpointBetaTemplateDtoDefault  -Key cloud_manual_work_item_summary `
+$TemplateDtoDefault = Initialize-BetaTemplateDtoDefault  -Key cloud_manual_work_item_summary `
  -Name Task Manager Subscription `
  -Medium EMAIL `
  -Locale en `
@@ -42,7 +42,7 @@ $TemplateDtoDefault = Initialize-PSSailpointBetaTemplateDtoDefault  -Key cloud_m
  -Footer null `
  -VarFrom $__global.emailFromAddress `
  -ReplyTo $__global.emailFromAddress `
- -Description Daily digest - sent if number of outstanding tasks for task owner &gt; 0
+ -Description Daily digest - sent if number of outstanding tasks for task owner > 0
 ```
 
 - Convert the resource to JSON

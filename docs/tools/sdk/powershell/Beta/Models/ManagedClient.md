@@ -38,7 +38,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ManagedClient = Initialize-PSSailpointBetaManagedClient  -Id aClientId `
+$ManagedClient = Initialize-BetaManagedClient  -Id aClientId `
  -AlertKey anAlertKey `
  -ApiGatewayBaseUrl https://denali-xxx.api.cloud.sailpoint.com `
  -CcId 2248 `

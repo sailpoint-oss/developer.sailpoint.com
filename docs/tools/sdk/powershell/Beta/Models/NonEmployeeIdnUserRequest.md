@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NonEmployeeIdnUserRequest = Initialize-PSSailpointBetaNonEmployeeIdnUserRequest  -Id 2c91808570313110017040b06f344ec9
+$NonEmployeeIdnUserRequest = Initialize-BetaNonEmployeeIdnUserRequest  -Id 2c91808570313110017040b06f344ec9
 ```
 
 - Convert the resource to JSON

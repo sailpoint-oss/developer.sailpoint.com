@@ -45,7 +45,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CompletedApproval = Initialize-PSSailpointCompletedApproval  -Id id12345 `
+$CompletedApproval = Initialize-CompletedApproval  -Id id12345 `
  -Name aName `
  -Created 2017-07-11T18:45:37.098Z `
  -Modified 2018-07-25T20:22:28.104Z `
@@ -67,7 +67,7 @@ $CompletedApproval = Initialize-PSSailpointCompletedApproval  -Id id12345 `
  -CurrentRemoveDate 2020-07-11T00:00Z `
  -SodViolationContext null `
  -PreApprovalTriggerResult null `
- -ClientMetadata {requestedAppName&#x3D;test-app, requestedAppId&#x3D;2c91808f7892918f0178b78da4a305a1} `
+ -ClientMetadata {requestedAppName=test-app, requestedAppId=2c91808f7892918f0178b78da4a305a1} `
  -RequestedAccounts null
 ```
 

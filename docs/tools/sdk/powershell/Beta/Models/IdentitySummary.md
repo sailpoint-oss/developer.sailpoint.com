@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentitySummary = Initialize-PSSailpointBetaIdentitySummary  -Id ff80818155fe8c080155fe8d925b0316 `
+$IdentitySummary = Initialize-BetaIdentitySummary  -Id ff80818155fe8c080155fe8d925b0316 `
  -Name SailPoint Services `
  -IdentityId c15b9f5cca5a4e9599eaa0e64fa921bd `
  -Completed true

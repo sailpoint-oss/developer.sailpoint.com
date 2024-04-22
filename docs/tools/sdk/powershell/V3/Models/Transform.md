@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Transform = Initialize-PSSailpointTransform  -Name Timestamp To Date `
+$Transform = Initialize-Transform  -Name Timestamp To Date `
  -Type dateFormat `
  -Attributes null
 ```

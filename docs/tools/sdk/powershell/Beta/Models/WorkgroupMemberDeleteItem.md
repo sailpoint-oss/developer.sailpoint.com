@@ -24,12 +24,12 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkgroupMemberDeleteItem = Initialize-PSSailpointBetaWorkgroupMemberDeleteItem  -Id 464ae7bf791e49fdb74606a2e4a89635 `
+$WorkgroupMemberDeleteItem = Initialize-BetaWorkgroupMemberDeleteItem  -Id 464ae7bf791e49fdb74606a2e4a89635 `
  -Status 204 `
  -Description 
-&gt; Identity deleted from Governance Group members list.
+> Identity deleted from Governance Group members list.
 
-&gt; Referenced Governance Group Member with Identity Id &quot;bc3a744678534eb78a8002ee2085df64&quot; was not found.
+> Referenced Governance Group Member with Identity Id "bc3a744678534eb78a8002ee2085df64" was not found.
 
 ```
 

@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Expression = Initialize-PSSailpointExpression  -Operator EQUALS `
+$Expression = Initialize-Expression  -Operator EQUALS `
  -Attribute location `
  -Value null `
  -Children []

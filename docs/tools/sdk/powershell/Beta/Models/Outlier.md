@@ -32,13 +32,13 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Outlier = Initialize-PSSailpointBetaOutlier  -Id 5be33d3e-c54d-4ed7-af73-2380543e8283 `
+$Outlier = Initialize-BetaOutlier  -Id 5be33d3e-c54d-4ed7-af73-2380543e8283 `
  -IdentityId 5be33d3e-c54d-4ed7-af73-2380543e8283 `
  -Type LOW_SIMILARITY `
  -FirstDetectionDate 2021-05-01T18:40:35.772Z `
  -LatestDetectionDate 2021-05-03T18:40:35.772Z `
  -Ignored false `
- -Attributes {displayName&#x3D;John Smith, jobTitle&#x3D;Software Engineer, department&#x3D;Engineering} `
+ -Attributes {displayName=John Smith, jobTitle=Software Engineer, department=Engineering} `
  -Score 0.92 `
  -UnignoreType MANUAL `
  -UnignoreDate 2021-06-01T18:40:35.772Z `

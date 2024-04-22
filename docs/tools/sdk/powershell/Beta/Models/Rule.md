@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Rule = Initialize-PSSailpointBetaRule  -Name Cloud Services Deployment Utility `
+$Rule = Initialize-BetaRule  -Name Cloud Services Deployment Utility `
  -RequiresPeriodicRefresh false `
  -Operation getReferenceIdentityAttribute `
  -IncludeNumbers true `

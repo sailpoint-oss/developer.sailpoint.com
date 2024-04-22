@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ReportConfigDTO = Initialize-PSSailpointBetaReportConfigDTO  -ColumnName SOD Business Name `
+$ReportConfigDTO = Initialize-BetaReportConfigDTO  -ColumnName SOD Business Name `
  -Required true `
  -Included false `
  -Order 2

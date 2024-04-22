@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityHistoryResponse = Initialize-PSSailpointBetaIdentityHistoryResponse  -Id bc693f07e7b645539626c25954c58554 `
+$IdentityHistoryResponse = Initialize-BetaIdentityHistoryResponse  -Id bc693f07e7b645539626c25954c58554 `
  -DisplayName Adam Zampa `
  -Snapshot 2007-03-01T13:00:00.000Z `
  -DeletedDate 2007-03-01T13:00:00.000Z `

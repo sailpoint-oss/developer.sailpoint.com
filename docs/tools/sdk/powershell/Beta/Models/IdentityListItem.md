@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityListItem = Initialize-PSSailpointBetaIdentityListItem  -Id bc693f07e7b645539626c25954c58554 `
+$IdentityListItem = Initialize-BetaIdentityListItem  -Id bc693f07e7b645539626c25954c58554 `
  -DisplayName Adam Zampa `
  -FirstName Adam `
  -LastName Zampa `

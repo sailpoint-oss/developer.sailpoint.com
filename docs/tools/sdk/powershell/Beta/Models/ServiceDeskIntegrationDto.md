@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ServiceDeskIntegrationDto = Initialize-PSSailpointBetaServiceDeskIntegrationDto  -Name Service Desk Integration Name `
+$ServiceDeskIntegrationDto = Initialize-BetaServiceDeskIntegrationDto  -Name Service Desk Integration Name `
  -Description A very nice Service Desk integration `
  -Type ServiceNowSDIM `
  -OwnerRef null `
@@ -39,7 +39,7 @@ $ServiceDeskIntegrationDto = Initialize-PSSailpointBetaServiceDeskIntegrationDto
  -Cluster xyzzy999 `
  -ManagedSources [2c9180835d191a86015d28455b4a2329, 2c5680835d191a85765d28455b4a9823] `
  -ProvisioningConfig null `
- -Attributes {property&#x3D;value, key&#x3D;value} `
+ -Attributes {property=value, key=value} `
  -BeforeProvisioningRule null
 ```
 

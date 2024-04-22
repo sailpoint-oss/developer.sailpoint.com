@@ -24,9 +24,9 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SpConfigMessage = Initialize-PSSailpointBetaSpConfigMessage  -Key UNKNOWN_REFERENCE_RESOLVER `
+$SpConfigMessage = Initialize-BetaSpConfigMessage  -Key UNKNOWN_REFERENCE_RESOLVER `
  -Text Unable to resolve reference for object [type: IDENTITY, id: 2c91808c746e9c9601747d6507332ecz, name: random identity] `
- -Details {details&#x3D;message details}
+ -Details {details=message details}
 ```
 
 - Convert the resource to JSON

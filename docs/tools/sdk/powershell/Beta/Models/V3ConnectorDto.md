@@ -28,12 +28,12 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$V3ConnectorDto = Initialize-PSSailpointBetaV3ConnectorDto  -Name name `
+$V3ConnectorDto = Initialize-BetaV3ConnectorDto  -Name name `
  -Type ServiceNow `
  -ScriptName servicenow `
  -Features [PROVISIONING, SYNC_PROVISIONING, SEARCH, UNSTRUCTURED_TARGETS] `
  -DirectConnect true `
- -ConnectorMetadata {supportedUI&#x3D;EXTJS, platform&#x3D;ccg, shortDesc&#x3D;connector description} `
+ -ConnectorMetadata {supportedUI=EXTJS, platform=ccg, shortDesc=connector description} `
  -Status RELEASED
 ```
 

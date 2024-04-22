@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ImportFormDefinitions202ResponseErrorsInner = Initialize-PSSailpointBetaImportFormDefinitions202ResponseErrorsInner  -Detail null `
+$ImportFormDefinitions202ResponseErrorsInner = Initialize-BetaImportFormDefinitions202ResponseErrorsInner  -Detail null `
  -Key null `
  -Text null
 ```

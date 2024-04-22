@@ -177,13 +177,13 @@ Code | Description  | Data Type
 ## set-lifecycle-state
 
 
-This endpoint will set/update an identity's lifecycle state to the one provided and updates the corresponding Identity Profile.
+This endpoint will set/update an identity's lifecycle state to the one provided and updates the corresponding identity profile.
 A token with ORG_ADMIN or API authority is required to call this API.
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | IdentityId | **String** | True  | The ID of the identity to update
+Path   | IdentityId | **String** | True  | The ID of the identity to update.
  Body  | SetLifecycleStateRequest | [**SetLifecycleStateRequest**](../models/set-lifecycle-state-request) | True  | 
 
 	

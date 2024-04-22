@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleInsightsRole = Initialize-PSSailpointBetaRoleInsightsRole  -Name Software Engineer `
+$RoleInsightsRole = Initialize-BetaRoleInsightsRole  -Name Software Engineer `
  -Id 1467e61e-f284-439c-ba2d-c6cc11cf0941 `
  -Description Person who develops software `
  -OwnerName Bob `

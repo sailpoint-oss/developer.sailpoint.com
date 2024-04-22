@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$JsonPatchOperation = Initialize-PSSailpointJsonPatchOperation  -Op replace `
+$JsonPatchOperation = Initialize-JsonPatchOperation  -Op replace `
  -Path /description `
  -Value null
 ```

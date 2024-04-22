@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AggregationResult = Initialize-PSSailpointAggregationResult  -Aggregations {Identity Locations&#x3D;{buckets&#x3D;[{key&#x3D;Austin, doc_count&#x3D;109}, {key&#x3D;London, doc_count&#x3D;64}, {key&#x3D;San Jose, doc_count&#x3D;27}, {key&#x3D;Brussels, doc_count&#x3D;26}, {key&#x3D;Sao Paulo, doc_count&#x3D;24}, {key&#x3D;Munich, doc_count&#x3D;23}, {key&#x3D;Singapore, doc_count&#x3D;22}, {key&#x3D;Tokyo, doc_count&#x3D;20}, {key&#x3D;Taipei, doc_count&#x3D;16}]}} `
+$AggregationResult = Initialize-AggregationResult  -Aggregations {Identity Locations={buckets=[{key=Austin, doc_count=109}, {key=London, doc_count=64}, {key=San Jose, doc_count=27}, {key=Brussels, doc_count=26}, {key=Sao Paulo, doc_count=24}, {key=Munich, doc_count=23}, {key=Singapore, doc_count=22}, {key=Tokyo, doc_count=20}, {key=Taipei, doc_count=16}]}} `
  -Hits null
 ```
 

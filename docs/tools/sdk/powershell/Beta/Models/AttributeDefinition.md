@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AttributeDefinition = Initialize-PSSailpointBetaAttributeDefinition  -Name sAMAccountName `
+$AttributeDefinition = Initialize-BetaAttributeDefinition  -Name sAMAccountName `
  -Type null `
  -Schema null `
  -Description The sAMAccountName attribute `

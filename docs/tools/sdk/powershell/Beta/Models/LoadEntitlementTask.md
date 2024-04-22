@@ -28,13 +28,13 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$LoadEntitlementTask = Initialize-PSSailpointBetaLoadEntitlementTask  -Id ef38f94347e94562b5bb8424a56397d8 `
+$LoadEntitlementTask = Initialize-BetaLoadEntitlementTask  -Id ef38f94347e94562b5bb8424a56397d8 `
  -Type QUARTZ `
  -UniqueName Cloud Group Aggregation `
  -Description Aggregate from the specified application `
  -Launcher John Doe `
  -Created 2020-07-11T21:23:15Z `
- -Returns [{displayLabel&#x3D;TASK_OUT_ACCOUNT_GROUP_AGGREGATION_APPLICATIONS, attributeName&#x3D;applications}, {displayLabel&#x3D;TASK_OUT_ACCOUNT_GROUP_AGGREGATION_TOTAL, attributeName&#x3D;total}, {displayLabel&#x3D;TASK_OUT_ACCOUNT_GROUP_AGGREGATION_CREATED, attributeName&#x3D;groupsCreated}, {displayLabel&#x3D;TASK_OUT_ACCOUNT_GROUP_AGGREGATION_UPDATED, attributeName&#x3D;groupsUpdated}, {displayLabel&#x3D;TASK_OUT_ACCOUNT_GROUP_AGGREGATION_DELETED, attributeName&#x3D;groupsDeleted}]
+ -Returns [{displayLabel=TASK_OUT_ACCOUNT_GROUP_AGGREGATION_APPLICATIONS, attributeName=applications}, {displayLabel=TASK_OUT_ACCOUNT_GROUP_AGGREGATION_TOTAL, attributeName=total}, {displayLabel=TASK_OUT_ACCOUNT_GROUP_AGGREGATION_CREATED, attributeName=groupsCreated}, {displayLabel=TASK_OUT_ACCOUNT_GROUP_AGGREGATION_UPDATED, attributeName=groupsUpdated}, {displayLabel=TASK_OUT_ACCOUNT_GROUP_AGGREGATION_DELETED, attributeName=groupsDeleted}]
 ```
 
 - Convert the resource to JSON

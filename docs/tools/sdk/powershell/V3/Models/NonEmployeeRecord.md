@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NonEmployeeRecord = Initialize-PSSailpointNonEmployeeRecord  -Id ef38f94347e94562b5bb8424a56397d8 `
+$NonEmployeeRecord = Initialize-NonEmployeeRecord  -Id ef38f94347e94562b5bb8424a56397d8 `
  -AccountName Abby.Smith `
  -FirstName William `
  -LastName Smith `
@@ -42,7 +42,7 @@ $NonEmployeeRecord = Initialize-PSSailpointNonEmployeeRecord  -Id ef38f94347e945
  -Phone 5555555555 `
  -Manager jane.doe `
  -SourceId 2c91808568c529c60168cca6f90c1313 `
- -VarData {description&#x3D;Auditing} `
+ -VarData {description=Auditing} `
  -StartDate 2019-08-23T18:52:59.162Z `
  -EndDate 2020-08-23T18:52:59.162Z `
  -Modified 2019-08-23T18:52:59.162Z `

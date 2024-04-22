@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CertificationReference = Initialize-PSSailpointBetaCertificationReference  -Type IDENTITY `
+$CertificationReference = Initialize-BetaCertificationReference  -Type IDENTITY `
  -Id 7589a83cec4b4f138ce56c1a5ef0756d `
  -Name Manager Access for Michael Michaels `
  -Reviewer null

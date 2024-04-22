@@ -32,9 +32,9 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Workflow = Initialize-PSSailpointWorkflow  -Name Send Email `
+$Workflow = Initialize-Workflow  -Name Send Email `
  -Owner null `
- -Description Send an email to the identity who&#39;s attributes changed. `
+ -Description Send an email to the identity who's attributes changed. `
  -Definition null `
  -Enabled false `
  -Trigger null `

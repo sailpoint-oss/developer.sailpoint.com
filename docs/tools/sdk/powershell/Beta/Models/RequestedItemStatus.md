@@ -44,7 +44,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RequestedItemStatus = Initialize-PSSailpointBetaRequestedItemStatus  -Name AccessProfile1 `
+$RequestedItemStatus = Initialize-BetaRequestedItemStatus  -Name AccessProfile1 `
  -Type ACCESS_PROFILE `
  -CancelledRequestDetails null `
  -ErrorMessages null `
@@ -66,7 +66,7 @@ $RequestedItemStatus = Initialize-PSSailpointBetaRequestedItemStatus  -Name Acce
  -RemoveDate 2019-10-23T00:00Z `
  -Cancelable true `
  -AccessRequestId 2b838de9-db9b-abcf-e646-d4f274ad4238 `
- -ClientMetadata {key1&#x3D;value1, key2&#x3D;value2}
+ -ClientMetadata {key1=value1, key2=value2}
 ```
 
 - Convert the resource to JSON

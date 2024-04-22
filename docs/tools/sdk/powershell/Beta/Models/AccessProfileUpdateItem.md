@@ -25,13 +25,13 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessProfileUpdateItem = Initialize-PSSailpointBetaAccessProfileUpdateItem  -Id 2c7180a46faadee4016fb4e018c20642 `
+$AccessProfileUpdateItem = Initialize-BetaAccessProfileUpdateItem  -Id 2c7180a46faadee4016fb4e018c20642 `
  -Requestable false `
  -Status 201 `
  -Description 
-&gt; Access profile is updated successfully.
+> Access profile is updated successfully.
 
-&gt; Referenced Access profile with Id &quot;2c7180a46faadee4016fb4e018c20642&quot; was not found.
+> Referenced Access profile with Id "2c7180a46faadee4016fb4e018c20642" was not found.
 
 ```
 

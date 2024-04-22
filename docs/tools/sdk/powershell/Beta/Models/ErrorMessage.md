@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ErrorMessage = Initialize-PSSailpointBetaErrorMessage  -Locale en-US `
+$ErrorMessage = Initialize-BetaErrorMessage  -Locale en-US `
  -LocaleOrigin DEFAULT `
  -Text This is an error
 ```

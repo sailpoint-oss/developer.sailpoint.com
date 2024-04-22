@@ -25,10 +25,10 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessRequest = Initialize-PSSailpointAccessRequest  -RequestedFor null `
+$AccessRequest = Initialize-AccessRequest  -RequestedFor null `
  -RequestType null `
  -RequestedItems null `
- -ClientMetadata {requestedAppId&#x3D;2c91808f7892918f0178b78da4a305a1, requestedAppName&#x3D;test-app}
+ -ClientMetadata {requestedAppId=2c91808f7892918f0178b78da4a305a1, requestedAppName=test-app}
 ```
 
 - Convert the resource to JSON

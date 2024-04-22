@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ScheduleDays = Initialize-PSSailpointBetaScheduleDays  -Type LIST `
+$ScheduleDays = Initialize-BetaScheduleDays  -Type LIST `
  -Values [1] `
  -Interval 2
 ```

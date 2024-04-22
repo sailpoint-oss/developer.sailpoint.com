@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TestExternalExecuteWorkflow200Response = Initialize-PSSailpointBetaTestExternalExecuteWorkflow200Response  -Payload {test&#x3D;hello world}
+$TestExternalExecuteWorkflow200Response = Initialize-BetaTestExternalExecuteWorkflow200Response  -Payload {test=hello world}
 ```
 
 - Convert the resource to JSON

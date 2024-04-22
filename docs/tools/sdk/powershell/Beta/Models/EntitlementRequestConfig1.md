@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$EntitlementRequestConfig1 = Initialize-PSSailpointBetaEntitlementRequestConfig1  -AllowEntitlementRequest true `
+$EntitlementRequestConfig1 = Initialize-BetaEntitlementRequestConfig1  -AllowEntitlementRequest true `
  -RequestCommentsRequired false `
  -DeniedCommentsRequired false `
  -GrantRequestApprovalSchemes entitlementOwner, sourceOwner, manager, workgroup:2c918084660f45d6016617daa9210584

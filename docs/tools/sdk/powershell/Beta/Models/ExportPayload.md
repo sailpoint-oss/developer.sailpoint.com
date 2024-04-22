@@ -25,10 +25,10 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ExportPayload = Initialize-PSSailpointBetaExportPayload  -Description Export Job 1 Test `
+$ExportPayload = Initialize-BetaExportPayload  -Description Export Job 1 Test `
  -ExcludeTypes null `
  -IncludeTypes null `
- -ObjectOptions {TRIGGER_SUBSCRIPTION&#x3D;{includedIds&#x3D;[be9e116d-08e1-49fc-ab7f-fa585e96c9e4], includedNames&#x3D;[Test 2]}}
+ -ObjectOptions {TRIGGER_SUBSCRIPTION={includedIds=[be9e116d-08e1-49fc-ab7f-fa585e96c9e4], includedNames=[Test 2]}}
 ```
 
 - Convert the resource to JSON

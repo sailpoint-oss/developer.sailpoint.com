@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ScheduledAttributes = Initialize-PSSailpointBetaScheduledAttributes  -CronString 0 * */3 */5 *
+$ScheduledAttributes = Initialize-BetaScheduledAttributes  -CronString 0 * */3 */5 *
 ```
 
 - Convert the resource to JSON

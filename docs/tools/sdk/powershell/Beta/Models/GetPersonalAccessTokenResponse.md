@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$GetPersonalAccessTokenResponse = Initialize-PSSailpointBetaGetPersonalAccessTokenResponse  -Id 86f1dc6fe8f54414950454cbb11278fa `
+$GetPersonalAccessTokenResponse = Initialize-BetaGetPersonalAccessTokenResponse  -Id 86f1dc6fe8f54414950454cbb11278fa `
  -Name NodeJS Integration `
  -Scope [demo:personal-access-token-scope:first, demo:personal-access-token-scope:second] `
  -Owner null `

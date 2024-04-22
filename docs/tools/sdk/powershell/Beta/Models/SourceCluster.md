@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceCluster = Initialize-PSSailpointBetaSourceCluster  -Type CLUSTER `
+$SourceCluster = Initialize-BetaSourceCluster  -Type CLUSTER `
  -Id 2c9180866166b5b0016167c32ef31a66 `
  -Name Corporate Cluster
 ```

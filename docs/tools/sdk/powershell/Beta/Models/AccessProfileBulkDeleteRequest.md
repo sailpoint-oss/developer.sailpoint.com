@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessProfileBulkDeleteRequest = Initialize-PSSailpointBetaAccessProfileBulkDeleteRequest  -AccessProfileIds [2c9180847812e0b1017817051919ecca, 2c9180887812e0b201781e129f151816] `
+$AccessProfileBulkDeleteRequest = Initialize-BetaAccessProfileBulkDeleteRequest  -AccessProfileIds [2c9180847812e0b1017817051919ecca, 2c9180887812e0b201781e129f151816] `
  -BestEffortOnly true
 ```
 

@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ListIdentityAccessItems200ResponseInner = Initialize-PSSailpointBetaListIdentityAccessItems200ResponseInner  -AccessType role `
+$ListIdentityAccessItems200ResponseInner = Initialize-BetaListIdentityAccessItems200ResponseInner  -AccessType role `
  -Id 2c918087763e69d901763e72e97f006f `
  -Name sample `
  -SourceName Source Name `

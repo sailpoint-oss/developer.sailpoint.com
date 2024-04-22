@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FilterAggregation = Initialize-PSSailpointFilterAggregation  -Name Entitlements `
+$FilterAggregation = Initialize-FilterAggregation  -Name Entitlements `
  -Type null `
  -Field access.type `
  -Value ENTITLEMENT

@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourcePasswordPoliciesInner = Initialize-PSSailpointBetaSourcePasswordPoliciesInner  -Type PASSWORD_POLICY `
+$SourcePasswordPoliciesInner = Initialize-BetaSourcePasswordPoliciesInner  -Type PASSWORD_POLICY `
  -Id 2c91808568c529c60168cca6f90c1777 `
  -Name My Password Policy
 ```

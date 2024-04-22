@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ApprovalStatusDto = Initialize-PSSailpointBetaApprovalStatusDto  -Forwarded false `
+$ApprovalStatusDto = Initialize-BetaApprovalStatusDto  -Forwarded false `
  -OriginalOwner null `
  -CurrentOwner null `
  -Modified 2019-08-23T18:52:57.398Z `

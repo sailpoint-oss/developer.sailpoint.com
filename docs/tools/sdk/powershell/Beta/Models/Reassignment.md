@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Reassignment = Initialize-PSSailpointBetaReassignment  -VarFrom null `
+$Reassignment = Initialize-BetaReassignment  -VarFrom null `
  -Comment Please review
 ```
 

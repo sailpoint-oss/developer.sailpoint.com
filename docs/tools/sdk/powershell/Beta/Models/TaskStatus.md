@@ -37,7 +37,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TaskStatus = Initialize-PSSailpointBetaTaskStatus  -Id id12345 `
+$TaskStatus = Initialize-BetaTaskStatus  -Id id12345 `
  -Type QUARTZ `
  -UniqueName Big Task `
  -Description A Really Big Task `
@@ -50,7 +50,7 @@ $TaskStatus = Initialize-PSSailpointBetaTaskStatus  -Id id12345 `
  -CompletionStatus Success `
  -Messages null `
  -Returns null `
- -Attributes {identityCount&#x3D;0} `
+ -Attributes {identityCount=0} `
  -Progress Started `
  -PercentComplete 100
 ```

@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AdminReviewReassignReassignTo = Initialize-PSSailpointBetaAdminReviewReassignReassignTo  -Id ef38f94347e94562b5bb8424a56397d8 `
+$AdminReviewReassignReassignTo = Initialize-BetaAdminReviewReassignReassignTo  -Id ef38f94347e94562b5bb8424a56397d8 `
  -Type IDENTITY
 ```
 

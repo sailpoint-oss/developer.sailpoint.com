@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceUsage = Initialize-PSSailpointSourceUsage  -Date Thu Apr 20 20:00:00 EDT 2023 `
+$SourceUsage = Initialize-SourceUsage  -Date Thu Apr 20 20:00:00 EDT 2023 `
  -Count 10.45
 ```
 

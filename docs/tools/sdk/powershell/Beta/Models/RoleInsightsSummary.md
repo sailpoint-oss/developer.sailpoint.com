@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleInsightsSummary = Initialize-PSSailpointBetaRoleInsightsSummary  -NumberOfUpdates null `
+$RoleInsightsSummary = Initialize-BetaRoleInsightsSummary  -NumberOfUpdates null `
  -LastGenerated 2020-05-19T13:49:37.385Z `
  -EntitlementsIncludedInRoles 45 `
  -TotalNumberOfEntitlements 250 `

@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CampaignAlert = Initialize-PSSailpointBetaCampaignAlert  -Level ERROR `
+$CampaignAlert = Initialize-BetaCampaignAlert  -Level ERROR `
  -Localizations null
 ```
 

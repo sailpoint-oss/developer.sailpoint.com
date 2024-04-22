@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FullcampaignAllOfSourcesWithOrphanEntitlements = Initialize-PSSailpointBetaFullcampaignAllOfSourcesWithOrphanEntitlements  -Id 2c90ad2a70ace7d50170acf22ca90010 `
+$FullcampaignAllOfSourcesWithOrphanEntitlements = Initialize-BetaFullcampaignAllOfSourcesWithOrphanEntitlements  -Id 2c90ad2a70ace7d50170acf22ca90010 `
  -Type SOURCE `
  -Name Source with orphan entitlements
 ```

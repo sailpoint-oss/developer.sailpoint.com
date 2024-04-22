@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$BaseCommonDto = Initialize-PSSailpointBaseCommonDto  -Id id12345 `
+$BaseCommonDto = Initialize-BaseCommonDto  -Id id12345 `
  -Name aName `
  -Created 2015-05-28T14:07:17Z `
  -Modified 2015-05-28T14:07:17Z

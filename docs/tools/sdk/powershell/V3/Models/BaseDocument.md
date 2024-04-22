@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$BaseDocument = Initialize-PSSailpointBaseDocument  -Id 2c91808375d8e80a0175e1f88a575222 `
+$BaseDocument = Initialize-BaseDocument  -Id 2c91808375d8e80a0175e1f88a575222 `
  -Name john.doe `
  -Type null
 ```

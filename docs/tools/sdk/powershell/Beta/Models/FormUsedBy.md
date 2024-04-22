@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FormUsedBy = Initialize-PSSailpointBetaFormUsedBy  -Type WORKFLOW `
+$FormUsedBy = Initialize-BetaFormUsedBy  -Type WORKFLOW `
  -Id 00000000-0000-0000-0000-000000000000
 ```
 

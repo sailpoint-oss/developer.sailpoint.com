@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityAttribute1 = Initialize-PSSailpointIdentityAttribute1  -Key country `
+$IdentityAttribute1 = Initialize-IdentityAttribute1  -Key country `
  -Name Country `
  -Value US
 ```

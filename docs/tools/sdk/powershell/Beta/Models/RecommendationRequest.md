@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RecommendationRequest = Initialize-PSSailpointBetaRecommendationRequest  -IdentityId 2c938083633d259901633d25c68c00fa `
+$RecommendationRequest = Initialize-BetaRecommendationRequest  -IdentityId 2c938083633d259901633d25c68c00fa `
  -Item null
 ```
 

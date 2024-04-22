@@ -26,10 +26,10 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$MailFromAttributes = Initialize-PSSailpointBetaMailFromAttributes  -Identity bob.smith@sailpoint.com `
+$MailFromAttributes = Initialize-BetaMailFromAttributes  -Identity bob.smith@sailpoint.com `
  -MailFromDomain foo.sailpoint.com `
  -MxRecord 10 feedback-smtp.us-east-1.amazonses.com `
- -TxtRecord v&#x3D;spf1 include:amazonses.com ~all `
+ -TxtRecord v=spf1 include:amazonses.com ~all `
  -MailFromDomainStatus PENDING
 ```
 

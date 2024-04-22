@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PatchServiceDeskIntegrationRequest = Initialize-PSSailpointBetaPatchServiceDeskIntegrationRequest  -Operations null
+$PatchServiceDeskIntegrationRequest = Initialize-BetaPatchServiceDeskIntegrationRequest  -Operations null
 ```
 
 - Convert the resource to JSON

@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Selector = Initialize-PSSailpointBetaSelector  -Type null `
+$Selector = Initialize-BetaSelector  -Type null `
  -Values [MON, WED] `
  -Interval 3
 ```

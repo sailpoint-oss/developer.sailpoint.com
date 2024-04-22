@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FormOwner = Initialize-PSSailpointBetaFormOwner  -Type IDENTITY `
+$FormOwner = Initialize-BetaFormOwner  -Type IDENTITY `
  -Id 00000000-0000-0000-0000-000000000000
 ```
 

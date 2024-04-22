@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityAccess = Initialize-PSSailpointIdentityAccess  -Id 2c91808568c529c60168cca6f90c1313 `
+$IdentityAccess = Initialize-IdentityAccess  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name John Doe `
  -DisplayName John Q. Doe `
  -Type null `
@@ -44,7 +44,7 @@ $IdentityAccess = Initialize-PSSailpointIdentityAccess  -Id 2c91808568c529c60168
  -Revocable null `
  -Privileged false `
  -Attribute memberOf `
- -Value CN&#x3D;Buyer,OU&#x3D;Groups,OU&#x3D;Demo,DC&#x3D;seri,DC&#x3D;sailpointdemo,DC&#x3D;com `
+ -Value CN=Buyer,OU=Groups,OU=Demo,DC=seri,DC=sailpointdemo,DC=com `
  -Standalone false `
  -Disabled null
 ```

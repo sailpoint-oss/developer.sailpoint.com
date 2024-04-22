@@ -26,8 +26,8 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkflowTriggerAttributes = Initialize-PSSailpointWorkflowTriggerAttributes  -Id idn:identity-attributes-changed `
- -VarFilter $.changes[?(@.attribute &#x3D;&#x3D; &#39;manager&#39;)] `
+$WorkflowTriggerAttributes = Initialize-WorkflowTriggerAttributes  -Id idn:identity-attributes-changed `
+ -VarFilter $.changes[?(@.attribute == 'manager')] `
  -Name search-and-notify `
  -Description Run a search and notify the results `
  -CronString 0 * */3 */5 *

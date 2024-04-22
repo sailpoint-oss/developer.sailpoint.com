@@ -136,7 +136,7 @@ This API Authenticate user in KBA MFA method.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | KbaAnswerRequest | [**KbaAnswerRequest**](../models/kba-answer-request) | True  | 
+ Body  | KbaAnswerRequestItem | [**[]KbaAnswerRequestItem**](../models/kba-answer-request-item) | True  | 
 
 	
 ### Return type

@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityReferenceWithId = Initialize-PSSailpointBetaIdentityReferenceWithId  -Type null `
+$IdentityReferenceWithId = Initialize-BetaIdentityReferenceWithId  -Type null `
  -Id 5168015d32f890ca15812c9180835d2e
 ```
 

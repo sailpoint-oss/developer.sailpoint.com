@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountsExportReportArguments = Initialize-PSSailpointAccountsExportReportArguments  -Application 2c9180897eSourceIde781782f705b9 `
+$AccountsExportReportArguments = Initialize-AccountsExportReportArguments  -Application 2c9180897eSourceIde781782f705b9 `
  -SourceName DataScienceSourceName `
  -DefaultS3Bucket true `
  -S3Bucket the-dev-bucket

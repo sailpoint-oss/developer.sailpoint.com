@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConnectorRuleValidationResponse = Initialize-PSSailpointBetaConnectorRuleValidationResponse  -State ERROR `
+$ConnectorRuleValidationResponse = Initialize-BetaConnectorRuleValidationResponse  -State ERROR `
  -Details null
 ```
 

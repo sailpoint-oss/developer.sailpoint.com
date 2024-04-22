@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessProfileBulkDeleteResponse = Initialize-PSSailpointAccessProfileBulkDeleteResponse  -TaskId 2c9180867817ac4d017817c491119a20 `
+$AccessProfileBulkDeleteResponse = Initialize-AccessProfileBulkDeleteResponse  -TaskId 2c9180867817ac4d017817c491119a20 `
  -Pending [2c91808876438bbb017668c21919ecca, 2c91808876438bb201766e129f151816] `
  -InUse null
 ```

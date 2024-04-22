@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessCriteriaCriteriaListInner = Initialize-PSSailpointAccessCriteriaCriteriaListInner  -Type ENTITLEMENT `
+$AccessCriteriaCriteriaListInner = Initialize-AccessCriteriaCriteriaListInner  -Type ENTITLEMENT `
  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name Administrator
 ```

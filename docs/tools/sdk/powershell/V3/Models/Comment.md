@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Comment = Initialize-PSSailpointComment  -CommenterId 2c918084660f45d6016617daa9210584 `
+$Comment = Initialize-Comment  -CommenterId 2c918084660f45d6016617daa9210584 `
  -CommenterName Adam Kennedy `
  -Body Et quam massa maximus vivamus nisi ut urna tincidunt metus elementum erat. `
  -Date 2017-07-11T18:45:37.098Z

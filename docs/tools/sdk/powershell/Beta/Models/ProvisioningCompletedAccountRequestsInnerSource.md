@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ProvisioningCompletedAccountRequestsInnerSource = Initialize-PSSailpointBetaProvisioningCompletedAccountRequestsInnerSource  -Id 4e4d982dddff4267ab12f0f1e72b5a6d `
+$ProvisioningCompletedAccountRequestsInnerSource = Initialize-BetaProvisioningCompletedAccountRequestsInnerSource  -Id 4e4d982dddff4267ab12f0f1e72b5a6d `
  -Type SOURCE `
  -Name Corporate Active Directory
 ```

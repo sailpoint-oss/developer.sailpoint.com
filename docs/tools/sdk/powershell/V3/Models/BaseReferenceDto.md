@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$BaseReferenceDto = Initialize-PSSailpointBaseReferenceDto  -Type null `
+$BaseReferenceDto = Initialize-BaseReferenceDto  -Type null `
  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name William Wilson
 ```

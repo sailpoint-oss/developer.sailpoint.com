@@ -40,7 +40,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PendingApproval = Initialize-PSSailpointBetaPendingApproval  -Id 2c9180835d2e5168015d32f890ca1581 `
+$PendingApproval = Initialize-BetaPendingApproval  -Id 2c9180835d2e5168015d32f890ca1581 `
  -Name Pending approval name `
  -Created 2017-07-11T18:45:37.098Z `
  -Modified 2018-07-25T20:22:28.104Z `

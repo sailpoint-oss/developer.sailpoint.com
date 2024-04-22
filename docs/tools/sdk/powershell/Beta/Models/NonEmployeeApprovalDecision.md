@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NonEmployeeApprovalDecision = Initialize-PSSailpointBetaNonEmployeeApprovalDecision  -Comment null
+$NonEmployeeApprovalDecision = Initialize-BetaNonEmployeeApprovalDecision  -Comment null
 ```
 
 - Convert the resource to JSON

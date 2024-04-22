@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountAggregation = Initialize-PSSailpointBetaAccountAggregation  -Start 2021-01-31T14:30:05.104Z `
+$AccountAggregation = Initialize-BetaAccountAggregation  -Start 2021-01-31T14:30:05.104Z `
  -Status ACCOUNTS_COLLECTED `
  -TotalAccounts 520 `
  -ProcessedAccounts 150

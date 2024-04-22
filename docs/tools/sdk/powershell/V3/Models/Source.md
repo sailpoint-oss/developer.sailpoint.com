@@ -45,12 +45,14 @@ Name | Type | Description | Notes
 **ConnectorImplementationId** |  Pointer to **String** | The connector implementation id | [optional] 
 **Created** |  Pointer to **System.DateTime** | The date-time when the source was created | [optional] 
 **Modified** |  Pointer to **System.DateTime** | The date-time when the source was last modified | [optional] 
+**CredentialProviderEnabled** |  Pointer to **Boolean** | Enables credential provider for this source. If credentialProvider is turned on  then source can use credential provider(s) to fetch credentials. | [optional] [default to $false]
+**Category** |  Pointer to **String** | The category of source (e.g. null, CredentialProvider) | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$Source = Initialize-PSSailpointSource  -Id 2c91808568c529c60168cca6f90c1324 `
+$Source = Initialize-Source  -Id 2c91808568c529c60168cca6f90c1324 `
  -Name My Source `
  -Description This is the corporate directory. `
  -Owner null `
@@ -60,13 +62,13 @@ $Source = Initialize-PSSailpointSource  -Id 2c91808568c529c60168cca6f90c1324 `
  -ManagerCorrelationMapping null `
  -ManagerCorrelationRule null `
  -BeforeProvisioningRule null `
- -Schemas [{type&#x3D;CONNECTOR_SCHEMA, id&#x3D;2c9180835d191a86015d28455b4b232a, name&#x3D;account}, {type&#x3D;CONNECTOR_SCHEMA, id&#x3D;2c9180835d191a86015d28455b4b232b, name&#x3D;group}] `
- -PasswordPolicies [{type&#x3D;PASSWORD_POLICY, id&#x3D;2c9180855d191c59015d291ceb053980, name&#x3D;Corporate Password Policy}, {type&#x3D;PASSWORD_POLICY, id&#x3D;2c9180855d191c59015d291ceb057777, name&#x3D;Vendor Password Policy}] `
+ -Schemas [{type=CONNECTOR_SCHEMA, id=2c9180835d191a86015d28455b4b232a, name=account}, {type=CONNECTOR_SCHEMA, id=2c9180835d191a86015d28455b4b232b, name=group}] `
+ -PasswordPolicies [{type=PASSWORD_POLICY, id=2c9180855d191c59015d291ceb053980, name=Corporate Password Policy}, {type=PASSWORD_POLICY, id=2c9180855d191c59015d291ceb057777, name=Vendor Password Policy}] `
  -Features [SYNC_PROVISIONING, MANAGER_LOOKUP, SEARCH, PROVISIONING, AUTHENTICATE, GROUP_PROVISIONING, PASSWORD] `
  -Type OpenLDAP - Direct `
  -Connector active-directory `
  -ConnectorClass sailpoint.connector.LDAPConnector `
- -ConnectorAttributes {healthCheckTimeout&#x3D;30, authSearchAttributes&#x3D;[cn, uid, mail]} `
+ -ConnectorAttributes {healthCheckTimeout=30, authSearchAttributes=[cn, uid, mail]} `
  -DeleteThreshold 10 `
  -Authoritative false `
  -ManagementWorkgroup null `
@@ -78,7 +80,9 @@ $Source = Initialize-PSSailpointSource  -Id 2c91808568c529c60168cca6f90c1324 `
  -ConnectionType file `
  -ConnectorImplementationId delimited-file `
  -Created 2022-02-08T14:50:03.827Z `
- -Modified 2024-01-23T18:08:50.897Z
+ -Modified 2024-01-23T18:08:50.897Z `
+ -CredentialProviderEnabled false `
+ -Category CredentialProvider
 ```
 
 - Convert the resource to JSON

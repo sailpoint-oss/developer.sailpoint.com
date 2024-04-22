@@ -35,7 +35,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessProfile = Initialize-PSSailpointAccessProfile  -Id 2c91808a7190d06e01719938fcd20792 `
+$AccessProfile = Initialize-AccessProfile  -Id 2c91808a7190d06e01719938fcd20792 `
  -Name Employee-database-read-write `
  -Description Collection of entitlements to read/write the employee database `
  -Created 2021-03-01T22:32:58.104Z `

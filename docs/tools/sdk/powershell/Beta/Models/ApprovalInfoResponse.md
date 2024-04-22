@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ApprovalInfoResponse = Initialize-PSSailpointBetaApprovalInfoResponse  -Id 8a80828f643d484f01643e14202e2000 `
+$ApprovalInfoResponse = Initialize-BetaApprovalInfoResponse  -Id 8a80828f643d484f01643e14202e2000 `
  -Name John Snow `
  -Status Approved
 ```

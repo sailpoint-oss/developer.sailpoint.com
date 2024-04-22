@@ -24,9 +24,9 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Lookup = Initialize-PSSailpointLookup  -Table {USA&#x3D;Americas, FRA&#x3D;EMEA, AUS&#x3D;APAC, default&#x3D;Unknown Region} `
+$Lookup = Initialize-Lookup  -Table {USA=Americas, FRA=EMEA, AUS=APAC, default=Unknown Region} `
  -RequiresPeriodicRefresh false `
- -VarInput {type&#x3D;accountAttribute, attributes&#x3D;{attributeName&#x3D;first_name, sourceName&#x3D;Source}}
+ -VarInput {type=accountAttribute, attributes={attributeName=first_name, sourceName=Source}}
 ```
 
 - Convert the resource to JSON

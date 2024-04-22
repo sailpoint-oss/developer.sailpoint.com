@@ -35,7 +35,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TaskResultDetails = Initialize-PSSailpointTaskResultDetails  -Type MENTOS `
+$TaskResultDetails = Initialize-TaskResultDetails  -Type MENTOS `
  -Id a248c16fe22222b2bd49615481311111 `
  -ReportType IDENTITIES_DETAILS `
  -Description A detailed view of the identities in the system. `
@@ -47,7 +47,7 @@ $TaskResultDetails = Initialize-PSSailpointTaskResultDetails  -Type MENTOS `
  -CompletionStatus Success `
  -Messages [] `
  -Returns [] `
- -Attributes {org&#x3D;an-org} `
+ -Attributes {org=an-org} `
  -Progress Initializing...
 ```
 

@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConnectorRuleResponse = Initialize-PSSailpointBetaConnectorRuleResponse  -Name WebServiceBeforeOperationRule `
+$ConnectorRuleResponse = Initialize-BetaConnectorRuleResponse  -Name WebServiceBeforeOperationRule `
  -Description This rule does that `
  -Type BuildMap `
  -Signature null `

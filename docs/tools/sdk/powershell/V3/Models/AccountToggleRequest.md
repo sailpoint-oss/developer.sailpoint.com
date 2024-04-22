@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountToggleRequest = Initialize-PSSailpointAccountToggleRequest  -ExternalVerificationId 3f9180835d2e5168015d32f890ca1581 `
+$AccountToggleRequest = Initialize-AccountToggleRequest  -ExternalVerificationId 3f9180835d2e5168015d32f890ca1581 `
  -ForceProvisioning false
 ```
 

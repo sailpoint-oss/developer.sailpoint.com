@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$VisibilityCriteria = Initialize-PSSailpointBetaVisibilityCriteria  -Expression null
+$VisibilityCriteria = Initialize-BetaVisibilityCriteria  -Expression null
 ```
 
 - Convert the resource to JSON

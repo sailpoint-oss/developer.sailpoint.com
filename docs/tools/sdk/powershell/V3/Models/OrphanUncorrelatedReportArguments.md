@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$OrphanUncorrelatedReportArguments = Initialize-PSSailpointOrphanUncorrelatedReportArguments  -SelectedFormats [CSV] `
+$OrphanUncorrelatedReportArguments = Initialize-OrphanUncorrelatedReportArguments  -SelectedFormats [CSV] `
  -DefaultS3Bucket true `
  -S3Bucket the-dev-bucket
 ```

@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TaskResultResponse = Initialize-PSSailpointBetaTaskResultResponse  -Type TASK_RESULT `
+$TaskResultResponse = Initialize-BetaTaskResultResponse  -Type TASK_RESULT `
  -Id 78733556-9ea3-4f59-bf69-e5cd92b011b4 `
  -Name null
 ```

@@ -26,11 +26,11 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FormElement = Initialize-PSSailpointBetaFormElement  -Id 00000000-0000-0000-0000-000000000000 `
+$FormElement = Initialize-BetaFormElement  -Id 00000000-0000-0000-0000-000000000000 `
  -ElementType TEXT `
- -Config {label&#x3D;Department} `
+ -Config {label=Department} `
  -Key department `
- -Validations [{validationType&#x3D;REQUIRED}]
+ -Validations [{validationType=REQUIRED}]
 ```
 
 - Convert the resource to JSON

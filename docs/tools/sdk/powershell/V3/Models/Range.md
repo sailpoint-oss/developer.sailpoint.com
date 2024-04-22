@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Range = Initialize-PSSailpointRange  -Lower null `
+$Range = Initialize-Range  -Lower null `
  -Upper null
 ```
 

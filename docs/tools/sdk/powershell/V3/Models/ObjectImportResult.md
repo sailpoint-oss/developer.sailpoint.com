@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ObjectImportResult = Initialize-PSSailpointObjectImportResult  -Infos null `
+$ObjectImportResult = Initialize-ObjectImportResult  -Infos null `
  -Warnings null `
  -Errors null `
  -ImportedObjects null

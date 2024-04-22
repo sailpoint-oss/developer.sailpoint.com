@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ServiceDeskIntegrationDto = Initialize-PSSailpointServiceDeskIntegrationDto  -Id 62945a496ef440189b1f03e3623411c8 `
+$ServiceDeskIntegrationDto = Initialize-ServiceDeskIntegrationDto  -Id 62945a496ef440189b1f03e3623411c8 `
  -Name Service Desk Integration Name `
  -Created 2024-01-17T18:45:25.994Z `
  -Modified 2024-02-18T18:45:25.994Z `
@@ -45,7 +45,7 @@ $ServiceDeskIntegrationDto = Initialize-PSSailpointServiceDeskIntegrationDto  -I
  -Cluster xyzzy999 `
  -ManagedSources [2c9180835d191a86015d28455b4a2329, 2c5680835d191a85765d28455b4a9823] `
  -ProvisioningConfig null `
- -Attributes {property&#x3D;value, key&#x3D;value} `
+ -Attributes {property=value, key=value} `
  -BeforeProvisioningRule null
 ```
 

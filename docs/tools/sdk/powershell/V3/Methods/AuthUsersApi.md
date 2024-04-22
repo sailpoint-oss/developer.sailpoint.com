@@ -1,16 +1,16 @@
 ---
-id: auth-user
-title: AuthUser
-pagination_label: AuthUser
-sidebar_label: AuthUser
+id: auth-users
+title: AuthUsers
+pagination_label: AuthUsers
+sidebar_label: AuthUsers
 sidebar_class_name: gosdk
-keywords: ['go', 'golang', 'sdk', 'AuthUser'] 
-slug: /tools/sdk/powershell/v3/methods/auth-user
-tags: ['SDK', 'Software Development Kit', 'AuthUser']
+keywords: ['go', 'golang', 'sdk', 'AuthUsers'] 
+slug: /tools/sdk/powershell/v3/methods/auth-users
+tags: ['SDK', 'Software Development Kit', 'AuthUsers']
 ---
 
 
-# AuthUser
+# AuthUsers
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 

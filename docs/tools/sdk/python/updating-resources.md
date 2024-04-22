@@ -51,7 +51,7 @@ except Exception as e:
 Run this command to run the code:
 
 ```bash
-python sdk.go
+python sdk.py
 ```
 
 The example uses a PATCH `replace` operation to update the value in the `/description` path to "This is an updated description for the workgroup."

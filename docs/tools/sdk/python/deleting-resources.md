@@ -47,7 +47,7 @@ except Exception as e:
 Run this command to run the code:
 
 ```bash
-python sdk.go
+python sdk.py
 ```
 
 The SDK returns the `deletionStatus` with a value of 204.

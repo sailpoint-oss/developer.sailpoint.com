@@ -12,7 +12,13 @@ properties:
     type: string
     description: ID of the identity that will own this role
     example: "2b568c65bc3c4c57a43bd97e3a8e41"
-example:
-  roleName: "Finance - Accounting"
-  roleDescription: "General access for accounting department"
-  ownerId: "2b568c65bc3c4c57a43bd97e3a8e41"
+  includeIdentities:
+    type: boolean
+    description: When true, create access requests for the identities associated with the potential role
+    default: false
+    example: true
+  directlyAssignedEntitlements:
+    type: boolean
+    description: When true, assign entitlements directly to the role; otherwise, create access profiles containing the entitlements
+    default: false
+    example: false

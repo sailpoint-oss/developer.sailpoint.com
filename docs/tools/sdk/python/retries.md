@@ -35,5 +35,5 @@ print(accounts)
 Run this command to run the code:
 
 ```bash
-python sdk.go
+python sdk.py
 ```

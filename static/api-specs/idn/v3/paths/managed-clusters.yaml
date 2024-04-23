@@ -1,0 +1,78 @@
+get:
+  tags:
+    - Managed Clusters
+  summary: Retrieve all Managed Clusters.
+  description: Retrieve all Managed Clusters for the current Org, based on request context.
+  operationId: getManagedClusters
+  parameters:
+    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/count.yaml'
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **operational**: *eq*
+      example: operational eq "operation"
+  responses:
+    "200":
+      description: Responds with a list of ManagedCluster.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/ManagedCluster.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [idn:remote-client:read, idn:remote-client:manage]
+post:
+  tags:
+    - Managed Clusters
+  summary: Create a new Managed Cluster
+  description: >-
+    Create a new Managed Cluster.
+
+    The API returns a result that includes the Managed Cluster ID.
+  operationId: createManagedCluster
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/ManagedClusterRequest.yaml'
+  responses:
+    "200":
+      description: The created ManagedClient
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ManagedCluster.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [idn:remote-client:manage]

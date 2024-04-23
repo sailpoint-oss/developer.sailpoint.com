@@ -400,6 +400,10 @@ tags:
       Refer to [Moving Identities into Lifecycle States](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html#moving-identities-into-lifecycle-states) for more information about these different lifecycle state statuses. 
 
       Refer to [Setting Up Lifecycle States](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html) for more information about lifecycle states.
+  - name: Managed Clients
+    description: Read and create operations for client data and statuses
+  - name: Managed Clusters
+    description: Read and create pperations for client Clusters, including Log Configuration
   - name: Non-Employee Lifecycle Management
     description: |
       Use this API to implement non-employee lifecycle management functionality. 
@@ -1101,6 +1105,16 @@ paths:
     $ref: "./v3/paths/identity-profile-default-config.yaml"
   /identity-profiles/{identity-profile-id}/process-identities:
     $ref: "./v3/paths/identity-profile-process-identities.yaml"
+  /managed-clients:
+    $ref: './v3/paths/managed-clients.yaml'
+  /managed-clients/{id}:
+    $ref: './v3/paths/managed-client.yaml'
+  /managed-clients/{id}/status:
+    $ref: './v3/paths/managed-client-status.yaml'
+  /managed-clusters:
+    $ref: './v3/paths/managed-clusters.yaml'
+  /managed-clusters/{id}:
+    $ref: './v3/paths/managed-cluster.yaml'
   /non-employee-records:
     $ref: "./v3/paths/non-employee-records.yaml"
   /non-employee-records/{id}:

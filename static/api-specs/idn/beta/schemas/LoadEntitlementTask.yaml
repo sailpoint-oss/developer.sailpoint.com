@@ -27,7 +27,18 @@ properties:
     example: '2020-07-11T21:23:15.000Z'
   returns:
     description: Return values from the task
-    type: object
+    type: array
+    items:
+      type: object
+      properties:
+        displayLabel:
+          description: The display label for the return value
+          type: string
+          example: TASK_OUT_ACCOUNT_GROUP_AGGREGATION_APPLICATIONS
+        attributeName:
+          description: The attribute name for the return value
+          type: string
+          example: applications
     example:
       - displayLabel: "TASK_OUT_ACCOUNT_GROUP_AGGREGATION_APPLICATIONS"
         attributeName: "applications"
@@ -39,4 +50,3 @@ properties:
         attributeName: "groupsUpdated"
       - displayLabel: "TASK_OUT_ACCOUNT_GROUP_AGGREGATION_DELETED"
         attributeName: "groupsDeleted"
-

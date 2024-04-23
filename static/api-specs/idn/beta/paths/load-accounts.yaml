@@ -1,14 +1,16 @@
 post:
   tags:
-    - Sources > Aggregation
+    - Sources
   summary: Account Aggregation
   operationId: importAccounts
   description: >-
     Starts an account aggregation on the specified source. 
     
-    If the target source is a direct connection, then the request body must be empty.
+
+    If the target source is a delimited file source, then the CSV file needs to be included in the request body.
     
-    If the target source is a delimited file source, then the CSV file needs to be included in the request body. You will also need to set the Content-Type header to `multipart/form-data`.
+
+    You will also need to set the Content-Type header to `multipart/form-data`.
   parameters:
     - in: path
       name: id
@@ -26,9 +28,12 @@ post:
             file:
               type: string
               format: binary
+              description: The CSV file containing the source accounts to aggregate.
             disableOptimization:
               type: boolean
-              example: 'true'
+              example: true
+              default: false
+              description: Use this flag to reprocess every account whether or not the data has changed.
   responses:
     "202":
       description: Aggregate Accounts Task

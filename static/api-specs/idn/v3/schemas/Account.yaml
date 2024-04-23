@@ -28,6 +28,7 @@ allOf:
         description: The unique ID of the identity this account is correlated to
       attributes:
         type: object
+        nullable: true
         additionalProperties: true
         description: The account attributes that are aggregated
         example:

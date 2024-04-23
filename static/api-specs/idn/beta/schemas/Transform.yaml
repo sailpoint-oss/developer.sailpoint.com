@@ -51,6 +51,8 @@ properties:
       - upper
       - usernameGenerator
       - uuid
+      - displayName
+      - rfc5646
     example: dateFormat
     externalDocs:
       description: Transform Operations

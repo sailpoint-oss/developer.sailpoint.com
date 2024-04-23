@@ -27,6 +27,10 @@ enum:
   - NO_UNSTRUCTURED_TARGETS_PROVISIONING
   - NO_DIRECT_PERMISSIONS_PROVISIONING
   - PREFER_UUID
+  - ARM_SECURITY_EXTRACT
+  - ARM_UTILIZATION_EXTRACT
+  - ARM_CHANGELOG_EXTRACT
+  - USES_UUID
 description: >-
   Optional features that can be supported by an source.
 
@@ -81,4 +85,14 @@ description: >-
   * NO_UNSTRUCTURED_TARGETS_PROVISIONING: This string will be replaced by NO_GROUP_PERMISSIONS_PROVISIONING and NO_PERMISSIONS_PROVISIONING.
 
   * NO_DIRECT_PERMISSIONS_PROVISIONING: This string will be replaced by NO_GROUP_PERMISSIONS_PROVISIONING and NO_PERMISSIONS_PROVISIONING.
+
+  * USES_UUID: Connectivity 2.0 flag used to indicate that the connector supports a compound naming structure.
+
+  * PREFER_UUID: Used in ISC Provisioning AND Aggregation to decide if it should prefer account.uuid to account.nativeIdentity when data is read in through aggregation OR pushed out through provisioning.
+
+  * ARM_SECURITY_EXTRACT: Indicates the application supports Security extracts for ARM
+
+  * ARM_UTILIZATION_EXTRACT: Indicates the application supports Utilization extracts for ARM
+
+  * ARM_CHANGELOG_EXTRACT: Indicates the application supports Change-log extracts for ARM
 example: AUTHENTICATE

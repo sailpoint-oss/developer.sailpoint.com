@@ -29,15 +29,7 @@ properties:
     description: Flag indicating whether or not the include permissions with the object data when aggregating the schema.
     example: false
   features:
-    type: array
-    items:
-      $ref: './SourceFeature.yaml'
-    description: The features that the schema supports.
-    example: [
-        "PROVISIONING",
-        "NO_PERMISSIONS_PROVISIONING",
-        "GROUPS_HAVE_MEMBERS"
-    ]
+    $ref: '../../v3/schemas/SourceFeature.yaml'
   configuration:
     type: object
     description: Holds any extra configuration data that the schema may require.

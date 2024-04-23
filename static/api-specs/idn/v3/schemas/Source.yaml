@@ -199,20 +199,7 @@ properties:
         id: "2c9180855d191c59015d291ceb057777"
         name: "Vendor Password Policy"
   features:
-    type: array
-    description: >-
-      Optional features that can be supported by a source.
-    items:
-      $ref: '../../v3/schemas/SourceFeature.yaml'
-    example: [
-            "SYNC_PROVISIONING",
-            "MANAGER_LOOKUP",
-            "SEARCH",
-            "PROVISIONING",
-            "AUTHENTICATE",
-            "GROUP_PROVISIONING",
-            "PASSWORD"
-        ]
+    $ref: '../../v3/schemas/SourceFeature.yaml'
   type:
     type: string
     description: >-

@@ -1,38 +1,41 @@
-type: string
-enum:
-  - AUTHENTICATE
-  - COMPOSITE
-  - DIRECT_PERMISSIONS
-  - DISCOVER_SCHEMA
-  - ENABLE
-  - MANAGER_LOOKUP
-  - NO_RANDOM_ACCESS
-  - PROXY
-  - SEARCH
-  - TEMPLATE
-  - UNLOCK
-  - UNSTRUCTURED_TARGETS
-  - SHAREPOINT_TARGET
-  - PROVISIONING
-  - GROUP_PROVISIONING
-  - SYNC_PROVISIONING
-  - PASSWORD
-  - CURRENT_PASSWORD
-  - ACCOUNT_ONLY_REQUEST
-  - ADDITIONAL_ACCOUNT_REQUEST
-  - NO_AGGREGATION
-  - GROUPS_HAVE_MEMBERS
-  - NO_PERMISSIONS_PROVISIONING
-  - NO_GROUP_PERMISSIONS_PROVISIONING
-  - NO_UNSTRUCTURED_TARGETS_PROVISIONING
-  - NO_DIRECT_PERMISSIONS_PROVISIONING
-  - PREFER_UUID
-  - ARM_SECURITY_EXTRACT
-  - ARM_UTILIZATION_EXTRACT
-  - ARM_CHANGELOG_EXTRACT
-  - USES_UUID
+type: array
+items:
+  type: string
+  enum:
+    - AUTHENTICATE
+    - COMPOSITE
+    - DIRECT_PERMISSIONS
+    - DISCOVER_SCHEMA
+    - ENABLE
+    - MANAGER_LOOKUP
+    - NO_RANDOM_ACCESS
+    - PROXY
+    - SEARCH
+    - TEMPLATE
+    - UNLOCK
+    - UNSTRUCTURED_TARGETS
+    - SHAREPOINT_TARGET
+    - PROVISIONING
+    - GROUP_PROVISIONING
+    - SYNC_PROVISIONING
+    - PASSWORD
+    - CURRENT_PASSWORD
+    - ACCOUNT_ONLY_REQUEST
+    - ADDITIONAL_ACCOUNT_REQUEST
+    - NO_AGGREGATION
+    - GROUPS_HAVE_MEMBERS
+    - NO_PERMISSIONS_PROVISIONING
+    - NO_GROUP_PERMISSIONS_PROVISIONING
+    - NO_UNSTRUCTURED_TARGETS_PROVISIONING
+    - NO_DIRECT_PERMISSIONS_PROVISIONING
+    - PREFER_UUID
+    - ARM_SECURITY_EXTRACT
+    - ARM_UTILIZATION_EXTRACT
+    - ARM_CHANGELOG_EXTRACT
+    - USES_UUID
+  example: AUTHENTICATE
 description: >-
-  Optional features that can be supported by an source.
+  Optional features that can be supported by a source. Modifying the features array may cause source configuration errors that are unsupportable. It is recommended to not modify this array for SailPoint supported connectors.
 
   * AUTHENTICATE: The source supports pass-through authentication.
 
@@ -95,4 +98,8 @@ description: >-
   * ARM_UTILIZATION_EXTRACT: Indicates the application supports Utilization extracts for ARM
 
   * ARM_CHANGELOG_EXTRACT: Indicates the application supports Change-log extracts for ARM
-example: AUTHENTICATE
+example: [
+    "PROVISIONING",
+    "NO_PERMISSIONS_PROVISIONING",
+    "GROUPS_HAVE_MEMBERS"
+]

@@ -52,4 +52,4 @@ post:
     "500":
       $ref: "../../v3/responses/500.yaml"
   security:
-    - UserContextAuth: [ idn:account:create ]
+    - UserContextAuth: [ idn:account:manage ]

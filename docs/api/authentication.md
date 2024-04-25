@@ -285,7 +285,7 @@ POST https://{tenant}.api.identitynow.com/oauth/token?grant_type=authorization_c
 
 :::info
 
-The token endpoint URL is `{tenant}.api.identitynow.com`, and the authorize URL is `{tenant}.login.identitynow.com`. Be sure to use the correct URL when you're setting up your webapp to use this flow. You can read more about [finding your tenant OAuth details here](https://developer.sailpoint.com/docs/api/authentication/#find-your-tenants-oauth-details).
+The token endpoint URL is `{tenant}.api.identitynow.com`, and the authorize URL is `{tenant}.login.sailpoint.com`. Please be sure to use the correct URL when you're setting up your webapp to use this flow. You can read more about [finding your tenant OAuth details here](https://developer.sailpoint.com/docs/api/authentication/#find-your-tenants-oauth-details).
 
 :::
 

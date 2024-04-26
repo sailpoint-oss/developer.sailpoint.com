@@ -6,7 +6,7 @@ get:
   - Approvals
   summary: Get an approval
   description: >-
-    Retrieve a single approval for a given approval ID
+    Retrieve a single approval for a given approval ID. This endpoint is for generic approvals, different than the access-request-approval endpoint and does not include access-request-approvals.
   parameters:
   - in: path
     name: id

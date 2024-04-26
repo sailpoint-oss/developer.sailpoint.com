@@ -24,9 +24,8 @@ properties:
     description: The name of the approval for a given locale
   batchRequest:
     type: object
-    items:
-      $ref: '../schemas/ApprovalBatch.yaml'
     description: The name of the approval for a given locale
+    $ref: '../schemas/ApprovalBatch.yaml'
     example:
       batchId: 38453251-6be2-5f8f-df93-5ce19e295837
       batchSize: 100
@@ -45,9 +44,8 @@ properties:
     description: The priority of the approval
   requester:
     type: object
-    items:
-      $ref: '../schemas/ApprovalIdentity.yaml'
     description: Object representation of the requester of the approval
+    $ref: '../schemas/ApprovalIdentity.yaml'
     example:
       id: 85d173e7d57e496569df763231d6deb6a
       type: IDENTITY

@@ -16,7 +16,7 @@ Use the reference transform to reuse a transform that has already been written w
 
 ## Transform Structure
 
-In addition to the standard `type` and `name` attributes, the structure of a reference transform requires the `id` of the transform you want to reference:
+In addition to the standard `type` and `name` attributes, the structure of a reference transform requires the name of the transform you want to reference specified in the `attributes.id` key:
 
 ```json
 {
@@ -34,7 +34,7 @@ In addition to the standard `type` and `name` attributes, the structure of a ref
 
   - **type** - This must always be set to `reference`.
   - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
-  - **id** - This ID specifies the name of the pre-existing transform you want to use within your current transform.
+  - **attributes.id** - This specifies the name of the pre-existing transform you want to use within your current transform.
 
 - **Optional Attributes**
   - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether the transform logic should be reevaluated every evening as part of the identity refresh process.

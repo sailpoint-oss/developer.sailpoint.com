@@ -31,13 +31,6 @@ Provide the username generator transform itself in the create profile attribute 
 
 ```json
 {
-  "attributes": {
-    "cloudMaxSize": "100",
-    "cloudMaxUniqueChecks": "5",
-    "cloudRequired": "true"
-  },
-  "isRequired": false,
-  "multi": false,
   "name": "distinguishedName",
   "transform": {
     "type": "usernameGenerator",
@@ -88,7 +81,14 @@ Provide the username generator transform itself in the create profile attribute 
       }
     }
   },
-  "type": ""
+  "attributes": {
+    "cloudMaxSize": "100",
+    "cloudMaxUniqueChecks": "5",
+    "cloudRequired": "true"
+  },
+  "isRequired": false,
+  "type": "string",
+  "isMultiValued": false
 }
 ```
 
@@ -115,13 +115,6 @@ If the generator does not find a unique value within the first 25 tries, it retu
 
 ```json
 {
-  "attributes": {
-    "cloudMaxSize": "100",
-    "cloudMaxUniqueChecks": "25",
-    "cloudRequired": "true"
-  },
-  "isRequired": false,
-  "multi": false,
   "name": "userId",
   "transform": {
     "type": "usernameGenerator",
@@ -149,7 +142,14 @@ If the generator does not find a unique value within the first 25 tries, it retu
       }
     }
   },
-  "type": ""
+   "attributes": {
+    "cloudMaxSize": "100",
+    "cloudMaxUniqueChecks": "25",
+    "cloudRequired": "true"
+  },
+  "isRequired": false,
+  "type": "string",
+  "isMultiValued": false
 }
 ```
 
@@ -165,13 +165,6 @@ If the generator does not find a unique value within the first 10 tries, it retu
 
 ```json
 {
-  "attributes": {
-    "cloudMaxSize": "100",
-    "cloudMaxUniqueChecks": "10",
-    "cloudRequired": "true"
-  },
-  "isRequired": false,
-  "multi": false,
   "name": "accountId",
   "transform": {
     "type": "usernameGenerator",
@@ -192,6 +185,13 @@ If the generator does not find a unique value within the first 10 tries, it retu
       }
     }
   },
-  "type": ""
+   "attributes": {
+    "cloudMaxSize": "100",
+    "cloudMaxUniqueChecks": "10",
+    "cloudRequired": "true"
+  },
+  "isRequired": false,
+  "type": "string",
+  "isMultiValued": false
 }
 ```

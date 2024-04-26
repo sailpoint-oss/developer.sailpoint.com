@@ -1,12 +1,12 @@
 post:
-  operationId: reloadAccount
+  operationId: submitReloadAccount
   tags:
     - Accounts
   summary: Reload Account
   description: >-
     This API asynchronously reloads the account directly from the connector and performs a one-time aggregation process.  
-  
-    A token with ORG_ADMIN authority is required to call this API.
+    
+    A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
   security:
     - UserContextAuth: [idn:accounts-state:manage]
   parameters:

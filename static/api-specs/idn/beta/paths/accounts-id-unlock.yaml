@@ -8,7 +8,7 @@ post:
 
     To use this endpoint to unlock an account that has the `forceProvisioning` option set to true, the `idn:accounts-provisioning:manage` scope is required. 
 
-    A token with ORG_ADMIN authority is required to call this API.
+    A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
   security:
     - UserContextAuth: [idn:accounts-state:manage, idn:accounts-provisioning:manage]
   parameters:

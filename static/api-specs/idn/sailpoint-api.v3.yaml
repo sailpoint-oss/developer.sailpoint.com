@@ -1075,6 +1075,8 @@ paths:
     $ref: './v3/paths/configuration-hub/backup-uploads-id.yaml'
   /connectors/{scriptName}:
     $ref: './v3/paths/connectors.yaml'
+  /connectors/{scriptName}/list:
+    $ref: './v3/paths/connectors-list.yaml'
   /connectors/{scriptName}/source-config:
     $ref: './v3/paths/connectors-source-config.yaml'
   /connectors/{scriptName}/translations/{locale}:

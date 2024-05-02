@@ -13,7 +13,7 @@ properties:
     example: test@sailpoint.com
   type:
     type: string
-    enum: ['NeprofileUser', 'NeaccessUser']
+    enum: ["NeprofileUser", "NeaccessUser"]
     default: NeprofileUser
     description: The user type
     example: NeprofileUser
@@ -36,7 +36,7 @@ properties:
     type: string
     required: true
     description: The user login
-    example: my_user  
+    example: my_user
   group_strings:
     type: string
     description: The user group strings

@@ -37,12 +37,13 @@ export default function HomepageGettingStarted() {
           </div>
         </div>
         <div className={styles.carousel}>
-          <iframe
+        <iframe
             className={styles.video}
-            src="https://www.youtube.com/embed/N-JG8xjpKaI"
+            src="https://www.youtube.com/embed/MYhWuqAAUvY?si=GPhe53efO7QLJ_RJ"
             title="YouTube video player"
             frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen></iframe>
         </div>
       </div>

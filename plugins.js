@@ -5,6 +5,7 @@ module.exports = [
       path: './.env',
     },
   ],
+  "docusaurus-plugin-sass",
   [
     '@docusaurus/plugin-google-tag-manager',
     {

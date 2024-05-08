@@ -26,6 +26,15 @@ export default function HomepageTeam() {
           image={'/homepage/tyler-mairose.png'}
         />
         <TeamCard
+          link={
+            'https://developer.sailpoint.com/discuss/u/christina_gagnon/summary'
+          }
+          name={'Christina Gagnon'}
+          title={'Developer Advocate'.toUpperCase()}
+          expertise={'Identity Security Cloud'.toUpperCase()}
+          image={'/homepage/christina-gagnon.png'}
+        />
+        <TeamCard
           link={'https://developer.sailpoint.com/discuss/u/jthaytko/summary'}
           name={'James Haytko'}
           title={'Technical Writer'.toUpperCase()}

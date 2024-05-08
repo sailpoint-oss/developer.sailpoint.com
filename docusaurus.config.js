@@ -11,6 +11,7 @@ const baseUrl = '/';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
+  noIndex: true,
   title: 'SailPoint Developer Community',
   tagline:
     'The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.',

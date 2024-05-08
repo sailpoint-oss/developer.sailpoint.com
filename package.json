@@ -43,7 +43,8 @@
     "react-dom": "^18.2.0",
     "react-markdown": "^8.0.7",
     "react-spinners": "^0.13.8",
-    "react-tabs": "^4.3.0"
+    "react-tabs": "^4.3.0",
+    "esbuild-loader": "^2.20.0"
   },
   "overrides": {
     "mermaid": "9.1.7"

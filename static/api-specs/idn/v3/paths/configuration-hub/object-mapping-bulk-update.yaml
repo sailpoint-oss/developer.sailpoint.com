@@ -8,6 +8,8 @@ post:
   description: >-
     This updates a set of object mappings, only enabled and targetValue fields can be updated.
     
+    Source org should be "default" when updating object mappings that are not associated to any particular org.
+    
     The request will need the following security scope:
 
     - sp:config-object-mapping:manage

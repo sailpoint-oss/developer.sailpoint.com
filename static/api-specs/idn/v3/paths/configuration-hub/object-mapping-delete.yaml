@@ -8,6 +8,8 @@ delete:
   description: >-
     This deletes an existing object mapping.
     
+    Source org should be "default" when deleting an object mapping that is not associated to any particular org.
+    
     The request will need the following security scope:
 
     - sp:config-object-mapping:manage

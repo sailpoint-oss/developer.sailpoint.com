@@ -8,6 +8,8 @@ post:
   description: >-
     This creates a set of object mappings (Max 25) between current org and source org.
     
+    Source org should be "default" when creating object mappings that are not to be associated to any particular org.
+    
     The request will need the following security scope:
 
     - sp:config-object-mapping:manage

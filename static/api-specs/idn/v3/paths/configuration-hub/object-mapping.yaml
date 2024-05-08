@@ -8,6 +8,8 @@ get:
   description: >-
     This gets a list of existing object mappings between current org and source org.
     
+    Source org should be "default" when getting object mappings that are not associated to any particular org.
+    
     The request will need the following security scope:
 
     - sp:config-object-mapping:read
@@ -73,6 +75,8 @@ post:
   summary: Creates an object mapping
   description: >-
     This creates an object mapping between current org and source org.
+    
+    Source org should be "default" when creating an object mapping that is not to be associated to any particular org.
     
     The request will need the following security scope:
 

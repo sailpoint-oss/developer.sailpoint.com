@@ -1,0 +1,166 @@
+---
+id: udk-explore
+title: Getting Started
+pagination_label: UDK
+sidebar_label: Getting Started
+sidebar_position: 1
+sidebar_class_name: rudk
+keywords: ['UI', 'development', 'kit']
+description: Develop custom user interfaces.
+slug: /tools/ui-development-kit/getting-started
+tags: ['UI']
+---
+
+Read this guide to learn about the UI Development Kit and how to use it. Once you have read this guide, you will be able to do the following: 
+
+- [Change your custom user interface (UI) name](#change-your-custom-ui-name)
+- [Update your sidebar to include new items](#update-the-sidebar)
+- [Add new routes and pages](#add-new-routes-and-pages)
+
+## Change your custom UI name 
+
+By default, the name of this project is 'UI Development Kit'. To update the name of your custom UI, you must update the code in two different places.
+
+Update the Electron application window name. To do so, update the text in `src/app.html` on line 7:
+
+```html
+<title>UI Development Kit</title>
+```
+
+Update the home page. To do so, change the text in `src/routes/+layout.svelte` on line 124:
+
+```html
+<p class="text-xl lg:!block hidden">UI Development Kit</p>
+```
+
+## Update the sidebar
+
+The sidebar is located at `src/lib/sidebar/navigation.ts`.
+
+To add a new sidebar item, add this code snippet to the file under the `content` array:
+
+```typescript
+import HomeSvg from '$lib/Components/SVGs/HomeSVG.svelte';
+import ReportsSvg from '$lib/Components/SVGs/ReportsSVG.svelte';
+
+export const navigation = [
+  {
+    name: 'Main',
+    content: [
+      ...
+      {
+        url: '/home/account-list',
+        name: 'Account List',
+        description:
+          'an example showcasing how to list accounts',
+        icon: ReportsSvg,
+      },
+    ],
+  },
+];
+```
+
+:::info
+You can add a custom SVG icon for each sidebar item. Save and import your icon svg under `lib/Components/SVGs/*`.
+:::
+
+You now have a new sidebar link, but it points to a route that doesn't exist yet. If you click the link, you will encounter a 404 error.
+
+To learn how to add a route and page for the new sidebar item, refer to [Add route and new page](#add-route-and-new-page).
+
+## Add route and new page
+
+To create new routes, you can create new folders and pages for those routes under `src/routes`. 
+
+Here is an example of how to create a new route:
+
+The route `/home/example-pages` takes you to `src/routes/home/example-pages/+page.svelte`.
+
+The route `/home/example-pages/list-of-identities` takes you to `src/routes/home/example-pages/list-of-identities/+page.svelte`.
+
+```bash
+.
+├── src
+│   └── routes
+│       ├── home
+│       │   ├── example-pages
+│       │   │   ├── +page.svelte
+│       │   │   ├── inactive-identities-with-access
+│       │   │   ├── list-of-identities
+│       │   │   ├── missing-cloud-life-cycle-state
+│       │   │   ├── reports.ts
+│       │   │   ├── source-aggregations
+│       │   │   └── source-owner-configured
+```
+
+With this information, you can create a new route for an accounts landing page and a page that lists accounts.
+
+The new project structure would look like this:
+
+```bash
+├── src
+│   └── routes
+│       ├── home
+│       │   ├── example-pages
+│       │   │   ├── +page.svelte
+│       │   │   ├── inactive-identities-with-access
+│       │   │   ├── list-of-identities
+│       │   │   ├── missing-cloud-life-cycle-state
+│       │   │   ├── reports.ts
+│       │   │   ├── source-aggregations
+│       │   │   └── source-owner-configured
+│       ├── accounts
+│       │   ├── +page.svelte # Root accounts page at route `accounts`
+│       │   └── account-list
+│       │       ├── +page.server.ts # Server side code for the account list page
+│       │       └── +page.svelte # Account list page at route `accounts/account-list`
+```
+
+You can now update those files with this content so that they display correctly:
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+<TabItem value="accounts_page" label="+page.svelte" default>
+
+```html
+<div class="flex justify-center flex-col align-middle gap-2">
+	<div class="card p-4">
+		<p class="text-2xl text-center">Accounts Homepage</p>
+	</div>
+</div>
+
+```
+
+</TabItem>
+<TabItem value="accounts_list_server" label="accounts-list/+page.server.ts">
+
+```html
+<div class="flex justify-center flex-col align-middle gap-2">
+	<div class="card p-4">
+		<p class="text-2xl text-center">List of all Accounts</p>
+	</div>
+</div>
+```
+
+</TabItem>
+</Tabs>
+
+To see the new sidebar item, as well as its new route and page, restart the project. 
+
+To restart the project, run this command: 
+
+```bash
+npm run dev
+```
+
+Once you have run the command, the new sidebar item, as well as its new route and page, will display. 
+
+Now that you have the new sidebar item, its new route, and its new page, you can implement the page. To continue following this example and learn how to implement an accounts list page, refer to [Accounts List](/docs/tools/ui-development-kit/accounts-list).
+
+## Discuss 
+
+The most valuable resource for ISC developers is the SailPoint Developer Community itself, where ISC users and experts all over the world come together to ask questions and provide solutions. 
+
+To learn more about the ISC UI Development Kit and discuss it with SailPoint Developer Community members, go to the [SailPoint Developer Community Forum](https://developer.sailpoint.com/discuss/c/identity-security-cloud/6). 

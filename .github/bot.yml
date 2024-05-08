@@ -1,26 +1,51 @@
 ##### Labeler ##########################################################################################################
 # Enable "labeler" for your PR that would add labels to PRs based on the paths that are modified in the PR.
 labelPRBasedOnFilePath:
+  Images:
+    - docs/**/*.png
+    - docs/**/*.svg
+    - docs/**/*.jpg
+    - docs/**/*.jpeg
   Docs:
-    - products/**/*.md*
+    - docs/**/*.md*
+  Tools:
+    - docs/tools/**/*
+  CLI Docs:
+    - docs/tools/cli/**/*
+  SDK Docs:
+    - docs/tools/sdk/**/*
+  Rule Development Kit Docs:
+    - docs/tools/rule-development-kit/**/*
   IdentityNow:
-    - products/idn/**/*
+    - docs/extensibility/**/*
+    - docs/connectivity/**/*
+    - docs/api/**/*
+    - docs/guides/**/*
+    - docs/reporting/**/*
+  NERM:
+    - docs/nerm/**/*
   IdentityIQ:
-    - products/iiq/**/*
+    - docs/iiq/**/*
   Event Trigger Docs:
-    - products/idn/docs/identity-now/event-triggers/**/*.md*
+    - docs/extensibility/event-triggers/**/*
   SaaS Connectivity Docs:
-    - products/idn/docs/identity-now/saas-connectivity/**/*.md*
+    - docs/connectivity/saas-connectivity/**/*
+  Secure Data Share (SDS):
+    - docs/reporting/secure-data-share/**/*
+  Access Intelligence Center (AIC):
+    - docs/reporting/access-intelligence-center/**/*
   Transform Docs:
-    - products/idn/docs/identity-now/transforms/**/*.md*
+    - docs/extensibility/transforms/**/*
   Rules Docs:
-    - products/idn/docs/identity-now/rules/**/*.md*
+    - docs/extensibility/rules/**/*
   SaaS Configuration Docs:
-    - products/idn/docs/identity-now/saas-configuration.md*
+    - docs/extensibility/configuration-management/saas-configuration.md*
   Introduction Doc:
-    - products/idn/docs/identity-now/index.md*
+    - docs/index.md*
   Pages:
     - src/pages/**/*
+  Static Files:
+    - src/static/**/*
   Components:
     - src/components/**/*
   CSS:
@@ -30,6 +55,10 @@ labelPRBasedOnFilePath:
   Sidebar:
     - sidebars.js
     - products/**/sidebar.js
+  Firebase:
+    - firebase.json
+  Prettier:
+    - .prettier*
   Docusaurus Config:
     - docusaurus.config.js
   Footer:
@@ -41,64 +70,74 @@ labelPRBasedOnFilePath:
 ##### Reviewer #########################################################################################################
 addReviewerBasedOnLabel:
   labels:
+    Images:
+      - sailpoint-oss/developer-relations
     Docs:
       - james-haytko-sp
+    Tools:
+      - sailpoint-oss/devrel-advocates
+    CLI Docs:
+      - sailpoint-oss/devrel-advocates
+    SDK Docs:
+      - sailpoint-oss/devrel-advocates
+    Rule Development Kit Docs:
+      - sailpoint-oss/devrel-advocates
     IdentityNow:
-      - colin-mckibben-sp
+      - sailpoint-oss/devrel-advocates
+    NERM:
+      - sailpoint-oss/devrel-advocates
     IdentityIQ:
-      - colin-mckibben-sp
+      - sailpoint-oss/devrel-advocates
     Event Trigger Docs:
-      - colin-mckibben-sp
+      - sailpoint-oss/devrel-advocates
     SaaS Connectivity Docs:
       - philip-ellis-sp
+    Secure Data Share (SDS):
+      - philip-ellis-sp
+    Access Intelligence Center (AIC):
+      - philip-ellis-sp
     Transform Docs:
-      - tyler-mairose-sp
+      - sailpoint-oss/devrel-advocates
     Rules Docs:
-      - tyler-mairose-sp
+      - sailpoint-oss/devrel-advocates
     SaaS Configuration Docs:
-      - colin-mckibben-sp
+      - sailpoint-oss/devrel-advocates
     Introduction Doc:
-      - jordan-violet-sp
-      - colin-mckibben-sp
-      - tyler-mairose-sp
-      - james-haytko-sp
-      - philip-ellis-sp
+      - sailpoint-oss/devrel-advocates
     Pages:
-      - philip-ellis-sp
+      - sailpoint-oss/developer-relations
+    Static Files:
+      - sailpoint-oss/developer-relations
     Components:
-      - philip-ellis-sp
+      - sailpoint-oss/devrel-engineering
     CSS:
-      - philip-ellis-sp
+      - sailpoint-oss/devrel-engineering
     Swizzled Components:
-      - philip-ellis-sp
-      - jordan-violet-sp
+      - sailpoint-oss/devrel-engineering
     Sidebar:
-      - philip-ellis-sp
+      - sailpoint-oss/developer-relations
+    Firebase:
+      - sailpoint-oss/devrel-engineering
+      - jordan-violet-sp
+    Prettier:
+      - jordan-violet-sp
     Docusaurus Config:
-      - philip-ellis-sp
+      - sailpoint-oss/devrel-engineering
     Footer:
-      - jordan-violet-sp
-      - philip-ellis-sp
+      - sailpoint-oss/developer-relations
     Navbar:
-      - jordan-violet-sp
-      - colin-mckibben-sp
-      - tyler-mairose-sp
-      - james-haytko-sp
-      - philip-ellis-sp
+      - sailpoint-oss/developer-relations
     Plugins:
-      - philip-ellis-sp
+      - sailpoint-oss/devrel-engineering
 ##### Greetings ########################################################################################################
 # Comment to be posted to welcome users when they open their first PR
 firstPRWelcomeComment: >
   🎉 Thanks for opening this pull request! Please be sure to check out our contributing guidelines. 🙌
 
-
 # Comment to be posted to congratulate user on their first merged PR
 firstPRMergeComment: >
   🎉 Awesome work, congrats on your first merged pull request! 🙌
 
-
 # Comment to be posted to on first time issues
 firstIssueWelcomeComment: >
   🎉 Thanks for opening your first issue here! Be sure to follow the issue template, and welcome to the community! 🙌
-

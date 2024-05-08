@@ -2,6 +2,7 @@ type: object
 properties:
   attributes:
     type: object
+    additionalProperties: true
     description: A JSON object that stores the context.
     example: {"productUrl":"https://test-org.identitysoon.com","brandingConfigs":{"default":{"narrowLogoURL":null,"productName":"SailPoint","standardLogoURL":null,"navigationColor":"011E64","actionButtonColor":"20B2DE","emailFromAddress":null,"activeLinkColor":"20B2DE","loginInformationalMessage":null}}}
   created:

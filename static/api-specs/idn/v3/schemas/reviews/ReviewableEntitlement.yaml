@@ -115,3 +115,5 @@ properties:
         format: date-time
         description: When the account was last modified
         example: '2020-05-20T18:57:16.987Z'
+      activityInsights:
+        $ref: '../ActivityInsights.yaml'

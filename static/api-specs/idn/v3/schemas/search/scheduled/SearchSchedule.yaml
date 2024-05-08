@@ -43,7 +43,7 @@ properties:
     example: false
   emailEmptyResults:
     description: |
-      Indicates if email generation should not be suppressed if search returns no results.
+      Indicates if email generation should occur when search returns no results.
     type: boolean
     default: false
     example: false

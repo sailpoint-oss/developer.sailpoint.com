@@ -22,10 +22,10 @@ get:
         Filtering is supported for the following fields and operators:
 
 
-        **id**: *eq, ne, co, ge, gt, in, le, lt, isnull, sw*
+        **id**: *eq, ne, ge, gt, in, le, lt, isnull, sw*
 
 
-        **name**: *eq, ne, co, in, le, lt, isnull, sw*
+        **name**: *eq, ne, in, le, lt, isnull, sw*
 
 
         **priority**: *eq, ne*

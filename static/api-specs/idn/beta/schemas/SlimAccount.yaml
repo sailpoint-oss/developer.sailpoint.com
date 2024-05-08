@@ -7,7 +7,6 @@ allOf:
     properties:
       uuid:
         type: string
-        format: uuid
         description: Unique ID from the owning source
         example: '2c9180857893f12901789445619b0366'
         nullable: true

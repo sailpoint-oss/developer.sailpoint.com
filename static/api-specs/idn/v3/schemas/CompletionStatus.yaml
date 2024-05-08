@@ -6,4 +6,5 @@ enum:
   - FAILURE
   - INCOMPLETE
   - PENDING
+  - null
 example: SUCCESS

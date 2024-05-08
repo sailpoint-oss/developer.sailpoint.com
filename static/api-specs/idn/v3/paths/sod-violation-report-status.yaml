@@ -3,7 +3,7 @@ get:
     - UserContextAuth: [idn:sod-violation:read]
   operationId: getSodViolationReportRunStatus
   tags:
-    - SOD Policy
+    - SOD Policies
   summary: Get violation report run status
   description: >-
     This gets the status for a violation report run task that has already been invoked.

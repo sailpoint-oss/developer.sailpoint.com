@@ -15,8 +15,12 @@ properties:
     - id
     - type
     - name
-    allOf:
-    - $ref: './AccessItemRequestedForDto.yaml'
+    type: array
+    description: Identities access was requested for. 
+    items: 
+      $ref: './AccessItemRequestedForDto.yaml'
+    minItems: 1
+    maxItems: 10
   requestedItems:
     description: Details of the access items being requested.
     type: array
@@ -59,6 +63,8 @@ properties:
           type: string
           description: A comment from the identity requesting the access.
           example: William needs this access to do his job.
+    minItems: 1
+    maxItems: 25
   requestedBy:
     required:
     - id

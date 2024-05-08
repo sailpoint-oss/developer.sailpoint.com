@@ -1,7 +1,7 @@
 post:
   operationId: startSodPolicy
   tags:
-    - SOD Policy
+    - SOD Policies
   summary: Runs SOD policy violation report
   deprecated: true
   security:

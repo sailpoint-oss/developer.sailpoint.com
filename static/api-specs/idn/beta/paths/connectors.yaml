@@ -19,7 +19,7 @@ get:
         Filtering is supported for the following fields and operators:
 
 
-        **name**: *sw, co*
+        **name**: *sw*
 
 
         **type**: *eq*

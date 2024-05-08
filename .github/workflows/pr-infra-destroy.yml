@@ -1,0 +1,46 @@
+name: PR infra destroy
+
+on:
+  # Runs on pushes targeting the default branch
+  pull_request:
+    types: [closed]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+env:
+  BASE_URL: '/'
+
+permissions:
+  id-token: write   # This is required for requesting the JWT
+  contents: read
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure AWS credentials from Test account
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          role-to-assume: arn:aws:iam::176038645705:role/github-action-role
+          role-session-name: deploy-developer-site-infra-to-aws
+          aws-region: us-east-1
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Check out repo
+        uses: actions/checkout@v3
+      - name: setup SAM
+        uses: aws-actions/setup-sam@v2
+      - name: set env vars
+        run: |
+          echo "STACK=developer-sailpoint-site-${{ github.event.pull_request.number }}" >> $GITHUB_ENV
+      - name: Get S3 bucket location and cloudfront url
+        run: |
+          export S3_BUCKET=$(aws cloudformation describe-stacks --stack-name $STACK --query "Stacks[0].Outputs[?OutputKey=='DeveloperSailpointWebS3BucketName'].OutputValue" --output text)
+          echo "S3_BUCKET=$S3_BUCKET" >> $GITHUB_ENV
+          export CLOUDFRONT_URL=$(aws cloudformation describe-stacks --stack-name $STACK --query "Stacks[0].Outputs[?OutputKey=='DeveloperSailpointCloudFrontDistributionDomainName'].OutputValue" --output text)
+          echo "CLOUDFRONT_URL=$CLOUDFRONT_URL" >> $GITHUB_ENV
+      - name: run SAM delete
+        run: |
+          aws s3 rm s3://$S3_BUCKET --recursive
+          sam delete --stack-name $STACK --no-prompts

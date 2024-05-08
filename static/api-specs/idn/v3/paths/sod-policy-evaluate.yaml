@@ -3,7 +3,7 @@ post:
     - UserContextAuth: [idn:sod-violation:write]
   operationId: startEvaluateSodPolicy
   tags:
-    - SOD Policy
+    - SOD Policies
   summary: Evaluate one policy by ID
   description: >-
     Runs the scheduled report for the policy retrieved by passed policy ID. 

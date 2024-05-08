@@ -1,17 +1,141 @@
 .blogContainer {
-    display: flex;
+  min-height: 600px;
+}
+
+.mainCard {
+  display: grid;
+  grid-gap: 20px;
+  max-width: 1180px;
+  justify-content: center;
+  min-height: 587.22px;
+}
+
+.featuredGettingStartedText {
+  display: none;
+}
+
+.gettingStartedText,
+.featuredGettingStartedText {
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+.gettingStartedOne {
+  color: var(--ifm-color-primary);
+  font-size: 30px;
+  max-width: 396px;
+  font-weight: bold;
+  line-height: 100%;
+}
+
+.gettingStartedTwo {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.gettingStartedThree {
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+/* Getting Started Card container */
+.gridContainer {
+  display: grid;
+  margin-left: 50px;
+  margin-bottom: 50px;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  place-content: center;
+  margin-right: 40px;
+}
+
+.video {
+  width: 100%;
+  height: 300px;
+  max-width: 520px;
 }
 
 .blogSidbarContainer {
-    flex: 5%;
+  margin: auto;
+  width: 400px;
 }
 
-@media only screen and (max-width: 870px) {
-    .blogSidbarContainer {
-      display: none;
-    }
+.featuredBlogContainer {
+  margin-left: 8%;
 }
 
-.blogCardContainer {
-    flex: 95%;
+.contentContainer {
+  margin-left: 5%;
+}
+
+@media only screen and (max-width: 1178px) {
+  .carousel {
+    margin-top: 0px;
+    margin-left: 50px;
+    margin-bottom: 50px;
+  }
+  .contentContainer {
+    width: 600px;
+    margin-left: 10%;
+  }
+
+  .featuredGettingStartedText {
+    display: flex;
+  }
+}
+
+@media only screen and (min-width: 1179px) {
+  .carousel {
+    margin-top: 35px;
+    padding-bottom: 5%;
+  }
+  .mainCard {
+    grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+    /* UI Properties */
+    background: var(--main-hero-card-background);
+    box-shadow: var(--dev-main-card-shadow);
+    border: 1px solid var(--dev-card-background);
+    border-radius: 40px;
+    opacity: 1;
+    margin: 50px auto;
+    width: calc(100% - 100px);
+    height: 545px;
+    min-height: 535px;
+  }
+
+  
+}
+
+@media only screen and (max-width: 570px) {
+  
+
+  .gettingStartedThree {
+    padding-right: 15%;
+  }
+  
+  .contentContainer {
+    margin-left: 0%;
+    width: auto;
+  }
+  .featuredBlogContainer {
+    margin-left: 0%;
+  }
+  .video {
+    display: none;
+  }
+  .carousel {
+    margin-bottom: 0px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .blogSidbarContainer {
+    width: 325px;
+  }
 }

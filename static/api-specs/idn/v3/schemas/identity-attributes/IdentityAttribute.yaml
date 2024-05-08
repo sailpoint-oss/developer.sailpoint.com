@@ -1,39 +1,41 @@
 type: object
+required: 
+  - name
 properties:
   name:
     type: string
-    description: The technical name of the identity attribute
+    description: Identity attribute's technical name.
     example: 'uid'
   displayName:
     type: string
-    description: The business-friendly name of the identity attribute
-    example: 'IdentityNow Username'
+    description: Identity attribute's business-friendly name.
+    example: 'Identity Security Cloud Username'
   standard:
     type: boolean
-    description: Shows if the attribute is 'standard' or default
+    description: Indicates whether the attribute is 'standard' or 'default'.
     default: false
     example: true
   type:
     type: string
-    description: The type of the identity attribute
+    description: Identity attribute's type. 
     example: 'string'
   multi:
     type: boolean
-    description: Shows if the identity attribute is multi-valued
+    description: Indicates whether the identity attribute is multi-valued.
     default: false
     example: false
   searchable:
     type: boolean
-    description: Shows if the identity attribute is searchable
+    description: Indicates whether the identity attribute is searchable.
     default: false
     example: true
   system:
     type: boolean
-    description: Shows this is 'system' identity attribute that does not have a source and is not configurable.
+    description: Indicates whether the identity attribute is 'system', meaning that it doesn't have a source and isn't configurable.
     default: false
     example: false
   sources:
-    description: List of sources for an attribute, this specifies how the value of the rule is derived
+    description: Identity attribute's list of sources - this specifies how the rule's value is derived. 
     type: array
     items:
       $ref: "../identity-attributes/Source.yaml"

@@ -3,6 +3,7 @@ get:
     - Managed Clusters
   summary: Retrieve all Managed Clusters.
   description: Retrieve all Managed Clusters for the current Org, based on request context.
+  deprecated: true
   operationId: getManagedClusters
   parameters:
     - $ref: '../../v3/parameters/offset.yaml'

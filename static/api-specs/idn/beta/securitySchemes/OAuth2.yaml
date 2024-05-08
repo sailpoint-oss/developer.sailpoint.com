@@ -4,8 +4,8 @@ description: >-
   [Best Practices: IdentityNow REST API Authentication](https://developer.sailpoint.com/idn/api/authentication)
 flows:
   authorizationCode:
-    authorizationUrl: 'https://tenant.identitynow.com/oauth/authorize'
-    tokenUrl:  'https://tenant.identitynow.com/oauth/token'
+    authorizationUrl: 'https://tenant.login.sailpoint.com/oauth/authorize'
+    tokenUrl:  'https://tenant.api.identitynow.com/oauth/token'
     scopes:
       'idn:task-definition:read': Task Definition read access
       'idn:task-definition:write': Task Definition write access
@@ -61,3 +61,6 @@ flows:
       idn:entitlement:update: Right to update entitlements
       idn:entitlement:create: Right to create entitlements
       idn:entitlement:delete: Right to delete entitlements
+      idn:attr-sync-source-config:read: Right to read attribute sync source config
+      idn:attr-sync-source-config:manage: Right to manage attribute sync source config
+

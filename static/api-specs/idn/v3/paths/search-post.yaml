@@ -15,7 +15,7 @@ post:
   summary: "Perform Search"
   parameters:
   - $ref: '../parameters/offset.yaml'
-  - $ref: '../parameters/limit.yaml'
+  - $ref: '../parameters/searchlimit.yaml'
   - $ref: '../parameters/count.yaml'
   requestBody:
     content:

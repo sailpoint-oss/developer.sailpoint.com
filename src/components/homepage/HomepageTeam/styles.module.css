@@ -1,15 +1,45 @@
-/* Getting Started Card container */
 .gridContainer {
-  display: grid;
-  place-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
+  display: flex;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  flex-wrap: wrap;
   grid-gap: 40px;
-  margin-left: 40px;
-  margin-right: 40px;
+  width: 1100px;
+  margin-left: 20px;
 }
 
 .center {
-  margin: 0px auto;
-  max-width: 1300px;
-  margin-bottom: 50px;
+  width: 1100px;
+  margin: auto;
+  padding-bottom: 5%;
+}
+
+@media only screen and (max-width: 1150px) {
+  .gridContainer {
+    width: 820px;
+  }
+
+  .center {
+    width: 820px;
+  }
+}
+
+@media only screen and (max-width: 920px) {
+  .gridContainer {
+    width: 560px;
+  }
+
+  .center {
+    width: 560px;
+  }
+}
+
+@media only screen and (max-width: 660px) {
+  .gridContainer {
+    width: 220px;
+    margin-left: 0px;
+  }
+
+  .center {
+    width: 220px;
+  }
 }

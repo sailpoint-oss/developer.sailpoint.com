@@ -1,7 +1,7 @@
 get:
   operationId: getSodPolicy
   tags:
-    - SOD Policy
+    - SOD Policies
   summary: Get SOD policy by ID
   deprecated: true
   security:
@@ -129,7 +129,7 @@ get:
 put:
   operationId: putSodPolicy
   tags:
-    - SOD Policy
+    - SOD Policies
   summary: Update SOD policy by ID
   deprecated: true
   security:
@@ -351,7 +351,7 @@ put:
 delete:
   operationId: deleteSodPolicy
   tags:
-    - SOD Policy
+    - SOD Policies
   summary: Delete SOD policy by ID
   deprecated: true
   security:
@@ -394,7 +394,7 @@ delete:
 patch:
   operationId: patchSodPolicy
   tags:
-    - SOD Policy
+    - SOD Policies
   summary: Patch a SOD policy
   deprecated: true
   security:

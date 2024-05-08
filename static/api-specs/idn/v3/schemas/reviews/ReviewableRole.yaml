@@ -33,3 +33,8 @@ properties:
     description: The list of Access Profiles associated with this Role
     items:
       $ref: './ReviewableAccessProfile.yaml'
+  entitlements:
+    type: array
+    description: The list of entitlements associated with this Role
+    items:
+      $ref: './ReviewableEntitlement.yaml'

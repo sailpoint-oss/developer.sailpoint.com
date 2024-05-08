@@ -1,0 +1,15 @@
+type: object
+properties:
+  source:
+    $ref: "./BaseReferenceDto.yaml"
+    description: "Source Id and Name related to this assignment"
+    example:
+      id: "d18b74853739439986501ad180b27db6"
+      type: "SOURCE"
+      name: "Active Directory"
+  accountInfo:
+    $ref: "./AccountInfoDto.yaml"
+  roleName:
+    type: string
+    description: "Specific role name for this target if using multiple accounts"
+    example: "Marketing"

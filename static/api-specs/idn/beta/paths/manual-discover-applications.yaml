@@ -1,0 +1,43 @@
+post:
+  summary: CSV Upload to discover applications
+  tags:
+    - Manual Discover Applications
+  description: >-
+    This API allows for the upload of a CSV file containing application data to
+    be manually correlated to potential IDN connector(s).
+  security:
+    - UserContextAuth:
+        - 'idn:application-discovery:write'
+  operationId: sendManualDiscoverApplicationsCsvTemplate
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            csvFile:
+              type: string
+              format: binary
+          required:
+            - csvFile
+  responses:
+    '200':
+      description: The CSV has been successfully processed.
+      content:
+        multipart/form-data:
+          schema:
+            $ref: '../schemas/ManualDiscoverApplications.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+      description: >
+        Bad request - There was an error with the CSV format or validation
+        failed (e.g., `application_name` missing). Error message should be
+        provided in response.
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

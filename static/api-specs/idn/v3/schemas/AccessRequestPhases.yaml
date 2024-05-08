@@ -10,6 +10,7 @@ properties:
     description: The time that this phase finished.
     format: 'date-time'
     example: '2020-07-12T00:00:00Z'
+    nullable: true
   name:
     type: string
     description: The name of this phase.
@@ -21,6 +22,7 @@ properties:
       - EXECUTING
       - COMPLETED
       - CANCELLED
+      - NOT_EXECUTED
     description: The state of this phase.
     example: COMPLETED
   result:
@@ -28,12 +30,15 @@ properties:
     enum:
       - SUCCESSFUL
       - FAILED
+      - null
     description: The state of this phase.
     example: SUCCESSFUL
+    nullable: true
   phaseReference:
     type: string
     description: >-
       A reference to another object on the RequestedItemStatus that contains more details about the phase.
       Note that for the Provisioning phase, this will be empty if there are no manual work items.
     example: 'approvalDetails'
+    nullable: true
 description: Provides additional details about this access request phase.

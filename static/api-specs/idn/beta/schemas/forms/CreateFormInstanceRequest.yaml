@@ -12,7 +12,7 @@ properties:
     type: string
     x-go-name: FormDefinitionID
   formInput:
-    additionalProperties: { }
+    additionalProperties: true
     description: FormInput is an object of form input labels to value
     example:
       input1: Sales

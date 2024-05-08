@@ -1,0 +1,114 @@
+name: Build/Deploy to AWS
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ['main', 'stage']
+    paths-ignore:
+      - 'README.md'
+  pull_request:
+    branches:
+      - main
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Allow one concurrent deployment
+concurrency:
+  group: ${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) ||  github.event_name == 'push' && 'main' }}
+  cancel-in-progress: true
+
+env:
+  BASE_URL: '/'
+
+permissions:
+  id-token: write   # This is required for requesting the JWT
+  contents: write
+  pull-requests: write
+  pages: write
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure AWS credentials from Test account
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          role-to-assume: arn:aws:iam::176038645705:role/github-action-role
+          role-session-name: deploy-developer-site-infra-to-aws
+          aws-region: us-east-1
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Check out repo
+        uses: actions/checkout@v3
+      - name: setup SAM
+        uses: aws-actions/setup-sam@v2
+      - name: set env vars
+        run: |
+          if [ "${{ github.ref }}" = "refs/heads/main" ]; then
+            echo "STACK=developer-sailpoint-site" >> $GITHUB_ENV
+          elif [[ ${{ github.ref }} == refs/pull/* ]]; then
+            PR_NUMBER=$(echo ${{ github.ref }} | awk -F '/' '{print $3}')
+            echo "STACK=developer-sailpoint-site-$PR_NUMBER" >> $GITHUB_ENV
+          elif [ "${{ github.ref }}" = "refs/heads/stage" ]; then
+            echo "STACK=developer-sailpoint-site-stage" >> $GITHUB_ENV
+          fi
+      # push these files to AWS
+      - name: run SAM build
+        run: |
+          sam build
+          sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --stack-name $STACK --s3-prefix $STACK --parameter-overrides ParameterKey=AuthUsername,ParameterValue='${{ secrets.AUTH_USERNAME }}' ParameterKey=AuthPassword,ParameterValue='${{ secrets.AUTH_PASSWORD }}'
+      - name: Get S3 bucket location, cloudfront url, and api gateway url
+        run: |
+          export S3_BUCKET=$(aws cloudformation describe-stacks --stack-name $STACK --query "Stacks[0].Outputs[?OutputKey=='DeveloperSailpointWebS3BucketName'].OutputValue" --output text)
+          echo "S3_BUCKET=$S3_BUCKET" >> $GITHUB_ENV
+          export CLOUDFRONT_URL=$(aws cloudformation describe-stacks --stack-name $STACK --query "Stacks[0].Outputs[?OutputKey=='DeveloperSailpointCloudFrontDistributionDomainName'].OutputValue" --output text)
+          echo "CLOUDFRONT_URL=$CLOUDFRONT_URL" >> $GITHUB_ENV
+          export API_GATEWAY_URL=$(aws cloudformation describe-stacks --stack-name $STACK --query "Stacks[0].Outputs[?OutputKey=='DeveloperSailpointAPIGatewayEndpoint'].OutputValue" --output text)
+          echo "API_GATEWAY_URL=$API_GATEWAY_URL" >> $GITHUB_ENV
+          export API_GATEWAY_ID=$(aws cloudformation describe-stacks --stack-name $STACK --query "Stacks[0].Outputs[?OutputKey=='ApiGatewayRestApiId'].OutputValue" --output text)
+          echo "API_GATEWAY_ID=$API_GATEWAY_ID" >> $GITHUB_ENV
+      - name: set CORS policy on API Gateway
+        run: |
+          aws apigatewayv2 update-api --api-id $API_GATEWAY_ID --cors-configuration AllowOrigins='["https://${{ env.CLOUDFRONT_URL }}","https://developer.sailpoint.com"]',AllowMethods='["OPTIONS","GET","POST"]',AllowHeaders='["Content-Type"]'
+
+      # Install and build Developer Community site
+      - name: Build Developer Community site
+        run: |
+          echo "CMS_APP_API_ENDPOINT=$API_GATEWAY_URL" >> .env
+          echo ${{ secrets.NPM_FONTAWESOME_CONFIG }} | base64 -d >> .npmrc
+          export NODE_OPTIONS="--max_old_space_size=4096"
+          npm ci --legacy-peer-deps
+          npm run gen-api-docs-all
+          npm run build
+      # push these files to AWS
+      - name: Copy files to the test website with the AWS CLI
+        run: |
+          aws s3 sync ./build s3://$S3_BUCKET
+      - name: Find Comment
+        uses: peter-evans/find-comment@v2
+        id: find-comment
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body-includes: Visit the preview URL for this PR
+        continue-on-error: true
+      - name: add cloudfront url to PR
+        if: github.event_name == 'pull_request'
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          comment-id: ${{ steps.find-comment.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          edit-mode: replace
+          body: |
+            🌎🌎🌎 Visit the preview URL for this PR [HERE](https://${{ env.CLOUDFRONT_URL }})
+            built from commit ${{ github.event.pull_request.head.sha }}
+        continue-on-error: true
+      - name: deploy to prod
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        id: deploy_github_pages
+        uses: crazy-max/ghaction-github-pages@v3
+        with:
+          target_branch: gh-pages
+          build_dir: build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

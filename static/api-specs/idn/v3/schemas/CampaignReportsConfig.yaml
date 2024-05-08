@@ -3,6 +3,7 @@ title: Campaign Reports Configuration
 properties:
   identityAttributeColumns:
     type: array
+    nullable: true
     description: list of identity attribute columns
     items:
       type: string

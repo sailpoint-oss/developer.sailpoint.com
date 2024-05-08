@@ -4,3 +4,4 @@ description: The attribute label to filter by
 required: false
 schema:
   type: string
+  example: birthday

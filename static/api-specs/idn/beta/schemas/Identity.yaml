@@ -12,6 +12,7 @@ allOf:
         type: string
         description: The email address of the identity
         example: 'sender@example.com'
+        nullable: true
       processingState:
         type: string
         nullable: true
@@ -19,6 +20,7 @@ allOf:
         enum:
           - ERROR
           - OK
+          - null
         example: ERROR
       identityStatus:
         type: string
@@ -38,6 +40,7 @@ allOf:
       managerRef:
         type: object
         description: Identity's manager.
+        nullable: true
         properties:
           type:
             type: string 
@@ -68,5 +71,7 @@ allOf:
         description: A map with the identity attributes for the identity
         example: '{"uid":"Walter White","firstname":"walter","cloudStatus":"UNREGISTERED","displayName":"Walter White","identificationNumber":"942","lastSyncDate":1470348809380,"email":"walter@gmail.com","lastname":"white"}'
       lifecycleState:
-        $ref: '../../v3/schemas/LifecycleStateDto.yaml'
-        description: Lifecycle state details that include lifecycle state name and whether this lifecycle state has been set manually
+        allOf:
+        - $ref: '../../v3/schemas/LifecycleStateDto.yaml'
+        - nullable: true
+          description: Lifecycle state details that include lifecycle state name and whether this lifecycle state has been set manually

@@ -41,7 +41,7 @@ get:
         **id**: *eq, in*
 
 
-        **name**: *eq, sw, co*
+        **name**: *eq, sw*
 
 
         **created**: *gt, lt, ge, le*

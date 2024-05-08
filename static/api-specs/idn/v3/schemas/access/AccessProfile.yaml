@@ -1,4 +1,5 @@
 type: object
+description: Access Profile
 properties:
   id:
     type: string
@@ -28,6 +29,7 @@ properties:
     readOnly: true
   enabled:
     type: boolean
+    default: true
     description: Whether the Access Profile is enabled. If the Access Profile is enabled then you must include at least one Entitlement.
     example: true
   owner:
@@ -43,6 +45,7 @@ properties:
       $ref: './EntitlementRef.yaml'
   requestable:
     type: boolean
+    default: true
     description: >- 
       Whether the Access Profile is requestable via access request. Currently, making an Access Profile non-requestable is only supported 
       for customers enabled with the new Request Center. Otherwise, attempting to create an Access Profile with a value 

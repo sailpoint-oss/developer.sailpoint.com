@@ -1,7 +1,7 @@
 post:
   operationId: createSodPolicy
   tags:
-    - SOD Policy
+    - SOD Policies
   summary: Create SOD policy
   deprecated: true
   security:
@@ -233,7 +233,7 @@ post:
 get:
   operationId: listSodPolicies
   tags:
-    - SOD Policy
+    - SOD Policies
   summary: List SOD policies
   deprecated: true
   security:

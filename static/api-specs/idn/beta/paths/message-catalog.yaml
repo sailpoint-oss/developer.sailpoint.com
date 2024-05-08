@@ -2,8 +2,7 @@ get:
   operationId: getMessageCatalogs
   summary: Get Message catalogs
   tags:
-    - IAI Recommendations
-    - IAI Access Request Recommendations
+    - IAI Message Catalogs
   description: >-
     The getMessageCatalogs API returns message catalog based on the language headers in the requested object.
   parameters:
@@ -16,6 +15,7 @@ get:
           - access-request-recommender
       required: true
       description: The ID of the message catalog.
+      example: recommender
   responses:
     '200':
       description: The message catalogs based on the request headers

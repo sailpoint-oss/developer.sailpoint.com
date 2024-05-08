@@ -15,6 +15,8 @@
 .env.development.local
 .env.test.local
 .env.production.local
+.env
+.npmrc
 
 npm-debug.log*
 yarn-debug.log*
@@ -26,6 +28,14 @@ yarn.lock
 /products/idn/api/beta
 /products/iiq/api
 /products/nerm/api
+
+/docs/api/v3
+/docs/api/beta
+/docs/api/iiq
+/docs/api/nerm/*
+!/docs/api/nerm/authentication.md
+!/docs/api/nerm/pagination-metadata-filtering.md
+!/docs/api/nerm/getting-started.md
 
 #Alogolia env file
 /algolia/.env

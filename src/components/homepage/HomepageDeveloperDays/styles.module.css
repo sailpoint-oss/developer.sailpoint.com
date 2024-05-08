@@ -1,0 +1,146 @@
+.mainCard {
+  display: grid;
+  grid-gap: 20px;
+  max-width: 1180px;
+  justify-content: center;
+}
+
+.gettingStartedText {
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+.gettingStartedOne {
+  color: var(--ifm-color-primary);
+  font-size: 30px;
+  max-width: 396px;
+  font-weight: bold;
+  line-height: 100%;
+}
+
+.gettingStartedTwo {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.gettingStartedThree {
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+/* Getting Started Card container */
+.gridContainer {
+  display: grid;
+  margin-left: 50px;
+  margin-bottom: 50px;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  place-content: center;
+  margin-right: 40px;
+}
+
+.video {
+  width: 100%;
+  height: 300px;
+  max-width: 520px;
+}
+
+.cardIcon {
+  width: 90%;
+  margin-top: 100px;
+}
+.registerButton {
+  align-items: center;
+  background: var(--ifm-color-primary);
+  border-radius: 0.5rem;
+  border: none;
+  color: #eee;
+  display: inline-flex;
+  padding: 10px 15px;
+  margin-right: 45px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.registerButtonPink {
+  text-decoration: none;
+  text-align: center;
+  margin: 10px auto;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 100%;
+  width: 259px;
+  height: 61px;
+  line-height: 61px;
+  background: transparent 0% 0% no-repeat padding-box;
+  opacity: 1;
+  box-shadow: 0px 20px 60px #00000015;
+  border: 2px solid #df61ca;
+  border-radius: 0.5rem;
+  color: #df61ca;
+  padding: 10px 15px;
+  margin-right: 45px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.registerButtonPink:hover {
+  cursor: pointer;
+  top: -2px;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  background-color: var(--dev-button-hover);
+  color: #cc27b0;
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 1178px) {
+  .carousel {
+    margin-top: 0px;
+    margin-left: 50px;
+    margin-bottom: 50px;
+  }
+  .contentContainer {
+    width: 600px;
+  }
+  .gettingStartedThree {
+    padding-right: 15%;
+  }
+  .carousel {
+    margin-top: 50px;
+    margin-left: 50px;
+  }
+}
+@media only screen and (min-width: 1179px) {
+  .carousel {
+    margin-top: 50px;
+    margin-left: 15px;
+  }
+  .mainCard {
+    grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+    /* UI Properties */
+    background: var(--main-hero-card-background);
+    box-shadow: var(--dev-main-card-shadow);
+    border: 1px solid var(--dev-card-background);
+    border-radius: 40px;
+    opacity: 1;
+    margin: 50px auto;
+    width: calc(100% - 100px);
+    min-height: 400px;
+  }
+}
+@media only screen and (max-width: 570px) {
+
+  .contentContainer {
+    width: auto;
+  }
+  .carousel {
+    margin: 15px 20px;
+  }
+}

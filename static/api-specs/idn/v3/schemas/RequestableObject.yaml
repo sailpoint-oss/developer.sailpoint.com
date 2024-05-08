@@ -23,10 +23,13 @@ properties:
     type: string
     description: Description of the requestable object.
     example: Access to research information, lab results, and schematics.
+    nullable: true
   type:
     $ref: './RequestableObjectType.yaml'
   requestStatus:
-    $ref: './RequestableObjectRequestStatus.yaml'
+    allOf:
+    - $ref: './RequestableObjectRequestStatus.yaml'
+    - nullable: true
   identityRequestId:
     type: string
     description: If *requestStatus* is *PENDING*, indicates the id of the associated account activity.

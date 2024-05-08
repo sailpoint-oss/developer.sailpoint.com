@@ -1,0 +1,147 @@
+.videosCardContainer {
+  flex: 95%;
+  min-height: 600px;
+}
+
+.featuredVideo {
+  margin-left: 75px;
+}
+
+.videosTitle {
+  text-align: center;
+  margin-bottom: 2%;
+  color: #ffffff;
+  position: relative;
+  top: 25px;
+}
+
+.titleContainer {
+  width: 100%;
+  height: 45px;
+  background: rgb(0, 51, 161);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 51, 161, 1) 0%,
+    rgba(84, 192, 232, 1) 100%
+  );
+  align-content: center;
+  margin-bottom: 2%;
+}
+
+.mainCard {
+  display: grid;
+  grid-gap: 20px;
+  max-width: 1180px;
+  justify-content: center;
+  min-height: 400px;
+}
+
+.featuredGettingStartedText {
+  display: none;
+}
+
+.gettingStartedText,
+.featuredGettingStartedText {
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+.gettingStartedOne {
+  color: var(--ifm-color-primary);
+  font-size: 30px;
+  max-width: 396px;
+  font-weight: bold;
+  line-height: 100%;
+}
+
+.gettingStartedTwo {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.gettingStartedThree {
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.bold {
+  font-weight: bold;
+}
+.video {
+  width: 100%;
+  height: 300px;
+  max-width: 520px;
+}
+
+.contentContainer {
+  margin-left: 75px;
+}
+
+@media only screen and (max-width: 1178px) {
+  .carousel {
+    margin-top: 0px;
+    margin-left: 50px;
+    margin-bottom: 50px;
+  }
+  .contentContainer {
+    width: 600px;
+    margin-left: 75px;
+  }
+
+  .featuredVideo {
+    margin-left: 175px;
+  }
+  .videoSideBar {
+    margin-left: 5%;
+  }
+
+  .featuredGettingStartedText {
+    display: flex;
+  }
+ 
+
+}
+@media only screen and (min-width: 1179px) {
+  .carousel {
+    margin-top: 35px;
+    padding-bottom: 5%;
+  }
+  .mainCard {
+    grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+    /* UI Properties */
+    background: var(--main-hero-card-background);
+    box-shadow: var(--dev-main-card-shadow);
+    border: 1px solid var(--dev-card-background);
+    border-radius: 40px;
+    opacity: 1;
+    margin: 50px auto;
+    width: calc(100% - 100px);
+  }
+}
+@media only screen and (max-width: 900px) {
+  .videoSideBar {
+    margin-left: 0%;
+  }
+  .featuredVideo {
+    margin: auto;
+  }
+  .carousel {
+    margin-bottom: 1%;
+  }
+
+  .gettingStartedThree {
+    padding-right: 15%;
+  }
+}
+@media only screen and (max-width: 570px) {
+ 
+  .contentContainer {
+    width: auto;
+    margin: auto;
+  }
+  .carousel {
+    margin-bottom: 0px;
+  }
+}

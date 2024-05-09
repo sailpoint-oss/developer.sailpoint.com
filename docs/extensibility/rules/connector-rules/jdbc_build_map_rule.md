@@ -29,7 +29,7 @@ This rule manipulates raw input data provided by the rows and columns in a file 
 | connection | java.sql.Connection | Reference to the current SQL connection. |
 | state | java.util.Map | Map that can be used to store and share data between executions of this rule during a single aggregation run. |
 | application | sailpoint.object.Application | Attribute value of the identity attribute before the rule runs. |
-| schema | sailpoint.object.Schema | Reference to the schema object for the delimited file source being read. |
+| schema | sailpoint.object.Schema | Reference to the schema object for the JDBC source being read. |
 
 ## Output
 

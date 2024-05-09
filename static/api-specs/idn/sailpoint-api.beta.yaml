@@ -973,8 +973,11 @@ tags:
       | [Source Account Created](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/source-account-created/) | idn:source-account-created | FIRE_AND_FORGET | After a source account is created. |
       | [Source Account Deleted](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/source-account-deleted/) | idn:source-account-deleted | FIRE_AND_FORGET | After a source account is deleted. |
       | [Source Account Updated](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/source-account-updated/) | idn:source-account-updated | FIRE_AND_FORGET | After a source account is changed. |
-
-      Refer to [Event Triggers](https://developer.sailpoint.com/docs/extensibility/event-triggers/) for more information about event triggers.
+  - name: UI Metadata
+    description: API for managing UI Metadata.
+      Use this API to manage metadata about your User Interface.
+      
+      For example you can set the iFrameWhitelist parameter to permit another domain to encapsulate IDN within an iframe or set the usernameEmptyText to change the placeholder text for Username on your tenant's login screen.
   - name: Vendor Connector Mappings
     description: |
       Use this API to manage mappings between various SaaS vendors and Identity Security Cloud (ISC) connectors.
@@ -1653,6 +1656,8 @@ paths:
     $ref: './beta/paths/trigger-invocations-complete.yaml'
   /trigger-invocations/test:
     $ref: './beta/paths/trigger-invocations-test.yaml'
+  /ui-metadata/tenant:
+    $ref: './beta/paths/ui-metadata/tenant-ui-metadata.yaml'
   /verified-from-addresses:
     $ref: './beta/paths/verified-from-addresses.yaml'
   /verified-from-addresses/{id}:

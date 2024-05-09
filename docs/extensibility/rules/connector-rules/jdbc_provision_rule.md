@@ -27,8 +27,8 @@ This rule performs provisioning actions from a provisioning plan provided by a s
 | --- | --- | --- |
 | connection | java.sql.Connection | Reference to the current SQL connection. |
 | plan | sailpoint.object.ProvisioningPlan | Provisioning plan containing the provisioning request(s). |
-| application | sailpoint.object.Application | Attribute value for the identity attribute before the rule runs. |
-| schema | sailpoint.object.Schema | Reference to the schema object for the delimited file source being read. |
+| application | sailpoint.object.Application | Reference to the source JDBC Application |
+| schema | sailpoint.object.Schema | Reference to the schema object for the JDBC source being read. |
 
 ## Output
 

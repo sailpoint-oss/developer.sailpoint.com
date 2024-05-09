@@ -533,6 +533,16 @@ tags:
       Users may be required to answer security questions or use a third-party authenticator before they can confirm their updates. 
 
       Refer to [Managing Passwords](https://documentation.sailpoint.com/saas/user-help/accounts/passwords.html) for more information about password management.
+  - name: Password Policies
+    description: |
+      Use these APIs to implement password policies functionality.
+      These APIs allow you to define the policy parameters for choosing passwords.
+      
+      IdentityNow comes with a default policy that you can modify to define the password requirements your users must meet to log in to IdentityNow, such as requiring a minimum password length, including special characters, and disallowing certain patterns.
+      If you have licensed Password Management, you can create additional password policies beyond the default one to manage passwords for supported sources in your org.
+      
+      In the Identity Security Cloud Admin panel, administrators can use the Password Mgmt dropdown menu to select Sync Groups.
+      Refer to [Managing Password Policies](https://documentation.sailpoint.com/saas/help/pwd/pwd_policies/pwd_policies.html) for more information about password policies.
   - name: Password Sync Groups
     description: |
       Use this API to implement password sync group functionality. 
@@ -1171,6 +1181,10 @@ paths:
     $ref: './v3/paths/password-sync-groups.yaml'
   /password-sync-groups/{id}:
     $ref: './v3/paths/password-sync-group.yaml'
+  /password-policies/{id}:
+    $ref: './v3/paths/password-policy.yaml'
+  /password-policies:
+    $ref: './v3/paths/password-policies.yaml'
   /personal-access-tokens:
     $ref: "./v3/paths/personal-access-tokens.yaml"
   /personal-access-tokens/{id}:

@@ -16,7 +16,7 @@ tags: ['Rules']
 
 This rule calculates and returns an identity attribute for a specific identity. This rule is known as a "complex" rule on the identity profile.
 
-An important consideration with IdentityAttribute rules is whether generation logic that includes uniqueness checks is acceptable. While not explicitly disallowed, this type of logic is firmly against SailPoint's [best practices](https://community.sailpoint.com/t5/Identity Security Cloud-Articles/Best-Practices-Generating-Usernames-in-Identity Security Cloud/ta-p/153749). When calculating and promoting identity attributes via a transform or a rule, the logic contained within the attribute is always re-run and new values might end up being generated where such behavior is not desired. Additionally, the attribute calculation process is multi-threaded, so the uniqueness logic contained on a single attribute is not always guaranteed to be accurate. For this reason, SailPoint strongly discourages the use of logic that conducts uniqueness checks within an IdentityAttribute rule. The recommendation is to execute this check during account generation for the target system where the value is needed.
+An important consideration with IdentityAttribute rules is whether generation logic that includes uniqueness checks is acceptable. While not explicitly disallowed, this type of logic is firmly against SailPoint's [best practices](https://community.sailpoint.com/t5/IdentityNow-Articles/Best-Practices-Generating-Usernames-in-IdentityNow/ta-p/153749). When calculating and promoting identity attributes via a transform or a rule, the logic contained within the attribute is always re-run and new values might end up being generated where such behavior is not desired. Additionally, the attribute calculation process is multi-threaded, so the uniqueness logic contained on a single attribute is not always guaranteed to be accurate. For this reason, SailPoint strongly discourages the use of logic that conducts uniqueness checks within an IdentityAttribute rule. The recommendation is to execute this check during account generation for the target system where the value is needed.
 
 ## Execution
 
@@ -58,6 +58,12 @@ An important consideration with IdentityAttribute rules is whether generation lo
 ```
 
 ## Example - Calculate Lifecycle State Based on Start and End Dates
+
+:::info
+
+The life cycle state attribute is computed last during refresh. This allows you to reference other identity attributes within the rule.
+
+:::
 
 ```java
 <?xml version='1.0' encoding='UTF-8'?>

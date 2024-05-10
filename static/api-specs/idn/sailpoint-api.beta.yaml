@@ -1375,29 +1375,29 @@ paths:
   /generic-approvals/{id}:
     $ref: './beta/paths/approval.yaml'
   /mfa/okta-verify/config:
-    $ref: './beta/paths/mfa-okta-config.yaml'
+    $ref: './v3/paths/mfa-okta-config.yaml'
   /mfa/duo-web/config:
-    $ref: './beta/paths/mfa-duo-config.yaml'
+    $ref: './v3/paths/mfa-duo-config.yaml'
   /mfa/kba/config:
-    $ref: './beta/paths/mfa-kba-config.yaml'
+    $ref: './v3/paths/mfa-kba-config.yaml'
   /mfa/kba/config/answers:
-    $ref: './beta/paths/mfa-kba-config-answers.yaml'
+    $ref: './v3/paths/mfa-kba-config-answers.yaml'
   /mfa/{method}/test:
-    $ref: './beta/paths/mfa-config-test.yaml'
+    $ref: './v3/paths/mfa-config-test.yaml'
   /mfa/{method}/delete:
-    $ref: './beta/paths/mfa-config-delete.yaml'
+    $ref: './v3/paths/mfa-config-delete.yaml'
   /mfa/okta-verify/verify:
-    $ref: './beta/paths/mfa-okta-verify.yaml'
+    $ref: './v3/paths/mfa-okta-verify.yaml'
   /mfa/duo-web/verify:
-    $ref: './beta/paths/mfa-duo-verify.yaml'
+    $ref: './v3/paths/mfa-duo-verify.yaml'
   /mfa/{method}/poll:
-    $ref: './beta/paths/mfa-poll.yaml'
+    $ref: './v3/paths/mfa-poll.yaml'
   /mfa/kba/authenticate:
-    $ref: './beta/paths/mfa-kba-authenticate.yaml'
+    $ref: './v3/paths/mfa-kba-authenticate.yaml'
   /mfa/token/authenticate:
-    $ref: './beta/paths/mfa-token-authenticate.yaml'
+    $ref: './v3/paths/mfa-token-authenticate.yaml'
   /mfa/token/send:
-    $ref: './beta/paths/mfa-token-send.yaml'
+    $ref: './v3/paths/mfa-token-send.yaml'
   /notification-template-defaults:
     $ref: './beta/paths/notification-template-defaults.yaml'
   /notification-templates:

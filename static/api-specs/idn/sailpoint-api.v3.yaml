@@ -412,6 +412,10 @@ tags:
     description: Read and create operations for client data and statuses
   - name: Managed Clusters
     description: Read and create pperations for client Clusters, including Log Configuration
+  - name: MFA Configuration
+    description: Configure and test multifactor authentication (MFA) methods
+  - name: MFA Controller
+    description: This API used for multifactor authentication functionality belong to gov-multi-auth service. This controller allow you to verify authentication by specified method
   - name: Non-Employee Lifecycle Management
     description: |
       Use this API to implement non-employee lifecycle management functionality. 
@@ -1135,6 +1139,30 @@ paths:
     $ref: './v3/paths/managed-clusters.yaml'
   /managed-clusters/{id}:
     $ref: './v3/paths/managed-cluster.yaml'
+  /mfa/okta-verify/config:
+    $ref: './v3/paths/mfa-okta-config.yaml'
+  /mfa/duo-web/config:
+    $ref: './v3/paths/mfa-duo-config.yaml'
+  /mfa/kba/config:
+    $ref: './v3/paths/mfa-kba-config.yaml'
+  /mfa/kba/config/answers:
+    $ref: './v3/paths/mfa-kba-config-answers.yaml'
+  /mfa/{method}/test:
+    $ref: './v3/paths/mfa-config-test.yaml'
+  /mfa/{method}/delete:
+    $ref: './v3/paths/mfa-config-delete.yaml'
+  /mfa/okta-verify/verify:
+    $ref: './v3/paths/mfa-okta-verify.yaml'
+  /mfa/duo-web/verify:
+    $ref: './v3/paths/mfa-duo-verify.yaml'
+  /mfa/{method}/poll:
+    $ref: './v3/paths/mfa-poll.yaml'
+  /mfa/kba/authenticate:
+    $ref: './v3/paths/mfa-kba-authenticate.yaml'
+  /mfa/token/authenticate:
+    $ref: './v3/paths/mfa-token-authenticate.yaml'
+  /mfa/token/send:
+    $ref: './v3/paths/mfa-token-send.yaml'
   /non-employee-records:
     $ref: "./v3/paths/non-employee-records.yaml"
   /non-employee-records/{id}:

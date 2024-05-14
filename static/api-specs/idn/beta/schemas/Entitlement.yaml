@@ -104,3 +104,9 @@ properties:
           "DISPLAY_NAME": true,
           "DESCRIPTION": true
       }
+  accessModelMetadata:
+    allOf:
+    - $ref: "../schemas/gov-attributes/AttributeDTOList.yaml"
+    - nullable: true
+      description: >-
+        Access Model Metadata (beta).

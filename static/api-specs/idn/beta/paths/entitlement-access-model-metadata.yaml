@@ -1,0 +1,90 @@
+post:
+  summary: "Add metadata to an entitlement."
+  description: "Add single Access Model Metadata to an entitlement."
+  tags:
+    - Entitlements
+  operationId: "createAccessModelMetadataForEntitlement"
+  security:
+    - UserContextAuth: [ idn:entitlement:update ]
+  parameters:
+    - name: "id"
+      in: "path"
+      required: true
+      schema:
+        type: "string"
+      description: The entitlement id.
+      example: 2c91808c74ff913f0175097daa9d59cd
+    - name: "attributeKey"
+      in: "path"
+      required: true
+      schema:
+        type: "string"
+      description: Technical name of the Attribute.
+      example: "iscPrivacy"
+    - name: "attributeValue"
+      in: "path"
+      required: true
+      schema:
+        type: "string"
+      description: Technical name of the Attribute Value.
+      example: "public"
+  responses:
+    "200":
+      description: "OK"
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/Entitlement.yaml"
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+delete:
+  summary: "Remove metadata from an entitlement."
+  description: "Remove single Access Model Metadata from an entitlement."
+  tags:
+    - Entitlements
+  operationId: "deleteAccessModelMetadataFromEntitlement"
+  security:
+    - UserContextAuth: [ idn:entitlement:delete ]
+  parameters:
+    - name: "id"
+      in: "path"
+      required: true
+      schema:
+        type: "string"
+      description: The entitlement id.
+      example: 2c91808c74ff913f0175097daa9d59cd
+    - name: "attributeKey"
+      in: "path"
+      required: true
+      schema:
+        type: "string"
+      description: Technical name of the Attribute.
+      example: "iscPrivacy"
+    - name: "attributeValue"
+      in: "path"
+      required: true
+      schema:
+        type: "string"
+      description: Technical name of the Attribute Value.
+      example: "public"
+  responses:
+    "200":
+      description: "OK"
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

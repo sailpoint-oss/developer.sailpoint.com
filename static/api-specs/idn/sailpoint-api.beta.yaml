@@ -24,6 +24,18 @@ servers:
         default: sailpoint.api.identitynow.com
         description: This is the api url of your tenant
 tags:
+  - name: Access Model Metadata
+    description: |
+      Use this API to create and manage metadata attributes for your Access Model.
+      Access Model Metadata allows you to add contextual information to your ISC Access Model items using pre-defined metadata for risk, regulations, privacy levels, etc., or by creating your own metadata attributes to reflect the unique needs of your organization. This release of the API includes support for entitlement metadata. Support for role and access profile metadata will be introduced in a subsequent release.
+      
+      Common usages for Access Model metadata include:
+      
+      - Organizing and categorizing access items to make it easier for your users to search for and find the access rights they want to request, certify, or manage.
+      
+      - Providing richer information about access that is being acted on to allow stakeholders to make better decisions when approving, certifying, or managing access rights.
+      
+      - Identifying access that may requires additional approval requirements or be subject to more frequent review.
   - name: Access Profiles
     description: |
       Use this API to implement and customize access profile functionality.
@@ -1106,6 +1118,14 @@ components:
       $ref: './beta/schemas/SourceUsageStatus.yaml'
 
 paths:
+  /access-model-metadata/attributes:
+    $ref: './beta/paths/access-model-metadata-list.yaml'
+  /access-model-metadata/attributes/{key}:
+    $ref: './beta/paths/access-model-metadata.yaml'
+  /access-model-metadata/attributes/{key}/values:
+    $ref: './beta/paths/access-model-metadata-value-list.yaml'
+  /access-model-metadata/attributes/{key}/values/{value}:
+    $ref: './beta/paths/access-model-metadata-value.yaml'
   /access-profiles:
     $ref: './beta/paths/access-profiles.yaml'
   /access-profiles/{id}:
@@ -1250,6 +1270,8 @@ paths:
     $ref: "./beta/paths/entitlement-request-config.yaml"
   /entitlements/reset/sources/{id}:
     $ref: './beta/paths/reset-entitlements.yaml'
+  /entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}:
+    $ref: './beta/paths/entitlement-access-model-metadata.yaml'
   /entitlements/aggregate/sources/{id}:
     $ref: "./beta/paths/load-entitlements.yaml"
   /generate-password-reset-token/digit:

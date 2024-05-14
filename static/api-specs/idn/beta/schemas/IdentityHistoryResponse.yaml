@@ -19,27 +19,23 @@ properties:
   accessItemCount:
     type: object
     description: A map containing the count of each access item
+    example:
+      app: 0
+      role: 2
+      entitlement: 4
+      accessProfile: 3
+      account: 1
     additionalProperties:
-      type: string
+      type: integer
+      format: int32
   attributes:
     type: object
     description: A map containing the identity attributes
-    additionalProperties:
-      type: string    
-example:
-  id: 2c9079b270a266a60170a2779fcb0007
-  displayName: Lahoma Wuckert
-  deletedDate: null
-  snapshot: '2007-03-01T13:00:00.000Z'
-  attributes:
-    jobTitle: HR Manager
-    location: NYC
-    firstname: Lahoma
-    lastname: Wuckert
-    department: HR
-  accessItemCount:
-    role: 2
-    accessProfile: 2
-    entitlement: 28
-    account: 3
+    additionalProperties: true
+    example:
+      jobTitle: "HR Manager"
+      location: "NYC"
+      firstname: "Adam"
+      lastname: "Zampa"
+      department: "HR"
                   

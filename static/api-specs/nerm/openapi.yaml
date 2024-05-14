@@ -23,6 +23,9 @@ paths:
     $ref: "./paths/users_id.yaml"
   /users/{id}/avatar:
     $ref: "./paths/users_id_avatar.yaml"
+#Languages
+  /languages/{locale}:  
+    $ref: "./paths/languages_locale.yaml"
 # User Manager Relationships
   /user_manager:
     $ref: "./paths/user_manager.yaml"

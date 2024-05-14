@@ -1,0 +1,9 @@
+description: Expected response to a valid request
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        language:
+          type: object
+          $ref: "../schemas/PATCH/Language.yaml"

@@ -41,7 +41,7 @@ delete:
   operationId: deleteIdentity
   tags:
     - Identities
-  summary: Deletes an identity.
+  summary: Delete identity
   description: >-
     The API returns successful response if the requested identity was deleted.
   security:

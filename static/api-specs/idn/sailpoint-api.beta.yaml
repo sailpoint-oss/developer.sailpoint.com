@@ -1314,10 +1314,10 @@ paths:
     $ref: './beta/paths/identities-process.yaml'
   /identities/{id}/reset:
     $ref: './beta/paths/identity-reset.yaml'
-  /identities/{identityId}/role-assignments/{assignmentId}:
-    $ref: './beta/paths/identities-role-assignment.yaml'
   /identities/{identityId}/role-assignments:
     $ref: './beta/paths/identities-role-assignments.yaml'
+  /identities/{identityId}/role-assignments/{assignmentId}:
+    $ref: './beta/paths/identities-role-assignment.yaml'
   /identity-attributes:
     $ref: './beta/paths/identity-attributes.yaml'
   /identity-attributes/{name}:

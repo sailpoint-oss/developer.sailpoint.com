@@ -1,10 +1,6 @@
 type: object
 properties:
-  requestedContext:
+  contextAttributes:
     type: array
     items:
       $ref: "./ContextAttributeDto.yaml"
-  assignedContext:
-    type: array
-    items:
-      $ref: "./RoleMatchDto.yaml"

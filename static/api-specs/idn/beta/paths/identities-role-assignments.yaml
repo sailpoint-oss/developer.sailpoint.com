@@ -2,7 +2,7 @@ get:
   operationId: getRoleAssignments
   tags:
     - Identities
-  summary: Get role assignments
+  summary: List role assignments
   description: >-
     This returns either a list of Role Assignments when querying with either a Role Id or Role Name,
     or a list of Role Assignment References if querying with only identity Id.

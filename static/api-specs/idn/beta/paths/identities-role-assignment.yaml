@@ -2,7 +2,7 @@ get:
   operationId: getRoleAssignment
   tags:
     - Identities
-  summary: Get role assignment
+  summary: Role assignment details
   security:
     - UserContextAuth:
         - "idn:identity:read"

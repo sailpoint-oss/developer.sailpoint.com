@@ -33,6 +33,7 @@ properties:
     default: false
   ownerRef:
     type : object
+    readOnly: true
     description: >-
       The owner of this template, and the owner of campaigns generated from this template via a schedule. This field
       is automatically populated at creation time with the current user.

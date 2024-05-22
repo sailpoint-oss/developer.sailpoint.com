@@ -1640,6 +1640,8 @@ paths:
     $ref: './beta/paths/sources-entitlement-request-config.yaml'
   /sources/{id}/load-accounts:
     $ref: './beta/paths/load-accounts.yaml'
+  /sources/{id}/load-uncorrelated-accounts:
+    $ref: './beta/paths/load-uncorrelated-accounts.yaml'
   /task-status/{id}:
     $ref: "./beta/paths/task-status.yaml"
   /task-status:

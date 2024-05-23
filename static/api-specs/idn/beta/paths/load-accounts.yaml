@@ -32,9 +32,8 @@ post:
               format: binary
               description: The CSV file containing the source accounts to aggregate.
             disableOptimization:
-              type: boolean
-              example: true
-              default: false
+              type: string
+              example: "true"
               description: Use this flag to reprocess every account whether or not the data has changed.
   responses:
     "202":

@@ -4,8 +4,7 @@ get:
     - Certification Campaigns
   summary: List Campaigns
   description: >-
-    Gets campaigns and returns them in a list. Can provide increased level of detail for each campaign if provided
-    the correct query.
+    Use this API to get a list of campaigns. This API can provide increased level of detail for each campaign for the correct provided query. 
   security:
     - UserContextAuth: [idn:campaign-list:read]
   parameters:
@@ -86,7 +85,7 @@ post:
   tags:
     - Certification Campaigns
   summary: Create a campaign
-  description: Creates a new Certification Campaign with the information provided in the request body.
+  description: Use this API to create a certification campaign with the information provided in the request body.
   security:
     - UserContextAuth: [idn:campaign:create]
   requestBody:
@@ -106,7 +105,7 @@ post:
             $ref: '../schemas/campaign/examples/CreateCampaignRoleComposition.yaml'
   responses:
     '200':
-      description: Indicates that the campaign requested was successfully created and returns its representation.
+      description: This response indicates that the requested campaign was successfully created, and the API returns its representation.
       content:
         application/json:
           schema:

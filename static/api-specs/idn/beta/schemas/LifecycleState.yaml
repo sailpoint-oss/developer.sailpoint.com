@@ -4,17 +4,17 @@ properties:
     type: string
     readOnly: true
     example: 2c9180835d2e5168015d32f890ca1581
-    description: lifecycle stat id.
+    description: Lifecycle state ID.
   name:
     type: string
     readOnly: true
     example: Lifecycle Name
-    description: Lifecycle-state name.
+    description: Lifecycle state name.
   technicalName:
     type: string
     readOnly: true
     example: lifecycleTechnicalName
-    description: The technical name for lifecycle state. This is for internal use.
+    description: Lifecycle state technical name. This is for internal use.
   description:
     type: string
     example: LifecycleDescription
@@ -33,8 +33,9 @@ properties:
     description: Lifecycle state modified date.
   enabled:
     type: boolean
+    default: false
     example: true
-    description: Whether the lifecycle state is enabled or disabled.
+    description: Indicates whether the lifecycle state is enabled or disabled.
   identityCount:
     type: integer
     format: int32

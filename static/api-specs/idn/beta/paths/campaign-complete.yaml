@@ -12,10 +12,10 @@ post:
     
     :::
     
-    Completes a certification campaign. This is provided to admins so that they
-    can complete a certification even if all items have not been completed.
+    Use this API to complete a certification campaign. This functionality is provided to admins so that they
+    can complete a certification even if all items have not been completed. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/complete-campaign).
 
-    Requires roles of CERT_ADMIN and ORG_ADMIN
+    Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
   deprecated: true
   security:
     - UserContextAuth: [idn:campaign:update]
@@ -34,7 +34,7 @@ post:
       schema:
         type: string
       required: true
-      description: The campaign id
+      description: Campaign ID. 
       example: ef38f94347e94562b5bb8424a56397d8
   responses:
     '202':

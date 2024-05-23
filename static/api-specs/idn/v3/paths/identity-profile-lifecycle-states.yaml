@@ -1,10 +1,10 @@
 get:
-  operationId: listLifecycleStates
+  operationId: getLifecycleStates
   tags:
     - Lifecycle States
   summary: Lists LifecycleStates
   description: >-
-    This end-point lists all the LifecycleStates associated with IdentityProfiles.
+    Use this endpoint to list all lifecycle states by their associated identity profiles. 
 
     A token with API, or ORG_ADMIN authority is required to call this API.
   security:
@@ -12,11 +12,11 @@ get:
   parameters:
     - in: path
       name: identity-profile-id
-      description: The IdentityProfile id
+      description: Identity profile ID. 
       required: true
       schema:
         type: string
-      example: ef38f94347e94562b5bb8424a56397d8
+      example: 2b838de9-db9b-abcf-e646-d4f274ad4238
     - $ref: '../parameters/limit.yaml'
     - $ref: '../parameters/offset.yaml'
     - $ref: '../parameters/count.yaml'
@@ -34,7 +34,7 @@ get:
         Sorting is supported for the following fields: **created, modified**
   responses:
     '200':
-      description: List of LifecycleState objects
+      description: List of LifecycleState objects.
       content:
         application/json:
           schema:
@@ -57,7 +57,7 @@ post:
     - Lifecycle States
   summary: Create Lifecycle State
   description: >-
-    This API creates a new Lifecycle State.
+    Use this endpoint to create a lifecycle state.
 
     A token with ORG_ADMIN or API authority is required to call this API.
   security:
@@ -65,13 +65,13 @@ post:
   parameters:
     - in: path
       name: identity-profile-id
-      description: Identity Profile ID
+      description: Identity profile ID.
       required: true
       schema:
         type: string
-      example: ef38f94347e94562b5bb8424a56397d8
+      example: 2b838de9-db9b-abcf-e646-d4f274ad4238
   requestBody:
-    description: Lifecycle State
+    description: Lifecycle state to be created.
     required: true
     content:
       application/json:

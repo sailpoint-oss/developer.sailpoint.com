@@ -4,7 +4,7 @@ post:
     - Lifecycle States
   summary: Set Lifecycle State
   description: |
-    This endpoint will set/update an identity's lifecycle state to the one provided and updates the corresponding identity profile.
+    Use this endpoint to set/update an identity's lifecycle state to the one provided and update the corresponding identity profile.
 
     A token with ORG_ADMIN or API authority is required to call this API.
   parameters:
@@ -42,6 +42,8 @@ post:
                 format: uuid
                 example: 2c9180837ab5b716017ab7c6c9ef1e20
                 description: The ID of the IdentityRequest object that is generated when the workflow launches. To follow the IdentityRequest, you can provide this ID with a [Get Account Activity request](https://developer.sailpoint.com/docs/api/beta/get-account-activity/). The response will contain relevant information about the IdentityRequest, such as its status. 
+    '400': 
+      $ref: '../../v3/responses/400.yaml'
     '401':
       $ref: '../../v3/responses/401.yaml'
     '403':

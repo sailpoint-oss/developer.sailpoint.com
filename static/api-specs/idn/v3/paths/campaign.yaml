@@ -2,10 +2,10 @@ get:
   operationId: getCampaign
   tags:
     - Certification Campaigns
-  summary: Get a campaign
+  summary: Get Campaign
   description: >-
-    Retrieves information for an existing campaign using the campaign's ID. Authorized callers must be a
-    reviewer for this campaign, an ORG_ADMIN, or a CERT_ADMIN.
+    Use this API to get information for an existing certification campaign by the campaign's ID. 
+    Authorized callers must be reviewers for this campaign, ORG_ADMINs, or a CERT_ADMINs.
   security:
     - UserContextAuth: []
   parameters:
@@ -14,11 +14,11 @@ get:
       schema:
         type: string
       required: true
-      description: The ID of the campaign to be retrieved
+      description: ID of the campaign to be retrieved.
       example: 2c91808571bcfcf80171c23e4b4221fc
   responses:
     '200':
-      description: A campaign object
+      description: Requested campaign object.
       content:
         application/json:
           schema:
@@ -49,7 +49,7 @@ patch:
   tags:
     - Certification Campaigns
   summary: Update a Campaign
-  description: Allows updating individual fields on a campaign using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+  description: Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
   security:
     - UserContextAuth: [idn:campaign:update,idn:campaign:read]
   parameters:
@@ -58,7 +58,7 @@ patch:
       schema:
         type: string
       required: true
-      description: The ID of the campaign template being modified.
+      description: ID of the campaign template being modified.
       example: 2c91808571bcfcf80171c23e4b4221fc
   requestBody:
     required: true
@@ -66,7 +66,7 @@ patch:
       A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
       The fields that can be patched differ based on the status of the campaign.
 
-      In the *STAGED* status, the following fields can be patched:
+      When the campaign is in the *STAGED* status, you can patch these fields:
       * name
       * description
       * recommendationsEnabled
@@ -74,7 +74,7 @@ patch:
       * emailNotificationEnabled
       * autoRevokeAllowed
 
-      In the *ACTIVE* status, the following fields can be patched:
+      When the campaign is in the *ACTIVE* status, you can patch these fields:
       * deadline
     content:
       application/json-patch+json:
@@ -92,7 +92,7 @@ patch:
   responses:
     '200':
       description: >-
-        Indicates the PATCH operation succeeded, and returns the campaign's new representation.
+        This response indicates that the PATCH operation succeeded, and the API returns the campaign's new representation.
       content:
         application/json:
           schema:

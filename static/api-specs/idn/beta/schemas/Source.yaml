@@ -3,136 +3,140 @@ properties:
   id:
     type: string
     readOnly: true
-    description: the id of the Source
-    example: "2c91808568c529c60168cca6f90c1324"
+    description: Source ID.
+    example: 2c91808568c529c60168cca6f90c1324
   name:
     type: string
-    description: Human-readable name of the source
+    description: Source's human-readable name.
     example: My Source
   description:
     type: string
-    description: Human-readable description of the source
-    example: "This is the corporate directory."
+    description: Source's human-readable description. 
+    example: This is the corporate directory.
   owner:
-    description: Reference to an owning Identity Object
+    description: Reference to identity object who owns the source. 
     type: object
     properties:
       type:
-        description: The type of object being referenced
+        description: Type of object being referenced.
         type: string
         enum:
           - IDENTITY
         example: IDENTITY
       id:
         type: string
-        description: ID of the identity
+        description: Owner identity's ID.  
         example: 2c91808568c529c60168cca6f90c1313
       name:
         type: string
-        description: Human-readable display name of the identity
+        description: Owner identity's human-readable display name.
         example: MyName
   cluster:
-    description: Reference to the associated Cluster
+    description: Reference to the source's associated cluster.
     type: object
+    nullable: true
     required: 
       - name 
       - id 
-      - type 
+      - type
     properties:
       type:
-        description: The type of object being referenced
+        description: Type of object being referenced.
         type: string
         enum:
           - CLUSTER
         example: CLUSTER
       id:
         type: string
-        description: ID of the cluster
+        description: Cluster ID. 
         example: 2c9180866166b5b0016167c32ef31a66
       name:
         type: string
-        description: Human-readable display name of the cluster
+        description: Cluster's human-readable display name.
         example: Corporate Cluster
   accountCorrelationConfig:
-    description: Reference to an Account Correlation Config object
+    description: Reference to account correlation config object.
     type: object
+    nullable: true
     properties:
       type:
-        description: The type of object being referenced
+        description: Type of object being referenced.
         type: string
         enum:
           - ACCOUNT_CORRELATION_CONFIG
         example: ACCOUNT_CORRELATION_CONFIG
       id:
         type: string
-        description: ID of the account correlation config
+        description: Account correlation config ID. 
         example: 2c9180855d191c59015d28583727245a
       name:
         type: string
-        description: Human-readable display name of the account correlation config
+        description: Account correlation config's human-readable display name.
         example: Directory [source-62867] Account Correlation
   accountCorrelationRule:
     description: >-
-      Reference to a Rule that can do COMPLEX correlation, should only be used when accountCorrelationConfig can't
-      be used.
+      Reference to a rule that can do COMPLEX correlation. Only use this rule when you can't use accountCorrelationConfig.
     type: object
+    nullable: true
     properties:
       type:
-        description: The type of object being referenced
+        description: Type of object being referenced.
         type: string
         enum:
           - RULE
         example: RULE
       id:
         type: string
-        description: ID of the rule
+        description: Rule ID. 
         example: 2c918085708c274401708c2a8a760001
       name:
         type: string
-        description: Human-readable display name of the rule
+        description: Rule's human-readable display name.
         example: Example Rule
   managerCorrelationMapping:
     $ref: './ManagerCorrelationMapping.yaml'
     description: >-
-      Filter Object used during manager correlation to match incoming manager values to an existing manager's
-      Account/Identity
+      Filter object used during manager correlation to match incoming manager values to an existing manager's
+      account/identity.
   managerCorrelationRule:
     description: >-
-      Reference to the ManagerCorrelationRule, only used when a simple filter isn't sufficient.
+       Reference to the ManagerCorrelationRule. Only use this rule when a simple filter isn't sufficient.
     type: object
+    nullable: true
     properties:
       type:
-        description: The type of object being referenced
+        description: Type of object being referenced.
         type: string
         enum:
           - RULE
         example: RULE
       id:
         type: string
-        description: ID of the rule
+        description: Rule ID. 
         example: 2c918085708c274401708c2a8a760001
       name:
         type: string
-        description: Human-readable display name of the rule
+        description: Rule's human-readable display name.
         example: Example Rule
   beforeProvisioningRule:
     description: >-
-      Rule that runs on the CCG and allows for customization of provisioning plans before the connector is called.
+       Rule that runs on the CCG and allows for customization of provisioning plans before the API calls the connector. 
     type: object
+    nullable: true
     properties:
       type:
-        description: The type of object being referenced
+        description: Type of object being referenced.
         type: string
         enum:
           - RULE
         example: RULE
       id:
         type: string
-        description: ID of the rule
+        description: Rule ID. 
         example: 2c918085708c274401708c2a8a760001
       name:
         type: string
-        description: Human-readable display name of the rule
+        description: Rule's human-readable display name.
         example: Example Rule
   schemas:
     type: array
@@ -140,21 +144,21 @@ properties:
       type: object
       properties:
         type:
-          description: The type of object being referenced
+          description: Type of object being referenced.
           type: string
           enum:
             - CONNECTOR_SCHEMA
           example: CONNECTOR_SCHEMA
         id:
           type: string
-          description: ID of the schema
+          description: Schema ID.
           example: 2c91808568c529c60168cca6f90c1777
         name:
           type: string
-          description: Human-readable display name of the schema
+          description: Schema's human-readable display name.
           example: MySchema
     description: >-
-      List of references to Schema objects
+      List of references to schema objects.
     example:
       - type: "CONNECTOR_SCHEMA"
         id: "2c9180835d191a86015d28455b4b232a"
@@ -164,22 +168,23 @@ properties:
         name: "group"
   passwordPolicies:
     type: array
+    nullable: true
     items:
       type: object
       properties:
         type:
-          description: The type of object being referenced
+          description: Type of object being referenced.
           type: string
           enum:
             - PASSWORD_POLICY
           example: PASSWORD_POLICY
         id:
           type: string
-          description: ID of the policy
+          description: Policy ID. 
           example: 2c91808568c529c60168cca6f90c1777
         name:
           type: string
-          description: Human-readable display name of the policy
+          description: Policy's human-readable display name. 
           example: My Password Policy
     description: >-
       List of references to the associated PasswordPolicy objects.
@@ -196,7 +201,7 @@ properties:
     type: string
     description: >-
       Specifies the type of system being managed e.g. Active Directory, Workday, etc..
-      If you are creating a Delimited File source, you must set the `provisionasCsv` query parameter to `true`. 
+      If you are creating a delimited file source, you must set the `provisionasCsv` query parameter to `true`. 
     example: "OpenLDAP - Direct"
   connector:
     type: string
@@ -205,12 +210,12 @@ properties:
   connectorClass:
     type: string
     description: >-
-      The fully qualified name of the Java class that implements the connector interface.
+      Fully qualified name of the Java class that implements the connector interface.
     example: "sailpoint.connector.LDAPConnector"
   connectorAttributes:
     type: object
     description: >-
-      Connector specific configuration; will differ from type to type.
+      Connector specific configuration. This configuration will differ from type to type.
     example:
       healthCheckTimeout: 30
       authSearchAttributes: [
@@ -227,82 +232,94 @@ properties:
   authoritative:
     type: boolean
     description: >-
-      When true indicates the source is referenced by an IdentityProfile.
+      When this is true, it indicates that the source is referenced by an identity profile.
     default: false 
     example: false
   managementWorkgroup:
-    description: Reference to Management Workgroup for this Source
+    description: Reference to management workgroup for the source.
     type: object
+    nullable: true
     properties:
       type:
-        description: The type of object being referenced
+        description: Type of object being referenced.
         type: string
         enum:
           - GOVERNANCE_GROUP
         example: GOVERNANCE_GROUP
       id:
         type: string
-        description: ID of the management workgroup
+        description: Management workgroup ID. 
         example: 2c91808568c529c60168cca6f90c2222
       name:
         type: string
-        description: Human-readable display name of the management workgroup
+        description: Management workgroup's human-readable display name.
         example: My Management Workgroup
   healthy:
     type: boolean
     description: >-
-      When true indicates a healthy source
-    default: false 
+      When this is true, it indicates that the source is healthy.
+    default: false
     example: true
   status:
     type: string
+    enum: 
+      - SOURCE_STATE_ERROR_CLUSTER
+      - SOURCE_STATE_ERROR_SOURCE
+      - SOURCE_STATE_ERROR_VA
+      - SOURCE_STATE_FAILURE_CLUSTER 
+      - SOURCE_STATE_FAILURE_SOURCE
+      - SOURCE_STATE_HEALTHY
+      - SOURCE_STATE_UNCHECKED_CLUSTER
+      - SOURCE_STATE_UNCHECKED_CLUSTER_NO_SOURCES
+      - SOURCE_STATE_UNCHECKED_SOURCE
+      - SOURCE_STATE_UNCHECKED_SOURCE_NO_ACCOUNTS
     description: >-
-      A status identifier, giving specific information on why a source is healthy or not
+      Status identifier that gives specific information about why a source is or isn't healthy. 
     example: SOURCE_STATE_HEALTHY
   since:
     type: string
     description: >-
-      Timestamp showing when a source health check was last performed
-    example: "2021-09-28T15:48:29.3801666300Z"
+      Timestamp that shows when a source health check was last performed.
+    example: 2021-09-28T15:48:29.3801666300Z
   connectorId:
     type: string
-    description: The id of connector
-    example: "active-directory"
+    description: Connector ID 
+    example: active-directory
   connectorName:
     type: string
-    description: The name of the connector that was chosen on source creation
-    example: "Active Directory"
+    description: Name of the connector that was chosen during source creation.
+    example: Active Directory
   connectionType:
     type: string
-    description: The type of connection (direct or file)
-    example: "file"
+    description: Type of connection (direct or file).
+    example: file
   connectorImplementationId:
     type: string
-    description: The connector implementation id
+    description: Connector implementation ID. 
     example: "delimited-file"
   created:
     type: string
-    description: The date-time when the source was created
+    description: Date-time when the source was created
     format: date-time
     example: 2022-02-08T14:50:03.827Z
   modified:
     type: string
-    description: The date-time when the source was last modified
+    description: Date-time when the source was last modified.
     format: date-time
     example: 2024-01-23T18:08:50.897Z
   credentialProviderEnabled:
-    type: boolean
-    description: >-
-      Enables credential provider for this source. If credentialProvider is turned on 
-      then source can use credential provider(s) to fetch credentials.
-    default: false
-    example: false
+      type: boolean
+      description: >-
+        If this is true, it enables a credential provider for the source. If credentialProvider is turned on, 
+        then the source can use credential provider(s) to fetch credentials.
+      default: false
+      example: false
   category:
       type: string
       nullable: true
       default: null
-      description: The category of source (e.g. null, CredentialProvider)
-      example: "CredentialProvider"
+      description: Source category (e.g. null, CredentialProvider).
+      example: CredentialProvider
 required:
   - name
   - owner

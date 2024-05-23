@@ -4,9 +4,9 @@ get:
     - Certification Campaigns
   summary: Get Campaign Reports
   description: >- 
-    Fetches all reports for a certification campaign by campaign ID.
+    Use this API to fetch all reports for a certification campaign by campaign ID.
 
-    Requires roles of CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN
+    Calling this endpoint requires roles of CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN.
   security:
     - UserContextAuth: [idn:campaign-report:read]
   parameters:
@@ -16,7 +16,7 @@ get:
         type: string
         example: 2c91808571bcfcf80171c23e4b4221fc
       required: true
-      description: The ID of the campaign for which reports are being fetched.
+      description: ID of the campaign whose reports are being fetched.
   responses:
     '200':
       description: Array of campaign report objects.

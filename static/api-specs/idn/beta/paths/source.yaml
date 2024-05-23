@@ -6,7 +6,7 @@ get:
     - Sources
   summary: Get Source by ID
   description: >-
-    This end-point gets a specific source in IdentityNow.
+    Use this API to get a source by a specified ID in Identity Security Cloud (ISC).
 
     A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
   parameters:
@@ -15,11 +15,11 @@ get:
       schema:
         type: string
       required: true
-      description: The Source ID
+      description: Source ID.
       example: 2c9180835d191a86015d28455b4a2329
   responses:
     '200':
-      description: A Source object
+      description: Source object.
       content:
         application/json:
           schema:
@@ -44,10 +44,9 @@ put:
     - Sources
   summary: Update Source (Full)
   description: |
-    This API updates a source in IdentityNow, using a full object representation. In other words, the existing Source
-    configuration is completely replaced.
+    Use this API to update a source in Identity Security Cloud (ISC), using a full object representation. This means that when you use this API, it completely replaces the existing source configuration.
 
-    Some fields are immutable and cannot be changed, such as:
+    These fields are immutable, so they cannot be changed:
 
     * id
     * type
@@ -65,7 +64,7 @@ put:
       schema:
         type: string
       required: true
-      description: The Source id
+      description: Source ID.
       example: 2c9180835d191a86015d28455b4a2329
   requestBody:
     required: true
@@ -76,8 +75,8 @@ put:
   responses:
     '200':
       description: >-
-        Updated Source object. Any passwords will only show the the encrypted cipher-text, as they are not decrypt-able
-        in IdentityNow cloud-based services, per IdentityNow security design.
+        Updated Source object. Any passwords will only show the the encrypted cipher-text so that they aren't decryptable
+        in Identity Security Cloud (ISC) cloud-based services, per ISC security design.
       content:
         application/json:
           schema:
@@ -102,10 +101,10 @@ patch:
     - Sources
   summary: Update Source (Partial)
   description: |
-    This API partially updates a source in IdentityNow, using a list of patch operations according to the
+    Use this API to partially update a source in Identity Security Cloud (ISC), using a list of patch operations according to the
     [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
-    Some fields are immutable and cannot be changed, such as:
+    These fields are immutable, so they cannot be changed:
     * id
     * type
     * authoritative
@@ -124,13 +123,13 @@ patch:
       schema:
         type: string
       required: true
-      description: The Source id
+      description: Source ID.
       example: 2c9180835d191a86015d28455b4a2329
   requestBody:
     required: true
     description: >-
       A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
-      Any password changes are submitted as plain-text and encrypted upon receipt in IdentityNow.
+      Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
     content:
       application/json-patch+json:
         schema:
@@ -149,7 +148,7 @@ patch:
                 }
               ]
           Edit the source cluster:
-            description: This example shows how to edit a source cluster by id.
+            description: This example shows how to edit a source cluster by ID.
             value:
               [
                 {
@@ -160,7 +159,7 @@ patch:
               ]
 
           Edit source features:
-            description: This example illustrates how you can update source supported features
+            description: This example illustrates how you can update source supported features.
             value:
               [
                 {
@@ -174,8 +173,8 @@ patch:
                   ]
                 }
               ]
-          Change a source description and cluster in One Call:
-            description: This example shows how multiple fields may be updated with a single patch call.
+          Change a source description and cluster in one call:
+            description: This example shows how multiple fields may be updated with a single PATCH call.
             value:
               [
                 {
@@ -190,7 +189,7 @@ patch:
                 }
               ]
           Add a filter string to the connector:
-            description: This example shows how you can add a filter to incoming accounts during the account aggregation process. In the example below, any account that does not have an "m" or "d" in the id will be aggregated.
+            description: This example shows how you can add a filter to incoming accounts during the account aggregation process. In the example, any account that does not have an "m" or "d" in the ID will be aggregated.
             value:
               [
                   {
@@ -200,7 +199,7 @@ patch:
                   }
               ]
           Update connector attribute for specific operation type:
-            description: This example shows how you can update the 3rd object in the connection parameters operationType. This will change it from a standard group aggregation to a group aggregation on the "test" entitlement type
+            description: This example shows how you can update the 3rd object in the connection parameter's `operationType`. This changes it from a standard group aggregation to a group aggregation on the "test" entitlement type.
             value:
               [
                   {
@@ -212,8 +211,8 @@ patch:
   responses:
     '200':
       description: >-
-        Updated Source object. Any passwords will only show the the encrypted cipher-text, as they are not decrypt-able
-        in IdentityNow cloud-based services, per IdentityNow security design.
+        Updated Source object. Any passwords will only show the the encrypted cipher-text so that they are not decryptable
+        in Identity Security Cloud cloud-based services, per ISC security design.
       content:
         application/json:
           schema:
@@ -238,19 +237,19 @@ delete:
     - Sources
   summary: Delete Source by ID
   description: >-
-    This end-point deletes a specific source in IdentityNow.
+    Use this API to delete a specific source in Identity Security Cloud (ISC).
+
+    The API removes all the accounts on the source first, and then it deletes the source.
+    You can retrieve the actual task execution status with this method: GET `/task-status/{id}`
 
     A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
-
-    All of accounts on the source will be removed first, then the source will be deleted.
-    Actual status of task execution can be retrieved via method GET `/task-status/{id}`
   parameters:
     - in: path
       name: id
       schema:
         type: string
       required: true
-      description: The Source ID
+      description: Source ID.
       example: 2c9180835d191a86015d28455b4a2329
   responses:
     '202':
@@ -261,22 +260,22 @@ delete:
             type: object
             properties:
               type:
-                description: The type of object being referenced
+                description: Type of object being referenced.
                 type: string
                 enum:
                   - TASK_RESULT
                 example: TASK_RESULT
               id:
                 type: string
-                description: ID of the task result
+                description: Task result ID. 
                 example: 2c91808779ecf55b0179f720942f181a
               name:
                 type: string
-                description: Human-readable display name of the task result (should be null/empty)
+                description: Task result's human-readable display name (this should be null/empty).
                 example: null
           examples:
             deleteSource: 
-              summary: Response returned when deleting a source
+              summary: Response returned when a source is being deleted. 
               value: {"type": "TASK_RESULT", "id": "2c91808779ecf55b0179f720942f181a", "name": null}
     '400':
       $ref: '../../v3/responses/400.yaml'

@@ -5,9 +5,9 @@ pagination_label: Standard Collection Parameters
 sidebar_label: Standard Collection Parameters
 sidebar_position: 5
 sidebar_class_name: standardCollectionParameters
-keywords: ['standard collection parameters']
+keywords: ['standard collection parameters','filter','pagination','paginate,'sort']
 description: ISC API pagination, filtering, and sorting.
-tags: ['Standard Collection Parameters']
+tags: ['Standard Collection Parameters','Filter','Sort','Pagination']
 ---
 
 Many endpoints in the Identity Security Cloud API support a generic syntax for paginating, filtering and sorting the results. A collection endpoint has the following characteristics:

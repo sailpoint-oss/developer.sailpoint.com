@@ -1,6 +1,6 @@
 post:
   tags:
-    - Sources > Uncorrelated Accounts
+    - Sources
   summary: Process Uncorrelated Accounts
   operationId: importUncorrelatedAccounts
   description: >-

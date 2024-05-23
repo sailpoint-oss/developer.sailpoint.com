@@ -73,7 +73,7 @@ patch:
           type: array
           items:
             $ref: "../schemas/JsonPatchOperation.yaml"
-        example:
+        examples:
           Uncorrelate account:
             description: Remove account from Identity
             value:

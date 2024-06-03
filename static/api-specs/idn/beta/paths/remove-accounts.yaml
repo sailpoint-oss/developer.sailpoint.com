@@ -1,8 +1,8 @@
 post:
   operationId: deleteAccountsAsync
-  summary: Remove All Accounts
+  summary: Remove All Accounts in a Source
   tags:
-    - Accounts
+    - Sources
   description: |
     Use this endpoint to remove all accounts from the system without provisioning changes to the source. Accounts that are removed could be re-created during the next aggregation.
 

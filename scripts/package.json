@@ -1,0 +1,27 @@
+{
+  "name": "devrel-ai",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Philip.Ellis@sailpoint.com",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/sailpoint-oss/developer.sailpoint.com",
+    "type": "git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "nodemon",
+    "start": "npx ts-node src/app.ts"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "axios-retry": "^4.4.0",
+    "dotenv": "^16.4.5",
+    "form-data": "^4.0.0"
+  }
+}

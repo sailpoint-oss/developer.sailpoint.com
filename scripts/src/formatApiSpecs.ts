@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
-function filterAPITextString(inputText: string): string {
+export function filterAPITextString(inputText: string): string {
     
     const lines = inputText.split('\n');
     const newLines: string[] = [];
@@ -39,7 +39,7 @@ function filterAPITextString(inputText: string): string {
   }
 
 
-  function processFiles(directory: string): void {
+  export function processFiles(directory: string): void {
     // Read all files in the directory
     const files = fs.readdirSync(directory);
   

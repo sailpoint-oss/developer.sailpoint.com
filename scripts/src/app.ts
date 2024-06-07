@@ -2,6 +2,7 @@ import dotenv from 'dotenv';
 import { getMdFiles } from './processFiles';
 import { DiscourseClient } from './discourse-client';
 import { AiPersona, AiPersonaUpdate, PersonaUpdateResponse, RagUpload } from "./models/persona-update"
+import { filterAPITextString, processFiles } from './formatApiSpecs';
 dotenv.config();
 
 type Path = {
@@ -38,6 +39,8 @@ async function main(id: number, paths: {path: string, recursive: boolean}[]) {
     console.log(response);
 
 }
+
+processFiles('../docs/api');
 
 const saasConnectivityPaths: Path[] = [];
 saasConnectivityPaths.push({path: '../docs/connectivity/saas-connectivity', recursive: true});

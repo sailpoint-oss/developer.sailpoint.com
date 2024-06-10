@@ -30,6 +30,8 @@ You can use this trigger to develop logic outside of Identity Security Cloud’s
 - A security officer
 - A high-risk governance group for highly sensitive roles
 
+If there is an active subscription to the [Access Request Submitted trigger](./access-request-submitted.md), this trigger is invoked **after** a response is submitted to the Access Request Submitted trigger, and only if that response is to approve the access request.
+
 ## Configuration
 
 This is a `REQUEST_RESPONSE` trigger type. For more information about how to respond to a `REQUEST_RESPONSE` type trigger, see [responding to a request response type trigger](../responding-to-a-request-response-trigger.mdx) . This trigger intercepts newly submitted access requests and allows the subscribing service to add one additional identity or governance group as the last step in the approver list for the access request.

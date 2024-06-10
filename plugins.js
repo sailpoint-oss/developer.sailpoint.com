@@ -1,3 +1,9 @@
+const { version } = require('react');
+const createApiPageMarkdown = require('./createAPIPage');
+
+console.log('createApiPageMarkdown TESTING');
+console.log(createApiPageMarkdown.createApiPageMD);
+
 module.exports = [
   [
     'docusaurus2-dotenv',
@@ -1613,6 +1619,56 @@ module.exports = [
           sidebarOptions: {
             groupPathsBy: 'tag',
             categoryLinkSource: 'tag',
+          },
+          template: 'api.mustache',
+        },
+        isc_versioned: {
+          specPath: 'static/api-specs/idn/sailpoint-api.v2024.yaml',
+          outputDir: 'docs/api/versioned/v2024',
+          sidebarOptions: {
+            groupPathsBy: 'tag',
+            categoryLinkSource: 'tag',
+          },
+          version: "2024",
+          label: "2024",
+          baseUrl: "docs/api/versioned/v2024",
+          template: 'api.mustache',
+          markdownGenerators: {
+            createApiPageMD: createApiPageMarkdown.createApiPageMD
+          },
+          versions: {
+            "v2025": {
+              specPath: 'static/api-specs/idn/sailpoint-api.v2025.yaml',
+              outputDir: 'docs/api/versioned/v2025',
+              label: 'v2025',
+              baseUrl: "/docs/api/versioned/v2025",
+            },
+            "beta": {
+              specPath: 'static/api-specs/idn/sailpoint-api.beta.yaml',
+              outputDir: 'docs/api/versioned/beta',
+              label: 'Beta',
+              baseUrl: "/docs/api/versioned/beta",
+            },
+            "v3": {
+              specPath: 'static/api-specs/idn/sailpoint-api.v3.yaml',
+              outputDir: 'docs/api/versioned/v3',
+              label: 'v3',
+              baseUrl: "/docs/api/versioned/v3"
+            }
+          }
+        },
+        idn_v2024: {
+          specPath: 'static/api-specs/idn/sailpoint-api.v2024.yaml',
+          outputDir: 'docs/api/v2024',
+          downloadUrl:
+            'https://raw.githubusercontent.com/sailpoint-oss/api-specs/main/dereferenced/deref-sailpoint-api.beta.yaml',
+          sidebarOptions: {
+            groupPathsBy: 'tag',
+            categoryLinkSource: 'tag',
+          },
+          version: 'v2024',
+          markdownGenerators: {
+            createApiPageMD: createApiPageMarkdown.createApiPageMD
           },
           template: 'api.mustache',
         },

@@ -10,6 +10,14 @@ get:
     A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to
     call this API.
   parameters:
+    - in: header
+      name: X-SailPoint-Experimental
+      required: true
+      schema:
+        type: string
+      description: >-
+        This header is required to access the experimental APIs. The value must be set to "true".
+      example: true
     - in: query
       name: for-subadmin
       schema:

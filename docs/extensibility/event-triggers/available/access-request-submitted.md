@@ -96,9 +96,19 @@ To deny an access request, the subscribing service responds to the event trigger
 }
 ```
 
-This event trigger interrupts the normal workflow for access requests. Access requests can only proceed if the subscribing service responds within the alotted time by approving the request. If the subscribing service is non-responsive or it is responding with an incorrect payload, access requests will fail after the **Separation of Duties** check. If you see numerous access requests failing at this stage, verify that your subscribing service itself is operating correctly.
+:::Warning
+The `approver` does not have to be the name of an existing identity in your ISC tenant. It can be anything you want it to be. However, if you have an active subscription to the [Access Request Decision](./access-request-decision.md) trigger, you **MUST** provide the **username** of an existing identity in your tenant in the `approver` field. If you do not provide the **username** of an existing identity, then your Access Request Decision subscriptions will never be triggered.
+:::
+
+:::Warning
+This event trigger interrupts the normal workflow for access requests. Access requests can only proceed if the subscribing service responds within the alotted time by approving the request. If the subscribing service is non-responsive or it is responding with an incorrect payload, access requests will fail after the **Separation of Duties** check.
 
 ![AR failed](./img/access-request-preapproval-failure.png)
+
+If you see numerous access requests failing at this stage, verify that your subscribing service is operating correctly.
+:::
+
+
 
 ## Additional Information and Links
 

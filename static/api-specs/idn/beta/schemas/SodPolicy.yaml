@@ -27,7 +27,24 @@ properties:
     example: "This policy ensures compliance of xyz"
     nullable: true
   ownerRef:
-    $ref: '../../v3/schemas/OwnerDto.yaml'
+    type: object
+    description: The owner of the SOD policy.
+    properties:
+      type:
+        type: string 
+        description: Owner type. 
+        enum: 
+          - IDENTITY
+          - GOVERNANCE_GROUP
+        example: IDENTITY
+      id:
+        type: string
+        description: Owner's ID.
+        example: 2c9180a46faadee4016fb4e018c20639
+      name:
+        type: string
+        description: Owner's name. 
+        example: Support
   externalPolicyReference:
     type: string
     description: Optional external policy reference. 

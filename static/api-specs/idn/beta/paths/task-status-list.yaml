@@ -2,7 +2,8 @@ get:
   tags:
     - Task Management
   summary: Retrieve a task status list.
-  description: Get a TaskStatus list.
+  description: |
+    Use this endpoint to get a list of **completed** tasks. To get a list of tasks **in-progress**, please use the [get pending tasks](https://developer.sailpoint.com/docs/api/beta/get-pending-tasks) endpoint.
   operationId: getTaskStatusList
   parameters:
     - $ref: '../../v3/parameters/limit.yaml'

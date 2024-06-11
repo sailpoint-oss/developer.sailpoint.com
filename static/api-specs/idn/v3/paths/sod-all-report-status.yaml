@@ -3,7 +3,7 @@ get:
     - UserContextAuth: [idn:sod-violation:read]
   operationId: getSodAllReportRunStatus
   tags:
-    - SOD Policy
+    - SOD Policies
   summary: Get multi-report run task status
   description: >-
     This endpoint gets the status for a violation report for all policy run.

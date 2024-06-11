@@ -1,7 +1,7 @@
 get:
   operationId: getSodViolationReportRunStatus
   tags:
-    - SOD Policy
+    - SOD Policies
   summary: Get violation report run status
   deprecated: true
   security:

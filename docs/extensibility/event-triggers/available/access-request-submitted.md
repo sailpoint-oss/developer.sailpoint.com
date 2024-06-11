@@ -21,7 +21,7 @@ tags: ['Event Triggers', 'Available Event Triggers', 'Request Response']
 
 ## Event Context
 
-The platform now includes event triggers within the access request approval workflow. The 'Access Request Submitted' event trigger provides more proactive governance, ensures users can quickly obtain needed access, and helps with more preventative measures towards unintended access.
+The platform now includes event triggers within the access request approval workflow. The 'Access Request Submitted' event trigger provides more proactive governance, ensures users can quickly obtain needed access, and helps with more preventative measures towards unintended access. When an access request is submitted, this trigger is invoked before the [Access Request Dynamic Approval trigger](./access-request-dynamic-approval.md).
 
 ![Flow](./img/access-request-preapproval-path.png)
 

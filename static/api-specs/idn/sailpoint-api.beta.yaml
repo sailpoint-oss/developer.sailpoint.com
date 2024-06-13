@@ -72,23 +72,6 @@ tags:
       - Multiple Account Options: Define the logic Identity Security Cloud uses to provision access to an identity with multiple accounts on the source.
 
       Refer to [Managing Access Profiles](https://documentation.sailpoint.com/saas/help/access/access-profiles.html) for more information about access profiles.
-  - name: Access Requests
-    description: |
-      Use this API to implement and customize access request functionality.
-      With this functionality in place, users can request access to applications, entitlements, or roles, and managers can request that team members' access be revoked.
-      This allows users to get access to the tools they need quickly and securely, and it allows managers to take away access to those tools.
-
-      Identity Security Cloud's Access Request service allows end users to request access that requires approval before it can be granted to users and enables qualified users to review those requests and approve or deny them.
-
-      In the Request Center in Identity Security Cloud, users can view available applications, roles, and entitlements and request access to them.
-      If the requested tools requires approval, the requests appear as 'Pending' under the My Requests tab until the required approver approves, rejects, or cancels them.
-
-      Users can use My Requests to track and/or cancel the requests.
-
-      In My Team on the Identity Security Cloud Home, managers can submit requests to revoke their team members' access.
-      They can use the My Requests tab under Request Center to track and/or cancel the requests.
-
-      Refer to [Requesting Access](https://documentation.sailpoint.com/saas/user-help/requests/requesting_access.html) for more information about access requests.
   - name: Access Request Approvals
     description: |
       Use this API to implement and customize access request approval functionality.
@@ -114,35 +97,23 @@ tags:
       With this functionality in place, access request reviewers can see relevant details about the requested access item and associated source activity. 
       This allows reviewers to see how many of the identities who share a manager with the access requester have this same type of access and how many of them have had activity in the related source. 
       This additional context about whether the access has been granted before and how often it has been used can help those approving access requests make more informed decisions.
-  - name: Accounts
+  - name: Access Requests
     description: |
-      Use this API to implement and customize account functionality.
-      With this functionality in place, administrators can manage users' access across sources in Identity Security Cloud.
+      Use this API to implement and customize access request functionality.
+      With this functionality in place, users can request access to applications, entitlements, or roles, and managers can request that team members' access be revoked.
+      This allows users to get access to the tools they need quickly and securely, and it allows managers to take away access to those tools.
 
-      In Identity Security Cloud, an account refers to a user's account on a supported source.
-      This typically includes a unique identifier for the user, a unique password, a set of permissions associated with the source and a set of attributes. Identity Security Cloud loads accounts through the creation of sources in Identity Security Cloud.
+      Identity Security Cloud's Access Request service allows end users to request access that requires approval before it can be granted to users and enables qualified users to review those requests and approve or deny them.
 
-      Administrators can correlate users' identities with the users' accounts on the different sources they use.
-      This allows Identity Security Cloud to govern the access of identities and all their correlated accounts securely and cohesively.
+      In the Request Center in Identity Security Cloud, users can view available applications, roles, and entitlements and request access to them.
+      If the requested tools requires approval, the requests appear as 'Pending' under the My Requests tab until the required approver approves, rejects, or cancels them.
 
-      To view the accounts on a source and their correlated identities, administrators can use the Connections drop-down menu, select Sources, select the relevant source, and select its Account tab.
+      Users can use My Requests to track and/or cancel the requests.
 
-      To view and edit source account statuses for an identity in Identity Security Cloud, administrators can use the Identities drop-down menu, select Identity List, select the relevant identity, and select its Accounts tab.
-      Administrators can toggle an account's Actions to aggregate the account, enable/disable it, unlock it, or remove it from the identity.
+      In My Team on the Identity Security Cloud Home, managers can submit requests to revoke their team members' access.
+      They can use the My Requests tab under Request Center to track and/or cancel the requests.
 
-      Accounts can have the following statuses:
-
-      - Enabled: The account is enabled. The user can access it.
-
-      - Disabled: The account is disabled, and the user cannot access it, but the identity is not disabled in Identity Security Cloud. This can occur when an administrator disables the account or when the user's lifecycle state changes.
-
-      - Locked: The account is locked. This may occur when someone has entered an incorrect password for the account too many times.
-
-      - Pending: The account is currently updating. This status typically lasts seconds.
-
-      Administrators can select the source account to view its attributes, entitlements, and the last time the account's password was changed.
-
-      Refer to [Managing User Accounts](https://documentation.sailpoint.com/saas/help/common/users/user_access.html#managing-user-accounts) for more information about accounts.
+      Refer to [Requesting Access](https://documentation.sailpoint.com/saas/user-help/requests/requesting_access.html) for more information about access requests.
   - name: Account Activities
     description: |
       Use this API to implement account activity tracking functionality.
@@ -195,28 +166,40 @@ tags:
       Use this API to implement account usage insight functionality.
       With this functionality in place, administrators can gather information and insights about how their tenants' source accounts are being used.
       This allows organizations to get the information they need to start optimizing and securing source account usage.
+  - name: Accounts
+    description: |
+      Use this API to implement and customize account functionality.
+      With this functionality in place, administrators can manage users' access across sources in Identity Security Cloud.
+
+      In Identity Security Cloud, an account refers to a user's account on a supported source.
+      This typically includes a unique identifier for the user, a unique password, a set of permissions associated with the source and a set of attributes. Identity Security Cloud loads accounts through the creation of sources in Identity Security Cloud.
+
+      Administrators can correlate users' identities with the users' accounts on the different sources they use.
+      This allows Identity Security Cloud to govern the access of identities and all their correlated accounts securely and cohesively.
+
+      To view the accounts on a source and their correlated identities, administrators can use the Connections drop-down menu, select Sources, select the relevant source, and select its Account tab.
+
+      To view and edit source account statuses for an identity in Identity Security Cloud, administrators can use the Identities drop-down menu, select Identity List, select the relevant identity, and select its Accounts tab.
+      Administrators can toggle an account's Actions to aggregate the account, enable/disable it, unlock it, or remove it from the identity.
+
+      Accounts can have the following statuses:
+
+      - Enabled: The account is enabled. The user can access it.
+
+      - Disabled: The account is disabled, and the user cannot access it, but the identity is not disabled in Identity Security Cloud. This can occur when an administrator disables the account or when the user's lifecycle state changes.
+
+      - Locked: The account is locked. This may occur when someone has entered an incorrect password for the account too many times.
+
+      - Pending: The account is currently updating. This status typically lasts seconds.
+
+      Administrators can select the source account to view its attributes, entitlements, and the last time the account's password was changed.
+
+      Refer to [Managing User Accounts](https://documentation.sailpoint.com/saas/help/common/users/user_access.html#managing-user-accounts) for more information about accounts.
   - name: Auth Profile
     description: |
       Auth Profile - Represents authentication configuration for an Identity Profile. This object gets created when an Identity Profile is created.
 
       APIs can be used to retrieve and update Auth Profiles.
-  - name: Certifications
-    description: |
-      Use this API to implement certification functionality.
-      This API provides specific functionality that improves an organization's ability to manage its certification process.
-
-      A certification refers to Identity Security Cloud's mechanism for reviewing a user's access to entitlements (sets of permissions) and approving or removing that access.
-      These certifications serve as a way of showing that a user's access has been reviewed and approved.
-      Multiple certifications by different reviewers are often required to approve a user's access.
-      A set of multiple certifications is called a certification campaign.
-
-      For example, an organization may use a Manager Certification as a way of showing that a user's access has been reviewed and approved by their manager, or if the certification is part of a campaign, that the user's access has been reviewed and approved by multiple managers.
-      Once this certification has been completed, Identity Security Cloud  would provision all the access the user needs, nothing more.
-
-      This API enables administrators and reviewers to get useful information about certifications at a high level, such as the reviewers involved, and at a more granular level, such as the permissions affected by changes to entitlements within those certifications.
-      It also provides the useful ability to reassign identities and items within certifications to other reviewers, rather than [reassigning the entire certifications themselves](https://developer.sailpoint.com/idn/api/beta/submit-reassign-certs-async/).
-
-      Refer to [Managing User Accounts](https://documentation.sailpoint.com/saas/help/common/users/user_access.html#managing-user-accounts) for more information about accounts.
   - name: Certification Campaigns
     description: |
       Use this API to implement certification campaign functionality.
@@ -272,7 +255,7 @@ tags:
       Those reviewers can view any of the certifications they either need to review (active) or have already reviewed (completed).
 
       When a certification campaign is in progress, certification reviewers see the listed active certifications whose involved identities they can review.
-      Reviewers can then make decisions to grant or revoke access, as well as reassign the ceritifcation to another reviewer. If the reviewer chooses this option, they must provide a reason for reassignment in the form of a comment.
+      Reviewers can then make decisions to grant or revoke access, as well as reassign the certification to another reviewer. If the reviewer chooses this option, they must provide a reason for reassignment in the form of a comment.
 
       Once a reviewer has made decisions on all the certification's involved access items, he or she must "Sign Off" to complete the review process.
       Doing so converts the certification into read-only status, preventing any further changes to the review decisions and deleting the work item (task) from the reviewer's list of work items.
@@ -284,6 +267,24 @@ tags:
       The end of a certification campaign is determined by its deadline, its completion status, or by an administrator's decision.
 
       For more information about certifications and certification campaigns, refer to [Certifications](https://documentation.sailpoint.com/saas/user-help/certifications.html).
+  - name: Certifications
+    description: |
+      Use this API to implement certification functionality.
+      This API provides specific functionality that improves an organization's ability to manage its certification process.
+
+      A certification refers to Identity Security Cloud's mechanism for reviewing a user's access to entitlements (sets of permissions) and approving or removing that access.
+      These certifications serve as a way of showing that a user's access has been reviewed and approved.
+      Multiple certifications by different reviewers are often required to approve a user's access.
+      A set of multiple certifications is called a certification campaign.
+
+      For example, an organization may use a Manager Certification as a way of showing that a user's access has been reviewed and approved by their manager, or if the certification is part of a campaign, that the user's access has been reviewed and approved by multiple managers.
+      Once this certification has been completed, Identity Security Cloud  would provision all the access the user needs, nothing more.
+
+      This API enables administrators and reviewers to get useful information about certifications at a high level, such as the reviewers involved, and at a more granular level, such as the permissions affected by changes to entitlements within those certifications.
+      It also provides the useful ability to reassign identities and items within certifications to other reviewers, rather than [reassigning the entire certifications themselves](https://developer.sailpoint.com/idn/api/beta/submit-reassign-certs-async/).
+
+      Refer to [Managing User Accounts](https://documentation.sailpoint.com/saas/help/common/users/user_access.html#managing-user-accounts) for more information about accounts.
+  - name: Connector Rule Management
   - name: Connectors
     description: |
       Use this API to implement connector functionality.
@@ -300,7 +301,6 @@ tags:
       Refer to [SaaS Connectivity](https://developer.sailpoint.com/docs/connectivity/saas-connectivity) for more information about the SaaS custom connectors that do not need VAs (virtual appliances) to communicate with their sources.
 
       Refer to [Managing Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html) for more information about using connectors in Identity Security Cloud.
-  - name: Connector Rule Management
   - name: Custom Forms
     description: |
       Use this API to build and manage custom forms.
@@ -679,6 +679,7 @@ tags:
       Use this API to implement requestable object functionality.
       With this functionality in place, administrators can determine which access items can be requested with the [Access Request APIs](https://developer.sailpoint.com/docs/api/beta/access-requests/), along with their statuses.
       This can be helpful for administrators who are implementing and customizing access request functionality as a way of checking which items are requestable as they are created, assigned, and made available.
+  - name: Role Insights
   - name: Roles
     description: |
       Use this API to implement and customize role functionality.
@@ -718,7 +719,6 @@ tags:
       Do not configure a role to be requestable without establishing a secure access request approval process for that role first.
 
       Refer to [Working with Roles](https://documentation.sailpoint.com/saas/help/access/roles.html) for more information about roles.
-  - name: Role Insights
   - name: Search Attribute Configuration
   - name: Segments
     description: |
@@ -822,6 +822,11 @@ tags:
       This second option is a good way to prevent SOD violations from triggering at all. 
 
       Refer to [Handling Policy Violations](https://documentation.sailpoint.com/saas/help/sod/policy-violations.html) for more information about SOD policy violations.
+  - name: Source Usages
+    description: |
+      Use this API to implement source usage insight functionality.
+      With this functionality in place, administrators can gather information and insights about how their tenants' sources are being used.
+      This allows organizations to get the information they need to start optimizing and securing source usage.
   - name: Sources
     description: |
       Use this API to implement and customize source functionality.
@@ -881,11 +886,6 @@ tags:
 
       Well organized, mapped out connections between sources and Identity Security Cloud are essential to achieving comprehensive identity access governance across all the source systems organizations need.
       Refer to [Managing Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html) for more information about all the different things admins can do with sources once they are connected.
-  - name: Source Usages
-    description: |
-      Use this API to implement source usage insight functionality.
-      With this functionality in place, administrators can gather information and insights about how their tenants' sources are being used.
-      This allows organizations to get the information they need to start optimizing and securing source usage.
   - name: SP-Config
     description: Import and export configuration for some objects between tenants.
   - name: Suggested Entitlement Description

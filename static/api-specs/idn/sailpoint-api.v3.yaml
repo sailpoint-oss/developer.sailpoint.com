@@ -67,23 +67,6 @@ tags:
       - Multiple Account Options: Define the logic Identity Security Cloud uses to provision access to an identity with multiple accounts on the source. 
 
       Refer to [Managing Access Profiles](https://documentation.sailpoint.com/saas/help/access/access-profiles.html) for more information about access profiles.
-  - name: Access Requests
-    description: |
-      Use this API to implement and customize access request functionality. 
-      With this functionality in place, users can request access to applications, entitlements, or roles, and managers can request that team members' access be revoked.
-      This allows users to get access to the tools they need quickly and securely, and it allows managers to take away access to those tools. 
-
-      Identity Security Cloud's Access Request service allows end users to request access that requires approval before it can be granted to users and enables qualified users to review those requests and approve or deny them.
-
-      In the Request Center in Identity Security Cloud, users can view available applications, roles, and entitlements and request access to them. 
-      If the requested tools requires approval, the requests appear as 'Pending' under the My Requests tab until the required approver approves, rejects, or cancels them. 
-
-      Users can use My Requests to track and/or cancel the requests.
-
-      In My Team on the Identity Security Cloud Home, managers can submit requests to revoke their team members' access. 
-      They can use the My Requests tab under Request Center to track and/or cancel the requests.
-
-      Refer to [Requesting Access](https://documentation.sailpoint.com/saas/user-help/requests/requesting_access.html) for more information about access requests.
   - name: Access Request Approvals
     description: |
       Use this API to implement and customize access request approval functionality. 
@@ -103,35 +86,23 @@ tags:
       The required approver can then view any completed access requests under the Reviewed tab.   
 
       Refer to [Access Requests](https://documentation.sailpoint.com/saas/help/requests/index.html) for more information about access request approvals.
-  - name: Accounts
+  - name: Access Requests
     description: |
-      Use this API to implement and customize account functionality.
-      With this functionality in place, administrators can manage users' access across sources in Identity Security Cloud. 
+      Use this API to implement and customize access request functionality. 
+      With this functionality in place, users can request access to applications, entitlements, or roles, and managers can request that team members' access be revoked.
+      This allows users to get access to the tools they need quickly and securely, and it allows managers to take away access to those tools. 
 
-      In Identity Security Cloud, an account refers to a user's account on a supported source.
-      This typically includes a unique identifier for the user, a unique password, a set of permissions associated with the source and a set of attributes. Identity Security Cloud loads accounts through the creation of sources in Identity Security Cloud.
+      Identity Security Cloud's Access Request service allows end users to request access that requires approval before it can be granted to users and enables qualified users to review those requests and approve or deny them.
 
-      Administrators can correlate users' identities with the users' accounts on the different sources they use. 
-      This allows Identity Security Cloud to govern the access of identities and all their correlated accounts securely and cohesively. 
+      In the Request Center in Identity Security Cloud, users can view available applications, roles, and entitlements and request access to them. 
+      If the requested tools requires approval, the requests appear as 'Pending' under the My Requests tab until the required approver approves, rejects, or cancels them. 
 
-      To view the accounts on a source and their correlated identities, administrators can use the Connections drop-down menu, select Sources, select the relevant source, and select its Account tab. 
+      Users can use My Requests to track and/or cancel the requests.
 
-      To view and edit source account statuses for an identity in Identity Security Cloud, administrators can use the Identities drop-down menu, select Identity List, select the relevant identity, and select its Accounts tab. 
-      Administrators can toggle an account's Actions to aggregate the account, enable/disable it, unlock it, or remove it from the identity. 
+      In My Team on the Identity Security Cloud Home, managers can submit requests to revoke their team members' access. 
+      They can use the My Requests tab under Request Center to track and/or cancel the requests.
 
-      Accounts can have the following statuses: 
-
-      - Enabled: The account is enabled. The user can access it.
-
-      - Disabled: The account is disabled, and the user cannot access it, but the identity is not disabled in Identity Security Cloud. This can occur when an administrator disables the account or when the user's lifecycle state changes. 
-
-      - Locked: The account is locked. This may occur when someone has entered an incorrect password for the account too many times.
-
-      - Pending: The account is currently updating. This status typically lasts seconds. 
-
-      Administrators can select the source account to view its attributes, entitlements, and the last time the account's password was changed.
-
-      Refer to [Managing User Accounts](https://documentation.sailpoint.com/saas/help/common/users/user_access.html#managing-user-accounts) for more information about accounts.
+      Refer to [Requesting Access](https://documentation.sailpoint.com/saas/user-help/requests/requesting_access.html) for more information about access requests.
   - name: Account Activities
     description: |
       Use this API to implement account activity tracking functionality.
@@ -172,6 +143,35 @@ tags:
       Use this API to implement account usage insight functionality.
       With this functionality in place, administrators can gather information and insights about how their tenants' source accounts are being used.
       This allows organizations to get the information they need to start optimizing and securing source account usage.
+  - name: Accounts
+    description: |
+      Use this API to implement and customize account functionality.
+      With this functionality in place, administrators can manage users' access across sources in Identity Security Cloud. 
+
+      In Identity Security Cloud, an account refers to a user's account on a supported source.
+      This typically includes a unique identifier for the user, a unique password, a set of permissions associated with the source and a set of attributes. Identity Security Cloud loads accounts through the creation of sources in Identity Security Cloud.
+
+      Administrators can correlate users' identities with the users' accounts on the different sources they use. 
+      This allows Identity Security Cloud to govern the access of identities and all their correlated accounts securely and cohesively. 
+
+      To view the accounts on a source and their correlated identities, administrators can use the Connections drop-down menu, select Sources, select the relevant source, and select its Account tab. 
+
+      To view and edit source account statuses for an identity in Identity Security Cloud, administrators can use the Identities drop-down menu, select Identity List, select the relevant identity, and select its Accounts tab. 
+      Administrators can toggle an account's Actions to aggregate the account, enable/disable it, unlock it, or remove it from the identity. 
+
+      Accounts can have the following statuses: 
+
+      - Enabled: The account is enabled. The user can access it.
+
+      - Disabled: The account is disabled, and the user cannot access it, but the identity is not disabled in Identity Security Cloud. This can occur when an administrator disables the account or when the user's lifecycle state changes. 
+
+      - Locked: The account is locked. This may occur when someone has entered an incorrect password for the account too many times.
+
+      - Pending: The account is currently updating. This status typically lasts seconds. 
+
+      Administrators can select the source account to view its attributes, entitlements, and the last time the account's password was changed.
+
+      Refer to [Managing User Accounts](https://documentation.sailpoint.com/saas/help/common/users/user_access.html#managing-user-accounts) for more information about accounts.
   - name: Auth Users
     description: |
       Use this API to implement user authentication system functionality. 
@@ -185,33 +185,36 @@ tags:
       With this functionality in place, administrators can get and manage existing branding items, and they can also create new branding items and configure them for use throughout Identity Security Cloud. 
       The Branding APIs provide administrators with a way to customize branding items. 
       This customization includes details like their colors, logos, and other information. 
-  - name: Certifications
-    description: |
-      Use this API to implement certification functionality. 
-      With this functionality in place, administrators and designated certification reviewers can review users' access certifications and decide whether to approve access, revoke it, or reassign the review to another reviewer. 
-      Implementing certifications improves organizations' data security by reducing inappropriate access through a distributed review process and helping them satisfy audit and regulatory requirements. 
-
-      A certification refers to Identity Security Cloud's mechanism for reviewing a user's access to entitlements (sets of permissions) and approving or removing that access. 
-      These serve as a way of showing that a user's access has been reviewed and approved. 
-      Multiple certifications by different reviewers are often required to approve a user's access. 
-      A set of multiple certifications is called a certification campaign.
-
-      For example, an organization may use a Manager Certification as a way of showing that a user's access has been reviewed and approved by their manager, or if the certification is part of a campaign, that the user's access has been reviewed and approved by multiple managers. 
-      Once this certification has been completed, Identity Security Cloud  would provision all the access the user needs, nothing more. 
-
-      Organization administrators or certification administrators can designate other Identity Security Cloud users as certification reviewers. 
-      Those reviewers can select the 'Certifications' tab to view any of the certifications they either need to review or have already reviewed under the 'Active' and 'Completed' tabs, respectively. 
-
-      When a certification campaign is in progress, certification reviewers will see certifications listed under 'Active,' where they can review the involved identities. 
-      Under the 'Decision' column on the right, next to each access item, reviewers can select the checkmark to approve access, select the 'X' to revoke access, or they can toggle the 'More Options' menu to reassign the certification to another reviewer and provide a reason for reassignment in the form of a comment. 
-
-      Once a reviewer has made decisions on all the certification's involved access items, he or she must select 'Sign Off' to complete the review process.
-      Doing so converts the certification into read-only status, preventing any further changes to the review decisions and deleting the work item (task) from the reviewer's list of work items. 
-
-      Once all the reviewers have signed off, the certification campaign either completes or, if any reviewers decided to revoke access for any of the involved identities, it moves into a remediation phase. In the remediation phase, identities' entitlements are altered to remove any entitlements marked for revocation.
-      In this situation, the certification campaign completes once all the remediation requests are completed. 
-
       Refer to [Certifications](https://documentation.sailpoint.com/saas/user-help/certifications.html) for more information about certifications.
+  - name: Certification Campaign Filters
+    description: |
+      Use this API to implement the certification campaign filter functionality. These filters can be used to create a certification campaign that includes a subset of your entitlements or users to certify.
+      
+      For example, if for a certification campaign an organization wants to certify only specific users or entitlements, then those can be included/excluded on the basis of campaign filters.
+      
+      For more information about creating a campaign filter, refer to [Creating a Campaign Filter](https://documentation.sailpoint.com/saas/help/certs/campaign_filters.html#creating-a-campaign-filter)
+      
+      You can create campaign filters using any of the following criteria types:
+      
+      - Access Profile : This criteria type includes or excludes access profiles from a campaign.
+      
+      - Account Attribute : This criteria type includes or excludes certification items that match a specified value in an account attribute.
+      
+      - Entitlement : This criteria type includes or excludes entitlements from a campaign.
+      
+      - Identity : This criteria type includes or excludes specific identities from your campaign.
+      
+      - Identity Attribute : This criteria type includes or excludes identities based on whether they have an identity attribute that matches criteria you've chosen.
+      
+      - Role : This criteria type includes or excludes roles, as opposed to identities.
+      
+      - Source : This criteria type includes or excludes entitlements from a source you select.
+      
+      For more information about these criteria types, refer to [Types of Campaign Filters](https://documentation.sailpoint.com/saas/help/certs/campaign_filters.html#types-of-campaign-filters)
+      
+      Once the campaign filter is created, it can be linked while creating the campaign. The generated campaign will have the items to review as per the campaign filter.
+      
+      For example, An inclusion campaign filter is created with a source of Source 1, an operation of Equals, and an entitlement of Entitlement 1. When this filter is selected, only users who have Entitlement 1 are included in the campaign, and only Entitlement 1 is shown in the certification.
   - name: Certification Campaigns
     description: |
       Use this API to implement certification campaign functionality.
@@ -267,7 +270,7 @@ tags:
       Those reviewers can view any of the certifications they either need to review (active) or have already reviewed (completed).
 
       When a certification campaign is in progress, certification reviewers see the listed active certifications whose involved identities they can review. 
-      Reviewers can then make decisions to grant or revoke access, as well as reassign the ceritifcation to another reviewer. If the reviewer chooses this option, they must provide a reason for reassignment in the form of a comment.
+      Reviewers can then make decisions to grant or revoke access, as well as reassign the certification to another reviewer. If the reviewer chooses this option, they must provide a reason for reassignment in the form of a comment.
 
       Once a reviewer has made decisions on all the certification's involved access items, he or she must "Sign Off" to complete the review process.
       Doing so converts the certification into read-only status, preventing any further changes to the review decisions and deleting the work item (task) from the reviewer's list of work items. 
@@ -279,35 +282,6 @@ tags:
       The end of a certification campaign is determined by its deadline, its completion status, or by an administrator's decision. 
 
       For more information about certifications and certification campaigns, refer to [Certifications](https://documentation.sailpoint.com/saas/user-help/certifications.html).
-  - name: Certification Campaign Filters
-    description: |
-      Use this API to implement the certification campaign filter functionality. These filters can be used to create a certification campaign that includes a subset of your entitlements or users to certify.
-      
-      For example, if for a certification campaign an organization wants to certify only specific users or entitlements, then those can be included/excluded on the basis of campaign filters.
-      
-      For more information about creating a campaign filter, refer to [Creating a Campaign Filter](https://documentation.sailpoint.com/saas/help/certs/campaign_filters.html#creating-a-campaign-filter)
-      
-      You can create campaign filters using any of the following criteria types:
-      
-      - Access Profile : This criteria type includes or excludes access profiles from a campaign.
-      
-      - Account Attribute : This criteria type includes or excludes certification items that match a specified value in an account attribute.
-      
-      - Entitlement : This criteria type includes or excludes entitlements from a campaign.
-      
-      - Identity : This criteria type includes or excludes specific identities from your campaign.
-      
-      - Identity Attribute : This criteria type includes or excludes identities based on whether they have an identity attribute that matches criteria you've chosen.
-      
-      - Role : This criteria type includes or excludes roles, as opposed to identities.
-      
-      - Source : This criteria type includes or excludes entitlements from a source you select.
-      
-      For more information about these criteria types, refer to [Types of Campaign Filters](https://documentation.sailpoint.com/saas/help/certs/campaign_filters.html#types-of-campaign-filters)
-      
-      Once the campaign filter is created, it can be linked while creating the campaign. The generated campaign will have the items to review as per the campaign filter.
-      
-      For example, An inclusion campaign filter is created with a source of Source 1, an operation of Equals, and an entitlement of Entitlement 1. When this filter is selected, only users who have Entitlement 1 are included in the campaign, and only Entitlement 1 is shown in the certification.
   - name: Certification Summaries
     description: |
       Use this API to implement certification summary functionality. 
@@ -324,6 +298,31 @@ tags:
 
       Certification summaries provide information about identity certification campaigns such as the identities involved, the number of decisions made, and the access changed. 
       For example, an administrator or designated certification reviewer can examine the Manager Certification campaign to get an overview of how many entitlement decisions are made in that campaign as opposed to role decisions, which identities would be affected by changes to the campaign, and how those identities' access would be affected.
+  - name: Certifications
+    description: |
+      Use this API to implement certification functionality. 
+      With this functionality in place, administrators and designated certification reviewers can review users' access certifications and decide whether to approve access, revoke it, or reassign the review to another reviewer. 
+      Implementing certifications improves organizations' data security by reducing inappropriate access through a distributed review process and helping them satisfy audit and regulatory requirements. 
+
+      A certification refers to Identity Security Cloud's mechanism for reviewing a user's access to entitlements (sets of permissions) and approving or removing that access. 
+      These serve as a way of showing that a user's access has been reviewed and approved. 
+      Multiple certifications by different reviewers are often required to approve a user's access. 
+      A set of multiple certifications is called a certification campaign.
+
+      For example, an organization may use a Manager Certification as a way of showing that a user's access has been reviewed and approved by their manager, or if the certification is part of a campaign, that the user's access has been reviewed and approved by multiple managers. 
+      Once this certification has been completed, Identity Security Cloud  would provision all the access the user needs, nothing more. 
+
+      Organization administrators or certification administrators can designate other Identity Security Cloud users as certification reviewers. 
+      Those reviewers can select the 'Certifications' tab to view any of the certifications they either need to review or have already reviewed under the 'Active' and 'Completed' tabs, respectively. 
+
+      When a certification campaign is in progress, certification reviewers will see certifications listed under 'Active,' where they can review the involved identities. 
+      Under the 'Decision' column on the right, next to each access item, reviewers can select the checkmark to approve access, select the 'X' to revoke access, or they can toggle the 'More Options' menu to reassign the certification to another reviewer and provide a reason for reassignment in the form of a comment. 
+
+      Once a reviewer has made decisions on all the certification's involved access items, he or she must select 'Sign Off' to complete the review process.
+      Doing so converts the certification into read-only status, preventing any further changes to the review decisions and deleting the work item (task) from the reviewer's list of work items. 
+
+      Once all the reviewers have signed off, the certification campaign either completes or, if any reviewers decided to revoke access for any of the involved identities, it moves into a remediation phase. In the remediation phase, identities' entitlements are altered to remove any entitlements marked for revocation.
+      In this situation, the certification campaign completes once all the remediation requests are completed.
   - name: Configuration Hub
     description: |
       Upload configurations and manage object mappings between tenants.
@@ -818,6 +817,11 @@ tags:
       This second option is a good way to prevent SOD violations from triggering at all. 
 
       Refer to [Handling Policy Violations](https://documentation.sailpoint.com/saas/help/sod/policy-violations.html) for more information about SOD policy violations. 
+  - name: Source Usages
+    description: |
+      Use this API to implement source usage insight functionality.
+      With this functionality in place, administrators can gather information and insights about how their tenants' sources are being used.
+      This allows organizations to get the information they need to start optimizing and securing source usage.
   - name: Sources
     description: |
       Use this API to implement and customize source functionality. 
@@ -877,11 +881,6 @@ tags:
 
       Well organized, mapped out connections between sources and Identity Security Cloud are essential to achieving comprehensive identity access governance across all the source systems organizations need. 
       Refer to [Managing Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html) for more information about all the different things admins can do with sources once they are connected.
-  - name: Source Usages
-    description: |
-      Use this API to implement source usage insight functionality.
-      With this functionality in place, administrators can gather information and insights about how their tenants' sources are being used.
-      This allows organizations to get the information they need to start optimizing and securing source usage.
   - name: Tagged Objects
     description: |
       Use this API to implement object tagging functionality. 

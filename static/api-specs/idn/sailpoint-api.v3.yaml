@@ -1095,9 +1095,9 @@ paths:
   /configuration-hub/backups/uploads/{id}:
     $ref: './v3/paths/configuration-hub/backup-uploads-id.yaml'
   /connectors/{scriptName}:
+    $ref: './v3/paths/connector.yaml'
+  /connectors:
     $ref: './v3/paths/connectors.yaml'
-  /connectors/{scriptName}/list:
-    $ref: './v3/paths/connectors-list.yaml'
   /connectors/{scriptName}/source-config:
     $ref: './v3/paths/connectors-source-config.yaml'
   /connectors/{scriptName}/translations/{locale}:
@@ -1106,8 +1106,6 @@ paths:
     $ref: './v3/paths/connectors-source-template.yaml'
   /connectors/{scriptName}/correlation-config:
     $ref: './v3/paths/connectors-correlation-config.yaml'
-  /connectors:
-    $ref: './v3/paths/connectors-create-custom-connector.yaml'
   /identities/{identity-id}/set-lifecycle-state:
     $ref: "./v3/paths/identity-set-lifecycle-state.yaml"
   /identity-profiles/{identity-profile-id}/lifecycle-states:

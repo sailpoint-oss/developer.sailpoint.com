@@ -5,10 +5,34 @@ import { AiPersona, AiPersonaUpdate, PersonaUpdateResponse, RagUpload } from "./
 import { filterAPITextString, processFiles } from './formatApiSpecs';
 dotenv.config();
 
-type Path = {
-    path: string,
-    recursive: boolean
-}
+const personas = [
+    {
+        id: 5,
+        paths: [
+            {path: '../docs/connectivity/saas-connectivity', recursive: true}
+        ]
+    },
+    {
+        id: 6,
+        paths: [
+            {path: '../docs/connectivity/saas-connectivity/connector-customizers', recursive: true}
+        ]
+    },
+    {
+        id: 4,
+        paths: [
+            {path: '../docs/api/beta', recursive: true},
+            {path: '../docs/api/v3', recursive: true}
+        ]
+    },
+    {
+        id: 7,
+        paths: [
+            {path: '../docs/extensibility/transforms', recursive: true}
+        ]
+    }
+]
+                
 
 async function main(id: number, paths: {path: string, recursive: boolean}[]) {
     const client = new DiscourseClient(process.env.DISCOURSE_API_KEY!, 'system', process.env.DISCOURSE_URL!);
@@ -42,11 +66,6 @@ async function main(id: number, paths: {path: string, recursive: boolean}[]) {
 
 processFiles('../docs/api');
 
-const saasConnectivityPaths: Path[] = [];
-saasConnectivityPaths.push({path: '../docs/connectivity/saas-connectivity', recursive: true});
-main(1, saasConnectivityPaths);
-
-const apiPaths: Path[] = [];
-apiPaths.push({path: '../docs/api/beta', recursive: true});
-apiPaths.push({path: '../docs/api/v3', recursive: true});
-main(2, apiPaths);
+for (let persona of personas) {
+    main(persona.id, persona.paths);
+}

@@ -4,9 +4,8 @@ get:
     - Access Profiles
   summary: List Access Profiles
   description: >-
-    This API returns a list of Access Profiles.
+    Use this API to get a list of access profiles.
     
-
     A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to
     call this API.
   parameters:
@@ -16,11 +15,11 @@ get:
         type: string
       description: >-
         If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or
-        SOURCE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**,
+        SOURCE_SUBADMIN identity. The value of the parameter is either an identity ID, or the special value **me**,
         which is shorthand for the calling Identity's ID.
 
 
-        A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not
+        A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an identity that is not
         a subadmin.
       example: 8c190e6787aa4ed9a90bd9d5344523fb
       required: false
@@ -57,6 +56,9 @@ get:
 
 
         **source.id**: *eq, in*
+
+
+        Filtering is not supported for access profiles and entitlements that have the '+' symbol in their names. 
       example: name eq "SailPoint Support"
       required: false
     - in: query
@@ -77,9 +79,8 @@ get:
         type: string
         format: comma-separated
       description: >-
-        If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s)
+        If present and not empty, additionally filters access profiles to those which are assigned to the segment(s)
         with the specified IDs.
-
 
         If segmentation is currently unavailable, specifying this parameter results in an error.
       example: 0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d
@@ -90,13 +91,13 @@ get:
         type: boolean
         default: true
       description: >-
-        Whether or not the response list should contain unsegmented Access Profiles.
+        Indicates whether the response list should contain unsegmented access profiles.
         If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
       example: false
       required: false
   responses:
     '200':
-      description: List of Access Profiles
+      description: List of access profiles. 
       content:
         application/json:
           schema:
@@ -119,13 +120,13 @@ post:
   operationId: createAccessProfile
   tags:
     - Access Profiles
-  summary: Create an Access Profile
+  summary: Create Access Profile
   description: >-
-    This API creates an Access Profile.
+    Use this API to create an access profile.
 
     A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to
     call this API. In addition, a token with only ROLE_SUBADMIN or SOURCE_SUBADMIN authority must be associated with the
-    Access Profile's Source.
+    access profile's Source.
 
     The maximum supported length for the description field is 2000 characters.
     Longer descriptions will be preserved for existing access profiles, however, any new access profiles as well as any updates to existing descriptions will be limited to 2000 characters.
@@ -137,7 +138,7 @@ post:
           $ref: '../../v3/schemas/access/AccessProfile.yaml'
   responses:
     '201':
-      description: Access Profile created
+      description: Access profile created. 
       content:
         application/json:
           schema:

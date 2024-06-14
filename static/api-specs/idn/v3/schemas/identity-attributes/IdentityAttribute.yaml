@@ -1,11 +1,9 @@
 type: object
-required: 
-  - name
 properties:
-  name:
+  name: 
     type: string
-    description: Identity attribute's technical name.
-    example: 'uid'
+    description: Identity attribute's technical name. 
+    example: Identity Attribute Name 
   displayName:
     type: string
     description: Identity attribute's business-friendly name.
@@ -17,6 +15,7 @@ properties:
     example: true
   type:
     type: string
+    nullable: true
     description: Identity attribute's type. 
     example: 'string'
   multi:

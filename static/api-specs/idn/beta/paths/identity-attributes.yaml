@@ -4,7 +4,7 @@ get:
     - Identity Attributes
   summary: List Identity Attributes
   description: >-
-    This gets a collection of identity attributes.
+    Use this API to get a collection of identity attributes.
   security:
     - UserContextAuth: [idn:identity-profile-attribute-list:read]
   parameters:
@@ -14,7 +14,7 @@ get:
         type: boolean
         default: false
       description: >-
-        Include "system" attributes in the response.
+        Include 'system' attributes in the response.
       required: false
       example: false
     - in: query
@@ -23,7 +23,7 @@ get:
         type: boolean
         default: false
       description: >-
-        Include "silent" attributes in the response.
+        Include 'silent' attributes in the response.
       required: false
       example: false
     - in: query
@@ -32,13 +32,13 @@ get:
         type: boolean
         default: false
       description: >-
-        Include only "searchable" attributes in the response.
+        Include only 'searchable' attributes in the response.
       required: false
       example: false
     - $ref: '../../v3/parameters/count.yaml'
   responses:
     "200":
-      description: List of identity attributes
+      description: List of identity attributes.
       content:
         application/json:
           schema:
@@ -61,7 +61,7 @@ post:
     - Identity Attributes
   summary: Create Identity Attribute
   description: >-
-    This creates a new identity attribute.
+    Use this API to create a new identity attribute.
   security:
     - UserContextAuth: [ idn:identity-profile-attribute:create ]
   requestBody:
@@ -72,7 +72,7 @@ post:
           $ref: "../../v3/schemas/identity-attributes/IdentityAttribute.yaml"
   responses:
     "201":
-      description: The identity attribute was created successfully
+      description: The identity attribute was created successfully.
       content:
         application/json:
           schema:

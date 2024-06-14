@@ -1,10 +1,10 @@
 post:
   operationId: forwardAccessRequest
-  summary: Forwards an access request approval.
+  summary: Forward Access Request Approval
   tags:
     - Access Request Approvals
   description: >-
-    This endpoint forwards an access request approval to a new owner.
+    Use this API to forward an access request approval to a new owner. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
     Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
   parameters:
     - in: path
@@ -12,7 +12,7 @@ post:
       schema:
         type: string
       required: true
-      description: The id of the approval.
+      description: Approval ID.
       example: 2c91808b7294bea301729568c68c002e
   requestBody:
     description: Information about the forwarded approval.

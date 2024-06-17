@@ -21,7 +21,7 @@ The displayName generator transform is intended for using Preferred Name over Gi
 ```json
 {
   "name": "displayName",
-  "type": "Display Name Transform"
+  "type": "displayName"
 }
 ```
 

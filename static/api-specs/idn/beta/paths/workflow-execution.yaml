@@ -2,15 +2,15 @@ get:
   operationId: getWorkflowExecution
   tags:
     - Workflows
-  summary: Get a Workflow Execution
+  summary: Get Workflow Execution
   description: >-
-    Get a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
+    Use this API to get a single workflow execution. Workflow executions are available for up to 90 days before being archived. If you attempt to access a workflow execution that has been archived, you will receive a "404 Not Found" response.
   security:
     - UserContextAuth: [sp:workflow:read]
   parameters:
     - name: id
       in: path
-      description: Id of the workflow execution
+      description: Workflow execution ID. 
       required: true
       style: simple
       explode: false
@@ -20,7 +20,7 @@ get:
   responses:
     '200':
       description: >-
-        The workflow execution
+        Workflow execution.
       content:
         application/json:
           schema:

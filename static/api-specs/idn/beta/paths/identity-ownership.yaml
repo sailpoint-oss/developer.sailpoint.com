@@ -4,7 +4,12 @@ get:
   tags:
     - Identities
   description: >-
-    Get Ownership association details of an Identity
+    Use this API to return an identity's owned objects that will cause problems for deleting the identity. 
+    
+    Use this API as a checklist of objects that you need to reassign to a different identity before you can delete the identity. 
+    
+    For a full list of objects owned by an identity, use the [Search API](https://developer.sailpoint.com/docs/api/v3/search-post/). 
+    When you search for identities, the returned identities have a property, `owns`, that contains a more comprehensive list of identity's owned objects.
   security:
     - UserContextAuth:
         - "idn:identity:read"
@@ -14,12 +19,12 @@ get:
       schema:
         type: string
       required: true
-      description: The identity id
+      description: Identity ID. 
       example: 'ff8081814d2a8036014d701f3fbf53fa'
   responses:
     "200":
       description: >-
-        Ownership association details of an Identity.
+        Identity's ownership association details.
       content:
         application/json:
           schema:

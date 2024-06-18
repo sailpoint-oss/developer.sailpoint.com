@@ -10,13 +10,13 @@ get:
   parameters:
     - name: id
       in: path
-      description: Task ID of the TaskStatus to get
+      description: Task ID.
       required: true
+      example: 00eebcf881994e419d72e757fd30dc0e
       style: simple
       explode: false
       schema:
         type: string
-        example: anId
   responses:
     "200":
       description: Responds with a TaskStatus for the task with the given task ID.
@@ -39,30 +39,40 @@ get:
   security:
     - UserContextAuth: [idn:task-management:read]
 patch:
+  operationId: updateTaskStatus
   tags:
     - Task Management
   summary: Update task status by ID
-  description: Update a current TaskStatus for a task by task ID.
-  operationId: updateTaskStatus
+  description: Update a current task status by task ID. Use this API to clear a pending task by updating the completionStatus and completed attributes.
   parameters:
     - name: id
       in: path
-      description: Task ID of the task whose TaskStatus to update
+      description: Task ID.
+      example: 00eebcf881994e419d72e757fd30dc0e
       required: true
       style: simple
       explode: false
       schema:
         type: string
-        example: anId
   requestBody:
+    required: true
+    description: The JSONPatch payload used to update the object.
     content:
       application/json-patch+json:
         schema:
-          $ref: '../schemas/JsonPatch.yaml'
-    required: true
+          type: array
+          items:
+            $ref: "../schemas/JsonPatchOperation.yaml"
+          example:
+            - op: replace
+              path: /completionStatus
+              value: Error
+            - op: replace
+              path: /completed
+              value: 2024-05-17T19:33:16.470Z
   responses:
     "200":
-      description: Responds with the updated TaskStatus for the task with the given task ID.
+      description: This response indicates the PATCH operation succeeded, and the API returns the updated task object.
       content:
         application/json:
           schema:

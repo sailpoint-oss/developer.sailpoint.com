@@ -6,8 +6,11 @@ get:
     - Access Requests
   summary: Access Request Status
   description: >-
-    The Access Request Status API returns a list of access request statuses
+    Use this API to return a list of access request statuses
     based on the specified query parameters.
+
+    If an access request was made for access that an identity already has, the API ignores the access request. 
+    These ignored requests do not display in the list of access request statuses.
 
     Any token with any authority can request their own status. A token with
     ORG_ADMIN authority is required to call this API to get a list of statuses
@@ -19,7 +22,7 @@ get:
         type: string
       example: 2c9180877b2b6ea4017b2c545f971429
       description: >-
-        Filter the results by the identity for which the requests were made.
+        Filter the results by the identity the requests were made for.
         *me* indicates the current user. Mutually exclusive with
         *regarding-identity*.
       required: false
@@ -29,7 +32,7 @@ get:
         type: string
       example: 2c9180877b2b6ea4017b2c545f971429
       description: >-
-        Filter the results by the identity that made the requests. *me*
+        Filter the results by the identity twho made the requests. *me*
         indicates the current user. Mutually exclusive with
         *regarding-identity*.
       required: false
@@ -39,7 +42,7 @@ get:
         type: string
       example: 2c9180877b2b6ea4017b2c545f971429
       description: >-
-        Filter the results by the specified identity which is either the
+        Filter the results by the specified identity who is either the
         requester or target of the requests. *me* indicates the current user.
         Mutually exclusive with *requested-for* and *requested-by*.
       required: false
@@ -49,14 +52,14 @@ get:
         type: string
       example: 2c9180877b2b6ea4017b2c545f971429
       description: >-
-        Filter the results by the specified identity which is the
+        Filter the results by the specified identity who is the
         owner of the Identity Request Work Item. *me* indicates the current user.
       required: false
     - in: query
       name: count
       description: >-
-        If *true* it will populate the *X-Total-Count* response header with the
-        number of results that would be returned if *limit* and *offset* were
+        If this is true, the *X-Total-Count* response header populates with the
+        number of results that would be returned if limit and offset were
         ignored.
       required: false
       schema:
@@ -115,7 +118,7 @@ get:
       required: false
   responses:
     "200":
-      description: List of requested item status.
+      description: List of requested item statuses.
       content:
         application/json:
           schema:

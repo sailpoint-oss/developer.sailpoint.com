@@ -3,18 +3,18 @@ nullable: true
 properties:
     type:
         type: string
-        description: The type can only be IDENTITY. This is read-only
+        description: The type can only be IDENTITY. This is read-only.
         example: IDENTITY
     id:
         type: string
-        description: Identity id.
+        description: Identity ID.
         example: 5168015d32f890ca15812c9180835d2e
     name:
         type: string
-        description: Human-readable display name of identity. This is read-only
+        description: Identity's human-readable display name. This is read-only.
         example: "Alison Ferguso"
     email:
         type: string
-        description: Email address of identity. This is read-only
+        description: Identity's email address. This is read-only.
         example: "alison.ferguso@identitysoon.com"
 

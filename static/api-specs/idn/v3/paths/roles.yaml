@@ -77,7 +77,6 @@ get:
 
 
         If segmentation is currently unavailable, specifying this parameter results in an error.
-
       example: 0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d
       required: false
     - in: query
@@ -119,11 +118,14 @@ post:
   description: >-
     This API creates a role.
 
+
     You must have a token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority to
     call this API. 
     
+
     In addition, a ROLE_SUBADMIN may not create a role including an access profile if that access profile
     is associated with a source the ROLE_SUBADMIN is not associated with themselves. 
+
 
     The maximum supported length for the description field is 2000 characters.
     Longer descriptions will be preserved for existing roles. However, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.

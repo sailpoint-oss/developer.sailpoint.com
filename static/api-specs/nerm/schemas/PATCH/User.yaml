@@ -44,3 +44,7 @@ properties:
     type: string
     description: The group strings
     example: "Administrator_group,Developer_group"
+  locale:
+    type: string
+    description: The locale the user prefers to use
+    example: fr-CA

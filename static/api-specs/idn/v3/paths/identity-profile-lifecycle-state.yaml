@@ -2,9 +2,9 @@ get:
   operationId: getLifecycleState
   tags:
     - Lifecycle States
-  summary: Retrieves Lifecycle State
+  summary: Get Lifecycle State
   description: >-
-    This endpoint retrieves a Lifecycle State.
+    Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID. 
 
     A token with ORG_ADMIN or API authority is required to call this API.
   security:
@@ -12,14 +12,14 @@ get:
   parameters:
     - in: path
       name: identity-profile-id
-      description: Identity Profile ID
+      description: Identity profile ID.
       required: true
       schema:
         type: string
       example: 2b838de9-db9b-abcf-e646-d4f274ad4238
     - in: path
       name: lifecycle-state-id
-      description: Lifecycle State ID
+      description: Lifecycle state ID.
       required: true
       schema:
         type: string
@@ -49,7 +49,7 @@ patch:
     - Lifecycle States
   summary: Update Lifecycle State
   description: >-
-    This endpoint updates individual Lifecycle State fields using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+    Use this endpoint to update individual lifecycle state fields, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
     A token with ORG_ADMIN or API authority is required to call this API.
   security:
@@ -57,14 +57,14 @@ patch:
   parameters:
     - in: path
       name: identity-profile-id
-      description: Identity Profile ID
+      description: Identity profile ID.
       required: true
       schema:
         type: string
       example: 2b838de9-db9b-abcf-e646-d4f274ad4238
     - in: path
       name: lifecycle-state-id
-      description: Lifecycle State ID
+      description: Lifecycle state ID.
       required: true
       schema:
         type: string
@@ -135,9 +135,9 @@ delete:
   operationId: deleteLifecycleState
   tags:
     - Lifecycle States
-  summary: Delete Lifecycle State by ID
+  summary: Delete Lifecycle State 
   description: >-
-    This endpoint deletes the Lifecycle State using its ID.
+    Use this endpoint to delete the lifecycle state by its ID. 
 
     A token with API, or ORG_ADMIN authority is required to call this API.
   security:
@@ -145,14 +145,14 @@ delete:
   parameters:
     - in: path
       name: identity-profile-id
-      description: Identity Profile ID
+      description: Identity profile ID.
       required: true
       schema:
         type: string
       example: 2b838de9-db9b-abcf-e646-d4f274ad4238
     - in: path
       name: lifecycle-state-id
-      description: Lifecycle State ID
+      description: Lifecycle state ID.
       required: true
       schema:
         type: string

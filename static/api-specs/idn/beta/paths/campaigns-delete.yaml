@@ -2,15 +2,15 @@ post:
   operationId: deleteCampaigns
   tags:
     - Certification Campaigns
-  summary: Deletes Campaigns
+  summary: Delete Campaigns
   description: >-
-    Deletes campaigns whose Ids are specified in the provided list of campaign Ids.
-    Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.
+    Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/delete-campaigns).
+    Authorized callers must be ORG_ADMINs or CERT_ADMINs.
   deprecated: true
   security:
     - UserContextAuth: [idn:campaign:delete]
   requestBody:
-    description: The ids of the campaigns to delete.
+    description: IDs of the campaigns to delete.
     required: true
     content:
       application/json:

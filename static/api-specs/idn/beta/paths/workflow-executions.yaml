@@ -1,10 +1,10 @@
 get:
-  operationId: listWorkflowExecutions
+  operationId: getWorkflowExecutions
   tags:
     - Workflows
   summary: List Workflow Executions
   description: >-
-    This lists the executions for a given workflow. Workflow executions are available for up to 90 days before being archived.
+    Use this API to list a specified workflow's executions. Workflow executions are available for up to 90 days before being archived.
     By default, you can get a maximum of 250 executions. 
     To get executions past the first 250 records, you can do the following: 
 
@@ -17,7 +17,7 @@ get:
       - Filter to find relevant workflow executions.
       For example, you can filter for failed workflow executions: `GET /workflows/:workflowID/executions?filters=status eq "Failed"`
     
-      - You can paginate through results with the `offset` parameter. 
+      - Paginate through results with the `offset` parameter. 
       For example, you can page through 50 executions per page and use that as a way to get to the records past the first 250. 
       Refer to [Paginating Results](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results) for more information about the query parameters you can use to achieve pagination. 
   security:
@@ -25,7 +25,7 @@ get:
   parameters:
     - name: id
       in: path
-      description: Id of the workflow
+      description: Workflow ID. 
       required: true
       style: simple
       explode: false
@@ -55,7 +55,7 @@ get:
   responses:
     '200':
       description: >-
-        List of workflow executions for the given workflow
+        List of workflow executions for the specified workflow. 
       content:
         application/json:
           schema:

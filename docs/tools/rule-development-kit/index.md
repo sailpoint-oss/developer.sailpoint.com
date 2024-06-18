@@ -68,7 +68,7 @@ src/
 
 - **`src/test/java/sailpoint/`** Use this folder for test classes to test your rules.
 
-## Install depedencies
+## Install dependencies
 
 Install all the required dependencies by running Maven install in the root of the project:
 

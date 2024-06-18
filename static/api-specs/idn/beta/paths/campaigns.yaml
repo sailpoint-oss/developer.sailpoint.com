@@ -4,9 +4,7 @@ get:
     - Certification Campaigns
   summary: List Campaigns
   description: >-
-    Gets campaigns and returns them in a list. Can provide increased level of detail for each campaign if provided
-    the correct query.
-  security:
+    Use this API to get a list of campaigns. The API can provide increased level of detail for each campaign for the correct provided query. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-active-campaigns).
     - UserContextAuth: []
   deprecated: true
   parameters:
@@ -57,7 +55,7 @@ get:
       example: name
   responses:
     '200':
-      description: A list of campaign objects. By default list of SLIM campaigns is returned.
+      description: List of campaign objects. By default, the API returns a list of SLIM campaigns.
       content:
         application/json:
           schema:
@@ -86,8 +84,8 @@ post:
   operationId: createCampaign
   tags:
     - Certification Campaigns
-  summary: Create a campaign
-  description: Creates a new Certification Campaign with the information provided in the request body.
+  summary: Create Campaign
+  description: Use this API to create a certification campaign with the information provided in the request body. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/create-campaign).
   security:
     - UserContextAuth: [idn:campaign:create]
   deprecated: true
@@ -108,7 +106,7 @@ post:
             $ref: '../schemas/campaign/examples/CreateCampaignRoleComposition.yaml'
   responses:
     '200':
-      description: Indicates that the campaign requested was successfully created and returns its representation.
+      description: This response indicates that the requested campaign was successfully created, and the API returns its representation.
       content:
         application/json:
           schema:

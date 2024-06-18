@@ -38,20 +38,27 @@ properties:
     ]
     items:
       $ref: "./BaseReferenceDto.yaml"
-  accessRequestContext:
-    $ref: "./AccessRequestContext.yaml"
-    description: "The context around the access request for this assignment"
+  assignmentContext:
+    $ref: "./AssignmentContextDto.yaml"
+    description: "The context around the role assignment"
     example:
-      requestedContext: [
+      requested: {
+        contextAttributes: [
+          {
+            attribute: "department",
+            value: "Engineering",
+            derived: false
+          }
+        ]
+      }
+      matched: [
         {
-
+          id: "e7697a1e96d04db1ac7b0f4544915d2c",
+          type: "DIMENSION",
+          name: "Engineer"
         }
       ]
-      assignedContext: [
-        {
-
-        }
-      ]
+      computedDate: "Wed Feb 14 10:58:42"
   accountTargets:
     type: array
     items:

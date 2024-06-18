@@ -18,8 +18,8 @@ get:
       name: from
       schema:
         type: string
-      description: The optional instant from which to return the access events
-      example: '2007-03-01T13:00:00Z'
+      description: The optional instant until which access events are returned
+      example: '2024-03-01T13:00:00Z'
     - in: query
       name: eventTypes
       schema:

@@ -1,13 +1,12 @@
 get:
-  operationId: listCampaignTemplates
+  operationId: getCampaignTemplates
   tags:
     - Certification Campaigns
   summary: List Campaign Templates
   description: >-
-    Lists all CampaignTemplates. Scope can be reduced via standard V3 query params.
+    Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/list-campaign-templates).
 
-
-    All CampaignTemplates matching the query params
+    The endpoint returns all campaign templates matching the query parameters. 
 
   deprecated: true
   security:
@@ -46,7 +45,7 @@ get:
       example: name eq "manager template"
   responses:
     '200':
-      description: List of campaign template objects
+      description: List of campaign template objects.
       content:
         application/json:
           schema:
@@ -71,7 +70,7 @@ post:
     - Certification Campaigns
   summary: Create a Campaign Template
   description: >-
-    Create a campaign Template based on campaign.
+    Use this API to create a campaign template based on campaign. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/create-campaign-template).
   security:
     - UserContextAuth: [ idn:campaign-template:create ]
   deprecated: true

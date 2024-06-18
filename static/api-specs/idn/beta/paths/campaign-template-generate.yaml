@@ -7,31 +7,33 @@ post:
   security:
      - UserContextAuth: [idn:campaign-template:run]
   description: >-
-    Generates a new campaign from a campaign template.
+    Use this API to generate a new certification campaign from a campaign template.
 
     The campaign object contained in the template has special formatting applied to its name and description
-    fields in order to determine the generated campaign's name/description. Placeholders in those fields are
+    fields that determine the generated campaign's name/description. Placeholders in those fields are
     formatted with the current date and time upon generation.
 
-    Placeholders consist of a percent sign followed by a letter indicating what should be inserted; for
-    example, "%Y" will insert the current year; a campaign template named "Campaign for %y" would generate a
+    Placeholders consist of a percent sign followed by a letter indicating what should be inserted. For
+    example, "%Y" inserts the current year, and a campaign template named "Campaign for %y" generates a
     campaign called "Campaign for 2020" (assuming the year at generation time is 2020).
 
     Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html).
 
-    Requires roles ORG_ADMIN.
+    Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/start-generate-campaign-template).
+
+    Calling this endpoint requires the ORG_ADMIN role.
   parameters:
     - in: path
       name: id
       schema:
         type: string
       required: true
-      description: The ID of the campaign template to use for generation.
+      description: ID of the campaign template to use for generation.
       example: 2c9180835d191a86015d28455b4a2329
   responses:
     '200':
       description: >-
-        Indicates a campaign was successfully generated from this template, and returns a reference to the
+        This response indicates that a campaign was successfully generated from this template, and the API returns a reference to the
         new campaign.
       content:
         application/json:

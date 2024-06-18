@@ -36,7 +36,7 @@ put:
               description: file with icon. Allowed mime-types ['image/png', 'image/jpeg']
               example: \x00\x00\x00\x02
   security:
-    - UserContextAuth: [ ]
+    - UserContextAuth: [idn:icons:manage]
   responses:
     '200':
       description:  Icon updated
@@ -85,7 +85,7 @@ delete:
       description: Object id.
       example: a291e870-48c3-4953-b656-fb5ce2a93169
   security:
-    - UserContextAuth: [ ]
+    - UserContextAuth: [idn:icons:manage]
   responses:
     '204':
       $ref: '../../v3/responses/204.yaml'

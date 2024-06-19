@@ -1657,6 +1657,8 @@ paths:
     $ref: './beta/paths/load-accounts.yaml'
   /sources/{id}/load-uncorrelated-accounts:
     $ref: './beta/paths/load-uncorrelated-accounts.yaml'
+  /sources/{id}/correlation-config:
+    $ref: './beta/paths/correlation-config.yaml'
   /task-status/{id}:
     $ref: "./beta/paths/task-status.yaml"
   /task-status:

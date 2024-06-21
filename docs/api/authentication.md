@@ -130,7 +130,7 @@ There are several different authorization flows that OAuth 2.0 supports, and eac
 
 1. [**Client Credentials**](https://oauth.net/2/grant-types/client-credentials/) - Clients use this grant type to obtain a JWT `access_token` without user involvement such as scripts, programs or system to system integration.
 2. [**Authorization Code**](https://oauth.net/2/grant-types/authorization-code/) - Clients use this grant type to exchange an authorization code for an `access_token`. Authorization codes are mainly used by web applications because there is a login into ISC with a subsequent redirect back to the web application/client.
-3. [**Refresh Token**](https://oauth.net/2/grant-types/refresh-token/) - Clients use this grant type to exchange a refresh token for a new `access_token` when the existing `access_token` has expired. This allows clients to continue using the APIs without having to re-authenticate as frequently. This grant type is commonly used together with `Authorization Code` to prevent a user from having to log in several times per day.
+3. [**Refresh Token**](https://oauth.net/2/grant-types/refresh-token/) - Clients use this grant type to exchange a refresh token for a new `access_token` when the existing `access_token` has expired. This allows clients to continue using the APIs without having to re-authenticate as frequently. This grant type can only be used together with `Authorization Code` to prevent a user from having to log in several times per day.
 
 One way to determine which authorization flow you need to use is to look at the specification for the endpoint you want to use. The endpoint will have the supported OAuth flows listed under the 'Authorization' dropdown, like the [List Access Profiles endpoint](https://developer.sailpoint.com/docs/api/beta/list-access-profiles):
 
@@ -317,7 +317,7 @@ For more information about the OAuth authorization code grant flow, refer [here]
 
 Clients use this grant type in order to exchange a refresh token for a new `access_token` once the existing `access_token` has expired. This allows clients to continue to have a valid `access_token` without the need for the user to login as frequently.
 
-The OAuth 2.0 client you are using must have `REFRESH_TOKEN` as one of its grant types, and you would typically use this type in conjunction with another grant type, like `CLIENT_CREDENTIALS` or `AUTHORIZATION_CODE`:
+The OAuth 2.0 client you are using must have `REFRESH_TOKEN` and `AUTHORIZATION_CODE` as its grant types:
 
 ```json
 {
@@ -337,7 +337,7 @@ The OAuth 2.0 client you are using must have `REFRESH_TOKEN` as one of its grant
 
 This is the overall authorization flow:
 
-1. The client application receives an `access_token` and a `refresh_token` from one of the other OAuth grant flows, like `AUTHORIZATION_CODE`.
+1. The client application receives an `access_token` and a `refresh_token` when using the `AUTHORIZATION_CODE` grant flow.
 2. The client application detects that the `access_token` is about to expire, based on the `expires_in` attribute contained within the JWT token.
 3. The client submits an OAuth 2.0 token request to ISC in this form:
 

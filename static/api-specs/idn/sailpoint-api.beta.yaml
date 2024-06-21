@@ -1282,7 +1282,7 @@ paths:
   /entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}:
     $ref: './beta/paths/entitlement-access-model-metadata.yaml'
   /entitlements/aggregate/sources/{id}:
-    $ref: "./beta/paths/load-entitlements.yaml"
+    $ref: "./beta/paths/load-entitlements-by-sources.yaml"
   /generate-password-reset-token/digit:
     $ref: './beta/paths/password-reset-digit-token.yaml'
   /historical-identities:
@@ -1655,6 +1655,8 @@ paths:
     $ref: './beta/paths/sources-entitlement-request-config.yaml'
   /sources/{id}/load-accounts:
     $ref: './beta/paths/load-accounts.yaml'
+  /sources/{id}/load-entitlements:
+    $ref: './beta/paths/load-entitlements.yaml'
   /sources/{id}/load-uncorrelated-accounts:
     $ref: './beta/paths/load-uncorrelated-accounts.yaml'
   /sources/{id}/correlation-config:

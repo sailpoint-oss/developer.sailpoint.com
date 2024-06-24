@@ -108,11 +108,11 @@ These filter operators apply directly to fields and their values:
 | `ca` | True if the collection-valued field contains all the listed values. | groups ca ("Venezia","Firenze") |
 | `co` | True if the value of the field contains the specified value as a substring.(Applicable to string-valued fields only.) | name co "Rajesh" |
 | `eq` | True if the value of the field indicated by the first operand is equal to the value specified by the second operand. | identitySummary.id eq "2c9180846e85e4b8016eafeba20c1314" |
-| `ge` | True if the value of the field indicated by the first operand is greater or equal to the value specified by the second operand. | daysUntilEscalation ge 7 name ge "Genaro" |
-| `gt` | True if the value of the field indicated by the first operand is greater than the value specified by the second operand. | daysUntilEscalation gt 7 name gt "Genaro" created gt 2018-12-18T23:05:55Z |
+| `ge` | True if the value of the field indicated by the first operand is greater or equal to the value specified by the second operand. | daysUntilEscalation ge 7<br></br><br></br>name ge "Genaro" |
+| `gt` | True if the value of the field indicated by the first operand is greater than the value specified by the second operand. | daysUntilEscalation gt 7<br></br><br></br>name gt "Genaro"<br></br><br></br>created gt 2018-12-18T23:05:55Z |
 | `in` | True if the field value is in the list of values. | accountActivityItemId in ("2c9180846b0a0583016b299f210c1314","2c9180846b0a0581016b299e82560c1314") |
-| `le` | True if the value of the field indicated by the first operand is less or equal to the value specified by the second operand. | daysUntilEscalation le 7 name le "Genaro" |
-| `lt` | True if the value of the field indicated by the first operand is less than the value specified by the second operand. | daysUntilEscalation lt 7 name lt "Genaro" created lt 2018-12-18T23:05:55Z |
+| `le` | True if the value of the field indicated by the first operand is less or equal to the value specified by the second operand. | daysUntilEscalation le 7<br></br><br></br>name le "Genaro" |
+| `lt` | True if the value of the field indicated by the first operand is less than the value specified by the second operand. | daysUntilEscalation lt 7<br></br><br></br>name lt "Genaro"<br></br><br></br>created lt 2018-12-18T23:05:55Z |
 | `ne` | True if the value of the field indicated by the first operand is not equal to the value specified by the second operand. | type ne "ROLE" |
 | `pr` | True if the field is present, that is, not null. | pr accountRequestInfo |
 | `isnull` | True if the field is null. | lastUsed isnull |

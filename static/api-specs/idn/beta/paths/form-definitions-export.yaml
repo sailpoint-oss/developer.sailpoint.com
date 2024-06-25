@@ -90,11 +90,9 @@ get:
                 object:
                   $ref: '../schemas/forms/FormDefinitionResponse.yaml'
                 self:
-                  type: string
-                  x-go-name: Self
+                  $ref: '../schemas/forms/FormDefinitionSelfImportExportDto.yaml'
                 version:
                   type: integer
-                  format: int8
                   x-go-name: Version
     "400":
       description: An error with the request occurred

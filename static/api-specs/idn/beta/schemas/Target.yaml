@@ -1,0 +1,20 @@
+type: object
+nullable: true
+properties:
+  id:
+    description: Target ID
+    type: string
+    example: c6dc37bf508149b28ce5b7d90ca4bbf9
+  type:
+    description: Target type
+    type: string
+    nullable: true
+    enum:
+      - APPLICATION
+      - IDENTITY
+      - null
+    example: APPLICATION
+  name:
+    description: Target name
+    type: string
+    example: Active Directory [source]

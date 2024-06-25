@@ -1,4 +1,20 @@
 description: Set of FormElementValidation items.
 example: [ { "validationType": "REQUIRED" } ]
 type: object
+properties:
+  validationType: 
+    type: string
+    enum:
+      - REQUIRED
+      - MIN_LENGTH
+      - MAX_LENGTH
+      - REGEX
+      - DATE
+      - MAX_DATE
+      - MIN_DATE
+      - LESS_THAN_DATE
+      - PHONE
+      - EMAIL
+      - DATA_SOURCE
+      - TEXTAREA
 x-go-package: github.com/sailpoint/sp-forms/domain

@@ -27,7 +27,7 @@ properties:
     x-go-name: FormData
   formDefinitionId:
     description: FormDefinitionID is the id of the form definition that created this form
-    example: 00000000-0000-0000-0000-000000000000
+    example: "49841cb8-00a5-4fbd-9888-8bbb28d48331"
     type: string
     x-go-name: FormDefinitionID
   formElements:
@@ -44,14 +44,15 @@ properties:
     x-go-name: FormErrors
   formInput:
     additionalProperties: { }
+    nullable: true
     description: FormInput is an object of form input labels to value
     example:
       input1: Sales
     type: object
     x-go-name: FormInput
   id:
-    description: FormInstanceID is a unique guid identifying this form instance
-    example: 00000000-0000-0000-0000-000000000000
+    description: Unique guid identifying this form instance
+    example: 06a2d961-07fa-44d1-8d0a-2f6470e30fd2
     type: string
     x-go-name: FormInstanceID
   modified:

@@ -72,6 +72,12 @@ properties:
     description:
       The time when this template was last modified. This is auto-generated.
     example: "2020-01-01T00:00:00.000000Z"
+  slackTemplate:
+    type: string
+    nullable: true
+  teamsTemplate:
+    type: string
+    nullable: true
 required:
   - key
   - medium

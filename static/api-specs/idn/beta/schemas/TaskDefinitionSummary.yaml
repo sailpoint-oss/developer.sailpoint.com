@@ -11,23 +11,24 @@ properties:
   id:
     description: System-generated unique ID of the TaskDefinition
     type: string
-    example: id12345
+    example: 2c91808475b4334b0175e1dff64b63c5
   uniqueName:
     description: Name of the TaskDefinition
     type: string
-    example: Big Task
+    example: Cloud Account Aggregation
   description:
     description: Description of the TaskDefinition
     type: string
-    example: A Really Big Task
+    example: Aggregates from the specified application.
   parentName:
     description: Name of the parent of the TaskDefinition
     type: string
-    example: Parent Task
+    example: Cloud Account Aggregation
   executor:
     description: Executor of the TaskDefinition
+    nullable: true
     type: string
-    example: Big Task
+    example: sailpoint.task.ServiceTaskExecutor
   arguments:
     description: Formal parameters of the TaskDefinition, without values
     type: object

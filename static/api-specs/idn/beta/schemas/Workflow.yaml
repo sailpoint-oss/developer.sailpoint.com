@@ -5,6 +5,13 @@ allOf:
       type: string
       description: Workflow ID. This is a UUID generated upon creation.
       example: d201c5e9-d37b-4aff-af14-66414f39d569
+    modified:
+      type: string
+      format: date-time
+      description: The date and time the workflow was modified.
+      example: 2023-12-05T15:18:27.699132301Z
+    modifiedBy:
+      $ref: './WorkflowModifiedBy.yaml'
     executionCount:
       type: integer
       format: int32

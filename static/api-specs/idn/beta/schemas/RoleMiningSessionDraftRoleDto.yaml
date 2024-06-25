@@ -1,5 +1,9 @@
 type: object
 properties:
+  name:
+    type: string
+    description: Name of the draft role
+    example: "Saved RM Session - 07/10"
   description:
     type: string
     description: Draft role description
@@ -27,11 +31,19 @@ properties:
     format: date-time
     description: Last modified date
     example: '2020-09-16T18:49:32.150Z'
-  name:
-    type: string
-    description: Name of the draft role
-    example: "Saved RM Session - 07/10"
   type:
     $ref: './iai/RoleMiningRoleType.yaml'
     description: Role mining session type
     example: SPECIALIZED
+  id:
+    type: string
+    description: Id of the potential draft role
+    example: "e0cc5d7d-bf7f-4f81-b2af-8885b09d9923"
+  createdDate:
+    type: string
+    format: 'date-time'
+    description: The date-time when this potential draft role was created.
+  modifiedDate:
+    type: string
+    format: 'date-time'
+    description: The date-time when this potential draft role was modified.

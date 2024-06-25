@@ -15,7 +15,7 @@ properties:
     example: "2017-07-11T18:45:37.098Z"
   approvalStatus:
     allOf:
-    - $ref: "./WorkItemState.yaml"
+    - $ref: "./AccountActivityApprovalStatus.yaml"
     - nullable: true
   provisioningStatus:
     $ref: "./ProvisioningState.yaml"

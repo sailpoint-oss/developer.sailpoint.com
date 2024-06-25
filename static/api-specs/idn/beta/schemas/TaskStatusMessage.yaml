@@ -23,6 +23,7 @@ properties:
     example: akey
   parameters:
     description: Message parameters for internationalization
+    nullable: true
     type: array
     items:
       type: object

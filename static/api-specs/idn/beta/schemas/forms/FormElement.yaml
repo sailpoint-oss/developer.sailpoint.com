@@ -16,7 +16,9 @@ properties:
       SELECT FormElementTypeSelect
       DATE FormElementTypeDate
       SECTION FormElementTypeSection
-      COLUMNS FormElementTypeColumns
+      COLUMN_SET FormElementTypeColumns
+      IMAGE FormElementTypeImage
+      DESCRIPTION FormElementTypeDescription
     enum:
       - TEXT
       - TOGGLE
@@ -27,7 +29,9 @@ properties:
       - SELECT
       - DATE
       - SECTION
-      - COLUMNS
+      - COLUMN_SET
+      - IMAGE
+      - DESCRIPTION
     example: TEXT
     type: string
     x-go-name: ElementType
@@ -48,13 +52,16 @@ properties:
       SELECT FormElementTypeSelect
       DATE FormElementTypeDate
       SECTION FormElementTypeSection
-      COLUMNS FormElementTypeColumnsn
+      COLUMNS FormElementTypeColumns
   key:
     description: Technical key.
     example: department
     type: string
     x-go-name: Key
   validations:
-    $ref: './FormElementValidationsSet.yaml'
+    nullable: true
+    type: array
+    items:
+      $ref: './FormElementValidationsSet.yaml'
 type: object
 x-go-package: github.com/sailpoint/sp-forms/domain

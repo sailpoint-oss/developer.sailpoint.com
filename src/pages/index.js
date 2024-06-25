@@ -9,6 +9,7 @@ import HomepageBasics from '../components/homepage/HomepageBasics';
 import HomepageTrainingGuides from '../components/homepage/HomepageTrainingGuides';
 import HomepageDiscuss from '../components/homepage/HomepageDiscuss';
 import HomepageTeam from '../components/homepage/HomepageTeam';
+import DiscourseEmbed from '../components/discourse/discourseEmbed';
 
 import styles from './index.module.css';
 
@@ -17,6 +18,7 @@ export default function Home() {
   return (
     <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
       <main>
+        <DiscourseEmbed />
         <HomepageGettingStarted />
         {/* <HomepageDeveloperDays /> */}
         <HomepageBasics

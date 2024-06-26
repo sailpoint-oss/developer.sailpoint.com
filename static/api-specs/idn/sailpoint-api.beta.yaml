@@ -1319,6 +1319,10 @@ paths:
     $ref: './beta/paths/identities.yaml'
   /identities/{id}:
     $ref: './beta/paths/identity.yaml'
+  /identities/invite:
+      $ref: './beta/paths/identities-invite.yaml'
+  /identities/{id}/verification/account/send:
+    $ref: './beta/paths/identity-send-account-verification.yaml'
   /identities/process:
     $ref: './beta/paths/identities-process.yaml'
   /identities/{id}/reset:

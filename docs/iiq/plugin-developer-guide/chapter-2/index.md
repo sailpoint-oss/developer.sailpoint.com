@@ -88,7 +88,7 @@ Settings from the manifest file will be listed in order on the plugin settings p
 
 One concept not shown in the 'Todo' plugin example, the concept of 'allowed values', can be very useful. This concept allows the developer to provide a predefined list of values that a field can adopt. The dataType 'boolean' does this automatically. In the earlier screenshot, there is a dropdown element available on the 'Delete Allowed' setting - the dropdown has two elements: 'True' and 'False'.
 
-Plugin setting object can be used to represent a single setting the settings/configuration page for a Plugin. Each object is used to represent a single configurable setting on the settings page.
+Each `Setting` tag describes one element on the settings/configuration page for a Plugin, visible to Plugin administrators in the IIQ system.
 
 | Attribute Name | Description                                    |
 | -------------- | ---------------------------------------------- |

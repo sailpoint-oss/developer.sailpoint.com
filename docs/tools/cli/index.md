@@ -29,7 +29,6 @@ Learn how to use the SailPoint command line interface (CLI) in this guide.
 
 - [Start using the CLI](#start-using-the-cli)
 - [Contents](#contents)
-- [Requirements](#requirements)
 - [Get the CLI](#get-the-cli)
   - [Windows](#windows)
   - [MacOS](#macos)
@@ -45,9 +44,6 @@ Learn how to use the SailPoint command line interface (CLI) in this guide.
 - [Contribution](#contribution)
 - [Questions](#questions)
 
-## Requirements
-
-- Golang version 1.18 or above. You can download it [here](https://go.dev/dl/). You can run `go version` to check your version.
 
 ## Get the CLI
 

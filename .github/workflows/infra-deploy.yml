@@ -131,5 +131,6 @@ jobs:
         env:
           SLACK_USERNAME: github-notifications
           SLACK_TITLE: Workflow ${{ needs.failing-job.result }}
+          SLACK_COLOR: danger
           MSG_MINIMAL: actions url
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}

@@ -1597,12 +1597,12 @@ paths:
     $ref: './beta/paths/service-desk-integration-template.yaml'
   /service-desk-integrations/status-check-configuration:
     $ref: './beta/paths/service-desk-integration-configuration.yaml'
-  /sim-integrations:
-    $ref: './beta/paths/sim-integrations-value-list.yaml'
   /sim-integrations/{id}:
     $ref: './beta/paths/sim-integrations.yaml'
   /sim-integrations/{id}/beforeProvisioningRule:
     $ref: './beta/paths/sim-integrations-before-provisioning-rule.yaml'
+  /sim-integrations:
+    $ref: './beta/paths/sim-integrations-value-list.yaml'
   /sp-config/export:
     $ref: './beta/paths/sp-config-export.yaml'
   /sp-config/export/{id}:

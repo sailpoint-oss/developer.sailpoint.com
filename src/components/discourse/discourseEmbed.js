@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 
 const DiscourseEmbed = ({ discourseEmbedUrl }) => {
   useEffect(() => {
-    const discourseUrl = 'http://127.0.0.1:4200/';
+    const discourseUrl = 'http://localhost:4200/';
     const embedUrl = `http://localhost:4201`;
 
     // Set up Discourse Embed
-    window.DiscourseEmbed = { discourseUrl, topicId: 8  };
+    window.DiscourseEmbed = { discourseUrl, topicId: 8, showComments: false };
 
     // Create and append meta tag for discourse username
     const metaTag = document.createElement('meta');
@@ -19,7 +19,7 @@ const DiscourseEmbed = ({ discourseEmbedUrl }) => {
     const scriptTag = document.createElement('script');
     scriptTag.type = 'text/javascript';
     scriptTag.async = true;
-    scriptTag.src = `${discourseUrl}javascripts/embed.js`;
+    scriptTag.src = `${discourseUrl}plugins/sailpoint-embed/javascripts/embed.js`;
     document.body.appendChild(scriptTag); // Append to body to avoid duplicating if component re-renders
 
     // Cleanup on component unmount

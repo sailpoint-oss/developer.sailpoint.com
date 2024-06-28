@@ -29,7 +29,7 @@ allOf:
       cert:
         type: string
         description: The Base64-encoded certificate used by the IDP. Used with IDP configurations.
-        example:  -----BEGIN CERTIFICATE-----****-----END CERTIFICATE-----
+        example: -----BEGIN CERTIFICATE-----****-----END CERTIFICATE-----
       loginUrlPost:
         type: string
         description: The IDP POST URL, used with IDP HTTP-POST bindings for IDP-initiated logins. Used with IDP configurations.

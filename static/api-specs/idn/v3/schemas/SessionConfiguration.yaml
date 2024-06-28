@@ -2,8 +2,8 @@ type: object
 properties:
   maxIdleTime:
     type: integer
-    description: The maximum time in minutes a session can be idle.
     format: int32
+    description: The maximum time in minutes a session can be idle.
     example: 15
   rememberMe:
     type: boolean
@@ -12,6 +12,6 @@ properties:
     example: true
   maxSessionTime:
     type: integer
-    description: The maximum allowable session time in minutes.
     format: int32
+    description: The maximum allowable session time in minutes.
     example: 45

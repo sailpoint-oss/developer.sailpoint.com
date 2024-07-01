@@ -1,0 +1,86 @@
+post:
+  security:
+    - UserContextAuth: [sp:saved-search:create]
+  tags:
+    - Saved Search
+  description: |
+    Creates a new saved search.
+  summary: Create a saved search
+  operationId: createSavedSearch
+  requestBody:
+    description: The saved search to persist.
+    content:
+      application/json:
+        schema:
+          allOf:
+          - $ref: '../schemas/search/saved/SavedSearchName.yaml'
+          - $ref: '../schemas/search/saved/SavedSearchDetail.yaml'
+    required: true
+  responses:
+    '201':
+      description: The persisted saved search.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/search/saved/SavedSearch.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"
+get:
+  security:
+    - UserContextAuth: [sp:saved-search:read]
+  tags:
+    - Saved Search
+  description: |
+    Returns a list of saved searches.
+  summary: A list of Saved Searches
+  operationId: listSavedSearches
+  parameters:
+  - $ref: '../parameters/offset.yaml'
+  - $ref: '../parameters/limit.yaml'
+  - $ref: '../parameters/count.yaml'
+  - name: filters
+    in: query
+    schema:
+      type: string
+    description: >-
+      Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+      Filtering is supported for the following fields and operators:
+
+
+      **owner.id**: *eq*
+    example: owner.id eq "7a724640-0c17-4ce9-a8c3-4a89738459c8"
+  responses:
+    '200':
+      description: The list of requested saved searches.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/search/saved/SavedSearch.yaml'
+      headers:
+        X-Total-Count:
+          description: The total result count (returned only if the *count* parameter is specified as *true*).
+          schema:
+            type: integer
+          example: 5
+    '400':
+      $ref: '../responses/400.yaml'
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"

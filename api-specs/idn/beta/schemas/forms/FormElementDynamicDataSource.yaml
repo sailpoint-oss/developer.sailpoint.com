@@ -1,0 +1,22 @@
+properties:
+  config:
+    $ref: './FormElementDynamicDataSourceConfig.yaml'
+  dataSourceType:
+    description: |-
+      DataSourceType is a FormElementDataSourceType value
+      STATIC FormElementDataSourceTypeStatic
+      INTERNAL FormElementDataSourceTypeInternal
+      SEARCH FormElementDataSourceTypeSearch
+    enum:
+      - STATIC
+      - INTERNAL
+      - SEARCH
+    example: STATIC
+    type: string
+    x-go-enum-desc: |-
+      STATIC FormElementDataSourceTypeStatic
+      INTERNAL FormElementDataSourceTypeInternal
+      SEARCH FormElementDataSourceTypeSearch
+    x-go-name: DataSourceType
+type: object
+x-go-package: github.com/sailpoint/sp-forms/domain

@@ -1,0 +1,51 @@
+post:
+  operationId: startGenerateCampaignTemplate
+  tags:
+    - Certification Campaigns
+  summary: Generate a Campaign from Template
+  deprecated: true
+  security:
+     - UserContextAuth: [idn:campaign-template:run]
+  description: >-
+    Use this API to generate a new certification campaign from a campaign template.
+
+    The campaign object contained in the template has special formatting applied to its name and description
+    fields that determine the generated campaign's name/description. Placeholders in those fields are
+    formatted with the current date and time upon generation.
+
+    Placeholders consist of a percent sign followed by a letter indicating what should be inserted. For
+    example, "%Y" inserts the current year, and a campaign template named "Campaign for %y" generates a
+    campaign called "Campaign for 2020" (assuming the year at generation time is 2020).
+
+    Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html).
+
+    Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/start-generate-campaign-template).
+
+    Calling this endpoint requires the ORG_ADMIN role.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: ID of the campaign template to use for generation.
+      example: 2c9180835d191a86015d28455b4a2329
+  responses:
+    '200':
+      description: >-
+        This response indicates that a campaign was successfully generated from this template, and the API returns a reference to the
+        new campaign.
+      content:
+        application/json:
+          schema:
+            $ref: '../../v3/schemas/CampaignReference.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

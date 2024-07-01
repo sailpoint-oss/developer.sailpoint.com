@@ -1,0 +1,182 @@
+get:
+  operationId: listProvisioningPolicies
+  tags:
+    - Sources
+  summary: Lists ProvisioningPolicies
+  description: >-
+    This end-point lists all the ProvisioningPolicies in IdentityNow.
+
+    A token with API, or ORG_ADMIN authority is required to call this API.
+  security:
+    - UserContextAuth: [idn:provisioning-policy:read, idn:provisioning-policy:manage]
+  parameters:
+    - in: path
+      name: sourceId
+      required: true
+      schema:
+        type: string
+      description: The Source id
+      example: 2c9180835d191a86015d28455b4a2329
+  responses:
+    '200':
+      description: List of ProvisioningPolicyDto objects
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/ProvisioningPolicyDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+post:
+  operationId: createProvisioningPolicy
+  tags:
+    - Sources
+  summary: Create Provisioning Policy
+  description: >-
+    This API generates a create policy/template based on field value transforms. This API is intended for use when
+    setting up JDBC Provisioning type sources, but it will also work on other source types.
+    
+    Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
+    
+    Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
+
+    A token with ORG_ADMIN authority is required to call this API.
+  security:
+      - UserContextAuth: [idn:provisioning-policy:manage]
+  parameters:
+    - in: path
+      name: sourceId
+      required: true
+      schema:
+        type: string
+      description: The Source id
+      example: 2c9180835d191a86015d28455b4a2329
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/ProvisioningPolicyDto.yaml'
+        examples:
+          Create Account Provisioning Policy:
+            value:
+                name: Account
+                description: Account Provisioning Policy
+                usageType: CREATE
+                fields: [{
+                "name": "displayName",
+                "transform": {
+                    "type": "identityAttribute",
+                    "attributes": {
+                        "name": "displayName"
+                    }
+                },
+                "attributes": {},
+                "isRequired": false,
+                "type": "string",
+                "isMultiValued": false
+            },
+            {
+                "name": "distinguishedName",
+                "transform": {
+                    "type": "usernameGenerator",
+                    "attributes": {
+                        "sourceCheck": true,
+                        "patterns": [
+                            "CN=$fi $ln,OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com",
+                            "CN=$fti $ln,OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com",
+                            "CN=$fn $ln,OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com",
+                            "CN=$fn$ln${uniqueCounter},OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com"
+                        ],
+                        "fn": {
+                            "type": "identityAttribute",
+                            "attributes": {
+                                "name": "firstname"
+                            }
+                        },
+                        "ln": {
+                            "type": "identityAttribute",
+                            "attributes": {
+                                "name": "lastname"
+                            }
+                        },
+                        "fi": {
+                            "type": "substring",
+                            "attributes": {
+                                "input": {
+                                    "type": "identityAttribute",
+                                    "attributes": {
+                                        "name": "firstname"
+                                    }
+                                },
+                                "begin": 0.0,
+                                "end": 1.0
+                            }
+                        },
+                        "fti": {
+                            "type": "substring",
+                            "attributes": {
+                                "input": {
+                                    "type": "identityAttribute",
+                                    "attributes": {
+                                        "name": "firstname"
+                                    }
+                                },
+                                "begin": 0.0,
+                                "end": 2.0
+                            }
+                        }
+                    }
+                },
+                "attributes": {
+                    "cloudMaxUniqueChecks": "5",
+                    "cloudMaxSize": "100",
+                    "cloudRequired": "true"
+                },
+                "isRequired": false,
+                "type": "",
+                "isMultiValued": false
+            },
+            {
+                "name": "description",
+                "transform": {
+                    "type": "static",
+                    "attributes": {
+                        "value": ""
+                    }
+                },
+                "attributes": {},
+                "isRequired": false,
+                "type": "string",
+                "isMultiValued": false
+            }]
+  responses: 
+    '201':
+      description: Created ProvisioningPolicyDto object
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ProvisioningPolicyDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

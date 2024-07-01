@@ -1,0 +1,15 @@
+type: string
+enum:
+  - ADD
+  - CREATE
+  - MODIFY
+  - DELETE
+  - DISABLE
+  - ENABLE
+  - UNLOCK
+  - LOCK
+  - REMOVE
+  - SET
+  - null
+description: Represents an operation in an account activity item
+example: ADD

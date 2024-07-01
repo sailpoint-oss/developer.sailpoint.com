@@ -1,0 +1,13 @@
+type: object
+properties:
+  type:
+    type: string
+    description: Payload type.
+    example: "SYNCHRONIZE_IDENTITY_ATTRIBUTES"
+  dataJson:
+    type: string
+    description: Payload type.
+    example: "{\"identityId\":\"2c918083746f642c01746f990884012a\"}"
+required:
+  - type
+  - dataJson

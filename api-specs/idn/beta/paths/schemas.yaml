@@ -1,0 +1,85 @@
+
+get:
+  operationId: getSourceSchemas
+  tags:
+    - Sources
+  summary: List Schemas on Source
+  description: Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC).
+  parameters:
+    - in: path
+      name: sourceId
+      required: true
+      schema:
+        type: string
+      description: Source ID.
+      example: 2c9180835d191a86015d28455b4a2329
+    - in: query
+      name: include-types
+      required: false
+      schema:
+        type: string
+        enum: 
+          - group 
+          - user
+      description: >-
+        If set to 'group', then the account schema is filtered and only group schemas are returned. Only a
+        value of 'group' is recognized.
+      example: group
+  responses:
+    '200':
+      description: The schemas were successfully retrieved.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/Schema.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+post:
+  operationId: createSourceSchema
+  tags:
+    - Sources
+  summary: Create Schema on Source
+  description: Use this API to create a new schema on the specified source in Identity Security Cloud (ISC).
+  parameters:
+    - in: path
+      name: sourceId
+      required: true
+      schema:
+        type: string
+      description: Source ID.
+      example: 2c9180835d191a86015d28455b4a2329
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/Schema.yaml'
+  responses:
+    '201':
+      description: The schema was successfully created on the specified source.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Schema.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

@@ -1,0 +1,32 @@
+summary: 'A collection of AccessProfiles'
+value:
+  - id: '2c9180825a6c1adc015a71c9023f0818'
+    name: 'Cloud Eng'
+    _type: 'accessprofile'
+    description: 'Cloud Eng'
+    created: '2017-02-24T20:21:23.145Z'
+    modified: '2019-05-24T20:36:04.312Z'
+    synced: '2020-02-18T05:30:20.414Z'
+    enabled: true
+    requestable: true
+    requestCommentsRequired: false
+    owner:
+      id: 'ff8081815757d36a015757d42e56031e'
+      name: 'SailPoint Support'
+      type: 'IDENTITY'
+      email: 'cloud-support@sailpoint.com'
+    source:
+      id: 'ff8081815757d4fb0157588f3d9d008f'
+      name: 'Employees'
+    entitlements:
+    - id: '2c918084575812550157589064f33b89'
+      name: 'CN=Cloud Engineering,DC=sailpoint,DC=COM'
+      description: mull
+      attribute: 'memberOf'
+      value: 'CN=Cloud Engineering,DC=sailpoint,DC=COM'
+    entitlementCount: 1
+    tags:
+    - 'TAG_1'
+    - 'TAG_2'
+
+      

@@ -1,0 +1,41 @@
+get:
+  operationId: exportNonEmployeeSourceSchemaTemplate
+  security:
+    - UserContextAuth: [idn:nelm:read]
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: Exports Source Schema Template
+  description: >-
+    This requests a download for the Source Schema Template for a provided source.
+
+    Request will require the following security scope:
+
+    idn:nesr:read'
+  parameters:
+    - in: path
+      example: "2c918085842e69ae018432d22ccb212f"
+      name: id
+      description: >-
+        Source Id (UUID)
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Exported Source Schema Template
+      content:
+        text/csv:
+          example: |
+            accountName,firstName,lastName,phone,email,manager,startDate,endDate
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

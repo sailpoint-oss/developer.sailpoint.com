@@ -1,0 +1,48 @@
+get:
+  operationId: getSummary
+  summary: Identity Group Summary
+  tags:
+    - IAI Identity Groups
+  description: >-
+    The Identity Group Summary returns a summary for the identity group.
+  parameters:
+    - in: path
+      name: identityGroupId
+      schema:
+        type: string
+      required: true
+      description: The identity group id
+      example: 'ff8081814d2a8036014d701f3fbf53fa'
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: '../../v3/parameters/count.yaml'
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **attributes**: *eq, sw*
+      example: attributes eq "attribute1"
+  responses:
+    '200':
+      description: A summary of identity group
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/IdentityAttributeDistributionDto.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - bearerAuth : []

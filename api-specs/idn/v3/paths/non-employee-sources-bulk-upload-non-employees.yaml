@@ -1,0 +1,56 @@
+post:
+  operationId: importNonEmployeeRecordsInBulk
+  security:
+    - UserContextAuth: [idn:nelm:manage]
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: Imports, or Updates, Non-Employee Records
+  description: >-
+    This post will import, or update, Non-Employee records found in the CSV.
+    Requires role context of `idn:nesr:create`
+  parameters:
+    - in: path
+      name: id
+      description: >-
+        Source Id (UUID)
+      required: true
+      schema:
+        type: string
+      example: e136567de87e4d029e60b3c3c55db56d
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            data:
+              type: string
+              format: binary
+          required:
+            - data
+  responses:
+    "202":
+      description: >-
+        The CSV was accepted to be bulk inserted now or at a later time.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/non-employee/NonEmployeeBulkUploadJob.yaml"
+    "400":
+      description: |
+        Client Error - Returned if the request body is invalid.
+        The response body will contain the list of specific errors with one on each line.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/ErrorResponseDto.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "404":
+      $ref: "../responses/404.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"

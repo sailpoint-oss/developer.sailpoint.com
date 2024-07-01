@@ -1,0 +1,55 @@
+post:
+  tags:
+    - Sources
+  summary: Account Aggregation
+  operationId: importAccounts
+  description: >-
+    Starts an account aggregation on the specified source. 
+    
+    If the target source is a delimited file source, then the CSV file needs to be included in the request body.
+    
+    You will also need to set the Content-Type header to `multipart/form-data`.
+    
+    A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+  security:
+    - UserContextAuth: [idn:sources:manage]
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: Source Id
+      example: ef38f94347e94562b5bb8424a56397d8
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            file:
+              type: string
+              format: binary
+              description: The CSV file containing the source accounts to aggregate.
+            disableOptimization:
+              type: string
+              example: "true"
+              description: Use this flag to reprocess every account whether or not the data has changed.
+  responses:
+    "202":
+      description: Aggregate Accounts Task
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/LoadAccountsTask.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    "500":
+      $ref: "../../v3/responses/500.yaml"
+

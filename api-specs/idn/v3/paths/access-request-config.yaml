@@ -1,0 +1,61 @@
+get:
+  operationId: getAccessRequestConfig
+  security:
+    - UserContextAuth: [ idn:access-request-config:read ]
+  summary: Get Access Request Configuration
+  tags:
+    - Access Requests
+  description: >-
+    This endpoint returns the current access-request configuration.
+  responses:
+    '200':
+      description: Access Request Configuration Details.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/AccessRequestConfig.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+
+put:
+  operationId: setAccessRequestConfig
+  security:
+    - UserContextAuth: [ idn:access-request-config:update ]
+  summary: Update Access Request Configuration
+  tags:
+    - Access Requests
+  description: >-
+    This endpoint replaces the current access-request configuration.
+
+    A token with ORG_ADMIN authority is required to call this API.
+  requestBody:
+       required: true
+       content:
+         application/json:
+           schema:
+             $ref: '../schemas/AccessRequestConfig.yaml'
+  responses:
+    '200':
+      description: Access Request Configuration Details.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/AccessRequestConfig.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

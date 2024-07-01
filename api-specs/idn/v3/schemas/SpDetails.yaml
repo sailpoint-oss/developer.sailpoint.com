@@ -1,0 +1,19 @@
+allOf:
+  - $ref: './FederationProtocolDetails.yaml'
+  - type: object
+    description: Specification of a Service Provider Details
+    properties:
+      role:
+        type: string
+        description: Federation protocol role
+        example: SAML_SP
+        enum:
+          - SAML_SP
+      alias:
+        type: string
+        description: Unique alias used to identify the selected local service provider based on used URL. Used with SP configurations.
+        example: acme-sp
+      callbackUrl:
+        type: string
+        description: The allowed callback URL where users will be redirected to after authentication. Used with SP configurations.
+        example: https://stradbroke-sso.identitysoon.com/sso/Consumer/metaAlias/cdov-saml/sp

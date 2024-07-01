@@ -1,0 +1,45 @@
+get:
+  operationId: getSodViolationReportRunStatus
+  tags:
+    - SOD Policies
+  summary: Get violation report run status
+  deprecated: true
+  security:
+    - UserContextAuth: [ idn:sod-violation:read ]
+  description: >-
+    This gets the status for a violation report run task that has already been invoked.
+
+    Requires role of ORG_ADMIN.
+  parameters:
+    - in: path
+      name: reportResultId
+      schema:
+        type: string
+      required: true
+      description: The ID of the report reference to retrieve.
+      example: 2e8d8180-24bc-4d21-91c6-7affdb473b0d
+  responses:
+    '200':
+      description: Status of the violation report run task.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ReportResultReference.yaml'
+          example: {
+            "status": "SUCCESS",
+            "type": "REPORT_RESULT",
+            "id": "2e8d8180-24bc-4d21-91c6-7affdb473b0d",
+            "name": "policy-xyz"
+          }
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

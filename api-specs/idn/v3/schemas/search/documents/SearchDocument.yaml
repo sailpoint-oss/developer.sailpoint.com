@@ -1,0 +1,18 @@
+discriminator:
+  propertyName: '_type'
+  mapping:
+    accessprofile: '../model/access/profile/AccessProfileDocument.yaml'
+    accountactivity: '../model/account/activity/AccountActivityDocument.yaml'
+    entitlement: '../model/entitlement/EntitlementDocument.yaml'
+    event: '../model/event/EventDocument.yaml'
+    identity: '../model/identity/IdentityDocument.yaml'
+    role: '../model/role/RoleDocument.yaml'
+
+oneOf:
+- $ref: '../model/access/profile/AccessProfileDocument.yaml'
+- $ref: '../model/account/activity/AccountActivityDocument.yaml'
+- $ref: '../model/entitlement/EntitlementDocument.yaml'
+- $ref: '../model/event/EventDocument.yaml'
+- $ref: '../model/identity/IdentityDocument.yaml'
+- $ref: '../model/role/RoleDocument.yaml'
+

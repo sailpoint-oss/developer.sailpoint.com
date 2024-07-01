@@ -1,0 +1,37 @@
+post:
+  operationId: rejectAccessRequest
+  summary: Reject Access Request Approval
+  tags:
+    - Access Request Approvals
+  description: >-
+    Use this API to reject an access request approval. Only the owner of the approval and admin users are allowed to perform this action.
+  parameters:
+    - in: path
+      name: approvalId
+      schema:
+        type: string
+      required: true
+      description: Approval ID. 
+      example: 2c91808b7294bea301729568c68c002e
+  requestBody:
+    description: Reviewer's comment.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/CommentDto.yaml"
+  responses:
+    '202':
+      $ref: '../../v3/responses/202.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

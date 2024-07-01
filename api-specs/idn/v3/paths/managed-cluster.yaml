@@ -1,0 +1,121 @@
+get:
+  tags:
+    - Managed Clusters
+  summary: Get a specified Managed Cluster.
+  description: Retrieve a ManagedCluster by ID.
+  operationId: getManagedCluster
+  parameters:
+    - name: id
+      in: path
+      description: ManagedCluster ID.
+      required: true
+      example: 2c9180897de347a2017de8859e8c5039
+      style: simple
+      explode: false
+      schema:
+        type: string
+  responses:
+    "200":
+      description: Responds with ManagedCluster having the given ID.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ManagedCluster.yaml'
+    "400":
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    "403":
+      $ref: '../../v3/responses/403.yaml'
+    "404":
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [idn:remote-client:read, idn:remote-client:manage]
+patch:
+  tags:
+    - Managed Clusters
+  summary: Update a Managed Cluster
+  description: >-
+    Update an existing Managed Cluster.
+  operationId: updateManagedCluster
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: Managed Cluster ID.
+      example: 2c9180897de347a2017de8859e8c5039
+  requestBody:
+    required: true
+    description: The JSONPatch payload used to update the object.
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: "../schemas/JsonPatchOperation.yaml"
+  responses:
+    "200":
+      description: The updated Managed Cluster
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ManagedCluster.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [idn:remote-client:manage]
+delete:
+  operationId: deleteManagedCluster
+  tags:
+    - Managed Clusters
+  summary: Delete a Managed Cluster
+  description: >-
+    Delete an existing Managed Cluster.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: Managed Cluster ID.
+      example: 2c9180897de347a2017de8859e8c5039
+    - in: query
+      name: removeClients
+      schema:
+        type: boolean
+        default: false
+      required: false
+      description: Flag to determine the need to delete a cluster with clients
+      example: false
+  responses:
+    '204':
+      $ref: '../../v3/responses/204.yaml'
+      description: The Managed Cluster was successfully deleted.
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [idn:remote-client:manage]

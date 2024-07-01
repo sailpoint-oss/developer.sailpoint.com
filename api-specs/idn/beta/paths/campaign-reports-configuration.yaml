@@ -1,0 +1,67 @@
+get:
+  operationId: getCampaignReportsConfig
+  tags:
+    - Certification Campaigns
+  summary: Get Campaign Reports Configuration
+  deprecated: true
+  description: >- 
+    Use this API to fetch the configuration for certification campaign reports. The configuration includes only one element - identity attributes defined as custom report columns. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-campaign-reports-config).
+
+    Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+
+  security:
+    - UserContextAuth: [ idn:campaign-reports-config:read ]
+  responses:
+    '200':
+      description: Campaign report configuration.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/CampaignReportsConfig.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+put:
+  operationId: setCampaignReportsConfig
+  tags:
+    - Certification Campaigns
+  summary: Set Campaign Reports Configuration
+  deprecated: true
+  description: >- 
+    Use this API to overwrite the configuration for campaign reports. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/set-campaign-reports-config).
+
+    Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+
+  security:
+    - UserContextAuth: [ idn:campaign-reports-config:write ]
+  requestBody:
+    required: true
+    description: Campaign report configuration.
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/CampaignReportsConfig.yaml'
+  responses:
+    '200':
+      description: The persisted campaign report configuration.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/CampaignReportsConfig.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

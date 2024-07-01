@@ -1,0 +1,12 @@
+summary: TypeAheadQuery
+value:
+  indices:
+  - 'identities'
+  queryType: 'TYPEAHEAD'
+  typeAheadQuery:
+    field: 'name'
+    query: 'Jo'
+    maxExpansions: 50
+    size: 100
+    sort: 'desc'
+    sortByValue: false

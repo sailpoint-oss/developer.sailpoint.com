@@ -1,0 +1,65 @@
+get:
+  operationId: getBrandingList
+  tags:
+    - Branding
+  summary: List of branding items
+  description: >-
+    This API endpoint returns a list of branding items.
+
+
+    A token with API, ORG_ADMIN authority is required to call this API.
+  security:
+    - UserContextAuth: [idn:branding:read]
+  responses:
+    '200':
+      description: A list of branding items.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../schemas/BrandingItem.yaml"
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+post:
+  operationId: createBrandingItem
+  tags:
+    - Branding
+  summary: Create a branding item
+  description: >-
+    This API endpoint creates a branding item.
+
+    A token with API, ORG_ADMIN authority is required to call this API.
+  requestBody:
+    required: true
+    content:
+      multipart/form-data:
+        schema:
+          $ref: '../schemas/BrandingItemCreate.yaml'
+  security:
+    - UserContextAuth: [idn:branding:manage]
+  responses:
+    '201':
+      description:  Branding item created
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/BrandingItem.yaml"
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

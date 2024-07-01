@@ -1,0 +1,10 @@
+type: object
+properties:
+  application_name:
+    type: string
+    description: Name of the example application.
+    example: "Example Application"
+  domain:
+    type: string
+    description: Description of the example application's domain.
+    example: "Example Description"

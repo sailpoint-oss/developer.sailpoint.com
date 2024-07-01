@@ -1,0 +1,70 @@
+allOf:
+  - $ref: './NonEmployeeSourceLite.yaml'
+  - type: object
+    properties:
+      accountName:
+        type: string
+        description: Requested identity account name.
+        example: william.smith
+      firstName:
+        type: string
+        description: Non-Employee's first name.
+        example: William
+      lastName:
+        type: string
+        description: Non-Employee's last name.
+        example: Smith
+      email:
+        type: string
+        description: Non-Employee's email.
+        example: william.smith@example.com
+      phone:
+        type: string
+        description: Non-Employee's phone.
+        example: "5555555555"
+      manager:
+        type: string
+        description: The account ID of a valid identity to serve as this non-employee's manager.
+        example: jane.doe
+      nonEmployeeSource:
+        $ref: './NonEmployeeSourceLite.yaml'
+      data:
+        type: object
+        additionalProperties:
+          type: string
+        description: Attribute blob/bag for a non-employee.
+      approvalItems:
+        description: List of approval item for the request
+        type: array
+        items:
+          $ref: './NonEmployeeApprovalItemBase.yaml'
+      approvalStatus:
+        $ref: './ApprovalStatus.yaml'
+      comment:
+        type: string
+        description: comment of requester
+      completionDate:
+        type: string
+        format: date-time
+        description: When the request was completely approved.
+        example: "2020-03-24T11:11:41.139-05:00"
+      startDate:
+        type: string
+        format: date-time
+        description: Non-Employee employment start date.
+        example: "2020-03-24T00:00:00-05:00"
+      endDate:
+        type: string
+        format: date-time
+        description: Non-Employee employment end date.
+        example: "2021-03-25T00:00:00-05:00"
+      modified:
+        type: string
+        format: date-time
+        description: When the request was last modified.
+        example: "2020-03-24T11:11:41.139-05:00"
+      created:
+        type: string
+        format: date-time
+        description: When the request was created.
+        example: "2020-03-24T11:11:41.139-05:00"

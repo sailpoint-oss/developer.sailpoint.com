@@ -1,0 +1,77 @@
+type: object
+description: Campaign Template
+properties:
+  id:
+    type: string
+    description: Id of the campaign template
+    example: 2c9079b270a266a60170a277bb960008
+  name:
+    type: string
+    description: This template's name. Has no bearing on generated campaigns' names.
+    example: Manager Campaign Template
+  description:
+    type: string
+    description: This template's description. Has no bearing on generated campaigns' descriptions.
+    example: Template for the annual manager campaign.
+  created:
+    type: string
+    description: Creation date of Campaign Template
+    readOnly: true
+    format: date-time
+    example: '2020-03-05T22:44:00.364Z'
+  modified:
+    type: string
+    description: Modification date of Campaign Template
+    readOnly: true
+    format: date-time
+    example: '2020-03-05T22:52:09.969Z'
+  scheduled:
+    type: boolean
+    readOnly: true
+    description: Indicates if this campaign template has been scheduled.
+    example: false
+    default: false
+  ownerRef:
+    type : object
+    readOnly: true
+    description: >-
+      The owner of this template, and the owner of campaigns generated from this template via a schedule. This field
+      is automatically populated at creation time with the current user.
+    properties:
+      id:
+        type: string
+        description: Id of the owner
+        example: 2c918086676d3e0601677611dbde220f
+      type:
+        type: string
+        enum:
+          - IDENTITY
+        description: Type of the owner
+        example: IDENTITY
+      name:
+        type: string
+        description: Name of the owner
+        example: Mister Manager
+      email:
+        type: string
+        description: Email of the owner
+        example: mr.manager@example.com
+  deadlineDuration:
+    type: string
+    description: >-
+      The time period during which the campaign should be completed, formatted as an ISO-8601 Duration. When this template
+      generates a campaign, the campaign's deadline will be the current date plus this duration. For example, if generation
+      occurred on 2020-01-01 and this field was "P2W" (two weeks), the resulting campaign's deadline would be 2020-01-15
+      (the current date plus 14 days).
+    example: P2W
+  campaign:
+    type: object
+    description: >-
+      This will hold campaign related information like name, description etc.
+    $ref: './Campaign.yaml'
+required:
+  - name
+  - description
+  - created
+  - modified
+  - campaign

@@ -1,0 +1,38 @@
+description: Role
+allOf:
+- $ref: '../base/BaseDocument.yaml'
+- $ref: '../access/BaseAccess.yaml'
+- type: object
+  properties:
+    accessProfiles:
+      type: array
+      description: Access profiles included with the role.
+      items:
+        $ref: '../base/BaseAccessProfile.yaml'
+    accessProfileCount:
+      type: integer
+      description: Number of access profiles included with the role. 
+      format: int32
+      example: 1
+    tags:
+      $ref: '../base/Tags.yaml'
+    segments:
+      type: array
+      description: Segments with the role. 
+      items:
+        $ref: '../base/BaseSegment.yaml'
+    segmentCount:
+      type: integer
+      description: Number of segments with the role.
+      format: int32
+      example: 1
+    entitlements:
+      type: array
+      description: Entitlements included with the role. 
+      items:
+        $ref: '../entitlement/BaseEntitlement.yaml'
+    entitlementCount:
+      type: integer
+      description: Number of entitlements included with the role.
+      format: int32
+      example: 3

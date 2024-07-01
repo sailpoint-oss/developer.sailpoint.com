@@ -1,0 +1,255 @@
+get:
+  operationId: getRole
+  tags:
+    - Roles
+  summary: Get a Role
+  description: >-
+    This API returns a Role by its ID.
+
+    
+    A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a
+    token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated
+    to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+  parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      description: >-
+        ID of the Role
+      example: 2c91808a7813090a017814121e121518
+  responses:
+    '200':
+      description: List of all Roles
+      content:
+        application/json:
+          schema:
+            $ref: '../../v3/schemas/access/Role.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [idn:role-unchecked:read, idn:role-unchecked:manage, idn:role-checked:manage, idn:role-checked:read]
+patch:
+  operationId: patchRole
+  tags:
+    - Roles
+  summary: Patch a specified Role
+  description: >-
+    This API updates an existing role using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
+
+
+    The following fields are patchable:
+
+
+    * name
+
+    * description
+
+    * enabled
+
+    * owner
+
+    * accessProfiles
+
+    * membership
+
+    * requestable
+
+    * accessRequestConfig
+
+    * revokeRequestConfig
+
+    * segments
+
+
+    A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a
+    token with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated
+    to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+
+
+    The maximum supported length for the description field is 2000 characters.
+    Longer descriptions will be preserved for existing roles, however, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
+
+
+    When you use this API to modify a role's membership identities, you can only modify up to a limit of 500 membership identities at a time. 
+  parameters:
+    - name: id
+      in: path
+      description: ID of the Role to patch
+      required: true
+      schema:
+        type: string
+        example: 2c91808a7813090a017814121e121518
+  requestBody:
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: '../schemas/JsonPatchOperation.yaml'
+        examples:
+          Make a Role Requestable and Enable it in One Call:
+            description: This example shows how multiple fields may be updated with a single patch call.
+            value:
+              [
+                {
+                  "op": "replace",
+                  "path": "/requestable",
+                  "value": true
+                },
+                {
+                  "op": "replace",
+                  "path": "/enabled",
+                  "value": true
+                }
+              ]
+
+          Assign a Role to a Segment:
+            description: >-
+              This example illustrates the use of patch to assign a Role to a Segment by adding the Segment's ID to the
+              Role's segments array.
+            value:
+              [
+                {
+                  "op": "add",
+                  "path": "/segments/-",
+                  "value": "f7b1b8a3-5fed-4fd4-ad29-82014e137e19"
+                }
+              ]
+
+          Set the Membership Selection Criteria to a List of Identities:
+            description: >-
+              This example shows how to define a Role's membershp by providing a list of Identities, referenced by their
+              IDs.
+            value:
+              [
+                {
+                  "op": "replace",
+                  "path": "/membership",
+                  "value": {
+                        "type": "IDENTITY_LIST",
+                        "identities": [
+                          {
+                            "id": "2c91808973fe906c0174262092014ed9"
+                          },
+                          {
+                            "id": "2c918086262092014ed94fb8a47612f3"
+                          }
+                        ]
+                    }
+                }
+              ]
+
+          Set the Membership Selection Criteria to a Standard Expression:
+            description: >-
+              This example shows how to define a Role's membership using STANDARD criteria. In this case, the Role
+              will be granted to all Identities which have the *Engineering* attribute from the indicated Source.
+            value:
+              [
+                {
+                  "op": "replace",
+                  "path": "/membership",
+                  "value": {
+                    "type": "STANDARD",
+                    "criteria": {
+                      "operation": "OR",
+                      "children": [
+                        {
+                          "operation": "EQUALS",
+                          "key": {
+                            "type": "ENTITLEMENT",
+                            "property": "attribute.memberOf",
+                            "sourceId": "2c9180887701fb2014213e122092014e"
+                          },
+                          "stringValue": "Engineering"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+
+          Add a New Clause as the Child of an Existing Standard Expression:
+            description: >-
+                This example shows how to add a child clause to an existing STANDARD criteria expression.
+            value:
+               [
+                {
+                  "op": "add",
+                  "path": "/membership/criteria/children/-",
+                  "value": {
+                    "operation": "ENDS_WITH",
+                    "key": {
+                      "type": "IDENTITY",
+                      "property": "attribute.email"
+                    },
+                    "stringValue": "@identitynow.com"
+                  }
+                }
+              ]
+                             
+    required: true
+  responses:
+    '200':
+      description: Responds with the Role as updated.
+      content:
+        application/json:
+          schema:
+            $ref: '../../v3/schemas/access/Role.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [idn:role-unchecked:manage, idn:role-checked:manage]
+delete:
+  operationId: deleteRole
+  tags:
+    - Roles
+  summary: Delete a Role
+  description: >-
+    This API deletes a Role by its ID.
+
+
+    A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a
+    token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated
+    to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+  parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      description: >-
+        ID of the Role
+      example: 2c91808a7813090a017814121e121518
+  responses:
+    '204':
+      $ref: "../../v3/responses/204.yaml"
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [idn:role-unchecked:manage,idn:role-checked:manage]

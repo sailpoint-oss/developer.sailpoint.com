@@ -1,0 +1,42 @@
+post:
+  tags:
+    - Suggested Entitlement Description
+  summary: Submit Bulk Approval Request
+  description: >-
+    Submit Bulk Approval Request for SED.
+    
+    Request body takes list of SED Ids.
+    API responses with list of SED Approval Status
+  operationId: submitSedApproval
+  requestBody:
+    description: Sed Approval
+    content:
+      application/json-patch+json:
+        schema:
+          items:
+            $ref: '../schemas/SedApproval.yaml'
+          type: array
+    required: true
+  responses:
+    '200':
+      description: List of SED Approval Status
+      content:
+        application/json:
+          schema:
+            items:
+              $ref: '../schemas/SedApprovalStatus.yaml'
+            type: array
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [ idn:sed:write ]

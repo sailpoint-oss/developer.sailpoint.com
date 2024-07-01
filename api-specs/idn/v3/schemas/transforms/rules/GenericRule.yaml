@@ -1,0 +1,12 @@
+type: object
+required:
+- name
+properties:
+  name:
+    type: string
+    description: This is the name of the Generic rule that needs to be invoked by the transform
+    example: 'Generic Calculation Rule'
+  requiresPeriodicRefresh:
+    type: boolean
+    description: A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+    example: false

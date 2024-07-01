@@ -1,0 +1,28 @@
+#
+# Copyright (C) 2019-2020 SailPoint Technologies, Inc.  All rights reserved.
+#
+post:
+  tags:
+    - Task Management
+  summary: Cancel a task by ID
+  description: Cancel a task by task ID.
+  operationId: cancelTask
+  parameters:
+    - name: id
+      in: path
+      description: Task ID of task to cancel
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: anId
+  responses:
+    "200":
+      description: Response indicating that the Task with the given ID was successfully cancelled.
+    "403":
+      $ref: '../../v3/responses/403.yaml'
+    "404":
+      $ref: '../../v3/responses/404.yaml'
+  security:
+    - UserContextAuth: [idn:task-management:write]

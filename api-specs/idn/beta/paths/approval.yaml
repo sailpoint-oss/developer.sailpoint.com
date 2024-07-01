@@ -1,0 +1,68 @@
+get:
+  security:
+  - UserContextAuth: [ sp:approvals:read ]
+  operationId: getApproval
+  tags:
+  - Approvals
+  summary: Get an approval
+  description: >-
+    Retrieve a single approval for a given approval ID. This endpoint is for generic approvals, different than the access-request-approval endpoint and does not include access-request-approvals.
+  parameters:
+  - in: path
+    name: id
+    required: true
+    schema:
+      type: string
+    description: >-
+      ID of the approval that is to be returned
+    example:
+      38453251-6be2-5f8f-df93-5ce19e295837
+  responses:
+    '200':
+      description: Approval object
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Approval.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+patch:
+  security:
+  - UserContextAuth: [ sp:approvals:write ]
+  operationId: patchApproval
+  tags:
+  - Approvals
+  summary: Change an approval
+  description: >-
+    Change the values of a given approval
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/ApprovalDto.yaml'
+  responses:
+    '200':
+      description: Approval object
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Approval.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

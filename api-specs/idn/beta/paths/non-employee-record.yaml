@@ -1,0 +1,162 @@
+get:
+  operationId: getNonEmployeeRecord
+  security:
+    - UserContextAuth: [idn:nelm:read]
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: Get a Non-Employee Record
+  description: >-
+    This gets a non-employee record.
+
+  parameters:
+    - in: path
+      name: id
+      description: >-
+        Non-Employee record id (UUID)
+      required: true
+      example: 2c91808b6ef1d43e016efba0ce470904
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Non-Employee record object
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/NonEmployeeRecord.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+put:
+  operationId: updateNonEmployeeRecord
+  security:
+    - UserContextAuth: [idn:nelm:manage]
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: Update Non-Employee Record
+  description: >-
+    This request will update a non-employee record.
+  parameters:
+    - in: path
+      name: id
+      description: >-
+        Non-employee record id (UUID)
+      required: true
+      example: 2c91808b6ef1d43e016efba0ce470904
+      schema:
+        type: string
+  requestBody:
+    description: Non-employee record creation request body. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/NonEmployeeRequestBody.yaml'
+  responses:
+    '200':
+      description: An updated non-employee record.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/NonEmployeeRecord.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+patch:
+  operationId: patchNonEmployeeRecord
+  security:
+    - UserContextAuth: [idn:nelm:manage]
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: Patch Non-Employee Record
+  description: >-
+    This request will patch a non-employee record.
+  parameters:
+    - in: path
+      name: id
+      description: >-
+        Non-employee record id (UUID)
+      required: true
+      example: 2c91808b6ef1d43e016efba0ce470904
+      schema:
+        type: string
+  requestBody:
+    description: A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
+    required: true
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: '../schemas/JsonPatchOperation.yaml'
+        example:
+            - op: "replace"
+              path: "/endDate"
+              value: {"2019-08-23T18:40:35.772Z"}
+  responses:
+    '200':
+      description: A patched non-employee record.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/NonEmployeeRecord.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+delete:
+  operationId: deleteNonEmployeeRecord
+  security:
+    - UserContextAuth: [idn:nelm:manage]
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: Delete Non-Employee Record
+  description: >-
+    This request will delete a non-employee record.
+
+  parameters:
+    - in: path
+      name: id
+      description: >-
+        Non-Employee record id (UUID)
+      required: true
+      example: 2c91808b6ef1d43e016efba0ce470904
+      schema:
+        type: string
+  responses:
+    '204':
+      $ref: '../../v3/responses/204.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

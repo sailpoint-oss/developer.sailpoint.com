@@ -1,0 +1,69 @@
+allOf:
+  - $ref: "../base/Reference.yaml"
+  - type: object
+    properties:
+      description:
+        type: string
+        description: Access item's description. 
+        example: "The admin role"
+      created:
+        type: string
+        description: ISO-8601 date-time referring to the time when the object was created. 
+        nullable: true
+        format: 'date-time'
+        example: '2018-06-25T20:22:28.104Z'
+      modified:
+        type: string
+        description: ISO-8601 date-time referring to the time when the object was last modified. 
+        nullable: true
+        format: 'date-time'
+        example: '2018-06-25T20:22:28.104Z'
+      synced:
+        type: string
+        description: >-
+          ISO-8601 date-time referring to the date-time when object was queued to be synced into search database for use in the search API.  
+
+          This date-time changes anytime there is an update to the object, which triggers a synchronization event being sent to the search database. 
+
+          There may be some delay between the `synced` time and the time when the updated data is actually available in the search API. 
+        nullable: true
+        format: 'date-time'
+        example: '2018-06-25T20:22:33.104Z'
+      enabled:
+        type: boolean
+        description: Indicates whether the access item is currently enabled. 
+        default: false
+        example: true
+      requestable:
+        type: boolean
+        description: Indicates whether the access item can be requested.
+        default: true
+        example: true
+      requestCommentsRequired:
+        type: boolean
+        description: Indicates whether comments are required for requests to access the item. 
+        default: false
+        example: false
+      owner:
+        type: object
+        description: Owner's identity. 
+        properties:
+          type:
+            type: string 
+            description: Owner's DTO type. 
+            enum: 
+              - IDENTITY
+            example: IDENTITY
+          id:
+            type: string
+            description: Owner's identity ID.
+            example: 2c9180a46faadee4016fb4e018c20639
+          name:
+            type: string
+            description: Owner's display name. 
+            example: Support
+          email: 
+            type: string
+            description: Owner's email. 
+            example: cloud-support@sailpoint.com
+

@@ -1,0 +1,120 @@
+get:
+  operationId: getNativeChangeDetectionConfig
+  tags:
+    - Sources
+  summary: Native Change Detection Configuration
+  security:
+    - UserContextAuth: [idn:sources:read]
+  description: >-
+    This API returns the existing native change detection configuration for a source specified by the
+    given ID.
+
+    A token with ORG_ADMIN authority is required to call this API.
+  parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      description: The source id
+      example: 2c9180835d191a86015d28455b4a2329
+  responses:
+    '200':
+      description: Native change detection configuration for a source
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/NativeChangeDetectionConfig.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+
+put:
+  operationId: putNativeChangeDetectionConfig
+  tags:
+    - Sources
+  summary: Update Native Change Detection Configuration
+  security:
+    - UserContextAuth: [idn:sources:update]
+  description: >-
+    Replaces the native change detection configuration for the source specified by the given ID with the
+    configuration provided in the request body.
+        
+    A token with ORG_ADMIN authority is required to call this API.
+  parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      description: The source id
+      example: 2c9180835d191a86015d28455b4a2329
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/NativeChangeDetectionConfig.yaml'
+  responses:
+    '200':
+      description: Updated native change detection configuration for a source
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/NativeChangeDetectionConfig.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+
+delete:
+  operationId: deleteNativeChangeDetectionConfig
+  tags:
+    - Sources
+  summary: Delete Native Change Detection Configuration
+  description: >-
+    Deletes the native change detection configuration for the source specified by the given ID.
+
+    A token with API, or ORG_ADMIN authority is required to call this API.
+  security:
+    - UserContextAuth: [idn:sources:update]
+  parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      description: The source id
+      example: 2c9180835d191a86015d28455b4a2329
+  responses:
+    '204':
+      $ref: '../../v3/responses/204.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

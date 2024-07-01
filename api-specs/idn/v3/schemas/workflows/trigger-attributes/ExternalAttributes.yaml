@@ -1,0 +1,14 @@
+title: External Trigger Attributes
+type: object
+description: Attributes related to an external trigger
+required:
+- name
+properties:
+  name:
+    type: string
+    description: A unique name for the external trigger
+    example: "search-and-notify"
+  description:
+    type: string
+    description: Additonal context about the external trigger
+    example: Run a search and notify the results

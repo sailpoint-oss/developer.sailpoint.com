@@ -1,0 +1,76 @@
+get:
+  operationId: getWorkflowExecutions
+  tags:
+    - Workflows
+  summary: List Workflow Executions
+  description: >-
+    Use this API to list a specified workflow's executions. Workflow executions are available for up to 90 days before being archived.
+    By default, you can get a maximum of 250 executions. 
+    To get executions past the first 250 records, you can do the following: 
+
+    1. Use the [Get Workflows](https://developer.sailpoint.com/idn/api/beta/list-workflows) endpoint to get your workflows. 
+
+    2. Get your workflow ID from the response. 
+
+    3. You can then do either of the following: 
+
+      - Filter to find relevant workflow executions.
+      For example, you can filter for failed workflow executions: `GET /workflows/:workflowID/executions?filters=status eq "Failed"`
+    
+      - Paginate through results with the `offset` parameter. 
+      For example, you can page through 50 executions per page and use that as a way to get to the records past the first 250. 
+      Refer to [Paginating Results](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results) for more information about the query parameters you can use to achieve pagination. 
+  security:
+    - UserContextAuth: [sp:workflow:read]
+  parameters:
+    - name: id
+      in: path
+      description: Workflow ID. 
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: c17bea3a-574d-453c-9e04-4365fbf5af0b
+    - $ref: "../../v3/parameters/limit.yaml"
+    - $ref: "../../v3/parameters/offset.yaml"
+    - $ref: "../../v3/parameters/count.yaml"
+    - in: query
+      name: filters
+      schema:
+        type: string
+      example: status eq "Failed"
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **startTime**: *eq, lt, le, gt, ge*
+
+
+        **status**: *eq*
+      required: false  
+  responses:
+    '200':
+      description: >-
+        List of workflow executions for the specified workflow. 
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/WorkflowExecution.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'  
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

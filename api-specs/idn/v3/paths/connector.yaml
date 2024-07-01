@@ -1,0 +1,142 @@
+get:
+  tags:
+    - Connectors
+  operationId: getConnector
+  summary: Gets connector by script name
+  description: >-
+    Fetches a connector that using its script name.
+    
+    A token with ORG_ADMIN authority is required to call this API.
+  parameters:
+    - name: scriptName
+      in: path
+      description: The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: aScriptName
+    - in: query
+      name: locale
+      schema:
+        type: string
+        enum: [ de, no, fi, sv, ru, pt, ko, zh-TW, en, it, fr, zh-CN, hu, es, cs, ja, pl, da, nl ]
+        example: de
+      description: >-
+        The locale to apply to the config. If no viable locale is given, it will default to "en"
+  responses:
+    '200':
+      description: A Connector Dto object
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ConnectorDetail.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [ idn:connector-config:read ]
+delete:
+  tags:
+    - Connectors
+  operationId: deleteCustomConnector
+  summary: Deletes connector by script name
+  description: >-
+    Delete a custom connector that using its script name.
+
+    A token with ORG_ADMIN authority is required to call this API.
+  parameters:
+    - name: scriptName
+      in: path
+      description: The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: aScriptName
+  responses:
+    '204':
+      $ref: '../../v3/responses/204.yaml'
+      description: The custom connector was successfully deleted.
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [ idn:connector-config:delete ]
+patch:
+  tags:
+    - Connectors
+  operationId: updateConnector
+  summary: Update connector by script name
+  description: >-
+    Patch a custom connector that using its script name.
+
+    A token with ORG_ADMIN authority is required to call this API.
+    The following fields are patchable:
+    * connectorMetadata
+    * applicationXml
+    * correlationConfigXml
+    * sourceConfigXml
+  parameters:
+    - name: scriptName
+      in: path
+      description: The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: aScriptName
+  requestBody:
+    required: true
+    description: >-
+      A list of connector detail update operations according to
+      the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: "../schemas/JsonPatchOperation.yaml"
+  responses:
+    '200':
+      description: A updated Connector Dto object
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ConnectorDetail.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [ idn:connector-config:update ]
+

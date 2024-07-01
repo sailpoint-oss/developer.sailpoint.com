@@ -1,0 +1,15 @@
+post:
+  summary: Create a new role
+  operationId: postRole
+  description: Create a new role
+  tags:
+    - roles
+  requestBody:
+    $ref: "../requestBodies/POST/Role.yaml"
+  responses:
+    '200':
+      $ref: "../responses/Role.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

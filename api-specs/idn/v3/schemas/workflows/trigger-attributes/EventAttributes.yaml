@@ -1,0 +1,14 @@
+title: Event Trigger Attributes
+type: object
+description: Attributes related to an IdentityNow ETS event
+required:
+- id
+properties:
+  id:
+    type: string
+    description: The unique ID of the trigger
+    example: "idn:identity-attributes-changed"
+  filter.$:
+    type: string
+    description: JSON path expression that will limit which events the trigger will fire on
+    example: "$.changes[?(@.attribute == 'manager')]"

@@ -1,0 +1,144 @@
+patch:
+  operationId: patchCampaignTemplate
+  tags:
+    - Certification Campaigns
+  summary: Update a Campaign Template
+  description: Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+  security:
+    - UserContextAuth: [ idn:campaign-template:update ]
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: ID of the campaign template being modified.
+      example: 2c9180835d191a86015d28455b4a2329
+  requestBody:
+    required: true
+    description: |
+      A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+
+      The following fields are patchable:
+      * name
+      * description
+      * deadlineDuration
+      * campaign (all fields that are allowed during create)
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: "../schemas/JsonPatchOperation.yaml"
+        example:
+          - op: "replace"
+            path: "/description"
+            value: "Updated description!"
+          - op: "replace"
+            path: "/campaign/filter/id"
+            value: "ff80818155fe8c080155fe8d925b0316"
+  responses:
+    '200':
+      description: >-
+        This response indicates that the PATCH operation succeeded, and the API returns the template's new representation.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/CampaignTemplate.yaml'
+          examples:
+            Manager:
+              $ref: '../schemas/campaign/examples/CampaignTemplateManager.yaml'
+            Search:
+              $ref: '../schemas/campaign/examples/CampaignTemplateSearch.yaml'
+            Source Owner:
+              $ref: '../schemas/campaign/examples/CampaignTemplateSourceOwner.yaml'
+            RoleComposition:
+              $ref: '../schemas/campaign/examples/CampaignTemplateRoleComposition.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+get:
+  operationId: getCampaignTemplate
+  tags:
+    - Certification Campaigns
+  summary: Get a Campaign Template
+  description: Use this API to fetch a certification campaign template by ID.
+  security:
+    - UserContextAuth: [ idn:campaign-template:read ]
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: Requested campaign template's ID.
+      example: 2c9180835d191a86015d28455b4a2329
+  responses:
+    '200':
+      description: Data for the campaign matching the given ID.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/CampaignTemplate.yaml'
+          examples:
+            Manager:
+              $ref: '../schemas/campaign/examples/CampaignTemplateManager.yaml'
+            Search:
+              $ref: '../schemas/campaign/examples/CampaignTemplateSearch.yaml'
+            Source Owner:
+              $ref: '../schemas/campaign/examples/CampaignTemplateSourceOwner.yaml'
+            RoleComposition:
+              $ref: '../schemas/campaign/examples/CampaignTemplateRoleComposition.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+delete:
+  operationId: deleteCampaignTemplate
+  tags:
+    - Certification Campaigns
+  summary: Delete a Campaign Template
+  description: Use this API to delete a certification campaign template by ID.
+  security:
+    - UserContextAuth: [ idn:campaign-template:delete ]
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: ID of the campaign template being deleted.
+      example: 2c9180835d191a86015d28455b4a2329
+  responses:
+    '204':
+      $ref: '../responses/204.yaml'
+      description: The campaign template was successfully deleted.
+    '400':
+      $ref: '../responses/400.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

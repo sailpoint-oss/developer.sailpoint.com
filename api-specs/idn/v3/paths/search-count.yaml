@@ -1,0 +1,37 @@
+post:
+  tags:
+  - Search
+  description: >-
+    Performs a search with a provided query and returns the count of results in the X-Total-Count header.
+  operationId: searchCount
+  security:
+    - UserContextAuth: [ sp:search:read ]
+  summary: "Count Documents Satisfying a Query"
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/search/Search.yaml'
+        examples:
+          query-timeZone:
+            $ref: '../schemas/search/examples/query-timeZone.yaml'
+    required: true
+  responses:
+    '204':
+      description: No content - indicates the request was successful but there is no content to be returned in the response.
+      headers:
+        X-Total-Count:
+          description: The total result count.
+          schema:
+            type: integer
+          example: 5
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

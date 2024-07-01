@@ -1,0 +1,125 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The approval id.
+    example: id12345
+  name:
+    type: string
+    description: The name of the approval.
+    example: aName
+  created:
+    type: string
+    format: 'date-time'
+    description: When the approval was created.
+    example: '2017-07-11T18:45:37.098Z'
+  modified:
+    type: string
+    format: 'date-time'
+    description: When the approval was modified last time.
+    example: '2018-07-25T20:22:28.104Z'
+  requestCreated:
+    type: string
+    format: 'date-time'
+    description: When the access-request was created.
+    example: '2017-07-11T18:45:35.098Z'
+  requestType:
+    $ref: './AccessRequestType.yaml'
+    description: If the access-request was for granting or revoking access.
+  requester:
+    $ref: './AccessItemRequester.yaml'
+  requestedFor:
+    type: array
+    description: Identities access was requested for. 
+    items: 
+      $ref: './AccessItemRequestedFor.yaml'
+    minItems: 1
+    maxItems: 10
+  reviewedBy:
+    $ref: './AccessItemReviewedBy.yaml'
+  owner:
+    $ref: './OwnerDto.yaml'
+  requestedObject:
+    $ref: './RequestableObjectReference.yaml'
+    description: The requested access item.
+  requesterComment:
+    allOf:
+    - $ref: './CommentDto.yaml'
+    - description: The requester's comment. 
+  reviewerComment:
+    allOf:
+    - $ref: './CommentDto.yaml'
+    - description: The approval's reviewer's comment.
+      nullable: true
+  previousReviewersComments:
+    type: array
+    items:
+      $ref: './CommentDto.yaml'
+    description: The history of the previous reviewers comments.
+  forwardHistory:
+    type: array
+    items:
+      $ref: './ApprovalForwardHistory.yaml'
+    description: The history of approval forward action.
+  commentRequiredWhenRejected:
+    type: boolean
+    default: false
+    description: When true the rejector has to provide comments when rejecting
+    example: true
+  state:
+    $ref: './CompletedApprovalState.yaml'
+    description: The final state of the approval
+  removeDate:
+    type: string
+    description: The date the role or access profile or entitlement is no longer assigned to the specified identity.
+    format: 'date-time'
+    example: '2020-07-11T00:00:00Z'
+    nullable: true
+  removeDateUpdateRequested:
+    type: boolean
+    default: false
+    description: If true, then the request was to change the remove date or sunset date.
+    example: true
+  currentRemoveDate:
+    type: string
+    description: The remove date or sunset date that was assigned at the time of the request.
+    format: 'date-time'
+    example: '2020-07-11T00:00:00Z'
+    nullable: true
+  sodViolationContext:
+    $ref: './SodViolationContextCheckCompleted.yaml'
+    description: The details of the SOD violations for the associated approval.
+  preApprovalTriggerResult:
+    nullable: true
+    type: object
+    description: If the access request submitted event trigger is configured and this access request was intercepted by it, then this is the result of the trigger's decision to either approve or deny the request.
+    properties:
+      comment:
+        type: string
+        description: The comment from the trigger
+        example: This request was autoapproved by our automated ETS subscriber
+      decision:
+        $ref: './CompletedApprovalState.yaml'
+        description: The approval decision of the trigger
+      reviewer:
+        type: string
+        description: The name of the approver
+        example: Automated AR Approval
+      date:
+        type: string
+        format: date-time
+        example: '2022-06-07T19:18:40.748Z'
+        description: The date and time the trigger decided on the request
+  clientMetadata:
+    type: object
+    additionalProperties:
+      type: string
+    description: >-
+      Arbitrary key-value pairs provided during the request.
+    example:
+      requestedAppName: test-app
+      requestedAppId: 2c91808f7892918f0178b78da4a305a1
+  requestedAccounts:
+    type: string
+    nullable: true
+    description: Information about the requested accounts

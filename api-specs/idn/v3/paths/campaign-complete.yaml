@@ -1,0 +1,52 @@
+post:
+  operationId: completeCampaign
+  tags:
+    - Certification Campaigns
+  summary: Complete a Campaign
+  description: |
+    :::caution
+    
+    This endpoint will run successfully for any campaigns that are **past due**.
+    
+    This endpoint will return a content error if the campaign is **not past due**.
+    
+    :::
+    
+    Use this API to complete a certification campaign. This functionality is provided to admins so that they
+    can complete a certification even if all items have not been completed.
+
+    Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+  security:
+    - UserContextAuth: [idn:campaign:update]
+  requestBody:
+    description:
+      Optional. Default behavior is for the campaign to auto-approve upon completion,
+      unless autoCompleteAction=REVOKE
+    required: false
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/CampaignCompleteOptions.yaml'
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: Campaign ID. 
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    '202':
+      $ref: '../responses/202.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

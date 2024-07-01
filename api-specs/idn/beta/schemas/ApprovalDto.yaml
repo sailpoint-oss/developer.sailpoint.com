@@ -1,0 +1,32 @@
+type: object
+properties:
+  comments:
+    type: object
+    items:
+      $ref: '../schemas/ApprovalComment.yaml'
+    description: Object representation of a comment on the approval
+    example:
+      author: 85d173e7d57e496569df763231d6deb6a
+      comment: Looks good
+      createdDate: 2023-04-12T23:20:50.52Z
+  approvedBy:
+    type: array
+    items:
+      $ref: '../schemas/ApprovalIdentity.yaml'
+    description: An array of identities who have approved the approval
+  rejectedBy:
+    type: array
+    items:
+      $ref: '../schemas/ApprovalIdentity.yaml'
+    description: An array of identities who have rejected the approval
+  reassignFrom:
+    $ref: '../schemas/ApprovalIdentity.yaml'
+    description: The identity that is replaced by reassignTo
+  reassignTo:
+    $ref: '../schemas/ApprovalIdentity.yaml'
+    description: If reassigning this identity will replace reassignFrom, otherwise this identity will be added to the approval request
+  additionalAttributes:
+    type: object
+    example: {"any":"any","additional":"attributes"}
+    description: Any additional attributes that the approval request may need
+description: Payload for changing the fields of an approval.

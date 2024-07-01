@@ -1,0 +1,143 @@
+get:
+  operationId: getNonEmployeeSchemaAttribute
+  security:
+    - UserContextAuth: []
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: Get Schema Attribute Non-Employee Source
+  description: >-
+    This API gets a schema attribute by Id for the specified Non-Employee
+    SourceId. Requires role context of `idn:nesr:read` or the user must be an
+    account manager of the source.
+  parameters:
+    - in: path
+      name: attributeId
+      schema:
+        type: string
+      required: true
+      example: ef38f94347e94562b5bb8424a56397d8
+      description: The Schema Attribute Id (UUID)
+    - in: path
+      name: sourceId
+      schema:
+        type: string
+      required: true
+      example: ef38f94347e94562b5bb8424a56397d8
+      description: The Source id
+  responses:
+    "200":
+      description: The Schema Attribute
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/non-employee/NonEmployeeSchemaAttribute.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"
+patch:
+  operationId: patchNonEmployeeSchemaAttribute
+  # security:
+  #   - oauth2: [idn:nesr:update]
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: Patch a Schema Attribute for Non-Employee Source
+  description: |
+    This end-point patches a specific schema attribute for a non-employee SourceId.
+    Requires role context of `idn:nesr:update`
+  parameters:
+    - in: path
+      name: attributeId
+      schema:
+        type: string
+      required: true
+      description: The Schema Attribute Id (UUID)
+      example: ef38f94347e94562b5bb8424a56397d8
+    - in: path
+      name: sourceId
+      schema:
+        type: string
+      required: true
+      description: The Source id
+      example: ef38f94347e94562b5bb8424a56397d8
+  requestBody:
+    description:
+      A list of schema attribute update operations according to the [JSON
+      Patch](https://tools.ietf.org/html/rfc6902) standard. The following
+      properties are allowed for update ':' 'label', 'helpText', 'placeholder',
+      'required'.
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: "../schemas/JsonPatchOperation.yaml"
+        example:
+          - op: "replace"
+            path: "/label"
+            value: { "new attribute label" }
+    required: true
+  responses:
+    "200":
+      description: The Schema Attribute was successfully patched.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/non-employee/NonEmployeeSchemaAttribute.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "404":
+      $ref: "../responses/404.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"
+delete:
+  operationId: deleteNonEmployeeSchemaAttribute
+  # security:
+  #   - oauth2: [idn:nesr:delete]
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: Delete a Schema Attribute for Non-Employee Source
+  description: | 
+    This end-point deletes a specific schema attribute for a non-employee source.
+    Requires role context of `idn:nesr:delete`
+  parameters:
+    - in: path
+      name: attributeId
+      schema:
+        type: string
+      required: true
+      description: The Schema Attribute Id (UUID)
+      example: ef38f94347e94562b5bb8424a56397d8
+    - in: path
+      name: sourceId
+      schema:
+        type: string
+      required: true
+      description: The Source id
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    "204":
+      $ref: "../responses/204.yaml"
+      description: The Schema Attribute was successfully deleted.
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"

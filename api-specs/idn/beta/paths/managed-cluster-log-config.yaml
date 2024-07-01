@@ -1,0 +1,83 @@
+get:
+  tags:
+    - Managed Clusters
+  summary: Get managed cluster's log configuration
+  description: Get managed cluster's log configuration. 
+  deprecated: true
+  operationId: getClientLogConfiguration
+  parameters:
+    - name: id
+      in: path
+      description: ID of ManagedCluster to get log configuration for
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: aClusterId
+  responses:
+    "200":
+      description: Log configuration of ManagedCluster matching given cluster ID
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ClientLogConfiguration.yaml'
+    "400":
+      $ref: '../../v3/responses/400.yaml'
+    "401":
+      $ref: '../../v3/responses/401.yaml'  
+    "403":
+      $ref: '../../v3/responses/403.yaml'
+    "404":
+      $ref: '../../v3/responses/404.yaml'
+    "429":
+      $ref: '../../v3/responses/429.yaml'  
+    "500":
+      $ref: '../../v3/responses/500.yaml'  
+  security:
+    - UserContextAuth: [idn:remote-client:read, idn:remote-client:manage]
+put:
+  tags:
+    - Managed Clusters
+  summary: Update managed cluster's log configuration
+  description: Update managed cluster's log configuration
+  deprecated: true
+  operationId: putClientLogConfiguration
+  parameters:
+    - name: id
+      in: path
+      description: ID of ManagedCluster to update log configuration for
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: aClusterId
+  requestBody:
+    description: ClientLogConfiguration for given ManagedCluster
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/ClientLogConfiguration.yaml'
+    required: true
+  responses:
+    "200":
+      description: Responds with updated ClientLogConfiguration for given ManagedCluster
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ClientLogConfiguration.yaml'
+    "400":
+      $ref: '../../v3/responses/400.yaml'
+    "401":
+      $ref: '../../v3/responses/401.yaml'  
+    "403":
+      $ref: '../../v3/responses/403.yaml'
+    "404":
+      $ref: '../../v3/responses/404.yaml'
+    "429":
+      $ref: '../../v3/responses/429.yaml'  
+    "500":
+      $ref: '../../v3/responses/500.yaml'  
+  security:
+    - UserContextAuth: [idn:remote-client:manage]

@@ -1,0 +1,10 @@
+summary: Filter with Exists
+value:
+  indices:
+  - 'identities'
+  query:
+    query: 'attributes.city:London'
+  filters:
+    attributes.cloudAuthoritativeSource:
+      type: 'EXISTS'
+      exclude: true

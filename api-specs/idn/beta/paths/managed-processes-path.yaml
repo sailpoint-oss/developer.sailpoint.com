@@ -1,0 +1,119 @@
+get:
+  tags:
+    - Managed Processes
+  summary: Get a Managed Process
+  description: >-
+    Get a Managed Process.
+
+    AMS Security: Devops, Internal
+    A token with SaaS Platform Internal or DevOps is required to access this endpoint.
+  operationId: getManagedProcess
+  parameters:
+    - name: id
+      in: path
+      description: The Managed Process ID
+      required: true
+      schema:
+        type: string
+      example: aProcessId
+  responses:
+    "200":
+      description: Responds with a ManagedProcess
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ManagedProcess.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [idn:managed-process:read, idn:managed-process:manage]
+patch:
+  tags:
+    - Managed Processes
+  summary: Update a Managed Processes
+  description: >-
+    Update an existing Managed Process.
+
+    AMS Security: Devops, Internal
+    A token with SaaS Platform Internal or DevOps is required to access this endpoint.
+  operationId: updateManagedProcess
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The Managed Process ID
+      example: aProcessId
+  requestBody:
+    required: true
+    description: The JSONPatch payload used to update the schema.
+    content:
+      application/json-patch+json:
+        schema:
+          $ref: '../schemas/JsonPatch.yaml'
+  responses:
+    "200":
+      description: The updated ManagedProcess
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ManagedProcess.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [idn:managed-process:manage]
+delete:
+  operationId: deleteManagedProcess
+  tags:
+    - Managed Processes
+  summary: Delete a Managed Process
+  description: >-
+    Delete an existing Managed Process.
+
+    AMS Security: Devops, Internal
+    A token with SaaS Platform Internal or DevOps is required to access this endpoint.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The Managed Process ID
+      example: aProcessId
+  responses:
+    '204':
+      $ref: '../../v3/responses/204.yaml'
+      description: The Managed Process was successfully deleted.
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [idn:managed-process:manage]

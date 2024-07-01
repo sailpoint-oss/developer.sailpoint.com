@@ -1,0 +1,69 @@
+get:
+  tags:
+    - Task Management
+  summary: Retrieve a task status list.
+  description: |
+    Use this endpoint to get a list of **completed** tasks. To get a list of tasks **in-progress**, please use the [get pending tasks](https://developer.sailpoint.com/docs/api/beta/get-pending-tasks) endpoint.
+  operationId: getTaskStatusList
+  parameters:
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: '../../v3/parameters/count.yaml'
+    - in: query
+      name: filters
+      schema:
+        type: string
+      example: completionStatus eq "Success"
+      required: false
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **id**: *eq, in*
+
+
+        **sourceId**: *eq, in*
+
+
+        **completionStatus**: *eq, in*
+
+
+        **type**: *eq, in*
+    - in: query
+      name: sorters
+      schema:
+        type: string
+        format: comma-separated
+      example: -created
+      required: false
+      description: >-
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+
+        Sorting is supported for the following fields: **created**
+  responses:
+    "200":
+      description: Responds with a TaskStatus for the task with the given task ID.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/TaskStatus.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [idn:task-management:read]

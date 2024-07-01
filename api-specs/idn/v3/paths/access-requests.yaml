@@ -1,0 +1,60 @@
+post:
+  operationId: createAccessRequest
+  security:
+    - UserContextAuth: [ idn:access-request:manage ]
+  summary: Submit Access Request
+  tags:
+    - Access Requests
+  description: |
+    Use this API to submit an access request in Identity Security Cloud (ISC), where it follows any ISC approval processes.
+
+    Access requests are processed asynchronously by ISC. A successful response from this endpoint means that the request
+    has been submitted to ISC and is queued for processing. Because this endpoint is asynchronous, it doesn't return an error
+    if you submit duplicate access requests in quick succession or submit an access request for access that is already in progress, approved, or rejected.
+
+    It's best practice to check for any existing access requests that reference the same access items before submitting a new access request. This can
+    be accomplished by using the [List Access Request Status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) or the [Pending Access Request Approvals](https://developer.sailpoint.com/idn/api/v3/list-pending-approvals) APIs. You can also
+    use the [Search API](https://developer.sailpoint.com/idn/api/v3/search) to check the existing access items an identity has before submitting
+    an access request to ensure that you aren't requesting access that is already granted. If you use this API to request access that an identity already has, the API will ignore the request. 
+    These ignored requests do not display when you use the [List Access Request Status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) API.
+  
+    There are two types of access request:
+    
+    __GRANT_ACCESS__
+    * Can be requested for multiple identities in a single request.
+    * Supports self request and request on behalf of other users. Refer to the [Get Access Request Configuration](https://developer.sailpoint.com/idn/api/v3/get-access-request-config) endpoint for request configuration options.  
+    * Allows any authenticated token (except API) to call this endpoint to request to grant access to themselves. Depending on the configuration, a user can request access for others.
+    * Roles, access profiles and entitlements can be requested.
+    * While requesting entitlements, maximum of 25 entitlements and 10 recipients are allowed in a request.
+     
+    __REVOKE_ACCESS__
+    * Can only be requested for a single identity at a time.
+    * You cannot use an access request to revoke access from an identity if that access has been granted by role membership or by birthright provisioning. 
+    * Does not support self request. Only manager can request to revoke access for their directly managed employees.
+    * If a `removeDate` is specified, then the access will be removed on that date and time only for roles, access profiles and entitlements.
+    * Roles, access profiles, and entitlements can be requested for revocation.
+    * Revoke requests for entitlements are limited to 1 entitlement per access request currently.
+    * You can specify a `removeDate` if the access doesn't already have a sunset date. The `removeDate` must be a future date, in the UTC timezone. 
+    * Allows a manager to request to revoke access for direct employees. A token with ORG_ADMIN authority can also request to revoke access from anyone.
+    
+    A token with API authority cannot be used to call this endpoint. 
+
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/AccessRequest.yaml'
+  responses:
+    '202':
+      $ref: '../responses/202.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

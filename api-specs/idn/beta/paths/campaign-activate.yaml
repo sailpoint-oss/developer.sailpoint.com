@@ -1,0 +1,46 @@
+post:
+  operationId: startCampaign
+  tags:
+    - Certification Campaigns
+  summary: Activate a Campaign
+  description: >-
+    Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/start-campaign).
+
+    Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+  security:
+    - UserContextAuth: [ idn:campaign:update ]
+  deprecated: true
+  requestBody:
+    description:
+      Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00).
+      Although this can take any timezone, the intended value is the caller's timezone. The activation time
+      calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain
+      within the original date. The timezone must be in a valid ISO 8601 format.
+    required: false
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/ActivateCampaignOptions.yaml'
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: Campaign ID. 
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    '202':
+      $ref: '../../v3/responses/202.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

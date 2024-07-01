@@ -1,0 +1,59 @@
+post:
+  operationId: sendKbaAnswers
+  tags:
+    - MFA Controller
+  summary: Authenticate KBA provided MFA method
+  description: >-
+    This API Authenticate user in KBA MFA method.
+  security:
+    - UserContextAuth: [idn:mfa-kba:authenticate]
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: "../schemas/KbaAnswerRequestItem.yaml"
+        example:
+          [
+            {
+              "id": "173423",
+              "answer": "822cd15d6c15aa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a0859a2fea34"
+            },
+            {
+              "id": "c54fee53-2d63-4fc5-9259-3e93b9994135",
+              "answer": "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08"
+            }
+          ]
+  responses:
+    "200":
+      description: KBA authenticated status.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/KbaAuthResponse.yaml"
+          example:
+            {
+              "kbaAuthResponseItem": [
+                {
+                  "questionId": "089899f13a8f4da7824996191587bab9",
+                  "IsVerified": false
+                },
+                {
+                  "questionId": "089899f13a8f4da7824996191587bda8",
+                  "IsVerified": true
+                }
+              ],
+              "status": "PENDING"
+            }
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

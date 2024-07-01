@@ -1,0 +1,173 @@
+put:
+  operationId: updateSubscription
+  tags:
+    - Triggers
+  summary: Update a Subscription
+  description: >-
+    This API updates a trigger subscription in IdentityNow, using a full object representation. In other words, the existing
+      Subscription is completely replaced. The following fields are immutable:
+
+
+      * id
+
+      * triggerId
+
+
+      Attempts to modify these fields result in 400.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: Subscription ID
+      example: 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/SubscriptionPutRequest.yaml'
+        examples:
+          HTTP Subscription:
+            value:
+              name: Access request subscription
+              description: Access requested to site xyz
+              type: HTTP
+              httpConfig:
+                url: https://www.example.com
+                httpDispatchMode: SYNC
+                httpAuthenticationType: BASIC_AUTH
+                basicAuthConfig:
+                  userName: user@example.com
+                  password: eRtg4%6yuI!
+              enabled: true
+              filter: $[?($.identityId == "201327fda1c44704ac01181e963d463c")]
+          HTTP Async Subscription:
+            value:
+              name: Access request subscription
+              description: Access requested to site xyz
+              type: HTTP
+              responseDeadline: "PT1H"
+              httpConfig:
+                url: https://www.example.com
+                httpDispatchMode: ASYNC
+                httpAuthenticationType: BASIC_AUTH
+                basicAuthConfig:
+                  userName: user@example.com
+                  password: eRtg4%6yuI!
+              enabled: true
+              filter: $[?($.identityId == "201327fda1c44704ac01181e963d463c")]
+          EventBridge Subscription:
+            value:
+              name: Access request subscription
+              description: Access requested to site xyz
+              type: EVENTBRIDGE
+              eventBridgeConfig:
+                awsAccount: '123456789012'
+                awsRegion: us-west-1
+              enabled: true
+              filter: $[?($.identityId == "201327fda1c44704ac01181e963d463c")]
+  responses:
+    '200':
+      description: Updated subscription.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Subscription.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [sp:trigger-service-subscriptions:manage]
+
+patch:
+  operationId: patchSubscription
+  tags:
+    - Triggers
+  summary: Patch a Subscription
+  description: >-
+    This API updates a trigger subscription in IdentityNow, using a set of instructions to modify a subscription
+    partially. The following fields are patchable:
+
+
+    **name**, **description**, **enabled**, **type**, **filter**,
+    **responseDeadline**, **httpConfig**, **eventBridgeConfig**, **workflowConfig**
+
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: ID of the Subscription to patch
+      example: 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde
+  requestBody:
+    required: true
+    content:
+      application/json-patch+json:
+        schema:
+          $ref: '../schemas/SubscriptionPatchRequest.yaml'
+  responses:
+    '200':
+      description: Updated subscription.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Subscription.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [sp:trigger-service-subscriptions:manage]
+
+delete:
+  operationId: deleteSubscription
+  tags:
+    - Triggers
+  summary: Delete a Subscription
+  description: Deletes an existing subscription to a trigger.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: Subscription ID
+      example: 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde
+  responses:
+    '204':
+      $ref: '../../v3/responses/204.yaml'
+      description: Subscription is deleted successfully.
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [sp:trigger-service-subscriptions:manage]

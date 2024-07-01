@@ -1,0 +1,22 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Id of the object.
+    example: 2c9180835d2e5168015d32f890ca1581
+  name:
+    type: string
+    description: Name of the object.
+    example: Applied Research Access
+  description:
+    type: string
+    description: Description of the object.
+    example: Access to research information, lab results, and schematics
+  type:
+    type: string
+    enum:
+      - ACCESS_PROFILE
+      - ROLE
+      - ENTITLEMENT
+    description: Type of the object.
+    example: ROLE

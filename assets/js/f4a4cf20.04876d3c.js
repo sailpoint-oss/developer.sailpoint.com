@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksailpoint_developer_portal=self.webpackChunksailpoint_developer_portal||[]).push([[34913],{40862:e=>{e.exports=JSON.parse('{"label":"reporting","permalink":"/docs/tags/reporting","allTagsPath":"/docs/tags","count":1,"items":[{"id":"reporting","title":"Reporting","description":"Collect data reports from ISC.","permalink":"/docs/reporting"}]}')}}]);

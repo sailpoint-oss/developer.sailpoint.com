@@ -1,0 +1,25 @@
+value:
+  id: 5594f43b76804a6980ece5fdccf74be7
+  name: Manager Review
+  description: A review of everyone's access by their manager.
+  deadline: 2020-12-25T06:00:00.468Z
+  type: MANAGER
+  status: PENDING
+  emailNotificationEnabled: false
+  autoRevokeAllowed: false
+  recommendationsEnabled: false
+  created: 2022-08-02T20:21:18.421Z
+  modified: null
+  filter:
+    type: CAMPAIGN_FILTER
+    id: 0fbe863c063c4c88a35fd7f17e8a3df5
+    name: Test Manager Filter
+  sunsetCommentsRequired: true
+  sourceOwnerCampaignInfo: null
+  searchCampaignInfo: null
+  roleCompositionCampaignInfo: null
+  alerts: null
+  totalCertifications: 0
+  completedCertifications: 0
+  sourcesWithOrphanEntitlements: null
+  mandatoryCommentRequirement: NO_DECISIONS

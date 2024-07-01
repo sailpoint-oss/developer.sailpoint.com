@@ -1,0 +1,96 @@
+get:
+  operationId: getLifecycleStates
+  tags:
+    - Lifecycle States
+  summary: Lists LifecycleStates
+  description: >-
+    Use this endpoint to list all lifecycle states by their associated identity profiles. 
+
+    A token with API, or ORG_ADMIN authority is required to call this API.
+  security:
+    - UserContextAuth: [idn:identity-profile-lifecycle-state:read]
+  parameters:
+    - in: path
+      name: identity-profile-id
+      description: Identity profile ID. 
+      required: true
+      schema:
+        type: string
+      example: 2b838de9-db9b-abcf-e646-d4f274ad4238
+    - $ref: '../parameters/limit.yaml'
+    - $ref: '../parameters/offset.yaml'
+    - $ref: '../parameters/count.yaml'
+    - in: query
+      name: sorters
+      required: false
+      schema:
+        type: string
+        format: comma-separated
+      example: created,modified
+      description: >-
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+
+        Sorting is supported for the following fields: **created, modified**
+  responses:
+    '200':
+      description: List of LifecycleState objects.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/LifecycleState.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+post:
+  operationId: createLifecycleState
+  tags:
+    - Lifecycle States
+  summary: Create Lifecycle State
+  description: >-
+    Use this endpoint to create a lifecycle state.
+
+    A token with ORG_ADMIN or API authority is required to call this API.
+  security:
+    - UserContextAuth: [idn:identity-profile-lifecycle-state:manage]
+  parameters:
+    - in: path
+      name: identity-profile-id
+      description: Identity profile ID.
+      required: true
+      schema:
+        type: string
+      example: 2b838de9-db9b-abcf-e646-d4f274ad4238
+  requestBody:
+    description: Lifecycle state to be created.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/LifecycleState.yaml'
+  responses:
+    '201':
+      description: Created LifecycleState object.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/LifecycleState.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

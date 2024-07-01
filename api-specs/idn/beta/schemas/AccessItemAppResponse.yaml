@@ -1,0 +1,20 @@
+type: object
+properties:
+  accessType:
+    type: string
+    example: app
+    description: the access item type. entitlement in this case
+  id:
+    type: string
+    example: 2c918087763e69d901763e72e97f006f
+    description: the access item id
+  displayName:
+    type: string
+    example: Display Name
+    description: the access profile display name
+  sourceName:
+    type: string
+    example: appName
+    description:  the associated source name if it exists
+  
+  

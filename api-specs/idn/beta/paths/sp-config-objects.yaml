@@ -1,0 +1,33 @@
+get:
+  operationId: listSpConfigObjects
+  security:
+    - UserContextAuth: [sp:config:read, sp:config:manage]
+  tags:
+    - SP-Config
+  summary: Get config object details
+  description: >-
+    This gets the list of object configurations which are known to the tenant export/import service.
+    Object configurations that contain "importUrl" and "exportUrl" are available for export/import.
+
+  responses:
+    '200':
+      description: >-
+        Object configurations returned successfully.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../beta/schemas/SpConfigObject.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

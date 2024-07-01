@@ -1,0 +1,11 @@
+allOf:
+  - $ref: "./SpConfigExportJob.yaml"
+  - type: object
+    required:
+      - completed
+    properties:
+      completed:
+        type: string
+        format: 'date-time'
+        description: The time the job was completed.
+        example: "2021-05-11T22:23:16Z"

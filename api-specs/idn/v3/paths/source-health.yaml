@@ -1,0 +1,38 @@
+get:
+  operationId: getSourceHealth
+  security:
+    - UserContextAuth: [ idn:sources:read ]
+  tags:
+    - Sources
+  summary: Fetches source health by id
+  description: >-
+    This endpoint fetches source health by source's id
+
+  parameters:
+    - in: path
+      name: sourceId
+      required: true
+      schema:
+        type: string
+      description: The Source id.
+      example: 2c9180835d191a86015d28455b4a2329
+  responses:
+    '200':
+      description: >-
+        Fetched source health successfully
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/SourceHealthDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

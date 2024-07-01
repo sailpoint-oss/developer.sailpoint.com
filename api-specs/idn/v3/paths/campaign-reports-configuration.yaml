@@ -1,0 +1,65 @@
+get:
+  operationId: getCampaignReportsConfig
+  tags:
+    - Certification Campaigns
+  summary: Get Campaign Reports Configuration
+  description: >- 
+    Use this API to fetch the configuration for certification campaign reports. The configuration includes only one element - identity attributes defined as custom report columns. 
+
+    Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+
+  security:
+    - UserContextAuth: [ idn:campaign-reports-config:read ]
+  responses:
+    '200':
+      description: Campaign report configuration.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/CampaignReportsConfig.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+put:
+  operationId: setCampaignReportsConfig
+  tags:
+    - Certification Campaigns
+  summary: Set Campaign Reports Configuration
+  description: >-
+    Use this API to overwrite the configuration for campaign reports. 
+
+    Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+
+  security:
+    - UserContextAuth: [ idn:campaign-reports-config:write ]
+  requestBody:
+    required: true
+    description: Campaign report configuration.
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/CampaignReportsConfig.yaml'
+  responses:
+    '200':
+      description: The persisted campaign report configuration.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/CampaignReportsConfig.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

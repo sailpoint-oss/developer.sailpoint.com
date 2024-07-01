@@ -1,0 +1,77 @@
+# The Identity DTO returned by the v3 identities APIs
+allOf:
+  - $ref: './BaseCommonDto.yaml'
+  - type: object
+    title: IdentityDto
+    properties:
+      alias:
+        type: string
+        description: Alternate unique identifier for the identity
+        example: 'walter.white'
+      emailAddress:
+        type: string
+        description: The email address of the identity
+        example: 'sender@example.com'
+        nullable: true
+      processingState:
+        type: string
+        nullable: true
+        description: The processing state of the identity
+        enum:
+          - ERROR
+          - OK
+          - null
+        example: ERROR
+      identityStatus:
+        type: string
+        description: The identity's status in the system
+        enum:
+          - UNREGISTERED
+          - REGISTERED
+          - PENDING
+          - WARNING
+          - DISABLED
+          - ACTIVE
+          - DEACTIVATED
+          - TERMINATED
+          - ERROR
+          - LOCKED
+        example: LOCKED
+      managerRef:
+        type: object
+        description: Identity's manager.
+        nullable: true
+        properties:
+          type:
+            type: string 
+            description: DTO type of identity's manager. 
+            enum: 
+              - IDENTITY
+            example: IDENTITY
+          id:
+            type: string
+            description: ID of identity's manager. 
+            example: 2c4180a46faadee4016fb4e018c20626
+          name:
+            type: string
+            description: Human-readable display name of identity's manager.
+            example: Robert Robinson
+      isManager:
+        type: boolean
+        description: Whether this identity is a manager of another identity
+        default: false
+        example: true
+      lastRefresh:
+        type: string
+        format: date-time
+        description: The last time the identity was refreshed by the system
+        example: '2020-11-22T15:42:31.123Z'
+      attributes:
+        type: object
+        description: A map with the identity attributes for the identity
+        example: '{"uid":"Walter White","firstname":"walter","cloudStatus":"UNREGISTERED","displayName":"Walter White","identificationNumber":"942","lastSyncDate":1470348809380,"email":"walter@gmail.com","lastname":"white"}'
+      lifecycleState:
+        allOf:
+        - $ref: '../../v3/schemas/LifecycleStateDto.yaml'
+        - nullable: true
+          description: Lifecycle state details that include lifecycle state name and whether this lifecycle state has been set manually

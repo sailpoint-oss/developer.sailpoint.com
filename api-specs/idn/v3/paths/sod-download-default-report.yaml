@@ -1,0 +1,37 @@
+get:
+  security:
+    - UserContextAuth: [idn:sod-violation:read]
+  operationId: getDefaultViolationReport
+  tags:
+    - SOD Policies
+  summary: Download violation report
+  description: >-
+    This allows to download a violation report for a given report reference.
+  parameters:
+    - in: path
+      name: reportResultId
+      schema:
+        type: string
+      required: true
+      description: The ID of the report reference to download.
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    '200':
+      description: Returns the PolicyReport.zip that contains the violation report file.
+      content:
+        application/zip:
+          schema:
+            type: string
+            format: binary
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

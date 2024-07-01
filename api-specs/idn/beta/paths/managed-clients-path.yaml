@@ -1,0 +1,110 @@
+get:
+  tags:
+    - Managed Clients
+  summary: Get a Managed Client
+  description: >-
+    Get a Managed Client.
+  operationId: getManagedClient
+  parameters:
+    - name: id
+      in: path
+      description: The Managed Client ID
+      required: true
+      schema:
+        type: string
+      example: aClientId
+  responses:
+    "200":
+      description: Responds with a ManagedClient
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ManagedClient.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [idn:remote-client:read, idn:remote-client:manage, idn:managed-client-status:read, idn:managed-client-status:manage]
+patch:
+  tags:
+    - Managed Clients
+  summary: Update a Managed Clients
+  description: >-
+    Update an existing Managed Client.
+  operationId: updateManagedClient
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The Managed Client ID
+      example: aClientId
+  requestBody:
+    required: true
+    description: The JSONPatch payload used to update the schema.
+    content:
+      application/json-patch+json:
+        schema:
+          $ref: '../schemas/JsonPatch.yaml'
+  responses:
+    "200":
+      description: The updated ManagedClient
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ManagedClient.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [idn:remote-client:manage]
+delete:
+  operationId: deleteManagedClient
+  tags:
+    - Managed Clients
+  summary: Delete a Managed Client
+  description: >-
+    Delete an existing Managed Client.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The Managed Client ID
+      example: aClientId
+  responses:
+    '204':
+      $ref: '../../v3/responses/204.yaml'
+      description: The Managed Client was successfully deleted.
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [idn:remote-client:manage]

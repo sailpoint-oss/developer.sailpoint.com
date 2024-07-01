@@ -1,0 +1,36 @@
+type: object
+properties:
+  workflow_id:
+    type: string
+    format: uuid
+  requester_id:
+    type: string
+    format: uuid
+  requester_type:
+    type: string
+    enum: [User, NeprofileUser, NeaccessUser]
+  profile_id:
+    type: string
+    format: uuid
+    description: The profile this workflow session will be working with. Only Applicable for Update workflows
+  profile_ids:
+    type: array
+    items:
+      type: string
+      format: uuid
+    description: The profiles this workflow session will be working with. Only Applicable for Batch workflows
+  status:
+    type: string
+    enum: [api_request_sent, approved, assigned, attempting_to_start_workflow, AUTH-STATUS1, AUTH-STATUS2, AUTH-STATUS3, AUTH-STATUS4, AUTH-STATUS5, AUTH-STATUS6, AUTH-STATUS7, AUTH-STATUS8, AUTH-STATUS9, auto_assigned, batch_completed, checking_for_duplicates, closed, completed, courion_add, courion_extend, courion_terminate, courion_update, duplicates_resolved, failed, fulfilled, invitation_sent, ldap_provided, new, non_employee_created, non_employee_updated, notified, pending_approval, pending_assignment, pending_courion_add, pending_courion_extend, pending_courion_terminate, pending_courion_update, pending_creation, pending_fulfillment, pending_ldap, pending_notification, pending_profile_select, pending_request, pending_review, pending_status_change, pending_stored_procedure, pending_trigger, pending_update, processing, profile_check_complete, profiles_selected, rejected, requested, reviewed, soap_request_sent, started_workflow, status_changed, stored_procedure, un_assigned, waiting_on_workflow, workflow_changed]
+    example: completed
+  attributes:
+    type: object
+    additionalProperties:
+      type: string
+    example:
+      text_attribute_uid: static text
+      date_attribute_uid: 01/15/2020
+      profile_select_attribute_uid: Profile Name
+      multiple_profile_select_attribute_uid: Profile Name,Second Profile Name,Third Profile Name
+      contributor_select_attribute_uid: User Name
+      multiple_contributor_select_attribute_uid: User Name,Second User Name,Third User Name

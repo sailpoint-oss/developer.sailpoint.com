@@ -1,0 +1,56 @@
+get:
+  operationId: getIdentityOwnershipDetails
+  summary: Get ownership details
+  tags:
+    - Identities
+  description: >-
+    Use this API to return an identity's owned objects that will cause problems for deleting the identity. 
+    
+    Use this API as a checklist of objects that you need to reassign to a different identity before you can delete the identity. 
+    
+    For a full list of objects owned by an identity, use the [Search API](https://developer.sailpoint.com/docs/api/v3/search-post/). 
+    When you search for identities, the returned identities have a property, `owns`, that contains a more comprehensive list of identity's owned objects.
+  security:
+    - UserContextAuth:
+        - "idn:identity:read"
+  parameters:
+    - in: path
+      name: identityId
+      schema:
+        type: string
+      required: true
+      description: Identity ID. 
+      example: 'ff8081814d2a8036014d701f3fbf53fa'
+  responses:
+    "200":
+      description: >-
+        Identity's ownership association details.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/IdentityOwnershipAssociationDetails.yaml"
+          example:
+            {
+              "associationDetails": {
+                "associationType": "ROLE_OWNER",
+                "entities": [
+                  {
+                    "id": "b660a232f05b4e04812ca974b3011e0f",
+                    "name": "Gaston.800ddf9640a",
+                    "type": "ROLE"
+                  }
+                ]
+              }
+            }
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

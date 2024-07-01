@@ -1,0 +1,74 @@
+post:
+  operationId: initiateExtract
+  tags:
+    - Sources
+  summary: Initiate extraction request in connector
+  description: >-
+    Initiates an extraction request from the source connector for security-extract, utilization-extract, changelog-extract etc from ERP systems.
+
+    A token with ORG_ADMIN authority is required to call this API.
+  security:
+    - UserContextAuth: [idn:source-connector:manage]
+  parameters:
+    - in: path
+      name: sourceId
+      schema:
+        type: string
+      required: true
+      description: The ID of the Source
+      example: cef3ee201db947c5912551015ba0c679
+    - in: path
+      name: messageType
+      schema:
+        type: string
+        enum: [security-extract, utilization-extract, changelog-extract]
+      required: true
+      description: The type of extract request
+      example: security-extract
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/ExtractRequest.yaml'
+        examples:
+          securityExtract:
+            summary: Security Extract request
+            value:
+                referenceId: 2c9180837ab5b716017ab7c6c9ef1e20
+                callbackUrl: https://www.example.com
+          utilizationExtract:
+            summary: Utilization Extract request
+            value:
+                referenceId: 2c9180837ab5b716017ab7c6c9ef1e20
+                fromTime: "2022-02-07T20:13:29.356648026Z"
+                endTime: "2022-02-07T20:13:29.356648026Z"
+                callbackUrl: https://www.example.com
+                attribute:
+                  filters: ["USERID in (1015643,0)",
+                            "TECH_STACK='AUDIT'"]
+          changelogExtract:
+            summary: Change Log Extract request
+            value:
+                referenceId: 2c9180837ab5b716017ab7c6c9ef1e20
+                fromTime: "2022-02-07T20:13:29.356648026Z"
+                endTime: "2022-02-07T20:13:29.356648026Z"
+                callbackUrl: https://www.example.com
+                attribute:
+                  username: JSMITH
+  responses:
+    '202':
+      description: Accepted - Returned if the extact request was successfully accepted into the system.
+      $ref: '../../v3/responses/202.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

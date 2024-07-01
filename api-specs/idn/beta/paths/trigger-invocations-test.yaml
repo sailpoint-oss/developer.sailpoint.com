@@ -1,0 +1,56 @@
+post:
+  operationId: startTestTriggerInvocation
+  tags:
+    - Triggers
+  summary: Start a Test Invocation
+  description: Initiate a test event for all subscribers of the specified event trigger.  If there are no subscribers to the specified trigger in the tenant, then no test event will be sent.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/TestInvocation.yaml'
+        examples:
+          Test Trigger with Mock Input:
+            value:
+              triggerId: "idn:access-requested"
+              input: {
+                "identityId": "201327fda1c44704ac01181e963d463c"
+              }
+              contentJson: {
+                "workflowId": 1234
+              }
+          Send Test to only One Subscriber:
+            value:
+              triggerId: "idn:access-requested"
+              contentJson: {
+                "workflowId": 1234
+              }
+              subscriptionIds:
+              - 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde
+
+  responses:
+    '200':
+      description: >-
+        Test trigger invocations that have been started for specified subscription(s).
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/Invocation.yaml'
+    '204':
+      $ref: '../../v3/responses/204.yaml'
+      description: Trigger invocation is skipped, because tenant has not subscribed to the specified trigger.
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [sp:trigger-service-invocation-status:manage]

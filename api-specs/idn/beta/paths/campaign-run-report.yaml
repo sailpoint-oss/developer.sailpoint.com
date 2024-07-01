@@ -1,0 +1,41 @@
+post:
+  operationId: startCampaignReport
+  tags:
+    - Certification Campaigns
+  summary: Run Campaign Report
+  deprecated: true
+  description: >- 
+    Use this API to run a report for a certification campaign. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/start-campaign-report).
+
+    Calling this endpoint requires the following roles: CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN.
+  security:
+    - UserContextAuth: [idn:campaign-report:run]
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+        example: 2c91808571bcfcf80171c23e4b4221fc
+      required: true
+      description: ID of the campaign the report is being run for.
+    - in: path
+      name: type
+      schema:
+        $ref: '../schemas/ReportType.yaml'
+      required: true
+      description: Type of report to run.
+  responses:
+    '202':
+      $ref: '../../v3/responses/202.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

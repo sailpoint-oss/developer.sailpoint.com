@@ -1,0 +1,40 @@
+get:
+  operationId: nonEmployeeBulkUploadDetails
+  security:
+    - UserContextAuth: [idn:nelm:read]
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: Details of bulk upload job on source
+  description: |
+    This API returns the details of the newest bulk upload job for the specified source.
+
+    A token with idn:nesr:read authority is required to call this API.
+
+    This is for internal use only.
+  parameters:
+    - in: path
+      example: "2c918085842e69ae018432d22ccb212f"
+      name: id
+      description: >-
+        Source ID (UUID)
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: >-
+        Details of the newest bulk-upload job, if any.
+      content:
+        application/json:
+          schema:
+            $ref: '../../beta/schemas/NonEmployeeBulkUploadJob.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

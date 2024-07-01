@@ -1,0 +1,43 @@
+get:
+  operationId: getAccountEntitlements
+  tags:
+    - Accounts
+  summary: Account Entitlements
+  description: >-
+    This API returns entitlements of the account.  
+    
+    A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
+  security:
+    - UserContextAuth: [idn:accounts:read]
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The account id
+      example: ef38f94347e94562b5bb8424a56397d8
+    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/count.yaml'
+  responses:
+    '200':
+      description: An array of account entitlements
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/Entitlement.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

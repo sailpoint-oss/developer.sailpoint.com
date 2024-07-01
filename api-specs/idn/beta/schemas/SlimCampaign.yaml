@@ -1,0 +1,104 @@
+type : object
+title: Slim Campaign
+required:
+  - name
+  - description
+  - type
+properties:
+  id:
+    type: string
+    readOnly: true
+    description: Id of the campaign
+    example: 2c9079b270a266a60170a2779fcb0007
+  name:
+    description: >-
+      The campaign name. If this object is part of a template, special formatting applies; see the
+      `/campaign-templates/{id}/generate` endpoint documentation for details.
+    type: string
+    example: Manager Campaign
+  description:
+    type: string
+    description: >-
+      The campaign description. If this object is part of a template, special formatting applies; see the
+      `/campaign-templates/{id}/generate` endpoint documentation for details.
+    example: Everyone needs to be reviewed by their manager
+  deadline:
+    type: string
+    format: date-time
+    description: The campaign's completion deadline.  This date must be in the future in order to activate the campaign.  If you try to activate a campaign with a deadline of today or in the past, you will receive a 400 error response.
+    example: '2020-03-15T10:00:01.456Z'
+  type:
+    type: string
+    description: The type of campaign. Could be extended in the future.
+    enum:
+      - MANAGER
+      - SOURCE_OWNER
+      - SEARCH
+      - ROLE_COMPOSITION
+    example: MANAGER
+  emailNotificationEnabled:
+    type: boolean
+    description: Enables email notification for this campaign
+    default: false
+    example: false
+  autoRevokeAllowed:
+    type: boolean
+    description: Allows auto revoke for this campaign
+    default: false
+    example: false
+  recommendationsEnabled:
+    type: boolean
+    description: >-
+      Enables IAI for this campaign. Accepts true even if the IAI product feature is off. If IAI is turned off
+      then campaigns generated from this template will indicate false. The real value will then be returned if
+      IAI is ever enabled for the org in the future.
+    default: false
+    example: true
+  status:
+    type: string
+    description: The campaign's current status.
+    readOnly: true
+    enum:
+      - PENDING
+      - STAGED
+      - CANCELING
+      - ACTIVATING
+      - ACTIVE
+      - COMPLETING
+      - COMPLETED
+      - ERROR
+      - ARCHIVED
+    example: ACTIVE
+  correlatedStatus:
+    type: string
+    description: >-
+      The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated.
+      An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source).
+    enum:
+      - CORRELATED
+      - UNCORRELATED
+    example: CORRELATED
+  created:
+    type: string
+    readOnly: true
+    format: date-time
+    description: Created time of the campaign
+    example: '2020-03-03T22:15:13.611Z'
+  totalCertifications:
+    type: integer
+    format: int32
+    description: The total number of certifications in this campaign.
+    readOnly: true
+    example: 100
+  completedCertifications:
+    type: integer
+    format: int32
+    description: The number of completed certifications in this campaign.
+    readOnly: true
+    example: 10
+  alerts:
+    type: array
+    description: A list of errors and warnings that have accumulated.
+    readOnly: true
+    items:
+      $ref: './CampaignAlert.yaml'

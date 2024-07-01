@@ -1,0 +1,62 @@
+get:
+  tags:
+    - Service Desk Integration
+  summary: Get the time check configuration
+  description: Get the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+  operationId: getStatusCheckDetails
+  responses:
+    "200":
+      description: QueuedCheckConfigDetails containing the configured values
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/QueuedCheckConfigDetails.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [idn:service-desk-admin:read, idn:service-desk-admin:manage, idn:service-desk-integration:read, idn:service-desk-integration:manage]
+
+put:
+  tags:
+    - Service Desk Integration
+  summary: Update the time check configuration
+  description: Update the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+  operationId: updateStatusCheckDetails
+  requestBody:
+    description: the modified time check configuration
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/QueuedCheckConfigDetails.yaml'
+    required: true
+  responses:
+    "200":
+      description: QueuedCheckConfigDetails as updated
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/QueuedCheckConfigDetails.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [idn:service-desk-admin:manage ,idn:service-desk-integration:manage]

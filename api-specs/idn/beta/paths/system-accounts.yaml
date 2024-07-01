@@ -1,0 +1,40 @@
+get:
+  operationId: getSystemAccount
+  tags:
+    - Accounts
+  summary: Get System Account For Identity
+  description: >-
+    Returns the system account given an identity ID.
+
+    A token with ORG_ADMIN or API authority is required to call this API to get a the system account of an identity.
+  parameters:
+    - in: path
+      name: identityId
+      schema:
+        type: string
+      required: true
+
+      description: The Identity's ID
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    '200':
+      description: An account object
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/SlimAccount.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [idn:accounts:read]
+

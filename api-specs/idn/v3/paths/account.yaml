@@ -1,0 +1,213 @@
+get:
+  operationId: getAccount
+  tags:
+    - Accounts
+  summary: Account Details
+  description: >-
+    Use this API to return the details for a single account by its ID.  
+
+    A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
+  security:
+    - UserContextAuth: [idn:accounts:read]
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: Account ID.
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    "200":
+      description: Account object.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/Account.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "404":
+      $ref: "../responses/404.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"
+patch:
+  operationId: updateAccount
+  tags:
+    - Accounts
+  summary: Update Account
+  description: >-
+    This updates account details.
+    A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+
+    This endpoint supports updating an account's correlation. The identityId and manuallyCorrelated fields can be
+    modified for any account. The attributes fields can be modified just for flat file accounts. 
+    To re-assign an account from one identity to another, replace the current identityId with a new value. 
+    If the account you're assigning was provisioned by IdentityNow, it's possible IdentityNow could create a new account 
+    for the previous identity as soon as the account is moved. If the account you're assigning is authoritative, 
+    this will cause the previous identity to become uncorrelated and could even result in its deletion.
+    All accounts that are reassigned will be set to manuallyCorrelated: true unless otherwise specified
+  security:
+    - UserContextAuth: [idn:accounts:manage]
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: Account ID.
+      example: ef38f94347e94562b5bb8424a56397d8
+  requestBody:
+    required: true
+    description: >-
+      A list of account update operations according to the [JSON
+      Patch](https://tools.ietf.org/html/rfc6902) standard.
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: "../schemas/JsonPatchOperation.yaml"
+        examples:
+          Uncorrelate account:
+            description: Remove account from Identity
+            value:
+              - op: remove
+                path: /identityId
+          Reassign account:
+            description: Move account from one Identity to another Identity
+            value:
+              - op: replace
+                path: /identityId
+                value: 2c9180857725c14301772a93bb77242d
+          Add account attribute:
+            description: Add flat file account's attribute
+            value:
+              - op: add
+                path: /attributes/familyName
+                value: Smith
+          Replace account attribute:
+            description: Replace flat file account's attribute
+            value:
+              - op: replace
+                path: /attributes/familyName
+                value: Smith
+          Remove account attribute:
+            description: Remove flat file account's attribute
+            value:
+              - op: remove
+                path: /attributes/familyName
+  responses:
+    "202":
+      description: Accepted. Update request accepted and is in progress.
+      $ref: "../responses/202.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "404":
+      $ref: "../responses/404.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"
+put:
+  operationId: putAccount
+  tags:
+    - Accounts
+  summary: Update Account
+  description: >-
+    Use this API to update an account with a PUT request. 
+
+    This endpoint submits an account update task and returns the task ID. 
+
+    A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+
+    >**NOTE: You can only use this PUT endpoint to update accounts from sources of the "DelimitedFile" type.**
+  security:
+    - UserContextAuth: [idn:accounts:manage]
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: Account ID.
+      example: ef38f94347e94562b5bb8424a56397d8
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/AccountAttributes.yaml"
+  responses:
+    "202":
+      description: Async task details.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/AccountsAsyncResult.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "404":
+      $ref: "../responses/404.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"
+delete:
+  operationId: deleteAccount
+  tags:
+    - Accounts
+  summary: Delete Account
+  description: >-
+    Use this API to delete an account. 
+
+    This endpoint submits an account delete task and returns the task ID. 
+
+    This endpoint only deletes the account from IdentityNow, not the source itself, which can result in the account's returning with the next aggregation between the source and IdentityNow. 
+    To avoid this scenario, it is recommended that you [disable accounts](https://developer.sailpoint.com/idn/api/v3/disable-account) rather than delete them. This will also allow you to reenable the accounts in the future. 
+
+    A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+
+    >**NOTE: You can only delete accounts from sources of the "DelimitedFile" type.**
+  security:
+    - UserContextAuth: [idn:accounts:manage]
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: Account ID.
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    "202":
+      description: Async task details.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/AccountsAsyncResult.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "404":
+      $ref: "../responses/404.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"

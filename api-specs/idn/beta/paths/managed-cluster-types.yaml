@@ -1,0 +1,91 @@
+get:
+  tags:
+    - Managed Cluster Types
+  summary: Get Managed Cluster Types
+  description: >-
+    Get a list of Managed Cluster Types.
+
+    AMS Security: Devops, Internal
+    A token with SaaS Platform Internal or DevOps is required to access this endpoint.
+  operationId: getManagedClusterTypes
+  parameters:
+    - name: type
+      in: query
+      description: Type descriptor
+      schema:
+        type: string
+        example: IDN
+    - name: pod
+      in: query
+      description: Pinned pod (or default)
+      schema:
+        type: string
+        example: megapod-useast1
+    - name: org
+      in: query
+      description: Pinned org (or default)
+      schema:
+        type: string
+        example: denali-xyz
+  responses:
+    "200":
+      description: Responds with a list of ManagedClusterType based on the query params provided
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/ManagedClusterType.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [idn:managed-cluster-types:read, idn:managed-cluster-types:manage]
+post:
+  tags:
+    - Managed Cluster Types
+  summary: Create new Managed Cluster Type
+  description: >-
+    Create a new Managed Cluster Type.
+
+    AMS Security: Devops, Internal
+    A token with SaaS Platform Internal or DevOps is required to access this endpoint.
+
+    The API returns a result that includes the Managed Cluster Type ID
+  operationId: createManagedClusterType
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/ManagedClusterType.yaml'
+  responses:
+    "200":
+      description: The created ManagedClusterType
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ManagedClusterType.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [idn:managed-cluster-types:manage]

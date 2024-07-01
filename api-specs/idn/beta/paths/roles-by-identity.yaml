@@ -1,0 +1,41 @@
+get:
+  operationId: getRolesByIdentity
+  tags:
+    - Roles
+  summary: Roles assigned to Identity
+  description: >-
+    This API returns a list of Roles assigned to Identity.
+
+
+    Any authenticated user can read their own roles. Otherwise, a token with API, ORG_ADMIN, DASHBOARD, REPORT_ADMIN,
+    CLOUD_GOV_ADMIN, or CLOUD_GOV_USER authority is required to call this API.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      description: >-
+        ID of the Identity for which the assigned Roles are to be listed
+      example: 2c9180857dc9900e017dd3a36e1c3ab8
+      required: true
+  responses:
+    '200':
+      description: List of Roles
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../v3/schemas/access/Role.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [idn:identity:read, idn:identity:manage, idn:identity-account-read, idn:identity-self:read]

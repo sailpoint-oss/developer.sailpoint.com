@@ -1,0 +1,40 @@
+get:
+  operationId: getWorkflowExecution
+  tags:
+    - Workflows
+  summary: Get Workflow Execution
+  description: >-
+    Use this API to get a single workflow execution. Workflow executions are available for up to 90 days before being archived. If you attempt to access a workflow execution that has been archived, you will receive a "404 Not Found" response.
+  security:
+    - UserContextAuth: [sp:workflow:read]
+  parameters:
+    - name: id
+      in: path
+      description: Workflow execution ID. 
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: c17bea3a-574d-453c-9e04-4365fbf5af0b
+  responses:
+    '200':
+      description: >-
+        Workflow execution.
+      content:
+        application/json:
+          schema:
+            items:
+              $ref: '../schemas/WorkflowExecution.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

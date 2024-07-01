@@ -1,0 +1,203 @@
+post:
+  tags:
+    - Custom Forms
+  summary: Preview form definition data source.
+  operationId: showPreviewDataSource
+  parameters:
+    - name: formDefinitionID
+      in: path
+      description: Form definition ID
+      required: true
+      schema:
+        type: string
+        x-go-name: FormDefinitionID
+      example: 00000000-0000-0000-0000-000000000000
+      x-go-name: FormDefinitionID
+    - name: limit
+      in: query
+      description: |-
+        Limit
+
+        Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results).
+        If it is not specified, a default limit is used.
+      schema:
+        type: integer
+        format: int64
+        maxLength: 250
+        minLength: 0
+        default: 10
+        x-go-name: Limit
+      example: 10
+      required: false
+      x-go-name: Limit
+    - name: filters
+      in: query
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **value**: *eq, ne, in*
+
+
+        Supported composite operators: *not*
+
+
+        Only a single *not* may be used, and it can only be used with the `in` operator. The `not` composite operator must be used in front of the field.
+        For example, the following is valid: `not value in ("ID01")`
+
+
+      schema:
+        type: string
+        x-go-name: Filters
+      example: value eq "ID01"
+      required: false
+      x-go-name: Filters
+    - name: query
+      in: query
+      description: >-
+        String that is passed to the underlying API to filter other (non-ID) fields.  For example, for access 
+        profile data sources, this string will be passed to the access profile api and used with a "starts with" filter against 
+        several fields.
+      schema:
+        type: string
+        x-go-name: Query
+      example: ac
+      required: false
+      x-go-name: Query
+  requestBody:
+    description: Body is the request payload to create a form definition dynamic
+      schema
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/forms/FormElementPreviewRequest.yaml'
+    required: false
+  responses:
+    "200":
+      description: Returns a preview of a form definition data source
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/forms/PreviewDataSourceResponse.yaml'
+    "400":
+      description: An error with the request occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    "401":
+      description: An error with the authorization occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    "403":
+      description: An error with the user permissions occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    "404":
+      description: An error with the item not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    "429":
+      description: Too many requests
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/forms/Error.yaml'
+    "500":
+      description: An internal server error occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+  security:
+    - UserContextAuth:
+        - sp:forms:manage

@@ -1,0 +1,41 @@
+delete:
+  operationId: deleteLifecycleState
+  tags:
+    - Lifecycle States
+  summary: Lifecycle State Delete
+  description: |
+    This endpoint deletes a lifecycle state and updates the corresponding Identity Profile.
+
+    A token with ORG_ADMIN or API authority is required to call this API.
+  parameters:
+    - in: path
+      name: identity-profile-id
+      description: >-
+        Identity Profile ID
+      required: true
+      schema:
+        type: string
+    - in: path
+      name: lifecycle-state-id
+      description: >-
+        Lifecycle State ID
+      required: true
+      schema:
+        type: string
+  responses:
+    '202':
+      description: Accepted - Returned if the request was successfully accepted into the system.
+      content:
+        application/json:
+          schema:
+            $ref: '../../v3/schemas/LifecyclestateDeleted.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

@@ -1,0 +1,16 @@
+description: >-
+  Enum representing the currently supported document types.
+
+
+  Additional values may be added in the future without notice.
+type: string
+enum:
+  - accessprofile
+  - accountactivity
+  - account
+  - aggregation
+  - entitlement
+  - event
+  - identity
+  - role
+example: identity

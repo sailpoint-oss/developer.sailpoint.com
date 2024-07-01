@@ -1,0 +1,143 @@
+get:
+  operationId: getOauthClient
+  security:
+    - UserContextAuth: [sp:oauth-client:manage, sp:oauth-client:read]
+  tags:
+    - OAuth Clients
+  summary: Get OAuth Client
+  description: >-
+    This gets details of an OAuth client.
+
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The OAuth client id
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    '200':
+      description: Request succeeded.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/GetOAuthClientResponse.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+delete:
+  operationId: deleteOauthClient
+  security:
+    - UserContextAuth: [sp:oauth-client:manage]
+  tags:
+    - OAuth Clients
+  summary: Delete OAuth Client
+  description: >-
+    This deletes an OAuth client.
+
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The OAuth client id
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    '204':
+      description: No content.
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+patch:
+  operationId: patchOauthClient
+  security:
+    - UserContextAuth: [sp:oauth-client:manage]
+  tags:
+    - OAuth Clients
+  summary: Patch OAuth Client
+  description: >-
+    This performs a targeted update to the field(s) of an OAuth client.
+
+    Request will require a security scope of 
+
+    - sp:oauth-client:manage
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The OAuth client id
+      example: ef38f94347e94562b5bb8424a56397d8
+  requestBody:
+    required: true
+    description: |
+      A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+
+      The following fields are patchable:
+      * tenant
+      * businessName
+      * homepageUrl
+      * name
+      * description
+      * accessTokenValiditySeconds
+      * refreshTokenValiditySeconds
+      * redirectUris
+      * grantTypes
+      * accessType
+      * enabled
+      * strongAuthSupported
+      * claimsSupported
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: '../schemas/JsonPatchOperation.yaml'
+        example:
+          - op: "replace"
+            path: "/strongAuthSupported"
+            value: true
+          - op: "replace"
+            path: "/businessName"
+            value: "acme-solar"
+  responses:
+    '200':
+      description: >-
+        Indicates the PATCH operation succeeded, and returns the OAuth client's new representation.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/GetOAuthClientResponse.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

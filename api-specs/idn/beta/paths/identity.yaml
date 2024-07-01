@@ -1,0 +1,91 @@
+get:
+  operationId: getIdentity
+  tags:
+    - Identities
+  summary: Identity Details
+  description: >-
+    This API returns a single identity using the Identity ID.
+  security:
+    - UserContextAuth:
+      - "idn:identity:read"
+      - "idn:identity:manage"
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: Identity Id
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    "200":
+      description: An identity object
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/Identity.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"
+
+delete:
+  operationId: deleteIdentity
+  tags:
+    - Identities
+  summary: Delete identity
+  description: >-
+    The API returns successful response if the requested identity was deleted.
+  security:
+    - UserContextAuth:
+        - "idn:identity:delete"
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: Identity Id
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    "204":
+      $ref: "../../v3/responses/204.yaml"
+    "400":
+      description: >-
+        Client Error - Returned if the request is invalid. It may indicate that the specified identity is marked as protected and cannot be deleted.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/IdentityAssociationDetails.yaml"
+          example:
+            {
+              "message": "Identity is the owner of following resources",
+              "associationDetails": {
+                "associationType": "CAMPAIGN_OWNER",
+                "entities": [
+                  {
+                    "id": "b660a232f05b4e04812ca974b3011e0f",
+                    "name": "Gaston.800ddf9640a",
+                    "type": "CAMPAIGN_CAMPAIGNER"
+                  }
+                ]
+              }
+            }
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

@@ -1,0 +1,41 @@
+get:
+  operationId: getArmRiskById
+  tags:
+    - SOD Policies
+  summary: Gets the specified ARM risk.
+  description: >-
+    This API gets the specified ARM risk.
+
+
+    Any authenticated token can call this API.
+  security:
+    - UserContextAuth: [idn:sod-policy:read, idn:sod-policy:manage]
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: >-
+        The composite ID of the ARM Risk.
+        It should consist of a jobId, rulebookId, and a riskCode; each separated by a "!"
+      example: 52435!246635!BS_04
+  responses:
+    '200':
+      description: ARM Risk
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/sod/models/ArmRisk.yaml'
+    '400':
+      $ref: '../../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../../v3/responses/500.yaml'

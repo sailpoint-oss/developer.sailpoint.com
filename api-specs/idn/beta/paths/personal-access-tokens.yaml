@@ -1,0 +1,100 @@
+get:
+  operationId: listPersonalAccessTokens
+  security:
+    - UserContextAuth: [sp:my-personal-access-tokens:read, sp:my-personal-access-tokens:manage, sp:all-personal-access-tokens:read, sp:all-personal-access-tokens:manage]
+  tags:
+    - Personal Access Tokens
+  summary: List Personal Access Tokens
+  description: >-
+    This gets a collection of personal access tokens associated with the optional `owner-id`. 
+    query parameter. If the `owner-id` query parameter is omitted, all personal access tokens 
+    for a tenant will be retrieved, but the caller must have the 'idn:all-personal-access-tokens:read' right.
+    
+  parameters:
+    - in: query
+      name: owner-id
+      description: >-
+        The identity ID of the owner whose personal access tokens should be listed. 
+        If "me", the caller should have the following right: 'idn:my-personal-access-tokens:read'
+        
+        If an actual owner ID or if the `owner-id` parameter is omitted in the request, 
+        the caller should have the following right: 'idn:all-personal-access-tokens:read'. 
+        
+        If the caller has the following right, then managed personal access tokens associated with `owner-id`
+        will be retrieved: 'idn:managed-personal-access-tokens:read'
+      required: false
+      schema:
+        type: string
+        default: null
+        example: 2c9180867b50d088017b554662fb281e
+    - in: query
+      name: filters
+      required: false
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard
+        Collection
+        Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **lastUsed**: *le, isnull*
+      example: lastUsed le 2023-02-05T10:59:27.214Z
+  responses:
+    "200":
+      description: List of personal access tokens.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../schemas/GetPersonalAccessTokenResponse.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"
+post:
+  operationId: createPersonalAccessToken
+  security:
+    - UserContextAuth: [ sp:my-personal-access-tokens:manage, sp:all-personal-access-tokens:manage ]
+  tags:
+    - Personal Access Tokens
+  summary: Create Personal Access Token
+  description: >-
+    This creates a personal access token.
+    
+  requestBody:
+    description: Name and scope of personal access token.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/CreatePersonalAccessTokenRequest.yaml"
+  responses:
+    "200":
+      description:
+        Created. Note - this is the only time Personal Access Tokens' secret
+        attribute will be displayed.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/CreatePersonalAccessTokenResponse.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

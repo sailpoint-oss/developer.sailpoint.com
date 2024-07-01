@@ -1,0 +1,76 @@
+type: object
+properties:
+  jobId:
+    type: string
+    description: Unique id assigned to this job.
+    example: "3469b87d-48ca-439a-868f-2160001da8c1"
+  status:
+    type: string
+    description: Status of the job.
+    enum:
+      - NOT_STARTED
+      - IN_PROGRESS
+      - COMPLETE
+      - CANCELLED
+      - FAILED
+    example: "COMPLETE"
+  type:
+    type: string
+    description: Type of the job, either Backup or Draft.
+    enum:
+      - BACKUP
+      - DRAFT
+    example: "BACKUP"
+  tenant:
+    type: string
+    description: The name of the tenant performing the upload
+    example: "uploaderTenant"
+  requesterName:
+    type: string
+    description: The name of the requester.
+    example: "support"
+  created:
+    type: string
+    format: 'date-time'
+    description: The time the job was started.
+    example: "2021-05-11T22:23:16Z"
+  modified:
+    type: string
+    format: 'date-time'
+    description: The time of the last update to the job.
+    example: "2021-05-11T22:23:16Z"
+  name:
+    type: string
+    description: The name assigned to the upload file in the request body.
+    example: "A_NEW_UPLOADED_BACKUP"
+  userCanDelete:
+    type: boolean
+    default: true
+    description: Is the job a regular backup job, if so is the user allowed to delete the backup file. Since this is an upload job it remains as false.
+    example: false
+  isPartial:
+    type: boolean
+    default: false
+    description: Is the job a regular backup job, if so is it partial. Since this is an upload job it remains as false.
+    example: false
+  backupType:
+    type: string
+    description: What kind of backup is this being treated as.
+    enum:
+      - UPLOADED
+      - AUTOMATED
+      - MANUAL
+    example: "UPLOADED"
+  hydrationStatus:
+    type: string
+    description: have the objects contained in the upload file been hydrated.
+    enum:
+      - HYDRATED
+      - NOT_HYDRATED
+    example: "NOT_HYDRATED"
+required:
+  - jobId
+  - status
+  - type
+  - created
+  - modified

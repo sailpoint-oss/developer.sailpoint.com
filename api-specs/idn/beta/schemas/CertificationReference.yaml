@@ -1,0 +1,9 @@
+description: Previous certification. 
+type: object
+allOf:
+- $ref: '../../v3/schemas/CertificationReferenceDto.yaml'
+- type: object
+  properties:
+    reviewer:
+      $ref: './Reviewer.yaml'
+      description: Certification reviewer

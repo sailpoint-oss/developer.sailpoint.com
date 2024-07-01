@@ -1,0 +1,58 @@
+get:
+  operationId: getIdentitySnapshotSummary
+  tags:
+    - Identity History
+  summary: Gets the summary for the event count for a specific identity
+  description: >-
+    This method gets the summary for the event count for a specific identity by month/day
+    Requires authorization scope of 'idn:identity-history:read' 
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The identity id
+      example: 8c190e6787aa4ed9a90bd9d5344523fb
+    - in: query
+      name: before
+      schema:
+        type: string
+      description: The date before which snapshot summary is required
+      example: '2007-03-01T13:00:00Z'
+    - in: query
+      name: interval
+      schema:
+        type: string
+        enum:
+          - day
+          - month
+      description: The interval indicating day or month. Defaults to month if not specified
+    - in: query
+      name: time-zone
+      schema:
+        type: string
+      description: The time zone. Defaults to UTC if not provided
+      example: 'UTC'  
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: '../../v3/parameters/count.yaml'
+  responses:
+    '200':
+      description: A summary list of identity changes in date histogram format.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/MetricResponse.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'  
+    '500':
+      $ref: '../../v3/responses/500.yaml'

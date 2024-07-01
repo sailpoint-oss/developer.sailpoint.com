@@ -1,0 +1,48 @@
+post:
+  operationId: importSourceConnectorFile
+  security:
+    - UserContextAuth: [ idn:sources-admin:manage ]
+  tags:
+    - Sources
+  summary: Upload connector file to source
+  description: >-
+    This uploads a supplemental source connector file (like jdbc driver jars) to a source's S3 bucket.
+    This also sends ETS and Audit events.
+
+    A token with ORG_ADMIN authority is required to call this API.
+  parameters:
+    - in: path
+      name: sourceId
+      required: true
+      schema:
+        type: string
+      description: The Source id
+      example: '8c190e6787aa4ed9a90bd9d5344523fb'
+  requestBody:
+    required: true
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            file:
+              type: string
+              format: binary
+  responses:
+    '200':
+      description: >-
+        Uploaded the file successfully and sent all post-upload events
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Source.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

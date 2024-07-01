@@ -1,0 +1,40 @@
+get:
+  operationId: getCampaignReports
+  tags:
+    - Certification Campaigns
+  summary: Get Campaign Reports
+  description: >- 
+    Use this API to fetch all reports for a certification campaign by campaign ID.
+
+    Calling this endpoint requires roles of CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN.
+  security:
+    - UserContextAuth: [idn:campaign-report:read]
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+        example: 2c91808571bcfcf80171c23e4b4221fc
+      required: true
+      description: ID of the campaign whose reports are being fetched.
+  responses:
+    '200':
+      description: Array of campaign report objects.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/CampaignReport.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

@@ -1,0 +1,96 @@
+post:
+  operationId: testWorkflow
+  tags:
+    - Workflows
+  summary: Test Workflow By Id
+  description: >-
+    Test a workflow with the provided input data.  The input data should resemble the input that the trigger will send the workflow.  See the [event trigger documentation](https://developer.sailpoint.com/idn/docs/event-triggers/available) for an example input for the trigger that initiates this workflow.
+    
+    This endpoint will return an execution ID, which can be used to lookup more information about the execution using the `Get a Workflow Execution` endpoint.
+
+    **This will cause a live run of the workflow, which could result in unintended modifications to your IDN tenant.**
+  security:
+    - UserContextAuth: [sp:workflow-execute:external]
+  parameters:
+    - name: id
+      in: path
+      description: Id of the workflow
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: c17bea3a-574d-453c-9e04-4365fbf5af0b
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+          - input
+          properties:
+            input:
+              type: object
+              description: The test input for the workflow.
+        examples:
+          Identity Attributes Changed:
+            description: Identity Attributes Changed Trigger Input
+            value:
+              {
+                "input": {
+                  "identity": {
+                      "id": "ee769173319b41d19ccec6cea52f237b",
+                      "name": "john.doe",
+                      "type": "IDENTITY"
+                  },
+                  "changes": [
+                    {
+                        "attribute": "department",
+                        "oldValue": "sales",
+                        "newValue": "marketing"
+                    },
+                    {
+                        "attribute": "manager",
+                        "oldValue": {
+                            "id": "ee769173319b41d19ccec6c235423237b",
+                            "name": "nice.guy",
+                            "type": "IDENTITY"
+                        },
+                        "newValue": {
+                            "id": "ee769173319b41d19ccec6c235423236c",
+                            "name": "mean.guy",
+                            "type": "IDENTITY"
+                        }
+                    },
+                    {
+                        "attribute": "email",
+                        "oldValue": "john.doe@hotmail.com",
+                        "newValue": "john.doe@gmail.com"
+                    }
+                  ]
+                }
+              }
+
+  responses:
+    '200':
+      description: The Workflow object
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              workflowExecutionId:
+                type: string
+                description: The workflow execution id
+                example: "0e11cefa-96e7-4b67-90d0-065bc1da5753"
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

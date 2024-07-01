@@ -1,0 +1,167 @@
+get:
+  operationId: getIdentityProfile
+  tags:
+    - Identity Profiles
+  summary: Gets a single Identity Profile
+  description: >-
+    This returns a single Identity Profile based on ID.
+
+    A token with ORG_ADMIN or API authority is required to call this API.
+  parameters:
+    - in: path
+      name: identity-profile-id
+      schema:
+        type: string
+        format: uuid
+      required: true
+      description: The Identity Profile ID
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    '200':
+      description: An Identity Profile object
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/IdentityProfile.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [idn:identity-profile:read, idn:identity-profile:manage]
+
+delete:
+  operationId: deleteIdentityProfile
+  tags:
+    - Identity Profiles
+  summary: Delete an Identity Profile
+  description: >-
+    This deletes an Identity Profile based on ID.
+
+
+    On success, this endpoint will return a reference to the bulk delete task result.
+    
+    
+    A token with ORG_ADMIN authority is required to call this API.
+    
+    
+    The following rights are required to access this endpoint: idn:identity-profile:delete
+  parameters:
+    - in: path
+      name: identity-profile-id
+      schema:
+        type: string
+        format: uuid
+      required: true
+      description: The Identity Profile ID.
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    '202':
+      description: Accepted - Returns a TaskResult object referencing the bulk delete job created.
+      content:
+        application/json:
+          schema:
+            $ref: '../../v3/schemas/TaskResultSimplified.yaml'
+            description: An object with a TaskResult reference of the delete job.
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [idn:identity-profile:delete]
+
+patch:
+  operationId: updateIdentityProfile
+  tags:
+    - Identity Profiles
+  summary: Update the Identity Profile
+  description: >-
+    This updates the specified Identity Profile.
+
+    A token with ORG_ADMIN authority is required to call this API to update the Identity Profile.
+    Some fields of the Schema cannot be updated. These fields are listed below.
+
+    * id
+
+    * name
+
+    * created
+
+    * modified
+  parameters:
+    - in: path
+      name: identity-profile-id
+      schema:
+        type: string
+        format: uuid
+      required: true
+      description: The Identity Profile ID
+      example: ef38f94347e94562b5bb8424a56397d8
+  requestBody:
+    required: true
+    description: >-
+      A list of Identity Profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: '../schemas/JsonPatchOperation.yaml'
+        examples:
+          add-attribute-transform:
+            summary: Add an attribute transform
+            value: [
+                {
+                    "op": "add",
+                    "path": "/identityAttributeConfig/attributeTransforms/0",
+                    "value": {
+                        "identityAttributeName": "location",
+                        "transformDefinition": {
+                            "type": "accountAttribute",
+                            "attributes": {
+                                "sourceName": "Employees",
+                                "attributeName": "location",
+                                "sourceId": "2c91808878b7d63b0178c66ffcdc4ce4"
+                            }
+                        }
+                    }
+                }
+            ]
+  responses:
+    '200':
+      description: >-
+        The updated Identity Profile.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/IdentityProfile.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - UserContextAuth: [idn:identity-profile:manage]

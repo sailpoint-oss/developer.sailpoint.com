@@ -1,0 +1,41 @@
+post:
+  operationId: accessRolesChangeSegmentAssignments
+  tags:
+    - Segments
+  summary: Change Segment assignments.
+  description: >-
+    This API allows to change the Segment assignments for roles and access-profiles.
+
+
+    No more than 50 changes can be made in a single call. A 400 error will result if more changes than that are
+    specified.
+
+
+    Note that segmentation changes may take time to propagate through the system.
+
+
+
+    A token with ORG_ADMIN or API authority is required to call this API.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/AccessRolesChangeSegmentAssignments.yaml'
+  responses:
+    '202':
+      description: Accepted for processing, indicates no errors detected.
+      $ref: '../../v3/responses/202.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+
+  security:
+    - UserContextAuth: [idn:segments:manage]

@@ -1,0 +1,53 @@
+get:
+  summary: "List Access Model Metadata Attributes"
+  description: "Get a list of Access Model Metadata Attributes"
+  tags:
+    - Access Model Metadata
+  operationId: "listAccessModelMetadataAttribute"
+  security:
+    - UserContextAuth: [ 'idn:access-model-metadata:read' ]
+  parameters:
+    - in: query
+      name: filters
+      schema:
+        type: string
+      example: name eq "Privacy"
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+        
+        
+        Filtering is supported for the following fields and operators:
+
+
+        **name**: *eq*
+
+
+        **type**: *eq*
+
+
+        **status**: *eq*
+        
+        
+        **objectTypes**: *eq*
+        
+        
+        Supported composite operators: *and*
+  responses:
+    "200":
+      description: "OK"
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../schemas/gov-attributes/AttributeDTO.yaml"
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

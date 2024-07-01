@@ -52,6 +52,8 @@ tags: ['Connectivity', 'Connector Command']
 
 The account read command aggregates a single account from the target source into Identity Security Cloud. ISC can call this command during a “one-off” account refresh, which you can trigger by aggregating an individual account in ISC.
 
+To use this command, you must specify this value in the `commands` array: `std:account:read`
+
 ![Account Read](./img/account_read_idn.png)
 
 ## Implementation

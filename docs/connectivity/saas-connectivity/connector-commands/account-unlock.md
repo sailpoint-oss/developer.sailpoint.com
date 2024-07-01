@@ -52,6 +52,8 @@ tags: ['Connectivity', 'Connector Command']
 
 The account lock and account unlock commands provide ways to temporarily prevent access to an account. ISC only supports the unlock command, so accounts must be locked on the source level, but they can be unlocked through ISC, and ISC can store the account's status.
 
+To use this command, you must specify this value in the `commands` array: `std:account:unlock`
+
 Implementing account unlock is similar to the other commands that update attributes on an account. The following code unlocks an account:
 
 ```javascript

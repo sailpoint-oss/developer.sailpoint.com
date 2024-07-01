@@ -52,6 +52,8 @@ tags: ['Connectivity', 'Connector Command']
 
 You typically invoke the `account enable` command during the joiner, mover, leaver (JML) lifecycle. An identity’s rejoining the organization or move to a role that grants access to a previously disabled account triggers the account enable command.
 
+To use this command, you must specify this value in the `commands` array: `std:account:enable`
+
 Implementing `account enable` is similar to implementing the `account update` command. If you have implemented your source call to modify any of the values on your source, then you can use the same method to implement the command. The following code implements enable:
 
 ```javascript

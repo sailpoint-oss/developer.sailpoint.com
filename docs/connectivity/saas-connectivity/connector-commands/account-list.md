@@ -49,6 +49,8 @@ tags: ['Connectivity', 'Connector Command']
 
 The account list command aggregates all accounts from the target source into Identity Security Cloud. ISC calls this command during a manual or scheduled account aggregation.
 
+To use this command, you must specify this value in the `commands` array: `std:account:list`
+
 ![Account List](./img/account_list_idn.png)
 
 ## Implementation

@@ -56,6 +56,8 @@ Disabling accounts is generally preferred if the source supports account disabli
 
 > 🚧 It is important to note that although SaaS Connectivity supports the account delete command, ISC never sends the account delete command, only the account disable command. The connector’s developer determines the appropriate action for account disable on the source.
 
+To use this command, you must specify this value in the `commands` array: `std:account:disable`
+
 Account disable is similar to implementing the account update command. If you have implemented your source call to modify any of the values on your source, then you can use the same method to implement the command. The following code implements disable:
 
 ```javascript

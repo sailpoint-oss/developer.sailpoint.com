@@ -13,9 +13,9 @@ module.exports = {
       items: [
         {label: 'Identity Security Cloud', to: '/docs'},
         {label: 'IdentityIQ', to: '/docs/iiq'},
+        {label: 'Versioned', to: '/docs/api/versioned/v2024'},
       ],
     },
-
     {
       type: 'dropdown',
       label: 'Community',

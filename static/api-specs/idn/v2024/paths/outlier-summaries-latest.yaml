@@ -1,0 +1,50 @@
+get:
+  operationId: getLatestIdentityOutlierSnapshots
+  tags:
+  - IAI Outliers
+  summary: IAI Identity Outliers Latest Summary
+  description: 'This API returns a most recent snapshot of each outlier type, each
+    containing: the number of identities that customer has, the number of outliers,
+    and the type of outlier
+
+    Requires authorization scope of ''iai:outliers-management:read'''
+  parameters:
+  - name: type
+    in: query
+    description: Type of the identity outliers snapshot to filter on
+    required: false
+    schema:
+      type: string
+      enum:
+      - LOW_SIMILARITY
+      - STRUCTURAL
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: Succeeded. Returns list of objects. Each object is a summary to
+        give high level statistics/counts of outliers
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../../beta/schemas/LatestOutlierSummary.yaml
+    '202':
+      $ref: ../../v3/responses/202.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml

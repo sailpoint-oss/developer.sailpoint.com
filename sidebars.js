@@ -1,3 +1,9 @@
+const versions = require("./docs/api/versioned/v2024/versions.json");
+const {
+  versionSelector,
+  versionCrumb,
+} = require("docusaurus-plugin-openapi-docs/lib/sidebars/utils");
+
 const sidebars = {
   openApiSidebar: [
     {
@@ -83,7 +89,7 @@ const sidebars = {
                   },
                   // @ts-ignore
                   items: require('./docs/api/beta/sidebar.js'),
-                },
+                }
               ],
             },
             {
@@ -251,5 +257,231 @@ const sidebars = {
       ],
     },
   ],
+  isc_2024_sidebar: [
+    {
+      type: "html",
+      defaultStyle: true,
+      value: versionSelector(versions),
+      className: "version-button",
+    },
+    {
+      type: "html",
+      defaultStyle: true,
+      value: versionCrumb(`v2024`),
+    },
+    {
+      type: "html",
+      defaultStyle: true,
+      value: `  <select id="featureToggle" onchange="toggleFeatures()">
+    <option value="all" selected>All</option>
+    <option value="public">Public</option>
+    <option value="experimental">Experimental</option>
+  </select>`,
+    },
+    {
+      type: 'doc',
+      id: 'api/getting-started',
+    },
+    {
+      type: 'doc',
+      id: 'api/authentication',
+    },
+    {
+      type: 'doc',
+      id: 'api/authorization',
+    },
+    {
+      type: 'doc',
+      id: 'api/standard-collection-parameters',
+    },
+    {
+      type: 'doc',
+      id: 'api/rate-limit',
+    },
+    {
+      type: 'doc',
+      id: 'api/postman-collections',
+    },
+    {
+      type: 'doc',
+      id: 'api/patch-requests',
+    },
+    {
+      type: 'category',
+      label: 'V2024 APIs',
+      link: {
+        type: 'generated-index',
+        title: 'v2024 APIs',
+        description:
+          'Use these APIs to interact with the IdentityNow platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.',
+        slug: '/api/versioned/v2024',
+      },
+      // @ts-ignore
+      items: require('./docs/api/versioned/v2024/sidebar.js'),
+    }
+  ],
+  isc_beta_sidebar: [
+    {
+      type: "html",
+      defaultStyle: true,
+      value: versionSelector(versions),
+      className: "version-button",
+    },
+    {
+      type: "html",
+      defaultStyle: true,
+      value: versionCrumb(`beta`),
+    },
+    {
+      type: 'doc',
+      id: 'api/getting-started',
+    },
+    {
+      type: 'doc',
+      id: 'api/authentication',
+    },
+    {
+      type: 'doc',
+      id: 'api/authorization',
+    },
+    {
+      type: 'doc',
+      id: 'api/standard-collection-parameters',
+    },
+    {
+      type: 'doc',
+      id: 'api/rate-limit',
+    },
+    {
+      type: 'doc',
+      id: 'api/postman-collections',
+    },
+    {
+      type: 'doc',
+      id: 'api/patch-requests',
+    },
+    {
+      type: 'category',
+      label: 'Beta APIs',
+      link: {
+        type: 'generated-index',
+        title: 'Beta APIs',
+        description:
+          'Use these APIs to interact with the IdentityNow platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.',
+        slug: '/api/versioned/beta',
+      },
+      // @ts-ignore
+      items: require('./docs/api/versioned/beta/sidebar.js'),
+    }
+  ],
+  isc_v3_sidebar: [
+    {
+      type: "html",
+      defaultStyle: true,
+      value: versionSelector(versions),
+      className: "version-button",
+    },
+    {
+      type: "html",
+      defaultStyle: true,
+      value: versionCrumb(`v3`),
+    },
+    {
+      type: 'doc',
+      id: 'api/getting-started',
+    },
+    {
+      type: 'doc',
+      id: 'api/authentication',
+    },
+    {
+      type: 'doc',
+      id: 'api/authorization',
+    },
+    {
+      type: 'doc',
+      id: 'api/standard-collection-parameters',
+    },
+    {
+      type: 'doc',
+      id: 'api/rate-limit',
+    },
+    {
+      type: 'doc',
+      id: 'api/postman-collections',
+    },
+    {
+      type: 'doc',
+      id: 'api/patch-requests',
+    },
+    {
+      type: 'category',
+      label: 'V3 APIs',
+      link: {
+        type: 'generated-index',
+        title: 'V3 APIs',
+        description:
+          'Use these APIs to interact with the IdentityNow platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.',
+        slug: '/api/versioned/v3',
+      },
+      // @ts-ignore
+      items: require('./docs/api/versioned/v3/sidebar.js'),
+    }
+  ],
+  isc_2025_sidebar: [
+    {
+      type: "html",
+      defaultStyle: true,
+      value: versionSelector(versions),
+      className: "version-button",
+    },
+    {
+      type: "html",
+      defaultStyle: true,
+      value: versionCrumb(`v2025`),
+    },
+    {
+      type: 'doc',
+      id: 'api/getting-started',
+    },
+    {
+      type: 'doc',
+      id: 'api/authentication',
+    },
+    {
+      type: 'doc',
+      id: 'api/authorization',
+    },
+    {
+      type: 'doc',
+      id: 'api/standard-collection-parameters',
+    },
+    {
+      type: 'doc',
+      id: 'api/rate-limit',
+    },
+    {
+      type: 'doc',
+      id: 'api/postman-collections',
+    },
+    {
+      type: 'doc',
+      id: 'api/patch-requests',
+    },
+    {
+      type: 'category',
+      label: 'V2025 APIs',
+      link: {
+        type: 'generated-index',
+        title: 'v2025 APIs',
+        description:
+          'Use these APIs to interact with the IdentityNow platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.',
+        slug: '/api/versioned/v2025',
+      },
+      // @ts-ignore
+      items: require('./docs/api/versioned/v2025/sidebar.js'),
+    }
+  ],
+
 };
 module.exports = sidebars;

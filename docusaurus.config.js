@@ -110,7 +110,9 @@ const config = {
     }),
 
   plugins: plugins,
-
+  clientModules: [
+    require.resolve('./static/scripts/helper.js'),
+  ],
   markdown: {
     mermaid: true,
   },

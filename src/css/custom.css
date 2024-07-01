@@ -5,6 +5,7 @@
  */
 
 /* You can override the default Infima variables here. */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
 
 .ReactModal__Overlay {
   z-index: 9999;
@@ -250,6 +251,8 @@
 
   --ifm-color-secondary: #cc27b0;
   --ifm-link-color: #0188f7;
+  --dev-icon-experimental: #cc27b0;
+  --dev-icon-deprecated: rgb(230, 167, 0);
 
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
@@ -300,6 +303,7 @@
   --ifm-link-color: #7ecfee;
 
   --ifm-color-secondary: #cc27b0;
+  --dev-icon-experimental: #cc27b0;
 
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   --dev-text-color-cobalt: #dae1e9;
@@ -355,10 +359,15 @@
   font-weight: 400;
 }
 
+.menu__link {
+  padding-left: 13%;
+}
+
 /* Sidebar Method labels */
 .api-method > .menu__link {
   align-items: center;
   justify-content: start;
+  width: fit-content;
 }
 
 .api-method > .menu__link::before {
@@ -400,6 +409,45 @@
 .patch > .menu__link::before {
   content: 'patch';
   background-color: var(--openapi-code-orange);
+}
+
+.menu__list-item--experimental > .menu__link::after {
+  font-size: 20px;
+  font-family: 'Font Awesome 6 Free'; 
+  font-weight: 900;
+  color: var(--dev-icon-experimental);
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  content: '\f0c3';
+  position: relative;
+  right: 103%;
+}
+
+.menu__list-item--deprecated > .menu__link::after {
+  font-size: 20px;
+  font-family: 'Font Awesome 6 Free'; 
+  font-weight: 900;
+  color: var(--dev-icon-deprecated);
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  content: '\f071';
+  position: relative;
+  right: 103%;
+}
+
+.experimental > .menu__list-item-collapsible::before {
+  font-size: 25px;
+  font-family: 'Font Awesome 6 Free'; 
+  font-weight: 900;
+  color: var(--dev-icon-experimental);
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  content: '\f0c3';
+  position: relative;
+}
+
+.hidden {
+  display: none;
 }
 
 .header-github-link:hover {
@@ -476,8 +524,6 @@ html[data-theme='dark'] .theme-admonition-note {
   background-color: #474748;
 }
 
-ul {
-}
 
 .button.button--secondary {
   color: white;

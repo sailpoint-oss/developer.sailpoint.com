@@ -1,0 +1,123 @@
+post:
+  operationId: importSpConfig
+  tags:
+  - SP-Config
+  summary: Initiates configuration objects import job
+  description: "This post will import objects from a JSON configuration file into\
+    \ a tenant. By default, every import will first export all existing objects supported\
+    \ by sp-config as a backup before the import is attempted. The backup is provided\
+    \ so that the state of the configuration prior to the import is available for\
+    \ inspection or restore if needed. The backup can be skipped by setting \"excludeBackup\"\
+    \ to true in the import options. If a backup is performed, the id of the backup\
+    \ will be provided in the ImportResult as the \"exportJobId\". This can be downloaded\
+    \  using the /sp-config/export/{exportJobId}/download endpoint.\nYou cannot currently\
+    \ import from the Non-Employee Lifecycle Management (NELM) source. You cannot\
+    \ use this endpoint to back up or store NELM data. \nFor more information about\
+    \ the object types that currently support import functionality, refer to [SaaS\
+    \ Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).\n\
+    The request will need the following security scope:\n- sp:config:manage"
+  parameters:
+  - in: query
+    name: preview
+    schema:
+      type: boolean
+      default: false
+    required: false
+    description: This option is intended to give the user information about how an
+      import operation would proceed, without having any effect on the target tenant.
+      If this parameter is "true", no objects will be imported. Instead, the import
+      process will pre-process the import file and attempt to resolve references within
+      imported objects. The import result file will contain messages pertaining to
+      how specific references were resolved, any errors associated with the preprocessing,
+      and messages indicating which objects would be imported.
+    example: 'true'
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  requestBody:
+    description: "The form-data \"name\" attribute for the file content must be \"\
+      data\".\n\n__Example__\n\n    data: \"config_export_0340b957-5caa-44f6-ada2-d3c4c5bd0b19.json\"\
+      ,\n    options: {\n      \"excludeTypes\": [],\n      \"includeTypes\": [\"\
+      TRIGGER_SUBSCRIPTION\"],\n      \"objectOptions\": {\n        \"TRIGGER_SUBSCRIPTION\"\
+      : {\n          \"includedIds\": [ \"193446a1-c431-4326-8ba7-d6eebf922948\"],\n\
+      \          \"includedNames\":[]\n        }\n      },\n      \"defaultReferences\"\
+      : [\n        {\n          \"type\": \"TRIGGER_SUBSCRIPTION\",\n          \"\
+      id\": \"be9e116d-08e1-49fc-ab7f-fa585e96c9e4\",\n          \"name\": \"Test\
+      \ Trigger\"\n        }\n      ],\n      \"excludeBackup\": false\n    }\n\n\
+      __Sample Import File__\n\n    {\n    \t\"version\": 1,\n    \t\"timestamp\"\
+      : \"2021-05-10T15:19:23.425041-05:00\",\n    \t\"tenant\": \"sampleTenant\"\
+      ,\n    \t\"options\": {\n    \t\t\"excludeTypes\": [],\n    \t\t\"includeTypes\"\
+      : [\"TRIGGER_SUBSCRIPTION\"],\n    \t\t\"objectOptions\": null\n    \t},\n \
+      \   \t\"objects\": [{\n    \t\t\t\"version\": 1,\n    \t\t\t\"self\": {\n  \
+      \  \t\t\t\t\"type\": \"TRIGGER_SUBSCRIPTION\",\n    \t\t\t\t\"name\": \"test\
+      \ trigger\",\n    \t\t\t\t\"id\": \"193446a1-c431-4326-8ba7-d6eebf922948\"\n\
+      \    \t\t\t},\n    \t\t\t\"object\": {\n    \t\t\t\t\"type\": \"HTTP\",\n  \
+      \  \t\t\t\t\"enabled\": true,\n    \t\t\t\t\"httpConfig\": {\n    \t\t\t\t\t\
+      \"url\": \"https://localhost\",\n    \t\t\t\t\t\"httpAuthenticationType\": \"\
+      NO_AUTH\",\n    \t\t\t\t\t\"basicAuthConfig\": null,\n    \t\t\t\t\t\"bearerTokenAuthConfig\"\
+      : null,\n    \t\t\t\t\t\"httpDispatchMode\": \"SYNC\"\n    \t\t\t\t},\n    \t\
+      \t\t\t\"triggerName\": \"Access Request Submitted\",\n    \t\t\t\t\"responseDeadline\"\
+      : \"PT1H\",\n    \t\t\t\t\"name\": \"test trigger\",\n    \t\t\t\t\"triggerId\"\
+      : \"idn:access-request-pre-approval\"\n    \t\t\t}\n    \t\t}\n    \t]\n   \
+      \ }\n"
+    required: true
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            data:
+              type: string
+              format: binary
+              description: JSON file containing the objects to be imported.
+            options:
+              $ref: ../../beta/schemas/ImportOptions.yaml
+          required:
+          - data
+        example:
+          data: config_export_0340b957-5caa-44f6-ada2-d3c4c5bd0b19.json
+          options:
+            excludeTypes: []
+            includeTypes:
+            - TRIGGER_SUBSCRIPTION
+            objectOptions:
+              TRIGGER_SUBSCRIPTION:
+                includedIds:
+                - be9e116d-08e1-49fc-ab7f-fa585e96c9e4
+                includedNames:
+                - Lori Test 2
+            defaultReferences:
+            - type: TRIGGER_SUBSCRIPTION
+              id: be9e116d-08e1-49fc-ab7f-fa585e96c9e4
+              name: Test Trigger
+            excludeBackup: false
+  responses:
+    '202':
+      description: Import job accepted and queued for processing.
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/SpConfigJob.yaml
+    '400':
+      description: 'Client Error - Returned if the request body is invalid.
+
+        '
+      content:
+        application/json:
+          schema:
+            $ref: ../../v3/schemas/ErrorResponseDto.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml

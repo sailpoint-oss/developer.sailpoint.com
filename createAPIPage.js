@@ -28,7 +28,6 @@ const createVendorExtensions_1 = require("./node_modules/docusaurus-plugin-opena
 const createVersionBadge_1 = require("./node_modules/docusaurus-plugin-openapi-docs/lib/markdown/createVersionBadge");
 const utils_1 = require("./node_modules/docusaurus-plugin-openapi-docs/lib/markdown/utils");
 function createApiPageMD({ title, api: { deprecated, "x-deprecated-description": deprecatedDescription, description, method, path, extensions, parameters, requestBody, responses, callbacks, }, infoPath, frontMatter, }) {
-    console.log(infoPath);
     return (0, utils_1.render)([
         `import ApiTabs from "@theme/ApiTabs";\n`,
         `import DiscriminatorTabs from "@theme/DiscriminatorTabs";\n`,
@@ -67,7 +66,6 @@ function createApiPageMD({ title, api: { deprecated, "x-deprecated-description":
 
 function isExperimental(parameters) {
     if (parameters && parameters.some(element => element.in === 'header' && element.name === 'X-SailPoint-Experimental')) {
-        console.log("X-SailPoint-Experimental found");
         return ":::caution experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n";
     }
     // Return a default value or null if the condition is not met

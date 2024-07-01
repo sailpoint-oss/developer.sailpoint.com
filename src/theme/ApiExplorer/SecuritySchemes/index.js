@@ -21,7 +21,7 @@ function SecuritySchemes(props) {
   const selectedAuth = options[selected];
   return react_1.default.createElement(
     "details",
-    { className: "openapi-security__details", open: false },
+    { className: "openapi-security__details", open: true },
     react_1.default.createElement(
       "summary",
       { className: "openapi-security__summary-container" },
@@ -287,27 +287,27 @@ function SecuritySchemes(props) {
                   auth.scopes.length > 0 ? auth.scopes.toString() : "[]"
                 )
               ),
-            Object.keys(rest).map((k, i) => {
-              return react_1.default.createElement(
-                "span",
-                { key: k },
-                react_1.default.createElement("strong", null, k, ": "),
-                typeof rest[k] === "object"
-                  ? JSON.stringify(rest[k], null, 2)
-                  : String(rest[k])
-              );
-            }),
-            flows &&
-              react_1.default.createElement(
-                "span",
-                null,
-                react_1.default.createElement(
-                  "code",
-                  null,
-                  react_1.default.createElement("strong", null, "flows: "),
-                  JSON.stringify(flows, null, 2)
-                )
-              )
+            // Object.keys(rest).map((k, i) => {
+            //   return react_1.default.createElement(
+            //     "span",
+            //     { key: k },
+            //     react_1.default.createElement("strong", null, k, ": "),
+            //     typeof rest[k] === "object"
+            //       ? JSON.stringify(rest[k], null, 2)
+            //       : String(rest[k])
+            //   );
+            // }),
+            // flows &&
+            //   react_1.default.createElement(
+            //     "span",
+            //     null,
+            //     react_1.default.createElement(
+            //       "code",
+            //       null,
+            //       react_1.default.createElement("strong", null, "flows: "),
+            //       JSON.stringify(flows, null, 2)
+            //     )
+            //   )
           )
         );
       }

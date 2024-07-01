@@ -1629,9 +1629,9 @@ module.exports = [
             groupPathsBy: 'tag',
             categoryLinkSource: 'tag',
           },
-          version: "2024",
-          label: "2024",
-          baseUrl: "docs/api/versioned/v2024",
+          version: "v2024",
+          label: "v2024",
+          baseUrl: "/docs/api/versioned/v2024",
           template: 'api.mustache',
           markdownGenerators: {
             createApiPageMD: createApiPageMarkdown.createApiPageMD
@@ -1657,21 +1657,20 @@ module.exports = [
             }
           }
         },
-        idn_v2024: {
-          specPath: 'static/api-specs/idn/sailpoint-api.v2024.yaml',
-          outputDir: 'docs/api/v2024',
-          downloadUrl:
-            'https://raw.githubusercontent.com/sailpoint-oss/api-specs/main/dereferenced/deref-sailpoint-api.beta.yaml',
-          sidebarOptions: {
-            groupPathsBy: 'tag',
-            categoryLinkSource: 'tag',
-          },
-          version: 'v2024',
-          markdownGenerators: {
-            createApiPageMD: createApiPageMarkdown.createApiPageMD
-          },
-          template: 'api.mustache',
-        },
+        // idn_v2024: {
+        //   specPath: 'static/api-specs/idn/sailpoint-api.v2024.yaml',
+        //   outputDir: 'docs/api/v2024',
+        //   downloadUrl:
+        //     'https://raw.githubusercontent.com/sailpoint-oss/api-specs/main/dereferenced/deref-sailpoint-api.beta.yaml',
+        //   sidebarOptions: {
+        //     groupPathsBy: 'tag',
+        //     categoryLinkSource: 'tag',
+        //   },
+        //   markdownGenerators: {
+        //     createApiPageMD: createApiPageMarkdown.createApiPageMD
+        //   },
+        //   template: 'api.mustache',
+        // },
       },
     },
   ],

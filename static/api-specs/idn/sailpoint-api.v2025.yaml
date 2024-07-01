@@ -967,8 +967,6 @@ tags:
 paths:
   /access-profiles:
     $ref: './v3/paths/access-profiles.yaml'
-  /access-profiles/{id}:
-    $ref: './v2024/paths/access-profile.yaml'
   /access-profiles/bulk-delete:
     $ref: './v3/paths/access-profile-bulk-delete.yaml'
   /access-profiles/{id}/entitlements:

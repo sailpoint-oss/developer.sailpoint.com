@@ -1,0 +1,102 @@
+get:
+  operationId: listIdentityAccessItems
+  tags:
+  - Identity History
+  summary: Gets a list of access items for the identity filtered by item type
+  description: 'This method retrieves a list of access item for the identity filtered
+    by the access item type Requires authorization scope of ''idn:identity-history:read'' '
+  parameters:
+  - in: path
+    name: id
+    schema:
+      type: string
+    required: true
+    description: The identity id
+    example: 8c190e6787aa4ed9a90bd9d5344523fb
+  - in: query
+    name: type
+    schema:
+      type: string
+    description: The type of access item for the identity. If not provided, it defaults
+      to account
+    example: account
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: The list of access items.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              oneOf:
+              - $ref: ../../beta/schemas/AccessItemAccessProfileResponse.yaml
+              - $ref: ../../beta/schemas/AccessItemAccountResponse.yaml
+              - $ref: ../../beta/schemas/AccessItemAppResponse.yaml
+              - $ref: ../../beta/schemas/AccessItemEntitlementResponse.yaml
+              - $ref: ../../beta/schemas/AccessItemRoleResponse.yaml
+          examples:
+            Access Profile:
+              description: An access profile response
+              value:
+              - accessType: accessProfile
+                id: 2c918087763e69d901763e72e97f006f
+                name: sample
+                sourceName: DataScienceDataset
+                sourceId: 2793o32dwd
+                description: AccessProfile - Workday/Citizenship access
+                displayName: Dr. Arden Rogahn MD
+                entitlementCount: 12
+                appDisplayName: AppName
+            Account:
+              description: An account response
+              value:
+              - accessType: account
+                id: 2c918087763e69d901763e72e97f006f
+                nativeIdentity: dr.arden.ogahn.d
+                sourceName: DataScienceDataset
+                sourceId: 2793o32dwd
+                entitlementCount: 12
+                displayName: Dr. Arden Rogahn MD
+            App:
+              description: An app response
+              value:
+              - accessType: app
+                id: 2c918087763e69d901763e72e97f006f
+                name: appName
+            Entitlement:
+              description: An entitlement event
+              value:
+              - accessType: entitlement
+                id: 2c918087763e69d901763e72e97f006f
+                attribute: groups
+                value: Upward mobility access
+                type: group
+                sourceName: DataScienceDataset
+                sourceId: 2793o32dwd
+                description: Entitlement - Workday/Citizenship access
+                displayName: Dr. Arden Rogahn MD
+            Role:
+              description: A role response
+              value:
+              - accessType: role
+                id: 2c918087763e69d901763e72e97f006f
+                name: sample
+                description: Role - Workday/Citizenship access
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml

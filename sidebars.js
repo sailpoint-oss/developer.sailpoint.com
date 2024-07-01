@@ -89,20 +89,7 @@ const sidebars = {
                   },
                   // @ts-ignore
                   items: require('./docs/api/beta/sidebar.js'),
-                },
-                {
-                  type: 'category',
-                  label: 'v2024 APIs',
-                  link: {
-                    type: 'generated-index',
-                    title: 'v2024 APIs',
-                    description:
-                      'Use these APIs to interact with the IdentityNow platform to achieve repeatable, automated processes with greater scalability. These APIs are in beta and are subject to change. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.',
-                    slug: '/api/v2024',
-                  },
-                  // @ts-ignore
-                  items: require('./docs/api/v2024/sidebar.js'),
-                },
+                }
               ],
             },
             {
@@ -283,6 +270,43 @@ const sidebars = {
       value: versionCrumb(`v2024`),
     },
     {
+      type: "html",
+      defaultStyle: true,
+      value: `  <select id="featureToggle" onchange="toggleFeatures()">
+    <option value="all" selected>All</option>
+    <option value="public">Public</option>
+    <option value="experimental">Experimental</option>
+  </select>`,
+    },
+    {
+      type: 'doc',
+      id: 'api/getting-started',
+    },
+    {
+      type: 'doc',
+      id: 'api/authentication',
+    },
+    {
+      type: 'doc',
+      id: 'api/authorization',
+    },
+    {
+      type: 'doc',
+      id: 'api/standard-collection-parameters',
+    },
+    {
+      type: 'doc',
+      id: 'api/rate-limit',
+    },
+    {
+      type: 'doc',
+      id: 'api/postman-collections',
+    },
+    {
+      type: 'doc',
+      id: 'api/patch-requests',
+    },
+    {
       type: 'category',
       label: 'V2024 APIs',
       link: {
@@ -293,7 +317,7 @@ const sidebars = {
         slug: '/api/versioned/v2024',
       },
       // @ts-ignore
-      items: require('./docs/api/v2024/sidebar.js'),
+      items: require('./docs/api/versioned/v2024/sidebar.js'),
     }
   ],
   isc_beta_sidebar: [
@@ -307,6 +331,34 @@ const sidebars = {
       type: "html",
       defaultStyle: true,
       value: versionCrumb(`beta`),
+    },
+    {
+      type: 'doc',
+      id: 'api/getting-started',
+    },
+    {
+      type: 'doc',
+      id: 'api/authentication',
+    },
+    {
+      type: 'doc',
+      id: 'api/authorization',
+    },
+    {
+      type: 'doc',
+      id: 'api/standard-collection-parameters',
+    },
+    {
+      type: 'doc',
+      id: 'api/rate-limit',
+    },
+    {
+      type: 'doc',
+      id: 'api/postman-collections',
+    },
+    {
+      type: 'doc',
+      id: 'api/patch-requests',
     },
     {
       type: 'category',
@@ -335,6 +387,34 @@ const sidebars = {
       value: versionCrumb(`v3`),
     },
     {
+      type: 'doc',
+      id: 'api/getting-started',
+    },
+    {
+      type: 'doc',
+      id: 'api/authentication',
+    },
+    {
+      type: 'doc',
+      id: 'api/authorization',
+    },
+    {
+      type: 'doc',
+      id: 'api/standard-collection-parameters',
+    },
+    {
+      type: 'doc',
+      id: 'api/rate-limit',
+    },
+    {
+      type: 'doc',
+      id: 'api/postman-collections',
+    },
+    {
+      type: 'doc',
+      id: 'api/patch-requests',
+    },
+    {
       type: 'category',
       label: 'V3 APIs',
       link: {
@@ -359,6 +439,34 @@ const sidebars = {
       type: "html",
       defaultStyle: true,
       value: versionCrumb(`v2025`),
+    },
+    {
+      type: 'doc',
+      id: 'api/getting-started',
+    },
+    {
+      type: 'doc',
+      id: 'api/authentication',
+    },
+    {
+      type: 'doc',
+      id: 'api/authorization',
+    },
+    {
+      type: 'doc',
+      id: 'api/standard-collection-parameters',
+    },
+    {
+      type: 'doc',
+      id: 'api/rate-limit',
+    },
+    {
+      type: 'doc',
+      id: 'api/postman-collections',
+    },
+    {
+      type: 'doc',
+      id: 'api/patch-requests',
     },
     {
       type: 'category',

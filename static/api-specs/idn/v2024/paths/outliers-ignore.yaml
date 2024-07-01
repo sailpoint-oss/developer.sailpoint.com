@@ -1,0 +1,43 @@
+post:
+  operationId: ignoreIdentityOutliers
+  tags:
+  - IAI Outliers
+  summary: IAI Identity Outliers Ignore
+  description: 'This API receives a list of IdentityIDs in the request, changes the
+    outliers to be ignored--returning a 204 if successful.
+
+    Requires authorization scope of ''iai:outliers-management:update'''
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            type: string
+          description: List of identity IDs to ignore from outlier listing
+          example:
+          - abc123def456
+          - ghi789jkl012
+  responses:
+    '204':
+      $ref: ../../v3/responses/204.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true

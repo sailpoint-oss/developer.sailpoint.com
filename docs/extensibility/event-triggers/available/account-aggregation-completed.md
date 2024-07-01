@@ -20,7 +20,6 @@ The platform has introduced an event trigger within the Source Aggregation workf
 After the initial collection of accounts in the source system during aggregation completes, some uses cases for this trigger include the following:
 
 - Notify an administrator that Identity Security Cloud was able to successfully connect to the source system and collect source accounts.
-- Notify an administrator when the aggregation is terminated manually during the account collection phase.
 - Notify an administrator or system (e.g. PagerDuty) that Identity Security Cloud failed to collect accounts during aggregation and indicate required remediation for the source system.
 
 :::info
@@ -69,13 +68,10 @@ In this example, there are 10 changed accounts (`scanned` (200) - `unchanged` - 
 
 > This event trigger fires even without changed accounts. The unchanged count will match the scanned accounts in the response.
 
-The status of the aggregation can be one of three possible values:
+The status of the aggregation can be one of two possible values:
 
 - **Success**: Account collection was successful and aggregation can move to the next step.
 - **Error**: There is a failure in account collection or an issue connecting to the source. The `errors` vary by source.
-- **Termination**: The aggregation was terminated during the account collection phase. Aggregation can be terminated when the account deletion threshold is exceeded. For example, an account delete threshold of 10% is set by default for the source, and if the number of `removed` accounts for the above example is 21 (more than 10% of `scanned` accounts (200)), the aggregation is cancelled.
-
-![Account_Delete_Threshold](./img/aggregation-delete-threshold.png)
 
 ## Additional Information and Links
 

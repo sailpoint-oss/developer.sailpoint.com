@@ -40,6 +40,8 @@ The account delete command sends one attribute from ISC, the identity to delete.
 
 Enable account delete in ISC through a BeforeProvisioning rule. The connector honors whichever operation the provisioning plan sends. For more information, see the [documentation](https://community.sailpoint.com/t5/Identity Security Cloud-Articles/Identity Security Cloud-Rule-Guide/ta-p/76665) and an [example implementation](https://community.sailpoint.com/t5/Identity Security Cloud-Wiki/Identity Security Cloud-Rule-Guide-Before-Provisioning-Rule/ta-p/77415).
 
+To use this command, you must specify this value in the `commands` array: `std:account:delete`
+
 The following snippet shows an example of account delete command implementation:
 
 [index.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/index.ts)

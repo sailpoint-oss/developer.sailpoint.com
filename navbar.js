@@ -18,6 +18,16 @@ module.exports = {
     },
     {
       type: 'dropdown',
+      label: 'API Specifications',
+      position: 'left',
+      items: [
+        {label: 'Identity Security Cloud', to: '/docs/api/versioned/v2024'},
+        {label: 'IdentityIQ', to: '/docs/api/iiq'},
+        {label: 'NERM', to: '/docs/api/nerm'},
+      ],
+    },
+    {
+      type: 'dropdown',
       label: 'Community',
       position: 'left',
       items: [

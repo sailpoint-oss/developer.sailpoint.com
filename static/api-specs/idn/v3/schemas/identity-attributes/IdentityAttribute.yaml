@@ -5,16 +5,16 @@ properties:
   name:
     type: string
     description: Identity attribute's technical name.
-    example: 'uid'
+    example: 'costCenter'
   displayName:
     type: string
     description: Identity attribute's business-friendly name.
-    example: 'Identity Security Cloud Username'
+    example: 'Cost Center'
   standard:
     type: boolean
     description: Indicates whether the attribute is 'standard' or 'default'.
     default: false
-    example: true
+    example: false
   type:
     type: string
     description: Identity attribute's type. 
@@ -29,7 +29,7 @@ properties:
     type: boolean
     description: Indicates whether the identity attribute is searchable.
     default: false
-    example: true
+    example: false
   system:
     type: boolean
     description: Indicates whether the identity attribute is 'system', meaning that it doesn't have a source and isn't configurable.

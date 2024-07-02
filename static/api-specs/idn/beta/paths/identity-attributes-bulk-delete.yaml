@@ -6,9 +6,10 @@ delete:
   description: >-
     Use this API to bulk delete identity attributes for a given set of names.
     Attributes that are currently mapped in an identity profile cannot be deleted. 
-    The `system` and `standard` properties must be set to 'false' before you can delete an identity attribute.
+    The `system` and `standard` properties must be set to 'false' before you can delete an identity attribute.  
+    A token with ORG_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: [ idn:identity-profile-attribute-bulk:delete ]
+    - UserContextAuth: [ idn:identity-profile-attribute:manage ]
   requestBody:
     required: true
     content:

@@ -114,3 +114,18 @@ jobs:
           build_dir: build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  on-failure:
+    runs-on: ubuntu-latest
+    if: ${{ always() && (needs.publish.result == 'failure' || needs.publish.result == 'timed_out') }}
+    needs:
+      - publish
+    steps:
+      - uses: actions/checkout@v2
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_USERNAME: github-notifications
+          SLACK_TITLE: Workflow ${{ needs.publish.result }}
+          SLACK_COLOR: danger
+          MSG_MINIMAL: actions url
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}

@@ -483,11 +483,11 @@ ________________________________________________________________________________
 
 ## Submit for Rule Review
 
-To submit your Cloud Rule for review, approval, and inclusion in the SailPoint platform, submit a [SailPoint support portal request](https://support.sailpoint.com/csm) or send an email to <support@sailpoint.com>. Attach the rule, validator output, tenant name (e.g., acme-sb.identitynow.com for sandbox or acme.identitynow.com for production) and approval for expert services to proceed. If you need assistance writing and testing rules, Expert Services can assist in that process as well. Make sure your contact information is up to date so the review team can contact you if they need to.
+To submit your Cloud Rule for review, approval, and inclusion in the SailPoint platform, submit a [SailPoint support portal request](https://support.sailpoint.com/csm) or send an email to `support@sailpoint.com`. Attach the rule, validator output, tenant name (e.g., acme-sb.identitynow.com for sandbox or acme.identitynow.com for production) and approval for expert services to proceed. If you need assistance writing and testing rules, Expert Services can assist in that process as well. Make sure your contact information is up to date so the review team can contact you if they need to.
 
 ## Add Rule To Account Creation
 
-Log into your ISC tenant and navigate to **Admin** -> **Connections** -> **Sources** -> **{Source Name}** -> **Accounts** -> **Create Account**. Scroll to the attribute you wish to use the rule for generating the username. Check the generator radio button and pick your new rule from the drop down.
+Log into your ISC tenant and navigate to **Admin** -\> **Connections** -\> **Sources** -\> **[Source Name]** -\> **Accounts** -\> **Create Account**. Scroll to the attribute you wish to use the rule for generating the username. Check the generator radio button and pick your new rule from the drop down.
 
 ![Account Create](./img/account-create.png)
 

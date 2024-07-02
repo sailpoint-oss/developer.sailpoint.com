@@ -61,8 +61,8 @@ Operators provide more options to filter JSON structures.
 | != | **Not equal to** - Evaluates to `true` if operands do not match. | $[?($.identity.name != "george.washington")] |
 | > | **Greater than** - Evaluates to `true` if the left operand is greater than the right operand. It works on strings and numbers. | $[?($.attributes.created > '2020-04-27T16:48:33.200Z')] |
 | >= | **Greater than or equal to** - Evaluates to `true` if the left operand is greater than or equal to the right operand. | $[?($.attributes.created >= '2020-04-27T16:48:33.597Z')] |
-| < | **Less than** - Evaluates to `true` if the left operand is less than the right operand. | $[?($.attributes.created < '2020-04-27T16:48:33.200Z')] |
-| <= | **Less than or equal to** - Evaluates to `true` if the left operand is less than or equal to the right operand. | $[?($.attributes.created <= '2020-04-27T16:48:33.200Z')] |
+| \< | **Less than** - Evaluates to `true` if the left operand is less than the right operand. | $[?($.attributes.created < '2020-04-27T16:48:33.200Z')] |
+| \<= | **Less than or equal to** - Evaluates to `true` if the left operand is less than or equal to the right operand. | $[?($.attributes.created \<= '2020-04-27T16:48:33.200Z')] |
 | =~ | **Regular expression** - Evaluates to `true` if the left operand matches the regular expression. | $.changes[?(@.attribute == "department" && @.newValue =~ /US.*Support/i)] |
 | in | **In** - Evaluates to `true` if the left operand exists in the list of values on the right. | $.changes[?(@.attribute == 'department' && @.newValue in ['sales','engineering'])] |
 | nin | **Not in** - Evaluates to `true` if the left operand **does not** exist in the list of values on the right. | $.changes[?(@.attribute == 'department' && @.newValue nin ['sales','engineering'])] |

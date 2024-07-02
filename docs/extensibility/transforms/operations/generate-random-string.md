@@ -57,7 +57,7 @@ The structure of a generate random string transform requires the `name` of the r
     - (
     - )
     - \+
-    - <
+    - \<
     - \>
     - ?
   - **length** - This is the required length ofthe randomly generated string.

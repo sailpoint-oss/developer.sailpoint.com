@@ -24,7 +24,9 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../schemas/BulkTaggedObject.yaml'
+            type: array
+            items:
+              $ref: '../schemas/BulkTaggedObjectResponse.yaml'
     '400':
       $ref: '../../v3/responses/400.yaml'
     '401':

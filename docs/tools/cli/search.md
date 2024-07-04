@@ -15,7 +15,7 @@ tags: ['CLI']
 
 Learn how to use the CLI to search your ISC tenant in this guide.
 
-In Identity Security Cloud (ISC), you can search across all the sources connected to your tenant and return virtually any information you have access to. The `search` command allows you to access ISC search functionality within the CLI. For more information about the `search` command, refer to the CLI [Search guide](docs/tools/cli/search). For more information about search in ISC, refer to [Search](docs/api/v3/search).
+In Identity Security Cloud (ISC), you can search across all the sources connected to your tenant and return virtually any information you have access to. The `search` command allows you to access ISC search functionality within the CLI. For more information about the `search` command, refer to the CLI [Search guide](./search.md). For more information about search in ISC, refer to [Search](../../api/v3/search).
 
 In Identity Security Cloud, you can search all the sources connected to your tenant and return virtually any information you have access to. To learn more about search in Identity Security Cloud, refer to [Search](https://documentation.sailpoint.com/saas/help/search/index.html).
 

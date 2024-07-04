@@ -15,9 +15,9 @@ Once your SDK is installed and configured, you can start accessing the SDK's dif
 
 ## List Transforms
 
-One of the most useful functionalities of the Python SDK is the ability to easily access all the [V3 APIs](/idn/api/v3) and [Beta APIs](/idn/api/beta) and implement them in your project. 
+One of the most useful functionalities of the Python SDK is the ability to easily access all the [V3 APIs](/docs/api/v3) and [Beta APIs](/docs/api/beta) and implement them in your project. 
 
-Here is an example of how to use the SDK to get a list of available [transforms](/idn/docs/transforms). This example leverages the [List Transforms endpoint](/idn/api/v3/list-transforms). 
+Here is an example of how to use the SDK to get a list of available [transforms](/docs/extensibility/transforms). This example leverages the [List Transforms endpoint](/docs/api/v3/list-transforms). 
 
 Create a file in your project called "sdk.py" and copy this content into it:
 

@@ -11,7 +11,7 @@ slug: /tools/sdk/python/paginate
 tags: ['SDK']
 ---
 
-By default, your requests will return a maximum of 250 records. To return more, you must implement pagination. To learn more about pagination, refer to [Paginating Results](/idn/api/standard-collection-parameters/#paginating-results).
+By default, your requests will return a maximum of 250 records. To return more, you must implement pagination. To learn more about pagination, refer to [Paginating Results](/docs/api/standard-collection-parameters/#paginating-results).
 
 Here is an example of how to implement pagination with the SDK on line 10:
 

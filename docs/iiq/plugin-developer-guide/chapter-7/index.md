@@ -49,7 +49,7 @@ An annotation should have at least three parts
 - **Line 2** - The path or endpoint - this can be parameterized, which is useful for pulling back a single record. The earlier example uses parameterization by adding the variable within {} tags to the end of the URL and also declaring the @PathParam "appName" in the input arguments of the method signature.
 - **Line 3** - The authorization of the method. The following values are allowed:
   - **@AllowAll** - Allows anyone to interrogate the endpoint.
-  - **@RequiredRight("<SPRight/>")** - Allows users with the named SPRight to access the endpoint.
+  - **@RequiredRight("\<SPRight/>")** - Allows users with the named SPRight to access the endpoint.
   - **@SystemAdmin** - System administrator access only.
   - **@Deferred** - Authorization is deferred to the method. When this option is selected, the implementer must also create an `Authorizer` class that implements the `sailpoint.authorization.Authorize`r interface. The `Authorizer` class should override the `authorize(UserContext)` method of the base `Authorizer` interface. Inside the REST resource method, the author would then call `authorize()`. Here is a simple example:
 

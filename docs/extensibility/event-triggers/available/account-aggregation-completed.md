@@ -73,7 +73,7 @@ The status of the aggregation can be one of three possible values:
 
 - **Success**: Account collection was successful and aggregation can move to the next step.
 - **Error**: There is a failure in account collection or an issue connecting to the source. The `errors` vary by source.
-- **Termination**: The aggregation was terminated during the account collection phase. Aggregation can be terminated when the account deletion threshold is exceeded. For example, an account delete threshold of 10% is set by default for the source, and if the number of `removed` accounts for the above example is 21 (more than 10% of `scanned` accounts (200)), the aggregation is cancelled.
+- **Warning**: The aggregation was terminated during the account collection phase. Aggregation can be in "Warning" status when the account deletion threshold is exceeded. For example, an account delete threshold of 10% is set by default for the source, and if the number of `removed` accounts for the above example is 21 (more than 10% of `scanned` accounts (200)), the aggregation is cancelled.
 
 ![Account_Delete_Threshold](./img/aggregation-delete-threshold.png)
 

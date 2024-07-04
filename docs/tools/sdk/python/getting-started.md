@@ -57,7 +57,7 @@ You can use this example as a guide for how to access all the V3 and Beta APIs (
 
 With the same SDK function, you can use query parameters to limit the results of your transforms list to only the results you want. 
 
-Refer to the [List Transforms endpoint specification](/idn/api/v3/list-transforms) to view all its query parameters. 
+Refer to the [List Transforms endpoint specification](/docs/api/v3/list-transforms) to view all its query parameters. 
 
 Here is an example that uses query parameters to limit the list to no more than 10 transforms that all start with the name "Test": 
 

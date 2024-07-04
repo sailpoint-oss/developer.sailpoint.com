@@ -44,4 +44,4 @@ The `result_limit` specifies the total number of results you can return, 1000. T
 
 You can also provide an `offset` value to specify which record number to start the request on. For example, you can add `offset=11` to start getting accounts from the 12th record, 11, instead of the first, 0.
 
-To find out whether an endpoint supports pagination, refer to its documentation. Any API supporting pagination lists the optional query parameters detailed in [Paginating Results](/idn/api/standard-collection-parameters/#paginating-results).
+To find out whether an endpoint supports pagination, refer to its documentation. Any API supporting pagination lists the optional query parameters detailed in [Paginating Results](/docs/api/standard-collection-parameters/#paginating-results).

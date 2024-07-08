@@ -77,6 +77,11 @@ This is an example input from this trigger:
   }
 }
 ```
+:::info
+
+`clientMetadata` is determined by the user that invoked `create-access-request` and can contain any value at runtime that was specified in the access request. 
+
+:::
 
 ## Additional Information and Links
 

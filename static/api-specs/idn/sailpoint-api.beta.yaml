@@ -195,6 +195,9 @@ tags:
       Administrators can select the source account to view its attributes, entitlements, and the last time the account's password was changed.
 
       Refer to [Managing User Accounts](https://documentation.sailpoint.com/saas/help/common/users/user_access.html#managing-user-accounts) for more information about accounts.
+  - name: Application Discovery
+    description: |
+      Use this API to discover applications within your Okta connector and receive connector recommendations by manually uploading application names.
   - name: Auth Profile
     description: |
       Auth Profile - Represents authentication configuration for an Identity Profile. This object gets created when an Identity Profile is created.
@@ -324,9 +327,6 @@ tags:
       For example, an administrator can use the pageId forget-username:user-email to set the custom text for the case when users forget their usernames and must enter their emails.
 
       Refer to [Creating Custom Instruction Text](https://documentation.sailpoint.com/saas/help/pwd/pwd_reset.html#creating-custom-instruction-text) for more information about creating custom password instructions.
-  - name: Discovered Applications
-    description: |
-      Use this API to retrieve all the available discovered apps for a given tenant id.
   - name: Entitlements
     description: |
       Use this API to implement and customize entitlement functionality.
@@ -470,12 +470,6 @@ tags:
     description: Read and write operations for managing client data and statuses
   - name: Managed Clusters
     description: Operations for accessing and managing client Clusters, including Log Configuration
-  - name: Manual Discover Applications
-    description: |
-      Use this API to manually upload application names to be correlated to an ISC connector.
-  - name: Manual Discover Applications Template
-    description: |
-      Use this API to download the CSV template to send to the application discovery service.
   - name: MFA Configuration
     description: Configure and test multifactor authentication (MFA) methods
   - name: MFA Controller
@@ -999,9 +993,6 @@ tags:
       Use this API to manage metadata about your User Interface.
       
       For example you can set the iFrameWhitelist parameter to permit another domain to encapsulate IDN within an iframe or set the usernameEmptyText to change the placeholder text for Username on your tenant's login screen.
-  - name: Vendor Connector Mappings
-    description: |
-      Use this API to manage mappings between various SaaS vendors and Identity Security Cloud (ISC) connectors.
   - name: Work Items
     description: |
       Use this API to implement work item functionality.
@@ -1833,10 +1824,10 @@ paths:
     $ref: "./beta/paths/account-usages.yaml"
   /access-request-identity-metrics/{identityId}/requested-objects/{requestedObjectId}/type/{type}:
     $ref: "./beta/paths/access-request-identity-metrics.yaml"
-  /manual-discover-applications:
-    $ref: "./beta/paths/manual-discover-applications.yaml"
   /manual-discover-applications-template:
     $ref: "./beta/paths/manual-discover-applications-template.yaml"
+  /manual-discover-applications:
+    $ref: "./beta/paths/manual-discover-applications.yaml"
   /discovered-applications:
     $ref: "./beta/paths/discovered-applications.yaml"
   /vendor-connector-mappings:

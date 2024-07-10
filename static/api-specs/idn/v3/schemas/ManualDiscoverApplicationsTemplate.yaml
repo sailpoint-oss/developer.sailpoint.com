@@ -2,9 +2,9 @@ type: object
 properties:
   application_name:
     type: string
-    description: Name of the example application.
+    description: Name of the application.
     example: "Example Application"
   description:
     type: string
-    description: Description of the example application.
+    description: Description of the application.
     example: "Example Description"

@@ -18,7 +18,7 @@ get:
       content:
         text/csv:
           schema:
-            $ref: '../../beta/schemas/ManualDiscoverApplicationsTemplate.yaml'
+            $ref: '../../v3/schemas/ManualDiscoverApplicationsTemplate.yaml'
           example: |
             application_name,description
             Example Application,Example Description

@@ -172,13 +172,16 @@ tags:
       Administrators can select the source account to view its attributes, entitlements, and the last time the account's password was changed.
 
       Refer to [Managing User Accounts](https://documentation.sailpoint.com/saas/help/common/users/user_access.html#managing-user-accounts) for more information about accounts.
+  - name: Application Discovery
+    description: |
+      Use this API to discover applications within your Okta connector and receive connector recommendations by manually uploading application names.
   - name: Auth Users
     description: |
       Use this API to implement user authentication system functionality. 
       With this functionality in place, users can get a user's authentication system details, including their capabilities, and modify those capabilities. 
       The user's capabilities refer to their access to different systems, or authorization, within the tenant, like access to certifications (CERT_ADMIN) or reports (REPORT_ADMIN). 
       These capabilities also determine a user's access to the different APIs. 
-      This API provides users with a way to determine a user's access and make quick and easy changes to that access. 
+      This API provides users with a way to determine a user's access and make quick and easy changes to that access.
   - name: Branding
     description: |
       Use this API to implement and customize branding functionality. 
@@ -1404,6 +1407,14 @@ paths:
     $ref: "./v3/paths/source-usages.yaml"
   /account-usages/{accountId}/summaries:
     $ref: "./v3/paths/account-usages.yaml"
+  /manual-discover-applications-template:
+    $ref: "./v3/paths/manual-discover-applications-template.yaml"
+  /manual-discover-applications:
+    $ref: "./v3/paths/manual-discover-applications.yaml"
+  /discovered-applications:
+    $ref: "./v3/paths/discovered-applications.yaml"
+  /vendor-connector-mappings:
+    $ref: "./v3/paths/vendor-connector-mappings.yaml"
 
 security:
   - UserContextAuth: []

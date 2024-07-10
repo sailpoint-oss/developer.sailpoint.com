@@ -36,4 +36,19 @@ properties:
     type: string
     example: Dr. Arden Rogahn MD
     description: the display name of the identity
-  
+  standalone:
+    type: boolean
+    example: true
+    description: indicates whether the entitlement is standalone
+  privileged:
+    type: boolean
+    example: false
+    description: indicates whether the entitlement is privileged
+  cloudGoverned:
+    type: boolean
+    example: true
+    description: indicates whether the entitlement is cloud governed
+required:
+  - standalone
+  - privileged
+  - cloudGoverned

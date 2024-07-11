@@ -128,7 +128,7 @@ function CardLink({item}: {item: PropSidebarItemLink}): JSX.Element {
       href={item.href}
       icon={icon}
       title={item.label}
-      description={item.description ?? doc?.description}
+      description={item.description ?? (doc?.description != "<Heading" && doc?.description != "<span") ? doc?.description : item.label}
     />
   );
 }

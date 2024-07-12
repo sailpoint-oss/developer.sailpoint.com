@@ -7,7 +7,7 @@ get:
     Use this API to get information for an existing certification campaign by the campaign's ID. 
     Authorized callers must be reviewers for this campaign, ORG_ADMINs, or a CERT_ADMINs.
   security:
-    - UserContextAuth: []
+    - UserContextAuth: [idn:campaign:read, idn:campaign:manage]
   parameters:
     - in: path
       name: id
@@ -16,13 +16,26 @@ get:
       required: true
       description: ID of the campaign to be retrieved.
       example: 2c91808571bcfcf80171c23e4b4221fc
+    - in: query
+      name: detail
+      schema:
+        type: string
+        enum: [SLIM, FULL]
+      required: false
+      description: >-
+        Determines whether slim, or increased level of detail is provided for each campaign in the returned list.
+        Slim is the default behavior.
+      example: FULL
   responses:
     '200':
       description: Requested campaign object.
       content:
         application/json:
           schema:
-            $ref: '../schemas/SlimCampaign.yaml'
+            oneOf:
+              - $ref: '../schemas/SlimCampaign.yaml'
+              - $ref: '../schemas/Campaign.yaml'
+            # $ref: '../schemas/SlimCampaign.yaml'
           examples:
             Manager:
               $ref: '../schemas/campaign/examples/SlimCampaignManager.yaml'

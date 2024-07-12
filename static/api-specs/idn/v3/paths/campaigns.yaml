@@ -6,7 +6,7 @@ get:
   description: >-
     Use this API to get a list of campaigns. This API can provide increased level of detail for each campaign for the correct provided query. 
   security:
-    - UserContextAuth: [idn:campaign-list:read]
+    - UserContextAuth: [idn:campaign:read, idn:campaign:manage]
   parameters:
     - in: query
       name: detail
@@ -64,7 +64,6 @@ get:
               oneOf:
                 - $ref: '../schemas/SlimCampaign.yaml'
                 - $ref: '../schemas/Campaign.yaml'
-
           examples:
             Slim Campaign:
               $ref: '../schemas/campaign/examples/SlimCampaigns.yaml'

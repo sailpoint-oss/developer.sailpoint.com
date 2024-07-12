@@ -98,6 +98,7 @@ const config = {
           'bash',
           'go',
           'python',
+          'json'
         ],
       },
       mermaid: {

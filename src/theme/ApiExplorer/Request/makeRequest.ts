@@ -1,5 +1,5 @@
-import sdk from "@paloaltonetworks/postman-collection";
 import { Body } from "@theme/ApiExplorer/Body/slice";
+import sdk from "postman-collection";
 
 function fetchWithtimeout(
   url: string,

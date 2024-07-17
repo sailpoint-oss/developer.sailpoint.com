@@ -131,5 +131,5 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           FunctionName: GithubNotificationsFunction
-          Payload: '{ "workflowName": ${{needs.failing-job.result}}, "repositoryName": ${{ github.event.repository.name }}, "url": ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}}'
+          Payload: '{ "workflowName": ${{github.job}}, "repositoryName": ${{ github.event.repository.name }}, "url": ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}}'
     

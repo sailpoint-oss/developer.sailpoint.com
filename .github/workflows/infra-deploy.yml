@@ -119,7 +119,7 @@ jobs:
     steps:
       - name: failing step
         run: exit 1
-  on-failure:
+  publish-failure:
     runs-on: ubuntu-latest
     if: ${{ always() && (needs.failing-job.result == 'failure' || needs.failing-job.result == 'timed_out') }}
     needs:
@@ -128,8 +128,8 @@ jobs:
       - name: Invoke GithubNotificationsFunction Lambda
         uses: gagoar/invoke-aws-lambda@master
         with:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.SITE_AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.SITE_AWS_SECRET_ACCESS_KEY }}
           FunctionName: GithubNotificationsFunction
           Payload: '{ "workflowName": ${{github.job}}, "repositoryName": ${{ github.event.repository.name }}, "url": ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}}'
     

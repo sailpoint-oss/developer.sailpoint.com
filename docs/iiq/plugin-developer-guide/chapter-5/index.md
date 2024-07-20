@@ -15,7 +15,7 @@ tags: ['plugin', 'guide', 'identityiq']
 
 Most plugins will have some additional UI component that will display in IdentityIQ. You can use images, CSS files, HTML templates, and JavaScript to provide the interactions and views required by the plugin. Plugins using a `fullPage` element will look for a file called 'page.xhtml' in the build.
 
-:::Note
+:::info
 
 Any css installed with the plugin will apply to all elements in IdentityIQ. For this reason it is recommended that developers keep their css classes specific to their plugin.
 

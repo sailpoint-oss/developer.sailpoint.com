@@ -51,7 +51,7 @@ To send API requests in Postman, you must authenticate to the APIs. To authentic
 
 :::caution
 
-Don't specify your baseUrl in your environment variables. When you fork an API collection, the baseUrl is automatically set as <https://{{tenant}}.api.{{domain}}.com>. Setting your baseURl in your environment variables may interfere with this process.
+Don't specify your baseUrl in your environment variables. When you fork an API collection, the baseUrl is automatically set as `https://{{tenant}}.api.{{domain}}.com`. Setting your baseURl in your environment variables may interfere with this process.
 
 :::
 

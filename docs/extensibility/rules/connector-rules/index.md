@@ -40,10 +40,10 @@ Connector Rules are directly editable with the [Connector Rule REST APIs](https:
 | Name | Path |
 | --- | --- |
 | [List Connector Rules](/docs/api/beta/get-connector-rule-list) | `GET /beta/connector-rules/` |
-| [Get Connector Rule](/docs/api/beta/get-connector-rule) | `GET /beta/connector-rules/{id}` |
+| [Get Connector Rule](/docs/api/beta/get-connector-rule) | `GET /beta/connector-rules/[id]` |
 | [Create Connector Rule](/docs/api/beta/create-connector-rule) | `POST /beta/connector-rules/` |
-| [Update Connector Rule](/docs/api/beta/update-connector-rule) | `PUT /beta/connector-rules/{id}` |
-| [Delete Connector Rule](/docs/api/beta/delete-connector-rule) | `DELETE /beta/connector-rules/{id}` |
+| [Update Connector Rule](/docs/api/beta/update-connector-rule) | `PUT /beta/connector-rules/[id]` |
+| [Delete Connector Rule](/docs/api/beta/delete-connector-rule) | `DELETE /beta/connector-rules/[id]` |
 | [Validate Connector Rule](/docs/api/beta/validate-connector-rule) | `POST /beta/connector-rules/validate` |
 
 SailPoint architectural optimizations have added resiliency and protections against malformed or long-running rules. These APIs also offer built-in protection and checking against potentially harmful code. For more information, see [Rule Code Restrictions](../../rules/index.md#rule-code-restrictions).
@@ -99,7 +99,7 @@ For the `PATCH` operations, you must provide an `op` key. For new configurations
 
 ### BeforeProvisioning Rule
 
-`PATCH` /v3/sources/{id}
+`PATCH` /v3/sources/[id]
 
 Content-Type: `application/json-patch+json`
 
@@ -119,7 +119,7 @@ Content-Type: `application/json-patch+json`
 
 ### AfterCreate, AfterModify, AfterDelete, BeforeCreate, BeforeModify, BeforeDelete Rules
 
-`PATCH` /v3/sources/{id}
+`PATCH` /v3/sources/[id]
 
 Content-Type: `application/json-patch+json`
 
@@ -141,7 +141,7 @@ The value key is a list. All available AfterCreate, AfterModify, BeforeCreate, a
 
 ### Correlation Rule
 
-`PATCH` /v3/sources/{id}
+`PATCH` /v3/sources/[id]
 
 Content-Type: `application/json-patch+json`
 
@@ -161,7 +161,7 @@ Content-Type: `application/json-patch+json`
 
 ### ManagerCorrelation Rule
 
-`PATCH` /v3/sources/{id}
+`PATCH` /v3/sources/[id]
 
 Content-Type: `application/json-patch+json`
 
@@ -181,7 +181,7 @@ Content-Type: `application/json-patch+json`
 
 ### BuildMap Rule
 
-`PATCH` /v3/sources/{id}
+`PATCH` /v3/sources/[id]
 
 Content-Type: `application/json-patch+json`
 
@@ -197,7 +197,7 @@ Content-Type: `application/json-patch+json`
 
 ### JDBCBuildMap Rule
 
-`PATCH` /v3/sources/{id}
+`PATCH` /v3/sources/[id]
 
 Content-Type: `application/json-patch+json`
 
@@ -213,7 +213,7 @@ Content-Type: `application/json-patch+json`
 
 ### JDBCProvision Rule
 
-`PATCH` /v3/sources/{id}
+`PATCH` /v3/sources/[id]
 
 Content-Type: `application/json-patch+json`
 
@@ -229,7 +229,7 @@ Content-Type: `application/json-patch+json`
 
 ### SAP HR Provisioning Modify Rule
 
-`PATCH` /v3/sources/{id}
+`PATCH` /v3/sources/[id]
 
 Content-Type: `application/json-patch+json`
 
@@ -245,7 +245,7 @@ Content-Type: `application/json-patch+json`
 
 ### WebServiceBeforeOperation Rule
 
-`PATCH` /v3/sources/{id}
+`PATCH` /v3/sources/[id]
 
 Content-Type: `application/json-patch+json`
 
@@ -263,7 +263,7 @@ _Note: Replace `_`with the index location of operation the way it is configured 
 
 ### WebServiceAfterOperation Rule
 
-`PATCH` /v3/sources/{id} Content-Type: `application/json-patch+json`
+`PATCH` /v3/sources/[id] Content-Type: `application/json-patch+json`
 
 _Note: Replace \[\*\] with the index location of the operation the way it is configured on the source. For example, 0, 1, 2, etc. You can use a `GET` call on the source first to verify the index location prior to executing the `PATCH` call to attach the rule._
 

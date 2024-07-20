@@ -50,7 +50,7 @@ The `searchAfter` capability provides the ability to page on sorted field values
 
 Here is an example of a search API call with `searchAfter` paging. The first query will get the first set of results. The default limit for search is 10,000, which is different from other collection endpoints. For this example, the query is set to page 100 records at a time. Paginating search queries also requires the `sort` property to be set to `id`.
 
-**POST** <https://{tenant}.api.identitynow.com/v3/search?limit=100&count=true>
+**POST** `https://{tenant}.api.identitynow.com/v3/search?limit=100&count=true`
 
 ```json
 {
@@ -64,7 +64,7 @@ Here is an example of a search API call with `searchAfter` paging. The first que
 
 This query will return 100 records. To get the next 100 records, find the last record's `id` and use it in the next query's `searchAfter` property.
 
-**POST** <https://{tenant}.api.identitynow.com/v3/search?limit=100&count=true>
+**POST** `https://{tenant}.api.identitynow.com/v3/search?limit=100&count=true`
 
 ```json
 {

@@ -61,8 +61,8 @@ Operators provide more options to filter JSON structures.
 | != | **Not equal to** - Evaluates to `true` if operands do not match. | $[?($.identity.name != "george.washington")] |
 | > | **Greater than** - Evaluates to `true` if the left operand is greater than the right operand. It works on strings and numbers. | $[?($.attributes.created > '2020-04-27T16:48:33.200Z')] |
 | >= | **Greater than or equal to** - Evaluates to `true` if the left operand is greater than or equal to the right operand. | $[?($.attributes.created >= '2020-04-27T16:48:33.597Z')] |
-| < | **Less than** - Evaluates to `true` if the left operand is less than the right operand. | $[?($.attributes.created < '2020-04-27T16:48:33.200Z')] |
-| <= | **Less than or equal to** - Evaluates to `true` if the left operand is less than or equal to the right operand. | $[?($.attributes.created <= '2020-04-27T16:48:33.200Z')] |
+| \< | **Less than** - Evaluates to `true` if the left operand is less than the right operand. | $[?($.attributes.created < '2020-04-27T16:48:33.200Z')] |
+| \<= | **Less than or equal to** - Evaluates to `true` if the left operand is less than or equal to the right operand. | $[?($.attributes.created \<= '2020-04-27T16:48:33.200Z')] |
 | =~ | **Regular expression** - Evaluates to `true` if the left operand matches the regular expression. | $.changes[?(@.attribute == "department" && @.newValue =~ /US.*Support/i)] |
 | in | **In** - Evaluates to `true` if the left operand exists in the list of values on the right. | $.changes[?(@.attribute == 'department' && @.newValue in ['sales','engineering'])] |
 | nin | **Not in** - Evaluates to `true` if the left operand **does not** exist in the list of values on the right. | $.changes[?(@.attribute == 'department' && @.newValue nin ['sales','engineering'])] |
@@ -79,7 +79,7 @@ Operators provide more options to filter JSON structures.
 
 Developing a filter can be faster when you use a tool like an online [JSONpath editor](https://www.javainuse.com/jsonpath). These tools can provide quick feedback on your filter, allowing you to focus on the exact filter expression you want before testing it on a trigger. Just paste an example of your event trigger input and start crafting an expression to see its result.
 
-:::Warning
+:::warning
 Third party websites like the one mentioned earlier must be treated with caution. Do not use real data from your tenant when you're interacting with these tools.
 :::
 
@@ -182,7 +182,7 @@ POST https://{tenant}.api.identitynow.com/beta/trigger-subscriptions/validate-fi
 
 If SailPoint accepts your trigger filter, you must test whether it actually works. You must configure your trigger subscription to point to the URL of your testing service. [webhook.site](https://webhook.site) is an easy to use testing service. Just copy the unique URL it generates and paste it into your subscription's integration URL field. The easiest way to test a trigger subscription is to use the UI to fire off a test event.
 
-:::Warning
+:::warning
 Third party websites like the one mentioned earlier must be treated with caution. Do not use real data from your tenant when you're interacting with these tools.
 :::
 

@@ -129,5 +129,9 @@ jobs:
         run: |
           curl -X POST \
             -H "Content-Type: application/json" \
-            -d '{ "workflowName": ${{github.job}}, "repositoryName": ${{ github.event.repository.name }}, "url": ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}}' \
-            ${{ secrets.NOTIFICATIONS_FUNCTION_URL }}
+            -d '{
+              "workflowName": "${{ github.job }}",
+              "repositoryName": "${{ github.event.repository.name }}",
+              "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            }' \
+            "${{ secrets.NOTIFICATIONS_FUNCTION_URL }}"

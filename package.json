@@ -28,6 +28,7 @@
     "@fortawesome/pro-duotone-svg-icons": "^6.5.1",
     "@fortawesome/pro-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@gracefullight/docusaurus-plugin-microsoft-clarity": "^1.0.0",
     "@mdx-js/react": "^3.0.0",
     "@typeform/embed-react": "^1.21.0",
     "autoprefixer": "^10.4.13",
@@ -36,24 +37,24 @@
     "docusaurus-plugin-openapi-docs": "^3.0.1",
     "docusaurus-theme-openapi-docs": "^3.0.1",
     "docusaurus2-dotenv": "^1.4.0",
+    "esbuild-loader": "^2.20.0",
     "ldrs": "^1.0.1",
     "prism-react-renderer": "^2.3.0",
-    "react-live": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-live": "^4.0.0",
     "react-markdown": "^8.0.7",
     "react-spinners": "^0.13.8",
-    "react-tabs": "^4.3.0",
-    "esbuild-loader": "^2.20.0"
+    "react-tabs": "^4.3.0"
   },
   "overrides": {
     "mermaid": "10.4.0"
   },
   "devDependencies": {
     "@docusaurus/core": "3.4.0",
-    "@docusaurus/types": "3.4.0",
     "@docusaurus/module-type-aliases": "3.4.0",
     "@docusaurus/preset-classic": "3.4.0",
+    "@docusaurus/types": "3.4.0",
     "husky": "^8.0.2",
     "prettier": "2.8.0",
     "pretty-quick": "^3.1.3"

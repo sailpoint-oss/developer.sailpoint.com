@@ -1659,4 +1659,8 @@ module.exports = [
       },
     },
   ],
+  [
+    "@gracefullight/docusaurus-plugin-microsoft-clarity",
+    { projectId: "naher5vlxx" },
+  ],
 ];

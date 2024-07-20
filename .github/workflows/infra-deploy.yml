@@ -126,10 +126,8 @@ jobs:
       - failing-job
     steps:
       - name: Invoke GithubNotificationsFunction Lambda
-        uses: gagoar/invoke-aws-lambda@master
-        with:
-          AWS_ACCESS_KEY_ID: ${{ secrets.SITE_AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.SITE_AWS_SECRET_ACCESS_KEY }}
-          FunctionName: GithubNotificationsFunction
-          Payload: '{ "workflowName": ${{github.job}}, "repositoryName": ${{ github.event.repository.name }}, "url": ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}}'
-    
+        run: |
+          curl -X POST \
+            -H "Content-Type: application/json" \
+            -d '{ "workflowName": ${{github.job}}, "repositoryName": ${{ github.event.repository.name }}, "url": ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}}' \
+            ${{ secrets.GITHUB_NOTIFICATIONS_FUNCTION_URL }}

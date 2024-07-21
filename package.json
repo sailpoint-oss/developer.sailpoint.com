@@ -18,7 +18,10 @@
     "clean-api-docs:version": "docusaurus clean-api-docs:version",
     "gen-api-docs-all": "docusaurus gen-api-docs idn_v3 --plugin-id idn-api && docusaurus gen-api-docs idn_beta --plugin-id idn-api && docusaurus gen-api-docs iiq --plugin-id iiq-api && docusaurus gen-api-docs nerm --plugin-id nerm-api",
     "clean-api-docs-all": "docusaurus clean-api-docs idn_v3 --plugin-id idn-api && docusaurus clean-api-docs idn_beta --plugin-id idn-api && docusaurus clean-api-docs iiq --plugin-id iiq-api && docusaurus clean-api-docs nerm --plugin-id nerm-api",
-    "rebuild-docs": "npm run clean-api-docs-all && npm run gen-api-docs-all"
+    "rebuild-docs": "npm run clean-api-docs-all && npm run gen-api-docs-all",
+    "gen-versioned": "docusaurus gen-api-docs:version isc_versioned:all --plugin-id isc-api && docusaurus gen-api-docs iiq --plugin-id iiq-api && docusaurus gen-api-docs nerm --plugin-id nerm-api",
+    "clean-versioned": "docusaurus clean-api-docs isc_versioned --plugin-id isc-api && docusaurus clean-api-docs:version isc_versioned:all --plugin-id isc-api && docusaurus clean-api-docs iiq --plugin-id iiq-api && docusaurus clean-api-docs nerm --plugin-id nerm-api",
+    "rebuild-versioned": "npm run clean-versioned && npm run gen-versioned"
   },
   "dependencies": {
     "@docusaurus/plugin-client-redirects": "3.4.0",

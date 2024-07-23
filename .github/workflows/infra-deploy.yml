@@ -114,11 +114,16 @@ jobs:
           build_dir: build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  failing-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: failing step
+        run: exit 1
   publish-failure:
     runs-on: ubuntu-latest
-    if: ${{ always() && (needs.publish.result == 'failure' || needs.publish.result == 'timed_out') }}
+    if: ${{ always() && (needs.failing-job.result == 'failure' || needs.failing-job.result == 'timed_out') }}
     needs:
-      - publish
+      - failing-job
     steps:
       - name: Invoke GithubNotificationsFunction Lambda
         run: |

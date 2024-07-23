@@ -2,34 +2,35 @@ get:
   operationId: listIdentitySnapshotAccessItems
   tags:
     - Identity History
-  summary: Gets the list of identity access items at a given date filterd by item type
+  summary: Get Identity Access Items Snapshot 
   description: >-
-    This method retrieves the list of identity access items at a given date filterd by item type
-    Requires authorization scope of 'idn:identity-history:read' 
+    Use this API to get a list of identity access items at a specified date, filtered by item type.
+  security:
+    - UserContextAuth: [idn:identity-history:read]
   parameters:
     - in: path
       name: id
       schema:
         type: string
       required: true
-      description: The identity id
+      description: Identity ID. 
       example: '8c190e6787aa4ed9a90bd9d5344523fb'
     - in: path
       name: date
       schema:
         type: string
       required: true
-      description: The specified date
+      description: Specified date.
       example: '2007-03-01T13:00:00Z'
     - in: query
       name: type
       schema:
         type: string
-      description: The access item type
+      description: Access item type.
       example: account
   responses:
     '200':
-      description: The identity object.
+      description: Identity object.
       content:
         application/json:
           schema:
@@ -102,5 +103,7 @@ get:
       $ref: '../../v3/responses/403.yaml'
     '404':
       $ref: '../../v3/responses/404.yaml'  
+    '429':
+      $ref: '../../v3/responses/429.yaml'
     '500':
       $ref: '../../v3/responses/500.yaml'

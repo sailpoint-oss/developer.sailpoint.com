@@ -1,7 +1,7 @@
 post:
   operationId: startSodAllPoliciesForOrg
   tags:
-    - SOD Policy
+    - SOD Policies
   summary: Runs all policies for org
   deprecated: true
   security:

@@ -4,7 +4,7 @@ post:
     - Certification Campaigns
   summary: Create a Campaign Template
   description: >-
-    Create a campaign Template based on campaign.
+    Use this API to create a certification campaign template based on campaign.
   security:
     - UserContextAuth: [ idn:campaign-template:create ]
   requestBody:
@@ -49,15 +49,14 @@ post:
     '500':
       $ref: '../responses/500.yaml'
 get:
-  operationId: listCampaignTemplates
+  operationId: getCampaignTemplates
   tags:
     - Certification Campaigns
   summary: List Campaign Templates
   description: >-
-    Lists all CampaignTemplates. Scope can be reduced via standard V3 query params.
-    
-    
-    All CampaignTemplates matching the query params
+    Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params.
+
+    The API returns all campaign templates matching the query parameters. 
 
   security:
     - UserContextAuth: [ idn:campaign-template-list:read ]
@@ -95,7 +94,7 @@ get:
       example: name eq "manager template"
   responses:
     '200':
-      description: List of campaign template objects
+      description: List of campaign template objects.
       content:
         application/json:
           schema:

@@ -17,8 +17,20 @@ properties:
     type: string
     description: Description of the operator
     example: Compare two boolean values and decide what happens based on the result.
+  isDynamicSchema:
+    type: boolean
+    description: Determines whether the dynamic output schema is returned in place of the action's output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields.
+    example: false
+  deprecated:
+    type: boolean
+  deprecatedBy:
+    type: string
+    format: date-time
+  isSimulationEnabled:
+    type: boolean
   formFields:
     type: array
+    nullable: true
     description: One or more inputs that the operator accepts
     items:
       $ref: './WorkflowLibraryFormFields.yaml'

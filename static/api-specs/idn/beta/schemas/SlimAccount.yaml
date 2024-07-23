@@ -27,6 +27,10 @@ allOf:
         type: boolean
         description: Whether the account is locked
         example: false
+      type:
+        type: string
+        description: Either NON_HUMAN or null, null denotes human account
+        example: NON_HUMAN
       manuallyCorrelated:
         type: boolean
         description: Whether the account was manually correlated
@@ -55,3 +59,24 @@ allOf:
           firstName: "SailPoint"
           lastName: "Support"
           displayName: "SailPoint Support"
+      origin:
+        type: string
+        enum:
+          - AGGREGATED
+          - PROVISIONED
+        description: The origin of the account either aggregated or provisioned
+        example: AGGREGATED
+      ownerIdentity:
+        $ref: './BaseReferenceDto.yaml'
+        description: The identity who owns this account, typically used for non-human accounts
+        example:
+          id: "2c919194670f45d6016917qzz910581"
+          type: "IDENTITY"
+          name: "Adam Abbott"
+      ownerGroup:
+        $ref: './BaseReferenceDto.yaml'
+        description: The governance group who owns this account, typically used for non-human accounts
+        example:
+          id: "8d3e0094e99445de98eef6c75e25jc04"
+          type: "GOVERNANCE_GROUP"
+          name: "GovGroup AX17Z"

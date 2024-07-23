@@ -58,12 +58,23 @@ properties:
   requester:
     $ref: './AccessItemRequester.yaml'
   requestedFor:
-    type: array
-    description: Identities access was requested for. 
-    items: 
-      $ref: './AccessItemRequestedFor.yaml'
-    minItems: 1
-    maxItems: 10
+    type: object
+    description: Identity access was requested for. 
+    properties:
+      type:
+        type: string
+        enum:
+          - IDENTITY
+        description: Type of the object to which this reference applies
+        example: IDENTITY
+      id:
+        type: string
+        description: ID of the object to which this reference applies
+        example: 2c9180835d191a86015d28455b4b232a
+      name:
+        type: string
+        description: Human-readable display name of the object to which this reference applies
+        example: William Wilson
   requesterComment:
     allOf:
     - $ref: './CommentDto.yaml'

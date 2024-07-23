@@ -26,7 +26,7 @@ This rule calculates attributes after a web-service operation call.
 | Argument | Type | Purpose |
 | --- | --- | --- |
 | application | sailpoint.object.Application | Application whose data file is being processed. |
-| processedResponseObject | List<Map<String, Object>> | List of map (account/group). The map contains a key, the identityAttribute of the application schema, and a value, all the account/group attributes (schema) passed by the connector after parsing the respective API response. |
+| processedResponseObject | List\<Map\<String, Object\>\> | List of map (account/group). The map contains a key, the identityAttribute of the application schema, and a value, all the account/group attributes (schema) passed by the connector after parsing the respective API response. |
 | requestEndPoint | sailpoint.connector.webservices.EndPoint | Current request information. It contains the header, body, context url, method type, response attribute map, successful response code. |
 | restClient | sailpoint.connector.webservices.WebServicesClient | WebServicesClient (HttpClient) object that enables the user to call the Web Services API target system. |
 | rawResponseObject | String | String object that holds the raw response returned from the target system, which can be in JSON or XML form. |

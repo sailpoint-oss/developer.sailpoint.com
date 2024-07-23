@@ -12,6 +12,9 @@ properties:
       - SCHEDULED
     example: EVENT
     description: The trigger type
+  displayName:
+    type: string
+    nullable: true
   attributes:
     oneOf:
       - $ref: './workflows/trigger-attributes/EventAttributes.yaml'

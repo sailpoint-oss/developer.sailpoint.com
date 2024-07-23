@@ -1,11 +1,14 @@
 type: object
+nullable: true
 properties:
   id:
     type: string
+    nullable: true
     description: ID of the form
     example: 2c9180835d2e5168015d32f890ca1581
   name:
     type: string
+    nullable: true
     description: Name of the form
     example: AccountSelection Form
   title:
@@ -21,4 +24,6 @@ properties:
     description: The name of the user that should be shown this form
     example: Jane.Doe
   sections:
-    $ref: './SectionDetails.yaml'
+    type: array
+    items:
+      $ref: './SectionDetails.yaml'

@@ -10,10 +10,12 @@ properties:
     example: 'Adam Zampa'
   firstName:
     type: string
+    nullable: true
     description: the first name of the identity
     example: 'Adam'
   lastName:
     type: string
+    nullable: true
     description: the last name of the identity
     example: 'Zampa'
   active:

@@ -16,10 +16,8 @@ get:
         type: integer
         format: int64
         default: 0
-        x-go-name: Offset
       example: 250
       required: false
-      x-go-name: Offset
     - name: limit
       in: query
       description: |-
@@ -33,10 +31,8 @@ get:
         maxLength: 250
         minLength: 0
         default: 250
-        x-go-name: Limit
       example: 250
       required: false
-      x-go-name: Limit
     - name: filters
       in: query
       description: >-
@@ -58,10 +54,8 @@ get:
         **modified**: *eq, gt, sw, in*
       schema:
         type: string
-        x-go-name: Filters
       example: name sw "my form"
       required: false
-      x-go-name: Filters
     - name: sorters
       in: query
       description: >-
@@ -72,10 +66,8 @@ get:
       schema:
         type: string
         default: name
-        x-go-name: Sorters
       example: name
       required: false
-      x-go-name: Sorters
   responses:
     "200":
       description: Returns a list of form definitions by tenant
@@ -92,19 +84,15 @@ get:
             properties:
               detailCode:
                 type: string
-                x-go-name: DetailCode
               messages:
                 type: array
                 items:
                   $ref: '../schemas/forms/ErrorMessage.yaml'
-                x-go-name: Messages
               statusCode:
                 type: integer
                 format: int64
-                x-go-name: StatusCode
               trackingId:
                 type: string
-                x-go-name: TrackingID
     "401":
       description: An error with the authorization occurred
       content:
@@ -114,19 +102,15 @@ get:
             properties:
               detailCode:
                 type: string
-                x-go-name: DetailCode
               messages:
                 type: array
                 items:
                   $ref: '../schemas/forms/ErrorMessage.yaml'
-                x-go-name: Messages
               statusCode:
                 type: integer
                 format: int64
-                x-go-name: StatusCode
               trackingId:
                 type: string
-                x-go-name: TrackingID
     "403":
       description: An error with the user permissions occurred
       content:
@@ -136,19 +120,15 @@ get:
             properties:
               detailCode:
                 type: string
-                x-go-name: DetailCode
               messages:
                 type: array
                 items:
                   $ref: '../schemas/forms/ErrorMessage.yaml'
-                x-go-name: Messages
               statusCode:
                 type: integer
                 format: int64
-                x-go-name: StatusCode
               trackingId:
                 type: string
-                x-go-name: TrackingID
     "429":
       description: Too many requests
       content:
@@ -164,19 +144,15 @@ get:
             properties:
               detailCode:
                 type: string
-                x-go-name: DetailCode
               messages:
                 type: array
                 items:
                   $ref: '../schemas/forms/ErrorMessage.yaml'
-                x-go-name: Messages
               statusCode:
                 type: integer
                 format: int64
-                x-go-name: StatusCode
               trackingId:
                 type: string
-                x-go-name: TrackingID
   security:
     - UserContextAuth:
         - sp:forms:manage
@@ -216,19 +192,15 @@ post:
             properties:
               detailCode:
                 type: string
-                x-go-name: DetailCode
               messages:
                 type: array
                 items:
                   $ref: '../schemas/forms/ErrorMessage.yaml'
-                x-go-name: Messages
               statusCode:
                 type: integer
                 format: int64
-                x-go-name: StatusCode
               trackingId:
                 type: string
-                x-go-name: TrackingID
     "401":
       description: An error with the authorization occurred
       content:
@@ -238,19 +210,15 @@ post:
             properties:
               detailCode:
                 type: string
-                x-go-name: DetailCode
               messages:
                 type: array
                 items:
                   $ref: '../schemas/forms/ErrorMessage.yaml'
-                x-go-name: Messages
               statusCode:
                 type: integer
                 format: int64
-                x-go-name: StatusCode
               trackingId:
                 type: string
-                x-go-name: TrackingID
     "403":
       description: An error with the user permissions occurred
       content:
@@ -260,19 +228,15 @@ post:
             properties:
               detailCode:
                 type: string
-                x-go-name: DetailCode
               messages:
                 type: array
                 items:
                   $ref: '../schemas/forms/ErrorMessage.yaml'
-                x-go-name: Messages
               statusCode:
                 type: integer
                 format: int64
-                x-go-name: StatusCode
               trackingId:
                 type: string
-                x-go-name: TrackingID
     "429":
       description: Too many requests
       content:
@@ -288,20 +252,15 @@ post:
             properties:
               detailCode:
                 type: string
-                x-go-name: DetailCode
               messages:
                 type: array
                 items:
                   $ref: '../schemas/forms/ErrorMessage.yaml'
-                x-go-name: Messages
               statusCode:
                 type: integer
                 format: int64
-                x-go-name: StatusCode
               trackingId:
                 type: string
-                x-go-name: TrackingID
   security:
     - UserContextAuth:
         - sp:forms:manage
-  x-codegen-request-body-name: Body

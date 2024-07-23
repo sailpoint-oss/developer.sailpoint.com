@@ -43,13 +43,9 @@ sequenceDiagram
 
 When managing a user's access to the API, you must first assign the target user an appropriate [user level](https://documentation.sailpoint.com/saas/help/common/users/user_level_matrix.html). It is important to choose the correct user level as it will place a boundary on which APIs a user can call, which also affects the areas and functions of the UI they have access to. For example, if a user is in charge of creating reports for auditing requirements, consider granting them the "Report Admin" user level.
 
-User levels are typically granted through the UI, [following the procedures from this document](https://documentation.sailpoint.com/saas/help/accounts/identities.html#setting-user-level-permissions).
 
-:::caution
+User levels are typically granted through the UI, [following the procedures from this document](https://documentation.sailpoint.com/saas/help/accounts/identities.html#setting-user-level-permissions). You can also set user levels via API using the [auth user update](https://developer.sailpoint.com/docs/api/v3/patch-auth-user) endpoint.
 
-There is an [API that can set an identity's user level](https://developer.sailpoint.com/discuss/t/assign-identitynow-admin-roles-via-api/1874/4), but it is a V1 API with no guaranteed support. Use it at your own risk!
-
-:::
 
 User levels act as the first line of defense by applying a rigid boundary around the APIs that a user can call. The next section introduces scopes, which allow users to apply granular controls on the APIs an access token can call.
 
@@ -100,7 +96,7 @@ When you create a PAT in the UI, you can apply scopes to the token. More informa
 
 You can [create PATs](https://developer.sailpoint.com/docs/api/v3/create-personal-access-token) programmatically with the API. The request body for the endpoint allows the caller to specify a list of scopes to be applied to the PAT. If the `scope` property is omitted from the request body, then `sp:scopes:all` is granted to the credentials. The following example shows how to generate a PAT with the `idn:access-request:manage` and `idn:nelm:manage` scopes.
 
-POST <https://{tenant}.api.identitynow.com/v3/personal-access-tokens>
+POST `https://{tenant}.api.identitynow.com/v3/personal-access-tokens`
 
 Request Body
 

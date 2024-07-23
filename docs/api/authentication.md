@@ -68,8 +68,8 @@ To authenticate to the ISC APIs, you must be able to connect to your tenant to s
 
 Your tenant's OAuth details refer to the details you need to know to connect it to the APIs. You need to know your tenant's name, its `authorizeEndpoint` URL, and its `tokenEndpoint` URL.
 
-Your ISC instance is likely using the domain name supplied by SailPoint (`{tenant}.api.identitynow.com`), in which case, the tenant name is in the URL. This is assumed to be the case in this guide.  
-However, if your ISC instance is using a vanity URL, you must enter this URL into your browser to get your OAuth info: `https://{tenant}.api.identitynow.com/oauth/info`
+Your ISC instance is likely using the domain name supplied by SailPoint (`[tenant].api.identitynow.com`), in which case, the tenant name is in the URL. This is assumed to be the case in this guide.  
+However, if your ISC instance is using a vanity URL, you must enter this URL into your browser to get your OAuth info: `https://[tenant].api.identitynow.com/oauth/info`
 
 If you have admin access but don't know your tenant name, you can learn it by following these steps:
 
@@ -100,7 +100,7 @@ A personal access token (PAT) is a method of authenticating to an API as a user 
 
 Any ISC user can generate a PAT. To do so, follow these steps:
 
-1. Select **Preferences** from the drop-down menu under your username, then **Personal Access Tokens** on the left. You can also go directly to the page by using this URL (replace `{tenant}` with your Identity Security Cloud tenant): `https://{tenant}.identitynow.com/ui/d/user-preferences/personal-access-tokens`
+1. Select **Preferences** from the drop-down menu under your username, then **Personal Access Tokens** on the left. You can also go directly to the page by using this URL (replace `[tenant]` with your Identity Security Cloud tenant): `https://[tenant].identitynow.com/ui/d/user-preferences/personal-access-tokens`
 
 2. Click **New Token** and enter a meaningful description to help differentiate the token from others.
 
@@ -130,7 +130,7 @@ There are several different authorization flows that OAuth 2.0 supports, and eac
 
 1. [**Client Credentials**](https://oauth.net/2/grant-types/client-credentials/) - Clients use this grant type to obtain a JWT `access_token` without user involvement such as scripts, programs or system to system integration.
 2. [**Authorization Code**](https://oauth.net/2/grant-types/authorization-code/) - Clients use this grant type to exchange an authorization code for an `access_token`. Authorization codes are mainly used by web applications because there is a login into ISC with a subsequent redirect back to the web application/client.
-3. [**Refresh Token**](https://oauth.net/2/grant-types/refresh-token/) - Clients use this grant type to exchange a refresh token for a new `access_token` when the existing `access_token` has expired. This allows clients to continue using the APIs without having to re-authenticate as frequently. This grant type is commonly used together with `Authorization Code` to prevent a user from having to log in several times per day.
+3. [**Refresh Token**](https://oauth.net/2/grant-types/refresh-token/) - Clients use this grant type to exchange a refresh token for a new `access_token` when the existing `access_token` has expired. This allows clients to continue using the APIs without having to re-authenticate as frequently. This grant type can only be used together with `Authorization Code` to prevent a user from having to log in several times per day.
 
 One way to determine which authorization flow you need to use is to look at the specification for the endpoint you want to use. The endpoint will have the supported OAuth flows listed under the 'Authorization' dropdown, like the [List Access Profiles endpoint](https://developer.sailpoint.com/docs/api/beta/list-access-profiles):
 
@@ -170,7 +170,7 @@ This is the overall authorization flow:
 1. The client first submits an OAuth 2.0 token request to ISC in this form:
 
 ```text
-POST https://{tenant}.api.identitynow.com/oauth/token
+POST https://[tenant].api.identitynow.com/oauth/token
 ```
 
 The request includes the client credential information passed in the request body, as shown in this example using [Postman](https://www.getpostman.com):
@@ -182,22 +182,22 @@ This example shows how to pass the information with form-data in the request bod
 - Use x-www-form-urlencoded data to pass in the client credential information in the request body.
 - Use query parameters to pass the information in the request URL. The request URL will look like this:
   ```text
-  https://{tenant}.api.identitynow.com/oauth/token?grant_type=client_credentials&client_id={{clientId}}&client_secret={{clientSecret}}
+  https://[tenant].api.identitynow.com/oauth/token?grant_type=client_credentials&client_id={{clientId}}&client_secret={{clientSecret}}
   ```
-- If you are using Postman, you can use the 'Authorization' tab to pass in the client credentials. If you use this option, you must also specify the access token URL: https://{tenant}.api.identitynow.com/oauth/token
+- If you are using Postman, you can use the 'Authorization' tab to pass in the client credentials. If you use this option, you must also specify the access token URL: https://[tenant].api.identitynow.com/oauth/token
 
 The OAuth 2.0 token request must include this information:
 
 | Key | Description |
 | --- | --- |
 | `grant_type` | This is set to `CLIENT_CREDENTIALS` for the authorization code grant type. |
-| `client_id` | This is the API client's ID (e.g. `b61429f5-203d-494c-94c3-04f54e17bc5c`). You can generate this ID at `https://{tenant}.identitynow.com/ui/admin/#admin:global:security:apimanagementpanel`, or you can generate it when you create a PAT. |
-| `client_secret` | This is the API client's secret describing (e.g. `c924417c85b19eda40e171935503d8e9747ca60ddb9b48ba4c6bb5a7145fb6c5`). You can generate this secret at `https://{tenant}.identitynow.com/ui/admin/#admin:global:security:apimanagementpanel`, or you can generate it when you create a PAT. |
+| `client_id` | This is the API client's ID (e.g. `b61429f5-203d-494c-94c3-04f54e17bc5c`). You can generate this ID at `https://[tenant].identitynow.com/ui/admin/#admin:global:security:apimanagementpanel`, or you can generate it when you create a PAT. |
+| `client_secret` | This is the API client's secret describing (e.g. `c924417c85b19eda40e171935503d8e9747ca60ddb9b48ba4c6bb5a7145fb6c5`). You can generate this secret at `https://[tenant].identitynow.com/ui/admin/#admin:global:security:apimanagementpanel`, or you can generate it when you create a PAT. |
 
 This example cURL command passes client credentials in the body as form-data to generate an access token:
 
 ```bash
-curl --location 'https://{tenant}.api.identitynow.com/oauth/token' \
+curl --location 'https://[tenant].api.identitynow.com/oauth/token' \
 --header 'scope: sp:scope:all' \
 --form 'grant_type="client_credentials"' \
 --form 'client_id="{clientId}"' \
@@ -251,11 +251,11 @@ sequenceDiagram
     participant I as Identity Security Cloud
 
     U->>W: Click login link
-    W->>I: Authorization request to https://{tenant}.login.sailpoint.com/oauth/authorize
+    W->>I: Authorization request to https://[tenant].login.sailpoint.com/oauth/authorize
     I->>U: Redirect to login prompt
     U->>I: Authentication
     I->>W: Authorization code granted
-    W->>I: Authorization code to https://{tenant}.api.identitynow.com/oauth/token
+    W->>I: Authorization code to https://[tenant].api.identitynow.com/oauth/token
     I->>W: JWT access token granted
 ```
 
@@ -268,7 +268,7 @@ This is the overall authorization flow:
 2. The web app sends an authorization request to ISC in this form:
 
 ```Text
-GET https://{tenant}.login.sailpoint.com/oauth/authorize?client_id={client-id}&response_type=code&redirect_uri={redirect-url}
+GET https://[tenant].login.sailpoint.com/oauth/authorize?client_id={client-id}&response_type=code&redirect_uri={redirect-url}
 ```
 
 3. ISC redirects the user to a login prompt to authenticate to Identity Security Cloud.
@@ -280,12 +280,12 @@ GET https://{tenant}.login.sailpoint.com/oauth/authorize?client_id={client-id}&r
 6. The web app submits an OAuth 2.0 token request to ISC in this form:
 
 ```text
-POST https://{tenant}.api.identitynow.com/oauth/token?grant_type=authorization_code&client_id={client-id}&code={code}&redirect_uri={redirect-url}
+POST https://[tenant].api.identitynow.com/oauth/token?grant_type=authorization_code&client_id={client-id}&code={code}&redirect_uri={redirect-url}
 ```
 
 :::info
 
-The token endpoint URL is `{tenant}.api.identitynow.com`, and the authorize URL is `{tenant}.login.sailpoint.com`. Please be sure to use the correct URL when you're setting up your webapp to use this flow. You can read more about [finding your tenant OAuth details here](https://developer.sailpoint.com/docs/api/authentication/#find-your-tenants-oauth-details).
+The token endpoint URL is `[tenant].api.identitynow.com`, and the authorize URL is `[tenant].login.sailpoint.com`. Please be sure to use the correct URL when you're setting up your webapp to use this flow. You can read more about [finding your tenant OAuth details here](https://developer.sailpoint.com/docs/api/authentication/#find-your-tenants-oauth-details).
 
 :::
 
@@ -296,7 +296,7 @@ These are the query parameters in the OAuth 2.0 token request for the authorizat
 | Key | Description |
 | --- | --- |
 | `grant_type` | Set this to `authorization_code` for the authorization code grant type. |
-| `client_id` | This is the client ID for the API client (e.g. `b61429f5-203d-494c-94c3-04f54e17bc5c`). This can be generated at `https://{tenant}.identitynow.com/ui/admin/#admin:global:security:apimanagementpanel` |
+| `client_id` | This is the client ID for the API client (e.g. `b61429f5-203d-494c-94c3-04f54e17bc5c`). This can be generated at `https://[tenant].identitynow.com/ui/admin/#admin:global:security:apimanagementpanel` |
 | `code` | This is a code returned by `/oauth/authorize`. |
 | `redirect_uri` | This is the application URL to redirect to once the token has been granted. |
 
@@ -317,7 +317,7 @@ For more information about the OAuth authorization code grant flow, refer [here]
 
 Clients use this grant type in order to exchange a refresh token for a new `access_token` once the existing `access_token` has expired. This allows clients to continue to have a valid `access_token` without the need for the user to login as frequently.
 
-The OAuth 2.0 client you are using must have `REFRESH_TOKEN` as one of its grant types, and you would typically use this type in conjunction with another grant type, like `CLIENT_CREDENTIALS` or `AUTHORIZATION_CODE`:
+The OAuth 2.0 client you are using must have `REFRESH_TOKEN` and `AUTHORIZATION_CODE` as its grant types:
 
 ```json
 {
@@ -337,12 +337,12 @@ The OAuth 2.0 client you are using must have `REFRESH_TOKEN` as one of its grant
 
 This is the overall authorization flow:
 
-1. The client application receives an `access_token` and a `refresh_token` from one of the other OAuth grant flows, like `AUTHORIZATION_CODE`.
+1. The client application receives an `access_token` and a `refresh_token` when using the `AUTHORIZATION_CODE` grant flow.
 2. The client application detects that the `access_token` is about to expire, based on the `expires_in` attribute contained within the JWT token.
 3. The client submits an OAuth 2.0 token request to ISC in this form:
 
 ```text
-POST https://{tenant}.api.identitynow.com/oauth/token?grant_type=refresh_token&client_id={client_id}&client_secret={client_secret}&refresh_token={refresh_token}
+POST https://[tenant].api.identitynow.com/oauth/token?grant_type=refresh_token&client_id={client_id}&client_secret={client_secret}&refresh_token={refresh_token}
 ```
 
 4. ISC validates the token request and submits a response. If the request is successful, the response contains a new `access_token` and `refresh_token`.
@@ -352,8 +352,8 @@ These are the query parameters in the OAuth 2.0 token request for the refresh to
 | Key | Description |
 | --- | --- |
 | `grant_type` | Set to `refresh_token` for the authorization code grant type. |
-| `client_id` | This is the client ID for the API client (e.g. `b61429f5-203d-494c-94c3-04f54e17bc5c`). This can be generated at `https://{tenant}.identitynow.com/ui/admin/#admin:global:security:apimanagementpanel`. |
-| `client_secret` | This is the client secret for the API client (e.g. `c924417c85b19eda40e171935503d8e9747ca60ddb9b48ba4c6bb5a7145fb6c5`). This can be generated at `https://{tenant}.identitynow.com/ui/admin/#admin:global:security:apimanagementpanel`. |
+| `client_id` | This is the client ID for the API client (e.g. `b61429f5-203d-494c-94c3-04f54e17bc5c`). This can be generated at `https://[tenant].identitynow.com/ui/admin/#admin:global:security:apimanagementpanel`. |
+| `client_secret` | This is the client secret for the API client (e.g. `c924417c85b19eda40e171935503d8e9747ca60ddb9b48ba4c6bb5a7145fb6c5`). This can be generated at `https://[tenant].identitynow.com/ui/admin/#admin:global:security:apimanagementpanel`. |
 | `refresh_token` | This is the `refresh_token` that was provided along with the now expired `access_token`. |
 
 Here is an example call OAuth 2.0 Token Request for the Refresh Token grant.
@@ -370,7 +370,7 @@ For more information about the OAuth refresh token grant flow, refer [here](http
 
 ### OAuth token response
 
-A successful request using any of the grant flows to `https://{tenant}.api.identitynow.com/oauth/token` will contain a response body like this:
+A successful request using any of the grant flows to `https://[tenant].api.identitynow.com/oauth/token` will contain a response body like this:
 
 ```json
 {
@@ -397,7 +397,7 @@ You can use the JWT `access_token` to authorize REST API calls through the ISC A
 
 ```bash
 curl -X GET \
- 'https://{tenant}.api.identitynow.com/v3/account-activities' \
+ 'https://[tenant].api.identitynow.com/v3/account-activities' \
  -H 'Authorization: Bearer {access_token}' \
  -H 'cache-control: no-cache'
 ```
@@ -521,13 +521,13 @@ Having issues? Follow these steps:
 ### Verify API endpoint calls
 
 1. Verify the structure of the API call:
-2. Verify that the API calls are going through the API gateway: `https://{tenant}.api.identitynow.com`
+2. Verify that the API calls are going through the API gateway: `https://[tenant].api.identitynow.com`
 3. Verify you are calling their version correctly:
 
-   - Private APIs: `https://{tenant}.api.identitynow.com/cc/api/{endpoint}`
-   - V2 APIs: `https://{tenant}.api.identitynow.com/v2/{endpoint}`
-   - V3 APIs: `https://{tenant}.api.identitynow.com/v3/{endpoint}`
-   - Beta APIs: `https://{tenant}.api.identitynow.com/beta/{endpoint}`
+   - Private APIs: `https://[tenant].api.identitynow.com/cc/api/{endpoint}`
+   - V2 APIs: `https://[tenant].api.identitynow.com/v2/{endpoint}`
+   - V3 APIs: `https://[tenant].api.identitynow.com/v3/{endpoint}`
+   - Beta APIs: `https://[tenant].api.identitynow.com/beta/{endpoint}`
 
 4. Verify that the API calls have the correct headers (e.g., `content-type`), query parameters, and body data.
 5. If the HTTP response is **401 Unauthorized** , this is an indication either that there is no `Authorization` header or that the `access_token` is invalid. Verify that the API calls are providing the `access_token` in the `Authorization` header correctly (ex. `Authorization: Bearer {access_token}`) and that the `access_token` has not expired.
@@ -559,7 +559,7 @@ or
 GET /beta/oauth-clients/
 ```
 
-You can also view all of the active clients in the UI by going to `https://{tenant}.identitynow.com/ui/admin/#admin:global:security:apimanagementpanel`.
+You can also view all of the active clients in the UI by going to `https://[tenant].identitynow.com/ui/admin/#admin:global:security:apimanagementpanel`.
 
 3. Verify that the OAuth 2.0 client grant types match the OAuth 2.0 grant type flow you're trying to use. For example, this client will work with [Authorization Code](#authorization-code-grant-flow) and [Client Credentials](#client-Credentials-grant-flow) grant flows, but not [Refresh Token](#refresh-token-grant-flow) flows:
 
@@ -583,4 +583,4 @@ You can also view all of the active clients in the UI by going to `https://{tena
 
 ### Verify OAuth calls
 
-Verify that the OAuth call flow is going to the right URLs, with the correct query parameters and data values. A common source of errors is using the wrong host for authorization and token API calls. The token endpoint URL is `{tenant}.api.identitynow.com`, while the authorize URL is `{tenant}.identitynow.com`.
+Verify that the OAuth call flow is going to the right URLs, with the correct query parameters and data values. A common source of errors is using the wrong host for authorization and token API calls. The token endpoint URL is `[tenant].api.identitynow.com`, while the authorize URL is `[tenant].identitynow.com`.

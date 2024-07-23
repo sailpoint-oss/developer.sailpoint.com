@@ -7,13 +7,13 @@ get:
   parameters:
     - name: id
       in: path
-      description: ID of the ManagedCluster to get
+      description: ManagedCluster ID.
       required: true
+      example: 2c9180897de347a2017de8859e8c5039
       style: simple
       explode: false
       schema:
         type: string
-        example: aClusterId
   responses:
     "200":
       description: Responds with ManagedCluster having the given ID.
@@ -48,15 +48,17 @@ patch:
       schema:
         type: string
       required: true
-      description: The Managed Cluster ID
-      example: aClusterId
+      description: Managed Cluster ID.
+      example: 2c9180897de347a2017de8859e8c5039
   requestBody:
     required: true
-    description: The JSONPatch payload used to update the schema.
+    description: The JSONPatch payload used to update the object.
     content:
       application/json-patch+json:
         schema:
-          $ref: '../schemas/JsonPatch.yaml'
+          type: array
+          items:
+            $ref: "../schemas/JsonPatchOperation.yaml"
   responses:
     "200":
       description: The updated Managed Cluster
@@ -91,8 +93,8 @@ delete:
       schema:
         type: string
       required: true
-      description: The Managed Cluster ID
-      example: aClusterId
+      description: Managed Cluster ID.
+      example: 2c9180897de347a2017de8859e8c5039
     - in: query
       name: removeClients
       schema:

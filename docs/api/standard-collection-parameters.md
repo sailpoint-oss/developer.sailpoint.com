@@ -5,9 +5,9 @@ pagination_label: Standard Collection Parameters
 sidebar_label: Standard Collection Parameters
 sidebar_position: 5
 sidebar_class_name: standardCollectionParameters
-keywords: ['standard collection parameters']
+keywords: ['standard collection parameters','filter','pagination','paginate','sort']
 description: ISC API pagination, filtering, and sorting.
-tags: ['Standard Collection Parameters']
+tags: ['Standard Collection Parameters','Filter','Sort','Pagination']
 ---
 
 Many endpoints in the Identity Security Cloud API support a generic syntax for paginating, filtering and sorting the results. A collection endpoint has the following characteristics:
@@ -50,7 +50,7 @@ The `searchAfter` capability provides the ability to page on sorted field values
 
 Here is an example of a search API call with `searchAfter` paging. The first query will get the first set of results. The default limit for search is 10,000, which is different from other collection endpoints. For this example, the query is set to page 100 records at a time. Paginating search queries also requires the `sort` property to be set to `id`.
 
-**POST** <https://{tenant}.api.identitynow.com/v3/search?limit=100&count=true>
+**POST** `https://{tenant}.api.identitynow.com/v3/search?limit=100&count=true`
 
 ```json
 {
@@ -64,7 +64,7 @@ Here is an example of a search API call with `searchAfter` paging. The first que
 
 This query will return 100 records. To get the next 100 records, find the last record's `id` and use it in the next query's `searchAfter` property.
 
-**POST** <https://{tenant}.api.identitynow.com/v3/search?limit=100&count=true>
+**POST** `https://{tenant}.api.identitynow.com/v3/search?limit=100&count=true`
 
 ```json
 {
@@ -108,11 +108,11 @@ These filter operators apply directly to fields and their values:
 | `ca` | True if the collection-valued field contains all the listed values. | groups ca ("Venezia","Firenze") |
 | `co` | True if the value of the field contains the specified value as a substring.(Applicable to string-valued fields only.) | name co "Rajesh" |
 | `eq` | True if the value of the field indicated by the first operand is equal to the value specified by the second operand. | identitySummary.id eq "2c9180846e85e4b8016eafeba20c1314" |
-| `ge` | True if the value of the field indicated by the first operand is greater or equal to the value specified by the second operand. | daysUntilEscalation ge 7 name ge "Genaro" |
-| `gt` | True if the value of the field indicated by the first operand is greater than the value specified by the second operand. | daysUntilEscalation gt 7 name gt "Genaro" created gt 2018-12-18T23:05:55Z |
+| `ge` | True if the value of the field indicated by the first operand is greater or equal to the value specified by the second operand. | daysUntilEscalation ge 7<br></br><br></br>name ge "Genaro" |
+| `gt` | True if the value of the field indicated by the first operand is greater than the value specified by the second operand. | daysUntilEscalation gt 7<br></br><br></br>name gt "Genaro"<br></br><br></br>created gt 2018-12-18T23:05:55Z |
 | `in` | True if the field value is in the list of values. | accountActivityItemId in ("2c9180846b0a0583016b299f210c1314","2c9180846b0a0581016b299e82560c1314") |
-| `le` | True if the value of the field indicated by the first operand is less or equal to the value specified by the second operand. | daysUntilEscalation le 7 name le "Genaro" |
-| `lt` | True if the value of the field indicated by the first operand is less than the value specified by the second operand. | daysUntilEscalation lt 7 name lt "Genaro" created lt 2018-12-18T23:05:55Z |
+| `le` | True if the value of the field indicated by the first operand is less or equal to the value specified by the second operand. | daysUntilEscalation le 7<br></br><br></br>name le "Genaro" |
+| `lt` | True if the value of the field indicated by the first operand is less than the value specified by the second operand. | daysUntilEscalation lt 7<br></br><br></br>name lt "Genaro"<br></br><br></br>created lt 2018-12-18T23:05:55Z |
 | `ne` | True if the value of the field indicated by the first operand is not equal to the value specified by the second operand. | type ne "ROLE" |
 | `pr` | True if the field is present, that is, not null. | pr accountRequestInfo |
 | `isnull` | True if the field is null. | lastUsed isnull |

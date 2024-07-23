@@ -20,6 +20,11 @@ allOf:
       format: date-time
       description: The date and time the workflow was created.
       example: "2022-01-10T16:06:16.636381447Z"
+    modified:
+      type: string
+      format: date-time
+      description: The date and time the workflow was modified.
+      example: 2023-12-05T15:18:27.699132301Z
     creator:
       type: object
       description: Workflow creator's identity.

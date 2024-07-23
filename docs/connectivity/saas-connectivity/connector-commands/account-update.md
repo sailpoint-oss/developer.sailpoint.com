@@ -61,6 +61,8 @@ tags: ['Connectivity', 'Connector Command']
 
 The account update command triggers whenever ISC is told to modify an identity's attributes or entitlements on the target source. For example, granting an identity a new entitlement through a role, changing an identity’s lifecycle state, or modifying an identity attribute tied to an account attribute all trigger the account update command.
 
+To use this command, you must specify this value in the `commands` array: `std:account:update`
+
 ## Input Schema
 
 The payload from ISC contains the ID of the identity to modify, the configuration items the connector needs to call the source API, and one or more change operations to apply to the identity. Each operation has the following special considerations:

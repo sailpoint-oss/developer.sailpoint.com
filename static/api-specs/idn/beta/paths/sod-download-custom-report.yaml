@@ -1,7 +1,7 @@
 get:
   operationId: getCustomViolationReport
   tags:
-    - SOD Policy
+    - SOD Policies
   summary: Download custom violation report
   deprecated: true
   security:

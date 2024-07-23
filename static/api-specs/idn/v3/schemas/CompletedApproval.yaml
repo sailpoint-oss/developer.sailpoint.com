@@ -71,7 +71,7 @@ properties:
     description: The final state of the approval
   removeDate:
     type: string
-    description: The date the role or access profile is no longer assigned to the specified identity.
+    description: The date the role or access profile or entitlement is no longer assigned to the specified identity.
     format: 'date-time'
     example: '2020-07-11T00:00:00Z'
     nullable: true
@@ -122,3 +122,4 @@ properties:
   requestedAccounts:
     type: string
     nullable: true
+    description: Information about the requested accounts

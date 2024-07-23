@@ -4,12 +4,9 @@ properties:
     example: 1
     format: int64
     type: integer
-    x-go-name: Count
   results:
     description: List of FormDefinitionResponse items.
     items:
       $ref: './FormDefinitionResponse.yaml'
     type: array
-    x-go-name: Results
 type: object
-x-go-package: github.com/sailpoint/sp-forms/domain

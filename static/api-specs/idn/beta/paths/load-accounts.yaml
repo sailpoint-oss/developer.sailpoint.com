@@ -12,7 +12,7 @@ post:
     
     A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
   security:
-    - UserContextAuth: [idn:accounts:manage]
+    - UserContextAuth: [idn:sources:manage]
   parameters:
     - in: path
       name: id
@@ -32,9 +32,8 @@ post:
               format: binary
               description: The CSV file containing the source accounts to aggregate.
             disableOptimization:
-              type: boolean
-              example: true
-              default: false
+              type: string
+              example: "true"
               description: Use this flag to reprocess every account whether or not the data has changed.
   responses:
     "202":
@@ -53,3 +52,4 @@ post:
       $ref: '../../v3/responses/429.yaml'
     "500":
       $ref: "../../v3/responses/500.yaml"
+

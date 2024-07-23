@@ -1,8 +1,10 @@
 type: object
 properties:
   createdBy:
-    $ref: './iai/EntityCreatedByDTO.yaml'
-    description: The session created by details.
+    oneOf:
+      - $ref: './iai/EntityCreatedByDTO.yaml'
+      - $ref: './iai/NullableEntityCreatedByDTO.yaml'
+    description: The session created by details
   density:
     type: integer
     description: The density of a potential role.
@@ -10,6 +12,7 @@ properties:
     format: int32
   description:
     type: string
+    nullable: true
     description: The description of a potential role.
     example: "Potential Role for Accounting dept"
   entitlementCount:
@@ -19,6 +22,7 @@ properties:
     format: int32
   excludedEntitlements:
     description: The list of entitlement ids to be excluded.
+    nullable: true
     type: array
     items:
       type: string
@@ -35,6 +39,7 @@ properties:
     format: int32
   identityDistribution:
     description: Identity attribute distribution.
+    nullable: true
     type: array
     items:
       $ref: './RoleMiningIdentityDistribution.yaml'
@@ -51,6 +56,7 @@ properties:
   provisionState:
     $ref: './RoleMiningPotentialRoleProvisionState.yaml'
     description: The provisioning state of a potential role.
+    nullable: true
   quality:
     type: integer
     description: The quality of a potential role.
@@ -58,6 +64,7 @@ properties:
     format: int32
   roleId:
       type: string
+      nullable: true
       description: The roleId of a potential role.
       example: "07a0b4e2-7a76-44fa-bd0b-c64654b66519"
   saved:
@@ -70,3 +77,15 @@ properties:
   type:
     $ref: './iai/RoleMiningRoleType.yaml'
     description: Role mining potential type.
+  id:
+    type: string
+    description: Id of the potential role
+    example: "e0cc5d7d-bf7f-4f81-b2af-8885b09d9923"
+  createdDate:
+    type: string
+    format: 'date-time'
+    description: The date-time when this potential role was created.
+  modifiedDate:
+    type: string
+    format: 'date-time'
+    description: The date-time when this potential role was modified.

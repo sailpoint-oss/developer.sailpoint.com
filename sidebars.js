@@ -69,7 +69,7 @@ const sidebars = {
                     slug: '/api/v3',
                   },
                   // @ts-ignore
-                  items: require('./docs/api/v3/sidebar.js'),
+                  items: require('./docs/api/v3/sidebar.ts'),
                 },
                 {
                   type: 'category',
@@ -82,7 +82,7 @@ const sidebars = {
                     slug: '/api/beta',
                   },
                   // @ts-ignore
-                  items: require('./docs/api/beta/sidebar.js'),
+                  items: require('./docs/api/beta/sidebar.ts'),
                 },
               ],
             },
@@ -121,7 +121,7 @@ const sidebars = {
                     slug: '/api/nerm/v1',
                   },
                   // @ts-ignore
-                  items: require('./docs/api/nerm/v1/sidebar.js'),
+                  items: require('./docs/api/nerm/v1/sidebar.ts'),
                 },
               ],
             },
@@ -227,7 +227,7 @@ const sidebars = {
             slug: '/api/iiq',
           },
           // @ts-ignore
-          items: require('./docs/api/iiq/sidebar.js'),
+          items: require('./docs/api/iiq/sidebar.ts'),
         },
         {
           type: 'category',

@@ -23,6 +23,9 @@ get:
 
 
         **name**: *eq, sw, in*
+
+
+        **memberships.identityId**: *eq, in*
       example: name sw "Test"
       required: false
     - in: query

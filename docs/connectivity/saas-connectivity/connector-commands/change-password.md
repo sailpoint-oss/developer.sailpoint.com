@@ -37,6 +37,8 @@ tags: ['Connectivity', 'Connector Command']
 
 The change password command is triggered in ISC when a user changes their password through ISC. When this occurs, if your source has change password enabled, then you can change the user password on the source system through ISC.
 
+To use this command, you must specify this value in the `commands` array: `std:change-password`
+
 ## The Provisioning Plan
 
 The change password command sends the password change event to your connector whenever a user changes their password through the Password Manager. Handling this even is as simple as implementing a method on the source system that updates a users password

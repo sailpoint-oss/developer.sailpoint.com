@@ -1,16 +1,16 @@
 post:
   tags:
-    - Entitlements
-  summary: Aggregate Entitlements
+    - Sources
+  summary: Entitlement Aggregation
   operationId: importEntitlements
   description: >-
     Starts an entitlement aggregation on the specified source. 
     
-
-    If the target source is a direct connection, then the request body must be empty. You will also need to make sure the Content-Type header is not set. If you set the Content-Type header without specifying a body, then you will receive a 500 error.
+    If the target source is a delimited file source, then the CSV file needs to be included in the request body. 
     
+    You will also need to set the Content-Type header to `multipart/form-data`.
     
-    If the target source is a delimited file source, then the CSV file needs to be included in the request body. You will also need to set the Content-Type header to `multipart/form-data`.
+    A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
   parameters:
     - in: path
       name: id
@@ -25,7 +25,7 @@ post:
         schema:
           type: object
           properties:
-            csvFile:
+            file:
               type: string
               format: binary
               description: The CSV file containing the source entitlements to aggregate.

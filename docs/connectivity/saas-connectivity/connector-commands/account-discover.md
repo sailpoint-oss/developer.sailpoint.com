@@ -53,6 +53,8 @@ tags: ['Connectivity', 'Connector Command']
 
 The account discover schema command tells ISC to dynamically create the account schema for the source rather than use the account schema provided by the connector in connector-spec.json. It is often ideal to statically define the account schema because it is generally more performant and easier to develop and reason about the code. However, some sources have schemas that can be different for each customer deployment. It can also be difficult to determine which account attributes to statically expose, which requires the schema to be dynamically generated. SalesForce is an example of a source that can have thousands of account attributes, which makes it impractical to statically define a set of attributes that satisfies all connector users. Although the SalesForce connector defines a standard set of account attributes out of the box, it also allows schema discovery for users looking for more attributes.
 
+To use this command, you must specify this value in the `commands` array: `std:account:discover-schema`
+
 ## Implementation
 
 If your connector requires dynamic schema discovery, you must add std:account:discover-schema to the list of commands in connector-spec.json. Because the account schema is dynamic, you do not need to specify an accountSchema or an accountCreateTemplate object in connector-spec.json. Your connector-spec.json file will look similar to this example from the [Airtable connector](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/connector-spec.json).

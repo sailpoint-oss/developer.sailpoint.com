@@ -15,9 +15,9 @@ Once your SDK is installed and configured, you can start accessing the SDK's dif
 
 ## List Transforms
 
-One of the most useful functionalities of the Python SDK is the ability to easily access all the [V3 APIs](/idn/api/v3) and [Beta APIs](/idn/api/beta) and implement them in your project. 
+One of the most useful functionalities of the Python SDK is the ability to easily access all the [V3 APIs](/docs/api/v3) and [Beta APIs](/docs/api/beta) and implement them in your project. 
 
-Here is an example of how to use the SDK to get a list of available [transforms](/idn/docs/transforms). This example leverages the [List Transforms endpoint](/idn/api/v3/list-transforms). 
+Here is an example of how to use the SDK to get a list of available [transforms](/docs/extensibility/transforms). This example leverages the [List Transforms endpoint](/docs/api/v3/list-transforms). 
 
 Create a file in your project called "sdk.py" and copy this content into it:
 
@@ -57,7 +57,7 @@ You can use this example as a guide for how to access all the V3 and Beta APIs (
 
 With the same SDK function, you can use query parameters to limit the results of your transforms list to only the results you want. 
 
-Refer to the [List Transforms endpoint specification](/idn/api/v3/list-transforms) to view all its query parameters. 
+Refer to the [List Transforms endpoint specification](/docs/api/v3/list-transforms) to view all its query parameters. 
 
 Here is an example that uses query parameters to limit the list to no more than 10 transforms that all start with the name "Test": 
 

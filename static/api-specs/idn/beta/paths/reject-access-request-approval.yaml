@@ -1,21 +1,21 @@
 post:
   operationId: rejectAccessRequest
-  summary: Rejects an access request approval.
+  summary: Reject Access Request Approval
   tags:
     - Access Request Approvals
   description: >-
-    This endpoint rejects an access request approval. Only the owner of the approval and admin users are allowed to perform this action.
+    Use this API to reject an access request approval. Only the owner of the approval and admin users are allowed to perform this action.
   parameters:
     - in: path
       name: approvalId
       schema:
         type: string
       required: true
-      description: The id of the approval.
+      description: Approval ID. 
       example: 2c91808b7294bea301729568c68c002e
   requestBody:
     description: Reviewer's comment.
-    required: false
+    required: true
     content:
       application/json:
         schema:

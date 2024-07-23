@@ -57,3 +57,11 @@ properties:
     description: >-
       If true, this type of object will be JWS signed and cannot be modified before import.
     example: false
+  legacyObject:
+    type: boolean
+    default: false
+    example: false
+  onePerTenant:
+    type: boolean
+    default: false
+    example: false

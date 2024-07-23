@@ -79,7 +79,7 @@ properties:
     description: Action that is performed on this approval, and system has not finished performing that action yet.
   removeDate:
     type: string
-    description: The date the role or access profile is no longer assigned to the specified identity.
+    description: The date the role or access profile or entitlement is no longer assigned to the specified identity.
     format: 'date-time'
     example: '2020-07-11T00:00:00Z'
   removeDateUpdateRequested:

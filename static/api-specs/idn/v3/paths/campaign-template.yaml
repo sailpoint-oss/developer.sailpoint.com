@@ -3,7 +3,7 @@ patch:
   tags:
     - Certification Campaigns
   summary: Update a Campaign Template
-  description: Allows updating individual fields on a campaign template using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+  description: Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
   security:
     - UserContextAuth: [ idn:campaign-template:update ]
   parameters:
@@ -12,7 +12,7 @@ patch:
       schema:
         type: string
       required: true
-      description: The ID of the campaign template being modified.
+      description: ID of the campaign template being modified.
       example: 2c9180835d191a86015d28455b4a2329
   requestBody:
     required: true
@@ -40,7 +40,7 @@ patch:
   responses:
     '200':
       description: >-
-        Indicates the PATCH operation succeeded, and returns the template's new representation.
+        This response indicates that the PATCH operation succeeded, and the API returns the template's new representation.
       content:
         application/json:
           schema:
@@ -71,7 +71,7 @@ get:
   tags:
     - Certification Campaigns
   summary: Get a Campaign Template
-  description: Fetches a campaign template by ID.
+  description: Use this API to fetch a certification campaign template by ID.
   security:
     - UserContextAuth: [ idn:campaign-template:read ]
   parameters:
@@ -80,11 +80,11 @@ get:
       schema:
         type: string
       required: true
-      description: The desired campaign template's ID.
+      description: Requested campaign template's ID.
       example: 2c9180835d191a86015d28455b4a2329
   responses:
     '200':
-      description: The data for the campaign matching the given ID.
+      description: Data for the campaign matching the given ID.
       content:
         application/json:
           schema:
@@ -115,7 +115,7 @@ delete:
   tags:
     - Certification Campaigns
   summary: Delete a Campaign Template
-  description: Deletes a campaign template by ID.
+  description: Use this API to delete a certification campaign template by ID.
   security:
     - UserContextAuth: [ idn:campaign-template:delete ]
   parameters:
@@ -124,7 +124,7 @@ delete:
       schema:
         type: string
       required: true
-      description: The ID of the campaign template being deleted.
+      description: ID of the campaign template being deleted.
       example: 2c9180835d191a86015d28455b4a2329
   responses:
     '204':

@@ -11,10 +11,14 @@ properties:
   displayName:
     type: string
     example: Display Name
-    description: the access profile display name
+    description: the access item display name
   sourceName:
     type: string
     example: appName
     description:  the associated source name if it exists
+  appRoleId:
+    type: string
+    example: 2c918087763e69d901763e72e97f006f
+    description:  the app role id
   
   

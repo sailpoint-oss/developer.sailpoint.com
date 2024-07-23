@@ -15,7 +15,11 @@ properties:
   triggerId:
     type: string
     description: Trigger ID
-    example: "idn:access-requested"
+    example: "idn:access-request-post-approval"
+  subscriptionName:
+    type: string
+    description: Subscription name
+    example: "Access request subscription"
   subscriptionId:
     type: string
     description: Subscription ID

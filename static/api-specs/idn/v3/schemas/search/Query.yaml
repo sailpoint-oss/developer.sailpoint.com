@@ -17,11 +17,9 @@ properties:
       A field's availability depends on the indices being searched. 
       For example, if you are searching "identities", you can apply your search to the "firstName" field, but you couldn't use "firstName" with a search on "access profiles". 
       Refer to the response schema for the respective lists of available fields. 
-    type: array
-    items:
-      type: string
+    type: string
     example:
-    - 'name'
+    - 'firstName,lastName,email'
   timeZone:
     description: >-
       The time zone to be applied to any range query related to dates.

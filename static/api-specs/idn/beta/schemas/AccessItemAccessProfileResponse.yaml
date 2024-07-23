@@ -35,4 +35,19 @@ properties:
   appDisplayName:
     type: string
     example: AppName
-    description: the name of app
+    description: the name of
+  removeDate:
+    type: string
+    example: 2024-07-01T06:00:00.00Z
+    description: the date the access profile is no longer assigned to the specified identity
+  standalone:
+    type: boolean
+    example: false
+    description: indicates whether the access profile is standalone
+  revocable:
+    type: boolean
+    example: true
+    description: indicates whether the access profile is
+required:
+  - standalone
+  - revocable

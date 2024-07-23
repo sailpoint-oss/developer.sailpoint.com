@@ -2,11 +2,11 @@ get:
   operationId: listIdentityCertifications
   tags:
     - Certifications
-  summary: Identity Campaign Certifications by IDs
+  summary: List Identity Campaign Certifications
   description: >-
-    This API returns a list of identity campaign certifications that satisfy the given query parameters. Any
+    Use this API to get a list of identity campaign certifications for the specified query parameters. Any
     authenticated token can call this API, but only certifications you are authorized to review will be returned. This
-    API does not support requests for certifications assigned to Governance Groups.
+    API does not support requests for certifications assigned to governance groups.
   parameters:
     - in: query
       name: reviewer-identity
@@ -14,7 +14,7 @@ get:
         type: string
       example: me
       description: >-
-        The ID of reviewer identity. *me* indicates the current user.
+        Reviewer's identity. *me* indicates the current user.
       required: false
     - $ref: '../parameters/limit.yaml'
     - $ref: '../parameters/offset.yaml'
@@ -56,7 +56,7 @@ get:
         Sorting is supported for the following fields: **name, due, signed**
   responses:
     '200':
-      description: List of identity campaign certifications
+      description: List of identity campaign certifications.
       content:
         application/json:
           schema:

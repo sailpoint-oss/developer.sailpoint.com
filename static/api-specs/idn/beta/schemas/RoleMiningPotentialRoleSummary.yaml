@@ -52,6 +52,24 @@ properties:
   type:
     $ref: './iai/RoleMiningRoleType.yaml'
     description: Role mining potential type.
+  createdBy:
+    oneOf:
+      - $ref: './iai/EntityCreatedByDTO.yaml'
+      - $ref: './iai/NullableEntityCreatedByDTO.yaml'
+    description: The potential role created by details
+  createdDate:
+    type: string
+    format: 'date-time'
+    description: The date-time when this potential role was created.
+  saved:
+    type: boolean
+    description: The potential role's saved status
+    default: false
+    example: true
+  description:
+    type: string
+    nullable: true
+    description: Description of the potential role
   session:
     $ref: './RoleMiningSessionParametersDto.yaml'
     description: The session parameters of the potential role.

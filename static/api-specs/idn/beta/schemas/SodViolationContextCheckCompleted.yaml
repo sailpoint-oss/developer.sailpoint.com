@@ -1,5 +1,6 @@
 description: An object referencing a completed SOD violation check
 type: object
+nullable: true
 properties:
   state:
     type: string

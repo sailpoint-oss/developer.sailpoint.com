@@ -69,6 +69,10 @@ Experimental APIs are APIs that are still under development, but may be used by 
 
 * Changing the definition of request parameter or response property
 
+Experimental APIs will be marked as "Experimental" in the API specification.
+
+![experimental](./img/experimental-warning.png)
+
 Access to experimental APIs requires an opt-in header flag. When an endpoint transitions from the experimental to public, the header is no longer necessary, but its presence won’t cause any issues.
 
 To enable preview for a request, add the `X-SailPoint-Experimental` header with a value of true to each API request that invokes a experimental endpoint. For example:
@@ -100,21 +104,17 @@ The following image demonstrates the support model for public and experimental r
 
 Individual APIs may be deprecated at anytime. The term “deprecation” means that we intend to turn off an API or change the functionality of an API in a way that breaks backwards compatibility. Deprecated APIs will be functional for two years before they are turned off or the old functionality is removed. Deprecations will be announced in one of the following three ways.
 
-## Announcements
+### Announcements
 
 Communications will be sent out to notify impacted users of any deprecations. These communications may appear in the Admin page of the Identity Security Cloud UI, in the [Announcements](https://developer.sailpoint.com/discuss/c/announcements/14) category, in Compass, or in newsletters or emails.
 
-## API specification
+### API specification
 
 Deprecated APIs will be marked as “Deprecated” in the API specification. Additional information on why it is being deprecated and what, if any, replacements are available may be provided in the deprecation notice.
 
 ![deprecation](./img/deprecation-warning.png)
 
-Experimental APIs will be marked as "Experimental" in the API specification.
-
-![experimental](./img/experimental-warning.png)
-
-## Deprecation header
+### Deprecation header
 
 Deprecated APIs will use a response header to inform users when a particular endpoint is deprecated. If you receive a response header in the form of `X-Deprecated: true`, it means that the endpoint has been deprecated and you should check the API specification for more information.
 

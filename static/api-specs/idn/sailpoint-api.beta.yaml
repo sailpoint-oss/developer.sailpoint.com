@@ -1730,7 +1730,7 @@ paths:
     $ref: './beta/paths/work-items-completed.yaml'
   /work-items/count:
     $ref: './beta/paths/work-items-count.yaml'
-  /work-items/count/completed:
+  /work-items/completed/count:
     $ref: './beta/paths/work-items-completed-count.yaml'
   /work-items/summary:
     $ref: './beta/paths/work-items-summary.yaml'

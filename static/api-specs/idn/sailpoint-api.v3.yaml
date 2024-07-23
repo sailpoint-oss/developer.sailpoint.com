@@ -1009,6 +1009,10 @@ paths:
     $ref: "./v3/paths/accounts-id-disable.yaml"
   /accounts/{id}/unlock:
     $ref: "./v3/paths/accounts-id-unlock.yaml"
+  /accounts/search-attribute-config:
+    $ref: './v3/paths/searchAttributeConfig.yaml'
+  /accounts/search-attribute-config/{name}:
+    $ref: './v3/paths/searchAttributeConfig-get-patch-delete.yaml'
   /account-activities:
     $ref: "./v3/paths/account-activity-list.yaml"
   /account-activities/{id}:

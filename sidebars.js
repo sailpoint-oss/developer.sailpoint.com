@@ -52,6 +52,10 @@ const sidebars = {
                 },
                 {
                   type: 'doc',
+                  id: 'api/api-versioning-strategy',
+                },
+                {
+                  type: 'doc',
                   id: 'api/postman-collections',
                 },
                 {

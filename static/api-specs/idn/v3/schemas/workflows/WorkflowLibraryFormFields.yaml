@@ -1,5 +1,9 @@
 type: object
 properties:
+  description:
+    type: string
+    description: Description of the form field
+    example: First value to compare
   helpText:
     type: string
     description: Describes the form field in the UI
@@ -19,6 +23,7 @@ properties:
     default: false
   type:
     description: The type of the form field
+    type: string
     nullable: true
     enum:
       - text
@@ -34,6 +39,7 @@ properties:
       - multiType
       - duration
       - toggle
+      - formPicker
       - identityPicker
       - governanceGroupPicker
       - string
@@ -43,4 +49,6 @@ properties:
       - keyValuePairs
       - emailPicker
       - advancedToggle
+      - variableCreator
+      - htmlEditor
     example: text

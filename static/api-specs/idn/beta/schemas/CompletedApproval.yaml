@@ -150,3 +150,6 @@ properties:
     type: string
     nullable: true
     description: Information about the requested accounts
+  assignmentContext:
+    type: object
+    nullable: true

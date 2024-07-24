@@ -1,8 +1,9 @@
 title: Scheduled Trigger Attributes
 type: object
 description: Attributes related to a scheduled trigger
+additionalProperties: false
 required:
-- cronString
+- frequency
 properties:
   cronString:
     type: string
@@ -10,4 +11,29 @@ properties:
     externalDocs:
       description: CRON expression editor
       url: https://crontab.guru/
-    example: "0 * */3 */5 *"
+    example: "0 9 * * 1"
+  frequency:
+    type: string
+    description: Frequency of execution
+    enum:
+      - daily
+      - weekly
+      - monthly
+      - yearly
+      - cronSchedule
+  timeZone:
+    type: string
+    description: Time zone identifier
+    example: "America/Chicago"
+  weeklyDays:
+    type: array
+    items:
+      type: string
+    example: Monday
+    description: Scheduled days of the week for execution
+  weeklyTimes:
+    type: array
+    items:
+      type: string
+    example: Monday
+    description: Scheduled execution times

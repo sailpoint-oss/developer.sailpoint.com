@@ -25,6 +25,8 @@ allOf:
       format: date-time
       description: The date and time the workflow was modified.
       example: 2023-12-05T15:18:27.699132301Z
+    modifiedBy:
+      $ref: './WorkflowModifiedBy.yaml'
     creator:
       type: object
       description: Workflow creator's identity.

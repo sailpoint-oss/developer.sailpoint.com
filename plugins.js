@@ -210,8 +210,8 @@ module.exports = [
           to: '/docs/extensibility/rules/cloud-rules/correlation-rule',
         },
         {
-          from: ['/idn/docs/rules/cloud-rules/generic-rule'],
-          to: '/docs/extensibility/rules/cloud-rules/generic-rule',
+          from: ['/idn/docs/rules/cloud-rules/transform-rule'],
+          to: '/docs/extensibility/rules/cloud-rules/transform-rule',
         },
         {
           from: ['/idn/docs/rules/cloud-rules/identity-attribute-rule'],

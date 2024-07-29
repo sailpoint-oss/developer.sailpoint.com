@@ -1,5 +1,5 @@
 post:
-  operationId: showGenerateIdentityPreview
+  operationId: showIdentityPreview
   tags:
     - Identity Profiles
   summary: Generate Identity Profile Preview

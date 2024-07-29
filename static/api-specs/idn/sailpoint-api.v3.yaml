@@ -1133,6 +1133,8 @@ paths:
     $ref: "./v3/paths/identity-profiles-export.yaml"
   /identity-profiles/import:
     $ref: "./v3/paths/identity-profiles-import.yaml"
+  /identity-profiles/identity-preview:
+    $ref: './v3/paths/identity-profiles-identity-preview.yaml'
   /identity-profiles/{identity-profile-id}:
     $ref: "./v3/paths/identity-profile.yaml"
   /identity-profiles/{identity-profile-id}/default-identity-attribute-config:

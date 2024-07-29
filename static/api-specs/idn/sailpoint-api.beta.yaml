@@ -1802,6 +1802,8 @@ paths:
     $ref: './beta/paths/form-definition-forms-action-dynamic-schema.yaml'
   /form-definitions/import:
     $ref: './beta/paths/form-definitions-import.yaml'
+  /form-definitions/template:
+    $ref: './beta/paths/form-definitions-template.yaml'
   /form-definitions/{formDefinitionID}/upload:
     $ref: './beta/paths/form-definition-files.yaml'
   /form-definitions/{formDefinitionID}/file/{fileID}:

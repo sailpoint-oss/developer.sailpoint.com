@@ -1369,6 +1369,8 @@ paths:
     $ref: "./v3/paths/work-items-summary.yaml"
   /work-items/{id}:
     $ref: "./v3/paths/work-item.yaml"
+  /work-items/{id}/forward:
+    $ref: './v3/paths/work-item-forward.yaml'
   /work-items/{id}/approve/{approvalItemId}:
     $ref: "./v3/paths/work-items-approve-approval-item.yaml"
   /work-items/{id}/reject/{approvalItemId}:

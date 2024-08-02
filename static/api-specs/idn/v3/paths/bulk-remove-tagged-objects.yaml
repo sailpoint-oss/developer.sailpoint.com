@@ -17,7 +17,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../schemas/BulkTaggedObject.yaml'
+          $ref: '../schemas/BulkRemoveTaggedObject.yaml'
   responses:
     '204':
       $ref: '../../v3/responses/204.yaml'

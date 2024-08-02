@@ -1,0 +1,12 @@
+type: object
+properties:
+  objectRefs:
+    type: array
+    items:
+      $ref: '../../v3/schemas/TaggedObjectDto.yaml'
+  tags:
+    type: array
+    items:
+      type: string
+    description: Label to be applied to an Object
+    example: [ "BU_FINANCE", "PCI" ]

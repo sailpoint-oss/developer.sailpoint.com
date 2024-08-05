@@ -187,7 +187,7 @@ Example:
 ```
 {
   "advanced_search": {
-    "condition_rules_attributes: [
+    "condition_rules_attributes": [
       {
         "type": "ProfileAttributeRule",
         "condition_object_id": "4ba5be36-3c4d-11ee-be56-0242ac120002",

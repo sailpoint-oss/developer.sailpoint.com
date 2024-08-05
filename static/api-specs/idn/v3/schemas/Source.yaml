@@ -264,7 +264,8 @@ properties:
     example: true
   status:
     type: string
-    enum: 
+    enum:
+      - SOURCE_STATE_ERROR_ACCOUNT_FILE_IMPORT
       - SOURCE_STATE_ERROR_CLUSTER
       - SOURCE_STATE_ERROR_SOURCE
       - SOURCE_STATE_ERROR_VA

@@ -1730,7 +1730,7 @@ paths:
     $ref: './beta/paths/work-items-completed.yaml'
   /work-items/count:
     $ref: './beta/paths/work-items-count.yaml'
-  /work-items/count/completed:
+  /work-items/completed/count:
     $ref: './beta/paths/work-items-completed-count.yaml'
   /work-items/summary:
     $ref: './beta/paths/work-items-summary.yaml'
@@ -1802,6 +1802,8 @@ paths:
     $ref: './beta/paths/form-definition-forms-action-dynamic-schema.yaml'
   /form-definitions/import:
     $ref: './beta/paths/form-definitions-import.yaml'
+  /form-definitions/template:
+    $ref: './beta/paths/form-definitions-template.yaml'
   /form-definitions/{formDefinitionID}/upload:
     $ref: './beta/paths/form-definition-files.yaml'
   /form-definitions/{formDefinitionID}/file/{fileID}:

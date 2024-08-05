@@ -1,0 +1,37 @@
+get:
+  operationId: getCountCompletedWorkItems
+  tags:
+  - Work Items
+  summary: Count Completed Work Items
+  description: This gets a count of completed work items belonging to either the specified
+    user(admin required), or the current user.
+  parameters:
+  - in: query
+    name: ownerId
+    schema:
+      type: string
+    description: ID of the work item owner.
+    required: false
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: List of work items
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../../beta/schemas/WorkItemsCount.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml

@@ -8,7 +8,7 @@ post:
 
     Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
   security:
-    - UserContextAuth: [idn:campaign:update]
+    - UserContextAuth: [idn:campaign:manage]
   requestBody:
     description:
       Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00).

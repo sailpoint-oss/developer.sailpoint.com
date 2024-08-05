@@ -5,6 +5,7 @@ get:
   summary: Gets a single Identity Profile
   description: >-
     This returns a single Identity Profile based on ID.
+    
 
     A token with ORG_ADMIN or API authority is required to call this API.
   parameters:
@@ -94,8 +95,11 @@ patch:
   description: >-
     This updates the specified Identity Profile.
 
+
     A token with ORG_ADMIN authority is required to call this API to update the Identity Profile.
-    Some fields of the Schema cannot be updated. These fields are listed below.
+    
+    
+    Some fields of the Schema cannot be updated. These fields are listed below:
 
     * id
 
@@ -104,6 +108,12 @@ patch:
     * created
 
     * modified
+    
+    * identityCount
+
+    * identityRefreshRequired
+
+    * Authoritative Source and Identity Attribute Configuration cannot be modified at once.
   parameters:
     - in: path
       name: identity-profile-id

@@ -1,0 +1,107 @@
+patch:
+  operationId: patchRoleMiningSession
+  summary: Patch a role mining session
+  tags:
+  - IAI Role Mining
+  description: The  method updates an existing role mining session using PATCH. Supports
+    op in {"replace"} and changes to pruneThreshold and/or minNumIdentitiesInPotentialRole.
+    The potential roles in this role mining session is then re-calculated.
+  parameters:
+  - in: path
+    name: sessionId
+    schema:
+      type: string
+    required: true
+    description: The role mining session id to be patched
+    example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  requestBody:
+    required: true
+    description: Replace pruneThreshold and/or minNumIdentitiesInPotentialRole in
+      role mining session. Update saved status or saved name for a role mining session.
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: ../../beta/schemas/JsonPatchOperation.yaml
+        example:
+        - op: replace
+          path: /pruneThreshold
+          value: '83'
+        - op: replace
+          path: /minNumIdentitiesInPotentialRole
+          value: '10'
+        - op: replace
+          path: /saved
+          value: 'false'
+        - op: replace
+          path: /name
+          value: RM Session - 07/10/22
+        - op: add
+          path: /name
+          value: RM Session - 07/10/22
+  responses:
+    '202':
+      description: Success
+      $ref: ../../v3/responses/202.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
+get:
+  operationId: getRoleMiningSession
+  summary: Get a role mining session
+  tags:
+  - IAI Role Mining
+  description: The method retrieves a role mining session.
+  parameters:
+  - in: path
+    name: sessionId
+    schema:
+      type: string
+    required: true
+    description: The role mining session id to be retrieved.
+    example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: Returns a role mining session
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/RoleMiningSessionResponse.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/400.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml

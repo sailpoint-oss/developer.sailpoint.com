@@ -18,6 +18,12 @@ properties:
     nullable: true
     type: string
     example: "CLIENT_STATUS_NOT_CONFIGURED"
+  apiGatewayBaseUrl:
+    nullable: true
+    type: string
+  cookbook:
+    nullable: true
+    type: string 
   ccId:
     description: Previous CC ID to be used in data migration. (This field will be deleted after CC migration!)
     nullable: true

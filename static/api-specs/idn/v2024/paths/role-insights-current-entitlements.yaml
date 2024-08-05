@@ -1,0 +1,60 @@
+get:
+  operationId: getRoleInsightsCurrentEntitlements
+  summary: Get current entitlement for a role
+  tags:
+  - Role Insights
+  description: This endpoint gets the entitlements for a role. The term "current"
+    is to distinguish from the entitlement(s) an insight might recommend adding.
+  parameters:
+  - in: path
+    name: insightId
+    schema:
+      type: string
+    required: true
+    description: The role insight id
+    example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
+  - in: query
+    name: filters
+    description: 'Filter results using the standard syntax described in [V3 API Standard
+      Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+      Filtering is supported for the following fields and operators:
+
+
+      **name**: *sw*
+
+
+      **description**: *sw*'
+    example: name sw "r"
+    required: false
+    style: form
+    explode: true
+    schema:
+      type: string
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: Succeeded. Returns a list of current or pre-existing entitlements
+        for a role.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../../beta/schemas/RoleInsightsEntitlement.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml

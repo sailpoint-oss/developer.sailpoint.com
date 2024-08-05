@@ -1009,6 +1009,10 @@ paths:
     $ref: "./v3/paths/accounts-id-disable.yaml"
   /accounts/{id}/unlock:
     $ref: "./v3/paths/accounts-id-unlock.yaml"
+  /accounts/search-attribute-config:
+    $ref: './v3/paths/searchAttributeConfig.yaml'
+  /accounts/search-attribute-config/{name}:
+    $ref: './v3/paths/searchAttributeConfig-get-patch-delete.yaml'
   /account-activities:
     $ref: "./v3/paths/account-activity-list.yaml"
   /account-activities/{id}:
@@ -1129,6 +1133,8 @@ paths:
     $ref: "./v3/paths/identity-profiles-export.yaml"
   /identity-profiles/import:
     $ref: "./v3/paths/identity-profiles-import.yaml"
+  /identity-profiles/identity-preview:
+    $ref: './v3/paths/identity-profiles-identity-preview.yaml'
   /identity-profiles/{identity-profile-id}:
     $ref: "./v3/paths/identity-profile.yaml"
   /identity-profiles/{identity-profile-id}/default-identity-attribute-config:
@@ -1363,6 +1369,8 @@ paths:
     $ref: "./v3/paths/work-items-summary.yaml"
   /work-items/{id}:
     $ref: "./v3/paths/work-item.yaml"
+  /work-items/{id}/forward:
+    $ref: './v3/paths/work-item-forward.yaml'
   /work-items/{id}/approve/{approvalItemId}:
     $ref: "./v3/paths/work-items-approve-approval-item.yaml"
   /work-items/{id}/reject/{approvalItemId}:

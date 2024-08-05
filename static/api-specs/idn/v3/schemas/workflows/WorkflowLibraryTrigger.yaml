@@ -7,11 +7,22 @@ properties:
     example: "idn:identity-attributes-changed"
   type:
     description: Trigger type
+    type: string
     enum:
       - EVENT
       - SCHEDULED
       - EXTERNAL
     example: EVENT
+  deprecated:
+    type: boolean
+  deprecatedBy:
+    type: string
+    format: date-time
+  isSimulationEnabled:
+    type: boolean
+  outputSchema:
+    type: object
+    description: Example output schema
   name:
     type: string
     description: Trigger Name

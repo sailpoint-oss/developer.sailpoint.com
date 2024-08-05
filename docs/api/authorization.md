@@ -43,7 +43,9 @@ sequenceDiagram
 
 When managing a user's access to the API, you must first assign the target user an appropriate [user level](https://documentation.sailpoint.com/saas/help/common/users/user_level_matrix.html). It is important to choose the correct user level as it will place a boundary on which APIs a user can call, which also affects the areas and functions of the UI they have access to. For example, if a user is in charge of creating reports for auditing requirements, consider granting them the "Report Admin" user level.
 
-User levels are typically granted through the UI, [following the procedures from this document](https://documentation.sailpoint.com/saas/help/common/users/grant_remove_user_levels.html). You can also set user levels via API using the [auth user update](https://developer.sailpoint.com/docs/api/v3/patch-auth-user) endpoint.
+
+User levels are typically granted through the UI, [following the procedures from this document](https://documentation.sailpoint.com/saas/help/accounts/identities.html#setting-user-level-permissions). You can also set user levels via API using the [auth user update](https://developer.sailpoint.com/docs/api/v3/patch-auth-user) endpoint.
+
 
 User levels act as the first line of defense by applying a rigid boundary around the APIs that a user can call. The next section introduces scopes, which allow users to apply granular controls on the APIs an access token can call.
 

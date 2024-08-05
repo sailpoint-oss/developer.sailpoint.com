@@ -17,7 +17,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../schemas/BulkTaggedObject.yaml'
+          $ref: '../schemas/BulkAddTaggedObject.yaml'
   responses:
     '200':
       description: Request succeeded.

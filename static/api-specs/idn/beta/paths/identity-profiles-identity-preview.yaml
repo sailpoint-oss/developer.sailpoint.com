@@ -1,14 +1,12 @@
 post:
-  operationId: generateIdentityPreview
+  operationId: showGenerateIdentityPreview
   tags:
     - Identity Profiles
   summary: Generate Identity Profile Preview
   description: >-
-    Use this API to generate a non-persisted `IdentityDetails` object that represents
-    a preview of the identity attributes with a specified policy's
-    attribute config applied.
+    Use this API to generate a non-persisted preview of the identity object after applying `IdentityAttributeConfig` sent in request body.
 
-    This API supports the `accountAttribute`, `rule`, and `reference` transform types. 
+    This API only allows `accountAttribute`, `reference` and `rule` transform types in the `IdentityAttributeConfig` sent in the request body.
 
     A token with ORG_ADMIN authority is required to call this API to generate an identity preview.
   requestBody:
@@ -21,7 +19,7 @@ post:
   responses:
     '200':
       description: >-
-        Object representing the preview object with all of the identity attributes using the current mappings.
+        A preview of the identity attributes after applying identity attributes config sent in request body.
       content:
         application/json:
           schema:

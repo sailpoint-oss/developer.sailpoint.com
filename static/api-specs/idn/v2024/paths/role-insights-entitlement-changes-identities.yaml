@@ -1,0 +1,90 @@
+get:
+  operationId: getEntitlementChangesIdentities
+  summary: Get identities for a suggested entitlement (for a role)
+  tags:
+  - Role Insights
+  description: Role insights suggests entitlements to be added for a role. This endpoint
+    returns a list of identities in the role, with or without the entitlements, for
+    a suggested entitlement so that the user can see which identities would be affected
+    if the suggested entitlement were to be added to the role.
+  parameters:
+  - in: path
+    name: insightId
+    schema:
+      type: string
+    required: true
+    description: The role insight id
+    example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
+  - in: path
+    name: entitlementId
+    schema:
+      type: string
+    required: true
+    description: The entitlement id
+    example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
+  - in: query
+    name: hasEntitlement
+    description: Identity has this entitlement or not
+    required: false
+    style: form
+    explode: true
+    schema:
+      type: boolean
+      default: false
+  - $ref: ../../v3/parameters/offset.yaml
+  - $ref: ../../v3/parameters/limit.yaml
+  - $ref: ../../v3/parameters/count.yaml
+  - in: query
+    name: sorters
+    description: 'Sort results using the standard syntax described in [V3 API Standard
+      Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+
+      Sorting is supported for the following fields: **name**'
+    example: name
+    required: false
+    style: form
+    explode: true
+    schema:
+      type: string
+  - in: query
+    name: filters
+    description: 'Filter results using the standard syntax described in [V3 API Standard
+      Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+      Filtering is supported for the following fields and operators:
+
+
+      **name**: *sw*'
+    example: name sw "Jan"
+    required: false
+    style: form
+    explode: true
+    schema:
+      type: string
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: Succeeded. Returns a list of identities with or without the entitlement.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../../beta/schemas/RoleInsightsIdentities.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml

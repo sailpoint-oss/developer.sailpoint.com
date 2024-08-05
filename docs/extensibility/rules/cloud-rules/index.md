@@ -67,10 +67,6 @@ This should be the rule's file name:
 
 `Rule - IdentityAttribute - Calculate Lifecycle.xml`
 
-If you do not have a type, use "Generic" as the type. It would look like this:
-
-`Rule - Generic - My Generic Rule.xml`
-
 - **Updating Existing Rules and Versioning**
 
   - The best practice is to maintain a single rule for a given use case in the tenant. Creating additional rules while updating to maintain versioning is not supported because doing so may cause issues during reviews and support.

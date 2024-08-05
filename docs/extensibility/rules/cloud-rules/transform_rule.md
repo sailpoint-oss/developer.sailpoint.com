@@ -1,12 +1,12 @@
 ---
-id: generic-rule
-title: Generic Rule
-pagination_label: Generic Rule
-sidebar_label: Generic Rule
-sidebar_class_name: Generic Rule
-keywords: ['cloud', 'rules', 'generic']
+id: transform-rule
+title: Transform Rule
+pagination_label: Transform Rule
+sidebar_label: Transform Rule
+sidebar_class_name: Transform Rule
+keywords: ['cloud', 'rules', 'transform']
 description: This rule performs transforms.
-slug: /extensibility/rules/cloud-rules/generic-rule
+slug: /extensibility/rules/cloud-rules/transform-rule
 tags: ['Rules']
 ---
 
@@ -85,7 +85,7 @@ This rule normalizes any names into normal names capitaliztion. For example: JOH
 ```java
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
-<Rule name="Name Normalizer">
+<Rule name="Name Normalizer" type="Transform">
   <Description>
 This rule normalizes any names into normal names capitaliztion.  For example:
   JOHN DOE -> John Doe

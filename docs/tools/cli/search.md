@@ -103,16 +103,6 @@ Here is an example of a `query` command that sorts the results in ascending orde
 sail search query "name:a*" --indices identities --sort name --sort "-created"
 ```
 
-#### Output Types
-
-Use the `outputTypes` flag to specify the output data format for the search query results. Currently, the only supported output types are `json` and `csv`.
-
-Here is an example of a `query` command that specifies the `json` output type:
-
-```shell
-sail search query "name:a*" --indices identities
-```
-
 #### Folder Path
 
 Use the `folderPath` flag to specify the folder path to save the search results in. If you don't specify a `folderPath`, the results will save to a folder called "search_results", located within your current working directory.

@@ -79,7 +79,7 @@ export function createApiPageMD({
     frontMatter.show_extensions
       ? createVendorExtensions(extensions)
       : undefined,
-    createDeprecationNotice({ deprecated, description: deprecatedDescription }),
+      createDeprecation({ deprecated, description: deprecatedDescription }),
     createExperimentalNotice(parameters),
     createDescription(description),
     requestBody || parameters ? createRequestHeader("Request") : undefined,
@@ -94,6 +94,17 @@ export function createApiPageMD({
     createStatusCodes({ responses }),
     createCallbacks({ callbacks }),
   ]);
+}
+
+
+function createDeprecation({ deprecated, description }: { deprecated?: boolean; description?: string }) {
+  if (deprecated == true) {
+    if (description !== undefined) {
+      return `:::caution deprecated\n\n${description}\n\n:::`;
+    } else {
+      return `:::caution deprecated\n\nThis endpoint has been deprecated and may be replaced or removed in future versions of the API.\n\n:::`;
+    }
+  }
 }
 
 function createExperimentalNotice(parameters){

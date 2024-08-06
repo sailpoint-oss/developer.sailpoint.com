@@ -1,8 +1,8 @@
-const versions = require("./docs/api/v2024/versions.json");
+const versions = require('./docs/api/v2024/versions.json');
 const {
   versionSelector,
   versionCrumb,
-} = require("docusaurus-plugin-openapi-docs/lib/sidebars/utils");
+} = require('docusaurus-plugin-openapi-docs/lib/sidebars/utils');
 
 const sidebars = {
   openApiSidebar: [
@@ -105,20 +105,6 @@ const sidebars = {
       items: [
         {
           type: 'category',
-          label: 'API Specifications',
-          collapsible: false,
-          link: {
-            type: 'generated-index',
-            title: 'API Specifications',
-            description:
-              "These are the SCIM APIs for SailPoint's on-premise service, IdentityIQ. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.",
-            slug: '/api/iiq',
-          },
-          // @ts-ignore
-          items: require('./docs/api/iiq/sidebar.ts'),
-        },
-        {
-          type: 'category',
           label: 'Plugin Developer Guide',
           link: {
             type: 'doc',
@@ -137,6 +123,22 @@ const sidebars = {
           href: 'https://documentation.sailpoint.com/#identityiq',
         },
       ],
+    },
+  ],
+  iiqApiSideBar: [
+    {
+      type: 'category',
+      label: 'API Specifications',
+      collapsible: false,
+      link: {
+        type: 'generated-index',
+        title: 'API Specifications',
+        description:
+          "These are the SCIM APIs for SailPoint's on-premise service, IdentityIQ. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.",
+        slug: '/api/iiq',
+      },
+      // @ts-ignore
+      items: require('./docs/api/iiq/sidebar.ts'),
     },
   ],
   nermSideBar: [
@@ -182,25 +184,25 @@ const sidebars = {
   ],
   isc_2024_sidebar: [
     {
-      type: "html",
+      type: 'html',
       defaultStyle: true,
       value: versionSelector(versions),
-      className: "version-button",
+      className: 'version-button',
     },
     {
-      type: "html",
+      type: 'html',
       defaultStyle: true,
       value: versionCrumb(`v2024`),
     },
-  //   {
-  //     type: "html",
-  //     defaultStyle: true,
-  //     value: `  <select id="featureToggle" onchange="toggleFeatures()">
-  //   <option value="all" selected>All</option>
-  //   <option value="public">Public</option>
-  //   <option value="experimental">Experimental</option>
-  // </select>`,
-  //   },
+    //   {
+    //     type: "html",
+    //     defaultStyle: true,
+    //     value: `  <select id="featureToggle" onchange="toggleFeatures()">
+    //   <option value="all" selected>All</option>
+    //   <option value="public">Public</option>
+    //   <option value="experimental">Experimental</option>
+    // </select>`,
+    //   },
     {
       type: 'doc',
       id: 'api/getting-started',
@@ -241,17 +243,17 @@ const sidebars = {
       },
       // @ts-ignore
       items: require('./docs/api/v2024/sidebar.ts'),
-    }
+    },
   ],
   isc_beta_sidebar: [
     {
-      type: "html",
+      type: 'html',
       defaultStyle: true,
       value: versionSelector(versions),
-      className: "version-button",
+      className: 'version-button',
     },
     {
-      type: "html",
+      type: 'html',
       defaultStyle: true,
       value: versionCrumb(`beta`),
     },
@@ -295,17 +297,17 @@ const sidebars = {
       },
       // @ts-ignore
       items: require('./docs/api/beta/sidebar.ts'),
-    }
+    },
   ],
   isc_v3_sidebar: [
     {
-      type: "html",
+      type: 'html',
       defaultStyle: true,
       value: versionSelector(versions),
-      className: "version-button",
+      className: 'version-button',
     },
     {
-      type: "html",
+      type: 'html',
       defaultStyle: true,
       value: versionCrumb(`v3`),
     },
@@ -349,7 +351,7 @@ const sidebars = {
       },
       // @ts-ignore
       items: require('./docs/api/v3/sidebar.ts'),
-    }
+    },
   ],
 };
 module.exports = sidebars;

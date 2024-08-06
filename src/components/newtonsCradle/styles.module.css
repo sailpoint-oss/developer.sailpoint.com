@@ -34,81 +34,92 @@
 
 .line:nth-child(1) {
   transform: rotate(calc(360deg / -12 * 1));
-
-  &::before {
-    animation-delay: calc(var(--uib-speed) / -12 * 1);
-  }
 }
+
+.line:nth-child(1)::before {
+  animation-delay: calc(var(--uib-speed) / -12 * 1);
+}
+
 .line:nth-child(2) {
   transform: rotate(calc(360deg / -12 * 2));
-
-  &::before {
-    animation-delay: calc(var(--uib-speed) / -12 * 2);
-  }
 }
+
+.line:nth-child(2)::before {
+  animation-delay: calc(var(--uib-speed) / -12 * 2);
+}
+
 .line:nth-child(3) {
   transform: rotate(calc(360deg / -12 * 3));
-
-  &::before {
-    animation-delay: calc(var(--uib-speed) / -12 * 3);
-  }
 }
+
+.line:nth-child(3)::before {
+  animation-delay: calc(var(--uib-speed) / -12 * 3);
+}
+
 .line:nth-child(4) {
   transform: rotate(calc(360deg / -12 * 4));
-
-  &::before {
-    animation-delay: calc(var(--uib-speed) / -12 * 4);
-  }
 }
+
+.line:nth-child(4)::before {
+  animation-delay: calc(var(--uib-speed) / -12 * 4);
+}
+
 .line:nth-child(5) {
   transform: rotate(calc(360deg / -12 * 5));
-
-  &::before {
-    animation-delay: calc(var(--uib-speed) / -12 * 5);
-  }
 }
+
+.line:nth-child(5)::before {
+  animation-delay: calc(var(--uib-speed) / -12 * 5);
+}
+
 .line:nth-child(6) {
   transform: rotate(calc(360deg / -12 * 6));
-
-  &::before {
-    animation-delay: calc(var(--uib-speed) / -12 * 6);
-  }
 }
+
+.line:nth-child(6)::before {
+  animation-delay: calc(var(--uib-speed) / -12 * 6);
+}
+
 .line:nth-child(7) {
   transform: rotate(calc(360deg / -12 * 7));
-
-  &::before {
-    animation-delay: calc(var(--uib-speed) / -12 * 7);
-  }
 }
+
+.line:nth-child(7)::before {
+  animation-delay: calc(var(--uib-speed) / -12 * 7);
+}
+
 .line:nth-child(8) {
   transform: rotate(calc(360deg / -12 * 8));
-
-  &::before {
-    animation-delay: calc(var(--uib-speed) / -12 * 8);
-  }
 }
+
+.line:nth-child(8)::before {
+  animation-delay: calc(var(--uib-speed) / -12 * 8);
+}
+
 .line:nth-child(9) {
   transform: rotate(calc(360deg / -12 * 9));
-
-  &::before {
-    animation-delay: calc(var(--uib-speed) / -12 * 9);
-  }
 }
+
+.line:nth-child(9)::before {
+  animation-delay: calc(var(--uib-speed) / -12 * 9);
+}
+
 .line:nth-child(10) {
   transform: rotate(calc(360deg / -12 * 10));
-
-  &::before {
-    animation-delay: calc(var(--uib-speed) / -12 * 10);
-  }
 }
+
+.line:nth-child(10)::before {
+  animation-delay: calc(var(--uib-speed) / -12 * 10);
+}
+
 .line:nth-child(11) {
   transform: rotate(calc(360deg / -12 * 11));
-
-  &::before {
-    animation-delay: calc(var(--uib-speed) / -12 * 11);
-  }
 }
+
+.line:nth-child(11)::before {
+  animation-delay: calc(var(--uib-speed) / -12 * 11);
+}
+
 
 @keyframes pulse {
   0%,

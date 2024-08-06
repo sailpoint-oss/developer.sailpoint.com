@@ -3,10 +3,12 @@ post:
   tags:
     - Certification Campaigns
   summary: Create a Campaign Template
-  description: >-
+  description: |
     Use this API to create a certification campaign template based on campaign.
+
+    A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: [ idn:campaign-template:create ]
+    - UserContextAuth: [idn:campaign-template:manage]
   requestBody:
     required: true
     content:
@@ -53,13 +55,14 @@ get:
   tags:
     - Certification Campaigns
   summary: List Campaign Templates
-  description: >-
+  description: |
     Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params.
 
     The API returns all campaign templates matching the query parameters. 
 
+    A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: [ idn:campaign-template-list:read ]
+    - UserContextAuth: [idn:campaign-template:read, idn:campaign-template:manage]
   parameters:
     - $ref: '../parameters/limit.yaml'
     - $ref: '../parameters/offset.yaml'

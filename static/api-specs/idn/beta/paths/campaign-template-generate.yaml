@@ -5,8 +5,8 @@ post:
   summary: Generate a Campaign from Template
   deprecated: true
   security:
-     - UserContextAuth: [idn:campaign-template:run]
-  description: >-
+     - UserContextAuth: [idn:campaign-template:manage]
+  description: |
     Use this API to generate a new certification campaign from a campaign template.
 
     The campaign object contained in the template has special formatting applied to its name and description
@@ -21,7 +21,7 @@ post:
 
     Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/start-generate-campaign-template).
 
-    Calling this endpoint requires the ORG_ADMIN role.
+    A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   parameters:
     - in: path
       name: id

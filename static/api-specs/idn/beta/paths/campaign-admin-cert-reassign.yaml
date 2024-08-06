@@ -1,13 +1,14 @@
 post:
   security:
-    - UserContextAuth: [ idn:certification:write ]
+    - UserContextAuth: [idn:campaign:manage]
   operationId: move
   tags:
     - Certification Campaigns
   summary: Reassign Certifications
-  description: >-
-    This API reassigns the specified certifications from one identity to another. A token with ORG_ADMIN or CERT_ADMIN
-    authority is required to call this API.
+  description: |
+    This API reassigns the specified certifications from one identity to another.  Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/move).
+    
+    A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   deprecated: true
   parameters:
     - in: path

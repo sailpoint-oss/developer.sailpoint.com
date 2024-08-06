@@ -3,9 +3,10 @@ get:
   tags:
     - Certification Campaigns
   summary: Get Campaign
-  description: >-
-    Use this API to get information for an existing certification campaign by the campaign's ID. 
-    Authorized callers must be reviewers for this campaign, ORG_ADMINs, or a CERT_ADMINs.
+  description: |
+    Use this API to get information for an existing certification campaign by the campaign's ID.
+
+    A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   security:
     - UserContextAuth: [idn:campaign:read, idn:campaign:manage]
   parameters:
@@ -62,9 +63,12 @@ patch:
   tags:
     - Certification Campaigns
   summary: Update a Campaign
-  description: Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+  description: |
+    Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+
+    A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: [idn:campaign:update,idn:campaign:read]
+    - UserContextAuth: [idn:campaign:read, idn:campaign:manage]
   parameters:
     - in: path
       name: id

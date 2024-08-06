@@ -3,10 +3,10 @@ post:
   tags:
     - Certification Campaigns
   summary: Activate a Campaign
-  description: >-
+  description: |
     Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged.
 
-    Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+    A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
   security:
     - UserContextAuth: [idn:campaign:manage]
   requestBody:

@@ -99,6 +99,8 @@ For more details on the sp-config API see [sp-config](/docs/api/beta/export-sp-c
   - Do not use `System.out` statements to output data. Internal log aggregators don't pick up these statements.
 
   - If you want rules to log statements, use `log.debug()`, `log.info()`, `log.warn()`, or `log.error()` statements.
+    - It is appropriate and expected that you use a combination of logging levels depending on the severity of the message being reported. However, you should not use `log.error()` for messages which are purely informational. Information that is helpful for debugging should use `log.debug()`,  informational messages indicating that the code is running normally should make use of `log.info()`, and messages indicating a possible non-critical issue should leverage `log.warn()`. The `log.error()` should ONLY be used to capture a log message indicating an unexpected error or critical failure in your code.
+    - For additional information on best practices, you can refer to: [https://betterstack.com/community/guides/logging/how-to-start-logging-with-java/#3-use-the-most-appropriate-log-level](https://www.tutorialspoint.com/log4j/log4j_logging_levels.htm).
 
   - When you are logging, do not log full object serialization to logs. Calls to `.toXml()` or similar methods are prohibited.
 

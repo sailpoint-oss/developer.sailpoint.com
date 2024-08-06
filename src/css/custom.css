@@ -6,6 +6,8 @@
 
 /* You can override the default Infima variables here. */
 
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
 .ReactModal__Overlay {
   z-index: 9999;
 }
@@ -285,6 +287,9 @@
   --dev-sailpoint-small-logo: url('../../static/img/SailPoint-Logo-RGB-Color.png');
 
   --ifm-font-family-base: 'Poppins';
+
+  --dev-icon-experimental: #cc27b0;
+  --dev-icon-deprecated: rgb(230, 167, 0);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -355,10 +360,15 @@
   font-weight: 400;
 }
 
+.menu__link {
+  padding-left: 13%;
+}
+
 /* Sidebar Method labels */
 .api-method > .menu__link {
   align-items: center;
   justify-content: start;
+  width: fit-content;
 }
 
 .api-method > .menu__link::before {
@@ -476,8 +486,6 @@ html[data-theme='dark'] .theme-admonition-note {
   background-color: #474748;
 }
 
-ul {
-}
 
 .button.button--secondary {
   color: white;
@@ -550,4 +558,28 @@ div[id^='discourse-comments'] {
 
 .openapi-security__summary-container {
   background: var(--ifm-pre-background);
+}
+
+.menu__list-item--experimental > .menu__link::after {
+  font-size: 20px;
+  font-family: 'Font Awesome 6 Free'; 
+  font-weight: 900;
+  color: var(--dev-icon-experimental);
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  content: '\f0c3';
+  position: relative;
+  right: 103%;
+}
+
+.menu__list-item--deprecated > .menu__link::after {
+  font-size: 20px;
+  font-family: 'Font Awesome 6 Free'; 
+  font-weight: 900;
+  color: var(--dev-icon-deprecated);
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  content: '\f071';
+  position: relative;
+  right: 103%;
 }

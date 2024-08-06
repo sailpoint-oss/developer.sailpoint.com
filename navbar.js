@@ -15,7 +15,16 @@ module.exports = {
         {label: 'IdentityIQ', to: '/docs/iiq'},
       ],
     },
-
+    {
+      type: 'dropdown',
+      label: 'API Specifications',
+      position: 'left',
+      items: [
+        {label: 'Identity Security Cloud', to: '/docs/api/v2024'},
+        {label: 'IdentityIQ', to: '/docs/api/iiq'},
+        {label: 'NERM', to: '/docs/api/nerm/v1'},
+      ],
+    },
     {
       type: 'dropdown',
       label: 'Community',

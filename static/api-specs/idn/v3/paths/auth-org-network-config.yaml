@@ -34,9 +34,9 @@ post:
   summary: Create security network configuration.
   description: >-
     This API returns the details of an org's network auth configuration.
-    Requires security scope of: 'sp:auth-org:create'
+    Requires security scope of: 'sp:auth-org:manage'
   security:
-    - UserContextAuth: [ sp:auth-org:create ]
+    - UserContextAuth: [ sp:auth-org:manage ]
   requestBody:
     required: true
     description: >-
@@ -76,9 +76,9 @@ patch:
   summary: Update security network configuration.
   description: >-
     This API updates an existing network configuration for an org using PATCH
-     Requires security scope of:  'sp:auth-org:update'
+     Requires security scope of:  'sp:auth-org:manage'
   security:
-    - UserContextAuth: [ sp:auth-org:update ]
+    - UserContextAuth: [ sp:auth-org:manage ]
   requestBody:
     required: true
     description: >-

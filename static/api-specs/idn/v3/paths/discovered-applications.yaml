@@ -12,6 +12,15 @@ get:
     - $ref: '../../v3/parameters/limit.yaml'
     - $ref: '../../v3/parameters/offset.yaml'
     - in: query
+      name: detail
+      schema:
+        type: string
+        enum: [ SLIM, FULL ]
+      description: >-
+        Determines whether slim, or increased level of detail is provided for each discovered application in the returned list.
+        SLIM is the default behavior.
+      example: FULL
+    - in: query
       name: filter
       schema:
         type: string
@@ -26,7 +35,22 @@ get:
         
         
         **description**: *eq, sw, co*
-      example: name eq "Okta" and description co "Okta"
+        
+        
+        **createdAtStart**: *eq, le, ge*
+
+
+        **createdAtEnd**: *eq, le, ge*
+        
+        
+        **discoveredAtStart**: *eq, le, ge*
+        
+        
+        **discoveredAtEnd**: *eq, le, ge*
+
+
+        **discoverySource**: *eq, in*
+      example: name eq "Okta" and description co "Okta" and discoverySource in ("csv", "Okta Saas")
       required: false
       style: form
     - in: query
@@ -42,13 +66,22 @@ get:
       example: name
   responses:
     '200':
-      description: Successfully retrieved list of discovered applications.
+      description: List of discovered applications. By default, the API returns a list of SLIM discovered applications.
       content:
         application/json:
           schema:
             type: array
             items:
-              $ref: '../../beta/schemas/DiscoveredApplications.yaml'
+              oneOf:
+                - $ref: '../schemas/SlimDiscoveredApplications.yaml'
+                - $ref: '../schemas/FullDiscoveredApplications.yaml'
+
+
+          examples:
+            Slim Discovered Application:
+              $ref: '../schemas/discovered-applications/examples/SlimDiscoveredApplications.yaml'
+            Discovered Application:
+              $ref: '../schemas/discovered-applications/examples/FullDiscoveredApplications.yaml'
     '400':
       $ref: '../../v3/responses/400.yaml'
     '401':

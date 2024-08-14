@@ -11,4 +11,4 @@ properties:
     example: /endpoint?limit=10&offset=60
   previous:
     type: string
-    example: /endpoint?limit=10&offset=40
+    

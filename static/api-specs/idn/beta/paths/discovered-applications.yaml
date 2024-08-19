@@ -75,8 +75,6 @@ get:
               oneOf:
                 - $ref: '../schemas/SlimDiscoveredApplications.yaml'
                 - $ref: '../schemas/FullDiscoveredApplications.yaml'
-
-
           examples:
             Slim Discovered Application:
               $ref: '../schemas/discovered-applications/examples/SlimDiscoveredApplications.yaml'

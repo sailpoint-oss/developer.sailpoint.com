@@ -1,0 +1,8 @@
+name: after_id
+in: metadata
+description: Represents the ID where the query should begin from. If blank, it represents the first ID. When used, forces sorting by ID ascending and does not allow use of `offset`.
+required: false
+schema:
+  type: string
+  format: uuid
+  example: 4eaa719f-4312-4c5b-9264-d0eb04d4a02a

@@ -9,4 +9,4 @@ content:
           items:
             $ref: '../schemas/GET/Profile.yaml'
         _metadata:
-          $ref: '../schemas/MetaDataAfterId.yaml'
+          $ref: '../schemas/Metadata-withAfterId.yaml'

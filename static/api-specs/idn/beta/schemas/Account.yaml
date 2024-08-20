@@ -37,6 +37,7 @@ allOf:
         example: ACTIVE
         description: The identity state of the identity this account is correlated to
       connectionType:
+        nullable: true
         type: string
         example: direct
         description: The connection type of the source this account is from
@@ -119,6 +120,7 @@ allOf:
       sourceOwner:
         description: The owner of the source this account belongs to
         type: object
+        nullable: true
         properties:
           type:
             description: The type of object being referenced

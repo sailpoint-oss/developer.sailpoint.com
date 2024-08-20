@@ -4,7 +4,6 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageGettingStarted from '@site/src/components/homepage/HomepageGettingStarted';
-import HomepageDeveloperDays from '@site/src/components/homepage/HomepageDeveloperDays';
 import HomepageBasics from '../components/homepage/HomepageBasics';
 import HomepageTrainingGuides from '../components/homepage/HomepageTrainingGuides';
 import HomepageDiscuss from '../components/homepage/HomepageDiscuss';

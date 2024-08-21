@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 
 const DiscourseEmbed = ({ discourseEmbedUrl }) => {
   useEffect(() => {
-    const discourseUrl = 'http://localhost:4200/';
+    const discourseUrl = 'https://devstage.sailpoint.com/';
     const embedUrl = `http://localhost:4201`;
 
     // Set up Discourse Embed
-    window.DiscourseEmbed = { discourseUrl, topicId: 8, showComments: false };
+    window.DiscourseEmbed = { discourseUrl, topicId: 31033, showComments: false };
 
     // Create and append meta tag for discourse username
     const metaTag = document.createElement('meta');

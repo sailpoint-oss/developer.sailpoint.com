@@ -19,6 +19,14 @@ properties:
   sourceName:
     type: string
     example: Source Name
-    description: the associated source name if it exists   
-  
-  
+    description: the associated source name if it exists
+  removeDate:
+    type: string
+    example: 2024-07-01T06:00:00.00Z
+    description: the date the role is no longer assigned to the specified identity
+  revocable:
+    type: boolean
+    example: true
+    description: indicates whether the role is revocable
+required:
+  - revocable

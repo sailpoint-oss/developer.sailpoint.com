@@ -3,10 +3,12 @@ get:
   tags:
     - Certification Campaigns
   summary: List Campaigns
-  description: >-
-    Use this API to get a list of campaigns. This API can provide increased level of detail for each campaign for the correct provided query. 
+  description: |
+    Use this API to get a list of campaigns. This API can provide increased level of detail for each campaign for the correct provided query.
+
+    A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: [idn:campaign-list:read]
+    - UserContextAuth: [idn:campaign:read, idn:campaign:manage, idn:campaign-report:read, idn:campaign-report:manage]
   parameters:
     - in: query
       name: detail
@@ -64,7 +66,6 @@ get:
               oneOf:
                 - $ref: '../schemas/SlimCampaign.yaml'
                 - $ref: '../schemas/Campaign.yaml'
-
           examples:
             Slim Campaign:
               $ref: '../schemas/campaign/examples/SlimCampaigns.yaml'
@@ -85,9 +86,12 @@ post:
   tags:
     - Certification Campaigns
   summary: Create a campaign
-  description: Use this API to create a certification campaign with the information provided in the request body.
+  description: |
+    Use this API to create a certification campaign with the information provided in the request body.
+    
+    A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: [idn:campaign:create]
+    - UserContextAuth: [idn:campaign:manage]
   requestBody:
     required: true
     content:

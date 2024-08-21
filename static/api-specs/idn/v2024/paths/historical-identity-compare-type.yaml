@@ -1,0 +1,72 @@
+get:
+  operationId: compareIdentitySnapshotsAccessType
+  tags:
+  - Identity History
+  summary: Gets a list of differences of specific accessType for the given identity
+    between 2 snapshots
+  description: 'This method gets a list of differences of specific accessType for
+    the given identity between 2 snapshots Requires authorization scope of ''idn:identity-history:read'' '
+  parameters:
+  - in: path
+    name: id
+    schema:
+      type: string
+    required: true
+    description: The identity id
+    example: 8c190e6787aa4ed9a90bd9d5344523fb
+  - in: path
+    name: accessType
+    schema:
+      type: string
+    required: true
+    description: The specific type which needs to be compared
+    example: role
+  - in: query
+    name: access-associated
+    schema:
+      type: boolean
+    description: Indicates if added or removed access needs to be returned. true -
+      added, false - removed, null - both added & removed
+    example: '2007-03-01T13:00:00Z'
+  - in: query
+    name: snapshot1
+    schema:
+      type: string
+    description: The snapshot 1 of identity
+    example: '2008-03-01T13:00:00Z'
+  - in: query
+    name: snapshot2
+    schema:
+      type: string
+    description: The snapshot 2 of identity
+    example: '2009-03-01T13:00:00Z'
+  - $ref: ../../v3/parameters/limit.yaml
+  - $ref: ../../v3/parameters/offset.yaml
+  - $ref: ../../v3/parameters/count.yaml
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: A list of events for the identity
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../../beta/schemas/AccessItemDiff.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml

@@ -2,9 +2,9 @@ post:
   operationId: createCampaignFilter
   tags:
     - Certification Campaign Filters
-  summary: Create a Campaign Filter
+  summary: Create Campaign Filter
   description: >-
-    Create a campaign Filter based on filter details and criteria.
+    Use this API to create a campaign filter based on filter details and criteria.
   security:
     - UserContextAuth: [ idn:campaign-filter:create ]
   requestBody:
@@ -36,10 +36,7 @@ get:
     - Certification Campaign Filters
   summary: List Campaign Filters
   description: >-
-    Lists all Campaign Filters. Scope can be reduced via standard V3 query params.
-    
-    
-    All Campaign Filters matching the query params
+    Use this API to list all campaign filters. You can reduce scope with standard V3 query parameters.
 
   security:
     - UserContextAuth: [ idn:campaign-filter-list:read ]
@@ -61,8 +58,7 @@ get:
     - in: query
       name: includeSystemFilters
       description: >-
-        If true, include system filters in the count and results, exclude them otherwise. If not provided any value for it
-        then by default it is true.
+        If this is true, the API includes system filters in the count and results. Otherwise it excludes them. If no value is provided, the default is true. 
       required: false
       example: true
       schema:
@@ -70,7 +66,7 @@ get:
         default: true
   responses:
     '200':
-      description: List of campaign filter objects
+      description: List of campaign filter objects.
       content:
         application/json:
           schema:
@@ -78,12 +74,12 @@ get:
             properties:
               items:
                 type: array
-                description: The list of campaign filters
+                description: List of campaign filters.
                 items:
                   $ref: '../schemas/CampaignFilterDetails.yaml'
               count:
                 type: integer
-                description: The number of filters returned
+                description: Number of filters returned.
                 example: 2
           example: {
             "items": [

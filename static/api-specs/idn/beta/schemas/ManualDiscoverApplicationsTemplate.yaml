@@ -4,7 +4,7 @@ properties:
     type: string
     description: Name of the example application.
     example: "Example Application"
-  domain:
+  description:
     type: string
-    description: Description of the example application's domain.
+    description: Description of the example application.
     example: "Example Description"

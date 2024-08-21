@@ -41,9 +41,10 @@ put:
   summary: Update Identity Attribute
   description: >-
     This updates an existing identity attribute. 
-    Making an attribute searchable requires that the `system`, `standard`, and `multi` properties be set to false.
+    Making an attribute searchable requires that the `system`, `standard`, and `multi` properties be set to false.  
+    A token with ORG_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: [ idn:identity-profile-attribute:create ]
+    - UserContextAuth: [ idn:identity-profile-attribute:manage ]
   parameters:
     - in: path
       name: name
@@ -84,9 +85,10 @@ delete:
   summary: Delete Identity Attribute
   description: >-
     This deletes an identity attribute with the given name. 
-    The `system` and `standard` properties must be set to false before you can delete an identity attribute.
+    The `system` and `standard` properties must be set to false before you can delete an identity attribute.  
+    A token with ORG_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: [ idn:identity-profile-attribute:delete ]
+    - UserContextAuth: [ idn:identity-profile-attribute:manage ]
   parameters:
     - in: path
       name: name

@@ -9,13 +9,15 @@ properties:
     example: "EQUALS"
   attribute:
     type: string
+    nullable: true
     description: Name for the attribute
     example: "location"
   value:
     $ref: './Value.yaml'
   children:
     type: array
+    nullable: true
     description: List of expressions
     items:
-      $ref: './Value.yaml'
+      $ref: './Children.yaml'
     example: []

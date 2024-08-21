@@ -99,3 +99,7 @@ These IP Address ranges can now be used as an allow list to permit any call from
 ## Limitations
 
 These IP Address ranges can change at any time. The implementation will need to account for this by regularily updating the allow list.
+
+## Troubleshooting
+
+If you are still experiencing connection issues, you should double check your [network restriction settings](https://documentation.sailpoint.com/saas/help/access/restrict_access.html) in your tenant to ensure that your company's IP addresses are included.

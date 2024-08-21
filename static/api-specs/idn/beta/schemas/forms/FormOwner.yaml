@@ -11,8 +11,12 @@ properties:
     x-go-name: Type
   id:
     description: Unique identifier of the form's owner.
-    example: 00000000-0000-0000-0000-000000000000
+    example: 2c9180867624cbd7017642d8c8c81f67
     type: string
     x-go-name: ID
+  name:
+    description: Name of the form's owner.
+    example: Grant Smith
+    type: string
 type: object
 x-go-package: github.com/sailpoint/sp-forms/domain

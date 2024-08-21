@@ -3,9 +3,12 @@ get:
   tags:
     - Certification Campaigns
   summary: List Campaigns
-  description: >-
+  description: |
     Use this API to get a list of campaigns. The API can provide increased level of detail for each campaign for the correct provided query. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-active-campaigns).
-    - UserContextAuth: []
+
+    A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API.
+  security:
+    - UserContextAuth: [idn:campaign:read, idn:campaign:manage, idn:campaign-report:read, idn:campaign-report:manage]
   deprecated: true
   parameters:
     - in: query
@@ -85,9 +88,12 @@ post:
   tags:
     - Certification Campaigns
   summary: Create Campaign
-  description: Use this API to create a certification campaign with the information provided in the request body. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/create-campaign).
+  description: |
+    Use this API to create a certification campaign with the information provided in the request body. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/create-campaign).
+
+    A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: [idn:campaign:create]
+    - UserContextAuth: [idn:campaign:manage]
   deprecated: true
   requestBody:
     required: true

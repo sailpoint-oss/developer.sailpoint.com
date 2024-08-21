@@ -16,7 +16,7 @@ get:
       description: >-
         If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or
         SOURCE_SUBADMIN identity. The value of the parameter is either an identity ID, or the special value **me**,
-        which is shorthand for the calling Identity's ID.
+        which is shorthand for the calling identity's ID.
 
 
         A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an identity that is not

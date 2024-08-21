@@ -1,27 +1,23 @@
 type: object
 description: Campaign Filter Details
 properties:
-  id:
-    type: string
-    description: Id of the campaign filter
-    example: e9f9a1397b842fd5a65842087040d3ac
   name:
     type: string
-    description: This is campaign filter's name.
+    description: Campaign filter name.
     example: Identity Attribute Campaign Filter
   description:
     type: string
-    description: This is campaign filter's description.
-    example: Campaign filter to certify data based on specified property of Identity Attribute.
+    description: Campaign filter description.
+    example: Campaign filter to certify data based on an identity attribute's specified property.
   owner:
     type: string
-    description: The owner of this filter. This field is automatically populated at creation time with the current user.
+    description: Owner of the filter. This field automatically populates at creation time with the current user.
     example: SailPoint Support
     nullable: true
   mode:
     description: >-
-      The mode/type of Filter, where it is of INCLUSION or EXCLUSION type. INCLUSION type will include the data in generated campaign 
-      as per specified in criteria, whereas EXCLUSION type will exclude the the data in generated campaign as per specified in criteria.
+      Mode/type of filter, either the INCLUSION or EXCLUSION type. The INCLUSION type includes the data in generated campaigns 
+      as per specified in the criteria, whereas the EXCLUSION type excludes the data in generated campaigns as per specified in criteria.
     enum:
       - "INCLUSION"
       - "EXCLUSION"
@@ -40,12 +36,12 @@ properties:
           - nullable: true
         property:
           type: string
-          description: The specified key from the Type of criteria.
+          description: Specified key from the type of criteria.
           example: displayName
           nullable: true
         value:
           type: string
-          description: The value for the specified key from the Type of Criteria
+          description: Value for the specified key from the type of criteria.
           example: Allie
           nullable: true
       required:
@@ -69,6 +65,5 @@ properties:
     ]
 required:
   - name
-  - description
   - owner
   - mode

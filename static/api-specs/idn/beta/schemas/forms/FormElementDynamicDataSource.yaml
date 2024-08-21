@@ -7,16 +7,19 @@ properties:
       STATIC FormElementDataSourceTypeStatic
       INTERNAL FormElementDataSourceTypeInternal
       SEARCH FormElementDataSourceTypeSearch
+      FORM_INPUT FormElementDataSourceTypeFormInput
     enum:
       - STATIC
       - INTERNAL
       - SEARCH
+      - FORM_INPUT
     example: STATIC
     type: string
     x-go-enum-desc: |-
       STATIC FormElementDataSourceTypeStatic
       INTERNAL FormElementDataSourceTypeInternal
       SEARCH FormElementDataSourceTypeSearch
+      FORM_INPUT FormElementDataSourceTypeFormInput
     x-go-name: DataSourceType
 type: object
 x-go-package: github.com/sailpoint/sp-forms/domain

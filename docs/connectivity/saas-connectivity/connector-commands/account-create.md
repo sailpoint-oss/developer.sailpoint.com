@@ -59,6 +59,8 @@ tags: ['Connectivity', 'Connector Command']
 
 The account create command triggers whenever ISC is told to provision entitlements for an identity on the target source, but no account for the identity on the target source exists yet. For example, if you create an access profile that grants a group on the target source and then add that access profile to a role, any identity matching that role’s membership criteria will be granted to the group. ISC determines which identities do not have accounts on the target source and triggers the account create command for each identity. If an identity already has an account, then it invokes the account update command.
 
+To use this command, you must specify this value in the `commands` array: `std:account:create`
+
 ## The Provisioning Plan
 
 The account create command accepts a provisioning plan from ISC and creates the corresponding account(s) in the target source. When you configure your source in ISC, you must set up ‘Create Profile’ to tell ISC how to provision new accounts for your source.

@@ -5,6 +5,7 @@ properties:
     description: The name of the workflow
     example: "Send Email"
   owner:
+    type: object
     description: The identity that owns the workflow.  The owner's permissions in IDN will determine what actions the workflow is allowed to perform.  Ownership can be changed by updating the owner in a PUT or PATCH request.
     properties:
       type:
@@ -34,3 +35,4 @@ properties:
     example: false
   trigger:
     $ref: './WorkflowTrigger.yaml'
+    description: Workflow Trigger.

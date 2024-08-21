@@ -61,4 +61,7 @@ properties:
       "Daily digest - sent if number of outstanding tasks for task owner > 0"
     description: The description of the default template
     nullable: true
-
+  slackTemplate:
+    $ref: ../schemas/TemplateSlack.yaml
+  teamsTemplate:
+    $ref: ../schemas/TemplateTeams.yaml

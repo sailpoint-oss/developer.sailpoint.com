@@ -19,7 +19,6 @@ post:
                 x-go-name: Self
               version:
                 type: integer
-                format: int8
                 x-go-name: Version
         example: [
           {
@@ -142,11 +141,9 @@ post:
                     object:
                       $ref: '../schemas/forms/FormDefinitionResponse.yaml'
                     self:
-                      type: string
-                      x-go-name: Self
+                      $ref: '../schemas/forms/FormDefinitionSelfImportExportDto.yaml'
                     version:
                       type: integer
-                      format: int8
                       x-go-name: Version
                 x-go-name: ImportedObjects
               infos:

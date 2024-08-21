@@ -6,14 +6,17 @@ properties:
     example: 2c9180835d2e5168015d32f890ca1581
   requesterId:
     type: string
+    nullable: true
     description: ID of the requester
     example: 2c9180835d2e5168015d32f890ca1581
   requesterDisplayName:
     type: string
+    nullable: true
     description: The displayname of the requester
     example: John Smith
   ownerId:
     type: string
+    nullable: true
     description: The ID of the owner
     example: 2c9180835d2e5168015d32f890ca1581
   ownerName:
@@ -26,6 +29,7 @@ properties:
     example: '2017-07-11T18:45:37.098Z'
   modified:
     type: string
+    nullable: true
     format: 'date-time'
     example: '2018-06-25T20:22:28.104Z'
   description:
@@ -37,19 +41,28 @@ properties:
   type:
     $ref: '../../v3/schemas/WorkItemType.yaml'
   remediationItems:
-    $ref: './RemediationItemDetails.yaml'
+    nullable: true
+    type: array
+    items:
+      $ref: './RemediationItemDetails.yaml'
   approvalItems:
-    $ref: './ApprovalItemDetails.yaml'
+    nullable: true
+    type: array
+    items:
+      $ref: './ApprovalItemDetails.yaml'
   name:
     type: string
+    nullable: true
     description: The work item name
     example: Account Create
   completed:
     type: string
+    nullable: true
     format: 'date-time'
     example: '2018-10-19T13:49:37.385Z'
   numItems:
     type: integer
+    nullable: true
     description: The number of items in the work item
     example: 19
   errors:
@@ -57,5 +70,5 @@ properties:
     items: 
       type: string
     example: ["The work item ID that was specified was not found."]
-  
-
+  form:
+    $ref: './FormDetails.yaml'

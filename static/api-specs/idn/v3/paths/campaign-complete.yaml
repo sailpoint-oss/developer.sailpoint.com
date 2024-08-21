@@ -15,9 +15,9 @@ post:
     Use this API to complete a certification campaign. This functionality is provided to admins so that they
     can complete a certification even if all items have not been completed.
 
-    Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+    A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: [idn:campaign:update]
+    - UserContextAuth: [idn:campaign:manage]
   requestBody:
     description:
       Optional. Default behavior is for the campaign to auto-approve upon completion,

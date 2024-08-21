@@ -25,6 +25,8 @@ tags: ['Connectivity', 'Connector Command']
 
 The test connection command ensures the connector can communicate with the target web service. It validates API credentials, host names, ports, and other configuration items. To implement this command, look for either a health endpoint or a simple GET endpoint. Some web services implement a health endpoint that returns status information about the service, which can be useful to test a connection. If no health endpoint exists, use a simple GET endpoint that takes few to no parameters to ensure the connector can make a successful call to the web service.
 
+To use this command, you must specify this value in the `commands` array: `std:test-connection`
+
 Use ‘Test Connection’ in the ISC UI after an admin has finished entering configuration information for a new instance of the connector.
 
 ![Test Connection](./img/test_command_idn.png)

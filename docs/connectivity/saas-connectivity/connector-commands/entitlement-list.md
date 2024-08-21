@@ -44,6 +44,8 @@ tags: ['Connectivity', 'Connector Command']
 
 The entitlement list command triggers during a manual or scheduled entitlement aggregation operation within ISC. This operation gathers a list of all entitlements available on the target source, usually multi-valued entitlements like groups or roles. This operation provides ISC administrators with a list of entitlements available on the source so they can create access profiles and roles accordingly, and it provides ISC with more details about the entitlements. The entitlement schema’s minimum requirements are name and ID, but you can add other values, such as created date, updated date, status, etc.
 
+To use this command, you must specify this value in the `commands` array: `std:entitlement:list`
+
 ![Discover Schema 4](./img/entitlement_list_idn.png)
 
 ## Defining the Schema

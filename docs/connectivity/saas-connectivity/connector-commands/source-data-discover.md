@@ -48,6 +48,8 @@ Use the source data discover command to identify the types of data your source c
 
 One typical use for the source data discover command is found in Identity Security Cloud customer forms for dropdown menus: they use the command to identify the additional source types their sources can provide to Identity Security Cloud and use that information to populate the dropdown menus.
 
+To use this command, you must specify this value in the `commands` array: `std:source-data:discover`
+
 This is a simple example of the source data discover command. It has been implemented to list two types of queries that the Airtable source can supply.
 
 ```javascript

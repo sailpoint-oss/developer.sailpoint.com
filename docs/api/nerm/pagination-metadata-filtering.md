@@ -179,7 +179,7 @@ This rule searches for profiles based on an attribute that profile has.
 | object_type | string **required** | The values must equal 'NeAttribute' |
 | condition_object_id | string **required** | this is the id of the attribute you are searching against |
 | comparison_operator | string **required** | This is how the comparison is made for the attribute values. <br></br>Available basic operators: <ul><li>== (equals)</li><li>!= (not equal)</li><li>> (greater than)</li><li>< (less than)</li><li>start_with? (starts with)</li><li>end_with? (ends with)</li><li>include? (includes)</li></ul> Available date operators: <ul><li>before (before specific date)</li><li>after (after specific date)</li><li>> (more than X days before/after today)</li><li>< (less than X days before/after today)</li><li>== (equal to X days before/after today)</li></ul> |
-| value | string **required** | This is the value used for comparison. <br></br>Value formatting: <ul><li>profile select attribute: ID of profile</li><li>profile search attribute: ID of profile</li><li>user select attribute: ID of user</li><li>user search attribute: ID of user</li><li>date attribute (before, after): correct date format for attribute</li><li>date attribute (>, <, ==): "X before" or "X after" where X is the number of days</li></ul> |
+| value | string **required** | This is the value used for comparison. <br></br>Value formatting: <ul><li>profile select attribute: ID of profile</li><li>profile search attribute: ID of profile</li><li>user select attribute: ID of user</li><li>user search attribute: ID of user</li><li>date attribute (before, after): correct date format for attribute</li><li>date attribute (\>, \<, ==): "X before" or "X after" where X is the number of days</li></ul> |
 | \_destroy | boolean | Supplying this option with "true" will cause the condition to be destroyed |
 
 Example:
@@ -187,7 +187,7 @@ Example:
 ```
 {
   "advanced_search": {
-    "condition_rules_attributes: [
+    "condition_rules_attributes": [
       {
         "type": "ProfileAttributeRule",
         "condition_object_id": "4ba5be36-3c4d-11ee-be56-0242ac120002",

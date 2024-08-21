@@ -6,22 +6,24 @@ properties:
     example: {
       identityIds: [],
       criteria: "source.name:DataScienceDataset",
-      attributeFilterCriteria: {
-        displayName: {untranslated: "Location: Miami"},
-        ariaLabel: {untranslated: "Location: Miami"},
-        data: {
-          displayName: {translateKey: "IDN.IDENTITY_ATTRIBUTES.LOCATION"},
-          name: "location",
-          operator: "EQUALS",
-          values: ["Miami"]
+      attributeFilterCriteria: [
+        {
+          displayName: {untranslated: "Location: Miami"},
+          ariaLabel: {untranslated: "Location: Miami"},
+          data: {
+            displayName: {translateKey: "IDN.IDENTITY_ATTRIBUTES.LOCATION"},
+            name: "location",
+            operator: "EQUALS",
+            values: ["Miami"]
+          }
         }
-      }
+      ]
     }
   pruneThreshold:
     type: integer
     description: The prune threshold to be used or null to calculate prescribedPruneThreshold
     nullable: true
-    example: 5
+    example: 50
     format: int32
   prescribedPruneThreshold:
     type: integer
@@ -45,10 +47,6 @@ properties:
     description: Number of potential roles ready
     example: 0
     format: int32
-  status:
-    $ref: './RoleMiningSessionStatus.yaml'
-    description: The status of the role mining session
-    example: CREATED
   type:
     $ref: './iai/RoleMiningRoleType.yaml'
     description: Role mining session type
@@ -58,11 +56,6 @@ properties:
     description: The id of the user who will receive an email about the role mining session
     nullable: true
     example: "2c918090761a5aac0176215c46a62d58"
-  createdBy:
-    oneOf:
-      - $ref: './iai/EntityCreatedByDTO.yaml'
-      - $ref: './iai/NullableEntityCreatedByDTO.yaml'
-    description: The session created by details
   identityCount:
     type: integer
     description: Number of identities in the population which meet the search criteria or identity list provided

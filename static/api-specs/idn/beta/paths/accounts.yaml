@@ -156,7 +156,7 @@ post:
   tags:
     - Accounts
   summary: Create Account
-  description: >-
+  description: |
     This API submits an account creation task and returns the task ID.  
 
     The `sourceId` where this account will be created must be included in the `attributes` object.
@@ -167,6 +167,8 @@ post:
     However, if you use this endpoint to create an account for a Direct Connection type source, you must ensure that the account also exists on the target source. 
     The endpoint doesn't actually provision the account on the target source, which means that if the account doesn't also exist on the target source, an aggregation between the source and your tenant will remove it from your tenant. 
 
+    By providing the account ID of an existing account in the request body, this API will function as a PATCH operation and update the account.
+    
     A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
   security:
     - UserContextAuth: [idn:accounts:manage]

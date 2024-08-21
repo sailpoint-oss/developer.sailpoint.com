@@ -5,7 +5,7 @@ pagination_label: BuildMap Rule
 sidebar_label: BuildMap Rule
 sidebar_class_name: buildMapRule
 keywords: ['cloud', 'rules']
-description: This rule manipulates raw input data provided by the rows and columns in a file and builds a map from the incoming data.
+description: This rule manipulates raw input data provided by the rows and columns in a file.
 slug: /extensibility/rules/cloud-rules/buildmap-rule
 tags: ['Rules']
 ---

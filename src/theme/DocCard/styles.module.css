@@ -7,7 +7,6 @@
   border: 1px solid var(--ifm-color-emphasis-200);
   transition: all var(--ifm-transition-fast) ease;
   transition-property: border, box-shadow;
-  height: 9.5em;
 }
 
 .cardContainer:hover {
@@ -24,7 +23,7 @@
 }
 
 .cardDescription {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 
 .docCardIcon {

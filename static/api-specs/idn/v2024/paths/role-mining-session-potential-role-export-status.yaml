@@ -1,0 +1,55 @@
+get:
+  operationId: exportRoleMiningPotentialRoleStatus
+  summary: Retrieve status of a potential role export job
+  tags:
+  - IAI Role Mining
+  description: This endpoint retrieves information about the current status of a potential
+    role export.
+  parameters:
+  - in: path
+    name: sessionId
+    schema:
+      type: string
+      format: uuid
+    required: true
+    description: The role mining session id
+    example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
+  - in: path
+    name: potentialRoleId
+    schema:
+      type: string
+      format: uuid
+    required: true
+    description: A potential role id in a role mining session
+    example: 278359a6-04b7-4669-9468-924cf580964a
+  - in: path
+    name: exportId
+    schema:
+      type: string
+      format: uuid
+    required: true
+    description: The id of a previously run export job for this potential role
+    example: 4940ffd4-836f-48a3-b2b0-6d498c3fdf40
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: Success. Returns the current status of this export
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/RoleMiningPotentialRoleExportResponse.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml

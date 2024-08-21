@@ -54,7 +54,7 @@ The date compare transform takes as an input the two dates to compare, denoted a
   - **secondDate** - This is the second date to consider (i.e., the date that would be on the right hand side of the comparison operation).
   - **operator** - This is the comparison to perform. The following values are valid:
     - **LT**: Strictly less than: firstDate < secondDate
-    - **LTE**: Less than or equal to: firstDate <= secondDate
+    - **LTE**: Less than or equal to: firstDate \<= secondDate
     - **GT**: Strictly greater than: firstDate > secondDate
     - **GTE**: Greater than or equal to: firstDate >= secondDate
   - **positiveCondition** - This is the value to return if the comparison is true.

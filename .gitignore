@@ -33,6 +33,7 @@ yarn.lock
 /docs/api/beta
 /docs/api/iiq
 /docs/api/nerm/*
+/docs/api/v2024/*
 !/docs/api/nerm/authentication.md
 !/docs/api/nerm/pagination-metadata-filtering.md
 !/docs/api/nerm/getting-started.md

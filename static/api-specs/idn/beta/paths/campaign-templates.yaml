@@ -3,14 +3,15 @@ get:
   tags:
     - Certification Campaigns
   summary: List Campaign Templates
-  description: >-
+  description: |
     Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/list-campaign-templates).
 
-    The endpoint returns all campaign templates matching the query parameters. 
+    The endpoint returns all campaign templates matching the query parameters.
 
+    A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   deprecated: true
   security:
-    - UserContextAuth: [ idn:campaign-template-list:read ]
+    - UserContextAuth: [idn:campaign-template:read, idn:campaign-template:manage]
   parameters:
     - $ref: '../../v3/parameters/limit.yaml'
     - $ref: '../../v3/parameters/offset.yaml'
@@ -69,10 +70,12 @@ post:
   tags:
     - Certification Campaigns
   summary: Create a Campaign Template
-  description: >-
+  description: |
     Use this API to create a campaign template based on campaign. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/create-campaign-template).
+
+    A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: [ idn:campaign-template:create ]
+    - UserContextAuth: [idn:campaign-template:manage]
   deprecated: true
   requestBody:
     required: true

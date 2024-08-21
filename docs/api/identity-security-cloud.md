@@ -1,4 +1,4 @@
----
+<!-- ---
 id: identity-security-cloud
 title: Identity Security Cloud API Specifications
 pagination_label: Identity Security Cloud API Specifications
@@ -26,4 +26,4 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
 The most valuable resource for ISC developers is the SailPoint Developer Community itself, where ISC users and experts all over the world come together to ask questions and provide solutions.
 
-To learn more about the ISC APIs and discuss them with SailPoint Developer Community members, go to the [SailPoint Developer Community Forum](https://developer.sailpoint.com/discuss/tags/c/isc/6/apis).
+To learn more about the ISC APIs and discuss them with SailPoint Developer Community members, go to the [SailPoint Developer Community Forum](https://developer.sailpoint.com/discuss/tags/c/isc/6/apis). -->

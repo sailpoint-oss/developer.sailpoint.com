@@ -34,12 +34,12 @@ get:
       $ref: '../../v3/responses/500.yaml'
 
 patch:
-  operationId: patchPotentialRole
+  operationId: patchRoleMiningPotentialRole
   summary: Update a potential role
   tags:
     - IAI Role Mining
   description: |
-    The method updates an existing potential role using.
+    This method updates an existing potential role.
    
     The following fields can be modified:
 
@@ -54,13 +54,6 @@ patch:
   security:
     - UserContextAuth: []
   parameters:
-    - in: path
-      name: sessionId
-      schema:
-        type: string
-      required: true
-      description: The role mining session id
-      example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
     - in: path
       name: potentialRoleId
       schema:

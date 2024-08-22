@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
       <main>
-        <DiscourseEmbed />
+        
         <HomepageGettingStarted />
         {/* <HomepageDeveloperDays /> */}
         <HomepageBasics
@@ -31,6 +31,7 @@ export default function Home() {
           buttonText={'Explore our platform'}
         />
         <HomepageTrainingGuides />
+        <DiscourseEmbed />
         <HomepageBasics
           description={
             'The SailPoint Developer Forums are a great place to find solutions to common development problems.'

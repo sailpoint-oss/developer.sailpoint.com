@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 const DiscourseEmbed = ({ discourseEmbedUrl }) => {
   useEffect(() => {
     const discourseUrl = 'https://devstage.sailpoint.com/';
-    const embedUrl = `http://localhost:4201`;
+    const embedUrl = `https://d20cfjvniwj8wm.cloudfront.net`;
 
     // Set up Discourse Embed
     window.DiscourseEmbed = { discourseUrl, topicId: 31033, showComments: false };
@@ -11,7 +11,7 @@ const DiscourseEmbed = ({ discourseEmbedUrl }) => {
     // Create and append meta tag for discourse username
     const metaTag = document.createElement('meta');
     metaTag.name = 'discourse-username';
-    metaTag.content = 'darrell.thobe';
+    metaTag.content = 'Darrell-Thobe';
     metaTag.referrer = 'no-referrer-when-downgrade'; // Prevents the browser from sending the referrer header when navigating to another page from the current page
     document.head.appendChild(metaTag);
 

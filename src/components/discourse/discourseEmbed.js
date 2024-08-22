@@ -19,7 +19,7 @@ const DiscourseEmbed = ({ discourseEmbedUrl }) => {
     const scriptTag = document.createElement('script');
     scriptTag.type = 'text/javascript';
     scriptTag.async = true;
-    scriptTag.src = `${discourseUrl}plugins/sailpoint-embed/javascripts/embed.js`;
+    scriptTag.src = `${discourseUrl}javascripts/embed.js`;
     document.body.appendChild(scriptTag); // Append to body to avoid duplicating if component re-renders
 
     // Cleanup on component unmount

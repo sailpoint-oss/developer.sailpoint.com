@@ -11,7 +11,7 @@ tags: ['Connectivity', 'Connector Spec']
 
 ## How to use the radio type in the connector spec
 
-You can use the `Rrdio` type to create radio buttons for users to interact with to select from a predefined set of values.
+You can use the `radio` type to create radio buttons for users to interact with to select from a predefined set of values.
 
 This is an example implementation:
 

@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 const DiscourseEmbed = ({ discourseEmbedUrl }) => {
   useEffect(() => {
     // Ensure discourseUrl is correct and ending with '/'
-    const discourseUrl = 'https://devstage.sailpoint.com/';
+    const discourseUrl = 'https://developer.sailpoint.com/discuss/';
     
     // Ensure the script source URL is correct
     const scriptSrc = `${discourseUrl}javascripts/embed.js`;

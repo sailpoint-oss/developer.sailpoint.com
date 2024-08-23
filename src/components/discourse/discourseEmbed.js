@@ -9,7 +9,7 @@ const DiscourseEmbed = ({ discourseEmbedUrl }) => {
     const scriptSrc = `${discourseUrl}javascripts/embed.js`;
 
     // Set up Discourse Embed
-    window.DiscourseEmbed = { discourseUrl, topicId: 19918, showComments: false };
+    window.DiscourseEmbed = { discourseUrl, topicId: 19918, show_Comments: false };
 
     // Create and append meta tag for discourse username
     const metaTag = document.createElement('meta');

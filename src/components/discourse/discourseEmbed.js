@@ -6,7 +6,7 @@ const DiscourseEmbed = ({ discourseEmbedUrl }) => {
     const discourseUrl = 'https://developer.sailpoint.com/discuss/';
     
     // Ensure the script source URL is correct
-    const scriptSrc = `${discourseUrl}javascripts/embed.js`;
+    const scriptSrc = `${discourseUrl}plugins/discourse-sailpoint-plugin/javascripts/embed.js`;
 
     // Set up Discourse Embed
     window.DiscourseEmbed = { discourseUrl, topicId: 19918, showComments: false };

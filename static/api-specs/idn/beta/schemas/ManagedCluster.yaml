@@ -31,6 +31,7 @@ properties:
     type: object
     additionalProperties:
       type: string
+      nullable: true
     example: {"clusterExternalId":"externalId", "ccgVersion":"77.0.0"}
   keyPair:
     description: key pair for the ManagedCluster

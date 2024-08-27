@@ -8,8 +8,6 @@ limit:
   $ref: './query/limit.yaml'
 offset:
   $ref: './query/offset.yaml'
-after_id:
-  $ref: './query/after_id.yaml'
 user_id:
   $ref: './query/user_id.yaml'
 manager_id:

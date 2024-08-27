@@ -41,7 +41,7 @@ get:
         **phase**: *eq*
 
 
-        **completed**: *eq, ne*
+        **completed**: *eq*
     - in: query
       name: sorters
       required: false

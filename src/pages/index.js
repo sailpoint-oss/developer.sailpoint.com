@@ -23,7 +23,7 @@ export default function Home() {
           description={
             "If you still aren't sure where to get started, try one of the <b>Getting Started Guides</b> below, or see what our platform has to offer."
           }
-          link={'https://www.sailpoint.com/products/IdentityNow/'}
+          link={'https://www.sailpoint.com/products/identity-security-cloud'}
           title={'Start With the Basics'}
           image={'user'}
           buttonText={'Explore our platform'}

@@ -25,7 +25,7 @@ export default function NotFound() {
                 navbar at the top of this page to find their new home. If you
                 can't find the document you're looking for,{' '}
                 <a
-                  href="https://developer.sailpoint.com/discuss/docs-request"
+                  href="https://platform.sailpoint.com/docs-request"
                   target="_blank"
                   rel="noopener noreferrer">
                   let us know

@@ -46,7 +46,7 @@ export default function Blog() {
                   </span>{' '}
                   <br />
                   <br />
-                  <a href="https://developer.sailpoint.com/discuss/t/guide-for-writing-blog-posts/10277">
+                  <a href="https://platform.sailpoint.com/t/guide-for-writing-blog-posts/10277">
                     Become an author &#8594;
                   </a>
                 </div>

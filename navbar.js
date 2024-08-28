@@ -4,6 +4,7 @@ module.exports = {
     alt: 'SailPoint Developer Community',
     src: 'img/SailPoint-Developer-Community-Lockup.png',
     srcDark: 'img/SailPoint-Developer-Community-Inverse-Lockup.png',
+    href: 'https://platform.sailpoint.com',
   },
   items: [
     {
@@ -32,7 +33,7 @@ module.exports = {
       items: [
         {
           label: 'Developer Forum',
-          to: 'https://developer.sailpoint.com/discuss/',
+          to: 'https://platform.sailpoint.com',
         },
         {
           label: 'CoLab Marketplace',
@@ -53,6 +54,11 @@ module.exports = {
       position: 'left',
       label: 'Video Library',
       to: '/videos',
+    },
+    {
+      position: 'left',
+      label: 'About',
+      to: '/about',
     },
     {
       type: 'dropdown',

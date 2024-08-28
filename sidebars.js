@@ -134,7 +134,7 @@ const sidebars = {
         type: 'generated-index',
         title: 'API Specifications',
         description:
-          "These are the SCIM APIs for SailPoint's on-premise service, IdentityIQ. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.",
+          "These are the SCIM APIs for SailPoint's on-premise service, IdentityIQ. We encourage you to join the SailPoint Developer Community forum at https://platform.sailpoint.com to connect with other developers using our APIs.",
         slug: '/api/iiq',
       },
       // @ts-ignore
@@ -173,7 +173,7 @@ const sidebars = {
             type: 'generated-index',
             title: 'NERM v1 API',
             description:
-              'These are the Non-employee Risk Management APIs for SailPoint. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.',
+              'These are the Non-employee Risk Management APIs for SailPoint. We encourage you to join the SailPoint Developer Community forum at https://platform.sailpoint.com to connect with other developers using our APIs.',
             slug: '/api/nerm/v1',
           },
           // @ts-ignore
@@ -238,7 +238,7 @@ const sidebars = {
         type: 'generated-index',
         title: 'v2024 APIs',
         description:
-          'Use these APIs to interact with the IdentityNow platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.',
+          'Use these APIs to interact with the IdentityNow platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://platform.sailpoint.com to connect with other developers using our APIs.',
         slug: '/api/v2024',
       },
       // @ts-ignore
@@ -292,7 +292,7 @@ const sidebars = {
         type: 'generated-index',
         title: 'Beta APIs',
         description:
-          'Use these APIs to interact with the IdentityNow platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.',
+          'Use these APIs to interact with the IdentityNow platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://platform.sailpoint.com to connect with other developers using our APIs.',
         slug: '/api/beta',
       },
       // @ts-ignore
@@ -346,7 +346,7 @@ const sidebars = {
         type: 'generated-index',
         title: 'V3 APIs',
         description:
-          'Use these APIs to interact with the IdentityNow platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.',
+          'Use these APIs to interact with the IdentityNow platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://platform.sailpoint.com to connect with other developers using our APIs.',
         slug: '/api/v3',
       },
       // @ts-ignore

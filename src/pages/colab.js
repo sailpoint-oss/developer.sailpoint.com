@@ -61,7 +61,7 @@ export default function Marketplace() {
                   </span>{' '}
                   <br />
                   <br />
-                  <a href="https://developer.sailpoint.com/discuss/t/developer-community-colab-getting-started-guide/11230">
+                  <a href="https://platform.sailpoint.com/t/developer-community-colab-getting-started-guide/11230">
                     Get started with the CoLab &#8594;
                   </a>
                 </div>

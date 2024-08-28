@@ -1,11 +1,11 @@
 openapi: 3.0.1
 info:
   title: Identity Security Cloud Beta API
-  description: "Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with greater scalability. These APIs are in beta and are subject to change. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs."
-  termsOfService: https://developer.sailpoint.com/discuss/tos
+  description: "Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with greater scalability. These APIs are in beta and are subject to change. We encourage you to join the SailPoint Developer Community forum at https://platform.sailpoint.com to connect with other developers using our APIs."
+  termsOfService: https://platform.sailpoint.com/tos
   contact:
     name: Developer Relations
-    url: https://developer.sailpoint.com/discuss/api-help
+    url: https://platform.sailpoint.com/api-help
   license:
     name: MIT
     url: https://opensource.org/licenses/MIT

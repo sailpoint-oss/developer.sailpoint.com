@@ -1514,10 +1514,6 @@ module.exports = [
           to: '/docs/api/nerm/v1/post-profile-upload',
         },
         {
-          from: ['/nerm/api/post-profiles'],
-          to: '/docs/api/nerm/v1/post-profiles',
-        },
-        {
           from: ['/nerm/api/post-role'],
           to: '/docs/api/nerm/v1/post-role',
         },

@@ -18,10 +18,6 @@ module.exports = [
     {
       redirects: [
         {
-          to: '/docs/',
-          from: ['/'],
-        },
-        {
           to: '/',
           from: ['/conf', '/developerdays', '/developerdays/agenda'],
         },

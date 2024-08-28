@@ -51,6 +51,17 @@ properties:
       text_attribute_uid: static text
       date_attribute_uid: 01/15/2020
       profile_select_attribute_uid: Profile Name
+      profile_search_attribute_uid: Profile Name
+      multiple_profile_search_attribute_uid: Profile Name,Second Profile Name,Third Profile Name
       multiple_profile_select_attribute_uid: Profile Name,Second Profile Name,Third Profile Name
-      contributor_select_attribute_uid: User Name
-      multiple_contributor_select_attribute_uid: User Name,Second User Name,Third User Name
+      contributor_select_attribute_uid: User Name (user_email@test.com)
+      contributor_search_attribute_uid: User Name (user_email@test.com)
+      multiple_contributor_search_attribute_uid: User Name (user_email@test.com),Second User Name (user_email@test.com),Third User Name (user_email@test.com)
+      owner_select_attribute_uid: User Name (user_email@test.com)
+      owner_search_attribute_uid: User Name (user_email@test.com)
+      dropdown_attribute_uid: yes, no
+      tags_attribute_uid: yes, no
+      checkbox_attribute_uid: yes, no
+      text_area_uid: static text
+      radio_attribute_uid: yes, no
+      

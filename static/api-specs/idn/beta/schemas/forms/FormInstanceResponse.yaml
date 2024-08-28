@@ -19,7 +19,8 @@ properties:
     type: array
     x-go-name: FormConditions
   formData:
-    additionalProperties: { }
+    nullable: true
+    additionalProperties: true
     description: FormData is the data provided by the form on submit. The data is in a key -> value map
     example:
       department: Engineering

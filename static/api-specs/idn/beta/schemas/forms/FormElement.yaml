@@ -36,7 +36,7 @@ properties:
     type: string
     x-go-name: ElementType
   config:
-    additionalProperties: { }
+    additionalProperties: true
     description: Config object.
     example:
       label: Department

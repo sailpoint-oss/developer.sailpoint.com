@@ -1,8 +1,9 @@
 description: Set of FormElementValidation items.
-example: [ { "validationType": "REQUIRED" } ]
 type: object
 properties:
-  validationType: 
+  validationType:
+    description: The type of data validation that you wish to enforce, e.g., a required field, a minimum length, etc. 
+    example: REQUIRED
     type: string
     enum:
       - REQUIRED

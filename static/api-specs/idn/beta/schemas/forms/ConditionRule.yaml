@@ -91,6 +91,7 @@ properties:
       BOOLEAN ConditionRuleValueTypeBoolean
     x-go-name: ValueType
   value:
+    type: string
     description: Based on the ValueType.
     example: Engineering
     x-go-name: Value

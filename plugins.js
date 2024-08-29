@@ -22,6 +22,10 @@ module.exports = [
           from: ['/conf', '/developerdays', '/developerdays/agenda'],
         },
         {
+          to: '/docs/api/v2024',
+          from: ['/docs/api'],
+        },
+        {
           to: '/ambassadors',
           from: ['/ambassador-program', '/ambassador'],
         },

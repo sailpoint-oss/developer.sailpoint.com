@@ -1343,6 +1343,8 @@ paths:
     $ref: "./v3/paths/source-entitlements-schema.yaml"
   /sources/{sourceId}/upload-connector-file:
     $ref: "./v3/paths/source-upload-connector-file.yaml"
+  /sources/{sourceId}/connections:
+    $ref: "./v3/paths/source-connections.yaml"
   /tagged-objects:
     $ref: "./v3/paths/tagged-objects.yaml"
   /tagged-objects/{type}:

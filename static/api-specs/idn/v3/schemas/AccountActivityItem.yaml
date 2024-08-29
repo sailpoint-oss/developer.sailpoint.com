@@ -14,9 +14,7 @@ properties:
     description: Date and time item was requested
     example: "2017-07-11T18:45:37.098Z"
   approvalStatus:
-    allOf:
-    - $ref: "./AccountActivityApprovalStatus.yaml"
-    - nullable: true
+    $ref: "./AccountActivityApprovalStatus.yaml"
   provisioningStatus:
     $ref: "./ProvisioningState.yaml"
   requesterComment:
@@ -26,9 +24,7 @@ properties:
   reviewerComment:
     $ref: "./Comment.yaml"
   operation:
-    allOf:
-    - $ref: "./AccountActivityItemOperation.yaml"
-    - nullable: true
+    $ref: "./AccountActivityItemOperation.yaml"
   attribute:
     type: string
     description: Attribute to which account activity applies

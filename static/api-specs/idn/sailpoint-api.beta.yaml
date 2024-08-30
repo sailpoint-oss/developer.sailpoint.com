@@ -1656,6 +1656,20 @@ paths:
     $ref: './beta/paths/load-uncorrelated-accounts.yaml'
   /sources/{id}/correlation-config:
     $ref: './beta/paths/correlation-config.yaml'
+  /source-apps/{id}:
+    $ref: './beta/paths/ears-source-app.yaml'
+  /source-apps/bulk-update:
+    $ref: './beta/paths/ears-source-app-bulk-update.yaml'
+  /source-apps/assigned:
+    $ref: './beta/paths/ears-source-apps-assigned.yaml'
+  /source-apps:
+    $ref: './beta/paths/ears-source-apps.yaml'
+  /source-apps/all:
+    $ref: './beta/paths/ears-source-apps-all.yaml'
+  /source-apps/{id}/access-profiles:
+    $ref: './beta/paths/ears-source-app-access-profiles.yaml'
+  /source-apps/{id}/access-profiles/bulk-remove:
+    $ref: './beta/paths/ears-source-app-access-profiles-bulk-remove.yaml'
   /task-status/{id}:
     $ref: "./beta/paths/task-status.yaml"
   /task-status:
@@ -1696,6 +1710,14 @@ paths:
     $ref: './beta/paths/trigger-invocations-test.yaml'
   /ui-metadata/tenant:
     $ref: './beta/paths/ui-metadata/tenant-ui-metadata.yaml'
+  /user-apps/{id}:
+    $ref: './beta/paths/ears-user-app.yaml'
+  /user-apps/{id}/available-accounts:
+    $ref: './beta/paths/ears-user-app-available-accounts.yaml'
+  /user-apps:
+    $ref: './beta/paths/ears-user-apps.yaml'
+  /user-apps/all:
+    $ref: './beta/paths/ears-user-apps-all.yaml'
   /verified-from-addresses:
     $ref: './beta/paths/verified-from-addresses.yaml'
   /verified-from-addresses/{id}:

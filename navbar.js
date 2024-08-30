@@ -55,6 +55,11 @@ module.exports = {
       to: '/videos',
     },
     {
+      position: 'left',
+      label: 'About',
+      to: '/about',
+    },
+    {
       type: 'dropdown',
       label: 'Support',
       position: 'right',

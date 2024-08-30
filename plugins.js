@@ -18,6 +18,10 @@ module.exports = [
     {
       redirects: [
         {
+          to: '/docs/api/v2024',
+          from: ['/docs/api'],
+        },
+        {
           to: '/',
           from: ['/conf', '/developerdays', '/developerdays/agenda'],
         },

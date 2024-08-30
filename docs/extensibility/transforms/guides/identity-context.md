@@ -43,12 +43,15 @@ You must use a `firstValid`. If the identity does not have a manager, `getManage
 {
   "type": "firstValid",
   "attributes": {
-    "values": ["$identity.getManager().getId()", "no manager exists"]
+    "values": [
+      "$identity.getManager().getId()",
+      "no manager exists"
+    ]
   }
 }
 ```
 
-### Get the custom attribute of the identity's manager
+### Get a custom attribute of the identity's manager
 
 You must use a `firstValid`. If the identity does not have a manager, `getManager()` returns null.
 
@@ -64,9 +67,9 @@ You must use a `firstValid`. If the identity does not have a manager, `getManage
 }
 ```
 
-### Get manager status of the identity's manager
+### Get manager status of the identity
 
-This example would get the status of whether or not the identity's manager is currently actually a manager.
+This example would get the status of whether or not the identity is currently actually a manager.
 
 ```json
 {
@@ -87,6 +90,56 @@ This example would get an identity's various associated source accounts.
   "attributes": {
     "value": "$identity.getLinks()"
   }
+}
+```
+
+### Get details of an account on a specified application/source
+
+The below examples pull in the SailPoint-generated account ID for the first account an identity has on a source, but you can replace `id` with the name of the attribute you're interested in retrieving.
+
+To retrieve an attribute from an identity's account in a specific source, by Source ID:
+
+```json
+{
+  "type": "firstValid",
+    "attributes": {
+        "values": [
+            {
+                "type": "static",
+                "attributes": {
+                    "value": "$identity.getLinksByAppIdOrName("2c918088814e6a610181686b56977fa8",null\")[0].id"
+                }
+            },
+            null
+        ],
+        "ignoreErrors": true
+    }
+}
+```
+
+To retrieve an attribute from an identity's account in a specific source, by Source Name:
+
+:::caution
+
+Note the `[source]` at the end of the Source Name in the below example. This is required for all sources other than the internal IdentityNow source.
+
+:::
+
+```json
+{
+  "type": "firstValid",
+    "attributes": {
+        "values": [
+            {
+                "type": "static",
+                "attributes": {
+                    "value": "$identity.getLinksByAppIdOrName(null,\"Active Directory [source]\")[0].id"
+                }
+            },
+            null
+        ],
+        "ignoreErrors": true
+    }
 }
 ```
 

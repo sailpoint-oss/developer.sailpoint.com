@@ -15,7 +15,11 @@ tags: ['plugin', 'guide', 'identityiq']
 
 Most plugins will have some additional UI component that will display in IdentityIQ. You can use images, CSS files, HTML templates, and JavaScript to provide the interactions and views required by the plugin. Plugins using a `fullPage` element will look for a file called `page.xhtml` in the plugin ZIP.
 
-Note: Any CSS installed with the plugin will apply to all elements in IdentityIQ. For this reason it is recommended that developers keep their CSS classes specific to their plugin. For example, prefix them with the plugin's name, such as `.myPlugin-BoldText` instead of `.boldText`.
+:::Note
+
+Any CSS installed with the plugin will apply to all elements in IdentityIQ. For this reason it is recommended that developers keep their CSS classes specific to their plugin. For example, prefix them with the plugin's name, such as `.myPlugin-BoldText` instead of `.boldText`.
+
+:::
 
 The `page.xhtml` in the _Todo_ example is configured to allow for the input of a new Todo and display all current Todos in the system. The Angular controller used in 'page.xhtml' and all the functions available to the controller are defined in `TodoModule.js` (located in the `/ui/js` folder).
 

@@ -217,6 +217,10 @@ const sidebars = {
     },
     {
       type: 'doc',
+      id: 'api/api-versioning-strategy',
+    },
+    {
+      type: 'doc',
       id: 'api/standard-collection-parameters',
     },
     {
@@ -271,6 +275,10 @@ const sidebars = {
     },
     {
       type: 'doc',
+      id: 'api/api-versioning-strategy',
+    },
+    {
+      type: 'doc',
       id: 'api/standard-collection-parameters',
     },
     {
@@ -322,6 +330,10 @@ const sidebars = {
     {
       type: 'doc',
       id: 'api/authorization',
+    },
+    {
+      type: 'doc',
+      id: 'api/api-versioning-strategy',
     },
     {
       type: 'doc',

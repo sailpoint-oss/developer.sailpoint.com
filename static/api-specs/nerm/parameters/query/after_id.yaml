@@ -1,0 +1,8 @@
+name: after_id
+in: query
+description: Represents the ID where the query should begin from. If blank, it represents the first ID. When used, forces sorting by ID ascending and does not allow use of `offset`. When after_id is specified it changes the mode of the API such that any filter parameters other than profile_type_id, limit, and offset are not supported and will be either silently ignored or result in an HTTP 400 error. For example you can not include and after_id along with an archived=false in the same request.
+required: false
+schema:
+  type: string
+  format: uuid
+  example: 4eaa719f-4312-4c5b-9264-d0eb04d4a02a

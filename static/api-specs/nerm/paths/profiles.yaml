@@ -11,6 +11,7 @@ get:
     - $ref: "../parameters/query/profile_type_id.yaml"
     - $ref: "../parameters/query/status.yaml"
     - $ref: "../parameters/query/metadata.yaml"
+    - $ref: "../parameters/query/after_id.yaml"
   responses:
     '200':
       $ref: "../responses/Profiles_Meta.yaml"

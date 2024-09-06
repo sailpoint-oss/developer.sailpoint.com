@@ -11,8 +11,8 @@ module.exports = {
       label: 'Documentation',
       position: 'left',
       items: [
-        {label: 'Identity Security Cloud', to: '/docs'},
-        {label: 'IdentityIQ', to: '/docs/iiq'},
+        {label: 'Identity Security Cloud', to: '/'},
+        {label: 'IdentityIQ', to: '/iiq'},
       ],
     },
     {
@@ -20,9 +20,9 @@ module.exports = {
       label: 'API Specifications',
       position: 'left',
       items: [
-        {label: 'Identity Security Cloud', to: '/docs/api/v2024'},
-        {label: 'IdentityIQ', to: '/docs/api/iiq'},
-        {label: 'NERM', to: '/docs/api/nerm/v1'},
+        {label: 'Identity Security Cloud', to: '/api/v2024'},
+        {label: 'IdentityIQ', to: '/api/iiq'},
+        {label: 'NERM', to: '/api/nerm/v1'},
       ],
     },
     {

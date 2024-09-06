@@ -6,15 +6,15 @@ module.exports = {
       items: [
         {
           label: 'Your First API Call',
-          to: 'docs/api/getting-started',
+          to: 'api/getting-started#make-your-first-api-call',
         },
         {
           label: 'Build A Transform',
-          to: 'docs/extensibility/transforms/guides/your-first-transform',
+          to: 'extensibility/transforms/guides/your-first-transform',
         },
         {
           label: 'Build A SaaS Connector',
-          to: 'docs/connectivity/saas-connectivity',
+          to: 'connectivity/saas-connectivity',
         },
         {
           label: 'Get Certified',

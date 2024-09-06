@@ -80,7 +80,7 @@ A rule that has been approved in a sandbox tenant through the SailPoint rule rev
 
 This applies to all rule types, as the signature has been approved/verified during the SailPoint rule review process, the sp-config API allows you to import ANY ‘approved’ tenant rules. (this includes cloud rules!)
 
-For more details on the sp-config API see [sp-config](/docs/api/beta/export-sp-config)
+For more details on the sp-config API see [sp-config](/api/beta/export-sp-config)
 
 ## Rule Guidelines
 

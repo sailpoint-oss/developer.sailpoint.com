@@ -15,7 +15,7 @@ tags: ['CLI']
 
 Learn how to use the CLI to import and export configurations.
 
-You can use the [SP Config APIs](/docs/api/beta/sp-config) to import configurations into ISC and export them out.
+You can use the [SP Config APIs](/api/beta/sp-config) to import configurations into ISC and export them out.
 
 With the `spconfig` command, you can access the same functionality.
 

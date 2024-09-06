@@ -340,6 +340,12 @@
 
 .navbar__logo {
   margin-right: 0.5rem;
+  height: 2.8rem;
+}
+
+.navbar__logo::after {
+  content: "Platform Community";
+  line-height: .5em;
 }
 
 @media only screen and (max-width: 1291px) {

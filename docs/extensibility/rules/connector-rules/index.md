@@ -39,12 +39,12 @@ Connector Rules are directly editable with the [Connector Rule REST APIs](https:
 
 | Name | Path |
 | --- | --- |
-| [List Connector Rules](/docs/api/beta/get-connector-rule-list) | `GET /beta/connector-rules/` |
-| [Get Connector Rule](/docs/api/beta/get-connector-rule) | `GET /beta/connector-rules/[id]` |
-| [Create Connector Rule](/docs/api/beta/create-connector-rule) | `POST /beta/connector-rules/` |
-| [Update Connector Rule](/docs/api/beta/update-connector-rule) | `PUT /beta/connector-rules/[id]` |
-| [Delete Connector Rule](/docs/api/beta/delete-connector-rule) | `DELETE /beta/connector-rules/[id]` |
-| [Validate Connector Rule](/docs/api/beta/validate-connector-rule) | `POST /beta/connector-rules/validate` |
+| [List Connector Rules](/api/beta/get-connector-rule-list) | `GET /beta/connector-rules/` |
+| [Get Connector Rule](/api/beta/get-connector-rule) | `GET /beta/connector-rules/[id]` |
+| [Create Connector Rule](/api/beta/create-connector-rule) | `POST /beta/connector-rules/` |
+| [Update Connector Rule](/api/beta/update-connector-rule) | `PUT /beta/connector-rules/[id]` |
+| [Delete Connector Rule](/api/beta/delete-connector-rule) | `DELETE /beta/connector-rules/[id]` |
+| [Validate Connector Rule](/api/beta/validate-connector-rule) | `POST /beta/connector-rules/validate` |
 
 SailPoint architectural optimizations have added resiliency and protections against malformed or long-running rules. These APIs also offer built-in protection and checking against potentially harmful code. For more information, see [Rule Code Restrictions](../../rules/index.md#rule-code-restrictions).
 

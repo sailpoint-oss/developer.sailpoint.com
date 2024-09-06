@@ -40,7 +40,7 @@ try {
 }
 ```
 
-This example request uses the [Perform Search endpoint](/docs/api/v3/search-post) to search your tenant for identities with the name "john.doe".
+This example request uses the [Perform Search endpoint](/api/v3/search-post) to search your tenant for identities with the name "john.doe".
 
 ### Paginate search results
 

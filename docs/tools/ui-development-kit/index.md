@@ -29,7 +29,7 @@ These are the requirements to use the UI Development Kit:
 
 - **Node**: To learn how to download Node and set it up, go [here](https://nodejs.org/en/download).
 
-- **Your ISC tenant name**. To learn how to find it, refer to [Getting Started](/docs/api/getting-started#find-your-tenant-name). The SDK will use this tenant name to connect to your ISC instance.
+- **Your ISC tenant name**. To learn how to find it, refer to [Getting Started](/api/getting-started#find-your-tenant-name). The SDK will use this tenant name to connect to your ISC instance.
 
 ## Clone the project
 

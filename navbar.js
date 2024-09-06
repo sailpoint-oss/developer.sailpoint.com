@@ -2,8 +2,8 @@ module.exports = {
   title: '',
   logo: {
     alt: 'SailPoint Developer Community',
-    src: 'img/SailPoint-Developer-Community-Lockup.png',
-    srcDark: 'img/SailPoint-Developer-Community-Inverse-Lockup.png',
+    src: 'img/SailPoint-Logo-RGB-Color.svg',
+    srcDark: 'img/SailPoint-Logo-RGB-Inverse.svg',
     href: 'https://platform.sailpoint.com',
   },
   items: [

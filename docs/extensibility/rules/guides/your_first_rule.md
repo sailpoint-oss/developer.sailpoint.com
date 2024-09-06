@@ -105,7 +105,7 @@ flowchart TD
 
 ## Write the Rule
 
-Create a new xml file with this naming scheme [rule file naming](/docs/extensibility/rules/cloud-rules#review-guidelines).
+Create a new xml file with this naming scheme [rule file naming](/extensibility/rules/cloud-rules#review-guidelines).
 
 Open that file in your preferred editor.
 

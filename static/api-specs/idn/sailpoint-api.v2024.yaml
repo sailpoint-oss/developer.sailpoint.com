@@ -3,12 +3,12 @@ info:
   title: Identity Security Cloud V2024 API
   description: Use these APIs to interact with the Identity Security Cloud platform
     to achieve repeatable, automated processes with greater scalability. We encourage
-    you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss
+    you to join the SailPoint Developer Community forum at https://platform.sailpoint.com
     to connect with other developers using our APIs.
-  termsOfService: https://developer.sailpoint.com/discuss/tos
+  termsOfService: https://platform.sailpoint.com/tos
   contact:
     name: Developer Relations
-    url: https://developer.sailpoint.com/discuss/api-help
+    url: https://platform.sailpoint.com/api-help
   license:
     name: MIT
     url: https://opensource.org/licenses/MIT

@@ -9,7 +9,7 @@ export default function HomepageTeam() {
       <div className={styles.gridContainer}>
         <TeamCard
           link={
-            'https://developer.sailpoint.com/discuss/u/colin_mckibben/summary'
+            'https://platform.sailpoint.com/u/colin_mckibben/summary'
           }
           name={'Colin McKibben'}
           title={'Lead Developer Advocate'.toUpperCase()}
@@ -18,7 +18,7 @@ export default function HomepageTeam() {
         />
         <TeamCard
           link={
-            'https://developer.sailpoint.com/discuss/u/tyler_mairose/summary'
+            'https://platform.sailpoint.com/u/tyler_mairose/summary'
           }
           name={'Tyler Mairose'}
           title={'Developer Advocate'.toUpperCase()}
@@ -27,7 +27,7 @@ export default function HomepageTeam() {
         />
         <TeamCard
           link={
-            'https://developer.sailpoint.com/discuss/u/christina_gagnon/summary'
+            'https://platform.sailpoint.com/u/christina_gagnon/summary'
           }
           name={'Christina Gagnon'}
           title={'Developer Advocate'.toUpperCase()}
@@ -35,7 +35,7 @@ export default function HomepageTeam() {
           image={'/homepage/christina-gagnon.png'}
         />
         <TeamCard
-          link={'https://developer.sailpoint.com/discuss/u/jthaytko/summary'}
+          link={'https://platform.sailpoint.com/u/jthaytko/summary'}
           name={'James Haytko'}
           title={'Technical Writer'.toUpperCase()}
           expertise={'DEVELOPER DOCUMENTATION'}
@@ -43,7 +43,7 @@ export default function HomepageTeam() {
         />
         <TeamCard
           link={
-            'https://developer.sailpoint.com/discuss/u/philip-ellis/summary'
+            'https://platform.sailpoint.com/u/philip-ellis/summary'
           }
           name={'Philip Ellis'}
           title={'Lead Software Engineer'.toUpperCase()}
@@ -51,14 +51,14 @@ export default function HomepageTeam() {
           image={'/homepage/phil-ellis.png'}
         />
         <TeamCard
-          link={'https://developer.sailpoint.com/discuss/u/Darrell/summary'}
+          link={'https://platform.sailpoint.com/u/Darrell/summary'}
           name={'Darrell Thobe'}
           title={'Software Engineer'.toUpperCase()}
           expertise={'DEVELOPER TOOLS'}
           image={'/homepage/darrell-thobe.png'}
         />
         <TeamCard
-          link={'https://developer.sailpoint.com/discuss/u/derek_putnam/summary'}
+          link={'https://platform.sailpoint.com/u/derek_putnam/summary'}
           name={'Derek Putnam'}
           title={'Community Manager'.toUpperCase()}
           expertise={'DEVELOPER COMMUNITY'}
@@ -66,10 +66,10 @@ export default function HomepageTeam() {
         />
         <TeamCard
           link={
-            'https://developer.sailpoint.com/discuss/u/jordan_violet/summary'
+            'https://platform.sailpoint.com/u/jordan_violet/summary'
           }
           name={'Jordan Violet'}
-          title={'Head of Developer Relations'.toUpperCase()}
+          title={'Head of Platform Experience'.toUpperCase()}
           expertise={''}
           image={'/homepage/jordan-violet.png'}
         />

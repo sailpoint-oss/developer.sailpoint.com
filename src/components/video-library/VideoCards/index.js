@@ -137,7 +137,7 @@ export default function VideoCards({filterCallback, limit, featured}) {
             {' '}
             Hey there, looks like no integrations match your search criteria.
             Check out our{' '}
-            <a href="https://developer.sailpoint.com/discuss/t/about-the-sailpoint-developer-community-colab/11230">
+            <a href="https://platform.sailpoint.com/t/about-the-sailpoint-developer-community-colab/11230">
               getting started guide
             </a>
             , and consider being the first to contribute this integration!

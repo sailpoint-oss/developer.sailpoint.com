@@ -9,7 +9,7 @@ export function videoBaseURL() {
   return '/videos/';
 }
 export function discourseBaseURL() {
-  return 'https://developer.sailpoint.com/discuss/';
+  return 'https://platform.sailpoint.com/';
 }
 export function developerWebsiteDomain() {
   return 'developer.sailpoint.com';

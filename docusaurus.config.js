@@ -15,7 +15,7 @@ const config = {
   title: 'SailPoint Developer Community',
   tagline:
     'The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.',
-  url: 'https://developer.sailpoint.com',
+  url: 'https://platform.sailpoint.com',
   baseUrl,
   favicon: 'img/SailPoint-Logo-Icon.ico',
   // onBrokenLinks: 'throw',
@@ -90,7 +90,7 @@ const config = {
         id: 'newAnnouncement3',
         isCloseable: true,
         content:
-          'our latest announcement in the SailPoint Developer Community Forum: <a target="_blank" rel="noopener noreferrer" href="https://developer.sailpoint.com/discuss/t/the-developer-community-colab-a-new-way-to-find-build-and-collaborate-on-extensibility-solutions/18847">Announcing the Developer Community CoLab!</a> 🎉',
+          'our latest announcement in the SailPoint Developer Community Forum: <a target="_blank" rel="noopener noreferrer" href="https://platform.sailpoint.com/t/the-developer-community-colab-a-new-way-to-find-build-and-collaborate-on-extensibility-solutions/18847">Announcing the Developer Community CoLab!</a> 🎉',
       },
       navbar: navbar,
       footer: footer,

@@ -73,7 +73,7 @@ We love thorough feature requests. The more details you include, the faster we c
 
 ## Submit a fix
 
-One of the main benefits of making our project open source is that it makes it possible for the community to contribute directly. We will always respond as quickly as we can to any issues you report, but if you know how to fix an issue, the fastest way to get it fixed is to submit a pull request and make the fix yourself! If you can do this, it's tremendously helpful to us in our efforts to improve the community, and, if you're interested, you will receive ambassador points for your fix. Check out the [ambassador program](https://developer.sailpoint.com/discuss/t/getting-started-as-a-developer-community-ambassador/11665) to learn more.
+One of the main benefits of making our project open source is that it makes it possible for the community to contribute directly. We will always respond as quickly as we can to any issues you report, but if you know how to fix an issue, the fastest way to get it fixed is to submit a pull request and make the fix yourself! If you can do this, it's tremendously helpful to us in our efforts to improve the community, and, if you're interested, you will receive ambassador points for your fix. Check out the [ambassador program](https://platform.sailpoint.com/t/getting-started-as-a-developer-community-ambassador/11665) to learn more.
 
 To submit a fix, follow these steps:
 
@@ -93,7 +93,7 @@ You cannot directly make changes to the API specifications. These files are regu
 
 ## Submit a new feature
 
-We will always respond to your feature requests and implement them as soon as we can. However, if you have an idea for a new feature and know how to implement it yourself, the fastest way to add the feature is to submit a pull request and add the feature yourself! If you can do this, we greatly appreciate it, and other community members will benefit from your contribution! And if you're interested, you will receive ambassador points for your feature contribution. Check out the [ambassador program](https://developer.sailpoint.com/discuss/t/getting-started-as-a-developer-community-ambassador/11665) to learn more.
+We will always respond to your feature requests and implement them as soon as we can. However, if you have an idea for a new feature and know how to implement it yourself, the fastest way to add the feature is to submit a pull request and add the feature yourself! If you can do this, we greatly appreciate it, and other community members will benefit from your contribution! And if you're interested, you will receive ambassador points for your feature contribution. Check out the [ambassador program](https://platform.sailpoint.com/t/getting-started-as-a-developer-community-ambassador/11665) to learn more.
 
 To submit a new feature, follow these steps:
 
@@ -117,7 +117,7 @@ It's possible that none of the options listed here will properly address your is
 
 ## Discuss on the forum
 
-What makes the SailPoint Developer Community great is its brilliant, knowledgeable members! If you have a question, problem, or idea, one of the best ways to get answers or resolutions is to go to the [Developer Community Forum](https://developer.sailpoint.com/discuss) to discuss them directly with the community on the forum. The SailPoint Developer Relations Team, the community ambassadors, and other members will be there to discuss them with you. And once you're there, you can help others on the forum too! If you're interested, you will receive ambassador points for the issues you help others resolve on the forum.Check out the [ambassador program](https://developer.sailpoint.com/discuss/t/getting-started-as-a-developer-community-ambassador/11665) to learn more.
+What makes the SailPoint Developer Community great is its brilliant, knowledgeable members! If you have a question, problem, or idea, one of the best ways to get answers or resolutions is to go to the [Developer Community Forum](https://platform.sailpoint.com) to discuss them directly with the community on the forum. The SailPoint Developer Relations Team, the community ambassadors, and other members will be there to discuss them with you. And once you're there, you can help others on the forum too! If you're interested, you will receive ambassador points for the issues you help others resolve on the forum.Check out the [ambassador program](https://platform.sailpoint.com/t/getting-started-as-a-developer-community-ambassador/11665) to learn more.
 
 ## MIT Software License
 

@@ -26,7 +26,7 @@ export default function Ambassador() {
             growth, enabling knowledge-sharing among experts like you.
             <Link
               className={styles.link}
-              to="https://developer.sailpoint.com/discuss/t/announcing-the-developer-community-ambassador-program/10634">
+              to="https://platform.sailpoint.com/t/announcing-the-developer-community-ambassador-program/10634">
               <div className={styles.button}>Become an Ambassador</div>
             </Link>
           </div>

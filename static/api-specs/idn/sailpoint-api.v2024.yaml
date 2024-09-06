@@ -2004,6 +2004,28 @@ paths:
     $ref: "./v3/paths/manual-discover-applications.yaml"
   /vendor-connector-mappings:
     $ref: "./v3/paths/vendor-connector-mappings.yaml"
+  /source-apps/{id}:
+    $ref: './v2024/paths/ears-source-app.yaml'
+  /source-apps/bulk-update:
+    $ref: './v2024/paths/ears-source-app-bulk-update.yaml'
+  /source-apps/assigned:
+    $ref: './v2024/paths/ears-source-apps-assigned.yaml'
+  /source-apps:
+    $ref: './v2024/paths/ears-source-apps.yaml'
+  /source-apps/all:
+    $ref: './v2024/paths/ears-source-apps-all.yaml'
+  /source-apps/{id}/access-profiles:
+    $ref: './v2024/paths/ears-source-app-access-profiles.yaml'
+  /source-apps/{id}/access-profiles/bulk-remove:
+    $ref: './v2024/paths/ears-source-app-access-profiles-bulk-remove.yaml'
+  /user-apps/{id}:
+    $ref: './v2024/paths/ears-user-app.yaml'
+  /user-apps/{id}/available-accounts:
+    $ref: './v2024/paths/ears-user-app-available-accounts.yaml'
+  /user-apps:
+    $ref: './v2024/paths/ears-user-apps.yaml'
+  /user-apps/all:
+    $ref: './v2024/paths/ears-user-apps-all.yaml'
 security:
 - UserContextAuth: []
 components:

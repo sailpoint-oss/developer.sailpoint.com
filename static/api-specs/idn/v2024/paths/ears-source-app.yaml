@@ -15,6 +15,14 @@ get:
       schema:
         type: string
         example: 2c91808a7813090a017814121e121518
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
   responses:
     '200':
       description: Responds with the source app.
@@ -57,13 +65,21 @@ patch:
       schema:
         type: string
         example: 2c91808a7813090a017814121e121518
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
   requestBody:
     content:
       application/json-patch+json:
         schema:
           type: array
           items:
-            $ref: '../schemas/JsonPatchOperation.yaml'
+            $ref: '../../beta/schemas/JsonPatchOperation.yaml'
           example: [
             {
               "op": "replace",
@@ -191,6 +207,14 @@ delete:
       required: true
       description: source app ID.
       example: 2c9180835d191a86015d28455b4a2329
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
   responses:
     '200':
       description: Responds with the source app as deleted.

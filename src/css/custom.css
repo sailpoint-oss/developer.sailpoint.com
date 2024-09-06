@@ -288,6 +288,8 @@
 
   --ifm-font-family-base: 'Poppins';
 
+  --dev-logo-text: #1c42a0; 
+
   --dev-icon-experimental: #cc27b0;
   --dev-icon-deprecated: rgb(230, 167, 0);
 }
@@ -318,6 +320,7 @@
   --text-on-primary: #ffffff;
 
   --text-color: #ffffff;
+  --dev-logo-text: #ffffff;
 
   --dropdown-background: #2a2b2d;
 
@@ -339,13 +342,30 @@
 }
 
 .navbar__logo {
+  margin-top: -2%;
   margin-right: 0.5rem;
-  height: 2.8rem;
+  height: 3.6rem;
+  margin-left: -3.3%;
 }
+
+/* .navbar__logo::before {
+  content: '|';
+  font-size: xxx-large;
+  position: relative;
+  top: -18px;
+  color: var(--dev-logo-text);
+} */
 
 .navbar__logo::after {
   content: "Platform Community";
   line-height: .5em;
+  position: relative;
+  top: -18px;
+  color: var(--dev-logo-text);
+  font-size: x-large;
+  border-left: solid var(--dev-logo-text);
+  border-width: .5px;
+  padding-left: 10px;
 }
 
 @media only screen and (max-width: 1291px) {

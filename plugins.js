@@ -22,7 +22,7 @@ module.exports = [
           from: ['/conf', '/developerdays', '/developerdays/agenda'],
         },
         {
-          to: '/docs/api/v2024',
+          to: '/api/v2024',
           from: ['/docs/api'],
         },
         {
@@ -1516,10 +1516,6 @@ module.exports = [
         {
           from: ['/nerm/api/post-profile-upload'],
           to: '/api/nerm/v1/post-profile-upload',
-        },
-        {
-          from: ['/nerm/api/post-profiles'],
-          to: '/api/nerm/v1/post-profiles',
         },
         {
           from: ['/nerm/api/post-role'],

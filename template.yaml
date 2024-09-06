@@ -136,6 +136,11 @@ Resources:
       WebsiteConfiguration:
         IndexDocument: index.html
         ErrorDocument: 404.html
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
+        BlockPublicPolicy: false
+        IgnorePublicAcls: false
+        RestrictPublicBuckets: false
   DeveloperSailpointWebSiteBucketPolicy:
     Type: "AWS::S3::BucketPolicy"
     Properties:
@@ -153,6 +158,12 @@ Resources:
           Condition:
             StringEquals:
               "AWS:SourceArn": !Join [ "", [ "arn:aws:cloudfront::", !Ref "AWS::AccountId", ":distribution/", !Ref DeveloperSailpointCloudFrontDistribution ] ]
+        - Sid: "PublicReadGetObject"
+          Effect: "Allow"
+          Principal: "*"
+          Action:
+            - "s3:GetObject"
+          Resource: !Join [ "", [ "arn:aws:s3:::", !Ref DeveloperSailpointWebSiteBucket, "/*" ] ]
   # CloudFront Distribution for hosting the single page app website
   DeveloperSailpointCloudFrontDistribution:
     Type: "AWS::CloudFront::Distribution"

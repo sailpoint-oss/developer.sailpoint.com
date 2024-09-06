@@ -153,12 +153,6 @@ Resources:
           Condition:
             StringEquals:
               "AWS:SourceArn": !Join [ "", [ "arn:aws:cloudfront::", !Ref "AWS::AccountId", ":distribution/", !Ref DeveloperSailpointCloudFrontDistribution ] ]
-        - Sid: "PublicReadGetObject"
-          Effect: "Allow"
-          Principal: "*"
-          Action:
-            - "s3:GetObject"
-          Resource: !Join [ "", [ "arn:aws:s3:::", !Ref DeveloperSailpointWebSiteBucket, "/*" ] ]
   # CloudFront Distribution for hosting the single page app website
   DeveloperSailpointCloudFrontDistribution:
     Type: "AWS::CloudFront::Distribution"

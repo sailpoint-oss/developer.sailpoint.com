@@ -106,4 +106,4 @@ For example, the variable in this template is configured so you can choose how m
   }
 ```
 
-Everything inside this searchQuery object matches the standard format of an [Identity Security Cloud search query](https://documentation.sailpoint.com/saas/help/search/building-query.html). A limited number of examples are provided [here](https://developer.sailpoint.com/docs/api/v3/search-post), but the searchQuery object is mapped to the full search object. This means that you can add any search query values missing from this object.
+Everything inside this searchQuery object matches the standard format of an [Identity Security Cloud search query](https://documentation.sailpoint.com/saas/help/search/building-query.html). A limited number of examples are provided [here](https://platform.sailpoint.com/docs/api/v3/search-post), but the searchQuery object is mapped to the full search object. This means that you can add any search query values missing from this object.

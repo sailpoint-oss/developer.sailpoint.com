@@ -44,7 +44,7 @@ sequenceDiagram
 When managing a user's access to the API, you must first assign the target user an appropriate [user level](https://documentation.sailpoint.com/saas/help/common/users/user_level_matrix.html). It is important to choose the correct user level as it will place a boundary on which APIs a user can call, which also affects the areas and functions of the UI they have access to. For example, if a user is in charge of creating reports for auditing requirements, consider granting them the "Report Admin" user level.
 
 
-User levels are typically granted through the UI, [following the procedures from this document](https://documentation.sailpoint.com/saas/help/accounts/identities.html#setting-user-level-permissions). You can also set user levels via API using the [auth user update](https://developer.sailpoint.com/docs/api/v3/patch-auth-user) endpoint.
+User levels are typically granted through the UI, [following the procedures from this document](https://documentation.sailpoint.com/saas/help/accounts/identities.html#setting-user-level-permissions). You can also set user levels via API using the [auth user update](https://platform.sailpoint.com/docs/api/v3/patch-auth-user) endpoint.
 
 
 User levels act as the first line of defense by applying a rigid boundary around the APIs that a user can call. The next section introduces scopes, which allow users to apply granular controls on the APIs an access token can call.
@@ -55,7 +55,7 @@ Scopes are granular permissions you can add to personal access tokens (PATs) to 
 
 Scopes contain one or more rights, which are low level permissions that grant access to individual endpoints. This means that a single scope, like `idn:access-request:manage`, can grant access to multiple API endpoints. To determine which scopes a PAT needs, you must first identify which endpoints the PAT needs to invoke. Each endpoint's API specification indicates which scope is necessary to call the endpoint. You can use this approach to curate a list of scopes that must be applied to the credential to call the necessary endpoints. [Learn more about how to find an API's required scopes here](#identifying-necessary-authorization-for-an-endpoint).
 
-By default, each PAT has the scope `sp:scopes:default`, which is the least privileged scope. It only grants access to endpoints that require no authorization at all, such as [List Public Identities](https://developer.sailpoint.com/idn/api/v3/get-public-identities). Access to the endpoint may still be determined by the user's [user level](https://documentation.sailpoint.com/saas/help/common/users/user_level_matrix.html).
+By default, each PAT has the scope `sp:scopes:default`, which is the least privileged scope. It only grants access to endpoints that require no authorization at all, such as [List Public Identities](https://platform.sailpoint.com/idn/api/v3/get-public-identities). Access to the endpoint may still be determined by the user's [user level](https://documentation.sailpoint.com/saas/help/common/users/user_level_matrix.html).
 
 Alternatively, `sp:scopes:all` grants access to all the rights appropriate for the [user level](https://documentation.sailpoint.com/saas/help/common/users/user_level_matrix.html). For example, a user with the **Admin** user level has access to all APIs, so `sp:scopes:all` grants **Admin** users access to all APIs. A user with the **Cert Admin** user level, however, has access to only a subset of APIs necessary to perform their role, most notably the certification APIs, so `sp:scopes:all` grants **Cert Admin** users access to only that subset of APIs.
 
@@ -72,7 +72,7 @@ If the API requirements for the personal access token exceed the scopes allowed 
 
 ## Identifying Necessary Authorization for an Endpoint
 
-Each endpoint document specifies how to authorize with the endpoint in the **Authorization** dropdown, which is located on the right side column below the endpoint path. Selecting **Authorization** expands the dropdown menu showing the details of how to authorize with the endpoint. The following image shows the authorization details of the [List Access Profiles](https://developer.sailpoint.com/docs/api/beta/list-access-profiles) endpoint.
+Each endpoint document specifies how to authorize with the endpoint in the **Authorization** dropdown, which is located on the right side column below the endpoint path. Selecting **Authorization** expands the dropdown menu showing the details of how to authorize with the endpoint. The following image shows the authorization details of the [List Access Profiles](https://platform.sailpoint.com/docs/api/beta/list-access-profiles) endpoint.
 
 ![Authorization Dropdown](./img/authorization/authorization-dropdown.png)
 
@@ -94,7 +94,7 @@ When you create a PAT in the UI, you can apply scopes to the token. More informa
 
 ## Assigning Scopes with the API
 
-You can [create PATs](https://developer.sailpoint.com/docs/api/v3/create-personal-access-token) programmatically with the API. The request body for the endpoint allows the caller to specify a list of scopes to be applied to the PAT. If the `scope` property is omitted from the request body, then `sp:scopes:all` is granted to the credentials. The following example shows how to generate a PAT with the `idn:access-request:manage` and `idn:nelm:manage` scopes.
+You can [create PATs](https://platform.sailpoint.com/docs/api/v3/create-personal-access-token) programmatically with the API. The request body for the endpoint allows the caller to specify a list of scopes to be applied to the PAT. If the `scope` property is omitted from the request body, then `sp:scopes:all` is granted to the credentials. The following example shows how to generate a PAT with the `idn:access-request:manage` and `idn:nelm:manage` scopes.
 
 POST `https://{tenant}.api.identitynow.com/v3/personal-access-tokens`
 

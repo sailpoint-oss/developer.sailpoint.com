@@ -15,7 +15,7 @@ tags: ['AccessProfileRequestManagement']
 
 In Identity Security Cloud, [access profiles](https://documentation.sailpoint.com/saas/help/access/access-profiles.html) are groups of [entitlements](https://documentation.sailpoint.com/saas/help/access/entitlements.html), which represent access rights on [sources](https://documentation.sailpoint.com/saas/help/sources/index.html). By default, all access profiles are marked as requestable. This means that an organization's users can submit [access requests](https://documentation.sailpoint.com/saas/help/requests/index.html) for the access profiles in the Identity Security Cloud [Request Center](https://documentation.sailpoint.com/saas/user-help/requests/request_center.html), where all access profiles are listed.
 
-You can disable requests for access profiles to prevent users from gaining inappropriate or undesired access. In the UI, you can edit the [individual access profile](https://documentation.sailpoint.com/saas/help/requests/config_ap_roles.html#configuring-access-profiles-for-requests) to disable requests for the access profile. You can also use the [PATCH Access Profile endpoint](https://developer.sailpoint.com/docs/api/v3/patch-access-profile) to mark the individual access profile as non-requestable.
+You can disable requests for access profiles to prevent users from gaining inappropriate or undesired access. In the UI, you can edit the [individual access profile](https://documentation.sailpoint.com/saas/help/requests/config_ap_roles.html#configuring-access-profiles-for-requests) to disable requests for the access profile. You can also use the [PATCH Access Profile endpoint](https://platform.sailpoint.com/docs/api/v3/patch-access-profile) to mark the individual access profile as non-requestable.
 
 You may have many access profiles that you want to disable requests for, and you don't want one to get overlooked and then inappropriately accessed. There are three different processes you can use to ensure that you have disabled requests for all access profiles that aren't currently associated with [applications](https://documentation.sailpoint.com/saas/help/common/app-config.html) configured for access requests. Read this guide to learn how to perform these processes.
 
@@ -39,7 +39,7 @@ Once you have performed this process, all the access profiles that aren't curren
 
 Follow these steps to use two API endpoints to individually disable access requests for all access profiles that aren't currently associated with applications:
 
-1. Use the [Search endpoint](https://developer.sailpoint.com/docs/api/v3/search-post) to identify the access profiles that are **not** associated with applications configured for access requests. Sending the following query will return a list of these unassociated access profiles.
+1. Use the [Search endpoint](https://platform.sailpoint.com/docs/api/v3/search-post) to identify the access profiles that are **not** associated with applications configured for access requests. Sending the following query will return a list of these unassociated access profiles.
 
 - Provide this request body. It will return all access profiles that have a null or empty `apps` list.
 
@@ -73,7 +73,7 @@ Follow these steps to use two API endpoints to individually disable access reque
 
 - The response body will include all the details of each unassociated access profile. Extract the `id` for each access profile returned.
 
-2. Use the [PATCH Access Profile endpoint](https://developer.sailpoint.com/docs/api/v3/patch-access-profile) and provide the unassociated access profile's `id` to update the specified access profile's `requestable` field.
+2. Use the [PATCH Access Profile endpoint](https://platform.sailpoint.com/docs/api/v3/patch-access-profile) and provide the unassociated access profile's `id` to update the specified access profile's `requestable` field.
 
 - Provide this request body. It will use the `replace` operation to update the value in the specified access profile's `requestable` path to `false`.
 
@@ -95,7 +95,7 @@ Once you have performed this process for each of the unassociated access profile
 
 Follow these steps to use two API endpoints to bulk disable access requests for all access profiles that aren't currently associated with applications:
 
-1. Use the [Search endpoint](https://developer.sailpoint.com/docs/api/v3/search-post) to identify the access profiles that are **not** associated with applications configured for access requests. Sending the following query will return a list of these unassociated access profiles.
+1. Use the [Search endpoint](https://platform.sailpoint.com/docs/api/v3/search-post) to identify the access profiles that are **not** associated with applications configured for access requests. Sending the following query will return a list of these unassociated access profiles.
 
 - Provide this request body. It will return all access profiles that have a null or empty `apps` list.
 
@@ -129,7 +129,7 @@ Follow these steps to use two API endpoints to bulk disable access requests for 
 
 - The response body will include all the details of each unassociated access profile. Extract the `id` for each access profile returned.
 
-2. Use the [Update Requestability for Access Profiles endpoint](https://developer.sailpoint.com/docs/api/beta/update-access-profiles-in-bulk) and provide every unassociated access profile's `id`, along with the updated values for their `requestable` fields.
+2. Use the [Update Requestability for Access Profiles endpoint](https://platform.sailpoint.com/docs/api/beta/update-access-profiles-in-bulk) and provide every unassociated access profile's `id`, along with the updated values for their `requestable` fields.
 
 - Provide this request body. It can bulk update all the access profiles you specify - you just need to specify each access profile's `id` and the `requestable` value you want for the access profile.
 

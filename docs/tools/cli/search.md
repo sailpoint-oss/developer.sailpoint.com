@@ -47,7 +47,7 @@ The basic format of a query is "field:term", so an example `query` command would
 sail search query "name:a*" --indices identities
 ```
 
-The CLI will use the [V3 Search endpoint](https://developer.sailpoint.com/docs/api/v3/search-post) to search for all identities starting with names starting with the letter "a". The CLI will then generate a JSON file containing the search results. This JSON file will be located in a folder titled "search_results", within the current working directory, unless a folder path is specified.
+The CLI will use the [V3 Search endpoint](https://platform.sailpoint.com/docs/api/v3/search-post) to search for all identities starting with names starting with the letter "a". The CLI will then generate a JSON file containing the search results. This JSON file will be located in a folder titled "search_results", within the current working directory, unless a folder path is specified.
 
 ### Command
 

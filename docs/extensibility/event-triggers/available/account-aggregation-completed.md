@@ -76,4 +76,4 @@ The status of the aggregation can be one of two possible values:
 ## Additional Information and Links
 
 - **Trigger Type**: [FIRE_AND_FORGET](../trigger-types.md#fire-and-forget)
-<!-- [Input schema](https://developer.sailpoint.com/apis/beta/#section/Account-Aggregation-Completed-Event-Trigger-Input) -->
+<!-- [Input schema](https://platform.sailpoint.com/apis/beta/#section/Account-Aggregation-Completed-Event-Trigger-Input) -->

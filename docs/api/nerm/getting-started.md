@@ -21,4 +21,4 @@ To authenticate you will need to generate a token. That can be done by following
 
 ## API Tools
 
-There are several API tools that make exploring and testing APIs easier than using the command line or a programming language. One tool is [Postman](https://www.postman.com/downloads/). SailPoint provides an official Postman workspace where our collections are always up to date with the latest API changes. NERM endpoints will be added soon, so be sure to check back often. [Click here](https://developer.sailpoint.com/discuss/t/official-identitynow-postman-workspace/6153) to get started with our Postman workspace.
+There are several API tools that make exploring and testing APIs easier than using the command line or a programming language. One tool is [Postman](https://www.postman.com/downloads/). SailPoint provides an official Postman workspace where our collections are always up to date with the latest API changes. NERM endpoints will be added soon, so be sure to check back often. [Click here](https://platform.sailpoint.com/docs/api/postman-collections) to get started with our Postman workspace.

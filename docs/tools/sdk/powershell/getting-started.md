@@ -87,21 +87,21 @@ DESCRIPTION
 PARAMETERS
     -Offset <Nullable`1>
         Offset into the full result set. Usually specified with *limit* to paginate through the results. For more information, refer to [V3 API Standard Collection
-        Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters).
+        Parameters](https://platform.sailpoint.com/docs/api/standard-collection-parameters).
 
     -Limit <Nullable`1>
-        Max number of results to return. For more information, refer to [V3 API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters).
+        Max number of results to return. For more information, refer to [V3 API Standard Collection Parameters](https://platform.sailpoint.com/docs/api/standard-collection-parameters).
 
     -Count <Nullable`1>
         If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a
         performance impact, it is recommended not to send **count=true** if that value will not be used. For more information, refer to [V3 API Standard Collection
-        Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters).
+        Parameters](https://platform.sailpoint.com/docs/api/standard-collection-parameters).
 
     -Name <String>
         Name of the transform to retrieve from the list.
 
     -Filters <String>
-        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results). Filtering is
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://platform.sailpoint.com/docs/api/standard-collection-parameters#filtering-results). Filtering is
         supported for the following fields and operators:  **internal**: *eq*  **name**: *eq, sw*
 
     -WithHttpInfo [<SwitchParameter>]

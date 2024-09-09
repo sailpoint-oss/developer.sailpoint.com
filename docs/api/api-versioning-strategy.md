@@ -106,7 +106,7 @@ Individual APIs may be deprecated at anytime. The term “deprecation” means t
 
 ### Announcements
 
-Communications will be sent out to notify impacted users of any deprecations. These communications may appear in the Admin page of the Identity Security Cloud UI, in the [Announcements](https://developer.sailpoint.com/discuss/c/announcements/14) category, in Compass, or in newsletters or emails.
+Communications will be sent out to notify impacted users of any deprecations. These communications may appear in the Admin page of the Identity Security Cloud UI, in the [Announcements](https://platform.sailpoint.com) category, in Compass, or in newsletters or emails.
 
 ### API specification
 

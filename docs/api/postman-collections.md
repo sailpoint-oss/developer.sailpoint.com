@@ -60,6 +60,6 @@ Once you have configured your environment, you can start using Postman with all 
 
 :::tip
 
-Anything you want to change about the Postman collection? We love feedback! Discuss the Postman collection [here](https://developer.sailpoint.com/discuss/t/official-identitynow-postman-workspace/6153).
+Anything you want to change about the Postman collection? We love feedback! Discuss the Postman collection [here](https://platform.sailpoint.com).
 
 :::

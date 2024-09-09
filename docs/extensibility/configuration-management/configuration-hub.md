@@ -20,4 +20,4 @@ To learn more about Configuration Hub, refer to the [Configuration Hub documenta
 
 The most valuable resource for ISC developers is the SailPoint Developer Community itself, where ISC users and experts all over the world come together to ask questions and provide solutions.
 
-To learn more about the SaiLPoint Configuration Hub and discuss it with SailPoint Developer Community members, go to the [SailPoint Developer Community Forum](https://developer.sailpoint.com/discuss/c/isc/6).
+To learn more about the SaiLPoint Configuration Hub and discuss it with SailPoint Developer Community members, go to the [SailPoint Developer Community Forum](https://platform.sailpoint.com).

@@ -191,8 +191,8 @@ Please use GitHub [issues](https://github.com/sailpoint-oss/sailpoint-cli/issues
 
 Do you have an idea to help improve the CLI? You can contribute directly!
 
-Before you contribute, you must sign our [CLA](https://cla-assistant.io/sailpoint-oss/sailpoint-cli) and read the [Contribution Guidelines](https://github.com/sailpoint-oss/developer.sailpoint.com/blob/main/CONTRIBUTING.md).
+Before you contribute, you must sign our [CLA](https://cla-assistant.io/sailpoint-oss/sailpoint-cli) and read the [Contribution Guidelines](https://github.com/sailpoint-oss/platform.sailpoint.com/blob/main/CONTRIBUTING.md).
 
 ## Questions
 
-If you have questions about the CLI, don't hesitate to reach out on the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss!
+If you have questions about the CLI, don't hesitate to reach out on the SailPoint Developer Community forum at https://platform.sailpoint.com!

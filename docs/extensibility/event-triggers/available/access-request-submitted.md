@@ -44,7 +44,7 @@ This is a `REQUEST_RESPONSE` trigger type. For more information about how to res
 
 The subscribing service will receive the following input from the trigger service.
 
-<!-- The input schema can be found in the [API specification](https://developer.sailpoint.com/apis/beta/#section/Access-Request-Pre-Approval-Event-Trigger-Input): -->
+<!-- The input schema can be found in the [API specification](https://platform.sailpoint.com/apis/beta/#section/Access-Request-Pre-Approval-Event-Trigger-Input): -->
 
 ```json
 {
@@ -74,7 +74,7 @@ The subscribing service will receive the following input from the trigger servic
 
 The subscribing service can use this information to make a decision about whether to approve or deny the request.
 
-<!-- The output schema can be found in the [API specification](https://developer.sailpoint.com/apis/beta/#section/Access-Request-Pre-Approval-Event-Trigger-Output).   -->
+<!-- The output schema can be found in the [API specification](https://platform.sailpoint.com/apis/beta/#section/Access-Request-Pre-Approval-Event-Trigger-Output).   -->
 
 To approve an access request, the subscribing service responds to the event trigger with the following payload:
 
@@ -113,6 +113,6 @@ If you see numerous access requests failing at this stage, verify that your subs
 ## Additional Information and Links
 
 - **Trigger Type**: [REQUEST_RESPONSE](../trigger-types.md#request-response)
-<!-- [Input Schema](https://developer.sailpoint.com/apis/beta/#section/Access-Request-Pre-Approval-Event-Trigger-Input)
-[Output Schema](https://developer.sailpoint.com/apis/beta/#section/Access-Request-Pre-Approval-Event-Trigger-Output) -->
+<!-- [Input Schema](https://platform.sailpoint.com/apis/beta/#section/Access-Request-Pre-Approval-Event-Trigger-Input)
+[Output Schema](https://platform.sailpoint.com/apis/beta/#section/Access-Request-Pre-Approval-Event-Trigger-Output) -->
 - [How to respond to a REQUEST_RESPONSE trigger](../responding-to-a-request-response-trigger.mdx)

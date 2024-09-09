@@ -158,4 +158,4 @@ For password management setup, you must configure the following:
 ## Additional Information and Links
 
 - **Trigger Type**: [FIRE_AND_FORGET](../trigger-types.md#fire-and-forget)
-<!-- [Input schema](https://developer.sailpoint.com/apis/beta/#section/Provisioning-Completed-Event-Trigger-Input) -->
+<!-- [Input schema](https://platform.sailpoint.com/apis/beta/#section/Provisioning-Completed-Event-Trigger-Input) -->

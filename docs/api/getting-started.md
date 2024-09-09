@@ -73,4 +73,4 @@ There is a rate limit of 100 requests per `access_token` per 10 seconds for V3 A
 
 ## API Tools
 
-There are several API tools that make exploring and testing APIs easier than using the command line or a programming language. One tool is [Postman](https://www.postman.com/downloads/). SailPoint provides an official Postman workspace where our collections are always up to date with the latest API changes. [Click here](https://developer.sailpoint.com/discuss/t/official-identitynow-postman-workspace/6153) to get started with our Postman workspace.
+There are several API tools that make exploring and testing APIs easier than using the command line or a programming language. One tool is [Postman](https://www.postman.com/downloads/). SailPoint provides an official Postman workspace where our collections are always up to date with the latest API changes. [Click here](hhttps://platform.sailpoint.com/docs/api/postman-collections) to get started with our Postman workspace.

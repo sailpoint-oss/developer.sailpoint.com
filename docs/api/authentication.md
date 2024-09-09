@@ -132,7 +132,7 @@ There are several different authorization flows that OAuth 2.0 supports, and eac
 2. [**Authorization Code**](https://oauth.net/2/grant-types/authorization-code/) - Clients use this grant type to exchange an authorization code for an `access_token`. Authorization codes are mainly used by web applications because there is a login into ISC with a subsequent redirect back to the web application/client.
 3. [**Refresh Token**](https://oauth.net/2/grant-types/refresh-token/) - Clients use this grant type to exchange a refresh token for a new `access_token` when the existing `access_token` has expired. This allows clients to continue using the APIs without having to re-authenticate as frequently. This grant type can only be used together with `Authorization Code` to prevent a user from having to log in several times per day.
 
-One way to determine which authorization flow you need to use is to look at the specification for the endpoint you want to use. The endpoint will have the supported OAuth flows listed under the 'Authorization' dropdown, like the [List Access Profiles endpoint](https://developer.sailpoint.com/docs/api/beta/list-access-profiles):
+One way to determine which authorization flow you need to use is to look at the specification for the endpoint you want to use. The endpoint will have the supported OAuth flows listed under the 'Authorization' dropdown, like the [List Access Profiles endpoint](https://platform.sailpoint.com/docs/api/beta/list-access-profiles):
 
 ![Authorization Dropdown](./img/authorization/authorization-dropdown.png)
 
@@ -285,7 +285,7 @@ POST https://[tenant].api.identitynow.com/oauth/token?grant_type=authorization_c
 
 :::info
 
-The token endpoint URL is `[tenant].api.identitynow.com`, and the authorize URL is `[tenant].login.sailpoint.com`. Please be sure to use the correct URL when you're setting up your webapp to use this flow. You can read more about [finding your tenant OAuth details here](https://developer.sailpoint.com/docs/api/authentication/#find-your-tenants-oauth-details).
+The token endpoint URL is `[tenant].api.identitynow.com`, and the authorize URL is `[tenant].login.sailpoint.com`. Please be sure to use the correct URL when you're setting up your webapp to use this flow. You can read more about [finding your tenant OAuth details here](https://platform.sailpoint.com/docs/api/authentication/#find-your-tenants-oauth-details).
 
 :::
 

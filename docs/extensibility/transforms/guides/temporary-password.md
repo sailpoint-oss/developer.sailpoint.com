@@ -596,4 +596,4 @@ This is an example table of values with the temporary password for each user:
 
 ## Next Steps
 
-Looking for more examples or having trouble with one of your complex transforms? Reach out in the [Developer Community Forum](https://developer.sailpoint.com/discuss/).
+Looking for more examples or having trouble with one of your complex transforms? Reach out in the [Developer Community Forum](https://platform.sailpoint.com).

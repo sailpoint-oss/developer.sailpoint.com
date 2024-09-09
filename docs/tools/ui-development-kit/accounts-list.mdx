@@ -23,12 +23,12 @@ At the end of this guide you will be able to do the following:
 - Paginate accounts by page limits of 5, 10, 50, 100, 250
 - Click through each page of results
 - View the JSON response of the account from your tenant
-- Sort the results, using the sort syntax on the [List Accounts endpoint](https://developer.sailpoint.com/docs/api/v3/list-accounts).
-- Filter the results, using the filter syntax on the [List Accounts endpoint](https://developer.sailpoint.com/docs/api/v3/list-accounts).
+- Sort the results, using the sort syntax on the [List Accounts endpoint](https://platform.sailpoint.com/docs/api/v3/list-accounts).
+- Filter the results, using the filter syntax on the [List Accounts endpoint](https://platform.sailpoint.com/docs/api/v3/list-accounts).
 
 ## Get account data
 
-The first thing your new page needs to do is get the account data to show. You can implement this by using the [List Accounts endpoint](https://developer.sailpoint.com/docs/api/v3/list-accounts).
+The first thing your new page needs to do is get the account data to show. You can implement this by using the [List Accounts endpoint](https://platform.sailpoint.com/docs/api/v3/list-accounts).
 
 To do so, add this logic to the server side of the accounts list page at `src/routes/accounts/account-list/+page.server.ts`:
 
@@ -370,7 +370,7 @@ To implement sorting and filtering, add the following highlighted code. It allow
 With this implementation, once a user types in a filter or sorter and clicks the 'Go' button, the UI Development Kit calls the `onCreateGo` function and reloads the page with the new sorters and filters.
 
 On the server side, the kit uses the `getFilters` and `getSorters` functions to get the filters and sorters from the URL. 
-The kit then passes these functions to the [List Accounts endpoint](https://developer.sailpoint.com/docs/api/v3/list-accounts) to filter and sort the accounts.
+The kit then passes these functions to the [List Accounts endpoint](https://platform.sailpoint.com/docs/api/v3/list-accounts) to filter and sort the accounts.
 
 <Tabs>
 <TabItem value="accounts_page" label="account-list/+page.svelte" default>
@@ -566,4 +566,4 @@ To learn more about handling errors in your UI, refer to [Error Handling](./erro
 
 The most valuable resource for ISC developers is the SailPoint Developer Community itself, where ISC users and experts all over the world come together to ask questions and provide solutions. 
 
-To learn more about the ISC UI Development Kit and discuss it with SailPoint Developer Community members, go to the [SailPoint Developer Community Forum](https://developer.sailpoint.com/discuss/c/identity-security-cloud/6). 
+To learn more about the ISC UI Development Kit and discuss it with SailPoint Developer Community members, go to the [SailPoint Developer Community Forum](https://platform.sailpoint.com/). 

@@ -32,6 +32,7 @@ properties:
     type: object
     additionalProperties:
       type: string
+      nullable: true
     example: { "clusterExternalId": "e1ff7bb24c934240bbf55e1aa39e41c5", "clusterType": "sqsCluster", "gmtOffset": "-5" }
   keyPair:
     description: key pair for the ManagedCluster

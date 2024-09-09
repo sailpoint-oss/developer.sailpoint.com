@@ -11,7 +11,7 @@ tags: ['Connectivity', 'Connector Spec']
 
 ## How to use the Select type in the connector spec
 
-You can use the Select type to create a dropdown for users to interact with to select from a predefined set of values.
+You can use the `select` type to create a dropdown for users to interact with to select from a predefined set of values.
 
 This is an example implementation:
 

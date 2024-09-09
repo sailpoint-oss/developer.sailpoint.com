@@ -41,3 +41,11 @@ properties:
     example: 1641498673000
     description: Number of connections in the governance group.
     readOnly: true
+  created:
+    type: string
+    format: date-time
+    example: "2022-01-06T19:51:13Z"
+  modified:
+    type: string
+    format: date-time
+    example: "2022-01-06T19:51:13Z"

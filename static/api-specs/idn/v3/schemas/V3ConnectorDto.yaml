@@ -15,6 +15,7 @@ properties:
     example: "servicenow"
   className:
     type: string
+    nullable: true
     description: The connector class name.
     example: "sailpoint.connector.OpenConnectorAdapter"
   features:

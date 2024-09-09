@@ -12,6 +12,11 @@ properties:
     type: string
     format: 'date-time'
     description: The date-time insights were last created for this role.
+  modifiedDate:
+    type: string
+    format: 'date-time'
+    nullable: true
+    description: The date-time insights were last modified for this role.
     example: '2020-05-19T13:49:37.385Z'
   role:
     $ref: './RoleInsightsRole.yaml'
@@ -19,5 +24,3 @@ properties:
   insight:
     $ref: './RoleInsightsInsight.yaml'
     description: The kind of insight this is and some stats
-
-

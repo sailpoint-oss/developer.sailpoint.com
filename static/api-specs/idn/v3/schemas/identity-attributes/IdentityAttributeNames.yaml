@@ -1,9 +1,9 @@
 type: object
 description: >-
-  Identity Attribute IDs
+  Identity attribute IDs.
 properties:
   ids:
-    description: List of identity attributes' technical names
+    description: List of identity attributes' technical names.
     type: array
     items:
       type: string

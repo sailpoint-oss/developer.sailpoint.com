@@ -1,6 +1,6 @@
 get:
   operationId: getPotentialRole
-  summary: Retrieves a specific potential role
+  summary: Retrieve potential role in session
   tags:
     - IAI Role Mining
   description: >-
@@ -40,11 +40,11 @@ get:
 
 patch:
   operationId: patchPotentialRole
-  summary: Update a potential role
+  summary: Update a potential role in session
   tags:
     - IAI Role Mining
   description: |
-    The method updates an existing potential role using.
+    This method updates an existing potential role using the role mining session id and the potential role summary id.
    
     The following fields can be modified:
 

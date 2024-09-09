@@ -29,9 +29,9 @@ properties:
         type: string
         enum: ["true", "false"]
         description: Used for batch workflows.
-        example: true
+        example: "true"
       multiple_requests:
         type: string
         enum: ["true", "false"]
         description: Used for batch workflows for if multiple requests.
-        example: true
+        example: "false"

@@ -20,8 +20,8 @@ The displayName generator transform is intended for using Preferred Name over Gi
 
 ```json
 {
-  "name": "displayName",
-  "type": "Display Name Transform"
+  "type": "displayName",
+  "name": "Display Name Transform"
 }
 ```
 
@@ -43,7 +43,7 @@ If the user's Preferred Name is not set, Given Name is `Jonathan`, and Family Na
 
 ```json
 {
-  "name": "displayName",
-  "type": "Display Name Transform"
+  "type": "displayName",
+  "name": "Display Name Transform"
 }
 ```

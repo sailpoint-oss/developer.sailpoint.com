@@ -80,6 +80,12 @@ properties:
     format: 'date-time'
     description: The date and time, down to the millisecond, when the API Client was last updated
     example: '2018-06-25T20:22:28.104Z'
+  secret:
+    type: string 
+    nullable: true 
+  metadata:
+    type: string 
+    nullable: true 
   lastUsed:
     type: string
     nullable: true

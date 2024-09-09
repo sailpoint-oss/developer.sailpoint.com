@@ -11,6 +11,7 @@ get:
     - $ref: "../parameters/query/profile_type_id.yaml"
     - $ref: "../parameters/query/status.yaml"
     - $ref: "../parameters/query/metadata.yaml"
+    - $ref: "../parameters/query/after_id.yaml"
   responses:
     '200':
       $ref: "../responses/Profiles_Meta.yaml"
@@ -20,7 +21,7 @@ get:
       $ref: "../responses/500.yaml"
 post:
   summary: Create multiple profiles
-  operationId: postProfiles
+  operationId: createProfiles
   description: Create multiple profiles
   tags:
     - profiles
@@ -28,7 +29,7 @@ post:
     $ref: "../requestBodies/POST/Profiles.yaml"
   responses:
     '200':
-      $ref: "../responses/ProfilesJob.yaml"
+      $ref: "../responses/Profiles.yaml"
     '400':
       $ref: "../responses/400.yaml"
     '500':
@@ -43,7 +44,7 @@ patch:
     $ref: "../requestBodies/PATCH/Profiles.yaml"
   responses:
     '200':
-      $ref: "../responses/ProfilesJob.yaml"
+      $ref: "../responses/Profiles.yaml"
     '400':
       $ref: "../responses/400.yaml"
     '500':

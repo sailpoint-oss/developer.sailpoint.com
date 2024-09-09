@@ -1,6 +1,6 @@
 get:
   operationId: getPotentialRoleSummaries
-  summary: Retrieves all potential role summaries
+  summary: Retrieve session's potential role summaries
   tags:
     - IAI Role Mining
   description: >-

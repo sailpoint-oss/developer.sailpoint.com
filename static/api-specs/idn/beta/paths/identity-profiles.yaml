@@ -2,7 +2,7 @@ get:
   operationId: listIdentityProfiles
   tags:
     - Identity Profiles
-  summary: Identity Profiles list
+  summary: Identity Profiles List
   description: >-
     This returns a list of Identity Profiles based on the specified query parameters.
 
@@ -67,7 +67,8 @@ post:
   operationId: createIdentityProfile
   summary: Create an Identity Profile
   description: >-
-    This creates an Identity Profile
+    This creates an Identity Profile.
+
 
     A token with ORG_ADMIN authority is required to call this API to create an Identity Profile.
   tags:

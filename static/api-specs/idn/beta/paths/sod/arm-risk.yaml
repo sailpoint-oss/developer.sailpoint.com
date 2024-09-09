@@ -1,7 +1,7 @@
 get:
   operationId: getArmRiskById
   tags:
-    - SOD Policy
+    - SOD Policies
   summary: Gets the specified ARM risk.
   description: >-
     This API gets the specified ARM risk.

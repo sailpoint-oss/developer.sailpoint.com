@@ -12,7 +12,7 @@ tags: ['Transforms', 'Transform Operations']
 
 ## Overview
 
-Use the generate random string transform as an out-of-the-box rule transform provided through SailPoint's Cloud Services Utility rule. The transform allows you to generate a random string of any length, using true/false flags to denote whether the stringe includes numbers and/or special characters.
+Use the generate random string transform as an out-of-the-box rule transform provided through SailPoint's Cloud Services Utility rule. The transform allows you to generate a random string of any length, using true/false flags to denote whether the string includes numbers and/or special characters.
 
 :::note Other Considerations
 
@@ -57,7 +57,7 @@ The structure of a generate random string transform requires the `name` of the r
     - (
     - )
     - \+
-    - <
+    - \<
     - \>
     - ?
   - **length** - This is the required length ofthe randomly generated string.

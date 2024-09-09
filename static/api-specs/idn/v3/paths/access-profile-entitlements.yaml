@@ -4,16 +4,17 @@ get:
       - Access Profiles
     summary: List Access Profile's Entitlements
     description: >-
-        This API lists the Entitlements associated with a given Access Profile
+        Use this API to get a list of an access profile's entitlements. 
 
+        A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In
+        addition, a token with SOURCE_SUBADMIN authority must have access to the source associated with the specified
+        access profile.
 
-        A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to invoke this API. In
-        addition, a token with SOURCE_SUBADMIN authority must have access to the Source associated with the given
-        Access Profile
+        >**Note:** When you filter for access profiles that have the '+' symbol in their names, the response is blank. 
     parameters:
       - name: id
         in: path
-        description: ID of the containing Access Profile
+        description: ID of the access profile containing the entitlements. 
         required: true
         schema:
           type: string
@@ -54,6 +55,9 @@ get:
 
 
           **source.id**: *eq, in*
+
+
+          Filtering is not supported for access profiles and entitlements that have the '+' symbol in their names. 
         example: attribute eq "memberOf"
         required: false
       - in: query
@@ -70,7 +74,7 @@ get:
         required: false
     responses:
       '200':
-        description: List of Entitlements
+        description: List of entitlements.
         content:
           application/json:
             schema:

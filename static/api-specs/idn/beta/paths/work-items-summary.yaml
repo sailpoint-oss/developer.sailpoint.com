@@ -18,9 +18,9 @@ get:
       content:
         application/json:
           schema:
-            type: array
-            items:
-              $ref: '../schemas/WorkItemsSummary.yaml'
+            # type: array
+            # items:
+            $ref: '../schemas/WorkItemsSummary.yaml'
     '400':
       $ref: '../../v3/responses/400.yaml'
     '403':

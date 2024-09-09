@@ -43,7 +43,7 @@ export default function AmbassadorCard({data}) {
             size="lg"
           />
           <div className={styles.cardCommentText}>
-            member since {data.member_since}
+            ambassador since {data.member_since}
           </div>
         </div>
       </div>

@@ -100,7 +100,7 @@ When you launch the Community Toolbox, it prompts you to provide your tenant inf
 You must provide this tenant information to be able to log in: 
 - **Tenant**: This is your organization's tenant name. 
 - **Domain**: This is usually 'identitynow'. 
-- **Base URL**: This is the API URL - it is 'https://{tenant}.{domain}.com', like 'https:acme.identitynow.com', for example.
+- **Base URL**: This is the API URL - it is 'https://[tenant].[domain].com', like 'https:acme.identitynow.com', for example.
 - **Tenant URL**: This is the tenant URL - it is often the same as the API URL. 
 
 Once you have provided your tenant information, the Community Toolbox prompts you to log in to your tenant the same way you would from the browser. You must provide a password and possibly some additional form of authentication. 

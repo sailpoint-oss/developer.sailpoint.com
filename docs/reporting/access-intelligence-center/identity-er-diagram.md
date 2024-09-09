@@ -168,6 +168,7 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         varchar IDENTITY_REQUEST_ITEM_PROVISIONING_ENGINE "The engine of the identity request item provisioning"
         timestamp IDENTITY_REQUEST_ITEM_CREATED_DATE "The date of the identity request item created"
         varchar IDENTITY_REQUEST_ITEM_ACCESS_REQUEST_ID "The id of the identity request item access request"
+        varchar IDENTITY_REQUEST_ITEM_ACCESS_REQUEST_TYPE "The type of the identity request item access request"
         timestamp IDENTITY_REQUEST_ITEM_ACCESS_REQUEST_CREATED_DATE "The date of the identity request item access request created"
         timestamp IDENTITY_REQUEST_ITEM_ACCESS_REQUEST_END_DATE "The date of the identity request item access request end"
         varchar IDENTITY_REQUEST_ITEM_EXECUTION_STATUS "The status of the eidentity request item execution"

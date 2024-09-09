@@ -76,7 +76,7 @@ get:
           schema:
             type: array
             items:
-              $ref: '../schemas/RoleMiningSessionDto.yaml'
+              $ref: '../schemas/RoleMiningSessionResponse.yaml'
     '400':
       $ref: '../../v3/responses/400.yaml'
     '401':

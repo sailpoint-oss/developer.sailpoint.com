@@ -21,6 +21,7 @@ properties:
     example: '2020-03-05T22:44:00.364Z'
   modified:
     type: string
+    nullable: true
     description: Modification date of Campaign Template
     readOnly: true
     format: date-time
@@ -65,9 +66,6 @@ properties:
       (the current date plus 14 days).
     example: P2W
   campaign:
-    type: object
-    description: >-
-      This will hold campaign related information like name, description etc.
     $ref: './Campaign.yaml'
 required:
   - name

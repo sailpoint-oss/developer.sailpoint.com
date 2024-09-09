@@ -49,7 +49,7 @@ get:
         Filtering is supported for the following fields and operators:
 
 
-        **type**: *eq, in, ge, gt, le, lt, ne, isnull, sw*
+        **type**: *eq, in, ge, le, lt, ne, isnull, sw*
 
 
         **created**: *gt, lt, ge, le, eq, in, ne, isnull, sw*

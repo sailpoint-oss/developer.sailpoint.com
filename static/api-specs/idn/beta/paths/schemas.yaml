@@ -1,6 +1,8 @@
 
 get:
   operationId: getSourceSchemas
+  security:
+    - UserContextAuth: [ idn:source-schema:read ]
   tags:
     - Sources
   summary: List Schemas on Source
@@ -18,13 +20,24 @@ get:
       required: false
       schema:
         type: string
-        enum: 
-          - group 
+        enum:
+          - group
           - user
       description: >-
         If set to 'group', then the account schema is filtered and only group schemas are returned. Only a
-        value of 'group' is recognized.
+        value of 'group' is recognized presently. 
+        
+        Note: The API will check whether include-types is group or not,
+        if not, it will list schemas based on include-names, if include-names is not provided, it will list all schemas.
       example: group
+    - in: query
+      name: include-names
+      required: false
+      schema:
+        type: string
+      description: >-
+        A comma-separated list of schema names to filter result.
+      example: account
   responses:
     '200':
       description: The schemas were successfully retrieved.
@@ -48,6 +61,8 @@ get:
       $ref: '../../v3/responses/500.yaml'
 post:
   operationId: createSourceSchema
+  security:
+    - UserContextAuth: [ idn:source-schema:create ]
   tags:
     - Sources
   summary: Create Schema on Source

@@ -1,3 +1,5 @@
+const {createApiPageMD} = require('./createApiPageMD');
+
 module.exports = [
   [
     'docusaurus2-dotenv',
@@ -210,8 +212,8 @@ module.exports = [
           to: '/docs/extensibility/rules/cloud-rules/correlation-rule',
         },
         {
-          from: ['/idn/docs/rules/cloud-rules/generic-rule'],
-          to: '/docs/extensibility/rules/cloud-rules/generic-rule',
+          from: ['/idn/docs/rules/cloud-rules/transform-rule'],
+          to: '/docs/extensibility/rules/cloud-rules/transform-rule',
         },
         {
           from: ['/idn/docs/rules/cloud-rules/identity-attribute-rule'],
@@ -1512,10 +1514,6 @@ module.exports = [
           to: '/docs/api/nerm/v1/post-profile-upload',
         },
         {
-          from: ['/nerm/api/post-profiles'],
-          to: '/docs/api/nerm/v1/post-profiles',
-        },
-        {
           from: ['/nerm/api/post-role'],
           to: '/docs/api/nerm/v1/post-role',
         },
@@ -1622,6 +1620,52 @@ module.exports = [
   [
     'docusaurus-plugin-openapi-docs',
     {
+      id: 'isc-api',
+      docsPluginId: 'isc',
+      config: {
+        isc_versioned: {
+          specPath: 'static/api-specs/idn/sailpoint-api.v2024.yaml',
+          outputDir: 'docs/api/v2024',
+          sidebarOptions: {
+            groupPathsBy: 'tag',
+            categoryLinkSource: 'tag',
+          },
+          version: 'v2024',
+          label: 'v2024',
+          baseUrl: '/docs/api/v2024',
+          template: 'api.mustache',
+          markdownGenerators: {
+            createApiPageMD,
+          },
+          versions: {
+            // v2025: {
+            //   specPath: 'static/api-specs/idn/sailpoint-api.v2025.yaml',
+            //   outputDir: 'docs/api/v2025',
+            //   label: 'v2025',
+            //   baseUrl: '/docs/api/v2025',
+            // },
+            v3: {
+              specPath: 'static/api-specs/idn/sailpoint-api.v3.yaml',
+              outputDir: 'docs/api/v3',
+              downloadUrl: 'https://raw.githubusercontent.com/sailpoint-oss/api-specs/main/dereferenced/deref-sailpoint-api.v3.yaml',
+              label: 'v3',
+              baseUrl: '/docs/api/v3',
+            },
+            beta: {
+              specPath: 'static/api-specs/idn/sailpoint-api.beta.yaml',
+              outputDir: 'docs/api/beta',
+              downloadUrl: 'https://raw.githubusercontent.com/sailpoint-oss/api-specs/main/dereferenced/deref-sailpoint-api.beta.yaml',
+              label: 'Beta',
+              baseUrl: '/docs/api/beta',
+            },
+          },
+        },
+      },
+    },
+  ],
+  [
+    'docusaurus-plugin-openapi-docs',
+    {
       id: 'iiq-api',
       docsPluginId: 'iiq',
       config: {
@@ -1658,5 +1702,9 @@ module.exports = [
         },
       },
     },
+  ],
+  [
+    '@gracefullight/docusaurus-plugin-microsoft-clarity',
+    {projectId: 'naher5vlxx'},
   ],
 ];

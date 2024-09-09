@@ -14,9 +14,7 @@ properties:
     description: Date and time item was requested
     example: "2017-07-11T18:45:37.098Z"
   approvalStatus:
-    allOf:
-    - $ref: "./WorkItemState.yaml"
-    - nullable: true
+    $ref: "./AccountActivityApprovalStatus.yaml"
   provisioningStatus:
     $ref: "./ProvisioningState.yaml"
   requesterComment:
@@ -26,9 +24,7 @@ properties:
   reviewerComment:
     $ref: "./Comment.yaml"
   operation:
-    allOf:
-    - $ref: "./AccountActivityItemOperation.yaml"
-    - nullable: true
+    $ref: "./AccountActivityItemOperation.yaml"
   attribute:
     type: string
     description: Attribute to which account activity applies
@@ -66,7 +62,7 @@ properties:
     nullable: true
     type: string
     description:
-      The date the role or access profile is no longer assigned to the specified
+      The date the role or access profile or entitlement is no longer assigned to the specified
       identity.
     format: "date-time"
     example: "2020-07-11T00:00:00Z"

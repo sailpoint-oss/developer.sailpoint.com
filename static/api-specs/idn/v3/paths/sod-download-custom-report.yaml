@@ -3,7 +3,7 @@ get:
     - UserContextAuth: [idn:sod-violation:read]
   operationId: getCustomViolationReport
   tags:
-    - SOD Policy
+    - SOD Policies
   summary: Download custom violation report
   description: >-
     This allows to download a specified named violation report for a given report reference.

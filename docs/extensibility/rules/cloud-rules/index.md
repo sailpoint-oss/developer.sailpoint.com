@@ -34,7 +34,7 @@ In this process, SailPoint does _not check_ whether the rule executes correctly 
 
 ## Submit for Rule Review
 
-To submit your Cloud Rule for review, approval, and inclusion in the SailPoint platform, submit a [SailPoint support portal request](https://support.sailpoint.com/csm) or send an email to <support@sailpoint.com>. Attach the rule, validator output, tenant name (e.g., acme-sb.identitynow.com for sandbox or acme.identitynow.com for production) and approval for expert services to proceed. If you need assistance writing and testing rules, Expert Services can assist in that process as well. Make sure your contact information is up to date so the review team can contact you if they need to.
+To submit your Cloud Rule for review, approval, and inclusion in the SailPoint platform, submit a [SailPoint support portal request](https://support.sailpoint.com/csm) or send an email to `support@sailpoint.com`. Attach the rule, validator output, tenant name (e.g., acme-sb.identitynow.com for sandbox or acme.identitynow.com for production) and approval for expert services to proceed. If you need assistance writing and testing rules, Expert Services can assist in that process as well. Make sure your contact information is up to date so the review team can contact you if they need to.
 
 ## Review Guidelines
 
@@ -66,10 +66,6 @@ For example, this is the rule:
 This should be the rule's file name:
 
 `Rule - IdentityAttribute - Calculate Lifecycle.xml`
-
-If you do not have a type, use "Generic" as the type. It would look like this:
-
-`Rule - Generic - My Generic Rule.xml`
 
 - **Updating Existing Rules and Versioning**
 

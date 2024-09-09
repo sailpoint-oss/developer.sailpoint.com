@@ -25,8 +25,7 @@ properties:
       - $ref: '../reports/arguments/search-export-report-arguments.yaml'
     example: {
       "application": "2c9180897e7742b2017e781782f705b9",
-      "sourceName": "DataScienceWorkday",
-      "defaultS3Bucket": true
+      "sourceName": "DataScienceWorkday"
     }
     description: >-
       The string-object map(dictionary) with the arguments needed for report processing.

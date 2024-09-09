@@ -79,7 +79,7 @@ jobs:
         run: |
           echo "CMS_APP_API_ENDPOINT=$API_GATEWAY_URL" >> .env
           echo ${{ secrets.NPM_FONTAWESOME_CONFIG }} | base64 -d >> .npmrc
-          export NODE_OPTIONS="--max_old_space_size=4096"
+          export NODE_OPTIONS="--max_old_space_size=8192"
           npm ci --legacy-peer-deps
           npm run gen-api-docs-all
           npm run build
@@ -114,3 +114,19 @@ jobs:
           build_dir: build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  publish-failure:
+    runs-on: ubuntu-latest
+    if: ${{ always() && (needs.publish.result == 'failure' || needs.publish.result == 'timed_out') }}
+    needs:
+      - publish
+    steps:
+      - name: Invoke GithubNotificationsFunction Lambda
+        run: |
+          curl -X POST \
+            -H "Content-Type: application/json" \
+            -d '{
+              "workflowName": "${{ github.job }}",
+              "repositoryName": "${{ github.event.repository.name }}",
+              "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            }' \
+            "${{ secrets.NOTIFICATIONS_FUNCTION_URL }}"

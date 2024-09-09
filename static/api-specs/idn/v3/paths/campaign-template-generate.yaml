@@ -4,8 +4,8 @@ post:
     - Certification Campaigns
   summary: Generate a Campaign from Template
   security:
-     - UserContextAuth: [idn:campaign-template:run]
-  description: >-
+     - UserContextAuth: [idn:campaign-template:manage]
+  description: |
     Use this API to generate a new certification campaign from a campaign template.
 
     The campaign object contained in the template has special formatting applied to its name and description
@@ -18,7 +18,7 @@ post:
 
     Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html).
 
-    Calling this endpoint requires the ORG_ADMIN role.
+    A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   parameters:
     - in: path
       name: id

@@ -33,8 +33,23 @@ post:
               description: The CSV file containing the source accounts to aggregate.
             disableOptimization:
               type: string
+              enum:
+              - "true"
+              - "false"
               example: "true"
               description: Use this flag to reprocess every account whether or not the data has changed.
+      application/x-www-form-urlencoded:
+          schema:
+            type: object
+            description: This content type is provided for compatibility with services that don't support multipart/form-data, such as SailPoint Workflows. This content type does not support files, so it can only be used for direct connect sources.
+            properties:
+              disableOptimization:
+                type: string
+                enum:
+                - "true"
+                - "false"
+                example: "true"
+                description: Use this flag to reprocess every account whether or not the data has changed.
   responses:
     "202":
       description: Aggregate Accounts Task

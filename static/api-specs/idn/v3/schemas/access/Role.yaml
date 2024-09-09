@@ -81,9 +81,12 @@ properties:
                 "f7b1b8a3-5fed-4fd4-ad29-82014e137e19",
                 "29cb6c06-1da8-43ea-8be4-b3125f248f2a"
             ]
+    dimensional:
+        type: boolean
+        nullable: true
+    dimensionRefs:
+        type: string
+        nullable: true
 required:
     - name
     - owner
-
-        
-  

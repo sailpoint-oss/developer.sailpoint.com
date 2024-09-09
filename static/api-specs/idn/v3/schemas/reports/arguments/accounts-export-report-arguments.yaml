@@ -5,7 +5,6 @@ description: >-
 required:
   - application
   - sourceName
-  - defaultS3Bucket
 properties:
   application:
     type: string
@@ -17,15 +16,3 @@ properties:
     description: >-
       Name of the authoritative source for accounts export
     example: DataScienceSourceName
-  defaultS3Bucket:
-    type: boolean
-    description: >-
-      Use it to set default s3 bucket where generated report will be saved. 
-      In case this argument is false and 's3Bucket' argument is null or absent there will be default
-      s3Bucket assigned to the report.
-    example: true
-  s3Bucket:
-    type: string
-    description: >-
-      If you want to be specific you could use this argument with defaultS3Bucket = false.
-    example: the-dev-bucket

@@ -110,7 +110,7 @@ sail conn validate -c [connectorID]
 
 You can pass in a `-r` flag to run the command as read-only, or you can run a full suite of read/write tests.
 
-## Delete connector
+### Delete connector
 
 To delete a connector, run this command:
 

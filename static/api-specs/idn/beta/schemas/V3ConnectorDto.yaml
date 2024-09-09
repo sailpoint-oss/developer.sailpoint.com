@@ -12,6 +12,11 @@ properties:
     type: string
     description: The connector script name
     example: "servicenow"
+  className:
+    type: string
+    description: The connector class name.
+    nullable: true
+    example: "sailpoint.connector.OpenConnectorAdapter"
   features:
     type: array
     description: The list of features supported by the connector

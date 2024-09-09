@@ -40,12 +40,15 @@ properties:
     example: A Really Big Task
   parentName:
     description: Name of the parent of the task this TaskStatus represents
+    nullable: true
     type: string
     example: Parent Task
   launcher:
     description: Service to execute the task this TaskStatus represents
     type: string
     example: sweep
+  target:
+    $ref: './Target.yaml'
   created:
     description: Creation date of the task this TaskStatus represents
     type: string
@@ -58,24 +61,28 @@ properties:
     example: '2020-07-11T21:23:15.000Z'
   launched:
     description: Launch date of the task this TaskStatus represents
+    nullable: true
     type: string
     format: date-time
     example: '2020-07-11T21:23:15.000Z'
   completed:
     description: Completion date of the task this TaskStatus represents
+    nullable: true
     type: string
     format: date-time
     example: '2020-07-11T21:23:15.000Z'
   completionStatus:
     description: Completion status of the task this TaskStatus represents
     type: string
+    nullable: true
     enum:
-      - Success
-      - Warning
-      - Error
-      - Terminated
-      - TempError
-    example: Success
+      - SUCCESS
+      - WARNING
+      - ERROR
+      - TERMINATED
+      - TEMPERROR
+      - null
+    example: SUCCESS
   messages:
     description: Messages associated with the task this TaskStatus represents
     type: array
@@ -93,9 +100,12 @@ properties:
     example: {"identityCount": 0}
   progress:
     description: Current progress of the task this TaskStatus represents
+    nullable: true
     type: string
     example: 'Started'
   percentComplete:
     description: Current percentage completion of the task this TaskStatus represents
     type: integer
     example: 100
+  taskDefinitionSummary:
+    $ref: './TaskDefinitionSummary.yaml'

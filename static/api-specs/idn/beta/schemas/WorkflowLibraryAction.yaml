@@ -18,10 +18,28 @@ properties:
     description: Action Description
     example: "Generates a certification campaign."
   formFields:
+    nullable: true
     type: array
     description: One or more inputs that the action accepts
     items:
       $ref: './WorkflowLibraryFormFields.yaml'
+  exampleOutput:
+    oneOf:
+      - type: object
+        description: Example output
+      - type: array
+        items:
+          type: object  
+  deprecated:
+    type: boolean
+  deprecatedBy:
+    type: string
+    format: date-time
+  versionNumber:
+    type: integer
+    description: Version number
+  isSimulationEnabled:
+    type: boolean
   isDynamicSchema:
       type: boolean
       description: Determines whether the dynamic output schema is returned in place of the action's output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields.

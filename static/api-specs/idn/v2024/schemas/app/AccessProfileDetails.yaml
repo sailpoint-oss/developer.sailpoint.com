@@ -1,0 +1,128 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The ID of the Access Profile
+    example: 2c91808a7190d06e01719938fcd20792
+  name:
+    type: string
+    description: Name of the Access Profile
+    example: Employee-database-read-write
+  description:
+    type: string
+    nullable: true
+    description: Information about the Access Profile
+    example: Collection of entitlements to read/write the employee database
+  created:
+    type: string
+    description: Date the Access Profile was created
+    format: 'date-time'
+    example: '2021-03-01T22:32:58.104Z'
+  modified:
+    type: string
+    description: Date the Access Profile was last modified.
+    format: 'date-time'
+    example: '2021-03-02T20:22:28.104Z'
+  disabled:
+    type: boolean
+    default: true
+    description: Whether the Access Profile is enabled.
+    example: true
+  requestable:
+    type: boolean
+    default: false
+    description: Whether the Access Profile is requestable via access request.
+    example: true
+  protected:
+    type: boolean
+    default: false
+    description: Whether the Access Profile is protected.
+    example: false
+  ownerId:
+    type: string
+    description: The owner ID of the Access Profile
+    example: 9870808a7190d06e01719938fcd20792
+  sourceId:
+    type: integer
+    format: int64
+    nullable: true
+    description: The source ID of the Access Profile
+    example: 10360661
+  sourceName:
+    type: string
+    description: The source name of the Access Profile
+    example: AD Source
+  appId:
+    type: integer
+    format: int64
+    nullable: true
+    description: The source app ID of the Access Profile
+    example: 10360661
+  appName:
+    type: string
+    nullable: true
+    description: The source app name of the Access Profile
+    example: mail app
+  applicationId:
+    type: string
+    description: The id of the application
+    example: edcb0951812949d085b60cd8bf35bc78
+  type:
+    type: string
+    description: The type of the access profile
+    example: source
+  entitlements:
+    type: array
+    items:
+      type: string
+    description: List of IDs of entitlements
+    example: [
+      "2c9180857725c14301772a93bb77242d",
+      "c9dc28e148a24d65b3ccb5fb8ca5ddd9"
+    ]
+  entitlementCount:
+    type: integer
+    format: int32
+    example: 12
+    description: The number of entitlements in the access profile
+  segments:
+    type: array
+    items:
+      type: string
+    description: List of IDs of segments, if any, to which this Access Profile is assigned.
+    example: [
+      "f7b1b8a3-5fed-4fd4-ad29-82014e137e19",
+      "29cb6c06-1da8-43ea-8be4-b3125f248f2a"
+    ]
+  approvalSchemes:
+    type: string
+    description: >-
+      Comma-separated list of approval schemes. Each approval scheme is one of -
+      manager - appOwner - sourceOwner - accessProfileOwner - workgroup:<workgroupId>
+    example: accessProfileOwner
+  revokeRequestApprovalSchemes:
+    type: string
+    description: >-
+      Comma-separated list of revoke request approval schemes. Each approval
+      scheme is one of - manager - sourceOwner - accessProfileOwner - workgroup:<workgroupId>
+    example: accessProfileOwner
+  requestCommentsRequired:
+    type: boolean
+    default: false
+    description: Whether the access profile require request comment for access request.
+    example: true
+  deniedCommentsRequired:
+    type: boolean
+    default: false
+    description: Whether denied comment is required when access request is denied.
+    example: true
+  accountSelector:
+    type: object
+    description: How to select account when there are multiple accounts for the user
+    properties:
+      selectors:
+        type: array
+        nullable: true
+        items:
+          $ref: './selector.yaml'
+

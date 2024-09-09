@@ -3,12 +3,12 @@ post:
   tags:
     - Certification Campaigns
   summary: Activate a Campaign
-  description: >-
+  description: |
     Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/start-campaign).
 
-    Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+    A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: [ idn:campaign:update ]
+    - UserContextAuth: [idn:campaign:manage]
   deprecated: true
   requestBody:
     description:

@@ -6,7 +6,6 @@ required:
   - name
   - triggerName
   - enabled
-  - responseDeadline
 properties:
   id:
     type: string
@@ -23,7 +22,7 @@ properties:
   triggerId:
     type: string
     description: ID of trigger subscribed to.
-    example: "idn:access-requested"
+    example: "idn:access-request-post-approval"
   triggerName:
     type: string
     description: Trigger name of trigger subscribed to.

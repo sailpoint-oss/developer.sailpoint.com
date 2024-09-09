@@ -208,6 +208,23 @@ patch:
                       "value": "Group Aggregation-test"
                   }
               ]
+          Enable notifications for new account provisioning on a source: 
+            description: This example shows how you can configure and enable email notifications that will send when new accounts are provisioned on a source. 
+            value: 
+              [
+                {
+                  "op": "replace",
+                  "path": "/connectorAttributes/accountCreateNotification",
+                  "value": {
+                    "notifyList": [
+                      "Distribution.list@demo.com"
+                    ],
+                    "notifyAccountOwner": true,
+                    "enabled": true,
+                    "notifyAccountOwnerAltEmail": false
+                  }
+                }
+              ]
   responses:
     '200':
       description: >-

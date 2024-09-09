@@ -15,6 +15,8 @@ At this time Entitlement Read is not triggered from ISC for any specific workflo
 
 :::
 
+To use this command, you must specify this value in the `commands` array: `std:entitlement:list`
+
 | Input/Output |        Data Type         |
 | :----------- | :----------------------: |
 | Input        | StdEntitlementReadInput  |

@@ -5,7 +5,7 @@ pagination_label: Account Profile Attribute Generator (from Template)
 sidebar_label: Account Profile Attribute Generator (from Template)
 sidebar_class_name: accountProfileAttributeGeneratorTemplate
 keywords: ['cloud', 'rules', 'account profile', 'attribute generator']
-description: This rule generates complex account attribute values during provisioning, e.g. when creating an account. The rule's configuration comes from a template of values.
+description: This rule generates complex account attribute values during provisioning, e.g. when creating an account.
 slug: /extensibility/rules/cloud-rules/account-profile-attribute-generator-template
 tags: ['Rules']
 ---

@@ -13,7 +13,10 @@ tags: ['SaaS Configuration']
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This is a guide about using the SailPoint SaaS Configuration APIs to import configurations into and export configurations from the SailPoint SaaS system. Use these APIs to get configurations in bulk in support of environmental promotion, go-live, or tenant-to-tenant configuration management processes and pipelines.
+You can use the SailPoint SaaS Configuration APIs to export snapshots of your tenant configurations and import them to restore those configurations in other SaaS systems, such as new or existing tenants. 
+Use these APIs to get configurations in bulk in support of environmental promotion, go-live, or tenant-to-tenant configuration management processes and pipelines. 
+
+Read this document to learn about the different SaaS Configuration APIs and what you can do with them. 
 
 For more details around how to manage configurations, refer to [SailPoint SaaS Change Management and Deployment Best Practices](https://community.sailpoint.com/t5/IdentityNow-Articles/SailPoint-SaaS-Change-Management-and-Deployment-Best-Practices/ta-p/189871).
 
@@ -22,6 +25,16 @@ For more details around how to manage configurations, refer to [SailPoint SaaS C
 This document is intended for technically proficient administrators, implementers, integrators or even developers. No coding experience is necessary, but being able to understand JSON data structures and make REST API web-service calls is necessary to fully understand this guide.
 
 ## Supported Objects
+
+A SailPoint tenant configuration comprises various objects and their details, such as an organization's different identity profiles, roles, certification campaigns, and more. 
+You can use the SaaS Configuration APIs to exclude objects from the imports and exports. 
+
+This table lists the objects supported for import and export with the SaaS Configuration APIs:
+
+:::note
+This table also lists the objects supported for backup and deploy, the terms used in Configuration Hub for export and import functionality. 
+To learn more about Configuration Hub, refer to [Configuration Hub](https://documentation.sailpoint.com/saas/help/confighub/config_hub.html).
+:::
 
 | **Object** | **Object Type** | **Export** | **Import** | **Backup** | **Deploy** |
 | :-- | :-- | :-- | :-- | :-- | :-- |
@@ -53,6 +66,10 @@ This document is intended for technically proficient administrators, implementer
 :::tip
 
 The available supported objects are also available via REST API! See List Configuration Objects in the **API Reference** section of this document.
+
+:::tip
+
+Source passwords, secret token or other sensitive data is not exported. Those need to be re-added after importing
 
 :::
 

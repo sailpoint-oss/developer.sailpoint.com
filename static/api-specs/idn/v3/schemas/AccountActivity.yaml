@@ -26,9 +26,7 @@ properties:
     nullable: true
     example: "2018-10-19T13:49:37.385Z"
   completionStatus:
-    allOf:
-    - $ref: "./CompletionStatus.yaml"
-    - nullable: true
+    $ref: "./CompletionStatus.yaml"
   type:
     nullable: true
     type: string    

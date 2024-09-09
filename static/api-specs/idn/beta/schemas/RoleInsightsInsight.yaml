@@ -16,3 +16,6 @@ properties:
     type: integer
     description: The total number of identities.
     example: 1000
+  impactedIdentityNames:
+    type: string
+    nullable: true

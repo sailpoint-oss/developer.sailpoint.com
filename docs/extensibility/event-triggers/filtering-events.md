@@ -85,7 +85,7 @@ Third party websites like the one mentioned earlier must be treated with caution
 
 ![JSONPath editor](./img/jsonpath-editor.png)
 
-Most of the examples provided in the operator tables above can be used against the Identity Attributes Changed event trigger input, as seen below. You can find all of the input/output schemas for the other available triggers in our [API specification](/docs/api/beta/triggers#available-event-triggers).
+Most of the examples provided in the operator tables above can be used against the Identity Attributes Changed event trigger input, as seen below. You can find all of the input/output schemas for the other available triggers in our [API specification](/api/beta/triggers#available-event-triggers).
 
 ```json
 {
@@ -134,7 +134,7 @@ To validate a filter using the UI, subscribe to a new event trigger or edit an e
 
 ### Validating Filters Using the API
 
-You can validate a trigger filter by using the [test filter](/docs/api/beta/test-subscription-filter) API endpoint. You must escape any double quotes, as seen in the example payload in the API description. Also, you must provide a sample input for the validation engine to run against. It is best to use the input example included in the input/output schemas for the event trigger you want to apply your filter to. Refer to [this table](/docs/api/beta/triggers#available-event-triggers) to find the schema of your event trigger. This is an example request:
+You can validate a trigger filter by using the [test filter](/api/beta/test-subscription-filter) API endpoint. You must escape any double quotes, as seen in the example payload in the API description. Also, you must provide a sample input for the validation engine to run against. It is best to use the input example included in the input/output schemas for the event trigger you want to apply your filter to. Refer to [this table](/api/beta/triggers#available-event-triggers) to find the schema of your event trigger. This is an example request:
 
 ```text
 POST https://{tenant}.api.identitynow.com/beta/trigger-subscriptions/validate-filter
@@ -190,4 +190,4 @@ Third party websites like the one mentioned earlier must be treated with caution
 
 Once you fire off a test event, monitor your webhook.site webpage for an incoming event. If the filter matches the test input, you will an event come in. If the filter does not match the input, then it will nott fire. Test both scenarios to make sure your filter is not always evaluating to `true`, and that it will indeed evaluate to `false` under the correct circumstances. For example, the filter `$[?($.identity.name contains "john")]` will match the test event for Identity Attributes Changed and you will see an event in webhook.site, but you also want to make sure that `$[?($.identity.name contains "archer")]` doesn't fire because the test input is always the same.
 
-If you want to control the test input to validate your filter against a more robust set of data, use the [test invocation](/docs/api/beta/start-test-trigger-invocation) API endpoint.
+If you want to control the test input to validate your filter against a more robust set of data, use the [test invocation](/api/beta/start-test-trigger-invocation) API endpoint.

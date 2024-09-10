@@ -146,7 +146,7 @@ This transform takes the `startDate` attribute from a user's record in the "HR S
 
 <p>&nbsp;</p>
 
-This transform take the `HIREDATE` from Workday and converts it to [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) to be used in the Date Math transform. The Date Math transform then creates a new Date of `HIREDATE + 1`. Since that is then outputted in the format "yyyy-MM-dd'T'HH:mm", you can then use it in a [dateFormat](/docs/extensibility/transforms/operations/date-format) transform to give a WIN32 formatted date.
+This transform take the `HIREDATE` from Workday and converts it to [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) to be used in the Date Math transform. The Date Math transform then creates a new Date of `HIREDATE + 1`. Since that is then outputted in the format "yyyy-MM-dd'T'HH:mm", you can then use it in a [dateFormat](/extensibility/transforms/operations/date-format) transform to give a WIN32 formatted date.
 
 **Transform Request Body**:
 

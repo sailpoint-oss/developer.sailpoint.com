@@ -11,7 +11,7 @@ slug: /tools/sdk/go/search
 tags: ['SDK', 'Software Development Kit']
 ---
 
-To try using the ISC [search functionality](/docs/api/v3/search-post) along with pagination, copy this code into your "sdk.go" file, following the main code:
+To try using the ISC [search functionality](/api/v3/search-post) along with pagination, copy this code into your "sdk.go" file, following the main code:
 
 ```go
 func getSearchResults(ctx context.Context, apiClient *sailpoint.APIClient) {

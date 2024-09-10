@@ -6,15 +6,15 @@ module.exports = {
       items: [
         {
           label: 'Your First API Call',
-          to: 'docs/api/getting-started',
+          to: 'api/getting-started#make-your-first-api-call',
         },
         {
           label: 'Build A Transform',
-          to: 'docs/extensibility/transforms/guides/your-first-transform',
+          to: 'extensibility/transforms/guides/your-first-transform',
         },
         {
           label: 'Build A SaaS Connector',
-          to: 'docs/connectivity/saas-connectivity',
+          to: 'connectivity/saas-connectivity',
         },
         {
           label: 'Get Certified',
@@ -40,7 +40,7 @@ module.exports = {
       items: [
         {
           label: 'Discuss',
-          to: 'https://developer.sailpoint.com/discuss',
+          to: 'https://platform.sailpoint.com',
         },
         {
           label: 'Submit an Idea',
@@ -48,7 +48,7 @@ module.exports = {
         },
         {
           label: 'Contact Our Team',
-          to: 'https://developer.sailpoint.com/discuss/new-message?groupname=developer_relations',
+          to: 'https://platform.sailpoint.com/new-message?groupname=developer_relations',
         },
       ],
     },
@@ -95,7 +95,7 @@ module.exports = {
       items: [
         {
           label: 'Terms & Conditions',
-          to: 'https://developer.sailpoint.com/discuss/tos',
+          to: 'https://platform.sailpoint.com/tos',
         },
       ],
     },
@@ -104,7 +104,7 @@ module.exports = {
     alt: 'SailPoint Developer Community Logo',
     src: '/img/SailPoint-Developer-Community-Lockup.png',
     srcDark: 'img/SailPoint-Developer-Community-Inverse-Lockup.png',
-    href: 'https://developer.sailpoint.com',
+    href: 'https://platform.sailpoint.com',
   },
   copyright: `Copyright © ${new Date().getFullYear()} SailPoint Technologies, Inc. All Rights Reserved.`, // Updated with now private copyright info
 };

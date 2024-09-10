@@ -23,7 +23,7 @@ export default function Home() {
           description={
             "If you still aren't sure where to get started, try one of the <b>Getting Started Guides</b> below, or see what our platform has to offer."
           }
-          link={'https://www.sailpoint.com/products/identity-security-cloud'}
+          link={'https://www.sailpoint.com/products/IdentityNow/'}
           title={'Start With the Basics'}
           image={'user'}
           buttonText={'Explore our platform'}
@@ -33,7 +33,7 @@ export default function Home() {
           description={
             'The SailPoint Developer Forums are a great place to find solutions to common development problems.'
           }
-          link={'https://developer.sailpoint.com/discuss/'}
+          link={'https://platform.sailpoint.com/'}
           title={'What is the Community saying?'}
           image={'discuss'}
           buttonText={'Join the Discussion'}
@@ -43,7 +43,7 @@ export default function Home() {
         <div>
           <HomepageBasics
             description={
-              "The Developer Relations team is responsible for creating a better developer experience on our platform. Click on someone to reach out to them, or <a href='https://developer.sailpoint.com/discuss/new-message?groupname=developer_relations/'>contact our team directly</a>."
+              "The Platform Experience team is responsible for creating a better developer experience on our platform. Click on someone to reach out to them, or <a href='https://platform.sailpoint.com/new-message?groupname=developer_relations/'>contact our team directly</a>."
             }
             title={'Meet Our Team'}
             image={'team'}

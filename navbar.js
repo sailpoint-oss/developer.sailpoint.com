@@ -2,8 +2,9 @@ module.exports = {
   title: '',
   logo: {
     alt: 'SailPoint Developer Community',
-    src: 'img/SailPoint-Developer-Community-Lockup.png',
-    srcDark: 'img/SailPoint-Developer-Community-Inverse-Lockup.png',
+    src: 'img/SailPoint-Logo-RGB-Color.svg',
+    srcDark: 'img/SailPoint-Logo-RGB-Inverse.svg',
+    href: 'https://platform.sailpoint.com',
   },
   items: [
     {
@@ -11,8 +12,8 @@ module.exports = {
       label: 'Documentation',
       position: 'left',
       items: [
-        {label: 'Identity Security Cloud', to: '/docs'},
-        {label: 'IdentityIQ', to: '/docs/iiq'},
+        {label: 'Identity Security Cloud', to: '/'},
+        {label: 'IdentityIQ', to: '/iiq'},
       ],
     },
     {
@@ -20,9 +21,9 @@ module.exports = {
       label: 'API Specifications',
       position: 'left',
       items: [
-        {label: 'Identity Security Cloud', to: '/docs/api/v2024'},
-        {label: 'IdentityIQ', to: '/docs/api/iiq'},
-        {label: 'NERM', to: '/docs/api/nerm/v1'},
+        {label: 'Identity Security Cloud', to: '/api/v2024'},
+        {label: 'IdentityIQ', to: '/api/iiq'},
+        {label: 'NERM', to: '/api/nerm/v1'},
       ],
     },
     {
@@ -32,7 +33,7 @@ module.exports = {
       items: [
         {
           label: 'Developer Forum',
-          to: 'https://developer.sailpoint.com/discuss/',
+          to: 'https://platform.sailpoint.com',
         },
         {
           label: 'CoLab Marketplace',
@@ -53,6 +54,11 @@ module.exports = {
       position: 'left',
       label: 'Video Library',
       to: '/videos',
+    },
+    {
+      position: 'left',
+      label: 'About',
+      to: '/about',
     },
     {
       type: 'dropdown',

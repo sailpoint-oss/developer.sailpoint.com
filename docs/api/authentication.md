@@ -120,7 +120,7 @@ After you create the token, the value of the `Client ID` will be visible in the 
 
 4. Copy both values somewhere that will be secure and accessible to you when you need to use the the token.
 
-To generate a personal access token from the API, use the [create personal access token endpoint](/docs/api/beta/create-personal-access-token).
+To generate a personal access token from the API, use the [create personal access token endpoint](/api/beta/create-personal-access-token).
 
 Once you have created the PAT and you know its `Client ID` and `Client Secret`, you have everything you need to follow the [Client Credentials Grant Flow](#request-access-token-with-client-credentials-grant-flow) and use the PAT to generate an `access_token`. You will need this `access_token` to authenticate your requests to the APIs.
 
@@ -410,7 +410,7 @@ Some of the other values can also be useful to know:
 
 - The `user_id` and `identity_id` define the identity context of the person who authenticated. However, these values aren't set for the client credentials grant type because it doesn't have a user context.
 
-With the JWT `access_token`, you can now successfully send authenticated ISC API requests. To learn more about authorization and the scopes you can apply to further control access to the APIs, refer to [Authorization](/docs/api/authorization).
+With the JWT `access_token`, you can now successfully send authenticated ISC API requests. To learn more about authorization and the scopes you can apply to further control access to the APIs, refer to [Authorization](/api/authorization).
 
 ## More Information
 
@@ -579,7 +579,7 @@ You can also view all of the active clients in the UI by going to `https://[tena
 }
 ```
 
-4. If you're using an [Authorization Code](#authorization-code-grant-flow) grant flow, verify that the redirect URL(s) for your application match the `redirectUris` value in the client. You can check this by calling the [List OAuth Clients endpoint](/docs/api/beta/list-oauth-clients).
+4. If you're using an [Authorization Code](#authorization-code-grant-flow) grant flow, verify that the redirect URL(s) for your application match the `redirectUris` value in the client. You can check this by calling the [List OAuth Clients endpoint](/api/beta/list-oauth-clients).
 
 ### Verify OAuth calls
 

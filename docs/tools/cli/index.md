@@ -107,9 +107,9 @@ sudo yum localinstall /path/to/rpm/package/sail_x.x.x_linux_amd64.rpm
 
 To configure the CLI to connect and authenticate to your ISC tenant, you must do the following:
 
-- Find your tenant name. To learn how to find it, refer to [Getting Started](/docs/api/getting-started#find-your-tenant-name). The CLI will use this tenant name to connect to your ISC instance.
+- Find your tenant name. To learn how to find it, refer to [Getting Started](/api/getting-started#find-your-tenant-name). The CLI will use this tenant name to connect to your ISC instance.
 - OAuth
-- PAT | Create a personal access token (PAT). Make sure to note the "Client ID" and "Client Secret." The CLI needs this information to authenticate successfully. To learn how to create a PAT, refer to [Personal Access Tokens](/docs/api/authentication#personal-access-tokens).
+- PAT | Create a personal access token (PAT). Make sure to note the "Client ID" and "Client Secret." The CLI needs this information to authenticate successfully. To learn how to create a PAT, refer to [Personal Access Tokens](/api/authentication#personal-access-tokens).
 
 To configure your first environment for OAuth run the following command:
 
@@ -172,14 +172,14 @@ Run the `sail` command for an overview of available commands and flags. You can 
 
 These commands are available:
 
-- `connectors`: This command is a CLI interface for the SaaS Connectivity platform. The CLI is the best way to create and manage SaaS connectors within your tenant. For more information about the `connectors` command, refer to the CLI [Connectors guide](/docs/tools/cli/connectors).
-- `search`: Run this command to access ISC search functionality within the CLI. For more information about the `search` command, refer to the CLI [Search guide](/docs/tools/cli/search).
-- `set`: Run this command to configure your CLI settings. For more information about the `set` command, refer to the CLI [Set guide](/docs/tools/cli/set).
-- `spconfig`: Run this command to access ISC SP Config functionality. For more information about the `spconfig` command, refer to the CLI [SPConfig guide](/docs/tools/cli/spconfig).
-- `transform`: This command is a CLI interface that makes it easy to create, manage, and test transforms. For more information about the `transform` command, refer to the CLI [Transforms guide](/docs/tools/cli/transforms).
-- `va`: Run this command to access VAs connected to your tenant. For more information about the `va` command, refer to the CLI [VA guide](/docs/tools/cli/va).
-- `cluster`: Run this command to access VA clusters connected to your tenant. For more information about the `cluster` command, refer to the CLI [Clusters guide](/docs/tools/cli/cluster).
-- `workflow`: Run this command to create and manage workflows within the CLI. For more information about the `workflow` command, refer to the CLI [Workflows guide](/docs/tools/cli/workflow).
+- `connectors`: This command is a CLI interface for the SaaS Connectivity platform. The CLI is the best way to create and manage SaaS connectors within your tenant. For more information about the `connectors` command, refer to the CLI [Connectors guide](/tools/cli/connectors).
+- `search`: Run this command to access ISC search functionality within the CLI. For more information about the `search` command, refer to the CLI [Search guide](/tools/cli/search).
+- `set`: Run this command to configure your CLI settings. For more information about the `set` command, refer to the CLI [Set guide](/tools/cli/set).
+- `spconfig`: Run this command to access ISC SP Config functionality. For more information about the `spconfig` command, refer to the CLI [SPConfig guide](/tools/cli/spconfig).
+- `transform`: This command is a CLI interface that makes it easy to create, manage, and test transforms. For more information about the `transform` command, refer to the CLI [Transforms guide](/tools/cli/transforms).
+- `va`: Run this command to access VAs connected to your tenant. For more information about the `va` command, refer to the CLI [VA guide](/tools/cli/va).
+- `cluster`: Run this command to access VA clusters connected to your tenant. For more information about the `cluster` command, refer to the CLI [Clusters guide](/tools/cli/cluster).
+- `workflow`: Run this command to create and manage workflows within the CLI. For more information about the `workflow` command, refer to the CLI [Workflows guide](/tools/cli/workflow).
 
 ## GitHub
 

@@ -129,7 +129,7 @@ The first part of the password is the user's first intitial in lowercase. You ca
 
 ### The User's Last Name Comes Next with the First Character in Uppercase
 
-Adding to the transform, you can create a variable for the first character of the last name. You can do so by using the [substring operation](/docs/extensibility/transforms/operations/substring) and the [upper operation](/docs/extensibility/transforms/operations/upper). Once you have the variable `lastInitialUppercase` created, you can add that variable to the end of the static string in the value key.
+Adding to the transform, you can create a variable for the first character of the last name. You can do so by using the [substring operation](/extensibility/transforms/operations/substring) and the [upper operation](/extensibility/transforms/operations/upper). Once you have the variable `lastInitialUppercase` created, you can add that variable to the end of the static string in the value key.
 
 **Last Initial Variable**
 
@@ -290,7 +290,7 @@ You also need the end of the last name without the first character you already h
 
 ### The User's Two-Digit Start Month Comes Next, Taken from the Hire_Date
 
-To get the two-digit start month, use the [split operation](/docs/extensibility/transforms/operations/split). The `hire_date` is in the format of `YYYY-MM-DD`. To to get the month, split on `-` and set the index to return as 1.
+To get the two-digit start month, use the [split operation](/extensibility/transforms/operations/split). The `hire_date` is in the format of `YYYY-MM-DD`. To to get the month, split on `-` and set the index to return as 1.
 
 **Hire Date Month Variable**
 

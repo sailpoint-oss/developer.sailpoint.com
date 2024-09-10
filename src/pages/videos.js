@@ -34,7 +34,7 @@ export default function VideoLibrary() {
                     </span>{' '}
                     <br />
                     <br />
-                    <a href="https://developer.sailpoint.com/discuss/new-message?groupname=developer_relations&title=Proposal%20for%20Developer%20Community%20Video&body=Write%20your%20request%20here.">
+                    <a href="https://platform.sailpoint.com/new-message?groupname=developer_relations&title=Proposal%20for%20Developer%20Community%20Video&body=Write%20your%20request%20here.">
                       Contribute to our library &#8594;
                     </a>
                   </div>

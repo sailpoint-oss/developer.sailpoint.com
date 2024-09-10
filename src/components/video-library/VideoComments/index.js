@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 
 const DiscourseEmbed = ({discourseEmbedUrl, topicId}) => {
   useEffect(() => {
-    const discourseUrl = 'https://developer.sailpoint.com/discuss/';
+    const discourseUrl = 'https://platform.sailpoint.com/';
     const embedUrl = `https://d1vrqvoe9hgpx0.cloudfront.net/videos/${discourseEmbedUrl}/index.html`;
 
     // Set up Discourse Embed

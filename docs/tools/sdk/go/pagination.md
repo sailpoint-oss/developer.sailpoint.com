@@ -11,7 +11,7 @@ slug: /tools/sdk/go/paginate
 tags: ['SDK', 'Software Development Kit']
 ---
 
-By default, your requests will return a maximum of 250 records. To return more, you must implement pagination. To learn more about pagination, refer to [Paginating Results](/docs/api/standard-collection-parameters/#paginating-results).
+By default, your requests will return a maximum of 250 records. To return more, you must implement pagination. To learn more about pagination, refer to [Paginating Results](/api/standard-collection-parameters/#paginating-results).
 
 Pagination is implemented with the SDK in the following code block on line 18:
 

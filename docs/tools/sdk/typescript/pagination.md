@@ -11,7 +11,7 @@ slug: /tools/sdk/typescript/paginate
 tags: ['SDK']
 ---
 
-By default, your requests will return a maximum of 250 records. To return more, you must implement pagination. To learn more about pagination, refer to [Paginating Results](/docs/api/standard-collection-parameters/#paginating-results).
+By default, your requests will return a maximum of 250 records. To return more, you must implement pagination. To learn more about pagination, refer to [Paginating Results](/api/standard-collection-parameters/#paginating-results).
 
 Pagination is implemented with the SDK in the following code block on line 7:
 
@@ -47,4 +47,4 @@ The `limit` specifies the total number of results you can return, 1000. The foll
 
 You can also provide an `offset` value to specify the record number to start the request on. For example, you can add `{offset: 11}` to start getting accounts from 11 instead of 0.
 
-To find out whether an endpoint supports pagination, refer to its documentation. Any API supporting pagination lists the optional query parameters detailed in [Paginating Results](/docs/api/standard-collection-parameters/#paginating-results).
+To find out whether an endpoint supports pagination, refer to its documentation. Any API supporting pagination lists the optional query parameters detailed in [Paginating Results](/api/standard-collection-parameters/#paginating-results).

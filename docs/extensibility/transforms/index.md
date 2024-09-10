@@ -28,7 +28,7 @@ flowchart LR
 
 </div>
 
-Because there is no code to write, an administrator can configure these by using a JSON object structure and uploading them into Identity Security Cloud using [Identity Security Cloud's Transform REST APIs](/docs/api/v3/transforms).
+Because there is no code to write, an administrator can configure these by using a JSON object structure and uploading them into Identity Security Cloud using [Identity Security Cloud's Transform REST APIs](/api/v3/transforms).
 
 :::info
 
@@ -249,7 +249,7 @@ The available options on this page are constructed as transforms behind the scen
 
 These can also be configured with Identity Security Cloud REST APIs. You can define any kind of transform you want for any field in the create profile policy, to calculate account attributes in ways beyond what the UI offers. See [Transforms in Provisioning Policies](./guides/provisioning-policy-transform.md).
 
-For more information on the Identity Security Cloud REST API endpoints used to managed transform objects in APIs, refer to [Identity Security Cloud Transform REST APIs](/docs/api/v3/transforms).
+For more information on the Identity Security Cloud REST API endpoints used to managed transform objects in APIs, refer to [Identity Security Cloud Transform REST APIs](/api/v3/transforms).
 
 :::tip
 

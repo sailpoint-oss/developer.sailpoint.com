@@ -12,7 +12,7 @@
     "description": "The generated-index page title for category IDN V3 in sidebar openApiSidebar"
   },
   "sidebar.openApiSidebar.category.IDN V3.link.generated-index.description": {
-    "message": "These are the public APIs for SailPoint's SaaS services. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.",
+    "message": "These are the public APIs for SailPoint's SaaS services. We encourage you to join the SailPoint Developer Community forum at https://platform.sailpoint.com to connect with other developers using our APIs.",
     "description": "The generated-index page description for category IDN V3 in sidebar openApiSidebar"
   },
   "sidebar.openApiSidebar.category.Access Request Approvals": {
@@ -112,7 +112,7 @@
     "description": "The generated-index page title for category IDN Beta in sidebar openApiSidebar"
   },
   "sidebar.openApiSidebar.category.IDN Beta.link.generated-index.description": {
-    "message": "These are the public APIs for SailPoint's SaaS services. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.",
+    "message": "These are the public APIs for SailPoint's SaaS services. We encourage you to join the SailPoint Developer Community forum at https://platform.sailpoint.com to connect with other developers using our APIs.",
     "description": "The generated-index page description for category IDN Beta in sidebar openApiSidebar"
   },
   "sidebar.openApiSidebar.category.Access Profiles": {

@@ -3,7 +3,7 @@
 [![Discourse Topics][discourse-shield]][discourse-url] ![Issues][issues-shield] ![Latest Releases][release-shield] ![Contributor Shield][contributor-shield] [![Deploy to Production](https://github.com/sailpoint-oss/developer.sailpoint.com/actions/workflows/build-and-deploy-prod-gh-pages.yml/badge.svg)](https://github.com/sailpoint-oss/developer.sailpoint.com/actions/workflows/build-and-deploy-prod-gh-pages.yml)
 
 [discourse-shield]: https://img.shields.io/discourse/topics?label=Discuss%20This%20Tool&server=https%3A%2F%2Fdeveloper.sailpoint.com%2Fdiscuss
-[discourse-url]: https://developer.sailpoint.com/discuss/
+[discourse-url]: https://platform.sailpoint.com/
 [issues-shield]: https://img.shields.io/github/issues/sailpoint-oss/developer.sailpoint.com?label=Issues
 [release-shield]: https://img.shields.io/github/v/release/sailpoint-oss/developer.sailpoint.com?label=Current%20Release
 [contributor-shield]: https://img.shields.io/github/contributors/sailpoint-oss/developer.sailpoint.com?label=Contributors
@@ -71,7 +71,7 @@ npm install npm@latest -g
 
 ## Discuss
 
-[Click Here](https://developer.sailpoint.com/discuss) to discuss this tool with other users.
+[Click Here](https://platform.sailpoint.com) to discuss this tool with other users.
 
 <!-- LICENSE -->
 

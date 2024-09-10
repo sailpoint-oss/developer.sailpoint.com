@@ -190,4 +190,4 @@ POST `https://{tenant}.api.identitynow.com/beta/trigger-invocations/e9103ca9-02c
 
 ## Trigger invocation status
 
-To check the status of a particular trigger invocation, you can use the [list invocation statuses](/docs/api/beta/list-trigger-invocation-status) endpoint. The status endpoint works for both `REQUEST_RESPONSE` and `FIRE_AND_FORGET` triggers. However, the status of `FIRE_AND_FORGET` trigger invocations will contain null values in their `completeInvocationInput` since `FIRE_AND_FORGET` triggers don't need a response to complete.
+To check the status of a particular trigger invocation, you can use the [list invocation statuses](/api/beta/list-trigger-invocation-status) endpoint. The status endpoint works for both `REQUEST_RESPONSE` and `FIRE_AND_FORGET` triggers. However, the status of `FIRE_AND_FORGET` trigger invocations will contain null values in their `completeInvocationInput` since `FIRE_AND_FORGET` triggers don't need a response to complete.

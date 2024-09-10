@@ -12,7 +12,7 @@
     "description": "The generated-index page title for category IIQ Api in sidebar iiqOpenApiSidebar"
   },
   "sidebar.iiqOpenApiSidebar.category.IIQ Api.link.generated-index.description": {
-    "message": "These are the public APIs for SailPoint's SaaS services. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.",
+    "message": "These are the public APIs for SailPoint's SaaS services. We encourage you to join the SailPoint Developer Community forum at https://platform.sailpoint.com to connect with other developers using our APIs.",
     "description": "The generated-index page description for category IIQ Api in sidebar iiqOpenApiSidebar"
   },
   "sidebar.iiqOpenApiSidebar.category.Accounts": {

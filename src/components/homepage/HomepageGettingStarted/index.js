@@ -23,7 +23,7 @@ export default function HomepageGettingStarted() {
           </div>
           <div className={styles.gridContainer}>
             <HomepageCard
-              link={'/docs'}
+              link={'/'}
               title={'Get Started with Identity Security Cloud'}
               image={
                 '/homepage/SailPointIdentitySecurityCloud.svg'

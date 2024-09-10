@@ -1854,6 +1854,8 @@ paths:
     $ref: "./beta/paths/manual-discover-applications.yaml"
   /discovered-applications:
     $ref: "./beta/paths/discovered-applications.yaml"
+  /discovered-applications/{id}:
+    $ref: "./beta/paths/discovered-application.yaml"
   /vendor-connector-mappings:
     $ref: "./beta/paths/vendor-connector-mappings.yaml"
   /icons/{objectType}/{objectId}:

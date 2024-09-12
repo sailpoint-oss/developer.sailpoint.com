@@ -40,6 +40,9 @@ paths:
     $ref: "./paths/role.yaml"
   /roles/{id}:
     $ref: "./paths/roles_id.yaml"
+# System Roles
+  /system_roles:
+    $ref: "./paths/system_roles.yaml"
 # Permissions
   /permissions:
     $ref: "./paths/permissions.yaml"

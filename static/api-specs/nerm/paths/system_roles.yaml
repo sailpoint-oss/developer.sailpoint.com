@@ -1,0 +1,16 @@
+get:
+  summary: Get system roles
+  operationId: getSystemRoles
+  description: This endpoint can retrieve system roles from NERM. Optionally you can provide parameters to filter results.
+  tags:
+    - system roles
+  parameters:
+    - $ref: "../parameters/query/query.yaml"
+    - $ref: "../parameters/query/metadata.yaml"
+  responses:
+    '200':
+      $ref: "../responses/System_Roles_Meta.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

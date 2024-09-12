@@ -43,6 +43,9 @@ paths:
 # System Roles
   /system_roles:
     $ref: "./paths/system_roles.yaml"
+# System Role Permissions
+  /system_role_permissions:
+    $ref: "./paths/system_role_permissions.yaml"
 # Permissions
   /permissions:
     $ref: "./paths/permissions.yaml"

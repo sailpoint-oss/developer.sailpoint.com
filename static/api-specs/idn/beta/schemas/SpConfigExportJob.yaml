@@ -1,8 +1,7 @@
 allOf:
   - $ref: "./SpConfigJob.yaml"
   - type: object
-    required:
-      - description
+    nullable: true
     properties:
       description:
         type: string

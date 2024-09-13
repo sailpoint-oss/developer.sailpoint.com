@@ -61,3 +61,7 @@ properties:
     type: string
     description: The locale the user prefers to use
     example: fr-CA
+  group_strings:
+    type: string
+    description: Group strings configured on the customer's Active Directory configuration, provided by the IDP at the moment on authentication.
+    example: Admin_group, Developer_group

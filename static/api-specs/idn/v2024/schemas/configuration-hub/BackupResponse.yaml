@@ -1,0 +1,103 @@
+type: object
+properties:
+  jobId:
+    type: string
+    description: Unique id assigned to this backup.
+    example: 3469b87d-48ca-439a-868f-2160001da8c1
+  status:
+    type: string
+    description: Status of the backup.
+    enum:
+      - NOT_STARTED
+      - IN_PROGRESS
+      - COMPLETE
+      - CANCELLED
+      - FAILED
+    example: COMPLETE
+  type:
+    type: string
+    description: Type of the job, will always be BACKUP for this type of job.
+    enum:
+      - BACKUP
+    example: BACKUP
+  tenant:
+    type: string
+    description: The name of the tenant performing the upload
+    example: tenant-name
+  requesterName:
+    type: string
+    description: The name of the requester.
+    example: Requester Name
+  fileExists:
+    type: boolean
+    default: true
+    description: Whether or not a file was created and stored for this backup.
+    example: true
+  created:
+    type: string
+    format: date-time
+    description: The time the job was started.
+    example: 2021-05-11T22:23:16Z
+  modified:
+    type: string
+    format: date-time
+    description: The time of the last update to the job.
+    example: 2021-05-11T22:23:16Z
+  completed:
+    type: string
+    format: date-time
+    description: The time the job was completed.
+    example: 2021-05-11T22:23:16Z
+  name:
+    type: string
+    description: The name assigned to the upload file in the request body.
+    example: Backup Name
+  userCanDelete:
+    type: boolean
+    default: true
+    description: Whether this backup can be deleted by a regular user.
+    example: false
+  isPartial:
+    type: boolean
+    default: false
+    description: Whether this backup contains all supported object types or only some of them.
+    example: false
+  backupType:
+    type: string
+    description: >-
+      Denotes how this backup was created.
+      
+      - MANUAL - The backup was created by a user.
+      
+      - AUTOMATED - The backup was created by devops.
+      
+      - AUTOMATED_DRAFT - The backup was created during a draft process.
+      
+      - UPLOADED - The backup was created by uploading an existing configuration file.
+    enum:
+      - UPLOADED
+      - AUTOMATED
+      - MANUAL
+    example: MANUAL
+  options:
+    $ref: './BackupOptions.yaml'
+  hydrationStatus:
+    type: string
+    description: Whether the object details of this backup are ready.
+    enum:
+      - HYDRATED
+      - NOT_HYDRATED
+    example: NOT_HYDRATED
+  totalObjectCount:
+    type: integer
+    format: int64
+    description: Number of objects contained in this backup.
+    example: 10
+  cloudStorageStatus:
+    type: string
+    description: Whether this backup has been transferred to a customer storage location.
+    enum:
+      - SYNCED
+      - NOT_SYNCED
+      - SYNC_FAILED
+    example: SYNCED

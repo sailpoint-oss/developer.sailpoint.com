@@ -1334,6 +1334,10 @@ paths:
     $ref: ./v3/paths/configuration-hub/backup-uploads.yaml
   /configuration-hub/backups/uploads/{id}:
     $ref: ./v3/paths/configuration-hub/backup-uploads-id.yaml
+  /configuration-hub/backups:
+    $ref: ./v2024/paths/configuration-hub/backup.yaml
+  /configuration-hub/backups/{id}:
+    $ref: ./v2024/paths/configuration-hub/backup-id.yaml
   /configuration-hub/drafts:
     $ref: ./v2024/paths/configuration-hub/draft.yaml
   /configuration-hub/drafts/{id}:

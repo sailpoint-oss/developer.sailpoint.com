@@ -357,15 +357,17 @@ tags:
       In this situation, the certification campaign completes once all the remediation requests are completed.
   - name: Configuration Hub
     description: |
-      Upload configurations and manage object mappings between tenants.
+      Use this API to implement and customize configuration settings management. With this functionality, you can access the Configuration Hub actions and build your own automated pipeline for Identity Security Cloud configuration change delivery and deployment.
       
-      Configuration files can be managed and deployed using Configuration Hub by uploading a JSON file which contains configuration data.
+      Common usages for Configuration Hub includes:
+  
+      - Upload configuration file - Configuration files can be managed and deployed using Configuration Hub by uploading a JSON file which contains configuration data.
+      - Manage object mapping - Create rules to map and substitute attributes when migrating configurations.
+      - Manage backups for configuration settings
+      - Manage configuration drafts
+      - Upload configurations and manage object mappings between tenants.
       
-      The function of object mapping allows objects with varying names and IDs to be compared. While objects are compared, a user can replace a value in the source tenant with a new value. Object mapping also helps in locating referenced objects to the source object during the drafting process.
-      
-      Refer to [Uploading a Configuration File](https://documentation.sailpoint.com/saas/help/confighub/config_hub.html#uploading-a-configuration-file) for more information about uploading Configuration Files
-      
-      Refer to [Mapping Objects](https://documentation.sailpoint.com/saas/help/confighub/config_hub.html#mapping-objects) for more information about object mappings.
+      Refer to [Using the SailPoint Configuration Hub](https://documentation.sailpoint.com/saas/help/confighub/config_hub.html) for more information about Configuration Hub.
   - name: Connector Rule Management
   - name: Connectors
     description: |
@@ -1332,6 +1334,10 @@ paths:
     $ref: ./v3/paths/configuration-hub/backup-uploads.yaml
   /configuration-hub/backups/uploads/{id}:
     $ref: ./v3/paths/configuration-hub/backup-uploads-id.yaml
+  /configuration-hub/drafts:
+    $ref: ./v2024/paths/configuration-hub/draft.yaml
+  /configuration-hub/drafts/{id}:
+    $ref: ./v2024/paths/configuration-hub/draft-id.yaml
   /connectors/{scriptName}:
     $ref: ./v3/paths/connector.yaml
   /connectors:

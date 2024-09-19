@@ -1151,6 +1151,8 @@ paths:
     $ref: './v3/paths/managed-clusters.yaml'
   /managed-clusters/{id}:
     $ref: './v3/paths/managed-cluster.yaml'
+  /managed-clusters/{id}/log-config:
+    $ref: './v3/paths/managed-cluster-log-config.yaml'
   /mfa/okta-verify/config:
     $ref: './v3/paths/mfa-okta-config.yaml'
   /mfa/duo-web/config:

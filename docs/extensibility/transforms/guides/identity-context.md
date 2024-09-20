@@ -23,7 +23,7 @@ The following variables are available to the Apache Velocity template engine whe
 | attributeDefinition | sailpoint.object.AttributeDefinition | This is the definition of the attribute being promoted. |
 | oldValue | Object | This is the attribute's previous value. |
 
-For available methods on these objects see our [Rules Java Docs](https://developer.sailpoint.com/docs/extensibility/rules/java-docs).
+For available methods on these objects see our [Rules Java Docs](https://platform.sailpoint.com/docs/extensibility/rules/java-docs).
 
 ## Examples
 

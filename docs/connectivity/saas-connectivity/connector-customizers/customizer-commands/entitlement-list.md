@@ -42,4 +42,4 @@ The `input` object can be mutated and returned, but the same data type must stil
 
 ### After entitlement-list command
 
-After entitlement-list is not available for customization at this time. If you need to modify the values of the response, it is recommended that you use [Transforms](https://developer.sailpoint.com/docs/extensibility/transforms/).
+After entitlement-list is not available for customization at this time. If you need to modify the values of the response, it is recommended that you use [Transforms](https://platform.sailpoint.com/docs/extensibility/transforms/).

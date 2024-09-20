@@ -281,7 +281,7 @@ To test a transform for account data, you must provision a new account on that s
 
 - **JSON Editor** - Because transforms are JSON objects, it is recommended that you use a good JSON editor. Atom, Sublime Text, and Microsoft Code work well because they have JSON formatting and plugins that can do JSON validation, completion, formatting, and folding. This is very useful for large complex JSON objects.
 
-- **Leverage Examples** - Many implementations use similar sets of transforms, and a lot of common solutions can be found in examples. Feel free to share your own transform examples on the [Developer Community forum](https://developer.sailpoint.com/discuss)!
+- **Leverage Examples** - Many implementations use similar sets of transforms, and a lot of common solutions can be found in examples. Feel free to share your own transform examples on the [Developer Community forum](https://platform.sailpoint.com)!
 
 - **Same Problem, Multiple Solutions** - There can be multiple ways to solve the same problem, but use the solution that makes the most sense to your implementation and is easiest to administer and understand.
 

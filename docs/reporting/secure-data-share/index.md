@@ -47,4 +47,4 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
 The most valuable resource for ISC developers is the SailPoint Developer Community itself, where ISC users and experts all over the world come together to ask questions and provide solutions.
 
-To learn more about SDS and discuss it with SailPoint Developer Community members, go to the [SailPoint Developer Community Forum](https://developer.sailpoint.com/discuss/c/identity-security-cloud/6).
+To learn more about SDS and discuss it with SailPoint Developer Community members, go to the [SailPoint Developer Community Forum](https://platform.sailpoint.com/).

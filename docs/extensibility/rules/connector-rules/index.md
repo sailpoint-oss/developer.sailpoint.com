@@ -13,7 +13,7 @@ tags: ['Rules']
 
 **Connector-Executed Rules** or **Connector Rules** are rules that are executed in the Identity Security Cloud virtual appliance, and they are usually extensions of the connector itself. The rules are commonly used to perform complex connector-related functions, so they are specific to only certain connectors. Because these rules execute in the virtual appliance, they do not have access to query the Identity Security Cloud data model or fetch information from Identity Security Cloud. They rely instead on contextual information sent from Identity Security Cloud. Connector-executed rules may also have managed connections provided in their contexts to support querying end systems or sources. Though these managed connections may be used, making additional connections or call-outs is not allowed.
 
-Unlike cloud rules, connector rules do not have a rule review process and are directly editable with the [Connector Rule REST APIs](https://developer.sailpoint.com/docs/api/beta/connector-rule-management). For more details, see [Configuration Process](#configuration-process).
+Unlike cloud rules, connector rules do not have a rule review process and are directly editable with the [Connector Rule REST APIs](https://platform.sailpoint.com/docs/api/beta/connector-rule-management). For more details, see [Configuration Process](#configuration-process).
 
 ## Supported Connector Rules
 
@@ -35,7 +35,7 @@ Unlike cloud rules, connector rules do not have a rule review process and are di
 
 ## Configuration Process
 
-Connector Rules are directly editable with the [Connector Rule REST APIs](https://developer.sailpoint.com/docs/api/beta/connector-rule-management), which provide ability to interact with rules directly.
+Connector Rules are directly editable with the [Connector Rule REST APIs](https://platform.sailpoint.com/docs/api/beta/connector-rule-management), which provide ability to interact with rules directly.
 
 | Name | Path |
 | --- | --- |

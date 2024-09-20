@@ -617,4 +617,4 @@ When your test runs, you will see the output of your logs. These logs can help w
 
 Have an issue using the RDK? Reach out to us on GitHub [here](https://github.com/sailpoint-oss/rule-development-kit/issues)
 
-Discuss the tool and other rule-specific topics in the [SailPoint Developer Community](https://developer.sailpoint.com/discuss/).
+Discuss the tool and other rule-specific topics in the [SailPoint Developer Community](https://platform.sailpoint.com//).

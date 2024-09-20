@@ -43,7 +43,7 @@ The `workflow` command makes it easy to create, manage, and test workflows from 
 
   The CLI will return a table of the available workflows in your tenant, with their IDs.
 
-  This command uses the [List Workflows endpoint](https://developer.sailpoint.com/docs/api/beta/list-workflows).
+  This command uses the [List Workflows endpoint](https://platform.sailpoint.com/docs/api/beta/list-workflows).
 
   ## Get workflow
 
@@ -61,7 +61,7 @@ The `workflow` command makes it easy to create, manage, and test workflows from 
 
   The CLI will return the workflow, along with all its details.
 
-  This command uses the [Get workflow endpoint](https://developer.sailpoint.com/docs/api/beta/get-workflow).
+  This command uses the [Get workflow endpoint](https://platform.sailpoint.com/docs/api/beta/get-workflow).
 
   ## Create workflow
 
@@ -85,7 +85,7 @@ The `workflow` command makes it easy to create, manage, and test workflows from 
 
   Once you create the workflow, it will be located in the file path you specified.
 
-  This command uses the [Create workflow endpoint](https://developer.sailpoint.com/docs/api/beta/create-workflow).
+  This command uses the [Create workflow endpoint](https://platform.sailpoint.com/docs/api/beta/create-workflow).
 
   ### File path
 
@@ -131,7 +131,7 @@ The `workflow` command makes it easy to create, manage, and test workflows from 
 
   The updated workflow will be located in the file path you specified.
 
-  This command uses the [Update workflow endpoint](https://developer.sailpoint.com/docs/api/beta/update-workflow).
+  This command uses the [Update workflow endpoint](https://platform.sailpoint.com/docs/api/beta/update-workflow).
 
   ### File path
 
@@ -175,7 +175,7 @@ The `workflow` command makes it easy to create, manage, and test workflows from 
   sail workflow delete $(cat list_of_workflowIDs.txt)
   ```
 
-  This command uses the [Delete workflow endpoint](https://developer.sailpoint.com/docs/api/beta/delete-workflow).
+  This command uses the [Delete workflow endpoint](https://platform.sailpoint.com/docs/api/beta/delete-workflow).
 
   ## Download workflow
 

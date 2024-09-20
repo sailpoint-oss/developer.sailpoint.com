@@ -57,4 +57,4 @@ This is an example input from this trigger:
 ## Additional Information and links
 
 - **Trigger Type**: [FIRE_AND_FORGET](../trigger-types.md#fire-and-forget)
-<!-- [Input schema](https://developer.sailpoint.com/apis/beta/#section/Source-Account-Updated-Event-Trigger-Input) -->
+<!-- [Input schema](https://platform.sailpoint.com/apis/beta/#section/Source-Account-Updated-Event-Trigger-Input) -->

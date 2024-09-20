@@ -110,7 +110,7 @@ Once you have provided your tenant information, the Community Toolbox prompts yo
 Once you log in, the Community Toolbox's home page displays. The home page has four panels with different links. You can access these different Community Toolbox functionalities from the home page panels: 
 - **Status**: The Status panel shows you the platform's status, such as "All Systems Operational". Click the status to open https://status.sailpoint.com in an Community Toolbox window. You will see the latest status updates for the platform there. 
 - **Tenant Links**: Use these links for direct access to some areas of your tenant common for administrative functions. Click these links to open your ISC tenant UI within an Community Toolbox window. From the Community Toolbox window, you can also access the entirety of your tenant. 
-- **Resources**: Use these links to access common SailPoint resources, such as the [SailPoint Developer Community](https://developer.sailpoint.com/discuss/c/identity-security-cloud/6) and the different forms of SailPoint documentation. 
+- **Resources**: Use these links to access common SailPoint resources, such as the [SailPoint Developer Community](https://platform.sailpoint.com/) and the different forms of SailPoint documentation. 
 - **Support**: Use these links to access [SailPoint Customer Support](https://support.sailpoint.com/csm) and submit support tickets. 
 
 ## Community Toolbox side tab features 
@@ -162,4 +162,4 @@ When you open the Courier tab, the Community Toolbox displays its Courier tool. 
 
 The most valuable resource for ISC developers is the SailPoint Developer Community itself, where ISC users and experts all over the world come together to ask questions and provide solutions. 
 
-To learn more about the ISC Community Toolbox and discuss it with SailPoint Developer Community members, go to the [SailPoint Developer Community Forum](https://developer.sailpoint.com/discuss/c/identity-security-cloud/6). 
+To learn more about the ISC Community Toolbox and discuss it with SailPoint Developer Community members, go to the [SailPoint Developer Community Forum](https://platform.sailpoint.com/). 

@@ -19,7 +19,7 @@ Read this guide to learn how to use the UI Development Kit to handle errors.
 
 ## 400 Bad Request
 
-If you provide an invalid filter or sorter, the [List Accounts Endpoint](https://developer.sailpoint.com/docs/api/v3/list-accounts) returns a 400 error. This example awaits the response and doesn't exit the program when a 4xx level status is received. If a 4xx level status is received, the user is redirected to an error page.
+If you provide an invalid filter or sorter, the [List Accounts Endpoint](https://platform.sailpoint.com/docs/api/v3/list-accounts) returns a 400 error. This example awaits the response and doesn't exit the program when a 4xx level status is received. If a 4xx level status is received, the user is redirected to an error page.
 
 Refer to this code block to learn how to implement error handling for invalid filters or sorters:
 
@@ -62,7 +62,7 @@ export const load = async ({url, locals}) => {
         'an error occurred while fetching accounts. Please examine your filters and and sorters and try again.',
       context: {params: {page, limit, filters, sorters}},
       urls: [
-        'https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results',
+        'https://platform.sailpoint.com/idn/api/standard-collection-parameters#filtering-results',
       ],
       errData: reportResp.data,
     });
@@ -122,7 +122,7 @@ export const load = async ({url, locals}) => {
         'an error occurred while fetching accounts. Please examine your filters and and sorters and try again.',
       context: {params: {page, limit, filters, sorters}},
       urls: [
-        'https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results',
+        'https://platform.sailpoint.com/idn/api/standard-collection-parameters#filtering-results',
       ],
       errData: reportResp.data,
     });
@@ -139,4 +139,4 @@ export const load = async ({url, locals}) => {
 
 The most valuable resource for ISC developers is the SailPoint Developer Community itself, where ISC users and experts all over the world come together to ask questions and provide solutions.
 
-To learn more about the ISC UI Development Kit and discuss it with SailPoint Developer Community members, go to the [SailPoint Developer Community Forum](https://developer.sailpoint.com/discuss/c/identity-security-cloud/6).
+To learn more about the ISC UI Development Kit and discuss it with SailPoint Developer Community members, go to the [SailPoint Developer Community Forum](https://platform.sailpoint.com/).

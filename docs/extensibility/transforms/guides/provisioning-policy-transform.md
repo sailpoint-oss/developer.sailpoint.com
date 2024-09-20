@@ -350,4 +350,4 @@ This is the example response with the full policy, along with the new attribute:
 
 ## Next Steps
 
-For more information on all available transforms, refer to [Transform Operations](/docs/extensibility/transforms/operations). If you're having trouble creating your transform in provisioning policies, reach out with your question in the [Developer Community Forum](https://developer.sailpoint.com/discuss/)!
+For more information on all available transforms, refer to [Transform Operations](/docs/extensibility/transforms/operations). If you're having trouble creating your transform in provisioning policies, reach out with your question in the [Developer Community Forum](https://platform.sailpoint.com)!

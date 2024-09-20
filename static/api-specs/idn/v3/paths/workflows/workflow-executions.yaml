@@ -39,7 +39,6 @@ get:
       name: filters
       schema:
         type: string
-      example: status eq "Failed"
       description: >-
         Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
 
@@ -47,10 +46,11 @@ get:
         Filtering is supported for the following fields and operators:
 
 
-        **startTime**: *eq, lt, le, gt, ge*
+        **start_time**: *eq, lt, le, gt, ge*
 
 
         **status**: *eq*
+      example: status eq "Failed"
       required: false
   responses:
     '200':

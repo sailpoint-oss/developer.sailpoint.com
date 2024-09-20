@@ -100,3 +100,4 @@ This transform extends the previous one to show how you can use if/else logic to
 ## References
 
 - [https://velocity.apache.org/engine/1.7/user-guide.html](https://velocity.apache.org/engine/1.7/user-guide.html)
+- [https://velocity.apache.org/engine/2.0/vtl-reference.html](https://velocity.apache.org/engine/2.0/vtl-reference.html)

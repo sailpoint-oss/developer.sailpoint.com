@@ -1342,6 +1342,10 @@ paths:
     $ref: ./v2024/paths/configuration-hub/draft.yaml
   /configuration-hub/drafts/{id}:
     $ref: ./v2024/paths/configuration-hub/draft-id.yaml
+  /configuration-hub/deploys:
+    $ref: ./v2024/paths/configuration-hub/deploy.yaml
+  /configuration-hub/deploys/{id}:
+    $ref: ./v2024/paths/configuration-hub/deploy-id.yaml
   /connectors/{scriptName}:
     $ref: ./v3/paths/connector.yaml
   /connectors:

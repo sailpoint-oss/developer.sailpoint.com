@@ -1,0 +1,66 @@
+type: object
+properties:
+  jobId:
+    type: string
+    description: Unique id assigned to this job.
+    example: 07659d7d-2cce-47c0-9e49-185787ee565a
+  status:
+    type: string
+    description: Status of the job.
+    enum:
+      - NOT_STARTED
+      - IN_PROGRESS
+      - COMPLETE
+      - CANCELLED
+      - FAILED
+    example: COMPLETE
+  type:
+    type: string
+    description: Type of the job, will always be CONFIG_DEPLOY_DRAFT for this type of job.
+    enum:
+      - CONFIG_DEPLOY_DRAFT
+    example: CONFIG_DEPLOY_DRAFT
+  message:
+    type: string
+    description: Message providing information about the outcome of the deploy process.
+    example: Deploy creation message
+  requesterName:
+    type: string
+    description: The name of the user that initiated the deploy process.
+    example: requester.name
+  fileExists:
+    type: boolean
+    default: true
+    description: Whether or not a results file was created and stored for this deploy.
+    example: true
+  created:
+    type: string
+    format: date-time
+    description: The time the job was started.
+    example: 2021-05-11T22:23:16Z
+  modified:
+    type: string
+    format: date-time
+    description: The time of the last update to the job.
+    example: 2021-05-11T22:23:16Z
+  completed:
+    type: string
+    format: date-time
+    description: The time the job was completed.
+    example: 2021-05-11T22:23:16Z
+  draftId:
+    type: string
+    description: The id of the draft that was used for this deploy.
+    example: 07659d7d-2cce-47c0-9e49-185787ee565a
+  draftName:
+    type: string
+    description: The name of the draft that was used for this deploy.
+    example: Draft Name
+  cloudStorageStatus:
+    type: string
+    description: Whether this deploy results file has been transferred to a customer storage location.
+    enum:
+      - SYNCED
+      - NOT_SYNCED
+      - SYNC_FAILED
+    example: SYNCED

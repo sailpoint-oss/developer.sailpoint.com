@@ -18,7 +18,7 @@ function ApiExplorer({
 
   return (
     <>
-    <SecuritySchemes infoPath={infoPath} />
+    <SecuritySchemes infoPath={infoPath} item={item} />
       {item.method !== "event" && (
         <CodeSnippets
           postman={postman}

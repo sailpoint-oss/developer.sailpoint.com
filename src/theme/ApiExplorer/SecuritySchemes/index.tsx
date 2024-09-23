@@ -7,6 +7,7 @@ function SecuritySchemes(props: any) {
   const options = useTypedSelector((state: any) => state.auth.options);
   const selected = useTypedSelector((state: any) => state.auth.selected);
   const infoAuthPath = `/${props.infoPath}#authentication`;
+  console.log(props.item);
 
   if (selected === undefined) return null;
 
@@ -203,6 +204,14 @@ function SecuritySchemes(props: any) {
                     <strong>scopes: </strong>
                     <code>
                       {auth.scopes.length > 0 ? auth.scopes.toString() : "[]"}
+                    </code>
+                  </span>
+                )}
+                {props.item['X-SailPoint-User-Levels'] && props.item['X-SailPoint-User-Levels'].length > 0 && (
+                  <span>
+                    <strong>user levels: </strong>
+                    <code>
+                      {props.item['X-SailPoint-User-Levels'].length > 0 ? props.item['X-SailPoint-User-Levels'].toString() : "[]"}
                     </code>
                   </span>
                 )}

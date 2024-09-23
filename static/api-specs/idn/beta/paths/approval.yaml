@@ -34,35 +34,3 @@ get:
       $ref: '../../v3/responses/429.yaml'
     '500':
       $ref: '../../v3/responses/500.yaml'
-patch:
-  security:
-  - UserContextAuth: [ sp:approvals:write ]
-  operationId: patchApproval
-  tags:
-  - Approvals
-  summary: Change an approval
-  description: >-
-    Change the values of a given approval
-  requestBody:
-    required: true
-    content:
-      application/json:
-        schema:
-          $ref: '../schemas/ApprovalDto.yaml'
-  responses:
-    '200':
-      description: Approval object
-      content:
-        application/json:
-          schema:
-            $ref: '../schemas/Approval.yaml'
-    '400':
-      $ref: '../../v3/responses/400.yaml'
-    '401':
-      $ref: '../../v3/responses/401.yaml'
-    '403':
-      $ref: '../../v3/responses/403.yaml'
-    '429':
-      $ref: '../../v3/responses/429.yaml'
-    '500':
-      $ref: '../../v3/responses/500.yaml'

@@ -11,17 +11,14 @@ slug: /tools/cli/cluster
 tags: ['CLI']
 ---
 
-# Clusters
-
 Learn how to use the SailPoint CLI to list manage client managed clusters in this guide.
 
 The `cluster` command makes it easy to manage clusters within the CLI.
 
-- [Clusters](#clusters)
-  - [List clusters](#list-clusters)
-  - [Get cluster by ID](#get-cluster-by-id)
-  - [Get cluster's log configuration](#get-clusters-log-configuration)
-  - [Set cluster's log configuration](#set-clusters-log-configuration)
+- [List clusters](#list-clusters)
+- [Get cluster by ID](#get-cluster-by-id)
+- [Get cluster's log configuration](#get-clusters-log-configuration)
+- [Set cluster's log configuration](#set-clusters-log-configuration)
 
 ## List clusters
 

@@ -19,11 +19,11 @@ Search attributes allow you to search across accounts and sources to determine w
 
 There are three critical components involves with working with searchable attributes:
 
-- [Configuration of search attributes within Identity Security Cloud](#configuration-of-search-attributes-within-identitynow)
+- [Configuration of search attributes within Identity Security Cloud](#configuration-of-search-attributes-within-identity-security-cloud)
   - Seed data for accounts already aggregated into the system.
   - Ensure attribute promotion happens for new/changed accounts that are aggregated.
 - [Create rules that can be used to query the newly created attribute values](#create-rules-that-can-be-used-to-query-the-newly-created-attribute-values)
-- [Implement rules within the Create Profile section of each source an account is being provisioned for](#implement-rules-within-the-create-profile-section-of-each-source-for-which-an-account-is-being-provisioned)
+- [Implement rules within the Create Profile section of each source an account is being provisioned for](#implement-rules-within-the-create-profile-section-of-each-source-for-an-acount-is-being-provisioned-for)
 
 ## Configuration of Search Attributes within Identity Security Cloud
 
@@ -64,7 +64,7 @@ The following information is necessary to create your search attribute:
 
 ### Create the New Search Attribute in Identity Security Cloud
 
-To call the APIs for search attributes, you need a personal access token and the name of your tenant to provide with the request. To retrieve a personal access token, see [Personal Access Tokens](../../api/authentication.md#personal-access-tokens). To get the name of your tenant, see [Finding Your Organization Tenant Name](../../api/getting-started.md#find-your-tenant-name)
+To call the APIs for search attributes, you need a personal access token and the name of your tenant to provide with the request. To retrieve a personal access token, see [Personal Access Tokens](../../api/authentication.md#generate-a-personal-access-token). To get the name of your tenant, see [Finding Your Organization Tenant Name](../../api/getting-started.md#find-your-tenant-name)
 
 Doing so creates an account search configuration for the two sources/attributes specified. All new/changed accounts that are aggregated have this new attribute(“promotedEmailAddress”) created in the account schema and the value of the attribute(“mail” or “emailAddress”), depending on the source, is promoted to that new attribute.
 

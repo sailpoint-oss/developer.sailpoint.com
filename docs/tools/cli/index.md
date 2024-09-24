@@ -109,7 +109,7 @@ To configure the CLI to connect and authenticate to your ISC tenant, you must do
 
 - Find your tenant name. To learn how to find it, refer to [Getting Started](/docs/api/getting-started#find-your-tenant-name). The CLI will use this tenant name to connect to your ISC instance.
 - OAuth
-- PAT | Create a personal access token (PAT). Make sure to note the "Client ID" and "Client Secret." The CLI needs this information to authenticate successfully. To learn how to create a PAT, refer to [Personal Access Tokens](/docs/api/authentication#personal-access-tokens).
+- PAT | Create a personal access token (PAT). Make sure to note the "Client ID" and "Client Secret." The CLI needs this information to authenticate successfully. To learn how to create a PAT, refer to [Personal Access Tokens](/docs/api/authentication#generate-a-personal-access-token).
 
 To configure your first environment for OAuth run the following command:
 

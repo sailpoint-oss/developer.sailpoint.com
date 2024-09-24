@@ -62,7 +62,7 @@ However, around 65% of rule reviews are completed in less 4 business hours, with
 
 ### Go Live expectations
 
-SailPoint rule review team members work from 9am-5pm Monday-Friday in their local time zones, excluding holidays. For clients planning to go live on a weekend, we recommend having rules deployed in the sandbox environment prior to go live so that they can be promoted to production without SailPoint involvement. See the section below entitled [Promoting Rules from Sandbox to Production](#promoting-rules-from-sandbox-to-production).
+SailPoint rule review team members work from 9am-5pm Monday-Friday in their local time zones, excluding holidays. For clients planning to go live on a weekend, we recommend having rules deployed in the sandbox environment prior to go live so that they can be promoted to production without SailPoint involvement. See the section below entitled [Promoting Rules from Sandbox to Production](#promote-rules-from-sandbox-to-production).
 
 Note that even for clients who purchase Weekend Go-Live Support, rule deploys are not covered in the Weekend Go Live service as there are multiple teams involved in the rule deploy process.
 

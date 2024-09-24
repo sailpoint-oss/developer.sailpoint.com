@@ -102,7 +102,7 @@ If no identity or group should be added to a particular access request, then the
 
 ## Additional Information and Links
 
-- **Trigger Type**: [REQUEST_RESPONSE](../trigger-types.md#request-response)
+- **Trigger Type**: [REQUEST_RESPONSE](../trigger-types.md#response-required)
 <!--  [Input Schema](https://developer.sailpoint.com/apis/beta/#section/Access-Request-Dynamic-Approver-Event-Trigger-Input)
  [Output Schema](https://developer.sailpoint.com/apis/beta/#section/Access-Request-Dynamic-Approver-Event-Trigger-Output) -->
 - [How to respond to a REQUEST_RESPONSE trigger](../responding-to-a-request-response-trigger.mdx)

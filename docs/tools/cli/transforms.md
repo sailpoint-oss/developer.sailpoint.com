@@ -11,8 +11,6 @@ slug: /tools/cli/transforms
 tags: ['CLI']
 ---
 
-# Transforms
-
 Learn about the CLI commands you can use to create, manage, and test transforms in this guide.
 
 In Identity Security Cloud (ISC), you can use transforms to manipulate attribute data without writing any code. For more information about transforms, refer to [Transforms](/docs/extensibility/transforms).
@@ -23,13 +21,12 @@ With the `transforms` command, it's it easy to create, manage, and test transfor
 
 To create, manage, and test transforms with the CLI, you can use these commands:
 
-- [Transforms](#transforms)
-  - [Commands](#commands)
-  - [List transforms](#list-transforms)
-  - [Download transforms](#download-transforms)
-  - [Create transform](#create-transform)
-  - [Update transform](#update-transform)
-  - [Delete transform](#delete-transform)
+- [Commands](#commands)
+- [List transforms](#list-transforms)
+- [Download transforms](#download-transforms)
+- [Create transform](#create-transform)
+- [Update transform](#update-transform)
+- [Delete transform](#delete-transform)
 
 ## List transforms
 

@@ -81,4 +81,4 @@ If you have not received the invite, check your junk folder or deleted folder be
 
 New service accounts are given the basic "user" level. Depending on what you need your service account to do, you will need to modify the user level appropriately. For more information about user levels and how to set them, refer to [user level permissions](../api/authorization.md#user-level-permissions).
 
-Once your service account has the appropriate user level, you can generate [personal access tokens](../api/authentication.md#personal-access-tokens) (PATs) from the service account to fulfill the needs of your integrations. You can further refine your PATs' access by applying [scopes](../api/authorization.md#scopes) to each PAT you create.
+Once your service account has the appropriate user level, you can generate [personal access tokens](../api/authentication.md#generate-a-personal-access-token) (PATs) from the service account to fulfill the needs of your integrations. You can further refine your PATs' access by applying [scopes](../api/authorization.md#scopes) to each PAT you create.

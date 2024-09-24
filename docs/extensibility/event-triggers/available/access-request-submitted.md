@@ -112,7 +112,7 @@ If you see numerous access requests failing at this stage, verify that your subs
 
 ## Additional Information and Links
 
-- **Trigger Type**: [REQUEST_RESPONSE](../trigger-types.md#request-response)
+- **Trigger Type**: [REQUEST_RESPONSE](../trigger-types.md#response-required)
 <!-- [Input Schema](https://developer.sailpoint.com/apis/beta/#section/Access-Request-Pre-Approval-Event-Trigger-Input)
 [Output Schema](https://developer.sailpoint.com/apis/beta/#section/Access-Request-Pre-Approval-Event-Trigger-Output) -->
 - [How to respond to a REQUEST_RESPONSE trigger](../responding-to-a-request-response-trigger.mdx)

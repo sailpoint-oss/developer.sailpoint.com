@@ -11,8 +11,6 @@ slug: /tools/cli/va
 tags: ['CLI']
 ---
 
-# VA
-
 Learn about the CLI commands you can use to interact with VAs in this guide.
 
 A virtual appliance (VA) is a Linux-based virtual machine that connects to your sources and applications in ISC by using APIs, connectors, and other integrations SailPoint has made available.
@@ -23,17 +21,16 @@ For more information about VAs, refer to the [Virtual Appliance Reference Guide]
 
 To use the CLI to interact with VAs connected to your tenant, run these commands:
 
-- [VA](#va)
-  - [Commands](#commands)
-    - [Collect](#collect)
-      - [Flags](#flags)
-      - [Example](#example)
-    - [Parse](#parse)
-      - [Flags](#flags-1)
-      - [Example](#example-1)
-    - [Update](#update)
-      - [Flags](#flags-2)
-      - [Example](#example-2)
+- [Commands](#commands)
+  - [Collect](#collect)
+    - [Flags](#flags)
+    - [Example](#example)
+  - [Parse](#parse)
+    - [Flags](#flags-1)
+    - [Example](#example-1)
+  - [Update](#update)
+    - [Flags](#flags-2)
+    - [Example](#example-2)
 
 ### Collect
 

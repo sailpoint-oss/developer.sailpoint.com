@@ -17,9 +17,9 @@ In this guide you'll learn the end to end process of writing a cloud rule to gen
 
 - [Attribute generator rule overview](#attribute-generator-rule)
 - [Username requirements](#username-requirements)
-- [Writing the rule](#writing-the-rule)
+- [Writing the rule](#write-the-rule)
 - [Validating the rule](#validate-the-rule)
-- [Submitting for rule review](#submitting-for-rule-review)
+- [Submitting for rule review](#submit-for-rule-review)
 
 ## Attribute Generator Rule
 

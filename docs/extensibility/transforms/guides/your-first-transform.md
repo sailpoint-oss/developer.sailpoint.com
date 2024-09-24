@@ -15,7 +15,7 @@ tags: ['Transforms', 'Guides', 'First']
 
 In this guide, you will learn how to use [Identity Security Cloud's Transform REST APIs](/docs/api/v3/transforms) to do the following:
 
-- [List Transforms in Your Identity Security Cloud Tenant](#list-transforms-in-your-identitynow-tenant)
+- [List Transforms in Your Identity Security Cloud Tenant](#list-transforms-in-your-identity-security-cloud-tenant)
 - [Create a Transform](#create-a-transform)
 - [Get Transform by ID](#get-transform-by-id)
 - [Update a Transform](#update-a-transform)
@@ -23,7 +23,7 @@ In this guide, you will learn how to use [Identity Security Cloud's Transform RE
 
 ## List Transforms in your Identity Security Cloud Tenant
 
-To call the APIs for transforms, you need a personal access token and your tenant's name to provide with the request. For more information about how to get a personal access token, see [Personal Access Tokens](../../../api/authentication.md#personal-access-tokens). For more information about how to get the name of your tenant, see [Finding Your Organization Tenant Name](../../../api/getting-started.md#finding-your-orgtenant-name).
+To call the APIs for transforms, you need a personal access token and your tenant's name to provide with the request. For more information about how to get a personal access token, see [Personal Access Tokens](../../../api/authentication.md#generate-a-personal-access-token). For more information about how to get the name of your tenant, see [Finding Your Organization Tenant Name](../../../api/getting-started.md#find-your-tenant-name).
 
 Before you create your first custom transform, see what transforms are already in the tenant. You can get this information by calling the [List Transforms API](/docs/api/v3/list-transforms).
 

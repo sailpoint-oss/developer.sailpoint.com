@@ -25,7 +25,7 @@ To form the proper URL for an API request, you must know your tenant name. To fi
 
 ## Make Your First API Call
 
-To get started, create a [personal access token](./authentication.md#personal-access-tokens), which can then be used to generate access tokens to authenticate your API calls. To generate a personal access token from Identity Security Cloud, after logging into your Identity Security Cloud instance, do the following:
+To get started, create a [personal access token](./authentication.md#generate-a-personal-access-token), which can then be used to generate access tokens to authenticate your API calls. To generate a personal access token from Identity Security Cloud, after logging into your Identity Security Cloud instance, do the following:
 
 1. Select **Preferences** from the drop-down menu under your username. Then select **Personal Access Tokens** on the left. You can also go straight to the page using this URL, replacing `{tenant}` with your Identity Security Cloud tenant: `https://{tenant}.identitynow.com/ui/d/user-preferences/personal-access-tokens`.
 

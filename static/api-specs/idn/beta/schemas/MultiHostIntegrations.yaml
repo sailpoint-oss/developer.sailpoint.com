@@ -1,0 +1,273 @@
+type: object
+properties:
+  id:
+    type: string
+    readOnly: true
+    description: Multi-Host Integration ID.
+    example: 2c91808568c529c60168cca6f90c1324
+  name:
+    type: string
+    description: Multi-Host Integration's human-readable name.
+    example: My Multi-Host Integration
+  description:
+    type: string
+    description: Multi-Host Integration's human-readable description.
+    example: This is a Multi-Host Integration.
+  owner:
+    description: Reference to identity object who owns the source.
+    type: object
+    properties:
+      type:
+        description: Type of object being referenced.
+        type: string
+        enum:
+          - IDENTITY
+        example: IDENTITY
+      id:
+        type: string
+        description: Owner identity's ID.
+        example: 2c91808568c529c60168cca6f90c1313
+      name:
+        type: string
+        description: Owner identity's human-readable display name.
+        example: MyName
+  cluster:
+    description: Reference to the source's associated cluster.
+    type: object
+    nullable: true
+    required:
+      - name
+      - id
+      - type
+    properties:
+      type:
+        description: Type of object being referenced.
+        type: string
+        enum:
+          - CLUSTER
+        example: CLUSTER
+      id:
+        type: string
+        description: Cluster ID.
+        example: 2c9180866166b5b0016167c32ef31a66
+      name:
+        type: string
+        description: Cluster's human-readable display name.
+        example: Corporate Cluster
+  type:
+    type: string
+    description: >-
+      Specifies the type of system being managed e.g. Workday, Multi-Host - Microsoft SQL Server, etc..
+      If you are creating a delimited file source, you must set the `provisionasCsv` query parameter to `true`. 
+    example: Multi-Host - Microsoft SQL Server
+  connector:
+    type: string
+    description: Connector script name.
+    example: multihost-microsoft-sql-server
+  lastSourceUploadSuccessCount:
+    type: integer
+    format: int32
+    description: Last successfully uploaded source count of given Multi-Host Integration.
+    example: 50
+  maxSourcesPerAggGroup:
+    type: integer
+    format: int32
+    description: Maximum sources that can contain in a aggregation group of Multi-Host Integration.
+    example: 10
+  connectorClass:
+    type: string
+    description: >-
+      Fully qualified name of the Java class that implements the connector interface.
+    example: "sailpoint.connector.OpenConnectorAdapter"
+  connectorAttributes:
+    type: object
+    additionalProperties:
+      type: string
+    description: >-
+      Connector specific configuration. This configuration will differ for Multi-Host Integration type.
+    properties: 
+      maxAllowedSources:
+        type: integer
+        format: int32
+        description: Maximum sources allowed count of a Multi-Host Integration
+        example: 250
+      lastSourceUploadCount:
+        type: integer
+        format: int32
+        description: Last upload sources count of a Multi-Host Integration
+        example: 40
+      connectorFileUploadHistory:
+        type: object
+        properties: 
+          connectorFileNameUploadedDate:
+            description: File name of the connector JAR
+            type: string
+            example: "2024-08-29T10:20:38.896479Z"
+      multihost_status:
+        type: string
+        enum:
+          - ready
+          - processing
+          - fileUploadInProgress
+          - sourceCreationInProgress
+          - aggregationGroupingInProgress
+          - aggregationScheduleInProgress
+          - deleteInProgress
+          - deleteFailed
+        description: Multi-Host integration status.
+        example: ready
+      showAccountSchema:
+        description: Show account schema
+        type: boolean
+        example: true
+        default: true
+      showEntitlementSchema:
+        description: Show entitlement schema
+        type: boolean
+        example: true
+        default: true
+      multiHostAttributes:
+        type: object
+        description: Attributes of Multi-Host Integration
+        properties:
+          password:
+            description: Password.
+            type: string
+            example: Password
+          connector_files:
+            type: string
+            description: Connector file.
+            example: mssql-jdbc-8.4.1.jre8.jar
+          authType:
+            type: string
+            description: Authentication type.
+            example: SQLAuthentication
+          user:
+            type: string
+            description: Username.
+            example: My Username
+    example:
+      multiHostAttributes: {
+         "password": "Password",
+         "user": "Username",
+         "connector_files": "mssql-jdbc-8.4.1.jre8.jar",
+         "authType": "SQLAuthentication"
+      }
+      connectorFileUploadHistory: {
+        "connectorFileNameUploadedDate": "2024-08-29T10:20:38.896479Z"
+      }
+      maxAllowedSources: 30
+      lastSourceUploadCount: 50
+      showEntitlementSchema: true
+      showAccountSchema: true
+      multihost_status: ready
+  deleteThreshold:
+    type: integer
+    format: int32
+    minimum: 0
+    maximum: 100
+    description: >-
+      Number from 0 to 100 that specifies when to skip the delete phase.
+    example: 10
+  authoritative:
+    type: boolean
+    description: >-
+      When this is true, it indicates that the source is referenced by an identity profile.
+    default: false
+    example: false
+  managementWorkgroup:
+    description: Reference to management workgroup for the source.
+    type: object
+    nullable: true
+    properties:
+      type:
+        description: Type of object being referenced.
+        type: string
+        enum:
+          - GOVERNANCE_GROUP
+        example: GOVERNANCE_GROUP
+      id:
+        type: string
+        description: Management workgroup ID.
+        example: 2c91808568c529c60168cca6f90c2222
+      name:
+        type: string
+        description: Management workgroup's human-readable display name.
+        example: My Management Workgroup
+  healthy:
+    type: boolean
+    description: >-
+      When this is true, it indicates that the source is healthy.
+    default: false
+    example: true
+  status:
+    type: string
+    enum:
+      - SOURCE_STATE_ERROR_ACCOUNT_FILE_IMPORT
+      - SOURCE_STATE_ERROR_CLUSTER
+      - SOURCE_STATE_ERROR_SOURCE
+      - SOURCE_STATE_ERROR_VA
+      - SOURCE_STATE_FAILURE_CLUSTER
+      - SOURCE_STATE_FAILURE_SOURCE
+      - SOURCE_STATE_HEALTHY
+      - SOURCE_STATE_UNCHECKED_CLUSTER
+      - SOURCE_STATE_UNCHECKED_CLUSTER_NO_SOURCES
+      - SOURCE_STATE_UNCHECKED_SOURCE
+      - SOURCE_STATE_UNCHECKED_SOURCE_NO_ACCOUNTS
+    description: >-
+      Status identifier that gives specific information about why a source is or isn't healthy. 
+    example: SOURCE_STATE_HEALTHY
+  since:
+    type: string
+    format: date-time
+    description: >-
+      Timestamp that shows when a source health check was last performed.
+    example: 2021-09-28T15:48:29.3801666300Z
+  connectorId:
+    type: string
+    description: Connector ID
+    example: multihost-microsoft-sql-server
+  connectorName:
+    type: string
+    description: Name of the connector that was chosen during source creation.
+    example: Multi-Host Microsoft SQL Server
+  connectionType:
+    type: string
+    enum:
+      - direct
+      - file
+    description: Type of connection (direct or file).
+    example: direct
+  connectorImplementationId:
+    type: string
+    description: Connector implementation ID.
+    example: "multihost-microsoft-sql-server"
+  created:
+    type: string
+    description: Date-time when the source was created
+    format: date-time
+    example: 2022-02-08T14:50:03.827Z
+  modified:
+    type: string
+    description: Date-time when the source was last modified.
+    format: date-time
+    example: 2024-01-23T18:08:50.897Z
+  credentialProviderEnabled:
+    type: boolean
+    description: >-
+      If this is true, it enables a credential provider for the source. If credentialProvider is turned on, 
+      then the source can use credential provider(s) to fetch credentials.
+    default: false
+    example: false
+  category:
+    type: string
+    nullable: true
+    default: null
+    description: Source category (e.g. null, CredentialProvider).
+    example: CredentialProvider
+required:
+  - name
+  - owner
+  - connector
+  - description
+  - id

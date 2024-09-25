@@ -474,6 +474,11 @@ tags:
     description: Configure and test multifactor authentication (MFA) methods
   - name: MFA Controller
     description: This API used for multifactor authentication functionality belong to gov-multi-auth service. This controller allow you to verify authentication by specified method
+  - name: Multi-Host Integration
+    description: |
+      Use this API to build a Multi-Host Integration.
+      Multi-Host Integration will help customers to configure and manage similar type of target system in Identity Security Cloud.
+      In Identity Security Cloud, administrators can create a Multi-Host Integration by going to Admin > Connections > Multi-Host Sources and selecting 'Create.'
   - name: Non-Employee Lifecycle Management
     description: |
       Use this API to implement non-employee lifecycle management functionality.
@@ -1346,6 +1351,24 @@ paths:
     $ref: './beta/paths/identity-profile-process-identities.yaml'
   /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}:
     $ref: './beta/paths/identity-profile-lifecycle-state.yaml'
+  /multihosts:
+    $ref: './beta/paths/multi-host-integration.yaml'
+  /multihosts/types:
+    $ref: './beta/paths/multi-host-integration-types.yaml'
+  /multihosts/{id}:
+    $ref: './beta/paths/multi-host-integrations.yaml'
+  /multihosts/{multihost_id}/sources/testConnection:
+    $ref: './beta/paths/multi-host-integration-test-connection.yaml'
+  /multihosts/{multihost_id}/sources/{sourceId}/testConnection:
+    $ref: './beta/paths/multi-host-integration-test-connection-source.yaml'
+  /multihosts/{id}/sources:
+    $ref: './beta/paths/multi-host-integration-list-sources.yaml'
+  /multihosts/{multiHostId}/sources/errors:
+    $ref: './beta/paths/multi-host-integration-sources-creation-error.yaml'
+  /multihosts/{multihostId}/acctAggregationGroups:
+    $ref: './beta/paths/multi-host-integration-get-acct-agg-groups.yaml'
+  /multihosts/{multiHostId}/entitlementAggregationGroups:
+    $ref: './beta/paths/multi-host-integration-get-entitlement-agg-groups.yaml'
   /non-employee-records:
     $ref: './beta/paths/non-employee-records.yaml'
   /non-employee-records/{id}:

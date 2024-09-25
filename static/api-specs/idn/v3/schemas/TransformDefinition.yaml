@@ -6,10 +6,7 @@ properties:
     example: accountAttribute
   attributes:
     type: object
-    additionalProperties:
-      anyOf:
-        - type: string
-        - type: object
+    additionalProperties: true
     description: >-
       Arbitrary key-value pairs to store any metadata for the object
     example: {

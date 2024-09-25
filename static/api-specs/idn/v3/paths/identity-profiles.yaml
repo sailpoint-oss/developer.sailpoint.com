@@ -27,7 +27,7 @@ get:
         **id**: *eq, ne, ge, gt, in, le, lt, isnull, sw*
 
 
-        **name**: *eq, ne, in, le, lt, isnull, sw*
+        **name**: *eq, ne, ge, gt, in, le, lt, isnull, sw*
 
 
         **priority**: *eq, ne*

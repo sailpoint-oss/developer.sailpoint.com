@@ -7,9 +7,14 @@ get:
   security:
   - UserContextAuth:
     - idn:access-model-metadata:read
-  X-SailPoint-User-Levels:
-    - ORG_ADMIN
-    - HELP_DESK 
+    - idn:access-model-metadata:manage
+  - ApplicationAuth:
+    - idn:access-model-metadata:read
+    - idn:access-model-metadata:manage
+  x-sailpoint-user-levels:
+    - Admin
+    - Helpdesk
+    - User
   parameters:
   - in: query
     name: filters

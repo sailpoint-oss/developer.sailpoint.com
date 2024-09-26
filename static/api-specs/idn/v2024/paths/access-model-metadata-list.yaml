@@ -7,14 +7,6 @@ get:
   security:
     - userAuth:
       - idn:access-model-metadata:read
-      - idn:access-model-metadata:manage
-    - applicationAuth:
-      - idn:access-model-metadata:read
-      - idn:access-model-metadata:manage
-  x-sailpoint-userLevels:
-    - Admin
-    - Helpdesk
-    - User
   parameters:
   - in: query
     name: filters

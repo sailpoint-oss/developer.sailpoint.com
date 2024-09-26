@@ -2043,7 +2043,8 @@ paths:
   /user-apps/all:
     $ref: './v2024/paths/ears-user-apps-all.yaml'
 security:
-- userAuth: []
+- userAuth:
+  - "sp:scopes:all"
 components:
   securitySchemes:
     userAuth:

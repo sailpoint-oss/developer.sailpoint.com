@@ -6,7 +6,7 @@ get:
   description: >-
     This rest endpoint can be used to retrieve tenant details.
   security:
-    - UserContextAuth: [sp:tenant:read]
+    - userAuth: [sp:tenant:read]
   responses:
     '200':
       description: Tenant Info

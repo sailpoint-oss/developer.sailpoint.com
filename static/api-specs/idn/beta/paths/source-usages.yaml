@@ -28,7 +28,7 @@ get:
         Sorting is supported for the following fields: **date**
       example: -date
   security:
-    - UserContextAuth: [ idn:accounts:read ]
+    - userAuth: [ idn:accounts:read ]
   responses:
     '200':
       description: Summary of source usage insights for past 12 months.

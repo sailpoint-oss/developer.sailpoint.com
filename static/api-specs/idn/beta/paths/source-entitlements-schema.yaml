@@ -37,7 +37,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:source-schema:read, idn:source-schema:manage]
+    - userAuth: [idn:source-schema:read, idn:source-schema:manage]
 #No Beta endpoint found for this operation.
 post:
   tags:
@@ -88,4 +88,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:source-schema:manage]
+    - userAuth: [idn:source-schema:manage]

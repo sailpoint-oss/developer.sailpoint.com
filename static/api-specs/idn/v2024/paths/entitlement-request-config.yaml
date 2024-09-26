@@ -5,7 +5,7 @@ get:
   summary: Get Entitlement Request Config
   description: This API returns the entitlement request config for a specified entitlement.
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:entitlement:read
     - idn:entitlement:manage
   parameters:
@@ -63,7 +63,7 @@ put:
   summary: Replace Entitlement Request Config
   description: This API replaces the entitlement request config for a specified entitlement.
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:entitlement:manage
   parameters:
   - name: id

@@ -1,7 +1,7 @@
 delete:
   operationId: deleteObjectMapping
   security:
-    - UserContextAuth: [sp:config-object-mapping:manage]
+    - userAuth: [sp:config-object-mapping:manage]
   tags:
     - Configuration Hub
   summary: Deletes an object mapping

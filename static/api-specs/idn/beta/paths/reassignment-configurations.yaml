@@ -6,7 +6,7 @@ get:
   description: >-
     Gets all Reassignment configuration for the current org.
   security:
-    - UserContextAuth: [idn:reassignment-configuration:read]
+    - userAuth: [idn:reassignment-configuration:read]
   responses:
     '200':
       description: A list of Reassignment Configurations for an org
@@ -36,7 +36,7 @@ post:
   description: >-
     Creates a new Reassignment Configuration for the specified identity.
   security:
-    - UserContextAuth: [idn:reassignment-configuration:create]
+    - userAuth: [idn:reassignment-configuration:create]
   requestBody:
     required: true
     content:

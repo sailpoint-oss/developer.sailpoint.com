@@ -37,7 +37,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:role-unchecked:read, idn:role-unchecked:manage, idn:role-checked:manage, idn:role-checked:read]
+    - userAuth: [idn:role-unchecked:read, idn:role-unchecked:manage, idn:role-checked:manage, idn:role-checked:read]
 patch:
   operationId: patchRole
   tags:
@@ -216,7 +216,7 @@ patch:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:role-unchecked:manage,idn:role-checked:manage]
+    - userAuth: [idn:role-unchecked:manage,idn:role-checked:manage]
 delete:
   operationId: deleteRole
   tags:
@@ -252,4 +252,4 @@ delete:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:role-unchecked:manage,idn:role-checked:manage]
+    - userAuth: [idn:role-unchecked:manage,idn:role-checked:manage]

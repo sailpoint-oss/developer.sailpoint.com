@@ -6,7 +6,7 @@ get:
   description: >-
     This gets an identity attribute for a given technical name.
   security:
-    - UserContextAuth: [ idn:identity-profile-attribute:read ]
+    - userAuth: [ idn:identity-profile-attribute:read ]
   parameters:
     - in: path
       name: name
@@ -44,7 +44,7 @@ put:
     Making an attribute searchable requires that the `system`, `standard`, and `multi` properties be set to false.  
     A token with ORG_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: [ idn:identity-profile-attribute:manage ]
+    - userAuth: [ idn:identity-profile-attribute:manage ]
   parameters:
     - in: path
       name: name
@@ -88,7 +88,7 @@ delete:
     The `system` and `standard` properties must be set to false before you can delete an identity attribute.  
     A token with ORG_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: [ idn:identity-profile-attribute:manage ]
+    - userAuth: [ idn:identity-profile-attribute:manage ]
   parameters:
     - in: path
       name: name

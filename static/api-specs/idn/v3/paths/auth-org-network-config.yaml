@@ -7,7 +7,7 @@ get:
     This API returns the details of an org's network auth configuration.
     Requires security scope of: 'sp:auth-org:read'
   security:
-    - UserContextAuth: [ sp:auth-org:read ]
+    - userAuth: [ sp:auth-org:read ]
   responses:
     "200":
       description: Network configuration for the tenant's auth org.
@@ -36,7 +36,7 @@ post:
     This API returns the details of an org's network auth configuration.
     Requires security scope of: 'sp:auth-org:manage'
   security:
-    - UserContextAuth: [ sp:auth-org:manage ]
+    - userAuth: [ sp:auth-org:manage ]
   requestBody:
     required: true
     description: >-
@@ -78,7 +78,7 @@ patch:
     This API updates an existing network configuration for an org using PATCH
      Requires security scope of:  'sp:auth-org:manage'
   security:
-    - UserContextAuth: [ sp:auth-org:manage ]
+    - userAuth: [ sp:auth-org:manage ]
   requestBody:
     required: true
     description: >-

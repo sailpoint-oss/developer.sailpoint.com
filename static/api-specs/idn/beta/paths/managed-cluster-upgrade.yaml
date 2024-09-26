@@ -43,4 +43,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:managed-cluster-upgrade:manage]
+    - userAuth: [idn:managed-cluster-upgrade:manage]

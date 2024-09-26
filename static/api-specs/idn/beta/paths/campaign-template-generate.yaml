@@ -5,7 +5,7 @@ post:
   summary: Generate a Campaign from Template
   deprecated: true
   security:
-     - UserContextAuth: [idn:campaign-template:manage]
+     - userAuth: [idn:campaign-template:manage]
   description: |
     Use this API to generate a new certification campaign from a campaign template.
 

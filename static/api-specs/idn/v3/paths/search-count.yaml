@@ -5,7 +5,7 @@ post:
     Performs a search with a provided query and returns the count of results in the X-Total-Count header.
   operationId: searchCount
   security:
-    - UserContextAuth: [ sp:search:read ]
+    - userAuth: [ sp:search:read ]
   summary: "Count Documents Satisfying a Query"
   requestBody:
     content:

@@ -92,7 +92,7 @@ get:
       '500':
         $ref: '../../v3/responses/500.yaml'
     security:
-      - UserContextAuth: [idn:access-profile:read]
+      - userAuth: [idn:access-profile:read]
 
 
 

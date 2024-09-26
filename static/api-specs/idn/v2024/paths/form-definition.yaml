@@ -146,7 +146,7 @@ get:
                 type: string
                 x-go-name: TrackingID
   security:
-  - UserContextAuth:
+  - userAuth:
     - sp:forms:manage
 delete:
   tags:
@@ -296,7 +296,7 @@ delete:
                 type: string
                 x-go-name: TrackingID
   security:
-  - UserContextAuth:
+  - userAuth:
     - sp:forms:manage
 patch:
   tags:
@@ -457,6 +457,6 @@ patch:
                 type: string
                 x-go-name: TrackingID
   security:
-  - UserContextAuth:
+  - userAuth:
     - sp:forms:manage
   x-codegen-request-body-name: Body

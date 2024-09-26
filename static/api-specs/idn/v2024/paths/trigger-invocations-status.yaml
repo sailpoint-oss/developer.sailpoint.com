@@ -72,6 +72,6 @@ get:
     '500':
       $ref: ../../v3/responses/500.yaml
   security:
-  - UserContextAuth:
+  - userAuth:
     - sp:trigger-service-invocation-status:read
     - sp:trigger-service-invocation-status:manage

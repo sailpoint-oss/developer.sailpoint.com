@@ -1,0 +1,82 @@
+get:
+  tags:
+    - Multi-Host Integration
+  summary: Test Configuration For Multi-Host Integration's Single Source
+  description: >-
+    This endpoint performs a more detailed validation of the source's configuration.  
+  
+  
+    A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
+  operationId: testSourceConnectionMultihost
+  parameters:
+    - name: multihost_id
+      in: path
+      description: ID of the Multi-Host Integration
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: 2c91808568c529c60168cca6f90c1326
+    - name: sourceId
+      in: path
+      description: ID of the source within the Multi-Host Integration
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: 2c91808568c529f60168cca6f90c1324
+  responses:
+    "200":
+      description: OK. Returned if the request was successfully accepted into the system.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                description: Source's test connection status.
+                example: true
+              message:
+                type: string
+                description: Source's test connection message.
+                example: Tes.
+              timing:
+                type: integer
+                description: Source's test connection timing.
+                example: 30437.
+              resultType:
+                enum:
+                  - SOURCE_STATE_ERROR_CLUSTER
+                  - SOURCE_STATE_ERROR_SOURCE
+                  - SOURCE_STATE_ERROR_VA
+                  - SOURCE_STATE_FAILURE_CLUSTER
+                  - SOURCE_STATE_FAILURE_SOURCE
+                  - SOURCE_STATE_HEALTHY
+                  - SOURCE_STATE_UNCHECKED_CLUSTER
+                  - SOURCE_STATE_UNCHECKED_CLUSTER_NO_SOURCES
+                  - SOURCE_STATE_UNCHECKED_SOURCE
+                  - SOURCE_STATE_UNCHECKED_SOURCE_NO_ACCOUNTS
+                  - SOURCE_STATE_ERROR_ACCOUNT_FILE_IMPORT
+                description: Source's human-readable result type.
+                example: SOURCE_STATE_HEALTHY
+              testConnectionDetails:
+                type: string
+                description: Source's human-readable test connection details.
+                example: null
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:multihosts:read, idn:sources:read]

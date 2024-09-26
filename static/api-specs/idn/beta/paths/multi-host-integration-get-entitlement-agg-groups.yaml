@@ -1,0 +1,41 @@
+get:
+  tags:
+    - Multi-Host Integration
+  summary: Get Entitlement Aggregation Groups Within Multi-Host Integration ID
+  description: >-
+    This API will return array of aggregation groups within provided Multi-Host Integration ID.  
+    
+    
+    A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
+  operationId: getEntitlementAggregationGroups
+  parameters:
+    - name: multiHostId
+      in: path
+      description: ID of the Multi-Host Integration to update
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: aMultiHostId
+  responses:
+    "200":
+      description: OK. Returned if the request was successfully accepted into the system.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/MultiHostIntegrationsAggScheduleUpdate.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:multihosts:update]

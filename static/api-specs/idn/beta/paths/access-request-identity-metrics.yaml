@@ -30,7 +30,7 @@ get:
           $ref: '../schemas/AccessItemRef.yaml'
       example: ENTITLEMENT
   security:
-    - UserContextAuth: [idn:access-request-approvals:read]
+    - userAuth: [idn:access-request-approvals:read]
   responses:
     '200':
       description: Summary of the resource access and source activity for the direct reports of the provided manager.

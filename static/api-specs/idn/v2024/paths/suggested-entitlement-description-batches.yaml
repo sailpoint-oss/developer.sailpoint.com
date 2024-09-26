@@ -26,7 +26,7 @@ get:
     '500':
       $ref: ../../v3/responses/500.yaml
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:sed:read
   parameters:
   - name: X-SailPoint-Experimental
@@ -75,7 +75,7 @@ post:
     '500':
       $ref: ../../v3/responses/500.yaml
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:sed:write
   parameters:
   - name: X-SailPoint-Experimental

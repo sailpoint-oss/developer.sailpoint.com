@@ -11,7 +11,7 @@ post:
     url: https://documentation.sailpoint.com/saas/help/search/index.html
   operationId: searchPost
   security:
-    - UserContextAuth: [ sp:search:read ]
+    - userAuth: [ sp:search:read ]
   summary: "Perform Search"
   parameters:
   - $ref: '../parameters/offset.yaml'

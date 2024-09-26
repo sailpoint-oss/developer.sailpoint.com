@@ -9,7 +9,7 @@ get:
     
     The downloaded template is specifically designed for use with the `/manual-discover-applications` endpoint.
   security:
-    - UserContextAuth:
+    - userAuth:
         - 'idn:application-discovery:read'
   operationId: getManualDiscoverApplicationsCsvTemplate
   responses:

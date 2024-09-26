@@ -5,7 +5,7 @@ post:
   - Entitlements
   operationId: createAccessModelMetadataForEntitlement
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:entitlement:update
   parameters:
   - name: id
@@ -61,7 +61,7 @@ delete:
   - Entitlements
   operationId: deleteAccessModelMetadataFromEntitlement
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:entitlement:delete
   parameters:
   - name: id

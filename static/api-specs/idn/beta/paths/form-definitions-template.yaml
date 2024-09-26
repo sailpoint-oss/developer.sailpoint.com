@@ -133,5 +133,5 @@ post:
               trackingId:
                 type: string
   security:
-    - UserContextAuth:
+    - userAuth:
         - sp:forms:manage

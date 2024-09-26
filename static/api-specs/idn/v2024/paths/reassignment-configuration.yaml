@@ -5,7 +5,7 @@ get:
   summary: Get Reassignment Configuration
   description: Gets the Reassignment Configuration for an identity.
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:reassignment-configuration:read
   parameters:
   - in: path
@@ -50,7 +50,7 @@ put:
   description: Replaces existing Reassignment configuration for an identity with the
     newly provided configuration.
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:reassignment-configuration:update
   parameters:
   - in: path
@@ -98,7 +98,7 @@ delete:
   summary: Delete Reassignment Configuration
   description: Deletes all Reassignment Configuration for the specified identity
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:reassignment-configuration:delete
   parameters:
   - in: path

@@ -1,7 +1,7 @@
 patch:
   operationId: patchPersonalAccessToken
   security:
-    - UserContextAuth: [sp:my-personal-access-tokens:manage]
+    - userAuth: [sp:my-personal-access-tokens:manage]
   tags:
     - Personal Access Tokens
   summary: Patch Personal Access Token
@@ -60,7 +60,7 @@ patch:
 delete:
   operationId: deletePersonalAccessToken
   security:
-    - UserContextAuth: [sp:my-personal-access-tokens:manage, sp:all-personal-access-tokens:manage]
+    - userAuth: [sp:my-personal-access-tokens:manage, sp:all-personal-access-tokens:manage]
   tags:
     - Personal Access Tokens
   summary: Delete Personal Access Token

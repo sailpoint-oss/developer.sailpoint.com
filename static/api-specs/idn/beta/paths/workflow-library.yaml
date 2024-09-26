@@ -12,7 +12,7 @@ get:
     - $ref: '../../v3/parameters/limit.yaml'
     - $ref: '../../v3/parameters/offset.yaml'
   security:
-    - UserContextAuth: [sp:workflow:read]
+    - userAuth: [sp:workflow:read]
   responses:
     '200':
       description: >-

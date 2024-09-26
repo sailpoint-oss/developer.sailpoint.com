@@ -9,7 +9,7 @@ get:
      that will be available per tenant (organization).
 
   security:
-  - UserContextAuth: [ idn:notification-templates:read ]
+  - userAuth: [ idn:notification-templates:read ]
 
   responses:
     '200':

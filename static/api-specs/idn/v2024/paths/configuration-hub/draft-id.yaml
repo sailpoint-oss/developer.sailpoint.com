@@ -1,7 +1,7 @@
 delete:
   operationId: deleteDraft
   security:
-    - UserContextAuth: [sp:config-draft:manage]
+    - userAuth: [sp:config-draft:manage]
   tags:
     - Configuration Hub
   summary: Delete a draft

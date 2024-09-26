@@ -33,4 +33,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:entitlement:update]
+    - userAuth: [idn:entitlement:update]

@@ -6,7 +6,7 @@ get:
   description: >-
     Use this API to get a list of identity access items at a specified date, filtered by item type.
   security:
-    - UserContextAuth: [idn:identity-history:read]
+    - userAuth: [idn:identity-history:read]
   parameters:
     - in: path
       name: id

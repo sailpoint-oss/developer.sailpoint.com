@@ -5,7 +5,7 @@ get:
   summary: Get SOD policy by ID
   deprecated: true
   security:
-    - UserContextAuth: [ idn:sod-policy:read ]
+    - userAuth: [ idn:sod-policy:read ]
   description: >-
     This gets specified SOD policy.
 
@@ -133,7 +133,7 @@ put:
   summary: Update SOD policy by ID
   deprecated: true
   security:
-    - UserContextAuth: [idn:sod-policy:write]
+    - userAuth: [idn:sod-policy:write]
   description: >-
     This updates a specified SOD policy.
 
@@ -355,7 +355,7 @@ delete:
   summary: Delete SOD policy by ID
   deprecated: true
   security:
-    - UserContextAuth: [idn:sod-policy:write]
+    - userAuth: [idn:sod-policy:write]
   description: >-
     This deletes a specified SOD policy.
 
@@ -398,7 +398,7 @@ patch:
   summary: Patch a SOD policy
   deprecated: true
   security:
-    - UserContextAuth: [ idn:sod-policy:write ]
+    - userAuth: [ idn:sod-policy:write ]
   description: >-
     Allows updating SOD Policy fields other than ["id","created","creatorId","policyQuery","type"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
   

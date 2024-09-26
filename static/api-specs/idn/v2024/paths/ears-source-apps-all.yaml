@@ -4,7 +4,7 @@ get:
     - Apps
   summary: List all source apps
   security:
-    - UserContextAuth: [idn:app-roles:manage]
+    - userAuth: [idn:app-roles:manage]
   description: >-
     This API returns the list of all source apps for the org.
     

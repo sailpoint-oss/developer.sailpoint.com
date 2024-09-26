@@ -1,7 +1,7 @@
 get:
   operationId: getNonEmployeeRequest
   security:
-    - UserContextAuth: [idn:nelm:read]
+    - userAuth: [idn:nelm:read]
   tags:
     - Non-Employee Lifecycle Management
   summary: Get a Non-Employee Request
@@ -38,7 +38,7 @@ get:
 delete:
   operationId: deleteNonEmployeeRequest
   security:
-    - UserContextAuth: [idn:nelm:manage]
+    - userAuth: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
   summary: Delete Non-Employee Request

@@ -1,7 +1,7 @@
 get:
   operationId: listPersonalAccessTokens
   security:
-    - UserContextAuth: [sp:my-personal-access-tokens:read, sp:my-personal-access-tokens:manage, sp:all-personal-access-tokens:read, sp:all-personal-access-tokens:manage]
+    - userAuth: [sp:my-personal-access-tokens:read, sp:my-personal-access-tokens:manage, sp:all-personal-access-tokens:read, sp:all-personal-access-tokens:manage]
   tags:
     - Personal Access Tokens
   summary: List Personal Access Tokens
@@ -65,7 +65,7 @@ get:
 post:
   operationId: createPersonalAccessToken
   security:
-    - UserContextAuth: [ sp:my-personal-access-tokens:manage, sp:all-personal-access-tokens:manage ]
+    - userAuth: [ sp:my-personal-access-tokens:manage, sp:all-personal-access-tokens:manage ]
   tags:
     - Personal Access Tokens
   summary: Create Personal Access Token

@@ -78,7 +78,7 @@ post:
     '500':
       $ref: ../../v3/responses/500.yaml
   security:
-  - UserContextAuth:
+  - userAuth:
     - sp:trigger-service-subscriptions:manage
   parameters:
   - name: X-SailPoint-Experimental
@@ -207,5 +207,5 @@ get:
     '500':
       $ref: ../../v3/responses/500.yaml
   security:
-  - UserContextAuth:
+  - userAuth:
     - sp:trigger-service-subscriptions:read

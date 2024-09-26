@@ -4,7 +4,7 @@ post:
     - Apps
   summary: Bulk remove access profiles from the specified source app
   security:
-    - UserContextAuth: [idn:app-roles:manage]
+    - userAuth: [idn:app-roles:manage]
   description: >-
     This API returns the final list of access profiles for the specified source app after removing
   parameters:

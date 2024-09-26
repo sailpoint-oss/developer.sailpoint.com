@@ -154,7 +154,7 @@ get:
               trackingId:
                 type: string
   security:
-    - UserContextAuth:
+    - userAuth:
         - sp:forms:manage
 post:
   tags:
@@ -291,5 +291,5 @@ post:
               trackingId:
                 type: string
   security:
-    - UserContextAuth:
+    - userAuth:
         - sp:forms:manage

@@ -19,7 +19,7 @@ get:
            * If not passed, it behaves the same way as passing this parameter as false
       example: allLanguages=true
   security:
-    - UserContextAuth: [idn:mfa-kba:read]
+    - userAuth: [idn:mfa-kba:read]
   responses:
     "200":
       description: The configuration for KBA MFA method.

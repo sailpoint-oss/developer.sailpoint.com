@@ -8,7 +8,7 @@ get:
     
     A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
   security:
-    - UserContextAuth: [idn:accounts:read, idn:accounts:manage]
+    - userAuth: [idn:accounts:read, idn:accounts:manage]
   parameters:
     - in: query
       name: detailLevel
@@ -171,7 +171,7 @@ post:
     
     A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
   security:
-    - UserContextAuth: [idn:accounts:manage]
+    - userAuth: [idn:accounts:manage]
   requestBody:
     required: true
     content:

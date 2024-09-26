@@ -5,7 +5,7 @@ get:
   summary: List Notification Templates
   description: This lists the templates that you have modified for your site.
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:notification-templates:read
   parameters:
   - $ref: ../../v3/parameters/limit.yaml
@@ -68,7 +68,7 @@ post:
     \ endpoint.   Modify the fields you want to change and submit the POST request\
     \ when ready."
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:notification-templates:create
   requestBody:
     required: true

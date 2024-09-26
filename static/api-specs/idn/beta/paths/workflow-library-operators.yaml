@@ -6,7 +6,7 @@ get:
   description: >-
     This lists the workflow operators available to you
   security:
-    - UserContextAuth: [sp:workflow:read]
+    - userAuth: [sp:workflow:read]
   responses:
     '200':
       description: >-

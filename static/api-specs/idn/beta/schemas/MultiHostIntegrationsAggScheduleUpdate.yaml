@@ -1,0 +1,54 @@
+allOf:
+  - type: object
+    description: Multi-Host Integration's aggregation schedule specification. 
+    required:
+      - multihost_id
+      - aggregation_grp_id
+      - aggregation_grp_name
+      - aggregation_cron_schedule
+      - enableSchedule
+      - source_id_list
+    properties:
+      multihost_id: 
+        description: Multi-Host Integration ID. The ID must be unique
+        type: string
+        example: 004091cb79b04636b88662afa50a4456
+      aggregation_grp_id:
+        description: Multi-Host Integration aggregation group ID
+        type: string
+        example: 004091cb79b04636b88662afa50a4448
+      aggregation_grp_name:
+        description: Multi-Host Integration name
+        type: string
+        example: Multi-Host Integration aggregation group name
+      aggregation_cron_schedule:
+        description: Cron expression to schedule aggregation
+        type: string
+        example: 0 0 0 * * ?
+      enableSchedule:
+        description: >-
+          Boolean value for Multi-Host Integration aggregation schedule.
+          
+          
+          This specifies if scheduled aggregation is enabled or disabled.
+        type: boolean
+        default: false
+        example: false
+      source_id_list:
+        description:  Source IDs of the Multi-Host Integration
+        type: array
+        items:
+          type: string
+        example: 
+          - 004091cb79b04636b88662afa50a4440
+          - 00af6d0d562a49b591c47be908740542
+      created:
+        description: Created date of Multi-Host Integration aggregation schedule
+        type: string
+        format: date-time
+        example: 2024-01-23T18:08:50.897Z
+      modified:
+        description: Modified date of Multi-Host Integration aggregation schedule
+        type: string
+        format: date-time
+        example: 2024-01-23T18:08:50.897Z

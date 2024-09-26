@@ -1,6 +1,6 @@
 get:
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:sources:read
     - idn:sources:manage
   operationId: getSourceEntitlementRequestConfig
@@ -86,7 +86,7 @@ get:
     required: true
 put:
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:sources:manage
   operationId: updateSourceEntitlementRequestConfig
   summary: Update Source Entitlement Request Configuration

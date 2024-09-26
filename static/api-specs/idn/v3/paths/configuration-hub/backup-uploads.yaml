@@ -1,7 +1,7 @@
 get:
   operationId: listUploadedConfigurations
   security:
-    - UserContextAuth: [sp:config-backup:read, sp:config-backup:manage]
+    - userAuth: [sp:config-backup:read, sp:config-backup:manage]
   tags:
     - Configuration Hub
   summary: List Uploaded Configurations
@@ -67,7 +67,7 @@ get:
 post:
   operationId: createUploadedConfiguration
   security:
-    - UserContextAuth: [sp:config-backup:manage]
+    - userAuth: [sp:config-backup:manage]
   tags:
     - Configuration Hub
   summary: Upload a Configuration

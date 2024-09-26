@@ -1,7 +1,7 @@
 post:
   operationId: importConnectorFile
   security:
-    - UserContextAuth: [ idn:sources-admin:manage ]
+    - userAuth: [ idn:sources-admin:manage ]
   tags:
     - Sources
   summary: Upload connector file to source

@@ -244,7 +244,7 @@ post:
                 type: string
                 x-go-name: TrackingID
   security:
-  - UserContextAuth:
+  - userAuth:
     - sp:forms:manage
   x-codegen-request-body-name: Body
   parameters:

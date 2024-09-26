@@ -7,7 +7,7 @@ post:
     
     If a suitable IDN connector is unavailable, the system will recommend generic connectors instead.
   security:
-    - UserContextAuth:
+    - userAuth:
         - 'idn:application-discovery:write'
   operationId: sendManualDiscoverApplicationsCsvTemplate
   requestBody:

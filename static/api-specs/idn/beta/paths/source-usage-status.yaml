@@ -14,7 +14,7 @@ get:
         type: string
       example: '2c9180835d191a86015d28455b4a2329'
   security:
-    - UserContextAuth: [ idn:accounts:read ]
+    - userAuth: [ idn:accounts:read ]
   responses:
     '200':
       description: Status of the source usage insights setup by IDN source ID.

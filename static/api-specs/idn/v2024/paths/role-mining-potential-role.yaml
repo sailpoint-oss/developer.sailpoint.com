@@ -5,7 +5,7 @@ get:
   - IAI Role Mining
   description: This method returns a specific potential role.
   security:
-  - UserContextAuth: []
+  - userAuth: []
   parameters:
   - in: path
     name: potentialRoleId
@@ -65,7 +65,7 @@ patch:
 
     '
   security:
-  - UserContextAuth: []
+  - userAuth: []
   parameters:
   - in: path
     name: sessionId

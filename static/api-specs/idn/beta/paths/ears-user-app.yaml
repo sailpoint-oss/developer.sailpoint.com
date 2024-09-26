@@ -9,7 +9,7 @@ patch:
     The following fields are patchable:
     **account**
   security:
-    - UserContextAuth: [idn:app-roles:read]
+    - userAuth: [idn:app-roles:read]
   parameters:
     - name: id
       in: path

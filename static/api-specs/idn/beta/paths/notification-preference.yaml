@@ -7,7 +7,7 @@ get:
     Returns the notification preference details for tenant.  Note that if the key doesn't exist, then a 404 will be returned.
 
   security:
-  - UserContextAuth: [ idn:notification-preferences:read ]
+  - userAuth: [ idn:notification-preferences:read ]
   parameters:
     - in: path
       name: key
@@ -44,7 +44,7 @@ put:
     Allows admins to opt in to or out of certain notifications for their org. The default state is opted in. `key` is optional but if it is provided and doesn't match the key in the URI, then a 400 will be thrown.
 
   security:
-  - UserContextAuth: [ idn:notification-preferences:create ]
+  - userAuth: [ idn:notification-preferences:create ]
 
   parameters:
     - in: path

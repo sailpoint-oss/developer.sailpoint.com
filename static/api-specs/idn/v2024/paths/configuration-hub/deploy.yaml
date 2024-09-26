@@ -1,7 +1,7 @@
 get:
   operationId: listDeploys
   security:
-    - UserContextAuth: [sp:config-deploy:read, sp:config-deploy:manage]
+    - userAuth: [sp:config-deploy:read, sp:config-deploy:manage]
   tags:
     - Configuration Hub
   summary: List Deploys
@@ -61,7 +61,7 @@ get:
 post:
   operationId: createDeploy
   security:
-    - UserContextAuth: [sp:config-deploy:manage]
+    - userAuth: [sp:config-deploy:manage]
   tags:
     - Configuration Hub
   summary: Create a Deploy

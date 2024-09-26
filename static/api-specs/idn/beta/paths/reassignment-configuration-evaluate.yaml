@@ -12,7 +12,7 @@ get:
     for the specified identity & config type then the requested Identity ID will be used as the `reassignToId` value
     and the lookupTrail node will be empty.
   security:
-    - UserContextAuth: [idn:reassignment-configuration:evaluate]
+    - userAuth: [idn:reassignment-configuration:evaluate]
   parameters:
     - in: path
       name: identityId

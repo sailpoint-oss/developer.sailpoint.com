@@ -38,7 +38,7 @@ get:
     "500":
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:transform:read, idn:transform:manage]
+    - userAuth: [idn:transform:read, idn:transform:manage]
 put:
   tags:
     - Transforms
@@ -97,7 +97,7 @@ put:
     "500":
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:transform:manage]
+    - userAuth: [idn:transform:manage]
 delete:
   tags:
     - Transforms
@@ -136,4 +136,4 @@ delete:
     "500":
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:transform:manage]
+    - userAuth: [idn:transform:manage]

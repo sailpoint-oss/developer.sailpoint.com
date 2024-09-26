@@ -1,7 +1,7 @@
 get:
   operationId: getSource
   security:
-    - UserContextAuth: [ idn:sources:read ]
+    - userAuth: [ idn:sources:read ]
   tags:
     - Sources
   summary: Get Source by ID
@@ -39,7 +39,7 @@ get:
 put:
   operationId: putSource
   security:
-    - UserContextAuth: [ idn:sources:manage ]
+    - userAuth: [ idn:sources:manage ]
   tags:
     - Sources
   summary: Update Source (Full)
@@ -96,7 +96,7 @@ put:
 patch:
   operationId: updateSource
   security:
-    - UserContextAuth: [ idn:sources:manage ]
+    - userAuth: [ idn:sources:manage ]
   tags:
     - Sources
   summary: Update Source (Partial)
@@ -248,7 +248,7 @@ patch:
       $ref: '../../v3/responses/500.yaml'
 delete:
   security:
-    - UserContextAuth: [ idn:sources:manage ]
+    - userAuth: [ idn:sources:manage ]
   operationId: delete
   tags:
     - Sources

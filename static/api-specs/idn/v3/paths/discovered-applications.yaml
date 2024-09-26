@@ -6,7 +6,7 @@ get:
   description: >
     Fetches a list of applications that have been identified within the environment. This includes details such as application names, discovery dates, potential correlated saas_vendors and related suggested connectors.
   security:
-    - UserContextAuth:
+    - userAuth:
         - 'idn:application-discovery:read'
   parameters:
     - $ref: '../../v3/parameters/limit.yaml'

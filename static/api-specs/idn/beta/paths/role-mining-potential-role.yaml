@@ -6,7 +6,7 @@ get:
   description: >-
     This method returns a specific potential role.
   security:
-    - UserContextAuth: []
+    - userAuth: []
   parameters:
     - in: path
       name: potentialRoleId
@@ -52,7 +52,7 @@ patch:
 
     >**NOTE: All other fields cannot be modified.**
   security:
-    - UserContextAuth: []
+    - userAuth: []
   parameters:
     - in: path
       name: potentialRoleId

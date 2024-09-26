@@ -61,7 +61,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:identity-profile:read, idn:identity-profile:manage]
+    - userAuth: [idn:identity-profile:read, idn:identity-profile:manage]
 
 post:
   operationId: createIdentityProfile
@@ -97,5 +97,5 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:identity-profile:manage]
+    - userAuth: [idn:identity-profile:manage]
 

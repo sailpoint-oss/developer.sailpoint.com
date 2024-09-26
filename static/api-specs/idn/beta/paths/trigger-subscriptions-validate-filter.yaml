@@ -45,4 +45,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [sp:trigger-service-subscriptions:manage]
+    - userAuth: [sp:trigger-service-subscriptions:manage]

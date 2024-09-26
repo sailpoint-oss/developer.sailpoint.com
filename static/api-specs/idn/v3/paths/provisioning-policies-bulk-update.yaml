@@ -8,7 +8,7 @@ post:
 
     A token with API, or ORG_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: [idn:provisioning-policy:manage]
+    - userAuth: [idn:provisioning-policy:manage]
   parameters:
     - in: path
       name: sourceId

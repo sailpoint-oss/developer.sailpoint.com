@@ -1,7 +1,7 @@
 post:
   operationId: updateObjectMappings
   security:
-    - UserContextAuth: [sp:config-object-mapping:manage]
+    - userAuth: [sp:config-object-mapping:manage]
   tags:
     - Configuration Hub
   summary: Bulk updates object mappings

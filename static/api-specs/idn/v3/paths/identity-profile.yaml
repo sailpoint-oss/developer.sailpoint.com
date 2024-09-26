@@ -37,7 +37,7 @@ get:
     '500':
       $ref: '../responses/500.yaml'
   security:
-    - UserContextAuth: [idn:identity-profile:read]
+    - userAuth: [idn:identity-profile:read]
 
 delete:
   operationId: deleteIdentityProfile
@@ -85,7 +85,7 @@ delete:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:identity-profile:delete]
+    - userAuth: [idn:identity-profile:delete]
 
 patch:
   operationId: updateIdentityProfile
@@ -174,4 +174,4 @@ patch:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:identity-profile:manage]
+    - userAuth: [idn:identity-profile:manage]

@@ -1,6 +1,6 @@
 get:
   security:
-    - UserContextAuth: [idn:sod-violation:read]
+    - userAuth: [idn:sod-violation:read]
   operationId: getSodViolationReportStatus
   tags:
     - SOD Policies

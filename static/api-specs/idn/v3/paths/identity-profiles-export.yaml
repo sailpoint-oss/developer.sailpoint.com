@@ -61,4 +61,4 @@ get:
     '500':
       $ref: '../responses/500.yaml'
   security:
-    - UserContextAuth: [idn:identity-profile:read]
+    - userAuth: [idn:identity-profile:read]

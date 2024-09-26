@@ -35,7 +35,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:password-policy:read]
+    - userAuth: [idn:password-policy:read]
 
 patch:
   operationId: updatePasswordPolicyHolders
@@ -82,4 +82,4 @@ patch:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [ idn:sources:update ]
+    - userAuth: [ idn:sources:update ]

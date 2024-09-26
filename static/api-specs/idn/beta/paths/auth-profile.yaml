@@ -6,7 +6,7 @@ get:
   description: >-
     This API returns auth profile information.
   security:
-    - UserContextAuth: [sp:auth-profile:read]
+    - userAuth: [sp:auth-profile:read]
   responses:
     '200':
       description: Auth Profile
@@ -69,4 +69,4 @@ patch:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [sp:auth-profile:update]
+    - userAuth: [sp:auth-profile:update]

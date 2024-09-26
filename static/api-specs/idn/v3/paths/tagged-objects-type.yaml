@@ -1,7 +1,7 @@
 get:
   operationId: listTaggedObjectsByType
   security:
-    - UserContextAuth: [ idn:tag:read, idn:tag:manage ]
+    - userAuth: [ idn:tag:read, idn:tag:manage ]
   tags:
     - Tagged Objects
   summary: List Tagged Objects by Type

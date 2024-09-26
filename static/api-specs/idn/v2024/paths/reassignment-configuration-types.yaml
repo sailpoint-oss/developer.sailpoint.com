@@ -6,7 +6,7 @@ get:
   description: Gets a collection of types which are available in the Reassignment
     Configuration UI.
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:reassignment-configuration:read
   responses:
     '200':

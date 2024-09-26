@@ -42,7 +42,7 @@ get:
     '500':
       $ref: ../../v3/responses/500.yaml
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:task-management:read
 patch:
   operationId: updateTaskStatus
@@ -106,5 +106,5 @@ patch:
     '500':
       $ref: ../../v3/responses/500.yaml
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:task-management:write

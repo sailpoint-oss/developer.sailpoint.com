@@ -9,7 +9,7 @@ get:
 
     Any authenticated token can call this API.
   security:
-    - UserContextAuth: [idn:sod-policy:read, idn:sod-policy:manage]
+    - userAuth: [idn:sod-policy:read, idn:sod-policy:manage]
   parameters:
     - in: path
       name: id

@@ -5,7 +5,7 @@ get:
   summary: Get list of Auth Profiles.
   description: This API returns a list of auth profiles.
   security:
-  - UserContextAuth:
+  - userAuth:
     - sp:auth-profile:read
   responses:
     '200':

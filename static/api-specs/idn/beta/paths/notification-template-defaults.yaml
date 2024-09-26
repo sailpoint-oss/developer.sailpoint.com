@@ -6,7 +6,7 @@ get:
   description: >-
     This lists the default templates used for notifications, such as emails from IdentityNow.
   security:
-  - UserContextAuth: [ idn:notification-template-defaults:read ]
+  - userAuth: [ idn:notification-template-defaults:read ]
   parameters:
     - $ref: '../../v3/parameters/limit.yaml'
     - $ref: '../../v3/parameters/offset.yaml'

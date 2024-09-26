@@ -1,7 +1,7 @@
 get:
   operationId: getSingleSearchAttributeConfig
   security:
-    - UserContextAuth: [ idn:account-config:read ]
+    - userAuth: [ idn:account-config:read ]
   tags:
     - Search Attribute Configuration
   summary: Get specific attribute in IdentityNow.
@@ -44,7 +44,7 @@ get:
 delete:
   operationId: deleteSearchAttributeConfig
   security:
-    - UserContextAuth: [ idn:account-config:delete ]
+    - userAuth: [ idn:account-config:delete ]
   tags:
     - Search Attribute Configuration
   summary: Delete search attribute in IdentityNow.
@@ -79,7 +79,7 @@ delete:
 patch:
   operationId: patchSearchAttributeConfig
   security:
-    - UserContextAuth: [ idn:account-config:create ]
+    - userAuth: [ idn:account-config:create ]
   tags:
     - Search Attribute Configuration
   summary: Update search attribute in IdentityNow.

@@ -25,4 +25,4 @@ post:
     "403":
       $ref: '../../v3/responses/403.yaml'
   security:
-    - UserContextAuth: [idn:task-management:write]
+    - userAuth: [idn:task-management:write]

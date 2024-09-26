@@ -1,7 +1,7 @@
 get:
   operationId: getSpConfigImportStatus
   security:
-  - UserContextAuth:
+  - userAuth:
     - sp:config:manage
   tags:
   - SP-Config

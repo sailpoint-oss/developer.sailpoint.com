@@ -34,7 +34,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:source-schema:read]
+    - userAuth: [idn:source-schema:read]
 post:
   tags:
     - Sources
@@ -87,4 +87,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:source-schema:manage]
+    - userAuth: [idn:source-schema:manage]

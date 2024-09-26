@@ -1,7 +1,7 @@
 post:
   operationId: createSegment
   security:
-    - UserContextAuth: [ idn:segment:manage ]
+    - userAuth: [ idn:segment:manage ]
   tags:
     - Segments
   summary: Create Segment
@@ -37,7 +37,7 @@ post:
 get:
   operationId: listSegments
   security:
-    - UserContextAuth: [ idn:segment:read, idn:segment:manage ]
+    - userAuth: [ idn:segment:read, idn:segment:manage ]
   tags:
     - Segments
   summary: List Segments

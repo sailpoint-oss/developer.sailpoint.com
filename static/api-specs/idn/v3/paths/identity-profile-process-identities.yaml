@@ -47,6 +47,6 @@ post:
     '500':
       $ref: '../responses/500.yaml'
   security:
-    - UserContextAuth: [idn:identity-profile:refresh]
+    - userAuth: [idn:identity-profile:refresh]
 
 

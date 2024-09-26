@@ -8,7 +8,7 @@ get:
 
     A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: [idn:campaign:read, idn:campaign:manage]
+    - userAuth: [idn:campaign:read, idn:campaign:manage]
   parameters:
     - in: path
       name: id
@@ -68,7 +68,7 @@ patch:
 
     A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: [idn:campaign:read, idn:campaign:manage]
+    - userAuth: [idn:campaign:read, idn:campaign:manage]
   parameters:
     - in: path
       name: id

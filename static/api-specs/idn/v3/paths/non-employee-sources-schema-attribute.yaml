@@ -1,7 +1,7 @@
 get:
   operationId: getNonEmployeeSchemaAttribute
   security:
-    - UserContextAuth: []
+    - userAuth: []
   tags:
     - Non-Employee Lifecycle Management
   summary: Get Schema Attribute Non-Employee Source

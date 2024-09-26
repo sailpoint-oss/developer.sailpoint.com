@@ -39,4 +39,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:managed-client-certificate:update]
+    - userAuth: [idn:managed-client-certificate:update]

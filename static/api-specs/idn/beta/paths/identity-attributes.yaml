@@ -6,7 +6,7 @@ get:
   description: >-
     Use this API to get a collection of identity attributes.
   security:
-    - UserContextAuth: [ idn:identity-profile-attribute:read ]
+    - userAuth: [ idn:identity-profile-attribute:read ]
   parameters:
     - in: query
       name: includeSystem
@@ -64,7 +64,7 @@ post:
     Use this API to create a new identity attribute.  
     A token with ORG_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: [ idn:identity-profile-attribute:manage ]
+    - userAuth: [ idn:identity-profile-attribute:manage ]
   requestBody:
     required: true
     content:

@@ -1,6 +1,6 @@
 post:
   security:
-    - UserContextAuth: [idn:sod-policy:write]
+    - userAuth: [idn:sod-policy:write]
   operationId: createSodPolicy
   tags:
     - SOD Policies
@@ -231,7 +231,7 @@ post:
       $ref: "../responses/500.yaml"
 get:
   security:
-    - UserContextAuth: [idn:sod-policy:read]
+    - userAuth: [idn:sod-policy:read]
   operationId: listSodPolicies
   tags:
     - SOD Policies

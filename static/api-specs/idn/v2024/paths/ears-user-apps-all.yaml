@@ -4,7 +4,7 @@ get:
     - Apps
   summary: List all user apps
   security:
-    - UserContextAuth: [idn:app-roles:manage]
+    - userAuth: [idn:app-roles:manage]
   description: >-
     This API returns the list of all user apps with specified filters.
     

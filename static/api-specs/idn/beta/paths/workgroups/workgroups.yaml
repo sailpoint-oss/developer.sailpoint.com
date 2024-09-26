@@ -60,11 +60,11 @@ get:
     '500':
       $ref: '../../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [ idn:workgroup:read]
+    - userAuth: [ idn:workgroup:read]
 post:
   operationId: createWorkgroup
   security:
-    - UserContextAuth: [ idn:workgroup:write ]
+    - userAuth: [ idn:workgroup:write ]
   tags:
     - Governance Groups
   summary: Create a new Governance Group.

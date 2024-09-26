@@ -6,7 +6,7 @@ post:
   description: >-
     This internal endpoint creates an entitlement using the given entitlement payload
   security:
-    - UserContextAuth: [idn:entitlement:manage]
+    - userAuth: [idn:entitlement:manage]
   requestBody:
     required: true
     content:

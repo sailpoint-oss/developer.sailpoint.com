@@ -20,7 +20,7 @@ get:
     '500':
       $ref: ../../v3/responses/500.yaml
   security:
-  - UserContextAuth: []
+  - userAuth: []
   parameters:
   - name: X-SailPoint-Experimental
     in: header
@@ -58,7 +58,7 @@ put:
     '500':
       $ref: ../../v3/responses/500.yaml
   security:
-  - UserContextAuth: []
+  - userAuth: []
   parameters:
   - name: X-SailPoint-Experimental
     in: header

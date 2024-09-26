@@ -1,7 +1,7 @@
 get:
   operationId: getNonEmployeeRequestSummary
   security:
-    - UserContextAuth: [idn:nelm:read]
+    - userAuth: [idn:nelm:read]
   tags:
     - Non-Employee Lifecycle Management
   summary: Get Summary of Non-Employee Requests

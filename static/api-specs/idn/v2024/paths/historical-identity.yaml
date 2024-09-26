@@ -6,7 +6,7 @@ get:
   description: This method retrieves a specified identity Requires authorization scope
     of 'idn:identity-history:read'
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:identity-history:read
   parameters:
   - in: path

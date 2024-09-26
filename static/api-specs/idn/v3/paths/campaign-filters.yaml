@@ -6,7 +6,7 @@ post:
   description: >-
     Use this API to create a campaign filter based on filter details and criteria.
   security:
-    - UserContextAuth: [ idn:campaign-filter:create ]
+    - userAuth: [ idn:campaign-filter:create ]
   requestBody:
     required: true
     content:
@@ -39,7 +39,7 @@ get:
     Use this API to list all campaign filters. You can reduce scope with standard V3 query parameters.
 
   security:
-    - UserContextAuth: [ idn:campaign-filter-list:read ]
+    - userAuth: [ idn:campaign-filter-list:read ]
   parameters:
     - $ref: '../parameters/limit.yaml'
     - in: query

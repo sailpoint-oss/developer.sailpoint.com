@@ -5,7 +5,7 @@ post:
   summary: Runs SOD policy violation report
   deprecated: true
   security:
-    - UserContextAuth: [idn:sod-violation:write]
+    - userAuth: [idn:sod-violation:write]
   description: >-
     This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with
     violation limit exceeded message.

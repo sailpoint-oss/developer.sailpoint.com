@@ -1,7 +1,7 @@
 post:
   operationId: deleteWorkgroupMembers
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:workgroup:write
   tags:
   - Governance Groups

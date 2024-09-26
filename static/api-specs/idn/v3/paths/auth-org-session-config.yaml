@@ -25,7 +25,7 @@ get:
     "500":
       $ref: "../../v3/responses/500.yaml"
   security:
-   - UserContextAuth: []
+   - userAuth: []
 patch:
   operationId: patchAuthOrgSessionConfig
   tags:
@@ -77,4 +77,4 @@ patch:
     "500":
       $ref: "../../v3/responses/500.yaml"
   security:
-    - UserContextAuth: []
+    - userAuth: []

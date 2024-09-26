@@ -5,7 +5,7 @@ get:
   summary: List Identities
   description: This API returns a list of identities.
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:identity:read
     - idn:identity:manage
   parameters:

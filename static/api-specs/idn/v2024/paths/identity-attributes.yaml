@@ -5,7 +5,7 @@ get:
   summary: List Identity Attributes
   description: Use this API to get a collection of identity attributes.
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:identity-profile-attribute-list:read
   parameters:
   - in: query
@@ -67,7 +67,7 @@ post:
   summary: Create Identity Attribute
   description: Use this API to create a new identity attribute.
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:identity-profile-attribute:create
   requestBody:
     required: true

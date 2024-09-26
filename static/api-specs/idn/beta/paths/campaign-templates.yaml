@@ -11,7 +11,7 @@ get:
     A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   deprecated: true
   security:
-    - UserContextAuth: [idn:campaign-template:read, idn:campaign-template:manage]
+    - userAuth: [idn:campaign-template:read, idn:campaign-template:manage]
   parameters:
     - $ref: '../../v3/parameters/limit.yaml'
     - $ref: '../../v3/parameters/offset.yaml'
@@ -75,7 +75,7 @@ post:
 
     A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: [idn:campaign-template:manage]
+    - userAuth: [idn:campaign-template:manage]
   deprecated: true
   requestBody:
     required: true

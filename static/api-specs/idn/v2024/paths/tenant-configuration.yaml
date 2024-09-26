@@ -6,7 +6,7 @@ get:
   description: Gets the global Reassignment Configuration settings for the requestor's
     tenant.
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:reassignment-tenant-configuration:read
   responses:
     '200':
@@ -44,7 +44,7 @@ put:
   description: Replaces existing Tenant-wide Reassignment Configuration settings with
     the newly provided settings.
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:reassignment-tenant-configuration:update
   requestBody:
     required: true

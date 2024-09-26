@@ -1,13 +1,13 @@
 get:
   tags:
     - Multi-Host Integration
-  summary: List Multi-Host Integration Sources Creation Errors
+  summary: List Multi-Host Source Creation Errors
   description: >-
     Get a list of sources creation errors within Multi-Host Integration ID.  
     
     
     A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
-  operationId: getSourcesWithinMultiHost
+  operationId: getMultiHostSourceCreationErrors
   parameters:
     - name: multiHostId
       in: path

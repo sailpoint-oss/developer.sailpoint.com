@@ -2,7 +2,7 @@
 get:
   operationId: getSourceSchemas
   security:
-    - UserContextAuth: [ idn:source-schema:read ]
+    - userAuth: [ idn:source-schema:read ]
   tags:
     - Sources
   summary: List Schemas on Source
@@ -62,7 +62,7 @@ get:
 post:
   operationId: createSourceSchema
   security:
-    - UserContextAuth: [ idn:source-schema:create ]
+    - userAuth: [ idn:source-schema:create ]
   tags:
     - Sources
   summary: Create Schema on Source

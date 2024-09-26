@@ -9,7 +9,7 @@ get:
     \ template context). It defines a set of attributes\n that will be available per\
     \ tenant (organization)."
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:notification-templates:read
   responses:
     '200':

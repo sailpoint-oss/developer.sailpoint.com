@@ -5,7 +5,7 @@ get:
   summary: Get an entitlement
   description: This API returns an entitlement by its ID.
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:entitlement:read
     - idn:entitlement:manage
   parameters:
@@ -96,7 +96,7 @@ patch:
 
     A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.'
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:entitlement:manage
   parameters:
   - name: id

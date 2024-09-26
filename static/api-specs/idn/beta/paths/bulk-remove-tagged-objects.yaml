@@ -1,7 +1,7 @@
 post:
   operationId: deleteTagsToManyObject
   security:
-    - UserContextAuth: [ idn:tag:manage ]
+    - userAuth: [ idn:tag:manage ]
   tags:
     - Tagged Objects
   summary: Remove Tags from Multiple Objects

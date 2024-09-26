@@ -1,6 +1,6 @@
 get:
   security:
-  - UserContextAuth: [ sp:notification-dkim-attributes:read ]
+  - userAuth: [ sp:notification-dkim-attributes:read ]
   operationId: getDkimAttributes
   tags:
     - Notifications
@@ -29,7 +29,7 @@ get:
 
 post:
   security:
-  - UserContextAuth: [ sp:notification-verify-domain-dkim:write ]
+  - userAuth: [ sp:notification-verify-domain-dkim:write ]
   operationId: createDomainDkim
   tags:
   - Notifications

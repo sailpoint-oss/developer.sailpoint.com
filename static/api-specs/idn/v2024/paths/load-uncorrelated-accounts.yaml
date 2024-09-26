@@ -6,7 +6,7 @@ post:
   description: File is required for upload. You will also need to set the Content-Type
     header to `multipart/form-data`
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:sources:manage
   parameters:
   - in: path

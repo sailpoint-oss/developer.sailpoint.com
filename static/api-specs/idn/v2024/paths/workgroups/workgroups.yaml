@@ -69,12 +69,12 @@ get:
     '500':
       $ref: ../../../v3/responses/500.yaml
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:workgroup:read
 post:
   operationId: createWorkgroup
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:workgroup:write
   tags:
   - Governance Groups

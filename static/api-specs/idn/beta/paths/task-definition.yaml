@@ -37,7 +37,7 @@ get:
     "500":
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:task-definition:read, idn:task-definition:manage]
+    - userAuth: [idn:task-definition:read, idn:task-definition:manage]
 patch:
   tags:
     - Task Management
@@ -80,4 +80,4 @@ patch:
     "500":
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:task-definition:manage]
+    - userAuth: [idn:task-definition:manage]

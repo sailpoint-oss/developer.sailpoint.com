@@ -5,7 +5,7 @@ get:
     - Access Model Metadata
   operationId: "getAccessModelMetadataAttribute"
   security:
-    - UserContextAuth: [ 'idn:access-model-metadata:read' ]
+    - userAuth: [ 'idn:access-model-metadata:read' ]
   parameters:
     - name: "key"
       in: "path"

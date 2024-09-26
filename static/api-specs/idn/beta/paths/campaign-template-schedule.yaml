@@ -8,7 +8,7 @@ get:
 
     A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: []
+    - userAuth: []
   deprecated: true
   parameters:
     - in: path
@@ -50,7 +50,7 @@ put:
 
     A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: []
+    - userAuth: []
   deprecated: true
   parameters:
     - in: path
@@ -157,7 +157,7 @@ delete:
 
     A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: []
+    - userAuth: []
   deprecated: true
   parameters:
     - in: path

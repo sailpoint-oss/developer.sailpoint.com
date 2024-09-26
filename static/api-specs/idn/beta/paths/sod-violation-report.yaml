@@ -5,7 +5,7 @@ get:
   summary: Get SOD violation report status
   deprecated: true
   security:
-    - UserContextAuth: [ idn:sod-violation:read ]
+    - userAuth: [ idn:sod-violation:read ]
   description: >-
     This gets the status for a violation report run task that has already been invoked.
 

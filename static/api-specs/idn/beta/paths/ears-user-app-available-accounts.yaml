@@ -4,7 +4,7 @@ get:
     - Apps
   summary: List available accounts for user app
   security:
-    - UserContextAuth: [idn:app-roles:read]
+    - userAuth: [idn:app-roles:read]
   description: >-
     This API returns the list of available accounts for the specified user app. The user app needs to belong lo logged in user.
   parameters:

@@ -5,7 +5,7 @@ get:
   - IAI Role Mining
   description: This method returns all saved potential roles (draft roles).
   security:
-  - UserContextAuth: []
+  - userAuth: []
   parameters:
   - in: query
     name: sorters

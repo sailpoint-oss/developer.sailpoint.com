@@ -1,7 +1,7 @@
 post:
   operationId: sendWorkItemForward
   security:
-    - UserContextAuth: [ idn:work-item:update ]
+    - userAuth: [ idn:work-item:update ]
   tags:
     - Work Items
   summary: Forward a Work Item

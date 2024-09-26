@@ -1,6 +1,6 @@
 get:
   security:
-    - UserContextAuth: [idn:sod-policy:read]
+    - userAuth: [idn:sod-policy:read]
   operationId: getSodPolicySchedule
   tags:
     - SOD Policies
@@ -34,7 +34,7 @@ get:
       $ref: '../responses/500.yaml'
 put:
   security:
-    - UserContextAuth: [idn:sod-policy:write]
+    - userAuth: [idn:sod-policy:write]
   operationId: putPolicySchedule
   tags:
     - SOD Policies
@@ -74,7 +74,7 @@ put:
       $ref: '../responses/500.yaml'
 delete:
   security:
-    - UserContextAuth: [idn:sod-policy:write]
+    - userAuth: [idn:sod-policy:write]
   operationId: deleteSodPolicySchedule
   tags:
     - SOD Policies

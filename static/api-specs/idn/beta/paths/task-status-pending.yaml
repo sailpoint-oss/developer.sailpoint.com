@@ -24,7 +24,7 @@ get:
     "403":
       $ref: '../../v3/responses/403.yaml'
   security:
-    - UserContextAuth: [idn:task-management:read]
+    - userAuth: [idn:task-management:read]
 head:
   tags:
     - Task Management
@@ -45,4 +45,4 @@ head:
     "403":
       $ref: '../../v3/responses/403.yaml'
   security:
-    - UserContextAuth: [idn:task-management:read]
+    - userAuth: [idn:task-management:read]

@@ -37,7 +37,7 @@ get:
       default: true
     required: true
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:access-request-approvals:read
   responses:
     '200':

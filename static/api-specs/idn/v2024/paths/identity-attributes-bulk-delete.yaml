@@ -8,7 +8,7 @@ delete:
     `system` and `standard` properties must be set to 'false' before you can delete
     an identity attribute.
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:identity-profile-attribute-bulk:delete
   requestBody:
     required: true

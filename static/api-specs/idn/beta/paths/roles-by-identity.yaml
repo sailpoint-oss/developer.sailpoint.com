@@ -38,4 +38,4 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:identity:read, idn:identity:manage, idn:identity-account-read, idn:identity-self:read]
+    - userAuth: [idn:identity:read, idn:identity:manage, idn:identity-account-read, idn:identity-self:read]

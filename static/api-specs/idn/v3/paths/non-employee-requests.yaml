@@ -1,7 +1,7 @@
 post:
   operationId: createNonEmployeeRequest
   security:
-    - UserContextAuth: []
+    - userAuth: []
   tags:
     - Non-Employee Lifecycle Management
   summary: Create Non-Employee Request
@@ -60,7 +60,7 @@ post:
 get:
   operationId: listNonEmployeeRequests
   security:
-    - UserContextAuth: []
+    - userAuth: []
   tags:
     - Non-Employee Lifecycle Management
   summary: List Non-Employee Requests

@@ -7,7 +7,7 @@ get:
     This returns either a list of Role Assignments when querying with either a Role Id or Role Name,
     or a list of Role Assignment References if querying with only identity Id.
   security:
-    - UserContextAuth:
+    - userAuth:
         - "idn:identity:read"
   parameters:
     - in: path

@@ -4,7 +4,7 @@ get:
     - Sources
   summary: Native Change Detection Configuration
   security:
-    - UserContextAuth: [idn:sources:read]
+    - userAuth: [idn:sources:read]
   description: >-
     This API returns the existing native change detection configuration for a source specified by the
     given ID.
@@ -44,7 +44,7 @@ put:
     - Sources
   summary: Update Native Change Detection Configuration
   security:
-    - UserContextAuth: [idn:sources:update]
+    - userAuth: [idn:sources:update]
   description: >-
     Replaces the native change detection configuration for the source specified by the given ID with the
     configuration provided in the request body.
@@ -94,7 +94,7 @@ delete:
 
     A token with API, or ORG_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: [idn:sources:update]
+    - userAuth: [idn:sources:update]
   parameters:
     - in: path
       name: id

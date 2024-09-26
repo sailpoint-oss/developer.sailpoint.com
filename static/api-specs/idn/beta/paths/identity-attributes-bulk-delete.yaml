@@ -9,7 +9,7 @@ delete:
     The `system` and `standard` properties must be set to 'false' before you can delete an identity attribute.  
     A token with ORG_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: [ idn:identity-profile-attribute:manage ]
+    - userAuth: [ idn:identity-profile-attribute:manage ]
   requestBody:
     required: true
     content:

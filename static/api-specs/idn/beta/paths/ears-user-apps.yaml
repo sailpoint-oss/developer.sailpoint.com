@@ -4,7 +4,7 @@ get:
     - Apps
   summary: List owned user apps
   security:
-    - UserContextAuth: [idn:app-roles:read]
+    - userAuth: [idn:app-roles:read]
   description: >-
     This API returns the list of user apps assigned to logged in user
   parameters:

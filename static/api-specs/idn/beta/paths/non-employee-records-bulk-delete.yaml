@@ -1,7 +1,7 @@
 post:
   operationId: deleteNonEmployeeRecordInBulk
   security:
-    - UserContextAuth: [idn:nelm:manage]
+    - userAuth: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
   summary: Delete Multiple Non-Employee Records

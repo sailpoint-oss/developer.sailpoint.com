@@ -1,7 +1,7 @@
 get:
   operationId: getUploadedConfiguration
   security:
-    - UserContextAuth: [sp:config-backup:read, sp:config-backup:manage]
+    - userAuth: [sp:config-backup:read, sp:config-backup:manage]
   tags:
     - Configuration Hub
   summary: Get an Uploaded Configuration
@@ -56,7 +56,7 @@ get:
 delete:
   operationId: deleteUploadedConfiguration
   security:
-    - UserContextAuth: [sp:config-backup:manage]
+    - userAuth: [sp:config-backup:manage]
   tags:
     - Configuration Hub
   summary: Delete an Uploaded Configuration

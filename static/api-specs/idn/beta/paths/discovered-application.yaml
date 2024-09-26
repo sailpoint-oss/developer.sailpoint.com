@@ -6,7 +6,7 @@ get:
   description: >
     This API returns a discovered application with its associated sources based on the ID provided.
   security:
-    - UserContextAuth:
+    - userAuth:
         - 'idn:application-discovery:read'
   parameters:
     - name: "id"
@@ -58,7 +58,7 @@ patch:
     - **associatedSources**
     - **dismissed**
   security:
-    - UserContextAuth:
+    - userAuth:
         - 'idn:application-discovery:write'
   parameters:
     - name: "id"

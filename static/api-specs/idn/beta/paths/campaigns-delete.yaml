@@ -9,7 +9,7 @@ post:
     A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   deprecated: true
   security:
-    - UserContextAuth: [idn:campaign:manage]
+    - userAuth: [idn:campaign:manage]
   requestBody:
     description: IDs of the campaigns to delete.
     required: true

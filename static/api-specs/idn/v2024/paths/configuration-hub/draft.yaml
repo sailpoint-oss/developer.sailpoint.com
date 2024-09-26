@@ -1,7 +1,7 @@
 get:
   operationId: listDrafts
   security:
-    - UserContextAuth: [sp:config-draft:read, sp:config-draft:manage]
+    - userAuth: [sp:config-draft:read, sp:config-draft:manage]
   tags:
     - Configuration Hub
   summary: List Drafts

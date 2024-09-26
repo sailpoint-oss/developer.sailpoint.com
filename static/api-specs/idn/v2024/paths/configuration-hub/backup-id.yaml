@@ -1,7 +1,7 @@
 delete:
   operationId: deleteBackup
   security:
-    - UserContextAuth: [sp:config-backup:manage]
+    - userAuth: [sp:config-backup:manage]
   tags:
     - Configuration Hub
   summary: Delete a Backup

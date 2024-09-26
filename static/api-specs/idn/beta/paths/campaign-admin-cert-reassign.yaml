@@ -1,6 +1,6 @@
 post:
   security:
-    - UserContextAuth: [idn:campaign:manage]
+    - userAuth: [idn:campaign:manage]
   operationId: move
   tags:
     - Certification Campaigns

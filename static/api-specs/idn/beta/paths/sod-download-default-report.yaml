@@ -5,7 +5,7 @@ get:
   summary: Download violation report
   deprecated: true
   security:
-    - UserContextAuth: [ idn:sod-violation:read ]
+    - userAuth: [ idn:sod-violation:read ]
   description: >-
     This allows to download a violation report for a given report reference.
 

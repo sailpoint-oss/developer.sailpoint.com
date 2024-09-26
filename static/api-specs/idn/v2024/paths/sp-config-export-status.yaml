@@ -1,7 +1,7 @@
 get:
   operationId: getSpConfigExportStatus
   security:
-  - UserContextAuth:
+  - userAuth:
     - sp:config:read
     - sp:config:manage
   tags:

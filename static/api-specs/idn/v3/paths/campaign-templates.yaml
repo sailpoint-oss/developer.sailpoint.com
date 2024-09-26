@@ -8,7 +8,7 @@ post:
 
     A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: [idn:campaign-template:manage]
+    - userAuth: [idn:campaign-template:manage]
   requestBody:
     required: true
     content:
@@ -62,7 +62,7 @@ get:
 
     A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: [idn:campaign-template:read, idn:campaign-template:manage]
+    - userAuth: [idn:campaign-template:read, idn:campaign-template:manage]
   parameters:
     - $ref: '../parameters/limit.yaml'
     - $ref: '../parameters/offset.yaml'

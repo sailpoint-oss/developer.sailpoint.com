@@ -6,7 +6,7 @@ get:
   description: >-
     Returns a list of notification preferences for tenant.
   security:
-  - UserContextAuth: [ idn:notification-preferences:read ]
+  - userAuth: [ idn:notification-preferences:read ]
   responses:
     '200':
       description: Return preference for the given notification key.

@@ -1,7 +1,7 @@
 post:
   operationId: createSearchAttributeConfig
   security:
-    - UserContextAuth: [ idn:account-config:create ]
+    - userAuth: [ idn:account-config:create ]
   tags:
     - Search Attribute Configuration
   summary: Configure/create search attributes in IdentityNow.
@@ -43,7 +43,7 @@ post:
 get:
   operationId: getSearchAttributeConfig
   security:
-    - UserContextAuth: [ idn:account-config:read ]
+    - userAuth: [ idn:account-config:read ]
   tags:
     - Search Attribute Configuration
   summary: Retrieve attribute list in IdentityNow.

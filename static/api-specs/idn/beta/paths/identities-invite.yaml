@@ -15,7 +15,7 @@ post:
     description: 'Learn more about inviting identities here'
     url: 'https://documentation.sailpoint.com/saas/help/common/users/inviting_users.html'
   security:
-    - UserContextAuth:
+    - userAuth:
         - "idn:password-user-invite:create"
   requestBody:
     required: true

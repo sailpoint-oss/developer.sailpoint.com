@@ -35,7 +35,7 @@ get:
     "500":
       $ref: '../responses/500.yaml'  
   security:
-    - UserContextAuth: [idn:remote-client:read, idn:remote-client:manage]
+    - userAuth: [idn:remote-client:read, idn:remote-client:manage]
 put:
   tags:
     - Managed Clusters
@@ -78,4 +78,4 @@ put:
     "500":
       $ref: '../responses/500.yaml'  
   security:
-    - UserContextAuth: [idn:remote-client:manage]
+    - userAuth: [idn:remote-client:manage]

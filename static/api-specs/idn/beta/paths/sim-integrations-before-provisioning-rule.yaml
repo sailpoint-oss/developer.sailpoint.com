@@ -39,4 +39,4 @@ patch:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:service-desk-admin:write]
+    - userAuth: [idn:service-desk-admin:write]

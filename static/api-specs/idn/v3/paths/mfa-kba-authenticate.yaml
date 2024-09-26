@@ -6,7 +6,7 @@ post:
   description: >-
     This API Authenticate user in KBA MFA method.
   security:
-    - UserContextAuth: [idn:mfa-kba:authenticate]
+    - userAuth: [idn:mfa-kba:authenticate]
   requestBody:
     required: true
     content:

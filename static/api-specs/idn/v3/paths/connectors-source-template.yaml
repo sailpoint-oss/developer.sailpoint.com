@@ -36,7 +36,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [ idn:connector-config:read ]
+    - userAuth: [ idn:connector-config:read ]
 put:
   tags:
     - Connectors
@@ -88,4 +88,4 @@ put:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [ idn:connector-config:update ]
+    - userAuth: [ idn:connector-config:update ]

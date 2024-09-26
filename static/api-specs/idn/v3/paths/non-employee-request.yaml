@@ -1,7 +1,7 @@
 get:
   operationId: getNonEmployeeRequest
   security:
-    - UserContextAuth: []
+    - userAuth: []
   tags:
     - Non-Employee Lifecycle Management
   summary: Get a Non-Employee Request

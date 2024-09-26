@@ -5,7 +5,7 @@ get:
     - Access Model Metadata
   operationId: "listAccessModelMetadataAttribute"
   security:
-    - UserContextAuth: [ 'idn:access-model-metadata:read' ]
+    - userAuth: [ 'idn:access-model-metadata:read' ]
   parameters:
     - in: query
       name: filters

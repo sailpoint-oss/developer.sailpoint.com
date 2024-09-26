@@ -47,4 +47,4 @@ get:
     '500':
       $ref: '../../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [ idn:workgroup:read]
+    - userAuth: [ idn:workgroup:read]

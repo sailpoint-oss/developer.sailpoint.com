@@ -1,7 +1,7 @@
 get:
   operationId: getObjectMappings
   security:
-    - UserContextAuth: [sp:config-object-mapping:read, sp:config-object-mapping:manage]
+    - userAuth: [sp:config-object-mapping:read, sp:config-object-mapping:manage]
   tags:
     - Configuration Hub
   summary: Gets list of object mappings
@@ -69,7 +69,7 @@ get:
 post:
   operationId: createObjectMapping
   security:
-    - UserContextAuth: [sp:config-object-mapping:manage]
+    - userAuth: [sp:config-object-mapping:manage]
   tags:
     - Configuration Hub
   summary: Creates an object mapping

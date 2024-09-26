@@ -1,6 +1,6 @@
 get:
   security:
-    - UserContextAuth: [idn:sod-policy:read]
+    - userAuth: [idn:sod-policy:read]
   operationId: getSodPolicy
   tags:
     - SOD Policies
@@ -127,7 +127,7 @@ get:
       $ref: '../responses/500.yaml'
 put:
   security:
-    - UserContextAuth: [idn:sod-policy:write]
+    - userAuth: [idn:sod-policy:write]
   operationId: putSodPolicy
   tags:
     - SOD Policies
@@ -339,7 +339,7 @@ put:
       $ref: '../responses/500.yaml'
 delete:
   security:
-    - UserContextAuth: [idn:sod-policy:write]
+    - userAuth: [idn:sod-policy:write]
   operationId: deleteSodPolicy
   tags:
     - SOD Policies
@@ -384,7 +384,7 @@ delete:
       $ref: '../responses/500.yaml'
 patch:
   security:
-    - UserContextAuth: [idn:sod-policy:write]
+    - userAuth: [idn:sod-policy:write]
   operationId: patchSodPolicy
   tags:
     - SOD Policies

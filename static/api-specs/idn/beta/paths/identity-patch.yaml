@@ -8,7 +8,7 @@ patch:
     This endpoint is internal only and not intended to be moved to V3.
     When HEAD and DELETE endpoints are moved to V3 we will need to separate this entity and keep PATCH in beta only.
   security:
-    - UserContextAuth:
+    - userAuth:
         - "idn:identity-internal:update"
   parameters:
     - in: path

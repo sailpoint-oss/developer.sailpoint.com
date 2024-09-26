@@ -6,7 +6,7 @@ get:
   description: >-
     This method returns source usageCount (as number of days in the last 90 days) for each identity in a potential role.
   security:
-    - UserContextAuth: []
+    - userAuth: []
   parameters:
     - in: path
       name: potentialRoleId

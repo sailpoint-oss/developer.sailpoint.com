@@ -34,7 +34,7 @@ post:
 get:
   operationId: listNonEmployeeSources
   security:
-    - UserContextAuth: []
+    - userAuth: []
   tags:
     - Non-Employee Lifecycle Management
   summary: List Non-Employee Sources

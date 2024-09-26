@@ -7,7 +7,7 @@ get:
   operationId: getReportResult
   summary: "Get Report Result"
   security:
-    - UserContextAuth: [sp:report-result:read]
+    - userAuth: [sp:report-result:read]
   parameters:
     - in: path
       name: taskResultId

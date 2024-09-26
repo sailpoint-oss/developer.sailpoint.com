@@ -5,7 +5,7 @@ get:
   summary: List of entitlements parents
   description: This API returns a list of all parent entitlements of a given entitlement.
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:entitlement:read
     - idn:entitlement:manage
   parameters:

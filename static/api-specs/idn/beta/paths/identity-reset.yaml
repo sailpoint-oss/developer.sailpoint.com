@@ -7,7 +7,7 @@ post:
     Use this endpoint to reset a user's identity if they have forgotten their authentication information like their answers to knowledge-based questions.
     Resetting an identity de-registers the user and removes any elevated user levels they have.
   security:
-    - UserContextAuth:
+    - userAuth:
         - "idn:identity:update"
   parameters:
     - in: path

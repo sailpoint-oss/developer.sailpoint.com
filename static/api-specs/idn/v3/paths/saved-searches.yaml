@@ -1,6 +1,6 @@
 post:
   security:
-    - UserContextAuth: [sp:saved-search:create]
+    - userAuth: [sp:saved-search:create]
   tags:
     - Saved Search
   description: |
@@ -35,7 +35,7 @@ post:
       $ref: "../responses/500.yaml"
 get:
   security:
-    - UserContextAuth: [sp:saved-search:read]
+    - userAuth: [sp:saved-search:read]
   tags:
     - Saved Search
   description: |

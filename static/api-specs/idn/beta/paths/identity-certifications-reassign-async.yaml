@@ -10,7 +10,7 @@ post:
     this certification can also call this API.
   deprecated: true
   security:
-    - UserContextAuth: [idn:certification:write]
+    - userAuth: [idn:certification:write]
   parameters:
     - in: path
       name: id

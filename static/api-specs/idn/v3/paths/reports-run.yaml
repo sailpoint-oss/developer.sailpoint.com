@@ -7,7 +7,7 @@ post:
   operationId: startReport
   summary: "Run Report"
   security:
-    - UserContextAuth: [sp:report:create]
+    - userAuth: [sp:report:create]
   requestBody:
     content:
       application/json:

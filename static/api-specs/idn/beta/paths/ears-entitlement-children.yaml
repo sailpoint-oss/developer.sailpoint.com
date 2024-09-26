@@ -6,7 +6,7 @@ get:
   description: >-
     This API returns a list of all child entitlements of a given entitlement.
   security:
-    - UserContextAuth: ['idn:entitlement:read']
+    - userAuth: ['idn:entitlement:read']
   parameters:
     - $ref: '../../v3/parameters/limit.yaml'
     - $ref: '../../v3/parameters/offset.yaml'

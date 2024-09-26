@@ -8,7 +8,7 @@ post:
     Resetting an identity de-registers the user and removes any elevated user levels
     they have.
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:identity:update
   parameters:
   - in: path

@@ -15,7 +15,7 @@ get:
         type: string
       example: ef38f94347e94562b5bb8424a56397d8
   security:
-    - UserContextAuth: [sp:auth-user:read]
+    - userAuth: [sp:auth-user:read]
   responses:
     '200':
       description: The specified user's authentication system details.
@@ -49,7 +49,7 @@ patch:
 
     A '400.1.1 Illegal update attempt' detail code indicates that you attempted to PATCH a field that is not allowed.
   security:
-    - UserContextAuth: [sp:auth-user:update]
+    - userAuth: [sp:auth-user:update]
   parameters:
     - in: path
       name: id

@@ -1,6 +1,6 @@
 post:
   security:
-   - UserContextAuth: [idn:nelm:manage]
+   - userAuth: [idn:nelm:manage]
   operationId: nonEmployeeBulkUploadJobFail
   tags:
     - Non-Employee Lifecycle Management

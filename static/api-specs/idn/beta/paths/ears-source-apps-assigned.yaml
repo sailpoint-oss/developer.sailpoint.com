@@ -4,7 +4,7 @@ get:
     - Apps
   summary: List assigned source apps
   security:
-    - UserContextAuth: [idn:app-roles:read]
+    - userAuth: [idn:app-roles:read]
   description: >-
     This API returns the list of source apps assigned for logged in user.
   parameters:

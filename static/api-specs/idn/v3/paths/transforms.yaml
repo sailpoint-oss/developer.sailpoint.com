@@ -73,7 +73,7 @@ get:
     "500":
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:transform:read, idn:transform:manage]
+    - userAuth: [idn:transform:read, idn:transform:manage]
 post:
   tags:
     - Transforms
@@ -117,4 +117,4 @@ post:
     "500":
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:transform:manage]
+    - userAuth: [idn:transform:manage]

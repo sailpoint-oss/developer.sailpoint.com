@@ -44,7 +44,7 @@ get:
     '500':
       $ref: ../../v3/responses/500.yaml
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:rule-management-connector:read
     - idn:rule-management-connector:manage
 put:
@@ -100,7 +100,7 @@ put:
     '500':
       $ref: ../../v3/responses/500.yaml
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:rule-management-connector:manage
 delete:
   tags:
@@ -144,5 +144,5 @@ delete:
     '500':
       $ref: ../../v3/responses/500.yaml
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:rule-management-connector:manage

@@ -7,7 +7,7 @@ post:
     Deletes campaign filters whose Ids are specified in the provided list of campaign filter Ids.
     Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.
   security:
-    - UserContextAuth: [idn:campaign-filter:delete]
+    - userAuth: [idn:campaign-filter:delete]
   requestBody:
     description: A json list of IDs of campaign filters to delete.
     required: true

@@ -92,7 +92,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [ idn:sed:read ]
+    - userAuth: [ idn:sed:read ]
 
 patch:
   tags:
@@ -138,4 +138,4 @@ patch:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [ idn:sed:write ]
+    - userAuth: [ idn:sed:write ]

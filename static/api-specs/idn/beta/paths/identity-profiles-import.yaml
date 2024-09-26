@@ -32,4 +32,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:identity-profile:manage]
+    - userAuth: [idn:identity-profile:manage]

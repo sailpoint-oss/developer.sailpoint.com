@@ -38,4 +38,4 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:multihosts:update]
+    - userAuth: [idn:multihosts:update]

@@ -6,7 +6,7 @@ get:
   description: >-
     This API returns a source app by its ID.
   security:
-    - UserContextAuth: [idn:app-roles:read]
+    - userAuth: [idn:app-roles:read]
   parameters:
     - name: id
       in: path
@@ -56,7 +56,7 @@ patch:
 
     Name, description and owner can't be empty or null.
   security:
-    - UserContextAuth: [idn:app-roles:manage]
+    - userAuth: [idn:app-roles:manage]
   parameters:
     - name: id
       in: path
@@ -193,7 +193,7 @@ patch:
 delete:
   operationId: deleteSourceApp
   security:
-    - UserContextAuth: [idn:app-roles:manage, idn:app-roles:delete]
+    - userAuth: [idn:app-roles:manage, idn:app-roles:delete]
   tags:
     - Apps
   summary: Delete source app by ID

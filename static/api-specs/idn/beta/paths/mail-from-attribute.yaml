@@ -1,6 +1,6 @@
 get:
   security:
-    - UserContextAuth: [ sp:notification-mail-from-attributes:read ]
+    - userAuth: [ sp:notification-mail-from-attributes:read ]
   operationId: getMailFromAttributes
   tags:
     - Notifications

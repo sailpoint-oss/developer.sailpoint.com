@@ -9,7 +9,7 @@ get:
     can also call this API.
   deprecated: true
   security:
-    - UserContextAuth: [ idn:certification:read ]
+    - userAuth: [ idn:certification:read ]
   parameters:
     - in: query
       name: filters

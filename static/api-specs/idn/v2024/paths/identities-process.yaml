@@ -21,7 +21,7 @@ post:
     description: Learn more about manually processing identities here
     url: https://documentation.sailpoint.com/saas/help/setup/identity_processing.html
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:identity:manage
   requestBody:
     required: true

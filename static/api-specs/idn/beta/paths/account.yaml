@@ -8,7 +8,7 @@ get:
 
     A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
   security:
-    - UserContextAuth: [idn:accounts:read, idn:accounts:manage]
+    - userAuth: [idn:accounts:read, idn:accounts:manage]
   parameters:
     - in: path
       name: id
@@ -54,7 +54,7 @@ patch:
 
     >**Note:** The `attributes` field can only be modified for flat file accounts. 
   security:
-    - UserContextAuth: [idn:accounts:manage]
+    - userAuth: [idn:accounts:manage]
   parameters:
     - in: path
       name: id
@@ -133,7 +133,7 @@ put:
 
     >**Note: You can only use this PUT endpoint to update accounts from flat file sources.**
   security:
-    - UserContextAuth: [idn:accounts:manage]
+    - userAuth: [idn:accounts:manage]
   parameters:
     - in: path
       name: id
@@ -184,7 +184,7 @@ delete:
 
     >**NOTE:** You can only delete accounts from sources of the "DelimitedFile" type.**
   security:
-    - UserContextAuth: [idn:accounts:manage]
+    - userAuth: [idn:accounts:manage]
   parameters:
     - in: path
       name: id

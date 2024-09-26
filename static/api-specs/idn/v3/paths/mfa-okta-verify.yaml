@@ -7,7 +7,7 @@ post:
     This API Authenticates the user via Okta-Verify MFA method.
     Request requires a header called 'slpt-forwarding', and it must contain a remote IP Address of caller.
   security:
-    - UserContextAuth: [idn:mfa:verify]
+    - userAuth: [idn:mfa:verify]
   requestBody:
     required: true
     content:

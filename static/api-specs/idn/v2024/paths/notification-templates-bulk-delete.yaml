@@ -6,7 +6,7 @@ post:
   description: This lets you bulk delete templates that you previously created for
     your site. Since this is a beta feature, please contact support to enable usage.
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:notification-templates:delete
   requestBody:
     required: true

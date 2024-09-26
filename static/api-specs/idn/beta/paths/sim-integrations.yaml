@@ -39,7 +39,7 @@ put:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:service-desk-admin:create]
+    - userAuth: [idn:service-desk-admin:create]
 
 get:
   tags:
@@ -75,7 +75,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:service-desk-admin:read]
+    - userAuth: [idn:service-desk-admin:read]
 
 delete:
   tags:
@@ -107,7 +107,7 @@ delete:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:service-desk-admin:write]
+    - userAuth: [idn:service-desk-admin:write]
 
 patch:
   tags:
@@ -150,4 +150,4 @@ patch:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:service-desk-admin:write]
+    - userAuth: [idn:service-desk-admin:write]

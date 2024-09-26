@@ -109,7 +109,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:role-unchecked:read, idn:role-unchecked:manage, idn:role-checked:manage, idn:role-checked:read]
+    - userAuth: [idn:role-unchecked:read, idn:role-unchecked:manage, idn:role-checked:manage, idn:role-checked:read]
 post:
   operationId: createRole
   tags:
@@ -153,4 +153,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:role-unchecked:manage, idn:role-checked:manage]
+    - userAuth: [idn:role-unchecked:manage, idn:role-checked:manage]

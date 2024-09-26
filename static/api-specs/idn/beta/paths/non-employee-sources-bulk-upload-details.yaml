@@ -1,7 +1,7 @@
 get:
   operationId: nonEmployeeBulkUploadDetails
   security:
-    - UserContextAuth: [idn:nelm:read]
+    - userAuth: [idn:nelm:read]
   tags:
     - Non-Employee Lifecycle Management
   summary: Details of bulk upload job on source

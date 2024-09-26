@@ -8,7 +8,7 @@ get:
 
     A token with API, or ORG_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: [idn:identity-profile-lifecycle-state:read]
+    - userAuth: [idn:identity-profile-lifecycle-state:read]
   parameters:
     - in: path
       name: identity-profile-id
@@ -61,7 +61,7 @@ post:
 
     A token with ORG_ADMIN or API authority is required to call this API.
   security:
-    - UserContextAuth: [idn:identity-profile-lifecycle-state:manage]
+    - userAuth: [idn:identity-profile-lifecycle-state:manage]
   parameters:
     - in: path
       name: identity-profile-id

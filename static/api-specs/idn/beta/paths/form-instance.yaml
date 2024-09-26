@@ -138,7 +138,7 @@ get:
                 type: string
                 x-go-name: TrackingID
   security:
-    - UserContextAuth: [ ]
+    - userAuth: [ ]
 patch:
   tags:
     - Custom Forms
@@ -313,5 +313,5 @@ patch:
                 type: string
                 x-go-name: TrackingID
   security:
-    - UserContextAuth: [ ]
+    - userAuth: [ ]
   x-codegen-request-body-name: Body

@@ -95,7 +95,7 @@ get:
     '500':
       $ref: ../../v3/responses/500.yaml
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:role-unchecked:read
     - idn:role-unchecked:manage
     - idn:role-checked:manage

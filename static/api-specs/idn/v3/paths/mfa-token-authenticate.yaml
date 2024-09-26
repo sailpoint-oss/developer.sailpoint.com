@@ -6,7 +6,7 @@ post:
   description: >-
     This API Authenticate user in Token MFA method.
   security:
-    - UserContextAuth: [idn:mfa:verify]
+    - userAuth: [idn:mfa:verify]
   requestBody:
     required: true
     content:

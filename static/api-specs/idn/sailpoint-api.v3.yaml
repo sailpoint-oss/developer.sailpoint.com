@@ -1429,22 +1429,19 @@ paths:
     $ref: "./v3/paths/vendor-connector-mappings.yaml"
 
 security:
-  - UserContextAuth: []
-
+- userAuth:
+  - "sp:scopes:all"
 components:
   securitySchemes:
-    UserContextAuth:
+    userAuth:
       type: oauth2
+      x-displayName: Personal Access Token
       description: |
-        OAuth2 Bearer token (JWT) generated using either a Personal Access token or through the Authorization Code flow. 
+        OAuth2 Bearer token (JWT) generated using either a [personal access token (PAT)](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token) or through the [authorization code flow](https://developer.sailpoint.com/docs/api/authentication/#request-access-token-with-authorization-code-grant-flow).
+
+        Personal access tokens are associated with a user in Identity Security Cloud and relies on the user's [user level](https://documentation.sailpoint.com/saas/help/common/users/index.html) (ex. Admin, Helpdesk, etc.) to determine a base level of access.
+        
         See [Identity Security Cloud REST API Authentication](https://developer.sailpoint.com/docs/api/authentication/) for more information.
-        - Directions for generating a [personal access token](https://developer.sailpoint.com/docs/api/authentication/#personal-access-tokens)
-        - Directions using [client credentials flow](https://developer.sailpoint.com/docs/api/authentication/#client-credentials-grant-flow)
-        - Directions for using [authorization code flow](https://developer.sailpoint.com/docs/api/authentication/#authorization-code-grant-flow)
-
-        Which authentication method should I choose?  See the [guide](https://developer.sailpoint.com/docs/api/authentication/#which-oauth-20-grant-flow-should-i-use).
-
-        Learn more about how to find your `tokenUrl` and `authorizationUrl` [in the docs](https://developer.sailpoint.com/docs/api/authentication/#find-your-tenants-oauth-details).
       flows:
         clientCredentials:
           tokenUrl: https://tenant.api.identitynow.com/oauth/token
@@ -1457,24 +1454,21 @@ components:
           scopes:
             "sp:scopes:default": "default scope"
             "sp:scopes:all": "access to all scopes"
-    ApplicationOnlyAuth:
+    applicationAuth:
       type: oauth2
+      x-displayName: Client Credentials
       description: |
-        OAuth2 Bearer token (JWT) generated using client credentials flow. 
+        OAuth2 Bearer token (JWT) generated using [client credentials flow](https://developer.sailpoint.com/docs/api/authentication/#request-access-token-with-client-credentials-grant-flow).
+
+        Client credentials refers to tokens that are not associated with a user in Identity Security Cloud.
+
         See [Identity Security Cloud REST API Authentication](https://developer.sailpoint.com/docs/api/authentication/) for more information.
-        - Directions using [client credentials flow](https://developer.sailpoint.com/docs/api/authentication/#client-credentials-grant-flow)
-
-        Which authentication method should I choose?  See the [guide](https://developer.sailpoint.com/docs/api/authentication/#which-oauth-20-grant-flow-should-i-use).
-
-        Learn more about how to find your `tokenUrl` and `authorizationUrl` [in the docs](https://developer.sailpoint.com/docs/api/authentication/#find-your-tenants-oauth-details).
       flows:
         clientCredentials:
           tokenUrl: https://tenant.api.identitynow.com/oauth/token
           scopes:
             "sp:scopes:default": "default scope"
-
-  # TODO: add the Entitlement, AccessProfile and Role models
-  # and the other new models?
+            "sp:scopes:all": "access to all scopes"
   schemas:
     AccessRequest:
       $ref: "./v3/schemas/AccessRequest.yaml"

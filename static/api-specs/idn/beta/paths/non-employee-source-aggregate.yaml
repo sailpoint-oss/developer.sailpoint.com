@@ -1,7 +1,7 @@
 post:
   operationId: nonEmployeeSourceAggregateGet
   security:
-    - UserContextAuth: [idn:nelm:manage]
+    - userAuth: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
   summary: Aggregate all Non-Employee Source accounts

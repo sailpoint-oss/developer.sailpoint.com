@@ -5,7 +5,7 @@ put:
   summary: Auth User Update - Overwrite
   description: Update an existing user in the authentication system by over overwriting the information with new information.
   security:
-    - UserContextAuth: [sp:auth-user-internal:update]
+    - userAuth: [sp:auth-user-internal:update]
   parameters:
     - in: path
       name: id
@@ -50,7 +50,7 @@ delete:
   summary: Delete an Auth User
   description: Delete an existing user in the authentication system.
   security:
-    - UserContextAuth: [sp:auth-user:delete]
+    - userAuth: [sp:auth-user:delete]
   parameters:
     - in: path
       name: id

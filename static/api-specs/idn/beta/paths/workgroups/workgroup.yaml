@@ -31,7 +31,7 @@ get:
     '500':
       $ref: '../../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:workgroup:read]
+    - userAuth: [idn:workgroup:read]
 delete:
   operationId: deleteWorkgroup
   tags:
@@ -61,7 +61,7 @@ delete:
     '500':
       $ref: '../../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:workgroup:write]
+    - userAuth: [idn:workgroup:write]
 patch:
   operationId: patchWorkgroup
   tags:
@@ -117,4 +117,4 @@ patch:
     '500':
       $ref: '../../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:workgroup:write]
+    - userAuth: [idn:workgroup:write]

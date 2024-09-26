@@ -1,7 +1,7 @@
 post:
   operationId: updateWorkgroupMembers
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:workgroup:write
   tags:
   - Governance Groups

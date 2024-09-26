@@ -8,7 +8,7 @@ get:
 
     A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: []
+    - userAuth: []
   parameters:
     - in: path
       name: id
@@ -48,7 +48,7 @@ put:
 
     A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: []
+    - userAuth: []
   parameters:
     - in: path
       name: id
@@ -154,7 +154,7 @@ delete:
 
     A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: []
+    - userAuth: []
   parameters:
     - in: path
       name: id

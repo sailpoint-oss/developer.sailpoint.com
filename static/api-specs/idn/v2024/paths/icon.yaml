@@ -43,7 +43,7 @@ put:
               description: file with icon. Allowed mime-types ['image/png', 'image/jpeg']
               example: \x00\x00\x00\x02
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:icons:manage
   responses:
     '200':
@@ -100,7 +100,7 @@ delete:
       default: true
     required: true
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:icons:manage
   responses:
     '204':

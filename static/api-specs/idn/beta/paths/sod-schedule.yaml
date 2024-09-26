@@ -5,7 +5,7 @@ get:
   summary: Get SOD policy schedule
   deprecated: true
   security:
-    - UserContextAuth: [ idn:sod-policy:read ]
+    - userAuth: [ idn:sod-policy:read ]
   description: >-
     This endpoint gets a specified SOD policy's schedule.
 
@@ -42,7 +42,7 @@ put:
   summary: Update SOD Policy schedule
   deprecated: true
   security:
-    - UserContextAuth: [ idn:sod-policy:write ]
+    - userAuth: [ idn:sod-policy:write ]
   description: >-
     This updates schedule for a specified SOD policy.
 
@@ -85,7 +85,7 @@ delete:
   summary: Delete SOD policy schedule
   deprecated: true
   security:
-    - UserContextAuth: [idn:sod-policy:write]
+    - userAuth: [idn:sod-policy:write]
   description: >-
     This deletes schedule for a specified SOD policy.
 

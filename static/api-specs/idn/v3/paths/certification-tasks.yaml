@@ -7,7 +7,7 @@ get:
     This API returns a list of pending (`QUEUED` or `IN_PROGRESS`) certification tasks. Any authenticated token can call
     this API, but only certification tasks you are authorized to review will be returned.
   security:
-    - UserContextAuth: [ idn:certification:read ]
+    - userAuth: [ idn:certification:read ]
   parameters:
     - in: query
       name: reviewer-identity

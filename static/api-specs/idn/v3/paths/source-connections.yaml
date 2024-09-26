@@ -1,7 +1,7 @@
 get:
   operationId: getSourceConnections
   security:
-    - UserContextAuth: [ idn:sources:read ]
+    - userAuth: [ idn:sources:read ]
   tags:
     - Sources
   summary: Get Source Connections by ID

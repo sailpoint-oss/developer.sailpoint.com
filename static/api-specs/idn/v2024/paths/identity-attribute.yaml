@@ -5,7 +5,7 @@ get:
   summary: Get Identity Attribute
   description: This gets an identity attribute for a given technical name.
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:identity-profile-attribute:read
   parameters:
   - in: path
@@ -50,7 +50,7 @@ put:
   description: This updates an existing identity attribute.  Making an attribute searchable
     requires that the `system`, `standard`, and `multi` properties be set to false.
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:identity-profile-attribute:create
   parameters:
   - in: path
@@ -102,7 +102,7 @@ delete:
     and `standard` properties must be set to false before you can delete an identity
     attribute.
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:identity-profile-attribute:delete
   parameters:
   - in: path

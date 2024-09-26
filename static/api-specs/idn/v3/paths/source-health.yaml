@@ -1,7 +1,7 @@
 get:
   operationId: getSourceHealth
   security:
-    - UserContextAuth: [ idn:sources:read ]
+    - userAuth: [ idn:sources:read ]
   tags:
     - Sources
   summary: Fetches source health by id

@@ -6,7 +6,7 @@ get:
   description: >-
     Returns all potential role summaries that match the query parameters
   security:
-    - UserContextAuth: []
+    - userAuth: []
   parameters:
     - in: query
       name: sorters

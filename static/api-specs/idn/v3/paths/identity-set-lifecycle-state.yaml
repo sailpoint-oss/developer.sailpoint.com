@@ -8,7 +8,7 @@ post:
 
     A token with ORG_ADMIN or API authority and the appropriate user context is required to call this API.
   security:
-    - UserContextAuth: [idn:identity-lifecycle-state:update]
+    - userAuth: [idn:identity-lifecycle-state:update]
   parameters:
     - in: path
       name: identity-id

@@ -4,7 +4,7 @@ get:
   - Identities
   summary: Role assignment details
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:identity:read
   parameters:
   - in: path

@@ -27,4 +27,4 @@ get:
     "403":
       $ref: '../../v3/responses/403.yaml'
   security:
-    - UserContextAuth: [idn:task-definition:read]
+    - userAuth: [idn:task-definition:read]

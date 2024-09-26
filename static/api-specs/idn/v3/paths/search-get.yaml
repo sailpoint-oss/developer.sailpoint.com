@@ -5,7 +5,7 @@ get:
     Fetches a single document from the specified index, using the specified document ID.
   operationId: searchGet
   security:
-    - UserContextAuth: [ sp:search:read ]
+    - userAuth: [ sp:search:read ]
   summary: "Get a Document by ID"
   parameters:
   - $ref: '../parameters/path/search/index.yaml'

@@ -6,7 +6,7 @@ get:
   description: >-
     Returns the system notification configuration for a tenant.
   security:
-  - UserContextAuth: [ idn:notification-preferences:read ]
+  - userAuth: [ idn:notification-preferences:read ]
   responses:
     '200':
       description: List of Email Status
@@ -35,7 +35,7 @@ put:
   description: >-
     Updates the System Notification configuration.
   security:
-  - UserContextAuth: [ idn:notification-preferences:create ]
+  - userAuth: [ idn:notification-preferences:create ]
   requestBody:
     required: true
     content:

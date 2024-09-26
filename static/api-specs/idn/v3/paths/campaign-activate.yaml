@@ -8,7 +8,7 @@ post:
 
     A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
   security:
-    - UserContextAuth: [idn:campaign:manage]
+    - userAuth: [idn:campaign:manage]
   requestBody:
     description:
       Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00).

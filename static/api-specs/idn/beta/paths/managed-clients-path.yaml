@@ -33,7 +33,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:remote-client:read, idn:remote-client:manage, idn:managed-client-status:read, idn:managed-client-status:manage]
+    - userAuth: [idn:remote-client:read, idn:remote-client:manage, idn:managed-client-status:read, idn:managed-client-status:manage]
 patch:
   tags:
     - Managed Clients
@@ -76,7 +76,7 @@ patch:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:remote-client:manage]
+    - userAuth: [idn:remote-client:manage]
 delete:
   operationId: deleteManagedClient
   tags:
@@ -107,4 +107,4 @@ delete:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:remote-client:manage]
+    - userAuth: [idn:remote-client:manage]

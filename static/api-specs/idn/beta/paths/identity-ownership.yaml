@@ -11,7 +11,7 @@ get:
     For a full list of objects owned by an identity, use the [Search API](https://developer.sailpoint.com/docs/api/v3/search-post/). 
     When you search for identities, the returned identities have a property, `owns`, that contains a more comprehensive list of identity's owned objects.
   security:
-    - UserContextAuth:
+    - userAuth:
         - "idn:identity:read"
   parameters:
     - in: path

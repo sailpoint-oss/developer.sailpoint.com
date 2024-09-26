@@ -6,7 +6,7 @@ get:
   description: >-
     This API returns the entitlement request config for a specified entitlement.
   security:
-    - UserContextAuth: [idn:entitlement:read, idn:entitlement:manage]
+    - userAuth: [idn:entitlement:read, idn:entitlement:manage]
   parameters:
     - in: path
       name: id
@@ -67,7 +67,7 @@ put:
   description: >-
     This API replaces the entitlement request config for a specified entitlement.
   security:
-    - UserContextAuth: [idn:entitlement:manage]
+    - userAuth: [idn:entitlement:manage]
   parameters:
     - name: id
       in: path

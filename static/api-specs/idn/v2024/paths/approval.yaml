@@ -1,6 +1,6 @@
 get:
   security:
-  - UserContextAuth:
+  - userAuth:
     - sp:approvals:read
   operationId: getApproval
   tags:

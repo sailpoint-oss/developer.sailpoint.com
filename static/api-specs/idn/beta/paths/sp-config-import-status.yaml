@@ -1,7 +1,7 @@
 get:
   operationId: getSpConfigImportStatus
   security:
-    - UserContextAuth: [ sp:config:manage ]
+    - userAuth: [ sp:config:manage ]
   tags:
     - SP-Config
   summary: Get import job status

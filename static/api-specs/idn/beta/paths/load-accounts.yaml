@@ -12,7 +12,7 @@ post:
     
     A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
   security:
-    - UserContextAuth: [idn:sources:manage]
+    - userAuth: [idn:sources:manage]
   parameters:
     - in: path
       name: id

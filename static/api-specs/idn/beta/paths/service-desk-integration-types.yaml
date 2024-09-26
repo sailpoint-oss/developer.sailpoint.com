@@ -26,4 +26,4 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:service-desk-admin:read, idn:service-desk-admin:manage, idn:service-desk-integration:read, idn:service-desk-integration:manage]
+    - userAuth: [idn:service-desk-admin:read, idn:service-desk-admin:manage, idn:service-desk-integration:read, idn:service-desk-integration:manage]

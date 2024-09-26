@@ -203,5 +203,5 @@ get:
                 type: string
                 x-go-name: TrackingID
   security:
-  - UserContextAuth:
+  - userAuth:
     - sp:forms:manage

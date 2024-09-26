@@ -11,7 +11,7 @@ get:
     \ for identities, the returned identities have a property, `owns`, that contains\
     \ a more comprehensive list of identity's owned objects."
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:identity:read
   parameters:
   - in: path

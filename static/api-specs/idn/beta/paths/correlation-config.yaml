@@ -4,7 +4,7 @@ get:
     - Sources
   summary: Get Source Correlation Configuration
   security:
-    - UserContextAuth: [idn:sources:read]
+    - userAuth: [idn:sources:read]
   description: >-
     This API returns the existing correlation configuration for a source specified by the
     given ID.
@@ -44,7 +44,7 @@ put:
     - Sources
   summary: Update Source Correlation Configuration
   security:
-    - UserContextAuth: [idn:sources:update]
+    - userAuth: [idn:sources:update]
   description: >-
     Replaces the correlation configuration for the source specified by the given ID with the
     configuration provided in the request body.

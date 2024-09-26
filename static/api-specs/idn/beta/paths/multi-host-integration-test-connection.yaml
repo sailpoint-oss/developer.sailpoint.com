@@ -34,4 +34,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:multihosts:read, idn:sources:read]
+    - userAuth: [idn:multihosts:read, idn:sources:read]

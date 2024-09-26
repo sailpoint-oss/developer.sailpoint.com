@@ -21,7 +21,7 @@ get:
       For example, you can page through 50 executions per page and use that as a way to get to the records past the first 250.
       Refer to [Paginating Results](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results) for more information about the query parameters you can use to achieve pagination.
   security:
-    - UserContextAuth: [sp:workflow:read]
+    - userAuth: [sp:workflow:read]
   parameters:
     - name: id
       in: path

@@ -1,6 +1,6 @@
 get:
   security:
-    - UserContextAuth:
+    - userAuth:
         - 'idn:application-discovery:read'
   operationId: getVendorConnectorMappings
   tags:
@@ -67,7 +67,7 @@ get:
 
 post:
   security:
-    - UserContextAuth:
+    - userAuth:
         - 'idn:application-discovery:write'
   operationId: createVendorConnectorMapping
   tags:
@@ -103,7 +103,7 @@ post:
 
 delete:
   security:
-    - UserContextAuth:
+    - userAuth:
         - 'idn:application-discovery:write'
   operationId: deleteVendorConnectorMapping
   tags:

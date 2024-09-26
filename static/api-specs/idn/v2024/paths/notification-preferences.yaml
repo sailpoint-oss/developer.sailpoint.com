@@ -5,7 +5,7 @@ get:
   summary: List Notification Preferences for tenant.
   description: Returns a list of notification preferences for tenant.
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:notification-preferences:read
   responses:
     '200':

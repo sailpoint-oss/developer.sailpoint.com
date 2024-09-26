@@ -28,7 +28,7 @@ post:
             }
           ]
   security:
-    - UserContextAuth: [idn:mfa-kba:authenticate]
+    - userAuth: [idn:mfa-kba:authenticate]
   responses:
     "200":
       description: The new KBA configuration for the user.

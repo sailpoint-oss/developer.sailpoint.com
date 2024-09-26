@@ -9,7 +9,7 @@ get:
 
     A token with ORG_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: [idn:mfa-configuration:read, idn:mfa-configuration:manage]
+    - userAuth: [idn:mfa-configuration:read, idn:mfa-configuration:manage]
   parameters:
     - in: path
       name: method

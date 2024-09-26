@@ -12,7 +12,7 @@ post:
 
     Name, description and owner can't be empty or null.
   security:
-    - UserContextAuth: [ idn:app-roles:manage ]
+    - userAuth: [ idn:app-roles:manage ]
   parameters:
     - name: X-SailPoint-Experimental
       in: header

@@ -1,7 +1,7 @@
 get:
   operationId: getNonEmployeeSourceSchemaAttributes
   security:
-    - UserContextAuth: []
+    - userAuth: []
   tags:
     - Non-Employee Lifecycle Management
   summary: List Schema Attributes Non-Employee Source
@@ -50,7 +50,7 @@ get:
 post:
   operationId: createNonEmployeeSourceSchemaAttributes
   security:
-    - UserContextAuth: [idn:nelm:manage]
+    - userAuth: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
   summary: Create Non-Employee Source Schema Attribute
@@ -95,7 +95,7 @@ post:
 delete:
   operationId: deleteNonEmployeeSourceSchemaAttributes
   security:
-    - UserContextAuth: [idn:nelm:manage]
+    - userAuth: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
   summary: Delete all custom schema attributes

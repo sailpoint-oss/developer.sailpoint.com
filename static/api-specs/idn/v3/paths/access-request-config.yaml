@@ -1,7 +1,7 @@
 get:
   operationId: getAccessRequestConfig
   security:
-    - UserContextAuth: [ idn:access-request-config:read ]
+    - userAuth: [ idn:access-request-config:read ]
   summary: Get Access Request Configuration
   tags:
     - Access Requests
@@ -28,7 +28,7 @@ get:
 put:
   operationId: setAccessRequestConfig
   security:
-    - UserContextAuth: [ idn:access-request-config:update ]
+    - userAuth: [ idn:access-request-config:update ]
   summary: Update Access Request Configuration
   tags:
     - Access Requests

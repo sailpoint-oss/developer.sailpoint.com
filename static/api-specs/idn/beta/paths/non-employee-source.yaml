@@ -1,7 +1,7 @@
 get:
   operationId: getNonEmployeeSource
   security:
-    - UserContextAuth: [idn:nelm:read]
+    - userAuth: [idn:nelm:read]
   tags:
     - Non-Employee Lifecycle Management
   summary: Get a Non-Employee Source
@@ -36,7 +36,7 @@ get:
 patch:
   operationId: patchNonEmployeeSource
   security:
-    - UserContextAuth: [idn:nelm:manage]
+    - userAuth: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
   summary: Patch a Non-Employee Source
@@ -95,7 +95,7 @@ patch:
 delete:
   operationId: deleteNonEmployeeSource
   security:
-    - UserContextAuth: [idn:nelm:manage]
+    - userAuth: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
   summary: Delete Non-Employee Source

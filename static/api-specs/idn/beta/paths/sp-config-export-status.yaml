@@ -1,7 +1,7 @@
 get:
   operationId: getSpConfigExportStatus
   security:
-    - UserContextAuth: [ sp:config:read, sp:config:manage]
+    - userAuth: [ sp:config:read, sp:config:manage]
   tags:
     - SP-Config
   summary: Get export job status

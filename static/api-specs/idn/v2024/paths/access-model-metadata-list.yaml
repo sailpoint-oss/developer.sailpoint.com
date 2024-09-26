@@ -5,13 +5,13 @@ get:
   - Access Model Metadata
   operationId: listAccessModelMetadataAttribute
   security:
-  - UserContextAuth:
-    - idn:access-model-metadata:read
-    - idn:access-model-metadata:manage
-  - ApplicationAuth:
-    - idn:access-model-metadata:read
-    - idn:access-model-metadata:manage
-  x-sailpoint-user-levels:
+    - userAuth:
+      - idn:access-model-metadata:read
+      - idn:access-model-metadata:manage
+    - applicationAuth:
+      - idn:access-model-metadata:read
+      - idn:access-model-metadata:manage
+  x-sailpoint-userLevels:
     - Admin
     - Helpdesk
     - User

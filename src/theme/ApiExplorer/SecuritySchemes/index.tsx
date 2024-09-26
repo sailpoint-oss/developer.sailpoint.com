@@ -8,6 +8,8 @@ function SecuritySchemes(props: any) {
   const selected = useTypedSelector((state: any) => state.auth.selected);
   const infoAuthPath = `/${props.infoPath}#authentication`;
 
+  console.log(props)
+
   if (selected === undefined) return null;
 
   if (options[selected]?.[0]?.type === undefined) {
@@ -180,6 +182,7 @@ function SecuritySchemes(props: any) {
         }
 
         if (isOauth2) {
+          console.log(auth)
           const { name, key, type, scopes, flows, ...rest } = auth;
           return (
             <React.Fragment key={selected}>
@@ -190,29 +193,46 @@ function SecuritySchemes(props: any) {
                   background: "var(--openapi-card-background-color)",
                 }}
               >
-                <span>
-                  <strong>name:</strong>{" "}
-                  <Link to={infoAuthPath}>{name ?? key}</Link>
-                </span>
-                <span>
-                  <strong>type: </strong>
-                  {type}
-                </span>
-                {scopes && scopes.length > 0 && (
-                  <span>
-                    <strong>scopes: </strong>
+                {props.item['security'] && props.item['security'].length > 0 && (
                     <code>
-                      {auth.scopes.length > 0 ? auth.scopes.toString() : "[]"}
+                      {props.item['security'].map((sec: any, index: number) => {
+                        const key = Object.keys(sec)[0];
+                        const securityScheme = props.item['securitySchemes']?.[key];
+                        return (
+                          <div key={key}>
+                            <strong>type: </strong>
+                            {securityScheme ? (
+                              <Link to={infoAuthPath}>
+                                {securityScheme['x-displayName']}
+                              </Link>
+                            ) : (
+                              <Link to={infoAuthPath}>{key}</Link> // Fallback to key if no displayName found
+                            )}
+                            {scopes && scopes.length > 0 && (
+                              <div>
+                              <span>
+                                <strong>scopes: </strong>
+                                <code>
+                                  {auth.scopes.length > 0 ? auth.scopes.join(', ') : "[]"}
+                                </code>
+                              </span>
+                              </div>
+                            )}
+                            {props.item['x-sailpoint-userLevels'] && props.item['x-sailpoint-userLevels'].length > 0 && key !== 'applicationAuth' && (
+                              <div>
+                              <span>
+                                <strong>user levels: </strong>
+                                <code>
+                                  {props.item['x-sailpoint-userLevels'].length > 0 ? props.item['x-sailpoint-userLevels'].join(', ') : "[]"}
+                                </code>
+                              </span>
+                              </div>
+                            )}
+                            {index < props.item['security'].length - 1 && (<hr></hr>) }
+                          </div>
+                        );
+                      })}
                     </code>
-                  </span>
-                )}
-                {props.item['X-SailPoint-User-Levels'] && props.item['X-SailPoint-User-Levels'].length > 0 && (
-                  <span>
-                    <strong>user levels: </strong>
-                    <code>
-                      {props.item['X-SailPoint-User-Levels'].length > 0 ? props.item['X-SailPoint-User-Levels'].toString() : "[]"}
-                    </code>
-                  </span>
                 )}
               </pre>
             </React.Fragment>

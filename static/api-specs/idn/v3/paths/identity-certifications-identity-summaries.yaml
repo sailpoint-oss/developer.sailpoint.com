@@ -3,9 +3,13 @@ get:
   tags:
     - Certification Summaries
   summary: Identity Summaries for Campaign Certification
+  security:
+    - userAuth: []
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
   description:  >-
-    This API returns a list of the identity summaries for a specific identity campaign certification. A token with
-    ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this
+    This API returns a list of the identity summaries for a specific identity campaign certification. Reviewers for this certification can also call this
     API.
   parameters:
     - in: path

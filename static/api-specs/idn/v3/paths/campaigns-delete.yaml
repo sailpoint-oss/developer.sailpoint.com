@@ -5,10 +5,11 @@ post:
   summary: Delete Campaigns
   description: |
     Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs.
-
-    A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   security:
     - userAuth: [idn:campaign:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
   requestBody:
     description: IDs of the campaigns to delete.
     required: true

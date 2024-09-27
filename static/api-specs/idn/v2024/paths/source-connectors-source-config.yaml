@@ -3,10 +3,13 @@ get:
   tags:
   - Sources
   summary: Gets source config with language translations
-  description: 'Looks up and returns the source config for the requested source id
+  security:
+    - userAuth: []
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  description: >-
+    Looks up and returns the source config for the requested source id
     after populating the source config values and applying language translations.
-
-    A token with ORG_ADMIN authority is required to call this API.'
   parameters:
   - in: path
     name: id

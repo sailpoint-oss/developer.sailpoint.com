@@ -5,9 +5,10 @@ post:
   summary: Polling MFA method by VerificationPollRequest
   description: >-
     This API poll the VerificationPollRequest for the specified MFA method.
-    A token with ORG_ADMIN authority is required to call this API.
   security:
     - userAuth: [idn:mfa:poll]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
     - in: path
       name: method

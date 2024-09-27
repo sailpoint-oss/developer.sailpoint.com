@@ -80,7 +80,8 @@ patch:
   tags:
   - Entitlements
   summary: Patch an entitlement
-  description: 'This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902)
+  description: >-
+    This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902)
     syntax.
 
 
@@ -88,16 +89,16 @@ patch:
     **owner**, **name**, **description**, and **manuallyUpdatedFields**
 
 
-    When you''re patching owner, only owner type and owner id must be provided. Owner
-    name is optional, and it won''t be modified. If the owner name is provided, it
+    When you're patching owner, only owner type and owner id must be provided. Owner
+    name is optional, and it won't be modified. If the owner name is provided, it
     should correspond to the real name. The only owner type currently supported is
     IDENTITY.
-
-
-    A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.'
   security:
-  - userAuth:
-    - idn:entitlement:manage
+    - userAuth:
+      - idn:entitlement:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
   parameters:
   - name: id
     in: path

@@ -8,9 +8,6 @@ post:
 
 
     On success, this endpoint will return a reference to the bulk delete task result.
-
-
-    A token with ORG_ADMIN authority is required to call this API.
     
     
     The following rights are required to access this endpoint: idn:identity-profile:delete
@@ -42,3 +39,5 @@ post:
       $ref: '../responses/500.yaml'
   security:
     - userAuth: [idn:identity-profile:delete]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

@@ -2,13 +2,15 @@ get:
   operationId: getSource
   security:
     - userAuth: [ idn:sources:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Sources
   summary: Get Source by ID
   description: >-
     Use this API to get a source by a specified ID in Identity Security Cloud (ISC).
-
-    A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
   parameters:
     - in: path
       name: id
@@ -40,6 +42,10 @@ put:
   operationId: putSource
   security:
     - userAuth: [ idn:sources:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Sources
   summary: Update Source (Full)
@@ -56,8 +62,6 @@ put:
     * passwordPolicies
 
     Attempts to modify these fields will result in a 400 error.
-
-    A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
   parameters:
     - in: path
       name: id
@@ -97,6 +101,10 @@ patch:
   operationId: updateSource
   security:
     - userAuth: [ idn:sources:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Sources
   summary: Update Source (Partial)
@@ -116,8 +124,6 @@ patch:
     * passwordPolicies
 
     Attempts to modify these fields will result in a 400 error.
-
-    A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or API authority is required to call this API.
   parameters:
     - in: path
       name: id
@@ -251,6 +257,10 @@ delete:
   operationId: deleteSource
   security:
     - userAuth: [ idn:sources:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Sources
   summary: Delete Source by ID
@@ -259,8 +269,6 @@ delete:
 
     The API removes all the accounts on the source first, and then it deletes the source.
     You can retrieve the actual task execution status with this method: GET `/task-status/{id}`
-
-    A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
   parameters:
     - in: path
       name: id

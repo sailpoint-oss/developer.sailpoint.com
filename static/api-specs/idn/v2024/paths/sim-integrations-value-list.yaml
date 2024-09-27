@@ -2,8 +2,7 @@ get:
   tags:
   - SIM Integrations
   summary: List the existing SIM integrations.
-  description: List the existing SIM integrations. A token with Org Admin or Service
-    Desk Admin authority is required to access this endpoint.
+  description: List the existing SIM integrations.
   operationId: getSIMIntegrations
   responses:
     '200':
@@ -27,6 +26,8 @@ get:
   security:
   - userAuth:
     - idn:service-desk-admin:read
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
   - name: X-SailPoint-Experimental
     in: header
@@ -40,8 +41,7 @@ post:
   tags:
   - SIM Integrations
   summary: Create new SIM integration
-  description: Create a new SIM Integrations.  A token with Org Admin or Service Desk
-    Admin authority is required to access this endpoint.
+  description: Create a new SIM Integrations.
   operationId: createSIMIntegration
   requestBody:
     description: DTO containing the details of the SIM integration
@@ -72,6 +72,8 @@ post:
   security:
   - userAuth:
     - idn:service-desk-admin:create
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
   - name: X-SailPoint-Experimental
     in: header

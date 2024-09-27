@@ -1,0 +1,56 @@
+post:
+  operationId: updateRolesMetadataByFilter
+  summary: Bulk-Update Roles' Metadata by Filters
+  description: >-
+    This API initiates a bulk update of metadata for one or more Roles
+    by filter.
+
+    A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API.
+
+    The maximum metadata value count for a single role is 25.
+
+    Custom metadata update, including add, replace need suit licensed.
+  tags:
+    - Roles
+  security:
+    - UserContextAuth:
+        - idn:role:update
+        - idn:role-checked:update
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/role-metadata/RoleMetadataBulkUpdateByFilterRequest.yaml"
+        example:
+          operation: ADD
+          replaceScope: ALL
+          filters: requestable eq false
+          values:
+            - attribute: iscFederalClassifications
+              values:
+                - topSecret
+  responses:
+    "202":
+      description: Returned if bulk update request created
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/role-metadata/RoleBulkUpdateResponse.yaml"
+          examples:
+            Update request created successfully:
+              value:
+                id: 2d82ac17-eb0d-4ba6-9918-dcad6ee0294d
+                type: ROLE
+                status: CREATED
+                created: 2024-09-16T18:59:06.871594Z
+    "400":
+      $ref: ../../../v3/responses/400.yaml
+    "401":
+      $ref: ../../../v3/responses/401.yaml
+    "403":
+      $ref: ../../../v3/responses/403.yaml
+    "429":
+      $ref: ../../../v3/responses/429.yaml
+    "500":
+      $ref: ../../../v3/responses/500.yaml

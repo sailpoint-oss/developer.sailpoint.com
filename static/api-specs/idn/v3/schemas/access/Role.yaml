@@ -82,11 +82,39 @@ properties:
                 "29cb6c06-1da8-43ea-8be4-b3125f248f2a"
             ]
     dimensional:
+        description: Whether the Role is dimensional.
         type: boolean
         nullable: true
+        default: false
     dimensionRefs:
+        description: TBD
         type: string
         nullable: true
+    accessModelMetadata:
+        type: array
+        items:
+            $ref: '../../../beta/schemas/gov-attributes/AttributeDTOList.yaml'
+        example:
+          [
+              {
+                  "key": "iscFederalClassifications",
+                  "name": "Federal Classifications",
+                  "multiselect": true,
+                  "status": "active",
+                  "type": "governance",
+                  "objectTypes": [
+                      "general"
+                  ],
+                  "description": "Classification used by government organizations to specify the level of confidentiality for an access item.",
+                  "values": [
+                      {
+                          "value": "secret",
+                          "name": "Secret",
+                          "status": "active"
+                      }
+                  ]
+              }
+          ]
 required:
     - name
     - owner

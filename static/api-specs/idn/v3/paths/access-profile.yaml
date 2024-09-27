@@ -5,10 +5,6 @@ get:
   summary: Get an Access Profile
   description: >-
     This API returns an Access Profile by its ID.
-
-
-    A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to
-    call this API.
   parameters:
     - in: path
       name: id
@@ -37,6 +33,13 @@ get:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:access-profile:read]
+    - applicationAuth: [idn:access-profile:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN 
 patch:
   operationId: patchAccessProfile
   tags:
@@ -82,8 +85,7 @@ patch:
     If you need to change the `source` of the access profile, you can do so only if you update the `entitlements` in the same API call.  The new entitlements can only come from the target source that you want to change to.  Look for the example "Replace Source" in the examples dropdown.
     
 
-    A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a
-    SOURCE_SUBADMIN may only use this API to patch Access Profiles which are associated with Sources they are able to
+    A user with SOURCE_SUBADMIN may only use this API to patch Access Profiles which are associated with Sources they are able to
     administer.
 
     >  The maximum supported length for the description field is 2000 characters.
@@ -184,6 +186,11 @@ patch:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:access-profile:manage]
+    - applicationAuth: [idn:access-profile:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
 delete:
   operationId: deleteAccessProfile
   tags:
@@ -196,8 +203,7 @@ delete:
     The Access Profile must not be in use, for example, Access Profile can not be deleted if they belong to an Application, Life Cycle State or a Role. If it is, a 400 error is returned.
 
 
-    A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to invoke this API. In addition,
-    a SOURCE_SUBADMIN token must be able to administer the Source associated with the Access Profile.
+    A user with SOURCE_SUBADMIN must be able to administer the Source associated with the Access Profile.
   parameters:
     - name: id
       in: path
@@ -235,4 +241,9 @@ delete:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:access-profile:manage]
+    - applicationAuth: [idn:access-profile:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   

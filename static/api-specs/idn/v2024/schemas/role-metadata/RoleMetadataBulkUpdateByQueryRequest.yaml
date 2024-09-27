@@ -1,0 +1,73 @@
+description: >-
+  Bulk update by query request of Role metadata.
+  The maximum meta data values that one single role assigned can not exceed 25.
+  Custom metadata need suit licensed.
+  
+  For more information about the query could refer to 
+  [V3 API Perform Search](https://developer.sailpoint.com/docs/api/v3/search-post)
+type: object
+properties:
+  query:
+    description: query the identities to be updated
+    type: object
+    items:
+      $ref: '../../../v3/schemas/search/Search.yaml'
+    example:
+      query": {
+        "indices": [
+          "roles"
+        ],
+        "queryType": "TEXT",
+        "textQuery": {
+          "terms": [
+            "test123"
+          ],
+          "fields": [
+            "id"
+          ],
+          "matchAny": false,
+          "contains": true
+        },
+        "includeNested": false
+      }
+  operation:
+    description: The operation to be performed
+    type: string
+    enum:
+      - "add"
+      - "remove"
+      - "replace"
+    example: "replace"
+  replaceScope:
+    description: The choice of update scope.
+    type: string
+    enum:
+      - "ALL"
+      - "ATTRIBUTE"
+    example:
+      "ALL"
+  values:
+    description: The metadata to be updated, including attribute key and value.
+    type: array
+    nullable: false
+    items:
+      type: object
+      required:
+        - attribute
+        - values
+      properties:
+        attributeKey:
+          type: string
+          description: the key of metadata attribute
+          example: "iscFederalClassifications"
+        attributeValue:
+          type: array
+          description: the values of attribute to be updated
+          items:
+            type: string
+            example: "topSecret"
+          example: ["topSecret"]
+required:
+  - query
+  - operation
+  - values

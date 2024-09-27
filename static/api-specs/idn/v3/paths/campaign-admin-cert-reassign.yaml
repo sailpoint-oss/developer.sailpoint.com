@@ -1,14 +1,15 @@
 post:
   security:
     - userAuth: [idn:campaign:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
   operationId: move
   tags:
     - Certification Campaigns
   summary: Reassign Certifications
   description: |
-    This API reassigns the specified certifications from one identity to another.
-    
-    A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
+    This API reassigns the specified certifications from one identity to another.    
   parameters:
     - in: path
       name: id

@@ -16,8 +16,6 @@ post:
     2. Determines the identity's correct manager through manager correlation.
     3. Updates the identity's access according to their assigned lifecycle state.
     4. Updates the identity's access based on role assignment criteria.
-
-    A token with ORG_ADMIN authority is required to call this API.
   externalDocs:
     description: 'Learn more about manually processing identities here'
     url: 'https://documentation.sailpoint.com/saas/help/setup/identity_processing.html'
@@ -48,5 +46,7 @@ post:
       $ref: '../responses/500.yaml'
   security:
     - userAuth: [idn:identity-profile:refresh]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 
 

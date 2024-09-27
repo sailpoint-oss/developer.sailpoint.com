@@ -2,7 +2,7 @@ get:
   tags:
     - Service Desk Integration
   summary: List existing Service Desk Integrations
-  description: Get a list of ServiceDeskIntegrationDto for existing Service Desk Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+  description: Get a list of ServiceDeskIntegrationDto for existing Service Desk Integrations.
   operationId: getServiceDeskIntegrations
   parameters:
     - $ref: '../../v3/parameters/offset.yaml'
@@ -70,12 +70,14 @@ get:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:service-desk-admin:read,idn:service-desk-integration:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 
 post:
   tags:
     - Service Desk Integration
   summary: Create new Service Desk integration
-  description: Create a new Service Desk Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+  description: Create a new Service Desk Integrations.
   operationId: createServiceDeskIntegration
   requestBody:
     description: The specifics of a new integration to create
@@ -105,3 +107,5 @@ post:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:service-desk-admin:manage,idn:service-desk-integration:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

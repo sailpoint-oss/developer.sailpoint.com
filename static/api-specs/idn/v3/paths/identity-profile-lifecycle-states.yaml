@@ -5,10 +5,11 @@ get:
   summary: Lists LifecycleStates
   description: >-
     Use this endpoint to list all lifecycle states by their associated identity profiles. 
-
-    A token with API, or ORG_ADMIN authority is required to call this API.
   security:
     - userAuth: [idn:identity-profile-lifecycle-state:read]
+    - applicationAuth: [idn:identity-profile-lifecycle-state:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
     - in: path
       name: identity-profile-id
@@ -58,10 +59,11 @@ post:
   summary: Create Lifecycle State
   description: >-
     Use this endpoint to create a lifecycle state.
-
-    A token with ORG_ADMIN or API authority is required to call this API.
   security:
     - userAuth: [idn:identity-profile-lifecycle-state:manage]
+    - applicationAuth: [idn:identity-profile-lifecycle-state:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
     - in: path
       name: identity-profile-id

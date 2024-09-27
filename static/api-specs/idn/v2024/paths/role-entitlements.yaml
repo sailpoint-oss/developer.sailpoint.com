@@ -3,11 +3,8 @@ get:
   tags:
   - Roles
   summary: List role's Entitlements
-  description: 'This API lists the Entitlements associated with a given role.
-
-
-    A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required
-    to call this API.'
+  description: >-
+    This API lists the Entitlements associated with a given role.
   parameters:
   - name: id
     in: path
@@ -95,8 +92,17 @@ get:
     '500':
       $ref: ../../v3/responses/500.yaml
   security:
-  - userAuth:
-    - idn:role-unchecked:read
-    - idn:role-unchecked:manage
-    - idn:role-checked:manage
-    - idn:role-checked:read
+    - userAuth:
+      - idn:role-unchecked:read
+      - idn:role-unchecked:manage
+      - idn:role-checked:manage
+      - idn:role-checked:read
+    - applicationAuth:
+      - idn:role-unchecked:read
+      - idn:role-unchecked:manage
+      - idn:role-checked:manage
+      - idn:role-checked:read
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN

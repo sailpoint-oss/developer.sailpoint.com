@@ -2,6 +2,8 @@ get:
   operationId: listAccessRequestStatus
   security:
     - userAuth: [ idn:access-request-status:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   tags:
     - Access Requests
   summary: Access Request Status
@@ -12,8 +14,8 @@ get:
     If an access request was made for access that an identity already has, the API ignores the access request. 
     These ignored requests do not display in the list of access request statuses.
 
-    Any token with any authority can request their own status. A token with
-    ORG_ADMIN authority is required to call this API to get a list of statuses
+    Any user with any user level can get the status of their own access requests. A user with
+    ORG_ADMIN is required to call this API to get a list of statuses
     for other users.
   parameters:
     - in: query

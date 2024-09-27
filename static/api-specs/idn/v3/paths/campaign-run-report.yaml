@@ -5,10 +5,12 @@ post:
   summary: Run Campaign Report
   description: | 
     Use this API to run a report for a certification campaign.
-
-    A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API.
   security:
     - userAuth: [idn:campaign-report:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+    - REPORT_ADMIN
   parameters:
     - in: path
       name: id

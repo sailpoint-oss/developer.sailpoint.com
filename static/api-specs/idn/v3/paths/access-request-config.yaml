@@ -29,13 +29,13 @@ put:
   operationId: setAccessRequestConfig
   security:
     - userAuth: [ idn:access-request-config:update ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   summary: Update Access Request Configuration
   tags:
     - Access Requests
   description: >-
     This endpoint replaces the current access-request configuration.
-
-    A token with ORG_ADMIN authority is required to call this API.
   requestBody:
        required: true
        content:

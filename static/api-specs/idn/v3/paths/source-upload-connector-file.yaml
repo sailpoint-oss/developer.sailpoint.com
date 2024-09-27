@@ -2,6 +2,8 @@ post:
   operationId: importConnectorFile
   security:
     - userAuth: [ idn:sources-admin:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   tags:
     - Sources
   summary: Upload connector file to source
@@ -16,8 +18,6 @@ post:
   description: >-
     This uploads a supplemental source connector file (like jdbc driver jars) to a source's S3 bucket.
     This also sends ETS and Audit events.
-
-    A token with ORG_ADMIN authority is required to call this API.
   requestBody:
     required: true
     content:

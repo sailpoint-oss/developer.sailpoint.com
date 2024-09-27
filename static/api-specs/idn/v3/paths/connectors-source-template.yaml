@@ -3,9 +3,7 @@ get:
     - Connectors
   operationId: getConnectorSourceTemplate
   description: >-
-    Fetches a connector's source template using its script name.
-    
-    A token with ORG_ADMIN authority is required to call this API.
+    Fetches a connector's source template using its script name.    
   parameters:
     - name: scriptName
       in: path
@@ -37,14 +35,14 @@ get:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [ idn:connector-config:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 put:
   tags:
     - Connectors
   operationId: putSourceTemplate
   description: >-
-    Update a connector's source template using its script name.
-    
-    A token with ORG_ADMIN authority is required to call this API.
+    Update a connector's source template using its script name.    
   parameters:
     - name: scriptName
       in: path
@@ -89,3 +87,5 @@ put:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [ idn:connector-config:update ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

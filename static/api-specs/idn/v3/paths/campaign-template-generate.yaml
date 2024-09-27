@@ -5,6 +5,9 @@ post:
   summary: Generate a Campaign from Template
   security:
      - userAuth: [idn:campaign-template:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
   description: |
     Use this API to generate a new certification campaign from a campaign template.
 
@@ -17,8 +20,6 @@ post:
     campaign called "Campaign for 2020" (assuming the year at generation time is 2020).
 
     Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html).
-
-    A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   parameters:
     - in: path
       name: id

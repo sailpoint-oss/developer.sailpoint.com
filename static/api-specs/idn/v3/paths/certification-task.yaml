@@ -4,10 +4,12 @@ get:
     - Certifications
   summary: Certification Task by ID
   description: >-
-    This API returns the certification task for the specified ID. A token with ORG_ADMIN or CERT_ADMIN authority is
-    required to call this API. Reviewers for the specified certification can also call this API.
+    This API returns the certification task for the specified ID. Reviewers for the specified certification can also call this API.
   security:
     - userAuth: [ idn:certification:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
   parameters:
     - in: path
       name: id

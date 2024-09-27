@@ -5,10 +5,13 @@ get:
   summary: Accounts List
   description: >-
     This returns a list of accounts.  
-
-    A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
   security:
     - userAuth: [idn:accounts:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+    - HELPDESK
   parameters:
     - $ref: "../parameters/limit.yaml"
     - $ref: "../parameters/offset.yaml"
@@ -119,10 +122,12 @@ post:
     The endpoint doesn't actually provision the account on the target source, which means that if the account doesn't also exist on the target source, an aggregation between the source and your tenant will remove it from your tenant. 
 
     By providing the account ID of an existing account in the request body, this API will function as a PATCH operation and update the account.
-
-    A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
   security:
     - userAuth: [idn:accounts:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   requestBody:
     required: true
     content:

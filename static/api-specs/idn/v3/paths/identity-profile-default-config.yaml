@@ -5,8 +5,6 @@ get:
   summary: Get default Identity Attribute Config
   description: >-
     This returns the default identity attribute config.
-
-    A token with ORG_ADMIN authority is required to call this API to get the default identity attribute config.
   parameters:
     - in: path
       name: identity-profile-id
@@ -37,3 +35,5 @@ get:
       $ref: '../responses/500.yaml'
   security:
     - userAuth: [idn:identity-profile:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

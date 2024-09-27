@@ -1,0 +1,50 @@
+get:
+  operationId: getBulkUpdateStatusById
+  summary: Get Bulk-Update Status by ID
+  description: >-
+    
+    This API initial a request for one bulk update's status by bulk update Id
+    returns the status of the bulk update process.
+
+    A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API. 
+
+  security:
+    - UserContextAuth: [ idn:role:update, idn:role-checked:update ]
+  tags:
+    - Roles
+  parameters:
+    - name: "id"
+      in: path
+      required: true
+      schema:
+        type: string
+      description: The Id of the bulk update task.
+      example: c24359c389374d0fb8585698a2189e3d
+
+  responses:
+    '202':
+      description: return if bulk update status could be found.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../v2024/schemas/role-metadata/RoleBulkUpdateResponse.yaml'
+          examples:
+            Update request created successfully:
+              value:
+                {
+                  "id": "2d82ac17-eb0d-4ba6-9918-dcad6ee0294d",
+                  "type": "ROLE",
+                  "status": "CREATED",
+                  "created": "2024-09-16T18:59:06.871594Z"
+                }
+
+    '400':
+      $ref: '../../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../../v3/responses/500.yaml'

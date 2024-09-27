@@ -3,9 +3,13 @@ get:
   tags:
     - Certifications
   summary: Identity Certification by ID
+  security:
+    - userAuth: []
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
   description: >-
-    This API returns a single identity campaign certification by its ID. A token with ORG_ADMIN or CERT_ADMIN authority
-    is required to call this API. Reviewers for this certification can also call this API. This API does not support
+    This API returns a single identity campaign certification by its ID. Reviewers for this certification can also call this API. This API does not support
     requests for certifications assigned to Governance Groups.
   parameters:
     - in: path

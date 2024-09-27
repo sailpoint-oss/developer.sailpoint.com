@@ -5,9 +5,10 @@ get:
   summary: Configuration of Okta MFA method
   description: >-
     This API returns the configuration of an Okta MFA method.
-    A token with ORG_ADMIN authority is required to call this API.
   security:
     - userAuth: [idn:mfa-configuration:read, idn:mfa-configuration:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   responses:
     "200":
       description: The configuration of an Okta MFA method.
@@ -41,9 +42,10 @@ put:
   summary: Set Okta MFA configuration
   description: >-
     This API sets the configuration of an Okta MFA method.
-    A token with ORG_ADMIN authority is required to call this API.
   security:
     - userAuth: [idn:mfa-configuration:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   requestBody:
     required: true
     content:

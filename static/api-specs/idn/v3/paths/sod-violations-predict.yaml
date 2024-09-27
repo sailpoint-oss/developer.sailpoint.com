@@ -1,6 +1,9 @@
 post:
   security:
     - userAuth: [idn:sod-violation:read]
+    - applicationAuth: [idn:sod-violation:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   operationId: startPredictSodViolations
   tags:
     - SOD Violations
@@ -8,10 +11,6 @@ post:
   description: >-
     This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies.
     Returns the violations that would be caused.
-
-
-    A token with ORG_ADMIN or API authority is required to call this API.
-
   requestBody:
     required: true
     content:

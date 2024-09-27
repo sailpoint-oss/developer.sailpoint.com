@@ -5,8 +5,6 @@ get:
   summary: Identity Profiles List
   description: >-
     This returns a list of Identity Profiles based on the specified query parameters.
-
-    A token with ORG_ADMIN or API authority is required to call this API to get a list of Identity Profiles.
   parameters:
     - $ref: '../parameters/limit.yaml'
     - $ref: '../parameters/offset.yaml'
@@ -64,15 +62,14 @@ get:
       $ref: '../responses/500.yaml'
   security:
     - userAuth: [idn:identity-profile:read]
-
+    - applicationAuth: [idn:identity-profile:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 post:
   operationId: createIdentityProfile
   summary: Create an Identity Profile
   description: >-
-    This creates an Identity Profile.
-    
-    
-    A token with ORG_ADMIN authority is required to call this API to create an Identity Profile.
+    This creates an Identity Profile.    
   tags:
     - Identity Profiles
   requestBody:
@@ -100,3 +97,5 @@ post:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [ idn:identity-profile:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

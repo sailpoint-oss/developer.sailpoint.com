@@ -2,15 +2,20 @@ post:
   operationId: deleteTagsToManyObject
   security:
     - userAuth: [ idn:tag:manage ]
+    - applicationAuth: [ idn:tag:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+    - REPORT_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Tagged Objects
   summary: Remove Tags from Multiple Objects
   description: >-
     This API removes tags from multiple objects.
-
-
-    A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN
-    authority is required to call this API.
   requestBody:
     description: Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
     required: true

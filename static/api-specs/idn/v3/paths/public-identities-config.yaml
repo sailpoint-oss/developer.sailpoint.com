@@ -4,10 +4,11 @@ get:
     - Public Identities Config
   summary: Get the Public Identities Configuration
   description: >-
-    Returns the publicly visible attributes of an identity available to request approvers for Access Requests and Certification Campaigns. A token with ORG ADMIN authority is required to
-    call this API.
-  #security:
-  #  - oauth2: [ORG_ADMIN]
+    Returns the publicly visible attributes of an identity available to request approvers for Access Requests and Certification Campaigns.
+  security:
+    - userAuth: []
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   responses:
     '200':
       description: Request succeeded.
@@ -31,10 +32,11 @@ put:
     - Public Identities Config
   summary: Update the Public Identities Configuration
   description: >-
-    Updates the publicly visible attributes of an identity available to request approvers for Access Requests and Certification Campaigns. A token with ORG ADMIN authority is required to
-    call this API.
-  #security:
-  #  - oauth2: [ORG_ADMIN]
+    Updates the publicly visible attributes of an identity available to request approvers for Access Requests and Certification Campaigns.
+  security:
+    - userAuth: []
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   requestBody:
     required: true
     content:

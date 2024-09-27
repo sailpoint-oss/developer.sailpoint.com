@@ -2,13 +2,16 @@ get:
   operationId: listSources
   security:
     - userAuth: [ idn:sources:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+    - ROLE_SUBADMIN
   tags:
     - Sources
   summary: Lists all sources in IdentityNow.
   description: >-
     This end-point lists all the sources in IdentityNow.
-
-    A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or ROLE_SUBADMIN authority is required to call this API.
   parameters:
     - $ref: '../../v3/parameters/limit.yaml'
     - $ref: '../../v3/parameters/offset.yaml'
@@ -116,14 +119,16 @@ post:
   operationId: createSource
   security:
     - userAuth: [ idn:sources:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Sources
   summary: Creates a source in IdentityNow.
   description: >-
     This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and
     encrypted upon receipt in IdentityNow.
-
-    A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
   parameters:
     - in: query
       name: provisionAsCsv

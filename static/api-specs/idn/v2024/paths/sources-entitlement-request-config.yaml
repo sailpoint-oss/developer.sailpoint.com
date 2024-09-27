@@ -3,11 +3,16 @@ get:
   - userAuth:
     - idn:sources:read
     - idn:sources:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   operationId: getSourceEntitlementRequestConfig
   summary: Get Source Entitlement Request Configuration
   tags:
   - Sources
-  description: 'This API gets the current entitlement request configuration for a
+  description: >-
+    This API gets the current entitlement request configuration for a
     source. This source-level configuration should apply for all the entitlements
     in the source.
 
@@ -20,10 +25,6 @@ get:
 
     - However, the entitlement-level configuration (if defined) overrides this source-level
     configuration.
-
-
-    A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required
-    to call this API.'
   responses:
     '200':
       description: Source Entitlement Request Configuration Details.
@@ -88,11 +89,16 @@ put:
   security:
   - userAuth:
     - idn:sources:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   operationId: updateSourceEntitlementRequestConfig
   summary: Update Source Entitlement Request Configuration
   tags:
   - Sources
-  description: 'This API replaces the current entitlement request configuration for
+  description: >-
+    This API replaces the current entitlement request configuration for
     a source. This source-level configuration should apply for all the entitlements
     in the source.
 
@@ -105,10 +111,6 @@ put:
 
     - However, the entitlement-level configuration (if defined) overrides this source-level
     configuration.
-
-
-    A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required
-    to call this API.'
   requestBody:
     required: true
     content:

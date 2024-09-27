@@ -3,10 +3,13 @@ get:
   tags:
   - Search Attribute Configuration
   summary: Get the details of a specific extended search attribute in IdentityNow.
-  description: 'This API accepts an extended attribute name and retrieves the corresponding
+  security:
+    - userAuth: []
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  description: >-
+    This API accepts an extended attribute name and retrieves the corresponding
     extended attribute configuration.
-
-    A token with ORG_ADMIN authority is required to call this API.'
   parameters:
   - name: name
     in: path
@@ -49,10 +52,13 @@ delete:
   tags:
   - Search Attribute Configuration
   summary: Delete an extended search attribute in IdentityNow.
-  description: 'This API accepts an extended attribute name and deletes the corresponding
+  security:
+    - userAuth: []
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  description: >-
+    This API accepts an extended attribute name and deletes the corresponding
     extended attribute configuration.
-
-    A token with ORG_ADMIN authority is required to call this API.'
   parameters:
   - name: name
     in: path
@@ -87,12 +93,13 @@ patch:
   tags:
   - Search Attribute Configuration
   summary: Update the details of a specific extended search attribute in IdentityNow.
-  description: 'This API updates an existing Search Attribute Configuration. The following
-    fields are patchable:
-
-    **name**, **displayName**, **applicationAttributes**
-
-    A token with ORG_ADMIN authority is required to call this API.'
+  security:
+    - userAuth: []
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  description: >-
+    This API updates an existing Search Attribute Configuration. The following
+    fields are patchable: **name**, **displayName**, **applicationAttributes**
   parameters:
   - name: name
     in: path

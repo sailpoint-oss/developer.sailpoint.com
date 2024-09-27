@@ -4,11 +4,14 @@ post:
     - Accounts
   summary: Disable Account
   description: >-
-    This API submits a task to disable the account and returns the task ID.  
-    
-    A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
+    This API submits a task to disable the account and returns the task ID.      
   security:
     - userAuth: [idn:accounts-state:manage]
+  x-sailpont-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+    - HELPDESK
   parameters:
     - in: path
       name: id

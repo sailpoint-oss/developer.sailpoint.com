@@ -5,10 +5,11 @@ post:
   summary: Set Lifecycle State
   description: >-
     Use this API to set/update an identity's lifecycle state to the one provided and update the corresponding identity profile.
-
-    A token with ORG_ADMIN or API authority and the appropriate user context is required to call this API.
   security:
     - userAuth: [idn:identity-lifecycle-state:update]
+    - applicationAuth: [idn:identity-lifecycle-state:update]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
     - in: path
       name: identity-id

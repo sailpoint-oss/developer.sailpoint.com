@@ -2,13 +2,13 @@ get:
   operationId: getSingleSearchAttributeConfig
   security:
     - userAuth: [ idn:account-config:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   tags:
     - Search Attribute Configuration
   summary: Get specific attribute in IdentityNow.
   description: >-
     This API accepts an extended search attribute name and retrieves the corresponding extended attribute configuration.
-
-    A token with ORG_ADMIN authority is required to call this API.
   parameters:
     - name: name
       in: path
@@ -45,13 +45,13 @@ delete:
   operationId: deleteSearchAttributeConfig
   security:
     - userAuth: [ idn:account-config:delete ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   tags:
     - Search Attribute Configuration
   summary: Delete search attribute in IdentityNow.
   description: >-
     This API accepts an extended search attribute name and deletes the corresponding extended attribute configuration.
-
-    A token with ORG_ADMIN authority is required to call this API.
   parameters:
     - name: name
       in: path
@@ -80,6 +80,8 @@ patch:
   operationId: patchSearchAttributeConfig
   security:
     - userAuth: [ idn:account-config:create ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   tags:
     - Search Attribute Configuration
   summary: Update search attribute in IdentityNow.
@@ -87,8 +89,6 @@ patch:
     This API updates an existing Search Attribute Configuration. The following fields are patchable:
 
     **name**, **displayName**, **applicationAttributes**
-
-    A token with ORG_ADMIN authority is required to call this API.
   parameters:
     - name: name
       in: path

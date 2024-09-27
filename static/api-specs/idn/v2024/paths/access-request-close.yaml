@@ -3,10 +3,13 @@ post:
   tags:
   - Access Requests
   summary: Close Access Request
+  security:
+    - userAuth: []
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   description: 'This endpoint closes access requests that are stuck in a pending state.
     It can be used throughout a request''s lifecycle even after the approval state,
     unlike the [Cancel Access Request endpoint](https://developer.sailpoint.com/idn/api/v3/cancel-access-request/).
-    A token with ORG_ADMIN authority is required.
 
 
     To find pending access requests with the UI, navigate to Search and use this query:

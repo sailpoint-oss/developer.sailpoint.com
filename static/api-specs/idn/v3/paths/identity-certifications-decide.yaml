@@ -3,9 +3,13 @@ post:
   tags:
     - Certifications
   summary: Decide on a Certification Item
+  security:
+    - userAuth: []
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
   description: >-
-    The API makes a decision to approve or revoke one or more identity campaign certification items. A token with
-    ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this
+    The API makes a decision to approve or revoke one or more identity campaign certification items. Reviewers for this certification can also call this
     API. This API does not support requests for certifications assigned to Governance Groups.
   parameters:
     - in: path

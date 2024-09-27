@@ -38,8 +38,12 @@ get:
     '500':
       $ref: ../../../v3/responses/500.yaml
   security:
-  - userAuth:
-    - idn:workgroup:read
+    - userAuth:
+      - idn:workgroup:read
+    - applicationAuth:
+      - idn:workgroup:read
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 delete:
   operationId: deleteWorkgroup
   tags:
@@ -76,16 +80,26 @@ delete:
     '500':
       $ref: ../../../v3/responses/500.yaml
   security:
-  - userAuth:
-    - idn:workgroup:write
+    - userAuth:
+      - idn:workgroup:write
+    - applicationAuth:
+      - idn:workgroup:write
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 patch:
   operationId: patchWorkgroup
   tags:
   - Governance Groups
   summary: Patch a Governance Group
-  description: "This API updates an existing governance group by ID. \nThe following\
-    \ fields and objects are patchable:\n  * name\n  * description\n  * owner\n\n\
-    A token with API or ORG_ADMIN authority is required to call this API."
+  description: >-
+    This API updates an existing governance group by ID. The following
+    fields and objects are patchable:
+    
+    * name
+    
+    * description
+    
+    * owner
   parameters:
   - in: path
     name: id
@@ -134,5 +148,9 @@ patch:
     '500':
       $ref: ../../../v3/responses/500.yaml
   security:
-  - userAuth:
-    - idn:workgroup:write
+    - userAuth:
+      - idn:workgroup:write
+    - applicationAuth:
+      - idn:workgroup:write
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

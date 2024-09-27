@@ -2,13 +2,14 @@ get:
   operationId: getSegment
   security:
     - userAuth: [ idn:segment:read, idn:segment:manage ]
+    - applicationAuth: [ idn:segment:read, idn:segment:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   tags:
     - Segments
   summary: Get Segment by ID
   description: >-
     This API returns the segment specified by the given ID.
-
-    A token with ORG_ADMIN or API authority is required to call this API.
   parameters:
     - in: path
       name: id
@@ -40,15 +41,16 @@ delete:
   operationId: deleteSegment
   security:
     - userAuth: [ idn:segment:manage ]
+    - applicationAuth: [ idn:segment:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   tags:
     - Segments
   summary: Delete Segment by ID
   description: >-
     This API deletes the segment specified by the given ID.
 
-    >**Note:** that segment deletion may take some time to become effective.
-    
-    A token with ORG_ADMIN or API authority is required to call this API.
+    >**Note:** that segment deletion may take some time to become effective.    
   parameters:
     - in: path
       name: id
@@ -76,6 +78,9 @@ patch:
   operationId: patchSegment
   security:
     - userAuth: [ idn:segment:manage ]
+    - applicationAuth: [ idn:segment:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   tags:
     - Segments
   summary: Update Segment
@@ -83,8 +88,6 @@ patch:
     Use this API to update segment fields by using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
     >**Note:** Changes to a segment may take some time to propagate to all identities.
-
-    A token with ORG_ADMIN or API authority is required to call this API.
   parameters:
     - in: path
       name: id

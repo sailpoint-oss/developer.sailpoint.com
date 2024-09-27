@@ -5,10 +5,12 @@ get:
   summary: Permissions for Entitlement Certification Item
   description: >-
     This API returns the permissions associated with an entitlement certification item based on the certification item's
-    ID. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification
-    can also call this API.
+    ID. Reviewers for this certification can also call this API.
   security:
     - userAuth: [ idn:certification:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
   parameters:
     - in: query
       name: filters

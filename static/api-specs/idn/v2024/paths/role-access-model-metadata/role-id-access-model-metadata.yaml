@@ -1,0 +1,99 @@
+post:
+  operationId: updateAttributeKeyAndValueToRole
+  summary: Add a Metadata to Role.
+  description:
+    This API initialize a request to add a single Access Model Metadata to a role by attribute key and attribute value.
+    A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API.
+    Custom metadata update, including ADD and REPLACE need suit licensed.
+  tags:
+    - Roles
+  security:
+    - UserContextAuth: [ idn:role:update, idn:role-checked:update ]
+  parameters:
+    - name: "id"
+      in: "path"
+      required: true
+      schema:
+        type: "string"
+      description: The Id of a role
+      example: c24359c389374d0fb8585698a2189e3d
+    - name: "attributeKey"
+      in: "path"
+      required: true
+      schema:
+        type: "string"
+      description: Technical name of the Attribute.
+      example: "iscPrivacy"
+    - name: "attributeValue"
+      in: "path"
+      required: true
+      schema:
+        type: "string"
+      description: Technical name of the Attribute Value.
+      example: "public"
+  responses:
+    "200":
+      description: Responds with the Role as updated.
+      content:
+        application/json:
+          schema:
+            $ref: "../../../v3/schemas/access/Role.yaml"
+    '400':
+      $ref: '../../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../../v3/responses/500.yaml'
+delete:
+  operationId: deleteMetadataFromRoleByKeyAndValue
+  summary: Remove a Metadata From Role.
+  description:
+    This API initialize a request to remove a single Access Model Metadata from a role by attribute key and value.
+    A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API.
+  tags:
+    - Roles
+  security:
+    - UserContextAuth: [ idn:role:delete, idn:role-checked:delete, idn:role:update, idn:role-checked:update ]
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: The role's id.
+      example: 2c91808c74ff913f0175097daa9d59cd
+    - name: attributeKey
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Technical name of the Attribute.
+      example: "iscPrivacy"
+    - name: attributeValue
+      in: "path"
+      required: true
+      schema:
+        type: string
+      description: Technical name of the Attribute Value.
+      example: "public"
+  responses:
+    "200":
+      description: Responds with the Role as updated.
+      content:
+        application/json:
+          schema:
+            $ref: "../../../v3/schemas/access/Role.yaml"
+    '400':
+      $ref: '../../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../../v3/responses/500.yaml'

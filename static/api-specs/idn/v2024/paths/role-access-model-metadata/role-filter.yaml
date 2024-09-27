@@ -1,0 +1,143 @@
+post:
+  operationId: searchRolesByFilter
+  summary: Filter Roles by Metadata
+  description: >-
+    This API returns a list of Role that filter by metadata and filter, it support filter by  both path parameter and
+    attribute key and values.
+
+    A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, HELPDESK, CERT_ADMIN, REPORT_ADMIN or SOURCE_ADMIN  authority is required to call this API. 
+
+  security:
+    - UserContextAuth: [ idn:role:read, idn:role-checked:read ]
+  tags:
+    - Roles
+  parameters:
+    - name: for-subadmin
+      in: query
+      schema:
+        type: string
+      description: >-
+        If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity.
+        The value of the parameter is either an Identity ID, or the special value **me**,
+        which is shorthand for the calling Identity's ID.
+        A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not
+        a subadmin.
+      example: 5168015d32f890ca15812c9180835d2e
+      required: false
+    - name: limit
+      in: query
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+        maximum: 250
+        default: 50
+      description: >-
+        Max number of results to return
+        See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters)
+        for more information.
+      example: 50
+      required: false
+
+    - name: offset
+      in: query
+      description: >-
+            Offset into the full result set. Usually specified with *limit* to paginate through the results.
+            
+            See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters)
+            for more information.
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+        default: 0
+      required: false
+      example: 0
+
+    - name: count
+      in: query
+      description: >-
+          Boolean indicating whether a total count is returned, factoring in any filter parameters, in the X-Total-Count response header.
+          The value is the total size of the collection that would be returned if limit and offset were ignored. 
+          
+          See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters)
+          for more information.
+      schema:
+        type: boolean
+        default: false
+      required: false
+      example: true
+
+    - name: sorters
+      in: query
+      schema:
+        type: string
+      description: >-
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+      
+      
+        Sorting is supported for the following fields: **name, created, modified**
+      example: name,-modified
+      required: false
+
+    - name: for-segment-ids
+      in: query
+      schema:
+        type: string
+      description: >-
+        If present and not empty, additionally filters Roles to those which are assigned to the Segment(s)
+        with the specified IDs.
+
+        If segmentation is currently unavailable, specifying this parameter results in an error.
+      example: 0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d
+      required: false
+
+    - name: include-unsegmented
+      in: query
+      description: >-
+        Whether or not the response list should contain unsegmented Roles.
+        If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
+      schema:
+        type: boolean
+        default: true
+      required: false
+      example: false
+    - $ref: '../../../v3/parameters/count.yaml'
+
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/role-metadata/RoleListFilterDTO.yaml'
+        example:
+          {
+            "filters": "dimensional eq false",
+            "ammKeyValues": [
+              {
+                "attribute": "iscFederalClassifications",
+                "values": [
+                  "secret"
+                ]
+              }
+            ]
+          }
+
+  responses:
+    '200':
+      description: Responds with A list of Roles
+      content:
+        application/json:
+          schema:
+            type: array
+            allOf:
+              - $ref: '../../../v3/schemas/access/Role.yaml'
+    '400':
+      $ref: '../../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../../v3/responses/500.yaml'

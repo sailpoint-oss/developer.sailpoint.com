@@ -5,10 +5,11 @@ get:
   summary: Lists ProvisioningPolicies
   description: >-
     This end-point lists all the ProvisioningPolicies in IdentityNow.
-
-    A token with API, or ORG_ADMIN authority is required to call this API.
   security:
     - userAuth: [idn:provisioning-policy:read, idn:provisioning-policy:manage]
+    - applicationAuth: [idn:provisioning-policy:read, idn:provisioning-policy:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
     - in: path
       name: sourceId
@@ -50,10 +51,10 @@ post:
     Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
     
     Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
-
-    A token with ORG_ADMIN authority is required to call this API.
   security:
-      - userAuth: [idn:provisioning-policy:manage]
+    - userAuth: [idn:provisioning-policy:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
     - in: path
       name: sourceId

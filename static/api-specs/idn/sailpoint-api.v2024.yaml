@@ -2042,6 +2042,20 @@ paths:
     $ref: './v2024/paths/ears-user-apps.yaml'
   /user-apps/all:
     $ref: './v2024/paths/ears-user-apps-all.yaml'
+  /roles/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}:
+    $ref: './v2024/paths/role-access-model-metadata/role-id-access-model-metadata.yaml'
+  /roles/access-model-metadata/bulk-update/ids:
+    $ref: './v2024/paths/role-access-model-metadata/role-bulk-update-ids.yaml'
+  /roles/access-model-metadata/bulk-update/filter:
+    $ref: './v2024/paths/role-access-model-metadata/role-bulk-update-filter.yaml'
+  /roles/access-model-metadata/bulk-update/query:
+    $ref: './v2024/paths/role-access-model-metadata/role-bulk-update-query.yaml'
+  /roles/access-model-metadata/bulk-update/id:
+    $ref: './v2024/paths/role-access-model-metadata/role-bulk-update-status-id.yaml'
+  /roles/access-model-metadata/bulk-update:
+    $ref: './v2024/paths/role-access-model-metadata/role-bulk-update-status.yaml'
+  /roles/filter:
+    $ref: './v2024/paths/role-access-model-metadata/role-filter.yaml'
 security:
 - userAuth:
   - "sp:scopes:all"
@@ -2188,3 +2202,13 @@ components:
       $ref: ./v3/schemas/BrandingItem.yaml
     BrandingItemCreate:
       $ref: ./v3/schemas/BrandingItemCreate.yaml
+    RoleBulkUpdateResponse:
+      $ref: "./v2024/schemas/role-metadata/RoleBulkUpdateResponse.yaml"
+    RoleListFilterDTO:
+      $ref: "./v2024/schemas/role-metadata/RoleListFilterDTO.yaml"
+    RoleMetadataBulkUpdateByFilterRequest:
+      $ref: "./v2024/schemas/role-metadata/RoleMetadataBulkUpdateByFilterRequest.yaml"
+    RoleMetadataBulkUpdateByIdRequest:
+      $ref: "./v2024/schemas/role-metadata/RoleMetadataBulkUpdateByIdRequest.yaml"
+    RoleMetadataBulkUpdateByQueryRequest:
+      $ref: "./v2024/schemas/role-metadata/RoleMetadataBulkUpdateByQueryRequest.yaml"

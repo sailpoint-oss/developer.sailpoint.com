@@ -5,10 +5,11 @@ get:
   summary: Get Campaign Template Schedule
   description: |
     Use this API to get the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.
-
-    A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   security:
     - userAuth: []
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
   parameters:
     - in: path
       name: id
@@ -45,10 +46,11 @@ put:
   summary: Set Campaign Template Schedule
   description: |
     Use this API to set the schedule for a certification campaign template. If a schedule already exists, the API overwrites it with the new one.
-
-    A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   security:
     - userAuth: []
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
   parameters:
     - in: path
       name: id
@@ -151,10 +153,11 @@ delete:
   summary: Delete Campaign Template Schedule
   description: |
     Use this API to delete the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.
-
-    A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   security:
     - userAuth: []
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
   parameters:
     - in: path
       name: id

@@ -3,6 +3,12 @@ get:
   tags:
   - Account Aggregations
   summary: In-progress Account Aggregation status
+  security:
+    - userAuth: []
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   description: 'This API returns the status of an *in-progress* account aggregation,
     along with the total number of **NEW**, **CHANGED** and **DELETED** accounts found
     since the previous aggregation, and the number of those accounts that have been
@@ -22,8 +28,6 @@ get:
     *Only available up to an hour after the aggregation completes. May respond with
     *404 Not Found* after that.*
 
-
-    A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN or DASHBOARD authority is
     required to call this API.'
   parameters:
   - in: path

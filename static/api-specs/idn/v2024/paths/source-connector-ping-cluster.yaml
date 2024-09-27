@@ -3,13 +3,14 @@ post:
   tags:
   - Sources
   summary: Ping cluster for source connector
-  description: 'This endpoint validates that the cluster being used by the source
+  description: >-
+    This endpoint validates that the cluster being used by the source
     is reachable from IdentityNow.
-
-    A token with ORG_ADMIN authority is required to call this API.'
   security:
-  - userAuth:
-    - idn:source-connector:manage
+    - userAuth:
+      - idn:source-connector:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
   - in: path
     name: sourceId

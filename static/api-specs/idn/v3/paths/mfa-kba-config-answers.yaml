@@ -5,9 +5,7 @@ post:
   summary: Set MFA KBA configuration
   description: >-
     This API sets answers to challenge questions. 
-    Any configured questions omitted from the request are removed from user KBA configuration.
-    
-    A token with USER authority is required to call this API.
+    Any configured questions omitted from the request are removed from user KBA configuration.    
   requestBody:
     required: true
     content:
@@ -29,6 +27,8 @@ post:
           ]
   security:
     - userAuth: [idn:mfa-kba:authenticate]
+  x-sailpoint-userLevels:
+    - USER
   responses:
     "200":
       description: The new KBA configuration for the user.

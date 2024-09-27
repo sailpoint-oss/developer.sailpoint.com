@@ -5,10 +5,11 @@ post:
   summary: Create a Campaign Template
   description: |
     Use this API to create a certification campaign template based on campaign.
-
-    A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   security:
     - userAuth: [idn:campaign-template:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
   requestBody:
     required: true
     content:
@@ -59,10 +60,11 @@ get:
     Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params.
 
     The API returns all campaign templates matching the query parameters. 
-
-    A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   security:
     - userAuth: [idn:campaign-template:read, idn:campaign-template:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
   parameters:
     - $ref: '../parameters/limit.yaml'
     - $ref: '../parameters/offset.yaml'

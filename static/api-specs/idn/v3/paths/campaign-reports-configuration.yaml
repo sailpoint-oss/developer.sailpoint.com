@@ -5,11 +5,11 @@ get:
   summary: Get Campaign Reports Configuration
   description: |
     Use this API to fetch the configuration for certification campaign reports. The configuration includes only one element - identity attributes defined as custom report columns. 
-
-    A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
-
   security:
     - userAuth: [idn:campaign:read, idn:campaign:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
   responses:
     '200':
       description: Campaign report configuration.
@@ -34,11 +34,11 @@ put:
   summary: Set Campaign Reports Configuration
   description: |
     Use this API to overwrite the configuration for campaign reports. 
-
-    A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
-
   security:
     - userAuth: [idn:campaign:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
   requestBody:
     required: true
     description: Campaign report configuration.

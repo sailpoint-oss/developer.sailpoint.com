@@ -3,10 +3,14 @@ post:
   tags:
     - Certifications
   summary: Finalize Identity Certification Decisions
+  security:
+    - userAuth: []
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
   description: >-
     This API finalizes all decisions made on an identity campaign certification and initiates any remediations required.
-    A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can
-    also call this API. This API does not support requests for certifications assigned to Governance Groups.
+    Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
   parameters:
     - in: path
       name: id

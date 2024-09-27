@@ -5,10 +5,10 @@ get:
   summary: Get Lifecycle State
   description: >-
     Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID. 
-
-    A token with ORG_ADMIN or API authority is required to call this API.
   security:
     - userAuth: [idn:identity-profile-lifecycle-state:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
     - in: path
       name: identity-profile-id
@@ -50,10 +50,11 @@ patch:
   summary: Update Lifecycle State
   description: >-
     Use this endpoint to update individual lifecycle state fields, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
-
-    A token with ORG_ADMIN or API authority is required to call this API.
   security:
     - userAuth: [idn:identity-profile-lifecycle-state:manage]
+    - applicationAuth: [idn:identity-profile-lifecycle-state:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
     - in: path
       name: identity-profile-id
@@ -138,10 +139,11 @@ delete:
   summary: Delete Lifecycle State 
   description: >-
     Use this endpoint to delete the lifecycle state by its ID. 
-
-    A token with API, or ORG_ADMIN authority is required to call this API.
   security:
     - userAuth: [idn:identity-profile-lifecycle-state:manage]
+    - applicationAuth: [idn:identity-profile-lifecycle-state:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
     - in: path
       name: identity-profile-id

@@ -3,9 +3,7 @@ get:
   - Connector Rule Management
   summary: Connector-Rule by ID
   operationId: getConnectorRule
-  description: 'Returns the connector rule specified by ID.
-
-    A token with ORG_ADMIN authority is required to call this API.'
+  description: Returns the connector rule specified by ID.
   parameters:
   - name: id
     in: path
@@ -44,17 +42,17 @@ get:
     '500':
       $ref: ../../v3/responses/500.yaml
   security:
-  - userAuth:
-    - idn:rule-management-connector:read
-    - idn:rule-management-connector:manage
+    - userAuth:
+      - idn:rule-management-connector:read
+      - idn:rule-management-connector:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 put:
   tags:
   - Connector Rule Management
   summary: Update a Connector Rule
   description: 'Updates an existing connector rule with the one provided in the request
-    body. Note that the fields ''id'', ''name'', and ''type'' are immutable.
-
-    A token with ORG_ADMIN authority is required to call this API.'
+    body. Note that the fields ''id'', ''name'', and ''type'' are immutable.'
   operationId: updateConnectorRule
   parameters:
   - name: id
@@ -100,15 +98,15 @@ put:
     '500':
       $ref: ../../v3/responses/500.yaml
   security:
-  - userAuth:
-    - idn:rule-management-connector:manage
+    - userAuth:
+      - idn:rule-management-connector:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 delete:
   tags:
   - Connector Rule Management
   summary: Delete a Connector-Rule
-  description: 'Deletes the connector rule specified by the given ID.
-
-    A token with ORG_ADMIN authority is required to call this API.'
+  description: Deletes the connector rule specified by the given ID.
   operationId: deleteConnectorRule
   parameters:
   - name: id
@@ -144,5 +142,7 @@ delete:
     '500':
       $ref: ../../v3/responses/500.yaml
   security:
-  - userAuth:
-    - idn:rule-management-connector:manage
+    - userAuth:
+      - idn:rule-management-connector:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

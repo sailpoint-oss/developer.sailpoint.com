@@ -5,10 +5,12 @@ get:
   summary: List Campaigns
   description: |
     Use this API to get a list of campaigns. This API can provide increased level of detail for each campaign for the correct provided query.
-
-    A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API.
   security:
     - userAuth: [idn:campaign:read, idn:campaign:manage, idn:campaign-report:read, idn:campaign-report:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+    - REPORT_ADMIN
   parameters:
     - in: query
       name: detail
@@ -87,11 +89,12 @@ post:
     - Certification Campaigns
   summary: Create a campaign
   description: |
-    Use this API to create a certification campaign with the information provided in the request body.
-    
-    A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
+    Use this API to create a certification campaign with the information provided in the request body.    
   security:
     - userAuth: [idn:campaign:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
   requestBody:
     required: true
     content:

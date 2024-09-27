@@ -11,8 +11,7 @@ post:
 
     This endpoint can only bulk delete up to a limit of 50 roles per request. 
 
-    A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this endpoint. In addition, a
-    token with ROLE_SUBADMIN authority can only call this endpoint if all roles included in the request are associated
+    A user with ROLE_SUBADMIN authority can only call this endpoint if all roles included in the request are associated
     with sources with management workgroups the ROLE_SUBADMIN is a member of.
   requestBody:
     required: true
@@ -81,3 +80,7 @@ post:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:role-unchecked:manage, idn:role-checked:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN

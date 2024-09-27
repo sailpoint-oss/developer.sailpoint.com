@@ -1,16 +1,14 @@
 post:
   security:
     - userAuth: [idn:sod-violation:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   operationId: startViolationCheck
   tags:
     - SOD Violations
   summary: Check SOD violations
   description: >-
     This API initiates a SOD policy verification asynchronously.
-
-
-    A token with ORG_ADMIN authority is required to call this API.
-
   requestBody:
     required: true
     content:

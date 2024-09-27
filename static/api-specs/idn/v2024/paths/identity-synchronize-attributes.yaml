@@ -3,9 +3,14 @@ post:
   tags:
   - Identities
   summary: Attribute synchronization for single identity.
-  description: This end-point performs attribute synchronization for a selected identity.
-    The endpoint can be called once in 10 seconds per identity. A token with ORG_ADMIN
-    or API authority is required to call this API.
+  security:
+    - userAuth: []
+    - applicationAuth: []
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  description: >-
+    This end-point performs attribute synchronization for a selected identity.
+    The endpoint can be called once in 10 seconds per identity.
   parameters:
   - in: path
     name: identityId

@@ -5,10 +5,11 @@ patch:
   summary: Update a Campaign Template
   description: |
     Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
-
-    A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   security:
     - userAuth: [idn:campaign-template:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
   parameters:
     - in: path
       name: id
@@ -76,10 +77,11 @@ get:
   summary: Get a Campaign Template
   description: |
     Use this API to fetch a certification campaign template by ID.
-
-    A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   security:
     - userAuth: [idn:campaign-template:read, idn:campaign-template:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
   parameters:
     - in: path
       name: id
@@ -123,10 +125,11 @@ delete:
   summary: Delete a Campaign Template
   description: |
     Use this API to delete a certification campaign template by ID.
-
-    A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   security:
     - userAuth: [idn:campaign-template:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
   parameters:
     - in: path
       name: id

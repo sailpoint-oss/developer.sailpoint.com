@@ -3,8 +3,6 @@ patch:
   - SIM Integrations
   summary: Patch a SIM beforeProvisioningRule attribute.
   description: Patch a SIM beforeProvisioningRule attribute given a JsonPatch object.
-    A token with Org Admin or Service Desk Admin authority is required to access this
-    endpoint.
   operationId: patchBeforeProvisioningRule
   requestBody:
     required: true
@@ -51,3 +49,5 @@ patch:
   security:
   - userAuth:
     - idn:service-desk-admin:write
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

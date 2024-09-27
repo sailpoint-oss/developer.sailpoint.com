@@ -15,14 +15,16 @@ post:
     \ existing roles.\n3. Enforce provisioning for any assigned accesses that haven't\
     \ been fulfilled (e.g. failure due to source health).\n4. Recalculate manager\
     \ relationships.\n5. Potentially clean-up identity processing errors, assuming\
-    \ the error has been resolved.\n\nA token with ORG_ADMIN or HELPDESK authority\
-    \ is required to call this API.\n"
+    \ the error has been resolved."
   externalDocs:
     description: Learn more about manually processing identities here
     url: https://documentation.sailpoint.com/saas/help/setup/identity_processing.html
   security:
-  - userAuth:
-    - idn:identity:manage
+    - userAuth:
+      - idn:identity:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - HELPDESK
   requestBody:
     required: true
     content:

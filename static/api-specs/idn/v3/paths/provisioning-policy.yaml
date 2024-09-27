@@ -5,10 +5,13 @@ get:
   summary: Get Provisioning Policy by UsageType
   description: >-
     This end-point retrieves the ProvisioningPolicy with the specified usage on the specified Source in IdentityNow.
-
-    A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
   security:
     - userAuth: [idn:provisioning-policy:read, idn:provisioning-policy-source:read, idn:provisioning-policy:manage, idn:provisioning-policy-source-admin-operations:manage]
+    - applicationAuth: [idn:provisioning-policy:read, idn:provisioning-policy-source:read, idn:provisioning-policy:manage, idn:provisioning-policy-source-admin-operations:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   parameters:
     - in: path
       name: sourceId
@@ -71,10 +74,13 @@ put:
     Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
     
     Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
-
-    A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
   security:
     - userAuth: [idn:provisioning-policy:manage, idn:provisioning-policy-source-admin-operations:manage]
+    - applicationAuth: [idn:provisioning-policy:manage, idn:provisioning-policy-source-admin-operations:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   parameters:
     - in: path
       name: sourceId
@@ -143,10 +149,13 @@ patch:
     Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
     
     Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
-
-    A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
   security:
     - userAuth: [idn:provisioning-policy:update]
+    - applicationAuth: [idn:provisioning-policy:update]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   parameters:
     - in: path
       name: sourceId
@@ -236,10 +245,11 @@ delete:
   summary: Delete Provisioning Policy by UsageType
   description: >-
     Deletes the provisioning policy with the specified usage on an application.
-
-    A token with API, or ORG_ADMIN authority is required to call this API.
   security:
     - userAuth: [idn:provisioning-policy:manage]
+    - applicationAuth: [idn:provisioning-policy:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
     - in: path
       name: sourceId

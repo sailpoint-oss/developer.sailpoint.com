@@ -7,8 +7,6 @@ post:
     Use this API to generate a non-persisted preview of the identity object after applying `IdentityAttributeConfig` sent in request body.
 
     This API only allows `accountAttribute`, `reference` and `rule` transform types in the `IdentityAttributeConfig` sent in the request body.
-
-    A token with ORG_ADMIN authority is required to call this API to generate an identity preview.
   requestBody:
     description: Identity Preview request body.
     required: true
@@ -36,3 +34,5 @@ post:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:identity-profile:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

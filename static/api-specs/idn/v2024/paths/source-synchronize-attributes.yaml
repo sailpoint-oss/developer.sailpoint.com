@@ -3,9 +3,12 @@ post:
   tags:
   - Sources
   summary: Synchronize single source attributes.
-  description: 'This end-point performs attribute synchronization for a selected source.
-
-    A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.'
+  security:
+    - userAuth: []
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+  description: This end-point performs attribute synchronization for a selected source.
   parameters:
   - in: path
     name: id

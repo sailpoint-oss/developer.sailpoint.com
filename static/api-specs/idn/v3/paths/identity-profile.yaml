@@ -5,9 +5,6 @@ get:
   summary: Get single Identity Profile
   description: >-
     This returns a single Identity Profile based on ID.
-
-
-    A token with ORG_ADMIN or API authority is required to call this API.
   parameters:
     - in: path
       name: identity-profile-id
@@ -38,7 +35,9 @@ get:
       $ref: '../responses/500.yaml'
   security:
     - userAuth: [idn:identity-profile:read]
-
+    - applicationAuth: [idn:identity-profile:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 delete:
   operationId: deleteIdentityProfile
   tags:
@@ -49,10 +48,7 @@ delete:
 
 
     On success, this endpoint will return a reference to the bulk delete task result.
-    
-
-    A token with ORG_ADMIN authority is required to call this API.
-    
+        
     
     The following rights are required to access this endpoint: idn:identity-profile:delete
   parameters:
@@ -86,7 +82,8 @@ delete:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:identity-profile:delete]
-
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 patch:
   operationId: updateIdentityProfile
   tags:
@@ -94,11 +91,8 @@ patch:
   summary: Update the Identity Profile
   description: >-
     This updates the specified Identity Profile.
-    
+      
 
-    A token with ORG_ADMIN authority is required to call this API to update the Identity Profile.
-    
-    
     Some fields of the Schema cannot be updated. These fields are listed below:
 
     * id
@@ -175,3 +169,5 @@ patch:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:identity-profile:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

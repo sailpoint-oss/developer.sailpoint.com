@@ -45,7 +45,7 @@ post:
   requestBody:
     description: Sed Batch Request
     content:
-      application/json:
+      application/json-patch+json:
         schema:
           $ref: '../schemas/SedBatchRequest.yaml'
   responses:

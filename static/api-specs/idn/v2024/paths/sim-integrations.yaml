@@ -2,8 +2,7 @@ put:
   tags:
   - SIM Integrations
   summary: Update an existing SIM integration
-  description: Update an existing SIM integration.  A token with Org Admin or Service
-    Desk Admin authority is required to access this endpoint.
+  description: Update an existing SIM integration.
   operationId: putSIMIntegration
   requestBody:
     description: The full DTO of the integration containing the updated model
@@ -48,14 +47,15 @@ put:
     '500':
       $ref: ../../v3/responses/500.yaml
   security:
-  - userAuth:
-    - idn:service-desk-admin:create
+    - userAuth:
+      - idn:service-desk-admin:create
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 get:
   tags:
   - SIM Integrations
   summary: Get a SIM integration details.
-  description: Get the details of a SIM integration. A token with Org Admin or Service
-    Desk Admin authority is required to access this endpoint.
+  description: Get the details of a SIM integration.
   operationId: getSIMIntegration
   parameters:
   - name: id
@@ -93,14 +93,15 @@ get:
     '500':
       $ref: ../../v3/responses/500.yaml
   security:
-  - userAuth:
-    - idn:service-desk-admin:read
+    - userAuth:
+      - idn:service-desk-admin:read
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 delete:
   tags:
   - SIM Integrations
   summary: Delete a SIM integration
-  description: Get the details of a SIM integration. A token with Org Admin or Service
-    Desk Admin authority is required to access this endpoint.
+  description: Get the details of a SIM integration.
   operationId: deleteSIMIntegration
   parameters:
   - name: id
@@ -134,14 +135,15 @@ delete:
     '500':
       $ref: ../../v3/responses/500.yaml
   security:
-  - userAuth:
-    - idn:service-desk-admin:write
+    - userAuth:
+      - idn:service-desk-admin:write
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 patch:
   tags:
   - SIM Integrations
   summary: Patch a SIM attribute.
-  description: Patch a SIM attribute given a JsonPatch object. A token with Org Admin
-    or Service Desk Admin authority is required to access this endpoint.
+  description: Patch a SIM attribute given a JsonPatch object.
   operationId: patchSIMAttributes
   requestBody:
     required: true
@@ -186,5 +188,7 @@ patch:
     '500':
       $ref: ../../v3/responses/500.yaml
   security:
-  - userAuth:
-    - idn:service-desk-admin:write
+    - userAuth:
+      - idn:service-desk-admin:write
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

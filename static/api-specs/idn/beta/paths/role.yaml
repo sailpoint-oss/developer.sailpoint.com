@@ -5,7 +5,6 @@ get:
   summary: Get a Role
   description: >-
     This API returns a Role by its ID.
-
     
     A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a
     token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated
@@ -37,7 +36,9 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - userAuth: [idn:role-unchecked:read, idn:role-unchecked:manage, idn:role-checked:manage, idn:role-checked:read]
+
+    - UserContextAuth: [idn:role-unchecked:read, idn:role-unchecked:manage, idn:role-checked:manage, idn:role-checked:read]
+
 patch:
   operationId: patchRole
   tags:
@@ -69,7 +70,8 @@ patch:
     * revokeRequestConfig
 
     * segments
-
+    
+    * accessModelMetadata   
 
     A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a
     token with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated
@@ -136,16 +138,16 @@ patch:
                   "op": "replace",
                   "path": "/membership",
                   "value": {
-                        "type": "IDENTITY_LIST",
-                        "identities": [
-                          {
-                            "id": "2c91808973fe906c0174262092014ed9"
-                          },
-                          {
-                            "id": "2c918086262092014ed94fb8a47612f3"
-                          }
-                        ]
-                    }
+                    "type": "IDENTITY_LIST",
+                    "identities": [
+                      {
+                        "id": "2c91808973fe906c0174262092014ed9"
+                      },
+                      {
+                        "id": "2c918086262092014ed94fb8a47612f3"
+                      }
+                    ]
+                  }
                 }
               ]
 
@@ -180,9 +182,9 @@ patch:
 
           Add a New Clause as the Child of an Existing Standard Expression:
             description: >-
-                This example shows how to add a child clause to an existing STANDARD criteria expression.
+              This example shows how to add a child clause to an existing STANDARD criteria expression.
             value:
-               [
+              [
                 {
                   "op": "add",
                   "path": "/membership/criteria/children/-",
@@ -196,7 +198,25 @@ patch:
                   }
                 }
               ]
-                             
+
+          Assign a Access Model Metadata to a role:
+            description: This example shows how to assign a existing metadata to a role.
+            value:
+              [
+                {
+                  "op": "add",
+                  "path": "/accessModelMetadata/attributes/0",
+                  "value": {
+                    "key": "iscFederalClassifications",
+                    "values": [
+                      {
+                        "value": "secret"
+                      }
+                    ]
+                  }
+                }
+              ]
+
     required: true
   responses:
     '200':
@@ -216,7 +236,9 @@ patch:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - userAuth: [idn:role-unchecked:manage,idn:role-checked:manage]
+
+    - UserContextAuth: [idn:role-unchecked:manage,idn:role-checked:manage]
+
 delete:
   operationId: deleteRole
   tags:
@@ -252,4 +274,6 @@ delete:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - userAuth: [idn:role-unchecked:manage,idn:role-checked:manage]
+
+    - UserContextAuth: [idn:role-unchecked:manage,idn:role-checked:manage]
+

@@ -2,7 +2,7 @@ get:
   tags:
     - Service Desk Integration
   summary: Get the time check configuration
-  description: Get the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+  description: Get the time check configuration of queued SDIM tickets.
   operationId: getStatusCheckDetails
   responses:
     "200":
@@ -25,12 +25,13 @@ get:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:service-desk-admin:read,idn:service-desk-integration:read]
-
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 put:
   tags:
     - Service Desk Integration
   summary: Update the time check configuration
-  description: Update the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+  description: Update the time check configuration of queued SDIM tickets.
   operationId: updateStatusCheckDetails
   requestBody:
     description: the modified time check configuration
@@ -60,3 +61,5 @@ put:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:service-desk-admin:manage,idn:service-desk-integration:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

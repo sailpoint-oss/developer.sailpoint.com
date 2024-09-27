@@ -2,7 +2,7 @@ get:
   tags:
     - Service Desk Integration
   summary: Get a Service Desk integration
-  description: Get an existing Service Desk integration by ID.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+  description: Get an existing Service Desk integration by ID.
   operationId: getServiceDeskIntegration
   parameters:
     - name: id
@@ -35,12 +35,14 @@ get:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:service-desk-admin:read,idn:service-desk-integration:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 
 put:
   tags:
     - Service Desk Integration
   summary: Update a Service Desk integration
-  description: Update an existing Service Desk integration by ID with updated value in JSON form as the request body.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+  description: Update an existing Service Desk integration by ID with updated value in JSON form as the request body.
   operationId: putServiceDeskIntegration
   parameters:
     - name: id
@@ -80,12 +82,14 @@ put:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:service-desk-admin:manage,idn:service-desk-integration:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 
 delete:
   tags:
     - Service Desk Integration
   summary: Delete a Service Desk integration
-  description: Delete an existing Service Desk integration by ID.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+  description: Delete an existing Service Desk integration by ID.
   operationId: deleteServiceDeskIntegration
   parameters:
     - name: id
@@ -114,6 +118,8 @@ delete:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:service-desk-admin:manage,idn:service-desk-integration:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 
 patch:
   operationId: patchServiceDeskIntegration
@@ -183,3 +189,5 @@ patch:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:service-desk-admin:manage,idn:service-desk-integration:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

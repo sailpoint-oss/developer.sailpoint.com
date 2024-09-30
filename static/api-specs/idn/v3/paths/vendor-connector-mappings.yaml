@@ -4,10 +4,10 @@ get:
         - 'idn:application-discovery:read'
   operationId: getVendorConnectorMappings
   tags:
-    - Application Discovery
-  summary: List vendor connector mappings
+    - Vendor Connector Mappping
+  summary: List Vendor Connector Mappings
   description: >
-    Retrieves a list of mappings between SaaS vendors and IDN connectors, detailing the connections established for correlation.
+    Get a list of mappings between SaaS vendors and ISC connectors, detailing the connections established for correlation.
   responses:
     '200':
       description: Successfully retrieved list.
@@ -72,9 +72,9 @@ post:
   operationId: createVendorConnectorMapping
   tags:
     - Vendor Connector Mappings
-  summary: Create a vendor connector mapping
+  summary: Create Vendor Connector Mapping
   description: >
-    Creates a new mapping between a SaaS vendor and an IDN connector to establish correlation paths.
+    Create a new mapping between a SaaS vendor and an ISC connector to establish correlation paths.
   requestBody:
     required: true
     content:
@@ -108,9 +108,9 @@ delete:
   operationId: deleteVendorConnectorMapping
   tags:
     - Vendor Connector Mappings
-  summary: Delete a vendor connector mapping
+  summary: Delete Vendor Connector Mapping
   description: >
-    Soft deletes a mapping between a SaaS vendor and an IDN connector, removing the established correlation.
+    Soft delete a mapping between a SaaS vendor and an ISC connector, removing the established correlation.
   requestBody:
     required: true
     content:

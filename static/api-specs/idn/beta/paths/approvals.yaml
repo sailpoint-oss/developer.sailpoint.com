@@ -6,7 +6,7 @@ get:
     - Approvals
   summary: Get Approvals
   description: >-
-    Retrieve a list of approvals, which can be filtered by requester ID, status, or reference type. "Mine" query parameter can be used and it will return all approvals for the current approver. This endpoint is for generic approvals, different than the access-request-approval endpoint and does not include access-request-approvals. 
+    Get a list of approvals, which can be filtered by requester ID, status, or reference type. You can use the "Mine" query parameter to return all approvals for the current approver. This endpoint is for generic approvals, unlike the access-request-approval endpoint, and does not include access-request-approvals. 
     
     Absence of all query parameters will will default to mine=true.
   parameters:
@@ -15,7 +15,7 @@ get:
       schema:
         type: boolean
       description: >-
-        Returns the list of approvals for the current caller
+        Returns the list of approvals for the current caller.
       example:
         "true"
     - in: query
@@ -23,7 +23,7 @@ get:
       schema:
         type: string
       description: >-
-        Returns the list of approvals for a given requester ID
+        Returns the list of approvals for a given requester ID.
       example:
         "17e633e7d57e481569df76323169deb6a"
     - in: query
@@ -45,7 +45,7 @@ get:
         "filters=status eq PENDING"
   responses:
     '200':
-      description: List of Approvals
+      description: List of approvals.
       content:
         application/json:
           schema:

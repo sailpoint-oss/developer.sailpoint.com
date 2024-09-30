@@ -4,7 +4,7 @@ get:
     - Application Discovery
   summary: Get Discovered Application by ID
   description: >
-    This API returns a discovered application with its associated sources based on the ID provided.
+    Get the discovered application, along with with its associated sources, based on the provided ID.
   security:
     - userAuth:
         - 'idn:application-discovery:read'
@@ -14,11 +14,11 @@ get:
       required: true
       schema:
         type: "string"
-      description: ID of the discovered application.
+      description: Discovered application's ID. 
       example: "123e4567-e89b-12d3-a456-426655440000"
   responses:
     '200':
-      description: Returns the discovered application along with its associated sources.
+      description: Returns the discovered application, along with its associated sources.
       content:
         application/json:
           example:
@@ -50,11 +50,11 @@ patch:
   operationId: patchDiscoveredApplicationByID
   tags:
     - Application Discovery
-  summary: Patch Discovered Application by Id
+  summary: Patch Discovered Application by ID
   description: >-
-    This API updates an existing discovered application using a limited version of the [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
+    Update an existing discovered application by using a limited version of the [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 
-    The following fields are patchable:
+    You can patch these fields:
     - **associatedSources**
     - **dismissed**
   security:
@@ -66,7 +66,7 @@ patch:
       required: true
       schema:
         type: "string"
-      description: ID of the discovered application.
+      description: Discovered application's ID.
       example: "123e4567-e89b-12d3-a456-426655440000"
   requestBody:
     content:
@@ -84,7 +84,7 @@ patch:
           ]
         examples:
           Dismiss an app:
-            description: This example shows how use patch to set the dismissal status of a correlated application to true
+            description: This example shows how use patch to set the dismissal status of a correlated application to true.
             value:
               [
                 {
@@ -109,7 +109,7 @@ patch:
               ]
           Add an associated source to a correlated application:
             description: >-
-              This example shows how to use patch to add an associated source to a correlated application
+              This example shows how to use patch to add an associated source to a correlated application.
             value:
               [
                 {

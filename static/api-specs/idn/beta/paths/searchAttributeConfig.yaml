@@ -2,10 +2,10 @@ post:
   operationId: createSearchAttributeConfig
   tags:
     - Search Attribute Configuration
-  summary: Configure/create extended search attributes in IdentityNow.
+  summary: Create Extended Search Attributes
   description: >-
-    This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs
-    to attribute names.  It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig.
+    Create and configure extended search attributes. This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs
+    to attribute names. It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig.
 
     A token with ORG_ADMIN authority is required to call this API.
   requestBody:
@@ -42,14 +42,14 @@ get:
   operationId: getSearchAttributeConfig
   tags:
     - Search Attribute Configuration
-  summary: Retrieve a list of extended search attributes in IdentityNow.
+  summary: List Extended Search Attributes
   description: >-
-    This API retrieves a list of attribute/application associates currently configured in IdentityNow.
+    Get a list of attribute/application associates currently configured in Identity Security Cloud (ISC).
 
     A token with ORG_ADMIN authority is required to call this API.
   responses:
     '200':
-      description: List of attribute configurations in IdentityNow.
+      description: List of attribute configurations in ISC.
       content:
         application/json:
           schema:

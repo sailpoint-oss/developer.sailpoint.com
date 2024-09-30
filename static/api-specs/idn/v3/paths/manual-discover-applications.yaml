@@ -1,11 +1,11 @@
 post:
-  summary: CSV Upload to discover applications
+  summary: Upload CSV to Discover Applications
   tags:
     - Application Discovery
   description: >-
-    This endpoint supports uploading a CSV file with application data for manual correlation to specific IDN connectors. 
+    Uploading a CSV file with application data for manual correlation to specific ISC connectors. 
     
-    If a suitable IDN connector is unavailable, the system will recommend generic connectors instead.
+    If a suitable ISC connector is unavailable, the system will recommend generic connectors instead.
   security:
     - userAuth:
         - 'idn:application-discovery:write'

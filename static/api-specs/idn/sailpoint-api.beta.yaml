@@ -195,9 +195,17 @@ tags:
       Administrators can select the source account to view its attributes, entitlements, and the last time the account's password was changed.
 
       Refer to [Managing User Accounts](https://documentation.sailpoint.com/saas/help/common/users/user_access.html#managing-user-accounts) for more information about accounts.
+  - name: Apps 
+    description: |
+      Use this API to implement source application functionality. With this functionality in place, you can create, customize, and manage applications within sources. 
   - name: Application Discovery
     description: |
       Use this API to discover applications within your Okta connector and receive connector recommendations by manually uploading application names.
+  - name: Approvals
+    description: |
+      Use this API to implement approval functionality. With this functionality in place, you can get generic approvals and modify them. 
+      
+      The main advantages this API has vs [Access Request Approvals](https://developer.sailpoint.com/docs/api/beta/access-request-approvals) are that you can use it to get generic approvals individually or in batches and make changes to those approvals. 
   - name: Auth Profile
     description: |
       Auth Profile - Represents authentication configuration for an Identity Profile. This object gets created when an Identity Profile is created.
@@ -718,7 +726,26 @@ tags:
       Do not configure a role to be requestable without establishing a secure access request approval process for that role first.
 
       Refer to [Working with Roles](https://documentation.sailpoint.com/saas/help/access/roles.html) for more information about roles.
-  - name: Search Attribute Configuration
+  - name: Search Attribute Configuration 
+    description: |
+      Use this API to implement search attribute configuration functionality, along with [Search](https://developer.sailpoint.com/docs/api/v3/search).
+      With this functionality in place, administrators can create custom search attributes that and run extended searches based on those attributes to further narrow down their searches and get the information and insights they want. 
+
+      Identity Security Cloud (ISC) enables organizations to store user data from across all their connected sources and manage the users' access, so the ability to query and filter that data is essential.  
+      Its search goes through all those sources and finds the results quickly and specifically. 
+
+      The search query is flexible - it can be very broad or very narrow. 
+      The search only returns results for searchable objects it is filtering for. 
+      The following objects are searchable: identities, roles, access profiles, entitlements, events, and account activities. 
+      By default, no filter is applied, so a search for "Ad" returns both the identity "Adam.Archer" as well as the role "Administrator."
+
+      Users can further narrow their results by using ISC's specific syntax and punctuation to structure their queries. 
+      For example, the query "attributes.location:austin AND NOT manager.name:amanda.ross" returns all results associated with the Austin location, but it excludes those associated with the manager Amanda Ross.
+      Refer to [Building a Search Query](https://documentation.sailpoint.com/saas/help/search/building-query.html) for more information about how to construct specific search queries. 
+
+      Refer to [Using Search](https://documentation.sailpoint.com/saas/help/search/index.html) for more information about ISC's search and its different possibilities. 
+
+      With Search Attribute Configuration, administrators can create, manage, and run searches based on the attributes they want to search. 
   - name: Segments
     description: |
       Use this API to implement and customize access request segment functionality. 
@@ -998,6 +1025,12 @@ tags:
       Use this API to manage metadata about your User Interface.
       
       For example you can set the iFrameWhitelist parameter to permit another domain to encapsulate IDN within an iframe or set the usernameEmptyText to change the placeholder text for Username on your tenant's login screen.
+  - name: Vendor Connector Mappings 
+    description: |
+      Vendors use ISC connectors to connect their source data to ISC, but the data in their source and the data in ISC may be stored in different formats. 
+      Connector mappings allow vendors to match their data on both sides of the connection. 
+      The vendors can then track and manage access across their sources from ISC. 
+      This API allows you to create and manage these vendor connector mappings. 
   - name: Work Items
     description: |
       Use this API to implement work item functionality.

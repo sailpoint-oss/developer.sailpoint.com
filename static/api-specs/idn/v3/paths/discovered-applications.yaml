@@ -2,9 +2,9 @@ get:
   operationId: getDiscoveredApplications
   tags:
     - Application Discovery
-  summary: Retrieve discovered applications for tenant
+  summary: Get Discovered Applications for Tenant
   description: >
-    Fetches a list of applications that have been identified within the environment. This includes details such as application names, discovery dates, potential correlated saas_vendors and related suggested connectors.
+    Get a list of applications that have been identified within the environment. This includes details such as application names, discovery dates, potential correlated saas_vendors and related suggested connectors.
   security:
     - userAuth:
         - 'idn:application-discovery:read'

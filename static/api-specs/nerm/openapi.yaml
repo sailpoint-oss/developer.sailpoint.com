@@ -14,6 +14,9 @@ servers:
         description: Tenant name assigned to customer
 
 paths:
+# Audit Events
+  /audit_events/query:
+    $ref: "./paths/audit_events.yaml"
 # Users
   /user:
     $ref: "./paths/user.yaml"

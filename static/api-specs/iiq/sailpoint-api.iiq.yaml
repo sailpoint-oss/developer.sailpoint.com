@@ -7695,7 +7695,7 @@ paths:
                   totalResults:
                     description: Number of User resources returned
                     type: integer
-                    example: '18,'
+                    example: 18
                   startIndex:
                     description: The starting index of the resource set list. Can be specified with startIndex query parameter.
                     type: integer
@@ -7763,7 +7763,7 @@ paths:
                               primary:
                                 description: A Boolean value indicating the primary e-mail address. The primary attribute value 'true' MUST appear no more than once.
                                 type: boolean
-                                example: 'true'
+                                example: true
                         'urn:ietf:params:scim:schemas:sailpoint:1.0:User':
                           description: Additional attributes of the User.
                           type: object
@@ -7852,7 +7852,7 @@ paths:
                               type: array
                               items:
                                 type: string
-                              example: '["SystemAdministrator"]'
+                              example: ['SystemAdministrator']
                             riskScore:
                               description: Composite Risk Score of this User.
                               type: integer

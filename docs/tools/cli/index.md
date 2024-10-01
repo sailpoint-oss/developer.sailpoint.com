@@ -114,7 +114,7 @@ To configure the CLI to connect and authenticate to your ISC tenant, you must do
 To configure your first environment for OAuth run the following command:
 
 ```bash
-sail env {environment}
+sail env create {environment}
 ```
 
 with `{environment}` being the name of the environment you wish to configure.
@@ -132,7 +132,7 @@ With the default environment values populated you can immediately begin using th
 
 After you have configured your environment, if you want to use PAT authentication, run the `sail set pat` command. You can then provide your PAT client ID and client secret.
 
-![Configure PAT](https://github.com/sailpoint-oss/sailpoint-cli/blob/main/assets/img/vhs/configure/configure-pat.gif?raw=true)
+![Configure PAT](https://github.com/sailpoint-oss/sailpoint-cli/blob/main/assets/img/vhs/configure/configure-environment.gif?raw=true)
 
 Once you have provided your client ID and client secret, you can swap your auth method to PAT using `sail set auth pat`.
 
@@ -153,9 +153,9 @@ To get your environment variables to persist across terminal sessions, add these
 To store your configuration in environment variables on **Windows**, run Powershell as an administrator and run these commands:
 
 ```powershell
-$env:SAIL_BASE_URL=https://{tenant}.api.identitynow.com
-$env:SAIL_CLIENT_ID={clientID}
-$env:SAIL_CLIENT_SECRET={clientSecret}
+$env:SAIL_BASE_URL='https://{tenant}.api.identitynow.com'
+$env:SAIL_CLIENT_ID='{clientID}'
+$env:SAIL_CLIENT_SECRET='{clientSecret}'
 ```
 
 To get your environment variables to persist across PowerShell sessions, run this command instead:
@@ -163,7 +163,7 @@ To get your environment variables to persist across PowerShell sessions, run thi
 ```powershell
 [System.Environment]::SetEnvironmentVariable('SAIL_BASE_URL','https://{tenant}.api.identitynow.com')
 [System.Environment]::SetEnvironmentVariable('SAIL_CLIENT_ID','{clientID}')
-[System.Environment]::SetEnvironmentVariable('SAIL_CLIENT_SECRET','clientSecret}')
+[System.Environment]::SetEnvironmentVariable('SAIL_CLIENT_SECRET','{clientSecret}')
 ```
 
 ## Usage

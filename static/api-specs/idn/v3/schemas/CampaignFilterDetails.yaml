@@ -1,6 +1,10 @@
 type: object
 description: Campaign Filter Details
 properties:
+  id:
+    type: string
+    description: The unique ID of the campaign filter
+    example: 5ec18cef39020d6fd7a60ad3970aba61
   name:
     type: string
     description: Campaign filter name.
@@ -63,7 +67,14 @@ properties:
         "children": null
       }
     ]
+  isSystemFilter:
+    type: boolean
+    default: false
+    description: If true, the filter is created by the system. If false, the filter is created by a user.
+    example: false
 required:
+  - id
   - name
   - owner
   - mode
+  - isSystemFilter

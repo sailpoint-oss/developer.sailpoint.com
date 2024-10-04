@@ -1,8 +1,7 @@
 allOf:
   - $ref: "./SpConfigExportJob.yaml"
   - type: object
-    required:
-      - completed
+    nullable: true
     properties:
       completed:
         type: string

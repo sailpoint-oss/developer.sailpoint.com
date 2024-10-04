@@ -1,11 +1,16 @@
 
 get:
   operationId: getSourceSchemas
+  security:
+    - userAuth: [ idn:source-schema:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Sources
   summary: List Schemas on Source
-  description: |
-    Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC).
+  description: Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC).
   parameters:
     - in: path
       name: sourceId
@@ -23,8 +28,20 @@ get:
           - group 
           - user
       description: >-
-        If this is set to `group`, the API filters the account schema and only returns only group schemas. If this is set to `user`, the API returns the account schema for the source. 
+        If set to 'group', then the account schema is filtered and only group schemas are returned. Only a
+        value of 'group' is recognized presently. 
+
+        Note: The API will check whether include-types is group or not,
+        if not, it will list schemas based on include-names, if include-names is not provided, it will list all schemas.
       example: group
+    - in: query
+      name: include-names
+      required: false
+      schema:
+        type: string
+      description: >-
+        A comma-separated list of schema names to filter result.
+      example: account
   responses:
     '200':
       description: The schemas were successfully retrieved.
@@ -48,6 +65,11 @@ get:
       $ref: '../../v3/responses/500.yaml'
 post:
   operationId: createSourceSchema
+  security:
+    - userAuth: [ idn:source-schema:create ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
   tags:
     - Sources
   summary: Create Schema on Source 

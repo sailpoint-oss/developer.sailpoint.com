@@ -87,9 +87,12 @@ properties:
         nullable: true
         default: false
     dimensionRefs:
-        description: TBD
-        type: string
+        type: array
+        items:
+            $ref: './DimensionRef.yaml'
         nullable: true
+        description: >-
+            List of references to dimensions to which this Role is assigned. This field is only relevant if the Role is dimensional.
     accessModelMetadata:
         type: array
         items:

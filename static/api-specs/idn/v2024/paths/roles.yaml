@@ -1,0 +1,165 @@
+get:
+  operationId: listRoles
+  tags:
+    - Roles
+  summary: List Roles
+  description: >-
+    This API returns a list of Roles.
+
+
+    A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to
+    call this API.
+  parameters:
+    - in: query
+      name: for-subadmin
+      schema:
+        type: string
+      description: >-
+        If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity.
+        The value of the parameter is either an Identity ID, or the special value **me**,
+        which is shorthand for the calling Identity's ID.
+        A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not
+        a subadmin.
+      example: 5168015d32f890ca15812c9180835d2e
+      required: false
+    - $ref: '../../v3/parameters/limit50.yaml'
+    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: '../../v3/parameters/count.yaml'
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+        
+        
+        Filtering is supported for the following fields and operators:
+
+
+        **id**: *eq, in*
+        
+        
+        **name**: *eq, sw*
+        
+        
+        **created**: *gt, lt, ge, le*
+
+
+        **modified**: *gt, lt, ge, le*
+        
+        
+        **owner.id**: *eq, in*
+        
+        
+        **requestable**: *eq*
+      example: requestable eq false
+      required: false
+    - in: query
+      name: sorters
+      schema:
+        type: string
+        format: comma-separated
+      description: >-
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+        
+        
+        Sorting is supported for the following fields: **name, created, modified**
+      example: name,-modified
+      required: false
+    - in: query
+      name: for-segment-ids
+      schema:
+        type: string
+        format: comma-separated
+      description: >-
+        If present and not empty, additionally filters Roles to those which are assigned to the Segment(s)
+        with the specified IDs.
+
+
+        If segmentation is currently unavailable, specifying this parameter results in an error.
+      example: 0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d
+      required: false
+    - in: query
+      name: include-unsegmented
+      schema:
+        type: boolean
+        default: true
+      description: >-
+        Whether or not the response list should contain unsegmented Roles.
+        If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
+      example: false
+      required: false
+  responses:
+    '200':
+      description: List of Roles
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../v3/schemas/access/Role.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:role-unchecked:read, idn:role-unchecked:manage, idn:role-checked:manage, idn:role-checked:read]
+  x-sailpoint-userLevels:
+      - ORG_ADMIN
+      - ROLE_ADMIN
+      - ROLE_SUBADMIN
+
+post:
+  operationId: createRole
+  tags:
+    - Roles
+  summary: Create a Role
+  description: >-
+    This API creates a role.
+
+
+    You must have a token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority to
+    call this API. 
+    
+
+    In addition, a ROLE_SUBADMIN may not create a role including an access profile if that access profile
+    is associated with a source the ROLE_SUBADMIN is not associated with themselves. 
+
+
+    The maximum supported length for the description field is 2000 characters.
+    Longer descriptions will be preserved for existing roles. However, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../v3/schemas/access/Role.yaml'
+  responses:
+    '201':
+      description:  Role created
+      content:
+        application/json:
+          schema:
+            $ref: '../../v3/schemas/access/Role.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:role-unchecked:manage, idn:role-checked:manage]
+  x-sailpoint-userLevels:
+        - ORG_ADMIN
+        - ROLE_ADMIN
+        - ROLE_SUBADMIN

@@ -36,12 +36,11 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - userAuth: [idn:role-unchecked:read, idn:role-unchecked:manage, idn:role-checked:manage, idn:role-checked:read]
+    - userAuth: [ idn:role-unchecked:read, idn:role-unchecked:manage, idn:role-checked:manage, idn:role-checked:read ]
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - ROLE_ADMIN
     - ROLE_SUBADMIN
-
 patch:
   operationId: patchRole
   tags:
@@ -73,7 +72,7 @@ patch:
     * revokeRequestConfig
 
     * segments
-
+    
     * accessModelMetadata   
 
     A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a
@@ -85,7 +84,7 @@ patch:
     Longer descriptions will be preserved for existing roles, however, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
 
 
-    When you use this API to modify a role's membership identities, you can only modify up to a limit of 500 membership identities at a time. 
+    When you use this API to modify a role's membership identities, you can only modify up to a limit of 500 membership identities at a time.
   parameters:
     - name: id
       in: path
@@ -202,7 +201,6 @@ patch:
                 }
               ]
 
-
           Assign a Access Model Metadata to a role:
             description: This example shows how to assign a existing metadata to a role.
             value:
@@ -218,16 +216,6 @@ patch:
                       }
                     ]
                   }
-                }
-              ]
-          Make a Role Dimensional:
-            description: This example demonstrates how to transform a role into a dynamic role.
-            value:
-              [
-                {
-                  "op": "replace",
-                  "path": "/dimensional",
-                  "value": true
                 }
               ]
 
@@ -255,7 +243,6 @@ patch:
     - ORG_ADMIN
     - ROLE_ADMIN
     - ROLE_SUBADMIN
-
 delete:
   operationId: deleteRole
   tags:
@@ -291,9 +278,8 @@ delete:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - userAuth: [idn:role-unchecked:manage,idn:role-checked:manage]
+    - userAuth: [ idn:role-unchecked:manage,idn:role-checked:manage ]
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - ROLE_ADMIN
     - ROLE_SUBADMIN
-

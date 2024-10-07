@@ -418,6 +418,16 @@ tags:
       For example, an administrator can use the pageId forget-username:user-email to set the custom text for the case when users forget their usernames and must enter their emails.
 
       Refer to [Creating Custom Instruction Text](https://documentation.sailpoint.com/saas/help/pwd/pwd_reset.html#creating-custom-instruction-text) for more information about creating custom password instructions.
+  - name: Dimensions
+    description:
+      Use this API to implement and customize dynamic role functionality.
+      With this functionality in place, administrators can create dimensions and configure them for use throughout Identity Security Cloud.
+      Identity Security Cloud can use established criteria to automatically assign the dimensions to qualified users. This enables users to get all the access they need quickly and securely and administrators to spend their time on other tasks.
+      Entitlements represent the most granular level of access in Identity Security Cloud.
+      
+      Access profiles represent the next level and often group entitlements.
+      Dimension represent access selectively based on the evaluation of contextual information that is available or provided. Each Dimension include context attributes and access selection expressions which map criteria to access right assignments. Each dimension can contain up to 5 context attributes.
+      Dynamic Access Roles represent the broadest level of access and often group access profiles ,entitlements and dimensions.Each Dynamic Access Role may contain one or more Dimensions.
   - name: Discovered Applications
     description: |
       Use this API to retrieve all the available discovered apps for a given tenant id.
@@ -1500,6 +1510,16 @@ paths:
     $ref: ./v3/paths/role-bulk-delete.yaml
   /roles/{id}/assigned-identities:
     $ref: ./v3/paths/role-assigned-identities.yaml
+  /roles/{roleId}/dimensions:
+    $ref: './beta/paths/dimensions.yaml'
+  /roles/{roleId}/dimensions/{dimensionId}:
+    $ref: './beta/paths/dimension.yaml'
+  /roles/{roleId}/dimensions/bulk-delete:
+    $ref: './beta/paths/dimension-bulk-delete.yaml'
+  /roles/{roleId}/dimensions/{dimensionId}/access-profiles:
+    $ref: './beta/paths/dimension-access-profiles.yaml'
+  /roles/{roleId}/dimensions/{dimensionId}/entitlements:
+    $ref: './beta/paths/dimension-entitlements.yaml'
   /saved-searches:
     $ref: ./v3/paths/saved-searches.yaml
   /saved-searches/{id}:

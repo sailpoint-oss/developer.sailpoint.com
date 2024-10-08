@@ -6,6 +6,6 @@ properties:
   correlatedOnly:
     type: boolean
     description: >-
-      Boolean FLAG to specify if only correlated identities should be used in report processing
+      Flag to specify if only correlated identities are included in report.
     default: false
     example: true

@@ -1,0 +1,10 @@
+summary: Search Export report
+value:
+  reportType: SEARCH_EXPORT
+  arguments:
+    indices:
+    - 'identities'
+    query: 'attributes.city:London'
+    columns: 'displayName,firstName,lastName,email,attributes.city,created,attributes.cloudLifecycleState,access.spread'
+    sort:
+      - '+displayName'

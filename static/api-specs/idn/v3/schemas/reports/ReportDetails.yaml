@@ -14,18 +14,19 @@ properties:
       - UNCORRELATED_ACCOUNTS
     description: >-
       Use this property to define what report should be processed in the RDE service.
-    example: IDENTITIES_DETAILS
+    example: ACCOUNTS
   arguments:
     oneOf:
       - $ref: '../reports/arguments/accounts-export-report-arguments.yaml'
       - $ref: '../reports/arguments/identities-details-report-arguments.yaml'
       - $ref: '../reports/arguments/identities-report-arguments.yaml'
       - $ref: '../reports/arguments/identity-profile-identity-error-report-arguments.yaml'
-      - $ref: '../reports/arguments/orphan-uncorrelated-report-arguments.yaml'
+      - $ref: '../reports/arguments/orphan-identities-report-arguments.yaml'
       - $ref: '../reports/arguments/search-export-report-arguments.yaml'
+      - $ref: '../reports/arguments/uncorrelated-accounts-report-arguments.yaml'
     example: {
       "application": "2c9180897e7742b2017e781782f705b9",
-      "sourceName": "DataScienceWorkday"
+      "sourceName": Active Directory
     }
     description: >-
       The string-object map(dictionary) with the arguments needed for report processing.

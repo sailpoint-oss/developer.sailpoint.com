@@ -1,7 +1,7 @@
 title: ACCOUNTS
 type: object
 description: >-
-  Arguments for Account Export (ACCOUNTS)
+  Arguments for Account Export report (ACCOUNTS)
 required:
   - application
   - sourceName
@@ -9,10 +9,10 @@ properties:
   application:
     type: string
     description: >-
-      Id of the authoritative source to export related accounts e.g. identities
+      Source ID.
     example: 2c9180897eSourceIde781782f705b9
   sourceName:
     type: string
     description: >-
-      Name of the authoritative source for accounts export
-    example: DataScienceSourceName
+      Source name.
+    example: Active Directory

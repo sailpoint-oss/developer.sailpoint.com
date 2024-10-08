@@ -8,5 +8,5 @@ properties:
   authoritativeSource:
     type: string
     description: >-
-      Source Id to be checked on errors of identity profiles aggregation
+      Source ID.
     example: 1234sourceId5678902

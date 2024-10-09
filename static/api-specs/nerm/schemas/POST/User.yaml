@@ -45,3 +45,8 @@ properties:
     type: string
     description: The locale the user prefers to use
     example: fr-CA
+  password:
+    type: string
+    description: The user password
+    required: false
+    example: U*bF7hy9fW

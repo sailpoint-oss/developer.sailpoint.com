@@ -1,0 +1,173 @@
+get:
+  security:
+  - userAuth:
+    - idn:sources:read
+    - idn:sources:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  operationId: getSourceEntitlementRequestConfig
+  summary: Get Source Entitlement Request Configuration
+  tags:
+  - Sources
+  description: >-
+    This API gets the current entitlement request configuration for a
+    source. This source-level configuration should apply for all the entitlements
+    in the source.
+
+
+    Access request to any entitlements in the source should follow this configuration
+    unless a separate entitlement-level configuration is defined.
+
+    - During access request, this source-level entitlement request configuration overrides
+    the global organization-level configuration.
+
+    - However, the entitlement-level configuration (if defined) overrides this source-level
+    configuration.
+  responses:
+    '200':
+      description: Source Entitlement Request Configuration Details.
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/SourceEntitlementRequestConfig.yaml
+          examples:
+            Get default config:
+              description: The default config for a source should look like the following
+                where the empty approvalSchemes indicates that no approvals are required.
+              value:
+                accessRequestConfig:
+                  approvalSchemes: []
+                  requestCommentRequired: false
+                  denialCommentRequired: false
+            Get config with one approval:
+              description: In case of a single approval, the config could look like
+                the following.
+              value:
+                accessRequestConfig:
+                  approvalSchemes:
+                  - approverId: null
+                    approverType: SOURCE_OWNER
+                  requestCommentRequired: true
+                  denialCommentRequired: false
+            Get config with multiple approvals:
+              description: In case of multiple levels of approvals the config could
+                look like the following. In this scenario, access request review process
+                should go through all the approvers sequentially.
+              value:
+                accessRequestConfig:
+                  approvalSchemes:
+                  - approverId: null
+                    approverType: ENTITLEMENT_OWNER
+                  - approverId: null
+                    approverType: SOURCE_OWNER
+                  - approverId: 95e538a3-30c1-433a-af05-4bed973bbc22
+                    approverType: GOVERNANCE_GROUP
+                  requestCommentRequired: true
+                  denialCommentRequired: false
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+put:
+  security:
+  - userAuth:
+    - idn:sources:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  operationId: updateSourceEntitlementRequestConfig
+  summary: Update Source Entitlement Request Configuration
+  tags:
+  - Sources
+  description: >-
+    This API replaces the current entitlement request configuration for
+    a source. This source-level configuration should apply for all the entitlements
+    in the source.
+
+
+    Access request to any entitlements in the source should follow this configuration
+    unless a separate entitlement-level configuration is defined.
+
+    - During access request, this source-level entitlement request configuration overrides
+    the global organization-level configuration.
+
+    - However, the entitlement-level configuration (if defined) overrides this source-level
+    configuration.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../beta/schemas/SourceEntitlementRequestConfig.yaml
+        examples:
+          Set config with no approvals:
+            description: If no approvals are required, the following config can be
+              set.
+            value:
+              accessRequestConfig:
+                approvalSchemes: []
+          Set config with one approval:
+            description: In case of single approval the following config can be set.
+            value:
+              accessRequestConfig:
+                approvalSchemes:
+                - approverType: SOURCE_OWNER
+                requestCommentRequired: true
+                denialCommentRequired: false
+          Set config with multiple approvals:
+            description: In case of multiple levels of approvals the following config
+              can be set. In this scenario, access request review process should go
+              through all the approvers sequentially.
+            value:
+              accessRequestConfig:
+                approvalSchemes:
+                - approverType: ENTITLEMENT_OWNER
+                - approverType: SOURCE_OWNER
+                - approverType: GOVERNANCE_GROUP
+                  approverId: 95e538a3-30c1-433a-af05-4bed973bbc22
+                requestCommentRequired: true
+                denialCommentRequired: false
+  responses:
+    '200':
+      description: Source Entitlement Request Configuration Details.
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/SourceEntitlementRequestConfig.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true

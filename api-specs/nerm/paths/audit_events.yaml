@@ -1,0 +1,15 @@
+post:
+  summary: Query for Audit events
+  description: This endpoint provides a search engine for Audit Events by optionally combining entity_type, type, and subject_id to narrow down the audit events. An Entity Type of Profile links up to the AuditableProfile types. An Entity Type of WorkflowSession links up to the AuditableWorkflow types. An Entity Type of Get/Post/Patch/Delete links up to the AuditableApi types. The remaining Entity Types link up to the ActiveRecord types (configuration changes).
+  operationId: search
+  tags:
+    - audits
+  requestBody:
+    $ref: "../requestBodies/POST/AuditEvents.yaml"
+  responses:
+    "200":
+      $ref: "../responses/AuditEvents.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "500":
+      $ref: "../responses/500.yaml"

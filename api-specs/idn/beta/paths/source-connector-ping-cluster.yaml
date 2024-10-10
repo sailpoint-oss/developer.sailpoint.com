@@ -1,0 +1,38 @@
+post:
+  operationId: pingCluster
+  tags:
+    - Sources
+  summary: Ping cluster for source connector
+  description: >-
+    This endpoint validates that the cluster being used by the source is reachable from IdentityNow.
+
+    A token with ORG_ADMIN authority is required to call this API.
+  security:
+    - userAuth: [idn:source-connector:manage]
+  parameters:
+    - in: path
+      name: sourceId
+      schema:
+        type: string
+      required: true
+      description: The ID of the Source
+      example: cef3ee201db947c5912551015ba0c679
+  responses:
+    '200':
+      description: The result of pinging connection with the source connector.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/StatusResponse.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

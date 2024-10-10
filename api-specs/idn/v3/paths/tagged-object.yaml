@@ -1,0 +1,152 @@
+get:
+  operationId: getTaggedObject
+  security:
+    - userAuth: [ idn:tag:read, idn:tag:manage ]
+  tags:
+    - Tagged Objects
+  summary: Get Tagged Object
+  description: >-
+    This gets a tagged object for the specified type.
+  parameters:
+    - in: path
+      name: type
+      schema:
+        type: string
+        enum:
+          - ACCESS_PROFILE
+          - APPLICATION
+          - CAMPAIGN
+          - ENTITLEMENT
+          - IDENTITY
+          - ROLE
+          - SOD_POLICY
+          - SOURCE
+      required: true
+      description: The type of tagged object to retrieve.
+      example: ROLE
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The ID of the object reference to retrieve.
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    '200':
+      description: Tagged object by type and ID.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/TaggedObject.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+put:
+  operationId: putTaggedObject
+  security:
+    - userAuth: [ idn:tag:manage ]
+  tags:
+    - Tagged Objects
+  summary: Update Tagged Object
+  description: >-
+    This updates a tagged object for the specified type.
+  parameters:
+    - in: path
+      name: type
+      schema:
+        type: string
+        enum:
+          - ACCESS_PROFILE
+          - APPLICATION
+          - CAMPAIGN
+          - ENTITLEMENT
+          - IDENTITY
+          - ROLE
+          - SOD_POLICY
+          - SOURCE
+      required: true
+      description: The type of tagged object to update.
+      example: ROLE
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The ID of the object reference to update.
+      example: ef38f94347e94562b5bb8424a56397d8
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/TaggedObject.yaml'
+  responses:
+    '200':
+      description: Tagged object by type and ID.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/TaggedObject.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+delete:
+  operationId: deleteTaggedObject
+  security:
+    - userAuth: [ idn:tag:manage ]
+  tags:
+    - Tagged Objects
+  summary: Delete Tagged Object
+  description: >-
+    This deletes a tagged object for the specified type.
+  parameters:
+    - in: path
+      name: type
+      schema:
+        type: string
+        enum:
+          - ACCESS_PROFILE
+          - APPLICATION
+          - CAMPAIGN
+          - ENTITLEMENT
+          - IDENTITY
+          - ROLE
+          - SOD_POLICY
+          - SOURCE
+      required: true
+      description: The type of tagged object to delete.
+      example: ROLE
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The ID of the object reference to delete.
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    '204':
+      description: No content.
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

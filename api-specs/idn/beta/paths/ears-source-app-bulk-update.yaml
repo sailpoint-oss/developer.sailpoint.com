@@ -1,0 +1,35 @@
+post:
+  operationId: updateSourceAppsInBulk
+  tags:
+    - Apps
+  summary: Bulk update source apps
+  description: >-
+    This API updates source apps using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  It can update up to 50 source apps in a batch.
+
+    The following fields can be updated:
+    **name**, **description**, **enabled**, **owner**, **provisionRequestEnabled**, **appCenterEnabled**, **accountSource**, 
+    **matchAllAccounts**, and **accessProfiles**.
+
+    Name, description and owner can't be empty or null.
+  security:
+    - userAuth: [ idn:app-roles:manage ]
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/app/SourceAppBulkUpdateRequest.yaml'
+  responses:
+    '204':
+      $ref: "../../v3/responses/204.yaml"
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

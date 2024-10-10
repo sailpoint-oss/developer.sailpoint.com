@@ -1,0 +1,43 @@
+type: object
+properties:
+  name:
+    type: string
+    description: SOD Policy schedule name
+    example: 'SCH-1584312283015'
+  created:
+    type: string
+    format: date-time
+    description: The time when this SOD policy schedule is created.
+    example: "2020-01-01T00:00:00.000000Z"
+    readOnly: true
+  modified:
+    type: string
+    format: date-time
+    description: The time when this SOD policy schedule is modified.
+    example: "2020-01-01T00:00:00.000000Z"
+    readOnly: true
+  description:
+    type: string
+    description: SOD Policy schedule description
+    example: 'Schedule for policy xyz'
+  schedule:
+    $ref: '../../v3/schemas/schedule/Schedule.yaml'
+  recipients:
+    type: array
+    items:
+      $ref: '../../v3/schemas/SodRecipient.yaml'
+  emailEmptyResults:
+    type: boolean
+    description: Indicates if empty results need to be emailed
+    example: false
+    default: false
+  creatorId:
+    type: string
+    description: Policy's creator ID
+    example: "0f11f2a47c944bf3a2bd742580fe3bde"
+    readOnly: true
+  modifierId:
+    type: string
+    description: Policy's modifier ID
+    example: "0f11f2a47c944bf3a2bd742580fe3bde"
+    readOnly: true

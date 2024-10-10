@@ -1,0 +1,66 @@
+description: >-
+  This API initialize a Bulk update by Id request of Role metadata.
+  The maximum role count in a single update request is 3000.
+  The maximum meta data values that one single role assigned can not exceed 25.
+  Custom metadata need suit licensed.
+type: object
+properties:
+  roles:
+    description: Roles' Id to be updated
+    type: array
+    items:
+      type: string
+    example:
+      ["b1db89554cfa431cb8b9921ea38d9367"]
+
+  operation:
+    description: The operation to be performed
+    type: string
+    enum:
+      - "add"
+      - "remove"
+      - "replace"
+    example: "replace"
+  replaceScope:
+    description: The choice of update scope.
+    type: string
+    enum:
+      - "ALL"
+      - "ATTRIBUTE"
+    example:
+      "ALL"
+  values:
+    description: The metadata to be updated, including attribute key and value.
+    type: array
+    nullable: false
+    items:
+      type: object
+      required:
+        - attribute
+        - values
+      properties:
+        attribute:
+          type: string
+          description: the key of metadata attribute
+          example: "iscFederalClassifications"
+        values:
+          type: array
+          description: the values of attribute to be updated
+          items:
+            type: string
+            example: "secret"
+          nullable: true
+          example: [ "secret" ]
+    example:
+      [
+        {
+          "attribute": "iscFederalClassifications",
+          "values": [
+            "topSecret"
+          ]
+        }
+      ]
+required:
+  - roles
+  - operation
+  - values

@@ -1,0 +1,46 @@
+get:
+  operationId: getIdentitySummary
+  tags:
+    - Certification Summaries
+  summary: Summary for Identity
+  security:
+    - userAuth: []
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+  description: >-
+    This API returns the summary for an identity on a specified identity campaign certification. Reviewers for this certification can also call this API.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The identity campaign certification ID
+      example: 'ef38f94347e94562b5bb8424a56397d8'
+    - in: path
+      name: identitySummaryId
+      schema:
+        type: string
+      required: true
+      description: The identity summary ID
+      example: '2c91808772a504f50172a9540e501ba8'
+  responses:
+    '200':
+      description: An identity summary
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/CertificationIdentitySummary.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

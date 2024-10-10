@@ -1,0 +1,121 @@
+get:
+  operationId: getNonEmployeeSourceSchemaAttributes
+  security:
+    - userAuth: []
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: List Schema Attributes Non-Employee Source
+  description: This API gets the list of schema attributes for the specified Non-Employee SourceId. There are 8
+               mandatory attributes added to each new Non-Employee Source automatically. Additionaly, user can
+               add up to 10 custom attributes. This interface returns all the mandatory attributes followed by
+               any custom attributes. At most, a total of 18 attributes will be returned.
+               
+               Requires role context of `idn:nesr:read` or the user must be an account manager of the source.
+  parameters:
+    - in: path
+      name: sourceId
+      schema:
+        type: string
+      required: true
+      example: ef38f94347e94562b5bb8424a56397d8
+      description: The Source id
+  responses:
+    "200":
+      description: A list of Schema Attributes
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../schemas/non-employee/NonEmployeeSchemaAttribute.yaml"
+            maxItems: 18
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "404":
+      $ref: "../responses/404.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"
+post:
+  operationId: createNonEmployeeSourceSchemaAttributes
+  # security:
+  #   - oauth2: [idn:nesr:create]
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: Create a new Schema Attribute for Non-Employee Source
+  description: >-
+    This API creates a new schema attribute for Non-Employee Source. The schema technical name must be
+    unique in the source. Attempts to create a schema attribute with an existing name will result in a
+    "400.1.409 Reference conflict" response. At most, 10 custom attributes can be created per schema. Attempts
+    to create more than 10 will result in a "400.1.4 Limit violation" response.
+
+    Requires role context of `idn:nesr:create`
+  parameters:
+    - in: path
+      name: sourceId
+      schema:
+        type: string
+      required: true
+      description: The Source id
+      example: ef38f94347e94562b5bb8424a56397d8
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/non-employee/NonEmployeeSchemaAttributeBody.yaml"
+  responses:
+    "200":
+      description: >-
+        Schema Attribute created.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/non-employee/NonEmployeeSchemaAttribute.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"
+delete:
+  operationId: deleteNonEmployeeSourceSchemaAttributes
+  # security:
+  #   - oauth2: [idn:nesr:delete]
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: Delete all custom schema attributes for Non-Employee Source
+  description: >-
+    This end-point deletes all custom schema attributes for a non-employee source.
+    Requires role context of `idn:nesr:delete`
+  parameters:
+    - in: path
+      name: sourceId
+      schema:
+        type: string
+      required: true
+      description: The Source id
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    "204":
+      $ref: "../responses/204.yaml"
+      description: All custon Schema Attributes were successfully deleted.
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"

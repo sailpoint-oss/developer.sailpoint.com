@@ -1,0 +1,48 @@
+type : object
+title: Public Identity
+description: >-
+  Details about a public identity
+properties:
+  id:
+    type: string
+    description: Identity id
+    example: '2c9180857182305e0171993735622948'
+  name:
+    type: string
+    description: Human-readable display name of identity.
+    example: 'Alison Ferguso'
+  alias:
+    type: string
+    description: Alternate unique identifier for the identity.
+    example: 'alison.ferguso'
+  email:
+    nullable: true
+    type: string
+    description: Email address of identity.
+    example: 'alison.ferguso@acme-solar.com'
+  status:
+    nullable: true
+    type: string
+    description: The lifecycle status for the identity
+    example: 'Active'
+  identityState:
+    nullable: true
+    type: string
+    enum:
+    - ACTIVE
+    - INACTIVE_SHORT_TERM
+    - INACTIVE_LONG_TERM
+    - null
+    example: ACTIVE
+    description: |
+      The current state of the identity, which determines how Identity Security Cloud interacts with the identity.
+      An identity that is Active will be included identity picklists in Request Center, identity processing, and more.
+      Identities that are Inactive will be excluded from these features.
+  manager:
+    $ref: './IdentityReference.yaml'
+    description: An identity reference to the manager of this identity
+  attributes:
+    type: array
+    description: The public identity attributes of the identity
+    items:
+      $ref: './IdentityAttribute.yaml'

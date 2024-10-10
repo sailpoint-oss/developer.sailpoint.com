@@ -1,0 +1,36 @@
+get:
+  operationId: getAccountActivity
+  tags:
+    - Account Activities
+  summary: Get Account Activity
+  description: >-
+    This gets a single account activity by its id.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The account activity id
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    '200':
+      description: An account activity object
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/CancelableAccountActivity.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+
+

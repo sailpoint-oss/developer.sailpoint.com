@@ -1,0 +1,14 @@
+type: object
+nullable: true
+properties:
+  requestedObjectId:
+    type: string
+    description: Id of requested object
+    example: 2c91808563ef85690164001c31140c0c
+  requestedObjectName:
+    type: string
+    description: Human-readable name of requested object
+    example: Treasury Analyst
+  requestedObjectType:
+    $ref: './RequestableObjectType.yaml'
+description: If an account activity item is associated with an access request, captures details of that request.

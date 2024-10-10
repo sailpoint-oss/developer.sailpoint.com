@@ -1,0 +1,148 @@
+get:
+  tags:
+  - Connector Rule Management
+  summary: Connector-Rule by ID
+  operationId: getConnectorRule
+  description: Returns the connector rule specified by ID.
+  parameters:
+  - name: id
+    in: path
+    description: ID of the connector rule to retrieve
+    required: true
+    style: simple
+    explode: false
+    schema:
+      type: string
+    example: 8c190e6787aa4ed9a90bd9d5344523fb
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: Connector rule with the given ID
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/ConnectorRuleResponse.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
+  security:
+    - userAuth:
+      - idn:rule-management-connector:read
+      - idn:rule-management-connector:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+put:
+  tags:
+  - Connector Rule Management
+  summary: Update a Connector Rule
+  description: 'Updates an existing connector rule with the one provided in the request
+    body. Note that the fields ''id'', ''name'', and ''type'' are immutable.'
+  operationId: updateConnectorRule
+  parameters:
+  - name: id
+    in: path
+    description: ID of the connector rule to update
+    required: true
+    style: simple
+    explode: false
+    schema:
+      type: string
+    example: 8c190e6787aa4ed9a90bd9d5344523fb
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  requestBody:
+    description: The connector rule with updated data
+    content:
+      application/json:
+        schema:
+          $ref: ../../beta/schemas/ConnectorRuleUpdateRequest.yaml
+  responses:
+    '200':
+      description: The updated connector rule
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/ConnectorRuleResponse.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
+  security:
+    - userAuth:
+      - idn:rule-management-connector:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+delete:
+  tags:
+  - Connector Rule Management
+  summary: Delete a Connector-Rule
+  description: Deletes the connector rule specified by the given ID.
+  operationId: deleteConnectorRule
+  parameters:
+  - name: id
+    in: path
+    description: ID of the connector rule to delete
+    required: true
+    style: simple
+    explode: false
+    schema:
+      type: string
+    example: 8c190e6787aa4ed9a90bd9d5344523fb
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '204':
+      $ref: ../../v3/responses/204.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
+  security:
+    - userAuth:
+      - idn:rule-management-connector:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

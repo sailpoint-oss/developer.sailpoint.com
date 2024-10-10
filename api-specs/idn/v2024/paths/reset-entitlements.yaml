@@ -1,0 +1,42 @@
+post:
+  operationId: resetSourceEntitlements
+  tags:
+  - Entitlements
+  summary: Reset Source Entitlements
+  description: Removes all entitlements on a specific source.
+  parameters:
+  - name: id
+    in: path
+    description: ID of source for the entitlement reset
+    required: true
+    schema:
+      type: string
+      example: 2c91808a7813090a017814121919ecca
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '202':
+      description: Entitlement source reset task result
+      content:
+        application/json:
+          schema:
+            $ref: ../../v3/schemas/EntitlementSourceResetBaseReferenceDto.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
+  security:
+  - userAuth:
+    - idn:entitlement:update

@@ -1,0 +1,20 @@
+type: object
+properties:
+  entity_type:
+    description: Categorization of audit event.
+    type: string
+    enum: [Profile, WorkflowSession, Email, FormAttributeForm, FormAttribute, Form, IdproxyPermission, NeAttributeOption, NeAttribute, Notification, Page, Permission, PortalRegistrationWorkflow, Portal, ProfileTypeRole, ProfileType, RoleProfile, NeprofileRole, NeaccessRole, IdproxyRole, SecurityQuestion, UserManager, UserProfile, UserRole, User, Validation, VerificationEmail, WorkflowAction, CreateWorkflow, UpdateWorkflow, AutomatedWorkflow, BatchWorkflow, ExpirationWorkflow, InvitationWorkflow, LoginWorkflow, PasswordResetWorkflow, RegistrationWorkflow, Get, Post, Patch, Delete]
+    example: Profile
+  type:
+    description: The type of audit event
+    type: string
+    enum: [AuditableProfileCreate, AuditableProfileUpdate, AuditableProfileDestroy, AuditableBulkProfileUpdate, AuditableProfileContributorAdd, AuditableProfileContributorRemove, AuditableProfileContributorRoleAdd, AuditableProfileContributorRoleRemove, AuditableProfileOwnerUpdate, AuditableProfileWorkflowEvent, AuditableWorkflowActionSkippedEvent, AuditableWorkflowApprovedEvent, AuditableWorkflowApprovedEvent, AuditableWorkflowAssignedEvent, AuditableWorkflowAutoAssignedEvent, AuditableWorkflowBatchCompleteEvent, AuditableWorkflowClosedEvent, AuditableWorkflowDuplicateCheckStartEvent, AuditableWorkflowDuplicateResolutionEvent, AuditableWorkflowFailedEvent, AuditableWorkflowIdentityProofedEvent, AuditableWorkflowInvitationSentEvent, AuditableWorkflowLdapProvidedEvent, AuditableWorkflowNotificationSentEvent, AuditableWorkflowPendingApprovalEvent, AuditableWorkflowPendingAssignmentEvent, AuditableWorkflowPendingFulfillmentEvent, AuditableWorkflowFulfilledEvent, AuditableWorkflowPendingIdentityProofEvent, AuditableWorkflowPendingLdapEvent, AuditableWorkflowPendingRequestEvent, AuditableWorkflowPendingReviewEvent, AuditableWorkflowProfileCreatedEvent, AuditableWorkflowProfileSelectEvent, AuditableWorkflowProfileUpdatedEvent, AuditableWorkflowRejectedEvent, AuditableWorkflowRequestMadeEvent, AuditableWorkflowRestApiEvent, AuditableWorkflowReviewedEvent, AuditableWorkflowRunningWorkflowEvent, AuditableWorkflowSoapApiEvent, AuditableWorkflowStatusChangedEvent, AuditableWorkflowStoredProcedureEvent, AuditableWorkflowUnassignEvent, AuditableWorkflowWaitingForWorkflowEvent, AuditableWorkflowWorkflowChangedEvent, ActiveRecordCreate, ActiveRecordUpdate, ActiveRecordDestroy, AuditableApiEvent]
+    example: AuditableProfileCreate
+  subject_id: 
+    description: Identifier of the subject
+    type: string
+    format: uuid
+    example: 7d8c53ca-e99d-485c-9524-ea3849e82c79
+
+
+

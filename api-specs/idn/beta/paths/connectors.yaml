@@ -1,0 +1,69 @@
+get:
+  tags:
+    - Connectors
+  operationId: getConnectorList
+  summary: Gets connector list
+  description: >-
+    Fetches list of connectors that have 'RELEASED' status using filtering and pagination.
+
+    A token with ORG_ADMIN authority is required to call this API.
+  parameters:
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **name**: *sw*
+
+
+        **type**: *eq*
+
+
+        **directConnect**: *eq*
+        
+        
+        **category**: *eq*
+        
+        
+        **features**: *ca*
+      example: directConnect eq "true"
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: '../../v3/parameters/count.yaml'
+    - in: query
+      name: locale
+      schema:
+        type: string
+        enum: [de, no, fi, sv, ru, pt, ko, zh-TW, en, it, fr, zh-CN, hu, es, cs, ja, pl, da, nl]
+        example: de
+      description: >-
+        The locale to apply to the config. If no viable locale is given, it will default to "en"
+  responses:
+    '200':
+      description: A Connector Dto object
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/V3ConnectorDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [ idn:connector-source-config:read ]

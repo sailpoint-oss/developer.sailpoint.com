@@ -1,0 +1,33 @@
+get:
+  tags:
+    - Multi-Host Integration
+  summary: List Multi-Host Integration Types
+  description: >- 
+    This API endpoint returns the current list of supported Multi-Host Integration types.  
+    
+    
+    A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
+  operationId: getMultihostIntegrationTypes
+  responses:
+    "200":
+      description: OK. Returned if the request was successfully accepted into the system.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/MultiHostIntegrationTemplateType.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:multihosts:read, idn:sources:read]

@@ -1,0 +1,77 @@
+get:
+  operationId: listOutliersContributingFeatureAccessItems
+  tags:
+    - IAI Outliers
+  summary: Gets a list of access items associated with each identity outlier contributing feature
+  description: >-
+    This API returns a list of the enriched access items associated with each feature filtered by the access item type 
+    The object contains: accessItemId, display name (translated text or message key), description (translated text or message key), accessType, sourceName, extremelyRare
+
+    Requires authorization scope of 'iai:outliers-management:read'
+  parameters:
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: '../../v3/parameters/count.yaml'
+    - in: path
+      name: outlierId
+      schema:
+        type: string
+      required: true
+      description: The outlier id
+      example: "2c918085842e69ae018432d22ccb212f"
+    - in: path
+      name: contributingFeatureName
+      schema:
+        type: string
+        enum:
+          - radical_entitlement_count
+          - entitlement_count
+          - max_jaccard_similarity
+          - mean_max_bundle_concurrency
+          - single_entitlement_bundle_count
+          - peerless_score
+      required: true
+      description: The name of contributing feature
+      example: entitlement_count
+    - in: query
+      name: accessType
+      required: false
+      schema:
+        type: string
+      description: The type of access item for the identity outlier contributing feature. If not provided, it returns all
+      example: ENTITLEMENT
+    - in: query
+      name: sorters
+      required: false
+      schema:
+        type: string
+        format: comma-separated
+      example: displayName
+      description: >-
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+
+        Sorting is supported for the following fields: **displayName**
+  responses:
+    '200':
+      description: The list of access items.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/OutliersContributingFeatureAccessItems.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [ iai:outliers-management:read ]

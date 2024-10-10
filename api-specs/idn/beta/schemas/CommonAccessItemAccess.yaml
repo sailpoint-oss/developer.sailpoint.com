@@ -1,0 +1,22 @@
+type : object
+properties:
+  id:
+    type: string
+    description: Common access ID
+  type:
+    $ref: 'CommonAccessType.yaml'
+    description: Common access type (ROLE or ACCESS_PROFILE)
+  name:
+    type: string
+    description: Common access name
+  description:
+    type: string
+    description: Common access description
+    nullable: true
+  ownerName:
+    type: string
+    description: Common access owner name
+  ownerId:
+    type: string
+    description: Common access owner ID
+

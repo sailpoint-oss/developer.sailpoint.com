@@ -1,0 +1,57 @@
+type: object
+properties:
+  excludeTypes:
+    description: Object type names to be excluded from an sp-config export command.
+    type: array
+    items:
+      type: string
+      enum: 
+      - IDENTITY_OBJECT_CONFIG
+      - IDENTITY_PROFILE
+      - RULE
+      - SOURCE
+      - TRANSFORM
+      - TRIGGER_SUBSCRIPTION
+      example: "SOURCE"
+  includeTypes:
+    description: Object type names to be included in an sp-config export command. IncludeTypes takes precedence over excludeTypes.
+    type: array
+    items:
+      type: string
+      enum: 
+      - IDENTITY_OBJECT_CONFIG
+      - IDENTITY_PROFILE
+      - RULE
+      - SOURCE
+      - TRANSFORM
+      - TRIGGER_SUBSCRIPTION
+      example: "TRIGGER_SUBSCRIPTION"
+  objectOptions:
+    description: Additional options targeting specific objects related to each item in the includeTypes field
+    type: object
+    additionalProperties:
+      $ref: 'ObjectExportImportOptions.yaml'
+    example: {
+        "TRIGGER_SUBSCRIPTION": {
+          "includedIds": ["be9e116d-08e1-49fc-ab7f-fa585e96c9e4"],
+          "includedNames":["Test 2"]
+        }
+    }
+  defaultReferences:
+    description: List of object types that can be used to resolve references on import.
+    type: array
+    items:
+      type: string
+      enum: 
+        - IDENTITY_OBJECT_CONFIG
+        - IDENTITY_PROFILE
+        - RULE
+        - SOURCE
+        - TRANSFORM
+        - TRIGGER_SUBSCRIPTION
+      example: "TRIGGER_SUBSCRIPTION"  
+  excludeBackup:
+    description: By default, every import will first export all existing objects supported by sp-config as a backup before the import is attempted. If excludeBackup is true, the backup will not be performed.
+    type: boolean
+    default: false
+    example: "false"

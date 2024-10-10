@@ -1,0 +1,99 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+    readOnly: true
+    description: The id of the attribute
+    example: ac4aae0b-4140-49a4-a84c-126762fd0c8f
+  uid:
+    type: string
+    minLength: 32
+    maxLength: 32
+    readOnly: true
+    description: The uid of the attribute
+    example: myattribute
+  label:
+    type: string
+    description: The label for the attribute
+    example: birthday
+  description:
+    type: string
+    description: A description of the attribute
+    example: Your birthday
+  tool_tip:
+    type: string
+    description: The helper text that accompanies the attribute
+    example: Put your birthday here mm-dd-yyyy
+  archived:
+    type: boolean
+    description: Whether the attribute is archived
+    example: false
+  date_format:
+    type: string
+    enum: [mm/dd/yyyy, mm-dd-yyyy, dd/mm/yyyy, dd-mm-yyyy, yyyy/mm/dd, yyyy-mm-dd]
+    description: The format of the date input if it is a date input
+    example: mm/dd/yyyy
+  selectable_status:
+    type: string
+    description: The status of the profiles that can be selected
+    example: Active
+  risk_type:
+    type: string
+    description: Type of risk that applies to the attribute
+    example: OverallRisk
+  ownership_driven:
+    type: boolean
+    description: Only shows profiles that the user currently has access to, to be selected
+    example: true
+  allow_multiple_selections:
+    type: boolean
+    description: Whether or not multiple selections can be made on something like a contributor search.
+    example: true
+  filtered_by_ne_attribute:
+    type: boolean
+    description: Whether or not the attribute is filtered by another attribute
+    example: true
+  filtering_ne_attribute_id:
+    type: string
+    format: uuid
+    description: The ID of the filtering attribute
+    example: ac4aae0b-4140-49a4-a84c-126762fd0c8f
+  ne_attribute_filter_id:
+    type: string
+    format: uuid
+    description: The ID of the attribute filter
+    example: ac4aae0b-4140-49a4-a84c-126762fd0c8f
+  reverse_association_attribute:
+    $ref: './AttributeProperties.yaml'
+  profile_type_id:
+    type: string
+    format: uuid
+    description: The ID of the profile type the attribute applies to
+    example: ac4aae0b-4140-49a4-a84c-126762fd0c8f
+  data_type:
+    type: string
+    enum: [text field, text area, drop-down, radio buttons, check boxes, date, tags, attachment, profile select, profile search, owner select, owner search, contributor select, contributor search]
+    description: The type of data that applies to the attribute
+    example: text field
+  type:
+    type: string
+    enum: [AttachmentAttribute, CheckBoxesAttribute, ContributorSearchAttribute, ContributorSelectAttribute, DateAttribute, DropDownAttribute, OwnerSearchAttribute, OwnerSelectAttribute, ProfileSearchAttribute, ProfileSelectAttribute, RadioButtonsAttribute, TagsAttribute, TextAreaAttribute, TextFieldAttribute]
+    description: The attribute's type
+    example: AttachmentAttribute
+  validations_attributes:
+    type: object
+    properties:
+      validation_method:
+        type: string
+        enum: [required, unique, date_format, days, characters, extension, numericality, email_format, custom_format, no_special_chars]
+        description: The type of validation to be applied
+        example: required
+      value:
+        type: string
+        description: The value of the validator
+        example: "mm-dd-yyyy"
+      _destroy:
+        type: boolean
+        description: If the validator should be removed
+        example: false

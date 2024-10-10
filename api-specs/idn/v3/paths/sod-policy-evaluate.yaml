@@ -1,0 +1,41 @@
+post:
+  security:
+    - userAuth: [idn:sod-violation:write]
+  operationId: startEvaluateSodPolicy
+  tags:
+    - SOD Policies
+  summary: Evaluate one policy by ID
+  description: >-
+    Runs the scheduled report for the policy retrieved by passed policy ID. 
+    The report schedule is fetched from the policy retrieved by ID.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The SOD policy ID to run.
+      example: ef38f943-47e9-4562-b5bb-8424a56397d8
+  responses:
+    '200':
+      description: Reference to the violation report run task.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ReportResultReference.yaml'
+          example: {
+            "status": "PENDING",
+            "type": "REPORT_RESULT",
+            "id": "37b3b32a-f394-46f8-acad-b5223969fa68",
+            "name": "Multi Query Report"
+          }
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

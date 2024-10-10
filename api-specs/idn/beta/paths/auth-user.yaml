@@ -1,0 +1,78 @@
+put:
+  operationId: setAuthUser
+  tags:
+    - Auth User
+  summary: Auth User Update - Overwrite
+  description: Update an existing user in the authentication system by over overwriting the information with new information.
+  security:
+    - userAuth: [sp:auth-user-internal:update]
+  parameters:
+    - in: path
+      name: id
+      description: >-
+        Identity ID
+      required: true
+      schema:
+        type: string
+      example: ef38f94347e94562b5bb8424a56397d8
+  requestBody:
+    required: true
+    description: |
+      Auth User Save Request. This overwrites the existing user details in the authentication system.
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/AuthUserSaveRequest.yaml'
+  responses:
+    '200':
+      description: Auth user updated.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/AuthUser.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+
+delete:
+  operationId: deleteAuthUser
+  tags:
+    - Auth User
+  summary: Delete an Auth User
+  description: Delete an existing user in the authentication system.
+  security:
+    - userAuth: [sp:auth-user:delete]
+  parameters:
+    - in: path
+      name: id
+      description: >-
+        Identity ID
+      required: true
+      schema:
+        type: string
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    '204':
+      $ref: '../../v3/responses/204.yaml'
+      description: The user was successfully deleted from the authentication system.
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

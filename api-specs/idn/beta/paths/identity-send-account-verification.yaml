@@ -1,0 +1,33 @@
+post:
+  operationId: sendIdentityVerificationAccountToken
+  tags:
+    - Identities
+  summary: Send password reset email
+  description: |
+    This API sends an email with the link to start Password Reset. After selecting the link an identity will be able to set up a new password. Emails expire after 2 hours.
+    
+    A token with ORG_ADMIN or HELPDESK authority is required to call this API.
+  security:
+    - userAuth:
+        - "idn:password-user-invite:create"
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/SendAccountVerificationRequest.yaml"
+  responses:
+    "200":
+      description: The email was successfully sent
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

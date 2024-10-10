@@ -1,0 +1,12 @@
+description: Bulk remove Governance Groups Response.
+type: array
+items:
+    $ref: "./WorkgroupDeleteItem.yaml"
+example:
+  [
+      {
+          "id": "464ae7bf791e49fdb74606a2e4a89635",
+          "status": "204",
+          "description": "Governance Group deleted successfully."
+      }
+  ]

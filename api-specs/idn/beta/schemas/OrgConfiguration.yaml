@@ -1,0 +1,13 @@
+type: object
+properties:
+  domain:
+    type: string
+    description: The domain for the tenant.
+  redirectPatterns:
+    type: array
+    description: The collection of allowed redirect patterns for a tenant.
+    items:
+      type: string
+  legacyPasswordReset:
+    type: boolean
+    description: Denotes if the legacy password reset flow is enabled.

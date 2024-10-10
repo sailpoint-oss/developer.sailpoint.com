@@ -1,0 +1,36 @@
+post:
+  operationId: startCampaignRemediationScan
+  tags:
+    - Certification Campaigns
+  summary: Run Campaign Remediation Scan
+  description: |
+    Use this API to run a remediation scan task for a certification campaign.
+  security:
+    - userAuth: [idn:campaign-report:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+    - REPORT_ADMIN
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+        example: 2c91808571bcfcf80171c23e4b4221fc
+      required: true
+      description: ID of the campaign the remediation scan is being run for.
+  responses:
+    '202':
+      $ref: '../responses/202.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

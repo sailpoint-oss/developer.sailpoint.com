@@ -1,0 +1,78 @@
+post:
+  tags:
+  - Search
+  description: >-
+    Performs a search with the provided query and returns a matching result collection.
+    By default, you can page a maximum of 10,000 search result records. 
+    To page past 10,000 records, you can use searchAfter paging. 
+    Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement searchAfter paging. 
+  externalDocs:
+    description: Learn more about search.
+    url: https://documentation.sailpoint.com/saas/help/search/index.html
+  operationId: searchPost
+  security:
+    - userAuth: [ sp:search:read ]
+  summary: "Perform Search"
+  parameters:
+  - $ref: '../parameters/offset.yaml'
+  - $ref: '../parameters/searchlimit.yaml'
+  - $ref: '../parameters/count.yaml'
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/search/Search.yaml'
+        examples:
+          query-fields:
+            $ref: '../schemas/search/examples/query-fields.yaml'
+          query-timeZone:
+            $ref: '../schemas/search/examples/query-timeZone.yaml'
+          query-innerHit:
+            $ref: '../schemas/search/examples/query-innerHit.yaml'
+          typeAheadQuery:
+            $ref: '../schemas/search/examples/typeAheadQuery.yaml'
+          typeAheadQuery-nestedType:
+            $ref: '../schemas/search/examples/typeAheadQuery-nestedType.yaml'
+          filter-exists:
+            $ref: '../schemas/search/examples/filter-exists.yaml'
+          filter-range:
+            $ref: '../schemas/search/examples/filter-range.yaml'
+          filter-terms:
+            $ref: '../schemas/search/examples/filter-terms.yaml'
+    required: true
+  responses:
+    '200':
+      description: List of matching documents.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/search/documents/SearchDocument.yaml'
+          examples: 
+            accessProfiles: 
+              $ref: '../schemas/search/documents/examples/accessProfiles.yaml'
+            entitlements:
+              $ref: '../schemas/search/documents/examples/entitlements.yaml'
+            events:
+              $ref: '../schemas/search/documents/examples/events.yaml'
+            identities:
+              $ref: '../schemas/search/documents/examples/identities.yaml'
+            roles:
+              $ref: '../schemas/search/documents/examples/roles.yaml'
+      headers:
+        X-Total-Count:
+          schema:
+            type: integer
+          description: The total result count (returned only if the *count* parameter is specified as *true*).
+          example: 30    
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

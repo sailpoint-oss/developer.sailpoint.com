@@ -1,0 +1,34 @@
+value:
+  id: ec041831cb2147778b594feb9d8db44a
+  name: Search Campaign
+  description: Search Campaign
+  deadline: 2020-12-25T06:00:00.468Z
+  type: SEARCH
+  status: PENDING
+  emailNotificationEnabled: false
+  autoRevokeAllowed: false
+  recommendationsEnabled: false
+  created: 2022-08-03T13:54:34.344Z
+  modified: null
+  filter: 
+    type: CAMPAIGN_FILTER
+    id: 0fbe863c063c4c88a35fd7f17e8a3df5
+    name: Test Search Filter
+  sunsetCommentsRequired: true
+  sourceOwnerCampaignInfo: null
+  searchCampaignInfo: 
+    type: ACCESS
+    description: user
+    reviewer: 
+      type: IDENTITY
+      id: 7ec252acbd4245548bc25df22348cb75
+      name: null
+    query: user
+    identityIds: null
+    accessConstraints: []
+  roleCompositionCampaignInfo: null
+  alerts: null
+  totalCertifications: 0
+  completedCertifications: 0
+  sourcesWithOrphanEntitlements: null
+  mandatoryCommentRequirement: NO_DECISIONS

@@ -1,0 +1,1596 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud V3 API
+  description:
+    "Use these APIs to interact with the Identity Security Cloud platform to achieve
+    repeatable, automated processes with greater scalability. We encourage you
+    to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers
+    using our APIs."
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: 3.0.0
+servers:
+  - url: https://{tenant}.api.identitynow.com/v3
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description:
+          This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}/v3
+    description: This is the V3 API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+
+tags:
+  - name: Access Profiles
+    description: |
+      Use this API to implement and customize access profile functionality. 
+      With this functionality in place, administrators can create access profiles and configure them for use throughout Identity Security Cloud, enabling users to get the access they need quickly and securely.
+      
+      Access profiles group entitlements, which represent access rights on sources. 
+
+      For example, an Active Directory source in Identity Security Cloud can have multiple entitlements: the first, 'Employees,' may represent the access all employees have at the organization, and a second, 'Developers,' may represent the access all developers have at the organization.
+      
+      An administrator can then create a broader set of access in the form of an access profile, 'AD Developers' grouping the 'Employees' entitlement with the 'Developers' entitlement.
+      
+      When users only need Active Directory employee access, they can request access to the 'Employees' entitlement.
+      
+      When users need both Active Directory employee and developer access, they can request access to the 'AD Developers' access profile.
+      
+      Access profiles are the most important units of access in Identity Security Cloud. Identity Security Cloud uses access profiles in many features, including the following:
+      
+      - Provisioning: When you use the Provisioning Service, lifecycle states and roles both grant access to users in the form of access profiles.
+      
+      - Certifications: You can approve or revoke access profiles in certification campaigns, just like entitlements. 
+      
+      - Access Requests: You can assign access profiles to applications, and when a user requests access to the app associated with an access profile and someone approves the request, access is granted to both the application and its associated access profile.
+
+      - Roles: You can group one or more access profiles into a role to quickly assign access items based on an identity's role. 
+      
+      In Identity Security Cloud, administrators can use the Access drop-down menu and select Access Profiles to view, configure, and delete existing access profiles, as well as create new ones. 
+      Administrators can enable and disable an access profile, and they can also make the following configurations: 
+      
+      - Manage Entitlements: Manage the profile's access by adding and removing entitlements. 
+      
+      - Access Requests: Configure access profiles to be requestable and establish an approval process for any requests that the access profile be granted or revoked. 
+      Do not configure an access profile to be requestable without first establishing a secure access request approval process for the access profile.
+      
+      - Multiple Account Options: Define the logic Identity Security Cloud uses to provision access to an identity with multiple accounts on the source. 
+
+      Refer to [Managing Access Profiles](https://documentation.sailpoint.com/saas/help/access/access-profiles.html) for more information about access profiles.
+  - name: Access Request Approvals
+    description: |
+      Use this API to implement and customize access request approval functionality. 
+      With this functionality in place, administrators can delegate qualified users to review users' requests for access or managers' requests to revoke team members' access to applications, entitlements, or roles.      
+      This enables more qualified users to review access requests and the others to spend their time on other tasks.  
+
+      In Identity Security Cloud, users can request access to applications, entitlements, and roles, and managers can request that team members' access be revoked.   
+      For applications and entitlements, administrators can set access profiles to require approval from the access profile owner, the application owner, the source owner, the requesting user's manager, or a governance group for access to be granted or revoked.   
+      For roles, administrators can also set roles to allow access requests and require approval from the role owner, the requesting user's manager, or a governance group for access to be granted or revoked.   
+      If the administrator designates a governance group as the required approver, any governance group member can approve the requests.
+         
+      When a user submits an access request, Identity Security Cloud sends the first required approver in the queue an email notification, based on the access request configuration's approval and reminder escalation configuration.
+
+      In Approvals in Identity Security Cloud, required approvers can view pending access requests under the Requested tab and approve or deny them, or the approvers can reassign the requests to different reviewers for approval.   
+      If the required approver approves the request and is the only reviewer required, Identity Security Cloud grants or revokes access, based on the request.   
+      If multiple reviewers are required, Identity Security Cloud sends the request to the next reviewer in the queue, based on the access request configuration's approval reminder and escalation configuration.   
+      The required approver can then view any completed access requests under the Reviewed tab.   
+
+      Refer to [Access Requests](https://documentation.sailpoint.com/saas/help/requests/index.html) for more information about access request approvals.
+  - name: Access Requests
+    description: |
+      Use this API to implement and customize access request functionality. 
+      With this functionality in place, users can request access to applications, entitlements, or roles, and managers can request that team members' access be revoked.
+      This allows users to get access to the tools they need quickly and securely, and it allows managers to take away access to those tools. 
+
+      Identity Security Cloud's Access Request service allows end users to request access that requires approval before it can be granted to users and enables qualified users to review those requests and approve or deny them.
+
+      In the Request Center in Identity Security Cloud, users can view available applications, roles, and entitlements and request access to them. 
+      If the requested tools requires approval, the requests appear as 'Pending' under the My Requests tab until the required approver approves, rejects, or cancels them. 
+
+      Users can use My Requests to track and/or cancel the requests.
+
+      In My Team on the Identity Security Cloud Home, managers can submit requests to revoke their team members' access. 
+      They can use the My Requests tab under Request Center to track and/or cancel the requests.
+
+      Refer to [Requesting Access](https://documentation.sailpoint.com/saas/user-help/requests/requesting_access.html) for more information about access requests.
+  - name: Account Activities
+    description: |
+      Use this API to implement account activity tracking functionality.
+      With this functionality in place, users can track source account activity in Identity Security Cloud, which greatly improves traceability in the system. 
+
+      An account activity refers to a log of each action performed on a source account. This is useful for auditing the changes performed on an account throughout its life. 
+      In Identity Security Cloud's Search, users can search for account activities and select the activity's row to get an overview of the activity's account action and view its progress, its involved sources, and its most basic metadata, such as the identity requesting the option and the recipient. 
+
+      Account activity includes most actions Identity Security Cloud completes on source accounts. Users can search in Identity Security Cloud for the following account action types: 
+
+      - Access Request: These include any access requests the source account is involved in. 
+
+      - Account Attribute Updates: These include updates to a single attribute on an account on a source. 
+
+      - Account State Update: These include locking or unlocking actions on an account on a source. 
+
+      - Certification: These include actions removing an entitlement from an account on a source as a result of the entitlement's revocation during a certification.
+
+      - Cloud Automated `Lifecyclestate`: These include automated lifecycle state changes that result in a source account's correlated identity being assigned to a different lifecycle state. 
+      Identity Security Cloud replaces the `Lifecyclestate` variable with the name of the lifecycle state it has moved the account's identity to. 
+
+      - Identity Attribute Update: These include updates to a source account's correlated identity attributes as the result of a provisioning action. 
+      When you update an identity attribute that also updates an identity's lifecycle state, the cloud automated `Lifecyclestate` event also displays.
+      Account Activity does not include attribute updates that occur as a result of aggregation.
+
+      - Identity Refresh: These include correlated identity refreshes that occur for an account on a source whenever the account's correlated identity profile gets a new role or updates. 
+      These also include refreshes that occur whenever Identity Security Cloud assigns an application to the account's correlated identity based on the application's being assigned to All Users From Source or Specific Users From Source. 
+
+      - Lifecycle State Refresh: These include the actions that took place when a lifecycle state changed. This event only occurs after a cloud automated `Lifecyclestate` change or a lifecycle state change. 
+
+      - Lifecycle State Change: These include the account activities that result from an identity's manual assignment to a null lifecycle state.
+
+      - Password Change: These include password changes on sources.
+
+      Refer to [Account Activity](https://documentation.sailpoint.com/saas/help/search/index.html#account-activity) for more information about account activities.
+  - name: Account Usages
+    description: |
+      Use this API to implement account usage insight functionality.
+      With this functionality in place, administrators can gather information and insights about how their tenants' source accounts are being used.
+      This allows organizations to get the information they need to start optimizing and securing source account usage.
+  - name: Accounts
+    description: |
+      Use this API to implement and customize account functionality.
+      With this functionality in place, administrators can manage users' access across sources in Identity Security Cloud. 
+
+      In Identity Security Cloud, an account refers to a user's account on a supported source.
+      This typically includes a unique identifier for the user, a unique password, a set of permissions associated with the source and a set of attributes. Identity Security Cloud loads accounts through the creation of sources in Identity Security Cloud.
+
+      Administrators can correlate users' identities with the users' accounts on the different sources they use. 
+      This allows Identity Security Cloud to govern the access of identities and all their correlated accounts securely and cohesively. 
+
+      To view the accounts on a source and their correlated identities, administrators can use the Connections drop-down menu, select Sources, select the relevant source, and select its Account tab. 
+
+      To view and edit source account statuses for an identity in Identity Security Cloud, administrators can use the Identities drop-down menu, select Identity List, select the relevant identity, and select its Accounts tab. 
+      Administrators can toggle an account's Actions to aggregate the account, enable/disable it, unlock it, or remove it from the identity. 
+
+      Accounts can have the following statuses: 
+
+      - Enabled: The account is enabled. The user can access it.
+
+      - Disabled: The account is disabled, and the user cannot access it, but the identity is not disabled in Identity Security Cloud. This can occur when an administrator disables the account or when the user's lifecycle state changes. 
+
+      - Locked: The account is locked. This may occur when someone has entered an incorrect password for the account too many times.
+
+      - Pending: The account is currently updating. This status typically lasts seconds. 
+
+      Administrators can select the source account to view its attributes, entitlements, and the last time the account's password was changed.
+
+      Refer to [Managing User Accounts](https://documentation.sailpoint.com/saas/help/common/users/user_access.html#managing-user-accounts) for more information about accounts.
+  - name: Application Discovery
+    description: |
+      Use this API to discover applications within your Okta connector and receive connector recommendations by manually uploading application names.
+  - name: Auth Users
+    description: |
+      Use this API to implement user authentication system functionality. 
+      With this functionality in place, users can get a user's authentication system details, including their capabilities, and modify those capabilities. 
+      The user's capabilities refer to their access to different systems, or authorization, within the tenant, like access to certifications (CERT_ADMIN) or reports (REPORT_ADMIN). 
+      These capabilities also determine a user's access to the different APIs. 
+      This API provides users with a way to determine a user's access and make quick and easy changes to that access.
+  - name: Branding
+    description: |
+      Use this API to implement and customize branding functionality. 
+      With this functionality in place, administrators can get and manage existing branding items, and they can also create new branding items and configure them for use throughout Identity Security Cloud. 
+      The Branding APIs provide administrators with a way to customize branding items. 
+      This customization includes details like their colors, logos, and other information. 
+      Refer to [Certifications](https://documentation.sailpoint.com/saas/user-help/certifications.html) for more information about certifications.
+  - name: Certification Campaign Filters
+    description: |
+      Use this API to implement the certification campaign filter functionality. These filters can be used to create a certification campaign that includes a subset of your entitlements or users to certify.
+      
+      For example, if for a certification campaign an organization wants to certify only specific users or entitlements, then those can be included/excluded on the basis of campaign filters.
+      
+      For more information about creating a campaign filter, refer to [Creating a Campaign Filter](https://documentation.sailpoint.com/saas/help/certs/campaign_filters.html#creating-a-campaign-filter)
+      
+      You can create campaign filters using any of the following criteria types:
+      
+      - Access Profile : This criteria type includes or excludes access profiles from a campaign.
+      
+      - Account Attribute : This criteria type includes or excludes certification items that match a specified value in an account attribute.
+      
+      - Entitlement : This criteria type includes or excludes entitlements from a campaign.
+      
+      - Identity : This criteria type includes or excludes specific identities from your campaign.
+      
+      - Identity Attribute : This criteria type includes or excludes identities based on whether they have an identity attribute that matches criteria you've chosen.
+      
+      - Role : This criteria type includes or excludes roles, as opposed to identities.
+      
+      - Source : This criteria type includes or excludes entitlements from a source you select.
+      
+      For more information about these criteria types, refer to [Types of Campaign Filters](https://documentation.sailpoint.com/saas/help/certs/campaign_filters.html#types-of-campaign-filters)
+      
+      Once the campaign filter is created, it can be linked while creating the campaign. The generated campaign will have the items to review as per the campaign filter.
+      
+      For example, An inclusion campaign filter is created with a source of Source 1, an operation of Equals, and an entitlement of Entitlement 1. When this filter is selected, only users who have Entitlement 1 are included in the campaign, and only Entitlement 1 is shown in the certification.
+  - name: Certification Campaigns
+    description: |
+      Use this API to implement certification campaign functionality.
+      With this functionality in place, administrators can create, customize, and manage certification campaigns for their organizations' use. 
+      Certification campaigns provide Identity Security Cloud users with an interactive review process they can use to identify and verify access to systems. 
+      Campaigns help organizations reduce risk of inappropriate access and satisfy audit requirements. 
+
+      A certification refers to Identity Security Cloud's mechanism for reviewing a user's access to entitlements (sets of permissions) and approving or removing that access. 
+      These certifications serve as a way of showing that a user's access has been reviewed and approved. 
+      Multiple certifications by different reviewers are often required to approve a user's access. 
+      A set of multiple certifications is called a certification campaign. 
+
+      For example, an organization may use a Manager Certification campaign as a way of showing that a user's access has been reviewed and approved by multiple managers. 
+      Once this campaign has been completed, Identity Security Cloud would provision all the access the user needs, nothing more. 
+
+      Identity Security Cloud provides two simple campaign types users can create without using search queries, Manager and Source Owner campaigns:
+
+      You can create these types of campaigns without using any search queries in Identity Security Cloud: 
+      
+      - ManagerCampaign: Identity Security Cloud provides this campaign type as a way to ensure that an identity's access is certified by their managers. 
+      You only need to provide a name and description to create one. 
+      
+      - Source Owner Campaign: Identity Security Cloud provides this campaign type as a way to ensure that an identity's access to a source is certified by its source owners. 
+      You only need to provide a name and description to create one. 
+      You can specify the sources whose owners you want involved or just run it across all sources. 
+
+      For more information about these campaign types, refer to [Starting a Manager or Source Owner Campaign](https://documentation.sailpoint.com/saas/help/certs/starting_campaign.html).
+
+      One useful way to create certification campaigns in Identity Security Cloud is to use a specific search and then run a campaign on the results returned by that search. 
+      This allows you to be much more specific about whom you are certifying in your campaigns and what access you are certifying in your campaigns. 
+      For example, you can search for all identities who are managed by "Amanda.Ross" and also have the access to the "Accounting" role and then run a certification campaign based on that search to ensure that the returned identities are appropriately certified. 
+      
+      You can use Identity Security Cloud search queries to create these types of campaigns: 
+
+      - Identities: Use this campaign type to review and revoke access items for specific identities. 
+      You can either build a search query and create a campaign certifying all identities returned by that query, or you can search for individual identities and add those identities to the certification campaign. 
+
+      - Access Items: Use this campaign type to review and revoke a set of roles, access profiles, or entitlements from the identities that have them. 
+      You can either build a search query and create a campaign certifying all access items returned by that query, or you can search for individual access items and add those items to the certification campaign. 
+
+      - Role Composition: Use this campaign type to review a role's composition, including its title, description, and membership criteria. 
+      You can either build a search query and create a campaign certifying all roles returned by that query, or you can search for individual roles and add those roles to the certification campaign. 
+
+      - Uncorrelated Accounts: Use this campaign type to certify source accounts that aren't linked to an authoritative identity in Identity Security Cloud. 
+      You can use this campaign type to view all the uncorrelated accounts for a source and certify them. 
+
+      For more information about search-based campaigns, refer to [Starting a Campaign from Search](https://documentation.sailpoint.com/saas/help/certs/starting_search_campaign.html).
+
+      Once you have generated your campaign, it becomes available for preview. 
+      An administrator can review the campaign and make changes, or if it's ready and accurate, activate it. 
+      
+      Once the campaign is active, organization administrators or certification administrators can designate other Identity Security Cloud users as certification reviewers. 
+      Those reviewers can view any of the certifications they either need to review (active) or have already reviewed (completed).
+
+      When a certification campaign is in progress, certification reviewers see the listed active certifications whose involved identities they can review. 
+      Reviewers can then make decisions to grant or revoke access, as well as reassign the certification to another reviewer. If the reviewer chooses this option, they must provide a reason for reassignment in the form of a comment.
+
+      Once a reviewer has made decisions on all the certification's involved access items, he or she must "Sign Off" to complete the review process.
+      Doing so converts the certification into read-only status, preventing any further changes to the review decisions and deleting the work item (task) from the reviewer's list of work items. 
+
+      Once all the reviewers have signed off, the certification campaign either completes or, if any reviewers decided to revoke access for any of the involved identities, it moves into a remediation phase. 
+      In the remediation phase, identities' entitlements are altered to remove any entitlements marked for revocation.
+      In this situation, the certification campaign completes once all the remediation requests are completed. 
+
+      The end of a certification campaign is determined by its deadline, its completion status, or by an administrator's decision. 
+
+      For more information about certifications and certification campaigns, refer to [Certifications](https://documentation.sailpoint.com/saas/user-help/certifications.html).
+  - name: Certification Summaries
+    description: |
+      Use this API to implement certification summary functionality. 
+      With this functionality in place, administrators and designated certification reviewers can review summaries of identity certification campaigns and draw conclusions about the campaigns' scope, security, and effectiveness. 
+      Implementing certification summary functionality improves organizations' ability to review their [certifications](https://documentation.sailpoint.com/saas/user-help/certifications.html) and helps them satisfy audit and regulatory requirements by enabling them to trace access changes and the decisions made in their review processes. 
+
+      A certification refers to Identity Security Cloud's mechanism for reviewing a user's access to entitlements (sets of permissions) and approving or removing that access. 
+      These certifications serve as a way of showing that a user's access has been reviewed and approved. 
+      Multiple certifications by different reviewers are often required to approve a user's access. 
+      A set of multiple certifications is called a certification campaign. 
+
+      For example, an organization may use a Manager Certification as a way of showing that a user's access has been reviewed and approved by their manager, or if the certification is part of a campaign, that the user's access has been reviewed and approved by multiple managers. 
+      Once this certification has been completed, Identity Security Cloud  would provision all the access the user needs, nothing more. 
+
+      Certification summaries provide information about identity certification campaigns such as the identities involved, the number of decisions made, and the access changed. 
+      For example, an administrator or designated certification reviewer can examine the Manager Certification campaign to get an overview of how many entitlement decisions are made in that campaign as opposed to role decisions, which identities would be affected by changes to the campaign, and how those identities' access would be affected.
+  - name: Certifications
+    description: |
+      Use this API to implement certification functionality. 
+      With this functionality in place, administrators and designated certification reviewers can review users' access certifications and decide whether to approve access, revoke it, or reassign the review to another reviewer. 
+      Implementing certifications improves organizations' data security by reducing inappropriate access through a distributed review process and helping them satisfy audit and regulatory requirements. 
+
+      A certification refers to Identity Security Cloud's mechanism for reviewing a user's access to entitlements (sets of permissions) and approving or removing that access. 
+      These serve as a way of showing that a user's access has been reviewed and approved. 
+      Multiple certifications by different reviewers are often required to approve a user's access. 
+      A set of multiple certifications is called a certification campaign.
+
+      For example, an organization may use a Manager Certification as a way of showing that a user's access has been reviewed and approved by their manager, or if the certification is part of a campaign, that the user's access has been reviewed and approved by multiple managers. 
+      Once this certification has been completed, Identity Security Cloud  would provision all the access the user needs, nothing more. 
+
+      Organization administrators or certification administrators can designate other Identity Security Cloud users as certification reviewers. 
+      Those reviewers can select the 'Certifications' tab to view any of the certifications they either need to review or have already reviewed under the 'Active' and 'Completed' tabs, respectively. 
+
+      When a certification campaign is in progress, certification reviewers will see certifications listed under 'Active,' where they can review the involved identities. 
+      Under the 'Decision' column on the right, next to each access item, reviewers can select the checkmark to approve access, select the 'X' to revoke access, or they can toggle the 'More Options' menu to reassign the certification to another reviewer and provide a reason for reassignment in the form of a comment. 
+
+      Once a reviewer has made decisions on all the certification's involved access items, he or she must select 'Sign Off' to complete the review process.
+      Doing so converts the certification into read-only status, preventing any further changes to the review decisions and deleting the work item (task) from the reviewer's list of work items. 
+
+      Once all the reviewers have signed off, the certification campaign either completes or, if any reviewers decided to revoke access for any of the involved identities, it moves into a remediation phase. In the remediation phase, identities' entitlements are altered to remove any entitlements marked for revocation.
+      In this situation, the certification campaign completes once all the remediation requests are completed.
+  - name: Configuration Hub
+    description: |
+      Upload configurations and manage object mappings between tenants.
+      
+      Configuration files can be managed and deployed using Configuration Hub by uploading a JSON file which contains configuration data.
+      
+      The function of object mapping allows objects with varying names and IDs to be compared. While objects are compared, a user can replace a value in the source tenant with a new value. Object mapping also helps in locating referenced objects to the source object during the drafting process.
+      
+      Refer to [Uploading a Configuration File](https://documentation.sailpoint.com/saas/help/confighub/config_hub.html#uploading-a-configuration-file) for more information about uploading Configuration Files
+      
+      Refer to [Mapping Objects](https://documentation.sailpoint.com/saas/help/confighub/config_hub.html#mapping-objects) for more information about object mappings.
+  - name: Connectors
+    description: |
+      Use this API to implement connector functionality.
+      With this functionality in place, administrators can view available connectors.
+
+      Connectors are the bridges Identity Security Cloud uses to communicate with and aggregate data from sources.
+      For example, if it is necessary to set up a connection between Identity Security Cloud and the Active Directory source, a connector can bridge the two and enable Identity Security Cloud to synchronize data between the systems.
+      This ensures account entitlements and states are correct throughout the organization.
+
+      In Identity Security Cloud, administrators can use the Connections drop-down menu and select Sources to view the available source connectors.
+
+      Refer to [Identity Security Cloud Connectors](https://documentation.sailpoint.com/connectors/identitynow/landingpages/help/landingpages/identitynow_connectivity_landing.html) for more information about the connectors available in Identity Security Cloud.
+
+      Refer to [SaaS Connectivity](https://developer.sailpoint.com/docs/connectivity/saas-connectivity/) for more information about the SaaS custom connectors that do not need VAs (virtual appliances) to communicate with their sources.
+
+      Refer to [Managing Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html) for more information about using connectors in Identity Security Cloud.
+  - name: Global Tenant Security Settings
+    description: |
+      Use this API to implement and customize global tenant security settings.
+      With this functionality in place, administrators can manage the global security settings that a tenant/org has.
+      This API can be used to configure the networks and Geographies allowed to access Identity Security Cloud URLs.
+  - name: Identity Profiles
+    description: |
+      Use this API to implement identity profile functionality. 
+      With this functionality in place, administrators can view identity profiles and their configurations. 
+
+      Identity profiles represent the configurations that can be applied to identities as a way of granting them a set of security and access, as well as defining the mappings between their identity attributes and their source attributes.  
+
+      In Identity Security Cloud, administrators can use the Identities drop-down menu and select Identity Profiles to view the list of identity profiles. 
+      This list shows some details about each identity profile, along with its status. 
+      They can select an identity profile to view its settings, its mappings between identity attributes and correlating source account attributes, and its provisioning settings. 
+
+      Refer to [Creating Identity Profiles](https://documentation.sailpoint.com/saas/help/setup/identity_profiles.html) for more information about identity profiles.
+  - name: Lifecycle States
+    description: |
+      Use this API to implement and customize lifecycle state functionality.
+      With this functionality in place, administrators can create and configure custom lifecycle states for use across their organizations, which is key to controlling which users have access, when they have access, and the access they have.
+
+      A lifecycle state describes a user's status in a company. For example, two lifecycle states come by default with Identity Security Cloud: 'Active' and 'Inactive.' 
+      When an active employee takes an extended leave of absence from a company, his or her lifecycle state may change to 'Inactive,' for security purposes. 
+      The inactive employee would lose access to all the applications, sources, and sensitive data during the leave of absence, but when the employee returns and becomes active again, all that access would be restored. 
+      This saves administrators the time that would otherwise be spent provisioning the employee's access to each individual tool, reviewing the employee's certification history, etc. 
+
+      Administrators can create a variety of custom lifecycle states. Refer to [Planning New Lifecycle States](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html#planning-new-lifecycle-states) for some custom lifecycle state ideas.
+
+      Administrators must define the criteria for being in each lifecycle state, and they must define how Identity Security Cloud manages users' access to apps and sources for each lifecycle state.
+
+      In Identity Security Cloud, administrators can manage lifecycle states by going to Admin > Identities > Identity Profile, selecting the identity profile whose lifecycle states they want to manage, selecting the 'Provisioning' tab, and using the left panel to either select the lifecycle state they want to modify or create a new lifecycle state. 
+
+      In the 'Provisioning' tab, administrators can make the following access changes to an identity profile's lifecycle state: 
+
+      - Enable/disable the lifecycle state for the identity profile.
+
+      - Enable/disable source accounts for the identity profile's lifecycle state.
+
+      - Add existing access profiles to grant to the identity profiles in that lifecycle state.
+
+      - Create a new access profile to grant to the identity profile in that lifecycle state.
+
+      Access profiles granted in a previous lifecycle state are automatically revoked when the identity moves to a new lifecycle state. 
+      To maintain access across multiple lifecycle states, administrators must grant the access profiles in each lifecycle state. 
+      For example, if an administrator wants users with the 'HR Employee' identity profile to maintain their building access in both the 'Active' and 'Leave of Absence' lifecycle states, the administrator must grant the access profile for that building access to both lifecycle states.
+
+      During scheduled refreshes, Identity Security Cloud evaluates lifecycle states to determine whether their assigned identities have the access defined in the lifecycle states' access profiles. 
+      If the identities are missing access, Identity Security Cloud provisions that access. 
+
+      Administrators can also use the 'Provisioning' tab to configure email notifications for Identity Security Cloud to send whenever an identity with that identity profile has a lifecycle state change. 
+      Refer to [Configuring Lifecycle State Notifications](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html#configuring-lifecycle-state-notifications) for more information on how to do so.
+
+      An identity's lifecycle state can have four different statuses: the lifecycle state's status can be 'Active,' it can be 'Not Set,' it can be 'Not Valid,' or it 'Does Not Match Technical Name Case.' 
+      Refer to [Moving Identities into Lifecycle States](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html#moving-identities-into-lifecycle-states) for more information about these different lifecycle state statuses. 
+
+      Refer to [Setting Up Lifecycle States](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html) for more information about lifecycle states.
+  - name: Managed Clients
+    description: Read and create operations for client data and statuses
+  - name: Managed Clusters
+    description: Read and create pperations for client Clusters, including Log Configuration
+  - name: MFA Configuration
+    description: Configure and test multifactor authentication (MFA) methods
+  - name: MFA Controller
+    description: This API used for multifactor authentication functionality belong to gov-multi-auth service. This controller allow you to verify authentication by specified method
+  - name: Non-Employee Lifecycle Management
+    description: |
+      Use this API to implement non-employee lifecycle management functionality. 
+      With this functionality in place, administrators can create non-employee records and configure them for use in their organizations. 
+      This allows organizations to provide secure access to non-employees and control that access. 
+
+      The 'non-employee' term refers to any consultant, contractor, intern, or other user in an organization who is not a full-time permanent employee. 
+      Organizations can track non-employees' access and activity in Identity Security Cloud by creating and maintaining non-employee sources. 
+      Organizations can have a maximum of 50 non-employee sources. 
+
+      By using SailPoint's Non-Employee Lifecycle Management functionality, you agree to the following:
+
+      - SailPoint is not responsible for storing sensitive data. 
+      You may only add account attributes to non-employee identities that are necessary for business operations and are consistent with your contractual limitations on data that may be sent or stored in Identity Security Cloud.
+
+      - You are responsible for regularly downloading your list of non-employee accounts for all the sources you create and storing this list of accounts in a managed location to maintain an authoritative system of record and backup data for these accounts.
+
+      To manage non-employees in Identity Security Cloud, administrators must create a non-employee source and add accounts to the source. 
+
+      To create a non-employee source in Identity Security Cloud, administrators must use the Admin panel to go to Connections > Sources.
+      They must then specify 'Non-Employee' in the 'Source Type' field. 
+      Refer to [Creating a Non-Employee Source](https://documentation.sailpoint.com/saas/help/common/non-employee-mgmt.html#creating-a-non-employee-source) for more details about how to create non-employee sources.
+
+      To add accounts to a non-employee source in Identity Security Cloud, administrators can select the non-employee source and add the accounts. 
+      They can also use the 'Manage Non-Employees' widget on their user dashboards to reach the list of sources and then select the non-employee source they want to add the accounts to. 
+
+      Administrators can either add accounts individually or in bulk. Each non-employee source can have a maximum of 20,000 accounts. 
+      To add accounts in bulk, they must select the 'Bulk Upload' option and upload a CSV file. 
+      Refer to [Adding Accounts](https://documentation.sailpoint.com/saas/help/common/non-employee-mgmt.html#adding-accounts) for more details about how to add accounts to non-employee sources.
+
+      Once administrators have created the non-employee source and added accounts to it, they can create identity profiles to generate identities for the non-employee accounts and manage the non-employee identities the same way they would any other identities. 
+
+      Refer to [Managing Non-Employee Sources and Accounts](https://documentation.sailpoint.com/saas/help/common/non-employee-mgmt.html) for more information about non-employee lifecycle management.
+  - name: OAuth Clients
+    description: |
+      Use this API to implement OAuth client functionality.   
+      With this functionality in place, users with the appropriate security scopes can create and configure OAuth clients to use as a way to obtain authorization to use the Identity Security Cloud REST API.
+      Refer to [Authentication](https://developer.sailpoint.com/docs/api/authentication/) for more information about OAuth and how it works with the Identity Security Cloud REST API.
+  - name: Password Configuration
+    description: |
+      Use this API to implement organization password configuration functionality. 
+      With this functionality in place, organization administrators can create organization-specific password configurations. 
+
+      These configurations include details like custom password instructions, as well as digit token length and duration. 
+
+      Refer to [Configuring User Authentication for Password Resets](https://documentation.sailpoint.com/saas/help/pwd/pwd_reset.html) for more information about organization password configuration functionality.
+  - name: Password Dictionary
+    description: |
+      Use this API to implement password dictionary functionality.  
+      With this functionality in place, administrators can create password dictionaries to prevent users from using certain words or characters in their passwords. 
+
+      A password dictionary is a list of words or characters that users are prevented from including in their passwords. 
+      This can help protect users from themselves and force them to create passwords that are not easy to break. 
+
+      A password dictionary must meet the following requirements to for the API to handle them correctly: 
+
+      - It must be in .txt format.
+
+      - All characters must be UTF-8 characters. 
+
+      - Each line must contain a single word or character with no spaces or whitespace characters.
+
+      - It must contain at least one line other than the locale string.
+
+      - Each line must not exceed 128 characters.
+
+      - The file must not exceed 2500 lines. 
+
+      Administrators should also consider the following when they create their dictionaries: 
+
+      - Lines starting with a # represent comments.
+
+      - All words in the password dictionary are case-insensitive. 
+      For example, adding the word "password" to the dictionary also disallows the following: PASSWORD, Password, and PassWord.
+
+      - The dictionary uses substring matching. 
+      For example, adding the word "spring" to the dictionary also disallows the following: Spring124, 345SprinG, and 8spring.
+      Users can then select 'Change Password' to update their passwords. 
+
+      Administrators must do the following to create a password dictionary: 
+
+      - Create the text file that will contain the prohibited password values.
+
+      - If the dictionary is not in English, they must add a locale string to the top line: locale:`languageCode`_`countryCode`
+
+      The languageCode value refers to the language's 2-letter ISO 639-1 code.
+      The countryCode value refers to the country's 2-letter ISO 3166-1 code.
+      
+      Refer to this list https://docs.oracle.com/cd/E13214_01/wli/docs92/xref/xqisocodes.html to see all the available ISO 639-1 language codes and ISO 3166-1 country codes.
+
+      - Upload the .txt file to Identity Security Cloud with [Update Password Dictionary](https://developer.sailpoint.com/docs/api/v3/put-password-dictionary). Uploading a new file always overwrites the previous dictionary file.
+
+      Administrators can then specify which password policies check new passwords against the password dictionary by doing the following: In the Admin panel, they can use the Password Mgmt dropdown menu to select Policies, select the policy, and select the 'Prevent use of words in this site's password dictionary' checkbox beside it.
+
+      Refer to [Configuring Advanced Password Management Options](https://documentation.sailpoint.com/saas/help/pwd/adv_config.html) for more information about password dictionaries.
+  - name: Password Management
+    description: |
+      Use this API to implement password management functionality.  
+      With this functionality in place, users can manage their identity passwords for all their applications.
+
+      In Identity Security Cloud, users can select their names in the upper right corner of the page and use the drop-down menu to select Password Manager. 
+      Password Manager lists the user's identity's applications, possibly grouped to share passwords. 
+      Users can then select 'Change Password' to update their passwords. 
+
+      Grouping passwords allows users to update their passwords more broadly, rather than requiring them to update each password individually. 
+      Password Manager may list the applications and sources in the following groups:
+
+      - Password Group: This refers to a group of applications that share a password. 
+      For example, a user can use the same password for Google Drive, Google Mail, and YouTube. 
+      Updating the password for the password group updates the password for all its included applications.
+
+      - Multi-Application Source: This refers to a source with multiple applications that share a password. 
+      For example, a user can have a source, G Suite, that includes the Google Calendar, Google Drive, and Google Mail applications. 
+      Updating the password for the multi-application source updates the password for all its included applications. 
+
+      - Applications: These are applications that do not share passwords with other applications.
+
+      An organization may require some authentication for users to update their passwords. 
+      Users may be required to answer security questions or use a third-party authenticator before they can confirm their updates. 
+
+      Refer to [Managing Passwords](https://documentation.sailpoint.com/saas/user-help/accounts/passwords.html) for more information about password management.
+  - name: Password Policies
+    description: |
+      Use these APIs to implement password policies functionality.
+      These APIs allow you to define the policy parameters for choosing passwords.
+      
+      IdentityNow comes with a default policy that you can modify to define the password requirements your users must meet to log in to IdentityNow, such as requiring a minimum password length, including special characters, and disallowing certain patterns.
+      If you have licensed Password Management, you can create additional password policies beyond the default one to manage passwords for supported sources in your org.
+      
+      In the Identity Security Cloud Admin panel, administrators can use the Password Mgmt dropdown menu to select Sync Groups.
+      Refer to [Managing Password Policies](https://documentation.sailpoint.com/saas/help/pwd/pwd_policies/pwd_policies.html) for more information about password policies.
+  - name: Password Sync Groups
+    description: |
+      Use this API to implement password sync group functionality. 
+      With this functionality in place, administrators can group sources into password sync groups so that all their applications share the same password. 
+      This allows users to update the password for all the applications in a sync group if they want, rather than updating each password individually. 
+
+      A password sync group is a group of applications that shares a password. 
+      Administrators create these groups by grouping the applications' sources. 
+      For example, an administrator can group the ActiveDirectory, GitHub, and G Suite sources together so that all those sources' applications can also be grouped to share a password. 
+      A user can then update his or her password for ActiveDirectory, GitHub, Gmail, Google Drive, and Google Calendar all at once, rather then updating each one individually.
+
+      The following are required for administrators to create a password sync group in Identity Security Cloud: 
+
+      - At least two direct connect sources connected to Identity Security Cloud and configured for Password Management.
+
+      - Each authentication source in a sync group must have at least one application. Refer to [Adding and Resetting Application Passwords](https://documentation.sailpoint.com/saas/help/pwd/adv_config.html#adding-and-resetting-application-passwords) for more information about adding applications to sources.
+
+      - At least one password policy. Refer to [Managing Password Policies](https://documentation.sailpoint.com/saas/help/pwd/policies.html) for more information about password policies. 
+
+      In the Admin panel in Identity Security Cloud, administrators can use the Password Mgmt dropdown menu to select Sync Groups. 
+      To create a sync group, administrators must provide a name, choose a password policy to be enforced across the sources in the sync group, and select the sources to include in the sync group. 
+
+      Administrators can also delete sync groups in Identity Security Cloud, but they should know the following before they do: 
+
+      - Passwords related to the associated sources will become independent, so changing one will not change the others anymore. 
+
+      - Passwords for the sources' connected applications will also become independent. 
+
+      - Password policies assigned to the sync group are then assigned directly to the associated sources. 
+      To change the password policy for a source, administrators must edit it directly. 
+
+      Once the password sync group has been created, users can update the password for the group in Password Manager.
+
+      Refer to [Managing Password Sync Groups](https://documentation.sailpoint.com/saas/help/pwd/sync_grps.html) for more information about password sync groups.
+  - name: Personal Access Tokens
+    description: |
+      Use this API to implement personal access token (PAT) functionality. 
+      With this functionality in place, users can use PATs as an alternative to passwords for authentication in Identity Security Cloud. 
+
+      PATs embed user information into the client ID and secret. 
+      This replaces the API clients' need to store and provide a username and password to establish a connection, improving Identity Security Cloud organizations' integration security. 
+
+      In Identity Security Cloud, users can do the following to create and manage their PATs: Select the dropdown menu under their names, select Preferences, and then select Personal Access Tokens. 
+      They must then provide a description about the token's purpose. 
+      They can then select 'Create Token' at the bottom of the page to generate and view the Secret and Client ID. 
+
+      Refer to [Managing Personal Access Tokens](https://documentation.sailpoint.com/saas/help/common/generate_tokens.html) for more information about PATs.
+  - name: Public Identities
+    description: |
+      Use this API in conjunction with [Public Identites Config](https://developer.sailpoint.com/docs/api/v3/public-identities-config/) to enable non-administrators to view identities' publicly visible attributes. 
+      With this functionality in place, non-administrators can view identity attributes other than the default attributes (email, lifecycle state, and manager), depending on which identity attributes their organization administrators have made public. 
+      This can be helpful for access approvers, certification reviewers, managers viewing their direct reports' access, and source owners viewing their tasks.
+  - name: Public Identities Config
+    description: |
+      Use this API to implement public identity configuration functionality. 
+      With this functionality in place, administrators can make up to 5 identity attributes publicly visible so other non-administrator users can see the relevant information they need to make decisions. 
+      This can be helpful for approvers making approvals, certification reviewers, managers viewing their direct reports' access, and source owners viewing their tasks.
+
+      By default, non-administrators can select an identity and view the following attributes: email, lifecycle state, and manager. 
+      However, it may be helpful for a non-administrator reviewer to see other identity attributes like department, region, title, etc.
+      Administrators can use this API to make those necessary identity attributes public to non-administrators. 
+
+      For example, a non-administrator deciding whether to approve another identity's request for access to the Workday application, whose access may be restricted to members of the HR department, would want to know whether the identity is a member of the HR department. 
+      If an administrator has used [Update Public Identity Config](https://developer.sailpoint.com/docs/api/v3/update-public-identity-config/) to make the "department" attribute public, the approver can see the department and make a decision without requesting any more information.
+  - name: Reports Data Extraction
+    description: |
+      Use this API to implement reports lifecycle managing and monitoring.
+      With this functionality in place, users can run reports, view their results, and cancel reports in progress. 
+      This can be potentially helpful for auditing purposes. 
+  - name: Requestable Objects
+    description: |
+      Use this API to implement requestable object functionality. 
+      With this functionality in place, administrators can determine which access items can be requested with the [Access Request APIs](https://developer.sailpoint.com/docs/api/v3/access-requests/), along with their statuses. 
+      This can be helpful for administrators who are implementing and customizing access request functionality as a way of checking which items are requestable as they are created, assigned, and made available.
+  - name: Roles
+    description: |
+      Use this API to implement and customize role functionality.
+      With this functionality in place, administrators can create roles and configure them for use throughout Identity Security Cloud. 
+      Identity Security Cloud can use established criteria to automatically assign the roles to qualified users. This enables users to get all the access they need quickly and securely and administrators to spend their time on other tasks.
+
+      Entitlements represent the most granular level of access in Identity Security Cloud. 
+      Access profiles represent the next level and often group entitlements. 
+      Roles represent the broadest level of access and often group access profiles. 
+
+      For example, an Active Directory source in Identity Security Cloud can have multiple entitlements: the first, 'Employees,' may represent the access all employees have at the organization, and a second, 'Developers,' may represent the access all developers have at the organization.
+      
+      An administrator can then create a broader set of access in the form of an access profile, 'AD Developers' grouping the 'Employees' entitlement with the 'Developers' entitlement.
+      
+      An administrator can then create an even broader set of access in the form of a role grouping the 'AD Developers' access profile with another profile, 'GitHub Developers,' grouping entitlements for the GitHub source.
+      
+      When users only need Active Directory employee access, they can request access to the 'Employees' entitlement.
+      
+      When users need both Active Directory employee and developer access, they can request access to the 'AD Developers' access profile.
+      
+      When users need both the 'AD Developers' access profile and the 'GitHub Developers' access profile, they can request access to the role grouping both. 
+      
+      Roles often represent positions within organizations. 
+      For example, an organization's accountant can access all the tools the organization's accountants need with the 'Accountant' role. 
+      If the accountant switches to engineering, a qualified member of the organization can quickly revoke the accountant's 'Accountant' access and grant access to the 'Engineer' role instead, granting access to all the tools the organization's engineers need.
+
+      In Identity Security Cloud, adminstrators can use the Access drop-down menu and select Roles to view, configure, and delete existing roles, as well as create new ones. 
+      Administrators can enable and disable the role, and they can also make the following configurations: 
+
+      - Manage Access: Manage the role's access by adding or removing access profiles.
+
+      - Define Assignment: Define the criteria Identity Security Cloud uses to assign the role to identities. 
+      Use the first option, 'Standard Criteria,' to provide specific criteria for assignment like specific account attributes, entitlements, or identity attributes. 
+      Use the second, 'Identity List,' to specify the identities for assignment.
+
+      - Access Requests: Configure roles to be requestable and establish an approval process for any requests that the role be granted or revoked. 
+      Do not configure a role to be requestable without establishing a secure access request approval process for that role first. 
+
+      Refer to [Working with Roles](https://documentation.sailpoint.com/saas/help/access/roles.html) for more information about roles.
+  - name: Saved Search
+    description: |
+      Use this API to implement saved search functionality. 
+      With saved search functionality in place, users can save search queries and then view those saved searches, as well as rerun them. 
+
+      Search queries in Identity Security Cloud can grow very long and specific, which can make reconstructing them difficult or tedious, so it can be especially helpful to save search queries. 
+      It also opens the possibility to configure Identity Security Cloud to run the saved queries on a schedule, which is essential to detecting user information and access changes throughout an organization's tenant and across all its sources. 
+      Refer to [Scheduled Search](https://developer.sailpoint.com/docs/api/v3/scheduled-search/) for more information about running saved searches on a schedule. 
+      
+      In Identity Security Cloud, users can save searches under a name, and then they can access that saved search and run it again when they want. 
+
+      Refer to [Managing Saved Searches](https://documentation.sailpoint.com/saas/help/search/saved-searches.html) for more information about saving searches and using them.
+  - name: Scheduled Search
+    description: |
+      Use this API to implement scheduled search functionality. 
+      With scheduled search functionality in place, users can run saved search queries on their tenants on a schedule, and Identity Security Cloud emails them the search results. 
+      Users can also share these search results with other users by email by adding those users as subscribers, or those users can subscribe themselves. 
+
+      One of the greatest benefits of saving searches is the ability to run those searches on a schedule. 
+      This is essential for organizations to constantly detect any changes to user information or access throughout their tenants and across all their sources. 
+      For example, the manager Amanda Ross can schedule a saved search "manager.name:amanda.ross AND attributes.location:austin" on a schedule to regularly stay aware of changes with the Austin employees reporting to her.
+      Identity Security Cloud emails her the search results when the search runs, so she can work on other tasks instead of actively running this search.
+      
+      In Identity Security Cloud, scheduling a search involves a subscription. 
+      Users can create a subscription for a saved search and schedule it to run daily, weekly, or monthly (you can only use one schedule option at a time). 
+      The user can add other identities as subscribers so when the scheduled search runs, the subscribers and the user all receive emails. 
+      
+      By default, subscriptions exclude detailed results from the emails, for security purposes. 
+      Including detailed results about user access in an email may expose sensitive information.
+      However, the subscription creator can choose to include the information in the emails.  
+
+      By default, Identity Security Cloud sends emails to the subscribers even when the searches do not return new results. 
+      However, the subscription creator can choose to suppress these empty emails. 
+
+      Users can also subscribe to saved searches that already have existing subscriptions so they receive emails when the searches run. 
+      A saved search can have up to 10 subscriptions configured at a time. 
+
+      The subscription creator can enable, disable, or delete the subscription. 
+
+      Refer to [Subscribing to Saved Searches](https://documentation.sailpoint.com/saas/help/search/saved-searches.html#subscribing-to-saved-searches) for more information about scheduling searches and subscribing to them.
+  - name: Search
+    description: |
+      Use this API to implement search functionality. 
+      With search functionality in place, users can search their tenants for nearly any information from throughout their organizations. 
+
+      Identity Security Cloud enables organizations to store user data from across all their connected sources and manage the users' access, so the ability to query and filter that data is essential.  
+      Its search goes through all those sources and finds the results quickly and specifically. 
+
+      The search query is flexible - it can be very broad or very narrow. 
+      The search only returns results for searchable objects it is filtering for. 
+      The following objects are searchable: identities, roles, access profiles, entitlements, events, and account activities. 
+      By default, no filter is applied, so a search for "Ad" returns both the identity "Adam.Archer" as well as the role "Administrator."
+
+      Users can further narrow their results by using Identity Security Cloud's specific syntax and punctuation to structure their queries. 
+      For example, the query "attributes.location:austin AND NOT manager.name:amanda.ross" returns all results associated with the Austin location, but it excludes those associated with the manager Amanda Ross.
+      Refer to [Building a Search Query](https://documentation.sailpoint.com/saas/help/search/building-query.html) for more information about how to construct specific search queries. 
+
+      Refer to [Using Search](https://documentation.sailpoint.com/saas/help/search/index.html) for more information about Identity Security Cloud's search and its different possibilities. 
+
+      The search feature uses Elasticsearch as a datastore and query engine. 
+      The power of Elasticsearch makes this feature suitable for ad-hoc reporting.
+      However, data from the operational databases (ex. identities, roles, events, etc) has to be ingested into Elasticsearch. 
+      This ingestion process introduces a latency from when the operational data is created to when it is available in search. 
+      Depending on the system load, this can take a few seconds to a few minutes. 
+      Please keep this latency in mind when you use search.
+  - name: Search Attribute Configuration 
+    description: |
+      Use this API to implement search attribute configuration functionality, along with [Search](https://developer.sailpoint.com/docs/api/v3/search).
+      With this functionality in place, administrators can create custom search attributes that and run extended searches based on those attributes to further narrow down their searches and get the information and insights they want. 
+
+      Identity Security Cloud (ISC) enables organizations to store user data from across all their connected sources and manage the users' access, so the ability to query and filter that data is essential.  
+      Its search goes through all those sources and finds the results quickly and specifically. 
+
+      The search query is flexible - it can be very broad or very narrow. 
+      The search only returns results for searchable objects it is filtering for. 
+      The following objects are searchable: identities, roles, access profiles, entitlements, events, and account activities. 
+      By default, no filter is applied, so a search for "Ad" returns both the identity "Adam.Archer" as well as the role "Administrator."
+
+      Users can further narrow their results by using ISC's specific syntax and punctuation to structure their queries. 
+      For example, the query "attributes.location:austin AND NOT manager.name:amanda.ross" returns all results associated with the Austin location, but it excludes those associated with the manager Amanda Ross.
+      Refer to [Building a Search Query](https://documentation.sailpoint.com/saas/help/search/building-query.html) for more information about how to construct specific search queries. 
+
+      Refer to [Using Search](https://documentation.sailpoint.com/saas/help/search/index.html) for more information about ISC's search and its different possibilities. 
+
+      With Search Attribute Configuration, administrators can create, manage, and run searches based on the attributes they want to search. 
+  - name: Segments
+    description: |
+      Use this API to implement and customize access request segment functionality. 
+      With this functionality in place, administrators can create and manage access request segments. 
+      Segments provide organizations with a way to make the access their users have even more granular - this can simply the access request process for the organization's users and improves security by reducing the risk of overprovisoning access. 
+
+      Segments represent sets of identities, all grouped by specified identity attributes, who are only able to see and access the access items associated with their segments.
+      For example, administrators could group all their organization's London office employees into one segment, "London Office Employees," by their shared location. 
+      The administrators could then define the access items the London employees would need, and the identities in the "London Office Employees" would then only be able to see and access those items.
+
+      In Identity Security Cloud, administrators can use the 'Access' drop-down menu and select 'Segments' to reach the 'Access Requests Segments' page. 
+      This page lists all the existing access request segments, along with their statuses, enabled or disabled. 
+      Administrators can use this page to create, edit, enable, disable, and delete segments. 
+      To create a segment, an administrator must provide a name, define the identities grouped in the segment, and define the items the identities in the segment can access.
+      These items can be access profiles, roles, or entitlements. 
+
+      When administrators use the API to create and manage segments, they use a JSON expression in the `visibilityCriteria` object to define the segment's identities and access items. 
+
+      Refer to [Managing Access Request Segments](https://documentation.sailpoint.com/saas/help/requests/segments.html) for more information about segments in Identity Security Cloud.
+  - name: Service Desk Integration
+    description: |
+      Use this API to build an integration between Identity Security Cloud and a service desk ITSM (IT service management) solution. 
+      Once an administrator builds this integration between Identity Security Cloud and a service desk, users can use Identity Security Cloud to raise and track tickets that are synchronized between Identity Security Cloud and the service desk. 
+      
+      In Identity Security Cloud, administrators can create a service desk integration (sometimes also called an SDIM, or Service Desk Integration Module) by going to Admin > Connections > Service Desk and selecting 'Create.'
+
+      To create a Generic Service Desk integration, for example, administrators must provide the required information on the General Settings page, the Connectivity and Authentication information, Ticket Creation information, Status Mapping information, and Requester Source information on the Configure page. 
+      Refer to [Integrating SailPoint with Generic Service Desk](https://documentation.sailpoint.com/connectors/generic_sd/help/integrating_generic_service_desk/intro.html) for more information about the process of setting up a Generic Service Desk in Identity Security Cloud.
+
+      Administrators can create various service desk integrations, all with their own nuances. 
+      The following service desk integrations are available: 
+
+      - [Atlassian Cloud Jira Service Management](https://documentation.sailpoint.com/connectors/atlassian/jira_cloud/help/integrating_jira_cloud_sd/introduction.html)
+
+      - [Atlassian Server Jira Service Management](https://documentation.sailpoint.com/connectors/atlassian/jira_server/help/integrating_jira_server_sd/introduction.html)
+
+      - [BMC Helix ITSM Service Desk](https://documentation.sailpoint.com/connectors/bmc/helix_ITSM_sd/help/integrating_bmc_helix_itsm_sd/intro.html)
+
+      - [BMC Helix Remedyforce Service Desk](https://documentation.sailpoint.com/connectors/bmc/helix_remedyforce_sd/help/integrating_bmc_helix_remedyforce_sd/intro.html)
+
+      - [Generic Service Desk](https://documentation.sailpoint.com/connectors/generic_sd/help/integrating_generic_service_desk/intro.html)
+
+      - [ServiceNow Service Desk](https://documentation.sailpoint.com/connectors/servicenow/sdim/help/integrating_servicenow_sdim/intro.html)
+
+      - [Zendesk Service Desk](https://documentation.sailpoint.com/connectors/zendesk/help/integrating_zendesk_sd/introduction.html)
+  - name: SOD Policies
+    description: |
+      Use this API to implement and manage "separation of duties" (SOD) policies. 
+      With SOD policy functionality in place, administrators can organize the access in their tenants to prevent individuals from gaining conflicting or excessive access. 
+
+      "Separation of duties" refers to the concept that people shouldn't have conflicting sets of access - all their access should be configured in a way that protects your organization's assets and data.  
+      For example, people who record monetary transactions shouldn't be able to issue payment for those transactions.
+      Any changes to major system configurations should be approved by someone other than the person requesting the change. 
+
+      Organizations can use "separation of duties" (SOD) policies to enforce and track their internal security rules throughout their tenants.
+      These SOD policies limit each user's involvement in important processes and protects the organization from individuals gaining excessive access. 
+
+      To create SOD policies in Identity Security Cloud, administrators use 'Search' and then access 'Policies'.
+      To create a policy, they must configure two lists of access items. Each access item can only be added to one of the two lists.
+      They can search for the entitlements they want to add to these access lists.
+
+      >Note: You can have a maximum of 500 policies of any type (including general policies) in your organization. In each access-based SOD policy, you can have a maximum of 50 entitlements in each access list.  
+
+      Once a SOD policy is in place, if an identity has access items on both lists, a SOD violation will trigger. 
+      These violations are included in SOD violation reports that other users will see in emails at regular intervals if they're subscribed to the SOD policy.
+      The other users can then better help to enforce these SOD policies. 
+
+      To create a subscription to a SOD policy in Identity Security Cloud, administrators use 'Search' and then access 'Layers'.
+      They can create a subscription to the policy and schedule it to run at a regular interval. 
+
+      Refer to [Managing Policies](https://documentation.sailpoint.com/saas/help/sod/manage-policies.html) for more information about SOD policies. 
+
+      Refer to [Subscribe to a SOD Policy](https://documentation.sailpoint.com/saas/help/sod/policy-violations.html#subscribe-to-an-sod-policy) for more information about SOD policy subscriptions.
+  - name: SOD Violations
+    description: |
+      Use this API to check for current "separation of duties" (SOD) policy violations as well as potential future SOD policy violations. 
+      With SOD violation functionality in place, administrators can get information about current SOD policy violations and predict whether an access change will trigger new violations, which helps to prevent them from occurring at all. 
+
+      "Separation of duties" refers to the concept that people shouldn't have conflicting sets of access - all their access should be configured in a way that protects your organization's assets and data.  
+      For example, people who record monetary transactions shouldn't be able to issue payment for those transactions.
+      Any changes to major system configurations should be approved by someone other than the person requesting the change. 
+
+      Organizations can use "separation of duties" (SOD) policies to enforce and track their internal security rules throughout their tenants.
+      These SOD policies limit each user's involvement in important processes and protects the organization from individuals gaining excessive access. 
+
+      Once a SOD policy is in place, if an identity has conflicting access items, a SOD violation will trigger. 
+      These violations are included in SOD violation reports that other users will see in emails at regular intervals if they're subscribed to the SOD policy.
+      The other users can then better help to enforce these SOD policies.
+
+      Administrators can use the SOD violations APIs to check a set of identities for any current SOD violations, and they can use them to check whether adding an access item would potentially trigger a SOD violation. 
+      This second option is a good way to prevent SOD violations from triggering at all. 
+
+      Refer to [Handling Policy Violations](https://documentation.sailpoint.com/saas/help/sod/policy-violations.html) for more information about SOD policy violations. 
+  - name: Source Usages
+    description: |
+      Use this API to implement source usage insight functionality.
+      With this functionality in place, administrators can gather information and insights about how their tenants' sources are being used.
+      This allows organizations to get the information they need to start optimizing and securing source usage.
+  - name: Sources
+    description: |
+      Use this API to implement and customize source functionality. 
+      With source functionality in place, organizations can use Identity Security Cloud to connect their various sources and user data sets and manage access across all those different sources in a secure, scalable way. 
+
+      [Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html) refer to the Identity Security Cloud representations for external applications, databases, and directory management systems that maintain their own sets of users, like Dropbox, GitHub, and Workday, for example.
+      Organizations may use hundreds, if not thousands, of different source systems, and any one employee within an organization likely has a different user record on each source, often with different permissions on many of those records. 
+      Connecting these sources to Identity Security Cloud makes it possible to manage user access across them all.
+      Then, if a new hire starts at an organization, Identity Security Cloud can grant the new hire access to all the sources they need.
+      If an employee moves to a new department and needs access to new sources but no longer needs access to others, Identity Security Cloud can grant the necessary access and revoke the unnecessary access for all the employee's various sources. 
+      If an employee leaves the company, Identity Security Cloud can revoke access to all the employee's various source accounts immediately. 
+      These are just a few examples of the many ways that source functionality makes identity governance easier, more efficient, and more secure. 
+
+      In Identity Security Cloud, administrators can create configure, manage, and edit sources, and they can designate other users as source admins to be able to do so.
+      They can also designate users as source sub-admins, who can perform the same source actions but only on sources associated with their governance groups.
+      Admins go to Connections > Sources to see a list of the existing source representations in their organizations. 
+      They can create new sources or select existing ones. 
+
+      To create a new source, the following must be specified: Source Name, Description, Source Owner, and Connection Type.
+      Refer to [Configuring a Source](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html#configuring-a-source) for more information about the source configuration process. 
+      
+      Identity Security Cloud connects with its sources either by a direct communication with the source server (connection information specific to the source must be provided) or a flat file feed, a CSV file containing all the relevant information about the accounts to be loaded in.
+      Different sources use different connectors to share data with Identity Security Cloud, and each connector's setup process is specific to that connector. 
+      SailPoint has built a number of connectors to come out of the box and connect to the most common sources, and SailPoint actively maintains these connectors.
+      Refer to [Identity Security Cloud Connectors](https://documentation.sailpoint.com/connectors/identitynow/landingpages/help/landingpages/identitynow_connectivity_landing.html) for more information about these SailPoint supported connectors. 
+      Refer to the following links for more information about two useful connectors: 
+
+      - [JDBC Connector](https://documentation.sailpoint.com/connectors/jdbc/help/integrating_jdbc/introduction.html): This customizable connector an directly connect to databases that support JDBC (Java Database Connectivity).
+
+      - [Web Services Connector](https://documentation.sailpoint.com/connectors/webservices/help/integrating_webservices/introduction.html): This connector can directly connect to databases that support Web Services. 
+
+      Refer to [SaaS Connectivity](https://developer.sailpoint.com/docs/connectivity/saas-connectivity/) for more information about SailPoint's new connectivity framework that makes it easy to build and manage custom connectors to SaaS sources. 
+
+      When admins select existing sources, they can view the following information about the source:
+
+      - Associated connections (any associated identity profiles, apps, or references to the source in a transform).
+
+      - Associated user accounts. These accounts are linked to their identities - this provides a more complete picture of each user's access across sources.
+
+      - Associated entitlements (sets of access rights on sources).
+
+      - Associated access profiles (groupings of entitlements). 
+
+      The user account data and the entitlements update with each data aggregation from the source. 
+      Organizations generally run scheduled, automated data aggregations to ensure that their data is always in sync between their sources and their Identity Security Cloud tenants so an access change on a source is detected quickly in Identity Security Cloud.
+      Admins can view a history of these aggregations, and they can also run manual imports. 
+      Refer to [Loading Account Data](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html) for more information about manual and scheduled aggregations. 
+
+      Admins can also make changes to determine which user account data Identity Security Cloud collects from the source and how it correlates that account data with identity data. 
+      To define which account attributes the source shares with Identity Security Cloud, admins can edit the account schema on the source.
+      Refer to [Managing Source Account Schemas](https://documentation.sailpoint.com/saas/help/accounts/schema.html) for more information about source account schemas and how to edit them. 
+      To define the mapping between the source account attributes and their correlating identity attributes, admins can edit the correlation configuration on the source. 
+      Refer to [Assigning Source Accounts to Identities](https://documentation.sailpoint.com/saas/help/accounts/correlation.html) for more information about this correlation process between source accounts and identities.
+
+      Admins can also delete sources, but they must first ensure that the sources no longer have any active connections: the source must not be associated with any identity profile or any app, and it must not be referenced by any transform.
+      Refer to [Deleting Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html#deleting-sources) for more information about deleting sources. 
+
+      Well organized, mapped out connections between sources and Identity Security Cloud are essential to achieving comprehensive identity access governance across all the source systems organizations need. 
+      Refer to [Managing Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html) for more information about all the different things admins can do with sources once they are connected.
+  - name: Tagged Objects
+    description: |
+      Use this API to implement object tagging functionality. 
+      With object tagging functionality in place, any user in an organization can use tags as a way to group objects together and find them more quickly when the user searches Identity Security Cloud. 
+
+      In Identity Security Cloud, users can search their tenants for information and add tags objects they find.
+      Tagging an object provides users with a way of grouping objects together and makes it easier to find these objects in the future. 
+
+      For example, if a user is searching for an entitlement that grants a risky level of access to Active Directory, it's possible that the user may have to search through hundreds of entitlements to find the correct one. 
+      Once the user finds that entitlement, the user can add a tag to the entitlement, "AD_RISKY" to make it easier to find the entitlement again.
+      The user can add the same tag to multiple objects the user wants to group together for an easy future search, and the user can also do so in bulk.
+      When the user wants to find that tagged entitlement again, the user can search for "tags:AD_RISKY" to find all objects with that tag. 
+
+      With the API, you can tag even more different object types than you can in Identity Security Cloud (access profiles, entitlements, identities, and roles). 
+      You can use the API to tag all these objects:
+
+      - Access profiles 
+
+      - Applications 
+
+      - Certification campaigns
+
+      - Entitlements
+
+      - Identities 
+
+      - Roles 
+
+      - SOD (separation of duties) policies
+
+      - Sources 
+
+      You can also use the API to directly find, create, and manage tagged objects without using search queries. 
+
+      There are limits to tags: 
+
+      - You can have up to 500 different tags in your tenant.
+
+      - You can apply up to 30 tags to one object. 
+
+      - You can have up to 10,000 tag associations, pairings of 1 tag to 1 object, in your tenant. 
+
+      Because of these limits, it is recommended that you work with your governance experts and security teams to establish a list of tags that are most expressive of governance objects and access managed by Identity Security Cloud. 
+
+      These are the types of information often expressed in tags: 
+
+      - Affected departments
+
+      - Compliance and regulatory categories 
+
+      - Remediation urgency levels 
+
+      - Risk levels 
+
+      Refer to [Tagging Items in Search](https://documentation.sailpoint.com/saas/help/search/index.html?h=tags#tagging-items-in-search) for more information about tagging objects in Identity Security Cloud. 
+  - name: Transforms
+    description: |
+      The purpose of this API is to expose functionality for the manipulation of Transform objects.
+      Transforms are a form of configurable objects which define an easy way to manipulate attribute data without having
+      to write code. These endpoints don't require API calls to other resources, audit service is used for keeping track
+      of which users have made changes to the Transforms.
+
+      Refer to [Transforms](https://developer.sailpoint.com/docs/extensibility/transforms/) for more information about transforms.
+  - name: Work Items
+    description: |
+      Use this API to implement work item functionality. 
+      With this functionality in place, users can manage their work items (tasks). 
+
+      Work items refer to the tasks users see in Identity Security Cloud's Task Manager. 
+      They can see the pending work items they need to complete, as well as the work items they have already completed. 
+      Task Manager lists the work items along with the involved sources, identities, accounts, and the timestamp when the work item was created. 
+      For example, a user may see a pending 'Create an Account' work item for the identity Fred.Astaire in GitHub for Fred's GitHub account, fred-astaire-sp. 
+      Once the user completes the work item, the work item will be listed with his or her other completed work items. 
+
+      To complete work items, users can use their dashboards and select the 'My Tasks' widget. 
+      The widget will list any work items they need to complete, and they can select the work item from the list to review its details. 
+      When they complete the work item, they can select 'Mark Complete' to add it to their list of completed work items. 
+
+      Refer to [Task Manager](https://documentation.sailpoint.com/saas/user-help/task_manager.html) for more information about work items, including the different types of work items users may need to complete.
+  - name: Workflows
+    description: |
+      Workflows allow administrators to create custom automation scripts directly within Identity Security Cloud.  These automation scripts respond to [event triggers](https://developer.sailpoint.com/docs/extensibility/event-triggers/#how-to-get-started-with-event-triggers) and perform a series of actions to perform tasks that are either too cumbersome or not available in the Identity Security Cloud UI.  Workflows can be configured via a graphical user interface within Identity Security Cloud, or by creating and uploading a JSON formatted script to the Workflow service.  The Workflows API collection provides the necessary functionality to create, manage, and test your workflows via REST.
+paths:
+  /access-profiles:
+    $ref: './v3/paths/access-profiles.yaml'
+  /access-profiles/{id}:
+    $ref: './v3/paths/access-profile.yaml'
+  /access-profiles/bulk-delete:
+    $ref: './v3/paths/access-profile-bulk-delete.yaml'
+  /access-profiles/{id}/entitlements:
+    $ref: './v3/paths/access-profile-entitlements.yaml'
+  /access-requests:
+    $ref: "./v3/paths/access-requests.yaml"
+  /access-requests/cancel:
+    $ref: "./v3/paths/access-request-cancel.yaml"
+  /access-request-config:
+    $ref: "./v3/paths/access-request-config.yaml"
+  /access-request-status:
+    $ref: "./v3/paths/access-request-status.yaml"
+  /access-request-approvals/pending:
+    $ref: "./v3/paths/pending-access-request-approvals.yaml"
+  /access-request-approvals/completed:
+    $ref: "./v3/paths/completed-access-request-approvals.yaml"
+  /access-request-approvals/{approvalId}/approve:
+    $ref: "./v3/paths/approve-access-request-approval.yaml"
+  /access-request-approvals/{approvalId}/reject:
+    $ref: "./v3/paths/reject-access-request-approval.yaml"
+  /access-request-approvals/{approvalId}/forward:
+    $ref: "./v3/paths/forward-access-request-approval.yaml"
+  /access-request-approvals/approval-summary:
+    $ref: "./v3/paths/access-request-approval-summary.yaml"
+  /accounts:
+    $ref: "./v3/paths/accounts.yaml"
+  /accounts/{id}:
+    $ref: "./v3/paths/account.yaml"
+  /accounts/{id}/entitlements:
+    $ref: "./v3/paths/accounts-id-entitlements.yaml"
+  /accounts/{id}/reload:
+    $ref: "./v3/paths/accounts-id-reload.yaml"
+  /accounts/{id}/enable:
+    $ref: "./v3/paths/accounts-id-enable.yaml"
+  /accounts/{id}/disable:
+    $ref: "./v3/paths/accounts-id-disable.yaml"
+  /accounts/{id}/unlock:
+    $ref: "./v3/paths/accounts-id-unlock.yaml"
+  /accounts/search-attribute-config:
+    $ref: './v3/paths/searchAttributeConfig.yaml'
+  /accounts/search-attribute-config/{name}:
+    $ref: './v3/paths/searchAttributeConfig-get-patch-delete.yaml'
+  /account-activities:
+    $ref: "./v3/paths/account-activity-list.yaml"
+  /account-activities/{id}:
+    $ref: "./v3/paths/account-activity-get-one.yaml"
+  /auth-org/network-config:
+    $ref: "./v3/paths/auth-org-network-config.yaml"
+  /auth-org/lockout-config:
+    $ref: "./v3/paths/auth-org-lockout-config.yaml"
+  /auth-org/service-provider-config:
+    $ref: "./v3/paths/auth-org-service-provider-config.yaml"
+  /auth-org/session-config:
+    $ref: "./v3/paths/auth-org-session-config.yaml"
+  /auth-users/{id}:
+    $ref: "./v3/paths/auth-user.yaml"
+  /brandings:
+    $ref: './v3/paths/brandings.yaml'
+  /brandings/{name}:
+    $ref: './v3/paths/branding.yaml'
+  /campaigns:
+    $ref: './v3/paths/campaigns.yaml'
+  /campaigns/{id}:
+    $ref: './v3/paths/campaign.yaml'
+  /campaigns/{id}/reassign:
+    $ref: './v3/paths/campaign-admin-cert-reassign.yaml'
+  /campaigns/{id}/activate:
+    $ref: './v3/paths/campaign-activate.yaml'
+  /campaigns/{id}/complete:
+    $ref: './v3/paths/campaign-complete.yaml'
+  /campaigns/delete:
+    $ref: './v3/paths/campaigns-delete.yaml'
+  /campaigns/{id}/run-remediation-scan:
+    $ref: './v3/paths/campaign-run-remediation-scan.yaml'
+  /campaigns/{id}/reports:
+    $ref: './v3/paths/campaign-reports.yaml'
+  /campaigns/{id}/run-report/{type}:
+    $ref: './v3/paths/campaign-run-report.yaml'
+  /campaigns/reports-configuration:
+    $ref: './v3/paths/campaign-reports-configuration.yaml'
+  /campaign-filters:
+    $ref: './v3/paths/campaign-filters.yaml'
+  /campaign-filters/{id}:
+    $ref: './v3/paths/campaign-filter.yaml'
+  /campaign-filters/delete:
+    $ref: './v3/paths/campaign-filters-delete.yaml'
+  /campaign-templates:
+    $ref: './v3/paths/campaign-templates.yaml'
+  /campaign-templates/{id}:
+    $ref: './v3/paths/campaign-template.yaml'
+  /campaign-templates/{id}/schedule:
+    $ref: './v3/paths/campaign-template-schedule.yaml'
+  /campaign-templates/{id}/generate:
+    $ref: './v3/paths/campaign-template-generate.yaml'
+  /certifications:
+    $ref: "./v3/paths/identity-certifications.yaml"
+  /certifications/{id}:
+    $ref: "./v3/paths/identity-certification.yaml"
+  /certifications/{id}/access-review-items:
+    $ref: "./v3/paths/identity-certifications-access-review-items.yaml"
+  /certifications/{id}/decide:
+    $ref: "./v3/paths/identity-certifications-decide.yaml"
+  /certifications/{id}/reassign:
+    $ref: "./v3/paths/identity-certifications-reassign.yaml"
+  /certifications/{id}/sign-off:
+    $ref: "./v3/paths/identity-certifications-sign-off.yaml"
+  /certifications/{id}/decision-summary:
+    $ref: "./v3/paths/identity-certifications-decision-summary.yaml"
+  /certifications/{id}/identity-summaries:
+    $ref: "./v3/paths/identity-certifications-identity-summaries.yaml"
+  /certifications/{id}/access-summaries/{type}:
+    $ref: "./v3/paths/identity-certifications-access-summaries.yaml"
+  /certifications/{id}/identity-summaries/{identitySummaryId}:
+    $ref: "./v3/paths/identity-certifications-identity-summary.yaml"
+  /certifications/{certificationId}/access-review-items/{itemId}/permissions:
+    $ref: "./v3/paths/identity-certifications-item-permissions.yaml"
+  /certifications/{id}/reviewers:
+    $ref: "./v3/paths/certifications-reviewers.yaml"
+  /certifications/{id}/reassign-async:
+    $ref: './v3/paths/certifications-reassign-async.yaml'
+  /certification-tasks/{id}:
+    $ref: "./v3/paths/certification-task.yaml"
+  /certification-tasks:
+    $ref: "./v3/paths/certification-tasks.yaml"
+  /configuration-hub/object-mappings/{sourceOrg}:
+    $ref: './v3/paths/configuration-hub/object-mapping.yaml'
+  /configuration-hub/object-mappings/{sourceOrg}/{objectMappingId}:
+    $ref: './v3/paths/configuration-hub/object-mapping-delete.yaml'
+  /configuration-hub/object-mappings/{sourceOrg}/bulk-create:
+    $ref: './v3/paths/configuration-hub/object-mapping-bulk-create.yaml'
+  /configuration-hub/object-mappings/{sourceOrg}/bulk-patch:
+    $ref: './v3/paths/configuration-hub/object-mapping-bulk-update.yaml'
+  /configuration-hub/backups/uploads:
+    $ref: './v3/paths/configuration-hub/backup-uploads.yaml'
+  /configuration-hub/backups/uploads/{id}:
+    $ref: './v3/paths/configuration-hub/backup-uploads-id.yaml'
+  /connectors/{scriptName}:
+    $ref: './v3/paths/connector.yaml'
+  /connectors:
+    $ref: './v3/paths/connectors.yaml'
+  /connectors/{scriptName}/source-config:
+    $ref: './v3/paths/connectors-source-config.yaml'
+  /connectors/{scriptName}/translations/{locale}:
+    $ref: './v3/paths/connectors-translations.yaml'
+  /connectors/{scriptName}/source-template:
+    $ref: './v3/paths/connectors-source-template.yaml'
+  /connectors/{scriptName}/correlation-config:
+    $ref: './v3/paths/connectors-correlation-config.yaml'
+  /identities/{identity-id}/set-lifecycle-state:
+    $ref: "./v3/paths/identity-set-lifecycle-state.yaml"
+  /identity-profiles/{identity-profile-id}/lifecycle-states:
+    $ref: "./v3/paths/identity-profile-lifecycle-states.yaml"
+  /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}:
+    $ref: "./v3/paths/identity-profile-lifecycle-state.yaml"
+  /identity-profiles:
+    $ref: "./v3/paths/identity-profiles.yaml"
+  /identity-profiles/bulk-delete:
+    $ref: './v3/paths/identity-profiles-bulk-delete.yaml'
+  /identity-profiles/export:
+    $ref: "./v3/paths/identity-profiles-export.yaml"
+  /identity-profiles/import:
+    $ref: "./v3/paths/identity-profiles-import.yaml"
+  /identity-profiles/identity-preview:
+    $ref: './v3/paths/identity-profiles-identity-preview.yaml'
+  /identity-profiles/{identity-profile-id}:
+    $ref: "./v3/paths/identity-profile.yaml"
+  /identity-profiles/{identity-profile-id}/default-identity-attribute-config:
+    $ref: "./v3/paths/identity-profile-default-config.yaml"
+  /identity-profiles/{identity-profile-id}/process-identities:
+    $ref: "./v3/paths/identity-profile-process-identities.yaml"
+  /managed-clients:
+    $ref: './v3/paths/managed-clients.yaml'
+  /managed-clients/{id}:
+    $ref: './v3/paths/managed-client.yaml'
+  /managed-clients/{id}/status:
+    $ref: './v3/paths/managed-client-status.yaml'
+  /managed-clusters:
+    $ref: './v3/paths/managed-clusters.yaml'
+  /managed-clusters/{id}:
+    $ref: './v3/paths/managed-cluster.yaml'
+  /managed-clusters/{id}/log-config:
+    $ref: './v3/paths/managed-cluster-log-config.yaml'
+  /mfa/okta-verify/config:
+    $ref: './v3/paths/mfa-okta-config.yaml'
+  /mfa/duo-web/config:
+    $ref: './v3/paths/mfa-duo-config.yaml'
+  /mfa/kba/config:
+    $ref: './v3/paths/mfa-kba-config.yaml'
+  /mfa/kba/config/answers:
+    $ref: './v3/paths/mfa-kba-config-answers.yaml'
+  /mfa/{method}/test:
+    $ref: './v3/paths/mfa-config-test.yaml'
+  /mfa/{method}/delete:
+    $ref: './v3/paths/mfa-config-delete.yaml'
+  /mfa/okta-verify/verify:
+    $ref: './v3/paths/mfa-okta-verify.yaml'
+  /mfa/duo-web/verify:
+    $ref: './v3/paths/mfa-duo-verify.yaml'
+  /mfa/{method}/poll:
+    $ref: './v3/paths/mfa-poll.yaml'
+  /mfa/kba/authenticate:
+    $ref: './v3/paths/mfa-kba-authenticate.yaml'
+  /mfa/token/authenticate:
+    $ref: './v3/paths/mfa-token-authenticate.yaml'
+  /mfa/token/send:
+    $ref: './v3/paths/mfa-token-send.yaml'
+  /non-employee-records:
+    $ref: "./v3/paths/non-employee-records.yaml"
+  /non-employee-records/{id}:
+    $ref: "./v3/paths/non-employee-record.yaml"
+  /non-employee-records/bulk-delete:
+    $ref: "./v3/paths/non-employee-records-bulk-delete.yaml"
+  /non-employee-requests:
+    $ref: "./v3/paths/non-employee-requests.yaml"
+  /non-employee-requests/{id}:
+    $ref: "./v3/paths/non-employee-request.yaml"
+  /non-employee-requests/summary/{requested-for}:
+    $ref: "./v3/paths/non-employee-request-summary-get.yaml"
+  /non-employee-sources:
+    $ref: "./v3/paths/non-employee-sources.yaml"
+  /non-employee-sources/{sourceId}:
+    $ref: "./v3/paths/non-employee-source.yaml"
+  /non-employee-sources/{id}/non-employees/download:
+    $ref: "./v3/paths/non-employee-sources-export-non-employees.yaml"
+  /non-employee-sources/{id}/non-employee-bulk-upload:
+    $ref: "./v3/paths/non-employee-sources-bulk-upload-non-employees.yaml"
+  /non-employee-sources/{id}/non-employee-bulk-upload/status:
+    $ref: "./v3/paths/non-employee-sources-bulk-upload-status.yaml"
+  /non-employee-sources/{id}/schema-attributes-template/download:
+    $ref: "./v3/paths/non-employee-sources-export-schema-attributes-template.yaml"
+  /non-employee-approvals:
+    $ref: "./v3/paths/non-employee-approval-list.yaml"
+  /non-employee-approvals/{id}:
+    $ref: "./v3/paths/non-employee-approve-get.yaml"
+  /non-employee-approvals/{id}/approve:
+    $ref: "./v3/paths/non-employee-approve-request.yaml"
+  /non-employee-approvals/{id}/reject:
+    $ref: "./v3/paths/non-employee-reject-request.yaml"
+  /non-employee-approvals/summary/{requested-for}:
+    $ref: "./v3/paths/non-employee-approval-summary.yaml"
+  /non-employee-sources/{sourceId}/schema-attributes:
+    $ref: "./v3/paths/non-employee-sources-schema-attributes.yaml"
+  /non-employee-sources/{sourceId}/schema-attributes/{attributeId}:
+    $ref: "./v3/paths/non-employee-sources-schema-attribute.yaml"
+  /oauth-clients:
+    $ref: "./v3/paths/oauth-clients.yaml"
+  /oauth-clients/{id}:
+    $ref: "./v3/paths/oauth-client.yaml"
+  /password-sync-groups:
+    $ref: './v3/paths/password-sync-groups.yaml'
+  /password-sync-groups/{id}:
+    $ref: './v3/paths/password-sync-group.yaml'
+  /password-policies/{id}:
+    $ref: './v3/paths/password-policy.yaml'
+  /password-policies:
+    $ref: './v3/paths/password-policies.yaml'
+  /personal-access-tokens:
+    $ref: "./v3/paths/personal-access-tokens.yaml"
+  /personal-access-tokens/{id}:
+    $ref: "./v3/paths/personal-access-token.yaml"
+  /public-identities:
+    $ref: "./v3/paths/public-identities.yaml"
+  /public-identities-config:
+    $ref: "./v3/paths/public-identities-config.yaml"
+  /requestable-objects:
+    $ref: "./v3/paths/requestable-object-list.yaml"
+  /roles:
+    $ref: './v3/paths/roles.yaml'
+  /roles/{id}:
+    $ref: './v3/paths/role.yaml'
+  /roles/bulk-delete:
+    $ref: './v3/paths/role-bulk-delete.yaml'
+  /roles/{id}/assigned-identities:
+    $ref: './v3/paths/role-assigned-identities.yaml'
+  /saved-searches:
+    $ref: "./v3/paths/saved-searches.yaml"
+  /saved-searches/{id}:
+    $ref: "./v3/paths/saved-searches-id.yaml"
+  /saved-searches/{id}/execute:
+    $ref: "./v3/paths/saved-searches-execute.yaml"
+  /scheduled-searches:
+    $ref: "./v3/paths/scheduled-searches.yaml"
+  /scheduled-searches/{id}:
+    $ref: "./v3/paths/scheduled-searches-id.yaml"
+  /scheduled-searches/{id}/unsubscribe:
+    $ref: "./v3/paths/scheduled-searches-unsubscribe.yaml"
+  /search:
+    $ref: "./v3/paths/search-post.yaml"
+  /search/count:
+    $ref: "./v3/paths/search-count.yaml"
+  /search/aggregate:
+    $ref: "./v3/paths/search-aggregate.yaml"
+  /search/{index}/{id}:
+    $ref: "./v3/paths/search-get.yaml"
+  /segments:
+    $ref: "./v3/paths/segments.yaml"
+  /segments/{id}:
+    $ref: "./v3/paths/segment.yaml"
+  /service-desk-integrations:
+    $ref: "./v3/paths/service-desk-integrations.yaml"
+  /service-desk-integrations/{id}:
+    $ref: "./v3/paths/service-desk-integration.yaml"
+  /service-desk-integrations/types:
+    $ref: "./v3/paths/service-desk-integration-types.yaml"
+  /service-desk-integrations/templates/{scriptName}:
+    $ref: "./v3/paths/service-desk-integration-template.yaml"
+  /service-desk-integrations/status-check-configuration:
+    $ref: "./v3/paths/service-desk-integration-configuration.yaml"
+  /query-password-info:
+    $ref: "./v3/paths/query-password-info.yaml"
+  /set-password:
+    $ref: "./v3/paths/set-password.yaml"
+  /password-change-status/{id}:
+    $ref: "./v3/paths/password-change-status.yaml"
+  /password-dictionary:
+    $ref: './v3/paths/password-dictionary.yaml'
+  /password-org-config:
+    $ref: './v3/paths/password-org-config.yaml'
+  /reports/{taskResultId}/result:
+    $ref: './v3/paths/reports-result.yaml'
+  /reports/run:
+    $ref: './v3/paths/reports-run.yaml'
+  /reports/{id}/cancel:
+    $ref: './v3/paths/reports-cancel.yaml'
+  /reports/{taskResultId}:
+    $ref: './v3/paths/reports-get-file.yaml'
+  /sod-policies:
+    $ref: './v3/paths/sod-policies.yaml'
+  /sod-policies/{id}:
+    $ref: './v3/paths/sod-policy.yaml'
+  /sod-policies/{id}/evaluate:
+    $ref: './v3/paths/sod-policy-evaluate.yaml'
+  /sod-policies/{id}/schedule:
+    $ref: './v3/paths/sod-schedule.yaml'
+  /sod-policies/{id}/violation-report/run:
+    $ref: './v3/paths/sod-report-run.yaml'
+  /sod-policies/{id}/violation-report:
+    $ref: './v3/paths/sod-violation-report.yaml'
+  /sod-policies/sod-violation-report-status/{reportResultId}:
+    $ref: './v3/paths/sod-violation-report-status.yaml'
+  /sod-violations/predict:
+    $ref: "./v3/paths/sod-violations-predict.yaml"
+  /sod-violations/check:
+    $ref: "./v3/paths/sod-violations-check.yaml"
+  /sod-violation-report/run:
+    $ref: './v3/paths/sod-all-report-run.yaml'
+  /sod-violation-report:
+    $ref: './v3/paths/sod-all-report-status.yaml'
+  /sod-violation-report/{reportResultId}/download:
+    $ref: './v3/paths/sod-download-default-report.yaml'
+  /sod-violation-report/{reportResultId}/download/{fileName}:
+    $ref: './v3/paths/sod-download-custom-report.yaml'
+  /sources:
+    $ref: "./v3/paths/sources.yaml"
+  /sources/{id}:
+    $ref: "./v3/paths/source.yaml"
+  /sources/{sourceId}/provisioning-policies:
+    $ref: "./v3/paths/provisioning-policies.yaml"
+  /sources/{sourceId}/provisioning-policies/{usageType}:
+    $ref: "./v3/paths/provisioning-policy.yaml"
+  /sources/{sourceId}/provisioning-policies/bulk-update:
+    $ref: "./v3/paths/provisioning-policies-bulk-update.yaml"
+  /sources/{sourceId}/schemas:
+    $ref: "./v3/paths/schemas.yaml"
+  /sources/{sourceId}/schemas/{schemaId}:
+    $ref: "./v3/paths/schema.yaml"
+  /sources/{sourceId}/source-health:
+    $ref: "./v3/paths/source-health.yaml"
+  /sources/{id}/schemas/accounts:
+    $ref: "./v3/paths/source-accounts-schema.yaml"
+  /sources/{id}/schemas/entitlements:
+    $ref: "./v3/paths/source-entitlements-schema.yaml"
+  /sources/{sourceId}/upload-connector-file:
+    $ref: "./v3/paths/source-upload-connector-file.yaml"
+  /sources/{sourceId}/connections:
+    $ref: "./v3/paths/source-connections.yaml"
+  /tagged-objects:
+    $ref: "./v3/paths/tagged-objects.yaml"
+  /tagged-objects/{type}:
+    $ref: "./v3/paths/tagged-objects-type.yaml"
+  /tagged-objects/{type}/{id}:
+    $ref: "./v3/paths/tagged-object.yaml"
+  /tagged-objects/bulk-add:
+    $ref: "./v3/paths/bulk-add-tagged-objects.yaml"
+  /tagged-objects/bulk-remove:
+    $ref: "./v3/paths/bulk-remove-tagged-objects.yaml"
+  /transforms:
+    $ref: "./v3/paths/transforms.yaml"
+  /transforms/{id}:
+    $ref: "./v3/paths/transform.yaml"
+  /work-items:
+    $ref: "./v3/paths/work-items.yaml"
+  /work-items/completed:
+    $ref: "./v3/paths/work-items-completed.yaml"
+  /work-items/count:
+    $ref: "./v3/paths/work-items-count.yaml"
+  /work-items/completed/count:
+    $ref: "./v3/paths/work-items-completed-count.yaml"
+  /work-items/summary:
+    $ref: "./v3/paths/work-items-summary.yaml"
+  /work-items/{id}:
+    $ref: "./v3/paths/work-item.yaml"
+  /work-items/{id}/forward:
+    $ref: './v3/paths/work-item-forward.yaml'
+  /work-items/{id}/approve/{approvalItemId}:
+    $ref: "./v3/paths/work-items-approve-approval-item.yaml"
+  /work-items/{id}/reject/{approvalItemId}:
+    $ref: "./v3/paths/work-items-reject-approval-item.yaml"
+  /work-items/bulk-approve/{id}:
+    $ref: "./v3/paths/work-items-bulk-approve-approval-item.yaml"
+  /work-items/bulk-reject/{id}:
+    $ref: "./v3/paths/work-items-bulk-reject-approval-item.yaml"
+  /work-items/{id}/submit-account-selection:
+    $ref: "./v3/paths/work-items-account-selection.yaml"
+  /workflows:
+    $ref: './v3/paths/workflows/workflows.yaml'
+  /workflows/{id}:
+    $ref: './v3/paths/workflows/workflow.yaml'
+  /workflows/{id}/test:
+    $ref: './v3/paths/workflows/workflow-test.yaml'
+  /workflows/{id}/executions:
+    $ref: './v3/paths/workflows/workflow-executions.yaml'
+  /workflow-executions/{id}:
+    $ref: './v3/paths/workflows/workflow-execution.yaml'
+  /workflow-executions/{id}/history:
+    $ref: './v3/paths/workflows/workflow-execution-history.yaml'
+  /workflow-executions/{id}/cancel:
+    $ref: './v3/paths/workflows/workflow-execution-cancel.yaml'
+  /workflow-library:
+    $ref: './v3/paths/workflows/workflow-library.yaml'
+  /workflow-library/actions:
+    $ref: './v3/paths/workflows/workflow-library-actions.yaml'
+  /workflow-library/triggers:
+    $ref: './v3/paths/workflows/workflow-library-triggers.yaml'
+  /workflow-library/operators:
+    $ref: './v3/paths/workflows/workflow-library-operators.yaml'
+  /workflows/{id}/external/oauth-clients:
+    $ref: './v3/paths/workflows/workflow-external-oauth-client.yaml'
+  /workflows/execute/external/{id}:
+    $ref: './v3/paths/workflows/workflow-external-execute.yaml'
+  /workflows/execute/external/{id}/test:
+    $ref: './v3/paths/workflows/workflow-external-execute-test.yaml'
+  /source-usages/{sourceId}/status:
+    $ref: "./v3/paths/source-usage-status.yaml"
+  /source-usages/{sourceId}/summaries:
+    $ref: "./v3/paths/source-usages.yaml"
+  /account-usages/{accountId}/summaries:
+    $ref: "./v3/paths/account-usages.yaml"
+  /manual-discover-applications-template:
+    $ref: "./v3/paths/manual-discover-applications-template.yaml"
+  /manual-discover-applications:
+    $ref: "./v3/paths/manual-discover-applications.yaml"
+  /discovered-applications:
+    $ref: "./v3/paths/discovered-applications.yaml"
+  /vendor-connector-mappings:
+    $ref: "./v3/paths/vendor-connector-mappings.yaml"
+
+security:
+- userAuth:
+  - "sp:scopes:all"
+components:
+  securitySchemes:
+    userAuth:
+      type: oauth2
+      x-displayName: Personal Access Token
+      description: |
+        OAuth2 Bearer token (JWT) generated using either a [personal access token (PAT)](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token) or through the [authorization code flow](https://developer.sailpoint.com/docs/api/authentication/#request-access-token-with-authorization-code-grant-flow).
+
+        Personal access tokens are associated with a user in Identity Security Cloud and relies on the user's [user level](https://documentation.sailpoint.com/saas/help/common/users/index.html) (ex. Admin, Helpdesk, etc.) to determine a base level of access.
+        
+        See [Identity Security Cloud REST API Authentication](https://developer.sailpoint.com/docs/api/authentication/) for more information.
+      flows:
+        clientCredentials:
+          tokenUrl: https://tenant.api.identitynow.com/oauth/token
+          scopes:
+            "sp:scopes:default": "default scope"
+            "sp:scopes:all": "access to all scopes"
+        authorizationCode:
+          authorizationUrl: https://tenant.login.sailpoint.com/oauth/authorize
+          tokenUrl: https://tenant.api.identitynow.com/oauth/token
+          scopes:
+            "sp:scopes:default": "default scope"
+            "sp:scopes:all": "access to all scopes"
+    applicationAuth:
+      type: oauth2
+      x-displayName: Client Credentials
+      description: |
+        OAuth2 Bearer token (JWT) generated using [client credentials flow](https://developer.sailpoint.com/docs/api/authentication/#request-access-token-with-client-credentials-grant-flow).
+
+        Client credentials refers to tokens that are not associated with a user in Identity Security Cloud.
+
+        See [Identity Security Cloud REST API Authentication](https://developer.sailpoint.com/docs/api/authentication/) for more information.
+      flows:
+        clientCredentials:
+          tokenUrl: https://tenant.api.identitynow.com/oauth/token
+          scopes:
+            "sp:scopes:default": "default scope"
+            "sp:scopes:all": "access to all scopes"
+  schemas:
+    AccessRequest:
+      $ref: "./v3/schemas/AccessRequest.yaml"
+    AccessRequestItem:
+      $ref: "./v3/schemas/AccessRequestItem.yaml"
+    AccessProfileDocument:
+      $ref: "./v3/schemas/search/model/access/profile/AccessProfileDocument.yaml"
+    AccessProfileSummary:
+      $ref: "./v3/schemas/search/model/access/AccessProfileSummary.yaml"
+    AccessReviewReassignment:
+      $ref: "./v3/schemas/ReviewReassign.yaml"
+    Account:
+      $ref: "./v3/schemas/Account.yaml"
+    AccountActivity:
+      $ref: "./v3/schemas/AccountActivity.yaml"
+    AccountActivitySearchedItem:
+      $ref: "./v3/schemas/search/model/account/activity/AccountActivityDocument.yaml"
+    AccountAttributes:
+      $ref: "./v3/schemas/AccountAttributes.yaml"
+    AccountsAsyncResult:
+      $ref: "./v3/schemas/AccountsAsyncResult.yaml"
+    AccountToggleRequest:
+      $ref: "./v3/schemas/AccountToggleRequest.yaml"
+    AccountUnlockRequest:
+      $ref: "./v3/schemas/AccountUnlockRequest.yaml"
+    ApprovalItems:
+      $ref: "./v3/schemas/ApprovalItemDetails.yaml"
+    Campaign:
+      $ref: "./v3/schemas/CampaignReference.yaml"
+    Certification:
+      $ref: "./v3/schemas/IdentityCertificationDto.yaml"
+    CertificationReference:
+      $ref: "./v3/schemas/CertificationReference.yaml"
+    EntitlementDocument:
+      $ref: "./v3/schemas/search/model/entitlement/EntitlementDocument.yaml"
+    EntitlementSummary:
+      $ref: "./v3/schemas/search/model/access/AccessProfileEntitlement.yaml"
+    Event:
+      $ref: "./v3/schemas/search/model/event/EventDocument.yaml"
+    IdentityDocument:
+      $ref: "./v3/schemas/search/model/identity/IdentityDocument.yaml"
+    IdentityProfile:
+      $ref: "./v3/schemas/IdentityProfile.yaml"
+    IdentityReferenceWithNameAndEmail:
+      $ref: "./v3/schemas/IdentityReferenceWithNameAndEmail.yaml"
+    ProvisioningConfig:
+      $ref: "./v3/schemas/ProvisioningConfig.yaml"
+    ProvisioningPolicy:
+      $ref: "./v3/schemas/ProvisioningPolicyDto.yaml"
+    QueuedCheckConfigDetails:
+      $ref: "./v3/schemas/QueuedCheckConfigDetails.yaml"
+    Reassignment:
+      $ref: "./v3/schemas/Reassignment.yaml"
+    ReassignmentReference:
+      $ref: "./v3/schemas/ReassignReference.yaml"
+    RemediationItems:
+      $ref: "./v3/schemas/RemediationItemDetails.yaml"
+    RequestableObject:
+      $ref: "./v3/schemas/RequestableObject.yaml"
+    RequestableObjectType:
+      $ref: "./v3/schemas/RequestableObjectType.yaml"
+    RequestableObjectRequestStatus:
+      $ref: "./v3/schemas/RequestableObjectRequestStatus.yaml"
+    Reviewer:
+      $ref: "./v3/schemas/Reviewer.yaml"
+    RoleDocument:
+      $ref: "./v3/schemas/search/model/role/RoleDocument.yaml"
+    RoleSummary:
+      $ref: "./v3/schemas/search/model/access/AccessProfileRole.yaml"
+    SearchDocument:
+      $ref: "./v3/schemas/search/documents/SearchDocument.yaml"
+    SavedSearch:
+      $ref: "./v3/schemas/search/saved/SavedSearch.yaml"
+    Schedule:
+      $ref: "./v3/schemas/schedule/Schedule.yaml"
+    ScheduledSearch:
+      $ref: "./v3/schemas/search/scheduled/ScheduledSearch.yaml"
+    ServiceDeskIntegrationDto:
+      $ref: "./v3/schemas/ServiceDeskIntegrationDto.yaml"
+    ServiceDeskIntegrationTemplateDto:
+      $ref: "./v3/schemas/ServiceDeskIntegrationTemplateDto.yaml"
+    ServiceDeskIntegrationTemplateType:
+      $ref: "./v3/schemas/ServiceDeskIntegrationTemplateType.yaml"
+    Source:
+      $ref: "./v3/schemas/Source.yaml"
+    SourceHealthDto:
+      $ref: "./v3/schemas/SourceHealthDto.yaml"
+    Transform:
+      $ref: "./v3/schemas/Transform.yaml"
+    WorkItems:
+      $ref: "./v3/schemas/WorkItems.yaml"
+    WorkItemsCount:
+      $ref: "./v3/schemas/WorkItemsCount.yaml"
+    WorkItemsSummary:
+      $ref: "./v3/schemas/WorkItemsSummary.yaml"
+    AccountUsage:
+      $ref: './v3/schemas/AccountUsage.yaml'
+    SourceUsage:
+      $ref: './v3/schemas/SourceUsage.yaml'
+    SourceUsageStatus:
+      $ref: './v3/schemas/SourceUsageStatus.yaml'
+    BrandingItem:
+      $ref: './v3/schemas/BrandingItem.yaml'
+    BrandingItemCreate:
+      $ref: './v3/schemas/BrandingItemCreate.yaml'

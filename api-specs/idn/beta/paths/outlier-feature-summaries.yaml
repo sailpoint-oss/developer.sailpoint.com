@@ -1,0 +1,44 @@
+get:
+  operationId: getOutlierContributingFeatureSummary
+  tags:
+    - IAI Outliers
+  summary: Get identity outlier contibuting feature summary
+  description: >-
+    This API returns a summary of a contributing feature for an identity outlier.
+    The object contains: contributing feature name (translated text or message key), identity outlier display name, feature values, feature definition and explanation (translated text or message key), peer display name and identityId, access item reference, translation messages object
+
+    Requires authorization scope of 'iai:outliers-management:read'
+  parameters:
+    - in: path
+      name: outlierFeatureId
+      schema:
+        type: string
+      required: true
+      description: Contributing feature id
+      example: "04654b66-7561-4090-94f9-abee0722a1af"
+  responses:
+    '200':
+      description: Succeeded. Returns selected contributing feature summary for an outlier
+      headers:
+        accept-language:
+          description: The locale to use for translations
+          schema:
+            type: string
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/OutlierFeatureSummary.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [iai:outliers-management:read]

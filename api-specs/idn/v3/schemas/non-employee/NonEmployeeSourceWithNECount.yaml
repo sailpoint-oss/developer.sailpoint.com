@@ -1,0 +1,10 @@
+allOf:
+  - $ref: './NonEmployeeSource.yaml'
+  - type: object
+    properties:
+      nonEmployeeCount:
+        type: integer
+        description: Number of non-employee records associated with this source.
+        format: int32
+        example: 120
+        nullable: true

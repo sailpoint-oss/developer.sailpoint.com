@@ -1,0 +1,101 @@
+get:
+  operationId: getEntitlementsPotentialRole
+  summary: Retrieves entitlements for a potential role in a role mining session
+  tags:
+  - IAI Role Mining
+  description: This method returns entitlements for a potential role in a role mining
+    session.
+  parameters:
+  - in: path
+    name: sessionId
+    schema:
+      type: string
+    required: true
+    description: The role mining session id
+    example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
+  - in: path
+    name: potentialRoleId
+    schema:
+      type: string
+    required: true
+    description: A potential role id in a role mining session
+    example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
+  - in: query
+    name: includeCommonAccess
+    description: Boolean determining whether common access entitlements will be included
+      or not
+    example: true
+    required: false
+    style: form
+    explode: true
+    schema:
+      type: boolean
+      default: true
+  - in: query
+    name: sorters
+    description: 'Sort results using the standard syntax described in [V3 API Standard
+      Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+
+      Sorting is supported for the following fields: **popularity, entitlementName,
+      applicationName**
+
+
+      The default sort is **popularity** in descending order. '
+    example: popularity
+    required: false
+    style: form
+    explode: true
+    schema:
+      type: string
+  - in: query
+    name: filters
+    description: 'Filter results using the standard syntax described in [V3 API Standard
+      Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+      Filtering is supported for the following fields and operators:
+
+
+      **applicationName**: *sw*
+
+
+      **entitlementRef.name**: *sw*'
+    example: applicationName sw "AD"
+    required: false
+    style: form
+    explode: true
+    schema:
+      type: string
+  - $ref: ../../v3/parameters/offset.yaml
+  - $ref: ../../v3/parameters/limit.yaml
+  - $ref: ../../v3/parameters/count.yaml
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: Succeeded. Returns a list of entitlements for a potential role.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../../beta/schemas/RoleMiningEntitlement.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
+  security:
+  - userAuth: []

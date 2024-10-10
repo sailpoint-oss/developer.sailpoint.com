@@ -1,0 +1,74 @@
+# Has been replaced by CertificationDto.yaml
+# Cannot represent certifications that are part of a Role Composition Campaign
+type: object
+properties:
+  id:
+    example: 2c9180835d2e5168015d32f890ca1581
+    type: string
+    description: id of the certification
+  name:
+    example: Source Owner Access Review for Employees [source]
+    type: string
+    description: name of the certification
+  campaign:
+    $ref: './CampaignReference.yaml'
+  completed:
+    type: boolean
+    description: Have all decisions been made?
+    example: true
+  identitiesCompleted:
+    type: integer
+    description: The number of identities for whom all decisions have been made and are complete.
+    example: 5
+    format: 'int32'
+  identitiesTotal:
+    type: integer
+    description: The total number of identities in the Certification, both complete and incomplete.
+    example: 10
+    format: 'int32'
+  created:
+    example: '2018-06-25T20:22:28.104Z'
+    format: date-time
+    type: string
+    description: created date
+  modified:
+    example: '2018-06-25T20:22:28.104Z'
+    format: date-time
+    type: string
+    description: modified date
+  decisionsMade:
+    type: integer
+    description: The number of approve/revoke/acknowledge decisions that have been made.
+    example: 20
+    format: 'int32'
+  decisionsTotal:
+    type: integer
+    description: The total number of approve/revoke/acknowledge decisions.
+    example: 40
+    format: 'int32'
+  due:
+    type: string
+    format: 'date-time'
+    description: The due date of the certification.
+    example: '2018-10-19T13:49:37.385Z'
+  signed:
+    type: string
+    format: 'date-time'
+    nullable: true
+    description: The date the reviewer signed off on the Certification.
+    example: '2018-10-19T13:49:37.385Z'
+  reviewer:
+    $ref: './Reviewer.yaml'
+  reassignment:
+    $ref: './Reassignment.yaml'
+  hasErrors:
+    description: Identifies if the certification has an error
+    type: boolean
+    example: false
+  errorMessage:
+    description: Description of the certification error
+    nullable: true
+    type: string
+    example: 'The certification has an error'
+  phase:
+    $ref: './CertificationPhase.yaml'

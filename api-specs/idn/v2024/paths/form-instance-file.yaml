@@ -1,0 +1,543 @@
+get:
+  tags:
+  - Custom Forms
+  summary: Download instance file by fileId.
+  operationId: getFormInstanceFile
+  parameters:
+  - name: formInstanceID
+    in: path
+    description: 'FormInstanceID
+
+
+      Form instance ID'
+    required: true
+    example: 00000000-0000-0000-0000-000000000000
+    schema:
+      type: string
+      x-go-name: FormInstanceID
+    x-go-name: FormInstanceID
+  - name: fileID
+    in: path
+    description: 'FileID
+
+
+      String specifying the hashed name of the uploaded file we are retrieving.'
+    required: true
+    example: 00000031N0J7R2B57M8YG73J7M.png
+    schema:
+      type: string
+      x-go-name: FileID
+    x-go-name: FileID
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: Returns a file that is referred to by fileID and associated with
+        the formInstanceID
+      content:
+        application/json:
+          schema:
+            type: string
+            format: binary
+        image/jpeg:
+          schema:
+            type: string
+            format: binary
+        image/png:
+          schema:
+            type: string
+            format: binary
+        application/octet-stream:
+          schema:
+            type: string
+            format: binary
+    '400':
+      description: An error with the request occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+        image/jpeg:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+        image/png:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+        application/octet-stream:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    '401':
+      description: An error with the authorization occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+        image/jpeg:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+        image/png:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+        application/octet-stream:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    '403':
+      description: An error with the user permissions occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+        image/jpeg:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+        image/png:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+        application/octet-stream:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    '404':
+      description: An error with the item not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+        image/jpeg:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+        image/png:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+        application/octet-stream:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    '429':
+      description: Too many requests
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/forms/Error.yaml
+    '500':
+      description: An internal server error occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+        image/jpeg:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+        image/png:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+        application/octet-stream:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    '503':
+      description: An external service is not available
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+        image/jpeg:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+        image/png:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+        application/octet-stream:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+  security:
+  - userAuth:
+    - sp:forms:manage
+  x-codegen-request-body-name: Body

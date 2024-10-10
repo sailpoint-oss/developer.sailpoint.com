@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksailpoint_developer_portal=self.webpackChunksailpoint_developer_portal||[]).push([[91865],{70423:o=>{o.exports=JSON.parse('{"tag":{"label":"tools","permalink":"/docs/tags/tools","allTagsPath":"/docs/tags","count":1,"items":[{"id":"tools","title":"Tools","description":"ISC developer tools.","permalink":"/docs/tools"}],"unlisted":false}}')}}]);

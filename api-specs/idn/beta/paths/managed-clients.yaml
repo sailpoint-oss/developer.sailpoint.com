@@ -1,0 +1,92 @@
+get:
+  tags:
+    - Managed Clients
+  summary: Get Managed Clients
+  description: >-
+    Get a list of Managed Clients.
+  operationId: getManagedClients
+  parameters:
+    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/count.yaml'
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **id**: *eq*
+
+
+        **name**: *eq*
+
+
+        **clientId**: *eq*
+
+
+        **clusterId**: *eq*
+      example: name eq "client name"
+  responses:
+    "200":
+      description: Responds with a list of ManagedClient based on the query params provided
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/ManagedClient.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:remote-client:read, idn:remote-client:manage]
+post:
+  tags:
+    - Managed Clients
+  summary: Create new Managed Clients
+  description: >-
+    Create a new Managed Client.
+
+    The API returns a result that includes the Managed Client ID.
+  operationId: createManagedClient
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/ManagedClient.yaml'
+  responses:
+    "200":
+      description: The created ManagedClient
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ManagedClient.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:remote-client:manage]

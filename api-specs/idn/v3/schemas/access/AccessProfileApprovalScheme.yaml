@@ -1,0 +1,35 @@
+type: object
+properties:
+  approverType:
+    type: string
+    enum:
+      - APP_OWNER
+      - OWNER
+      - SOURCE_OWNER
+      - MANAGER
+      - GOVERNANCE_GROUP
+    description: >-
+      Describes the individual or group that is responsible for an approval step. Values are as follows.
+
+      **APP_OWNER**: The owner of the Application
+
+
+      **OWNER**: Owner of the associated Access Profile or Role
+
+
+      **SOURCE_OWNER**: Owner of the Source associated with an Access Profile
+
+
+      **MANAGER**: Manager of the Identity making the request
+
+
+      **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field
+    
+    example: GOVERNANCE_GROUP
+  approverId:
+    type: string
+    nullable: true
+    description: Id of the specific approver, used only when approverType is GOVERNANCE_GROUP
+    example: 46c79819-a69f-49a2-becb-12c971ae66c6
+  
+    

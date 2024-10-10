@@ -1,0 +1,83 @@
+description: AccountActivity
+allOf:
+  - $ref: "../../base/BaseDocument.yaml"
+  - type: object
+    properties:
+      action:
+        type: string
+        description: Type of action performed in the activity. 
+        externalDocs:
+          description: Learn more about account activity action types
+          url: https://documentation.sailpoint.com/saas/help/search/searchable-fields.html#searching-account-activity-data
+        example: Identity Refresh.
+      created:
+        type: string
+        description: ISO-8601 date-time referring to the time when the object was created. 
+        nullable: true
+        format: 'date-time'
+        example: '2018-06-25T20:22:28.104Z'
+      modified:
+        type: string
+        description: ISO-8601 date-time referring to the time when the object was last modified. 
+        nullable: true
+        format: 'date-time'
+        example: '2018-06-25T20:22:28.104Z'
+      stage:
+        type: string
+        description: Activity's current stage. 
+        example: Completed
+      origin:
+        type: string
+        description: Activity's origin. 
+        nullable: true
+        example: null
+      status:
+        type: string
+        description: Activity's current status. 
+        example: Complete
+      requester:
+        $ref: "../AccountSource.yaml"
+      recipient:
+        $ref: "../AccountSource.yaml"
+      trackingNumber:
+        type: string
+        description: Account activity's tracking number. 
+        example: 61aad0c9e8134eca89e76a35e0cabe3f
+      errors:
+        type: array
+        description: Errors provided by the source while completing account actions. 
+        items:
+          type: string
+        nullable: true
+        example: null
+      warnings:
+        type: array
+        description: Warnings provided by the source while completing account actions. 
+        items:
+          type: string
+        nullable: true
+        example: null
+      approvals:
+        type: array
+        description: Approvals performed on an item during activity. 
+        items:
+          $ref: "Approval.yaml"
+      originalRequests:
+        type: array
+        description: Original actions that triggered all individual source actions related to the account action. 
+        items:
+          $ref: "OriginalRequest.yaml"
+      expansionItems:
+        type: array
+        description: Controls that translated the attribute requests into actual provisioning actions on the source. 
+        items:
+          $ref: "ExpansionItem.yaml"
+      accountRequests:
+        type: array
+        description: Account data for each individual source action triggered by the original requests. 
+        items:
+          $ref: "AccountRequest.yaml"
+      sources:
+        type: string
+        description: Sources involved in the account activity. 
+        example: "smartsheet-test, airtable-v4, IdentityNow"

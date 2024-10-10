@@ -1,0 +1,43 @@
+post:
+  operationId: exportRoleMiningPotentialRoleAsync
+  summary: Asynchronously export details for a potential role in a role mining session and upload to S3
+  tags:
+    - IAI Role Mining
+  description: >-
+    This endpoint uploads all the information for a potential role in a role mining session to S3 as a downloadable zip archive. 
+    Includes identities and entitlements in the potential role.
+  parameters:
+    - in: path
+      name: sessionId
+      schema:
+        type: string
+      required: true
+      description: The role mining session id
+      example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
+    - in: path
+      name: potentialRoleId
+      schema:
+        type: string
+      required: true
+      description: A potential role id in a role mining session
+      example: 278359a6-04b7-4669-9468-924cf580964a
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/RoleMiningPotentialRoleExportRequest.yaml'
+  responses:
+    '202':
+      description: Job Submitted. Returns a reportId that can be used to download the zip once complete
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/RoleMiningPotentialRoleExportResponse.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

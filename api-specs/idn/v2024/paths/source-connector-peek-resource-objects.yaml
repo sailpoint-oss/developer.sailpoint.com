@@ -1,0 +1,57 @@
+post:
+  operationId: peekResourceObjects
+  tags:
+  - Sources
+  summary: Peek source connector's resource objects
+  description: >-
+    Retrieves a sample of data returned from account and group aggregation
+    requests.
+  security:
+    - userAuth:
+      - idn:source-connector:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+  - in: path
+    name: sourceId
+    schema:
+      type: string
+    required: true
+    description: The ID of the Source
+    example: cef3ee201db947c5912551015ba0c679
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../beta/schemas/ResourceObjectsRequest.yaml
+          example:
+            objectType: resource
+            maxCount: 50
+  responses:
+    '200':
+      description: List of resource objects that was fetched from the source connector.
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/ResourceObjectsResponse.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml

@@ -1,0 +1,37 @@
+get:
+  operationId: getRoleMiningSessionStatus
+  summary: Get role mining session status state
+  tags:
+  - IAI Role Mining
+  description: This method returns a role mining session status for a customer.
+  parameters:
+  - in: path
+    name: sessionId
+    schema:
+      type: string
+    required: true
+    description: The role mining session id
+    example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: Succeeded. Returns session status
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/RoleMiningSessionStatus.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml

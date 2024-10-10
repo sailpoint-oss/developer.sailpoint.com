@@ -1,0 +1,17 @@
+type: object
+properties:
+  id:
+    type: string
+    example: 85d173e7d57e496569df763231d6deb6a
+    description: The identity ID
+  type:
+    type: string
+    enum:
+    - IDENTITY
+    example: IDENTITY
+    description: Indication of what group the identity belongs to. Ie, IDENTITY, GOVERNANCE_GROUP, etc
+  name:
+    type: string
+    example: John Doe
+    description: Name of the identity
+description: Identity Object

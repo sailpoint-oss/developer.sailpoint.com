@@ -27,6 +27,6 @@ content:
               enum: [asc, desc]
               example: "asc"
             filters:
-              type: array
+              type: object
               items:
                 $ref: "../../schemas/POST/AuditEvent.yaml"

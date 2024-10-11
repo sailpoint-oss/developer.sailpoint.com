@@ -28,5 +28,5 @@ content:
               example: "asc"
             filters:
               type: object
-              items:
+              properties:
                 $ref: "../../schemas/POST/AuditEvent.yaml"

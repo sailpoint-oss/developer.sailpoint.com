@@ -195,9 +195,9 @@ tags:
       Administrators can select the source account to view its attributes, entitlements, and the last time the account's password was changed.
 
       Refer to [Managing User Accounts](https://documentation.sailpoint.com/saas/help/common/users/user_access.html#managing-user-accounts) for more information about accounts.
-  - name: Apps 
+  - name: Apps
     description: |
-      Use this API to implement source application functionality. With this functionality in place, you can create, customize, and manage applications within sources. 
+      Use this API to implement source application functionality. With this functionality in place, you can create, customize, and manage applications within sources.
   - name: Application Discovery
     description: |
       Use this API to discover applications within your Okta connector and receive connector recommendations by manually uploading application names.
@@ -205,7 +205,7 @@ tags:
     description: |
       Use this API to implement approval functionality. With this functionality in place, you can get generic approvals and modify them. 
       
-      The main advantages this API has vs [Access Request Approvals](https://developer.sailpoint.com/docs/api/beta/access-request-approvals) are that you can use it to get generic approvals individually or in batches and make changes to those approvals. 
+      The main advantages this API has vs [Access Request Approvals](https://developer.sailpoint.com/docs/api/beta/access-request-approvals) are that you can use it to get generic approvals individually or in batches and make changes to those approvals.
   - name: Auth Profile
     description: |
       Auth Profile - Represents authentication configuration for an Identity Profile. This object gets created when an Identity Profile is created.
@@ -436,6 +436,11 @@ tags:
       Administrators can also use this page to create new identity profiles or delete existing ones.
 
       Refer to [Creating Identity Profiles](https://documentation.sailpoint.com/saas/help/setup/identity_profiles.html) for more information about identity profiles.
+  - name: Launchers
+    description: |
+      Use this API to manage Launchers.
+
+      Launchers are objects that allow users to launch various tasks from ISC such as Privileged Workflows.
   - name: Lifecycle States
     description: |
       Use this API to implement and customize lifecycle state functionality.
@@ -726,7 +731,7 @@ tags:
       Do not configure a role to be requestable without establishing a secure access request approval process for that role first.
 
       Refer to [Working with Roles](https://documentation.sailpoint.com/saas/help/access/roles.html) for more information about roles.
-  - name: Search Attribute Configuration 
+  - name: Search Attribute Configuration
     description: |
       Use this API to implement search attribute configuration functionality, along with [Search](https://developer.sailpoint.com/docs/api/v3/search).
       With this functionality in place, administrators can create custom search attributes that and run extended searches based on those attributes to further narrow down their searches and get the information and insights they want. 
@@ -745,7 +750,7 @@ tags:
 
       Refer to [Using Search](https://documentation.sailpoint.com/saas/help/search/index.html) for more information about ISC's search and its different possibilities. 
 
-      With Search Attribute Configuration, administrators can create, manage, and run searches based on the attributes they want to search. 
+      With Search Attribute Configuration, administrators can create, manage, and run searches based on the attributes they want to search.
   - name: Segments
     description: |
       Use this API to implement and customize access request segment functionality. 
@@ -1025,12 +1030,12 @@ tags:
       Use this API to manage metadata about your User Interface.
       
       For example you can set the iFrameWhitelist parameter to permit another domain to encapsulate IDN within an iframe or set the usernameEmptyText to change the placeholder text for Username on your tenant's login screen.
-  - name: Vendor Connector Mappings 
+  - name: Vendor Connector Mappings
     description: |
       Vendors use ISC connectors to connect their source data to ISC, but the data in their source and the data in ISC may be stored in different formats. 
       Connector mappings allow vendors to match their data on both sides of the connection. 
       The vendors can then track and manage access across their sources from ISC. 
-      This API allows you to create and manage these vendor connector mappings. 
+      This API allows you to create and manage these vendor connector mappings.
   - name: Work Items
     description: |
       Use this API to implement work item functionality.
@@ -1923,3 +1928,9 @@ paths:
     $ref: "./beta/paths/suggested-entitlement-description-assignments.yaml"
   /suggested-entitlement-descriptions:
     $ref: "./beta/paths/suggested-entitlement-descriptions.yaml"
+  /launchers:
+    $ref: "./beta/paths/launchers.yaml"
+  /launchers/{launcherID}:
+    $ref: "./beta/paths/launcher.yaml"
+  /beta/launchers/{launcherID}/launch:
+    $ref: "./beta/paths/launcher-launch.yaml"

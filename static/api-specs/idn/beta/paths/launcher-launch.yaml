@@ -1,0 +1,45 @@
+post:
+  tags:
+    - Launchers
+  summary: Launch a Launcher
+  description: Launch the given Launcher ID
+  operationId: startLauncher
+  parameters:
+    - name: launcherID
+      in: path
+      description: ID of the Launcher to be launched
+      required: true
+      schema:
+        type: string
+        format: uuid
+      example: e3012408-8b61-4564-ad41-c5ec131c325b
+  responses:
+    '200':
+      description: Launcher launched successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - interactiveProcessId
+            properties:
+              interactiveProcessId:
+                type: string
+                description: ID of the Interactive Process that was launched
+                example: 5da68cfe-2d60-4b09-858f-0d03acd2f47a
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [ sp:launcher-user:launch ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

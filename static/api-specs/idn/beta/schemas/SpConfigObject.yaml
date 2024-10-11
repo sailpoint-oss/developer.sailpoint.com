@@ -7,42 +7,6 @@ properties:
     description: >-
       The object type this configuration is for.
     example: "TRIGGER_SUBSCRIPTION"
-  resolveByIdUrl:
-    $ref: './SpConfigUrl.yaml'
-    description: >-
-      Url and query parameters to be used to resolve this type of object by Id.
-  resolveByNameUrl:
-    type: array
-    items:
-      $ref: './SpConfigUrl.yaml'
-    description: >-
-      Url and query parameters to be used to resolve this type of object by name.
-  exportUrl:
-    $ref: './SpConfigUrl.yaml'
-  exportRight:
-    type: string
-    description: >-
-      Rights needed by the invoker of sp-config/export in order to export this type of object.
-    example: idn:trigger-service-subscriptions:read
-  exportLimit:
-    type: integer
-    format: int32
-    description: >-
-      Pagination limit imposed by the target service for this object type.
-    example: 10
-  importUrl:
-    $ref: './SpConfigUrl.yaml'
-  importRight:
-    type: string
-    description: >-
-      Rights needed by the invoker of sp-config/import in order to import this type of object.
-    example: idn:trigger-service-subscriptions:create
-  importLimit:
-    type: integer
-    format: int32
-    description: >-
-      Pagination limit imposed by the target service for this object type.
-    example: 10
   referenceExtractors:
     type: array
     nullable: true
@@ -60,8 +24,17 @@ properties:
   legacyObject:
     type: boolean
     default: false
+    description: Whether this is a legacy object
     example: false
   onePerTenant:
     type: boolean
     default: false
+    description: Whether there is only one object of this type
     example: false
+  exportable:
+    type: boolean
+    default: false
+    description: Whether this object can be exported or it is just a reference object
+    example: true
+  rules:
+    $ref: ./SpConfigRules.yaml

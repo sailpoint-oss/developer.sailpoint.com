@@ -94,6 +94,14 @@ get:
         Subadmins may only view Sources which they are able to administer; all other Sources will be filtered out when
         this parameter is set. If the current user is a SOURCE_SUBADMIN but fails to pass a valid value for this
         parameter, a 403 Forbidden is returned.
+    - in: query
+      name: includeIDNSource
+      required: false
+      schema:
+        type: boolean
+        default: false
+      example: true
+      description: Include the IdentityNow source in the response.
   responses:
     '200':
       description: List of Source objects

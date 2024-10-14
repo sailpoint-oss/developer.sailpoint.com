@@ -78,6 +78,8 @@ sail spconfig import \
 You can add these flags to the `import` command:
 
 - `folderPath`: Add this flag to specify the folder path to save the import job in. If the directory doesn't exist, the CLI creates it. The default folder path is the current working directory.
+- `wait`: Use this boolean to specify whether the CLI should wait for the import job to finish before downloading the results. This flag is false by default. Setting it to true sets the CLI to wait until the job finishes before downloading the results.
+
 
 ### Export
 

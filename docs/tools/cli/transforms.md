@@ -27,6 +27,7 @@ To create, manage, and test transforms with the CLI, you can use these commands:
 - [Create transform](#create-transform)
 - [Update transform](#update-transform)
 - [Delete transform](#delete-transform)
+- [Preview transform](#preview-transform)
 
 ## List transforms
 
@@ -101,3 +102,29 @@ sail transform list
 +--------------------------------------+--------------------------+
 sail transform delete 03d5187b-ab96-402c-b5a1-40b74285d77a
 ```
+
+## Preview transform
+
+Use this command to preview a transform in your environment. The command offers two modes based upon the input:
+
+- **Interactive Mode**: Walk through the process interactively, providing the identity profile and identity as inputs dynamically.
+
+- **Direct Mode**: Specify the identity profile and identity upfront for a quicker preview.
+
+Both modes display the transform result along with the associated identity attributes in a table format, giving you a clear overview of the applied transformation.
+
+:::warning
+This command temporarily creates and deletes a transform in your environment to generate the preview.
+:::
+
+Below is an example of Interactive Mode, where you'll provide inputs dynamically:
+
+![Transform Preview](./assets/img/vhs/transform-preview.gif)
+
+Alternatively, you can directly specify the identity profile and identity using the following command:
+
+```bash
+sail transform preview --profile 8b9960eebbdd43029393edd9dcf25976 --identity 1d2d747380634a38a48f079422833ed6 --file transform_files/DeriveFirstInitialLastNameInUpper.json
+```
+
+You can also include a flag `--result-only` or `-r` to return only the transform result, which is useful for creating tests or automating validation workflows.

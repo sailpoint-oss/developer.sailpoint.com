@@ -1610,6 +1610,10 @@ paths:
     $ref: ./v3/paths/provisioning-policies-bulk-update.yaml
   /sources/{sourceId}/schemas:
     $ref: ./v3/paths/schemas.yaml
+  /sources/{sourceId}/schedules:
+    $ref: ./v2024/paths/source-schedules.yaml
+  /sources/{sourceId}/schedules/{scheduleType}:
+    $ref: ./v2024/paths/source-schedule.yaml
   /sources/{sourceId}/schemas/{schemaId}:
     $ref: ./v3/paths/schema.yaml
   /sources/{sourceId}/source-health:
@@ -2236,6 +2240,8 @@ components:
       $ref: ./v3/schemas/Source.yaml
     SourceHealthDto:
       $ref: ./v3/schemas/SourceHealthDto.yaml
+    SourceSchedule:
+      $ref: ./v2024/schemas/sources/Schedule.yaml
     Transform:
       $ref: ./v3/schemas/Transform.yaml
     WorkItems:

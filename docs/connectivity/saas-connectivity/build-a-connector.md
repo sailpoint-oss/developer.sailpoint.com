@@ -734,7 +734,7 @@ Follow these steps to configure your 'AirtableAccount.ts' file:
 
     ```typescript
         export class AirtableAccount2 {
-        airtableId!: string
+        identity!: string
         email!: string
         id!: string
         fullname!: string
@@ -758,7 +758,7 @@ Follow these steps to configure your 'AirtableAccount.ts' file:
     ```typescript
     public static createWithRecords(record: Record<FieldSet>): AirtableAccount {
         const account = new AirtableAccount();
-        account.airtableId = record.id
+        account.identity = record.id
         account.email = record.get('email') ? String(record.get('email')) : ''
         account.id = record.get('id') ? String(record.get('id')) : ''
         account.fullname = record.get('fullname') ? String(record.get('fullname')) : ''
@@ -770,14 +770,14 @@ Follow these steps to configure your 'AirtableAccount.ts' file:
 
     The `createwithRecords` static method takes a `Record` and its `Fieldset` from the Airtable table as an input and uses it to create an `AirtableAccount` instance with all the account's attributes. You will then be able to use this instance to create the Airtable account's corresponding ISC account. This is essential for aggregating the Airtable account data into ISC. 
 
-    The `airtableId` refers to the actual table row of the account in Airtable. ISC will use the `airtableId` for an identity ID in ISC. 
+    The `aidentity` refers to the actual table row of the account in Airtable. ISC will use the `aidentity` for an identity ID in ISC. 
 
 6. Write the `buildStandardObject` private method within the `AirtableAccount` class, after the `createwithRecords` static method: 
 
     ```typescript
     private buildStandardObject(): StdAccountListOutput | StdAccountCreateOutput | StdAccountReadOutput | StdAccountListOutput {
         return {
-            key: SimpleKey(this.id),
+            key: SimpleKey(this.identity),
             attributes: {
                 id: this.id,
                 fullname: this.fullname,
@@ -812,7 +812,7 @@ import { SimpleKey, StdAccountCreateOutput, StdAccountListOutput, StdAccountRead
 import { FieldSet, Record } from 'airtable'
 
 export class AirtableAccount {
-    airtableId!: string
+    identity!: string
     email!: string
     id!: string
     fullname!: string
@@ -821,7 +821,7 @@ export class AirtableAccount {
     // Create the account from the record coming from Airtable
     public static createWithRecords(record: Record<FieldSet>): AirtableAccount {
         const account = new AirtableAccount();
-        account.airtableId = record.id
+        account.identity = record.id
         account.email = record.get('email') ? String(record.get('email')) : ''
         account.id = record.get('id') ? String(record.get('id')) : ''
         account.fullname = record.get('fullname') ? String(record.get('fullname')) : ''
@@ -836,7 +836,7 @@ export class AirtableAccount {
     
     private buildStandardObject(): StdAccountListOutput | StdAccountCreateOutput | StdAccountReadOutput | StdAccountListOutput {
         return {
-            key: SimpleKey(this.id),
+            key: SimpleKey(this.identity),
             attributes: {
                 id: this.id,
                 fullname: this.fullname,
@@ -1016,7 +1016,7 @@ export const connector = async () => {
 
 ## List Airtable Accounts 
 
-Once you have configured the 'AirtableAccount.ts', 'my-client.ts', and 'index.ts' files, you can test Account List. To do so, open Postman and open the 'Test local stdAccountList' command. Then open its 'Body'. 
+Once you have configured the 'AirtableAccount.ts', 'my-client.ts', 'index.ts', and 'connector-spec.json' files, you can test Account List. To do so, open Postman and open the 'Test local stdAccountList' command. Then open its 'Body'. 
 
 You must rewrite the body to reflect the correct authentication process. Provide this body with your request: 
 
@@ -1046,7 +1046,7 @@ Your SaaS connector will get a successful response from Airtable, listing all th
     "data": {
         "key": {
             "simple": {
-                "id": "sarah.sky"
+                "id": "recWURQH9J29nxwsl"
             }
         },
         "attributes": {
@@ -1064,7 +1064,7 @@ Your SaaS connector will get a successful response from Airtable, listing all th
     "data": {
         "key": {
             "simple": {
-                "id": "owen.ocean"
+                "id": "recqzs27RMGpoLZtm"
             }
         },
         "attributes": {
@@ -1082,7 +1082,7 @@ Your SaaS connector will get a successful response from Airtable, listing all th
     "data": {
         "key": {
             "simple": {
-                "id": "mike.mountain"
+                "id": "reczK3XThaVgOotdH"
             }
         },
         "attributes": {
@@ -1217,7 +1217,7 @@ import { SimpleKey, StdAccountCreateOutput, StdAccountListOutput, StdAccountRead
 import { FieldSet, Record } from 'airtable'
 
 export class AirtableAccount {
-    airtableId!: string
+    identity!: string
     email!: string
     id!: string
     fullname!: string
@@ -1226,7 +1226,7 @@ export class AirtableAccount {
     // Create the account from the record coming from Airtable
     public static createWithRecords(record: Record<FieldSet>): AirtableAccount {
         const account = new AirtableAccount();
-        account.airtableId = record.id
+        account.identity = record.id
         account.email = record.get('email') ? String(record.get('email')) : ''
         account.id = record.get('id') ? String(record.get('id')) : ''
         account.fullname = record.get('fullname') ? String(record.get('fullname')) : ''
@@ -1241,7 +1241,7 @@ export class AirtableAccount {
     
     private buildStandardObject(): StdAccountListOutput | StdAccountCreateOutput | StdAccountReadOutput | StdAccountListOutput {
         return {
-            key: SimpleKey(this.id),
+            key: SimpleKey(this.identity),
             attributes: {
                 id: this.id,
                 fullname: this.fullname,
@@ -1256,155 +1256,21 @@ export class AirtableAccount {
 
 </details>
 
-## Implement Account Read Command 
-
-Once you have configured the Account List command, it is natural to implement the last command included in the sample, [Account Read](https://developer.sailpoint.com/docs/connectivity/saas-connectivity/commands/account-read), as well. The logic is similar, but the key difference is that instead of getting all the accounts and listing their attributes, you will get one account by its identity (Airtable row ID) and list its attributes. 
-
-To implement Account Read, follow these steps: 
-
-First, open 'my-client.ts' and rewrite the `getAccount` asynchronous function like this: 
-
-<details>
-
-<summary>my-client.ts with Account Read</summary>
-
-```typescript
-async getAccount(identity: string): Promise<Record<FieldSet>> {
-        return this.airtableBase('Users').find(
-            identity
-        ).then(record => {
-            return record
-        }).catch(err => {
-            throw new ConnectorError('Unable to connect!')
-        })
-    }
-```
-
-</details>
-
-This looks similar to the `accountList` asynchronous function, but instead of paging through the records and getting them all, it uses a `find` to find the right `identity` and then return that identity's records. 
-
-You will now encounter the same errors you encountered at first when you implemented Account List. Account Read is currently looking attributes that don't exist in that table, and it isn't looking for attributes that do, like `id`, `fullname`, and `entitlements`. 
-
-To resolve those errors, open 'my-client.ts' and rewrite `.stdAccountRead` like this: 
-
-<details>
-
-<summary>my-client.ts with Account Read</summary>
-
-```typescript 
-.stdAccountRead(async (context: Context, input: StdAccountReadInput, res: Response<StdAccountReadOutput>) => {
-            const account = await myClient.getAccount(input.identity)
-
-            res.send({
-                identity: account.id,
-                attributes: {
-                    id: <string>account.get('id'),
-                    email: <string>account.get('email'),
-                    fullname: <string>account.get('fullname'),
-                    entitlements: <string[]>(account.get('entitlements') ? account.get('entitlements') : [])
-                },
-            })
-            logger.info(`stdAccountRead read account : ${input.identity}`)
-
-        })
-```
-
-</details>
-
-The command awaits an input of an `identity` and then finds that `identity` and returns the correct attributes: `id`, `email`, `fullname`, and `entitlements`. 
-
-## Read Airtable Account 
-
-Once you have configured Account Read in both the 'my-client.ts' and 'index.ts' files, you can test it in Postman. 
-
-First, open Postman and use the Account List command to get the accounts, along with their identities: 
-
-```json
-{
-"type": "std:account:list",
-"input": {
-    "identity": "73"
-},
-"config": {
-    "apiKey": "{{airtableAPIKey}}",
-    "airtableBase": "YOUR-AIRTABLE-BASE-ID"
-}
-}
-```
-
-In the response, the identity is listed first for each account, like this example: 
-
-<details>
-
-<summary>Account List Response</summary>
-
-```json
-{
-    "data": {
-        "identity": "recC76AqVMbpdR2zq",
-        "attributes": {
-            "id": "james.haytko",
-            "email": "james.haytko@test.com",
-            "fullname": "James Haytko",
-            "entitlements": [
-                "user"
-            ]
-        }
-    },
-    "type": "output"
-}
-```
-
-</details>
-
-Next, open the 'Test local stdAccountRead' command. Replace the sample command with this: 
-
-```json
-{
-  "type": "std:account:read",
-  "input": {
-    "identity": "recC76AqVMbpdR2zq"
-  },
-  "config": {
-    "apiKey": "{{airtableAPIKey}}",
-    "airtableBase": "YOUR-AIRTABLE-BASE-ID"
-  }
-}
-```
-
-The command now inputs a specific identity for the connector to find. 
-
-Send the request. Your response will look something like this: 
-
-<details>
-
-<summary>Account Read Response</summary>
-
-```json
-{
-    "data": {
-        "identity": "recC76AqVMbpdR2zq",
-        "attributes": {
-            "id": "james.haytko",
-            "email": "james.haytko@test.com",
-            "fullname": "James Haytko",
-            "entitlements": [
-                "user"
-            ]
-        }
-    },
-    "type": "output"
-}
-```
-
-</details>
-
 ## Connect to ISC
 
 Before implementing any more new commands, this is a good time to connect your SaaS connector to ISC. 
 
 You're going to use your terminal in VSCode and your command line to leverage the SailPoint CLI. You will build your SaaS connector project, create an empty SaaS connector in ISC, and then upload your connector to ISC. 
+
+To create your SaaS connector in ISC and load account data from Airtable, you must follow these steps: 
+
+1. [Build Project](#build-project)
+2. [Create Empty ISC Connector](#create-empty-isc-connector)
+3. [Upload Connector to ISC](#upload-connector-to-isc)
+4. [Test Connector](#test-connector)
+5. [Create Empty ISC Connector](#create-empty-isc-connector)
+6. [Configure ISC Connector](#configure-isc-connector)
+7. [Aggregate Airtable Account Data](#aggregate-airtable-account-data)
 
 ### Build Project
 
@@ -1422,81 +1288,81 @@ You must make some edits to this file because the authentication configuration a
 
 1. To implement the correct authentication configuration, rewrite the `sourceConfig` section like this: 
 
-<details>
+    <details>
 
-<summary>sourceConfig</summary>
+    <summary>sourceConfig</summary>
 
-```json
-"sourceConfig": [
-		{
-			"type": "menu",
-			"label": "Configuration",
-			"items": [
-				{
-					"type": "section",
-					"sectionTitle": "Authentication",
-					"sectionHelpMessage": "Provide connection parameters to interact securely with the target application.",
-					"items": [
-						{
-							"key": "apiKey",
-							"label": "apiKey",
-							"type": "secret"
-						},
-						{
-							"key": "airtableBase",
-							"label": "airtableBase",
-							"type": "text"
-						}
-					]
-				}
-			]
-		}
-	],
-```
+    ```json
+    "sourceConfig": [
+            {
+                "type": "menu",
+                "label": "Configuration",
+                "items": [
+                    {
+                        "type": "section",
+                        "sectionTitle": "Authentication",
+                        "sectionHelpMessage": "Provide connection parameters to interact securely with the target application.",
+                        "items": [
+                            {
+                                "key": "apiKey",
+                                "label": "apiKey",
+                                "type": "secret"
+                            },
+                            {
+                                "key": "airtableBase",
+                                "label": "airtableBase",
+                                "type": "text"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+    ```
 
-</details>
+    </details>
 
 The authentication process now looks for the correct keys, `apiKey` and `airtableBase`, and the `apiKey` is the `secret` type, which will prevent the API key from displaying in requests. 
 
 2. To correct the account attributes in the account schema, rewrite the `accountSchema` like this: 
 
-<details>
+    <details>
 
-<summary></summary>
+    <summary></summary>
 
-```json
-"accountSchema":{
-		"displayAttribute": "id",
-		"identityAttribute": "id",
-		"groupAttribute": "entitlements",
-		"attributes":[
-			{
-				"name": "fullname",
-				"type": "string",
-				"description": "Account fullname"
-			},
-			{
-				"name": "email",
-				"type": "string",
-				"description": "Account email"
-			},
-			{
-				"name": "id",
-				"type": "string",
-				"description": "Account id"
-			},
-			{
-				"name": "entitlements",
-				"type": "string",
-				"description": "Account entitlements",
-				"entitlement": true,
-				"multi": true,
-				"managed": true
-			}
-		]
-	},
-	"entitlementSchemas": []
-```
+    ```json
+    "accountSchema":{
+            "displayAttribute": "id",
+            "identityAttribute": "id",
+            "groupAttribute": "entitlements",
+            "attributes":[
+                {
+                    "name": "fullname",
+                    "type": "string",
+                    "description": "Account fullname"
+                },
+                {
+                    "name": "email",
+                    "type": "string",
+                    "description": "Account email"
+                },
+                {
+                    "name": "id",
+                    "type": "string",
+                    "description": "Account id"
+                },
+                {
+                    "name": "entitlements",
+                    "type": "string",
+                    "description": "Account entitlements",
+                    "entitlement": true,
+                    "multi": true,
+                    "managed": true
+                }
+            ]
+        },
+        "entitlementSchemas": []
+    ```
 
 </details>
 
@@ -1504,13 +1370,13 @@ The authentication process now looks for the correct keys, `apiKey` and `airtabl
 
 4. You can now build your SaaS connector project. To build the project, run this command in your terminal: 
 
-```bash
-npm run pack-zip
-```
+    ```bash
+    npm run pack-zip
+    ```
 
-This command bundles the SaaS connector project's files into a zip file, 'your-projectname-0.1.0.zip', located in your project's 'dist' folder. You can now send this zip file to ISC. 
+    This command bundles the SaaS connector project's files into a zip file, 'your-projectname-0.1.0.zip', located in your project's 'dist' folder. You can now send this zip file to ISC. 
 
-### Create Empty Connector in ISC 
+### Create Empty ISC Connector
 
 Before you can upload your SaaS connector to ISC, you must create an entry for the connector in your ISC tenant. 
 
@@ -1518,14 +1384,6 @@ To create an empty connector to upload your file to, run this command in your te
 
 ```powershell
 sail conn create my-projectname 
-```
-
-This command creates the connector entry in your ISC tenant. 
-
-To deploy your SaaS connector, you must Deploy the connector. To do so, open your command line and run this command: 
-
-```powershell
-sail conn create  
 ```
 
 This command creates an empty connector in your ISC tenant. You will use this empty connector's ID to upload your connector to ISC. When you run the command successfully, the terminal outputs a response like this:
@@ -1593,7 +1451,6 @@ The CLI will go through the different commands and skip tests for any commands t
 +--------------------------+---------+--------+----------+--------------------------------+
 |            ID            | RESULT  | ERRORS | WARNINGS |            SKIPPED             |
 +--------------------------+---------+--------+----------+--------------------------------+
-| account-list-and-read    | PASS    |        |          |                                |
 | account-not-found        | PASS    |        |          |                                |
 | account-schema-check     | PASS    |        |          |                                |
 | entitlement-not-found    | SKIPPED |        |          | Skipping check                 |
@@ -1614,7 +1471,7 @@ The CLI will go through the different commands and skip tests for any commands t
 +--------------------------+---------+--------+----------+--------------------------------+
 ```
 
-### Configure Connector in ISC 
+### Configure ISC Connector 
 
 Once you have uploaded the SaaS connector to ISC and tested it, you can configure it in ISC. Follow these steps to configure your connector in ISC: 
 
@@ -1632,11 +1489,175 @@ Once you have uploaded the SaaS connector to ISC and tested it, you can configur
 
 6. Open the 'Review and Test' section. Select the 'Test Connection' button to test the connection to Airtable. You will receive a confirmation that the connection test was successful. 
 
-7. Open the 'Account Aggregation' tab, under 'Account Management. To load the account data into ISC, click 'Start Aggregation' in the upper right. This will start an aggregation whose progress you can track at the bottom of the window. 
+### Aggregate Airtable Account Data 
 
-8. Once the accounts have been successfully loaded into ISC, you can view them by opening the 'Accounts' tab. 
+Once you have configured your SaaS connector in ISC and successfully connected to your Airtable base, you can aggregate the Airtable account data into ISC. To do so, follow these steps: 
 
-If you click an account in the list, you can see the account's attributes: `fullname`, `email`, `id`, and `entitlements`. 
+First, open the SaaS connector and open its 'Account Aggregation' tab, under 'Account Management. To load the account data into ISC, click 'Start Aggregation' in the upper right. Doing so starts an aggregation whose progress you can track at the bottom of the window. 
+
+Once the accounts have been successfully loaded into ISC, you can view them by opening the 'Accounts' tab. 
+
+If you click an account in the list, you can see the account's attributes: `fullname`, `email`, `id`, and `entitlements`.
+
+## Implement Account Read Command 
+
+Once you have configured the Account List command, it is natural to implement the last command included in the sample, [Account Read](https://developer.sailpoint.com/docs/connectivity/saas-connectivity/commands/account-read), as well. The logic is similar, but the key difference is that instead of getting all the accounts and listing their attributes, you will get one account by its identity (Airtable row ID) and list its attributes. 
+
+To implement Account Read, follow these steps: 
+
+1. Open 'AirtableAccount.ts' and add the `StdAccountReadOutput` import to the imports from the `'@sailpoint/connector-sdk'` at the beginning of the file. 
+
+2. Add a public method just like the `toStdAccountListOutput` method, except with a few differences: 
+
+    ```typescript
+    public toStdAccountReadOutput(): StdAccountReadOutput {
+        return this.buildStandardObject();
+    }
+    ```
+
+    This command now uses the `buildStandardObject` private method to build a standard ISC account object when you get the account. You can now leverage the `toStdAccountReadOutput` method in your 'index.ts' file. 
+
+3. Open 'index.ts' and add `StdAccountReadInput` and `StdAccountReadOutput` to the imports from `'@sailpoint/connector-sdk'` at the beginning of the file. 
+
+4. Write the `.stdAccountRead` command handler like this, after `.stdAccountList`: 
+
+    <details>
+
+    <summary>index.ts with Account Read</summary>
+
+    ```typescript 
+    .stdAccountRead(async (context: Context, input: StdAccountReadInput, res: Response<StdAccountReadOutput>) => {
+                const account = await myClient.getAccount(input.key)
+                logger.info(account, "Fetched the following account from Airtable")
+                res.send(account.toStdAccountReadOutput())
+            })
+    ```
+
+    </details>
+
+    The command awaits an input of an `identity` and then finds that `identity` and returns the correct attributes: `id`, `email`, `fullname`, and `entitlements`. 
+
+5. Open 'my-client.ts' and rewrite the `getAccount` asynchronous function like this: 
+
+    <details>
+
+    <summary>my-client.ts with Account Read</summary>
+
+    ```typescript
+    async getAccount(identity: SimpleKeyType | CompoundKeyType): Promise<AirtableAccount> {
+            const id = <SimpleKeyType>identity
+            let found = false
+
+            return this.airtableBase('Users').select().firstPage().then(records => {
+                const recordArray: Array<AirtableAccount> = []
+                for (const record of records) {
+                    found = true
+                    recordArray.push(AirtableAccount.createWithRecords(record))
+                }
+                return recordArray[0]
+            }).catch(err => {
+                throw new ConnectorError('Error while getting account: ' + err)
+            }).finally(() => {
+                if (!found) {
+                    throw new ConnectorError("Account not found", ConnectorErrorType.NotFound)
+                }
+            })
+        }
+    ```
+
+    </details>
+
+    This looks similar to the `accountList` asynchronous function, but instead of paging through the records and getting them all, it uses a `find` to find the right `identity` and then return that identity's records. 
+
+    Save all your changes. 
+
+## Read Airtable Account 
+
+Once you have configured Account Read in the 'AirtableAccount.ts', 'my-client.ts', and 'index.ts' files, you can test it in Postman. 
+
+1. Open Postman and use the Account List command to get the accounts, along with their identities: 
+
+    ```json
+    {
+    "type": "std:account:list",
+    "input": {
+        "identity": "73"
+    },
+    "config": {
+        "apiKey": "{{airtableAPIKey}}",
+        "airtableBase": "YOUR-AIRTABLE-BASE-ID"
+    }
+    }
+    ```
+
+2. In the response, the identity is listed first for each account, like this example: 
+
+    <details>
+
+    <summary>Account List Response</summary>
+
+    ```json
+    {
+        "data": {
+            "identity": "recC76AqVMbpdR2zq",
+            "attributes": {
+                "id": "james.haytko",
+                "email": "james.haytko@test.com",
+                "fullname": "James Haytko",
+                "entitlements": [
+                    "user"
+                ]
+            }
+        },
+        "type": "output"
+    }
+    ```
+
+    </details>
+
+    The `identity` refers to the account record's row ID in its Airtable table. 
+
+3. Open the 'Test local stdAccountRead' command. Replace the sample command with this: 
+
+    ```json
+    {
+    "type": "std:account:read",
+    "input": {
+        "identity": "recC76AqVMbpdR2zq"
+    },
+    "config": {
+        "apiKey": "{{airtableAPIKey}}",
+        "airtableBase": "YOUR-AIRTABLE-BASE-ID"
+    }
+    }
+    ```
+
+    The command now inputs a specific identity for the connector to find. 
+
+4. Send the request. Your response will look something like this: 
+
+    <details>
+
+    <summary>Account Read Response</summary>
+
+    ```json
+    {
+        "data": {
+            "identity": "recC76AqVMbpdR2zq",
+            "attributes": {
+                "id": "james.haytko",
+                "email": "james.haytko@test.com",
+                "fullname": "James Haytko",
+                "entitlements": [
+                    "user"
+                ]
+            }
+        },
+        "type": "output"
+    }
+    ```
+
+    </details>
 
 ## Implement Entitlement List 
 

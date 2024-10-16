@@ -3,7 +3,7 @@ id: build-basic-connector
 title: Build a Basic SaaS Connector
 pagination_label: Build a Basic SaaS Connector
 sidebar_label: Build a Basic SaaS Connector
-sidebar_position: 8
+sidebar_position: 5.5
 sidebar_class_name: buildBasicConnector
 keywords: ['connectivity', 'connectors', 'commands', 'cli']
 description: This guide will show you how to start building SaaS connectors. 
@@ -22,11 +22,11 @@ You will learn how to implement SaaS Connectivity [commands](https://developer.s
 - [Test Connection](https://developer.sailpoint.com/docs/connectivity/saas-connectivity/commands/test-connection)
 - [Account List](https://developer.sailpoint.com/docs/connectivity/saas-connectivity/commands/account-list)
 - [Account Read](https://developer.sailpoint.com/docs/connectivity/saas-connectivity/commands/account-read)
-- [Entitlement List](https://developer.sailpoint.com/docs/connectivity/saas-connectivity/commands/entitlement-list/)
-- [Entitlement Read](https://developer.sailpoint.com/docs/connectivity/saas-connectivity/commands/entitlement-read)
 - [Account Create](https://developer.sailpoint.com/docs/connectivity/saas-connectivity/commands/account-create)
 - [Account Update](https://developer.sailpoint.com/docs/connectivity/saas-connectivity/commands/account-update) 
 - [Account Delete](https://developer.sailpoint.com/docs/connectivity/saas-connectivity/commands/account-delete)
+- [Entitlement List](https://developer.sailpoint.com/docs/connectivity/saas-connectivity/commands/entitlement-list/)
+- [Entitlement Read](https://developer.sailpoint.com/docs/connectivity/saas-connectivity/commands/entitlement-read)
 
 Once you have learned how to build an Airtable connector, you will know how to build basic SaaS connectors. You can then customize those connectors to best suit your organization's needs. 
 
@@ -710,266 +710,315 @@ This time, you will receive a successful response: an empty JSON object.
 
 Click the breakpoint again to remove it so that you can run your connector without pauses. 
 
-## Try Accounts List Command with Mock Data
+## Implement Account List Command 
 
-The next command you're going to run is [Account List](./connector-commands/account-list.md). This command allows you to get all the accounts from your table, along with their account attributes. 
+The next command you're going to run is [Account List](./connector-commands/account-list.md). This command allows you to get all the accounts from your table, along with their account attributes. This command also allows you to manually aggregate Airtable account data within ISC. 
 
-This command also requires some rewriting to properly get account data from Airtable. 
+To implement the Account List Command, follow these steps: 
 
-Open the 'my-client.ts' file. The command's current implementation looks like this: 
+1. [Create AirtableAccount Typescript File](#create-airtableaccount-typescript-file)
+2. [Write Account List Logic](#write-account-list-logic)
+3. [Update Account List Command Handler](#update-account-list-command-handler)
 
-```typescript
-async getAllAccounts(): Promise<any[]> {
-        return Array.from(MOCK_DATA.values())
+### Create AirtableAccount Typescript File
+
+To implement Account List and successfully aggregate account data into ISC, the first thing you must do is create a new Typescript file, titled 'AirtableAccount.ts'. You will use this file to create a class that will act as a wrapper around the Airtable account record data, which you can then convert to standard output formats and back to Airtable-compatible objects. 
+
+Follow these steps to configure your 'AirtableAccount.ts' file: 
+
+1. Create a folder within the 'src' folder, called 'models'. 
+
+2. Create a Typescript file in the 'models' folder, called 'AirtableAccount.ts'. 
+
+3. Define the `AirtableAccount` class: 
+
+    ```typescript
+        export class AirtableAccount2 {
+        airtableId!: string
+        email!: string
+        id!: string
+        fullname!: string
+        entitlements!: Array<string>
     }
-```
+    ```
 
-This command is configured to return the mock data in the file whenever you run it. 
+    The `AirtableAccount` class represents an Airtable account object. The class defines the account attributes and their data types. The non-null assertion operator (!) ensures that the properties always have values and cannot be null or undefined. 
 
-To test the command with the mock data, open Postman, and open the 'Test local stdAccountList' command. 
+4. Import the types you will need from the SaaS Connector and Airtable SDKs at the beginning of the file, before the `AirtableAccount` class: 
 
-The command includes a sample request you can send, but that request won't work because it doesn't pass an `apiKey` or `airtableBase`, which are required for authentication. 
+    ```typescript
+    import { SimpleKey, StdAccountCreateOutput, StdAccountListOutput, StdAccountReadOutput } from '@sailpoint/connector-sdk'
+    import { FieldSet, Record } from 'airtable'
+    ```
 
-Edit the request in Postman to look like this: 
+    You will leverage the SaaS Connector and Airtable SDKs to implement Account List. 
 
-```json
-{
-  "type": "std:account:list",
-  "input": {
-      "identity": "73"
-  },
-  "config": {
-    "apiKey": "{{airtableAPIKey}}",
-    "airtableBase": "appO5IEwXJzr4KwWy"
-  }
-}
-```
+5. Write the `createwithRecords` static method within the `AirtableAccount` class, following the attribute definitions:
 
-Send the request. You will receive a response with the mock data: 
+    ```typescript
+    public static createWithRecords(record: Record<FieldSet>): AirtableAccount {
+        const account = new AirtableAccount();
+        account.airtableId = record.id
+        account.email = record.get('email') ? String(record.get('email')) : ''
+        account.id = record.get('id') ? String(record.get('id')) : ''
+        account.fullname = record.get('fullname') ? String(record.get('fullname')) : ''
+        account.entitlements = record.get('entitlements') ? String(record.get('entitlements')).split(',') : []
+
+        return account;
+    }
+    ```
+
+    The `createwithRecords` static method takes a `Record` and its `Fieldset` from the Airtable table as an input and uses it to create an `AirtableAccount` instance with all the account's attributes. You will then be able to use this instance to create the Airtable account's corresponding ISC account. This is essential for aggregating the Airtable account data into ISC. 
+
+    The `airtableId` refers to the actual table row of the account in Airtable. ISC will use the `airtableId` for an identity ID in ISC. 
+
+6. Write the `buildStandardObject` private method within the `AirtableAccount` class, after the `createwithRecords` static method: 
+
+    ```typescript
+    private buildStandardObject(): StdAccountListOutput | StdAccountCreateOutput | StdAccountReadOutput | StdAccountListOutput {
+        return {
+            key: SimpleKey(this.id),
+            attributes: {
+                id: this.id,
+                fullname: this.fullname,
+                email: this.email,
+                entitlements: this.entitlements,
+            },
+        }
+    }
+    ```
+
+    The `buildStandardObject` private method constructs a standard account object that conforms to one of the standard output types. 
+
+5. Write the `toStdAccountListOutput` public method, within the `AirtableAccount` class: 
+
+    ```typescript
+    public toStdAccountListOutput(): StdAccountListOutput {
+        return this.buildStandardObject();
+    }
+    ```
+
+    The `toStdAccountListOutput` public method now internally calls the `buildStandardObject` private method to construct the account's new standard object representation. You will be able to use this output when you run Account List. 
+
+Once you have finished making these changes, your 'AirtableAccount.ts' file will look something like this: 
 
 <details>
 
-<summary>List Account Response with Mock Data</summary>
+<summary>AirtableAccount.ts for Account List</summary>
 
-```json
-{
-    "data": {
-        "identity": "john.doe",
-        "uuid": "1",
-        "attributes": {
-            "firstName": "john",
-            "lastName": "doe",
-            "email": "john.doe@example.com"
+```typescript showLineNumbers
+
+import { SimpleKey, StdAccountCreateOutput, StdAccountListOutput, StdAccountReadOutput } from '@sailpoint/connector-sdk'
+import { FieldSet, Record } from 'airtable'
+
+export class AirtableAccount {
+    airtableId!: string
+    email!: string
+    id!: string
+    fullname!: string
+    entitlements!: Array<string>
+
+    // Create the account from the record coming from Airtable
+    public static createWithRecords(record: Record<FieldSet>): AirtableAccount {
+        const account = new AirtableAccount();
+        account.airtableId = record.id
+        account.email = record.get('email') ? String(record.get('email')) : ''
+        account.id = record.get('id') ? String(record.get('id')) : ''
+        account.fullname = record.get('fullname') ? String(record.get('fullname')) : ''
+        account.entitlements = record.get('entitlements') ? String(record.get('entitlements')).split(',') : []
+
+        return account;
+    }
+
+    public toStdAccountListOutput(): StdAccountListOutput {
+        return this.buildStandardObject();
+    }
+    
+    private buildStandardObject(): StdAccountListOutput | StdAccountCreateOutput | StdAccountReadOutput | StdAccountListOutput {
+        return {
+            key: SimpleKey(this.id),
+            attributes: {
+                id: this.id,
+                fullname: this.fullname,
+                email: this.email,
+                entitlements: this.entitlements,
+            },
         }
-    },
-    "type": "output"
+    }
+
 }
-{
-    "data": {
-        "identity": "jane.doe",
-        "uuid": "2",
-        "attributes": {
-            "firstName": "jane",
-            "lastName": "doe",
-            "email": "jane.doe@example.com"
-        }
-    },
-    "type": "output"
-}
+
 ```
 
 </details>
 
-## Implement Account List Command
+### Write Account List Logic
 
-To actually list the accounts in the table in Airtable, you will need to rewrite the code. 
+Once you have finished creating your 'AirtableAccount.ts' file, you can implement the Account List logic. To do so, follow these steps: 
 
-1. Start by deleting the `MOCK_DATA` constant variable (`const MOCK_DATA`), defined in lines 4-25. Once you have deleted the mock data, your code will look like this: 
+1. Open the 'my-client.ts' file. 
 
-    <details>
+2. Import the `AirtableAccount` class from the 'AirtableAccount.ts' file, at the beginning of the client file:
 
-    <summary>No Mock Data</summary>
+    ```typescript
+    import { AirtableAccount } from "./models/AirtableAccount"
+    ```
 
-    ```typescript showLineNumbers
-    import { ConnectorError } from "@sailpoint/connector-sdk"
-    import Airtable, { FieldSet, Record } from "airtable"
+3. Remove the mock data from the file. 
 
-    export class MyClient {
-        private readonly airtableBase: Airtable.Base
+4. Rewrite the `getAllAccounts` asynchronous function: 
 
-        constructor(config: any) {
-            // Fetch necessary properties from config.
-            // Following properties actually do not exist in the config -- it just serves as an example.
-            if (config?.apiKey == null) {
-                throw new ConnectorError('apiKey must be provided from config')
+    ```typescript
+    async getAllAccounts(): Promise<AirtableAccount[]> {
+        return this.airtableBase('Users').select().firstPage().then(records => {
+            const recordArray: Array<AirtableAccount> = []
+            for (const record of records) {
+                recordArray.push(AirtableAccount.createWithRecords(record))
             }
-            if (config?.airtableBase == null) {
-                throw new ConnectorError('airtableBase must be provided from config')
-            }
-
-            Airtable.configure({apiKey: config.apiKey})
-            this.airtableBase = Airtable.base(config.airtableBase);
-        }
-
-        async getAllAccounts(): Promise<any[]> {
-            return Array.from(MOCK_DATA.values())
-        }
-
-        async getAccount(identity: string): Promise<any> {
-            // In a real use case, this requires a HTTP call out to SaaS app to fetch an account,
-            // which is why it's good practice for this to be async and return a promise.
-            return MOCK_DATA.get(identity)
-        }
-
-        async testConnection(): Promise<any> {
-            return this.airtableBase('Users').select().firstPage().then(records => {
-                return {}
-            }).catch(err => {
-                throw new ConnectorError('Unable to connect!')
-            })
-        }
+            return recordArray
+        }).catch(err => {
+            throw new ConnectorError('Error while getting accounts!')
+        })
     }
     ```
 
-    </details>
+    This command now uses the `AirtableAccount` class to not only return all the Airtable table's lists but also create an instance you can later use to aggregate the account data into ISC. 
 
-    There are now errors because you are trying to return a variable, `MOCK_DATA` that no longer exists. Those errors will resolve themselves once you rewrite the command. 
+5. To simplify the file, remove the `getAccount` asynchronous function for now. You will implement it correctly later. 
 
-2. Rewrite the `getAllAccounts` asynchronous function like this: 
+Once you have finished making the changes, your 'my-client.ts' file will look something like this: 
 
-    <details>
+<details>
 
-    <summary>'my-client.ts' Get All Accounts</summary>
+<summary>my-client.ts with Account List</summary>
 
-    ```typescript
-    async getAllAccounts(): Promise<Record<FieldSet>[]> {
-            let result: Record<FieldSet>[] = []
-            return this.airtableBase('Users').select().firstPage().then(records => {
-                for (let record of records) {
-                    result.push(record)
-                }
-                return result
-            }).catch(err => {
-                throw new ConnectorError('Unable to connect!')
-            })
+```typescript
+import { ConnectorError } from "@sailpoint/connector-sdk"
+import Airtable, { FieldSet, Record } from "airtable"
+import {AirtableAccount} from "../AirtableAccount"
+
+export class MyClient {
+    private readonly airtableBase: Airtable.Base
+
+    constructor(config: any) {
+        // Fetch necessary properties from config.
+        // Following properties actually do not exist in the config -- it just serves as an example.
+        if (config?.apiKey == null) {
+            throw new ConnectorError('apiKey must be provided from config')
         }
-    ```
+        if (config?.airtableBase == null) {
+            throw new ConnectorError('airtableBase must be provided from config')
+        }
 
-    </details>
-
-    The idea behind the rewrite here is this: the function now goes to the `'Users'` table and pulls each record, along with their fieldsets. When you save the file, you will see four errors, all like this: `Property 'username' does not exist on type 'Record<FieldSet>'`
-
-    The 'List Account' command is currently looking for attributes that don't exist in the 'Users' table. To resolve this, you will have to open the 'index.ts' file to redefine what the command returns. 
-
-3. Open the 'index.ts' file. This is the file where you register all the available commands the connector supports. Your 'index.ts' file currently looks like this: 
-
-    <details>
-
-    <summary>'index.ts'</summary>
-
-    ```typescript
-    import {
-        Context,
-        createConnector,
-        readConfig,
-        Response,
-        logger,
-        StdAccountListOutput,
-        StdAccountReadInput,
-        StdAccountReadOutput,
-        StdTestConnectionOutput,
-        StdAccountListInput,
-        StdTestConnectionInput
-    } from '@sailpoint/connector-sdk'
-    import { MyClient } from './my-client'
-
-    // Connector must be exported as module property named connector
-    export const connector = async () => {
-
-        // Get connector source config
-        const config = await readConfig()
-
-        // Use the vendor SDK, or implement own client as necessary, to initialize a client
-        const myClient = new MyClient(config)
-
-        return createConnector()
-            .stdTestConnection(async (context: Context, input: StdTestConnectionInput, res: Response<StdTestConnectionOutput>) => {
-                logger.info("Running test connection")
-                res.send(await myClient.testConnection())
-            })
-            .stdAccountList(async (context: Context, input: StdAccountListInput, res: Response<StdAccountListOutput>) => {
-                const accounts = await myClient.getAllAccounts()
-
-                for (const account of accounts) {
-                    res.send({
-                        identity: account.username,
-                        uuid: account.id,
-                        attributes: {
-                            firstName: account.firstName,
-                            lastName: account.lastName,
-                            email: account.email,
-                        },
-                    })
-                }
-                logger.info(`stdAccountList sent ${accounts.length} accounts`)
-            })
-            .stdAccountRead(async (context: Context, input: StdAccountReadInput, res: Response<StdAccountReadOutput>) => {
-                const account = await myClient.getAccount(input.identity)
-
-                res.send({
-                    identity: account.username,
-                    uuid: account.id,
-                    attributes: {
-                        firstName: account.firstName,
-                        lastName: account.lastName,
-                        email: account.email,
-                    },
-                })
-                logger.info(`stdAccountRead read account : ${input.identity}`)
-
-            })
+        Airtable.configure({apiKey: config.apiKey})
+        this.airtableBase = Airtable.base(config.airtableBase);
     }
 
-    ```
+    async getAllAccounts(): Promise<AirtableAccount[]> {
+        return this.airtableBase('Users').select().firstPage().then(records => {
+            const recordArray: Array<AirtableAccount> = []
+            for (const record of records) {
+                recordArray.push(AirtableAccount.createWithRecords(record))
+            }
+            return recordArray
+        }).catch(err => {
+            throw new ConnectorError('Error while getting accounts!')
+        })
+    }
 
-    </details>
+    async testConnection(): Promise<any> {
+        return this.airtableBase('Users').select().firstPage().then(records => {
+            return {}
+        }).catch(err => {
+            throw new ConnectorError('Unable to connect!')
+        })
+    }
+}
 
-    The file imports the commands from the SaaS Connector SDK at the beginning of the file, and then you configure the details of those commmands, like the data returned. You can see that the `.stdAccountList` command is trying to find `firstName`, `lastName`, and `email`. You need to change these to the attributes from the 'Users' table: `id`, `email`, `fullname`, and `entitlements`. 
+```
 
-4. Rewrite the `.stdAccountList` command within the 'index.ts' file like this: 
+</details>
 
-    <details>
 
-    <summary>'index.ts' file with Account List implemented</summary>
+### Update Account List Command Handler
 
-    ```typescript 
+The 'List Account' command is currently looking for attributes that don't exist in the 'Users' table (`username`, `firstName`, and `lastName`). To resolve this, you will have to open the 'index.ts' file to redefine what the command returns. To do so, follow these steps: 
+
+1. Open the 'index.ts' file. 
+
+2. To simplify the file, remove the `.stdAccountRead` command handler for now, as well as the `StdAccountReadInput` and `StdAccountReadOutput` in the imports. You will implement the command correctly later. 
+
+3. Rewrite the `.stdAccountList` command handler: 
+
+    ```typescript
     .stdAccountList(async (context: Context, input: StdAccountListInput, res: Response<StdAccountListOutput>) => {
-            const accounts = await myClient.getAllAccounts()
+            let accounts = []
+            accounts = await myClient.getAllAccounts()
 
             for (const account of accounts) {
-                res.send({
-                    identity: account.id, /// This is the unique row ID from Airtable that ISC will store.
-                    attributes: {
-                        id: <string>account.get('id'), /// This comes from the 'id' column in the Airtable table. 
-                        email: <string>account.get('email'),
-                        fullname: <string>account.get('fullname'),
-                        entitlements: <string[]>(account.get('entitlements') ? account.get('entitlements') : [])
-                    },
-                })
-            }
+                res.send(account.toStdAccountListOutput())
+                    }
             logger.info(`stdAccountList sent ${accounts.length} accounts`)
         })
     ```
 
-    </details>
+    The command handler now initializes an empty array, `accounts`, which will store the list of accounts retrieved from Airtable and then awaits a response from the `getAllAccount` command. In the response, the command loops through the accounts and returns each one, leveraging the `.toStdAccountListOutput` method from to create the standard instance of the account. 
 
-    The connector loops through each account in the list of accounts, and it has now been rewritten to return the correct attributes: `id`, `fullname`, and `entitlements`, along with `email`. 
+Once you have finished making your changes, your 'index.ts' file will look something like this: 
+
+
+<details>
+
+<summary>index.ts file with Account List</summary>
+
+```typescript
+import {
+    Context,
+    createConnector,
+    readConfig,
+    Response,
+    logger,
+    StdAccountListOutput,
+    StdTestConnectionOutput,
+    StdAccountListInput,
+    StdTestConnectionInput
+} from '@sailpoint/connector-sdk'
+import { MyClient } from './my-client'
+
+// Connector must be exported as module property named connector
+export const connector = async () => {
+
+    // Get connector source config
+    const config = await readConfig()
+
+    // Use the vendor SDK, or implement own client as necessary, to initialize a client
+    const myClient = new MyClient(config)
+
+    return createConnector()
+        .stdTestConnection(async (context: Context, input: StdTestConnectionInput, res: Response<StdTestConnectionOutput>) => {
+            logger.info("Running test connection")
+            res.send(await myClient.testConnection())
+        })
+        .stdAccountList(async (context: Context, input: StdAccountListInput, res: Response<StdAccountListOutput>) => {
+            let accounts = []
+            accounts = await myClient.getAllAccounts()
+
+            for (const account of accounts) {
+                res.send(account.toStdAccountListOutput())
+                    }
+            logger.info(`stdAccountList sent ${accounts.length} accounts`)
+        })
+}
+
+```
+
+</details>
 
 ## List Airtable Accounts 
 
-Once you have configured both the 'my-client.ts' and 'index.ts' files, you can test the Account List. Open Postman and open the 'Test local stdAccountList' command. 
+Once you have configured the 'AirtableAccount.ts', 'my-client.ts', and 'index.ts' files, you can test Account List. To do so, open Postman and open the 'Test local stdAccountList' command. Then open its 'Body'. 
 
-Provide this body with your request: 
+You must rewrite the body to reflect the correct authentication process. Provide this body with your request: 
 
 ```json
 {
@@ -984,9 +1033,228 @@ Provide this body with your request:
 }
 ```
 
-Your SaaS connector gets a successful response from Airtable, listing all the accounts, along with their attributes: 
+Click'Send' to send the request. Make sure that you are running your connector with `npm run dev`. 
 
-/// Insert relevant snippet here. (Create Airtable table that fits example)
+Your SaaS connector will get a successful response from Airtable, listing all the accounts, along with their attributes: 
+
+<details>
+
+<summary>Account List Command</summary>
+
+```json
+{
+    "data": {
+        "key": {
+            "simple": {
+                "id": "sarah.sky"
+            }
+        },
+        "attributes": {
+            "id": "sarah.sky",
+            "fullname": "Sarah.Sky",
+            "email": "sarah.sky@test.com",
+            "entitlements": [
+                "user"
+            ]
+        }
+    },
+    "type": "output"
+}
+{
+    "data": {
+        "key": {
+            "simple": {
+                "id": "owen.ocean"
+            }
+        },
+        "attributes": {
+            "id": "owen.ocean",
+            "fullname": "Owen.Ocean",
+            "email": "owen.ocean@test.com",
+            "entitlements": [
+                "admin"
+            ]
+        }
+    },
+    "type": "output"
+}
+{
+    "data": {
+        "key": {
+            "simple": {
+                "id": "mike.mountain"
+            }
+        },
+        "attributes": {
+            "id": "mike.mountain",
+            "fullname": "Mike.Mountain",
+            "email": "mike.mountain@test.com",
+            "entitlements": [
+                "readonly"
+            ]
+        }
+    },
+    "type": "output"
+}
+```
+
+</details>
+
+## Current Code 
+
+At this point, your SaaS connector can successfully connect to Airtable and list accounts along with their attributes.
+
+Before implementing more commands, you will learn how to configure the other side of the bridge, the connection to ISC. 
+
+This is a good time to stop and examine your code. This is how your code should currently look:
+
+<details>
+
+<summary>index.ts</summary>
+
+```typescript
+import {
+    Context,
+    createConnector,
+    readConfig,
+    Response,
+    logger,
+    StdAccountListOutput,
+    StdTestConnectionOutput,
+    StdAccountListInput,
+    StdTestConnectionInput
+} from '@sailpoint/connector-sdk'
+import { MyClient } from './my-client'
+
+// Connector must be exported as module property named connector
+export const connector = async () => {
+
+    // Get connector source config
+    const config = await readConfig()
+
+    // Use the vendor SDK, or implement own client as necessary, to initialize a client
+    const myClient = new MyClient(config)
+
+    return createConnector()
+        .stdTestConnection(async (context: Context, input: StdTestConnectionInput, res: Response<StdTestConnectionOutput>) => {
+            logger.info("Running test connection")
+            res.send(await myClient.testConnection())
+        })
+        .stdAccountList(async (context: Context, input: StdAccountListInput, res: Response<StdAccountListOutput>) => {
+            let accounts = []
+            accounts = await myClient.getAllAccounts()
+
+            for (const account of accounts) {
+                res.send(account.toStdAccountListOutput())
+                    }
+            logger.info(`stdAccountList sent ${accounts.length} accounts`)
+        })
+}
+
+```
+
+</details>
+
+<details>
+
+<summary>my-client.ts</summary>
+
+```typescript
+import { ConnectorError } from "@sailpoint/connector-sdk"
+import Airtable, { FieldSet, Record } from "airtable"
+import { AirtableAccount } from "./models/AirtableAccount"
+
+
+export class MyClient {
+    private readonly airtableBase: Airtable.Base
+
+    constructor(config: any) {
+        // Fetch necessary properties from config.
+        // Following properties actually do not exist in the config -- it just serves as an example.
+        if (config?.apiKey == null) {
+            throw new ConnectorError('apiKey must be provided from config')
+        }
+        if (config?.airtableBase == null) {
+            throw new ConnectorError('airtableBase must be provided from config')
+        }
+
+        Airtable.configure({apiKey: config.apiKey})
+        this.airtableBase = Airtable.base(config.airtableBase);
+    }
+
+    async getAllAccounts(): Promise<AirtableAccount[]> {
+        return this.airtableBase('Users').select().firstPage().then(records => {
+            const recordArray: Array<AirtableAccount> = []
+            for (const record of records) {
+                recordArray.push(AirtableAccount.createWithRecords(record))
+            }
+            return recordArray
+        }).catch(err => {
+            throw new ConnectorError('Error while getting accounts!')
+        })
+    }
+
+    async testConnection(): Promise<any> {
+        return this.airtableBase('Users').select().firstPage().then(records => {
+            return {}
+        }).catch(err => {
+            throw new ConnectorError('Unable to connect!')
+        })
+    }
+
+}
+
+```
+
+</details>
+
+<details>
+
+<summary>AirtableAccount.ts</summary>
+
+```typescript
+import { SimpleKey, StdAccountCreateOutput, StdAccountListOutput, StdAccountReadOutput } from '@sailpoint/connector-sdk'
+import { FieldSet, Record } from 'airtable'
+
+export class AirtableAccount {
+    airtableId!: string
+    email!: string
+    id!: string
+    fullname!: string
+    entitlements!: Array<string>
+
+    // Create the account from the record coming from Airtable
+    public static createWithRecords(record: Record<FieldSet>): AirtableAccount {
+        const account = new AirtableAccount();
+        account.airtableId = record.id
+        account.email = record.get('email') ? String(record.get('email')) : ''
+        account.id = record.get('id') ? String(record.get('id')) : ''
+        account.fullname = record.get('fullname') ? String(record.get('fullname')) : ''
+        account.entitlements = record.get('entitlements') ? String(record.get('entitlements')).split(',') : []
+
+        return account;
+    }
+
+    public toStdAccountListOutput(): StdAccountListOutput {
+        return this.buildStandardObject();
+    }
+    
+    private buildStandardObject(): StdAccountListOutput | StdAccountCreateOutput | StdAccountReadOutput | StdAccountListOutput {
+        return {
+            key: SimpleKey(this.id),
+            attributes: {
+                id: this.id,
+                fullname: this.fullname,
+                email: this.email,
+                entitlements: this.entitlements,
+            },
+        }
+    }
+
+}
+```
+
+</details>
 
 ## Implement Account Read Command 
 
@@ -1132,150 +1400,13 @@ Send the request. Your response will look something like this:
 
 </details>
 
-## Complete Code 
-
-At this point, your SaaS connector can successfully connect to Airtable, list accounts along with their attributes, as well as find specific accounts along with their attributes. 
-
-Before implementing more commands, you will learn how to configure the other side of the bridge, the connection to ISC. 
-
-This is a good time to stop and examine your code. This is how your code should currently look:
-
-<details>
-
-<summary>my-client.ts</summary>
-
-```typescript
-import { ConnectorError } from "@sailpoint/connector-sdk"
-import Airtable, { FieldSet, Record } from "airtable"
-
-export class MyClient {
-    private readonly airtableBase: Airtable.Base
-
-    constructor(config: any) {
-        // Fetch necessary properties from config.
-        // Following properties actually do not exist in the config -- it just serves as an example.
-        if (config?.apiKey == null) {
-            throw new ConnectorError('apiKey must be provided from config')
-        }
-        if (config?.airtableBase == null) {
-            throw new ConnectorError('airtableBase must be provided from config')
-        }
-
-        Airtable.configure({apiKey: config.apiKey})
-        this.airtableBase = Airtable.base(config.airtableBase);
-    }
-
-    async getAllAccounts(): Promise<Record<FieldSet>[]> {
-        let result: Record<FieldSet>[] = []
-        return this.airtableBase('Users').select().firstPage().then(records => {
-            for (let record of records) {
-                result.push(record)
-            }
-            return result
-        }).catch(err => {
-            throw new ConnectorError('Unable to connect!')
-        })
-    }
-
-    async getAccount(identity: string): Promise<Record<FieldSet>> {
-        return this.airtableBase('Users').find(
-            identity
-        ).then(record => {
-            return record
-        }).catch(err => {
-            throw new ConnectorError('Unable to connect!')
-        })
-    }
-
-    async testConnection(): Promise<any> {
-        return this.airtableBase('Users').select().firstPage().then(records => {
-            return {}
-        }).catch(err => {
-            throw new ConnectorError('Unable to connect!')
-        })
-    }
-}
-```
-
-</details>
-
-<details>
-
-<summary>index.ts</summary>
-
-```typescript
-import {
-    Context,
-    createConnector,
-    readConfig,
-    Response,
-    logger,
-    StdAccountListOutput,
-    StdAccountReadInput,
-    StdAccountReadOutput,
-    StdTestConnectionOutput,
-    StdAccountListInput,
-    StdTestConnectionInput
-} from '@sailpoint/connector-sdk'
-import { MyClient } from './my-client'
-
-// Connector must be exported as module property named connector
-export const connector = async () => {
-    
-    // Get connector source config
-    const config = await readConfig()
-
-    // Use the vendor SDK, or implement own client as necessary, to initialize a client
-    const myClient = new MyClient(config)
-
-    return createConnector()
-        .stdTestConnection(async (context: Context, input: StdTestConnectionInput, res: Response<StdTestConnectionOutput>) => {
-            logger.info("Running test connection")
-            res.send(await myClient.testConnection())
-        })
-        .stdAccountList(async (context: Context, input: StdAccountListInput, res: Response<StdAccountListOutput>) => {
-            const accounts = await myClient.getAllAccounts()
-
-            for (const account of accounts) {
-                res.send({
-                    identity: account.id,
-                    attributes: {
-                        id: <string>account.get('id'),
-                        email: <string>account.get('email'),
-                        fullname: <string>account.get('fullname'),
-                        entitlements: <string[]>(account.get('entitlements') ? account.get('entitlements') : [])
-                    },
-                })
-            }
-            logger.info(`stdAccountList sent ${accounts.length} accounts`)
-        })
-        .stdAccountRead(async (context: Context, input: StdAccountReadInput, res: Response<StdAccountReadOutput>) => {
-            const account = await myClient.getAccount(input.identity)
-
-            res.send({
-                identity: account.id,
-                attributes: {
-                    id: <string>account.get('id'),
-                    email: <string>account.get('email'),
-                    fullname: <string>account.get('fullname'),
-                    entitlements: <string[]>(account.get('entitlements') ? account.get('entitlements') : [])
-                },
-            })
-            logger.info(`stdAccountRead read account : ${input.identity}`)
-
-        })
-}
-```
-
-</details>
-
 ## Connect to ISC
 
 Before implementing any more new commands, this is a good time to connect your SaaS connector to ISC. 
 
 You're going to use your terminal in VSCode and your command line to leverage the SailPoint CLI. You will build your SaaS connector project, create an empty SaaS connector in ISC, and then upload your connector to ISC. 
 
-## Build Project
+### Build Project
 
 Building your SaaS connector project means compressing your SaaS connector project's files into a zip file before uploading the connector to ISC. Before you can build your connector, however, you must update your 'connector-spec.json' file. 
 
@@ -1287,70 +1418,9 @@ The 'connector-spec.json' file tells ISC how the connector works. At a high leve
 - Entitlement schema definitions
 - Definitions for the Account Create template that maps fields between ISC and the connector
 
-Your 'connector-spec.json' file currently looks like this: 
+You must make some edits to this file because the authentication configuration and account schema are currently incorrect. To do so, follow these steps: 
 
-<details>
-
-<summary>connector-spec.json</summary>
-
-```json
-{
-	"name": "airtable-connector",
-	"commands": [
-		"std:account:list",
-		"std:account:read",
-		"std:test-connection"
-	],
-	"sourceConfig": [
-		{
-			"type": "menu",
-			"label": "Configuration",
-			"items": [
-				{
-					"type": "section",
-					"sectionTitle": "Authentication",
-					"sectionHelpMessage": "Provide connection parameters to interact securely with the target application.",
-					"items": [
-						{
-							"key": "token",
-							"label": "Token",
-							"type": "text"
-						}
-					]
-				}
-			]
-		}
-	],
-	"accountSchema":{
-		"displayAttribute": "firstName",
-		"identityAttribute": "email",
-		"attributes":[
-			{
-				"name": "firstName",
-				"type": "string",
-				"description": "First name of the account"
-			},
-			{
-				"name": "lastName",
-				"type": "string",
-				"description": "Last name of the account"
-			},
-			{
-				"name": "email",
-				"type": "string",
-				"description": "Email of the account"
-			}
-		]
-	},
-	"entitlementSchemas": []
-}
-```
-
-</details>
-
-You must first edit this file because the authentication configuration is currently looking for a `token`, which is incorrect (it should be looking for an `apiKey` and an `airtableBase`). 
-
-To implement the correct authentication configuration, rewrite the `sourceConfig` section like this: 
+1. To implement the correct authentication configuration, rewrite the `sourceConfig` section like this: 
 
 <details>
 
@@ -1388,9 +1458,7 @@ To implement the correct authentication configuration, rewrite the `sourceConfig
 
 The authentication process now looks for the correct keys, `apiKey` and `airtableBase`, and the `apiKey` is the `secret` type, which will prevent the API key from displaying in requests. 
 
-The next and final part you must edit for now is the `accountSchema`. It is currently listing account attributes that aren't relevant anymore (`firstName`, `lastName`, and `email`). 
-
-To correct the account attributes, rewrite the `accountSchema` like this: 
+2. To correct the account attributes in the account schema, rewrite the `accountSchema` like this: 
 
 <details>
 
@@ -1405,36 +1473,36 @@ To correct the account attributes, rewrite the `accountSchema` like this:
 			{
 				"name": "fullname",
 				"type": "string",
-				"description": "First name of the account"
+				"description": "Account fullname"
 			},
 			{
 				"name": "email",
 				"type": "string",
-				"description": "Last name of the account"
+				"description": "Account email"
 			},
 			{
 				"name": "id",
 				"type": "string",
-				"description": "Email of the account"
+				"description": "Account id"
 			},
 			{
 				"name": "entitlements",
 				"type": "string",
-				"description": "Email of the account",
+				"description": "Account entitlements",
 				"entitlement": true,
 				"multi": true,
 				"managed": true
 			}
 		]
 	},
-    "entitlementSchemas": []
+	"entitlementSchemas": []
 ```
 
 </details>
 
-Save these changes and run the project with `npm run dev` to ensure that the changes didn't break anything. 
+3. Save these changes and run the project with `npm run dev` to ensure that the changes didn't break anything. 
 
-You can now build your SaaS connector project. To build the project, run this command in your terminal: 
+4. You can now build your SaaS connector project. To build the project, run this command in your terminal: 
 
 ```bash
 npm run pack-zip
@@ -1442,7 +1510,7 @@ npm run pack-zip
 
 This command bundles the SaaS connector project's files into a zip file, 'your-projectname-0.1.0.zip', located in your project's 'dist' folder. You can now send this zip file to ISC. 
 
-## Create Empty Connector in ISC 
+### Create Empty Connector in ISC 
 
 Before you can upload your SaaS connector to ISC, you must create an entry for the connector in your ISC tenant. 
 
@@ -1474,7 +1542,7 @@ The output includes your new connector entry's name (alias) and its ID. You will
 
 You can use the the `sail conn list` command to list the available connectors at any time. To learn more about the other available SaaS connector commands you can use with the SailPoint CLI, refer to [Connectors](/docs/tools/cli/connectors.md/#commands). 
 
-## Upload Connector to ISC 
+### Upload Connector to ISC 
 
 Once you have created the SaaS connector in ISC and gotten its connector ID, you can upload your SaaS connector project to ISC. To upload your connector, run this command: 
 
@@ -1494,7 +1562,7 @@ A successful response looks like this:
 +--------------------------------------+---------+
 ```
 
-## Test Connector 
+### Test Connector 
 
 It can be very helpful to test your SaaS connector before you go through all the steps of configuring it in ISC. 
 
@@ -1546,7 +1614,7 @@ The CLI will go through the different commands and skip tests for any commands t
 +--------------------------+---------+--------+----------+--------------------------------+
 ```
 
-## Configure Connector in ISC 
+### Configure Connector in ISC 
 
 Once you have uploaded the SaaS connector to ISC and tested it, you can configure it in ISC. Follow these steps to configure your connector in ISC: 
 
@@ -1564,7 +1632,11 @@ Once you have uploaded the SaaS connector to ISC and tested it, you can configur
 
 6. Open the 'Review and Test' section. Select the 'Test Connection' button to test the connection to Airtable. You will receive a confirmation that the connection test was successful. 
 
-Before loading the account data to ISC, you will implement some more commands, rebuild the project, and upload it to ISC. 
+7. Open the 'Account Aggregation' tab, under 'Account Management. To load the account data into ISC, click 'Start Aggregation' in the upper right. This will start an aggregation whose progress you can track at the bottom of the window. 
+
+8. Once the accounts have been successfully loaded into ISC, you can view them by opening the 'Accounts' tab. 
+
+If you click an account in the list, you can see the account's attributes: `fullname`, `email`, `id`, and `entitlements`. 
 
 ## Implement Entitlement List 
 

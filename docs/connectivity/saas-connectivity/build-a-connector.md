@@ -411,7 +411,7 @@ Once your SaaS connector's authentication is configured, you can configure Postm
 
 2. Use the '+' button to create a new environment. 
 
-The first three environment variables you need, `tenant`, `clientId`, and `clientSecret`, will authenticate your API requests to ISC. If you have configured your SailPoint CLI, you can the same variables from your CLI's PAT. Otherwise, you can refer to [Authentication](/docs/api/authentication.md/#generate-a-personal-access-token) to learn how to create a PAT and get these variables. 
+The first three environment variables you need, `tenant`, `clientId`, and `clientSecret`, will authenticate your API requests to ISC. If you have configured your SailPoint CLI, you can the same variables from your CLI's PAT. Otherwise, you can refer to [Authentication](/docs/api/authentication/#generate-a-personal-access-token) to learn how to create a PAT and get these variables. 
 
 The fourth environment variable, `airtableAPIKey` will authenticate your API requests. You will use the PAT you generated in Airtable for this variable. 
 
@@ -1325,7 +1325,7 @@ The authentication process now looks for the correct keys, `apiKey` and `airtabl
 
     <details>
 
-    <summary></summary>
+    <summary>accountSchema</summary>
 
     ```json
     "accountSchema":{
@@ -1360,8 +1360,7 @@ The authentication process now looks for the correct keys, `apiKey` and `airtabl
         },
         "entitlementSchemas": []
     ```
-
-</details>
+    </details>
 
 3. Add the `entitlementSchemas` inside the brackets: 
 
@@ -1468,7 +1467,7 @@ This command creates an empty connector in your ISC tenant. You will use this em
 
 The output includes your new connector entry's name (alias) and its ID. You will need this connector ID to upload your connector project. 
 
-You can use the the `sail conn list` command to list the available connectors at any time. To learn more about the other available SaaS connector commands you can use with the SailPoint CLI, refer to [Connectors](/docs/tools/cli/connectors.md/#commands). 
+You can use the the `sail conn list` command to list the available connectors at any time. To learn more about the other available SaaS connector commands you can use with the SailPoint CLI, refer to [Connectors](/docs/tools/cli/connectors/#commands). 
 
 ### Upload Connector to ISC 
 
@@ -1494,7 +1493,7 @@ A successful response looks like this:
 
 It can be very helpful to test your SaaS connector before you go through all the steps of configuring it in ISC. 
 
-The SailPoint CLI has a [validate command](/docs/tools/cli/connectors.md/#validate-a-connector) you can use to run a suite of integration tests against your connector to ensure that all the basic functionality works. The CLI also has an [invoke command](/docs/tools/cli/connectors.md/#invoke-command) you can use to test specific connector commands. The `validate` and `invoke` commands allow you to use the CLI to run tests without ever having to actually go into ISC. 
+The SailPoint CLI has a [validate command](/docs/tools/cli/connectors/#validate-a-connector) you can use to run a suite of integration tests against your connector to ensure that all the basic functionality works. The CLI also has an [invoke command](/docs/tools/cli/connectors/#invoke-command) you can use to test specific connector commands. The `validate` and `invoke` commands allow you to use the CLI to run tests without ever having to actually go into ISC. 
 
 Before you can run the tests, you must create a 'config.json' file. You must include your `apiKey` and `airtableBase` credentials in the 'config.json' file to authenticate the requests you want to send for the tests. 
 

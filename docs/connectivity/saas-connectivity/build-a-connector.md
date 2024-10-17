@@ -1023,12 +1023,10 @@ You must rewrite the body to reflect the correct authentication process. Provide
 ```json
 {
   "type": "std:account:list",
-  "input": {
-      "identity": "73"
-  },
+  "input": {},
   "config": {
     "apiKey": "{{airtableAPIKey}}",
-    "airtableBase": "YOUR-AIRTABLE-BASE-ID"
+    "airtableBase": "YOUR-AIRTABLE-BASE"
   }
 }
 ```
@@ -1669,7 +1667,7 @@ You will make a couple additions to the file, and you will write the logic for t
 
 To implement Entitlement List, you must make these changes: 
 
-1. Add the `StdEntitlementListInput` and `StdEntitlementListOutput` commands to the list of commands to import from the `connector-sdk` (lines 13-14). You will specify those types of inputs and outputs in your Entitlement List logic. 
+1. Add `StdEntitlementListInput` and `StdEntitlementListOutput` to the list of imports from `'@sailpoint/connector-sdk'` at the beginning of the file.
 
 2. Create a new constant variable, `entitlements`, and define its possible values (line 21): 
 
@@ -1679,7 +1677,13 @@ To implement Entitlement List, you must make these changes:
 
     You will use this variable in your Entitlement List logic. 
 
-3. Write the `.stdEntitlementList` logic: 
+    :::note
+    This hard coded `entitlements` variable will work for this guide for now, but you would ideally want to get the entitlements from Airtable. One way would be to create an 'Entitlements' table and a separate 'AirtableEntitlement.ts' file to represent the entitlement objects, but this way will show the idea, for now. 
+    :::
+
+3. Add the `StdEntitlementListInput` and `StdEntitlementListOutput` commands to the list of commands to import from the `connector-sdk` (lines 13-14). You will specify those types of inputs and outputs in your Entitlement List logic. 
+
+4. Write the `.stdEntitlementList` logic: 
 
     ```typescript
     .stdEntitlementList(async (context: Context, input: StdEntitlementListInput, res: Response<StdEntitlementListOutput>) => {
@@ -1688,7 +1692,7 @@ To implement Entitlement List, you must make these changes:
                     identity: entitlement,
                     type: 'group',
                     attributes: {
-                        id: entitlement, 
+                        id: entitlement,
                         name: entitlement
                     }
                 })
@@ -1696,7 +1700,7 @@ To implement Entitlement List, you must make these changes:
         })
     ```
 
-    The logic of this command handler is this: the handler sends the command as its input, and Airtable loops through the entitlements and outputs each entitlement, along with their `
+    The logic of this command handler is this: the handler sends the command as its input, and Airtable loops through the entitlements and outputs each entitlement. 
 
 Once you have finished making your changes, your 'index.ts' file will look like this: 
 
@@ -1715,10 +1719,11 @@ import {
     StdAccountReadInput,
     StdAccountReadOutput,
     StdTestConnectionOutput,
-    StdAccountListInput,
     StdTestConnectionInput,
+    StdAccountListInput,
     StdEntitlementListInput,
-    StdEntitlementListOutput
+    StdEntitlementListOutput,
+    ConnectorError
 } from '@sailpoint/connector-sdk'
 import { MyClient } from './my-client'
 
@@ -1738,35 +1743,18 @@ export const connector = async () => {
             res.send(await myClient.testConnection())
         })
         .stdAccountList(async (context: Context, input: StdAccountListInput, res: Response<StdAccountListOutput>) => {
-            const accounts = await myClient.getAllAccounts()
+            let accounts = []
+            accounts = await myClient.getAllAccounts()
 
             for (const account of accounts) {
-                res.send({
-                    identity: account.id,
-                    attributes: {
-                        id: <string>account.get('id'),
-                        email: <string>account.get('email'),
-                        fullname: <string>account.get('fullname'),
-                        entitlements: <string[]>(account.get('entitlements') ? account.get('entitlements') : [])
-                    },
-                })
-            }
+                res.send(account.toStdAccountListOutput())
+                    }
             logger.info(`stdAccountList sent ${accounts.length} accounts`)
         })
         .stdAccountRead(async (context: Context, input: StdAccountReadInput, res: Response<StdAccountReadOutput>) => {
-            const account = await myClient.getAccount(input.identity)
-
-            res.send({
-                identity: account.id,
-                attributes: {
-                    id: <string>account.get('id'),
-                    email: <string>account.get('email'),
-                    fullname: <string>account.get('fullname'),
-                    entitlements: <string[]>(account.get('entitlements') ? account.get('entitlements') : [])
-                },
-            })
-            logger.info(`stdAccountRead read account : ${input.identity}`)
-
+            const account = await myClient.getAccount(input.key)
+            logger.info(account, "Fetched the following account from Airtable")
+            res.send(account.toStdAccountReadOutput())
         })
         .stdEntitlementList(async (context: Context, input: StdEntitlementListInput, res: Response<StdEntitlementListOutput>) => {
             for(const entitlement of entitlements) {
@@ -1774,7 +1762,7 @@ export const connector = async () => {
                     identity: entitlement,
                     type: 'group',
                     attributes: {
-                        id: entitlement, 
+                        id: entitlement,
                         name: entitlement
                     }
                 })
@@ -1825,12 +1813,12 @@ Once you have added the `entitlementSchemas`, your 'connector-spec.json' file wi
 
 ```json showLineNumbers
 {
-	"name": "navigate-conference",
+	"name": "navi-con",
 	"commands": [
 		"std:account:list",
 		"std:account:read",
 		"std:test-connection",
-        "std:entitlement:list",
+		"std:entitlement:list"
 	],
 	"sourceConfig": [
 		{
@@ -1863,31 +1851,36 @@ Once you have added the `entitlementSchemas`, your 'connector-spec.json' file wi
 		"groupAttribute": "entitlements",
 		"attributes":[
 			{
+				"name": "identity",
+				"type": "string",
+				"description": "Identity ID"
+			},
+			{
 				"name": "fullname",
 				"type": "string",
-				"description": "First name of the account"
+				"description": "Account fullname"
 			},
 			{
 				"name": "email",
 				"type": "string",
-				"description": "Last name of the account"
+				"description": "Account email"
 			},
 			{
 				"name": "id",
 				"type": "string",
-				"description": "Email of the account"
+				"description": "Account id"
 			},
 			{
 				"name": "entitlements",
 				"type": "string",
-				"description": "Email of the account",
+				"description": "Account entitlements",
 				"entitlement": true,
 				"multi": true,
 				"managed": true
 			}
 		]
 	},
-    "entitlementSchemas": [
+	"entitlementSchemas": [
 		{
 			"type": "group",
 			"displayAttribute": "name",
@@ -1927,7 +1920,7 @@ Rewrite the sample request like this:
     },
   "config": {
     "apiKey": "{{airtableAPIKey}}",
-    "airtableBase": "appO5IEwXJzr4KwWy"
+    "airtableBase": "YOUR-AIRTABLE-BASE"
   }
 }
 ```
@@ -1984,11 +1977,11 @@ Once you have implemented the Entitlement List command, implementing [Entitlemen
 
 To implement the Entitlement Read command, open the 'index.ts' file and make these additions: 
 
-1. Add `StdEntitlementReadInput` and `StdEntitlementReadOutput` to the list of commands imported from the `connector-sdk` (lines 15-16).
+1. Add `StdEntitlementReadInput` and `StdEntitlementReadOutput` to the list of imports from `'@sailpoint/connector-sdk'` at the beginning of the file.
 
-2. Add `ConnectorError` after those two new commands (line 17). You will need to import this error type so you can throw it if you don't find entitlements. 
+2. Add `ConnectorError` after those two new commands. You will need to import this error type so you can throw it if you don't find the specified entitlement. 
 
-3. Add the `.stdEntitlementRead` command handler to the end of the file (line 79), and write it like this:
+3. Add the `.stdEntitlementRead` command handler to the end of the file, and write it like this:
 
     <details>
 
@@ -2033,7 +2026,7 @@ Rewrite the sample request like this:
     },
   "config": {
     "apiKey": "{{airtableAPIKey}}",
-    "airtableBase": "appO5IEwXJzr4KwWy"
+    "airtableBase": "YOUR-AIRTABLE-BASE"
   }
 }
 ```
@@ -2064,118 +2057,25 @@ A successful response will look something like this:
 
 ## Implement Account Create
 
-Once you have reached this point, you can get an account from a table in Airtable, and you can get them all at once, but you cannot yet create accounts in Airtable. To do so, you must implement [Account Create](./connector-commands/account-create.md). 
+To create accounts in Airtable, you can use [Account Create](./connector-commands/account-create.md). 
 
 To implement the Account Create command, follow these steps:
 
-1. Open 'my-client.ts'. You will need to add a new asynchronous function, `createAccount`, to the end of the file. 
-
-    Your `createAccount` asynchronous function will look something like this: 
+1. Open 'AirtableAccount.ts' You must add a new public method within the `AirtableAccount` class: 
 
     ```typescript
-    async createAccount(input: StdAccountCreateInput): Promise<Record<FieldSet>> {
-            if (input.attributes['id']) {
-                throw new ConnectorError('Cannot create without field id')
-            }
-            return this.airtableBase('Users').create({
-                'id': input.attributes['id'],
-                'email': input.attributes['email'],
-                'fullname': input.attributes['fullname']
-            }
-            ).then(record => {
-                return record
-            }).catch(err => {
-                throw new ConnectorError('Error while creating account: ' + err)
-            })
-        }
-    ```
-
-    The function is now set up like this: The user must provide an `id`, or the user will encounter an error ("Cannot create without field id"). If the `id` is provided, the connector creates a row in the `Users` table in Airtable for the new account. If the command is successful, the API returns the created account and its attributes. If the command is unsuccessful, the connector throws an error. 
-
-    You will see an error involving `StdAccountCreateInput` (line 51) - you will resolve this error soon by adding that input to the 'index.ts' file. 
-
-    Once you have finished configuring the command, your 'my-client.ts' file will look like this:
-
-    <details>
-
-    <summary>my-client.ts with Account Create</summary>
-
-    ```typescript showLineNumbers
-    import { ConnectorError } from "@sailpoint/connector-sdk"
-    import Airtable, { FieldSet, Record } from "airtable"
-
-    export class MyClient {
-        private readonly airtableBase: Airtable.Base
-
-        constructor(config: any) {
-            // Fetch necessary properties from config.
-            // Following properties actually do not exist in the config -- it just serves as an example.
-            if (config?.apiKey == null) {
-                throw new ConnectorError('apiKey must be provided from config')
-            }
-            if (config?.airtableBase == null) {
-                throw new ConnectorError('airtableBase must be provided from config')
-            }
-
-            Airtable.configure({apiKey: config.apiKey})
-            this.airtableBase = Airtable.base(config.airtableBase);
-        }
-
-        async getAllAccounts(): Promise<Record<FieldSet>[]> {
-            let result: Record<FieldSet>[] = []
-            return this.airtableBase('Users').select().firstPage().then(records => {
-                for (let record of records) {
-                    result.push(record)
-                }
-                return result
-            }).catch(err => {
-                throw new ConnectorError('Unable to connect!')
-            })
-        }
-
-        async getAccount(identity: string): Promise<Record<FieldSet>> {
-            return this.airtableBase('Users').find(
-                identity
-            ).then(record => {
-                return record
-            }).catch(err => {
-                throw new ConnectorError('Unable to connect!')
-            })
-        }
-
-        async testConnection(): Promise<any> {
-            return this.airtableBase('Users').select().firstPage().then(records => {
-                return {}
-            }).catch(err => {
-                throw new ConnectorError('Unable to connect!')
-            })
-        }
-
-        async createAccount(input: StdAccountCreateInput): Promise<Record<FieldSet>> {
-            if (input.attributes['id']) {
-                throw new ConnectorError('Cannot create without field id')
-            }
-            return this.airtableBase('Users').create({
-                'id': input.attributes['id'],
-                'email': input.attributes['email'],
-                'fullname': input.attributes['fullname']
-            }
-            ).then(record => {
-                return record
-            }).catch(err => {
-                throw new ConnectorError('Error while creating account: ' + err)
-            })
-        }
+    public toStdAccountCreateOutput(): StdAccountCreateOutput {
+        return this.buildStandardObject();
     }
     ```
 
-    </details>
+    You can now call this method in the 'index.ts' file
 
 2. Open 'index.ts'. You need to make two additions to this file to implement the Account Create command handler. 
 
-    First, add `StdAccountCreateInput` and `StdAccountCreateOutput` to the list of imported commands. 
+    First, add `StdAccountCreateInput` and `StdAccountCreateOutput` to the list of imported commands at the beginning of the file. 
 
-    Next and last, add the `.stdAccountCreate` command handler to the end of the file and write it like this: 
+    Next and last, add the `.stdAccountCreate` command handler to the end of the file: 
 
     ```typescript
     .stdAccountCreate(async (context: Context, input: StdAccountCreateInput, res: Response<StdAccountCreateOutput>) => {
@@ -2186,7 +2086,7 @@ To implement the Account Create command, follow these steps:
                     id: <string>account.get('id'),
                     email: <string>account.get('email'),
                     fullname: <string>account.get('fullname'),
-                    entitlements: <string[]>(account.get('entitlements') ? account.get('entitlements') : [])
+                    entitlements: input.attributes.entitlements || []
                 }
             })
         })
@@ -2196,325 +2096,76 @@ To implement the Account Create command, follow these steps:
 
     Once you have configured the command handler, your 'index.ts' file will look like this:
 
-    <details>
+3. Open 'my-client.ts'. You will need to add a new asynchronous function, `createAccount`, to the end of the file. 
 
-    <summary>index.ts with Account Create</summary>
+    Your `createAccount` asynchronous function will look something like this: 
 
-    ```typescript showLineNumbers
-    import {
-    Context,
-    ConnectorError,
-    createConnector,
-    readConfig,
-    Response,
-    logger,
-    StdAccountListOutput,
-    StdAccountReadInput,
-    StdAccountReadOutput,
-    StdTestConnectionOutput,
-    StdAccountListInput,
-    StdTestConnectionInput,
-    StdEntitlementListInput,
-    StdEntitlementListOutput,
-    StdEntitlementReadInput,
-    StdEntitlementReadOutput,
-    StdAccountCreateInput,
-    StdAccountCreateOutput
-    } from '@sailpoint/connector-sdk'
-    import { MyClient } from './my-client'
-
-    // Connector must be exported as module property named connector
-    export const connector = async () => {
-
-        const entitlements: string [] = ["user", "admin", "readonly"]
-        // Get connector source config
-        const config = await readConfig()
-
-        // Use the vendor SDK, or implement own client as necessary, to initialize a client
-        const myClient = new MyClient(config)
-
-        return createConnector()
-            .stdTestConnection(async (context: Context, input: StdTestConnectionInput, res: Response<StdTestConnectionOutput>) => {
-                logger.info("Running test connection")
-                res.send(await myClient.testConnection())
-            })
-            .stdAccountList(async (context: Context, input: StdAccountListInput, res: Response<StdAccountListOutput>) => {
-                const accounts = await myClient.getAllAccounts()
-
-                for (const account of accounts) {
-                    res.send({
-                        identity: account.id,
-                        attributes: {
-                            id: <string>account.get('id'),
-                            email: <string>account.get('email'),
-                            fullname: <string>account.get('fullname'),
-                            entitlements: <string[]>(account.get('entitlements') ? account.get('entitlements') : [])
-                        },
-                    })
-                }
-                logger.info(`stdAccountList sent ${accounts.length} accounts`)
-            })
-            .stdAccountRead(async (context: Context, input: StdAccountReadInput, res: Response<StdAccountReadOutput>) => {
-                const account = await myClient.getAccount(input.identity)
-
-                res.send({
-                    identity: account.id,
-                    attributes: {
-                        id: <string>account.get('id'),
-                        email: <string>account.get('email'),
-                        fullname: <string>account.get('fullname'),
-                        entitlements: <string[]>(account.get('entitlements') ? account.get('entitlements') : [])
-                    },
-                })
-                logger.info(`stdAccountRead read account : ${input.identity}`)
-
-            })
-            .stdEntitlementList(async (context: Context, input: StdEntitlementListInput, res: Response<StdEntitlementListOutput>) => {
-                for(const entitlement of entitlements) {
-                    res.send({
-                        identity: entitlement,
-                        type: 'group',
-                        attributes: {
-                            id: entitlement, 
-                            name: entitlement
-                        }
-                    })
-                }
-            })
-            .stdEntitlementRead(async (context: Context, input: StdEntitlementReadInput, res: Response<StdEntitlementReadOutput>) => {
-
-                const entitlement: string = entitlements.filter((e) => {return e == input.identity})[0]
-
-                if (entitlement) {
-                    res.send({
-                        identity: entitlement,
-                        type: 'group',
-                        attributes: {
-                            id: entitlement, 
-                            name: entitlement
-                        }
-                    })
-                } else {
-                    throw new ConnectorError("Entitlement not found")
-                }
-
-            })
-
-            .stdAccountCreate(async (context: Context, input: StdAccountCreateInput, res: Response<StdAccountCreateOutput>) => {
-                const account = await myClient.createAccount(input)
-                res.send({
-                    identity: account.id,
-                    attributes: {
-                        id: <string>account.get('id'),
-                        email: <string>account.get('email'),
-                        fullname: <string>account.get('fullname'),
-                        entitlements: <string[]>(account.get('entitlements') ? account.get('entitlements') : [])
-                    }
-                })
-            })
-    }
-    ```
-
-    </details>
-
-3. Open 'connector-spec.json'. You need to configure the mapping between the Airtable account attributes and their identity attributes in ISC. This will allow you to keep Airtable and ISC synced when you create new accounts. 
-
-    Before you create the mapping, add the `"std:account:create"` command to the array of supported `commands` at the beginning of the file. You can also add the `"std:entitlement:list"` and `"std:entitlement:read"` commands that you implemented, but you likely won't need to do much with them within the 'connector-spec.json' file. 
-    
-    To create this mapping, add a new section, `accountCreateTemplate` to the end of the file. Write the logic like this:
-
-    <details>
-
-    <summary>Account Create Template</summary>
-
-    ```json
-    "accountCreateTemplate": {
-		"fields": [
-			{
-				"key": "fullname",
-				"label": "fullname",
-				"type": "string",
-				"required": true,
-				"initialValue": {
-					"type": "identityAttribute",
-					"attributes": {
-						"name": "displayName"
-					}
-				}
-			},
-			{
-				"key": "email",
-				"label": "email",
-				"type": "string",
-				"required": true,
-				"initialValue": {
-					"type": "identityAttribute",
-					"attributes": {
-						"name": "email"
-					}
-			}
-		},
-		{
-			"key": "id",
-			"label": "id",
-			"type": "string",
-			"required": true,
-			"initialValue": {
-				"type": "identityAttribute",
-				"attributes": {
-					"name": "uid"
-				}
-		}
-		}
-		]
-	}
-    ```
-
-    </details>
-
-    The mapping is now configured to map attributes between ISC and Airtable. For example, when ISC receives an account with the attribute, `fullname`, it now knows to populate that value in the `displayName` attribute in ISC.
-
-    Once you have written your `accountCreateTemplate`, your 'connector-spec.json' file will look like this:
-
-    <details>
-
-    <summary>connector-spec.json with Account Create</summary>
-
-    ```json
-        {
-        "name": "navigate-conference",
-        "commands": [
-            "std:account:list",
-            "std:account:read",
-            "std:test-connection",
-            "std:entitlement:list",
-            "std:entitlement:read",
-            "std:account:create"
-        ],
-        "sourceConfig": [
-            {
-                "type": "menu",
-                "label": "Configuration",
-                "items": [
-                    {
-                        "type": "section",
-                        "sectionTitle": "Authentication",
-                        "sectionHelpMessage": "Provide connection parameters to interact securely with the target application.",
-                        "items": [
-                            {
-                                "key": "apiKey",
-                                "label": "apiKey",
-                                "type": "secret"
-                            },
-                            {
-                                "key": "airtableBase",
-                                "label": "airtableBase",
-                                "type": "text"
-                            }
-                        ]
-                    }
-                ]
-            }
-        ],
-        "accountSchema":{
-            "displayAttribute": "id",
-            "identityAttribute": "id",
-            "groupAttribute": "entitlements",
-            "attributes":[
-                {
-                    "name": "fullname",
-                    "type": "string",
-                    "description": "First name of the account"
-                },
-                {
-                    "name": "email",
-                    "type": "string",
-                    "description": "Last name of the account"
-                },
-                {
-                    "name": "id",
-                    "type": "string",
-                    "description": "Email of the account"
-                },
-                {
-                    "name": "entitlements",
-                    "type": "string",
-                    "description": "Email of the account",
-                    "entitlement": true,
-                    "multi": true,
-                    "managed": true
-                }
-            ]
-        },
-        "entitlementSchemas": [
-            {
-                "type": "group",
-                "displayAttribute": "name",
-                "identityAttribute": "id",
-                "attributes": [
-                    {
-                        "name": "id", 
-                        "type": "string",
-                        "description": "Unique ID of the group (ex. admin)"
-                    }, 
-                    {
-                        "name": "name", 
-                        "type": "string",
-                        "description": "Display name of the group (ex. admin)"
-                    }
-                ]
-            }
-        ],
-        "accountCreateTemplate": {
-            "fields": [
-                {
-                    "key": "fullname",
-                    "label": "fullname",
-                    "type": "string",
-                    "required": true,
-                    "initialValue": {
-                        "type": "identityAttribute",
-                        "attributes": {
-                            "name": "displayName"
-                        }
-                    }
-                },
-                {
-                    "key": "email",
-                    "label": "email",
-                    "type": "string",
-                    "required": true,
-                    "initialValue": {
-                        "type": "identityAttribute",
-                        "attributes": {
-                            "name": "email"
-                        }
-                }
-            },
-            {
-                "key": "id",
-                "label": "id",
-                "type": "string",
-                "required": true,
-                "initialValue": {
-                    "type": "identityAttribute",
-                    "attributes": {
-                        "name": "uid"
-                    }
-            }
-            }
-            ]
+    ```typescript
+    async createAccount(input: StdAccountCreateInput): Promise<Record<FieldSet>> {
+        return this.airtableBase('Users').create({
+            'id': input.attributes['id'],
+            'email': input.attributes['email'],
+            'fullname': input.attributes['fullname'],
+            'entitlements': input.attributes.entitlements || []
         }
+        ).then(record => {
+            return record
+        }).catch(err => {
+            throw new ConnectorError('Error while creating account: ' + err)
+        })
     }
     ```
 
-    </details>
+4. Open 'connector-spec.json'. Add the `"std:account:create"` command to the array of supported `commands` at the beginning of the file. 
 
 ## Create Airtable Account
 
-Once you have configured both the Account Create command, you can use your connector to create accounts in Airtable, which can then be synced with ISC. 
+Once you have configured the Account Create command, you can use your connector to create accounts in Airtable, which can then be synced with ISC. 
 
 To test the Account Create command, open Postman and open the 'Test local stdAccountCreate' command. 
+
+Rewrite the request body like this:
+
+```json
+{
+    "type": "std:account:create",
+    "input": {
+        "attributes": {
+            "id": "first.last",
+            "email": "first.last@domain.com",
+            "fullname": "first.last",
+            "entitlements": [
+                "user"
+            ]
+        }
+    },
+  "config": {
+    "apiKey": "{{airtableAPIKey}}",
+    "airtableBase": "YOUR-AIRTABLE-BASE"
+  }
+}
+```
+
+Send the request. You will receive a response like this: 
+
+```json
+{
+    "data": {
+        "identity": "recBXIZJO4RFCJ7wd",
+        "attributes": {
+            "id": "first.last",
+            "email": "first.last@domain.com",
+            "fullname": "first.last",
+            "entitlements": [
+                "user"
+            ]
+        }
+    },
+    "type": "output"
+}
+```
+
+You can then go to Airtable and see that your new account was created, along with all its attributes. 
 
 ## Implement Account Delete
 
@@ -2534,141 +2185,9 @@ To implement Account Delete, follow these steps:
             })
     ```
 
-    The logic is this: the user provides an account as an input to be deleted, and the API responds with the output. You will see an error involving `deleteAccount` because you have not yet defined what it does in the 'my-client.ts' file. 
+    The logic is this: the user provides an account's identity (Airtable record ID) as an input to be deleted, and the API responds with the output. 
 
-    Once you have made these additions, your 'index.ts' file will look like this: 
-
-    <details>
-
-    <summary>index.ts with Account Delete</summary>
-
-    ```typescript showLineNumbers
-    import {
-        Context,
-        ConnectorError,
-        createConnector,
-        readConfig,
-        Response,
-        logger,
-        StdAccountListOutput,
-        StdAccountReadInput,
-        StdAccountReadOutput,
-        StdTestConnectionOutput,
-        StdAccountListInput,
-        StdTestConnectionInput,
-        StdEntitlementListInput,
-        StdEntitlementListOutput,
-        StdEntitlementReadInput,
-        StdEntitlementReadOutput,
-        StdAccountCreateInput,
-        StdAccountCreateOutput,
-        StdAccountDeleteInput,
-        StdAccountDeleteOutput
-    } from '@sailpoint/connector-sdk'
-    import { MyClient } from './my-client'
-
-    // Connector must be exported as module property named connector
-    export const connector = async () => {
-
-        const entitlements: string [] = ["user", "admin", "readonly"]
-        // Get connector source config
-        const config = await readConfig()
-
-        // Use the vendor SDK, or implement own client as necessary, to initialize a client
-        const myClient = new MyClient(config)
-
-        return createConnector()
-            .stdTestConnection(async (context: Context, input: StdTestConnectionInput, res: Response<StdTestConnectionOutput>) => {
-                logger.info("Running test connection")
-                res.send(await myClient.testConnection())
-            })
-            .stdAccountList(async (context: Context, input: StdAccountListInput, res: Response<StdAccountListOutput>) => {
-                const accounts = await myClient.getAllAccounts()
-
-                for (const account of accounts) {
-                    res.send({
-                        identity: account.id,
-                        attributes: {
-                            id: <string>account.get('id'),
-                            email: <string>account.get('email'),
-                            fullname: <string>account.get('fullname'),
-                            entitlements: <string[]>(account.get('entitlements') ? account.get('entitlements') : [])
-                        },
-                    })
-                }
-                logger.info(`stdAccountList sent ${accounts.length} accounts`)
-            })
-            .stdAccountRead(async (context: Context, input: StdAccountReadInput, res: Response<StdAccountReadOutput>) => {
-                const account = await myClient.getAccount(input.identity)
-
-                res.send({
-                    identity: account.id,
-                    attributes: {
-                        id: <string>account.get('id'),
-                        email: <string>account.get('email'),
-                        fullname: <string>account.get('fullname'),
-                        entitlements: <string[]>(account.get('entitlements') ? account.get('entitlements') : [])
-                    },
-                })
-                logger.info(`stdAccountRead read account : ${input.identity}`)
-
-            })
-            .stdEntitlementList(async (context: Context, input: StdEntitlementListInput, res: Response<StdEntitlementListOutput>) => {
-                for(const entitlement of entitlements) {
-                    res.send({
-                        identity: entitlement,
-                        type: 'group',
-                        attributes: {
-                            id: entitlement, 
-                            name: entitlement
-                        }
-                    })
-                }
-            })
-            .stdEntitlementRead(async (context: Context, input: StdEntitlementReadInput, res: Response<StdEntitlementReadOutput>) => {
-
-                const entitlement: string = entitlements.filter((e) => {return e == input.identity})[0]
-
-                if (entitlement) {
-                    res.send({
-                        identity: entitlement,
-                        type: 'group',
-                        attributes: {
-                            id: entitlement, 
-                            name: entitlement
-                        }
-                    })
-                } else {
-                    throw new ConnectorError("Entitlement not found")
-                }
-
-            })
-
-            .stdAccountCreate(async (context: Context, input: StdAccountCreateInput, res: Response<StdAccountCreateOutput>) => {
-                const account = await myClient.createAccount(input)
-                res.send({
-                    identity: account.id,
-                    attributes: {
-                        id: <string>account.get('id'),
-                        email: <string>account.get('email'),
-                        fullname: <string>account.get('fullname'),
-                        entitlements: <string[]>(account.get('entitlements') ? account.get('entitlements') : [])
-                    }
-                })
-            })
-
-            .stdAccountDelete(async (context: Context, input: StdAccountDeleteInput, res: Response<StdAccountDeleteOutput>) => {
-                res.send(await myClient.deleteAccount(input.identity))
-            })
-    }
-
-    ```
-
-    </details>
-
-2. Open the 'my-client.ts' file. You must add the `deleteAccount` asynchronous function. 
-
-    Write the function like this: 
+2. Open the 'my-client.ts' file. You must add the `deleteAccount` asynchronous function:
 
     ```typescript
     async deleteAccount(identity: string): Promise<any> {
@@ -2680,94 +2199,8 @@ To implement Account Delete, follow these steps:
             })
         }
     ```
-    
-    The logic is this: The user provides an account to delete (`destroy`), and Airtable deletes it. When the deletion is successful, the API returns an empty JSON object. If it is unsuccessful, the API throws an error. 
 
-    Once you have added the `deleteAccount` asynchronous function, your 'my-client.ts' file will look like this: 
-
-    <details>
-
-    <summary>my-client.ts with Account Delete</summary>
-
-    ```typescript
-    import { ConnectorError, StdAccountCreateInput } from "@sailpoint/connector-sdk"
-    import Airtable, { FieldSet, Record } from "airtable"
-
-    export class MyClient {
-        private readonly airtableBase: Airtable.Base
-
-        constructor(config: any) {
-            // Fetch necessary properties from config.
-            // Following properties actually do not exist in the config -- it just serves as an example.
-            if (config?.apiKey == null) {
-                throw new ConnectorError('apiKey must be provided from config')
-            }
-            if (config?.airtableBase == null) {
-                throw new ConnectorError('airtableBase must be provided from config')
-            }
-
-            Airtable.configure({apiKey: config.apiKey})
-            this.airtableBase = Airtable.base(config.airtableBase);
-        }
-
-        async getAllAccounts(): Promise<Record<FieldSet>[]> {
-            let result: Record<FieldSet>[] = []
-            return this.airtableBase('Users').select().firstPage().then(records => {
-                for (let record of records) {
-                    result.push(record)
-                }
-                return result
-            }).catch(err => {
-                throw new ConnectorError('Unable to connect!')
-            })
-        }
-
-        async getAccount(identity: string): Promise<Record<FieldSet>> {
-            return this.airtableBase('Users').find(
-                identity
-            ).then(record => {
-                return record
-            }).catch(err => {
-                throw new ConnectorError('Unable to connect!')
-            })
-        }
-
-        async testConnection(): Promise<any> {
-            return this.airtableBase('Users').select().firstPage().then(records => {
-                return {}
-            }).catch(err => {
-                throw new ConnectorError('Unable to connect!')
-            })
-        }
-
-        async createAccount(input: StdAccountCreateInput): Promise<Record<FieldSet>> {
-            if (input.attributes['id']) {
-                throw new ConnectorError('Cannot create without field id')
-            }
-            return this.airtableBase('Users').create({
-                'id': input.attributes['id'],
-                'email': input.attributes['email'],
-                'fullname': input.attributes['fullname']
-            }
-            ).then(record => {
-                return record
-            }).catch(err => {
-                throw new ConnectorError('Error while creating account: ' + err)
-            })
-        }
-
-        async deleteAccount(identity: string): Promise<any> {
-            return this.airtableBase('Users').destroy(identity, 
-            ).then(() => {
-                return {}
-            }).catch(err => {
-                throw new ConnectorError('Error while deleting account: ' + err)
-            })
-        }
-    }
-    ```
-
-    </details>
+3. Open the 'connector-spec.json' file. Add `std:account:delete` to the array of `commands` at the beginning of the file. 
 
 ## Delete Airtable Account
 
@@ -2775,10 +2208,606 @@ Once you have configured the Account Delete command, you can test it.
 
 Open Postman and open the 'Test local stdAccountDelete' command. 
 
-To delete an account, run this command: 
+To delete an account, rewrite the command like this:
 
-## Update Airtable Account
+```json
+{
+    "type": "std:account:delete",
+    "input": {
+        "identity": "IDENTITY-TO-BE-DELETED"
+    },
+  "config": {
+    "apiKey": "{{airtableAPIKey}}",
+    "airtableBase": "YOUR-AIRTABLE-BASE"
+  }
+}
+```
 
-## 
+Send the request. The successful response is empty: 
 
-## Complete 
+```json
+{
+    "data": {},
+    "type": "output"
+}
+```
+
+You can check whether the the account has been deleted by running [Account List](#list-airtable-accounts).
+
+## Implement Account Update 
+
+The final command you will implement is [Account Update](./connector-commands/account-update.md). You can use this command to update the Airtable account's attributes. 
+
+To implement Account Update, follow these steps: 
+
+1. Open the 'AirtableAccount.ts' file. 
+
+2. Add `StdAccountUpdateOutput` and `AttributeChangeOp` to the imports from `'@sailpoint/connector-sdk'` at the beginning of the file.
+
+3. Add this public method within the `AirtableAccount` class: 
+
+    ```typescript
+    public updateFieldByName(fieldname: string, value: string, operation: AttributeChangeOp ) {
+        switch (fieldname) {
+            case 'id':
+                this.id = value
+                break
+            case 'email':
+                this.email = value
+                break  
+            case 'entitlements':
+                if (operation == AttributeChangeOp.Add) {
+                    this.entitlements.push(value)
+                } else if (operation == AttributeChangeOp.Set) {
+                    this.entitlements = []
+                    this.entitlements.push(value)
+                } else if (operation == AttributeChangeOp.Remove) {
+                    this.entitlements = this.entitlements.filter(e => e !== value)
+                }
+                break
+            case 'fullname':
+                this.fullname = value
+                break  
+        }
+    }
+    ```
+
+    The public method `updateFieldByName` defines the operations to be performed based on the specified `fieldname`, `value`, and `operation`. For example, if you add an `entitlement` to an account, it will add the `entitlement` to the end of the `entitlements` array. 
+
+4. Add this public method within the `AirtableAccount` class: 
+
+    ```typescript
+    public toStdAccountUpdateOutput(): StdAccountUpdateOutput {
+        return this.buildStandardObject();
+    }
+    ```
+
+5. Open your 'index.ts' file. Add `StdAccountUpdateInput` and `StdAccountUpdateOutput` to the imports from `'@sailpoint/connector-sdk'` at the beginning of the file. 
+
+6. Add the `.stdAccountUpdate` command handler: 
+
+    ```typescript
+    .stdAccountUpdate(async (context: Context, input: StdAccountUpdateInput, res: Response<StdAccountUpdateOutput>) => {
+            logger.info(input, "Getting account using input")
+            let account = await myClient.getAccount(input.key)
+            logger.info(account, "Changing the following account in myClient")
+            for (const changes of input.changes) {
+                account = await myClient.updateAccount(account, changes)
+            }
+            logger.info(account, "New account after changes applied")
+            res.send(account.toStdAccountUpdateOutput())
+        })
+    ```
+
+    The `.stdAccountUpdate` command handler now uses the `.toStdAccountUpdateOutput()` from 'AirtableAccount.ts' to handle its response and provides logging statements. 
+
+7. Open 'my-client.ts'. Add `Attribute Change` to the imports from `"@sailpoint/connector-sdk"` at the beginning of the file. 
+
+8. Add the asynchronous function `updateAccount`: 
+
+    ```typescript
+    async updateAccount(account: AirtableAccount, changes: AttributeChange): Promise<AirtableAccount> {
+        account.updateFieldByName(changes.attribute, changes.value, changes.op)
+
+        return this.airtableBase('Users').update(account.identity, {
+            "id": account.id,
+            "fullname": account.fullname,
+            "email": account.email,
+            "entitlements": account.entitlements
+        }).then(record =>{
+            const airtableRecord = AirtableAccount.createWithRecords(record)
+            return airtableRecord
+        }).catch(err => {
+            throw new ConnectorError('Error while changing accounts: ' + err)
+        })
+    }
+    ```
+
+    The asynchronous function `updateAccount` takes inputs of the `identity` (Airtable record ID), `op`, `attribute`, and `value` and responds with the updated account. 
+
+9. Open 'connector-spec.json'. Add `"std:account:update"` to the `"commands"` array at the beginning of the file. 
+
+## Update Airtable Account 
+
+Once you have configured the Account Update command, you can test it. 
+
+Open Postman and open the 'Test local stdAccountUpdate' command. 
+
+As an example, remove an account's entitlement by rewriting the request body like this: 
+
+```json
+{
+    "type": "std:account:update",
+    "input": {
+        "identity": "IDENTITY-TO-UPDATE",
+        "changes": [
+            {
+                "op": "Remove",
+                "attribute": "entitlements",
+                "value": "user"
+            }
+        ]
+    },
+  "config": {
+    "apiKey": "{{airtableAPIKey}}",
+    "airtableBase": "YOUR-AIRTABLE-BASE"
+  }
+}
+```
+
+Send the request. You will get this successful response: 
+
+```json
+{
+    "data": {
+        "key": {
+            "simple": {
+                "id": "UPDATED-IDENTITY"
+            }
+        },
+        "attributes": {
+            "id": "fred.mcbread",
+            "fullname": "fred.mcbread",
+            "email": "fred.mcbread@domain.com",
+            "entitlements": [] /// The "user" entitlement was removed. 
+        }
+    },
+    "type": "output"
+}
+```
+
+To check your changes, you can open Airtable and see the identity's updated entitlements. 
+
+## Complete Code 
+
+You now have a SaaS connector that can get account data from Airtable and send it to ISC. You can also use the connector to make changes to the Airtable account data without opening Airtable at all. 
+
+Your completed code will look something like this: 
+
+<details>
+
+<summary>my-client.ts</summary>
+
+```typescript showLineNumbers
+import { CompoundKeyType, ConnectorError, ConnectorErrorType, SimpleKeyType, StdAccountCreateInput, AttributeChange } from "@sailpoint/connector-sdk"
+import Airtable, { FieldSet, Record } from "airtable"
+import { AirtableAccount } from "./models/AirtableAccount"
+
+
+export class MyClient {
+    private readonly airtableBase: Airtable.Base
+
+    constructor(config: any) {
+        // Fetch necessary properties from config.
+        // Following properties actually do not exist in the config -- it just serves as an example.
+        if (config?.apiKey == null) {
+            throw new ConnectorError('apiKey must be provided from config')
+        }
+        if (config?.airtableBase == null) {
+            throw new ConnectorError('airtableBase must be provided from config')
+        }
+
+        Airtable.configure({apiKey: config.apiKey})
+        this.airtableBase = Airtable.base(config.airtableBase);
+    }
+
+    async getAllAccounts(): Promise<AirtableAccount[]> {
+        return this.airtableBase('Users').select().firstPage().then(records => {
+            const recordArray: Array<AirtableAccount> = []
+            for (const record of records) {
+                recordArray.push(AirtableAccount.createWithRecords(record))
+            }
+            return recordArray
+        }).catch(err => {
+            throw new ConnectorError('Error while getting accounts!')
+        })
+    }
+
+    async getAccount(identity: SimpleKeyType | CompoundKeyType): Promise<AirtableAccount> {
+        const id = <SimpleKeyType>identity
+        let found = false
+
+        return this.airtableBase('Users').select().firstPage().then(records => {
+            const recordArray: Array<AirtableAccount> = []
+            for (const record of records) {
+                found = true
+                recordArray.push(AirtableAccount.createWithRecords(record))
+            }
+            return recordArray[0]
+        }).catch(err => {
+            throw new ConnectorError('Error while getting account: ' + err)
+        }).finally(() => {
+            if (!found) {
+                throw new ConnectorError("Account not found", ConnectorErrorType.NotFound)
+            }
+        })
+    }
+
+    async testConnection(): Promise<any> {
+        return this.airtableBase('Users').select().firstPage().then(records => {
+            return {}
+        }).catch(err => {
+            throw new ConnectorError('Unable to connect!')
+        })
+    }
+
+    async createAccount(input: StdAccountCreateInput): Promise<Record<FieldSet>> {
+        return this.airtableBase('Users').create({
+            'id': input.attributes['id'],
+            'email': input.attributes['email'],
+            'fullname': input.attributes['fullname'],
+            'entitlements': input.attributes.entitlements || []
+        }
+        ).then(record => {
+            return record
+        }).catch(err => {
+            throw new ConnectorError('Error while creating account: ' + err)
+        })
+    }
+
+    async deleteAccount(identity: string): Promise<any> {
+        return this.airtableBase('Users').destroy(identity, 
+        ).then(() => {
+            return {}
+        }).catch(err => {
+            throw new ConnectorError('Error while deleting account: ' + err)
+        })
+    }
+
+    async updateAccount(account: AirtableAccount, changes: AttributeChange): Promise<AirtableAccount> {
+        account.updateFieldByName(changes.attribute, changes.value, changes.op)
+
+        return this.airtableBase('Users').update(account.identity, {
+            "id": account.id,
+            "fullname": account.fullname,
+            "email": account.email,
+            "entitlements": account.entitlements
+        }).then(record =>{
+            const airtableRecord = AirtableAccount.createWithRecords(record)
+            return airtableRecord
+        }).catch(err => {
+            throw new ConnectorError('Error while changing accounts: ' + err)
+        })
+    }
+
+}
+
+```
+
+</details>
+
+<details>
+
+<summary>index.ts</summary>
+
+```typescript showLineNumbers
+import {
+    Context,
+    createConnector,
+    readConfig,
+    Response,
+    logger,
+    StdAccountListOutput,
+    StdAccountReadInput,
+    StdAccountReadOutput,
+    StdTestConnectionOutput,
+    StdTestConnectionInput,
+    StdAccountListInput,
+    StdEntitlementListInput,
+    StdEntitlementListOutput,
+    StdEntitlementReadInput,
+    StdEntitlementReadOutput,
+    StdAccountCreateInput,
+    StdAccountCreateOutput,
+    StdAccountDeleteInput,
+    StdAccountDeleteOutput,
+    StdAccountUpdateInput,
+    StdAccountUpdateOutput,
+    ConnectorError
+} from '@sailpoint/connector-sdk'
+import { MyClient } from './my-client'
+
+// Connector must be exported as module property named connector
+export const connector = async () => {
+
+    const entitlements: string [] = ["user", "admin", "readonly"] 
+
+    // Get connector source config
+    const config = await readConfig()
+
+    // Use the vendor SDK, or implement own client as necessary, to initialize a client
+    const myClient = new MyClient(config)
+
+    return createConnector()
+        .stdTestConnection(async (context: Context, input: StdTestConnectionInput, res: Response<StdTestConnectionOutput>) => {
+            logger.info("Running test connection")
+            res.send(await myClient.testConnection())
+        })
+        .stdAccountList(async (context: Context, input: StdAccountListInput, res: Response<StdAccountListOutput>) => {
+            let accounts = []
+            accounts = await myClient.getAllAccounts()
+
+            for (const account of accounts) {
+                res.send(account.toStdAccountListOutput())
+                    }
+            logger.info(`stdAccountList sent ${accounts.length} accounts`)
+        })
+        .stdAccountRead(async (context: Context, input: StdAccountReadInput, res: Response<StdAccountReadOutput>) => {
+            const account = await myClient.getAccount(input.key)
+            logger.info(account, "Fetched the following account from myClient")
+            res.send(account.toStdAccountReadOutput())
+        })
+        .stdEntitlementList(async (context: Context, input: StdEntitlementListInput, res: Response<StdEntitlementListOutput>) => {
+            for(const entitlement of entitlements) {
+                res.send({
+                    identity: entitlement,
+                    type: 'group',
+                    attributes: {
+                        id: entitlement, 
+                        name: entitlement
+                    }
+                })
+            }
+        })
+        .stdEntitlementRead(async (context: Context, input: StdEntitlementReadInput, res: Response<StdEntitlementReadOutput>) => {
+
+            const entitlement: string = entitlements.filter((e) => {return e == input.identity})[0]
+
+            if (entitlement) {
+                res.send({
+                    identity: entitlement,
+                    type: 'group',
+                    attributes: {
+                        id: entitlement, 
+                        name: entitlement
+                    }
+                })
+            } else {
+                throw new ConnectorError("Entitlement not found")
+            }
+
+        })
+        .stdAccountCreate(async (context: Context, input: StdAccountCreateInput, res: Response<StdAccountCreateOutput>) => {
+            const account = await myClient.createAccount(input)
+            res.send({
+                identity: account.id,
+                attributes: {
+                    id: <string>account.get('id'),
+                    email: <string>account.get('email'),
+                    fullname: <string>account.get('fullname'),
+                    entitlements: input.attributes.entitlements || []
+                }
+            })
+        })
+        .stdAccountDelete(async (context: Context, input: StdAccountDeleteInput, res: Response<StdAccountDeleteOutput>) => {
+            res.send(await myClient.deleteAccount(input.identity))
+        })
+        .stdAccountUpdate(async (context: Context, input: StdAccountUpdateInput, res: Response<StdAccountUpdateOutput>) => {
+            logger.info(input, "Getting account using input")
+            let account = await myClient.getAccount(input.key)
+            logger.info(account, "Changing the following account in myClient")
+            for (const changes of input.changes) {
+                account = await myClient.updateAccount(account, changes)
+            }
+            logger.info(account, "New account after changes applied")
+            res.send(account.toStdAccountUpdateOutput())
+        })
+}
+
+```
+
+</details>
+
+<details>
+
+<summary>AirtableAccount.ts</summary>
+
+```typescript showLineNumbers
+import { SimpleKey, StdAccountCreateOutput, StdAccountListOutput, StdAccountReadOutput, AttributeChangeOp, StdAccountUpdateOutput } from '@sailpoint/connector-sdk'
+import { FieldSet, Record } from 'airtable'
+
+export class AirtableAccount {
+    identity!: string
+    email!: string
+    id!: string
+    fullname!: string
+    entitlements!: Array<string>
+
+    // Create the account from the record coming from Airtable
+    public static createWithRecords(record: Record<FieldSet>): AirtableAccount {
+        const account = new AirtableAccount();
+        account.identity = record.id
+        account.email = record.get('email') ? String(record.get('email')) : ''
+        account.id = record.get('id') ? String(record.get('id')) : ''
+        account.fullname = record.get('fullname') ? String(record.get('fullname')) : ''
+        account.entitlements = record.get('entitlements') ? String(record.get('entitlements')).split(',') : []
+
+        return account;
+    }
+
+    public updateFieldByName(fieldname: string, value: string, operation: AttributeChangeOp ) {
+        switch (fieldname) {
+            case 'id':
+                this.id = value
+                break
+            case 'email':
+                this.email = value
+                break  
+            case 'entitlements':
+                if (operation == AttributeChangeOp.Add) {
+                    this.entitlements.push(value)
+                } else if (operation == AttributeChangeOp.Set) {
+                    this.entitlements = []
+                    this.entitlements.push(value)
+                } else if (operation == AttributeChangeOp.Remove) {
+                    this.entitlements = this.entitlements.filter(e => e !== value)
+                }
+                break
+            case 'fullname':
+                this.fullname = value
+                break  
+        }
+    }
+
+    public toStdAccountListOutput(): StdAccountListOutput {
+        return this.buildStandardObject();
+    }
+
+    public toStdAccountReadOutput(): StdAccountReadOutput {
+        return this.buildStandardObject();
+    }
+
+    public toStdAccountCreateOutput(): StdAccountCreateOutput {
+        return this.buildStandardObject();
+    }
+
+    public toStdAccountUpdateOutput(): StdAccountUpdateOutput {
+        return this.buildStandardObject();
+    }
+    
+    private buildStandardObject(): StdAccountListOutput | StdAccountCreateOutput | StdAccountReadOutput | StdAccountListOutput {
+        return {
+            key: SimpleKey(this.identity),
+            attributes: {
+                id: this.id,
+                fullname: this.fullname,
+                email: this.email,
+                entitlements: this.entitlements,
+            },
+        }
+    }
+
+}
+
+```
+
+</details>
+
+<details>
+
+<summary>connector-spec.json</summary>
+
+```json showLineNumbers
+{
+	"name": "navigate-conference",
+	"commands": [
+		"std:account:list",
+		"std:account:read",
+		"std:test-connection",
+		"std:entitlement:list",
+		"std:entitlement:read",
+		"std:account:create",
+		"std:account:delete",
+		"std:account:update"
+	],
+	"sourceConfig": [
+		{
+			"type": "menu",
+			"label": "Configuration",
+			"items": [
+				{
+					"type": "section",
+					"sectionTitle": "Authentication",
+					"sectionHelpMessage": "Provide connection parameters to interact securely with the target application.",
+					"items": [
+						{
+							"key": "apiKey",
+							"label": "apiKey",
+							"type": "secret"
+						},
+						{
+							"key": "airtableBase",
+							"label": "airtableBase",
+							"type": "text"
+						}
+					]
+				}
+			]
+		}
+	],
+	"accountSchema":{
+		"displayAttribute": "id",
+		"identityAttribute": "id",
+		"groupAttribute": "entitlements",
+		"attributes":[
+			{
+				"name": "identity",
+				"type": "string",
+				"description": "Identity ID"
+			},
+			{
+				"name": "fullname",
+				"type": "string",
+				"description": "Account fullname"
+			},
+			{
+				"name": "email",
+				"type": "string",
+				"description": "Account email"
+			},
+			{
+				"name": "id",
+				"type": "string",
+				"description": "Account id"
+			},
+			{
+				"name": "entitlements",
+				"type": "string",
+				"description": "Account entitlements",
+				"entitlement": true,
+				"multi": true,
+				"managed": true
+			}
+		]
+	},
+	"entitlementSchemas": [
+		{
+			"type": "group",
+			"displayAttribute": "name",
+			"identityAttribute": "id",
+			"attributes": [
+				{
+					"name": "id", 
+					"type": "string",
+					"description": "Unique ID of the group (ex. admin)"
+				}, 
+				{
+					"name": "name", 
+					"type": "string",
+					"description": "Display name of the group (ex. admin)"
+				}
+			]
+		}
+	]
+}
+```
+
+</details>
+
+## Conclusion 
+
+Now that you know how to build a SaaS connector to Airtable, you know everything you need to build a basic SaaS connector. The only things you need are some way to retrieve and modify your source account data and some way to authenticate your requests for that data. Then you can go further and customize the SaaS connector to truly suit your organization's needs.
+
+The most valuable resource for ISC developers is the SailPoint Developer Community itself, where ISC users and experts all over the world come together to ask questions and provide solutions.
+
+To learn more about SaaS Connectivity and discuss the different SaaS Connectivity options with SailPoint Developer Community members, go to the [SailPoint Developer Community Forum](https://developer.sailpoint.com/discuss/tag/saas-connector).

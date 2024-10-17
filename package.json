@@ -21,9 +21,9 @@
     "rebuild-docs": "npm run clean-api-docs-all && npm run gen-api-docs-all"
   },
   "dependencies": {
-    "@docusaurus/plugin-client-redirects": "3.4.0",
-    "@docusaurus/plugin-google-tag-manager": "3.4.0",
-    "@docusaurus/theme-mermaid": "3.4.0",
+    "@docusaurus/plugin-client-redirects": "3.5.2",
+    "@docusaurus/plugin-google-tag-manager": "3.5.2",
+    "@docusaurus/theme-mermaid": "3.5.2",
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/pro-duotone-svg-icons": "^6.5.1",
     "@fortawesome/pro-solid-svg-icons": "^6.5.1",
@@ -34,8 +34,8 @@
     "autoprefixer": "^10.4.13",
     "classnames": "^2.3.2",
     "clsx": "^2.0.0",
-    "docusaurus-plugin-openapi-docs": "^0.0.0-761",
-    "docusaurus-theme-openapi-docs": "^3.0.1",
+    "docusaurus-plugin-openapi-docs": "^4.0.1",
+    "docusaurus-theme-openapi-docs": "^4.0.1",
     "docusaurus2-dotenv": "^1.4.0",
     "esbuild-loader": "^2.20.0",
     "ldrs": "^1.0.1",
@@ -51,10 +51,10 @@
     "mermaid": "10.4.0"
   },
   "devDependencies": {
-    "@docusaurus/core": "3.4.0",
-    "@docusaurus/module-type-aliases": "3.4.0",
-    "@docusaurus/preset-classic": "3.4.0",
-    "@docusaurus/types": "3.4.0",
+    "@docusaurus/core": "3.5.2",
+    "@docusaurus/module-type-aliases": "3.5.2",
+    "@docusaurus/preset-classic": "3.5.2",
+    "@docusaurus/types": "3.5.2",
     "husky": "^8.0.2",
     "prettier": "2.8.0",
     "pretty-quick": "^3.1.3"

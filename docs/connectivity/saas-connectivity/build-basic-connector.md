@@ -62,7 +62,7 @@ To create your SaaS connector project, use a command line to navigate to your pr
 sail conn init navigate-conference
 ```
 
-This command leverages the SailPoint CLI's SaaS Connectivity functionality to create a SaaS connector project, 'navigate-conference', that has all the resources you will need to develop the connector. You can read more about the SaaS connector's project structure [here](./prerequisites.md/#source-files).
+This command leverages the SailPoint CLI's SaaS Connectivity functionality to create a SaaS connector project, 'navigate-conference', that has all the resources you will need to develop the connector. You can read more about the SaaS connector's project structure [here](./prerequisites/#source-files).
 
 ## Install Dependencies 
 
@@ -411,7 +411,7 @@ Once your SaaS connector's authentication is configured, you can configure Postm
 
 2. Use the '+' button to create a new environment. 
 
-The first three environment variables you need, `tenant`, `clientId`, and `clientSecret`, will authenticate your API requests to ISC. If you have configured your SailPoint CLI, you can the same variables from your CLI's PAT. Otherwise, you can refer to [Authentication](/docs/api/authentication.md/#generate-a-personal-access-token) to learn how to create a PAT and get these variables. 
+The first three environment variables you need, `tenant`, `clientId`, and `clientSecret`, will authenticate your API requests to ISC. If you have configured your SailPoint CLI, you can the same variables from your CLI's PAT. Otherwise, you can refer to [Authentication](/docs/api/authentication/#generate-a-personal-access-token) to learn how to create a PAT and get these variables. 
 
 The fourth environment variable, `airtableAPIKey` will authenticate your API requests. You will use the PAT you generated in Airtable for this variable. 
 
@@ -712,7 +712,7 @@ Click the breakpoint again to remove it so that you can run your connector witho
 
 ## Implement Account List Command 
 
-The next command you're going to run is [Account List](./connector-commands/account-list.md). This command allows you to get all the accounts from your table, along with their account attributes. This command also allows you to manually aggregate Airtable account data within ISC. 
+The next command you're going to run is [Account List](./connector-commands/account-list). This command allows you to get all the accounts from your table, along with their account attributes. This command also allows you to manually aggregate Airtable account data within ISC. 
 
 To implement the Account List Command, follow these steps: 
 
@@ -1468,7 +1468,7 @@ This command creates an empty connector in your ISC tenant. You will use this em
 
 The output includes your new connector entry's name (alias) and its ID. You will need this connector ID to upload your connector project. 
 
-You can use the the `sail conn list` command to list the available connectors at any time. To learn more about the other available SaaS connector commands you can use with the SailPoint CLI, refer to [Connectors](/docs/tools/cli/connectors.md/#commands). 
+You can use the the `sail conn list` command to list the available connectors at any time. To learn more about the other available SaaS connector commands you can use with the SailPoint CLI, refer to [Connectors](/docs/tools/cli/connectors/#commands). 
 
 ### Upload Connector to ISC 
 
@@ -1494,7 +1494,7 @@ A successful response looks like this:
 
 It can be very helpful to test your SaaS connector before you go through all the steps of configuring it in ISC. 
 
-The SailPoint CLI has a [validate command](/docs/tools/cli/connectors.md/#validate-a-connector) you can use to run a suite of integration tests against your connector to ensure that all the basic functionality works. The CLI also has an [invoke command](/docs/tools/cli/connectors.md/#invoke-command) you can use to test specific connector commands. The `validate` and `invoke` commands allow you to use the CLI to run tests without ever having to actually go into ISC. 
+The SailPoint CLI has a [validate command](/docs/tools/cli/connectors/#validate-a-connector) you can use to run a suite of integration tests against your connector to ensure that all the basic functionality works. The CLI also has an [invoke command](/docs/tools/cli/connectors/#invoke-command) you can use to test specific connector commands. The `validate` and `invoke` commands allow you to use the CLI to run tests without ever having to actually go into ISC. 
 
 Before you can run the tests, you must create a 'config.json' file. You must include your `apiKey` and `airtableBase` credentials in the 'config.json' file to authenticate the requests you want to send for the tests. 
 
@@ -1731,7 +1731,7 @@ Once you have configured Account Read in the 'AirtableAccount.ts', 'my-client.ts
 
 ## Implement Entitlement List 
 
-The next command you will implement is [Entitlement List](./connector-commands/entitlement-list.md), which will allow you to get a list of entitlements. 
+The next command you will implement is [Entitlement List](./connector-commands/entitlement-list), which will allow you to get a list of entitlements. 
 
 To start implementing 'Entitlement List', open the 'index.ts' file. 
 
@@ -2045,7 +2045,7 @@ A successful response will look something like this:
 
 ## Implement Entitlement Read 
 
-Once you have implemented the Entitlement List command, implementing [Entitlement Read](./connector-commands/entitlement-read.md) will be simple because you only have to update the 'index.ts' file and your changes will be similar to those you made for Entitlement List. 
+Once you have implemented the Entitlement List command, implementing [Entitlement Read](./connector-commands/entitlement-read) will be simple because you only have to update the 'index.ts' file and your changes will be similar to those you made for Entitlement List. 
 
 To implement the Entitlement Read command, open the 'index.ts' file and make these additions: 
 
@@ -2129,7 +2129,7 @@ A successful response will look something like this:
 
 ## Implement Account Create
 
-To create accounts in Airtable, you can use [Account Create](./connector-commands/account-create.md). 
+To create accounts in Airtable, you can use [Account Create](./connector-commands/account-create). 
 
 To implement the Account Create command, follow these steps:
 
@@ -2241,7 +2241,7 @@ You can then go to Airtable and see that your new account was created, along wit
 
 ## Implement Account Delete
 
-Once you can create accounts, you will want to delete them too. The next command you will implement, the [Account Delete](./connector-commands/account-delete.md), will allow you to do so. 
+Once you can create accounts, you will want to delete them too. The next command you will implement, the [Account Delete](./connector-commands/account-delete), will allow you to do so. 
 
 To implement Account Delete, follow these steps: 
 
@@ -2308,7 +2308,7 @@ You can check whether the the account has been deleted by running [Account List]
 
 ## Implement Account Update 
 
-The final command you will implement is [Account Update](./connector-commands/account-update.md). You can use this command to update the Airtable account's attributes. 
+The final command you will implement is [Account Update](./connector-commands/account-update). You can use this command to update the Airtable account's attributes. 
 
 To implement Account Update, follow these steps: 
 

@@ -174,6 +174,7 @@ You will use your SaaS connector to aggregate this table's accounts into ISC and
 The table will look something like this example: 
 
 <details>
+
 <summary>Example Airtable Table</summary>
 
 | id            | email                           | entitlements | fullname  |
@@ -243,6 +244,7 @@ Open your 'my-client.ts' file. The SaaS connector's authentication is configured
 The 'my-client.ts' file looks like this: 
 
 <details>
+
 <summary>my-client.ts (Default)</summary>
 
 ```typescript showLineNumbers
@@ -337,6 +339,7 @@ This is where you need to implement the code from the Airtable API documentation
 Once you have made these changes, your 'my-client.ts' file looks like this: 
 
 <details>
+
 <summary>my-client.ts Updated for Authentication</summary>
 
 ```typescript showLineNumbers
@@ -462,6 +465,7 @@ The second part of the function after the `catch` implements the error handling.
 Your code should currently look like this: 
 
 <details>
+
 <summary>Code with Test Connection Implemented</summary>
 
 ```typescript showLineNumbers
@@ -712,7 +716,7 @@ Click the breakpoint again to remove it so that you can run your connector witho
 
 ## Implement Account List Command 
 
-The next command you're going to run is [Account List](./connector-commands/account-list). This command allows you to get all the accounts from your table, along with their account attributes. This command also allows you to manually aggregate Airtable account data within ISC. 
+The next command you're going to run is [Account List](https://developer.sailpoint.com/docs/connectivity/saas-connectivity/commands/account-list). This command allows you to get all the accounts from your table, along with their account attributes. This command also allows you to manually aggregate Airtable account data within ISC. 
 
 To implement the Account List Command, follow these steps: 
 
@@ -1323,10 +1327,6 @@ The authentication process now looks for the correct keys, `apiKey` and `airtabl
 
 2. To correct the account attributes in the account schema, rewrite the `accountSchema` like this: 
 
-    <details>
-
-    <summary></summary>
-
     ```json
     "accountSchema":{
             "displayAttribute": "id",
@@ -1591,10 +1591,6 @@ To implement Account Read, follow these steps:
 
 4. Write the `.stdAccountRead` command handler like this, after `.stdAccountList`: 
 
-    <details>
-
-    <summary>index.ts with Account Read</summary>
-
     ```typescript 
     .stdAccountRead(async (context: Context, input: StdAccountReadInput, res: Response<StdAccountReadOutput>) => {
                 const account = await myClient.getAccount(input.key)
@@ -1603,15 +1599,9 @@ To implement Account Read, follow these steps:
             })
     ```
 
-    </details>
-
     The command awaits an input of an `identity` and then finds that `identity` and returns the correct attributes: `id`, `email`, `fullname`, and `entitlements`. 
 
 5. Open 'my-client.ts' and rewrite the `getAccount` asynchronous function like this: 
-
-    <details>
-
-    <summary>my-client.ts with Account Read</summary>
 
     ```typescript
     async getAccount(identity: SimpleKeyType | CompoundKeyType): Promise<AirtableAccount> {
@@ -1634,8 +1624,6 @@ To implement Account Read, follow these steps:
             })
         }
     ```
-
-    </details>
 
     This looks similar to the `accountList` asynchronous function, but instead of paging through the records and getting them all, it uses a `find` to find the right `identity` and then return that identity's records. 
 
@@ -1662,10 +1650,6 @@ Once you have configured Account Read in the 'AirtableAccount.ts', 'my-client.ts
 
 2. In the response, the identity is listed first for each account, like this example: 
 
-    <details>
-
-    <summary>Account List Response</summary>
-
     ```json
     {
         "data": {
@@ -1682,8 +1666,6 @@ Once you have configured Account Read in the 'AirtableAccount.ts', 'my-client.ts
         "type": "output"
     }
     ```
-
-    </details>
 
     The `identity` refers to the account record's row ID in its Airtable table. 
 
@@ -1706,10 +1688,6 @@ Once you have configured Account Read in the 'AirtableAccount.ts', 'my-client.ts
 
 4. Send the request. Your response will look something like this: 
 
-    <details>
-
-    <summary>Account Read Response</summary>
-
     ```json
     {
         "data": {
@@ -1727,11 +1705,9 @@ Once you have configured Account Read in the 'AirtableAccount.ts', 'my-client.ts
     }
     ```
 
-    </details>
-
 ## Implement Entitlement List 
 
-The next command you will implement is [Entitlement List](./connector-commands/entitlement-list), which will allow you to get a list of entitlements. 
+The next command you will implement is [Entitlement List](https://developer.sailpoint.com/docs/connectivity/saas-connectivity/commands/entitlement-list), which will allow you to get a list of entitlements. 
 
 To start implementing 'Entitlement List', open the 'index.ts' file. 
 
@@ -1881,7 +1857,7 @@ Once you have added the `entitlementSchemas`, your 'connector-spec.json' file wi
 
 <details>
 
-<summary>connector-spec.json with Entitlement Schemas</summary>
+<summary>connector-spec.json with Entitlement Schema and accountCreateTemplate</summary>
 
 ```json showLineNumbers
 {
@@ -2001,10 +1977,6 @@ You don't need to provide an input - you just need to authenticate your request 
 
 A successful response will look something like this:
 
-<details>
-
-<summary>Entitlement List Response</summary>
-
 ```json
 {
     "data": {
@@ -2041,11 +2013,9 @@ A successful response will look something like this:
 }
 ```
 
-</details>
-
 ## Implement Entitlement Read 
 
-Once you have implemented the Entitlement List command, implementing [Entitlement Read](./connector-commands/entitlement-read) will be simple because you only have to update the 'index.ts' file and your changes will be similar to those you made for Entitlement List. 
+Once you have implemented the Entitlement List command, implementing [Entitlement Read](https://developer.sailpoint.com/docs/connectivity/saas-connectivity/commands/entitlement-read) will be simple because you only have to update the 'index.ts' file and your changes will be similar to those you made for Entitlement List. 
 
 To implement the Entitlement Read command, open the 'index.ts' file and make these additions: 
 
@@ -2054,10 +2024,6 @@ To implement the Entitlement Read command, open the 'index.ts' file and make the
 2. Add `ConnectorError` after those two new commands. You will need to import this error type so you can throw it if you don't find the specified entitlement. 
 
 3. Add the `.stdEntitlementRead` command handler to the end of the file, and write it like this:
-
-    <details>
-
-    <summary>Entitlement Read Command Handler</summary>
 
     ```typescript
             .stdEntitlementRead(async (context: Context, input: StdEntitlementReadInput, res: Response<StdEntitlementReadOutput>) => {
@@ -2079,8 +2045,6 @@ To implement the Entitlement Read command, open the 'index.ts' file and make the
 
             })
     ```
-
-    </details>
 
     The logic is similar to that of Entitlement List's command handler, but the key difference is that with this command, you specify a specific entitlement for the connector to find. The connector then returns that entitlement if it can find it, along with its attributes. If it can't find it, it throws the error, "Entitlement not found". 
 
@@ -2107,10 +2071,6 @@ The request now specifies an entitlement to find, `user`.
 
 A successful response will look something like this:
 
-<details>
-
-<summary>Entitlement ReadResponse</summary>
-
 ```json
 {
     "data": {
@@ -2125,11 +2085,9 @@ A successful response will look something like this:
 }
 ```
 
-</details>
-
 ## Implement Account Create
 
-To create accounts in Airtable, you can use [Account Create](./connector-commands/account-create). 
+To create accounts in Airtable, you can use [Account Create](https://developer.sailpoint.com/docs/connectivity/saas-connectivity/commands/account-create). 
 
 To implement the Account Create command, follow these steps:
 
@@ -2241,7 +2199,7 @@ You can then go to Airtable and see that your new account was created, along wit
 
 ## Implement Account Delete
 
-Once you can create accounts, you will want to delete them too. The next command you will implement, the [Account Delete](./connector-commands/account-delete), will allow you to do so. 
+Once you can create accounts, you will want to delete them too. The next command you will implement, the [Account Delete](https://developer.sailpoint.com/docs/connectivity/saas-connectivity/commands/account-delete), will allow you to do so. 
 
 To implement Account Delete, follow these steps: 
 
@@ -2308,7 +2266,7 @@ You can check whether the the account has been deleted by running [Account List]
 
 ## Implement Account Update 
 
-The final command you will implement is [Account Update](./connector-commands/account-update). You can use this command to update the Airtable account's attributes. 
+The final command you will implement is [Account Update](https://developer.sailpoint.com/docs/connectivity/saas-connectivity/commands/account-update). You can use this command to update the Airtable account's attributes. 
 
 To implement Account Update, follow these steps: 
 

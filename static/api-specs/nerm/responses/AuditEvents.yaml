@@ -5,6 +5,6 @@ content:
       type: object
       properties:
         audit_events:
-          type: Array
+          type: array
           items:
             $ref: '../schemas/POST/AuditEvent.yaml'

@@ -716,7 +716,7 @@ Click the breakpoint again to remove it so that you can run your connector witho
 
 ## Implement Account List Command 
 
-The next command you're going to run is [Account List](./connector-commands/account-list). This command allows you to get all the accounts from your table, along with their account attributes. This command also allows you to manually aggregate Airtable account data within ISC. 
+The next command you're going to run is [Account List](https://developer.sailpoint.com/docs/connectivity/saas-connectivity/commands/account-list). This command allows you to get all the accounts from your table, along with their account attributes. This command also allows you to manually aggregate Airtable account data within ISC. 
 
 To implement the Account List Command, follow these steps: 
 
@@ -1705,7 +1705,7 @@ Once you have configured Account Read in the 'AirtableAccount.ts', 'my-client.ts
 
 ## Implement Entitlement List 
 
-The next command you will implement is [Entitlement List](./connector-commands/entitlement-list), which will allow you to get a list of entitlements. 
+The next command you will implement is [Entitlement List](https://developer.sailpoint.com/docs/connectivity/saas-connectivity/commands/entitlement-list), which will allow you to get a list of entitlements. 
 
 To start implementing 'Entitlement List', open the 'index.ts' file. 
 
@@ -2013,7 +2013,7 @@ A successful response will look something like this:
 
 ## Implement Entitlement Read 
 
-Once you have implemented the Entitlement List command, implementing [Entitlement Read](./connector-commands/entitlement-read) will be simple because you only have to update the 'index.ts' file and your changes will be similar to those you made for Entitlement List. 
+Once you have implemented the Entitlement List command, implementing [Entitlement Read](https://developer.sailpoint.com/docs/connectivity/saas-connectivity/commands/entitlement-read) will be simple because you only have to update the 'index.ts' file and your changes will be similar to those you made for Entitlement List. 
 
 To implement the Entitlement Read command, open the 'index.ts' file and make these additions: 
 
@@ -2085,7 +2085,7 @@ A successful response will look something like this:
 
 ## Implement Account Create
 
-To create accounts in Airtable, you can use [Account Create](./connector-commands/account-create). 
+To create accounts in Airtable, you can use [Account Create](https://developer.sailpoint.com/docs/connectivity/saas-connectivity/commands/account-create). 
 
 To implement the Account Create command, follow these steps:
 
@@ -2197,7 +2197,7 @@ You can then go to Airtable and see that your new account was created, along wit
 
 ## Implement Account Delete
 
-Once you can create accounts, you will want to delete them too. The next command you will implement, the [Account Delete](./connector-commands/account-delete), will allow you to do so. 
+Once you can create accounts, you will want to delete them too. The next command you will implement, the [Account Delete](https://developer.sailpoint.com/docs/connectivity/saas-connectivity/commands/account-delete), will allow you to do so. 
 
 To implement Account Delete, follow these steps: 
 
@@ -2264,7 +2264,7 @@ You can check whether the the account has been deleted by running [Account List]
 
 ## Implement Account Update 
 
-The final command you will implement is [Account Update](./connector-commands/account-update). You can use this command to update the Airtable account's attributes. 
+The final command you will implement is [Account Update](https://developer.sailpoint.com/docs/connectivity/saas-connectivity/commands/account-update). You can use this command to update the Airtable account's attributes. 
 
 To implement Account Update, follow these steps: 
 

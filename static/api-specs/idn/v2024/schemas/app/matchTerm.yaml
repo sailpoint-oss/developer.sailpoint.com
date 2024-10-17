@@ -26,7 +26,8 @@ properties:
     type: array
     nullable: true
     items:
-      $ref: './matchTerm.yaml'
+      type: object
+      additionalProperties: true
     description: The children under this match term
     example:  [
       {

@@ -770,7 +770,7 @@ Follow these steps to configure your 'AirtableAccount.ts' file:
 
     The `createwithRecords` static method takes a `Record` and its `Fieldset` from the Airtable table as an input and uses it to create an `AirtableAccount` instance with all the account's attributes. You will then be able to use this instance to create the Airtable account's corresponding ISC account. This is essential for aggregating the Airtable account data into ISC. 
 
-    The `aidentity` refers to the actual table row of the account in Airtable. ISC will use the `aidentity` for an identity ID in ISC. 
+    The `identity` refers to the actual table row of the account in Airtable. ISC will use the `identity` for an 'Native Identity ID', as well as their 'Account ID' on the source. 
 
 6. Write the `buildStandardObject` private method within the `AirtableAccount` class, after the `createwithRecords` static method: 
 
@@ -856,7 +856,7 @@ export class AirtableAccount {
 
 Once you have finished creating your 'AirtableAccount.ts' file, you can implement the Account List logic. To do so, follow these steps: 
 
-1. Open the 'my-client.ts' file. 
+1. Open 'my-client.ts'. 
 
 2. Import the `AirtableAccount` class from the 'AirtableAccount.ts' file, at the beginning of the client file:
 
@@ -892,7 +892,7 @@ Once you have finished making the changes, your 'my-client.ts' file will look so
 
 <summary>my-client.ts with Account List</summary>
 
-```typescript
+```typescript showLineNumbers
 import { ConnectorError } from "@sailpoint/connector-sdk"
 import Airtable, { FieldSet, Record } from "airtable"
 import {AirtableAccount} from "../AirtableAccount"
@@ -939,7 +939,6 @@ export class MyClient {
 
 </details>
 
-
 ### Update Account List Command Handler
 
 The 'List Account' command is currently looking for attributes that don't exist in the 'Users' table (`username`, `firstName`, and `lastName`). To resolve this, you will have to open the 'index.ts' file to redefine what the command returns. To do so, follow these steps: 
@@ -971,7 +970,7 @@ Once you have finished making your changes, your 'index.ts' file will look somet
 
 <summary>index.ts file with Account List</summary>
 
-```typescript
+```typescript showLineNumbers
 import {
     Context,
     createConnector,
@@ -1364,9 +1363,82 @@ The authentication process now looks for the correct keys, `apiKey` and `airtabl
 
 </details>
 
-3. Save these changes and run the project with `npm run dev` to ensure that the changes didn't break anything. 
+3. Add the `entitlementSchemas` inside the brackets: 
 
-4. You can now build your SaaS connector project. To build the project, run this command in your terminal: 
+    ```json
+    "entitlementSchemas": [
+		{
+			"type": "group",
+			"displayAttribute": "name",
+			"identityAttribute": "id",
+			"attributes": [
+				{
+					"name": "id", 
+					"type": "string",
+					"description": "Unique ID of the group (ex. admin)"
+				}, 
+				{
+					"name": "name", 
+					"type": "string",
+					"description": "Display name of the group (ex. admin)"
+				}
+			]
+		}
+	]
+    ```
+
+    The `entitlementSchemas` tell ISC the format and data types to expect for entitlement objects. 
+
+4. Add the `accountCreateTemplate` account mapping after the `entitlementSchemas`: 
+
+    ```json
+    "accountCreateTemplate": {
+		"fields": [
+			{
+				"key": "fullname",
+				"label": "Name",
+				"type": "string",
+				"required": true,
+				"initialValue": {
+					"type": "identityAttribute",
+					"attributes": {
+						"name": "Name"
+					}
+				}
+			},
+			{
+				"key": "id",
+				"label": "Identity",
+				"type": "string",
+				"required": true,
+				"initialValue": {
+					"type": "identityAttribute",
+					"attributes": {
+						"name": "Identity"
+					}
+				}
+			},
+			{
+				"key": "email",
+				"label": "Email",
+				"type": "string",
+				"required": false,
+				"initialValue": {
+					"type": "identityAttribute",
+					"attributes": {
+						"name": "Email"
+					}
+				}
+			}
+		]
+	}
+    ```
+
+    The `accountCreateTemplate` is provides ISC with a template it can use to map incoming values to their respective fields in ISC. 
+
+5. Save these changes and run the project with `npm run dev` to ensure that the changes didn't break anything. 
+
+6. You can now build your SaaS connector project. To build the project, run this command in your terminal: 
 
     ```bash
     npm run pack-zip
@@ -2709,7 +2781,7 @@ export class AirtableAccount {
 
 ```json showLineNumbers
 {
-	"name": "navigate-conference",
+	"name": "navi-con",
 	"commands": [
 		"std:account:list",
 		"std:account:read",
@@ -2798,7 +2870,47 @@ export class AirtableAccount {
 				}
 			]
 		}
-	]
+	],
+	"accountCreateTemplate": {
+		"fields": [
+			{
+				"key": "fullname",
+				"label": "Name",
+				"type": "string",
+				"required": true,
+				"initialValue": {
+					"type": "identityAttribute",
+					"attributes": {
+						"name": "Name"
+					}
+				}
+			},
+			{
+				"key": "id",
+				"label": "Identity",
+				"type": "string",
+				"required": true,
+				"initialValue": {
+					"type": "identityAttribute",
+					"attributes": {
+						"name": "Identity"
+					}
+				}
+			},
+			{
+				"key": "email",
+				"label": "Email",
+				"type": "string",
+				"required": false,
+				"initialValue": {
+					"type": "identityAttribute",
+					"attributes": {
+						"name": "Email"
+					}
+				}
+			}
+		]
+	}
 }
 ```
 

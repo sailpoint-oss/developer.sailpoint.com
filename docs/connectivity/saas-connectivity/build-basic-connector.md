@@ -1361,7 +1361,7 @@ The authentication process now looks for the correct keys, `apiKey` and `airtabl
         "entitlementSchemas": []
     ```
 
-</details>
+    </details>
 
 3. Add the `entitlementSchemas` inside the brackets: 
 

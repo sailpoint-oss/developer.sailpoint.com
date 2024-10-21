@@ -27,6 +27,15 @@ properties:
     format: 'date-time'
     description: The date and time, down to the millisecond, when this personal access token was created.
     example: '2017-07-11T18:45:37.098Z'
+  accessTokenValiditySeconds:
+    type: integer
+    format: int32
+    items:
+      type: integer
+      format: int32
+      default: 43200
+    description: Number of seconds an access token is valid when generated using this Personal Access Token. If no value is specified, the token will be created with the default value of 43200.
+    example: 36900
 required:
   - id
   - secret
@@ -34,3 +43,4 @@ required:
   - name
   - owner
   - created
+  - accessTokenValiditySeconds

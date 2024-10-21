@@ -68,7 +68,7 @@ Operators provide more options to filter JSON structures.
 | nin | **Not in** - Evaluates to `true` if the left operand **does not** exist in the list of values on the right. | $.changes[?(@.attribute == 'department' && @.newValue nin ['sales','engineering'])] |
 | subsetof | **Subset of** - Evaluates to `true` if the left operand is a subset of the right. | $[?($.warnings subsetof ['Account skipped','Invalid account'])] |
 | anyof | **Any of** - Evaluates to `true` if the left operand has an intersection with the right. | $[?($.warnings anyof ['Account skipped','Invalid account'])] |
-| noneof | **None of** - Evaluates to `true` if the left operand **does not** have an intersection with the right. | $[?($.warnings anyof ['Account skipped','Invalid account'])] |
+| noneof | **None of** - Evaluates to `true` if the left operand **does not** have an intersection with the right. | $[?($.warnings noneof ['Account skipped','Invalid account'])] |
 | size | **Size** - Evaluates to `true` if the size of the left (array or string) matches the right. | $[?($.warnings size 1] |
 | && | Logical **AND** operator that evaluates `true` only if both conditions are `true`. You can only use this operator when both operands are part of the same item. | $.changes[?(@.attribute == "cloudLifecycleState" && @.newValue == "terminated")] |
 | ! | **Not** - Negates the boolean expression. | $.identity.attributes[?(!@.alternateEmail)] |

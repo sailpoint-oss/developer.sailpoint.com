@@ -577,9 +577,7 @@ Rewrite the sample 'Test Connection' command like this:
 ```json
 {
   "type": "std:test-connection",
-  "input": {
-    "identity": "100"
-  },
+  "input": {},
   "config": {
     "apiKey": "{{airtableAPIKey}}", /// The {{airtableAPIKey}} syntax uses the airtableAPIKey environment variable. 
     "airtableBase": "INSERT-AIRTABLE-BASE-HERE" /// Insert your Airtable base's ID here. 
@@ -605,8 +603,7 @@ To see what an unsuccessful response looks like, try making a small error in the
 ```json
 {
   "type": "std:test-connection",
-  "input": {
-  },
+  "input": {},
   "config": {
     "apiKey": "{{airtableAPIKey}}",
     "airtableBas": "YOUR-AIRTABLE-BASE-HERE"
@@ -681,9 +678,7 @@ Try to test the connection in Postman with this request:
 ```json
 {
   "type": "std:test-connection",
-  "input": {
-    "identity": "100"
-  },
+  "input": {},
   "config": {
     "apiKey": "{{airtableAPIKey}}",
     "airtableBase": "YOUR-AIRTABLE-BASE-ID"
@@ -1922,9 +1917,7 @@ Rewrite the sample request like this:
 ```json
 {
     "type": "std:entitlement:list",
-    "input": {
-
-    },
+    "input": {},
   "config": {
     "apiKey": "{{airtableAPIKey}}",
     "airtableBase": "YOUR-AIRTABLE-BASE"

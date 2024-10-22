@@ -1636,9 +1636,9 @@ Once you have configured Account Read in the 'AirtableAccount.ts', 'my-client.ts
         "data": {
             "identity": "recC76AqVMbpdR2zq",
             "attributes": {
-                "id": "james.haytko",
-                "email": "james.haytko@test.com",
-                "fullname": "James Haytko",
+                "id": "alan.bradley",
+                "email": "alan.bradley@test.com",
+                "fullname": "alan.bradley",
                 "entitlements": [
                     "user"
                 ]

@@ -35,6 +35,7 @@ properties:
       - SOURCE_OWNER
       - SEARCH
       - ROLE_COMPOSITION
+      - MACHINE_ACCOUNT
     example: MANAGER
   emailNotificationEnabled:
     type: boolean

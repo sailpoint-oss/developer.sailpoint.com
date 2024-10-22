@@ -117,3 +117,34 @@ properties:
         example: '2020-05-20T18:57:16.987Z'
       activityInsights:
         $ref: '../ActivityInsights.yaml'
+      description:
+        nullable: true
+        type: string
+        description: Information about the account
+        example: Account for Read/write to the company database
+      governanceGroupId:
+        nullable: true
+        type: string
+        description: The id associated with the machine Account Governance Group
+        example: 2c9180857182305e0171993737eb29e6
+      owner:
+        type: object
+        nullable: true
+        description: Information about the machine account owner
+        properties:
+          id:
+            nullable: true
+            type: string
+            description: The id associated with the machine account owner
+            example: 2c9180857182305e0171993737eb29e8
+          type:
+            type: string
+            enum:
+              - IDENTITY
+            description: An enumeration of the types of Owner supported within the IdentityNow infrastructure.
+            example: IDENTITY
+          displayName:
+            nullable: true
+            type: string
+            description: The machine account owner's display name
+            example: Alison Ferguson

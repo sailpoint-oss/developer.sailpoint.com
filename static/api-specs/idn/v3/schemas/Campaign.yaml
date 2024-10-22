@@ -189,6 +189,22 @@ allOf:
             example: Role Composition Description
         required:
           - remediatorRef
+      machineAccountCampaignInfo:
+        type: object
+        description: Must be set only if the campaign type is MACHINE_ACCOUNT.
+        properties:
+          sourceIds:
+            type: array
+            description: The list of sources to be included in the campaign.
+            items:
+              type: string
+            example: [ 0fbe863c063c4c88a35fd7f17e8a3df5 ]
+          reviewerType:
+            type: string
+            description: The reviewer's type.
+            enum:
+              - ACCOUNT_OWNER
+            example: ACCOUNT_OWNER
       sourcesWithOrphanEntitlements:
         type: array
         description: >-

@@ -27,6 +27,7 @@ value:
     identityIds: null
     accessConstraints: []
   roleCompositionCampaignInfo: null
+  machineAccountCampaignInfo: null
   alerts: null
   totalCertifications: 0
   completedCertifications: 0

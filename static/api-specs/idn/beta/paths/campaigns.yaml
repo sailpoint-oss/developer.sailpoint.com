@@ -110,6 +110,8 @@ post:
             $ref: '../schemas/campaign/examples/CreateCampaignSourceOwner.yaml'
           Role Composition:
             $ref: '../schemas/campaign/examples/CreateCampaignRoleComposition.yaml'
+          Machine Account Owner:
+            $ref: '../schemas/campaign/examples/CreateCampaignMachineAccount.yaml'
   responses:
     '200':
       description: This response indicates that the requested campaign was successfully created, and the API returns its representation.
@@ -126,6 +128,8 @@ post:
               $ref: '../schemas/campaign/examples/FullCampaignSourceOwner.yaml'
             Role Composition:
               $ref: '../schemas/campaign/examples/FullCampaignRoleComposition.yaml'
+            Machine Account Owner:
+              $ref: '../schemas/campaign/examples/FullCampaignMachineAccount.yaml'
     '400':
       $ref: '../../v3/responses/400.yaml'
     '401':

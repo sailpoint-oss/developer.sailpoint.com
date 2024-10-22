@@ -1318,6 +1318,10 @@ The authentication process now looks for the correct keys, `apiKey` and `airtabl
 
 2. To correct the account attributes in the account schema, rewrite the `accountSchema` like this: 
 
+    <details>
+
+    <summary></summary>
+
     ```json
     "accountSchema":{
             "displayAttribute": "id",
@@ -1351,6 +1355,8 @@ The authentication process now looks for the correct keys, `apiKey` and `airtabl
         },
         "entitlementSchemas": []
     ```
+
+    </details>
 
 3. Add the `entitlementSchemas` inside the brackets: 
 

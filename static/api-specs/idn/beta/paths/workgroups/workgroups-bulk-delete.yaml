@@ -8,11 +8,11 @@ post:
     This API initiates a bulk deletion of one or more Governance Groups.
 
 
-    >  If any of the indicated Governance Groups have one or more connections associated with it,then those Governance Groups will be added in  **inUse**
+    >  If any of the indicated Governance Groups have one or more connections associated with it, then those Governance Groups will be added in **inUse**
     list of the response. Governance Group(s) marked as **inUse** can not be deleted.
     
     
-    >  If any of the indicated Governance Groups is not does not exists in Organization,then those Governance Groups will be added in **notFound**
+    >  If any of the indicated Governance Groups does not exist in Organization, then those Governance Groups will be added in **notFound**
     list of the response. Governance Groups marked as **notFound** will not be deleted.
     
     

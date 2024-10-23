@@ -77,6 +77,13 @@ export default function BlogCards({filterCallback, limit, featured}) {
     return title;
   }
 
+  function shortenUserTitle(userTitle) {
+    if (userTitle && userTitle.length > 31) {
+      return userTitle.substring(0, 30) + '...';
+    }
+    return userTitle;
+  }
+
   React.useEffect(() => {
     getPosts();
     setCardData(undefined);
@@ -114,7 +121,7 @@ export default function BlogCards({filterCallback, limit, featured}) {
               replies={a.replies}
               readTime={a.readTime}
               creatorImage={a.creatorImage}
-              creatorTitle={a.creatorTitle}></BlogCard>
+              creatorTitle={shortenUserTitle(a.creatorTitle)}></BlogCard>
           ))}
         </div>
       ) : (

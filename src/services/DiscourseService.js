@@ -71,15 +71,18 @@ export async function getBlogPosts(tags) {
       topics: [],
     },
   };
+ 
   if (tags.length < 1) {
     url = discourseBaseURL() + 'c/content/community-blog/125.json';
   } else {
     url = discourseBaseURL() + `tags/c/content/community-blog/${tags}.json`;
   }
+  
+ 
   try {
     let page = 0;
     while (true) {
-      const pageUrl = page === 0 ? url : `${url}${tags.length > 1 ? '&' : '?'}page=${page}`;
+      const pageUrl = page === 0 ? url : `${url}`;
       const response = await fetch(pageUrl);
       const data = await response.json();
 
@@ -89,7 +92,7 @@ export async function getBlogPosts(tags) {
 
       allData.users = allData.users.concat(data.users);
 
-      if (data.topic_list.topics.length < 30) {
+      if (data.topic_list.topics.length < 30 || tags === 'identity-security-cloud') {
         // Less than 30 topics means it's the last page
         break;
       }

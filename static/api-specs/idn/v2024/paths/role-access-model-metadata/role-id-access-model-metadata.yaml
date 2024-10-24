@@ -8,7 +8,11 @@ post:
   tags:
     - Roles
   security:
-    - UserContextAuth: [ idn:role:update, idn:role-checked:update ]
+    - userAuth: [ idn:role:update, idn:role-checked:update ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
   parameters:
     - name: "id"
       in: "path"
@@ -57,7 +61,11 @@ delete:
   tags:
     - Roles
   security:
-    - UserContextAuth: [ idn:role:delete, idn:role-checked:delete, idn:role:update, idn:role-checked:update ]
+    - userAuth: [ idn:role:delete, idn:role-checked:delete, idn:role:update, idn:role-checked:update ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
   parameters:
     - name: id
       in: path
@@ -81,12 +89,8 @@ delete:
       description: Technical name of the Attribute Value.
       example: "public"
   responses:
-    "200":
-      description: Responds with the Role as updated.
-      content:
-        application/json:
-          schema:
-            $ref: "../../../v3/schemas/access/Role.yaml"
+    "202":
+      description: Request accepted
     '400':
       $ref: '../../../v3/responses/400.yaml'
     '401':

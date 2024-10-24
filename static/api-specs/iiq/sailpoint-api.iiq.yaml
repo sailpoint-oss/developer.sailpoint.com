@@ -2603,9 +2603,9 @@ paths:
                                       description: The name of the access item to provision.
                                       type: string
                                       example: UnixAdministration
-                type:
-                  type: string
-                  example: application/sailpoint.object.ProvisioningPlan+json
+                    type:
+                      type: string
+                      example: application/sailpoint.object.ProvisioningPlan+json  
                 policies:
                   description: A list of policies to check for new policy violations on the access provisioned by the simulation.
                   type: array

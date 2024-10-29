@@ -37,6 +37,8 @@ get:
   x-sailpoint-userLevels:
     - ORG_ADMIN
 put:
+  tags:
+    - Launchers
   summary: Replace Launcher
   description: Replace the given Launcher ID with given payload
   operationId: putLauncher
@@ -80,6 +82,8 @@ put:
   x-sailpoint-userLevels:
     - ORG_ADMIN
 delete:
+  tags:
+    - Launchers
   summary: Delete Launcher
   description: Delete the given Launcher ID
   operationId: deleteLauncher

@@ -1,10 +1,9 @@
 get:
   security:
-    - userAuth:
-        - 'idn:application-discovery:read'
+    - userAuth: [idn:application-discovery:read]
   operationId: getVendorConnectorMappings
   tags:
-    - Vendor Connector Mappping
+    - Vendor Connector Mapppings
   summary: List Vendor Connector Mappings
   description: >
     Get a list of mappings between SaaS vendors and ISC connectors, detailing the connections established for correlation.
@@ -67,8 +66,7 @@ get:
 
 post:
   security:
-    - userAuth:
-        - 'idn:application-discovery:write'
+    - userAuth: [idn:application-discovery:write]
   operationId: createVendorConnectorMapping
   tags:
     - Vendor Connector Mappings
@@ -103,8 +101,7 @@ post:
 
 delete:
   security:
-    - userAuth:
-        - 'idn:application-discovery:write'
+    - userAuth: [idn:application-discovery:write]
   operationId: deleteVendorConnectorMapping
   tags:
     - Vendor Connector Mappings

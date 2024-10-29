@@ -75,6 +75,8 @@ get:
   x-sailpoint-userLevels:
     - ORG_ADMIN
 post:
+  tags:
+    - Launchers
   summary: Create launcher
   description: Create a Launcher with given information
   operationId: createLauncher

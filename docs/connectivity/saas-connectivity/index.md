@@ -13,8 +13,8 @@ tags: ['Connectivity']
 
 SaaS Connectivity is a cloud based connector runtime that makes developing and deploying web service connectors easier than Connector 1.0 does. However, because the cloud hosts SaaS Connectivity, not a Virtual Appliance (VA), SaaS Connectivity is limited in the types of applications it can connect to. For example, you cannot use SaaS Connectivity to connect to on-prem services that can only communicate within an intranet (no public internet access). This excludes JDBC and Mainframe applications, to name a few.
 
-<div class="text--center">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/1WPO7t0j1oc?si=RZjNJYUrDtKLmbvB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<div className="text--center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1WPO7t0j1oc?si=RZjNJYUrDtKLmbvB" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
 </div>
 
 ## What Are Connectors

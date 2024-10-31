@@ -4,6 +4,49 @@ const {
   versionCrumb,
 } = require('docusaurus-plugin-openapi-docs/lib/sidebars/utils');
 
+// const isc_base_sidebar = [
+//   {
+//     type: 'html',
+//     defaultStyle: true,
+//     value: `<a href="/docs/api/getting-started">Getting Started</a>`,
+//   },
+//   {
+//     type: 'html',
+//     defaultStyle: true,
+//     value: `<a href="/docs/api/authentication">Authentication</a>`,
+//   },
+//   {
+//     type: 'html',
+//     defaultStyle: true,
+//     value: `<a href="/docs/api/authorization">Authorization</a>`,
+//   },
+//   {
+//     type: 'html',
+//     defaultStyle: true,
+//     value: `<a href="/docs/api/api-versioning-strategy">API Versioning Strategy</a>`,
+//   },
+//   {
+//     type: 'html',
+//     defaultStyle: true,
+//     value: `<a href="/docs/api/standard-collection-parameters">Standard Collection Parameters</a>`,
+//   },
+//   {
+//     type: 'html',
+//     defaultStyle: true,
+//     value: `<a href="/docs/api/rate-limit">Rate Limit</a>`,
+//   },
+//   {
+//     type: 'html',
+//     defaultStyle: true,
+//     value: `<a href="/docs/api/postman-collections">Postman Collections</a>`,
+//   },
+//   {
+//     type: 'html',
+//     defaultStyle: true,
+//     value: `<a href="/docs/api/patch-requests">Patch Requests</a>`,
+//   },
+// ];
+
 const sidebars = {
   openApiSidebar: [
     {
@@ -205,35 +248,35 @@ const sidebars = {
     //   },
     {
       type: 'doc',
-      id: 'api/getting-started',
+      id: 'api/v2024/getting-started',
     },
     {
       type: 'doc',
-      id: 'api/authentication',
+      id: 'api/v2024/authentication',
     },
     {
       type: 'doc',
-      id: 'api/authorization',
+      id: 'api/v2024/authorization',
     },
     {
       type: 'doc',
-      id: 'api/api-versioning-strategy',
+      id: 'api/v2024/api-versioning-strategy',
     },
     {
       type: 'doc',
-      id: 'api/standard-collection-parameters',
+      id: 'api/v2024/standard-collection-parameters',
     },
     {
       type: 'doc',
-      id: 'api/rate-limit',
+      id: 'api/v2024/rate-limit',
     },
     {
       type: 'doc',
-      id: 'api/postman-collections',
+      id: 'api/v2024/postman-collections',
     },
     {
       type: 'doc',
-      id: 'api/patch-requests',
+      id: 'api/v2024/patch-requests',
     },
     {
       type: 'category',
@@ -247,6 +290,8 @@ const sidebars = {
       },
       // @ts-ignore
       items: require('./docs/api/v2024/sidebar.ts'),
+      
+      
     },
   ],
   isc_beta_sidebar: [
@@ -263,36 +308,37 @@ const sidebars = {
     },
     {
       type: 'doc',
-      id: 'api/getting-started',
+      id: 'api/beta/getting-started',
     },
     {
       type: 'doc',
-      id: 'api/authentication',
+      id: 'api/beta/authentication',
     },
     {
       type: 'doc',
-      id: 'api/authorization',
+      id: 'api/beta/authorization',
     },
     {
       type: 'doc',
-      id: 'api/api-versioning-strategy',
+      id: 'api/beta/api-versioning-strategy',
     },
     {
       type: 'doc',
-      id: 'api/standard-collection-parameters',
+      id: 'api/beta/standard-collection-parameters',
     },
     {
       type: 'doc',
-      id: 'api/rate-limit',
+      id: 'api/beta/rate-limit',
     },
     {
       type: 'doc',
-      id: 'api/postman-collections',
+      id: 'api/beta/postman-collections',
     },
     {
       type: 'doc',
-      id: 'api/patch-requests',
+      id: 'api/beta/patch-requests',
     },
+    
     {
       type: 'category',
       label: 'Beta APIs',
@@ -321,35 +367,35 @@ const sidebars = {
     },
     {
       type: 'doc',
-      id: 'api/getting-started',
+      id: 'api/v3/getting-started',
     },
     {
       type: 'doc',
-      id: 'api/authentication',
+      id: 'api/v3/authentication',
     },
     {
       type: 'doc',
-      id: 'api/authorization',
+      id: 'api/v3/authorization',
     },
     {
       type: 'doc',
-      id: 'api/api-versioning-strategy',
+      id: 'api/v3/api-versioning-strategy',
     },
     {
       type: 'doc',
-      id: 'api/standard-collection-parameters',
+      id: 'api/v3/standard-collection-parameters',
     },
     {
       type: 'doc',
-      id: 'api/rate-limit',
+      id: 'api/v3/rate-limit',
     },
     {
       type: 'doc',
-      id: 'api/postman-collections',
+      id: 'api/v3/postman-collections',
     },
     {
       type: 'doc',
-      id: 'api/patch-requests',
+      id: 'api/v3/patch-requests',
     },
     {
       type: 'category',

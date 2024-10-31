@@ -7,7 +7,7 @@ sidebar_position: 1
 sidebar_class_name: gettingStarted
 keywords: ['getting started']
 description: Start using the ISC APIs.
-slug: /api/getting-started
+slug: /api/beta/getting-started
 tags: ['Getting Started']
 ---
 

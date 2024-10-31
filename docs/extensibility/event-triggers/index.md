@@ -27,6 +27,6 @@ It is best to use event triggers when you need to react to an event in real-time
 
 Event triggers require different setup and testing steps than APIs do, so you should follow each document to better understand event triggers and the necessary steps to configure one. If this is your first time using event triggers, then you should use the [webhook testing service](./preparing-a-subscriber-service.md#webhook-testing-service) as you follow along.
 
-<div class="text--center">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/brhOnLNEN8o?si=_4IfDOFRQIaHHqMG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<div className="text--center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/brhOnLNEN8o?si=_4IfDOFRQIaHHqMG" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
 </div>

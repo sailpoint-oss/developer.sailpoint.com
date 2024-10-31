@@ -20,8 +20,8 @@ Secure Data Share (SDS) makes your SailPoint identity data available directly in
 
 If you would like to speak to a SailPoint representative about Secure Data Share, please [schedule a meeting here](https://calendly.com/jordan-mandernach/secure_data_share).
 
-<div class="text--center">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Q-XZtjuv6XY?si=8o9qou1lEGsTx-Se" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<div className="text--center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Q-XZtjuv6XY?si=8o9qou1lEGsTx-Se" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
 </div>
 
 ## Requirements

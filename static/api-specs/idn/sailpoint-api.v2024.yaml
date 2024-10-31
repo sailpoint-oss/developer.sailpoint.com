@@ -1870,6 +1870,8 @@ paths:
     $ref: ./v2024/paths/reassignment-configurations.yaml
   /reassignment-configurations/{identityId}:
     $ref: ./v2024/paths/reassignment-configuration.yaml
+  /reassignment-configurations/{identityId}/{configType}:
+    $ref: ./v2024/paths/reassignment-configuration-config-type.yaml
   /reassignment-configurations/{identityId}/evaluate/{configType}:
     $ref: ./v2024/paths/reassignment-configuration-evaluate.yaml
   /reassignment-configurations/tenant-config:

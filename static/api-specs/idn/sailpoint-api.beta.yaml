@@ -1552,6 +1552,8 @@ paths:
     $ref: './beta/paths/reassignment-configurations.yaml'
   /reassignment-configurations/{identityId}:
     $ref: './beta/paths/reassignment-configuration.yaml'
+  /reassignment-configurations/{identityId}/{configType}:
+    $ref: './beta/paths/reassignment-configuration-config-type.yaml'
   /reassignment-configurations/{identityId}/evaluate/{configType}:
     $ref: './beta/paths/reassignment-configuration-evaluate.yaml'
   /reassignment-configurations/tenant-config:

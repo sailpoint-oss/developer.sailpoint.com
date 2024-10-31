@@ -20,6 +20,7 @@ allOf:
         description: The unique ID of the source this account belongs to
       sourceName:
         type: string
+        nullable: true
         example: Employees
         description: The display name of the source this account belongs to
       identityId:

@@ -1,8 +1,7 @@
 // @ts-nocheck
 import React, { useState } from "react";
 
-import { useDoc } from "@docusaurus/theme-common/internal";
-import Accept from "@theme/ApiExplorer/Accept";
+import { useDoc } from "@docusaurus/plugin-content-docs/client";
 import Authorization from "@theme/ApiExplorer/Authorization";
 import Body from "@theme/ApiExplorer/Body";
 import buildPostmanRequest from "@theme/ApiExplorer/buildPostmanRequest";

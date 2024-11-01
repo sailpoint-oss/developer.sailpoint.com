@@ -48,7 +48,7 @@
     "react-tabs": "^4.3.0"
   },
   "overrides": {
-    "mermaid": "10.4.0"
+    "mermaid": "10.9.3"
   },
   "devDependencies": {
     "@docusaurus/core": "3.5.2",

@@ -64,15 +64,6 @@ export default function HomepageTeam() {
           expertise={'DEVELOPER COMMUNITY'}
           image={'/homepage/derek-putnam.jpg'}
         />
-        <TeamCard
-          link={
-            'https://developer.sailpoint.com/discuss/u/jordan_violet/summary'
-          }
-          name={'Jordan Violet'}
-          title={'Head of Developer Relations'.toUpperCase()}
-          expertise={''}
-          image={'/homepage/jordan-violet.png'}
-        />
       </div>
     </div>
   );

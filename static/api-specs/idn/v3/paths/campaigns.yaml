@@ -65,7 +65,7 @@ get:
           schema:
             type: array
             items:
-              oneOf:
+              anyOf:
                 - $ref: '../schemas/SlimCampaign.yaml'
                 - $ref: '../schemas/Campaign.yaml'
           examples:

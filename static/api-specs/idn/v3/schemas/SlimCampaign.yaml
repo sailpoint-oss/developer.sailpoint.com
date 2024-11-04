@@ -18,6 +18,7 @@ properties:
     example: Manager Campaign
   description:
     type: string
+    nullable: true
     description: >-
       The campaign description. If this object is part of a template, special formatting applies; see the
       `/campaign-templates/{id}/generate` endpoint documentation for details.

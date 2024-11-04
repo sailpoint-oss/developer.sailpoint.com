@@ -34,7 +34,7 @@ get:
       content:
         application/json:
           schema:
-            oneOf:
+            anyOf:
               - $ref: '../schemas/SlimCampaign.yaml'
               - $ref: '../schemas/Campaign.yaml'
             # $ref: '../schemas/SlimCampaign.yaml'

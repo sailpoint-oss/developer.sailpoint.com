@@ -9097,68 +9097,6 @@ paths:
                               description: The URI of the SCIM resource representing the Account.
                               type: string
                               example: 'http://localhost:8080/iiq/scim/v2/Accounts/c0a7778b7ef71e79817ee74e6a1f0444'
-                      entitlements:
-                        description: Entitlements of the User. Returned in response only if requested using the 'attributes' query parameter.
-                        type: array
-                        items:
-                          properties:
-                            value:
-                              description: The value of the Entitlement.
-                              type: string
-                              example: groupmbr
-                            display:
-                              description: The display name of the Entitlement.
-                              type: string
-                              example: HelpDesk
-                            type:
-                              description: 'The type of Entitlement (Entitlement, Permission, etc.).'
-                              type: string
-                              example: Permission
-                            application:
-                              description: The name of the Application this Entitlement applies to.
-                              type: string
-                              example: ADMockApp
-                            accountName:
-                              description: The account this Entitlement was sourced from.
-                              type: string
-                              example: 'CN=Barbara Jensen,OU=Taipei,OU=Asia-Pacific,DC=example,DC=com'
-                            $ref:
-                              description: The URI of the SCIM resource representing the Entitlement.
-                              type: string
-                              example: 'http://localhost:8080/iiq/scim/v2/Entitlements/c0a7777a7f74744d817e74fc12362c67'
-                      roles:
-                        description: Roles of the User. Returned only if requested. Returned in response only if requested using the 'attributes' query parameter.
-                        type: array
-                        items:
-                          properties:
-                            value:
-                              description: The value of the Role.
-                              type: string
-                              example: detectedRoles
-                            display:
-                              description: The display name of the Role.
-                              type: string
-                              example: User - IT
-                            type:
-                              description: 'The type of Role (IT, Business, etc.).'
-                              type: string
-                              example: it
-                            acquired:
-                              description: Indicates how this Role was acquired. Assigned or Detected.
-                              type: string
-                              example: Assigned
-                            application:
-                              description: The name of the Application where this Role came from.
-                              type: string
-                              example: Active_Directory
-                            accountName:
-                              description: The name of the Account this Role was sourced from.
-                              type: string
-                              example: 'CN=Barbara Jensen,OU=Taipei,OU=Asia-Pacific,DC=example,DC=com'
-                            $ref:
-                              description: The URI of the SCIM resource representing the Role.
-                              type: string
-                              example: 'http://localhost:8080/iiq/scim/v2/Roles/c0a7777a7f74744d817e74fc12362c67'
                       capabilities:
                         description: Capabilities assigned to this User.
                         type: array

@@ -249,7 +249,7 @@ Content-Type: `application/json-patch+json`
 
 Content-Type: `application/json-patch+json`
 
-_Note: Replace `_`with the index location of operation the way it is configured on the source. For example, 0, 1, 2, etc. You can use a`GET`call on the source first to verify the index location prior to executing the`PATCH` call to attach the rule.\*
+_Note: Replace \[\*\] with the index location of the operation the way it is configured on the source. For example, 0, 1, 2, etc. You can use a`GET`call on the source first to verify the index location prior to executing the `PATCH` call to attach the rule._
 
 ```json
 [
@@ -263,7 +263,9 @@ _Note: Replace `_`with the index location of operation the way it is configured 
 
 ### WebServiceAfterOperation Rule
 
-`PATCH` /v3/sources/[id] Content-Type: `application/json-patch+json`
+`PATCH` /v3/sources/[id] 
+
+Content-Type: `application/json-patch+json`
 
 _Note: Replace \[\*\] with the index location of the operation the way it is configured on the source. For example, 0, 1, 2, etc. You can use a `GET` call on the source first to verify the index location prior to executing the `PATCH` call to attach the rule._
 

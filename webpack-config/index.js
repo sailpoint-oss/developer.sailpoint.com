@@ -13,7 +13,7 @@ module.exports = (env) => {
     : false; // No cache in dev mode for faster feedback loop
 
   // Set parallelism based on environment
-  const parallelism = isProduction ? 2 : 8; // Use more parallelism in production, less in development
+  const parallelism = isProduction ? 1 : 8; // Use more parallelism in production, less in development
 
   const config = {
     name: 'webpack-config-docusaurus-plugin',

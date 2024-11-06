@@ -1,7 +1,6 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
-
-const {themes} = require('prism-react-renderer');
+const { themes } = require('prism-react-renderer');
 const lightCodeTheme = themes.github;
 const darkCodeTheme = themes.dracula;
 
@@ -12,6 +11,16 @@ const baseUrl = '/';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
+  future: {
+    experimental_faster: {
+      swcJsLoader: true,
+      swcJsMinimizer: true,
+      swcHtmlMinimizer: true,
+      lightningCssMinimizer: true,
+      rspackBundler: false,
+      mdxCrossCompilerCache: true,
+    },
+  },
   title: 'SailPoint Developer Community',
   tagline:
     'The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.',
@@ -53,16 +62,6 @@ const config = {
       }),
     ],
   ],
-  webpack: {
-    jsLoader: (isServer) => ({
-      loader: require.resolve("esbuild-loader"),
-      options: {
-        loader: "tsx",
-        format: isServer ? "cjs" : undefined,
-        target: isServer ? "node12" : "es2017",
-      },
-    }),
-  },
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -118,11 +117,9 @@ const config = {
     }),
 
   plugins: plugins,
-
   markdown: {
     mermaid: true,
   },
-
   themes: ['docusaurus-theme-openapi-docs', '@docusaurus/theme-mermaid'],
 };
 

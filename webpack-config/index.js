@@ -84,7 +84,7 @@ module.exports = (env) => {
       errors: true,
       errorDetails: true,
     },
-    parallelism: 8, // Limit parallelism to reduce memory usage
+    parallelism: 4, // Limit parallelism to reduce memory usage
   };
 
   

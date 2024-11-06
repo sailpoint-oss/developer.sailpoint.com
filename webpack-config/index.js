@@ -3,16 +3,22 @@ const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = (env) => {
-  const isProduction = env.production;
+  // Check if the outDir path contains '/home/runner/work/developer.sailpoint.com/'
+  const isProduction = env.outDir && env.outDir.includes('/home/runner/work/developer.sailpoint.com/');
 
-  console.log('Webpack build environment:', env);
+  // Enable caching for faster subsequent builds
+  const cacheConfig = isProduction
+    ? {
+        type: 'filesystem', // Persistent cache for production
+      }
+    : false; // No cache in dev mode for faster feedback loop
 
   // Set parallelism based on environment
   const parallelism = isProduction ? 1 : 8; // Use more parallelism in production, less in development
 
   const config = {
     name: 'webpack-config-docusaurus-plugin',
-    cache: false,
+    cache: cacheConfig,  // Enable caching
     optimization: {
       minimize: true,
       minimizer: [

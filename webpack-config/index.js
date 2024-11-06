@@ -5,6 +5,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = (env) => {
   const isProduction = env.production;
 
+  console.log('Webpack build environment:', env);
+
   // Enable caching for faster subsequent builds
   const cacheConfig = isProduction
     ? {

@@ -1,8 +1,8 @@
 get:
   tags:
     - Managed Clusters
-  summary: Get managed cluster's log configuration
-  description: Get managed cluster's log configuration. 
+  summary: Get Managed Cluster's log configuration
+  description: Get managed cluster's log configuration.
   operationId: getClientLogConfiguration
   parameters:
     - name: id
@@ -36,11 +36,13 @@ get:
       $ref: '../responses/500.yaml'  
   security:
     - userAuth: [idn:remote-client:read, idn:remote-client:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 put:
   tags:
     - Managed Clusters
-  summary: Update managed cluster's log configuration
-  description: Update managed cluster's log configuration
+  summary: Update Managed Cluster's log configuration
+  description: Update managed cluster's log configuration.  Only one of `durationMinutes` or `expiration` may be specified, up to 1440 minutes (24 hours) in the future. If neither is specified, the default value for `durationMinutes` will be 240.
   operationId: putClientLogConfiguration
   parameters:
     - name: id
@@ -56,7 +58,14 @@ put:
     content:
       application/json:
         schema:
-          $ref: '../schemas/ClientLogConfiguration.yaml'
+          oneOf:
+            - $ref: '../schemas/ClientLogConfigurationDurationMinutes.yaml'
+            - $ref: '../schemas/ClientLogConfigurationExpiration.yaml'
+        examples:
+          Duration Minutes:
+            $ref: '../schemas/managedClustersClientLogConfiguration/examples/client-log-configuration-duration-minutes.yaml'
+          Expiration:
+            $ref: '../schemas/managedClustersClientLogConfiguration/examples/client-log-configuration-expiration.yaml'
     required: true
   responses:
     "200":
@@ -79,3 +88,5 @@ put:
       $ref: '../responses/500.yaml'  
   security:
     - userAuth: [idn:remote-client:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

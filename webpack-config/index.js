@@ -7,19 +7,12 @@ module.exports = (env) => {
 
   console.log('Webpack build environment:', env);
 
-  // Enable caching for faster subsequent builds
-  const cacheConfig = isProduction
-    ? {
-        type: 'filesystem', // Persistent cache for production
-      }
-    : false; // No cache in dev mode for faster feedback loop
-
   // Set parallelism based on environment
   const parallelism = isProduction ? 1 : 8; // Use more parallelism in production, less in development
 
   const config = {
     name: 'webpack-config-docusaurus-plugin',
-    cache: cacheConfig,  // Enable caching
+    cache: false,
     optimization: {
       minimize: true,
       minimizer: [

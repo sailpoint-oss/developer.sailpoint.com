@@ -1,8 +1,6 @@
 const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const SpeedMeasurePlugin = require('speed-measure-webpack-plugin'); // Optional: Measure speed
 
 module.exports = (env) => {
   const isProduction = env.production;
@@ -14,7 +12,8 @@ module.exports = (env) => {
       }
     : false; // No cache in dev mode for faster feedback loop
 
-  const smp = new SpeedMeasurePlugin(); // Optional: Measure build speed
+  // Set parallelism based on environment
+  const parallelism = isProduction ? 2 : 8; // Use more parallelism in production, less in development
 
   const config = {
     name: 'webpack-config-docusaurus-plugin',
@@ -55,7 +54,6 @@ module.exports = (env) => {
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(isProduction ? 'production' : 'development'),
       }),
-      ...(isProduction ? [new BundleAnalyzerPlugin()] : []), // Only include analyzer in production
     ],
     module: {
       rules: [
@@ -84,9 +82,8 @@ module.exports = (env) => {
       errors: true,
       errorDetails: true,
     },
-    parallelism: 4, // Limit parallelism to reduce memory usage
+    parallelism, // Use dynamic parallelism based on the environment
   };
 
-  
-  return smp.wrap(config);
+  return config;
 };

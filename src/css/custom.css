@@ -534,6 +534,16 @@ code[class^='openapi-explorer__code-block'] {
   max-height: 400px !important;
 }
 
+input[class^='openapi-explorer__form-item-input'] {
+  background-color: var(--dev-new-car-background);
+  border: 1px solid var(--dev-card-border);
+}
+
+select[class^='openapi-explorer__select-input'] {
+  background-color: var(--dev-new-car-background);
+  border: 1px solid var(--dev-card-border);
+}
+
 iframe#webpack-dev-server-client-overlay {
   display: none !important;
 }

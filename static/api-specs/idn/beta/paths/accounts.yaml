@@ -9,9 +9,15 @@ get:
     A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
   security:
     - userAuth: [idn:accounts:read, idn:accounts:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+    - HELPDESK
   parameters:
     - in: query
       name: detailLevel
+      required: false
       schema:
         type: string
         enum: [ SLIM, FULL ]
@@ -24,6 +30,7 @@ get:
     - $ref: '../../v3/parameters/count.yaml'
     - in: query
       name: filters
+      required: false
       schema:
         type: string
       example: identityId eq "2c9180858082150f0180893dbaf44201"
@@ -77,6 +84,9 @@ get:
 
 
         **source.connectionType**: *eq, in*
+
+
+        **recommendation.method**: *eq, in, isnull*
     - in: query
       name: sorters
       required: false
@@ -172,6 +182,10 @@ post:
     A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
   security:
     - userAuth: [idn:accounts:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   requestBody:
     required: true
     content:

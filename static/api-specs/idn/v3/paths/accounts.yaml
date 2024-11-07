@@ -73,6 +73,9 @@ get:
 
 
         **source.connectionType**: *eq, in*
+
+
+        **recommendation.method**: *eq, in, isnull*
       required: false
     - in: query
       name: sorters

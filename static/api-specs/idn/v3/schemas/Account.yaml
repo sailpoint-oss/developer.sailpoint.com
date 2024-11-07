@@ -42,11 +42,18 @@ allOf:
         nullable: true
         example: direct
         description: The connection type of the source this account is from
-      type:
-        type: string
+      isMachine:
+        type: boolean
+        default: false
+        description: Indicates if the account is of machine type
+        example: true
+      recommendation:
+        $ref: './Recommendation.yaml'
         nullable: true
-        example: NON_HUMAN
-        description: The type of the account     
+        description: Indicates that the account is currently classified to be one type but is recommended to be a different one
+        example:
+          type: MACHINE
+          method: DISCOVERY
       attributes:
         type: object
         nullable: true
@@ -89,7 +96,7 @@ allOf:
         type: string
         description:
           The unique ID of the account as determined by the account schema
-        example: "slpt.support"
+        example: "{b0dce506-d6d4-44d2-8a32-d9a5b21fb175}"
         nullable: true
       manuallyCorrelated:
         type: boolean
@@ -108,24 +115,13 @@ allOf:
           type: "IDENTITY"
           name: "Adam Kennedy"
       sourceOwner:
-        type: object
+        $ref: './BaseReferenceDto.yaml'
         nullable: true
-        description: The owner of this object.
-        properties:
-          type:
-            type: string 
-            enum: 
-              - IDENTITY
-            example: IDENTITY
-            description: Type of owner object.
-          id:
-            type: string
-            description: Identity id
-            example: 4c5c8534e99445de98eef6c75e25eb01
-          name:
-            type: string
-            description: Human-readable display name of the owner.
-            example: John Cavender
+        description: The owner of the source this account belongs to.
+        example:
+          id: "2c918084660f45d6016617daa9210584"
+          type: "IDENTITY"
+          name: "Adam Kennedy"
       features:
         type: string
         description: A string list containing the owning source's features
@@ -141,40 +137,10 @@ allOf:
         description: The origin of the account either aggregated or provisioned
         example: AGGREGATED
       ownerIdentity:
-        description: The identity who owns this account, typically used for non-human accounts
-        type: object
+        $ref: './BaseReferenceDto.yaml'
+        description: The identity who owns this account, used only for machine accounts
         nullable: true
-        properties:
-          type:
-            description: The type of object being referenced
-            type: string
-            enum:
-              - IDENTITY
-            example: IDENTITY
-          id:
-            type: string
-            description: ID of the identity
-            example: 2c918084660f45d6016617daa9210584
-          name:
-            type: string
-            description: Human-readable display name of the identity
-            example: Adam Kennedy
-      ownerGroup:
-        description: The governance group who owns this account, typically used for non-human accounts
-        type: object
-        nullable: true
-        properties:
-          type:
-            description: The type of object being referenced
-            type: string
-            enum:
-              - "GOVERNANCE_GROUP"
-            example: "GOVERNANCE_GROUP"
-          id:
-            type: string
-            description: ID of the governance group
-            example: 8d3e0094e99445de98eef6c75e25jc04
-          name:
-            type: string
-            description: Human-readable display name of the governance group
-            example: "GovGroup AX17Z"
+        example:
+          id: "2c918084660f45d6016617daa9210584"
+          type: "IDENTITY"
+          name: "Adam Kennedy"

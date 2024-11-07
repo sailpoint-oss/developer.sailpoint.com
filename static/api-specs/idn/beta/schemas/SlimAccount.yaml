@@ -73,10 +73,3 @@ allOf:
           id: "2c919194670f45d6016917qzz910581"
           type: "IDENTITY"
           name: "Adam Abbott"
-      ownerGroup:
-        $ref: './BaseReferenceDto.yaml'
-        description: The governance group who owns this account, typically used for non-human accounts
-        example:
-          id: "8d3e0094e99445de98eef6c75e25jc04"
-          type: "GOVERNANCE_GROUP"
-          name: "GovGroup AX17Z"

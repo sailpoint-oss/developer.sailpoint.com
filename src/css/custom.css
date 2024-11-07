@@ -539,6 +539,11 @@ input[class^='openapi-explorer__form-item-input'] {
   border: 1px solid var(--dev-card-border);
 }
 
+select[class^='openapi-explorer__select-input'] {
+  background-color: var(--dev-new-car-background);
+  border: 1px solid var(--dev-card-border);
+}
+
 iframe#webpack-dev-server-client-overlay {
   display: none !important;
 }

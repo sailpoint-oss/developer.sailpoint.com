@@ -1,8 +1,8 @@
 get:
   tags:
     - Service Desk Integration
-  summary: Service Desk integration template by scriptName.
-  description: This API endpoint returns an existing Service Desk integration template by scriptName.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+  summary: Service Desk integration template by scriptName
+  description: This API endpoint returns an existing Service Desk integration template by scriptName.
   operationId: getServiceDeskIntegrationTemplate
   parameters:
     - name: scriptName
@@ -34,4 +34,6 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - userAuth: [idn:service-desk-admin:read,idn:service-desk-integration:read]
+    - userAuth: [idn:service-desk-integration:read, idn:service-desk-integration:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

@@ -1,8 +1,8 @@
 get:
   tags:
     - Service Desk Integration
-  summary: List existing Service Desk Integrations
-  description: Get a list of ServiceDeskIntegrationDto for existing Service Desk Integrations.
+  summary: List existing Service Desk integrations
+  description: Get a list of Service Desk integration objects.
   operationId: getServiceDeskIntegrations
   parameters:
     - $ref: '../../v3/parameters/offset.yaml'
@@ -69,7 +69,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - userAuth: [idn:service-desk-admin:read,idn:service-desk-integration:read]
+    - userAuth: [idn:service-desk-integration:read, idn:service-desk-integration:manage]
   x-sailpoint-userLevels:
     - ORG_ADMIN
 
@@ -77,7 +77,7 @@ post:
   tags:
     - Service Desk Integration
   summary: Create new Service Desk integration
-  description: Create a new Service Desk Integrations.
+  description: Create a new Service Desk integration.
   operationId: createServiceDeskIntegration
   requestBody:
     description: The specifics of a new integration to create
@@ -88,7 +88,7 @@ post:
     required: true
   responses:
     "200":
-      description: details of the created integration
+      description: Details of the created integration
       content:
         application/json:
           schema:
@@ -106,6 +106,6 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - userAuth: [idn:service-desk-admin:manage,idn:service-desk-integration:manage]
+    - userAuth: [idn:service-desk-integration:manage]
   x-sailpoint-userLevels:
     - ORG_ADMIN

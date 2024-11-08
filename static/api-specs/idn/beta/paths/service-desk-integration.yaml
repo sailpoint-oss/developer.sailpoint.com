@@ -2,7 +2,7 @@ get:
   tags:
     - Service Desk Integration
   summary: Get a Service Desk integration
-  description: Get an existing Service Desk integration by ID.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+  description: Get an existing Service Desk integration by ID.
   operationId: getServiceDeskIntegration
   parameters:
     - name: id
@@ -34,13 +34,15 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - userAuth: [idn:service-desk-admin:read,idn:service-desk-integration:read]
+    - userAuth: [idn:service-desk-integration:read, idn:service-desk-integration:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 
 put:
   tags:
     - Service Desk Integration
   summary: Update a Service Desk integration
-  description: Update an existing Service Desk integration by ID with updated value in JSON form as the request body.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+  description: Update an existing Service Desk integration by ID.
   operationId: putServiceDeskIntegration
   parameters:
     - name: id
@@ -79,13 +81,15 @@ put:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - userAuth: [idn:service-desk-admin:manage,idn:service-desk-integration:manage]
+    - userAuth: [idn:service-desk-integration:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 
 delete:
   tags:
     - Service Desk Integration
   summary: Delete a Service Desk integration
-  description: Delete an existing Service Desk integration by ID.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+  description: Delete an existing Service Desk integration by ID.
   operationId: deleteServiceDeskIntegration
   parameters:
     - name: id
@@ -113,14 +117,16 @@ delete:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - userAuth: [idn:service-desk-admin:manage,idn:service-desk-integration:manage]
+    - userAuth: [idn:service-desk-integration:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 
 patch:
   operationId: patchServiceDeskIntegration
   tags:
     - Service Desk Integration
-  summary: Service Desk Integration Update PATCH
-  description: Update an existing ServiceDeskIntegration by ID with a PATCH request.
+  summary: Patch a Service Desk Integration
+  description: Update an existing Service Desk integration by ID with a PATCH request.
   parameters:
     - name: id
       in: path
@@ -138,7 +144,7 @@ patch:
 
       Only `replace` operations are accepted by this endpoint.
       
-      A 403 Forbidden Error indicates that you attempted to PATCH a operation that is not allowed.
+      A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed.
     content:
       application/json-patch+json:
         schema:
@@ -150,18 +156,18 @@ patch:
               type: array
               items:
                 $ref: '../schemas/JsonPatchOperation.yaml'
-        example: >-
-          [
-            {
-                "op": "replace",
-                "path": "/ownerRef",
-                "value": {
-                    "id": "2c9180867d05b227017d09921a205b4d",
-                    "type": "IDENTITY",
-                    "name": "Angelo2 tester"
-                }
-            }
-          ]
+          example:
+            [
+              {
+                  "op": "replace",
+                  "path": "/ownerRef",
+                  "value": {
+                      "id": "2c9180867d05b227017d09921a205b4d",
+                      "type": "IDENTITY",
+                      "name": "Angelo Medici"
+                  }
+              }
+            ]
   responses:
     "200":
       description: ServiceDeskIntegrationDto as updated
@@ -182,4 +188,6 @@ patch:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - userAuth: [idn:service-desk-admin:manage,idn:service-desk-integration:manage]
+    - userAuth: [idn:service-desk-integration:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

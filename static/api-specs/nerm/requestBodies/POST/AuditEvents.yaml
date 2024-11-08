@@ -8,10 +8,10 @@ content:
           type: object
           properties:
             offset:
-              description: The page of pagination for these events.
+              description: How many records to skip before pulling records to return.
               type: integer
               format: int32
-              example: 1
+              example: 100
             sort_by:
               description: A column that we are sorting these records from.
               type: string
@@ -19,8 +19,9 @@ content:
             limit:
               description: The limiting count for the amount of records returned.
               type: integer
-              example: 1
+              example: 10
               format: int32
+              maximum: 100
             order:
               description: Which direction the list should be sorted by
               type: string

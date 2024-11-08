@@ -1,5 +1,24 @@
 type: object
 properties:
+  created_at:
+    description: Search for record based on the created_at date
+    type: object
+    properties:
+      gt:
+        description: Greater Than - search for events with a date greater than the value
+        type: string
+        format: date
+        example: 2024-10-18T16:41:23.232+00:00 | 10/18/2024
+      lt:
+        description: Less Than - search for events with a date less than the value
+        type: string
+        format: date
+        example: 2024-10-18T16:41:23.232+00:00 | 10/18/2024
+      eq:
+        description: Equal - search for events with a date equal to the value
+        type: string
+        format: date
+        example: 2024-10-18T16:41:23.232+00:00 | 10/18/2024
   subject_type:
     description: Categorization of audit event.
     type: string

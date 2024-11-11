@@ -3,12 +3,6 @@ const {createApiPageMD} = require('./createApiPageMD');
 
 module.exports = [
   [
-    'docusaurus2-dotenv',
-    {
-      path: './.env',
-    },
-  ],
-  [
     '@docusaurus/plugin-google-tag-manager',
     {
       containerId: 'GTM-TSD78J',

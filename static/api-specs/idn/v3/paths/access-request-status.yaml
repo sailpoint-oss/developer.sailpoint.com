@@ -34,7 +34,7 @@ get:
         type: string
       example: 2c9180877b2b6ea4017b2c545f971429
       description: >-
-        Filter the results by the identity twho made the requests. *me*
+        Filter the results by the identity who made the requests. *me*
         indicates the current user. Mutually exclusive with
         *regarding-identity*.
       required: false
@@ -117,6 +117,14 @@ get:
 
         Sorting is supported for the following fields: **created, modified, accountActivityItemId, name**
       example: created
+      required: false
+    - in: query
+      name: request-state
+      schema:
+        type: string
+      example: request-state=EXECUTING
+      description: >-
+          Filter the results by the state of the request. The only valid value is *EXECUTING*.
       required: false
   responses:
     "200":

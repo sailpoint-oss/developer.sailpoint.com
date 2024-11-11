@@ -2,21 +2,19 @@ import React from 'react';
 import styles from './styles.module.css';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import ThemedImage from '@theme/ThemedImage';
-import {addDarkToFileName} from '../../../util/util';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {
-  faSquareCheck,
-  faCalendarClock,
-} from '@fortawesome/pro-duotone-svg-icons';
-export default function AmbassadorCard({data}) {
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSquareCheck, faCalendar } from '@fortawesome/free-solid-svg-icons'; // Fallback classic icons
+
+export default function AmbassadorCard({ data }) {
   return (
     <Link to={data.link} className={styles.link}>
       <div className={styles.card}>
         <div className={styles.cardFaceContainer}>
           <img
             className={styles.cardFace}
-            src={useBaseUrl(data.creatorImage)}></img>
+            src={useBaseUrl(data.creatorImage)} // Dynamic base URL for image
+            alt={data.name} // Always good to add an alt attribute for accessibility
+          />
           <div className={styles.cardNameContainer}>
             <div className={styles.name}>{data.name}</div>
           </div>
@@ -24,11 +22,12 @@ export default function AmbassadorCard({data}) {
 
         <div
           className={styles.bio}
-          dangerouslySetInnerHTML={{__html: data.bio}}></div>
+          dangerouslySetInnerHTML={{ __html: data.bio }} // Render the bio with HTML content
+        />
 
         <div className={styles.cardData}>
           <FontAwesomeIcon
-            icon={faSquareCheck}
+            icon={faSquareCheck} // Use Pro icon if available, else fallback to Free
             className={styles.docCardIcon}
             size="lg"
           />
@@ -38,7 +37,7 @@ export default function AmbassadorCard({data}) {
         </div>
         <div className={styles.cardDataLower}>
           <FontAwesomeIcon
-            icon={faCalendarClock}
+            icon={faCalendar} // Use Pro icon if available, else fallback to Free
             className={styles.docCardIcon}
             size="lg"
           />

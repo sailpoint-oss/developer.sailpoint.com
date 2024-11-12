@@ -38,8 +38,7 @@ The replace transform takes a `table` attribute of key-value pairs as an argumen
 
   - **type** - This must always be set to `replaceAll`.
   - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
-  - **regex** - This is the pattern you want to replace.
-  - **replacement** - This is the replacement string that replaces the pattern wherever it occurs.
+  - **table** - This is a JSON object of key-value pairs. Each pair identifies the pattern to search for as its key and the replacement string as its value.
 
 - **Optional Attributes**
   - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether the transform logic should be reevaluated every evening as part of the identity refresh process.

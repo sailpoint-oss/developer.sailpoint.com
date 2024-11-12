@@ -1,9 +1,10 @@
 import React from 'react';
+import styles from './json-path.module.css';
 
 function JsonExpressions() {
   return (
-    <div className="collapse" id="jsonPathExpressions">
-      <div className="card card-body">
+    <div className={styles.expressionsTable} id="jsonPathExpressions">
+      <div className="card card-body" style={{marginRight: '3%', width: '50%'}}>
         <table className="table table-sm">
           <thead>
             <tr>

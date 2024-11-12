@@ -1,8 +1,38 @@
 .editor {
-    height: 500px;
-  }
+  height: 500px;
+}
 
-#jsonpath-query {
-    width: 500px;
-    height: 2em;
+.formFloating {
+  display: flex;
+  justify-content: center;
+}
+
+.containerFluid {
+  margin: 20px;
+}
+
+.jsonpathQueryInput {
+  width: 50%;
+  height: 2em;
+  font-size: x-large;
+}
+
+.expandExpressions {
+  display: flex;
+  justify-content: center;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.expandExpressionsButton {
+  height: 35px;
+}
+
+.expressionsTable {
+  display: flex;
+  justify-content: center;
+}
+
+styles.fontSizeDropdown {
+  font-size: large;
 }

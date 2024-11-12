@@ -30,7 +30,7 @@ permissions:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   publish:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest-large
     steps:
       - name: Configure AWS credentials from Test account
         uses: aws-actions/configure-aws-credentials@v3
@@ -79,7 +79,7 @@ jobs:
         run: |
           echo "CMS_APP_API_ENDPOINT=$API_GATEWAY_URL" >> .env
           echo ${{ secrets.NPM_FONTAWESOME_CONFIG }} | base64 -d >> .npmrc
-          export NODE_OPTIONS="--max_old_space_size=8192"
+          export NODE_OPTIONS="--max_old_space_size=16384"
           export DOCUSAURUS_IGNORE_SSG_WARNINGS=true
           npm ci --legacy-peer-deps
           npm run gen-api-docs-all

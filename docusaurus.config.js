@@ -19,7 +19,7 @@ const config = {
       swcHtmlMinimizer: true,
       lightningCssMinimizer: true,
       rspackBundler: true,
-      mdxCrossCompilerCache: true,
+      mdxCrossCompilerCache: false,
     },
   },
   title: 'SailPoint Developer Community',

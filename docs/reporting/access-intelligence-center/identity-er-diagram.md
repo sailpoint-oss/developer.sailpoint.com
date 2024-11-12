@@ -195,93 +195,93 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         varchar IDENTITY_REQUEST_ITEM_ROLE_DISPLAY_NAME "This is the name of the Identity Request Item role display"
     } 
     IDENTITY_ITEM_APPROVER {
-        varchar IDENTITY_REQUEST_ITEM_APPROVER_ID "This is the unique Identity ID of the Identity Request Approver",
-        timestamp APPROVER_IDENTITY_CREATED "This is the date that the Identity Item Approver was created",
-        timestamp APPROVER_IDENTITY_UPDATED "This is the date that the Identity Item Approver was updated",
-        varchar APPROVER_NAME "This is the name for the Identity Item Approver",
-        varchar APPROVER_DISPLAY_NAME "The human-readable name for the Identity Item Approver",
-        varchar APPROVER_MANAGERS_NAME "The managers name for the Identity Item Approver",
-        varchar APPROVER_EMAIL "The email for the Identity Item Approver",
-        varchar APPROVER_STATUS "The status of the Identity Item Approver",
-        varchar APPROVER_JOB_TITLE "The job title for the Identity Item Approver", 
-        varchar APPROVER_LOCATION "The location of the Identity Item Approver", 
-        varchar APPROVER_LOCATION_CODE "The location code of the Identity Item Approver", 
-        varchar APPROVER_DEPARTMENT "The department of the Identity Item Approver",   
+        varchar IDENTITY_REQUEST_ITEM_APPROVER_ID "This is the unique Identity ID of the Identity Request Approver"
+        timestamp APPROVER_IDENTITY_CREATED "This is the date that the Identity Item Approver was created"
+        timestamp APPROVER_IDENTITY_UPDATED "This is the date that the Identity Item Approver was updated"
+        varchar APPROVER_NAME "This is the name for the Identity Item Approver"
+        varchar APPROVER_DISPLAY_NAME "The human-readable name for the Identity Item Approver"
+        varchar APPROVER_MANAGERS_NAME "The managers name for the Identity Item Approver"
+        varchar APPROVER_EMAIL "The email for the Identity Item Approver"
+        varchar APPROVER_STATUS "The status of the Identity Item Approver"
+        varchar APPROVER_JOB_TITLE "The job title for the Identity Item Approver"
+        varchar APPROVER_LOCATION "The location of the Identity Item Approver" 
+        varchar APPROVER_LOCATION_CODE "The location code of the Identity Item Approver"
+        varchar APPROVER_DEPARTMENT "The department of the Identity Item Approver"   
         timestamp APPROVER_SYNC_DATE "This is the date the data was synced to the table"
     }
     IDENTITY_ITEM_REQUESTER {
-        varchar IDENTITY_REQUEST_ITEM_REQUESTER_ID "This is the unique Identity ID of the Identity Item Requester",
-        timestamp REQUESTER_IDENTITY_CREATED "This is the date that the Identity Item Requester was created",
-        timestamp REQUESTER_IDENTITY_UPDATED "This is the date that the Identity Item Requester was updated",
-        varchar REQUESTER_NAME "This is the name for the Identity Item Requester",
-        varchar REQUESTER_DISPLAY_NAME "The human-readable name for the Identity Item Requester",
-        varchar REQUESTER_MANAGERS_NAME "The managers name for the Identity Item Requester",
-        varchar REQUESTER_EMAIL "The email for the Identity Item Requester",
-        varchar REQUESTER_STATUS "The status of the Identity Item Requester",
-        varchar REQUESTER_JOB_TITLE "The job title for the Identity Item Requester", 
-        varchar REQUESTER_LOCATION "The location of the Identity Item Requester", 
-        varchar REQUESTER_LOCATION_CODE "The location code of the Identity Item Requester", 
-        varchar REQUESTER_DEPARTMENT "The department of the Identity Item Requester",   
+        varchar IDENTITY_REQUEST_ITEM_REQUESTER_ID "This is the unique Identity ID of the Identity Item Requester"
+        timestamp REQUESTER_IDENTITY_CREATED "This is the date that the Identity Item Requester was created"
+        timestamp REQUESTER_IDENTITY_UPDATED "This is the date that the Identity Item Requester was updated"
+        varchar REQUESTER_NAME "This is the name for the Identity Item Requester"
+        varchar REQUESTER_DISPLAY_NAME "The human-readable name for the Identity Item Requester"
+        varchar REQUESTER_MANAGERS_NAME "The managers name for the Identity Item Requester"
+        varchar REQUESTER_EMAIL "The email for the Identity Item Requester"
+        varchar REQUESTER_STATUS "The status of the Identity Item Requester"
+        varchar REQUESTER_JOB_TITLE "The job title for the Identity Item Requester" 
+        varchar REQUESTER_LOCATION "The location of the Identity Item Requester" 
+        varchar REQUESTER_LOCATION_CODE "The location code of the Identity Item Requester" 
+        varchar REQUESTER_DEPARTMENT "The department of the Identity Item Requester"   
         timestamp REQUESTER_SYNC_DATE "This is the date the data was synced to the table"
     }
     CERTIFICATION_ITEM_REVIEWER {
-        varchar REVIEWER_ID "This is the unique Identity ID of the Identity Certification Item Reviewer",
-        timestamp REVIEWER_IDENTITY_CREATED "This is the date that the Identity Certification Item Reviewer was created",
-        timestamp REVIEWER_IDENTITY_UPDATED "This is the date that the Identity Certification Item Reviewer was updated",
-        varchar REVIEWER_NAME "This is the name for the Identity Certification Item Reviewer",
-        varchar REVIEWER_DISPLAY_NAME "The human-readable name for the Identity Certification Item Reviewer",
-        varchar REVIEWER_MANAGERS_NAME "The managers name for the Identity Certification Item Reviewer",
-        varchar REVIEWER_EMAIL "The email for the Identity Certification Item Reviewer",
-        varchar REVIEWER_STATUS "The status of the Identity Certification Item Reviewer",
-        varchar REVIEWER_JOB_TITLE "The job title for the Identity Certification Item Reviewer", 
-        varchar REVIEWER_LOCATION "The location of the Identity Certification Item Reviewer", 
-        varchar REVIEWER_LOCATION_CODE "The location code of the Identity Certification Item Reviewer", 
-        varchar REVIEWER_DEPARTMENT "The department of the Identity Certification Item Reviewer",   
+        varchar REVIEWER_ID "This is the unique Identity ID of the Identity Certification Item Reviewer"
+        timestamp REVIEWER_IDENTITY_CREATED "This is the date that the Identity Certification Item Reviewer was created"
+        timestamp REVIEWER_IDENTITY_UPDATED "This is the date that the Identity Certification Item Reviewer was updated"
+        varchar REVIEWER_NAME "This is the name for the Identity Certification Item Reviewer"
+        varchar REVIEWER_DISPLAY_NAME "The human-readable name for the Identity Certification Item Reviewer"
+        varchar REVIEWER_MANAGERS_NAME "The managers name for the Identity Certification Item Reviewer"
+        varchar REVIEWER_EMAIL "The email for the Identity Certification Item Reviewer"
+        varchar REVIEWER_STATUS "The status of the Identity Certification Item Reviewer"
+        varchar REVIEWER_JOB_TITLE "The job title for the Identity Certification Item Reviewer" 
+        varchar REVIEWER_LOCATION "The location of the Identity Certification Item Reviewer" 
+        varchar REVIEWER_LOCATION_CODE "The location code of the Identity Certification Item Reviewer" 
+        varchar REVIEWER_DEPARTMENT "The department of the Identity Certification Item Reviewer"   
         timestamp REVIEWER_SYNC_DATE "This is the date the data was synced to the table"
     }
     CERTIFICATION_CERTIFIER {
-        varchar CERTIFICATION_CERTIFIER_ID "This is the unique Identity ID of the Identity Certification Certifier",
-        timestamp CERTIFICATION_CERTIFIER_IDENTITY_CREATED "This is the date that the Identity Certification Certifier was created",
-        timestamp CERTIFICATION_CERTIFIER_IDENTITY_UPDATED "This is the date that the Identity Certification Certifier was updated",
-        varchar CERTIFICATION_CERTIFIER_NAME "This is the name for the Identity Certification Certifier",
-        varchar CERTIFICATION_CERTIFIER_DISPLAY_NAME "The human-readable name for the Identity Certification Certifier",
-        varchar CERTIFICATION_CERTIFIER_MANAGERS_NAME "The managers name for the Identity Certification Certifier",
-        varchar CERTIFICATION_CERTIFIER_EMAIL "The email for the Identity Certification Certifier",
-        varchar CERTIFICATION_CERTIFIER_STATUS "The status of the Identity Certification Certifier",
-        varchar CERTIFICATION_CERTIFIER_JOB_TITLE "The job title for the Identity Certification Certifier", 
-        varchar CERTIFICATION_CERTIFIER_LOCATION "The location of the Identity Certification Certifier", 
-        varchar CERTIFICATION_CERTIFIER_LOCATION_CODE "The location code of the Identity Certification Certifier", 
-        varchar CERTIFICATION_CERTIFIER_DEPARTMENT "The department of the Identity Certification Certifier",   
+        varchar CERTIFICATION_CERTIFIER_ID "This is the unique Identity ID of the Identity Certification Certifier"
+        timestamp CERTIFICATION_CERTIFIER_IDENTITY_CREATED "This is the date that the Identity Certification Certifier was created"
+        timestamp CERTIFICATION_CERTIFIER_IDENTITY_UPDATED "This is the date that the Identity Certification Certifier was updated"
+        varchar CERTIFICATION_CERTIFIER_NAME "This is the name for the Identity Certification Certifier"
+        varchar CERTIFICATION_CERTIFIER_DISPLAY_NAME "The human-readable name for the Identity Certification Certifier"
+        varchar CERTIFICATION_CERTIFIER_MANAGERS_NAME "The managers name for the Identity Certification Certifier"
+        varchar CERTIFICATION_CERTIFIER_EMAIL "The email for the Identity Certification Certifier"
+        varchar CERTIFICATION_CERTIFIER_STATUS "The status of the Identity Certification Certifier"
+        varchar CERTIFICATION_CERTIFIER_JOB_TITLE "The job title for the Identity Certification Certifier" 
+        varchar CERTIFICATION_CERTIFIER_LOCATION "The location of the Identity Certification Certifier" 
+        varchar CERTIFICATION_CERTIFIER_LOCATION_CODE "The location code of the Identity Certification Certifier" 
+        varchar CERTIFICATION_CERTIFIER_DEPARTMENT "The department of the Identity Certification Certifier"   
         timestamp CERTIFICATION_CERTIFIER_SYNC_DATE "This is the date the data was synced to the table"
     }
     CERTIFICATION_MANAGER {
-        varchar CERTIFICATION_MANAGER_ID "This is the unique Identity ID of the Identity Certification Manager",
-        timestamp CERTIFICATION_MANAGER_IDENTITY_CREATED "This is the date that the Identity Certification Manager was created",
-        timestamp CERTIFICATION_MANAGER_IDENTITY_UPDATED "This is the date that the Identity Certification Manager was updated",
-        varchar CERTIFICATION_MANAGER_NAME "This is the name for the Identity Certification Manager",
-        varchar CERTIFICATION_MANAGER_DISPLAY_NAME "The human-readable name for the Identity Certification Manager",
-        varchar CERTIFICATION_MANAGER_MANAGERS_NAME "The managers name for the Identity Certification Manager",
-        varchar CERTIFICATION_MANAGER_EMAIL "The email for the Identity Certification Manager",
-        varchar CERTIFICATION_MANAGER_STATUS "The status of the Identity Certification Manager",
-        varchar CERTIFICATION_MANAGER_JOB_TITLE "The job title for the Identity Certification Manager", 
-        varchar CERTIFICATION_MANAGER_LOCATION "The location of the Identity Certification Manager", 
-        varchar CERTIFICATION_MANAGER_LOCATION_CODE "The location code of the Identity Certification Manager", 
-        varchar CERTIFICATION_MANAGER_DEPARTMENT "The department of the Identity Certification Manager",   
+        varchar CERTIFICATION_MANAGER_ID "This is the unique Identity ID of the Identity Certification Manager"
+        timestamp CERTIFICATION_MANAGER_IDENTITY_CREATED "This is the date that the Identity Certification Manager was created"
+        timestamp CERTIFICATION_MANAGER_IDENTITY_UPDATED "This is the date that the Identity Certification Manager was updated"
+        varchar CERTIFICATION_MANAGER_NAME "This is the name for the Identity Certification Manager"
+        varchar CERTIFICATION_MANAGER_DISPLAY_NAME "The human-readable name for the Identity Certification Manager"
+        varchar CERTIFICATION_MANAGER_MANAGERS_NAME "The managers name for the Identity Certification Manager"
+        varchar CERTIFICATION_MANAGER_EMAIL "The email for the Identity Certification Manager"
+        varchar CERTIFICATION_MANAGER_STATUS "The status of the Identity Certification Manager"
+        varchar CERTIFICATION_MANAGER_JOB_TITLE "The job title for the Identity Certification Manager" 
+        varchar CERTIFICATION_MANAGER_LOCATION "The location of the Identity Certification Manager"
+        varchar CERTIFICATION_MANAGER_LOCATION_CODE "The location code of the Identity Certification Manager" 
+        varchar CERTIFICATION_MANAGER_DEPARTMENT "The department of the Identity Certification Manager"   
         timestamp CERTIFICATION_MANAGER_SYNC_DATE "This is the date the data was synced to the table"
     }
     CERTIFICATION_SIGNER {
-        varchar CERTIFICATION_SIGNER_ID "This is the unique Identity ID of the Identity Certification Signer",
-        timestamp CERTIFICATION_SIGNER_IDENTITY_CREATED "This is the date that the Identity Certification Signer was created",
-        timestamp CERTIFICATION_SIGNER_IDENTITY_UPDATED "This is the date that the Identity Certification Signer was updated",
-        varchar CERTIFICATION_SIGNER_NAME "This is the name for the Identity Certification Signer",
-        varchar CERTIFICATION_SIGNER_DISPLAY_NAME "The human-readable name for the Identity Certification Signer",
-        varchar CERTIFICATION_SIGNER_MANAGERS_NAME "The managers name for the Identity Certification Signer",
-        varchar CERTIFICATION_SIGNER_EMAIL "The email for the Identity Certification Signer",
-        varchar CERTIFICATION_SIGNER_STATUS "The status of the Identity Certification Signer",
-        varchar CERTIFICATION_SIGNER_JOB_TITLE "The job title for the Identity Certification Signer", 
-        varchar CERTIFICATION_SIGNER_LOCATION "The location of the Identity Certification Signer", 
-        varchar CERTIFICATION_SIGNER_LOCATION_CODE "The location code of the Identity Certification Signer", 
-        varchar CERTIFICATION_SIGNER_DEPARTMENT "The department of the Identity Certification Signer",   
+        varchar CERTIFICATION_SIGNER_ID "This is the unique Identity ID of the Identity Certification Signer"
+        timestamp CERTIFICATION_SIGNER_IDENTITY_CREATED "This is the date that the Identity Certification Signer was created"
+        timestamp CERTIFICATION_SIGNER_IDENTITY_UPDATED "This is the date that the Identity Certification Signer was updated"
+        varchar CERTIFICATION_SIGNER_NAME "This is the name for the Identity Certification Signer"
+        varchar CERTIFICATION_SIGNER_DISPLAY_NAME "The human-readable name for the Identity Certification Signer"
+        varchar CERTIFICATION_SIGNER_MANAGERS_NAME "The managers name for the Identity Certification Signer"
+        varchar CERTIFICATION_SIGNER_EMAIL "The email for the Identity Certification Signer"
+        varchar CERTIFICATION_SIGNER_STATUS "The status of the Identity Certification Signer"
+        varchar CERTIFICATION_SIGNER_JOB_TITLE "The job title for the Identity Certification Signer" 
+        varchar CERTIFICATION_SIGNER_LOCATION "The location of the Identity Certification Signer" 
+        varchar CERTIFICATION_SIGNER_LOCATION_CODE "The location code of the Identity Certification Signer" 
+        varchar CERTIFICATION_SIGNER_DEPARTMENT "The department of the Identity Certification Signer"   
         timestamp CERTIFICATION_SIGNER_SYNC_DATE "This is the date the data was synced to the table"
     }
     IDENTITY ||--o{ IDENTITY_ATRIBUTE : "associated to and owns"
@@ -292,6 +292,11 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
     IDENTITY ||--o{ IDENTITY_ENTITLEMENTS_FULL : "associated to and owns"
     IDENTITY ||--o{ CERTIFICATION_ITEM : "associated to and owns"
     CERTIFICATION_ITEM ||--o{ CERTIFICATION_STATS : "associated to and owns"
+    CERTIFICATION_ITEM ||--o{ CERTIFICATION_ITEM_REVIEWER : "associated to and owns"
     CERTIFICATION_ITEM ||--o{ CERTIFICATION_IDENTITY_FULL : "associated to and owns"
+    CERTIFICATION_IDENTITY_FULL ||--o{ CERTIFICATION_CERTIFIER  : "associated to and owns"
+    CERTIFICATION_IDENTITY_FULL ||--o{ CERTIFICATION_MANAGER  : "associated to and owns"
+    CERTIFICATION_IDENTITY_FULL ||--o{ CERTIFICATION_SIGNER  : "associated to and owns"
     IDENTITY ||--o{ IDENTITY_REQUEST_IDENTITY_REQUEST_ITEM_FULL : "associated to and owns"
-    IDENTITY_REQUEST_IDENTITY_REQUEST_ITEM_FULL ||--o{ IDENTITY_REQUEST_WITH_DURATION : "associated to and owns"'></MermaidViewer>
+    IDENTITY_REQUEST_IDENTITY_REQUEST_ITEM_FULL ||--o{ IDENTITY_ITEM_APPROVER : "associated to and owns"
+    IDENTITY_REQUEST_IDENTITY_REQUEST_ITEM_FULL ||--o{ IDENTITY_ITEM_REQUESTER : "associated to and owns"'></MermaidViewer>

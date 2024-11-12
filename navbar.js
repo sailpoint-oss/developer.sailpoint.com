@@ -27,6 +27,14 @@ module.exports = {
     },
     {
       type: 'dropdown',
+      label: 'Tools',
+      position: 'left',
+      items: [
+        {label: 'Json Path Evaluator', to: '/util/json-path-evaluator'},
+      ],
+    },
+    {
+      type: 'dropdown',
       label: 'Community',
       position: 'left',
       items: [

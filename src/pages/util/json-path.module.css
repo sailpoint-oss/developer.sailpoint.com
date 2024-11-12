@@ -1,0 +1,8 @@
+.editor {
+    height: 500px;
+  }
+
+#jsonpath-query {
+    width: 500px;
+    height: 2em;
+}

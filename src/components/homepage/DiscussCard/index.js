@@ -5,7 +5,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import ThemedImage from '@theme/ThemedImage';
 import {addDarkToFileName} from '../../../util/util';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faSquareCheck, faEye} from '@fortawesome/pro-duotone-svg-icons';
+import { faSquareCheck, faEye } from '@fortawesome/free-solid-svg-icons'; // Fallback classic icons
+
 export default function DiscussCard({
   link,
   title,

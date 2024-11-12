@@ -5,11 +5,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import {addDarkToFileName} from '../../../util/util';
 import ThemedImage from '@theme/ThemedImage';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {
-  faComments,
-  faPeopleGroup,
-  faUser,
-} from '@fortawesome/pro-duotone-svg-icons';
+import { faComments, faPeopleGroup, faUser } from '@fortawesome/free-solid-svg-icons'; // Fallback classic icons
+
 export default function HomepageBasics({
   link,
   title,

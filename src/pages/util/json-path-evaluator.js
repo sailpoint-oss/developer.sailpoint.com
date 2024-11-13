@@ -46,14 +46,19 @@ export default function JsonPathEvaluator() {
   // Function to apply JSONPath query to JSON (debounced version for query execution)
   const applyJsonPathQuery = (json, jsonPath) => {
     let result;
-
-    // Start loading before applying the query
-    console.log('Applying query...');
-
+    console.log('json Path: ' + jsonPath);
+    // Check if the jsonPath contains an even number of double quotes
+    const quoteCount = (jsonPath.match(/"/g) || []).length;
+    if (quoteCount % 2 !== 0) {
+      setResult('No match');
+      setQueryParseError('');
+      setIsLoading(false);
+      return;
+    }
 
     try {
-      // Apply the JSONPath query
       result = jp.query(json, jsonPath);
+
       if (result.length > 0) {
         setResult(JSON.stringify(result, null, 2));
       } else {
@@ -65,8 +70,6 @@ export default function JsonPathEvaluator() {
       setResult('No match');
       setQueryParseError(error.message || 'Error executing JSONPath query');
     } finally {
-      // Stop loading after the query is complete (whether success or error)
-      console.log('Finished querying');
       setIsLoading(false);
     }
   };
@@ -74,12 +77,9 @@ export default function JsonPathEvaluator() {
   // Function to apply JSONPath query to the input JSON (without debouncing)
   const applyJsonPath = (jsonStr, jsonPath) => {
     let json;
-    setIsLoading(true);
     // Check if the new JSON string is different from the previous one
     if (jsonStr !== prevJsonStrRef.current) {
       try {
-        // Only parse if the JSON string is different
-        console.log('Parsing JSON...');
         json = JSON.parse(jsonStr.replace(/(\r\n|\n|\r)/gm, ''));
         parsedJsonRef.current = json; // Update the stored parsed JSON
         prevJsonStrRef.current = jsonStr; // Update the previous JSON string
@@ -120,7 +120,14 @@ export default function JsonPathEvaluator() {
 
   // Handler for changing JSONPath query
   const handleQueryChange = (event) => {
-    setIsLoading(true);
+
+    if (event.target.value.length <= 0) {
+      setResult('No match');
+      setQueryParseError('');
+      setIsLoading(false);
+    } else {
+      setIsLoading(true);
+    }
     setQuery(event.target.value);
   };
 
@@ -133,10 +140,9 @@ export default function JsonPathEvaluator() {
   const InputTerminal = () => {
     const { colorMode } = useColorMode();
     return (
-      <div className="col">
+      <div className="col" style={{ marginLeft: 75 }}>
         <h2>Inputs</h2>
         <AceEditor
-          className="editor"
           mode="json"
           theme={colorMode === 'dark' ? 'github_dark' : 'github_light_default'}
           onChange={handleJsonChange}
@@ -154,7 +160,7 @@ export default function JsonPathEvaluator() {
   const ResultTerminal = () => {
     const { colorMode } = useColorMode();
     return (
-      <div className="col">
+      <div className="col" style={{ marginRight: 75, marginBottom: 50 }}>
         <h2>Evaluation Results</h2>
         {isLoading ? (
           <Box display="flex" justifyContent="center" alignItems="center" height="200px">

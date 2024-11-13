@@ -551,38 +551,6 @@ div[id^='discourse-comments'] {
   padding-bottom: 2%;
 }
 
-input[id^='outlined-basic-jsonpath-input'],
-label[id^='outlined-basic-jsonpath-input-label'],
-select[id^='terminal-font-size-select'],
-label[id^='terminal-font-size-label'] {
-  color: var(--text-color);
-}
-
-fieldset[class^='MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline'] {
-  border-color: var(--text-color);
-}
-
-ul[class^='MuiList-root MuiList-padding MuiMenu-list css-1toxriw-MuiList-root-MuiMenu-list'] {
-  background-color: var(--dev-card-background);
-}
-
-li[class^='MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters css-1rju2q6-MuiButtonBase-root-MuiMenuItem-root'] {
-  color: var(--text-color);
-}
-
-div[class^='MuiFormControl-root css-12p7f1s-MuiFormControl-root'] {
-  color: var(--text-color);
-}
-
-div[id^='terminal-font-size-select'] {
-  color: var(--text-color);
-}
-
-svg[class^='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-lohd6h-MuiSvgIcon-root-MuiSelect-icon'],
-svg[class^='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined MuiSelect-iconOpen css-d551zc-MuiSvgIcon-root-MuiSelect-icon'] {
-  color: var(--text-color);
-}
-
 .openapi-security__summary-container {
   background: var(--ifm-pre-background);
 }
@@ -610,3 +578,42 @@ svg[class^='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-i
   position: relative;
   right: 103%;
 }
+
+
+/* Json path Evaluator CSS */
+input[id^='outlined-basic-jsonpath-input'],
+label[id^='outlined-basic-jsonpath-input-label'],
+select[id^='terminal-font-size-select'],
+label[id^='terminal-font-size-label'] {
+  color: var(--text-color);
+}
+fieldset[class^='MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline'] {
+  border-color: var(--text-color);
+}
+ul[class^='MuiList-root MuiList-padding MuiMenu-list css-1toxriw-MuiList-root-MuiMenu-list'] {
+  background-color: var(--dev-card-background);
+}
+li[class^='MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters css-1rju2q6-MuiButtonBase-root-MuiMenuItem-root'] {
+  color: var(--text-color);
+}
+div[class^='MuiFormControl-root css-12p7f1s-MuiFormControl-root'] {
+  color: var(--text-color);
+}
+div[id^='terminal-font-size-select'] {
+  color: var(--text-color);
+}
+svg[class^='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-lohd6h-MuiSvgIcon-root-MuiSelect-icon'],
+svg[class^='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined MuiSelect-iconOpen css-d551zc-MuiSvgIcon-root-MuiSelect-icon'] {
+  color: var(--text-color);
+}
+span[class^='ace_variable'] {
+  color: var(--ifm-color-secondary) !important;
+}
+span[class^='ace_string'] {
+  color: var(--ifm-color-primary-dark) !important;
+}
+
+div[id^='ace-editor']{
+  border: 3px solid var(--dev-card-background) !important;
+}
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------*/

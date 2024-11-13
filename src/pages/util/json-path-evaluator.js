@@ -33,6 +33,7 @@ export default function JsonPathEvaluator() {
   const [inputJson, setInputJson] = useState(JSON.stringify(require('./sample.json'), null, 4));
   const [implementation, setImplementation] = useState('Workflows');
   const [localJson, setLocalJson] = useState(inputJson);
+  const [jsonParseError, setJsonParseError] = useState(false);
 
   const debouncedInputJson = useDebounce(localJson, 100);
   const debouncedQuery = useDebounce(query, 100);
@@ -54,8 +55,14 @@ export default function JsonPathEvaluator() {
       const result = jp.query(parsedJson, jsonPath, implementation);
       setResult((result.length > 0 || typeof(result) === 'number') ? JSON.stringify(result, null, 2) : 'No match');
       setQueryParseError('');
+      setJsonParseError(false);
     } catch (error) {
       setResult('No match');
+      if (error.message.includes("JSON at position") || error.message.includes("is not valid JSON")) {
+        setJsonParseError(true); // Set error state when "JSON at position" is found
+      }else {
+        setJsonParseError(false);
+      }
       setQueryParseError(error.message || 'Error executing JSONPath query');
     } finally {
       setIsLoading(false);
@@ -102,7 +109,7 @@ export default function JsonPathEvaluator() {
                   value={query}
                   onChange={handleQueryChange}
                 />
-                {queryParseError && <Alert severity="warning">{queryParseError}</Alert>}
+                {queryParseError && <Alert severity="error">{queryParseError}</Alert>}
                 {documentationLinks[implementation] && (
                   <Link
                     href={documentationLinks[implementation].url}
@@ -131,6 +138,7 @@ export default function JsonPathEvaluator() {
               fontSize={fontSize}
               value={localJson}
               onChange={handleJsonChange}
+              hasJsonParseError={jsonParseError}
             />
             <ResultTerminal
               result={result}

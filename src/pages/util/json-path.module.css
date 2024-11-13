@@ -7,6 +7,16 @@
   margin-bottom: 2%;
 }
 
+.inputTerminalContainer{
+  border: 3px solid red !important;
+  background: var(--terminal-background) !important;
+}
+
+.terminalContainerDefault {
+  border: 3px solid var(--dev-card-background) !important;
+  background: var(--terminal-background) !important;
+}
+
 li[class^='MuiButtonBase-root'] {
   color: var(--text-color);
 }
@@ -50,7 +60,7 @@ span[class^='ace_string'] {
   color: var(--terminal-value) !important;
 }
 
-div[id^='ace-editor']{
+/* div[id^='ace-editor']{
   border: 3px solid var(--dev-card-background) !important;
   background: var(--terminal-background) !important;
-}
+} */

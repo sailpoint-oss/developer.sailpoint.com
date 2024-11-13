@@ -52,7 +52,7 @@ export default function JsonPathEvaluator() {
     try {
       const parsedJson = JSON.parse(json);
       const result = jp.query(parsedJson, jsonPath, implementation);
-      setResult(result.length > 0 ? JSON.stringify(result, null, 2) : 'No match');
+      setResult((result.length > 0 || typeof(result) === 'number') ? JSON.stringify(result, null, 2) : 'No match');
       setQueryParseError('');
     } catch (error) {
       setResult('No match');

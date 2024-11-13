@@ -8,7 +8,7 @@ import 'ace-builds/src-noconflict/ext-language_tools';
 import { useColorMode } from '@docusaurus/theme-common';
 import CircularProgress from '@mui/material/CircularProgress';
 import { Box } from '@mui/material';
-import styles from '../../../pages/util/json-path.module.css'
+import styles from '../../../pages/tools/json-path.module.css'
 
 // Ensure ace is properly configured
 if (typeof ace !== 'undefined' && ace.config) {

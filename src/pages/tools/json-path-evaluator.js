@@ -19,14 +19,14 @@ const documentationLinks = {
     text: "Event Trigger Implementation Documentation"
   },
   Workflows: {
-    url: "https://developer.sailpoint.com/docs/extensibility/event-triggers/filtering-events/",
+    url: "https://github.com/celene-isip-sp/jsonslice?tab=readme-ov-file#specs-and-references",
     text: "Workflows Implementation Documentation"
   }
 };
 
 export default function JsonPathEvaluator() {
   const [result, setResult] = useState(JSON.stringify([], null, 4));
-  const [query, setQuery] = useState('$.requestedItemsStatus[?(@.name in ["Engineering Access"])]');
+  const [query, setQuery] = useState('$.requestedItemsStatus[*].name');
   const [queryParseError, setQueryParseError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [fontSize, setFontSize] = useState('16');

@@ -30,7 +30,12 @@ module.exports = {
       label: 'Tools',
       position: 'left',
       items: [
-        {label: 'Json Path Evaluator', to: '/util/json-path-evaluator'},
+        {label: 'SDKs', to: '/docs/tools/sdk'},
+        {label: 'CLI', to: '/docs/tools/cli'},
+        {label: 'Json Path Evaluator', to: '/tools/json-path-evaluator'},
+        {label: 'Rule Development Kit', to: '/docs/tools/rule-development-kit'},
+        {label: 'UI Development Kit', to: '/docs/tools/ui-development-kit'},
+        {label: 'Community Toolbox', to: '/docs/tools/community-toolbox'}
       ],
     },
     {

@@ -6,7 +6,7 @@ import 'ace-builds/src-noconflict/theme-github_dark';  // Dark theme
 import 'ace-builds/src-noconflict/theme-github_light_default';  // Light theme
 import 'ace-builds/src-noconflict/ext-language_tools';
 import { useColorMode } from '@docusaurus/theme-common';
-import styles from '../../../pages/util/json-path.module.css';
+import styles from '../../../pages/tools/json-path.module.css';
 
 // Ensure ace is properly configured
 if (typeof ace !== 'undefined' && ace.config) {

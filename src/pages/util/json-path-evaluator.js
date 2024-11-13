@@ -1,9 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Layout from '@theme/Layout';
 import styles from './json-path.module.css';
-import * as jp from "jsonpathly";
-import JsonExpressions from './Expressions';
-import Sample from './sample.json';
+import * as jp from 'jsonpathly';
 import AceEditor from 'react-ace';
 import 'ace-builds/src-noconflict/mode-json';
 import 'ace-builds/src-noconflict/theme-github_dark';
@@ -13,13 +11,14 @@ import { useColorMode } from '@docusaurus/theme-common';
 import Alert from '@mui/material/Alert';
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select'
+import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
-import InputLabel from '@mui/material/InputLabel'
-import Button from '@mui/material/Button';
+import InputLabel from '@mui/material/InputLabel';
 import Stack from '@mui/material/Stack';
+import CircularProgress from '@mui/material/CircularProgress';
+import { Box } from '@mui/material';
 
-// Ensure `ace` is defined before accessing its configuration
+// Ensure ace is properly configured
 if (typeof ace !== 'undefined' && ace.config) {
   ace.config.setModuleUrl(
     'ace/mode/json_worker',
@@ -28,160 +27,207 @@ if (typeof ace !== 'undefined' && ace.config) {
 }
 
 export default function JsonPathEvaluator() {
+  const [inputJson, setInputJson] = useState(JSON.stringify(require('./sample.json'), null, 4));
+  const [result, setResult] = useState(JSON.stringify([], null, 4));
+  const [query, setQuery] = useState('$.requestedItemsStatus[?(@.name in ["Engineering Access"])]');
+  const [queryParseError, setQueryParseError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [fontSize, setFontSize] = useState('16');
+  const queryInput = useRef(null);
 
-  const [inputJson, setInputJson] = React.useState(JSON.stringify(Sample, null, 4));
-  const [result, setResult] = React.useState(JSON.stringify([], null, 4));
-  const [resultType, setResultType] = React.useState < 'value' | 'path' > ('value');
-  const [query, setQuery] = React.useState('$.requestedItemsStatus[?(@.name in ["Engineering Access"])]');
-  const [isQueryValid, setQueryValid] = React.useState(true);
-  const [queryParseError, setQueryParseError] = React.useState('');
-  const [isVisible, setIsVisible] = React.useState(false);
-  const [fontSize, setFontSize] = React.useState('');
+  // Use a ref to store the last parsed JSON object
+  const parsedJsonRef = useRef(null);
+  const prevJsonStrRef = useRef('');
 
+  // Debounce the JSON input and the query with 3-second delay
+  const debouncedInputJson = useDebounce(inputJson, 3000); // 3 seconds debounce
+  const debouncedQuery = useDebounce(query, 3000);
 
-  const toggleVisibility = () => {
-    setIsVisible(prevState => !prevState);  // Toggle the visibility
-  };
+  // Function to apply JSONPath query to JSON (debounced version for query execution)
+  const applyJsonPathQuery = (json, jsonPath) => {
+    let result;
 
-  const InputTerminal = () => {
-    const { colorMode, setColorMode } = useColorMode();
+    // Start loading before applying the query
+    console.log('Applying query...');
 
-
-    return (<div className="col">
-      <h2>Inputs</h2>
-      <AceEditor
-        className="editor"
-        mode="json"
-        theme={colorMode === 'dark' ? 'github_dark' : 'github_light_default'}
-        onChange={onChangeJson}
-        name="editor"
-        width="auto"
-        editorProps={{ $blockScrolling: true }}
-        value={inputJson}
-        showPrintMargin={false}
-        fontSize={fontSize === '' ? '16px' : `${fontSize}px`}
-      />
-    </div>
-    )
-  }
-
-  const ResultTerminal = () => {
-    const { colorMode, setColorMode } = useColorMode();
-    return (<div className="col">
-      <h2>Evaluation Results</h2>
-      <AceEditor
-        mode="json"
-        theme={colorMode === 'dark' ? 'github_dark' : 'github_light_default'}
-        name="editor"
-        width="auto"
-        editorProps={{ $blockScrolling: true }}
-        value={result}
-        readOnly={true}
-        showPrintMargin={false}
-        fontSize={fontSize === '' ? '16px' : `${fontSize}px`}
-      />
-    </div>)
-  }
-
-  function onSelectFontSize(event) {
-    const inputQuery = event.target.value;
-    setFontSize(inputQuery);
-  }
-
-  const queryInput = React.useRef < HTMLInputElement > (null);
-
-  function onChangeJson(input) {
-    setInputJson(input);
-  }
-
-  function onInputQuery(event) {
-    const inputQuery = event.target.value;
-    setQuery(inputQuery);
-  }
-
-  function applyJsonPath(jsonStr, jsonPath) {
-    let json = '';
-    let result = '';
 
     try {
-      json = JSON.parse(jsonStr.replace(/(\r\n|\n|\r)/gm, ''));
-    } catch (error) {
-      setResult('JSON Parse Error');
-      return;
-    }
-
-    try {
+      // Apply the JSONPath query
       result = jp.query(json, jsonPath);
-      setQueryValid(true);
+      if (result.length > 0) {
+        setResult(JSON.stringify(result, null, 2));
+      } else {
+        setResult('No match');
+      }
       setQueryParseError('');
     } catch (error) {
-      console.log(error)
-      setQueryValid(false);
-      if (error instanceof Error) {
-        setQueryParseError(error.message);
-      }
-    }
-
-    console.log(result)
-
-    if (0 < result?.length) {
-      setResult(JSON.stringify(result, undefined, 2));
-    } else {
+      console.error('Query Execution Error:', error);
       setResult('No match');
+      setQueryParseError(error.message || 'Error executing JSONPath query');
+    } finally {
+      // Stop loading after the query is complete (whether success or error)
+      console.log('Finished querying');
+      setIsLoading(false);
     }
-  }
+  };
 
-  React.useEffect(() => {
-    applyJsonPath(inputJson, query);
-  });
+  // Function to apply JSONPath query to the input JSON (without debouncing)
+  const applyJsonPath = (jsonStr, jsonPath) => {
+    let json;
+    setIsLoading(true);
+    // Check if the new JSON string is different from the previous one
+    if (jsonStr !== prevJsonStrRef.current) {
+      try {
+        // Only parse if the JSON string is different
+        console.log('Parsing JSON...');
+        json = JSON.parse(jsonStr.replace(/(\r\n|\n|\r)/gm, ''));
+        parsedJsonRef.current = json; // Update the stored parsed JSON
+        prevJsonStrRef.current = jsonStr; // Update the previous JSON string
+      } catch (error) {
+        console.error('JSON Parse Error:', error);
+        setResult('JSON Parse Error');
+        setIsLoading(false); // Stop loading if parsing fails
+        return;
+      }
+    } else {
+      // Reuse the parsed JSON if the string hasn't changed
+      json = parsedJsonRef.current;
+    }
 
-  React.useEffect(() => {
-    queryInput.current?.focus();
+    // Call the debounced query function
+    applyJsonPathQuery(json, jsonPath);
+  };
+
+  // When the input JSON or query changes, apply the JSONPath query
+  useEffect(() => {
+    if (debouncedQuery) {
+      // Only apply the query if the debounced query has changed
+      applyJsonPath(inputJson, debouncedQuery);
+    }
+  }, [debouncedQuery, inputJson]);
+
+  // Focus on query input field on component mount
+  useEffect(() => {
+    if (queryInput.current) {
+      queryInput.current.focus();
+    }
   }, []);
+
+  // Handler for changing JSON input
+  const handleJsonChange = (newJson) => {
+    setInputJson(newJson);
+  };
+
+  // Handler for changing JSONPath query
+  const handleQueryChange = (event) => {
+    setIsLoading(true);
+    setQuery(event.target.value);
+  };
+
+  // Handler for selecting font size
+  const handleFontSizeChange = (event) => {
+    setFontSize(event.target.value);
+  };
+
+  // Editor for input JSON
+  const InputTerminal = () => {
+    const { colorMode } = useColorMode();
+    return (
+      <div className="col">
+        <h2>Inputs</h2>
+        <AceEditor
+          className="editor"
+          mode="json"
+          theme={colorMode === 'dark' ? 'github_dark' : 'github_light_default'}
+          onChange={handleJsonChange}
+          value={inputJson}
+          fontSize={`${fontSize}px`}
+          width="auto"
+          showPrintMargin={false}
+          editorProps={{ $blockScrolling: true }}
+        />
+      </div>
+    );
+  };
+
+  // Editor for displaying the results
+  const ResultTerminal = () => {
+    const { colorMode } = useColorMode();
+    return (
+      <div className="col">
+        <h2>Evaluation Results</h2>
+        {isLoading ? (
+          <Box display="flex" justifyContent="center" alignItems="center" height="200px">
+            <CircularProgress />
+          </Box>
+        ) : (
+          <AceEditor
+            mode="json"
+            theme={colorMode === 'dark' ? 'github_dark' : 'github_light_default'}
+            value={result}
+            readOnly
+            fontSize={`${fontSize}px`}
+            width="auto"
+            showPrintMargin={false}
+            editorProps={{ $blockScrolling: true }}
+          />
+        )}
+      </div>
+    );
+  };
+
+  function useDebounce(value, delay) {
+    const [debouncedValue, setDebouncedValue] = useState(value);
+
+    useEffect(() => {
+      const handler = setTimeout(() => {
+        setDebouncedValue(value);
+      }, delay);
+
+      return () => {
+        clearTimeout(handler);
+      };
+    }, [value, delay]);
+
+    return debouncedValue;
+  }
 
   return (
     <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
       <main>
-
         <div className={styles.containerFluid}>
           <div className={styles.expandExpressions}>
-            <Stack sx={{ justifyContent: 'center' }} spacing={2}>
-              <TextField sx={{ m: 1, minWidth: 1000 }} id="outlined-basic" label="Put JSONPath syntax" variant="outlined" value={query} onInput={onInputQuery} ref={queryInput} />
-
-              {queryParseError ?
-              <Alert severity="warning">{queryParseError}</Alert> : '' }
-
-              <Stack sx={{ justifyContent: 'center' }} direction="row" spacing={2}>
-
-                <FormControl sx={{ m: 1, minWidth: 220 }}>
-                  <InputLabel id="terminal-font-size-label">Terminal Font Size</InputLabel>
-                  <Select
-                    labelId="terminal-font-size-label"
-                    id="terminal-font-size-select"
-                    value={fontSize}
-                    label="Terminal Font Size"
-                    onChange={onSelectFontSize}
-                  >
-                    <MenuItem value={'12'}>Small</MenuItem>
-                    <MenuItem value={'16'}>Medium</MenuItem>
-                    <MenuItem value={'18'}>Large</MenuItem>
-                    <MenuItem value={'24'}>Extra Large</MenuItem>
-                  </Select>
-                </FormControl>
-
-                <Button variant="outlined" onClick={toggleVisibility} >{isVisible ? 'Collapse JSONPath expressions' : 'Expand JSONPath expressions'}</Button>
-
+            <Stack sx={{ justifyContent: 'center' }} direction="row" spacing={2}>
+              <Stack sx={{ justifyContent: 'center' }} spacing={2}>
+                <TextField
+                  sx={{ m: 1, minWidth: 1000 }}
+                  id="outlined-basic-jsonpath-input"
+                  label="Enter JSONPath query"
+                  variant="outlined"
+                  value={query}
+                  onChange={handleQueryChange}
+                  ref={queryInput}
+                />
+                {queryParseError && <Alert severity="warning">{queryParseError}</Alert>}
               </Stack>
+
+              <FormControl sx={{ m: 1, minWidth: 220 }}>
+                <InputLabel id="terminal-font-size-label">Terminal Font Size</InputLabel>
+                <Select
+                  labelId="terminal-font-size-label"
+                  id="terminal-font-size-select"
+                  value={fontSize}
+                  label="Terminal Font Size"
+                  onChange={handleFontSizeChange}
+                >
+                  <MenuItem value={'12'}>Small</MenuItem>
+                  <MenuItem value={'16'}>Medium</MenuItem>
+                  <MenuItem value={'18'}>Large</MenuItem>
+                  <MenuItem value={'24'}>Extra Large</MenuItem>
+                </Select>
+              </FormControl>
             </Stack>
           </div>
-
-          {/* Conditionally render JsonExpressions based on the isVisible state */}
-          {isVisible && (
-            <div id="jsonPathExpressions">
-              <JsonExpressions />
-            </div>
-          )}
-
 
 
           <div className="row row-cols-1 row-cols-md-2">

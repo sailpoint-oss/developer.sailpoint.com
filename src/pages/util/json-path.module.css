@@ -36,3 +36,12 @@
 styles.fontSizeDropdown {
   font-size: large;
 }
+
+.tableContainer {
+  width: 50%;
+  margin: auto;
+}
+
+.inputTerminalContainer {
+  margin-left: 5%;
+}

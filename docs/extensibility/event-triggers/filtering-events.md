@@ -77,13 +77,7 @@ Operators provide more options to filter JSON structures.
 
 ### Developing Filters
 
-Developing a filter can be faster when you use a tool like an online [JSONpath editor](https://www.javainuse.com/jsonpath). These tools can provide quick feedback on your filter, allowing you to focus on the exact filter expression you want before testing it on a trigger. Just paste an example of your event trigger input and start crafting an expression to see its result.
-
-:::warning
-Third party websites like the one mentioned earlier must be treated with caution. Do not use real data from your tenant when you're interacting with these tools.
-:::
-
-![JSONPath editor](./img/jsonpath-editor.png)
+Developing a filter can be faster when you use a JSONpath evaluation tool. SailPoint provides a [web JSONpath evaluator](https://developer.sailpoint.com/tools/json-path-evaluator) that allows you to validate JSONpath filters for either event triggers or workflows. The SailPoint CLI also provides a JSONpath evaluation command. These tools can provide quick feedback on your filter, allowing you to focus on the exact filter expression you want before testing it on a trigger. Just paste an example of your event trigger input and start crafting an expression to see its result.
 
 Most of the examples provided in the operator tables above can be used against the Identity Attributes Changed event trigger input, as seen below. You can find all of the input/output schemas for the other available triggers in our [API specification](/docs/api/beta/triggers#available-event-triggers).
 

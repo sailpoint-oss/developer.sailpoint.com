@@ -8,6 +8,7 @@ properties:
   system:
     type: boolean
     description: True if this schema attribute is mandatory on all non-employees sources.
+    default: false
     example: true
   modified:
     type: string
@@ -41,6 +42,7 @@ properties:
     type: boolean
     description: If true, the schema attribute is required for all non-employees in the source
     example: true
+    default: false
 required:
   - type
   - technicalName

@@ -26,14 +26,12 @@ The `jsonpath` command makes it easy to evaluate JSONpath queries from within th
   Run this command to evaluate a JSONpath query:
 
   ```shell
-  sail jsonpath eval
+  sail jsonpath eval -f /path/to/object.json -p "$.path"
   ```
-
-  The default behavior will open a terminal editor with a default JSON object and default query. You can modify the query and object to test different queries.
 
   ### File path
 
-  The first flag you can append when you are evaluating JSONpath queries is the `--file` (`-f` for short) flag. This flag specifies the file path for a JSON object that you want to use as a test for your query.
+  The first flag you must append when you are evaluating JSONpath queries is the `--file` (`-f` for short) flag. This flag specifies the file path for a JSON object that you want to use as a test for your query.
 
   Here is what the command looks like with the `-f` flag:
 
@@ -41,16 +39,14 @@ The `jsonpath` command makes it easy to evaluate JSONpath queries from within th
   sail jsonpath eval -f /path/to/object.json
   ```
 
-  Specifying a file path without also specifying the `-p` flag will open the interactive editor using your file as the input.
-
   ### Path
 
-  The second flag you can append when you are evaluating JSONpath queries is the `--path` (`-p` for short) flag. This flag specifies the path you want to evaluate against the JSON object.
+  The second flag you must append when you are evaluating JSONpath queries is the `--path` (`-p` for short) flag. This flag specifies the path you want to evaluate against the JSON object.
 
   Here is what the command looks like with the `-p` flag:
 
   ```shell
-  sail jsonpath eval -f /path/to/object.json -p $.path
+  sail jsonpath eval -f /path/to/object.json -p "$.path"
   ```
 
   This will show the result of the path expression in the terminal.

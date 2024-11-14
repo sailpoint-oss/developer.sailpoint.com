@@ -55,6 +55,9 @@ ul[class^='MuiList-root MuiList-padding MuiMenu-list css-1toxriw-MuiList-root-Mu
 ul[class^='MuiMenu-list'] {
   background-color: var(--terminal-background);
 }
+div[class^='MuiPaper-root'] {
+  background-color: var(--terminal-background) !important;
+}
 
 svg[class^='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-lohd6h-MuiSvgIcon-root-MuiSelect-icon'],
 svg[class^='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined MuiSelect-iconOpen css-d551zc-MuiSvgIcon-root-MuiSelect-icon'] {

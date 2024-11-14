@@ -79,6 +79,9 @@ requestEndPoint.getBody().put(\"jsonBody\",requestXML); \n              }\n     
 - `created` - Timestamp when the rule was created.
 - `modified` - Timestamp when the rule was last modified. The default is `null`.
 - `type` - Type of connector rule. For a list of supported rule types, see [Supported Connector Rules](#supported-connector-rules).
+- `signature` - The list of input variables and the output variable of the rule. These can be found in the corresponding sections of the Rule Documentation. **NOTE**: Adding additional values will not bring in new variables. 
+  - `input` - The list of the input variables. This can be found in the Rule documentation's Input section.
+  - `output` - The output variable for the rule. This can be found the Rule documentation's Output section.
 - `attributes` - List of attributes.
   - `sourceVersion` - String indicating the rule's version. Typically, this is the same as `version`.
 - `sourceCode` - Object housing the actual source code that makes the rule work.

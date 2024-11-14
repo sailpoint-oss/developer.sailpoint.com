@@ -10,13 +10,15 @@ properties:
       - EVENT
       - EXTERNAL
       - SCHEDULED
+      - ""
     example: EVENT
     description: The trigger type
   displayName:
     type: string
     nullable: true
   attributes:
-    oneOf:
+    nullable: true
+    anyOf:
       - $ref: './trigger-attributes/EventAttributes.yaml'
       - $ref: './trigger-attributes/ExternalAttributes.yaml'
       - $ref: './trigger-attributes/ScheduledAttributes.yaml'

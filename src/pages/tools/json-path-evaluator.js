@@ -28,44 +28,40 @@ export default function JsonPathEvaluator() {
   const [result, setResult] = useState(JSON.stringify([], null, 4));
   const [query, setQuery] = useState('$.requestedItemsStatus[*].name');
   const [queryParseError, setQueryParseError] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
   const [fontSize, setFontSize] = useState('16');
   const [inputJson, setInputJson] = useState(JSON.stringify(require('./sample.json'), null, 4));
   const [implementation, setImplementation] = useState('Workflows');
   const [localJson, setLocalJson] = useState(inputJson);
   const [jsonParseError, setJsonParseError] = useState(false);
 
-  const debouncedInputJson = useDebounce(localJson, 100);
-  const debouncedQuery = useDebounce(query, 100);
+  const debouncedInputJson = useDebounce(localJson, 0);
+  const debouncedQuery = useDebounce(query, 0);
 
   // Apply JSONPath query with the current implementation
   const applyJsonPathQuery = (json, jsonPath) => {
-    setIsLoading(true);
+
 
     const quoteCount = (jsonPath.match(/"/g) || []).length;
     if (quoteCount % 2 !== 0) {
       setResult('No match');
       setQueryParseError('Invalid JSONPath query format');
-      setIsLoading(false);
       return;
     }
 
     try {
       const parsedJson = JSON.parse(json);
       const result = jp.query(parsedJson, jsonPath, implementation);
-      setResult((result.length > 0 || typeof(result) === 'number') ? JSON.stringify(result, null, 2) : 'No match');
+      setResult((result.length > 0 || typeof (result) === 'number') ? JSON.stringify(result, null, 2) : 'No match');
       setQueryParseError('');
       setJsonParseError(false);
     } catch (error) {
       setResult('No match');
       if (error.message.includes("JSON at position") || error.message.includes("is not valid JSON")) {
         setJsonParseError(true); // Set error state when "JSON at position" is found
-      }else {
+      } else {
         setJsonParseError(false);
       }
       setQueryParseError(error.message || 'Error executing JSONPath query');
-    } finally {
-      setIsLoading(false);
     }
   };
 
@@ -85,13 +81,11 @@ export default function JsonPathEvaluator() {
   const handleQueryChange = (event) => {
     const queryValue = event.target.value;
     setQuery(queryValue);
-    setIsLoading(queryValue.length > 0);
   };
 
   // Handle implementation change
   const handleImplementationChange = (newImplementation) => {
     setImplementation(newImplementation);
-    setIsLoading(true);
   };
 
   return (
@@ -109,7 +103,6 @@ export default function JsonPathEvaluator() {
                   value={query}
                   onChange={handleQueryChange}
                 />
-                {queryParseError && <Alert severity="error">{queryParseError}</Alert>}
                 {documentationLinks[implementation] && (
                   <Link
                     href={documentationLinks[implementation].url}
@@ -119,6 +112,9 @@ export default function JsonPathEvaluator() {
                     {documentationLinks[implementation].text}
                   </Link>
                 )}
+                <div className={styles.alertContainer}>
+                  {queryParseError && <Alert severity="error">{queryParseError}</Alert>}
+                </div>
               </Stack>
 
               <ImplementationDropdown
@@ -142,7 +138,6 @@ export default function JsonPathEvaluator() {
             />
             <ResultTerminal
               result={result}
-              isLoading={isLoading}
               fontSize={fontSize}
             />
           </div>

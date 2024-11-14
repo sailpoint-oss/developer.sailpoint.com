@@ -7,6 +7,10 @@
   margin-bottom: 2%;
 }
 
+.alertContainer {
+  min-height: 50px;
+}
+
 .inputTerminalContainer{
   border: 3px solid red !important;
   background: var(--terminal-background) !important;
@@ -46,6 +50,9 @@ fieldset[class^='MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-no
   border: 1.5px solid var(--terminal-background);
 }
 ul[class^='MuiList-root MuiList-padding MuiMenu-list css-1toxriw-MuiList-root-MuiMenu-list'] {
+  background-color: var(--terminal-background);
+}
+ul[class^='MuiMenu-list'] {
   background-color: var(--terminal-background);
 }
 

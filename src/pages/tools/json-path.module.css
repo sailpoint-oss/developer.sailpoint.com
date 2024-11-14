@@ -21,6 +21,10 @@
   background: var(--terminal-background) !important;
 }
 
+a[id^='jsonpathDocumentationLink']{
+  color: var(--mui-link) !important;
+}
+
 li[class^='MuiButtonBase-root'] {
   color: var(--text-color);
 }
@@ -31,6 +35,8 @@ div[id^='terminal-font-size-select'],
 div[id^='implementation-dropdown-select'] {
   color: var(--text-color);
 }
+
+
 
 input[id^='outlined-basic-jsonpath-input'],
 label[id^='outlined-basic-jsonpath-input-label'],
@@ -70,7 +76,8 @@ span[class^='ace_string'] {
   color: var(--terminal-value) !important;
 }
 
-/* div[id^='ace-editor']{
-  border: 3px solid var(--dev-card-background) !important;
-  background: var(--terminal-background) !important;
-} */
+div [id^='jsonpathalert']{
+  color: rgb(244, 67, 54);
+  border: 1px solid rgb(244, 67, 54);
+}
+

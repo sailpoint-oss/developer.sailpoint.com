@@ -249,7 +249,7 @@ Content-Type: `application/json-patch+json`
 
 Content-Type: `application/json-patch+json`
 
-_Note: Replace \[\*\] with the index location of the operation the way it is configured on the source. For example, 0, 1, 2, etc. You can use a`GET`call on the source first to verify the index location prior to executing the `PATCH` call to attach the rule._
+_Note: Replace \[\*\] with the index location of the operation the way it is configured on the source. For example, 0, 1, 2, etc. You can use a`GET`call on the source first to verify the index location prior to executing the `PATCH` call to attach the rule. This number will be 1 less than the value in "sequenceNumberForEndpoint", which is the UI Order value of this endpoint._
 
 ```json
 [
@@ -267,7 +267,7 @@ _Note: Replace \[\*\] with the index location of the operation the way it is con
 
 Content-Type: `application/json-patch+json`
 
-_Note: Replace \[\*\] with the index location of the operation the way it is configured on the source. For example, 0, 1, 2, etc. You can use a `GET` call on the source first to verify the index location prior to executing the `PATCH` call to attach the rule._
+_Note: Replace \[\*\] with the index location of the operation the way it is configured on the source. For example, 0, 1, 2, etc. You can use a `GET` call on the source first to verify the index location prior to executing the `PATCH` call to attach the rule. This number will be 1 less than the value in "sequenceNumberForEndpoint", which is the UI Order value of this endpoint._
 
 ```json
 [

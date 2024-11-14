@@ -6,8 +6,6 @@ import 'ace-builds/src-noconflict/theme-github_dark';  // Dark theme
 import 'ace-builds/src-noconflict/theme-github_light_default';  // Light theme
 import 'ace-builds/src-noconflict/ext-language_tools';
 import { useColorMode } from '@docusaurus/theme-common';
-import CircularProgress from '@mui/material/CircularProgress';
-import { Box } from '@mui/material';
 import styles from '../../../pages/tools/json-path.module.css'
 
 // Ensure ace is properly configured
@@ -19,29 +17,25 @@ if (typeof ace !== 'undefined' && ace.config) {
 }
 
 // Result Terminal (JSONPath Result)
-const ResultTerminal = ({ result, isLoading, fontSize }) => {
+const ResultTerminal = ({ result, fontSize }) => {
     const { colorMode } = useColorMode();
 
     return (
         <div className="col" style={{ marginRight: 75, marginBottom: 50 }}>
             <h2>Evaluation Results</h2>
-            {isLoading ? (
-                <Box display="flex" justifyContent="center" alignItems="center" height="200px">
-                    <CircularProgress />
-                </Box>
-            ) : (
-                <AceEditor
-                    className={styles.terminalContainerDefault}
-                    mode="json"
-                    theme={colorMode === 'dark' ? 'github_dark' : 'github_light_default'}
-                    value={result}
-                    readOnly
-                    fontSize={`${fontSize}px`}
-                    width="auto"
-                    showPrintMargin={false}
-                    editorProps={{ $blockScrolling: true }}
-                />
-            )}
+
+            <AceEditor
+                className={styles.terminalContainerDefault}
+                mode="json"
+                theme={colorMode === 'dark' ? 'github_dark' : 'github_light_default'}
+                value={result}
+                readOnly
+                fontSize={`${fontSize}px`}
+                width="auto"
+                showPrintMargin={false}
+                editorProps={{ $blockScrolling: true }}
+            />
+
         </div>
     );
 };

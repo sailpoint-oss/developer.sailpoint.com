@@ -12,16 +12,31 @@ const TerminalFontSizeDropdown = ({ fontSize, onFontSizeChange, onFocus, onBlur 
   const [isFocused, setIsFocused] = useState(false);
   const [expanded, setExpanded] = useState(false);
 
-  // Custom theme to modify border color, label color, etc.
   const theme = createTheme({
     components: {
-      // Customizing Select component's outlined input border color
       MuiOutlinedInput: {
         styleOverrides: {
           root: {
-            '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-              borderColor: (colorMode === 'dark' ? 'rgb(115,200,235)' : 'rgb(4,125,246)'), // When focused, change border color to red
+            '& .MuiOutlinedInput-notchedOutline': {
+              borderColor: colorMode === 'dark' ? '#ffffff' : 'initial',
+              borderWidth: 1,
             },
+            '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+              borderColor: (colorMode === 'dark' ? 'rgb(115,200,235)' : 'rgb(4,125,246)'),
+            },
+            '&:hover .MuiOutlinedInput-notchedOutline': {
+              borderColor: colorMode === 'dark' ? 'rgb(115,200,235)' : 'rgb(4,125,246)',
+            },
+          },
+        },
+      },
+      MuiSelect: {
+        styleOverrides: {
+          icon: {
+            color: colorMode === 'dark'
+              ? '#ffffff'
+              : 'black'
+
           },
         },
       },

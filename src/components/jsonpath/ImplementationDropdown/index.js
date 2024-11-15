@@ -20,8 +20,16 @@ const ImplementationDropdown = ({ implementation, onImplementationChange, onFocu
       MuiOutlinedInput: {
         styleOverrides: {
           root: {
+            '& .MuiOutlinedInput-notchedOutline': {
+              borderColor: colorMode === 'dark' ? '#ffffff' : 'initial', 
+              borderWidth: 1, 
+            },
             '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
               borderColor: (colorMode === 'dark' ? 'rgb(115,200,235)' : 'rgb(4,125,246)'), // When focused, change border color to red
+            },
+            // Change border color on hover
+            '&:hover .MuiOutlinedInput-notchedOutline': {
+              borderColor: colorMode === 'dark' ? 'rgb(115,200,235)' : 'rgb(4,125,246)',
             },
           },
         },

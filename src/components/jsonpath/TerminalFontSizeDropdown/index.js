@@ -19,8 +19,15 @@ const TerminalFontSizeDropdown = ({ fontSize, onFontSizeChange, onFocus, onBlur 
       MuiOutlinedInput: {
         styleOverrides: {
           root: {
+            '& .MuiOutlinedInput-notchedOutline': {
+              borderColor: colorMode === 'dark' ? '#ffffff' : 'initial', 
+              borderWidth: 1, 
+            },
             '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-              borderColor: (colorMode === 'dark' ? 'rgb(115,200,235)' : 'rgb(4,125,246)'), // When focused, change border color to red
+              borderColor: (colorMode === 'dark' ? 'rgb(115,200,235)' : 'rgb(4,125,246)'),
+            },
+            '&:hover .MuiOutlinedInput-notchedOutline': {
+              borderColor: colorMode === 'dark' ? 'rgb(115,200,235)' : 'rgb(4,125,246)',
             },
           },
         },

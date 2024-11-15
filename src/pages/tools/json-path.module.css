@@ -11,7 +11,7 @@
   min-height: 50px;
 }
 
-.inputTerminalContainer{
+.inputTerminalContainer {
   border: 3px solid red !important;
   background: var(--terminal-background) !important;
 }
@@ -21,7 +21,7 @@
   background: var(--terminal-background) !important;
 }
 
-a[id^='jsonpathDocumentationLink']{
+a[id^='jsonpathDocumentationLink'] {
   color: var(--mui-link) !important;
 }
 
@@ -36,8 +36,6 @@ div[id^='implementation-dropdown-select'] {
   color: var(--text-color);
 }
 
-
-
 input[id^='outlined-basic-jsonpath-input'],
 label[id^='outlined-basic-jsonpath-input-label'],
 select[id^='terminal-font-size-select'],
@@ -48,8 +46,7 @@ label[id^='implementation-dropdown-label'] {
 }
 input[id^='outlined-basic-jsonpath-input'],
 div[id^='terminal-font-size-select'],
-div[id^='implementation-dropdown-select']
-{
+div[id^='implementation-dropdown-select'] {
   background: var(--terminal-background);
 }
 fieldset[class^='MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline'] {
@@ -66,7 +63,7 @@ div[class^='MuiPaper-root'] {
 }
 
 svg[class^='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-lohd6h-MuiSvgIcon-root-MuiSelect-icon'],
-svg[class^='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined MuiSelect-iconOpen css-d551zc-MuiSvgIcon-root-MuiSelect-icon'] {
+svg[class^='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined MuiSelect-iconOpen'] {
   color: var(--text-color);
 }
 span[class^='ace_variable'] {
@@ -76,8 +73,7 @@ span[class^='ace_string'] {
   color: var(--terminal-value) !important;
 }
 
-div [id^='jsonpathalert']{
+div [id^='jsonpathalert'] {
   color: rgb(244, 67, 54);
   border: 1px solid rgb(244, 67, 54);
 }
-

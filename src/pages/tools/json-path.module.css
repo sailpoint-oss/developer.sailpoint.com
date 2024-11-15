@@ -62,10 +62,6 @@ div[class^='MuiPaper-root'] {
   background-color: var(--terminal-background) !important;
 }
 
-svg[class^='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-lohd6h-MuiSvgIcon-root-MuiSelect-icon'],
-svg[class^='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined MuiSelect-iconOpen'] {
-  color: var(--text-color);
-}
 span[class^='ace_variable'] {
   color: var(--terminal-key) !important;
 }

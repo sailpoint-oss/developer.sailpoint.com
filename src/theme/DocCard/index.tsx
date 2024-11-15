@@ -19,11 +19,8 @@ import type {
 import styles from './styles.module.css';
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {
-  faFolderOpen,
-  faBook,
-  faArrowUpRightFromSquare,
-} from '@fortawesome/pro-duotone-svg-icons';
+// Icons - conditionally load based on the token availability
+import { faFolderOpen, faBook, faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'; // Fallback classic icons
 
 function useCategoryItemsPlural() {
   const {selectMessage} = usePluralForm();

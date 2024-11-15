@@ -9,7 +9,7 @@ properties:
       
       The HTTP response status code returned for an individual member that is requested for addition during a bulk add operation.
       
-       The HTTP response status code returned for an individual Governance Group is requested for deletion.
+      The HTTP response status code returned for an individual Governance Group is requested for deletion.
       
       
       > 201   - Identity is added into Governance Group members list.
@@ -17,8 +17,9 @@ properties:
       
       > 409   - Identity is already member of  Governance Group.
 
-    type: string
-    example: "201"
+    type: integer
+    format: int32
+    example: 201
   description:
     description: >
       Human readable status description and containing additional

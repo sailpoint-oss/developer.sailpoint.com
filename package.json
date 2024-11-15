@@ -37,7 +37,6 @@
     "clsx": "^2.0.0",
     "docusaurus-plugin-openapi-docs": "0.0.0-949",
     "docusaurus-theme-openapi-docs": "0.0.0-949",
-    "docusaurus2-dotenv": "^1.4.0",
     "ldrs": "^1.0.1",
     "prism-react-renderer": "^2.3.0",
     "react": "^18.2.0",

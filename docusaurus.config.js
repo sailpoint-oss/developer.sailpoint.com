@@ -15,11 +15,11 @@ const config = {
   future: {
     experimental_faster: {
       swcJsLoader: true,
-      swcJsMinimizer: true,
-      swcHtmlMinimizer: true,
-      lightningCssMinimizer: true,
+      swcJsMinimizer: false,
+      swcHtmlMinimizer: false,
+      lightningCssMinimizer: false,
       rspackBundler: true,
-      mdxCrossCompilerCache: true,
+      mdxCrossCompilerCache: false,
     },
   },
   title: 'SailPoint Developer Community',

@@ -1,7 +1,7 @@
 import find from "lodash/find";
-import isArray from "lodash/isArray";
 import mergeWith from "lodash/mergeWith";
 import unionBy from "lodash/unionBy";
+import codegen from "postman-code-generators";
 
 import { CodeSample, Language } from "./code-snippets-types";
 
@@ -43,10 +43,7 @@ export const mergeArraysbyLanguage = (arr1: any, arr2: any) => {
       find(arr2, ["language", item["language"]]),
     ];
     return mergeWith({}, ...matchingItems, (objValue: any) => {
-      if (isArray(objValue)) {
-        return objValue;
-      }
-      return undefined;
+      return objValue;
     });
   });
 };
@@ -65,4 +62,28 @@ export function getCodeSampleSourceFromLanguage(language: Language) {
   }
 
   return "";
+}
+
+export function generateLanguageSet() {
+  const languageSet: Language[] = [];
+  codegen.getLanguageList().forEach((language: any) => {
+    const variants: any = [];
+    language.variants.forEach((variant: any) => {
+      variants.push(variant.key);
+    });
+    languageSet.push({
+      highlight: language.syntax_mode,
+      language: language.key,
+      codeSampleLanguage: language.label,
+      logoClass: language.key,
+      options: {
+        longFormat: false,
+        followRedirect: true,
+        trimRequestBody: true,
+      },
+      variant: variants[0],
+      variants: variants,
+    });
+  });
+  return languageSet;
 }

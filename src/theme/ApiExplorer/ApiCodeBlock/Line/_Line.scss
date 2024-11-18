@@ -34,10 +34,9 @@
   opacity: 0.4;
 }
 
-.theme-code-block-highlighted-line {
+:global(.theme-code-block-highlighted-line)
   .openapi-explorer__code-block-code-line-number::before {
-    opacity: 0.8;
-  }
+  opacity: 0.8;
 }
 
 .openapi-explorer__code-block-code-line-number {

@@ -45,4 +45,18 @@ properties:
     type: array
     description: The public identity attributes of the identity
     items:
-      $ref: './IdentityAttribute.yaml'
+      type: object
+      properties:
+        key:
+          type: string
+          description: The attribute key
+          example: 'country'
+        name:
+          type: string
+          description: Human-readable display name of the attribute
+          example: 'Country'
+        value:
+          type: string
+          description: The attribute value
+          example: 'US'
+          nullable: true

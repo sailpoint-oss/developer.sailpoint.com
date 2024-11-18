@@ -2,7 +2,12 @@ get:
   operationId: getPublicIdentities
   tags:
     - Public Identities
-  summary: Get a list of public identities
+  summary: Get list of public identities
+  description: Get a list of public identities.  Set `add-core-filters` to `true` to exclude incomplete identities and uncorrelated accounts.
+  security:
+    - userAuth: [sp:scopes:default]
+  x-sailpoint-userLevels:
+    - USER
   parameters:
     - $ref: '../parameters/limit.yaml'
     - $ref: '../parameters/offset.yaml'

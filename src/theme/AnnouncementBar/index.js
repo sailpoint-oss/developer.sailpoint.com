@@ -5,7 +5,9 @@ import AnnouncementBarCloseButton from '@theme/AnnouncementBar/CloseButton';
 import AnnouncementBarContent from '@theme/AnnouncementBar/Content';
 import {getBanner} from '../../services/CMSService';
 import styles from './styles.module.css';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 export default function AnnouncementBar() {
+  const {siteConfig} = useDocusaurusContext();
   const {announcementBar} = useThemeConfig();
   const {isActive, close} = useAnnouncementBar();
   const {backgroundColor, textColor, isCloseable} = announcementBar;
@@ -19,7 +21,7 @@ export default function AnnouncementBar() {
   };
 
   const getBannerText = async () => {
-    let data = await getBanner();
+    let data = await getBanner(siteConfig.customFields.CMS_APP_API_ENDPOINT);
     if (data.Item) {
       if (
         localStorage.getItem('docusaurus.aws.id') !==

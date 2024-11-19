@@ -1,13 +1,9 @@
-import {CMSBaseURL} from '../util/util';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import { CMSBaseURL } from '../util/util';
 
-export async function getBanner() {
-  const {siteConfig} = useDocusaurusContext();
-  console.log(siteConfig.themeConfig.customFields.CMS_APP_API_ENDPOINT);
-  console.log(siteConfig.customFields.CMS_APP_API_ENDPOINT);
+export async function getBanner(cmsurl) {
 
   try {
-    const response = await fetch(siteConfig.customFields.CMS_APP_API_ENDPOINT + 'banner');
+    const response = await fetch(cmsurl + 'banner');
     return await response.json();
   } catch (error) {
     return [];

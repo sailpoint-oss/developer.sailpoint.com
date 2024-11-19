@@ -31,6 +31,5 @@ export function discourseProductTag() {
 }
 
 export function CMSBaseURL() {
-  console.log('CMSBaseURL', process.env.CMS_APP_API_ENDPOINT);
   return process.env.CMS_APP_API_ENDPOINT;
 }

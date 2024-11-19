@@ -1910,6 +1910,8 @@ paths:
     $ref: ./v2024/paths/role-mining-session-potential-role-summary.yaml
   /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}/applications:
     $ref: ./v2024/paths/role-mining-session-potential-role-applications.yaml
+  /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}/entitlements:
+    $ref: ./v2024/paths/role-mining-session-potential-role-entitlements.yaml
   /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/entitlement-popularities:
     $ref: ./v2024/paths/role-mining-potential-role-entitlement-popularities.yaml
   /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/entitlement-popularity-distribution:

@@ -1,9 +1,9 @@
 get:
-  operationId: getPotentialRoleApplications
-  summary: Retrieves the applications of a potential role for a role mining session
+  operationId: getPotentialRoleEntitlements
+  summary: Retrieves the entitlements of a potential role for a role mining session
   tags:
   - IAI Role Mining
-  description: This method returns the applications of a potential role for a role
+  description: This method returns the entitlements of a potential role for a role
     mining session.
   parameters:
   - in: query
@@ -18,8 +18,8 @@ get:
       Filtering is supported for the following fields and operators:
 
 
-      **applicationName**: *sw*'
-    example: applicationName sw "test"
+      **entitlementRef.name**: *sw*'
+    example: entitlementRef.name sw "test"
   - in: path
     name: sessionId
     schema:
@@ -47,14 +47,14 @@ get:
     required: true
   responses:
     '200':
-      description: Succeeded. Returns a list of potential roles for a role mining
+      description: Succeeded. Returns the entitlements of a potential role for a role mining session.
         session.
       content:
         application/json:
           schema:
             type: array
             items:
-              $ref: ../../beta/schemas/RoleMiningPotentialRoleApplication.yaml
+              $ref: ../../beta/schemas/RoleMiningPotentialRoleEntitlements.yaml
     '400':
       $ref: ../../v3/responses/400.yaml
     '401':

@@ -1,26 +1,25 @@
 get:
-  operationId: getPotentialRoleApplications
-  summary: Retrieves the applications of a potential role for a role mining session
+  operationId: getPotentialRoleEntitlements
+  summary: Retrieves the entitlements of a potential role for a role mining session
   tags:
     - IAI Role Mining
   description: >-
-    This method returns the applications of a potential role for a role mining session.
+    This method returns the entitlements of a potential role for a role mining session.
   parameters:
     - in: query
       name: filters
       schema:
         type: string
       required: false
-      description: >-
-        Filter results using the standard syntax described in [V3 API Standard
+      description: 'Filter results using the standard syntax described in [V3 API Standard
         Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
 
 
         Filtering is supported for the following fields and operators:
 
 
-        **applicationName**: *sw*
-      example: applicationName sw "test"
+        **entitlementRef.name**: *sw*'
+      example: entitlementRef.name sw "test"
     - in: path
       name: sessionId
       schema:
@@ -40,13 +39,13 @@ get:
     - $ref: '../../v3/parameters/count.yaml'
   responses:
     '200':
-      description: Succeeded. Returns a list of potential roles for a role mining session.
+      description: Succeeded. Returns the entitlements of a potential role for a role mining session.
       content:
         application/json:
           schema:
             type: array
             items:
-              $ref: '../schemas/RoleMiningPotentialRoleApplication.yaml'
+              $ref: '../schemas/RoleMiningPotentialRoleEntitlements.yaml'
     '400':
       $ref: '../../v3/responses/400.yaml'
     '401':

@@ -116,6 +116,13 @@ const config = {
           },
         },
       },
+      customFields: {
+        'AUTH_USERNAME': process.env.AUTH_USERNAME,
+        'AUTH_PASSWORD': process.env.AUTH_PASSWORD,
+        'ENDPOINT_OVERRIDE': process.env.ENDPOINT_OVERRIDE,
+        'SAMPLE_TABLE': process.env.SAMPLE_TABLE,
+        'CMS_APP_API_ENDPOINT': process.env.CMS_APP_API_ENDPOINT,
+      },
     }),
 
   plugins: plugins,
@@ -125,13 +132,6 @@ const config = {
   },
 
   themes: ['docusaurus-theme-openapi-docs', '@docusaurus/theme-mermaid'],
-  customFields: {
-    'AUTH_USERNAME': process.env.AUTH_USERNAME,
-    'AUTH_PASSWORD': process.env.AUTH_PASSWORD,
-    'ENDPOINT_OVERRIDE': process.env.ENDPOINT_OVERRIDE,
-    'SAMPLE_TABLE': process.env.SAMPLE_TABLE,
-    'CMS_APP_API_ENDPOINT': process.env.CMS_APP_API_ENDPOINT,
-  },
 };
 
 module.exports = config;

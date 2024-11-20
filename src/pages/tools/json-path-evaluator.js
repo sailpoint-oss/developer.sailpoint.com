@@ -48,10 +48,15 @@ export default function JsonPathEvaluator() {
       return;
     }
 
+    if (jsonPath.length === 1 && jsonPath[0] === '$') {
+      setResult(json, null, 2);
+      return;
+    }
+
     try {
       const parsedJson = JSON.parse(json);
       const result = jp.query(parsedJson, jsonPath, implementation);
-      setResult((result.length > 0 || typeof result === 'number') ? JSON.stringify(result, null, 2) : 'No match');
+      setResult((result.length > 0 || typeof result === 'number' || typeof result === 'object') ? JSON.stringify(result, null, 2) : 'No match');
       setQueryParseError('');
       setJsonParseError(false);
     } catch (error) {

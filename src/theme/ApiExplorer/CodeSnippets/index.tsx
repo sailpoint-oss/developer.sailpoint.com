@@ -20,120 +20,10 @@ import {
   getCodeSampleSourceFromLanguage,
   mergeArraysbyLanguage,
   mergeCodeSampleLanguage,
+  generateLanguageSet,
 } from "./languages";
 
-export const languageSet: Language[] = [
-  {
-    highlight: "bash",
-    language: "curl",
-    codeSampleLanguage: "Shell",
-    logoClass: "bash",
-    options: {
-      longFormat: false,
-      followRedirect: true,
-      trimRequestBody: true,
-    },
-    variant: "cURL",
-    variants: ["curl"],
-  },
-  {
-    highlight: "python",
-    language: "python",
-    codeSampleLanguage: "Python",
-    logoClass: "python",
-    options: {
-      followRedirect: true,
-      trimRequestBody: true,
-    },
-    variant: "requests",
-    variants: ["requests", "http.client"],
-  },
-  {
-    highlight: "go",
-    language: "go",
-    codeSampleLanguage: "Go",
-    logoClass: "go",
-    options: {
-      followRedirect: true,
-      trimRequestBody: true,
-    },
-    variant: "native",
-    variants: ["native"],
-  },
-  {
-    highlight: "javascript",
-    language: "nodejs",
-    codeSampleLanguage: "JavaScript",
-    logoClass: "nodejs",
-    options: {
-      ES6_enabled: true,
-      followRedirect: true,
-      trimRequestBody: true,
-    },
-    variant: "axios",
-    variants: ["axios", "native"],
-  },
-  {
-    highlight: "ruby",
-    language: "ruby",
-    codeSampleLanguage: "Ruby",
-    logoClass: "ruby",
-    options: {
-      followRedirect: true,
-      trimRequestBody: true,
-    },
-    variant: "Net::HTTP",
-    variants: ["net::http"],
-  },
-  {
-    highlight: "csharp",
-    language: "csharp",
-    codeSampleLanguage: "C#",
-    logoClass: "csharp",
-    options: {
-      followRedirect: true,
-      trimRequestBody: true,
-    },
-    variant: "RestSharp",
-    variants: ["restsharp", "httpclient"],
-  },
-  {
-    highlight: "php",
-    language: "php",
-    codeSampleLanguage: "PHP",
-    logoClass: "php",
-    options: {
-      followRedirect: true,
-      trimRequestBody: true,
-    },
-    variant: "cURL",
-    variants: ["curl", "guzzle", "pecl_http", "http_request2"],
-  },
-  {
-    highlight: "java",
-    language: "java",
-    codeSampleLanguage: "Java",
-    logoClass: "java",
-    options: {
-      followRedirect: true,
-      trimRequestBody: true,
-    },
-    variant: "OkHttp",
-    variants: ["okhttp", "unirest"],
-  },
-  {
-    highlight: "powershell",
-    language: "powershell",
-    codeSampleLanguage: "PowerShell",
-    logoClass: "powershell",
-    options: {
-      followRedirect: true,
-      trimRequestBody: true,
-    },
-    variant: "RestMethod",
-    variants: ["restmethod"],
-  },
-];
+export const languageSet: Language[] = generateLanguageSet();
 
 export interface Props {
   postman: sdk.Request;
@@ -283,7 +173,7 @@ function CodeSnippets({ postman, codeSamples }: Props) {
   ]);
   // no dependencies was intentionlly set for this particular hook. it's safe as long as if conditions are set
   useEffect(function onSelectedVariantUpdate() {
-    if (selectedVariant && selectedVariant !== language.variant) {
+    if (selectedVariant && selectedVariant !== language?.variant) {
       const postmanRequest = buildPostmanRequest(postman, {
         queryParams,
         pathParams,
@@ -314,6 +204,7 @@ function CodeSnippets({ postman, codeSamples }: Props) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(function onSelectedSampleUpdate() {
     if (
+      language &&
       language.samples &&
       language.samplesSources &&
       selectedSample &&
@@ -332,6 +223,7 @@ function CodeSnippets({ postman, codeSamples }: Props) {
 
   return (
     <>
+      {/* Outer language tabs */}
       <CodeTabs
         groupId="code-samples"
         action={{
@@ -340,6 +232,7 @@ function CodeSnippets({ postman, codeSamples }: Props) {
           setSelectedSample: setSelectedSample,
         }}
         languageSet={mergedLangs}
+        defaultValue={defaultLang[0]?.language ?? mergedLangs[0].language}
         lazy
       >
         {mergedLangs.map((lang) => {
@@ -352,6 +245,7 @@ function CodeSnippets({ postman, codeSamples }: Props) {
                 className: `openapi-tabs__code-item--${lang.logoClass}`,
               }}
             >
+              {/* Inner x-codeSamples tabs */}
               {lang.samples && (
                 <CodeTabs
                   className="openapi-tabs__code-container-inner"
@@ -393,6 +287,7 @@ function CodeSnippets({ postman, codeSamples }: Props) {
                 </CodeTabs>
               )}
 
+              {/* Inner generated code snippets */}
               <CodeTabs
                 className="openapi-tabs__code-container-inner"
                 action={{

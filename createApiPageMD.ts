@@ -60,33 +60,24 @@ export function createApiPageMD({
   frontMatter,
 }: ApiPageMetadata) {
   return render([
-    `import ApiTabs from "@theme/ApiTabs";\n`,
-    `import DiscriminatorTabs from "@theme/DiscriminatorTabs";\n`,
     `import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";\n`,
-    `import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";\n`,
-    `import MimeTabs from "@theme/MimeTabs";\n`,
-    `import ParamsItem from "@theme/ParamsItem";\n`,
-    `import ResponseSamples from "@theme/ResponseSamples";\n`,
-    `import SchemaItem from "@theme/SchemaItem";\n`,
-    `import SchemaTabs from "@theme/SchemaTabs";\n`,
-    `import Markdown from "@theme/Markdown";\n`,
-    `import Heading from "@theme/Heading";\n`,
+    `import ParamsDetails from "@theme/ParamsDetails";\n`,
+    `import RequestSchema from "@theme/RequestSchema";\n`,
+    `import StatusCodes from "@theme/StatusCodes";\n`,
     `import OperationTabs from "@theme/OperationTabs";\n`,
-    `import TabItem from "@theme/TabItem";\n\n`,
+    `import TabItem from "@theme/TabItem";\n`,
+    `import Heading from "@theme/Heading";\n\n`,
     createHeading(title),
     createMethodEndpoint(method, path),
     infoPath && createAuthorization(infoPath),
     frontMatter.show_extensions
       ? createVendorExtensions(extensions)
       : undefined,
-      createDeprecation({ deprecated, description: deprecatedDescription }),
     createExperimentalNotice(parameters),
+    createDeprecationNotice({ deprecated, description: deprecatedDescription }),
     createDescription(description),
     requestBody || parameters ? createRequestHeader("Request") : undefined,
-    createParamsDetails({ parameters, type: "path" }),
-    createParamsDetails({ parameters, type: "query" }),
-    createParamsDetails({ parameters, type: "header" }),
-    createParamsDetails({ parameters, type: "cookie" }),
+    createParamsDetails({ parameters }),
     createRequestBodyDetails({
       title: "Body",
       body: requestBody,
@@ -94,17 +85,6 @@ export function createApiPageMD({
     createStatusCodes({ responses }),
     createCallbacks({ callbacks }),
   ]);
-}
-
-
-function createDeprecation({ deprecated, description }: { deprecated?: boolean; description?: string }) {
-  if (deprecated == true) {
-    if (description !== undefined) {
-      return `:::caution deprecated\n\n${description}\n\n:::`;
-    } else {
-      return `:::caution deprecated\n\nThis endpoint has been deprecated and may be replaced or removed in future versions of the API.\n\n:::`;
-    }
-  }
 }
 
 function createExperimentalNotice(parameters){

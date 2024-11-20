@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 
 import { useDoc } from "@docusaurus/plugin-content-docs/client";
+import Accept from "@theme/ApiExplorer/Accept";
 import Authorization from "@theme/ApiExplorer/Authorization";
 import Body from "@theme/ApiExplorer/Body";
 import buildPostmanRequest from "@theme/ApiExplorer/buildPostmanRequest";
@@ -23,7 +24,7 @@ import { FormProvider, useForm } from "react-hook-form";
 
 import makeRequest from "./makeRequest";
 
-function Request({ item }: { item: NonNullable<ApiItem> }) {
+function Request({ item }: { item: ApiItem }) {
   const postman = new sdk.Request(item.postman);
   const metadata = useDoc();
   const { proxy, hide_send_button: hideSendButton } = metadata.frontMatter;

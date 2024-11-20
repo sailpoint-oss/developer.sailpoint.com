@@ -1,7 +1,8 @@
 import React from "react";
 
-import { usePrismTheme } from "@docusaurus/theme-common";
+// @ts-ignore
 import { useDoc } from "@docusaurus/plugin-content-docs/client";
+import { usePrismTheme } from "@docusaurus/theme-common";
 import ApiCodeBlock from "@theme/ApiExplorer/ApiCodeBlock";
 import { useTypedDispatch, useTypedSelector } from "@theme/ApiItem/hooks";
 import SchemaTabs from "@theme/SchemaTabs";
@@ -31,7 +32,7 @@ function formatXml(xml: string) {
   return formatted.substring(1, formatted.length - 3);
 }
 
-function Response({ item }: { item: NonNullable<ApiItem> }) {
+function Response({ item }: { item: ApiItem }) {
   const metadata = useDoc();
   const hideSendButton = metadata.frontMatter.hide_send_button;
   const prismTheme = usePrismTheme();

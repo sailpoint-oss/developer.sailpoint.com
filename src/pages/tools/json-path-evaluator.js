@@ -56,7 +56,8 @@ export default function JsonPathEvaluator() {
     try {
       const parsedJson = JSON.parse(json);
       const result = jp.query(parsedJson, jsonPath, implementation);
-      setResult((result.length > 0 || typeof result === 'number' || typeof result === 'object') ? JSON.stringify(result, null, 2) : 'No match');
+
+      setResult((result.length > 0 || typeof result === 'number' || typeof result === 'object' || typeof result === 'boolean') ? JSON.stringify(result, null, 2) : 'No match');
       setQueryParseError('');
       setJsonParseError(false);
     } catch (error) {

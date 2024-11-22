@@ -30,7 +30,7 @@ permissions:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   publish:
-    runs-on: macos-latest-large
+    runs-on: ubuntu-latest
     steps:
       - name: Configure AWS credentials from Test account
         uses: aws-actions/configure-aws-credentials@v3

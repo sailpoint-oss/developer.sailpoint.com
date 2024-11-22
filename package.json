@@ -21,10 +21,10 @@
     "rebuild-docs": "npm run clean-api-docs-all && npm run gen-api-docs-all"
   },
   "dependencies": {
-    "@docusaurus/faster": "^3.6.1",
-    "@docusaurus/plugin-client-redirects": "3.6.1",
-    "@docusaurus/plugin-google-tag-manager": "3.6.1",
-    "@docusaurus/theme-mermaid": "3.6.1",
+    "@docusaurus/faster": "^3.6.3",
+    "@docusaurus/plugin-client-redirects": "3.6.3",
+    "@docusaurus/plugin-google-tag-manager": "3.6.3",
+    "@docusaurus/theme-mermaid": "3.6.3",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
@@ -56,10 +56,10 @@
     "mermaid": "10.9.3"
   },
   "devDependencies": {
-    "@docusaurus/core": "3.6.1",
-    "@docusaurus/module-type-aliases": "3.6.1",
-    "@docusaurus/preset-classic": "3.6.1",
-    "@docusaurus/types": "3.6.1",
+    "@docusaurus/core": "3.6.3",
+    "@docusaurus/module-type-aliases": "3.6.3",
+    "@docusaurus/preset-classic": "3.6.3",
+    "@docusaurus/types": "3.6.3",
     "dotenv": "^16.4.5",
     "husky": "^8.0.2",
     "prettier": "2.8.0",

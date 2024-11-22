@@ -1,0 +1,53 @@
+get:
+  operationId: getJsonWebKeySet
+  security:
+    - { }
+  tags:
+    - OAuth JWKS
+  summary: List OAuth JWKS
+  description: >-
+    This retrieves the set of OAuth JSON web keys used for validating JWTs issued by Identity Security Center.
+
+  responses:
+    '200':
+      description: Set of JSON web keys.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              keys:
+                type: array
+                items:
+                  $ref: '../schemas/GetOAuthClientResponse.yaml'
+              description: The set of public key data used to validate JWTs issued by Identity Security Center
+              example: [
+                {
+                  "kid": "17a3558a-5ce2-4b5b-eb79-d5e0c97f78d3",
+                  "alg": "ES256",
+                  "crv": "P-256",
+                  "kty": "EC",
+                  "x": "BB59MqkWRxyWAd7by8EKKIHuumFvOWj3YFo1HtNchDM",
+                  "y": "iBLT8AtrjpLBTuj94DXG-MER94_X-zSOlTjUS5dopJc"
+                },
+                {
+                  "kid": "bbb74f7a-0411-461b-a669-3c6b8d86771f",
+                  "alg": "ES256",
+                  "crv": "P-256",
+                  "kty": "EC",
+                  "x": "xayv8a_wpsZiME1TgmBNAV9TnXv3EuvQTNvcRmwqLtc",
+                  "y": "_bz45zThN8AQx2Dd44Kk686vMJ-4X5N-YbsRzQcVhdk"
+                }
+              ]
+            required:
+              - keys
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

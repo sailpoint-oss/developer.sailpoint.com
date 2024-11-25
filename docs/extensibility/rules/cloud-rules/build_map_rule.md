@@ -29,7 +29,7 @@ This rule manipulates raw input data provided by the rows and columns in a file 
 
 | Argument | Type | Purpose |
 | --- | --- | --- |
-| cols | java.util.List | Ordered list of the column names from the file’s header records or specified columns list. |
+| col | java.util.List | Ordered list of the column names from the file’s header records or specified columns list. |
 | record | java.util.List | Ordered list of the values for the current record, parsed based on the specified delimiter. |
 | application | System.Collections.Hashtable | Map of the application configuration. |
 | schema | sailpoint.object.Schema | Reference to the schema object for the delimited file source being read. |
@@ -60,7 +60,7 @@ This rule manipulates raw input data provided by the rows and columns in a file 
 
      import sailpoint.connector.DelimitedFileConnector;
 
-     Map map = DelimitedFileConnector.defaultBuildMap( cols, record );
+     Map map = DelimitedFileConnector.defaultBuildMap( col, record );
      String access = (String) map.get( "access" );
      String permission = (String) map.get( "permission" );
 

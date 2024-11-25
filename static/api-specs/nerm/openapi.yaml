@@ -235,6 +235,11 @@ paths:
 # Forms
   /forms:
     $ref: "./paths/forms.yaml"
+# Consolidation
+  /idproxy/data_records/{id}/reassign:
+    $ref: "./paths/consolidation_data_record.yaml"
+  /idproxy/identities/{id}:
+    $ref: "./paths/consolidation_master_record.yaml"
 # Form Attributes
   /form_attributes:
     $ref: "./paths/form_attributes.yaml"

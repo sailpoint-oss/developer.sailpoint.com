@@ -4,6 +4,7 @@ post:
   description:
     This API initialize a request to add a single Access Model Metadata to a role by attribute key and attribute value.
     A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API.
+    The maximum number of attributes in one role is 25.
     Custom metadata update, including ADD and REPLACE need suit licensed.
   tags:
     - Roles

@@ -2266,6 +2266,8 @@ components:
       $ref: ./v3/schemas/BrandingItemCreate.yaml
     RoleBulkUpdateResponse:
       $ref: "./v2024/schemas/role-metadata/RoleBulkUpdateResponse.yaml"
+    RoleGetAllBulkUpdateResponse:
+      $ref: "./v2024/schemas/role-metadata/RoleGetAllBulkUpdateResponse.yaml"
     RoleListFilterDTO:
       $ref: "./v2024/schemas/role-metadata/RoleListFilterDTO.yaml"
     RoleMetadataBulkUpdateByFilterRequest:

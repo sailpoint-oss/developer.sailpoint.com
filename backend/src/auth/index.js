@@ -2,7 +2,7 @@ exports.authHandler = async (event) => {
   const token = event.headers.authorization;
 
   const expectedUsername = process.env.AUTH_USERNAME;
-  const expectedPassword = process.env.AUTH_USERNAME;
+  const expectedPassword = process.env.AUTH_PASSWORD;
 
   try {
     const {username, password} = decodeAuthToken(token);

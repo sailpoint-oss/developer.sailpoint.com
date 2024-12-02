@@ -44,7 +44,7 @@ This template is used for the connector rule development process which is suppor
     "signature": {
         "input": [
             {
-                "name": "col",
+                "name": "cols",
                 "description": "An ordered list of the column names from the file’s header record or specified Columns list.",
                 "type": null
             },

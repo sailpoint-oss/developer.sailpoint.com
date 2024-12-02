@@ -20,8 +20,8 @@ get:
                 type: array
                 items:
                   $ref: '../schemas/GetOAuthClientResponse.yaml'
-              description: The set of public key data used to validate JWTs issued by Identity Security Center
-              example: [
+            description: The set of public key data used to validate JWTs issued by Identity Security Center
+            example: [
                 {
                   "kid": "17a3558a-5ce2-4b5b-eb79-d5e0c97f78d3",
                   "alg": "ES256",

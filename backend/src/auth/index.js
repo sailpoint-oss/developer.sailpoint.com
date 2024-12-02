@@ -1,10 +1,8 @@
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 exports.authHandler = async (event) => {
   const token = event.headers.authorization;
-  const {siteConfig} = useDocusaurusContext();
 
-  const expectedUsername = siteConfig.customFields.AUTH_USERNAME;
-  const expectedPassword = siteConfig.customFields.AUTH_PASSWORD;
+  const expectedUsername = process.env.AUTH_USERNAME;
+  const expectedPassword = process.env.AUTH_USERNAME;
 
   try {
     const {username, password} = decodeAuthToken(token);

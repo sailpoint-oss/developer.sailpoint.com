@@ -78,21 +78,34 @@ If you have admin access but don't know your tenant name, you can learn it by fo
 3. Select 'Overview'.
 4. Find the tenant name ('Org Name') in the dashboard's `Org Details` section.
 
-This is an example of the OAuth details of the tenant, "iga-acme-sb":
+This is an example of the OAuth details of the tenant, `iga-acme-sb`, that does not use a vanity URL:
+```json
+{
+    "tenantId": "6d9b2709-915f-47f0-879e-cee65d6bc9af",
+    "tenantName": "iga-acme-sb",
+    "authorizeEndpoint": "https://iga-acme-sb.login.sailpoint.com/oauth/authorize",
+    "tokenEndpoint": "https://iga-acme-sb.api.identitynow.com/oauth/token",
+    "cloudDomainUrl": "https://iga-acme-sb.identitynow.com",
+    "logoutUrl": "https://iga-acme-sb.identitynow.com/logout",
+    "pod": "stg01-useast1"
+}
+```
+
+This is an example of the OAuth details of the tenant, `iga-acme`, that uses a vanity URL, "iga.acme.com":
 
 ```json
 {
   "tenantId": "cc31a307-8a8d-49e8-93b9-c7cbe20e2e6b",
-  "tenantName": "iga-acme-sb",
-  "authorizeEndpoint": "https://iga-sb.login.sailpoint.com/oauth/authorize",
-  "tokenEndpoint": "https://iga-sb.api.identitynow.com/oauth/token",
-  "cloudDomainUrl": "https://iga-sb.acme.com",
-  "logoutUrl": "https://iga-sb.acme.com/logout",
-  "pod": "stg01-useast1"
+  "tenantName": "iga-acme",
+  "authorizeEndpoint": "https://iga-acme.login.sailpoint.com/oauth/authorize",
+  "tokenEndpoint": "https://iga-acme.api.identitynow.com/oauth/token",
+  "cloudDomainUrl": "https://iga.acme.com",
+  "logoutUrl": "https://iga.acme.com/logout",
+  "pod": "prd01-useast1"
 }
 ```
 
-You can use the `authorizeEndpoint` and `tokenEndpoint` URLs from this example to test out the different authentication methods listed in this guide.
+You can use the `authorizeEndpoint` and `tokenEndpoint` URLs from your tenant to test out the different authentication methods listed in this guide.
 
 ### Generate a personal access token
 

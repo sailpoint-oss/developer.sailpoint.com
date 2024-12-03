@@ -54,7 +54,7 @@ my-first-project
 ├── package.json
 ├── src/
 |   ├── index.ts
-|   ├── my-client.txt
+|   ├── my-client.ts
 |   └── connector-spec.ts
 ├── tsconfig.json
 ```

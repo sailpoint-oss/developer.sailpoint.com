@@ -4,9 +4,7 @@ get:
     - IAI Outliers
   summary: IAI Identity Outliers Summary
   description: >-
-    This API receives a summary containing: the number of identities that customer has, the number of outliers, and the type of outlier
-
-    Requires authorization scope of 'iai:outliers-management:read'
+    This API returns a summary containing the number of identities that customer has, the number of outliers, and the type of outlier.
   parameters:
     - $ref: '../../v3/parameters/limit.yaml'
     - $ref: '../../v3/parameters/offset.yaml'
@@ -14,6 +12,7 @@ get:
       in: query
       description: Type of the identity outliers snapshot to filter on
       required: false
+      example: LOW_SIMILARITY
       schema:
         type: string
         enum:
@@ -32,6 +31,7 @@ get:
         
         **snapshotDate**: *ge, le*
       example: snapshotDate ge "2022-02-07T20:13:29.356648026Z"
+      required: false
     - in: query
       name: sorters
       schema:
@@ -46,7 +46,7 @@ get:
       required: false
   responses:
     '200':
-      description: Succeeded. Returns list of objects. Each object is a summary to give high level statistics/counts of outliers 
+      description: Succeeded. Returns list of objects. Each object is a summary to give high level statistics/counts of outliers. 
       headers:
         X-Total-Count:
           description: The total result count.
@@ -70,3 +70,9 @@ get:
       $ref: '../../v3/responses/429.yaml'
     '500':
       $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [iai:outliers:read, iai:outliers:manage]
+    - applicationAuth: [iai:outliers:read, iai:outliers:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - REPORT_ADMIN

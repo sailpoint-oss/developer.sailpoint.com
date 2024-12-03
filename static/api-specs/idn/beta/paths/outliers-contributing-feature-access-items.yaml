@@ -3,11 +3,10 @@ get:
   tags:
     - IAI Outliers
   summary: Gets a list of access items associated with each identity outlier contributing feature
-  description: >-
-    This API returns a list of the enriched access items associated with each feature filtered by the access item type 
-    The object contains: accessItemId, display name (translated text or message key), description (translated text or message key), accessType, sourceName, extremelyRare
+  description: |
+    This API returns a list of the enriched access items associated with each feature filtered by the access item type.
 
-    Requires authorization scope of 'iai:outliers-management:read'
+    The object contains: accessItemId, display name (translated text or message key), description (translated text or message key), accessType, sourceName, extremelyRare.
   parameters:
     - $ref: '../../v3/parameters/limit.yaml'
     - $ref: '../../v3/parameters/offset.yaml'
@@ -38,7 +37,7 @@ get:
       required: false
       schema:
         type: string
-      description: The type of access item for the identity outlier contributing feature. If not provided, it returns all
+      description: The type of access item for the identity outlier contributing feature. If not provided, it returns all.
       example: ENTITLEMENT
     - in: query
       name: sorters
@@ -74,4 +73,8 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - userAuth: [ iai:outliers-management:read ]
+    - userAuth: [iai:outliers:read, iai:outliers:manage]
+    - applicationAuth: [iai:outliers:read, iai:outliers:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - REPORT_ADMIN

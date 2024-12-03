@@ -1,12 +1,10 @@
 post:
   operationId: ignoreIdentityOutliers
   tags:
-  - IAI Outliers
+    - IAI Outliers
   summary: IAI Identity Outliers Ignore
-  description: 'This API receives a list of IdentityIDs in the request, changes the
-    outliers to be ignored--returning a 204 if successful.
-
-    Requires authorization scope of ''iai:outliers-management:update'''
+  description: >-
+    This API receives a list of identity IDs in the request, changes the outliers to be ignored.
   requestBody:
     required: true
     content:
@@ -16,9 +14,7 @@ post:
           items:
             type: string
           description: List of identity IDs to ignore from outlier listing
-          example:
-          - abc123def456
-          - ghi789jkl012
+          example: ['897ef96559df40e1baa6bae6b53e7340', '2c918085837fbfb4018384420dac60c3']
   responses:
     '204':
       $ref: ../../v3/responses/204.yaml
@@ -33,11 +29,17 @@ post:
     '500':
       $ref: ../../v3/responses/500.yaml
   parameters:
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+  security:
+    - userAuth: [iai:outliers:manage]
+    - applicationAuth: [iai:outliers:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - REPORT_ADMIN

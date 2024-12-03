@@ -22,23 +22,23 @@ get:
                   $ref: '../schemas/GetOAuthClientResponse.yaml'
             description: The set of public key data used to validate JWTs issued by Identity Security Center
             example: [
-                {
-                  "kid": "17a3558a-5ce2-4b5b-eb79-d5e0c97f78d3",
-                  "alg": "ES256",
-                  "crv": "P-256",
-                  "kty": "EC",
-                  "x": "BB59MqkWRxyWAd7by8EKKIHuumFvOWj3YFo1HtNchDM",
-                  "y": "iBLT8AtrjpLBTuj94DXG-MER94_X-zSOlTjUS5dopJc"
-                },
-                {
-                  "kid": "bbb74f7a-0411-461b-a669-3c6b8d86771f",
-                  "alg": "ES256",
-                  "crv": "P-256",
-                  "kty": "EC",
-                  "x": "xayv8a_wpsZiME1TgmBNAV9TnXv3EuvQTNvcRmwqLtc",
-                  "y": "_bz45zThN8AQx2Dd44Kk686vMJ-4X5N-YbsRzQcVhdk"
-                }
-              ]
+              {
+                "kid": "17a3558a-5ce2-4b5b-eb79-d5e0c97f78d3",
+                "alg": "ES256",
+                "crv": "P-256",
+                "kty": "EC",
+                "x": "BB59MqkWRxyWAd7by8EKKIHuumFvOWj3YFo1HtNchDM",
+                "y": "iBLT8AtrjpLBTuj94DXG-MER94_X-zSOlTjUS5dopJc"
+              },
+              {
+                "kid": "bbb74f7a-0411-461b-a669-3c6b8d86771f",
+                "alg": "ES256",
+                "crv": "P-256",
+                "kty": "EC",
+                "x": "xayv8a_wpsZiME1TgmBNAV9TnXv3EuvQTNvcRmwqLtc",
+                "y": "_bz45zThN8AQx2Dd44Kk686vMJ-4X5N-YbsRzQcVhdk"
+              }
+            ]
             required:
               - keys
     '400':

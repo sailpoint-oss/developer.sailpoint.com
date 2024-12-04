@@ -15,7 +15,7 @@ export default function CMSLinkComponent({children, source}) {
           const content = response.Item
           setFileContent(content);
         } else {
-          console.error('Error fetching GitHub file:', response.statusText);
+          console.error('Error fetching GitHub file:', response);
         }
       } catch (error) {
         console.error('Error fetching GitHub file:', error);

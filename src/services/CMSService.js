@@ -1,5 +1,3 @@
-import { CMSBaseURL } from '../util/util';
-
 export async function getBanner(cmsurl) {
 
   try {
@@ -9,3 +7,14 @@ export async function getBanner(cmsurl) {
     return [];
   }
 }
+ 
+export async function getItem(cmsurl, itemId) {
+
+  try {
+    const response = await fetch(cmsurl + itemId);
+    return await response.json();
+  } catch (error) {
+    return [];
+  }
+}
+

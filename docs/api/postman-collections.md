@@ -10,7 +10,7 @@ description: Run ISC APIs in Postman.
 tags: ['postman']
 ---
 
-import CMSComponent from '@site/src/components/PostmanLink';
+import CMSLinkComponent from '@site/src/components/PostmanLink';
 
 [Postman](https://www.postman.com/) is a platform you can use to design, build, test, and iterate your APIs. Postman users and teams can create public workspaces they can use to make it easy to access their API collections and environments and get started. SailPoint maintains a [public workspace for the Identity Security Cloud API collections](https://www.postman.com/sailpoint/workspace/identitynow). You can use this workspace to access all the ISC API collections and stay up to date.
 

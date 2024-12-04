@@ -9,6 +9,9 @@ export default function CMSLinkComponent({children, source}) {
   useEffect(() => {
     const fetchFileContent = async () => {
       try {
+        console.log(siteConfig);
+        console.log(siteConfig.customFields);
+        console.log(siteConfig.customFields.CMS_APP_API_ENDPOINT);
         const response = await getItem(siteConfig.customFields.CMS_APP_API_ENDPOINT);
         //const response = await getItem('https://lyna7x4y34.execute-api.us-east-1.amazonaws.com/Prod/', source);
         if (response.id) {

@@ -32,7 +32,7 @@ When you fork the collection, when you check the 'Watch original collection' che
 
 ## Update your collections
 
-SailPoint is often making improvements to the ISC API collections. To keep your workspace in sync with updates to one of SailPoint's public collections, you can right click on the forked collection and select "pull changes". sometimes this process will fail because of the size of our collection and limitations of the Postman tool. In that case, in order to update, you will need to visit the [sailpoint workspace](https://www.postman.com/sailpoint/workspace/identitynow) and create a fork of the most recently published version or click the links above to fork the most recent version.
+SailPoint is often making improvements to the ISC API collections. In order to update, you will need to visit the [sailpoint workspace](https://www.postman.com/sailpoint/workspace/identitynow) and create a fork of the most recently published version or click the links above to fork the most recent version.
 
 ## Configure your environment
 

@@ -28,11 +28,9 @@ Each ISC API version is broken out into a separate collection within the workspa
 
 You can also fork a collection by selecting the ellipses to the right of the collection and selecting 'Create a fork.'
 
-When you fork the collection, when you check the 'Watch original collection' checkbox to get notifications when there are changes to the collection, you will be notified by email whenever a collection changes.
-
 ## Update your collections
 
-SailPoint is often making improvements to the ISC API collections. To keep your workspace in sync with updates to one of SailPoint's public collections, you can right click on the forked collection and select "pull changes". sometimes this process will fail because of the size of our collection and limitations of the Postman tool. In that case, in order to update, you will need to visit the [sailpoint workspace](https://www.postman.com/sailpoint/workspace/identitynow) and create a fork of the most recently published version or click the links above to fork the most recent version.
+SailPoint is often making improvements to the ISC API collections. In order to get the latest updates to the Postman collection, you will need to visit the [sailpoint workspace](https://www.postman.com/sailpoint/workspace/identitynow) or click the "Run in Postman" button for the desired API version above. This will create a new fork in your Postman workspace while leaving your previous forks as-is.
 
 ## Configure your environment
 

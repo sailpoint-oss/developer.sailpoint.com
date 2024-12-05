@@ -31,7 +31,7 @@ You can also fork a collection by selecting the ellipses to the right of the col
 
 ## Update your collections
 
-SailPoint is often making improvements to the ISC API collections. In order to get the latest updates to the Postman collection, you will need to visit the [sailpoint workspace](https://www.postman.com/sailpoint/workspace/identitynow) or click the "Run in Postman" button for the desired API version above. This will create a new fork in your Postman workspace while leaving your previous forks as-is.
+SailPoint is often making improvements to the ISC API collections. To get the latest updates to the Postman collection, go to the [SailPoint workspace](https://www.postman.com/sailpoint/workspace/identitynow) or click the 'Run in Postman' button for your desired API version. This will create a new fork in your Postman workspace while leaving your previous forks unaffected.
 
 ## Configure your environment
 

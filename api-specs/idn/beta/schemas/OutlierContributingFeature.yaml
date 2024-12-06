@@ -1,0 +1,44 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Contributing feature id
+    example: '66e38828-5017-47af-92ff-9844871352c5'
+  name:
+    type: string
+    description: The name of the feature
+    example: 'entitlement_count'
+  valueType:
+    type: string
+    enum: 
+      - INTEGER
+      - FLOAT
+    description: The data type of the value field
+    example: INTEGER
+  value:
+    oneOf:
+    - type: number
+      format: float
+      minimum: 0.0
+      maximum: 1.0
+    - type: integer
+      format: int64
+    description: The feature value
+    example: 0.92
+  importance:
+    type: number
+    format: float
+    description: The importance of the feature. This can also be a negative value
+    minimum: -1.0
+    maximum: 1.0
+    example: -0.15
+  displayName:
+    type: string
+    description: The (translated if header is passed) displayName for the feature
+    example: 'Number of entitlements'
+  description:
+    type: string
+    description: The (translated if header is passed) description for the feature
+    example: 'The total number of entitlements belonging to an identity'
+  translationMessages:
+    $ref: ./OutlierFeatureTranslation.yaml

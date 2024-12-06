@@ -1,0 +1,20 @@
+get:
+  summary: Get saved advanced search queries
+  operationId: getAdvancedSearch
+  description: Get saved advanced search queries
+  tags:
+    - advanced search
+  responses:
+    '200':
+      $ref: "../responses/AdvancedSearches.yaml"
+post:
+  summary: Save an advanced search query for later use
+  operationId: postAdvancedSearch
+  description: Save an advanced search query for later use
+  tags:
+    - advanced search
+  requestBody:
+    $ref: "../requestBodies/POST/AdvancedSearch.yaml"
+  responses:
+    '200':
+      $ref: "../responses/AdvancedSearch.yaml"

@@ -1,0 +1,72 @@
+post:
+  operationId: closeAccessRequest
+  tags:
+  - Access Requests
+  summary: Close Access Request
+  security:
+    - userAuth: []
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  description: 'This endpoint closes access requests that are stuck in a pending state.
+    It can be used throughout a request''s lifecycle even after the approval state,
+    unlike the [Cancel Access Request endpoint](https://developer.sailpoint.com/idn/api/v3/cancel-access-request/).
+
+
+    To find pending access requests with the UI, navigate to Search and use this query:
+    status: Pending AND "Access Request". Use the Column Chooser to select ''Tracking
+    Number'', and use the ''Download'' button to export a CSV containing the tracking
+    numbers.
+
+
+    To find pending access requests with the API, use the [List Account Activities
+    endpoint](https://developer.sailpoint.com/idn/api/v3/list-account-activities/).
+
+
+    Input the IDs from either source.
+
+
+    To track the status of endpoint requests, navigate to Search and use this query:
+    name:"Close Identity Requests". Search will include "Close Identity Requests Started"
+    audits when requests are initiated and "Close Identity Requests Completed" audits
+    when requests are completed. The completion audit will list the identity request
+    IDs that finished in error.
+
+
+    This API triggers the [Provisioning Completed event trigger](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/provisioning-completed/)
+    for each access request that is closed.
+
+    '
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../v3/schemas/CloseAccessRequest.yaml
+        example:
+          accessRequestIds:
+          - 2c90ad2a70ace7d50170acf22ca90010
+          executionStatus: Terminated
+          completionStatus: Failure
+          message: The IdentityNow Administrator manually closed this request.
+  responses:
+    '202':
+      $ref: ../../v3/responses/202.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true

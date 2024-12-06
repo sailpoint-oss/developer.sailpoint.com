@@ -1,0 +1,6 @@
+name: job_id
+in: query
+description: The id of the job returned from a POST or PATCH endpoint that resulted in a job being created
+required: true
+schema:
+  type: string

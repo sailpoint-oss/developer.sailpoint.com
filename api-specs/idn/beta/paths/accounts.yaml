@@ -1,0 +1,211 @@
+get:
+  operationId: listAccounts
+  tags:
+    - Accounts
+  summary: Accounts List
+  description: >-
+    This returns a list of accounts.  
+    
+    A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
+  security:
+    - userAuth: [idn:accounts:read, idn:accounts:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+    - HELPDESK
+  parameters:
+    - in: query
+      name: detailLevel
+      required: false
+      schema:
+        type: string
+        enum: [ SLIM, FULL ]
+      description: >-
+        Determines whether Slim, or increased level of detail is provided for each account in the returned list.
+        FULL is the default behavior.
+      example: FULL
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: '../../v3/parameters/count.yaml'
+    - in: query
+      name: filters
+      required: false
+      schema:
+        type: string
+      example: identityId eq "2c9180858082150f0180893dbaf44201"
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **id**: *eq, in, sw*
+
+
+        **identityId**: *eq, in, sw*
+
+
+        **name**: *eq, in, sw*
+
+
+        **nativeIdentity**: *eq, in, sw*
+
+
+        **sourceId**: *eq, in, sw*
+
+
+        **uncorrelated**: *eq*
+
+
+        **entitlements**: *eq*
+
+
+        **origin**: *eq, in*
+
+
+        **manuallyCorrelated**: *eq*
+
+
+        **identity.name**: *eq, in, sw*
+
+
+        **identity.correlated**: *eq*
+
+
+        **identity.identityState**: *eq, in*
+        
+        
+        **source.displayableName**: *eq, in*
+
+
+        **source.authoritative**: *eq*
+
+
+        **source.connectionType**: *eq, in*
+
+
+        **recommendation.method**: *eq, in, isnull*
+    - in: query
+      name: sorters
+      required: false
+      schema:
+        type: string
+        format: comma-separated
+      example: id,name
+      description: >-
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+
+        Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, identity.id, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType**
+  responses:
+    '200':
+      description: List of account objects
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../schemas/Account.yaml"
+          examples:
+            SlimAccounts:
+              description: List of slim accounts that would result with *detailLevel = SLIM*
+              value:
+                - "attributes": null
+                  "created": "2021-09-28T02:15:44.644Z"
+                  "description": null
+                  "disabled": false
+                  "features": "PROVISIONING, GROUP_PROVISIONING, SYNC_PROVISIONING, AUTHENTICATE"
+                  "hasEntitlements": true
+                  "id": "2c9180867c184ff6017c2a2fbf031667"
+                  "identityId": "2c9180867c184ff6017c2a2fbf031666"
+                  "locked": false
+                  "manuallyCorrelated": false
+                  "modified": "2021-09-28T02:16:12.207Z"
+                  "name": "Geovanni.0a7cad6df"
+                  "nativeIdentity": "CN=Geovanni 0a7cad6df,OU=hpun,OU=org-data-service,DC=TestAutomationAD,DC=local"
+                  "sourceId": "2c91808b7c28b350017c2a2ec5790aa1"
+                  "uuid": "{e4218fa4-da52-4bb0-aa41-d2dcc08a7ad8}"
+
+
+            FullAccounts:
+              description: List of slim accounts that would result with *detailLevel = FULL*  or not specifying it
+              value:
+                - "attributes": null
+                  "authoritative": true
+                  "created": "2021-09-28T02:15:44.644Z"
+                  "description": null
+                  "disabled": false
+                  "features": "PROVISIONING, GROUP_PROVISIONING, SYNC_PROVISIONING, AUTHENTICATE"
+                  "hasEntitlements": true
+                  "id": "2c9180867c184ff6017c2a2fbf031667"
+                  "identityId": "2c9180867c184ff6017c2a2fbf031666"
+                  "locked": false
+                  "manuallyCorrelated": false
+                  "modified": "2021-09-28T02:16:12.207Z"
+                  "name": "Geovanni.0a7cad6df"
+                  "nativeIdentity": "CN=Geovanni 0a7cad6df,OU=hpun,OU=org-data-service,DC=TestAutomationAD,DC=local"
+                  "sourceId": "2c91808b7c28b350017c2a2ec5790aa1"
+                  "systemAccount": false
+                  "uncorrelated": false
+                  "uuid": "{e4218fa4-da52-4bb0-aa41-d2dcc08a7ad8}"
+
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+post:
+  operationId: createAccount
+  tags:
+    - Accounts
+  summary: Create Account
+  description: |
+    This API submits an account creation task and returns the task ID.  
+
+    The `sourceId` where this account will be created must be included in the `attributes` object.
+
+    This endpoint creates an account on the source record in your ISC tenant.
+    This is useful for Flat File (`DelimitedFile`) type sources because it allows you to aggregate new accounts without needing to import a new CSV file every time. 
+
+    However, if you use this endpoint to create an account for a Direct Connection type source, you must ensure that the account also exists on the target source. 
+    The endpoint doesn't actually provision the account on the target source, which means that if the account doesn't also exist on the target source, an aggregation between the source and your tenant will remove it from your tenant. 
+
+    By providing the account ID of an existing account in the request body, this API will function as a PATCH operation and update the account.
+    
+    A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+  security:
+    - userAuth: [idn:accounts:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/AccountAttributesCreate.yaml"
+  responses:
+    '202':
+      description: Async task details
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/AccountsAsyncResult.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

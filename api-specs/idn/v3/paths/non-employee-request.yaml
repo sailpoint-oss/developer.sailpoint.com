@@ -1,0 +1,78 @@
+get:
+  operationId: getNonEmployeeRequest
+  security:
+    - userAuth: []
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: Get a Non-Employee Request
+  description: >-
+    This gets a non-employee request.
+
+    There are two contextual uses for this endpoint:
+      1. The user has the role context of `idn:nesr:read`, in this case the user
+    can get the non-employee request for any user.
+      2. The user must be the owner of the non-employee request.
+  parameters:
+    - in: path
+      name: id
+      description: >-
+        Non-Employee request id (UUID)
+      example: "ac110005-7156-1150-8171-5b292e3e0084"
+      required: true
+      schema:
+        type: string
+  responses:
+    "200":
+      description: Non-Employee request object.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/non-employee/NonEmployeeRequest.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "404":
+      $ref: "../responses/404.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"
+delete:
+  operationId: deleteNonEmployeeRequest
+  # security:
+  #   - oauth2: [idn:nesr:delete]
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: Delete Non-Employee Request
+  description: >-
+    This request will delete a non-employee request. 
+
+    Requires role context of `idn:nesr:delete`
+  parameters:
+    - in: path
+      name: id
+      description: >-
+        Non-Employee request id in the UUID format
+      required: true
+      schema:
+        type: string
+        format: uuid
+      example: "ac110005-7156-1150-8171-5b292e3e0084"
+  responses:
+    "204":
+      $ref: "../responses/204.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "404":
+      $ref: "../responses/404.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"

@@ -1,0 +1,121 @@
+get:
+  operationId: getEntitlementRequestConfig
+  tags:
+  - Entitlements
+  summary: Get Entitlement Request Config
+  description: This API returns the entitlement request config for a specified entitlement.
+  security:
+  - userAuth:
+    - idn:entitlement:read
+    - idn:entitlement:manage
+  parameters:
+  - in: path
+    name: id
+    schema:
+      type: string
+    required: true
+    description: Entitlement Id
+    example: 2c91808874ff91550175097daaec161c
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: An Entitlement Request Config
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/EntitlementRequestConfig.yaml
+          example:
+            accessRequestConfig:
+              requestCommentRequired: true
+              denialCommentRequired: true
+              approvalSchemes:
+              - approverType: ENTITLEMENT_OWNER
+                approverId: null
+              - approverType: SOURCE_OWNER
+                approverId: null
+              - approverType: MANAGER
+                approverId: null
+              - approverType: GOVERNANCE_GROUP
+                approverId: 46c79819-a69f-49a2-becb-12c971ae66c6
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
+put:
+  operationId: putEntitlementRequestConfig
+  tags:
+  - Entitlements
+  summary: Replace Entitlement Request Config
+  description: This API replaces the entitlement request config for a specified entitlement.
+  security:
+  - userAuth:
+    - idn:entitlement:manage
+  parameters:
+  - name: id
+    in: path
+    description: Entitlement ID
+    required: true
+    schema:
+      type: string
+      example: 2c91808a7813090a017814121e121518
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../beta/schemas/EntitlementRequestConfig.yaml
+  responses:
+    '200':
+      description: Responds with the entitlement request config as updated.
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/EntitlementRequestConfig.yaml
+          example:
+            accessRequestConfig:
+              requestCommentRequired: true
+              denialCommentRequired: true
+              approvalSchemes:
+              - approverType: ENTITLEMENT_OWNER
+                approverId: null
+              - approverType: SOURCE_OWNER
+                approverId: null
+              - approverType: MANAGER
+                approverId: null
+              - approverType: GOVERNANCE_GROUP
+                approverId: 46c79819-a69f-49a2-becb-12c971ae66c6
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml

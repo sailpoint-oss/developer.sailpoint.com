@@ -1,0 +1,41 @@
+post:
+  operationId: submitReloadAccount
+  tags:
+    - Accounts
+  summary: Reload Account
+  description: >-
+    This API asynchronously reloads the account directly from the connector and performs a one-time aggregation process.      
+  security:
+    - userAuth: [idn:accounts-state:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+    - HELPDESK
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The account id
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    '202':
+      description: Async task details
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/AccountsAsyncResult.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

@@ -1,0 +1,25 @@
+type: object
+required:
+  - name
+properties:
+  id:
+    description: System-generated unique ID of the Object
+    type: string
+    example: id12345
+    readOnly: true
+  name:
+    description: Name of the Object
+    type: string
+    example: aName
+  created:
+    description: Creation date of the Object
+    type: string
+    format: date-time
+    readOnly: true
+    example: "2023-01-03T21:16:22.432Z"
+  modified:
+    description: Last modification date of the Object
+    type: string
+    format: date-time
+    readOnly: true
+    example: "2023-01-03T21:16:22.432Z"

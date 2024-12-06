@@ -1,0 +1,38 @@
+get:
+  tags:
+    - Managed Clusters
+  summary: Get a specified ManagedCluster.
+  description: Retrieve a ManagedCluster by ID.
+  deprecated: true
+  operationId: getManagedCluster
+  parameters:
+    - name: id
+      in: path
+      description: ID of the ManagedCluster to get
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: aClusterId
+  responses:
+    "200":
+      description: Responds with ManagedCluster having the given ID.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ManagedCluster.yaml'
+    "400":
+      $ref: '../../v3/responses/400.yaml'
+    "401":
+      $ref: '../../v3/responses/401.yaml'
+    "403":
+      $ref: '../../v3/responses/403.yaml'
+    "404":
+      $ref: '../../v3/responses/404.yaml'
+    "429":
+      $ref: '../../v3/responses/429.yaml'
+    "500":
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:remote-client:read, idn:remote-client:manage]

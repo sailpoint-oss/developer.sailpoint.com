@@ -1,0 +1,85 @@
+get:
+  operationId: getCorrelationConfig
+  tags:
+    - Sources
+  summary: Get Source Correlation Configuration
+  security:
+    - userAuth: [idn:sources:read]
+  description: >-
+    This API returns the existing correlation configuration for a source specified by the
+    given ID.
+
+    A token with ORG_ADMIN authority is required to call this API.
+  parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      description: The source id
+      example: 2c9180835d191a86015d28455b4a2329
+  responses:
+    '200':
+      description: Correlation configuration for a source
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/CorrelationConfig.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+
+put:
+  operationId: putCorrelationConfig
+  tags:
+    - Sources
+  summary: Update Source Correlation Configuration
+  security:
+    - userAuth: [idn:sources:update]
+  description: >-
+    Replaces the correlation configuration for the source specified by the given ID with the
+    configuration provided in the request body.
+        
+    A token with ORG_ADMIN authority is required to call this API.
+  parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      description: The source id
+      example: 2c9180835d191a86015d28455b4a2329
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/CorrelationConfig.yaml'
+  responses:
+    '200':
+      description: Updated correlation configuration for a source
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/CorrelationConfig.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

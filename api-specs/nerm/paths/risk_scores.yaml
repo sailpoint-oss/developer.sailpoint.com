@@ -1,0 +1,21 @@
+get:
+  summary: Get risk score data in bulk
+  operationId: getRiskScores
+  description: This endpoint can retrieve risk score data in bulk from Lifecycle
+  tags:
+    - risk scores
+  parameters:
+    - $ref: "../parameters/query/query.yaml"
+    - $ref: "../parameters/query/object_id.yaml"
+    - $ref: "../parameters/query/object_type.yaml"
+    - $ref: "../parameters/query/overall_risk_level_id.yaml"
+    - $ref: "../parameters/query/impact_risk_level_id.yaml"
+    - $ref: "../parameters/query/probability_risk_level_id.yaml"
+    - $ref: "../parameters/query/metadata.yaml"
+  responses:
+    '200':
+      $ref: "../responses/RiskScores.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

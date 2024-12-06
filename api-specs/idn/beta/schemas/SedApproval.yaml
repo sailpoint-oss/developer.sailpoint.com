@@ -1,0 +1,10 @@
+description: Sed Approval Request Body
+type: object
+properties:
+  items:
+    description: List of SED id's
+    items:
+      format: uuid
+      type: string
+    type: array
+    example: 016629d1-1d25-463f-97f3-c6686846650

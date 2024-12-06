@@ -1,0 +1,27 @@
+type: object
+properties:
+  requests:
+    type: array
+    items:
+      $ref: './RecommendationRequest.yaml'
+      description: List of requests to retrieve recommendations
+  excludeInterpretations:
+    type: boolean
+    description: Exclude interpretations in the response if "true". Return interpretations in the response if this attribute is not specified.
+    default: 'false'
+    example: 'false'
+  includeTranslationMessages:
+    type: boolean
+    description: When set to true, the calling system uses the translated messages for the specified language
+    default: 'false'
+    example: 'false'
+  includeDebugInformation:
+    type: boolean
+    description: Returns the recommender calculations if set to true
+    default: 'false'
+    example: 'true'
+  prescribeMode:
+    type: boolean
+    description: When set to true, uses prescribedRulesRecommenderConfig to get identity attributes and peer group threshold instead of standard config.
+    default: 'false'
+    example: 'false'

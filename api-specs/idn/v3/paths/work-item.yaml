@@ -1,0 +1,66 @@
+get:
+  operationId: getWorkItem
+  tags:
+    - Work Items
+  summary: Get a Work Item
+  description: >-
+    This gets the details of a Work Item belonging to either the specified user(admin required), or the current user.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: ID of the work item.
+      example: 2c9180835d191a86015d28455b4a2329
+  responses:
+    '200':
+      description: The work item with the given ID.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/WorkItems.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+post:
+  operationId: completeWorkItem
+  tags:
+    - Work Items
+  summary: Complete a Work Item
+  description: >-
+    This API completes a work item. Either an admin, or the owning/current user must make this request.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The ID of the work item
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    '200':
+      description: A WorkItems object
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/WorkItems.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

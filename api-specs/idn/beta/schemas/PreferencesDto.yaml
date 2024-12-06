@@ -1,0 +1,19 @@
+type: object
+description: >-
+  Maps an Identity's attribute key to a list of preferred notification mediums.
+properties:
+  key:
+    type: string
+    description: The template notification key.
+    example: 'cloud_manual_work_item_summary'
+  mediums:
+    type: array
+    description: List of preferred notification mediums, i.e., the mediums (or method) for which notifications are enabled. More mediums may be added in the future.
+    items:
+          $ref: './Medium.yaml'
+    example: ["EMAIL"]
+  modified:
+    type: string
+    description: Modified date of preference
+    format: 'date-time'
+    example: '2020-05-15T14:37:06.909Z'

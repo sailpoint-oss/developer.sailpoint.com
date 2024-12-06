@@ -1,0 +1,37 @@
+post:
+  tags:
+    - Multi-Host Integration
+  summary: Test Configuration For Multi-Host Integration
+  description: >-
+    This endpoint performs a more detailed validation of the Multi-Host Integration's configuration.
+    
+    
+    A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
+  operationId: testConnectionMultiHostSources
+  parameters:
+    - name: multihost_id
+      in: path
+      description: ID of the Multi-Host Integration
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: 2c91808568c529c60168cca6f90c1324
+  responses:
+    "200":
+      description: OK. Returned if the request was successfully accepted into the system.
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:multihosts:read, idn:sources:read]

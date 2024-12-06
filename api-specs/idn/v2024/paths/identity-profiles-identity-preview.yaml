@@ -1,0 +1,47 @@
+post:
+  operationId: generateIdentityPreview
+  tags:
+  - Identity Profiles
+  summary: Generate Identity Profile Preview
+  description: This generates a non-persisted IdentityDetails object that will represent
+    as the preview of the identities attribute when the given policy''s attribute
+    config is applied.
+  requestBody:
+    description: Identity Preview request body.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../beta/schemas/IdentityPreviewRequest.yaml
+  responses:
+    '200':
+      description: Object representing the preview object with all of the identity
+        attributes using the current mappings.
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/IdentityPreviewResponse.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
+  security:
+    - userAuth:
+      - idn:identity-profile:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true

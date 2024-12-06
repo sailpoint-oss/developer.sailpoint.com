@@ -1,0 +1,48 @@
+get:
+  tags:
+    - Task Management
+  summary: Retrieve a pending task list.
+  description: Retrieve a list of TaskStatus for pending tasks.
+  operationId: getPendingTasks
+  parameters:
+    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/count.yaml'
+  responses:
+    "200":
+      description: Responds with a list of TaskStatus for pending tasks.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/TaskStatus.yaml'
+    "204":
+      $ref: '../../v3/responses/204.yaml'
+    "400":
+      $ref: '../../v3/responses/400.yaml'
+    "403":
+      $ref: '../../v3/responses/403.yaml'
+  security:
+    - userAuth: [idn:task-management:read]
+head:
+  tags:
+    - Task Management
+  summary: Retrieve headers only for pending task list.
+  description: Retrieve headers for a list of TaskStatus for pending tasks.
+  operationId: getPendingTaskHeaders
+  parameters:
+    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/count.yaml'
+  responses:
+    "200":
+      description: Responds with headers for List of TaskStatus for pending tasks.
+    "204":
+      $ref: '../../v3/responses/204.yaml'
+    "400":
+      $ref: '../../v3/responses/400.yaml'
+    "403":
+      $ref: '../../v3/responses/403.yaml'
+  security:
+    - userAuth: [idn:task-management:read]

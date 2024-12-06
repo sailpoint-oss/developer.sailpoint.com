@@ -1,0 +1,21 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+    description: The unique identifier for the object
+    example: 2e06b876-f456-473d-bd65-b6435e0b6b2d
+    readOnly: true
+  uid:
+    type: string
+    description: The user identifier for the object
+    minLength: 32
+    maxLength: 32
+    readOnly: true
+    enum: [profile_contributor, profile_owner]
+    example: "profile_contributor"
+  name:
+    description: The name of the role
+    type: string
+    enum: [Profile Contributor, Profile Owner]
+    example: "Profile Contributor"

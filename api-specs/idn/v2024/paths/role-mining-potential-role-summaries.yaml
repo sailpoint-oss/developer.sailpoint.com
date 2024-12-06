@@ -1,0 +1,108 @@
+get:
+  operationId: getAllPotentialRoleSummaries
+  summary: Retrieves all potential role summaries
+  tags:
+  - IAI Role Mining
+  description: Returns all potential role summaries that match the query parameters
+  security:
+  - userAuth: []
+  parameters:
+  - in: query
+    name: sorters
+    required: false
+    style: form
+    explode: true
+    schema:
+      type: string
+      format: comma-separated
+    description: 'Sort results using the standard syntax described in [V3 API Standard
+      Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+
+      Sorting is supported for the following fields: **createdDate, identityCount,
+      entitlementCount, freshness, quality**'
+    example: createdDate
+  - in: query
+    name: filters
+    description: 'Filter results using the standard syntax described in [V3 API Standard
+      Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+      Filtering is supported for the following fields and operators:
+
+
+      **createdById**: *eq, sw, co*
+
+
+      **createdByName**: *eq, sw, co*
+
+
+      **description**: *sw, co*
+
+
+      **endDate**: *le, lt*
+
+
+      **freshness**: *eq, ge, gt, le, lt*
+
+
+      **name**: *eq, sw, co, ge, gt, le, lt*
+
+
+      **quality**: *eq, ge, gt, le, lt*
+
+
+      **startDate**: *ge, gt*
+
+
+      **saved**: *eq*
+
+
+      **type**: *eq, ge, gt, le, lt*
+
+
+      **scopingMethod**: *eq*
+
+
+      **sessionState**: *eq*
+
+
+      **identityAttribute**: *co*'
+    example: (createdByName co "int") and (createdById sw "2c9180907") and (type eq
+      "COMMON") and ((name co "entt") or (saved eq true))
+    required: false
+    style: form
+    explode: true
+    schema:
+      type: string
+  - $ref: ../../v3/parameters/offset.yaml
+  - $ref: ../../v3/parameters/limit.yaml
+  - $ref: ../../v3/parameters/count.yaml
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: Succeeded. Returns all potential role summaries that match the
+        query parameters.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../../beta/schemas/RoleMiningPotentialRoleSummary.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml

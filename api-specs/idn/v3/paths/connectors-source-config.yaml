@@ -1,0 +1,91 @@
+get:
+  tags:
+    - Connectors
+  operationId: getConnectorSourceConfig
+  description: >-
+    Fetches a connector's source config using its script name.    
+  parameters:
+    - name: scriptName
+      in: path
+      description: The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: aScriptName
+  responses:
+    '200':
+      description: The connector's source template
+      content:
+        application/xml:
+          schema:
+            type: string
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [ idn:connector-config:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+put:
+  tags:
+    - Connectors
+  operationId: putSourceConfig
+  description: >-
+    Update a connector's source config using its script name.    
+  parameters:
+    - name: scriptName
+      in: path
+      description: The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: aScriptName
+  requestBody:
+    required: true
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          required:
+            - file
+          properties:
+            file:
+              type: string
+              description: connector source config xml file
+              format: binary
+  responses:
+    '200':
+      description: The connector's update detail
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/UpdateDetail.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [ idn:connector-config:update ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

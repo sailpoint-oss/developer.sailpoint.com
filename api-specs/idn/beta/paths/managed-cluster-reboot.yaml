@@ -1,0 +1,40 @@
+post:
+  tags:
+    - Managed Clusters
+  summary: Reboot a cluster's VAs
+  description: >-
+    Reboot a clusters VAs manual call
+
+    AMS Security: API, Internal
+    A token with SYSTEM_ADMINISTRATOR authority is required to call this API.
+  operationId: rebootCluster
+  parameters:
+    - name: id
+      in: path
+      description: ID of the cluster to reboot
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: aClusterId
+
+  responses:
+    "200":
+      description: Responds with updated UpgradeClusterConfig for the given ManagedCluster.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ClusterUpgradeData.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:remote-client:manage]

@@ -1,0 +1,96 @@
+type: object
+properties:
+  tenant:
+    type: string
+    description: Tenant name.
+    example: "test-tenant"
+  id:
+    type: string
+    description: Identity ID.
+    example: 2c91808458ae7a4f0158b1bbf8af0628
+  uid:
+    type: string
+    description: Identity's unique identitifier.
+    example: "will.smith"
+  profile:
+    type: string
+    description: ID of the auth profile associated with the auth user.
+    example: 2c91808458ae7a4f0158b1bbf8af0756
+  identificationNumber:
+    type: string
+    description: Auth user's employee number.
+    example: "19-5588452"
+  email:
+    type: string
+    description: Auth user's email.
+    example: william.smith@example.com
+  phone:
+    type: string
+    description: Auth user's phone number.
+    example: "5555555555"
+  workPhone:
+    type: string
+    description: Auth user's work phone number.
+    example: "5555555555"
+  personalEmail:
+    type: string
+    description: Auth user's personal email.
+    example: william.smith@example.com
+  firstname:
+    type: string
+    description: Auth user's first name.
+    example: Will
+  lastname:
+    type: string
+    description: Auth user's last name.
+    example: Smith
+  displayName:
+    type: string
+    description: Auth user's name in displayed format.
+    example: Will Smith
+  alias:
+    type: string
+    description: Auth user's alias.
+    example: will.smith
+  lastPasswordChangeDate:
+    type: string
+    description: Date of last password change.
+    example: "2021-03-08T22:37:33.901Z"
+  lastLoginTimestamp:
+    description: Timestamp of the last login (long type value).
+    type: integer
+    format: int64
+    example: 1656327185832
+  currentLoginTimestamp:
+    description: Timestamp of the current login (long type value).
+    type: integer
+    format: int64
+    example: 1656327185832
+  capabilities:
+    description: Array of the auth user's capabilities.
+    type: array
+    items:
+      type: string
+      enum: 
+        - CERT_ADMIN
+        - CLOUD_GOV_ADMIN
+        - CLOUD_GOV_USER
+        - HELPDESK
+        - ORG_ADMIN
+        - REPORT_ADMIN
+        - ROLE_ADMIN
+        - ROLE_SUBADMIN
+        - SAAS_MANAGEMENT_ADMIN
+        - SAAS_MANAGEMENT_READER
+        - SOURCE_ADMIN 
+        - SOURCE_SUBADMIN
+        - das:ui-administrator
+        - das:ui-compliance_manager
+        - das:ui-auditor
+        - das:ui-data-scope
+        - sp:aic-dashboard-read
+        - sp:aic-dashboard-write
+        - sp:ui-config-hub-admin
+        - sp:ui-config-hub-backup-admin
+        - sp:ui-config-hub-read
+      example: "ORG_ADMIN"

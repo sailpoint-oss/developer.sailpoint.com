@@ -1,0 +1,65 @@
+get:
+  operationId: getSystemNotificationConfiguration
+  tags:
+    - Notifications
+  summary: Get System Notification Configuration
+  description: >-
+    Returns the system notification configuration for a tenant.
+  security:
+  - userAuth: [ idn:notification-preferences:read ]
+  responses:
+    '200':
+      description: List of Email Status
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/SystemNotificationConfigDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+
+put:
+  operationId: putSystemNotificationConfiguration
+  tags:
+    - Notifications
+  summary: Update the System Notification configuration
+  description: >-
+    Updates the System Notification configuration.
+  security:
+  - userAuth: [ idn:notification-preferences:create ]
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/SystemNotificationConfigDto.yaml'
+        example:
+          recipientType: "OVERRIDE_EMAILS"
+          overrideEmails: ["notified@example.com"]
+
+  responses:
+    '200':
+      description: Update System Notification configuration
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/SystemNotificationConfigDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

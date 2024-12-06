@@ -1,0 +1,43 @@
+get:
+  operationId: getRoles
+  summary: Get Roles for a Customer
+  tags:
+    - IAI Data Roles
+  description: >-
+    This endpoint returns the current roles for a customer. The returned roles can be filtered based on the assignable field.
+  parameters:
+    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/count.yaml'
+    - in: query
+      name: filters
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **isAssignable**: *eq*
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Succeeded. Returns a list of roles for a customer.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/IaiDataRole.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

@@ -1,0 +1,16 @@
+type: object
+description: >-
+  Details of up to 5 Identity attributes that will be publicly accessible for all Identities to anyone in the org
+properties:
+  attributes:
+    type: array
+    items:
+      $ref: './PublicIdentityAttributeConfig.yaml'
+  modifiedBy:
+    $ref: '../../v3/schemas/IdentityReference.yaml'
+  modified:
+    type: string
+    description: "the date/time of the modification"
+    format: 'date-time'
+    example: '2018-06-25T20:22:28.104Z'
+    nullable: true

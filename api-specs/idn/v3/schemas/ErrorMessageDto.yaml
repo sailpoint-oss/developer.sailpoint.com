@@ -1,0 +1,15 @@
+type: object
+properties:
+  locale:
+    type: string
+    description: The locale for the message text, a BCP 47 language tag.
+    example: en-US
+    nullable: true
+  localeOrigin:
+    $ref: "../../v3/schemas/LocaleOrigin.yaml"
+  text:
+    type: string
+    description: Actual text of the error message in the indicated locale.
+    example:
+      The request was syntactically correct but its content is semantically
+      invalid.

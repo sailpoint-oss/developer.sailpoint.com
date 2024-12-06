@@ -1,0 +1,462 @@
+get:
+  tags:
+  - Custom Forms
+  summary: Return a form definition.
+  description: Parameter `{formDefinitionID}` should match a form definition ID.
+  operationId: getFormDefinitionByKey
+  parameters:
+  - name: formDefinitionID
+    in: path
+    description: Form definition ID
+    required: true
+    schema:
+      type: string
+      x-go-name: FormDefinitionID
+    example: 00000000-0000-0000-0000-000000000000
+    x-go-name: FormDefinitionID
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: Returns a form definition
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/forms/FormDefinitionResponse.yaml
+    '400':
+      description: An error with the request occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    '401':
+      description: An error with the authorization occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    '403':
+      description: An error with the user permissions occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    '404':
+      description: An error with the item not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    '429':
+      description: Too many requests
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/forms/Error.yaml
+    '500':
+      description: An internal server error occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+  security:
+  - userAuth:
+    - sp:forms:manage
+delete:
+  tags:
+  - Custom Forms
+  summary: Deletes a form definition.
+  description: Parameter `{formDefinitionID}` should match a form definition ID.
+  operationId: deleteFormDefinition
+  parameters:
+  - name: formDefinitionID
+    in: path
+    description: Form definition ID
+    required: true
+    schema:
+      type: string
+      x-go-name: FormDefinitionID
+    example: 00000000-0000-0000-0000-000000000000
+    x-go-name: FormDefinitionID
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '204':
+      description: Returns an empty body
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/forms/Nil.yaml
+    '400':
+      description: An error with the request occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    '401':
+      description: An error with the authorization occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    '403':
+      description: An error with the user permissions occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    '404':
+      description: An error with the item not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    '429':
+      description: Too many requests
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/forms/Error.yaml
+    '500':
+      description: An internal server error occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+  security:
+  - userAuth:
+    - sp:forms:manage
+patch:
+  tags:
+  - Custom Forms
+  summary: Patch a form definition.
+  description: Parameter `{formDefinitionID}` should match a form definition ID.
+  operationId: patchFormDefinition
+  parameters:
+  - name: formDefinitionID
+    in: path
+    description: Form definition ID
+    required: true
+    schema:
+      type: string
+      x-go-name: FormDefinitionID
+    example: 00000000-0000-0000-0000-000000000000
+    x-go-name: FormDefinitionID
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  requestBody:
+    description: 'Body is the request payload to patch a form definition, check: https://jsonpatch.com'
+    content:
+      application/json:
+        schema:
+          $ref: ../../beta/schemas/forms/Patch.yaml
+        example:
+        - op: replace
+          path: /description
+          value: test-description
+    required: false
+  responses:
+    '200':
+      description: Returns the form definition updated
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/forms/FormDefinitionResponse.yaml
+    '400':
+      description: An error with the request occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    '401':
+      description: An error with the authorization occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    '403':
+      description: An error with the user permissions occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    '404':
+      description: An error with the user permissions occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    '429':
+      description: Too many requests
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/forms/Error.yaml
+    '500':
+      description: An internal server error occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+  security:
+  - userAuth:
+    - sp:forms:manage
+  x-codegen-request-body-name: Body

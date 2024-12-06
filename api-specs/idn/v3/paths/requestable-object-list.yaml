@@ -1,0 +1,107 @@
+get:
+  operationId: listRequestableObjects
+  tags:
+    - Requestable Objects
+  summary: Requestable Objects List
+  security:
+    - userAuth: []
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  description: >-
+    This endpoint returns a list of acccess items that that can be requested through the Access Request endpoints.
+    Access items are marked with AVAILABLE, PENDING or ASSIGNED with respect to the identity provided using *identity-id* query param.
+
+    Any authenticated token can call this endpoint to see their requestable access items.
+  parameters:
+    - in: query
+      name: identity-id
+      required: false
+      schema:
+        type: string
+      example: e7eab60924f64aa284175b9fa3309599
+      description: >-
+        If present, the value returns only requestable objects for the specified identity.
+         * Admin users can call this with any identity ID value.
+         * Non-admin users can only specify *me* or pass their own identity ID value.
+         * If absent, returns a list of all requestable objects for the tenant. Only admin users can make such a call. In this case, the available, pending, assigned accesses will not be annotated in the result.
+    - in: query
+      name: types
+      description: >-
+        Filters the results to the specified type/types, where each type is one of ROLE or ACCESS_PROFILE. If absent,
+        all types are returned. Support for additional types may be added in the future without notice.
+      required: false
+      schema:
+        type: array
+        items:
+          $ref: '../schemas/RequestableObjectType.yaml'
+      example: ROLE,ACCESS_PROFILE
+      explode: false
+    - in: query
+      name: term
+      required: false
+      schema:
+        type: string
+      example: "Finance Role"
+      description: >-
+        It allows searching requestable access items with a partial match on the name or description.
+        If term is provided, then the *filter* query parameter will be ignored.
+    - in: query
+      name: statuses
+      description: >-
+        Filters the result to the specified status/statuses, where each status is one of AVAILABLE, ASSIGNED, or PENDING.
+        It is an error to specify this parameter without also specifying an *identity-id* parameter. Additional statuses
+        may be added in the future without notice.
+      required: false
+      schema:
+        type: array
+        items:
+          $ref: '../schemas/RequestableObjectRequestStatus.yaml'
+      explode: false
+      example: ["ASSIGNED","PENDING"]
+    - $ref: '../parameters/limit.yaml'
+    - $ref: '../parameters/offset.yaml'
+    - $ref: '../parameters/count.yaml'
+    - in: query
+      name: filters
+      schema:
+        type: string
+      example: 'name sw "bob"'
+      description: |
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+        Filtering is supported for the following fields and operators:
+
+        **id**: *eq, in*
+
+        **name**: *eq, in, sw*
+      required: false
+    - in: query
+      name: sorters
+      schema:
+        type: string
+        format: comma-separated
+      required: false
+      example: name
+      description: |
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+        Sorting is supported for the following fields: **name**
+  responses:
+    '200':
+      description: List of requestable objects
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/RequestableObject.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

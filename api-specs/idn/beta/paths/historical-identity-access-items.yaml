@@ -1,0 +1,176 @@
+get:
+  operationId: listIdentityAccessItems
+  tags:
+    - Identity History
+  summary: Gets a list of access items for the identity filtered by item type
+  description: >-
+    This method retrieves a list of access item for the identity filtered by the access item type
+    Requires authorization scope of 'idn:identity-history:read' 
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The identity id
+      example: '8c190e6787aa4ed9a90bd9d5344523fb'
+    - in: query
+      name: type
+      schema:
+        type: string
+      description: >-
+        The type of access item for the identity. If not provided, it defaults to account.
+        
+        
+        Types of access items: **accessProfile, account, app, entitlement, role**
+      example: account
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+        
+        
+        Filtering is supported for the following fields and operators:
+        
+        
+        **source**: *eq*
+        
+        
+        **standalone**: *eq*
+        
+        
+        **privileged**: *eq*
+        
+        
+        **attribute**: *eq*
+        
+        
+        **cloudGoverned**: *eq*
+      example: source eq "DataScienceDataset"
+    - in: query
+      name: sorters
+      schema:
+        type: string
+        format: comma-separated
+      description: >-
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+
+        Sorting is supported for the following fields: **name, value, standalone, privileged, attribute, source, cloudGoverned, removeDate, nativeIdentity, entitlementCount**
+      example: name
+    - in: query
+      name: query
+      schema:
+        type: string
+      description: >-
+        This param is used to search if certain fields of the access item contain the string provided.
+        
+        
+        Searching is supported for the following fields depending on the type:
+        
+        
+        Access Profiles: **name, description**
+        
+        
+        Accounts: **name, nativeIdentity**
+        
+        
+        Apps: **name**
+        
+        
+        Entitlements: **name, value, description**
+        
+        
+        Roles: **name, description**
+      example: "Dr. Arden"
+  responses:
+    '200':
+      description: The list of access items.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              oneOf:
+                - $ref: '../schemas/AccessItemAccessProfileResponse.yaml'
+                - $ref: '../schemas/AccessItemAccountResponse.yaml'
+                - $ref: '../schemas/AccessItemAppResponse.yaml'
+                - $ref: '../schemas/AccessItemEntitlementResponse.yaml'
+                - $ref: '../schemas/AccessItemRoleResponse.yaml'
+
+          examples:
+            Access Profile:
+              description: An access profile response
+              value: 
+                - accessType: accessProfile
+                  id: 2c918087763e69d901763e72e97f006f
+                  sourceName: DataScienceDataset
+                  sourceId: 2793o32dwd
+                  description: AccessProfile - Workday/Citizenship access
+                  displayName: Dr. Arden Rogahn MD
+                  entitlementCount: 12
+                  appDisplayName: AppName
+                  removeDate: 2024-07-01T06:00:00.00Z
+                  standalone: false
+                  revocable: true
+
+            Account:
+              description: An account response
+              value: 
+                - accessType: account
+                  id: 2c918087763e69d901763e72e97f006f
+                  nativeIdentity: dr.arden.ogahn.d
+                  sourceName: DataScienceDataset
+                  sourceId: 2793o32dwd
+                  entitlementCount: 12
+                  displayName: Dr. Arden Rogahn MD
+
+            App:
+              description: An app response
+              value: 
+                - accessType: app
+                  id: 2c918087763e69d901763e72e97f006f
+                  name: appName
+                  appRoleId: 2c918087763e69d901763e72e97f006f
+
+            Entitlement:
+              description: An entitlement event
+              value: 
+                - accessType: entitlement
+                  id: 2c918087763e69d901763e72e97f006f
+                  attribute: groups
+                  value: Upward mobility access
+                  type: group
+                  sourceName: DataScienceDataset
+                  sourceId: 2793o32dwd
+                  description: Entitlement - Workday/Citizenship access
+                  displayName: Dr. Arden Rogahn MD
+                  standalone: true
+                  privileged: false
+                  cloudGoverned: false
+
+            Role:
+              description: A role response
+              value: 
+                - accessType: role
+                  id: 2c918087763e69d901763e72e97f006f
+                  name: sample
+                  description: Role - Workday/Citizenship access
+                  removeDate: 2024-07-01T06:00:00.00Z
+                  revocable: true
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [ idn:identity-history:read ]

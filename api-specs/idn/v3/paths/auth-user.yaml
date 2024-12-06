@@ -1,0 +1,94 @@
+get:
+  operationId: getAuthUser
+  tags:
+    - Auth Users
+  summary: Auth User Details
+  description: >-
+    Return the specified user's authentication system details.
+  parameters:
+    - in: path
+      name: id
+      description: >-
+        Identity ID
+      required: true
+      schema:
+        type: string
+      example: ef38f94347e94562b5bb8424a56397d8
+  security:
+    - userAuth: [sp:auth-user:read]
+  responses:
+    '200':
+      description: The specified user's authentication system details.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/AuthUser.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+
+patch:
+  operationId: patchAuthUser
+  tags:
+    - Auth Users
+  summary: Auth User Update
+  description: >-
+    Use a PATCH request to update an existing user in the authentication system.
+
+    Use this endpoint to modify these fields: 
+      * `capabilities`
+
+    A '400.1.1 Illegal update attempt' detail code indicates that you attempted to PATCH a field that is not allowed.
+  security:
+    - userAuth: [sp:auth-user:update]
+  parameters:
+    - in: path
+      name: id
+      description: >-
+        Identity ID
+      required: true
+      schema:
+        type: string
+      example: ef38f94347e94562b5bb8424a56397d8
+  requestBody:
+    required: true
+    description: >-
+      A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: '../schemas/JsonPatchOperation.yaml'
+        example:
+            - op: "replace"
+              path: "/capabilities"
+              value: ["ORG_ADMIN"]
+  responses:
+    '200':
+      description: Auth user updated.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/AuthUser.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

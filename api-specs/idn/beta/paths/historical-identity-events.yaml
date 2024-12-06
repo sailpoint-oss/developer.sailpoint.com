@@ -1,0 +1,203 @@
+get:
+  operationId: getHistoricalIdentityEvents
+  tags:
+    - Identity History
+  summary: Lists all events for the given identity
+  description: >-
+    This method retrieves all access events for the identity
+    Requires authorization scope of 'idn:identity-history:read' 
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The identity id
+      example: '8c190e6787aa4ed9a90bd9d5344523fb'
+    - in: query
+      name: from
+      schema:
+        type: string
+      description: The optional instant until which access events are returned
+      example: '2024-03-01T13:00:00Z'
+    - in: query
+      name: eventTypes
+      schema:
+        type: array
+        items:
+          type: string
+      description: An optional list of event types to return.  If null or empty, all events are returned
+      example:
+        - AccessAddedEvent
+        - AccessRemovedEvent
+    - in: query
+      name: accessItemTypes
+      schema:
+        type: array
+        items:
+          type: string
+      description: >- 
+        An optional list of access item types (app, account, entitlement, etc...) to return.  
+        If null or empty, all access items types are returned
+      example:
+        - entitlement
+        - account
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: '../../v3/parameters/count.yaml'    
+  responses:
+    '200':
+      description: The list of events for the identity
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              anyOf:
+                - $ref: '../schemas/AccessItemAssociated.yaml'
+                - $ref: '../schemas/AccessItemRemoved.yaml'
+                - $ref: '../schemas/AttributesChanged.yaml'
+                - $ref: '../schemas/AccessRequested.yaml'
+                - $ref: '../schemas/IdentityCertified.yaml'
+                - $ref: '../schemas/AccountStatusChanged.yaml'
+
+          examples:
+            AccessItemAssociated:
+              description: An Access item associated event
+              value: 
+                - accessItem:
+                    id: 8c190e6787aa4ed9a90bd9d5344523fb
+                    accessType: account
+                    nativeIdentity: 127999
+                    sourceName: JDBC Entitlements Source
+                    entitlementCount: 0
+                    displayName: Sample Name
+                  eventType: AccessItemAssociated
+                  identityId: 8a80828f643d484f01643e14202e206f
+                  dt: '2019-03-08T22:37:33.901Z'
+                  governanceEvent:
+                    name: Access Request 58
+                    dt: '2019-03-08T22:37:33.901Z'
+                    type: accessRequest
+                    governanceId: 2c91808a77ff216301782327a50f09e1
+                    owners:
+                      - id: bc693f07e7b645539626c25954c58554
+                        displayName: Jon Snow
+                    reviewers:
+                      - id: bc693f07e7b645539626c25954c58554
+                        displayName: Jon Snow
+                    decisionMaker:
+                        id: bc693f07e7b645539626c25954c58554
+                        displayName: Jon Snow
+
+            AccessItemRemoved:
+              description: An Access item removed event
+              value: 
+                - accessItem:
+                    id: 8c190e6787aa4ed9a90bd9d5344523fb
+                    accessType: account
+                    nativeIdentity: 127999
+                    sourceName: JDBC Entitlements Source
+                    entitlementCount: 0
+                    displayName: Sample Name
+                  eventType: AccessItemRemoved
+                  identityId: 8a80828f643d484f01643e14202e206f
+                  dt: '2019-03-08T22:37:33.901Z'
+                  governanceEvent:
+                    name: Manager Certification for Jon Snow
+                    dt: '2019-03-08T22:37:33.901Z'
+                    type: certification
+                    governanceId: 2c91808a77ff216301782327a50f09bf
+                    owners:
+                      - id: bc693f07e7b645539626c25954c58554
+                        displayName: Jon Snow
+                    reviewers:
+                      - id: bc693f07e7b645539626c25954c58554
+                        displayName: Jon Snow
+                    decisionMaker:
+                      id: bc693f07e7b645539626c25954c58554
+                      displayName: Jon Snow
+
+            AttributesChanged:
+              description: An attribute changed event
+              value: 
+                - attributeChanges:
+                    - name: firstname
+                      previousValue: adam
+                      newValue: zampa
+                  eventType: AttributesChanged
+                  identityId: 8a80828f643d484f01643e14202e206f
+                  dt: '2019-03-08T22:37:33.901Z'
+
+            AccessRequested:
+              description: An access requested event
+              value: 
+                accessRequest:
+                  requesterId: 2c91808a77ff216301782327a50f09bf
+                  requestName: Bing C
+                  items:
+                    - operation: Add
+                      accessItemType: role
+                      name: Role-1
+                      decision: APPROVED
+                      description: The role descrition
+                      sourceId: 8a80828f643d484f01643e14202e206f
+                      sourceName: Source1
+                      approvalInfos:
+                         - name: John Snow
+                           id: 8a80828f643d484f01643e14202e2000
+                           status: Approved
+                eventType: AccessRequested
+                identityId: 8a80828f643d484f01643e14202e206f
+                dt: '2019-03-08T22:37:33.901Z'
+
+            IdentityCertified:
+              description: An identity certified event
+              value: 
+                - certification: 
+                    id: 2c91808a77ff216301782327a50f09bf
+                    name: Cert name
+                    signedDate: '2019-03-08T22:37:33.901Z'
+                    certifiers:
+                      - id: 8a80828f643d484f01643e14202e206f
+                        displayName: John Snow
+                    reviewers:
+                      - id: 8a80828f643d484f01643e14202e206f
+                        displayName: Daenerys Targaryen
+                    signer:
+                        id: 8a80828f643d484f01643e14202e206f
+                        displayName: Tyrion Lannister
+                  eventType: IdentityCertified
+                  identityId: 8a80828f643d484f01643e14202e206f
+                  dt: '2019-03-08T22:37:33.901Z'            
+
+            AccountStatusChanged:
+              description: An account status changed event
+              value: 
+                - account: 
+                    id: 2c91808a77ff216301782327a50f09bf
+                    nativeIdentity: 127999
+                    displayName: Sample Name
+                    sourceId: 8a80828f643d484f01643e14202e206f
+                    sourceName: JDBC Entitlements Source
+                    entitlementCount: 0
+                    accessType: account
+                  statusChange:
+                    previousStatus: ENABLED
+                    newStatus: DISABLED
+                  eventType: AccountStatusChanged
+                  identityId: 8a80828f643d484f01643e14202e206f
+                  dt: '2019-03-08T22:37:33.901Z'
+
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

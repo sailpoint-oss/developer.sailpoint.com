@@ -1,0 +1,35 @@
+put:
+  security:
+  - userAuth: [ sp:notification-mail-from-attributes:write ]
+  operationId: putMailFromAttributes
+  tags:
+  - Notifications
+  summary: Change MAIL FROM domain
+  description: >-
+    Change the MAIL FROM domain of an AWS SES email identity and provide the MX and TXT records to be placed in the caller's DNS
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/MailFromAttributesDto.yaml'
+        example:
+          identity: "BobSmith@sailpoint.com"
+          mailFromDomain: "example.sailpoint.com"
+  responses:
+    '200':
+      description: MAIL FROM Attributes required to verify the change
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/MailFromAttributes.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

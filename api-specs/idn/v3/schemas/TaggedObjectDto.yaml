@@ -1,0 +1,24 @@
+type: object
+properties:
+  type:
+    type: string
+    enum:
+      - ACCESS_PROFILE
+      - APPLICATION
+      - CAMPAIGN
+      - ENTITLEMENT
+      - IDENTITY
+      - ROLE
+      - SOD_POLICY
+      - SOURCE
+    example: IDENTITY
+    description: DTO type
+  id:
+    type: string
+    description: ID of the object this reference applies to
+    example: 2c91808568c529c60168cca6f90c1313
+  name:
+    type: string
+    nullable: true
+    description: Human-readable display name of the object this reference applies to
+    example: William Wilson

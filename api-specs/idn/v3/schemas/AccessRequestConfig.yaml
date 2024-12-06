@@ -1,0 +1,21 @@
+type : object
+properties:
+  approvalsMustBeExternal:
+    type: boolean
+    description: If this is true, approvals must be processed by an external system. Also, if this is true, it blocks Request Center access requests and returns an error for any user who isn't an org admin.
+    default: false 
+    example: true
+  autoApprovalEnabled:
+    type: boolean
+    description: If this is true and the requester and reviewer are the same, the request is automatically approved. 
+    default: false
+    example: true
+  requestOnBehalfOfConfig:
+    $ref: './RequestOnBehalfOfConfig.yaml'
+    description: Request On Behalf Of configuration.
+  approvalReminderAndEscalationConfig:
+    $ref: './ApprovalReminderAndEscalationConfig.yaml'
+    description: Approval reminder and escalation configuration.
+  entitlementRequestConfig:
+    $ref: './EntitlementRequestConfig.yaml'
+    description: Entitlement request configuration.

@@ -1,0 +1,110 @@
+get:
+  tags:
+  - Task Management
+  summary: Get task status by ID.
+  description: Get a TaskStatus for a task by task ID.
+  operationId: getTaskStatus
+  parameters:
+  - name: id
+    in: path
+    description: Task ID.
+    required: true
+    example: 00eebcf881994e419d72e757fd30dc0e
+    style: simple
+    explode: false
+    schema:
+      type: string
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: Responds with a TaskStatus for the task with the given task ID.
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/TaskStatus.yaml
+    '403':
+      description: Forbidden, generally due to a lack of security rights
+    '404':
+      description: TaskStatus with the given id was not found.
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
+  security:
+  - userAuth:
+    - idn:task-management:read
+patch:
+  operationId: updateTaskStatus
+  tags:
+  - Task Management
+  summary: Update task status by ID
+  description: Update a current task status by task ID. Use this API to clear a pending
+    task by updating the completionStatus and completed attributes.
+  parameters:
+  - name: id
+    in: path
+    description: Task ID.
+    example: 00eebcf881994e419d72e757fd30dc0e
+    required: true
+    style: simple
+    explode: false
+    schema:
+      type: string
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  requestBody:
+    required: true
+    description: The JSONPatch payload used to update the object.
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: ../../beta/schemas/JsonPatchOperation.yaml
+          example:
+          - op: replace
+            path: /completionStatus
+            value: Error
+          - op: replace
+            path: /completed
+            value: 2024-05-17 19:33:16.470000+00:00
+  responses:
+    '200':
+      description: This response indicates the PATCH operation succeeded, and the
+        API returns the updated task object.
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/TaskStatus.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
+  security:
+  - userAuth:
+    - idn:task-management:write

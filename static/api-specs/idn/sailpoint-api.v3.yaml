@@ -174,7 +174,8 @@ tags:
       Refer to [Managing User Accounts](https://documentation.sailpoint.com/saas/help/common/users/user_access.html#managing-user-accounts) for more information about accounts.
   - name: Application Discovery
     description: |
-      Use this API to discover applications within your Okta connector and receive connector recommendations by manually uploading application names.
+      Use this API to implement application discovery functionality. 
+      With this functionality in place, you can discover applications within your Okta connector and receive connector recommendations by manually uploading application names.
   - name: Auth Users
     description: |
       Use this API to implement user authentication system functionality. 

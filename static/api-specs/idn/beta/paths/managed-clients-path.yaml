@@ -1,21 +1,21 @@
 get:
   tags:
     - Managed Clients
-  summary: Get a Managed Client
+  summary: Get Managed Client
   description: >-
-    Get a Managed Client.
+    Get a managed client by ID. 
   operationId: getManagedClient
   parameters:
     - name: id
       in: path
-      description: The Managed Client ID
+      description: Managed Client ID.
       required: true
       schema:
         type: string
       example: aClientId
   responses:
     "200":
-      description: Responds with a ManagedClient
+      description: ManagedClient response.
       content:
         application/json:
           schema:
@@ -37,9 +37,9 @@ get:
 patch:
   tags:
     - Managed Clients
-  summary: Update a Managed Clients
+  summary: Update Managed Client
   description: >-
-    Update an existing Managed Client.
+    Update an existing managed client.
   operationId: updateManagedClient
   parameters:
     - in: path
@@ -47,18 +47,18 @@ patch:
       schema:
         type: string
       required: true
-      description: The Managed Client ID
+      description: Managed Client ID.
       example: aClientId
   requestBody:
     required: true
-    description: The JSONPatch payload used to update the schema.
+    description: JSONPatch payload used to update the schema.
     content:
       application/json-patch+json:
         schema:
           $ref: '../schemas/JsonPatch.yaml'
   responses:
     "200":
-      description: The updated ManagedClient
+      description: Updated ManagedClient.
       content:
         application/json:
           schema:
@@ -81,21 +81,21 @@ delete:
   operationId: deleteManagedClient
   tags:
     - Managed Clients
-  summary: Delete a Managed Client
+  summary: Delete Managed Client
   description: >-
-    Delete an existing Managed Client.
+    Delete an existing managed client.
   parameters:
     - in: path
       name: id
       schema:
         type: string
       required: true
-      description: The Managed Client ID
+      description: Managed Client ID.
       example: aClientId
   responses:
     '204':
       $ref: '../../v3/responses/204.yaml'
-      description: The Managed Client was successfully deleted.
+      description: Managed client was successfully deleted.
     '400':
       $ref: '../../v3/responses/400.yaml'
     '401':

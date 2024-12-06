@@ -3,7 +3,7 @@ get:
     - Managed Clients
   summary: Get Managed Clients
   description: >-
-    Get a list of Managed Clients.
+    List managed clients.
   operationId: getManagedClients
   parameters:
     - $ref: '../../v3/parameters/offset.yaml'
@@ -33,7 +33,7 @@ get:
       example: name eq "client name"
   responses:
     "200":
-      description: Responds with a list of ManagedClient based on the query params provided
+      description: Response with a list of managed clients, based on the specified query parameters.
       content:
         application/json:
           schema:
@@ -55,11 +55,11 @@ get:
 post:
   tags:
     - Managed Clients
-  summary: Create a new Managed Client
+  summary: Create Managed Client
   description: >-
-    Create a new Managed Client.
+    Create a new managed client.
 
-    The API returns a result that includes the Managed Client ID.
+    The API returns a result that includes the managed client ID.
   operationId: createManagedClient
   requestBody:
     required: true
@@ -69,7 +69,7 @@ post:
           $ref: '../schemas/ManagedClientRequest.yaml'
   responses:
     "200":
-      description: The created ManagedClient
+      description: Created ManagedClient.
       content:
         application/json:
           schema:

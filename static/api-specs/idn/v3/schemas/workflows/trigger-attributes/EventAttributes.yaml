@@ -16,3 +16,8 @@ properties:
   description:
     type: string
     description: Description of the event trigger
+    example: "Triggered when an identity's manager attribute changes"
+  attributeToFilter:
+    type: string
+    description: The attribute to filter on
+    example: "LifecycleState"  

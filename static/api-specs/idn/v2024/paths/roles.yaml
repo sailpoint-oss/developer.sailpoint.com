@@ -111,9 +111,9 @@ get:
   security:
     - userAuth: [idn:role-unchecked:read, idn:role-unchecked:manage, idn:role-checked:manage, idn:role-checked:read]
   x-sailpoint-userLevels:
-      - ORG_ADMIN
-      - ROLE_ADMIN
-      - ROLE_SUBADMIN
+    - ORG_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
 
 post:
   operationId: createRole
@@ -160,6 +160,6 @@ post:
   security:
     - userAuth: [idn:role-unchecked:manage, idn:role-checked:manage]
   x-sailpoint-userLevels:
-        - ORG_ADMIN
-        - ROLE_ADMIN
-        - ROLE_SUBADMIN
+    - ORG_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN

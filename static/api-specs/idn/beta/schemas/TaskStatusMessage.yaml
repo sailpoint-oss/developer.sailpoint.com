@@ -26,5 +26,7 @@ properties:
     nullable: true
     type: array
     items:
-      type: object
+      anyOf:
+        - type: object
+        - type: string
     example: [{ "name": "value"}]

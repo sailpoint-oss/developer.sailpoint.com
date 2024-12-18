@@ -1,0 +1,127 @@
+get:
+  operationId: getAuthOrgNetworkConfig
+  tags:
+    - Global Tenant Security Settings
+  summary: Get security network configuration.
+  description: >-
+    This API returns the details of an org's network auth configuration.
+    Requires security scope of: 'sp:auth-org:read'
+  security:
+    - userAuth: [ sp:auth-org:read ]
+  responses:
+    "200":
+      description: Network configuration for the tenant's auth org.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/NetworkConfiguration.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"
+post:
+  operationId: createAuthOrgNetworkConfig
+  tags:
+    - Global Tenant Security Settings
+  summary: Create security network configuration.
+  description: >-
+    This API returns the details of an org's network auth configuration.
+    Requires security scope of: 'sp:auth-org:manage'
+  security:
+    - userAuth: [ sp:auth-org:manage ]
+  requestBody:
+    required: true
+    description: >-
+      Network configuration creation request body.   The following constraints
+      ensure the request body conforms to certain logical guidelines, which are:
+        1. Each string element in the range array must be a valid ip address or
+      ip subnet mask.
+        2. Each string element in the geolocation array must be 2 characters,
+      and they can only be uppercase letters.
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/NetworkConfiguration.yaml"
+  responses:
+    "200":
+      description: Network configuration for the tenant.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/NetworkConfiguration.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"
+patch:
+  operationId: patchAuthOrgNetworkConfig
+  tags:
+    - Global Tenant Security Settings
+  summary: Update security network configuration.
+  description: >-
+    This API updates an existing network configuration for an org using PATCH
+     Requires security scope of:  'sp:auth-org:manage'
+  security:
+    - userAuth: [ sp:auth-org:manage ]
+  requestBody:
+    required: true
+    description: >-
+      A list of auth org network configuration update operations according to
+      the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+
+      Ensures that the patched Network Config conforms to certain logical
+      guidelines, which are:
+        1. Each string element in the range array must be a valid ip address or
+      ip subnet mask.
+        2. Each string element in the geolocation array must be 2 characters,
+      and they can only be uppercase letters.
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: "../schemas/JsonPatchOperation.yaml"
+        example:
+          - op: "replace"
+            path: "/whitelisted"
+            value: false,
+          - op: "add"
+            path: "/geolocation"
+            value: ["AF", "HN", "ES"]
+  responses:
+    "200":
+      description: Updated Auth Org network configuration.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/NetworkConfiguration.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"
+  # security:
+  #   - oauth2: [sp:auth-org:update]

@@ -1,0 +1,229 @@
+post:
+  tags:
+    - Custom Forms
+  summary: Upload new form definition file.
+  description: Parameter `{formDefinitionID}` should match a form definition ID.
+  operationId: createFormDefinitionFileRequest
+  parameters:
+    - name: formDefinitionID
+      in: path
+      description: |-
+        FormDefinitionID
+        
+        String specifying FormDefinitionID
+      required: true
+      example: 00000000-0000-0000-0000-000000000000
+      schema:
+        type: string
+        x-go-name: FormDefinitionID
+      x-go-name: FormDefinitionID
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          required:
+            - file
+          properties:
+            file:
+              type: string
+              description: File specifying the multipart
+              format: binary
+              x-go-name: File
+        encoding:
+          file: # Property name
+            contentType: image/png, image/jpeg
+    required: true
+  responses:
+    "201":
+      description: Returns a new form definition file
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/forms/FormDefinitionFileUploadResponse.yaml'
+    "400":
+      description: An error with the request occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    "401":
+      description: An error with the authorization occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    "403":
+      description: An error with the user permissions occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    "404":
+      description: An error with the item not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    "413":
+      description: An error with payload size too large
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    "415":
+      description: An error with unsupported media type
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    "429":
+      description: Too many requests
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/forms/Error.yaml'
+    "500":
+      description: An internal server error occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    "503":
+      description: An external service is not available
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+  security:
+    - userAuth:
+        - sp:forms:manage
+  x-codegen-request-body-name: Body

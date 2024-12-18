@@ -1,0 +1,105 @@
+get:
+  operationId: listIdentityAttributes
+  tags:
+  - Identity Attributes
+  summary: List Identity Attributes
+  description: Use this API to get a collection of identity attributes.
+  security:
+  - userAuth:
+    - idn:identity-profile-attribute-list:read
+  parameters:
+  - in: query
+    name: includeSystem
+    schema:
+      type: boolean
+      default: false
+    description: Include 'system' attributes in the response.
+    required: false
+    example: false
+  - in: query
+    name: includeSilent
+    schema:
+      type: boolean
+      default: false
+    description: Include 'silent' attributes in the response.
+    required: false
+    example: false
+  - in: query
+    name: searchableOnly
+    schema:
+      type: boolean
+      default: false
+    description: Include only 'searchable' attributes in the response.
+    required: false
+    example: false
+  - $ref: ../../v3/parameters/count.yaml
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: List of identity attributes.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../../v3/schemas/identity-attributes/IdentityAttribute.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
+post:
+  operationId: createIdentityAttribute
+  tags:
+  - Identity Attributes
+  summary: Create Identity Attribute
+  description: Use this API to create a new identity attribute.
+  security:
+  - userAuth:
+    - idn:identity-profile-attribute:create
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../v3/schemas/identity-attributes/IdentityAttribute.yaml
+  responses:
+    '201':
+      description: The identity attribute was created successfully.
+      content:
+        application/json:
+          schema:
+            $ref: ../../v3/schemas/identity-attributes/IdentityAttribute.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true

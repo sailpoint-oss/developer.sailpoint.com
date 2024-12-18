@@ -1,0 +1,185 @@
+get:
+  operationId: getCampaignTemplateSchedule
+  tags:
+    - Certification Campaigns
+  summary: Get Campaign Template Schedule
+  description: |
+    Use this API to get the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.
+  security:
+    - userAuth: []
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: ID of the campaign template whose schedule is being fetched.
+      example: "04bedce387bd47b2ae1f86eb0bb36dee"
+  responses:
+    '200':
+      description: >-
+        Current schedule for the campaign template. See the [Set Campaign Template Schedule endpoint documentation](https://developer.sailpoint.com/docs/api/v3/set-campaign-template-schedule) for
+        more examples.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Schedule.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+put:
+  operationId: setCampaignTemplateSchedule
+  tags:
+    - Certification Campaigns
+  summary: Set Campaign Template Schedule
+  description: |
+    Use this API to set the schedule for a certification campaign template. If a schedule already exists, the API overwrites it with the new one.
+  security:
+    - userAuth: []
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: ID of the campaign template being scheduled.
+      example: "04bedce387bd47b2ae1f86eb0bb36dee"
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/Schedule.yaml'
+        examples:
+          'Monthly':
+            description: Runs on the 15th and last day of the month, at 5PM.
+            value:
+              type: MONTHLY
+              hours:
+                type: LIST
+                values:
+                  - "17"
+              days:
+                type: LIST
+                values:
+                  - "15"
+          'Once a year':
+            description: Runs every January 1st at midnight.
+            value:
+              type: ANNUALLY
+              hours:
+                type: LIST
+                values:
+                  - "0"
+              days:
+                type: LIST
+                values:
+                  - "--01-01"
+          'Quarterly':
+            description: Runs once a quarter (every 3 months) on the first of the month at 1AM.
+            value:
+              type: ANNUALLY
+              hours:
+                type: LIST
+                values:
+                  - "1"
+              days:
+                type: LIST
+                values:
+                  - "1"
+              months:
+                type: LIST
+                values:
+                  - "1"
+                interval: 3
+          'Yearly on Specific Days':
+            description: Runs on March 12 and December 5 at 1AM, every year.
+            value:
+              type: ANNUALLY
+              hours:
+                type: LIST
+                values:
+                  - "1"
+              days:
+                type: LIST
+                values:
+                  - "--03-12"
+                  - "--12-05"
+          'On a Specific Date':
+            description: Runs at 1AM on February 18th, 2020
+            value:
+              type: CALENDAR
+              hours:
+                type: LIST
+                values:
+                  - "1"
+              days:
+                type: LIST
+                values:
+                  - "2020-02-18"
+  responses:
+    '204':
+      $ref: '../responses/204.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+delete:
+  operationId: deleteCampaignTemplateSchedule
+  tags:
+    - Certification Campaigns
+  summary: Delete Campaign Template Schedule
+  description: |
+    Use this API to delete the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.
+  security:
+    - userAuth: []
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: ID of the campaign template whose schedule is being deleted.
+      example: "04bedce387bd47b2ae1f86eb0bb36dee"
+  responses:
+    '204':
+      $ref: '../responses/204.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+
+

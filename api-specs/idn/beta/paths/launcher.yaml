@@ -1,0 +1,117 @@
+get:
+  tags:
+    - Launchers
+  summary: Get Launcher by ID
+  description: Get details for the given Launcher ID
+  operationId: getLauncher
+  parameters:
+    - name: launcherID
+      in: path
+      description: ID of the Launcher to be retrieved
+      required: true
+      schema:
+        type: string
+        format: uuid
+      example: "e3012408-8b61-4564-ad41-c5ec131c325b"
+  responses:
+    '200':
+      description: Launcher retrieved successfully
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Launcher.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [ sp:launcher-admin:read, sp:launcher-user:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+put:
+  tags:
+    - Launchers
+  summary: Replace Launcher
+  description: Replace the given Launcher ID with given payload
+  operationId: putLauncher
+  parameters:
+    - name: launcherID
+      in: path
+      description: ID of the Launcher to be replaced
+      required: true
+      schema:
+        type: string
+        format: uuid
+      example: "e3012408-8b61-4564-ad41-c5ec131c325b"
+  requestBody:
+    description: Payload to replace Launcher
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/LauncherRequest.yaml'
+  responses:
+    '200':
+      description: Launcher replaced successfully
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Launcher.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [ sp:launcher-admin:write ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+delete:
+  tags:
+    - Launchers
+  summary: Delete Launcher
+  description: Delete the given Launcher ID
+  operationId: deleteLauncher
+  parameters:
+    - name: launcherID
+      in: path
+      description: ID of the Launcher to be deleted
+      required: true
+      schema:
+        type: string
+        format: uuid
+      example: "e3012408-8b61-4564-ad41-c5ec131c325b"
+  responses:
+    '204':
+      description: Launcher deleted successfully
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [ sp:launcher-admin:delete ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

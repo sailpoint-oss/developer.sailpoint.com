@@ -1,0 +1,295 @@
+get:
+  tags:
+    - Custom Forms
+  summary: Export form definitions by tenant.
+  description: No parameters required.
+  operationId: searchFormDefinitionsByTenant
+  parameters:
+    - name: offset
+      in: query
+      description: |-
+        Offset
+
+        Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results).
+        The offset value is record-based, not page-based, and the index starts at 0.
+      schema:
+        type: integer
+        format: int64
+        default: 0
+      example: 250
+      required: false
+    - name: limit
+      in: query
+      description: |-
+        Limit
+
+        Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results).
+        If it is not specified, a default limit is used.
+      schema:
+        type: integer
+        format: int64
+        maxLength: 250
+        minLength: 0
+        default: 250
+      example: 250
+      required: false
+    - name: filters
+      in: query
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **name**: *eq, gt, sw, in*
+
+
+        **description**: *eq, gt, sw, in*
+
+
+        **created**: *eq, gt, sw, in*
+
+
+        **modified**: *eq, gt, sw, in*
+      schema:
+        type: string
+      example: name sw "my form"
+      required: false
+    - name: sorters
+      in: query
+      description: >-
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+
+        Sorting is supported for the following fields: **name, description, created, modified**
+      schema:
+        type: string
+        default: name
+      example: name
+      required: false
+  responses:
+    "200":
+      description: Returns a list of form definitions by tenant
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/forms/ListFormDefinitionsByTenantResponse.yaml'
+    "400":
+      description: An error with the request occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+              messages:
+                type: array
+                items:
+                  $ref: '../schemas/forms/ErrorMessage.yaml'
+              statusCode:
+                type: integer
+                format: int64
+              trackingId:
+                type: string
+    "401":
+      description: An error with the authorization occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+              messages:
+                type: array
+                items:
+                  $ref: '../schemas/forms/ErrorMessage.yaml'
+              statusCode:
+                type: integer
+                format: int64
+              trackingId:
+                type: string
+    "403":
+      description: An error with the user permissions occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+              messages:
+                type: array
+                items:
+                  $ref: '../schemas/forms/ErrorMessage.yaml'
+              statusCode:
+                type: integer
+                format: int64
+              trackingId:
+                type: string
+    "429":
+      description: Too many requests
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/forms/Error.yaml'
+    "500":
+      description: An internal server error occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+              messages:
+                type: array
+                items:
+                  $ref: '../schemas/forms/ErrorMessage.yaml'
+              statusCode:
+                type: integer
+                format: int64
+              trackingId:
+                type: string
+  security:
+    - userAuth:
+        - sp:forms:manage
+post:
+  tags:
+    - Custom Forms
+  summary: Creates a form definition.
+  operationId: createFormDefinition
+  requestBody:
+    description: Body is the request payload to create form definition request
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/forms/CreateFormDefinitionRequest.yaml'
+        example: {
+          "name": "my form",
+          "description": "my form description",
+          "owner": {
+            "type": "IDENTITY",
+            "id": "00000000-0000-0000-0000-000000000000"
+          },
+          "formElements": [
+            {
+              "id": "000000000000",
+              "elementType": "SECTION",
+              "config": {
+                "alignment": "LEFT",
+                "description": "elementType must be 'SECTION' for the root formElements,  child formElements must be within the 'config' attribute",
+                "label": "Section",
+                "labelStyle": "h2",
+                "showLabel": true,
+                "formElements": [
+                  {
+                    "id": "0000000000000",
+                    "key": "textField",
+                    "elementType": "TEXT",
+                    "config": {
+                      "default": "",
+                      "description": "",
+                      "helpText": "form element type text",
+                      "label": "Text Field",
+                      "placeholder": "",
+                      "required": false
+                    },
+                    "validations": [ ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+    required: false
+  responses:
+    "201":
+      description: Returns a new form definition
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/forms/FormDefinitionResponse.yaml'
+    "400":
+      description: An error with the request occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+              messages:
+                type: array
+                items:
+                  $ref: '../schemas/forms/ErrorMessage.yaml'
+              statusCode:
+                type: integer
+                format: int64
+              trackingId:
+                type: string
+    "401":
+      description: An error with the authorization occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+              messages:
+                type: array
+                items:
+                  $ref: '../schemas/forms/ErrorMessage.yaml'
+              statusCode:
+                type: integer
+                format: int64
+              trackingId:
+                type: string
+    "403":
+      description: An error with the user permissions occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+              messages:
+                type: array
+                items:
+                  $ref: '../schemas/forms/ErrorMessage.yaml'
+              statusCode:
+                type: integer
+                format: int64
+              trackingId:
+                type: string
+    "429":
+      description: Too many requests
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/forms/Error.yaml'
+    "500":
+      description: An internal server error occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+              messages:
+                type: array
+                items:
+                  $ref: '../schemas/forms/ErrorMessage.yaml'
+              statusCode:
+                type: integer
+                format: int64
+              trackingId:
+                type: string
+  security:
+    - userAuth:
+        - sp:forms:manage

@@ -1,0 +1,15 @@
+post:
+  summary: Create a create workflow
+  operationId: createCreateWorkflow
+  description: Create a create workflow
+  tags:
+    - workflows
+  requestBody:
+    $ref: "../../requestBodies/POST/Workflows/CreateWorkflow.yaml"
+  responses:
+    '200':
+      $ref: "../../responses/Workflow.yaml"
+    '400':
+      $ref: "../../responses/400.yaml"
+    '500':
+      $ref: "../../responses/500.yaml"

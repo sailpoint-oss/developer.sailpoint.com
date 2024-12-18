@@ -1,0 +1,170 @@
+
+get:
+  operationId: getSourceSchedule
+  security:
+    - userAuth: [ idn:sources:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  tags:
+    - Sources
+  summary: Get Source Schedule by Type
+  description: |
+    Get the source schedule by type in Identity Security Cloud (ISC).
+  parameters:
+    - in: path
+      name: sourceId
+      required: true
+      schema:
+        type: string
+      description: The Source id.
+      example: 2c9180835d191a86015d28455b4a2329
+    - in: path
+      name: scheduleType
+      schema:
+        type: string
+        enum:
+          - ACCOUNT_AGGREGATION
+          - GROUP_AGGREGATION
+      required: true
+      description: The Schedule type.
+      example: ACCOUNT_AGGREGATION
+  responses:
+    '200':
+      description: The requested Schedule was successfully retrieved.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/sources/Schedule.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+patch:
+  operationId: updateSourceSchedule
+  security:
+    - userAuth: [ idn:sources:update ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  tags:
+    - Sources
+  summary: Update Source Schedule (Partial)
+  description: |
+    Use this API to selectively update an existing Schedule using a JSONPatch payload. 
+    
+    The following schedule fields are immutable and cannot be updated:
+
+    - type
+
+  parameters:
+    - in: path
+      name: sourceId
+      required: true
+      schema:
+        type: string
+      description: The Source id.
+      example: 2c9180835d191a86015d28455b4a2329
+    - in: path
+      name: scheduleType
+      schema:
+        type: string
+        enum:
+          - ACCOUNT_AGGREGATION
+          - GROUP_AGGREGATION
+      required: true
+      description: The Schedule type.
+      example: ACCOUNT_AGGREGATION
+  requestBody:
+    required: true
+    description: The JSONPatch payload used to update the schedule.
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: '../../v3/schemas/JsonPatchOperation.yaml'
+        examples:
+          add-attribute:
+            summary: Replace an attribute of the schedule
+            value: [
+              {
+                "op": "replace",
+                "path": "/cronExpression",
+                "value": "0 0 6 * * ?"
+              }
+            ]
+  responses:
+    '200':
+      description: The Schedule was successfully updated.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/sources/Schedule.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+delete:
+  operationId: deleteSourceSchedule
+  security:
+    - userAuth: [ idn:sources:update ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  tags:
+    - Sources
+  summary: Delete Source Schedule by type.
+  parameters:
+    - in: path
+      name: sourceId
+      required: true
+      schema:
+        type: string
+      description: The Source id.
+      example: 2c9180835d191a86015d28455b4a2329
+    - in: path
+      name: scheduleType
+      schema:
+        type: string
+        enum:
+          - ACCOUNT_AGGREGATION
+          - GROUP_AGGREGATION
+      required: true
+      description: The Schedule type.
+      example: ACCOUNT_AGGREGATION
+  responses:
+    '204':
+      $ref: '../../v3/responses/204.yaml'
+      description: The Schedule was successfully deleted.
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

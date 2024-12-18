@@ -1,0 +1,34 @@
+post:
+  operationId: cancelWorkflowExecution
+  tags:
+    - Workflows
+  summary: Cancel Workflow Execution by ID
+  description: >-
+    Use this API to cancel a running workflow execution.
+  security:
+    - userAuth: [sp:workflow-execute:external]
+  parameters:
+    - name: id
+      in: path
+      description: The workflow execution ID
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: c17bea3a-574d-453c-9e04-4365fbf5af0b
+  responses:
+    '204':
+      $ref: '../../v3/responses/204.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

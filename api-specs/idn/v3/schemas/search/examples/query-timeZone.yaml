@@ -1,0 +1,7 @@
+summary: Query with TimeZone
+value:
+  indices:
+  - 'identities'
+  query:
+    query: 'created: [2022-05-19T19:26:03.351Z TO now]'
+    timeZone: 'America/Los_Angeles'

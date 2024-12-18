@@ -1,0 +1,80 @@
+get:
+  operationId: getAuthOrgSessionConfig
+  tags:
+    - Global Tenant Security Settings
+  summary: Get Auth Org Session Configuration.
+  description: >-
+    This API returns the details of an org's session auth configuration.
+  responses:
+    "200":
+      description: Session configuration for the tenant's auth org.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/SessionConfiguration.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"
+  security:
+   - userAuth: []
+patch:
+  operationId: patchAuthOrgSessionConfig
+  tags:
+    - Global Tenant Security Settings
+  summary: Update Auth Org Session Configuration
+  description: >-
+    This API updates an existing session configuration for an org using PATCH.
+  requestBody:
+    required: true
+    description: >-
+      A list of auth org session configuration update operations according to
+      the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+
+      Ensures that the patched Session Config conforms to certain logical
+      guidelines, which are:
+        1. maxSessionTime >= 1 && maxSessionTime <= 10080 (1 week)
+        2. maxIdleTime >= 1 && maxIdleTime <= 1440 (1 day)
+        3. maxSessionTime must have a greater duration than maxIdleTime.
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: "../schemas/JsonPatchOperation.yaml"
+        example:
+          - op: "replace"
+            path: "/rememberMe"
+            value: true,
+          - op: "add"
+            path: "/maxSessionTime"
+            value: 480
+  responses:
+    "200":
+      description: Updated Auth Org session configuration.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/SessionConfiguration.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"
+  security:
+    - userAuth: []

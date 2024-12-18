@@ -1,0 +1,39 @@
+get:
+  operationId: getCertificationTask
+  tags:
+    - Certifications
+  summary: Certification Task by ID
+  description: >-
+    This API returns the certification task for the specified ID. Reviewers for the specified certification can also call this API.
+  security:
+    - userAuth: [ idn:certification:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The task ID
+      example: 63b32151-26c0-42f4-9299-8898dc1c9daa
+  responses:
+    '200':
+      description: A certification task
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/CertificationTask.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

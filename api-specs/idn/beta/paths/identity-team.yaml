@@ -1,0 +1,36 @@
+get:
+  operationId: getTeamSummary
+  tags:
+    - Identities
+  summary: Get team summary by identityId
+  description: >-
+    This returns reference to a given identity’s manager, and the count of Identities that are managed by the provided identity.
+  parameters:
+    - in: path
+      name: identityId
+      description: >-
+        The ID of the identity to build the team summary
+      required: true
+      example: 2c9180857893f1290178944561990364
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Returns reference to a given identity’s manager, and the count of Identities that are managed by the provided identity
+      content:
+        application/json:
+          schema:
+            type: object
+            $ref: '../schemas/TeamSummaryDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

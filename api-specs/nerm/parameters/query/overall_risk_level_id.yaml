@@ -1,0 +1,7 @@
+name: overall_risk_level_id
+in: query
+description: Overall risk level to filter by
+required: false
+schema:
+  type: string
+  format: uuid

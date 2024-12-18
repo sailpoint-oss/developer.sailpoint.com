@@ -1,0 +1,19 @@
+type: object
+properties:
+  accountId:
+    type: string
+    description: The ID of the account
+    example: 2c91808981f58ea601821c3e93482e6f
+  cause:
+    type: string
+    example: Role
+  name:
+    type: string
+    description: The name of the item
+    example: smartsheet-role
+  attributeRequests:
+    type: array
+    items:
+      $ref: "AttributeRequest.yaml"
+  source:
+    $ref: "../AccountSource.yaml"

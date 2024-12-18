@@ -1,0 +1,64 @@
+get:
+  security:
+    - userAuth: [ sp:approvals:read ]
+  operationId: getApprovals
+  tags:
+    - Approvals
+  summary: Get Approvals
+  description: >-
+    Get a list of approvals, which can be filtered by requester ID, status, or reference type. You can use the "Mine" query parameter to return all approvals for the current approver. This endpoint is for generic approvals, unlike the access-request-approval endpoint, and does not include access-request-approvals. 
+    
+    Absence of all query parameters will will default to mine=true.
+  parameters:
+    - in: query
+      name: mine
+      schema:
+        type: boolean
+      description: >-
+        Returns the list of approvals for the current caller.
+      example:
+        "true"
+    - in: query
+      name: requesterId
+      schema:
+        type: string
+      description: >-
+        Returns the list of approvals for a given requester ID.
+      example:
+        "17e633e7d57e481569df76323169deb6a"
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **status**: *eq*
+
+
+        **referenceType**: *eq*
+      example:
+        "filters=status eq PENDING"
+  responses:
+    '200':
+      description: List of approvals.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/Approval.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

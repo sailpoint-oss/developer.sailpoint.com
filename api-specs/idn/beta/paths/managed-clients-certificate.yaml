@@ -1,0 +1,42 @@
+post:
+  tags:
+    - Managed Clients
+  summary: Request to sign client(VA) certificate
+  description: >-
+    This API is used by client instances to request to sign client(VA) certificate.
+  operationId: signCertificate
+  parameters:
+    - name: id
+      in: path
+      description: The Managed Client ID
+      required: true
+      schema:
+        type: string
+      example: aClientId
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/CertificateSignInput.yaml'
+  responses:
+    "200":
+      description: Responds with a CertificateSignResponse
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/CertificateSignResponse.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:managed-client-certificate:update]

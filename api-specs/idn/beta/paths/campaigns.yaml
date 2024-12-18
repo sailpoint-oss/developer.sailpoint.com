@@ -1,0 +1,142 @@
+get:
+  operationId: getActiveCampaigns
+  tags:
+    - Certification Campaigns
+  summary: List Campaigns
+  description: |
+    Use this API to get a list of campaigns. The API can provide increased level of detail for each campaign for the correct provided query. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-active-campaigns).
+
+    A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API.
+  security:
+    - userAuth: [idn:campaign:read, idn:campaign:manage, idn:campaign-report:read, idn:campaign-report:manage]
+  deprecated: true
+  parameters:
+    - in: query
+      name: detail
+      schema:
+        type: string
+        enum: [SLIM, FULL]
+      required: false
+      description: >-
+        Determines whether slim, or increased level of detail is provided for each campaign in the returned list.
+        Slim is the default behavior.
+      example: FULL
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: '../../v3/parameters/count.yaml'
+    - in: query
+      name: filters
+      schema:
+        type: string
+      required: false
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **id**: *eq, in*
+
+
+        **name**: *eq, sw*
+
+
+        **status**: *eq, in*
+      example: name eq "Manager Campaign"
+    - in: query
+      name: sorters
+      schema:
+        type: string
+        format: comma-separated
+      required: false
+      description: >-
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+
+        Sorting is supported for the following fields: **name, created**
+      example: name
+  responses:
+    '200':
+      description: List of campaign objects. By default, the API returns a list of SLIM campaigns.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              oneOf:
+                - $ref: '../schemas/SlimCampaign.yaml'
+                - $ref: '../schemas/Campaign.yaml'
+
+          examples:
+            Slim Campaign:
+              $ref: '../schemas/campaign/examples/SlimCampaigns.yaml'
+            Full Campaign:
+              $ref: '../schemas/campaign/examples/FullCampaigns.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+post:
+  operationId: createCampaign
+  tags:
+    - Certification Campaigns
+  summary: Create Campaign
+  description: |
+    Use this API to create a certification campaign with the information provided in the request body. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/create-campaign).
+
+    A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
+  security:
+    - userAuth: [idn:campaign:manage]
+  deprecated: true
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/Campaign.yaml'
+        examples:
+          Manager:
+            $ref: '../schemas/campaign/examples/CreateCampaignManager.yaml'
+          Search:
+            $ref: '../schemas/campaign/examples/CreateCampaignSearch.yaml'
+          Source Owner:
+            $ref: '../schemas/campaign/examples/CreateCampaignSourceOwner.yaml'
+          Role Composition:
+            $ref: '../schemas/campaign/examples/CreateCampaignRoleComposition.yaml'
+          Machine Account Owner:
+            $ref: '../schemas/campaign/examples/CreateCampaignMachineAccount.yaml'
+  responses:
+    '200':
+      description: This response indicates that the requested campaign was successfully created, and the API returns its representation.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Campaign.yaml'
+          examples:
+            Manager:
+              $ref: '../schemas/campaign/examples/FullCampaignManager.yaml'
+            Search:
+              $ref: '../schemas/campaign/examples/FullCampaignSearch.yaml'
+            Source Owner:
+              $ref: '../schemas/campaign/examples/FullCampaignSourceOwner.yaml'
+            Role Composition:
+              $ref: '../schemas/campaign/examples/FullCampaignRoleComposition.yaml'
+            Machine Account Owner:
+              $ref: '../schemas/campaign/examples/FullCampaignMachineAccount.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

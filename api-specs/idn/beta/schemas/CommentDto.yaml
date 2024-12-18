@@ -1,0 +1,29 @@
+type: object
+properties:
+  comment:
+    type: string
+    nullable: true
+    description: Comment content. 
+    example: This is a comment. 
+  author:
+    type: object
+    properties:
+      type:
+        type: string
+        description: DTO type of the commenting identity. 
+        enum: 
+          - IDENTITY
+        example: IDENTITY
+      id:
+        type: string
+        description: ID of the commenting identity. 
+        example: 2c91808568c529c60168cca6f90c1313
+      name:
+        type: string
+        description: Display name of the commenting identity. 
+        example: Adam Kennedy
+  created:
+    type: string
+    format: 'date-time'
+    description: Date and time comment was created.
+    example: '2017-07-11T18:45:37.098Z'

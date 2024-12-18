@@ -1,0 +1,133 @@
+type: object
+properties:
+  name:
+    type: string
+    description: Human-readable display name of the item being requested.
+    example: "AccessProfile1"
+    nullable: true
+  type:
+    type: string
+    enum:
+      - ACCESS_PROFILE
+      - ROLE
+      - ENTITLEMENT
+      - null
+    description: Type of requested object.
+    example: ACCESS_PROFILE
+    nullable: true
+  cancelledRequestDetails:
+    allOf:
+    - $ref: './CancelledRequestDetails.yaml'
+    - nullable: true
+  errorMessages:
+    type: array
+    nullable: true
+    items:
+      $ref: './ErrorMessageDtoList.yaml'
+    description: List of list of localized error messages, if any, encountered during the approval/provisioning process.
+  state:
+    $ref: './RequestedItemStatusRequestState.yaml'
+  approvalDetails:
+    type: array
+    items:
+      $ref: './ApprovalStatusDto.yaml'
+    description: Approval details for each item.
+  manualWorkItemDetails:
+    type: array
+    nullable: true
+    items:
+      $ref: './ManualWorkItemDetails.yaml'
+    description: Manual work items created for provisioning the item.
+  accountActivityItemId:
+    type: string
+    description: Id of associated account activity item.
+    example: "2c9180926cbfbddd016cbfc7c3b10010"
+  requestType:
+    $ref: './AccessRequestType.yaml'
+  modified:
+    type: string
+    format: date-time
+    description: When the request was last modified.
+    example: "2019-08-23T18:52:59.162Z"
+    nullable: true
+  created:
+    type: string
+    format: date-time
+    description: When the request was created.
+    example: "2019-08-23T18:40:35.772Z"
+  requester:
+    $ref: './AccessItemRequester.yaml'
+  requestedFor:
+    type: object
+    description: Identity access was requested for. 
+    properties:
+      type:
+        type: string
+        enum:
+          - IDENTITY
+        description: Type of the object to which this reference applies
+        example: IDENTITY
+      id:
+        type: string
+        description: ID of the object to which this reference applies
+        example: 2c9180835d191a86015d28455b4b232a
+      name:
+        type: string
+        description: Human-readable display name of the object to which this reference applies
+        example: William Wilson
+  requesterComment:
+    allOf:
+    - $ref: './CommentDto.yaml'
+    - nullable: true
+      description: The requester's comment.
+  sodViolationContext:
+    allOf:
+    - $ref: './SodViolationContextCheckCompleted.yaml'
+    - nullable: true
+      description: The details of the SOD violations for the associated approval.
+  provisioningDetails:
+    allOf:
+    - $ref: './ProvisioningDetails.yaml'
+    - nullable: true
+  preApprovalTriggerDetails:
+    allOf:
+    - $ref: './PreApprovalTriggerDetails.yaml'
+    - nullable: true
+  accessRequestPhases:
+    type: array
+    items:
+      $ref: './AccessRequestPhases.yaml'
+    description: A list of Phases that the Access Request has gone through in order, to help determine the status of the request.
+    nullable: true
+  description:
+    type: string
+    description: Description associated to the requested object.
+    example: "This is the Engineering role that engineers are granted."
+    nullable: true
+  removeDate:
+    type: string
+    format: date-time
+    nullable: true
+    description: When the role access is scheduled for removal.
+    example: "2019-10-23T00:00:00.000Z"
+  cancelable:
+    type: boolean
+    default: false
+    description: True if the request can be canceled.
+    example: true
+  accessRequestId:
+    type: string
+    description: This is the account activity id.
+    example: "2b838de9-db9b-abcf-e646-d4f274ad4238"
+  clientMetadata:
+    nullable: true
+    type: object
+    additionalProperties:
+      type: string
+    description: >-
+      Arbitrary key-value pairs, if any were included in the corresponding access request
+    example:
+      {
+        "key1": "value1",
+        "key2": "value2"
+      }

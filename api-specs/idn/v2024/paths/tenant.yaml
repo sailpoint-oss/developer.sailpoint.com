@@ -1,0 +1,37 @@
+get:
+  operationId: getTenant
+  tags:
+  - Tenant
+  summary: Get Tenant Information.
+  description: This rest endpoint can be used to retrieve tenant details.
+  security:
+  - userAuth:
+    - sp:tenant:read
+  responses:
+    '200':
+      description: Tenant Info
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/Tenant.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true

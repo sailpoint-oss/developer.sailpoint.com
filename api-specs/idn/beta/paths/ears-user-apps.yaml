@@ -1,0 +1,59 @@
+get:
+  operationId: listOwnedUserApps
+  tags:
+    - Apps
+  summary: List owned user apps
+  security:
+    - userAuth: [idn:app-roles:read]
+  description: >-
+    This API returns the list of user apps assigned to logged in user
+  parameters:
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/count.yaml'
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+        
+        
+        Filtering is supported for the following fields and operators:
+        
+        
+        **id**: *eq*
+        
+        
+        **ownerName**: *eq, sw*
+        
+        
+        **ownerAlias**: *eq, sw*
+        
+        
+        **accountId**: *eq*
+
+
+        **sourceAppId**: *eq*
+      example: name eq "user app name"
+      required: false
+      style: form
+      explode: true
+  responses:
+    '200':
+      description: List of user apps
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/app/UserApp.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

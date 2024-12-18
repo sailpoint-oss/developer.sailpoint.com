@@ -1,0 +1,47 @@
+get:
+  operationId: getValidTimeZones
+  tags:
+  - Org Config
+  summary: Get list of time zones
+  security:
+  - userAuth:
+    - idn:org-configs:read
+    - idn:org-configs-user:read
+  description: Get a list of valid time zones that can be set in org configurations.
+  responses:
+    '200':
+      description: Request successful
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: string
+          example:
+          - Etc/GMT-6
+          - Etc/GMT+8
+          - EST
+          - America/Chicago
+          - America/Toronto
+          - Asia/Gaza
+          - Europe/Brussels
+          - Europe/Kiev
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true

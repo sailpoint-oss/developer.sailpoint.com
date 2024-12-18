@@ -1,0 +1,62 @@
+description: Suggested Entitlement Description
+type: object
+properties:
+  Name:
+    type: string
+    description: name of the entitlement
+    example: BatchInvoiceProcessing
+  approved_by:
+    type: string
+    description: entitlement approved by
+    example: 2c918086-76de-afbf-0176-f6d28f65565a
+  approved_type:
+    type: string
+    description: entitlement approved type
+    example: admin
+  approved_when:
+    format: date-time
+    type: string
+    example: 2024-03-22 16:32:16.308857
+    description: entitlement approved then
+  attribute:
+    type: string
+    description: entitlement attribute
+    example: Role
+  description:
+    type: string
+    description: description of entitlement
+    example: This entitlement allows automated processing of invoices in batches on a scheduled basis to streamline accounts payable procedures.
+  displayName:
+    type: string
+    description: entitlement display name
+    example: AWS-Cloud-Billing
+  id:
+    format: uuid
+    type: string
+    description: sed id
+    example: ead281ee-12a9-40ac-9534-36b5d7d65d53
+  sourceId:
+    type: string
+    description: entitlement source id
+    example: 103f567b93ee49b991c40f9412f87643
+  sourceName:
+    type: string
+    description: entitlement source name
+    example: IDN Salesforce
+  status:
+    type: string
+    description: entitlement status
+    example: suggested
+  suggestedDescription:
+    type: string
+    description: llm suggested entitlement description
+    example:  >-
+      This entitlement allows automated processing of invoices in batches on a scheduled basis to streamline accounts payable
+  type:
+    type: string
+    description: entitlement type
+    example: group
+  value:
+    type: string
+    description: entitlement value
+    example: group

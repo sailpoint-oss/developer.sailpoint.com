@@ -1,0 +1,252 @@
+get:
+  operationId: getDimension
+  tags:
+    - Dimensions
+  summary: Get a Dimension under Role.
+  description: >-
+    This API returns a Dimension by its ID.
+
+    
+    A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a
+    token with ROLE_SUBADMIN authority may only call this API if all Access Profiles or Entitlements included in the Dimension or Parent Role are associated
+    to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+  parameters:
+    - in: path
+      name: roleId
+      required: true
+      schema:
+        type: string
+      description: Parent Role Id of the dimension.
+      example: 6603fba3004f43c687610a29195252ce
+    - in: path
+      name: dimensionId
+      schema:
+        type: string
+      required: true
+      description: Id of the Dimension
+      example: 2c9180835d191a86015d28455b4a2329
+  responses:
+    '200':
+      description: Dimension
+      content:
+        application/json:
+          schema:
+            $ref: '../../v3/schemas/access/Dimension.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:role-unchecked:read, idn:role-unchecked:manage, idn:role-checked:manage, idn:role-checked:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
+patch:
+  operationId: patchDimension
+  tags:
+    - Dimensions
+  summary: Patch a specified Dimension
+  description: >-
+    This API updates an existing dimension using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
+
+    The following fields are patchable:
+    **name**
+    **description**
+    **owner**
+    **accessProfiles**
+    **entitlements**
+    **membership**
+
+    A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a
+    token with ROLE_SUBADMIN authority may only call this API if all access profiles/entitlements included in the dimension are associated
+    to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+
+    The maximum supported length for the description field is 2000 characters.
+
+    When you use this API to modify a dimension's membership identities, you can only modify up to a limit of 500 membership identities at a time.
+  parameters:
+    - in: path
+      name: roleId
+      required: true
+      schema:
+        type: string
+      description: Parent Role Id of the dimension.
+      example: 6603fba3004f43c687610a29195252ce
+    - in: path
+      name: dimensionId
+      schema:
+        type: string
+      required: true
+      description: Id of the Dimension
+      example: 2c9180835d191a86015d28455b4a2329
+  requestBody:
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: '../schemas/JsonPatchOperation.yaml'
+        examples:
+          Update a Dimension name and description field in One Call:
+            description: This example shows how multiple fields may be updated with a single patch call.
+            value:
+              [
+                {
+                  "op": "replace",
+                  "path": "/description",
+                  "value": 'Test Description'
+                },
+                {
+                  "op": "replace",
+                  "path": "/name",
+                  "value": 'new name'
+                }
+              ]
+
+          Set the Membership Selection Criteria to a List of Identities:
+            description: >-
+              This example shows how to define a Dimension's membershp by providing a list of Identities, referenced by their
+              IDs.
+            value:
+              [
+                {
+                  "op": "replace",
+                  "path": "/membership",
+                  "value": {
+                        "type": "IDENTITY_LIST",
+                        "identities": [
+                          {
+                            "id": "2c91808973fe906c0174262092014ed9"
+                          },
+                          {
+                            "id": "2c918086262092014ed94fb8a47612f3"
+                          }
+                        ]
+                    }
+                }
+              ]
+
+          Set the Membership Selection Criteria to a Standard Expression:
+            description: >-
+              This example shows how to define a Dimensions's membership using STANDARD criteria. In this case, the Dimension
+              will be granted to all Identities which have the *Engineering* attribute from the indicated Source.
+            value:
+              [
+                {
+                  "op": "replace",
+                  "path": "/membership",
+                  "value": {
+                    "type": "STANDARD",
+                    "criteria": {
+                      "operation": "OR",
+                      "children": [
+                        {
+                          "operation": "EQUALS",
+                          "key": {
+                            "type": "ENTITLEMENT",
+                            "property": "attribute.memberOf",
+                            "sourceId": "2c9180887701fb2014213e122092014e"
+                          },
+                          "stringValue": "Engineering"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+
+          Add a New Clause as the Child of an Existing Standard Expression:
+            description: >-
+                This example shows how to add a child clause to an existing STANDARD criteria expression.
+            value:
+               [
+                {
+                  "op": "add",
+                  "path": "/membership/criteria/children/-",
+                  "value": {
+                    "operation": "ENDS_WITH",
+                    "key": {
+                      "type": "IDENTITY",
+                      "property": "attribute.email"
+                    },
+                    "stringValue": "@identitynow.com"
+                  }
+                }
+              ]
+
+    required: true
+  responses:
+    '200':
+      description: Responds with the Dimension as updated.
+      content:
+        application/json:
+          schema:
+            $ref: '../../v3/schemas/access/Dimension.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [ idn:role-unchecked:manage,idn:role-checked:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
+delete:
+  operationId: deleteDimension
+  tags:
+    - Dimensions
+  summary: Delete a Dimension
+  description: >-
+    This API deletes a Dimension by its ID.
+
+    A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a
+    token with ROLE_SUBADMIN authority may only call this API if all Access Profiles/Entitlements included in the Dimension are associated
+    to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+  parameters:
+    - in: path
+      name: roleId
+      required: true
+      schema:
+        type: string
+      description: Parent Role Id of the dimension.
+      example: 6603fba3004f43c687610a29195252ce
+    - in: path
+      name: dimensionId
+      schema:
+        type: string
+      required: true
+      description: Id of the Dimension
+      example: 2c9180835d191a86015d28455b4a2329
+  responses:
+    '204':
+      $ref: "../../v3/responses/204.yaml"
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [ idn:role-unchecked:manage,idn:role-checked:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN

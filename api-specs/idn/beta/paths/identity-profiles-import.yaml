@@ -1,0 +1,35 @@
+post:
+  operationId: importIdentityProfiles
+  summary: Import Identity Profiles
+  description: >-
+    This imports previously exported identity profiles.
+  tags:
+    - Identity Profiles
+  requestBody:
+    description: Previously exported Identity Profiles.
+    required: true
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: '../schemas/IdentityProfileExportedObject.yaml'
+  responses:
+    '200':
+      description: The result of importing Identity Profiles.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ObjectImportResult.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:identity-profile:manage]

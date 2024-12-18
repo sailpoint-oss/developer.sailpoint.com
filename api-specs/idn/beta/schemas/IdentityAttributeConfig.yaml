@@ -1,0 +1,11 @@
+type: object
+properties:
+  enabled:
+    type: boolean
+    description: If the profile or mapping is enabled
+    example: true
+    default: true
+  attributeTransforms:
+    type: array
+    items:
+      $ref: './IdentityAttributeTransform.yaml'

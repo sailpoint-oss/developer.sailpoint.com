@@ -1,0 +1,36 @@
+post:
+  operationId: createWorkflowExternalTrigger
+  tags:
+    - Workflows
+  summary: Generate External Trigger OAuth Client
+  description: >-
+    Create OAuth client ID, client secret, and callback URL for use in an external trigger.  External triggers will need this information to generate an access token to authenticate to the callback URL and submit a trigger payload that will initiate the workflow.
+  security:
+    - userAuth: [sp:workflow:manage]
+  parameters:
+    - name: id
+      in: path
+      description: Id of the workflow
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: c17bea3a-574d-453c-9e04-4365fbf5af0b
+  responses:
+    '200':
+      description: The OAuth Client object
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/workflows/WorkflowOAuthClient.yaml'
+    '400':
+      $ref: '../../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../../v3/responses/500.yaml'

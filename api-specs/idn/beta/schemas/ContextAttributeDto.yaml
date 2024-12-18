@@ -1,0 +1,21 @@
+type: object
+properties:
+  attribute:
+    type: string
+    description: The name of the attribute
+    example: "location"
+  value:
+    oneOf:
+      - type: string
+        example: "Austin"
+      - type: array
+        items:
+          type: string
+          example: [ "Austin", "Houston", "Dallas" ]
+    description: The value of the attribute.  This can be either a string or a multi-valued string
+    example: "Austin"
+  derived:
+    type: boolean
+    description: True if the attribute was derived.
+    default: false
+    example: false

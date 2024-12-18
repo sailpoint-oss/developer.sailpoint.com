@@ -1,0 +1,107 @@
+get:
+  operationId: getSourceAttrSyncConfig
+  tags:
+  - Sources
+  summary: Attribute Sync Config
+  description: >-
+    This API returns the existing attribute synchronization configuration
+    for a source specified by the given ID. The response contains all attributes,
+    regardless of whether they enabled or not.
+  security:
+  - userAuth:
+    - idn:attr-sync-source-config:read
+    - idn:attr-sync-source-config:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - HELPDESK
+  parameters:
+  - in: path
+    name: id
+    required: true
+    schema:
+      type: string
+    description: The source id
+    example: 2c9180835d191a86015d28455b4a2329
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: Attribute synchronization configuration for a source
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/AttrSyncSourceConfig.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
+put:
+  operationId: putSourceAttrSyncConfig
+  tags:
+  - Sources
+  summary: Update Attribute Sync Config
+  description: "Replaces the attribute synchronization configuration for the source\
+    \ specified by the given ID with the configuration provided in the request body.\
+    \ Only the \"enabled\" field of the values in the \"attributes\" array is mutable.\
+    \ Attempting to change other attributes or add new values to the \"attributes\"\
+    \ array will result in an error.\n"
+  security:
+  - userAuth:
+    - idn:attr-sync-source-config:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+  - in: path
+    name: id
+    required: true
+    schema:
+      type: string
+    description: The source id
+    example: 2c9180835d191a86015d28455b4a2329
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../beta/schemas/AttrSyncSourceConfig.yaml
+  responses:
+    '200':
+      description: Updated attribute synchronization configuration for a source
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/AttrSyncSourceConfig.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml

@@ -1,0 +1,24 @@
+type: object
+properties:
+  system_role_id:
+    type: string
+    format: uuid
+    description: The id of the system role
+    example: ef5d413f-ba18-49e6-9a72-bb115aa133ff
+  subject_id:
+    type: string
+    format: uuid
+    example: db3d85ef-c324-458b-b206-58debaa96419
+    description: The ID of the object that the permission is giving access to
+  value:
+    type: integer
+    format: int32
+    enum: [1, 2, 3, 4, 5, 6, 7]
+    example: 1
+    description: The permissions level of access
+  subject:
+    type: integer
+    format: int32
+    enum: [0, 2, 14]
+    example: 0
+    description: The type of permission

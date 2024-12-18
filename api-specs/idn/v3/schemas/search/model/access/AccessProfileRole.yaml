@@ -1,0 +1,11 @@
+description: Role
+allOf:
+- $ref: 'Access.yaml'
+- type : object
+  properties:
+    owner:
+      $ref: '../base/DisplayReference.yaml'
+    disabled:
+      type: boolean
+    revocable:
+      type: boolean

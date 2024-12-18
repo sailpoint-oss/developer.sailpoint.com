@@ -1,0 +1,73 @@
+get:
+  operationId: listScheduledActions
+  tags:
+    - SP-Scheduler
+  summary: List Scheduled Actions
+  description: >-
+    This gets a list of scheduled actions filtered by query parameters and meta data.
+  parameters:
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/offset.yaml'
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **meta**: *eq*
+  responses:
+    '200':
+      description: >-
+        A list of scheduled action objects.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/ScheduledAction.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+post:
+  operationId: createScheduledActions
+  tags:
+    - SP-Scheduler
+  summary: Create Scheduled Actions
+  description: >-
+    This creates a scheduled action with a deadline that it needs to be fired.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/ScheduledAction.yaml'
+  responses:
+    '200':
+      description: >-
+        A scheduled action object.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ScheduledAction.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

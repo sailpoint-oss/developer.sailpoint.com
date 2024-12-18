@@ -1,0 +1,55 @@
+get:
+  operationId: getSpConfigImportStatus
+  security:
+    - userAuth: [ sp:config:manage ]
+  tags:
+    - SP-Config
+  summary: Get import job status
+  description: >-
+    This gets the status of the import job identified by the `id` parameter.
+
+    For more information about the object types that currently support import functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).
+
+    The request will need the following security scope:
+
+    - sp:config:manage
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The ID of the import job whose status will be returned.
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    '200':
+      description: >-
+        Import job status successfully returned.
+      content:
+        application/json:
+          schema:
+            $ref: '../../beta/schemas/SpConfigImportJobStatus.yaml'
+          example:
+            {
+              "jobId": "4fb10503-1c49-4603-8f8d-886e1f6aa47b",
+              "status": "COMPLETE",
+              "type": "IMPORT",
+              "message": "Download import results for details.",
+              "description": null,
+              "expiration": "2021-05-20T16:42:39Z",
+              "created": "2021-05-13T16:42:39.333Z",
+              "modified": "2021-05-13T16:42:40.71Z",
+              "completed": "2021-05-13T16:42:40.705Z"
+            }
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

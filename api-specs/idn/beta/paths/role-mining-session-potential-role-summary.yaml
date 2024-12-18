@@ -1,0 +1,141 @@
+get:
+  operationId: getPotentialRole
+  summary: Retrieve potential role in session
+  tags:
+    - IAI Role Mining
+  description: >-
+    This method returns a specific potential role for a role mining session.
+  parameters:
+    - in: path
+      name: sessionId
+      schema:
+        type: string
+      required: true
+      description: The role mining session id
+      example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
+    - in: path
+      name: potentialRoleId
+      schema:
+        type: string
+      required: true
+      description: A potential role id in a role mining session
+      example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
+  responses:
+    '200':
+      description: Succeeded. Returns a list of potential roles for a role mining session.
+      content:
+        application/json:
+          schema:
+              $ref: '../schemas/RoleMiningPotentialRole.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+
+patch:
+  operationId: patchPotentialRole
+  summary: Update a potential role in session
+  tags:
+    - IAI Role Mining
+  description: |
+    This method updates an existing potential role using the role mining session id and the potential role summary id.
+   
+    The following fields can be modified:
+
+    * `description`
+
+    * `name`
+
+    * `saved`
+
+
+    >**NOTE: All other fields cannot be modified.**
+  parameters:
+    - in: path
+      name: sessionId
+      schema:
+        type: string
+      required: true
+      description: The role mining session id
+      example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
+    - in: path
+      name: potentialRoleId
+      schema:
+        type: string
+      required: true
+      description: The potential role summary id
+      example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
+  requestBody:
+    required: true
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            allOf:
+              - $ref: '../schemas/JsonPatchOperation.yaml'
+            properties:
+              op:
+                type: string
+                description: The operation to be performed
+                enum:
+                  - "remove"
+                  - "replace"
+                example: "replace"
+        example:
+          [
+            {
+              "op": "remove",
+              "path": "/description"
+            },
+            {
+              "op": "replace",
+              "path": "/description",
+              "value": "Acct I - Potential Role"
+            },
+            {
+              "op": "remove",
+              "path": "/saved"
+            },
+            {
+              "op": "replace",
+              "path": "/saved",
+              "value": "false"
+            },
+            {
+              "op": "remove",
+              "path": "/name"
+            },
+            {
+              "op": "replace",
+              "path": "/name",
+              "value": "Potential Role Accounting"
+            }
+          ]
+  responses:
+    '200':
+      description: Succeeded. Returns the potential role summary based on the potentialRoleId provided.
+      content:
+        application/json:
+          schema:
+            type: object
+            items:
+              $ref: '../schemas/RoleMiningPotentialRole.yaml'
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

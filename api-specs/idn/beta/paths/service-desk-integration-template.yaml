@@ -1,0 +1,39 @@
+get:
+  tags:
+    - Service Desk Integration
+  summary: Service Desk integration template by scriptName
+  description: This API endpoint returns an existing Service Desk integration template by scriptName.
+  operationId: getServiceDeskIntegrationTemplate
+  parameters:
+    - name: scriptName
+      in: path
+      description: The scriptName value of the Service Desk integration template to get
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: aScriptName
+  responses:
+    "200":
+      description: Responds with the ServiceDeskIntegrationTemplateDto with the specified scriptName.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ServiceDeskIntegrationTemplateDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:service-desk-integration:read, idn:service-desk-integration:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

@@ -1,0 +1,217 @@
+get:
+  tags:
+  - Custom Forms
+  summary: Retrieves dynamic data by element.
+  description: 'Parameter `{formInstanceID}` should match a form instance ID.
+
+    Parameter `{formElementID}` should match a form element ID at the data source
+    configuration.'
+  operationId: searchFormElementDataByElementID
+  parameters:
+  - name: formInstanceID
+    in: path
+    description: Form instance ID
+    required: true
+    schema:
+      type: string
+      x-go-name: FormInstanceID
+    example: 00000000-0000-0000-0000-000000000000
+    x-go-name: FormInstanceID
+  - name: formElementID
+    in: path
+    description: Form element ID
+    required: true
+    schema:
+      type: string
+      x-go-name: FormElementID
+    example: 1
+    x-go-name: FormElementID
+  - name: limit
+    in: query
+    description: 'Limit
+
+
+      Integer specifying the maximum number of records to return in a single API call.
+      The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results).
+
+      If it is not specified, a default limit is used.'
+    schema:
+      type: integer
+      format: int64
+      maxLength: 250
+      minLength: 0
+      default: 250
+      x-go-name: Limit
+    example: 250
+    required: false
+    x-go-name: Limit
+  - name: filters
+    in: query
+    description: 'Filter results using the standard syntax described in [V3 API Standard
+      Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+      Filtering is supported for the following fields and operators:
+
+
+      **value**: *eq, ne, in*
+
+
+      Supported composite operators: *not*
+
+
+      Only a single *not* may be used, and it can only be used with the `in` operator.
+      The `not` composite operator must be used in front of the field. For example,
+      the following is valid: `not value in ("ID01")`'
+    schema:
+      type: string
+      x-go-name: Filters
+    example: value eq "ID01"
+    required: false
+    x-go-name: Filters
+  - name: query
+    in: query
+    description: String that is passed to the underlying API to filter other (non-ID)
+      fields.  For example, for access  profile data sources, this string will be
+      passed to the access profile api and used with a "starts with" filter against  several
+      fields.
+    schema:
+      type: string
+      x-go-name: Query
+    example: support
+    required: false
+    x-go-name: Query
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: Retrieves dynamic data to aid in correctly completing a valid form
+        by form element ID from data source configuration
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/forms/ListFormElementDataByElementIDResponse.yaml
+    '400':
+      description: An error with the request occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    '401':
+      description: An error with the authorization occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    '403':
+      description: An error with the user permissions occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    '404':
+      description: An error with the item not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    '429':
+      description: Too many requests
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/forms/Error.yaml
+    '500':
+      description: An internal server error occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+  security:
+  - userAuth: []

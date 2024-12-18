@@ -1,0 +1,44 @@
+post:
+  operationId: startIdentitiesInvite
+  tags:
+    - Identities
+  summary: Invite identities to register
+  description: |
+    This API submits a task for inviting given identities via email to complete registration. The invitation email will include the link. After selecting the link an identity will be able to set up password and log in into the system. Invitations expire after 7 days. By default invitations send to the work identity email. It can be changed in Admin > Identities > Identity Profiles by selecting corresponding profile and editing Invitation Options.
+    
+    This task will send an invitation email only for unregistered identities.
+    
+    The executed task status can be checked by Task Management > [Get task status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status)
+    
+    A token with ORG_ADMIN or HELPDESK authority is required to call this API.
+  externalDocs:
+    description: 'Learn more about inviting identities here'
+    url: 'https://documentation.sailpoint.com/saas/help/common/users/inviting_users.html'
+  security:
+    - userAuth:
+        - "idn:password-user-invite:create"
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/InviteIdentitiesRequest.yaml"
+  responses:
+    "202":
+      description: Responds with an initial TaskStatus for the executed task
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/TaskStatus.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

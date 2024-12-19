@@ -25,10 +25,10 @@ properties:
       This is the comparison to perform.
       | Operation | Description |
       | --------- | ------- |
-      | LT        | Strictly less than: firstDate < secondDate |
-      | LTE       | Less than or equal to: firstDate <= secondDate |
-      | GT        | Strictly greater than: firstDate > secondDate |
-      | GTE       | Greater than or equal to: firstDate >= secondDate |
+      | LT        | Strictly less than: `firstDate < secondDate` |
+      | LTE       | Less than or equal to: `firstDate <= secondDate` |
+      | GT        | Strictly greater than: `firstDate > secondDate` |
+      | GTE       | Greater than or equal to: `firstDate >= secondDate` |
     enum: ['LT', 'LTE', 'GT', 'GTE']
     example: 'LT'
   positiveCondition:

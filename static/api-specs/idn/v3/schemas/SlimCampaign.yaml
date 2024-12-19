@@ -11,7 +11,7 @@ properties:
     description: Id of the campaign
     example: 2c9079b270a266a60170a2779fcb0007
   name:
-    description: >-
+    description: |
       The campaign name. If this object is part of a template, special formatting applies; see the
       `/campaign-templates/{id}/generate` endpoint documentation for details.
     type: string
@@ -19,7 +19,7 @@ properties:
   description:
     type: string
     nullable: true
-    description: >-
+    description: |
       The campaign description. If this object is part of a template, special formatting applies; see the
       `/campaign-templates/{id}/generate` endpoint documentation for details.
     example: Everyone needs to be reviewed by their manager

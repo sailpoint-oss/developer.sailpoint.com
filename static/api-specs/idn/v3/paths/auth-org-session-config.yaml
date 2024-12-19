@@ -5,6 +5,8 @@ get:
   summary: Get Auth Org Session Configuration.
   description: >-
     This API returns the details of an org's session auth configuration.
+  security:
+    - userAuth: [ sp:auth-org:read ]
   responses:
     "200":
       description: Session configuration for the tenant's auth org.
@@ -24,8 +26,6 @@ get:
       $ref: "../../v3/responses/429.yaml"
     "500":
       $ref: "../../v3/responses/500.yaml"
-  security:
-   - userAuth: []
 patch:
   operationId: patchAuthOrgSessionConfig
   tags:
@@ -33,17 +33,22 @@ patch:
   summary: Update Auth Org Session Configuration
   description: >-
     This API updates an existing session configuration for an org using PATCH.
+  security:
+    - userAuth: [ sp:auth-org:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - HELPDESK
   requestBody:
     required: true
-    description: >-
+    description: |
       A list of auth org session configuration update operations according to
       the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
       Ensures that the patched Session Config conforms to certain logical
       guidelines, which are:
-        1. maxSessionTime >= 1 && maxSessionTime <= 10080 (1 week)
+        `1. maxSessionTime >= 1 && maxSessionTime <= 10080 (1 week)
         2. maxIdleTime >= 1 && maxIdleTime <= 1440 (1 day)
-        3. maxSessionTime must have a greater duration than maxIdleTime.
+        3. maxSessionTime must have a greater duration than maxIdleTime.`
     content:
       application/json-patch+json:
         schema:
@@ -76,5 +81,3 @@ patch:
       $ref: "../../v3/responses/429.yaml"
     "500":
       $ref: "../../v3/responses/500.yaml"
-  security:
-    - userAuth: []

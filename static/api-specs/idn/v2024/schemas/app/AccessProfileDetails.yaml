@@ -96,15 +96,15 @@ properties:
     ]
   approvalSchemes:
     type: string
-    description: >-
+    description: |
       Comma-separated list of approval schemes. Each approval scheme is one of -
-      manager - appOwner - sourceOwner - accessProfileOwner - workgroup:<workgroupId>
+      manager - appOwner - sourceOwner - accessProfileOwner - workgroup:&lt;workgroupId&gt;
     example: accessProfileOwner
   revokeRequestApprovalSchemes:
     type: string
-    description: >-
+    description: |
       Comma-separated list of revoke request approval schemes. Each approval
-      scheme is one of - manager - sourceOwner - accessProfileOwner - workgroup:<workgroupId>
+      scheme is one of - manager - sourceOwner - accessProfileOwner - workgroup:&lt;workgroupId&gt;
     example: accessProfileOwner
   requestCommentsRequired:
     type: boolean

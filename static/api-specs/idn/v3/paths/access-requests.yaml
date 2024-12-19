@@ -47,7 +47,11 @@ post:
           $ref: '../schemas/AccessRequest.yaml'
   responses:
     '202':
-      $ref: '../responses/202.yaml'
+      description: Access Request Response.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/access-requests/AccessRequestResponse.yaml'
     '400':
       $ref: '../responses/400.yaml'
     '401':

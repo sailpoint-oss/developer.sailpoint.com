@@ -1,0 +1,37 @@
+get:
+  operationId: getNotificationTemplate
+  tags:
+    - Notifications
+  summary: Get Notification Template By Id
+  description: >-
+    This gets a template that you have modified for your site by Id.
+  parameters:
+    - name: id
+      in: path
+      description: Id of the Notification Template
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: c17bea3a-574d-453c-9e04-4365fbf5af0b
+  responses:
+    '200':
+      description: >-
+        A template object for your site
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/TemplateDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

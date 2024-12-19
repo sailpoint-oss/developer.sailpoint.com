@@ -1,0 +1,54 @@
+get:
+  operationId: getPublicIdentityConfig
+  tags:
+    - Public Identities Config
+  summary: Get Public Identity Config
+  description: >-
+    This gets details of public identity config.
+  responses:
+    '200':
+      description: Request succeeded.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/PublicIdentityConfig.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+put:
+  operationId: updatePublicIdentityConfig
+  tags:
+    - Public Identities Config
+  summary: Update Public Identity Config
+  description: >-
+    This updates the details of public identity config.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/PublicIdentityConfig.yaml'
+  responses:
+    '200':
+      description: Request succeeded.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/PublicIdentityConfig.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

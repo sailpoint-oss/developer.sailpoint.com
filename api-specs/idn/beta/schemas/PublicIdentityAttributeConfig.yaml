@@ -1,0 +1,13 @@
+type: object
+description: >-
+  Used to map an attribute key for an Identity to its display name.
+properties:
+  key:
+    type: string
+    description: "the key of the attribute"
+    example: "country"
+  name:
+    type: string
+    description: "the display name of the attribute"
+    example: "Country"
+

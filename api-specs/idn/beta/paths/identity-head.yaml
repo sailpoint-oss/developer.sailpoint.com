@@ -1,0 +1,33 @@
+head:
+  operationId: checkIdentityExists
+  tags:
+    - Identities
+  summary: Check if identity exists
+  description: >-
+    This API returns successful response if the requested identity exists and not found error if it doesn`t.
+  security:
+    - userAuth:
+      - "idn:identity:read"
+  parameters:
+    - in: path
+      name: identityId
+      schema:
+        type: string
+      required: true
+      description: Identity Id
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    "204":
+      description: If an identity with the passed identityId exists.
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

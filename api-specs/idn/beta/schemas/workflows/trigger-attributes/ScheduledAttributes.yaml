@@ -1,0 +1,35 @@
+title: Scheduled Trigger Attributes
+type: object
+description: Attributes related to a scheduled trigger
+additionalProperties: false
+required:
+- frequency
+properties:
+  frequency:
+    type: string
+    description: Frequency of execution
+    enum:
+      - daily
+      - weekly
+      - monthly
+      - yearly
+      - cronSchedule
+  timeZone:
+    type: string
+    description: Time zone identifier
+    example: "America/Chicago"
+  cronString:
+    type: string
+    example: "0 9 * * 1"
+  weeklyDays:
+    type: array
+    items:
+      type: string
+    example: Monday
+    description: Scheduled days of the week for execution
+  weeklyTimes:
+    type: array
+    items:
+      type: string
+    example: Monday
+    description: Scheduled execution times

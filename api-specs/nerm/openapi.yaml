@@ -1,0 +1,256 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: NERM API
+  description: The NERM API can be used to access and modify various resources in your environment.
+  license:
+    name: MIT
+
+servers:
+  - url: https://{tenantName}.nonemployee.com/api
+    variables:
+      tenantName:
+        default: acmeco
+        description: Tenant name assigned to customer
+
+paths:
+# Audit Events
+  /audit_events/query:
+    $ref: "./paths/audit_events.yaml"
+# Users
+  /user:
+    $ref: "./paths/user.yaml"
+  /users:
+    $ref: "./paths/users.yaml"
+  /users/{id}:
+    $ref: "./paths/users_id.yaml"
+  /users/{id}/avatar:
+    $ref: "./paths/users_id_avatar.yaml"
+#Languages
+  /languages/{locale}:  
+    $ref: "./paths/languages_locale.yaml"
+# User Manager Relationships
+  /user_manager:
+    $ref: "./paths/user_manager.yaml"
+  /user_managers:
+    $ref: "./paths/user_managers.yaml"
+  /user_managers/{id}:
+    $ref: "./paths/user_managers_id.yaml"
+# Roles
+  /roles:
+    $ref: "./paths/roles.yaml"
+  /role:
+    $ref: "./paths/role.yaml"
+  /roles/{id}:
+    $ref: "./paths/roles_id.yaml"
+# System Roles
+  /system_roles:
+    $ref: "./paths/system_roles.yaml"
+# System Role Permissions
+  /system_role_permissions:
+    $ref: "./paths/system_role_permissions.yaml"
+# Permissions
+  /permissions:
+    $ref: "./paths/permissions.yaml"
+# User Roles
+  /user_role:
+    $ref: "./paths/user_role.yaml"
+  /user_roles:
+    $ref: "./paths/user_roles.yaml"
+  /user_roles/{id}:
+    $ref: "./paths/user_roles_id.yaml"
+  /user_role/{id}:
+    $ref: "./paths/user_role_id.yaml"
+# Attributes
+  /ne_attributes:
+    $ref: "./paths/ne_attributes.yaml"
+  /ne_attributes/{id}:
+    $ref: "./paths/ne_attributes_id.yaml"
+  /ne_attribute_option:
+    $ref: "./paths/ne_attribute_option.yaml"
+  /ne_attribute_options:
+    $ref: "./paths/ne_attribute_options.yaml"
+  /ne_attribute_options/{id}:
+    $ref: "./paths/ne_attribute_options_id.yaml"
+# Pages
+  /pages/profile_pages:
+    $ref: "./paths/pages/profile_page.yaml"
+  /pages/workflow_pages:
+    $ref: "./paths/pages/workflow_page.yaml" 
+# Profile Types
+  /profile_type:
+    $ref: "./paths/profile_type.yaml"
+  /profile_types:
+    $ref: "./paths/profile_types.yaml"
+  /profile_types/{id}:
+    $ref: "./paths/profile_types_id.yaml"
+# Synced attributes
+  /profile_types/{profile_type_id}/ne_attributes:
+    $ref: "./paths/profile_type_attributes.yaml"
+  /profile_types/{profile_type_id}/synced_attributes:
+    $ref: "./paths/synced_attributes.yaml"
+  /profile_types/{profile_type_id}/synced_attributes/{ne_attribute_id}:
+    $ref: "./paths/synced_attributes_id.yaml"
+# Profile Type Roles
+  /profile_type_roles:
+    $ref: "./paths/profile_type_roles.yaml" 
+# Profiles
+  /profile:
+    $ref: "./paths/profile.yaml"
+  /profiles:
+    $ref: "./paths/profiles.yaml"
+  /profiles/{id}:
+    $ref: "./paths/profiles_id.yaml"
+  /profiles/{id}/upload/{attribute_id}:
+    $ref: "./paths/profiles_id_upload_attribute_id.yaml"
+  /profiles/{id}/avatar:
+    $ref: "./paths/profiles_id_avatar.yaml"
+# Risk Scores
+  /risk_scores:
+    $ref: "./paths/risk_scores.yaml"
+  /risk_scores/{id}:
+    $ref: "./paths/risk_scores_id.yaml"
+# Risk Levels
+  /risk_levels:
+    $ref: "./paths/risk_levels.yaml"
+  /risk_levels/{id}:
+    $ref: "./paths/risk_levels_id.yaml"
+# User Contributor Relationships
+  /user_profile:
+    $ref: "./paths/user_profile.yaml"
+  /user_profiles:
+    $ref: "./paths/user_profiles.yaml"
+  /user_profiles/{id}:
+    $ref: "./paths/user_profiles_id.yaml"
+  /user_profile/{id}:
+    $ref: "./paths/user_profile_id.yaml"
+# Role Contributor Relationships
+  /role_profile:
+    $ref: "./paths/role_profile.yaml"
+  /role_profiles:
+    $ref: "./paths/role_profiles.yaml"
+  /role_profiles/{id}:
+    $ref: "./paths/role_profiles_id.yaml"
+  /role_profile/{id}:
+    $ref: "./paths/role_profile_id.yaml"
+# Workflows
+  /workflows/create_workflows:
+    $ref: "./paths/workflows/create_workflow.yaml"
+  /workflows/update_workflows:
+    $ref: "./paths/workflows/update_workflow.yaml"
+  /workflows/batch_workflows:
+    $ref: "./paths/workflows/batch_workflow.yaml"
+  /workflows/automated_workflows:
+    $ref: "./paths/workflows/automated_workflow.yaml"
+  /workflows/registration_workflows:
+    $ref: "./paths/workflows/registration_workflow.yaml"
+  /workflows/login_workflows:
+    $ref: "./paths/workflows/login_workflow.yaml"
+  /workflows/password_reset_workflows:
+    $ref: "./paths/workflows/password_reset_workflow.yaml"
+# Workflow Actions
+  /workflow_actions/approval_actions:
+    $ref: "./paths/workflow_actions/approval_action.yaml"
+  /workflow_actions/ask_security_question_actions:
+    $ref: "./paths/workflow_actions/ask_security_question_action.yaml"
+  /workflow_actions/auto_assign_actions:
+    $ref: "./paths/workflow_actions/auto_assign_action.yaml"
+  /workflow_actions/batch_update_actions:
+    $ref: "./paths/workflow_actions/batch_update_action.yaml"
+  /workflow_actions/close_session_actions:
+    $ref: "./paths/workflow_actions/close_session_action.yaml"
+  /workflow_actions/contributors_actions:
+    $ref: "./paths/workflow_actions/contributors_action.yaml"
+  /workflow_actions/create_profile_actions:
+    $ref: "./paths/workflow_actions/create_profile_action.yaml"
+  /workflow_actions/duplicate_prevention_actions:
+    $ref: "./paths/workflow_actions/duplicate_prevention_action.yaml"
+  /workflow_actions/email_verification_actions:
+    $ref: "./paths/workflow_actions/email_verification_action.yaml"
+  /workflow_actions/fulfillment_actions:
+    $ref: "./paths/workflow_actions/fulfillment_action.yaml"
+  /workflow_actions/identity_proofing_actions:
+    $ref: "./paths/workflow_actions/identity_proofing_action.yaml"
+  /workflow_actions/invitation_actions:
+    $ref: "./paths/workflow_actions/invitation_action.yaml"
+  /workflow_actions/ldap_actions:
+    $ref: "./paths/workflow_actions/ldap_action.yaml"
+  /workflow_actions/notification_actions:
+    $ref: "./paths/workflow_actions/notification_action.yaml"
+  /workflow_actions/password_reset_actions:
+    $ref: "./paths/workflow_actions/password_reset_action.yaml"
+  /workflow_actions/profile_check_actions:
+    $ref: "./paths/workflow_actions/profile_check_action.yaml"
+  /workflow_actions/profile_select_actions:
+    $ref: "./paths/workflow_actions/profile_select_action.yaml"
+  /workflow_actions/request_actions:
+    $ref: "./paths/workflow_actions/request_action.yaml"
+  /workflow_actions/rest_api_actions:
+    $ref: "./paths/workflow_actions/rest_api_action.yaml"
+  /workflow_actions/review_actions:
+    $ref: "./paths/workflow_actions/review_action.yaml"
+  /workflow_actions/run_workflow_actions:
+    $ref: "./paths/workflow_actions/run_workflow_action.yaml"
+  /workflow_actions/set_attributes_actions:
+    $ref: "./paths/workflow_actions/set_attributes_action.yaml"
+  /workflow_actions/set_security_question_actions:
+    $ref: "./paths/workflow_actions/set_security_question_action.yaml"
+  /workflow_actions/soap_api_actions:
+    $ref: "./paths/workflow_actions/soap_api_action.yaml"
+  /workflow_actions/status_change_actions:
+    $ref: "./paths/workflow_actions/status_change_action.yaml"
+  /workflow_actions/unassign_actions:
+    $ref: "./paths/workflow_actions/unassign_action.yaml"
+  /workflow_actions/update_profile_actions:
+    $ref: "./paths/workflow_actions/update_profile_action.yaml"
+  /workflow_actions/username_password_actions:
+    $ref: "./paths/workflow_actions/username_password_action.yaml"
+  /workflow_actions:
+    $ref: "./paths/workflow_actions/workflow_action.yaml"
+#Workflow Action Performer
+  /workflow_action_performers:  
+    $ref: "./paths/workflow_action_performers.yaml"
+# Workflow Sessions
+  /workflow_sessions:
+    $ref: "./paths/workflow_sessions.yaml"
+  /workflow_sessions/{id}:
+    $ref: "./paths/workflow_sessions_id.yaml"
+  /workflow_sessions/{id}/upload/{attribute_id}:
+    $ref: "./paths/workflow_sessions_id_upload_attribute_id.yaml"
+# Identity Proofing Results
+  /identity_proofing_results:
+    $ref: "./paths/identity_proofing_results.yaml"
+# Advanced Search
+  /advanced_search:
+    $ref: "./paths/advanced_search.yaml"
+  /advanced_search/run:
+    $ref: "./paths/advanced_search_run.yaml"
+  /advanced_search/{id}:
+    $ref: "./paths/advanced_search_id.yaml"
+  /advanced_search/{id}/run:
+    $ref: "./paths/advanced_search_id_run.yaml"
+# Jobs
+  /job_status:
+    $ref: "./paths/job_status.yaml"
+# Forms
+  /forms:
+    $ref: "./paths/forms.yaml"
+# Consolidation
+  /idproxy/data_records/{id}/reassign:
+    $ref: "./paths/consolidation_data_record.yaml"
+  /idproxy/identities/{id}:
+    $ref: "./paths/consolidation_master_record.yaml"
+# Form Attributes
+  /form_attributes:
+    $ref: "./paths/form_attributes.yaml"
+
+      
+security:
+  - bearerAuth: []
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: Token token=your token

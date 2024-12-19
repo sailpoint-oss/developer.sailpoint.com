@@ -1,0 +1,52 @@
+post:
+  operationId: syncIdentityProfile
+  tags:
+    - Identity Profiles
+  summary: Process identities under profile
+  description: >-
+    Process identities under the profile
+
+    This operation should not be used to schedule your own identity processing or to perform system wide identity refreshes. The system will use a combination of [event-based processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#event-based-processing) and [scheduled processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#scheduled-processing) that runs every day at 8:00 AM and 8:00 PM in the tenant's timezone to keep your identities synchronized. 
+
+    This should only be run on identity profiles that have the `identityRefreshRequired` attribute set to `true`. If `identityRefreshRequired` is false, then there is no benefit to running this operation. Typically, this operation is performed when a change is made to the identity profile or its related lifecycle states that requires a refresh.
+
+    This operation will perform the following activities on all identities under the identity profile.
+
+    1. Updates identity attribute according to the identity profile mappings.
+    2. Determines the identity's correct manager through manager correlation.
+    3. Updates the identity's access according to their assigned lifecycle state.
+    4. Updates the identity's access based on role assignment criteria.
+
+    A token with ORG_ADMIN authority is required to call this API.
+  externalDocs:
+    description: 'Learn more about manually processing identities here'
+    url: 'https://documentation.sailpoint.com/saas/help/setup/identity_processing.html'
+  parameters:
+    - in: path
+      name: identity-profile-id
+      schema:
+        type: string
+        format: uuid
+      required: true
+      description: The Identity Profile ID to be processed
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    '202':
+      description: Accepted status after refresh has launched
+      $ref: '../../v3/responses/202.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:identity-profile:read, idn:identity-profile:manage]
+
+

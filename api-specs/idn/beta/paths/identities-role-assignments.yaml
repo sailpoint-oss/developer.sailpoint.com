@@ -1,0 +1,56 @@
+get:
+  operationId: getRoleAssignments
+  tags:
+    - Identities
+  summary: List role assignments
+  description: >-
+    This returns either a list of Role Assignments when querying with either a Role Id or Role Name,
+    or a list of Role Assignment References if querying with only identity Id.
+  security:
+    - userAuth:
+        - "idn:identity:read"
+  parameters:
+    - in: path
+      name: identityId
+      schema:
+        type: string
+      required: true
+      description: Identity Id to get the role assignments for
+      example: ef38f94347e94562b5bb8424a56397d8
+    - in: query
+      name: roleId
+      schema:
+        type: string
+      required: false
+      description: Role Id to filter the role assignments with
+      example: e7697a1e96d04db1ac7b0f4544915d2c
+    - in: query
+      name: roleName
+      schema:
+        type: string
+      required: false
+      description: Role name to filter the role assignments with
+      example: "Engineer"
+  responses:
+    "200":
+      description: A role assignment object
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              anyOf:
+                - $ref: "../schemas/RoleAssignmentRef.yaml"
+                - $ref: "../schemas/RoleAssignmentDto.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

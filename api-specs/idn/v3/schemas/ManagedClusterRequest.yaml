@@ -1,0 +1,25 @@
+description: Request to create Managed Cluster
+type: object
+required:
+  - name
+properties:
+  name:
+    description: ManagedCluster name
+    type: string
+    nullable: false
+    example: Managed Cluster Name
+  type:
+    description: The Type of Cluster
+    example: 'idn'
+    $ref: './ManagedClusterTypes.yaml'
+  configuration:
+    description: ManagedProcess configuration map
+    type: object
+    additionalProperties:
+      type: string
+    example: {"clusterExternalId":"externalId", "ccgVersion":"77.0.0"}
+  description:
+    description: ManagedCluster description
+    type: string
+    nullable: true
+    example: A short description of the managed cluster.

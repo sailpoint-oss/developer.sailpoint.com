@@ -1,0 +1,57 @@
+post:
+  operationId: updateWorkgroupMembers
+  security:
+  - userAuth:
+    - idn:workgroup:write
+  tags:
+  - Governance Groups
+  summary: Add members to Governance Group
+  description: 'This API adds one or more members to a Governance Group.  A token
+    with API, ORG_ADMIN authority is required to call this API.
+
+
+    >  **Following field of Identity is an optional field in the request.**
+
+
+    >  **name**'
+  parameters:
+  - name: workgroupId
+    in: path
+    description: ID of the Governance Group.
+    required: true
+    schema:
+      type: string
+      example: 2c91808a7813090a017814121919ecca
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  requestBody:
+    description: List of identities to be added to a Governance Group members list.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../../beta/schemas/workgroups/BulkWorkgroupMembersRequest.yaml
+  responses:
+    '207':
+      description: List of added and not added identities into  Governance Group members
+        list.
+      content:
+        application/json:
+          schema:
+            $ref: ../../../beta/schemas/workgroups/WorkgroupMemberBulkAddResponse.yaml
+    '400':
+      $ref: ../../../v3/responses/400.yaml
+    '401':
+      $ref: ../../../v3/responses/401.yaml
+    '403':
+      $ref: ../../../v3/responses/403.yaml
+    '429':
+      $ref: ../../../v3/responses/429.yaml
+    '500':
+      $ref: ../../../v3/responses/500.yaml

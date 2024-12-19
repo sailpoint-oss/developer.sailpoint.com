@@ -1,0 +1,48 @@
+get:
+  operationId: getNonEmployeeApproval
+  security:
+    - userAuth: []
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: Get a non-employee approval item detail
+  description: >-
+    Gets a non-employee approval item detail. There are two contextual uses for
+    this endpoint:
+      1. The user has the role context of `idn:nesr:read`, in which case they
+    can get any approval.
+      2. The user owns the requested approval.
+  parameters:
+    - in: path
+      name: id
+      description: >-
+        Non-Employee approval item id (UUID)
+      required: true
+      schema:
+        type: string
+      example: e136567de87e4d029e60b3c3c55db56d
+    - in: query
+      name: include-detail
+      description: >-
+        The object nonEmployeeRequest will not be included detail when set to
+        false. *Default value is true*
+      required: false
+      schema:
+        type: boolean
+      example: true
+  responses:
+    "200":
+      description: Non-Employee approval item object.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/non-employee/NonEmployeeApprovalItemDetail.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"

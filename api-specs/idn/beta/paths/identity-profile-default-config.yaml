@@ -1,0 +1,41 @@
+get:
+  operationId: getDefaultIdentityAttributeConfig
+  tags:
+    - Identity Profiles
+  summary: Default identity attribute config
+  description: >-
+    This returns the default identity attribute config
+
+    A token with ORG_ADMIN authority is required to call this API to get the default identity attribute config.
+  parameters:
+    - in: path
+      name: identity-profile-id
+      schema:
+        type: string
+        format: uuid
+      required: true
+      description: The Identity Profile ID
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    '200':
+      description: An Identity Attribute Config object
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/IdentityAttributeConfig.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:identity-profile:manage]
+
+

@@ -1,0 +1,13 @@
+patch:
+  summary: Update a saved advanced search query
+  operationId: patchAdvancedSearch
+  description: Update a saved advanced search query
+  tags:
+    - advanced search
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  requestBody:
+    $ref: "../requestBodies/PATCH/AdvancedSearch.yaml"
+  responses:
+    '200':
+      $ref: "../responses/AdvancedSearch.yaml"

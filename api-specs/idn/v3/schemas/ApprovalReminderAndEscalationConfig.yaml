@@ -1,0 +1,23 @@
+type : object
+properties:
+  daysUntilEscalation:
+    type: integer
+    description: Number of days to wait before the first reminder. If no reminders are configured, then this is the number of days to wait before escalation.
+    format: int32
+    example: 0
+    nullable: true
+  daysBetweenReminders:
+    type: integer
+    description: Number of days to wait between reminder notifications.
+    format: int32
+    example: 0
+    nullable: true
+  maxReminders:
+    type: integer
+    description: Maximum number of reminder notification to send to the reviewer before approval escalation. 
+    format: int32
+    minimum: 1
+    example: 1
+    nullable: true
+  fallbackApproverRef:
+    $ref: './IdentityReferenceWithNameAndEmail.yaml'

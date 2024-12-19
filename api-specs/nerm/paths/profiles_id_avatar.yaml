@@ -1,0 +1,32 @@
+get:
+  summary: Retrieves the URL of the profile avatar
+  operationId: getProfileAvatar
+  description: Retrieves the URL of the profile avatar
+  tags:
+    - profiles
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  responses:
+    '200':
+      $ref: "../responses/Url.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+post:
+  summary: Uploads a new profile avatar
+  operationId: postProfileAvatar
+  description: Uploads a new profile avatar
+  tags:
+    - profiles
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  requestBody:
+    $ref: "../requestBodies/POST/File.yaml"
+  responses:
+    '200':
+      $ref: "../responses/Url.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

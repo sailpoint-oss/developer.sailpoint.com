@@ -1,0 +1,37 @@
+get:
+  operationId: getRoleInsight
+  summary: Get a single role insight
+  tags:
+  - Role Insights
+  description: This endpoint gets role insights information for a role.
+  parameters:
+  - in: path
+    name: insightId
+    schema:
+      type: string
+    required: true
+    description: The role insight id
+    example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: Succeeded. Returns information about insights for a single role.
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/RoleInsight.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml

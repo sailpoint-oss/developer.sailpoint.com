@@ -1,0 +1,210 @@
+get:
+  operationId: getSourceApp
+  tags:
+    - Apps
+  summary: Get source app by ID
+  description: >-
+    This API returns a source app by its ID.
+  security:
+    - userAuth: [idn:app-roles:read]
+  parameters:
+    - name: id
+      in: path
+      description: ID of the source app
+      required: true
+      schema:
+        type: string
+        example: 2c91808a7813090a017814121e121518
+  responses:
+    '200':
+      description: Responds with the source app.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/app/SourceApp.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+patch:
+  operationId: patchSourceApp
+  tags:
+    - Apps
+  summary: Patch source app by ID
+  description: >-
+    This API updates an existing source app using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
+
+    The following fields are patchable:
+    **name**, **description**, **enabled**, **owner**, **provisionRequestEnabled**, **appCenterEnabled**, **accountSource**, 
+    **matchAllAccounts** and **accessProfiles**.
+
+    Name, description and owner can't be empty or null.
+  security:
+    - userAuth: [idn:app-roles:manage]
+  parameters:
+    - name: id
+      in: path
+      description: ID of the source app to patch
+      required: true
+      schema:
+        type: string
+        example: 2c91808a7813090a017814121e121518
+  requestBody:
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: '../schemas/JsonPatchOperation.yaml'
+          example: [
+            {
+              "op": "replace",
+              "path": "/enabled",
+              "value": true
+            }
+          ]
+        examples:
+          Make an app enabled and matchAllAccounts in one call:
+            description: This example shows how multiple fields may be updated with a single patch call.
+            value:
+              [
+                {
+                  "op": "replace",
+                  "path": "/enabled",
+                  "value": true
+                },
+                {
+                  "op": "replace",
+                  "path": "/matchAllAccounts",
+                  "value": true
+                }
+              ]
+          Replace an owner for an source app:
+            description: >-
+              This example shows how to use patch to replace the source app's owner by replacing the
+              owner's info.
+            value:
+              [
+                {
+                  "op": "replace",
+                  "path": "/owner",
+                  "value": {
+                    "id": "2c9180858315595501831958427e5424"
+                  }
+                }
+              ]
+          Update the description for the source app:
+            description: >-
+              This example shows how to use patch to update a description for the source app.
+            value:
+              [
+                {
+                  "op": "replace",
+                  "path": "/description",
+                  "value": "new description for the source app"
+                }
+              ]
+          Update the name for the source app:
+            description: >-
+              This example shows how to use patch to update the source app's name.
+            value:
+              [
+                {
+                  "op": "replace",
+                  "path": "/name",
+                  "value": "source app new name"
+                }
+              ]
+          Add access profile:
+            description: Add one access profile to the existing list
+            value:
+              [
+                {
+                  "op": "add",
+                  "path": "/accessProfiles/-",
+                  "value": "2c9180857725c14301772a93bb77242d"
+                }
+              ]
+          Replace access profiles:
+            description: Replace all access profiles with a new list of access profiles
+            value:
+              [
+                {
+                  "op": "replace",
+                  "path": "/accessProfiles",
+                  "value": [
+                    "2c9180857725c14301772a93bb77242d",
+                    "c9575abb5e3a4e3db82b2f989a738aa2"
+                  ]
+                }
+              ]
+          Remove access profile:
+            description: Remove the first access profile in the list
+            value:
+              [
+                {
+                  "op": "remove",
+                  "path": "/accessProfiles/0"
+                }
+              ]
+  responses:
+    '200':
+      description: Responds with the source app as updated.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/app/SourceAppPatchDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+delete:
+  operationId: deleteSourceApp
+  security:
+    - userAuth: [idn:app-roles:manage, idn:app-roles:delete]
+  tags:
+    - Apps
+  summary: Delete source app by ID
+  description: >-
+    Use this API to delete a specific source app
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: source app ID.
+      example: 2c9180835d191a86015d28455b4a2329
+  responses:
+    '200':
+      description: Responds with the source app as deleted.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/app/SourceApp.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

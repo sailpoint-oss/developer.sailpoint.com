@@ -1,0 +1,51 @@
+get:
+  operationId: getPeerGroupOutliers
+  tags:
+  - IAI Peer Group Strategies
+  summary: Identity Outliers List
+  deprecated: true
+  description: '-- Deprecated : See ''IAI Outliers'' This API will be used by Identity
+    Governance systems to identify identities that are not included in an organization''s
+    peer groups. By default, 250 identities are returned. You can specify between
+    1 and 1000 number of identities that can be returned.'
+  parameters:
+  - in: path
+    name: strategy
+    schema:
+      type: string
+    required: true
+    description: The strategy used to create peer groups. Currently, 'entitlement'
+      is supported.
+    example: entitlement
+  - $ref: ../../v3/parameters/limit.yaml
+  - $ref: ../../v3/parameters/offset.yaml
+  - $ref: ../../v3/parameters/count.yaml
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: List of identities that are not included in peer groups.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../../beta/schemas/PeerGroupMember.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
+  security:
+  - userAuth: []

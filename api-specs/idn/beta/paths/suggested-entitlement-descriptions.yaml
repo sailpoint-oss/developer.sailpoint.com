@@ -1,0 +1,192 @@
+get:
+  tags:
+    - Suggested Entitlement Description
+  operationId: listSeds
+  summary: List Suggested Entitlement Descriptions
+  description: 'List of Suggested Entitlement Descriptions (SED)
+  
+  
+      SED field descriptions:
+      
+      
+      **batchId**: the ID of the batch of entitlements that are submitted for description generation
+      
+      
+      **displayName**: the display name of the entitlement that we are generating a description for
+      
+      
+      **sourceName**: the name of the source associated with the entitlement that we are generating the description for
+      
+      
+      **sourceId**: the ID of the source associated with the entitlement that we are generating the description for
+      
+      
+      **status**: the status of the suggested entitlement description, valid status options: "requested", "suggested", "not_suggested", "failed", "assigned", "approved", "denied"
+      
+      
+      **fullText**: will filter suggested entitlement description records by text found in any of the following fields: entitlement name, entitlement display name, suggested description, source name'
+  parameters:
+    - description: >-
+        Integer specifying the maximum number of records to return in a single API call. 
+        
+        The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results).
+        If it is not specified, a default limit is used.
+      schema:
+        format: int64
+        type: integer
+      in: query
+      name: limit
+      example: limit=25
+    - description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **batchId**: *eq, ne*
+
+
+        **displayName**: *eq, ne, co*
+        
+        
+        **sourceName**: *eq, ne, co*
+
+
+        **sourceId**: *eq, ne*
+        
+        
+        **status**: *eq, ne*
+
+
+        **fullText**: *co*
+        
+      in: query
+      name: filters
+      example: displayName co "Read and Write"
+      schema:
+        type: string
+    - description: >-
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+
+        Sorting is supported for the following fields: **displayName, sourceName, status**
+      in: query
+      name: sorters
+      example: sorters=displayName
+      schema:
+        type: string
+    - description: >-
+        If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored. 
+        
+        The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results).
+        
+        Since requesting a total count can have a performance impact, it is recommended not to send `count=true` if that value will not be used.
+      in: query
+      name: count
+      example: count=true
+      schema:
+        type: boolean
+    - description: >-
+        If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored.
+        
+        This parameter differs from the Coun parameter in that this one skip executing the actual query and always return an empty array.
+      in: query
+      name: count-only
+      example: count-only=true
+      schema:
+        type: boolean
+    - description: >-
+        By default, the ListSeds API will only return items that you have requested to be generated.  
+    
+        This option will allow you to see all items that have been requested
+      in: query
+      name: requested-by-anyone
+      example: requested-by-anyone=true
+      schema:
+        type: boolean
+    - description: Will limit records to items that are in "suggested" or "approved" status
+      in: query
+      name: show-pending-status-only
+      example: show-pending-status-only=true
+      schema:
+        type: boolean
+  responses:
+    '200':
+      description: List of Suggested Entitlement Details
+      content:
+        application/json:
+          schema:
+            items:
+              $ref: '../schemas/Sed.yaml'
+            type: array
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth:
+      - 'idn:sed:read'
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+
+patch:
+  tags:
+    - Suggested Entitlement Description
+  operationId: patchSed
+  summary: Patch Suggested Entitlement Description
+  description: Patch Suggested Entitlement Description
+  parameters:
+    - description: id is sed id
+      in: path
+      name: id
+      example: ebab396f-0af1-4050-89b7-dafc63ec70e7
+      required: true
+      schema:
+        type: string
+        format: uuid
+  requestBody:
+    description: Sed Patch Request
+    content:
+      application/json-patch+json:
+        schema:
+          items:
+            $ref: '../schemas/SedPatch.yaml'
+          type: array
+    required: true
+  responses:
+    '200':
+      description: detail of patched sed
+      content:
+        application/json:
+          schema:
+              $ref: '../schemas/Sed.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth:
+      - 'idn:sed:write'
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN

@@ -1,0 +1,113 @@
+get:
+  operationId: listAvailableSourceApps
+  tags:
+    - Apps
+  summary: List available source apps
+  security:
+    - userAuth: [idn:app-roles:read]
+  description: >-
+    This API returns the list of source apps available for access request.
+  parameters:
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/count.yaml'
+    - in: query
+      name: sorters
+      schema:
+        type: string
+        format: comma-separated
+      description: >-
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+        
+        
+        Sorting is supported for the following fields: **id, name, created, modified, owner.id, accountSource.id**
+      example: name,-modified
+      required: false
+      style: form
+      explode: true
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+        
+        
+        Filtering is supported for the following fields and operators:
+        
+        
+        **id**: *eq, in*
+        
+        
+        **name**: *eq, in, co, sw*
+
+        
+        **created**: *gt, lt, ge, le*
+        
+        
+        **modified**: *gt, lt, ge, le*
+        
+        
+        **accountSource.id**: *eq, in*
+      example: name eq "source app name"
+      required: false
+      style: form
+      explode: true
+  responses:
+    '200':
+      description: List of source apps
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/app/SourceApp.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+post:
+  operationId: createSourceApp
+  tags:
+    - Apps
+  summary: Create source app
+  description: >-
+    This endpoint creates a source app using the given source app payload
+  security:
+    - userAuth: [idn:app-roles:manage]
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/app/SourceAppCreateDto.yaml'
+        example: {
+          "name": "new app name",
+          "description": "app description",
+          "matchAllAccounts": true,
+          "accountSource": {
+            "id": "edcb0951812949d085b60cd8bf35bc78"
+          }
+        }
+  responses:
+    '200':
+      description: Responds with the source app as created.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/app/SourceApp.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

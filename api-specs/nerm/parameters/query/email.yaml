@@ -1,0 +1,7 @@
+name: email
+in: query
+description: The user email to search by
+required: false
+schema:
+  type: string
+  format: email

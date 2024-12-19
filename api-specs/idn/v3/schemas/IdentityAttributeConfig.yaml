@@ -1,0 +1,13 @@
+type: object
+description: Defines all the identity attribute mapping configurations.
+  This defines how to generate or collect data for each identity attributes in identity refresh process.
+properties:
+  enabled:
+    description: The backend will only promote values if the profile/mapping is enabled.
+    type: boolean
+    default: false
+    example: true
+  attributeTransforms:
+    type: array
+    items:
+      $ref: './IdentityAttributeTransform.yaml'

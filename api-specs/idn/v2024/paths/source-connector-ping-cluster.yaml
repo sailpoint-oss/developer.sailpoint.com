@@ -1,0 +1,48 @@
+post:
+  operationId: pingCluster
+  tags:
+  - Sources
+  summary: Ping cluster for source connector
+  description: >-
+    This endpoint validates that the cluster being used by the source
+    is reachable from IdentityNow.
+  security:
+    - userAuth:
+      - idn:source-connector:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+  - in: path
+    name: sourceId
+    schema:
+      type: string
+    required: true
+    description: The ID of the Source
+    example: cef3ee201db947c5912551015ba0c679
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: The result of pinging connection with the source connector.
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/StatusResponse.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml

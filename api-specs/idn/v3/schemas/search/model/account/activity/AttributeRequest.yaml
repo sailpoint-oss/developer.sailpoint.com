@@ -1,0 +1,14 @@
+type: object
+properties:
+  name:
+    type: string
+    description: Attribute name. 
+    example: groups
+  op:
+    type: string
+    description: Operation to perform on attribute. 
+    example: Add
+  value:
+    type: string
+    description: Value of attribute.
+    example: "3203537556531076"

@@ -1,0 +1,43 @@
+get:
+  tags:
+    - Managed Clusters
+  summary: Retrieve all Managed Cluster jobs
+  description: >-
+    Retrieve all Managed Cluster cached Redis jobs for the given cluster ID.
+
+    AMS Security: Devops, Internal, OrgAdmin
+    A token with SaaS Platform Internal or DevOps or Org Admin is required to access this endpoint.
+  operationId: getManagedClusterJobs
+  parameters:
+    - name: id
+      in: path
+      description: ID of the cluster to upgrade
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: aClusterId
+  responses:
+    "200":
+      description: Responds with a list of VaJob.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/VaJob.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:managed-cluster-jobs:read]

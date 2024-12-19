@@ -1,0 +1,20 @@
+type: object
+properties:
+  tenant:
+    type: string
+    description: The tenant granting support and services access to DevOps.
+    example: acme-solar
+  transferred:
+    type: boolean
+    description: The state indicating whether the tenant has been transferred to the customer.
+    example: true
+  modified:
+    type: string
+    format: date-time
+    description: When the transfer status was last modified.
+    example: "2021-05-03T18:52:59.162Z"
+  created:
+    type: string
+    format: date-time
+    description: When the transfer status was created.
+    example: "2021-05-03T18:40:35.772Z"

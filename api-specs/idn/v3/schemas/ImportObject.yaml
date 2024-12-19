@@ -1,0 +1,22 @@
+type: object
+description: Object created or updated by import.
+properties: 
+  type: 
+    type: string
+    description: DTO type of object created or updated by import.
+    enum: 
+      - IDENTITY_OBJECT_CONFIG
+      - IDENTITY_PROFILE
+      - RULE
+      - SOURCE
+      - TRANSFORM
+      - TRIGGER_SUBSCRIPTION
+    example: SOURCE
+  id: 
+    type: string
+    description: ID of object created or updated by import. 
+    example: 2c9180835d191a86015d28455b4b232a
+  name: 
+    type: string
+    description: Display name of object created or updated by import. 
+    example: HR Active Directory

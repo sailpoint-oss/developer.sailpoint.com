@@ -1138,8 +1138,6 @@ paths:
     $ref: './v3/paths/connectors-translations.yaml'
   /connectors/{scriptName}/source-template:
     $ref: './v3/paths/connectors-source-template.yaml'
-  /connectors/{scriptName}/correlation-config:
-    $ref: './v3/paths/connectors-correlation-config.yaml'
   /identities/{identity-id}/set-lifecycle-state:
     $ref: "./v3/paths/identity-set-lifecycle-state.yaml"
   /identity-profiles/{identity-profile-id}/lifecycle-states:

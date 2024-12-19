@@ -2,12 +2,13 @@ get:
   tags:
     - Connectors
   operationId: getConnectorSourceConfig
+  summary: Get Connector Source Configuration
   description: >-
     Fetches a connector's source config using its script name.    
   parameters:
     - name: scriptName
       in: path
-      description: The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+      description: The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
       required: true
       style: simple
       explode: false
@@ -34,19 +35,22 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - userAuth: [ idn:connector-config:read ]
+    - userAuth: [ idn:connector-config:read, idn:connector-config:manage ]
   x-sailpoint-userLevels:
     - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
 put:
   tags:
     - Connectors
-  operationId: putSourceConfig
+  operationId: putConnectorSourceConfig
+  summary: Update Connector Source Configuration
   description: >-
     Update a connector's source config using its script name.    
   parameters:
     - name: scriptName
       in: path
-      description: The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+      description: The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
       required: true
       style: simple
       explode: false
@@ -86,6 +90,8 @@ put:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - userAuth: [ idn:connector-config:update ]
+    - userAuth: [ idn:connector-config:manage ]
   x-sailpoint-userLevels:
     - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN

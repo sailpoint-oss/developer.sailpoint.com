@@ -1359,7 +1359,7 @@ paths:
   /identities/{id}:
     $ref: './beta/paths/identity.yaml'
   /identities/invite:
-      $ref: './beta/paths/identities-invite.yaml'
+    $ref: './beta/paths/identities-invite.yaml'
   /identities/{id}/verification/account/send:
     $ref: './beta/paths/identity-send-account-verification.yaml'
   /identities/process:

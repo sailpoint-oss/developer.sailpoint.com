@@ -2,12 +2,13 @@ get:
   tags:
     - Connectors
   operationId: getConnectorList
-  summary: Gets connector list
+  summary: Get Connector List
   description: >-
     Fetches list of connectors that have 'RELEASED' status using filtering and pagination.
   parameters:
     - in: query
       name: filters
+      required: false
       schema:
         type: string
       description: >-
@@ -40,6 +41,7 @@ get:
     - $ref: '../../v3/parameters/count.yaml'
     - in: query
       name: locale
+      required: false
       schema:
         type: string
         enum: [de, no, fi, sv, ru, pt, ko, zh-TW, en, it, fr, zh-CN, hu, es, cs, ja, pl, da, nl]
@@ -68,14 +70,16 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - userAuth: [ idn:connector-source-config:read ]
+    - userAuth: [ idn:connector-config:read, idn:connector-config:manage ]
   x-sailpoint-userLevels:
     - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
 post:
   tags:
     - Connectors
   operationId: createCustomConnector
-  summary: Create custom connector
+  summary: Create Custom Connector
   description: >-
     Create custom connector.    
   requestBody:
@@ -104,6 +108,8 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - userAuth: [ idn:connector-config:create ]
+    - userAuth: [ idn:connector-config:manage ]
   x-sailpoint-userLevels:
     - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN

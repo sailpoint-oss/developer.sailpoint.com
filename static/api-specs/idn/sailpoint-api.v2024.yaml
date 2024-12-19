@@ -1631,6 +1631,8 @@ paths:
     $ref: ./v3/paths/source-entitlements-schema.yaml
   /sources/{sourceId}/upload-connector-file:
     $ref: ./v3/paths/source-upload-connector-file.yaml
+  /sources/{id}/correlation-config:
+    $ref: ./v2024/paths/correlation-config.yaml
   /tagged-objects:
     $ref: ./v3/paths/tagged-objects.yaml
   /tagged-objects/{type}:
@@ -1813,6 +1815,10 @@ paths:
     $ref: ./v2024/paths/identities.yaml
   /identities/{id}:
     $ref: ./v2024/paths/identity.yaml
+  /identities/invite:
+    $ref: ./v2024/paths/identities-invite.yaml
+  /identities/{id}/verification/account/send:
+    $ref: ./v2024/paths/identity-send-account-verification.yaml
   /identities/process:
     $ref: ./v2024/paths/identities-process.yaml
   /identities/{id}/reset:

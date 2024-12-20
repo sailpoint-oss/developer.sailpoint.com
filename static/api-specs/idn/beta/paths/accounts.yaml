@@ -4,9 +4,7 @@ get:
     - Accounts
   summary: Accounts List
   description: >-
-    This returns a list of accounts.  
-    
-    A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
+    List accounts.  
   security:
     - userAuth: [idn:accounts:read, idn:accounts:manage]
   x-sailpoint-userLevels:
@@ -22,8 +20,8 @@ get:
         type: string
         enum: [ SLIM, FULL ]
       description: >-
-        Determines whether Slim, or increased level of detail is provided for each account in the returned list.
-        FULL is the default behavior.
+        This value determines whether the API provides `SLIM` or increased level of detail (`FULL`) for each account in the returned list.
+        `FULL` is the default behavior.
       example: FULL
     - $ref: '../../v3/parameters/limit.yaml'
     - $ref: '../../v3/parameters/offset.yaml'
@@ -101,7 +99,7 @@ get:
         Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, identity.id, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType**
   responses:
     '200':
-      description: List of account objects
+      description: List of account objects.
       content:
         application/json:
           schema:
@@ -167,7 +165,7 @@ post:
     - Accounts
   summary: Create Account
   description: |
-    This API submits an account creation task and returns the task ID.  
+    Submits an account creation task - the API then returns the task ID.  
 
     The `sourceId` where this account will be created must be included in the `attributes` object.
 
@@ -178,8 +176,6 @@ post:
     The endpoint doesn't actually provision the account on the target source, which means that if the account doesn't also exist on the target source, an aggregation between the source and your tenant will remove it from your tenant. 
 
     By providing the account ID of an existing account in the request body, this API will function as a PATCH operation and update the account.
-    
-    A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
   security:
     - userAuth: [idn:accounts:manage]
   x-sailpoint-userLevels:
@@ -194,7 +190,7 @@ post:
           $ref: "../schemas/AccountAttributesCreate.yaml"
   responses:
     '202':
-      description: Async task details
+      description: Async task details.
       content:
         application/json:
           schema:

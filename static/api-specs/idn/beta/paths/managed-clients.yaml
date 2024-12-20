@@ -30,6 +30,7 @@ get:
 
 
         **clusterId**: *eq*
+      required: false
       example: name eq "client name"
   responses:
     "200":
@@ -54,12 +55,14 @@ get:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:remote-client:read, idn:remote-client:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 post:
   tags:
     - Managed Clients
   summary: Create Managed Client
   description: >-
-    Create a new managed client.
+    Created managed client.
 
     The API returns a result that includes the managed client ID.
   operationId: createManagedClient
@@ -90,3 +93,5 @@ post:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:remote-client:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

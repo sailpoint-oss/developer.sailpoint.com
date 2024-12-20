@@ -301,6 +301,13 @@ tags:
 
       Refer to [Managing User Accounts](https://documentation.sailpoint.com/saas/help/common/users/user_access.html#managing-user-accounts) for more information about accounts.
   - name: Connector Rule Management
+    description: |
+      Use this API to implement connector rule management functionality. 
+      With this functionality in place, administrators can implement connector-executed rules in a programmatic, scalable way. 
+
+      In Identity Security Cloud (ISC), [rules](https://developer.sailpoint.com/docs/extensibility/rules) serve as a flexible configuration framework you can leverage to perform complex or advanced configurations. 
+      [Connector-executed rules](https://developer.sailpoint.com/docs/extensibility/rules/connector-rules) are rules that are executed in the ISC virtual appliance (VA), usually extensions of the [connector](https://documentation.sailpoint.com/connectors/isc/landingpages/help/landingpages/isc_landing.html) itself, the bridge between the data source and ISC. 
+      This API allows administrators to view existing connector-executed rules, make changes to them, delete them, and create new ones from the available types.
   - name: Connectors
     description: |
       Use this API to implement connector functionality.
@@ -485,9 +492,13 @@ tags:
 
       Refer to [Setting Up Lifecycle States](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html) for more information about lifecycle states.
   - name: Managed Clients
-    description: Read and write operations for managing client data and statuses
+    description: |
+      Use this API to implement managed client functionality. 
+      With this functionality in place, administrators can modify and delete existing managed clients, create new ones, and view and make changes to their log configurations. 
   - name: Managed Clusters
-    description: Operations for accessing and managing client Clusters, including Log Configuration
+    description: |
+      Use this API to implement managed cluster functionality. 
+      With this functionality in place, administrators can modify and delete existing managed clients, get their statuses, and create new ones. 
   - name: MFA Configuration
     description: Configure and test multifactor authentication (MFA) methods
   - name: MFA Controller
@@ -537,7 +548,9 @@ tags:
       With this functionality in place, users with the appropriate security scopes can create and configure OAuth clients to use as a way to obtain authorization to use the Identity Security Cloud REST API.
       Refer to [Authentication](https://developer.sailpoint.com/docs/api/authentication/) for more information about OAuth and how it works with the Identity Security Cloud REST API.
   - name: Org Config
-    description: Operations for managing org configuration settings (eg. time zone)
+    description: |
+      Use this API to implement organization configuration functionality. 
+      Administrators can use this functionality to manage organization settings, such as time zones. 
   - name: Password Configuration
     description: |
       Use this API to implement organization password configuration functionality.

@@ -3,10 +3,10 @@ get:
   - Connector Rule Management
   operationId: getConnectorRuleList
   summary: List Connector Rules
-  description: Returns the list of connector rules.
+  description: List existing connector rules.
   responses:
     '200':
-      description: A list of connector rules
+      description: List of connector rules.
       content:
         application/json:
           schema:
@@ -38,22 +38,25 @@ get:
       type: string
       default: true
     required: true
+  - $ref: '../../v3/parameters/limit50.yaml'
+  - $ref: '../../v3/parameters/offset.yaml'
+  - $ref: '../../v3/parameters/count.yaml'
 post:
   tags:
   - Connector Rule Management
   operationId: createConnectorRule
   summary: Create Connector Rule
-  description: Creates a new connector rule.
+  description: Create a connector rule from the available types.
   requestBody:
     required: true
-    description: The connector rule to create
+    description: Connector rule to create.
     content:
       application/json:
         schema:
           $ref: ../../beta/schemas/ConnectorRuleCreateRequest.yaml
   responses:
     '201':
-      description: The created connector rule
+      description: Created connector rule.
       content:
         application/json:
           schema:

@@ -1,19 +1,19 @@
 post:
   tags:
   - Connector Rule Management
-  operationId: validateConnectorRule
+  operationId: testConnectorRule
   summary: Validate Connector Rule
-  description: Returns a list of issues within the code to fix, if any.
+  description: Detect issues within the connector rule's code to fix and list them. 
   requestBody:
     required: true
-    description: The code to validate
+    description: Code to validate.
     content:
       application/json:
         schema:
           $ref: ../../beta/schemas/SourceCode.yaml
   responses:
     '200':
-      description: The status of the code's eligibility as a connector rule
+      description: Status of the code's eligibility as a connector rule.
       content:
         application/json:
           schema:

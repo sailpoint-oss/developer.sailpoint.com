@@ -1,13 +1,13 @@
 get:
   tags:
     - Managed Clusters
-  summary: Get a specified Managed Cluster.
-  description: Retrieve a ManagedCluster by ID.
+  summary: Get Managed Cluster
+  description: Get a managed cluster by ID.
   operationId: getManagedCluster
   parameters:
     - name: id
       in: path
-      description: ManagedCluster ID.
+      description: Managed cluster ID.
       required: true
       example: 2c9180897de347a2017de8859e8c5039
       style: simple
@@ -16,7 +16,7 @@ get:
         type: string
   responses:
     "200":
-      description: Responds with ManagedCluster having the given ID.
+      description: Response with managed cluster for the given ID.
       content:
         application/json:
           schema:
@@ -35,12 +35,14 @@ get:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:remote-client:read, idn:remote-client:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 patch:
   tags:
     - Managed Clusters
-  summary: Update a Managed Cluster
+  summary: Update Managed Cluster
   description: >-
-    Update an existing Managed Cluster.
+    Update an existing managed cluster.
   operationId: updateManagedCluster
   parameters:
     - in: path
@@ -48,11 +50,11 @@ patch:
       schema:
         type: string
       required: true
-      description: Managed Cluster ID.
+      description: Managed cluster ID.
       example: 2c9180897de347a2017de8859e8c5039
   requestBody:
     required: true
-    description: The JSONPatch payload used to update the object.
+    description: JSONPatch payload used to update the object.
     content:
       application/json-patch+json:
         schema:
@@ -61,7 +63,7 @@ patch:
             $ref: "../schemas/JsonPatchOperation.yaml"
   responses:
     "200":
-      description: The updated Managed Cluster
+      description: Updated managed cluster.
       content:
         application/json:
           schema:
@@ -80,20 +82,22 @@ patch:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:remote-client:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 delete:
   operationId: deleteManagedCluster
   tags:
     - Managed Clusters
-  summary: Delete a Managed Cluster
+  summary: Delete Managed Cluster
   description: >-
-    Delete an existing Managed Cluster.
+    Delete an existing managed cluster.
   parameters:
     - in: path
       name: id
       schema:
         type: string
       required: true
-      description: Managed Cluster ID.
+      description: Managed cluster ID.
       example: 2c9180897de347a2017de8859e8c5039
     - in: query
       name: removeClients
@@ -101,12 +105,12 @@ delete:
         type: boolean
         default: false
       required: false
-      description: Flag to determine the need to delete a cluster with clients
+      description: Flag to determine the need to delete a cluster with clients.
       example: false
   responses:
     '204':
       $ref: '../../v3/responses/204.yaml'
-      description: The Managed Cluster was successfully deleted.
+      description: Managed cluster was successfully deleted.
     '400':
       $ref: '../../v3/responses/400.yaml'
     '401':
@@ -119,3 +123,5 @@ delete:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:remote-client:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

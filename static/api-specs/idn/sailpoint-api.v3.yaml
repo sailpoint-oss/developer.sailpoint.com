@@ -412,9 +412,13 @@ tags:
 
       Refer to [Setting Up Lifecycle States](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html) for more information about lifecycle states.
   - name: Managed Clients
-    description: Read and create operations for client data and statuses
+    description: |
+      Use this API to implement managed client functionality. 
+      With this functionality in place, administrators can modify and delete existing managed clients, create new ones, and view and make changes to their log configurations. 
   - name: Managed Clusters
-    description: Read and create pperations for client Clusters, including Log Configuration
+    description: |
+      Use this API to implement managed cluster functionality. 
+      With this functionality in place, administrators can modify and delete existing managed clients, get their statuses, and create new ones. 
   - name: MFA Configuration
     description: Configure and test multifactor authentication (MFA) methods
   - name: MFA Controller

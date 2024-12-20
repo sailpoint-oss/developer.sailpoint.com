@@ -30,6 +30,7 @@ get:
 
 
         **clusterId**: *eq*
+      required: false
       example: name eq "client name"
   responses:
     "200":
@@ -52,6 +53,8 @@ get:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:remote-client:read, idn:remote-client:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 post:
   tags:
     - Managed Clients
@@ -69,7 +72,7 @@ post:
           $ref: '../schemas/ManagedClientRequest.yaml'
   responses:
     "200":
-      description: Created ManagedClient.
+      description: Created managed client.
       content:
         application/json:
           schema:
@@ -86,3 +89,5 @@ post:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:remote-client:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

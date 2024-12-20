@@ -1,21 +1,21 @@
 get:
   tags:
     - Managed Clients
-  summary: Get a Managed Client
+  summary: Get Managed Client
   description: >-
-    Get a Managed Client.
+    Get managed client by ID. 
   operationId: getManagedClient
   parameters:
     - name: id
       in: path
-      description: Managed Client ID.
+      description: Managed client ID.
       required: true
       example: 4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7
       schema:
         type: string
   responses:
     "200":
-      description: Responds with a Managed Client
+      description: Managed client response. 
       content:
         application/json:
           schema:
@@ -34,6 +34,8 @@ get:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:remote-client:read, idn:remote-client:manage, idn:managed-client-status:read, idn:managed-client-status:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 patch:
   tags:
     - Managed Clients
@@ -79,6 +81,8 @@ patch:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:remote-client:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 delete:
   operationId: deleteManagedClient
   tags:
@@ -97,7 +101,7 @@ delete:
   responses:
     '204':
       $ref: '../../v3/responses/204.yaml'
-      description: Managed Client was successfully deleted.
+      description: Managed client was successfully deleted.
     '400':
       $ref: '../../v3/responses/400.yaml'
     '401':
@@ -110,3 +114,5 @@ delete:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:remote-client:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

@@ -1,0 +1,38 @@
+post:
+  operationId: updateAggregationState
+  tags:
+    - Sources
+  summary: Update Aggregation State
+  description: >-
+    This API updates the aggregation state for the source.
+
+    A token with API authority is required to call this API.
+  # security:
+  #   - oauth2: [API]
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The source id
+      example: 2c93805454fb79640134ffda7c6903d7
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/AggregationState.yaml'
+  responses:
+    '204':
+      description: The aggregation state is updated.
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

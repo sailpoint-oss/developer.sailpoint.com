@@ -1,0 +1,21 @@
+type: object
+properties:
+  type:
+    $ref: '../../v3/schemas/DtoType.yaml'
+    description: DTO type
+  id:
+    type: string
+    description: ID of the object to which this reference applies
+    example: 2c91808568c529c60168cca6f90c1313
+  name:
+    type: string
+    description: Human-readable name of the owner
+    example: William Wilson
+  displayName:
+    type: string
+    description: Human-readable display name of the owner
+    example: William
+  emailAddress:
+    type: string
+    description: Email ID of the owner
+    example: william@sailpoint.com

@@ -1,0 +1,15 @@
+get:
+  summary: Get the status of a bulk job
+  operationId: getJobStatus
+  description: Get the status of a bulk job
+  tags:
+    - job status
+  parameters:
+    - $ref: "../parameters/query/job_id.yaml"
+  responses:
+    '200':
+      $ref: "../responses/Job.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

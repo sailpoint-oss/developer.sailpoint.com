@@ -1,0 +1,119 @@
+get:
+  operationId: getBranding
+  tags:
+    - Branding
+  summary: Get a branding item
+  description: >-
+    This API endpoint retrieves information for an existing branding item by name.    
+  security:
+    - userAuth: [idn:branding:read]
+    - applicationAuth: [idn:branding:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - in: path
+      name: name
+      schema:
+        type: string
+      required: true
+      description: The name of the branding item to be retrieved
+      example: default
+  responses:
+    '200':
+      description: A branding item object
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/BrandingItem.yaml"
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+put:
+  operationId: setBrandingItem
+  tags:
+    - Branding
+  summary: Update a branding item
+  description: >-
+    This API endpoint updates information for an existing branding item.
+  parameters:
+    - in: path
+      name: name
+      schema:
+        type: string
+      required: true
+      description: The name of the branding item to be retrieved
+      example: default
+  requestBody:
+    required: true
+    content:
+      multipart/form-data:
+        schema:
+          $ref: '../schemas/BrandingItemCreate.yaml'
+  security:
+    - userAuth: [idn:branding:manage]
+    - applicationAuth: [idn:branding:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  responses:
+    '200':
+      description:  Branding item updated
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/BrandingItem.yaml"
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+delete:
+  operationId: deleteBranding
+  tags:
+    - Branding
+  summary: Delete a branding item
+  description: >-
+    This API endpoint delete information for an existing branding item by name.    
+  security:
+    - userAuth: [idn:branding:manage]
+    - applicationAuth: [idn:branding:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - in: path
+      name: name
+      schema:
+        type: string
+      required: true
+      description: The name of the branding item to be deleted
+      example: default
+  responses:
+    '204':
+      $ref: "../responses/204.yaml"
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

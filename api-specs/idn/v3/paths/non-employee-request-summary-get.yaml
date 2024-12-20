@@ -1,0 +1,45 @@
+get:
+  operationId: getNonEmployeeRequestSummary
+  security:
+    - userAuth: []
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: Get Summary of Non-Employee Requests
+  description: >-
+    This request will retrieve a summary of non-employee requests. There are two
+    contextual uses for the `requested-for` path parameter:
+      1. The user has the role context of `idn:nesr:read`, in which case he or
+    she may request a summary of all non-employee approval requests assigned to
+    a particular account manager by passing in that manager's id.
+      2. The current user is an account manager, in which case "me" should be
+    provided as the `requested-for` value. This will provide the user with a
+    summary of the non-employee requests in the source(s) he or she manages.
+  parameters:
+    - in: path
+      name: requested-for
+      description: >-
+        The identity (UUID) of the non-employee account manager for whom the
+        summary is being retrieved. Use "me" instead to indicate the current
+        user.
+      required: true
+      schema:
+        type: string
+        format: uuid (if user is Org Admin)
+      example: 2c91808280430dfb0180431a59440460
+  responses:
+    "200":
+      description: Non-Employee request summary object.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/non-employee/NonEmployeeRequestSummary.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"

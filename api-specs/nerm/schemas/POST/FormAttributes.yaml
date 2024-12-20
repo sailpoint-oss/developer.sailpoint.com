@@ -1,0 +1,20 @@
+type: object
+properties:
+  form_id:
+    type: string   
+    description: The id of the form
+    example: ac4aae0b-4140-49a4-a84c-126762fd0c8f
+  ne_attribute_id:
+    type: string    
+    example: ac4aae0b-4140-49a4-a84c-126762fd0c8f
+    description: The id of the attribute
+  attr_type:
+    type: string    
+    example: ne_attribute
+    description: The attribute type
+    enum: [ne_attribute, break]
+  order:
+    type: integer
+    format: int32    
+    example: 1
+    description: The position of the attribute on the form

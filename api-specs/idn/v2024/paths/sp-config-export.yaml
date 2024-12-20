@@ -1,0 +1,138 @@
+post:
+  operationId: exportSpConfig
+  security:
+  - userAuth:
+    - sp:config:read
+    - sp:config:manage
+  tags:
+  - SP-Config
+  summary: Initiates configuration objects export job
+  description: 'This post will export objects from the tenant to a JSON configuration
+    file.
+
+    For more information about the object types that currently support export functionality,
+    refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).'
+  requestBody:
+    description: Export options control what will be included in the export.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../beta/schemas/ExportPayload.yaml
+        examples:
+          Export all objects available:
+            description: Export all object types available in IDN.
+            value:
+              description: Export all available objects
+              excludeTypes: []
+              includeTypes:
+              - ACCESS_PROFILE
+              - ACCESS_REQUEST_CONFIG
+              - ATTR_SYNC_SOURCE_CONFIG
+              - AUTH_ORG
+              - CAMPAIGN_FILTER
+              - FORM_DEFINITION
+              - GOVERNANCE_GROUP
+              - IDENTITY_OBJECT_CONFIG
+              - IDENTITY_PROFILE
+              - LIFECYCLE_STATE
+              - NOTIFICATION_TEMPLATE
+              - PASSWORD_POLICY
+              - PASSWORD_SYNC_GROUP
+              - PUBLIC_IDENTITIES_CONFIG
+              - ROLE
+              - RULE
+              - SEGMENT
+              - SERVICE_DESK_INTEGRATION
+              - SOD_POLICY
+              - SOURCE
+              - TAG
+              - TRANSFORM
+              - TRIGGER_SUBSCRIPTION
+              - WORKFLOW
+              objectOptions: {}
+          Export sources by ID:
+            description: Export only sources that match the IDs specified in the export
+              options.
+            value:
+              description: Export sources by ID
+              excludeTypes: []
+              includeTypes:
+              - SOURCE
+              objectOptions:
+                SOURCE:
+                  includedIds:
+                  - be9e116d-08e1-49fc-ab7f-fa585e96c9e4
+                  - be9p119e-90e1-49pk-ac9f-fa576e96c9e4
+                  includedNames: []
+          Export transforms by name:
+            description: Export only transforms that match the names specified in
+              the export options.
+            value:
+              description: Export transforms by name
+              excludeTypes: []
+              includeTypes:
+              - TRANSFORM
+              objectOptions:
+                TRANSFORM:
+                  includedIds: []
+                  includedNames:
+                  - Remove Diacritical Marks
+                  - Common - Location Lookup
+          Export trigger subscriptions triggers and transforms with custom options:
+            description: Export trigger subscriptions and transforms that match the
+              export options.
+            value:
+              description: Export trigger subscriptions and transforms with custom
+                filter options
+              excludeTypes: []
+              includeTypes:
+              - TRANSFORM
+              - TRIGGER_SUBSCRIPTION
+              objectOptions:
+                TRANSFORM:
+                  includedIds: []
+                  includedNames:
+                  - Remove Diacritical Marks
+                  - Common - Location Lookup
+                TRIGGER_SUBSCRIPTION:
+                  includedIds:
+                  - be9e116d-08e1-49fc-ab7f-fa585e96c9e4
+                  - be9p119e-90e1-49pk-ac9f-fa576e96c9e4
+                  includedNames:
+                  - 'NGROK Test: fire and forget'
+                  - Manager Certification
+  responses:
+    '202':
+      description: Export job accepted and queued for processing.
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/SpConfigExportJob.yaml
+    '400':
+      description: 'Client Error - Returned if the request body is invalid.
+
+        '
+      content:
+        application/json:
+          schema:
+            $ref: ../../v3/schemas/ErrorResponseDto.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true

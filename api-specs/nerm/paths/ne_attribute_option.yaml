@@ -1,0 +1,13 @@
+post:
+  summary: Add a value to an option based attribute
+  operationId: postAttributeOption
+  description: Add a value to an option based attribute
+  tags:
+    - attribute options
+  requestBody:
+    $ref: "../requestBodies/POST/AttributeOption.yaml"
+  responses:
+    '200':
+      $ref: "../responses/AttributeOption.yaml"
+    '405':
+      $ref: "../responses/InvalidInput.yaml"

@@ -1,0 +1,35 @@
+description: The inner object representing the completed SOD Violation check
+type: object
+properties:
+  message:
+    $ref: './ErrorMessageDto.yaml'
+    description: >-
+      If the request failed, this includes any error message that was generated.
+    example:
+      - locale: "en-US"
+        localeOrigin: "DEFAULT"
+        text: "An error has occurred during the SOD violation check"
+  clientMetadata:
+    type: object
+    nullable: true
+    additionalProperties:
+      type: string
+    description: >-
+      Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on
+      completion of the violation check.
+    example:
+      requestedAppName: test-app
+      requestedAppId: 2c91808f7892918f0178b78da4a305a1
+  violationContexts:
+    type: array
+    nullable: true
+    items:
+      $ref: './SodViolationContext.yaml'
+  violatedPolicies:
+    type: array
+    nullable: true
+    description: A list of the SOD policies that were violated.
+    items:
+      $ref: './SodPolicyDto.yaml'
+
+

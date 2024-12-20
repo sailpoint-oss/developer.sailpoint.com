@@ -1,0 +1,133 @@
+post:
+  operationId: createNonEmployeeRequest
+  security:
+    - userAuth: []
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: Create Non-Employee Request
+  description: >-
+    This request will create a non-employee request and notify the approver.
+    Requires role context of `idn:nesr:create` or the user must own the source.
+  requestBody:
+    description: Non-Employee creation request body
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/non-employee/NonEmployeeRequestBody.yaml"
+  responses:
+    "200":
+      description: Non-Employee request creation object
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/non-employee/NonEmployeeRequest.yaml"
+    "400":
+      description: Client Error - Returned if the request body is invalid.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/ErrorResponseDto.yaml"
+          examples:
+            400.1 Bad Request Content:
+              description: Response for bad request content
+              value:
+                detailCode: 400.1 Bad Request Content
+                trackingId: e7eab60924f64aa284175b9fa3309599
+                messages:
+                  - locale: en
+                    localeOrigin: REQUEST
+                    text: firstName is required; accountName is required;
+            400.1.409 Reference conflict:
+              description: Response for reference conflict
+              value:
+                detailCode: 400.1.409 Reference conflict
+                trackingId: e7eab60924f64aa284175b9fa3309599
+                messages:
+                  - locale: en
+                    localeOrigin: REQUEST
+                    text:
+                      Unable to create Non-Employee because the accountName
+                      "existed" is already being used.
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"
+get:
+  operationId: listNonEmployeeRequests
+  security:
+    - userAuth: []
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: List Non-Employee Requests
+  description: >-
+    This gets a list of non-employee requests. There are two contextual
+    uses for the `requested-for` path parameter:
+      1. The user has the role context of `idn:nesr:read`, in which case he or
+    she may request a list non-employee requests assigned to a particular
+    account manager by passing in that manager's id.
+      2. The current user is an account manager, in which case "me" should be
+    provided as the `requested-for` value. This will provide the user with a
+    list of the non-employee requests in the source(s) he or she manages.
+  parameters:
+    - $ref: "../parameters/limit.yaml"
+    - $ref: "../parameters/offset.yaml"
+    - $ref: "../parameters/count.yaml"
+    - in: query
+      name: requested-for
+      required: true
+      schema:
+        type: string
+      example: e136567de87e4d029e60b3c3c55db56d
+      description: >-
+        The identity for whom the request was made. *me* indicates the current
+        user.
+    - in: query
+      name: sorters
+      required: false
+      schema:
+        type: string
+        format: comma-separated
+      example: created,approvalStatus
+      description: >-
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+
+        Sorting is supported for the following fields: **created, approvalStatus, firstName, lastName, email, phone, accountName, startDate, endDate**
+    - in: query
+      name: filters
+      required: false
+      schema:
+        type: string
+      example: sourceId eq "2c91808568c529c60168cca6f90c1313"
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **sourceId**: *eq* 
+  responses:
+    "200":
+      description: List of non-employee request objects.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../schemas/non-employee/NonEmployeeRequest.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"

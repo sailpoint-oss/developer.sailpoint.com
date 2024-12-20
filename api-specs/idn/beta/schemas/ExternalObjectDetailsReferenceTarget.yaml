@@ -1,0 +1,11 @@
+type: object
+description:  Represents the summary of an object, used in list APIs.  This doesn't include attributes of references.
+properties:
+  id:
+    type: string
+    description: id
+    example: '2c91808c7c30341d017c31ec2d9d0182'
+  name:
+    type: string
+    description: Object`s reference target name
+    example: 'Sales Role'

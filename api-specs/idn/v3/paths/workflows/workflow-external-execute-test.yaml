@@ -1,0 +1,56 @@
+post:
+  operationId: testExternalExecuteWorkflow
+  tags:
+    - Workflows
+  summary: Test Workflow via External Trigger
+  description: >-
+    Validate a workflow with an "External Trigger" can receive input.  The response includes the input that the workflow received, which can be used to validate that the input is intact when it reaches the workflow.
+  security:
+    - userAuth: [sp:workflow-execute:external]
+  parameters:
+    - name: id
+      in: path
+      description: Id of the workflow
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: c17bea3a-574d-453c-9e04-4365fbf5af0b
+  requestBody:
+    required: false
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            input:
+              type: object
+              description: The test input for the workflow
+              example: {
+                "test": "hello world"
+              }
+  responses:
+    '200':
+      description: Responds with the test input
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              payload:
+                type: object
+                description: The input that was received
+                example: {
+                  "test": "hello world"
+                }
+    '400':
+      $ref: '../../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../../v3/responses/500.yaml'

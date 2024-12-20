@@ -1,0 +1,15 @@
+get:
+  summary: Find risk score data by id
+  operationId: getRiskScore
+  description: Find risk score data by id
+  tags:
+    - risk scores
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  responses:
+    '200':
+      $ref: "../responses/RiskScore.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

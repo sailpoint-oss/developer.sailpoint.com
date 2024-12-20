@@ -1,0 +1,70 @@
+get:
+  operationId: getSourceConfig
+  tags:
+  - Sources
+  summary: Gets source config with language translations
+  security:
+    - userAuth: []
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  description: >-
+    Looks up and returns the source config for the requested source id
+    after populating the source config values and applying language translations.
+  parameters:
+  - in: path
+    name: id
+    schema:
+      type: string
+    required: true
+    description: The Source id
+  - in: query
+    name: locale
+    schema:
+      type: string
+      enum:
+      - de
+      - false
+      - fi
+      - sv
+      - ru
+      - pt
+      - ko
+      - zh-TW
+      - en
+      - it
+      - fr
+      - zh-CN
+      - hu
+      - es
+      - cs
+      - ja
+      - pl
+      - da
+      - nl
+    description: The locale to apply to the config. If no viable locale is given,
+      it will default to "en"
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: A Connector Detail object
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/ConnectorDetail.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml

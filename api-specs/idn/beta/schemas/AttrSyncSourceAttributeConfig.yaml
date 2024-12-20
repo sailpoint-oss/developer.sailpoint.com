@@ -1,0 +1,25 @@
+
+type: object
+description: Specification of source attribute sync mapping configuration for an identity attribute
+required:
+  - name
+  - displayName
+  - enabled
+  - target
+properties:
+  name:
+    type: string
+    description: Name of the identity attribute
+    example: email
+  displayName:
+    type: string
+    description: Display name of the identity attribute
+    example: Email
+  enabled:
+    type: boolean
+    description: Determines whether or not the attribute is enabled for synchronization
+    example: true
+  target:
+    type: string
+    description: Name of the source account attribute to which the identity attribute value will be synchronized if enabled
+    example: mail

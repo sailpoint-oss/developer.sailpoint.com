@@ -1,0 +1,15 @@
+post:
+  summary: Create a form attribute
+  description: This endpoint can create a form attribute
+  operationId: createFormAttribute
+  tags:
+    - form attributes
+  requestBody:
+    $ref: "../requestBodies/POST/FormAttributes.yaml"
+  responses:
+    '200':
+      $ref: "../responses/FormAttributes.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

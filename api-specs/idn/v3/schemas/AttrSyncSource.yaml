@@ -1,0 +1,17 @@
+type: object
+description: Target source for attribute synchronization. 
+properties:
+  type:
+    type: string 
+    description: DTO type of target source for attribute synchronization. 
+    enum: 
+      - SOURCE
+    example: SOURCE
+  id:
+    type: string
+    description: ID of target source for attribute synchronization. 
+    example: 2c9180835d191a86015d28455b4b232a
+  name:
+    type: string
+    description: Human-readable name of target source for attribute synchronization. 
+    example: HR Active Directory

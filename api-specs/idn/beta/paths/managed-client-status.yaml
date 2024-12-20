@@ -1,0 +1,85 @@
+get:
+  tags:
+    - Managed Clients
+  summary: Specified Managed Client Status.
+  description: Retrieve Managed Client Status by ID.
+  deprecated: true
+  operationId: getManagedClientStatus
+  parameters:
+    - name: id
+      in: path
+      description: ID of the Managed Client Status to get
+      required: true
+      schema:
+        type: string
+        example: aClientId
+    - name: type
+      in: query
+      description: Type of the Managed Client Status to get
+      required: true
+      schema:
+        $ref: '../schemas/ManagedClientType.yaml'
+        example: VA
+  responses:
+    "200":
+      description: Responds with Managed Client Status having the given ID and Type.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ManagedClientStatus.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:managed-client-status:read]
+post:
+  tags:
+    - Managed Clients
+  summary: Handle status request from client
+  description: Update a status detail passed in from the client
+  deprecated: true
+  operationId: updateManagedClientStatus
+  parameters:
+    - name: id
+      in: path
+      description: ID of the Managed Client Status to update
+      required: true
+      schema:
+        type: string
+        example: aClientId
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/ManagedClientStatus.yaml'
+  responses:
+    "200":
+      description: Responds with the updated Managed Client Status.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ManagedClientStatusAggResponse.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:managed-client-status:manage]

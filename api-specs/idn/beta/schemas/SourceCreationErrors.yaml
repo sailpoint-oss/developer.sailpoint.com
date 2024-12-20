@@ -1,0 +1,31 @@
+type: object
+properties:
+  multihost_id:
+    type: string
+    readOnly: true
+    description: Multi-Host Integration ID.
+    example: 2c91808568c529c60168cca6f90c1324
+  source_name:
+    type: string
+    description: Source's human-readable name.
+    example: My Source
+  source_error:
+    type: string
+    description: Source's human-readable description. 
+    example: Source with internal name "My Source [source]" already exists.
+  created:
+    type: string
+    description: Date-time when the source was created
+    format: date-time
+    example: 2022-02-08T14:50:03.827Z
+  modified:
+    type: string
+    description: Date-time when the source was last modified.
+    format: date-time
+    example: 2024-01-23T18:08:50.897Z
+  operation:
+      type: string
+      nullable: true
+      default: null
+      description: operation category (e.g. DELETE).
+      example: DELETE

@@ -1,0 +1,65 @@
+post:
+  tags:
+  - Entitlements
+  summary: Aggregate Entitlements
+  deprecated: true
+  operationId: importEntitlementsBySource
+  description: 'Starts an entitlement aggregation on the specified source. Though
+    this endpoint has been deprecated, you can find its Beta equivalent [here](https://developer.sailpoint.com/docs/api/beta/import-entitlements).
+
+
+    If the target source is a direct connection, then the request body must be empty.
+    You will also need to make sure the Content-Type header is not set. If you set
+    the Content-Type header without specifying a body, then you will receive a 500
+    error.
+
+
+    If the target source is a delimited file source, then the CSV file needs to be
+    included in the request body. You will also need to set the Content-Type header
+    to `multipart/form-data`.'
+  parameters:
+  - in: path
+    name: id
+    schema:
+      type: string
+    required: true
+    description: Source Id
+    example: ef38f94347e94562b5bb8424a56397d8
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            csvFile:
+              type: string
+              format: binary
+              description: The CSV file containing the source entitlements to aggregate.
+  responses:
+    '202':
+      description: Aggregate Entitlements Task
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/LoadEntitlementTask.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
+  security:
+  - userAuth:
+    - idn:entitlements:manage

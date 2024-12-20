@@ -1,0 +1,97 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The approval id.
+    example: id12345
+  name:
+    type: string
+    description: The name of the approval.
+    example: aName
+  created:
+    type: string
+    format: 'date-time'
+    description: When the approval was created.
+    example: '2017-07-11T18:45:37.098Z'
+  modified:
+    type: string
+    format: 'date-time'
+    description: When the approval was modified last time.
+    example: '2018-07-25T20:22:28.104Z'
+  requestCreated:
+    type: string
+    format: 'date-time'
+    description: When the access-request was created.
+    example: '2017-07-11T18:45:35.098Z'
+  requestType:
+    $ref: './AccessRequestType.yaml'
+    description: If the access-request was for granting or revoking access.
+  requester:
+    $ref: './AccessItemRequester.yaml'
+  requestedFor:
+    type: array
+    description: Identities access was requested for. 
+    items: 
+      $ref: './AccessItemRequestedFor.yaml'
+    minItems: 1
+    maxItems: 10
+  owner:
+    type: object
+    description: Access item owner's identity. 
+    properties:
+      type:
+        type: string 
+        description: Access item owner's DTO type. 
+        enum: 
+          - IDENTITY
+        example: IDENTITY
+      id:
+        type: string
+        description: Access item owner's identity ID.
+        example: 2c9180a46faadee4016fb4e018c20639
+      name:
+        type: string
+        description: Access item owner's human-readable display name. 
+        example: Support
+  requestedObject:
+    $ref: './RequestableObjectReference.yaml'
+    description: The requested access item.
+  requesterComment:
+    $ref: './CommentDto.yaml'
+    description: The requester's comment.
+  previousReviewersComments:
+    type: array
+    items:
+      $ref: './CommentDto.yaml'
+    description: The history of the previous reviewers comments.
+  forwardHistory:
+    type: array
+    items:
+      $ref: './ApprovalForwardHistory.yaml'
+    description: The history of approval forward action.
+  commentRequiredWhenRejected:
+    type: boolean
+    default: false
+    description: When true the rejector has to provide comments when rejecting
+    example: true
+  actionInProcess:
+    $ref: './PendingApprovalAction.yaml'
+    description: Action that is performed on this approval, and system has not finished performing that action yet.
+  removeDate:
+    type: string
+    description: The date the role or access profile or entitlement is no longer assigned to the specified identity.
+    format: 'date-time'
+    example: '2020-07-11T00:00:00Z'
+  removeDateUpdateRequested:
+    type: boolean
+    default: false
+    description: If true, then the request is to change the remove date or sunset date.
+    example: true
+  currentRemoveDate:
+    type: string
+    description: The remove date or sunset date that was assigned at the time of the request.
+    format: 'date-time'
+    example: '2020-07-11T00:00:00Z'
+  sodViolationContext:
+    $ref: './SodViolationContextCheckCompleted.yaml'
+    description: The details of the SOD violations for the associated approval.

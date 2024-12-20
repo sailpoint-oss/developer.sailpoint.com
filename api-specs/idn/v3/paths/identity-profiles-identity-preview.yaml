@@ -1,0 +1,38 @@
+post:
+  operationId: showIdentityPreview
+  tags:
+    - Identity Profiles
+  summary: Generate Identity Profile Preview
+  description: >-
+    Use this API to generate a non-persisted preview of the identity object after applying `IdentityAttributeConfig` sent in request body.
+
+    This API only allows `accountAttribute`, `reference` and `rule` transform types in the `IdentityAttributeConfig` sent in the request body.
+  requestBody:
+    description: Identity Preview request body.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/IdentityPreviewRequest.yaml'
+  responses:
+    '200':
+      description: >-
+        A preview of the identity attributes after applying identity attributes config sent in request body.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/IdentityPreviewResponse.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:identity-profile:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

@@ -1,0 +1,18 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Invocation ID
+    example: "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde"
+  triggerId:
+    type: string
+    description: Trigger ID
+    example: "idn:access-requested"
+  secret:
+    type: string
+    description: Unique invocation secret.
+    example: "0f979022-08be-44f2-b6f9-7393ec73ed9b"
+  contentJson:
+    type: object
+    example: {"workflowId": 1234}
+    description: JSON map of invocation metadata.

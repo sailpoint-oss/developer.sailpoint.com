@@ -1,0 +1,28 @@
+post:
+  operationId: bulkOutlierDetection
+  tags:
+    - IAI Outliers
+  summary: IAI Identity Outliers
+  description: >-
+    This API receives a list of identities (and metadata about the identities) that IAI defines as outliers
+
+    Requires authorization scope of 'iai:outliers-management:detect'
+  requestBody:
+    description: Contains list of identities classified as outliers, the time the outlier detection ran, and a state to give metadata about why an outlier is an outlier
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/OutliersBulkDetectionRequest.yaml'
+  responses:
+    '202':
+      $ref: '../../v3/responses/202.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

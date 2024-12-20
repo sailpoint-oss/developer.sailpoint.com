@@ -1,0 +1,56 @@
+post:
+  operationId: setLifecycleState
+  tags:
+    - Lifecycle States
+  summary: Set Lifecycle State
+  description: >-
+    Use this API to set/update an identity's lifecycle state to the one provided and update the corresponding identity profile.
+  security:
+    - userAuth: [idn:identity-lifecycle-state:update]
+    - applicationAuth: [idn:identity-lifecycle-state:update]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - in: path
+      name: identity-id
+      description: >-
+        ID of the identity to update.
+      required: true
+      example: 2c9180857893f1290178944561990364
+      schema:
+        type: string
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            lifecycleStateId:
+              type: string
+              description: ID of the lifecycle state to set.
+              example: 2c9180877a86e408017a8c19fefe046c
+  responses:
+    '200':
+      description: The request was successfully accepted into the system.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              accountActivityId:
+                type: string
+                example: 2c9180837ab5b716017ab7c6c9ef1e20
+                description: ID of the IdentityRequest object that is generated when the workflow launches. To follow the IdentityRequest, you can provide this ID with a [Get Account Activity request](https://developer.sailpoint.com/docs/api/v3/get-account-activity/). The response will contain relevant information about the IdentityRequest, such as its status.
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

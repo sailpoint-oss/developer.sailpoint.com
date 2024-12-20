@@ -1,0 +1,40 @@
+get:
+  operationId: exportNonEmployeeRecords
+  # security:
+  #   - oauth2: [idn:nesr:read]
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: Exports Non-Employee Records to CSV
+  description: >-
+    This requests a CSV download for all non-employees from a provided source.
+    Requires role context of `idn:nesr:read`
+  parameters:
+    - in: path
+      name: id
+      description: >-
+        Source Id (UUID)
+      required: true
+      schema:
+        type: string
+      example: e136567de87e4d029e60b3c3c55db56d
+  responses:
+    "200":
+      description: Exported CSV
+      content:
+        text/csv:
+          example: |
+            accountName,firstName,lastName,phone,email,manager,startDate,endDate
+            Jon.Smith, Jon, Smith, 555-555-5555, jon@jon.doe.nope.com, Jim Smith, 2020-04-05T08:00:00-10:00,2020-08-07T19:00:00-10:00
+            William.Chaffin, William, Chaffin, 555-555-5555, william@chaffins.nope.com, Bertram Chaffin, 2020-04-05T08:00:00-10:00,2020-08-07T19:00:00-10:00
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "404":
+      $ref: "../responses/404.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"

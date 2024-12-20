@@ -1,0 +1,73 @@
+description: Entitlement
+allOf:
+  - $ref: "../base/BaseDocument.yaml"
+  - type: object
+    properties:
+      modified:
+        type: string
+        description: ISO-8601 date-time referring to the time when the object was last modified. 
+        nullable: true
+        format: 'date-time'
+        example: '2018-06-25T20:22:28.104Z'
+      synced:
+        type: string
+        description: >-
+          ISO-8601 date-time referring to the date-time when object was queued to be synced into search database for use in the search API.  
+
+          This date-time changes anytime there is an update to the object, which triggers a synchronization event being sent to the search database. 
+
+          There may be some delay between the `synced` time and the time when the updated data is actually available in the search API. 
+      displayName:
+        type: string
+        description: Entitlement's display name. 
+        example: Admin
+      source:
+        type: object
+        description: Entitlement's source. 
+        properties: 
+          id: 
+            type: string
+            description: ID of entitlement's source. 
+            example: 2c91808b6e9e6fb8016eec1a2b6f7b5f
+          name: 
+            type: string
+            description: Display name of entitlement's source.
+            example: ODS-HR-Employees
+      segments:
+        type: array
+        description: Segments with the role. 
+        items:
+          $ref: '../base/BaseSegment.yaml'
+      segmentCount:
+        type: integer
+        description: Number of segments with the role.
+        format: int32
+        example: 1
+      requestable: 
+        type: boolean
+        description: Indicates whether the entitlement is requestable. 
+        default: false
+        example: false
+      cloudGoverned: 
+        type: boolean
+        description: Indicates whether the entitlement is cloud governed. 
+        default: false
+        example: false
+      created:
+        type: string
+        description: ISO-8601 date-time referring to the time when the object was created. 
+        nullable: true
+        format: 'date-time'
+        example: '2018-06-25T20:22:28.104Z'
+      privileged:
+        type: boolean
+        description: Indicates whether the entitlement is privileged. 
+        default: false
+        example: false
+      identityCount:
+        type: integer
+        description: Number of identities who have access to the entitlement. 
+        format: int32
+        example: 3
+      tags:
+        $ref: "../base/Tags.yaml"

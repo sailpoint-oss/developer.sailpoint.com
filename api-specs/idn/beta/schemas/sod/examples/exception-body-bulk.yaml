@@ -1,0 +1,54 @@
+summary: Exception List
+value:
+  {
+    "exceptions":
+      [
+        {
+          "id": null,
+          "created": null,
+          "modified": null,
+          "sodPolicy": {
+            "type": "SOD_POLICY",
+            "id": "00fc6afc-af1d-43af-b350-8d632f4c56ca"
+          },
+          "identity": {
+            "type": "IDENTITY",
+            "id": "2c9180867473c1bd01747e8a7d65179b"
+          },
+          "start": "2020-01-01T00:00:00.000Z",
+          "end": "2020-01-02T00:00:00.000Z",
+          "businessJustification": "Bob (the accountant) is on vacation, Bill needs access to accounting data this week.",
+          "mitigatingControl": "The manager will audit Bill's changes this week.",
+          "accessCriteria": {
+            "leftCriteria": {
+              "criteriaList": [
+                {
+                  "type": "ENTITLEMENT",
+                  "id": "2c9180866166b5b0016167c32ef31a66"
+                },
+                {
+                  "type": "ENTITLEMENT",
+                  "id": "2c9180866166b5b0016167c32ef31a67"
+                }
+              ]
+            },
+            "rightCriteria": {
+              "criteriaList": [
+                {
+                  "type": "ENTITLEMENT",
+                  "id": "2c9180866166b5b0016167c32ef31a68"
+                },
+                {
+                  "type": "ENTITLEMENT",
+                  "id": "2c9180866166b5b0016167c32ef31a69"
+                }
+              ]
+            }
+          },
+          "origin": {
+            "type": "ACCOUNT_ACTIVITY",
+            "id": "2c9180867372a2590173774358eb016d"
+          }
+        }
+      ]
+  }

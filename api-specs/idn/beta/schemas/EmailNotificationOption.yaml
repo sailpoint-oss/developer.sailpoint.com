@@ -1,0 +1,24 @@
+type : object
+properties:
+  notifyManagers:
+    type: boolean
+    default: false 
+    example: true
+    description: If true, then the manager is notified of the lifecycle state change.
+  notifyAllAdmins:
+    type: boolean
+    default: false 
+    example: true
+    description: If true, then all the admins are notified of the lifecycle state change.
+  notifySpecificUsers:
+    type: boolean
+    default: false 
+    example: true
+    description: If true, then the users specified in "emailAddressList" below are notified of lifecycle state change.
+  emailAddressList:
+    type: array
+    example: ["test@test.com", "test2@test.com"]
+    items:
+      type: string
+    description: List of user email addresses. If "notifySpecificUsers" option is true, then these users are notified of lifecycle state change.
+

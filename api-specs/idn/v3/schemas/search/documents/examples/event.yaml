@@ -1,0 +1,24 @@
+summary: Event
+value:
+  id: 'e092842f-c904-4b59-aac8-2544abeeef4b'
+  name: 'Update Task Schedule Passed'
+  created: '2020-02-17T16:23:18.327Z'
+  synced: '2020-02-17T16:23:18.388Z'
+  action: 'TASK_SCHEDULE_UPDATE_PASSED'
+  type: 'SYSTEM_CONFIG'
+  actor:
+    name: 'MantisTaskScheduler'
+  target:
+    name: 'Perform provisioning activity search delete synchronization'
+  stack: 'tpe'
+  trackingNumber: 'c6b98bc39ece48b080826d16c76b166c'
+  ipAddress: '207.189.160.158'
+  details: "null"
+  attributes:
+    sourceName: 'SailPoint'
+  objects:
+  - 'TASK'
+  - 'SCHEDULE'
+  operation: 'UPDATE'
+  status: 'PASSED'
+  technicalName: 'TASK_SCHEDULE_UPDATE_PASSED'

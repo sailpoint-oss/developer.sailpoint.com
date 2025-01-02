@@ -1,5 +1,10 @@
 type: object
 properties:
+  approvalId:
+    type: string
+    description: Unique identifier for the approval.
+    example: "2c9180877b2b6ea4017b2c545f971429"
+    nullable: true
   forwarded:
     type: boolean
     default: false

@@ -1,5 +1,10 @@
 post:
   operationId: approveAccessRequest
+  security:
+    - userAuth: [ idn:access-request-approvals:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - APPROVAL_OWNER
   summary: Approve Access Request Approval
   tags:
     - Access Request Approvals
@@ -15,7 +20,7 @@ post:
       example: 2c91808b7294bea301729568c68c002e
   requestBody:
     description: Reviewer's comment.
-    required: true
+    required: false
     content:
       application/json:
         schema:

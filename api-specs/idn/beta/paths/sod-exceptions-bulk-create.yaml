@@ -1,0 +1,34 @@
+post:
+  operationId: bulkCreateSodExceptions
+  tags:
+    - SOD Exception
+  summary: Create SOD exceptions in bulk
+  # security:
+  #   - oauth2: [API]
+  description: >-
+    This API creates SOD exceptions in bulk.
+
+
+    A token with API authority is required to call this API.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/sod/models/ExceptionList.yaml'
+        examples:
+          Exception list:
+            $ref: '../schemas/sod/examples/exception-body-bulk.yaml'
+  responses:
+    '202':
+      $ref: '../schemas/sod/responses/202.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

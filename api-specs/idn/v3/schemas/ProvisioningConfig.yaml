@@ -1,0 +1,42 @@
+type: object
+description: Specification of a Service Desk integration provisioning configuration.
+properties:
+  universalManager:
+    description: Specifies whether this configuration is used to manage provisioning requests for all sources from the org.  If true, no managedResourceRefs are allowed.
+    type: boolean
+    readOnly: true
+    default: false
+    example: true
+  managedResourceRefs:
+    description: References to sources for the Service Desk integration template.  May only be specified if universalManager is false.
+    type: array
+    items:
+      allOf:
+        - $ref: '../../v3/schemas/ServiceDeskSource.yaml'
+    example:
+      - type: "SOURCE"
+        id: "2c9180855d191c59015d291ceb051111"
+        name: "My Source 1"
+      - type: "SOURCE"
+        id: "2c9180855d191c59015d291ceb052222"
+        name: "My Source 2"
+  planInitializerScript:
+    description: This is a reference to a plan initializer script.
+    type: object
+    nullable: true
+    properties:
+      source:
+        description: This is a Rule that allows provisioning instruction changes.
+        type: string
+        example: |
+          <?xml version='1.0' encoding='UTF-8'?>\r\n<!DOCTYPE Rule PUBLIC \"sailpoint.dtd\" \"sailpoint.dtd\">\r\n<Rule name=\"Example Rule\" type=\"BeforeProvisioning\">\r\n  <Description>Before Provisioning Rule which changes disables and enables to a modify.</Description>\r\n  <Source><![CDATA[\r\nimport sailpoint.object.*;\r\nimport sailpoint.object.ProvisioningPlan.AccountRequest;\r\nimport sailpoint.object.ProvisioningPlan.AccountRequest.Operation;\r\nimport sailpoint.object.ProvisioningPlan.AttributeRequest;\r\nimport sailpoint.object.ProvisioningPlan;\r\nimport sailpoint.object.ProvisioningPlan.Operation;\r\n\r\nfor ( AccountRequest accountRequest : plan.getAccountRequests() ) {\r\n  if ( accountRequest.getOp().equals( ProvisioningPlan.ObjectOperation.Disable ) ) {\r\n    accountRequest.setOp( ProvisioningPlan.ObjectOperation.Modify );\r\n  }\r\n  if ( accountRequest.getOp().equals( ProvisioningPlan.ObjectOperation.Enable ) ) {\r\n    accountRequest.setOp( ProvisioningPlan.ObjectOperation.Modify );\r\n  }\r\n}\r\n\r\n  ]]></Source>
+  noProvisioningRequests:
+    description: Name of an attribute that when true disables the saving of ProvisioningRequest objects whenever plans are sent through this integration.
+    type: boolean
+    default: false
+    example: true
+  provisioningRequestExpiration:
+    description: When saving pending requests is enabled, this defines the number of hours the request is allowed to live before it is considered expired and no longer affects plan compilation.
+    type: integer
+    format: int32
+    example: 7

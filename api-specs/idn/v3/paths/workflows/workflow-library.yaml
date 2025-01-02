@@ -1,0 +1,38 @@
+get:
+  operationId: listCompleteWorkflowLibrary
+  tags:
+    - Workflows
+  summary: List Complete Workflow Library
+  description: >-
+    This lists all triggers, actions, and operators in the library
+  externalDocs:
+    description: Additional documentation for workflows
+    url: https://documentation.sailpoint.com/saas/help/workflows/workflow-steps.html
+  parameters:
+    - $ref: '../../../v3/parameters/limit.yaml'
+    - $ref: '../../../v3/parameters/offset.yaml'
+  security:
+    - userAuth: [sp:workflow:read]
+  responses:
+    '200':
+      description: >-
+        List of workflow steps
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              anyOf:
+              - $ref: '../../schemas/workflows/WorkflowLibraryAction.yaml'
+              - $ref: '../../schemas/workflows/WorkflowLibraryTrigger.yaml'
+              - $ref: '../../schemas/workflows/WorkflowLibraryOperator.yaml'
+    '400':
+      $ref: '../../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../../v3/responses/500.yaml'

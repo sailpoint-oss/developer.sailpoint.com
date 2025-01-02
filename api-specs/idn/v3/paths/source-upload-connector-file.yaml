@@ -1,0 +1,48 @@
+post:
+  operationId: importConnectorFile
+  security:
+    - userAuth: [ idn:sources-admin:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  tags:
+    - Sources
+  summary: Upload connector file to source
+  parameters:
+    - in: path
+      name: sourceId
+      required: true
+      schema:
+        type: string
+      description: The Source id.
+      example: 2c9180835d191a86015d28455b4a2329
+  description: >-
+    This uploads a supplemental source connector file (like jdbc driver jars) to a source's S3 bucket.
+    This also sends ETS and Audit events.
+  requestBody:
+    required: true
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            file:
+              type: string
+              format: binary
+  responses:
+    '200':
+      description: >-
+        Uploaded the file successfully and sent all post-upload events
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Source.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

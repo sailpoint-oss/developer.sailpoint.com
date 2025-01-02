@@ -1,0 +1,42 @@
+get:
+  operationId: getRoleAssignment
+  tags:
+    - Identities
+  summary: Role assignment details
+  security:
+    - userAuth:
+        - "idn:identity:read"
+  parameters:
+    - in: path
+      name: identityId
+      schema:
+        type: string
+      required: true
+      description: Identity Id
+      example: "ef38f94347e94562b5bb8424a56397d8"
+    - in: path
+      name: assignmentId
+      schema:
+        type: string
+      required: true
+      description: Assignment Id
+      example: "1cbb0705b38c4226b1334eadd8874086"
+  responses:
+    "200":
+      description: A role assignment object
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/RoleAssignmentDto.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

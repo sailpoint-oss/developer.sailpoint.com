@@ -1,0 +1,318 @@
+get:
+  operationId: getSource
+  security:
+    - userAuth: [ idn:sources:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  tags:
+    - Sources
+  summary: Get Source by ID
+  description: >-
+    Use this API to get a source by a specified ID in Identity Security Cloud (ISC).
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: Source ID.
+      example: 2c9180835d191a86015d28455b4a2329
+  responses:
+    '200':
+      description: Source object.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Source.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+put:
+  operationId: putSource
+  security:
+    - userAuth: [ idn:sources:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  tags:
+    - Sources
+  summary: Update Source (Full)
+  description: |
+    Use this API to update a source in Identity Security Cloud (ISC), using a full object representation. This means that when you use this API, it completely replaces the existing source configuration.
+
+    These fields are immutable, so they cannot be changed:
+
+    * id
+    * type
+    * authoritative
+    * connector
+    * connectorClass
+    * passwordPolicies
+
+    Attempts to modify these fields will result in a 400 error.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: Source ID.
+      example: 2c9180835d191a86015d28455b4a2329
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/Source.yaml'
+  responses:
+    '200':
+      description: >-
+        Updated Source object. Any passwords will only show the the encrypted cipher-text so that they aren't decryptable
+        in Identity Security Cloud (ISC) cloud-based services, per ISC security design.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Source.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+patch:
+  operationId: updateSource
+  security:
+    - userAuth: [ idn:sources:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  tags:
+    - Sources
+  summary: Update Source (Partial)
+  description: |
+    Use this API to partially update a source in Identity Security Cloud (ISC), using a list of patch operations according to the
+    [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+
+    These fields are immutable, so they cannot be changed:
+
+    * id
+    * type
+    * authoritative
+    * created
+    * modified
+    * connector
+    * connectorClass
+    * passwordPolicies
+
+    Attempts to modify these fields will result in a 400 error.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: Source ID.
+      example: 2c9180835d191a86015d28455b4a2329
+  requestBody:
+    required: true
+    description: >-
+      A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+      Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: '../schemas/JsonPatchOperation.yaml'
+        examples:
+          Edit the source description:
+            description: This example shows how to edit a source description.
+            value:
+              [
+                {
+                "op": "replace",
+                "path": "/description",
+                  "value": "new description"
+                }
+              ]
+          Edit the source cluster:
+            description: This example shows how to edit a source cluster by ID.
+            value:
+              [
+                {
+                  "op": "replace",
+                  "path": "/cluster/id",
+                  "value": "2c918087813a902001813f3f85736b45"
+                }
+              ]
+
+          Edit source features:
+            description: This example illustrates how you can update source supported features.
+            value:
+              [
+                {
+                  "op": "replace",
+                  "path": "/features",
+                  "value": [
+                      "PASSWORD",
+                      "PROVISIONING",
+                      "ENABLE",
+                      "AUTHENTICATE"
+                  ]
+                }
+              ]
+          Change a source description and cluster in one call:
+            description: This example shows how multiple fields may be updated with a single PATCH call.
+            value:
+              [
+                {
+                  "op": "replace",
+                  "path": "/description",
+                  "value": "new description"
+                },
+                {
+                  "op": "replace",
+                  "path": "/cluster/id",
+                  "value": "2c918087813a902001813f3f85736b45"
+                }
+              ]
+          Add a filter string to the connector:
+            description: This example shows how you can add a filter to incoming accounts during the account aggregation process. In the example, any account that does not have an "m" or "d" in the ID will be aggregated.
+            value:
+              [
+                  {
+                  "op": "add",
+                  "path": "/connectorAttributes/filterString",
+                      "value": "!( id.contains( \"m\" ) ) || !( id.contains( \"d\" ) )"
+                  }
+              ]
+          Update connector attribute for specific operation type:
+            description: This example shows how you can update the 3rd object in the connection parameter's `operationType`. This changes it from a standard group aggregation to a group aggregation on the "test" entitlement type.
+            value:
+              [
+                  {
+                  "op": "replace",
+                  "path": "/connectorAttributes/connectionParameters/2/operationType",
+                      "value": "Group Aggregation-test"
+                  }
+              ]
+          Enable notifications for new account provisioning on a source: 
+            description: This example shows how you can configure and enable email notifications that will send when new accounts are provisioned on a source. 
+            value: 
+              [
+                {
+                  "op": "replace",
+                  "path": "/connectorAttributes/accountCreateNotification",
+                  "value": {
+                    "notifyList": [
+                      "Distribution.list@demo.com"
+                    ],
+                    "notifyAccountOwner": true,
+                    "enabled": true,
+                    "notifyAccountOwnerAltEmail": false
+                  }
+                }
+              ]
+  responses:
+    '200':
+      description: >-
+        Updated Source object. Any passwords will only show the the encrypted cipher-text so that they aren't decryptable
+        in Identity Security Cloud (ISC) cloud-based services, per ISC security design.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Source.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+delete:
+  operationId: deleteSource
+  security:
+    - userAuth: [ idn:sources:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  tags:
+    - Sources
+  summary: Delete Source by ID
+  description: >-
+    Use this API to delete a specific source in Identity Security Cloud (ISC).
+
+    The API removes all the accounts on the source first, and then it deletes the source.
+    You can retrieve the actual task execution status with this method: GET `/task-status/{id}`
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: Source ID.
+      example: 2c9180835d191a86015d28455b4a2329
+  responses:
+    '202':
+      description: Accepted - Returned if the request was successfully accepted into the system.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              type:
+                description: Type of object being referenced.
+                type: string
+                enum:
+                  - TASK_RESULT
+                example: TASK_RESULT
+              id:
+                type: string
+                description: Task result ID.
+                example: 2c91808779ecf55b0179f720942f181a
+              name:
+                type: string
+                description: Task result's human-readable display name (this should be null/empty).
+                example: null
+          examples:
+            deleteSource:
+              summary: Response returned when a source is being deleted. 
+              value: {"type": "TASK_RESULT", "id": "2c91808779ecf55b0179f720942f181a", "name": null}
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+        

@@ -1,0 +1,47 @@
+post:
+  operationId: enableAccount
+  tags:
+    - Accounts
+  summary: Enable Account
+  description: >-
+    This API submits a task to enable account and returns the task ID.      
+  security:
+    - userAuth: [idn:accounts-state:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+    - HELPDESK
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The account id
+      example: ef38f94347e94562b5bb8424a56397d8
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/AccountToggleRequest.yaml'
+  responses:
+    '202':
+      description: Async task details
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/AccountsAsyncResult.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

@@ -1,0 +1,43 @@
+get:
+  operationId: getNonEmployeeApprovalSummary
+  security:
+    - userAuth: []
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: Get Summary of Non-Employee Approval Requests
+  description: >-
+    This request will retrieve a summary of non-employee approval requests.
+    There are two contextual uses for the `requested-for` path parameter:
+      1. The user has the role context of `idn:nesr:read`, in which case he or
+    she may request a summary of all non-employee approval requests assigned to
+    a particular approver by passing in that approver's id.
+      2. The current user is an approver, in which case "me" should be provided
+    as the `requested-for` value. This will provide the approver with a summary
+    of the approval items assigned to him or her.
+  parameters:
+    - in: path
+      name: requested-for
+      schema:
+        type: string
+      description: >-
+        The identity (UUID) of the approver for whom for whom the summary is
+        being retrieved. Use "me" instead to indicate the current user.
+      required: true
+      example: 2c91808280430dfb0180431a59440460
+  responses:
+    "200":
+      description: summary of non-employee approval requests
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/non-employee/NonEmployeeApprovalSummary.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"

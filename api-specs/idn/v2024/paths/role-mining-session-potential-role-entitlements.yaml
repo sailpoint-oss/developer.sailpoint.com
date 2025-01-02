@@ -1,0 +1,71 @@
+get:
+  operationId: getPotentialRoleEntitlements
+  summary: Retrieves the entitlements of a potential role for a role mining session
+  tags:
+  - IAI Role Mining
+  description: This method returns the entitlements of a potential role for a role
+    mining session.
+  parameters:
+  - in: query
+    name: filters
+    schema:
+      type: string
+    required: false
+    description: 'Filter results using the standard syntax described in [V3 API Standard
+      Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+      Filtering is supported for the following fields and operators:
+
+
+      **entitlementRef.name**: *sw*'
+    example: entitlementRef.name sw "test"
+  - in: path
+    name: sessionId
+    schema:
+      type: string
+    required: true
+    description: The role mining session id
+    example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
+  - in: path
+    name: potentialRoleId
+    schema:
+      type: string
+    required: true
+    description: A potential role id in a role mining session
+    example: 62f28d91-7d9f-4d17-be15-666d5b41d77f
+  - $ref: ../../v3/parameters/offset.yaml
+  - $ref: ../../v3/parameters/limit.yaml
+  - $ref: ../../v3/parameters/count.yaml
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: Succeeded. Returns the entitlements of a potential role for a role mining session.
+        session.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../../beta/schemas/RoleMiningPotentialRoleEntitlements.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
+  security:
+    - userAuth: ['iai:access-modeling:read']
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

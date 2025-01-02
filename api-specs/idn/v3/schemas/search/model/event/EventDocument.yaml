@@ -1,0 +1,77 @@
+description: Event
+allOf:
+  - $ref: "../base/BaseDocument.yaml"
+  - type: object
+    properties:
+      created:
+        type: string
+        description: ISO-8601 date-time referring to the time when the object was created. 
+        nullable: true
+        format: 'date-time'
+        example: '2018-06-25T20:22:28.104Z'
+      synced:
+        type: string
+        description: >-
+          ISO-8601 date-time referring to the date-time when object was queued to be synced into search database for use in the search API.  
+
+          This date-time changes anytime there is an update to the object, which triggers a synchronization event being sent to the search database. 
+
+          There may be some delay between the `synced` time and the time when the updated data is actually available in the search API. 
+      action:
+        type: string
+        description: Name of the event as it's displayed in audit reports. 
+        example: update
+      type:
+        type: string
+        description: Event type. Refer to [Event Types](https://documentation.sailpoint.com/saas/help/search/index.html#event-types) for a list of event types and their meanings. 
+        example: SYSTEM_CONFIG
+      actor:
+        type: string
+        description: Name of the actor that generated the event. 
+        example: System
+      target:
+        type: string
+        description: Name of the target, or recipient, of the event. 
+        example: Carol.Adams
+      stack:
+        type: string
+        description: The event's stack. 
+        example: tpe
+      trackingNumber:
+        type: string
+        description: ID of the group of events. 
+        example: 63f891e0735f4cc8bf1968144a1e7440
+      ipAddress:
+        type: string
+        description: Target system's IP address. 
+        example: "52.52.97.85"
+      details:
+        type: string
+        description: ID of event's details. 
+        example: 73b65dfbed1842548c207432a18c84b0
+      attributes:
+        type: object
+        description: Attributes involved in the event. 
+        additionalProperties: true
+        example:
+          pod: stg03-useast1
+          org: acme
+          sourceName: SailPoint
+      objects:
+        type: array
+        description: Objects the event is happening to. 
+        items:
+          type: string
+          example: AUTHENTICATION
+      operation:
+        type: string
+        description: Operation, or action, performed during the event. 
+        example: REQUEST
+      status:
+        type: string
+        description: Event status. Refer to [Event Statuses](https://documentation.sailpoint.com/saas/help/search/index.html#event-statuses) for a list of event statuses and their meanings. 
+        example: PASSED
+      technicalName:
+        type: string
+        description: Event's normalized name. This normalized name always follows the pattern of 'objects_operation_status'.
+        example: AUTHENTICATION_REQUEST_PASSED

@@ -1,0 +1,26 @@
+type: object
+properties:
+  source:
+    $ref: './ActivityDataSource.yaml'
+  daysActive:
+    type: integer
+    description: The number of days between firstActiveDate and lastActiveDate that had any activity recorded
+    example: 20
+  firstActiveDate:
+    type: string
+    format: date-time
+    description: The first date any activity has been recorded
+    example: '2021-01-11T18:45:37.098Z'
+  lastActiveDate:
+    type: string
+    format: date-time
+    description:  The most recent date any activity has been recorded
+    example: '2021-04-30T20:14:36.932Z'
+  status:
+    type: string
+    enum:
+      - SUCCESS
+      - UNAVAILABLE
+      - UNMAPPED
+      - ERROR
+    description: Describes the result of SaaSManagement activity data retrieval operation for the account

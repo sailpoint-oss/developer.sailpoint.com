@@ -1,0 +1,50 @@
+post:
+  operationId: testSourceConfiguration
+  tags:
+  - Sources
+  summary: Test configuration for source connector
+  description: >-
+    This endpoint performs a more detailed validation of the source''s
+    configuration that can take longer than the lighter weight credential validation
+    performed by the checkConnection API.
+  security:
+    - userAuth:
+      - idn:source-connector:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+  - in: path
+    name: sourceId
+    schema:
+      type: string
+    required: true
+    description: The ID of the Source
+    example: cef3ee201db947c5912551015ba0c679
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: The result of testing source connector configuration with response
+        from it.
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/StatusResponse.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml

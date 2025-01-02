@@ -1,0 +1,64 @@
+patch:
+  operationId: patchUserApp
+  tags:
+    - Apps
+  summary: Patch user app by ID
+  description: >-
+    This API updates an existing user app using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
+
+    The following fields are patchable:
+    **account**
+  security:
+    - userAuth: [idn:app-roles:read]
+  parameters:
+    - name: id
+      in: path
+      description: ID of the user app to patch
+      required: true
+      schema:
+        type: string
+        example: 2c91808a7813090a017814121e121518
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+  requestBody:
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: '../../beta/schemas/JsonPatchOperation.yaml'
+          example: [
+            {
+              "op": "replace",
+              "path": "/account",
+              "value": {
+                "id": "0891808a7813090a017814121e121518",
+                "type": "ACCOUNT"
+              }
+            }
+          ]
+  responses:
+    '200':
+      description: Responds with the user app as updated.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/app/UserApp.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

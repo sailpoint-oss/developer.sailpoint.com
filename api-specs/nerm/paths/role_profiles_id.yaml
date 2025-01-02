@@ -1,0 +1,32 @@
+get:
+  summary: Find role-profile contributor relationship by id
+  operationId: getRoleProfile
+  description: Find role-profile contributor relationship by id
+  tags:
+    - role profiles
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  responses:
+    '200':
+      $ref: "../responses/RoleProfile.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+patch:
+  summary: Update a role-profile contributor relationship by id
+  operationId: patchRoleProfile
+  description: Update a role-profile contributor relationship by id
+  tags:
+    - role profiles
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  requestBody:
+    $ref: "../requestBodies/PATCH/RoleProfile.yaml"
+  responses:
+    '200':
+      $ref: "../responses/RoleProfile.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

@@ -1,0 +1,153 @@
+put:
+  tags:
+    - SIM Integrations
+  summary: Update an existing SIM integration
+  description: Update an existing SIM integration.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+  operationId: putSIMIntegration
+  requestBody:
+    description: The full DTO of the integration containing the updated model
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/SimIntegrationDetails.yaml'
+    required: true
+  parameters:
+    - name: id
+      in: path
+      description: The id of the integration.
+      schema:
+        type: string
+      example: 12345
+      required: true
+  responses:
+    '200':
+      description: details of the updated integration
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ServiceDeskIntegrationDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:service-desk-admin:create]
+
+get:
+  tags:
+    - SIM Integrations
+  summary: Get a SIM integration details.
+  description: Get the details of a SIM integration. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+  operationId: getSIMIntegration
+  parameters:
+    - name: id
+      in: path
+      description: The id of the integration.
+      schema:
+        type: string
+      example: 12345
+      required: true
+  responses:
+    '200':
+      description: The DTO containing the details of the SIM integration
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ServiceDeskIntegrationDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:service-desk-admin:read]
+
+delete:
+  tags:
+    - SIM Integrations
+  summary: Delete a SIM integration
+  description: Get the details of a SIM integration. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+  operationId: deleteSIMIntegration
+  parameters:
+    - name: id
+      description: The id of the integration to delete.
+      in: path
+      schema:
+        type: string
+      example: 12345
+      required: true
+  responses:
+    '200':
+      description: No content response
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:service-desk-admin:write]
+
+patch:
+  tags:
+    - SIM Integrations
+  summary: Patch a SIM attribute.
+  description: Patch a SIM attribute given a JsonPatch object. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+  operationId: patchSIMAttributes
+  requestBody:
+    required: true
+    description: The JsonPatch object that describes the changes of SIM
+    content:
+      application/json-patch+json:
+        schema:
+          $ref: '../schemas/JsonPatch.yaml'
+  parameters:
+    - name: id
+      description: SIM integration id
+      in: path
+      schema:
+        type: string
+      example: 12345
+      required: true
+  responses:
+    '200':
+      description: The updated DTO containing the details of the SIM integration.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ServiceDeskIntegrationDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:service-desk-admin:write]

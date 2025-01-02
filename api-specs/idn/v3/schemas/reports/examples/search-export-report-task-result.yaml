@@ -1,0 +1,24 @@
+summary: Identities Details Report task result.
+value:
+  reportType: SEARCH_EXPORT
+  taskDefName: Search Export
+  type: QUARTZ
+  id: a248c16fe22222b2bd49615481311111
+  created: '2023-09-07T42:14:11.137Z'
+  description: Extract query data from ElasticSearch to CSV
+  parentName: null
+  launcher: T05293
+  launched: '2020-09-07T42:14:11.137Z'
+  completed: '2020-09-07T42:14:13.451Z'
+  messages: []
+  returns: []
+  attributes:
+    queryHash: 5e12cf79c67d92e23d4d8cb3e974f87d164e86d4a48d32ecf89645cacfd3f2
+    org: an-org
+    queryParams:
+      columns: displayName,firstName,lastName,email,created,attributes.cloudLifecycleState,tags,access.spread,apps.pread,accounts.spread
+      indices: identities
+      ownerId: 95ecba5c5444439c999aec638ce2a777
+      query: 700007
+      sort: displayName
+  progress: Initializing...

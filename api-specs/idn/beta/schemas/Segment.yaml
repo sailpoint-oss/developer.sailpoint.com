@@ -1,0 +1,33 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The segment's ID.
+    example: "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde"
+  name:
+    type: string
+    description: The segment's business name. 
+    example: "segment-xyz"
+  created:
+    type: string
+    format: date-time
+    description: The time when the segment is created.
+    example: "2020-01-01T00:00:00.000000Z"
+  modified:
+    type: string
+    format: date-time
+    description: The time when the segment is modified.
+    example: "2020-01-01T00:00:00.000000Z"
+  description:
+    type: string
+    description: The segment's optional description. 
+    example: "This segment represents xyz"
+  owner:
+    $ref: '../../v3/schemas/access/OwnerReferenceSegments.yaml'
+  visibilityCriteria:
+    $ref: './VisibilityCriteria.yaml'
+  active:
+    type: boolean
+    description: This boolean indicates whether the segment is currently active. Inactive segments have no effect.
+    default: false
+    example: true

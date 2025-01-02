@@ -1,0 +1,19 @@
+summary: A collection of Entitlements
+value:
+  - id: '2c9180946ed0c43d016eec1a80892fbd'
+    name: 'entitlement.aa415ae7'
+    _type: 'entitlement'
+    description: 'null'
+    attribute: 'groups'
+    value: 'entitlement.aa415ae7'
+    modified: '2019-12-09T19:19:50.154Z'
+    synced: '2020-02-19T04:30:32.906Z'
+    displayName: 'entitlement.aa415ae7'
+    source:
+      id: '2c91808b6e9e6fb8016eec1a2b6f7b5f'
+      name: 'ODS-HR-Employees'
+    privileged: false
+    identityCount: 68
+    tags:
+      - 'TAG_1'
+      - 'TAG_2'

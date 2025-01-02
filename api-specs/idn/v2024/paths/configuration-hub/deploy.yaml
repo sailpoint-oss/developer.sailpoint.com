@@ -1,0 +1,111 @@
+get:
+  operationId: listDeploys
+  security:
+    - userAuth: [sp:config-deploy:read, sp:config-deploy:manage]
+  tags:
+    - Configuration Hub
+  summary: List Deploys
+  description: >-
+    This API gets a list of deploys for the current tenant.
+  responses:
+    '200':
+      description: >-
+        List of existing deploys.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../schemas/configuration-hub/DeployResponse.yaml'
+          example:
+            [
+              {
+                "jobId": "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b",
+                "status": "COMPLETE",
+                "type": "CONFIG_DEPLOY_DRAFT",
+                "message": "Deploy outcome message",
+                "requesterName": "requester.name",
+                "fileExists": true,
+                "created": "2023-08-29T01:54:37.069Z",
+                "modified": "2024-07-15T16:53:45.925Z",
+                "completed": "2023-08-29T01:54:41.924Z",
+                "draftId": "925e34e3-fa7c-4e7a-9b9a-cf3b8b4b1068",
+                "draftName": "Source draft name",
+                "cloudStorageStatus": "SYNCED"
+              },
+              {
+                "jobId": "bdbcaae6-5e2a-4ebd-9eb3-37b09ec7eea4",
+                "status": "FAILED",
+                "type": "CONFIG_DEPLOY_DRAFT",
+                "message": "Deploy outcome message",
+                "requesterName": "requester.name",
+                "fileExists": true,
+                "created": "2023-07-20T18:38:00.812Z",
+                "modified": "2024-07-15T16:53:59.778Z",
+                "completed": "2023-07-20T18:38:01.783Z",
+                "draftId": "e04da89d-941f-41e8-83ab-dd185ef5e646",
+                "draftName": "Source draft name",
+                "cloudStorageStatus": "NOT_SYNCED"
+              }
+            ]
+    '400':
+      $ref: '../../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../../v3/responses/500.yaml'
+post:
+  operationId: createDeploy
+  security:
+    - userAuth: [sp:config-deploy:manage]
+  tags:
+    - Configuration Hub
+  summary: Create a Deploy
+  description: >-
+    This API performs a deploy based on an existing daft.
+  requestBody:
+    description: >-
+      The deploy request body.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/configuration-hub/DeployRequest.yaml'
+        example:
+          {
+            "draftId" : "c9a38d8c-5edf-4182-9d39-f6581d3ebd05"
+          }
+  responses:
+    '202':
+      description: >-
+        Deploy job accepted and queued for processing.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/configuration-hub/DeployResponse.yaml'
+          example:
+            {
+              "jobId": "ce928190-b50a-4e9a-9854-b56959be8bb1",
+              "status": "NOT_STARTED",
+              "type": "CONFIG_DEPLOY_DRAFT",
+              "requesterName": "support",
+              "fileExists": false,
+              "created": "2024-09-19T19:28:58.503Z",
+              "modified": "2024-09-19T19:28:58.509Z",
+              "draftId": "ebee8250-841f-41de-b74f-288b81137d12",
+              "draftName": "Draft for 46207915-854f-4894-8723-782fdcc677d6"
+            }
+    '400':
+      $ref: '../../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../../v3/responses/500.yaml'

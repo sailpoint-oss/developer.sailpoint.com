@@ -1,0 +1,38 @@
+delete:
+  operationId: deleteBackup
+  security:
+    - userAuth: [sp:config-backup:manage]
+  tags:
+    - Configuration Hub
+  summary: Delete a Backup
+  description: >-
+    This API deletes an existing backup for the current tenant.
+
+
+    On success, this endpoint will return an empty response.
+
+
+    The backup id can be obtained from the response after a backup was successfully created, or from the list backups endpoint.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The id of the backup to delete.
+      example: 07659d7d-2cce-47c0-9e49-185787ee565a
+  responses:
+    '204':
+      $ref: '../../../v3/responses/204.yaml'
+    '400':
+      $ref: '../../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../../v3/responses/500.yaml'

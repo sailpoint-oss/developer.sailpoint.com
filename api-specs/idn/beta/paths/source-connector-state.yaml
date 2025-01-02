@@ -1,0 +1,48 @@
+post:
+  operationId: updateConnectorState
+  tags:
+    - Sources
+  summary: Update Connector State
+  description: >-
+    This API updates connector states of a specific source.
+
+    A token with API authority is required to call this API.
+  # security:
+  #   - oauth2: [API]
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The Source ID
+      example: 5893805454fb79640134ffda7c6903d7
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          description: The configuration is specific to a connector. It can differ from type to type.
+          example:
+            healthCheckTimeout: 30
+            authSearchAttributes: [
+                "cn",
+                "uid",
+                "mail"
+            ]
+  responses:
+    '204':
+      description: The connector states are updated.
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

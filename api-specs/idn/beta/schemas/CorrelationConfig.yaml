@@ -1,0 +1,54 @@
+type: object
+description: Source configuration information that is used by correlation process.
+properties:
+  id:
+    type: string
+    description: The ID of the correlation configuration.
+    example: 2c9180835d191a86015d28455b4a2329
+  name:
+    type: string
+    description: The name of the correlation configuration.
+    example: Source [source] Account Correlation
+  attributeAssignments:
+    type: array
+    description: The list of attribute assignments of the correlation configuration.
+    items:
+      type: object
+      description: The attribute assignment of the correlation configuration.
+      properties:
+        property:
+          type: string
+          description: The property of the attribute assignment.
+          example: first_name
+        value:
+          type: string
+          description: The value of the attribute assignment.
+          example: firstName
+        operation:
+          type: string
+          description: The operation of the attribute assignment.
+          enum:
+            - EQ
+          example: EQ
+        complex:
+          type: boolean
+          description: Whether or not the it's a complex attribute assignment.
+          default: false
+          example: false
+        ignoreCase:
+          type: boolean
+          description: Whether or not the attribute assignment should ignore case.
+          default: false
+          example: false
+        matchMode:
+          type: string
+          description: The match mode of the attribute assignment.
+          enum:
+            - ANYWHERE
+            - START
+            - END
+          example: ANYWHERE
+        filterString:
+          type: string
+          description: The filter string of the attribute assignment.
+          example: first_name == "John"

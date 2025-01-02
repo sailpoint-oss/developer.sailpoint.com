@@ -1,0 +1,41 @@
+get:
+  operationId: getIdentityStartDate
+  tags:
+  - Identity History
+  summary: Gets the start date of the identity
+  description: 'This method retrieves start date of the identity Requires authorization
+    scope of ''idn:identity-history:read'' '
+  parameters:
+  - in: path
+    name: id
+    schema:
+      type: string
+    required: true
+    description: The identity id
+    example: 8c190e6787aa4ed9a90bd9d5344523fb
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: The start date of the identity
+      content:
+        application/json:
+          schema:
+            type: string
+            example: '2017-03-01T13:00:00.000Z'
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml

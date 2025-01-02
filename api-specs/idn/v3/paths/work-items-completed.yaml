@@ -1,0 +1,40 @@
+get:
+  operationId: getCompletedWorkItems
+  tags:
+    - Work Items
+  summary: Completed Work Items
+  description: >-
+    This gets a collection of completed work items belonging to either the specified user(admin required), or the current user.
+  parameters:
+    - in: query
+      name: ownerId
+      schema:
+        type: string
+      description: >-
+        The id of the owner of the work item list being requested.  Either an admin, or the owning/current user must make this request.
+      required: false
+      example: 1211bcaa32112bcef6122adb21cef1ac
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: '../../v3/parameters/count.yaml'
+  responses:
+    '200':
+      description: List of completed work items.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/WorkItems.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+
+

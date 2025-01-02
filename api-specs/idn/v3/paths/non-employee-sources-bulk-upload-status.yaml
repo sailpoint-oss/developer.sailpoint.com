@@ -1,0 +1,37 @@
+get:
+  operationId: getNonEmployeeBulkUploadStatus
+  # security:
+  #   - oauth2: [idn:nesr:read]
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: Obtain the status of bulk upload on the source
+  description: |
+    The nonEmployeeBulkUploadStatus API returns the status of the newest bulk upload job for the specified source.
+    Requires role context of `idn:nesr:read`
+  parameters:
+    - in: path
+      name: id
+      description: >-
+        Source ID (UUID)
+      required: true
+      schema:
+        type: string
+      example: e136567de87e4d029e60b3c3c55db56d
+  responses:
+    "200":
+      description: >-
+        Status of the newest bulk-upload job, if any.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/non-employee/NonEmployeeBulkUploadStatus.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"

@@ -1,0 +1,13 @@
+type : object
+properties:
+  minEntitlementPopularity:
+    type: integer
+    description: The minimum popularity among identities in the role which an entitlement must have to be included in the report
+    example: 0
+  includeCommonAccess:
+    type: boolean
+    description: If false, do not include entitlements that are highly popular among the entire orginization 
+    example: true
+example:
+  minEntitlementPopularity: 0
+  includeCommonAccess: true

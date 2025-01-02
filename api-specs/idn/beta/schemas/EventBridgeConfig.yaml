@@ -1,0 +1,14 @@
+type: object
+properties:
+  awsAccount:
+    type: string
+    description: AWS Account Number (12-digit number) that has the EventBridge Partner Event Source Resource.
+    example: "123456789012"
+  awsRegion:
+    type: string
+    description: AWS Region that has the EventBridge Partner Event Source Resource. See https://docs.aws.amazon.com/general/latest/gr/rande.html for a full list of available values.
+    example: "us-west-1"
+
+required:
+  - awsAccount
+  - awsRegion

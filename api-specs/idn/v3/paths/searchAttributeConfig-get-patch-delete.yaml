@@ -1,0 +1,140 @@
+get:
+  operationId: getSingleSearchAttributeConfig
+  security:
+    - userAuth: [ idn:account-config:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  tags:
+    - Search Attribute Configuration
+  summary: Get Extended Search Attribute
+  description: >-
+    Get an extended attribute configuration by name.
+  parameters:
+    - name: name
+      in: path
+      description: Name of the extended search attribute configuration to retrieve.
+      required: true
+      schema:
+        type: string
+        example: "newMailAttribute"
+  responses:
+    '200':
+      description: Specific attribute configuration in ISC.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/SearchAttributeConfig.yaml'
+    '204':
+      $ref: '../../v3/responses/204.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+
+delete:
+  operationId: deleteSearchAttributeConfig
+  security:
+    - userAuth: [ idn:account-config:delete ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  tags:
+    - Search Attribute Configuration
+  summary: Delete Extended Search Attribute
+  description: >-
+    Delete an extended attribute configuration by name.
+  parameters:
+    - name: name
+      in: path
+      description: Name of the extended search attribute configuration to delete.
+      required: true
+      schema:
+        type: string
+        example: "newMailAttribute"
+  responses:
+    '204':
+      $ref: '../../v3/responses/204.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+
+patch:
+  operationId: patchSearchAttributeConfig
+  security:
+    - userAuth: [ idn:account-config:create ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  tags:
+    - Search Attribute Configuration
+  summary: Update Extended Search Attribute 
+  description: >-
+    Update an existing search attribute configuration. 
+    
+    You can patch these fields:
+
+    * name 
+    * displayName
+    * applicationAttributes
+  parameters:
+    - name: name
+      in: path
+      description: Name of the search attribute configuration to patch.
+      required: true
+      schema:
+        type: string
+        example: promotedMailAttribute
+  requestBody:
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: '../schemas/JsonPatchOperation.yaml'
+        example:
+          - op: "replace"
+            path: "/name"
+            value: "newAttributeName"
+          - op: "replace"
+            path: "/displayName"
+            value: "new attribute display name"
+          - op: "add"
+            path: "/applicationAttributes"
+            value: { "2c91808b79fd2422017a0b35d30f3968": "employeeNumber" }
+    required: true
+  responses:
+    '200':
+      description: The updated search attribute configuration.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/SearchAttributeConfig.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

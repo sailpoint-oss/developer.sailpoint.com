@@ -1,0 +1,57 @@
+patch:
+  operationId: patchIdentity
+  tags:
+    - Internal Use Only
+  summary: Update an Identity
+  description: >-
+    Allows updating individual fields on an Identity using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+    This endpoint is internal only and not intended to be moved to V3.
+    When HEAD and DELETE endpoints are moved to V3 we will need to separate this entity and keep PATCH in beta only.
+  security:
+    - userAuth:
+        - "idn:identity-internal:update"
+  parameters:
+    - in: path
+      name: identityId
+      schema:
+        type: string
+      required: true
+      description: The ID of the identity being modified.
+      example: 2c9180835d191a86015d28455b4a2329
+  requestBody:
+    required: true
+    description: >-
+      A list of identity update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+
+      The following fields are patchable:
+      * internalCloudStatus
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            type: object
+        example:
+          - op: "replace"
+            path: "/internalCloudStatus"
+            value: "UNREGISTERED"
+  responses:
+    "200":
+      description: >-
+        Indicates the PATCH operation succeeded, and returns the identity's new representation.
+      content:
+        application/json:
+          schema:
+            $ref: "../../beta/schemas/InternalIdentityDto.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

@@ -1,0 +1,6 @@
+name: title
+in: query
+description: The user title to search by
+required: false
+schema:
+  type: string

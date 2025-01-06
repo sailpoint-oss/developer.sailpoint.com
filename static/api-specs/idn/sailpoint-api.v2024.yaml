@@ -1279,6 +1279,8 @@ paths:
     $ref: ./v3/paths/access-requests.yaml
   /access-requests/cancel:
     $ref: ./v3/paths/access-request-cancel.yaml
+  /access-requests/bulk-cancel:
+    $ref: ./v2024/paths/bulk-cancel-access-request.yaml
   /access-request-config:
     $ref: ./v3/paths/access-request-config.yaml
   /access-request-status:

@@ -1298,8 +1298,9 @@ paths:
   /access-request-approvals/approval-summary:
     $ref: ./v3/paths/access-request-approval-summary.yaml
   /access-request-approvals/bulk-approve:
-   $ref: './v2024/paths/access-request-bulk-approve.yaml'
-
+   $ref: ./v2024/paths/access-request-bulk-approve.yaml
+  /access-request-approvals/{accessRequestId}/approvers:
+    $ref: ./v2024/paths/access-request-approvers-list.yaml
   /accounts:
     $ref: ./v3/paths/accounts.yaml
   /accounts/{id}:

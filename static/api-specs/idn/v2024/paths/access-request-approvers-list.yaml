@@ -1,0 +1,73 @@
+get:
+  operationId: listAccessRequestApprovers
+  security:
+    - userAuth: [ idn:access-request-administration:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  tags:
+    - Access Request Approvals
+  summary: Access Request Approvers
+  description: |
+    This API endpoint returns the list of approvers for the given access request id.
+  parameters:
+    - in: path
+      name: accessRequestId
+      description: Access Request ID.
+      required: true
+      schema:
+        type: string
+      example: 2c91808568c529c60168cca6f90c1313
+    - in: query
+      name: limit
+      description: Max number of results to return.
+      required: false
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+        maximum: 250
+        default: 250
+      example: 100
+    - in: query
+      name: offset
+      description: >-
+        Offset into the full result set. Usually specified with *limit* to
+        paginate through the results. Defaults to 0 if not specified.
+      required: false
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+      example: 10
+    - in: query
+      name: count
+      description: >-
+        If this is true, the *X-Total-Count* response header populates with the
+        number of results that would be returned if limit and offset were
+        ignored.
+      required: false
+      schema:
+        type: boolean
+        default: false
+      example: false
+  responses:
+    '200':
+      description: List of Approvers.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/AccessRequestApproversListResponse.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml

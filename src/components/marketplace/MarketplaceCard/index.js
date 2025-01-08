@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './styles.module.css';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faShieldCheck, faAward} from '@fortawesome/pro-solid-svg-icons';
+import {faShield, faAward} from  '@fortawesome/free-solid-svg-icons';
 import Link from '@docusaurus/Link';
 
 export default function MarketplaceCard({post, featured}) {
@@ -21,7 +21,7 @@ export default function MarketplaceCard({post, featured}) {
       <div className={styles.badgeContainer}>
         <div title="SailPoint Certified" className={styles.cardBadgeCertified}>
           <FontAwesomeIcon
-            icon={faShieldCheck}
+            icon={faShield}
             className={styles.docCardIcon}
             size="2x"
           />

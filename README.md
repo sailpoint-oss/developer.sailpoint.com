@@ -38,7 +38,11 @@ If you want to build this project locally, follow the steps below.
 
 ### Prerequisites
 
-To run this project you must first have npm installed.
+To run this project you must first have node.js and npm installed.
+
+## 📌 Note
+
+> **Important**: Node.js version 23.6.0 does not work with this build currently. 
 
 ```sh
 npm install npm@latest -g
@@ -52,27 +56,19 @@ npm install npm@latest -g
    git clone https://github.com/sailpoint-oss/developer.sailpoint.com.git
    ```
 
-2. Create a `.npmrc` file and add the following contents. If you are not a SailPoint employee, you will need to provide your own fontawesome token.
-
-   ```text
-   @awesome.me:registry=https://npm.fontawesome.com/
-   @fortawesome:registry=https://npm.fontawesome.com/
-   //npm.fontawesome.com/:_authToken=<your token here>
-   ```
-
-3. Install the project's NPM packages
+2. Install the project's NPM packages
 
    ```bash
-   npm install --legacy-peer-deps
+   npm install
    ```
 
-4. Generate the API docs. They are auto-generated, so we do not track them in the repository and instead build them at runtime.
+3. Generate the API docs. They are auto-generated, so we do not track them in the repository and instead build them at runtime.
 
    ```bash
    npm run gen-api-docs-all
    ```
 
-5. Start the website
+4. Start the website
    ```bash
    npm run start
    ```

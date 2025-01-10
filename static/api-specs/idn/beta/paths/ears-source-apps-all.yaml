@@ -13,6 +13,7 @@ get:
   parameters:
     - $ref: '../../v3/parameters/limit.yaml'
     - $ref: '../../v3/parameters/count.yaml'
+    - $ref: '../../v3/parameters/offset.yaml'
     - in: query
       name: sorters
       schema:

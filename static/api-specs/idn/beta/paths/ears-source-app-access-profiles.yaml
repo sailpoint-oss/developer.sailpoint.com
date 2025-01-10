@@ -16,6 +16,7 @@ get:
         type: string
         example: 2c91808a7813090a017814121e121518
     - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/offset.yaml'
     - in: query
       name: filters
       schema:

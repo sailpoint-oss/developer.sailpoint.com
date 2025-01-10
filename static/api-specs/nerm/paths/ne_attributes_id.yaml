@@ -30,3 +30,18 @@ patch:
       $ref: "../responses/400.yaml"
     '500':
       $ref: "../responses/500.yaml"
+delete:
+  summary: Delete attribute by id
+  operationId: deleteAttribute
+  description: Delete attribute by id
+  tags:
+    - attributes
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  responses:
+    '200':
+      $ref: "../responses/Attribute.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

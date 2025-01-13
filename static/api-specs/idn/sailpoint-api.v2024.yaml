@@ -1653,6 +1653,8 @@ paths:
     $ref: ./v3/paths/source-upload-connector-file.yaml
   /sources/{id}/correlation-config:
     $ref: ./v2024/paths/correlation-config.yaml
+  /sources/{sourceId}/password-policies:
+    $ref: ./v2024/paths/sources-policy-holders.yaml
   /tagged-objects:
     $ref: ./v3/paths/tagged-objects.yaml
   /tagged-objects/{type}:

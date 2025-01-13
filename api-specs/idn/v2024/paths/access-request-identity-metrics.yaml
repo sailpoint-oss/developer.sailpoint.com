@@ -1,0 +1,61 @@
+get:
+  tags:
+  - Access Request Identity Metrics
+  summary: Return access request identity metrics
+  description: Use this API to return information access metrics.
+  operationId: getAccessRequestIdentityMetrics
+  parameters:
+  - name: identityId
+    in: path
+    description: Manager's identity ID.
+    required: true
+    schema:
+      type: string
+    example: 7025c863-c270-4ba6-beea-edf3cb091573
+  - name: requestedObjectId
+    in: path
+    description: Requested access item's ID.
+    required: true
+    schema:
+      type: string
+    example: 2db501be-f0fb-4cc5-a695-334133c52891
+  - name: type
+    in: path
+    description: Requested access item's type.
+    required: true
+    schema:
+      type: string
+      items:
+        $ref: ../../beta/schemas/AccessItemRef.yaml
+    example: ENTITLEMENT
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  security:
+  - userAuth:
+    - idn:access-request-approvals:read
+  responses:
+    '200':
+      description: Summary of the resource access and source activity for the direct
+        reports of the provided manager.
+      content:
+        application/json:
+          schema:
+            type: object
+            items:
+              $ref: ../../beta/schemas/AccessRequestIdentityMetrics.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml

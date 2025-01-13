@@ -1,0 +1,148 @@
+get:
+  operationId: listDimensions
+  tags:
+    - Dimensions
+  summary: List Dimensions
+  description: >-
+    This API returns a list of dimensions under a specified role.
+
+
+    A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to
+    call this API.
+  parameters:
+    - in: path
+      name: roleId
+      required: true
+      schema:
+        type: string
+      description: Parent Role Id of the dimension.
+      example: 6603fba3004f43c687610a29195252ce
+    - in: query
+      name: for-subadmin
+      schema:
+        type: string
+      description: >-
+        If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity.
+        The value of the parameter is either an Identity ID, or the special value **me**,
+        which is shorthand for the calling Identity's ID.
+        A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not
+        a subadmin.
+      example: 5168015d32f890ca15812c9180835d2e
+      required: false
+    - $ref: '../../v3/parameters/limit50.yaml'
+    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: '../../v3/parameters/count.yaml'
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+        
+        
+        Filtering is supported for the following fields and operators:
+
+
+        **id**: *eq, in*
+        
+        
+        **name**: *eq, sw*
+        
+        
+        **created**: *gt, lt, ge, le*
+
+
+        **modified**: *gt, lt, ge, le*
+        
+        
+        **owner.id**: *eq, in*
+      example: id eq '2c918086749d78830174a1a40e121518'
+      required: false
+    - in: query
+      name: sorters
+      schema:
+        type: string
+        format: comma-separated
+      description: >-
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+        
+        
+        Sorting is supported for the following fields: **name, created, modified**
+      example: name,-modified
+      required: false
+  responses:
+    '200':
+      description: List of Dimensions
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../v3/schemas/access/Dimension.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [ idn:role-unchecked:read, idn:role-unchecked:manage, idn:role-checked:manage, idn:role-checked:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
+post:
+  operationId: createDimension
+  tags:
+    - Dimensions
+  summary: Create a Dimension
+  description: >-
+    This API creates a dimension.
+
+    You must have a token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority to
+    call this API. 
+    
+    Additionally, a ROLE_SUBADMIN cannot create a dimension that includes an access profile or entitlement if that access profile or entitlement is linked to a source that the ROLE_SUBADMIN is not associated with. 
+
+    The maximum supported length for the description field is 2000 characters.
+  parameters:
+    - in: path
+      name: roleId
+      required: true
+      schema:
+        type: string
+      description: Parent Role Id of the dimension.
+      example: 6603fba3004f43c687610a29195252ce
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../v3/schemas/access/Dimension.yaml'
+  responses:
+    '201':
+      description:  Dimension created
+      content:
+        application/json:
+          schema:
+            $ref: '../../v3/schemas/access/Dimension.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [ idn:role-unchecked:manage, idn:role-checked:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN

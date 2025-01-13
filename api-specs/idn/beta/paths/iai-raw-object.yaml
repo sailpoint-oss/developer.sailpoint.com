@@ -1,0 +1,43 @@
+get:
+  operationId: getObject
+  tags:
+    - IAI Raw Objects
+  summary: Get Object
+  description: This API returns an object.
+  parameters:
+    - in: path
+      name: type
+      schema:
+        type: string
+      description: Indicates of which type objects to get
+      example: potential-role
+      required: true
+    - in: path
+      name: id
+      schema:
+        type: string
+      description: Object Id
+      example: 28da7f68-e1ed-460e-986d-520d594f174c
+      required: true
+  responses:
+    '200':
+      description: List of Objects
+      content:
+        application/json:
+          schema:
+            type: object
+            items:
+              $ref: '../../beta/schemas/ExternalObjectDetails.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - bearerAuth:
+        - 'iai:objects:read'

@@ -1,0 +1,39 @@
+post:
+  tags:
+    - Saved Search
+  description: |
+    Executes the specified saved search.
+  summary: Execute a saved search by ID
+  operationId: executeSavedSearch
+  parameters:
+  - $ref: '../parameters/path/search/id.yaml'
+  requestBody:
+    description: |
+      When saved search execution is triggered by a scheduled search, *scheduleId* will specify the ID of the triggering scheduled search.
+
+      If *scheduleId* is not specified (when execution is triggered by a UI test), the *owner* and *recipients* arguments must be provided.
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/search/saved/SearchArguments.yaml'
+        examples:
+          scheduled:
+            $ref: '../schemas/search/saved/examples/execute-scheduled.yaml'
+          test:
+            $ref: '../schemas/search/saved/examples/execute-test.yaml'
+    required: true
+  responses:
+    '202':
+      description: Accepted - Returned if the request was successfully accepted into the system.
+    '404':
+      $ref: '../responses/404.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

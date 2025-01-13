@@ -1,0 +1,103 @@
+put:
+  operationId: setIcon
+  tags:
+    - Icons
+  summary: Update an icon
+  description: >-
+    This API endpoint updates an icon by object type and object id.
+    A token with ORG_ADMIN authority is required to call this API.
+  parameters:
+    - in: path
+      name: objectType
+      schema:
+        type: string
+      required: true
+      description: Object type. Available options ['application']
+      example: application
+    - in: path
+      name: objectId
+      schema:
+        type: string
+      required: true
+      description: Object id.
+      example: a291e870-48c3-4953-b656-fb5ce2a93169
+  requestBody:
+    required: true
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          required:
+            - image
+          properties:
+            image:
+              type: string
+              format: binary
+              description: file with icon. Allowed mime-types ['image/png', 'image/jpeg']
+              example: \x00\x00\x00\x02
+  security:
+    - userAuth: [idn:icons:manage]
+  responses:
+    '200':
+      description:  Icon updated
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              icon:
+                type: string
+                description: url to file with icon
+                example: ""
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+delete:
+  operationId: deleteIcon
+  tags:
+    - Icons
+  summary: Delete an icon
+  description: >-
+    This API endpoint delete an icon by object type and object id.
+    A token with ORG_ADMIN authority is required to call this API.
+  parameters:
+    - in: path
+      name: objectType
+      schema:
+        type: string
+      required: true
+      description: Object type. Available options ['application']
+      example: application
+    - in: path
+      name: objectId
+      schema:
+        type: string
+      required: true
+      description: Object id.
+      example: a291e870-48c3-4953-b656-fb5ce2a93169
+  security:
+    - userAuth: [idn:icons:manage]
+  responses:
+    '204':
+      $ref: '../../v3/responses/204.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

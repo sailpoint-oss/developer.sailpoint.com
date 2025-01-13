@@ -1,0 +1,136 @@
+get:
+  operationId: listEntitlementParents
+  tags:
+    - Entitlements
+  summary: List of entitlements parents
+  description: >-
+    This API returns a list of all parent entitlements of a given entitlement.
+  security:
+      - userAuth: [idn:entitlement:read, idn:entitlement:manage]
+  parameters:
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: '../../v3/parameters/count.yaml'
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: Entitlement Id
+      example: 2c91808c74ff913f0175097daa9d59cd
+    - in: query
+      name: sorters
+      schema:
+        type: string
+        format: comma-separated
+      description: >-
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+
+        Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id**
+      example: name,-modified
+      required: false
+      style: form
+      explode: true
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **id**: *eq, in*
+
+
+        **name**: *eq, in, sw*
+
+
+        **type**: *eq, in*
+
+
+        **attribute**: *eq, in*
+
+
+        **value**: *eq, in, sw*
+
+
+        **source.id**: *eq, in*
+
+
+        **requestable**: *eq*
+
+
+        **created**: *gt, lt, ge, le*
+
+
+        **modified**: *gt, lt, ge, le*
+      example: attribute eq "memberOf"
+      required: false
+      style: form
+      explode: true
+  responses:
+    '200':
+      description: List of entitlements parents from an entitlement
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/Entitlement.yaml'
+          example:
+            [
+              {
+                "sourceSchemaObjectType": "group",
+                "attribute": "memberOf",
+                "attributes": {
+                  "GroupType": "Security",
+                  "sAMAccountName": "LauncherTest1",
+                  "GroupScope": "Global",
+                  "objectguid": "{01a6e70b-9705-4155-a5c6-492a9bcc8c64}",
+                  "objectSid": "S-1-5-21-3585869415-1648031554-2909195034-1633",
+                  "cn": "LauncherTest1",
+                  "msDS-PrincipalName": "AUTOMATIONAD\\LauncherTest1"
+                },
+                "value": "CN=LauncherTest1,OU=LauncherTestOrg,OU=slpt-automation,DC=TestAutomationAD,DC=local",
+                "description": "some description",
+                "privileged": false,
+                "cloudGoverned": false,
+                "source": {
+                  "type": "SOURCE",
+                  "id": "2c9180877504c40e0175097d5ce707c8",
+                  "name": "EndToEnd-ADSource"
+                },
+                "owner": {
+                  "id": "2a2fdacca5e345f18bf7970cfbb8fec2",
+                  "name": "identity 1",
+                  "type": "IDENTITY"
+                },
+                "segments": [
+                  "1d126fe0-45e2-4aea-bc64-a07e9344ef26"
+                ],
+                "manuallyUpdatedFields": {
+                  "DISPLAY_NAME": true,
+                  "DESCRIPTION": true
+                },
+                "id": "2c91808c74ff913f0175097daa9d59cd",
+                "name": "LauncherTest1",
+                "created": "2020-10-08T18:33:52.029Z",
+                "modified": "2021-01-19T16:53:35.707Z"
+              }
+            ]
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

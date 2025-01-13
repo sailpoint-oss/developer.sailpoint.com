@@ -1,0 +1,62 @@
+type: object
+properties:
+  created_at:
+    description: Search for record based on the created_at date
+    type: object
+    properties:
+      gt:
+        description: Greater Than - search for events with a date greater than the value
+        type: string
+        format: date
+        example: 2024-10-18T16:41:23.232+00:00 | 10/18/2024
+      lt:
+        description: Less Than - search for events with a date less than the value
+        type: string
+        format: date
+        example: 2024-10-18T16:41:23.232+00:00 | 10/18/2024
+      eq:
+        description: Equal - search for events with a date equal to the value
+        type: string
+        format: date
+        example: 2024-10-18T16:41:23.232+00:00 | 10/18/2024
+  subject_type:
+    description: Categorization of audit event.
+    type: string
+    enum: [Profile, WorkflowSession, Email, FormAttributeForm, FormAttribute, Form, IdproxyPermission, NeAttributeOption, NeAttribute, Notification, WorkflowPage, ProfilePage, Permission, PortalRegistrationWorkflow, Portal, ProfileTypeRole, ProfileType, RoleProfile, NeprofileRole, NeaccessRole, IdproxyRole, SecurityQuestion, UserManager, UserProfile, UserRole, User, Validation, VerificationEmail, WorkflowAction, CreateWorkflow, UpdateWorkflow, AutomatedWorkflow, BatchWorkflow, ExpirationWorkflow, InvitationWorkflow, LoginWorkflow, PasswordResetWorkflow, RegistrationWorkflow, Get, Post, Patch, Delete]
+    example: Profile
+  type:
+    description: The type of audit event
+    type: string
+    enum: [AuditableProfileCreate, AuditableProfileUpdate, AuditableProfileDestroy, AuditableBulkProfileUpdate, AuditableProfileContributorAdd, AuditableProfileContributorRemove, AuditableProfileContributorRoleAdd, AuditableProfileContributorRoleRemove, AuditableProfileOwnerUpdate, AuditableProfileWorkflowEvent, AuditableWorkflowActionSkippedEvent, AuditableWorkflowApprovedEvent, AuditableWorkflowApprovedEvent, AuditableWorkflowAssignedEvent, AuditableWorkflowAutoAssignedEvent, AuditableWorkflowBatchCompleteEvent, AuditableWorkflowClosedEvent, AuditableWorkflowDuplicateCheckStartEvent, AuditableWorkflowDuplicateResolutionEvent, AuditableWorkflowFailedEvent, AuditableWorkflowIdentityProofedEvent, AuditableWorkflowInvitationSentEvent, AuditableWorkflowLdapProvidedEvent, AuditableWorkflowNotificationSentEvent, AuditableWorkflowPendingApprovalEvent, AuditableWorkflowPendingAssignmentEvent, AuditableWorkflowPendingFulfillmentEvent, AuditableWorkflowFulfilledEvent, AuditableWorkflowPendingIdentityProofEvent, AuditableWorkflowPendingLdapEvent, AuditableWorkflowPendingRequestEvent, AuditableWorkflowPendingReviewEvent, AuditableWorkflowProfileCreatedEvent, AuditableWorkflowProfileSelectEvent, AuditableWorkflowProfileUpdatedEvent, AuditableWorkflowRejectedEvent, AuditableWorkflowRequestMadeEvent, AuditableWorkflowRestApiEvent, AuditableWorkflowReviewedEvent, AuditableWorkflowRunningWorkflowEvent, AuditableWorkflowSoapApiEvent, AuditableWorkflowStatusChangedEvent, AuditableWorkflowStoredProcedureEvent, AuditableWorkflowUnassignEvent, AuditableWorkflowWaitingForWorkflowEvent, AuditableWorkflowWorkflowChangedEvent, ActiveRecordCreate, ActiveRecordUpdate, ActiveRecordDestroy, AuditableApiEvent]
+    example: AuditableProfileCreate
+  subject_id: 
+    description: Identifier of the subject
+    type: string
+    format: uuid
+    example: 7d8c53ca-e99d-485c-9524-ea3849e82c79
+  data:
+    type: object
+    properties:
+      profile_id:
+        description: The profile id associated with the event
+        type: string
+        example: 7d8c53ca-e99d-485c-9524-ea3849e82c79
+        format: uuid
+      workflow_id:
+        description: The workflow id associated with the event
+        type: string
+        example: 7d8c53ca-e99d-485c-9524-ea3849e82c79
+        format: uuid
+      workflow_name:
+        description: The workflow name associated with the event
+        type: string
+        example: My Workflow
+      workflow_uid:
+        description: The workflow uid associated with the event
+        type: string
+        example: my_workflow
+      profile_type_id:
+        description: The profile type associated with the event
+        type: string
+        example: 7d8c53ca-e99d-485c-9524-ea3849e82c79
+        format: uuid

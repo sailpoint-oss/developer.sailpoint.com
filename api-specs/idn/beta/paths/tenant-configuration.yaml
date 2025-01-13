@@ -1,0 +1,60 @@
+get:
+  operationId: getTenantConfigConfiguration
+  tags:
+    - Work Reassignment
+  summary: Get Tenant-wide Reassignment Configuration settings
+  description: >-
+    Gets the global Reassignment Configuration settings for the requestor's tenant.
+  security:
+    - userAuth: [idn:reassignment-tenant-configuration:read]
+  responses:
+    '200':
+      description: Tenant-wide Reassignment Configuration settings
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/work-reassignment/TenantConfigurationResponse.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+put:
+  operationId: putTenantConfiguration
+  tags:
+    - Work Reassignment
+  summary: Update Tenant-wide Reassignment Configuration settings
+  description: >-
+    Replaces existing Tenant-wide Reassignment Configuration settings with the newly provided settings.
+  security:
+    - userAuth: [idn:reassignment-tenant-configuration:update]
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/work-reassignment/TenantConfigurationRequest.yaml'
+  responses:
+    '200':
+      description: Tenant-wide Reassignment Configuration settings
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/work-reassignment/TenantConfigurationResponse.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

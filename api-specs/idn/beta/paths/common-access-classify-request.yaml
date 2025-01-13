@@ -1,0 +1,31 @@
+get:
+  operationId: getCommonAccessClassifyRequest
+  summary: Returns the metadata of the common access classification request
+  tags:
+    - IAI Common Access
+  description: >-
+    This endpoint returns details of a prior common access classification request.
+    Requires authorization scope of iai:access-modeling:read
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The common access classification request id
+      example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
+  responses:
+    '200':
+      description: Succeeded. Returns details of an earlier common access classification request.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/CommonAccessClassifyResponse.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

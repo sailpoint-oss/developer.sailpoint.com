@@ -1,0 +1,49 @@
+post:
+  operationId: unlockAccount
+  tags:
+    - Accounts
+  summary: Unlock Account
+  description: >-
+    This API submits a task to unlock an account and returns the task ID.  
+
+    To use this endpoint to unlock an account that has the `forceProvisioning` option set to true, the `idn:accounts-provisioning:manage` scope is required. 
+  security:
+    - userAuth: [idn:accounts-state:manage, idn:accounts-provisioning:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+    - HELPDESK
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The account ID.
+      example: ef38f94347e94562b5bb8424a56397d8
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/AccountUnlockRequest.yaml'
+  responses:
+    '202':
+      description: Async task details
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/AccountsAsyncResult.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

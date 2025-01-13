@@ -1,0 +1,47 @@
+allOf:
+  - $ref: "../base/Reference.yaml"
+  - type: object
+    properties:
+      accountId:
+        type: string
+        description: Account ID.
+        example: John.Doe
+      source:
+        $ref: "AccountSource.yaml"
+      disabled:
+        type: boolean
+        description: Indicates whether the account is disabled.
+        default: false
+        example: false
+      locked:
+        type: boolean
+        description: Indicates whether the account is locked.
+        default: false
+        example: false
+      privileged:
+        type: boolean
+        description: Indicates whether the account is privileged. 
+        default: false
+        example: false
+      manuallyCorrelated:
+        type: boolean
+        description: Indicates whether the account has been manually correlated to an identity.
+        default: false
+        example: false
+      passwordLastSet:
+        $ref: "../base/DateTime.yaml"
+      entitlementAttributes:
+        type: object
+        nullable: true
+        description: Map or dictionary of key/value pairs.
+        additionalProperties: true
+        example:
+          moderator: true
+          admin: true
+          trust_level: "4"
+      created:
+        type: string
+        description: ISO-8601 date-time referring to the time when the object was created. 
+        nullable: true
+        format: 'date-time'
+        example: '2018-06-25T20:22:28.104Z'

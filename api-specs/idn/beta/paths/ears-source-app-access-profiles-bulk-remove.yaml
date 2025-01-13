@@ -1,0 +1,50 @@
+post:
+  operationId: deleteAccessProfilesFromSourceAppByBulk
+  tags:
+    - Apps
+  summary: Bulk remove access profiles from the specified source app
+  security:
+    - userAuth: [idn:app-roles:manage]
+  description: >-
+    This API returns the final list of access profiles for the specified source app after removing
+  parameters:
+    - name: id
+      in: path
+      description: ID of the source app
+      required: true
+      schema:
+        type: string
+        example: 2c91808a7813090a017814121e121518
+    - $ref: '../../v3/parameters/limit.yaml'
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            type: string
+          description: List of access profile IDs for removal
+          example: [
+           "c9575abb5e3a4e3db82b2f989a738aa2",
+           "c9dc28e148a24d65b3ccb5fb8ca5ddd9"
+          ]
+  responses:
+    '200':
+      description: The final list of access profiles for the specified source app
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/app/AccessProfileDetails.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

@@ -1,0 +1,55 @@
+post:
+  operationId: pingVerificationStatus
+  tags:
+    - MFA Controller
+  summary: Polling MFA method by VerificationPollRequest
+  description: >-
+    This API poll the VerificationPollRequest for the specified MFA method.
+  security:
+    - userAuth: [idn:mfa:poll]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - in: path
+      name: method
+      schema:
+        type: string
+        example: okta-verify
+      required: true
+      description: >-
+        The name of the MFA method.
+        The currently supported method names are 'okta-verify', 'duo-web', 'kba','token', 'rsa'
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/VerificationPollRequest.yaml"
+        example:
+          {
+            "requestId": "089899f13a8f4da7824996191587bab9"
+          }
+
+  responses:
+    "200":
+      description: MFA VerificationPollRequest status an MFA method.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/VerificationResponse.yaml"
+          example:
+            {
+              "requestId": "089899f13a8f4da7824996191587bab9",
+              "status": "PENDING",
+              "error" : ""
+            }
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

@@ -1,0 +1,13 @@
+summary: TypeAheadQuery with NestedType
+value:
+  indices:
+  - 'identities'
+  queryType: 'TYPEAHEAD'
+  typeAheadQuery:
+    field: 'source.name'
+    nestedType: 'access'
+    query: 'Work'
+    maxExpansions: 50
+    size: 100
+    sort: 'desc'
+    sortByValue: false

@@ -1,0 +1,24 @@
+type: object
+properties:
+  columnName:
+    type: string
+    description: Name of column in report
+    example: SOD Business Name
+  required:
+    type: boolean
+    description: If true, column is required in all reports, and this entry is immutable. A 400 error will result from any attempt to modify the column's definition.
+    example: true
+    default: false
+  included:
+    type: boolean
+    description: If true, column is included in the report. A 400 error will be thrown if an attempt is made to set included=false if required==true.
+    example: false
+    default: false
+  order:
+    type: integer
+    format: int32
+    minimum: 0
+    maximum: 2147483647
+    description: Relative sort order for the column. Columns will be displayed left-to-right in nondecreasing order.
+    example: 2
+

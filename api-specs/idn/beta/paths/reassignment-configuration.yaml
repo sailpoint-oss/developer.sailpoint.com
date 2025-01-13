@@ -1,0 +1,76 @@
+get:
+  operationId: getReassignmentConfiguration
+  tags:
+    - Work Reassignment
+  summary: Get Reassignment Configuration
+  description: >-
+    Gets the Reassignment Configuration for an identity.
+  security:
+    - userAuth: [idn:reassignment-configuration:read]
+  parameters:
+    - in: path
+      name: identityId
+      schema:
+        type: string
+      description: unique identity id
+      required: true
+      example: 2c91808781a71ddb0181b9090b5c504f
+  responses:
+    '200':
+      description: Reassignment Configuration for an identity
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/work-reassignment/ConfigurationResponse.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+put:
+  operationId: putReassignmentConfig
+  tags:
+    - Work Reassignment
+  summary: Update Reassignment Configuration
+  description: >-
+    Replaces existing Reassignment configuration for an identity with the newly provided configuration.
+  security:
+    - userAuth: [idn:reassignment-configuration:update]
+  parameters:
+    - in: path
+      name: identityId
+      schema:
+        type: string
+      description: unique identity id
+      required: true
+      example: 2c91808781a71ddb0181b9090b5c504e
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/work-reassignment/ConfigurationItemRequest.yaml'
+  responses:
+    '200':
+      description: Reassignment Configuration updated
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/work-reassignment/ConfigurationItemResponse.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

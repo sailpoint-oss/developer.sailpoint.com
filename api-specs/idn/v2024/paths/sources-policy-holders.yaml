@@ -1,0 +1,49 @@
+patch:
+  operationId: updatePasswordPolicyHolders
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+    - ROLE_SUBADMIN
+  tags:
+    - Sources
+  summary: Update Password Policy
+  description: |
+    This API can be used to set up or update Password Policy in IdentityNow for the specified Source.
+    Source must support PASSWORD feature.
+  parameters:
+    - in: path
+      name: sourceId
+      schema:
+        type: string
+      required: true
+      description: The Source id
+      example: 8c190e6787aa4ed9a90bd9d5344523fb
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/PasswordPolicyHoldersDto.yaml'
+  responses:
+    '200':
+      description: >-
+        Updated Password Policies
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/PasswordPolicyHoldersDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [ idn:sources:update ]

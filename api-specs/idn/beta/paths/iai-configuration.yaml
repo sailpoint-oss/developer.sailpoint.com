@@ -1,0 +1,98 @@
+get:
+  operationId: getConfiguration
+  tags:
+    - IAI Configuration
+  summary: Return Specified IAI Configuration
+  description: >-
+    This gets a specific IAI configuration for a customer by type.
+
+    Requires authorization scope of 'iai:configuration:read' 
+  parameters:
+    - in: path
+      name: type
+      schema:
+        type: string
+      required: true
+      description: The configuration type
+      example: 'idn'
+  responses:
+    '200':
+      description: IAI configuration for a customer.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/IaiConfigurationDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  # security:
+  #   - oauth2: [iai:configuration:read]
+put:
+  operationId: updateConfiguration
+  tags:
+    - IAI Configuration
+  summary: Update Specified IAI Configuration
+  description: >-
+    This updates a given configuration for a customer by type.
+
+    Requires authorization scope of 'iai:configuration:update' 
+  parameters:
+    - in: path
+      name: type
+      schema:
+        type: string
+      required: true
+      description: The configuration type
+      example: 'idn'
+  responses:
+    '200':
+      description: The updated configuration object.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/IaiConfigurationDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  # security:
+  #   - oauth2: [iai:configuration:update]
+delete:
+  operationId: deleteConfiguration
+  tags:
+    - IAI Configuration
+  summary: Delete Specified IAI Configuration
+  description: >-
+    This deletes a given configuration for a customer by type.
+
+    Requires authorization scope of  'iai:configuration:delete'
+  parameters:
+    - in: path
+      name: type
+      schema:
+        type: string
+      required: true
+      description: The configuration type
+      example: 'idn'
+  responses:
+    '204':
+      $ref: '../../v3/responses/204.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  # security:
+  #   - oauth2: [iai:configuration:delete]

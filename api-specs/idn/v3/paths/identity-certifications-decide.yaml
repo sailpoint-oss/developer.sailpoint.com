@@ -1,0 +1,60 @@
+post:
+  operationId: makeIdentityDecision
+  tags:
+    - Certifications
+  summary: Decide on a Certification Item
+  security:
+    - userAuth: []
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+  description: >-
+    The API makes a decision to approve or revoke one or more identity campaign certification items. Reviewers for this certification can also call this
+    API. This API does not support requests for certifications assigned to Governance Groups.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The ID of the identity campaign certification on which to make decisions
+      example: ef38f94347e94562b5bb8424a56397d8
+  requestBody:
+    required: true
+    description: A non-empty array of decisions to be made.
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: '../schemas/ReviewDecision.yaml'
+          minItems: 1
+          maxItems: 250
+        example:
+          - id: ef38f94347e94562b5bb8424a56396b5
+            decision: APPROVE
+            bulk: true
+            comments: 'This user still needs access to this source.'
+          - id: ef38f94347e94562b5bb8424a56397d8
+            decision: APPROVE
+            bulk: true
+            comments: 'This user still needs access to this source too.'
+  responses:
+    '200':
+      description: An identity campaign certification object
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/IdentityCertificationDto.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

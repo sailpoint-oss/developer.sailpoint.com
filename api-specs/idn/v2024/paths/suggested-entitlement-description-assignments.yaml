@@ -1,0 +1,47 @@
+post:
+  tags:
+  - Suggested Entitlement Description
+  operationId: submitSedAssignment
+  summary: Submit Sed Assignment Request
+  description: 'Submit Assignment Request.
+
+    Request body has an assignee, and list of SED Ids that are assigned to that assignee
+    API responses with batchId that groups all approval requests together'
+  requestBody:
+    description: Sed Assignment Request
+    content:
+      application/json-patch+json:
+        schema:
+          $ref: ../../beta/schemas/SedAssignment.yaml
+    required: true
+  responses:
+    '202':
+      description: Sed Assignment Response
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/SedAssignmentResponse.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
+  security:
+  - userAuth:
+    - idn:sed:write
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true

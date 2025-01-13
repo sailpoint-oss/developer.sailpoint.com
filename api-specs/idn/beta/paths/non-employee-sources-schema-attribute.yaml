@@ -1,0 +1,139 @@
+get:
+  operationId: getNonEmployeeSchemaAttribute
+  security:
+    - userAuth: [idn:nelm:read]
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: Get Schema Attribute Non-Employee Source
+  description: This API gets a schema attribute by Id for the specified Non-Employee SourceId.
+  parameters:
+    - in: path
+      example: "2c918085842e69ae018432d22ccb212f"
+      name: attributeId
+      schema:
+        type: string
+      required: true
+      description: The Schema Attribute Id (UUID)
+    - in: path
+      example: "2c918085842e69ae018432d22ccb212f"
+      name: sourceId
+      schema:
+        type: string
+      required: true
+      description: The Source id
+  responses:
+    '200':
+      description: The Schema Attribute
+      content:
+        application/json:
+          example: |
+            id,system,modified,created,type,label,technicalName,helpText,placeholder,required
+          schema:
+            $ref: '../schemas/NonEmployeeSchemaAttribute.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+patch:
+  operationId: patchNonEmployeeSchemaAttribute
+  security:
+    - userAuth: [idn:nelm:manage]
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: Patch Non-Employee Source's Schema Attribute
+  description: |
+    This end-point patches a specific schema attribute for a non-employee SourceId.
+
+  parameters:
+    - in: path
+      name: attributeId
+      schema:
+        type: string
+      required: true
+      example: 2c91808b6ef1d43e016efba0ce470904
+      description: The Schema Attribute Id (UUID)
+    - in: path
+      name: sourceId
+      schema:
+        type: string
+      required: true
+      example: 2c91808b6ef1d43e016efba0ce470904
+      description: The Source id
+  requestBody:
+    description: A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+        The following properties are allowed for update ':' 'label', 'helpText', 'placeholder', 'required'.
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: '../schemas/JsonPatchOperation.yaml'
+        example:
+          - op: "replace"
+            path: "/label"
+            value: { "new attribute label" }
+    required: true
+  responses:
+    '200':
+      description: The Schema Attribute was successfully patched.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/NonEmployeeSchemaAttribute.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+delete:
+  operationId: deleteNonEmployeeSchemaAttribute
+  security:
+    - userAuth: [idn:nelm:manage]
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: Delete Non-Employee Source's Schema Attribute
+  description: | 
+    This end-point deletes a specific schema attribute for a non-employee source.
+
+  parameters:
+    - in: path
+      name: attributeId
+      schema:
+        type: string
+      required: true
+      example: 2c91808b6ef1d43e016efba0ce470904
+      description: The Schema Attribute Id (UUID)
+    - in: path
+      name: sourceId
+      schema:
+        type: string
+      required: true
+      example: 2c91808b6ef1d43e016efba0ce470904
+      description: The Source id
+  responses:
+    '204':
+      $ref: '../../v3/responses/204.yaml'
+      description: The Schema Attribute was successfully deleted.
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

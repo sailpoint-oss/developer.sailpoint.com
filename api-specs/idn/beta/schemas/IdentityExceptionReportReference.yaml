@@ -1,0 +1,12 @@
+type: object
+nullable: true
+properties:
+  taskResultId:
+    type: string
+    format: uuid
+    description: The id of the task result
+    example: 2c918086795cd09201795d5f7d7533df
+  reportName:
+    type: string
+    example: My annual report
+    description: The name of the report

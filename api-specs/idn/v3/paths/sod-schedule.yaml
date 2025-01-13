@@ -1,0 +1,106 @@
+get:
+  security:
+    - userAuth: [idn:sod-policy:read]
+  operationId: getSodPolicySchedule
+  tags:
+    - SOD Policies
+  summary: Get SOD policy schedule
+  description: >-
+    This endpoint gets a specified SOD policy's schedule.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The ID of the SOD policy schedule to retrieve.
+      example: ef38f943-47e9-4562-b5bb-8424a56397d8
+  responses:
+    '200':
+      description: SOD policy schedule.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/SodPolicySchedule.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+put:
+  security:
+    - userAuth: [idn:sod-policy:write]
+  operationId: putPolicySchedule
+  tags:
+    - SOD Policies
+  summary: Update SOD Policy schedule
+  description: >-
+    This updates schedule for a specified SOD policy.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The ID of the SOD policy to update its schedule.
+      example: ef38f943-47e9-4562-b5bb-8424a56397d8
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/SodPolicySchedule.yaml'
+  responses:
+    '200':
+      description: Created or updated SOD policy schedule.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/SodPolicySchedule.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+delete:
+  security:
+    - userAuth: [idn:sod-policy:write]
+  operationId: deleteSodPolicySchedule
+  tags:
+    - SOD Policies
+  summary: Delete SOD policy schedule
+  description: >-
+    This deletes schedule for a specified SOD policy by ID.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The ID of the SOD policy the schedule must be deleted for.
+      example: ef38f943-47e9-4562-b5bb-8424a56397d8
+  responses:
+    '204':
+      description: No content response.
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

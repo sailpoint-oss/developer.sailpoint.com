@@ -1,0 +1,61 @@
+post:
+  operationId: deleteAccountAsync
+  summary: Remove Account
+  tags:
+  - Accounts
+  description: 'Use this endpoint to remove accounts from the system without provisioning
+    changes to the source. Accounts that are removed could be re-created during the
+    next aggregation.
+
+
+    This endpoint is good for:
+
+    * Removing accounts that no longer exist on the source.
+
+    * Removing accounts that won''t be aggregated following updates to the source
+    configuration.
+
+    * Forcing accounts to be re-created following the next aggregation to re-run account
+    processing, support testing, etc.
+
+    '
+  parameters:
+  - in: path
+    name: id
+    schema:
+      type: string
+    required: true
+    description: The account id
+    example: c350d6aa4f104c61b062cb632421ad10
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '202':
+      description: Accepted. Returns task result details of removal request.
+      content:
+        application/json:
+          schema:
+            $ref: ../../v3/schemas/TaskResultDto.yaml
+          example:
+            type: TASK_RESULT
+            id: 464ae7bf791e49fdb74606a2e4a89635
+            name: null
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
+  security:
+  - userAuth:
+    - idn:account:remove

@@ -1,0 +1,32 @@
+get:
+  operationId: listAuthoriztionCapabilities
+  # security:
+  #   - oauth2: [idn:authorization-model:read]
+  tags:
+    - Authorization Model
+  summary: List Authorization Model Capabilities
+  description: >-
+    This API returns the list of capabilities from the Authorization Model Service.
+
+    Request will require the following security scope:
+
+    - 'idn:authorization-model:read'
+  responses:
+    '200':
+      description: List of Capabilities
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/AmsCapability.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

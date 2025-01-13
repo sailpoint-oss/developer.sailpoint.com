@@ -1,0 +1,40 @@
+get:
+  operationId: getDefaultViolationReport
+  tags:
+    - SOD Policies
+  summary: Download violation report
+  deprecated: true
+  security:
+    - userAuth: [ idn:sod-violation:read ]
+  description: >-
+    This allows to download a violation report for a given report reference.
+
+    Requires role of ORG_ADMIN.
+  parameters:
+    - in: path
+      name: reportResultId
+      schema:
+        type: string
+      required: true
+      description: The ID of the report reference to download.
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    '200':
+      description: Returns the PolicyReport.zip that contains the violation report file.
+      content:
+        application/zip:
+          schema:
+            type: string
+            format: binary
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

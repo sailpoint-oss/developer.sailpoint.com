@@ -1,0 +1,15 @@
+get:
+  summary: Retrieve single schema-mapped profile
+  operationId: getSingleSchemaMappedProfile
+  description: It returns a single stored profile, optionally with schema-mapped field names.
+  tags:
+    - isc accounts
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  responses:
+    '200':
+      $ref: "../responses/Profile.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

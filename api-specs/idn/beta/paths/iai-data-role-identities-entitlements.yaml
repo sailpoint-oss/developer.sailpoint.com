@@ -1,0 +1,79 @@
+get:
+  operationId: getRoleIdentitiesEntitlements
+  summary: Get entitlements for all identities in a role
+  tags:
+    - IAI Data Roles
+  description: >-
+    This endpoint gets the entitlements for all identities in a role (which may contain entitlements not in the role).
+  parameters:
+    - in: path
+      name: roleId
+      schema:
+        type: string
+      required: true
+      description: The role id
+      example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
+    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/count.yaml'
+    - in: query
+      name: minPopularity
+      description: Return only entitlements above specified min popularity
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: integer
+    - in: query
+      name: maxPopularityInOrg
+      description: Return only entitlements below specified max popularity in org
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: integer
+    - in: query
+      name: sorters
+      description: >-
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+
+        Sorting is supported for the following fields: **name**
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string
+    - in: query
+      name: filters
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **name**: *sw*
+      example: name sw "A"
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Succeeded. Returns a list of entitlements for all the identities in a role
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/IaiDataRoleIdentityEntitlement.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

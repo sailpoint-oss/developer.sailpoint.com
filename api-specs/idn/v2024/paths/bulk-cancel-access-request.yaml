@@ -1,0 +1,41 @@
+post:
+  operationId: cancelAccessRequestInBulk
+  security:
+    - userAuth: [ idn:access-request-administration:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  tags:
+    - Access Requests
+  summary: Bulk Cancel Access Request
+  description: >-
+    This API endpoint allows cancelling pending access requests in bulk. Maximum of 50 access request ids can be 
+    provided in the request for one single invocation. 
+
+    Only ORG_ADMIN or users with rights "idn:access-request-administration:write" can cancel the access requests in 
+    bulk.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/BulkCancelAccessRequest.yaml
+        example:
+          {
+            "accessRequestIds": ["2c91808568c529c60168cca6f90c1313","2c91808568c529c60168cca6f90c1314"],
+            "comment": "I requested this role by mistake."
+          }
+  responses:
+    '202':
+      $ref: ../../v3/responses/202.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml

@@ -1,0 +1,22 @@
+get:
+  operationId: getRoleInsightsSummary
+  summary: Get role insights summary information
+  tags:
+    - Role Insights
+  description: >-
+    This method returns high level summary information for role insights for a customer.
+  responses:
+    '200':
+      description: Succeeded. Returns high level counts.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/RoleInsightsSummary.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

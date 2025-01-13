@@ -1,0 +1,14 @@
+type: object
+properties:
+  type:
+    type: string
+    description: the type of response reference
+    example: "TASK_RESULT"
+  id:
+    type: string
+    description: the task ID
+    example: "78733556-9ea3-4f59-bf69-e5cd92b011b4"
+  name:
+    type: string
+    description: the task name (not used in this endpoint, always null)
+    example: "null"

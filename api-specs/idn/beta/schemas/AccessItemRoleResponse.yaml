@@ -1,0 +1,32 @@
+type: object
+properties:
+  accessType:
+    type: string
+    example: role
+    description: the access item type. role in this case
+  id:
+    type: string
+    example: 2c918087763e69d901763e72e97f006f
+    description: the access item id
+  displayName:
+    type: string
+    example: sample
+    description: the role display name
+  description:
+    type: string
+    example: Role - Workday/Citizenship access
+    description: the description for the role
+  sourceName:
+    type: string
+    example: Source Name
+    description: the associated source name if it exists
+  removeDate:
+    type: string
+    example: 2024-07-01T06:00:00.00Z
+    description: the date the role is no longer assigned to the specified identity
+  revocable:
+    type: boolean
+    example: true
+    description: indicates whether the role is revocable
+required:
+  - revocable

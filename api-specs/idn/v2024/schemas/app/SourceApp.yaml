@@ -1,0 +1,94 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The source app id
+    example: "2c91808874ff91550175097daaec161c"
+  cloudAppId:
+    type: string
+    description: The deprecated source app id
+    example: "9854520"
+  name:
+    type: string
+    description: The source app name
+    example: "my app"
+  created:
+    type: string
+    description: Time when the source app was created
+    format: 'date-time'
+    example: "2020-10-08T18:33:52.029Z"
+  modified:
+    type: string
+    description: Time when the source app was last modified
+    format: 'date-time'
+    example: "2020-10-08T18:33:52.029Z"
+  enabled:
+    type: boolean
+    default: false
+    description: True if the source app is enabled
+    example: true
+  provisionRequestEnabled:
+    type: boolean
+    default: false
+    description: True if the source app is provision request enabled
+    example: true
+  description:
+    type: string
+    nullable: false
+    description: The description of the source app
+    example: "the source app for engineers"
+  matchAllAccounts:
+    type: boolean
+    default: false
+    description: True if the source app match all accounts
+    example: true
+  appCenterEnabled:
+    type: boolean
+    default: true
+    description: True if the source app is shown in the app center
+    example: true
+  accountSource:
+    type: object
+    nullable: true
+    properties:
+      id:
+        type: string
+        description: The source ID
+        example: 2c9180827ca885d7017ca8ce28a000eb
+      type:
+        type: string
+        description: The source type, will always be "SOURCE"
+        example: SOURCE
+      name:
+        type: string
+        description: The source name
+        example: ODS-AD-Source
+      useForPasswordManagement:
+        type: boolean
+        default: false
+        description: If the source is used for password management
+        example: ture
+      passwordPolicies:
+        type: array
+        nullable: true
+        description: The password policies for the source
+        items:
+          $ref: '../../../v3/schemas/BaseReferenceDto.yaml'
+        example:
+          [
+            {
+              "type": "PASSWORD_POLICY",
+              "id": "006a072ecc6647f68bba9f4a4ad34649",
+              "name": "Password Policy 1"
+            }
+          ]
+  owner:
+    type: object
+    nullable: true
+    allOf:
+      - $ref: '../../../v3/schemas/BaseReferenceDto.yaml'
+    description: The owner of source app
+    example:
+      id: 85d173e7d57e496569df763231d6deb6a
+      type: IDENTITY
+      name: John Doe

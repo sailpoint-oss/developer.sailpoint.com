@@ -1,0 +1,34 @@
+get:
+  summary: Download CSV Template for Discovery
+  tags:
+    - Application Discovery
+  description: >
+    Download an example CSV file with two columns `application_name` and `description`. 
+    The CSV file contains a single row with the values 'Example Application' and 'Example Description'.
+    
+    
+    The downloaded template is specifically designed for use with the `/manual-discover-applications` endpoint.
+  security:
+    - userAuth:
+        - 'idn:application-discovery:read'
+  operationId: getManualDiscoverApplicationsCsvTemplate
+  responses:
+    '200':
+      description: A CSV file download was successful.
+      content:
+        text/csv:
+          schema:
+            $ref: '../../beta/schemas/ManualDiscoverApplicationsTemplate.yaml'
+          example: |
+            application_name,description
+            Example Application,Example Description
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

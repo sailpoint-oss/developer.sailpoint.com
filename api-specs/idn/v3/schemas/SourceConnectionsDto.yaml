@@ -1,0 +1,47 @@
+type: object
+properties:
+  identityProfiles:
+    type: array
+    description: The IdentityProfile attached to this source
+    items:
+      $ref: '../../v3/schemas/IdentityProfilesConnections.yaml'
+  credentialProfiles:
+    type: array
+    description: Name of the CredentialProfile attached to this source
+    items:
+      type: string
+      example: [Profile ODS]
+  sourceAttributes:
+    type: array
+    description: The attributes attached to this source
+    items:
+      type: string
+      example: [
+        sAMAccountName,
+        mail,
+        sn,
+        givenName,
+        displayName,
+        employeeNumber,
+        manager,
+        telephoneNumber
+      ]
+  mappingProfiles:
+    type: array
+    description: The profiles attached to this source
+    example: [ ODS-AD-Profile,
+               ODS-Profile2 ]
+    items:
+      type: string
+  dependentCustomTransforms:
+    type: array
+    items:
+      $ref: '../../v3/schemas/Transform.yaml'
+  dependentApps:
+    type: array
+    items:
+      $ref: '../../v3/schemas/DependantAppConnections.yaml'
+  missingDependents:
+    type: array
+    items:
+      $ref: '../../v3/schemas/DependantConnectionsMissingDto.yaml'

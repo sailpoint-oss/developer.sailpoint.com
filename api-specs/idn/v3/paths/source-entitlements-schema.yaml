@@ -1,0 +1,103 @@
+get:
+  tags:
+    - Sources
+  summary: Downloads source entitlements schema template
+  description: >-
+    This API downloads the CSV schema that defines the entitlement attributes on a source.
+    
+    
+    >**NOTE: This API is designated only for Delimited File sources.**
+  operationId: getEntitlementsSchema
+  parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      description: The Source id
+      example: '8c190e6787aa4ed9a90bd9d5344523fb'
+    - in: query
+      name: schemaName
+      schema:
+        type: string
+      description: Name of entitlement schema
+      example: '?schemaName=group'
+  responses:
+    '200':
+      description: Successfully downloaded the file
+      content:
+        text/csv:
+          example: "id,name,displayName,created,description,modified,entitlements,groups,permissions"
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:source-schema:read]
+post:
+  tags:
+    - Sources
+  summary: Uploads source entitlements schema template
+  description: >-
+    This API uploads a source schema template file to configure a source's entitlement attributes.
+
+    
+    To retrieve the file to modify and upload, log into Identity Now. 
+    
+
+    Click **Admin** -> **Connections** -> **Sources** -> **`{SourceName}`** -> **Import Data** -> **Import Entitlements** -> **Download**
+
+    
+    >**NOTE: This API is designated only for Delimited File sources.**
+  operationId: importEntitlementsSchema
+  parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      description: The Source id
+      example: '8c190e6787aa4ed9a90bd9d5344523fb'
+    - in: query
+      name: schemaName
+      schema:
+        type: string
+      description: Name of entitlement schema
+      example: '?schemaName=group'
+  requestBody:
+    required: true
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            file:
+              type: string
+              format: binary
+  responses:
+    '200':
+      description: Successfully uploaded the file
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Schema.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:source-schema:manage]

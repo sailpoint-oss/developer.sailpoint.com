@@ -1,0 +1,193 @@
+get:
+  tags:
+    - Service Desk Integration
+  summary: Get a Service Desk integration
+  description: Get an existing Service Desk integration by ID.
+  operationId: getServiceDeskIntegration
+  parameters:
+    - name: id
+      in: path
+      description: ID of the Service Desk integration to get
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: anId
+  responses:
+    "200":
+      description: ServiceDeskIntegrationDto with the given ID
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ServiceDeskIntegrationDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:service-desk-integration:read, idn:service-desk-integration:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+
+put:
+  tags:
+    - Service Desk Integration
+  summary: Update a Service Desk integration
+  description: Update an existing Service Desk integration by ID.
+  operationId: putServiceDeskIntegration
+  parameters:
+    - name: id
+      in: path
+      description: ID of the Service Desk integration to update
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: anId
+  requestBody:
+    description: The specifics of the integration to update
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/ServiceDeskIntegrationDto.yaml'
+    required: true
+  responses:
+    "200":
+      description: ServiceDeskIntegrationDto as updated
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ServiceDeskIntegrationDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:service-desk-integration:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+
+delete:
+  tags:
+    - Service Desk Integration
+  summary: Delete a Service Desk integration
+  description: Delete an existing Service Desk integration by ID.
+  operationId: deleteServiceDeskIntegration
+  parameters:
+    - name: id
+      in: path
+      description: ID of Service Desk integration to delete
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: anId
+  responses:
+    "204":
+      description: Service Desk integration with the given ID successfully deleted
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:service-desk-integration:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+
+patch:
+  operationId: patchServiceDeskIntegration
+  tags:
+    - Service Desk Integration
+  summary: Patch a Service Desk Integration
+  description: Update an existing Service Desk integration by ID with a PATCH request.
+  parameters:
+    - name: id
+      in: path
+      description: ID of the Service Desk integration to update
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: anId
+  requestBody:
+    required: true
+    description: |
+      A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+
+      Only `replace` operations are accepted by this endpoint.
+      
+      A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed.
+    content:
+      application/json-patch+json:
+        schema:
+          type: object
+          description: A JSONPatch document as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902).  Only `replace` operations are accepted by this endpoint.
+          properties:
+            operations:
+              description: Operations to be applied
+              type: array
+              items:
+                $ref: '../schemas/JsonPatchOperation.yaml'
+          example:
+            [
+              {
+                "op": "replace",
+                "path": "/ownerRef",
+                "value": {
+                  "id": "2c9180867d05b227017d09921a205b4d",
+                  "type": "IDENTITY",
+                  "name": "Angelo Medici"
+                }
+              }
+            ]
+  responses:
+    "200":
+      description: ServiceDeskIntegrationDto as updated
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ServiceDeskIntegrationDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:service-desk-integration:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

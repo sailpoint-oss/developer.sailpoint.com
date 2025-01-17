@@ -6,8 +6,7 @@ post:
   description: >-
     Use this API to set/update an identity's lifecycle state to the one provided and update the corresponding identity profile.
   security:
-    - userAuth: [idn:identity-lifecycle-state:update]
-    - applicationAuth: [idn:identity-lifecycle-state:update]
+    - userAuth: [idn:identity-lifecycle-state:manage]
   x-sailpoint-userLevels:
     - ORG_ADMIN
   parameters:

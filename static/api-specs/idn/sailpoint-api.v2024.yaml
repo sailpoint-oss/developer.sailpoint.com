@@ -1285,6 +1285,8 @@ paths:
     $ref: ./v3/paths/access-request-config.yaml
   /access-request-status:
     $ref: ./v3/paths/access-request-status.yaml
+  /access-request-administration:
+    $ref: ./v2024/paths/access-request-status-administrator.yaml
   /access-request-approvals/pending:
     $ref: ./v3/paths/pending-access-request-approvals.yaml
   /access-request-approvals/completed:

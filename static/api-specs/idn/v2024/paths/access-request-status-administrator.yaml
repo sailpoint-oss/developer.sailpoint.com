@@ -1,22 +1,20 @@
 get:
-  operationId: listAccessRequestStatus
+  operationId: listAdministratorsAccessRequestStatus
   security:
-    - userAuth: [ idn:access-request-status:read ]
+    - userAuth: [ idn:access-request-administration:read ]
   x-sailpoint-userLevels:
     - ORG_ADMIN
+    - idn:access-request-administration:read
   tags:
     - Access Requests
-  summary: Access Request Status
+  summary: Access Request Status for Administrators
   description: >-
-    Use this API to return a list of access request statuses
-    based on the specified query parameters.
-
-    If an access request was made for access that an identity already has, the API ignores the access request. 
-    These ignored requests do not display in the list of access request statuses.
-
-    Any user with any user level can get the status of their own access requests. A user with
-    ORG_ADMIN is required to call this API to get a list of statuses
-    for other users.
+    Use this API to get access request statuses of all the access requests in the org based on the specified query 
+    parameters.
+    
+    Any user with user level ORG_ADMIN or scope idn:access-request-administration:read can access this endpoint to get 
+    the 
+    access request statuses
   parameters:
     - in: query
       name: requested-for
@@ -102,12 +100,15 @@ get:
 
 
         Filtering is supported for the following fields and operators:
+
+
+        **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*
         
         
         **accessRequestId**: *in*
         
         
-        **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*
+        **status**: *in, eq, ne*
         
         
         **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw*
@@ -121,7 +122,7 @@ get:
         Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
 
 
-        Sorting is supported for the following fields: **created, modified, accountActivityItemId, name**
+        Sorting is supported for the following fields: **created, modified, accountActivityItemId, name, accessRequestId**
       example: created
       required: false
     - in: query
@@ -130,7 +131,7 @@ get:
         type: string
       example: request-state=EXECUTING
       description: >-
-          Filter the results by the state of the request. The only valid value is *EXECUTING*.
+        Filter the results by the state of the request. The only valid value is *EXECUTING*.
       required: false
   responses:
     "200":
@@ -140,14 +141,14 @@ get:
           schema:
             type: array
             items:
-              $ref: "../schemas/RequestedItemStatus.yaml"
+              $ref: "../schemas/AccessRequestAdminItemStatus.yaml"
     "400":
       $ref: "../../v3/responses/400.yaml"
     "401":
-      $ref: "../responses/401.yaml"
+      $ref: "../../v3/responses/401.yaml"
     "403":
-      $ref: "../responses/403.yaml"
+      $ref: "../../v3/responses/403.yaml"
     "429":
-      $ref: "../responses/429.yaml"
+      $ref: "../../v3/responses/429.yaml"
     "500":
-      $ref: "../responses/500.yaml"
+      $ref: "../../v3/responses/500.yaml"

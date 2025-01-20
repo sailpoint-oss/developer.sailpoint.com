@@ -1,0 +1,17 @@
+type: object
+description: Owner's identity. 
+properties:
+  type:
+    type: string 
+    description: Owner's DTO type. 
+    enum: 
+      - IDENTITY
+    example: IDENTITY
+  id:
+    type: string
+    description: Owner's identity ID.
+    example: 2c9180a46faadee4016fb4e018c20639
+  name:
+    type: string
+    description: Owner's name. 
+    example: Support

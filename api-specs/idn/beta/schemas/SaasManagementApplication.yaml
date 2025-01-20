@@ -1,0 +1,80 @@
+type: object
+title: SaaS Management Application
+properties:
+  id:
+    type: string
+    nullable: false
+    description: Unique identifier for SaaS Management application.
+    example: "2345bcd"
+  name:
+    type: string
+    nullable: false
+    description: Name of the application.
+    example: "Corporate directory"
+  integrationType:
+    type: string
+    nullable: false
+    enum:
+      - DIRECT
+      - SSO
+      - UNKNOWN
+    example: SSO
+    description: |
+      DIRECT - Usage data comes directly from source (preferred).
+      SSO - Usage data pulled from SSO audit logs.
+      UNKNOWN - The integration type is not recognized.
+  integrationName:
+    type: string
+    nullable: true
+    description: Name of integration.
+    example: "okta"
+  integrationState:
+    type: string
+    nullable: false
+    enum:
+      - ACTIVE
+      - INACTIVE
+      - DELETED
+      - UNKNOWN
+    example: ACTIVE
+    description: |
+      ACTIVE - Usage data is being periodically fetched from the integration.
+      INACTIVE - Usage data is currently not being fetched from the integration.
+      DELETED - The integration has been removed.
+      UNKNOWN - The integration state is not recognized.
+  identityNowSource:
+    allOf:
+      - $ref: '../../v3/schemas/SourceDto.yaml'
+    nullable: true
+    description: Reference to mapped IdentityNow Source, if mapping exists.
+    example:
+      type: "SOURCE"
+      id: "2c9180835d191a86015d28455b4b232a"
+      name: "HR Active Directory"
+  lastTested:
+    type: string
+    nullable: true
+    format: date-time
+    description: When user matches to accounts on the mapped IdentityNow source was last tested.
+    example: "2021-05-07T14:21:30.479Z"
+  testStatus:
+    type: string
+    nullable: true
+    enum:
+      - SUCCESS
+      - PARTIAL_SUCCESS
+      - FAILURE
+      - ERROR
+      - UNKNOWN
+    example: PARTIAL_SUCCESS
+    description: |
+      SUCCESS - All tested user accounts were found in mapped source.
+      PARTIAL_SUCCESS - Some (but not all) tested user accounts were found in mapped source.
+      FAILURE - None of the tested user accounts were found in mapped source.
+      ERROR - There was an error while testing user account matches.
+      UNKNOWN - The test status is not recognized.
+  testStatusDetail:
+    type: string
+    nullable: true
+    description: Any additional details about test status, if available.
+    example: "7 of 10 user accounts tested were found in mapped IdentityNow Source."

@@ -1,0 +1,77 @@
+get:
+  operationId: getCampaignFilterById
+  tags:
+    - Certification Campaign Filters
+  summary: Get Campaign Filter by ID
+  description: >-
+    Retrieves information for an existing campaign filter using the filter's ID.
+  security:
+    - userAuth: [idn:campaign-filter:read]
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+        example: e9f9a1397b842fd5a65842087040d3ac
+      required: true
+      description: The ID of the campaign filter to be retrieved.
+  responses:
+    '200':
+      description: A campaign filter object.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/CampaignFilterDetails.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+post:
+  operationId: updateCampaignFilter
+  tags:
+    - Certification Campaign Filters
+  summary: Updates a Campaign Filter
+  description: >-
+    Updates an existing campaign filter using the filter's ID.
+  security:
+    - userAuth: [ idn:campaign-filter:update ]
+  parameters:
+    - in: path
+      name: filterId
+      schema:
+        type: string
+        example: e9f9a1397b842fd5a65842087040d3ac
+      required: true
+      description: The ID of the campaign filter being modified.
+  requestBody:
+    required: true
+    description: A campaign filter details with updated field values.
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/CampaignFilterDetails.yaml'
+  responses:
+    '200':
+      description: Created successfully.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/CampaignFilterDetails.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

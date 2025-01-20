@@ -1,0 +1,121 @@
+type: object
+description: A Role
+properties:
+    id:
+        type: string
+        description: The id of the Role. This field must be left null when creating an Role, otherwise a 400 Bad Request error will result.
+        example: 2c918086749d78830174a1a40e121518
+    name:
+        type: string
+        description: The human-readable display name of the Role
+        maxLength: 128
+        example: Role 2567
+    created:
+        type: string
+        description: Date the Role was created
+        format: 'date-time'
+        example: '2021-03-01T22:32:58.104Z'
+        readOnly: true
+    modified:
+        type: string
+        description: Date the Role was last modified.
+        format: 'date-time'
+        example: '2021-03-02T20:22:28.104Z'
+        readOnly: true
+    description:
+        type: string
+        nullable: true
+        description: A human-readable description of the Role
+        example: Urna amet cursus pellentesque nisl orci maximus lorem nisl euismod fusce morbi placerat adipiscing maecenas nisi tristique et metus et lacus sed morbi nunc nisl maximus magna arcu varius sollicitudin elementum enim maecenas nisi id ipsum tempus fusce diam ipsum tortor.
+    owner:
+        $ref: './OwnerReference.yaml'
+    accessProfiles:
+        type: array
+        items:
+            $ref: './AccessProfileRef.yaml'
+        nullable: true
+    entitlements:
+        type: array
+        items:
+            $ref: './EntitlementRef.yaml'
+    membership:
+        $ref: './RoleMembershipSelector.yaml'
+        nullable: true
+    legacyMembershipInfo:
+        type: object
+        nullable: true
+        description: >-
+            This field is not directly modifiable and is generally expected to be *null*.
+            In very rare instances, some Roles may have been created using membership selection criteria that are no
+            longer fully supported. While these Roles will still work, they should be migrated to STANDARD or
+            IDENTITY_LIST selection criteria. This field exists for informational purposes as an aid to such migration.
+        example: { "type": "IDENTITY_LIST" }
+        additionalProperties: true
+    enabled:
+        type: boolean
+        description: Whether the Role is enabled or not. 
+        example: true
+        default: false
+    requestable:
+        type: boolean
+        description: Whether the Role can be the target of access requests. 
+        example: true
+        default: false
+    accessRequestConfig:
+        $ref: './RequestabilityForRole.yaml'
+        nullable: true
+        description: Access request configuration for this object
+    revocationRequestConfig:
+        $ref: './RevocabilityForRole.yaml'
+        nullable: true
+        default: null
+        description: >-
+            Revocation request configuration for this object.
+    segments:
+        type: array
+        items:
+            type: string
+        nullable: true
+        description: List of IDs of segments, if any, to which this Role is assigned.
+        example: [
+                "f7b1b8a3-5fed-4fd4-ad29-82014e137e19",
+                "29cb6c06-1da8-43ea-8be4-b3125f248f2a"
+            ]
+    dimensional:
+        description: Whether the Role is dimensional.
+        type: boolean
+        nullable: true
+        default: false
+    dimensionRefs:
+        type: array
+        items:
+            $ref: './DimensionRef.yaml'
+        nullable: true
+        description: >-
+            List of references to dimensions to which this Role is assigned. This field is only relevant if the Role is dimensional.
+    accessModelMetadata:
+        $ref: '../../../beta/schemas/gov-attributes/AttributeDTOList.yaml'
+        example:
+          [
+              {
+                  "key": "iscFederalClassifications",
+                  "name": "Federal Classifications",
+                  "multiselect": true,
+                  "status": "active",
+                  "type": "governance",
+                  "objectTypes": [
+                      "general"
+                  ],
+                  "description": "Classification used by government organizations to specify the level of confidentiality for an access item.",
+                  "values": [
+                      {
+                          "value": "secret",
+                          "name": "Secret",
+                          "status": "active"
+                      }
+                  ]
+              }
+          ]
+required:
+    - name
+    - owner

@@ -1,0 +1,36 @@
+type: object
+properties:
+  hasPermissions: 
+    type: boolean
+    description: Indicates whether the entitlement has permissions. 
+    default: false
+    example: false
+  description:
+    type: string
+    description: Entitlement's description. 
+    example: Cloud engineering 
+  attribute:
+    type: string
+    description: Entitlement attribute's name. 
+    example: memberOf
+  value:
+    type: string
+    description: Entitlement's value. 
+    example: "CN=Cloud Engineering,DC=sailpoint,DC=COM"
+  schema: 
+    type: string
+    description: Entitlement's schema. 
+    example: group
+  privileged: 
+    type: boolean
+    description: Indicates whether the entitlement is privileged. 
+    default: false
+    example: false
+  id: 
+    type: string
+    description: Entitlement's ID.
+    example: 2c918084575812550157589064f33b89
+  name: 
+    type: string
+    description: Entitlement's name. 
+    example: "CN=Cloud Engineering,DC=sailpoint,DC=COM"

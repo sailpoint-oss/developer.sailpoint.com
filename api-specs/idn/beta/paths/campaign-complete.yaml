@@ -1,0 +1,53 @@
+post:
+  operationId: completeCampaign
+  tags:
+    - Certification Campaigns
+  summary: Complete a Campaign
+  description: |
+    :::caution
+    
+    This endpoint will run successfully for any campaigns that are **past due**.
+    
+    This endpoint will return a content error if the campaign is **not past due**.
+    
+    :::
+    
+    Use this API to complete a certification campaign. This functionality is provided to admins so that they
+    can complete a certification even if all items have not been completed. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/complete-campaign).
+
+    A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
+  deprecated: true
+  security:
+    - userAuth: [idn:campaign:manage]
+  requestBody:
+    description:
+      Optional. Default behavior is for the campaign to auto-approve upon completion,
+      unless autoCompleteAction=REVOKE
+    required: false
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/CompleteCampaignOptions.yaml'
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: Campaign ID. 
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    '202':
+      $ref: '../../v3/responses/202.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

@@ -1,0 +1,48 @@
+get:
+  summary: Find profile type by id
+  operationId: getProfileType
+  description: Find profile type by id
+  tags:
+    - profile types
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  responses:
+    '200':
+      $ref: "../responses/ProfileType.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+patch:
+  summary: Update a profile type by id
+  operationId: patchProfileType
+  description: Update a profile type by id
+  tags:
+    - profile types
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  requestBody:
+    $ref: "../requestBodies/PATCH/ProfileType.yaml"
+  responses:
+    '200':
+      $ref: "../responses/ProfileType.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+# There is a foregin key constraint due to a profile profile_type_id dependency
+delete:
+  summary: Delete profile type
+  operationId: deleteProfileType
+  description: Delete a profile type. All profiles of that type must first be destroyed before the profile type can be destroyed.
+  tags:
+    - profile types
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  responses:
+    '200':
+      $ref: "../responses/Info.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

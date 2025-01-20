@@ -1,0 +1,53 @@
+get:
+  operationId: getAccessRequestApprovalSummary
+  security:
+    - userAuth: [ idn:access-request-approvals-summary:read ]
+  summary: Get Access Requests Approvals Number
+  tags:
+    - Access Request Approvals
+  description: >-
+    Use this API to return the number of pending, approved and rejected access requests approvals.
+    See the "owner-id" query parameter for authorization information.
+  parameters:
+    - in: query
+      name: owner-id
+      schema:
+        type: string
+      description: >-
+        The ID of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.
+           * ORG_ADMIN users can call this with any identity ID value.
+           * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.
+           * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value.
+      example: 2c91808568c529c60168cca6f90c1313
+      required: false
+    - in: query
+      name: from-date
+      schema:
+        type: string
+      description: >-
+        This is the date and time the results will be shown from. It must be in a valid ISO-8601 format.
+
+
+      example: from-date=2020-03-19T19:59:11Z
+      required: false
+  responses:
+    '200':
+      description: Number of pending, approved, rejected access request approvals.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ApprovalSummary.yaml'
+    '400':
+      description: Client Error - Returned if the query parameter is invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '../../v3/schemas/ErrorResponseDto.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

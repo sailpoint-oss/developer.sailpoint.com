@@ -1,0 +1,119 @@
+get:
+  tags:
+    - Managed Cluster Types
+  summary: Get a Managed Cluster Type
+  description: >-
+    Get a Managed Cluster Type.
+
+    AMS Security: Devops, Internal
+    A token with SaaS Platform Internal or DevOps is required to access this endpoint.
+  operationId: getManagedClusterType
+  parameters:
+    - name: id
+      in: path
+      description: The Managed Cluster Type ID
+      required: true
+      schema:
+        type: string
+      example: aClusterTypeId
+  responses:
+    "200":
+      description: Responds with a ManagedClusterType
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ManagedClusterType.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:managed-cluster-types:read, idn:managed-cluster-types:manage]
+patch:
+  tags:
+    - Managed Cluster Types
+  summary: Update a Managed Cluster Type
+  description: >-
+    Update an existing Managed Cluster Type.
+
+    AMS Security: Devops, Internal
+    A token with SaaS Platform Internal or DevOps is required to access this endpoint.
+  operationId: updateManagedClusterType
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The Managed Cluster Type ID
+      example: aClusterTypeId
+  requestBody:
+    required: true
+    description: The JSONPatch payload used to update the schema.
+    content:
+      application/json-patch+json:
+        schema:
+          $ref: '../schemas/JsonPatch.yaml'
+  responses:
+    "200":
+      description: The updated ManagedClusterType
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ManagedClusterType.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:managed-cluster-types:manage]
+delete:
+  operationId: deleteManagedClusterType
+  tags:
+    - Managed Cluster Types
+  summary: Delete a Managed Cluster Type
+  description: >-
+    Delete an existing Managed Cluster Type.
+
+    AMS Security: Devops, Internal
+    A token with SaaS Platform Internal or DevOps is required to access this endpoint.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The Managed Cluster Type ID
+      example: aClusterTypeId
+  responses:
+    '204':
+      $ref: '../../v3/responses/204.yaml'
+      description: The Managed Cluster Type was successfully deleted.
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:managed-cluster-types:manage]

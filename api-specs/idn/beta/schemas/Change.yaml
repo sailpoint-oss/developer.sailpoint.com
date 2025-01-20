@@ -1,0 +1,18 @@
+type: object
+properties:
+  op:
+    type: string
+    description: operation
+    example: '2021-01-30T08:30:00Z'
+  from:
+    type: string
+    description: from date
+    example: '2021-01-30T08:30:00Z'
+  path:
+    type: string
+    description: path to changed property
+    example: '/attributes/attributes'
+  value:
+    type: string
+    description: changed value
+    example: '{\"approvalSchemes\":\"none\",\"cloudSelectorType\":\"IDENTITY_LIST\",\"deniedCommentsRequired\":false,\"requestCommentsRequired\":false,\"requestable\":true,\"revokeRequestApprovalSchemes\":\"none\",\"sysDescriptions\":{\"en_US\":\"matches sages Role-abfd98. \\nThis is a test of the newline character in the description. \\nHow about some foreign characters too?   \\nTest du français \\nТестування української \\nதமிழை சோதிக்கிறது\"}}'

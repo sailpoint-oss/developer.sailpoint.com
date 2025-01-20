@@ -1,0 +1,83 @@
+get:
+  operationId: getIdentityCertificationItemPermissions
+  tags:
+    - Certifications
+  summary: Permissions for Entitlement Certification Item
+  description: >-
+    This API returns the permissions associated with an entitlement certification item based on the certification item's
+    ID. Reviewers for this certification can also call this API.
+  security:
+    - userAuth: [ idn:certification:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+  parameters:
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **target**: *eq, sw*
+
+
+        **rights**: *ca*
+
+
+        Supported composite operators: *and, or*
+
+
+        All field values (second filter operands) are case-insensitive for this API.
+
+
+        Only a single *and* or *or* composite filter operator may be used. It must also be used between a target filter and a rights filter, not between 2 filters for the same field.
+
+
+        For example, the following is valid: `?filters=rights+ca+(%22CREATE%22)+and+target+eq+%22SYS.OBJAUTH2%22`
+
+
+        The following is invalid: 1?filters=rights+ca+(%22CREATE%22)+and+rights+ca+(%SELECT%22)1
+      example: target eq "SYS.OBJAUTH2"
+    - in: path
+      name: certificationId
+      schema:
+        type: string
+      required: true
+      description: The certification ID
+      example: ef38f94347e94562b5bb8424a56397d8
+    - in: path
+      name: itemId
+      schema:
+        type: string
+      required: true
+      description: The certification item ID
+      example: 2c91808671bcbab40171bd945d961227
+    - $ref: '../parameters/limit.yaml'
+    - $ref: '../parameters/offset.yaml'
+    - $ref: '../parameters/count.yaml'
+  responses:
+    '200':
+      description: A list of permissions associated with the given itemId
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/PermissionDto.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

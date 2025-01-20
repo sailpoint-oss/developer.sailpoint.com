@@ -1,0 +1,156 @@
+get:
+  operationId: getWorkgroup
+  tags:
+  - Governance Groups
+  summary: Get Governance Group by Id
+  description: This API returns a Governance Groups by its ID.
+  parameters:
+  - in: path
+    name: id
+    required: true
+    schema:
+      type: string
+    description: ID of the Governance Group
+    example: 2c9180837ca6693d017ca8d097500149
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: A Governance Group
+      content:
+        application/json:
+          schema:
+            $ref: ../../../beta/schemas/workgroups/WorkgroupDto.yaml
+    '400':
+      $ref: ../../../v3/responses/400.yaml
+    '401':
+      $ref: ../../../v3/responses/401.yaml
+    '403':
+      $ref: ../../../v3/responses/403.yaml
+    '429':
+      $ref: ../../../v3/responses/429.yaml
+    '500':
+      $ref: ../../../v3/responses/500.yaml
+  security:
+    - userAuth:
+      - idn:workgroup:read
+    - applicationAuth:
+      - idn:workgroup:read
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+delete:
+  operationId: deleteWorkgroup
+  tags:
+  - Governance Groups
+  summary: Delete a Governance Group
+  description: This API deletes a Governance Group by its ID.
+  parameters:
+  - in: path
+    name: id
+    required: true
+    schema:
+      type: string
+    description: ID of the Governance Group
+    example: 2c9180837ca6693d017ca8d097500149
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '204':
+      $ref: ../../../v3/responses/204.yaml
+    '400':
+      $ref: ../../../v3/responses/400.yaml
+    '401':
+      $ref: ../../../v3/responses/401.yaml
+    '403':
+      $ref: ../../../v3/responses/403.yaml
+    '429':
+      $ref: ../../../v3/responses/429.yaml
+    '500':
+      $ref: ../../../v3/responses/500.yaml
+  security:
+    - userAuth:
+      - idn:workgroup:write
+    - applicationAuth:
+      - idn:workgroup:write
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+patch:
+  operationId: patchWorkgroup
+  tags:
+  - Governance Groups
+  summary: Patch a Governance Group
+  description: >-
+    This API updates an existing governance group by ID. The following
+    fields and objects are patchable:
+    
+    * name
+    
+    * description
+    
+    * owner
+  parameters:
+  - in: path
+    name: id
+    required: true
+    schema:
+      type: string
+    description: ID of the Governance Group
+    example: 2c9180837ca6693d017ca8d097500149
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  requestBody:
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: ../../../beta/schemas/JsonPatchOperation.yaml
+        examples:
+          Replace Description:
+            description: Replace description of a Governance Group.
+            value:
+            - op: replace
+              path: /description
+              value: Governance Group new description.
+  responses:
+    '200':
+      description: A Governance Group.
+      content:
+        application/json:
+          schema:
+            $ref: ../../../beta/schemas/workgroups/WorkgroupDto.yaml
+    '400':
+      $ref: ../../../v3/responses/400.yaml
+    '401':
+      $ref: ../../../v3/responses/401.yaml
+    '403':
+      $ref: ../../../v3/responses/403.yaml
+    '429':
+      $ref: ../../../v3/responses/429.yaml
+    '500':
+      $ref: ../../../v3/responses/500.yaml
+  security:
+    - userAuth:
+      - idn:workgroup:write
+    - applicationAuth:
+      - idn:workgroup:write
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

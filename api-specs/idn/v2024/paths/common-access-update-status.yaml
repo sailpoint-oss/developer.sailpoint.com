@@ -1,0 +1,39 @@
+post:
+  operationId: updateCommonAccessStatusInBulk
+  summary: Bulk update common access status
+  tags:
+  - IAI Common Access
+  description: This submits an update request to the common access application. At
+    this time there are no parameters. Requires authorization scope of iai:access-modeling:update
+  requestBody:
+    description: Confirm or deny in bulk the common access ids that are (or aren't)
+      common access
+    required: true
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: ../../beta/schemas/CommonAccessIDStatus.yaml
+  responses:
+    '202':
+      $ref: ../../v3/responses/202.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true

@@ -1,0 +1,17 @@
+type: object
+properties:
+  isValid:
+    type: boolean
+    default: false
+    description: When this field is true, the filter expression is valid against the input. 
+    example: true 
+  isValidJSONPath: 
+    type: boolean 
+    default: false
+    description: When this field is true, the filter expression is using a valid JSON path.
+    example: true 
+  isPathExist: 
+    type: boolean 
+    default: false
+    description: When this field is true, the filter expression is using an existing path. 
+    example: true 

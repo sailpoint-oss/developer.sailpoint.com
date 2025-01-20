@@ -1,0 +1,33 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Workflow execution ID.
+    example: b393f4e2-4785-4d7f-ab27-3a6b8ded4c81
+  workflowId:
+    type: string
+    description: Workflow ID.
+    example: d201c5d9-d37b-4a2f-af14-66414f39d568
+  requestId:
+    type: string
+    description: Backend ID that tracks a workflow request in the system. Provide this ID in a customer support ticket for debugging purposes.
+    example: 41e12a74fa7b4a6a98ae47887b64acdb
+  startTime:
+    type: string
+    format: date-time
+    description: Date/time when the workflow started.
+    example: "2022-02-07T20:13:29.356648026Z"
+  closeTime:
+    type: string
+    format: date-time
+    description: Date/time when the workflow ended.
+    example: "2022-02-07T20:13:31.682410165Z"
+  status:
+    description: Workflow execution status.
+    type: string
+    enum:
+    - "Completed"
+    - "Failed"
+    - "Canceled"
+    - "Executing"
+    example: "Completed"

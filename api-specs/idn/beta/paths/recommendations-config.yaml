@@ -1,0 +1,54 @@
+get:
+  operationId: getRecommendationsConfig
+  summary: Get certification recommendation config values
+  tags:
+    - IAI Recommendations
+  description: >-
+    Retrieves configuration attributes used by certification recommendations.
+  responses:
+    '200':
+      description: Cert recommendation configuration attributes
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/RecommendationConfigDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: []
+put:
+  operationId: updateRecommendationsConfig
+  summary: Update certification recommendation config values
+  tags:
+    - IAI Recommendations
+  description: >-
+    Updates configuration attributes used by certification recommendations.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/RecommendationConfigDto.yaml'
+  responses:
+    '200':
+      description: Cert recommendation configuration attributes after update
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/RecommendationConfigDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: []

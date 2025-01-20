@@ -1,0 +1,17 @@
+type: object
+description: Source basic details.
+properties:
+  type:
+    type: string 
+    description: Source DTO type. 
+    enum: 
+      - SOURCE
+    example: SOURCE
+  id:
+    type: string
+    description: Source ID. 
+    example: 2c9180835d191a86015d28455b4b232a
+  name:
+    type: string
+    description: Source display name. 
+    example: HR Active Directory

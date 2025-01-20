@@ -1,0 +1,83 @@
+get:
+  operationId: getCertificationEntitlementPermissions
+  tags:
+    - Certifications
+  summary: Permissions for Entitlement in a Certification
+  description: >-
+    This API returns the permissions associated with an entitlement that is part of a certification campaign. The
+    entitlement provided must match the entitlement from an entitlement certification item, or be part of an access
+    profile which has its own access profile certification item. A token with ORG_ADMIN or CERT_ADMIN authority is
+    required to call this API. Reviewers for this certification can also call this API.
+  parameters:
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **target**: *eq, sw*
+
+
+        **rights**: *ca*
+
+
+        All field values (second filter operands) are case-insensitive for this API.
+
+
+        Only a single *and* or *or* composite filter operator may be used. It must also be used between a target filter and a rights filter, not between 2 filters for the same field.
+
+
+        For example, the following is valid: `?filters=rights+ca+(%22CREATE%22)+and+target+eq+%22SYS.OBJAUTH2%22`
+
+
+        The following is invalid: `?filters=rights+ca+(%22CREATE%22)+and+rights+ca+(%SELECT%22)`
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The certification ID
+      example: ef38f94347e94562b5bb8424a56397d8
+    - in: path
+      name: itemId
+      schema:
+        type: string
+      required: true
+      description: The certification item ID
+      example: 2c91808671bcbab40171bd945d961227
+    - in: path
+      name: entitlementId
+      schema:
+        type: string
+      required: true
+      description: The entitlement ID
+      example: ef38f94347e94562b5bb8424a56397d8
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: '../../v3/parameters/count.yaml'
+  responses:
+    '200':
+      description: A list of permissions associated with the given entitlement ID
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/PermissionDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

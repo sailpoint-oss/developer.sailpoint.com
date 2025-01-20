@@ -1,0 +1,338 @@
+get:
+  tags:
+  - Custom Forms
+  summary: Returns a form instance.
+  description: Parameter `{formInstanceID}` should match a form instance ID.
+  operationId: getFormInstanceByKey
+  parameters:
+  - name: formInstanceID
+    in: path
+    description: Form instance ID
+    required: true
+    schema:
+      type: string
+      x-go-name: FormInstanceID
+    example: 00000000-0000-0000-0000-000000000000
+    x-go-name: FormInstanceID
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: Returns a form instance by its key
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/forms/FormInstanceResponse.yaml
+    '400':
+      description: An error with the request occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    '401':
+      description: An error with the authorization occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    '403':
+      description: An error with the user permissions occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    '404':
+      description: An error with the item not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    '429':
+      description: Too many requests
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/forms/Error.yaml
+    '500':
+      description: An internal server error occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+  security:
+  - userAuth: []
+patch:
+  tags:
+  - Custom Forms
+  summary: Patch a form instance.
+  description: Parameter `{formInstanceID}` should match a form instance ID.
+  operationId: patchFormInstance
+  parameters:
+  - name: formInstanceID
+    in: path
+    description: Form instance ID
+    required: true
+    schema:
+      type: string
+      x-go-name: FormInstanceID
+    example: 00000000-0000-0000-0000-000000000000
+    x-go-name: FormInstanceID
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  requestBody:
+    description: 'Body is the request payload to patch a form instance, check: https://jsonpatch.com'
+    content:
+      application/json:
+        schema:
+          $ref: ../../beta/schemas/forms/Patch.yaml
+        example:
+        - op: replace
+          path: /state
+          value: SUBMITTED
+        - op: replace
+          path: /formData
+          value:
+            a-key-1: a-value-1
+            a-key-2: true
+            a-key-3: 1
+    required: false
+  responses:
+    '200':
+      description: Returns the form instance updated
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/forms/FormInstanceResponse.yaml
+    '400':
+      description: An error with the request occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    '401':
+      description: An error with the authorization occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    '403':
+      description: An error with the user permissions occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    '404':
+      description: An error with the item not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    '409':
+      description: An error with the request property conflicts with stored
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    '429':
+      description: Too many requests
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/forms/Error.yaml
+    '500':
+      description: An internal server error occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+  security:
+  - userAuth: []
+  x-codegen-request-body-name: Body

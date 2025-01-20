@@ -1,0 +1,77 @@
+get:
+  operationId: listConfigurations
+  tags:
+    - IAI Configuration
+  summary: Lists all IAI Configurations for a customer
+  parameters:
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: '../../v3/parameters/count.yaml'
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **attributes**: *co, sw*
+  description: >-
+    This gets the list of IAI configurations for a customer in context.
+
+    Requires authorization scope of iai:configuration:read
+  responses:
+    '200':
+      description: An list of IAI configurations for a customers.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/IaiConfigurationDto.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  # security:
+  #   - oauth2: [iai:configuration:read]
+post:
+  operationId: createConfiguration
+  summary: Creates an IAI configuration for a customer
+  tags:
+    - IAI Configuration
+  description: >-
+    This submits a create IAI configuration request to the IdentityAI, where it will be saved for the customer in context. This
+    return a result with the configuration '../schemas/IaiConfigurationDto.yaml'
+
+    Requires authorization scope of 'iai:configuration:create'
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/IaiConfigurationDto.yaml'
+  responses:
+    '201':
+      description: Created. The IAI configuration for the customer
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/IaiConfigurationDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  # security:
+  #   - oauth2: [iai:configuration:create]

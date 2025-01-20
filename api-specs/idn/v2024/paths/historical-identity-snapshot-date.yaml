@@ -1,0 +1,47 @@
+get:
+  operationId: getIdentitySnapshot
+  tags:
+  - Identity History
+  summary: Gets an identity snapshot at a given date
+  description: 'This method retrieves a specified identity snapshot at a given date
+    Requires authorization scope of ''idn:identity-history:read'' '
+  parameters:
+  - in: path
+    name: id
+    schema:
+      type: string
+    required: true
+    description: The identity id
+    example: 8c190e6787aa4ed9a90bd9d5344523fb
+  - in: path
+    name: date
+    schema:
+      type: string
+    description: The specified date
+    example: '2007-03-01T13:00:00Z'
+    required: true
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: The identity object.
+      content:
+        application/json:
+          schema:
+            $ref: ../../beta/schemas/IdentityHistoryResponse.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml

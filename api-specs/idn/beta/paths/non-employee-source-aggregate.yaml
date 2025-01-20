@@ -1,0 +1,34 @@
+post:
+  operationId: nonEmployeeSourceAggregateGet
+  security:
+    - userAuth: [idn:nelm:manage]
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: Aggregate all Non-Employee Source accounts
+  description: >-
+    This fetches all the non-employee records related to a non-employee source and publishes an aggregation event for each one.
+
+  parameters:
+    - in: path
+      name: sourceId
+      description: >-
+        Non-Employee sourceId
+      required: true
+      example: 2c91808b6ef1d43e016efba0ce470904
+      schema:
+        type: string
+  responses:
+    '202':
+      $ref: '../../v3/responses/202.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

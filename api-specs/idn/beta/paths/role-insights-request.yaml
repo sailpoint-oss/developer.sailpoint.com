@@ -1,0 +1,33 @@
+get:
+  operationId: getRoleInsightsRequests
+  summary: Returns metadata from prior request.
+  deprecated: true
+  tags:
+    - Role Insights
+  description: >-
+    This endpoint returns details of a prior role insights request. 
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The role insights request id
+      example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
+  responses:
+    '200':
+      description: Succeeded. Returns details of an earlier role insights request.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/RoleInsightsResponse.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429': 
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

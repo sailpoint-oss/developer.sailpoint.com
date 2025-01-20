@@ -1,0 +1,156 @@
+get:
+  operationId: getSegment
+  security:
+    - userAuth: [ idn:segment:read, idn:segment:manage ]
+    - applicationAuth: [ idn:segment:read, idn:segment:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  tags:
+    - Segments
+  summary: Get Segment by ID
+  description: >-
+    This API returns the segment specified by the given ID.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The segment ID to retrieve.
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    '200':
+      description: Segment
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Segment.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+delete:
+  operationId: deleteSegment
+  security:
+    - userAuth: [ idn:segment:manage ]
+    - applicationAuth: [ idn:segment:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  tags:
+    - Segments
+  summary: Delete Segment by ID
+  description: >-
+    This API deletes the segment specified by the given ID.
+
+    >**Note:** that segment deletion may take some time to become effective.    
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The segment ID to delete.
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    '204':
+      description: No content.
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+patch:
+  operationId: patchSegment
+  security:
+    - userAuth: [ idn:segment:manage ]
+    - applicationAuth: [ idn:segment:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  tags:
+    - Segments
+  summary: Update Segment
+  description: >-
+    Use this API to update segment fields by using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+
+    >**Note:** Changes to a segment may take some time to propagate to all identities.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The segment ID to modify. 
+      example: ef38f94347e94562b5bb8424a56397d8
+  requestBody:
+    required: true
+    description: |
+      A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+
+      The following fields are patchable:
+      * name
+      * description
+      * owner
+      * visibilityCriteria
+      * active
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            type: object
+        examples:
+            Set Visibility Criteria:
+                description: Set the visibility criteria
+                value:
+                  - op: "replace"
+                    path: "/visibilityCriteria"
+                    value:
+                      expression:
+                        operator: "AND"
+                        children:
+                          - operator: "EQUALS"
+                            attribute: "location"
+                            value:
+                              type: "STRING"
+                              value: "Philadelphia"
+                          - operator: "EQUALS"
+                            attribute: "department"
+                            value:
+                              type: "STRING"
+                              value: "HR"
+                            
+  responses:
+    '200':
+      description: >-
+        Indicates the PATCH operation succeeded, and returns the segment's new representation.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Segment.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

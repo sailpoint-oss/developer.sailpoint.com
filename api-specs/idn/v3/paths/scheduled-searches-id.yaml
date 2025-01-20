@@ -1,0 +1,86 @@
+put:
+  tags:
+    - Scheduled Search
+  description: |
+    Updates an existing scheduled search.
+  summary: Update an existing Scheduled Search
+  operationId: updateScheduledSearch
+  parameters:
+  - $ref: '../parameters/path/search/id.yaml'
+  requestBody:
+    description: The scheduled search to persist.
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/search/scheduled/ScheduledSearch.yaml'
+    required: true
+  responses:
+    '200':
+      description: The persisted scheduled search.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/search/scheduled/ScheduledSearch.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+get:
+  tags:
+    - Scheduled Search
+  description: Returns the specified scheduled search.
+  summary: Get a Scheduled Search
+  operationId: getScheduledSearch
+  parameters:
+  - $ref: '../parameters/path/search/id.yaml'
+  responses:
+    '200':
+      description: The requested scheduled search.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/search/scheduled/ScheduledSearch.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+delete:
+  tags:
+    - Scheduled Search
+  description: |
+    Deletes the specified scheduled search.
+  operationId: deleteScheduledSearch
+  summary: Delete a Scheduled Search
+  parameters:
+  - $ref: '../parameters/path/search/id.yaml'
+  responses:
+    '204':
+      description: No Content - Indicates the request was successful but there is no content to be returned in the response.
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

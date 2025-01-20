@@ -1,0 +1,40 @@
+title: Object Configuration Model
+description: Response model for get object configuration.
+type: object
+properties:
+  objectType:
+    type: string
+    description: >-
+      The object type this configuration is for.
+    example: "TRIGGER_SUBSCRIPTION"
+  referenceExtractors:
+    type: array
+    nullable: true
+    description: >-
+      List of json paths within an exported object of this type that represent references that need to be resolved.
+    items:
+      type: string
+    example: ["$.owner"]
+  signatureRequired:
+    type: boolean
+    default: false
+    description: >-
+      If true, this type of object will be JWS signed and cannot be modified before import.
+    example: false
+  legacyObject:
+    type: boolean
+    default: false
+    description: Whether this is a legacy object
+    example: false
+  onePerTenant:
+    type: boolean
+    default: false
+    description: Whether there is only one object of this type
+    example: false
+  exportable:
+    type: boolean
+    default: false
+    description: Whether this object can be exported or it is just a reference object
+    example: true
+  rules:
+    $ref: ./SpConfigRules.yaml

@@ -1,0 +1,82 @@
+patch:
+  tags:
+    - Managed Clusters
+  summary: Update a Managed Cluster
+  description: >-
+    Update an existing Managed Cluster.
+  operationId: updateManagedCluster
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The Managed Cluster ID
+      example: aClusterId
+  requestBody:
+    required: true
+    description: The JSONPatch payload used to update the schema.
+    content:
+      application/json-patch+json:
+        schema:
+          $ref: '../schemas/JsonPatch.yaml'
+  responses:
+    "200":
+      description: The updated Managed Cluster
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ManagedCluster.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:remote-client:manage]
+delete:
+  operationId: deleteManagedCluster
+  tags:
+    - Managed Clusters
+  summary: Delete a Managed Cluster
+  description: >-
+    Delete an existing Managed Cluster.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The Managed Cluster ID
+      example: aClusterId
+    - in: query
+      name: removeClients
+      schema:
+        type: boolean
+        default: false
+      required: false
+      description: Flag to determine the need to delete a cluster with clients
+      example: false
+  responses:
+    '204':
+      $ref: '../../v3/responses/204.yaml'
+      description: The Managed Cluster was successfully deleted.
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:remote-client:manage]

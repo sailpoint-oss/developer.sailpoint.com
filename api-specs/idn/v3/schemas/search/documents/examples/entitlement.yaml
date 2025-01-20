@@ -1,0 +1,23 @@
+summary: Entitlement
+value:
+  id: '2c9180946ed0c43d016eec1a80892fbd'
+  name: 'entitlement.aa415ae7'
+  description: 'null'
+  attribute: 'groups'
+  value: 'entitlement.aa415ae7'
+  modified: '2019-12-09T19:19:50.154Z'
+  created: '2018-12-07T01:07:48Z'
+  synced: '2020-02-19T04:30:32.906Z'
+  displayName: 'entitlement.aa415ae7'
+  source:
+    id: '2c91808b6e9e6fb8016eec1a2b6f7b5f'
+    name: 'ODS-HR-Employees'
+  owner:
+    type: 'IDENTITY'
+    id: '2c9180858315595501831958427e5424'
+    name: 'Addie Lee'
+  privileged: false
+  identityCount: 68
+  tags:
+    - 'TAG_1'
+    - 'TAG_2'

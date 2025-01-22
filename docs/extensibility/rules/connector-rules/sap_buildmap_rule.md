@@ -71,7 +71,7 @@ This rule gathers additional attributes from SAP systems to build accounts. This
   }
 
   if ( lastName != null && lastName.length() > 0 ) {
-    letter = lastName.charAt(0);
+    char letter = lastName.charAt(0);
     letter = Character.toUpperCase(letter);
     initials += letter + ".";
   }

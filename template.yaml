@@ -84,10 +84,12 @@ Resources:
       Timeout: 100
   JSONPathFunction:
     Type: AWS::Serverless::Function
+    Metadata:
+      BuildMethod: maven
     Properties:
       Handler: com.sailpoint.handler.JSONPathHandler::handleRequest
       Runtime: java11
-      CodeUri: target/jsonpath-handler-1.0-SNAPSHOT.jar
+      CodeUri: backend/src/java/
       MemorySize: 512
       Timeout: 30
       Events:

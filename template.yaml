@@ -84,12 +84,10 @@ Resources:
       Timeout: 100
   JSONPathFunction:
     Type: AWS::Serverless::Function
-    Metadata:
-      BuildMethod: maven
     Properties:
       Handler: com.sailpoint.handler.JSONPathHandler::handleRequest
       Runtime: java11
-      CodeUri: backend/src/java/
+      CodeUri: backend/src/java
       MemorySize: 512
       Timeout: 30
       Events:
@@ -98,6 +96,10 @@ Resources:
           Properties:
             Path: /jsonpath
             Method: POST
+            ApiId:
+              Ref: DeveloperSailpointApiGatewayApiv2
+            Auth:
+              Authorizer: NONE
   # This is a Lambda function config associated with the source code: get-by-id.js
   developerSailpointGetByIdFunction:
     Type: AWS::Serverless::Function

@@ -11,6 +11,7 @@ import ResultTerminal from '../../components/jsonpath/ResultTerminal';
 import ImplementationDropdown from '../../components/jsonpath/ImplementationDropdown';
 import { useDebounce } from '../../components/jsonpath/useDebounce';
 import JsonPathQueryInput from '../../components/jsonpath/JsonPathQueryInput';
+import { evaluateJSONPath } from '../../services/JSONPathService';
 
 // Mapping of implementations to documentation URLs and texts
 const documentationLinks = {
@@ -23,6 +24,11 @@ const documentationLinks = {
     text: "Workflows Implementation Documentation"
   }
 };
+
+async function test() {
+  const result = await evaluateJSONPath(siteConfig.customFields.CMS_APP_API_ENDPOINT, "$.name", JSON.stringify({name: "John"}, null, 4))
+  console.log(result);
+}
 
 export default function JsonPathEvaluator() {
   const [result, setResult] = useState(JSON.stringify([], null, 4));
@@ -38,6 +44,10 @@ export default function JsonPathEvaluator() {
 
   const debouncedInputJson = useDebounce(localJson, 0);
   const debouncedQuery = useDebounce(query, 0);
+
+  useEffect(() => {
+    test();
+  }, []);
 
   // Apply JSONPath query with the current implementation
   const applyJsonPathQuery = (json, jsonPath) => {

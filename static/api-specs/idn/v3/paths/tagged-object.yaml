@@ -110,9 +110,9 @@ delete:
     - userAuth: [ idn:tag:manage ]
   tags:
     - Tagged Objects
-  summary: Delete Tagged Object
+  summary: Delete Object Tags
   description: >-
-    This deletes a tagged object for the specified type.
+    Delete all tags from a tagged object.
   parameters:
     - in: path
       name: type
@@ -128,14 +128,14 @@ delete:
           - SOD_POLICY
           - SOURCE
       required: true
-      description: The type of tagged object to delete.
+      description: The type of object to delete tags from. 
       example: ROLE
     - in: path
       name: id
       schema:
         type: string
       required: true
-      description: The ID of the object reference to delete.
+      description: The ID of the object to delete tags from. 
       example: ef38f94347e94562b5bb8424a56397d8
   responses:
     '204':

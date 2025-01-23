@@ -1,0 +1,18 @@
+get:
+  summary: Retrieve schema-mapped profiles collection
+  operationId: getSchemaMappedProfilesCollection
+  description: It returns a collection of stored profiles, optionally using schema-mapped field names if requested.
+  tags:
+    - isc accounts
+  parameters:
+    - $ref: "../parameters/query/category.yaml"
+    - $ref: "../parameters/query/page.yaml"
+    - $ref: "../parameters/query/per_page.yaml"
+    - $ref: "../parameters/query/use_schema.yaml"
+  responses:
+    '200':
+      $ref: "../responses/IscAccounts.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

@@ -1,13 +1,13 @@
 get:
   tags:
     - Managed Clusters
-  summary: Get Managed Cluster's log configuration
-  description: Get managed cluster's log configuration.
+  summary: Get Managed Cluster Log Configuration
+  description: Get a managed cluster's log configuration.
   operationId: getClientLogConfiguration
   parameters:
     - name: id
       in: path
-      description: ID of ManagedCluster to get log configuration for
+      description: ID of managed cluster to get log configuration for.
       required: true
       schema:
         type: string
@@ -15,7 +15,7 @@ get:
       example: 2b838de9-db9b-abcf-e646-d4f274ad4238
   responses:
     "200":
-      description: Log configuration of ManagedCluster matching given cluster ID
+      description: Log configuration of managed cluster for given cluster ID.
       content:
         application/json:
           schema:
@@ -41,20 +41,20 @@ get:
 put:
   tags:
     - Managed Clusters
-  summary: Update Managed Cluster's log configuration
-  description: Update managed cluster's log configuration.  Only one of `durationMinutes` or `expiration` may be specified, up to 1440 minutes (24 hours) in the future. If neither is specified, the default value for `durationMinutes` will be 240.
+  summary: Update Managed Cluster Log Configuration
+  description: Update a managed cluster's log configuration. You may only specify one of `durationMinutes` or `expiration`, up to 1440 minutes (24 hours) in the future. If neither is specified, the default value for `durationMinutes` is 240.
   operationId: putClientLogConfiguration
   parameters:
     - name: id
       in: path
-      description: ID of ManagedCluster to update log configuration for
+      description: ID of the managed cluster to update the log configuration for.
       required: true
       schema:
         type: string
         format: uuid
       example: 2b838de9-db9b-abcf-e646-d4f274ad4238
   requestBody:
-    description: ClientLogConfiguration for given ManagedCluster
+    description: Client log configuration for the given managed cluster.
     content:
       application/json:
         schema:
@@ -69,7 +69,7 @@ put:
     required: true
   responses:
     "200":
-      description: Responds with updated ClientLogConfiguration for given ManagedCluster
+      description: Response with updated client log configuration for the given managed cluster.
       content:
         application/json:
           schema:

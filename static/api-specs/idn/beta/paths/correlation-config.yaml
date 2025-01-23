@@ -4,12 +4,14 @@ get:
     - Sources
   summary: Get Source Correlation Configuration
   security:
-    - userAuth: [idn:sources:read]
+    - userAuth: [idn:sources:read, idn:sources:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   description: >-
     This API returns the existing correlation configuration for a source specified by the
     given ID.
-
-    A token with ORG_ADMIN authority is required to call this API.
   parameters:
     - in: path
       name: id
@@ -44,12 +46,14 @@ put:
     - Sources
   summary: Update Source Correlation Configuration
   security:
-    - userAuth: [idn:sources:update]
+    - userAuth: [idn:sources:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   description: >-
     Replaces the correlation configuration for the source specified by the given ID with the
     configuration provided in the request body.
-        
-    A token with ORG_ADMIN authority is required to call this API.
   parameters:
     - in: path
       name: id

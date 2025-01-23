@@ -1,12 +1,9 @@
 get:
   tags:
   - Task Management
-  summary: Retrieve a task status list.
-  description: 'Use this endpoint to get a list of **completed** tasks. To get a list
-    of tasks **in-progress**, please use the [get pending tasks](https://developer.sailpoint.com/docs/api/beta/get-pending-tasks)
-    endpoint.
-
-    '
+  summary: Retrieve Task Status List
+  description: | 
+    Use this endpoint to get a list of statuses for **completed** tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned. To get a list of statuses for **in-progress** tasks, please use the [retrieve pending task status list](https://developer.sailpoint.com/docs/api/v2024/get-pending-tasks) endpoint.
   operationId: getTaskStatusList
   parameters:
   - $ref: ../../v3/parameters/limit.yaml
@@ -77,5 +74,14 @@ get:
     '500':
       $ref: ../../v3/responses/500.yaml
   security:
-  - userAuth:
-    - idn:task-management:read
+    - userAuth: [idn:task-management:read, idn:task-management:write]
+    - applicationAuth: [idn:task-management:read, idn:task-management:write]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - HELPDESK
+    - CERT_ADMIN
+    - REPORT_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN

@@ -67,6 +67,8 @@ To learn more about Configuration Hub, refer to [Configuration Hub](https://docu
 
 The available supported objects are also available via REST API! See List Configuration Objects in the **API Reference** section of this document.
 
+:::
+
 :::tip
 
 Source passwords, secret token or other sensitive data is not exported. Those need to be re-added after importing
@@ -111,6 +113,11 @@ Source passwords, secret token or other sensitive data is not exported. Those ne
 5. **Get Import Results** - Once the status is `COMPLETE`, download the import results by calling `GET /beta/sp-config/import/{id}/download` where the `{id}` is the `jobId`.
 6. **Response with Import Results** - In response, the import process should produce listing of object that successfully imported, as well as any errors, warnings, or information about the import process. This result set will reflect the objects that were selected to be imported earlier.
 
+:::caution
+
+You cannot import Non-Employee sources. 
+
+:::
 
 ## API Reference Guide
 

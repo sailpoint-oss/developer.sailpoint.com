@@ -1,13 +1,13 @@
 get:
   tags:
   - Connector Rule Management
-  summary: Connector-Rule by ID
+  summary: Get Connector Rule
   operationId: getConnectorRule
-  description: Returns the connector rule specified by ID.
+  description: Get a connector rule by ID.
   parameters:
   - name: id
     in: path
-    description: ID of the connector rule to retrieve
+    description: ID of the connector rule to get.
     required: true
     style: simple
     explode: false
@@ -24,7 +24,7 @@ get:
     required: true
   responses:
     '200':
-      description: Connector rule with the given ID
+      description: Connector rule with the given ID.
       content:
         application/json:
           schema:
@@ -50,14 +50,14 @@ get:
 put:
   tags:
   - Connector Rule Management
-  summary: Update a Connector Rule
-  description: 'Updates an existing connector rule with the one provided in the request
-    body. Note that the fields ''id'', ''name'', and ''type'' are immutable.'
-  operationId: updateConnectorRule
+  summary: Update Connector Rule
+  description: >-
+    Update an existing connector rule with the one provided in the request body. These fields are immutable: `id`, `name`, `type`
+  operationId: putConnectorRule
   parameters:
   - name: id
     in: path
-    description: ID of the connector rule to update
+    description: ID of the connector rule to update.
     required: true
     style: simple
     explode: false
@@ -73,14 +73,14 @@ put:
       default: true
     required: true
   requestBody:
-    description: The connector rule with updated data
+    description: Connector rule with updated data.
     content:
       application/json:
         schema:
           $ref: ../../beta/schemas/ConnectorRuleUpdateRequest.yaml
   responses:
     '200':
-      description: The updated connector rule
+      description: Updated connector rule.
       content:
         application/json:
           schema:
@@ -105,13 +105,13 @@ put:
 delete:
   tags:
   - Connector Rule Management
-  summary: Delete a Connector-Rule
-  description: Deletes the connector rule specified by the given ID.
+  summary: Delete Connector Rule
+  description: Delete the connector rule for the given ID.
   operationId: deleteConnectorRule
   parameters:
   - name: id
     in: path
-    description: ID of the connector rule to delete
+    description: ID of the connector rule to delete.
     required: true
     style: simple
     explode: false

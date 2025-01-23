@@ -200,7 +200,8 @@ tags:
       Refer to [Managing User Accounts](https://documentation.sailpoint.com/saas/help/common/users/user_access.html#managing-user-accounts) for more information about accounts.
   - name: Application Discovery
     description: |
-      Use this API to discover applications within your Okta connector and receive connector recommendations by manually uploading application names.
+      Use this API to implement application discovery functionality. 
+      With this functionality in place, you can discover applications within your Okta connector and receive connector recommendations by manually uploading application names.
   - name: Approvals
     description: |
       Use this API to implement approval functionality. With this functionality in place, you can get generic approvals and modify them. 
@@ -208,12 +209,16 @@ tags:
       The main advantages this API has vs [Access Request Approvals](https://developer.sailpoint.com/docs/api/beta/access-request-approvals) are that you can use it to get generic approvals individually or in batches and make changes to those approvals. 
   - name: Apps 
     description: |
-      Use this API to implement source application functionality. With this functionality in place, you can create, customize, and manage applications within sources. 
+      Use this API to implement source application functionality. 
+      With this functionality in place, you can create, customize, and manage applications within sources.
   - name: Auth Profile
     description: |
-      Auth Profile - Represents authentication configuration for an Identity Profile. This object gets created when an Identity Profile is created.
-
-      APIs can be used to retrieve and update Auth Profiles.
+      Use this API to implement Auth Profile functionality. 
+      With this functionality in place, users can read authentication profiles and make changes to them. 
+      
+      An authentication profile represents an identity profile's authentication configuration. 
+      When the identity profile is created, its authentication profile is also created. 
+      An authentication profile includes information like its authentication profile type (`BLOCK`, `MFA`, `NON_PTA`, PTA`) and settings controlling whether or not it blocks access from off network or untrusted geographies. 
   - name: Auth Users
     description: |
       Use this API to implement user authentication system functionality. 
@@ -379,6 +384,14 @@ tags:
       
       Refer to [Using the SailPoint Configuration Hub](https://documentation.sailpoint.com/saas/help/confighub/config_hub.html) for more information about Configuration Hub.
   - name: Connector Rule Management
+    description: |
+      Use this API to implement connector rule management functionality. 
+      With this functionality in place, administrators can implement connector-executed rules in a programmatic, scalable way. 
+
+      In Identity Security Cloud (ISC), [rules](https://developer.sailpoint.com/docs/extensibility/rules) serve as a flexible configuration framework you can leverage to perform complex or advanced configurations. 
+      [Connector-executed rules](https://developer.sailpoint.com/docs/extensibility/rules/connector-rules) are rules that are executed in the ISC virtual appliance (VA), usually extensions of the [connector](https://documentation.sailpoint.com/connectors/isc/landingpages/help/landingpages/isc_landing.html) itself, the bridge between the data source and ISC. 
+
+      This API allows administrators to view existing connector-executed rules, make changes to them, delete them, and create new ones from the available types.
   - name: Connectors
     description: |
       Use this API to implement connector functionality.
@@ -577,9 +590,13 @@ tags:
 
       Refer to [Setting Up Lifecycle States](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html) for more information about lifecycle states.
   - name: Managed Clients
-    description: Read and create operations for client data and statuses
+    description: |
+      Use this API to implement managed client functionality. 
+      With this functionality in place, administrators can modify and delete existing managed clients, create new ones, and view and make changes to their log configurations. 
   - name: Managed Clusters
-    description: Read and create pperations for client Clusters, including Log Configuration
+    description: |
+      Use this API to implement managed cluster functionality. 
+      With this functionality in place, administrators can modify and delete existing managed clients, get their statuses, and create new ones. 
   - name: Manual Discover Applications
     description: |
       Use this API to manually upload application names to be correlated to an ISC connector.
@@ -630,7 +647,9 @@ tags:
       With this functionality in place, users with the appropriate security scopes can create and configure OAuth clients to use as a way to obtain authorization to use the Identity Security Cloud REST API.
       Refer to [Authentication](https://developer.sailpoint.com/docs/api/authentication/) for more information about OAuth and how it works with the Identity Security Cloud REST API.
   - name: Org Config
-    description: Operations for managing org configuration settings (eg. time zone)
+    description: |
+      Use this API to implement organization configuration functionality. 
+      Administrators can use this functionality to manage organization settings, such as time zones. 
   - name: Password Configuration
     description: |
       Use this API to implement organization password configuration functionality. 
@@ -1093,7 +1112,9 @@ tags:
     description: Import and export configuration for some objects between tenants.
   - name: Suggested Entitlement Description
     description: |
-      Use this API to leverage power of LLM to generate suggested entitlement description.
+      Use this API to implement Suggested Entitlement Description (SED) functionality. 
+      SED functionality leverages the power of LLM to generate suggested entitlement descriptions. 
+      Refer to [GenAI Entitlement Descriptions](https://documentation.sailpoint.com/saas/help/access/entitlements.html#genai-entitlement-descriptions) to learn more about SED in Identity Security Cloud (ISC). 
   - name: Tagged Objects
     description: |
       Use this API to implement object tagging functionality. 
@@ -1258,10 +1279,14 @@ paths:
     $ref: ./v3/paths/access-requests.yaml
   /access-requests/cancel:
     $ref: ./v3/paths/access-request-cancel.yaml
+  /access-requests/bulk-cancel:
+    $ref: ./v2024/paths/bulk-cancel-access-request.yaml
   /access-request-config:
     $ref: ./v3/paths/access-request-config.yaml
   /access-request-status:
     $ref: ./v3/paths/access-request-status.yaml
+  /access-request-administration:
+    $ref: ./v2024/paths/access-request-status-administrator.yaml
   /access-request-approvals/pending:
     $ref: ./v3/paths/pending-access-request-approvals.yaml
   /access-request-approvals/completed:
@@ -1274,6 +1299,10 @@ paths:
     $ref: ./v3/paths/forward-access-request-approval.yaml
   /access-request-approvals/approval-summary:
     $ref: ./v3/paths/access-request-approval-summary.yaml
+  /access-request-approvals/bulk-approve:
+   $ref: ./v2024/paths/access-request-bulk-approve.yaml
+  /access-request-approvals/{accessRequestId}/approvers:
+    $ref: ./v2024/paths/access-request-approvers-list.yaml
   /accounts:
     $ref: ./v3/paths/accounts.yaml
   /accounts/{id}:
@@ -1624,6 +1653,10 @@ paths:
     $ref: ./v3/paths/source-entitlements-schema.yaml
   /sources/{sourceId}/upload-connector-file:
     $ref: ./v3/paths/source-upload-connector-file.yaml
+  /sources/{id}/correlation-config:
+    $ref: ./v2024/paths/correlation-config.yaml
+  /sources/{sourceId}/password-policies:
+    $ref: ./v2024/paths/sources-policy-holders.yaml
   /tagged-objects:
     $ref: ./v3/paths/tagged-objects.yaml
   /tagged-objects/{type}:
@@ -1806,6 +1839,10 @@ paths:
     $ref: ./v2024/paths/identities.yaml
   /identities/{id}:
     $ref: ./v2024/paths/identity.yaml
+  /identities/invite:
+    $ref: ./v2024/paths/identities-invite.yaml
+  /identities/{id}/verification/account/send:
+    $ref: ./v2024/paths/identity-send-account-verification.yaml
   /identities/process:
     $ref: ./v2024/paths/identities-process.yaml
   /identities/{id}/reset:
@@ -2266,6 +2303,8 @@ components:
       $ref: ./v3/schemas/BrandingItemCreate.yaml
     RoleBulkUpdateResponse:
       $ref: "./v2024/schemas/role-metadata/RoleBulkUpdateResponse.yaml"
+    RoleGetAllBulkUpdateResponse:
+      $ref: "./v2024/schemas/role-metadata/RoleGetAllBulkUpdateResponse.yaml"
     RoleListFilterDTO:
       $ref: "./v2024/schemas/role-metadata/RoleListFilterDTO.yaml"
     RoleMetadataBulkUpdateByFilterRequest:

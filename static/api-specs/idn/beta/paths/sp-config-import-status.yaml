@@ -2,6 +2,8 @@ get:
   operationId: getSpConfigImportStatus
   security:
     - userAuth: [ sp:config:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   tags:
     - SP-Config
   summary: Get import job status
@@ -9,10 +11,6 @@ get:
     This gets the status of the import job identified by the `id` parameter.
 
     For more information about the object types that currently support import functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).
-
-    The request will need the following security scope:
-
-    - sp:config:manage
   parameters:
     - in: path
       name: id

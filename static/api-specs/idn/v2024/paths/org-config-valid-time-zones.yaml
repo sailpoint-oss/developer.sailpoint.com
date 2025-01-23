@@ -2,15 +2,17 @@ get:
   operationId: getValidTimeZones
   tags:
   - Org Config
-  summary: Get list of time zones
+  summary: Get Valid Time Zones
   security:
   - userAuth:
     - idn:org-configs:read
     - idn:org-configs-user:read
-  description: Get a list of valid time zones that can be set in org configurations.
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  description: List the valid time zones that can be set in organization configurations.
   responses:
     '200':
-      description: Request successful
+      description: Request successful.
       content:
         application/json:
           schema:
@@ -45,3 +47,6 @@ get:
       type: string
       default: true
     required: true
+  - $ref: '../../v3/parameters/limit50.yaml'
+  - $ref: '../../v3/parameters/offset.yaml'
+  - $ref: '../../v3/parameters/count.yaml'

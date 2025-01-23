@@ -1,25 +1,24 @@
 post:
   operationId: importSpConfig
-  # security:
-  #   - oauth2: [sp:config:import]
+  security:
+  - userAuth:
+    - sp:config:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   tags:
     - SP-Config
   summary: Initiates configuration objects import job
-  description: >-
+  description: |
     This post will import objects from a JSON configuration file into a tenant.
     By default, every import will first export all existing objects supported by sp-config as a backup before the import is attempted.
     The backup is provided so that the state of the configuration prior to the import is available for inspection or restore if needed.
     The backup can be skipped by setting "excludeBackup" to true in the import options.
     If a backup is performed, the id of the backup will be provided in the ImportResult as the "exportJobId". This can be downloaded 
-    using the /sp-config/export/{exportJobId}/download endpoint.
+    using the `/sp-config/export/{exportJobId}/download` endpoint.
 
     You cannot currently import from the Non-Employee Lifecycle Management (NELM) source. You cannot use this endpoint to back up or store NELM data. 
 
     For more information about the object types that currently support import functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).
-
-    The request will need the following security scope:
-
-    - sp:config:manage
   parameters:
     - in: query
       name: preview
@@ -27,7 +26,7 @@ post:
         type: boolean
         default: false
       required: false
-      description: >-
+      description: |
         This option is intended to give the user information about how an import operation would proceed, without
         having any effect on the target tenant.
         If this parameter is "true", no objects will be imported. Instead, the import process will pre-process the import file and

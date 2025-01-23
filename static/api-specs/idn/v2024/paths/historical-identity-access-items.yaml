@@ -2,9 +2,15 @@ get:
   operationId: listIdentityAccessItems
   tags:
   - Identity History
-  summary: Gets a list of access items for the identity filtered by item type
-  description: 'This method retrieves a list of access item for the identity filtered
-    by the access item type Requires authorization scope of ''idn:identity-history:read'' '
+  summary: List Access Items by Identity
+  security:
+    - userAuth: [ idn:identity-history:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - HELPDESK
+    - REPORT_ADMIN
+  description: |
+    This method retrieves a list of access item for the identity filtered by the access item type
   parameters:
   - in: path
     name: id
@@ -17,6 +23,7 @@ get:
     name: type
     schema:
       type: string
+    required: false
     description: The type of access item for the identity. If not provided, it defaults
       to account
     example: account
@@ -28,6 +35,9 @@ get:
       type: string
       default: true
     required: true
+  - $ref: '../../v3/parameters/limit.yaml'
+  - $ref: '../../v3/parameters/count.yaml'
+  - $ref: '../../v3/parameters/offset.yaml'
   responses:
     '200':
       description: The list of access items.
@@ -98,5 +108,7 @@ get:
       $ref: ../../v3/responses/403.yaml
     '404':
       $ref: ../../v3/responses/404.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
     '500':
       $ref: ../../v3/responses/500.yaml

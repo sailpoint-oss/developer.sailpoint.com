@@ -5,7 +5,6 @@ get:
   summary: Get security network configuration.
   description: >-
     This API returns the details of an org's network auth configuration.
-    Requires security scope of: 'sp:auth-org:read'
   security:
     - userAuth: [ sp:auth-org:read ]
   responses:

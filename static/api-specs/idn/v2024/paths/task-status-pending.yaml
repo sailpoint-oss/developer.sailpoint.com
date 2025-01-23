@@ -1,8 +1,8 @@
 get:
   tags:
   - Task Management
-  summary: Retrieve a pending task list.
-  description: Retrieve a list of TaskStatus for pending tasks.
+  summary: Retrieve Pending Task Status List
+  description: Retrieve a list of statuses for pending tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
   operationId: getPendingTasks
   parameters:
   - $ref: ../../v3/parameters/offset.yaml
@@ -29,16 +29,31 @@ get:
       $ref: ../../v3/responses/204.yaml
     '400':
       $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
     '403':
       $ref: ../../v3/responses/403.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
   security:
-  - userAuth:
-    - idn:task-management:read
+    - userAuth: [idn:task-management:read, idn:task-management:write]
+    - applicationAuth: [idn:task-management:read, idn:task-management:write]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - HELPDESK
+    - CERT_ADMIN
+    - REPORT_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
 head:
   tags:
   - Task Management
-  summary: Retrieve headers only for pending task list.
-  description: Retrieve headers for a list of TaskStatus for pending tasks.
+  summary: Retrieve Pending Task List Headers
+  description: Responds with headers only for list of task statuses for pending tasks. 
   operationId: getPendingTaskHeaders
   parameters:
   - $ref: ../../v3/parameters/offset.yaml
@@ -54,13 +69,28 @@ head:
     required: true
   responses:
     '200':
-      description: Responds with headers for List of TaskStatus for pending tasks.
+      description: Retrieve headers for a list of TaskStatus for pending tasks. 
     '204':
       $ref: ../../v3/responses/204.yaml
     '400':
       $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
     '403':
       $ref: ../../v3/responses/403.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
   security:
-  - userAuth:
-    - idn:task-management:read
+    - userAuth: [idn:task-management:read, idn:task-management:write]
+    - applicationAuth: [idn:task-management:read, idn:task-management:write]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - HELPDESK
+    - CERT_ADMIN
+    - REPORT_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN

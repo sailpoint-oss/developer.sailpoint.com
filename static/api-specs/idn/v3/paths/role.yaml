@@ -36,7 +36,6 @@ get:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:role-unchecked:read, idn:role-unchecked:manage, idn:role-checked:manage, idn:role-checked:read]
-    - applicationAuth: [idn:role-unchecked:read, idn:role-unchecked:manage, idn:role-checked:manage, idn:role-checked:read]
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - ROLE_ADMIN
@@ -60,6 +59,8 @@ patch:
     * owner
 
     * accessProfiles
+
+    * entitlements
 
     * membership
 
@@ -199,7 +200,7 @@ patch:
                 }
               ]
 
-          Assign a Access Model Metadata to a role:
+          Assign a Access Model Metadata to a Role:
             description: This example shows how to assign a existing metadata to a role.
             value:
               [
@@ -217,6 +218,33 @@ patch:
                 }
               ]
 
+          Add an Access Profile to a Role:
+            description: This example shows how to add an access profile to a role.
+            value:
+              [
+                {
+                  "op": "add",
+                  "path": "/accessProfiles/-",
+                  "value": {
+                      "id": "1de104e1f9024b1289b3a31e22d28cd1",
+                      "type": "ACCESS_PROFILE"
+                    }
+                }
+              ]
+
+          Add an Entitlement to a Role:
+            description: This example shows how to add an entitlement to a role.
+            value:
+              [
+                {
+                  "op": "add",
+                  "path": "/entitlements/-",
+                  "value": {
+                      "id": "0fb2f8051e48421b8f1f8a64aee3b205",
+                      "type": "ENTITLEMENT"
+                    }
+                }
+              ]
     required: true
   responses:
     '200':
@@ -237,7 +265,6 @@ patch:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:role-unchecked:manage, idn:role-checked:manage]
-    - applicationAuth: [idn:role-unchecked:read, idn:role-unchecked:manage, idn:role-checked:manage, idn:role-checked:read]
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - ROLE_ADMIN
@@ -277,7 +304,6 @@ delete:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:role-unchecked:manage,idn:role-checked:manage]
-    - applicationAuth: [idn:role-unchecked:read, idn:role-unchecked:manage, idn:role-checked:manage, idn:role-checked:read]
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - ROLE_ADMIN

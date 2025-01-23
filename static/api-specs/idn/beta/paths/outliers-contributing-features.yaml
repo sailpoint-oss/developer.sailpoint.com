@@ -3,11 +3,10 @@ get:
   tags:
     - IAI Outliers
   summary: Get identity outlier's contibuting features
-  description: >-
+  description: |
     This API returns a list of contributing feature objects for a single outlier.
-    The object contains: feature name, feature value type, value, importance, display name (translated text or message key), description (translated text or message key), translation messages object
 
-    Requires authorization scope of 'iai:outliers-management:read'
+    The object contains: feature name, feature value type, value, importance, display name (translated text or message key), description (translated text or message key), translation messages object.
   parameters:
     - $ref: '../../v3/parameters/limit.yaml'
     - $ref: '../../v3/parameters/offset.yaml'
@@ -40,7 +39,7 @@ get:
         Sorting is supported for the following fields: **importance**
   responses:
     '200':
-      description: Succeeded. Returns list of objects. Each object contains a feature and metadata about that feature
+      description: Succeeded. Returns list of objects. Each object contains a feature and metadata about that feature.
       headers:
         X-Total-Count:
           description: The total result count.
@@ -68,3 +67,9 @@ get:
       $ref: '../../v3/responses/429.yaml'
     '500':
       $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [iai:outliers:read, iai:outliers:manage]
+    - applicationAuth: [iai:outliers:read, iai:outliers:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - REPORT_ADMIN

@@ -2,10 +2,9 @@ get:
   operationId: listIdentityAccessItems
   tags:
     - Identity History
-  summary: Gets a list of access items for the identity filtered by item type
+  summary: List Access Items by Identity
   description: >-
     This method retrieves a list of access item for the identity filtered by the access item type
-    Requires authorization scope of 'idn:identity-history:read' 
   parameters:
     - in: path
       name: id
@@ -18,6 +17,7 @@ get:
       name: type
       schema:
         type: string
+      required: false
       description: >-
         The type of access item for the identity. If not provided, it defaults to account.
         
@@ -28,6 +28,7 @@ get:
       name: filters
       schema:
         type: string
+      required: false
       description: >-
         Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
         
@@ -54,6 +55,7 @@ get:
       schema:
         type: string
         format: comma-separated
+      required: false
       description: >-
         Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
 
@@ -64,6 +66,7 @@ get:
       name: query
       schema:
         type: string
+      required: false
       description: >-
         This param is used to search if certain fields of the access item contain the string provided.
         
@@ -85,6 +88,9 @@ get:
         
         Roles: **name, description**
       example: "Dr. Arden"
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/count.yaml'
+    - $ref: '../../v3/parameters/offset.yaml'
   responses:
     '200':
       description: The list of access items.
@@ -174,3 +180,7 @@ get:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [ idn:identity-history:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - HELPDESK
+    - REPORT_ADMIN

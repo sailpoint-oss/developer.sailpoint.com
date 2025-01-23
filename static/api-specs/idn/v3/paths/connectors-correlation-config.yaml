@@ -2,6 +2,7 @@ get:
   tags:
     - Connectors
   operationId: getConnectorCorrelationConfig
+  summary: Get Connector Correlation Configuration
   description: >-
     Fetches a connector's correlation config using its script name.    
   parameters:
@@ -34,13 +35,16 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - userAuth: [ idn:connector-config:read ]
+    - userAuth: [ idn:connector-config:read, idn:connector-config:manage ]
   x-sailpoint-userLevels:
     - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
 put:
   tags:
     - Connectors
-  operationId: putCorrelationConfig
+  operationId: putConnectorCorrelationConfig
+  summary: Update Connector Correlation Configuration
   description: >-
     Update a connector's correlation config using its script name.    
   parameters:
@@ -86,6 +90,8 @@ put:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - userAuth: [ idn:connector-config:update ]
+    - userAuth: [ idn:connector-config:manage ]
   x-sailpoint-userLevels:
     - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN

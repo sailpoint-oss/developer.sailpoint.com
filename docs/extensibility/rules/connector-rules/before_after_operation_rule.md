@@ -190,7 +190,7 @@ try {
     ##########################
     # Begin SailPoint protected code -- do not modify this code block
     #
-        $sReader = New-Object System.IO.StringReader([System.String]$requestString);
+        $sReader = New-Object System.IO.StringReader([System.String]$env:Request);
         $xmlReader = [System.xml.XmlTextReader]([sailpoint.utils.xml.XmlUtil]::getReader($sReader));
         $requestObject = New-Object Sailpoint.Utils.objects.AccountRequest($xmlReader);
 

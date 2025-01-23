@@ -1,0 +1,10 @@
+type: string
+enum:
+  - GRANT_ACCESS
+  - REVOKE_ACCESS
+  - null
+description: >-
+  Access request type. Defaults to GRANT_ACCESS.
+  REVOKE_ACCESS type can only have a single Identity ID in the requestedFor field.
+example: GRANT_ACCESS
+nullable: true

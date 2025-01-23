@@ -17,6 +17,7 @@ get:
         example: 2c91808a7813090a017814121e121518
     - $ref: '../../v3/parameters/limit.yaml'
     - $ref: '../../v3/parameters/count.yaml'
+    - $ref: '../../v3/parameters/offset.yaml'
   responses:
     '200':
       description: List of available accounts for the specified user app

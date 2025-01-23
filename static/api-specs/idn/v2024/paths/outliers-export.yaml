@@ -1,36 +1,34 @@
 get:
   operationId: exportOutliersZip
   tags:
-  - IAI Outliers
+    - IAI Outliers
   summary: IAI Identity Outliers Export
-  description: 'This API exports a list of ignored outliers to a CSV as well as list
-    of non-ignored outliers to a CSV. These two CSVs will be zipped and exported Columns
-    will include: identityID, type, firstDetectionDate, latestDetectionDate, ignored,
-    & attributes (defined set of identity attributes)
+  description: |
+    This API exports a list of ignored outliers to a CSV as well as list of non-ignored outliers to a CSV. These two CSVs will be zipped and exported.
 
-    Requires authorization scope of ''iai:outliers-management:read'''
+    Columns will include: identityId, type, firstDetectionDate, latestDetectionDate, ignored, & attributes (defined set of identity attributes).
   parameters:
-  - name: type
-    in: query
-    description: Type of the identity outliers snapshot to filter on
-    required: false
-    schema:
-      type: string
-      enum:
-      - LOW_SIMILARITY
-      - STRUCTURAL
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
+    - name: type
+      in: query
+      description: Type of the identity outliers snapshot to filter on
+      required: false
+      example: LOW_SIMILARITY
+      schema:
+        type: string
+        enum:
+          - LOW_SIMILARITY
+          - STRUCTURAL
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
   responses:
     '200':
-      description: Succeeded. Returns zip of 2 CSVs to download. 1 CSV for ignored
-        outliers and 1 for non-ignored outliers
+      description: Succeeded. Returns zip of two CSVs to download. One CSV for ignored outliers and the other for non-ignored outliers.
       content:
         application/zip:
           schema:
@@ -46,3 +44,9 @@ get:
       $ref: ../../v3/responses/429.yaml
     '500':
       $ref: ../../v3/responses/500.yaml
+  security:
+    - userAuth: [iai:outliers:read, iai:outliers:manage]
+    - applicationAuth: [iai:outliers:read, iai:outliers:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - REPORT_ADMIN

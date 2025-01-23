@@ -174,7 +174,8 @@ tags:
       Refer to [Managing User Accounts](https://documentation.sailpoint.com/saas/help/common/users/user_access.html#managing-user-accounts) for more information about accounts.
   - name: Application Discovery
     description: |
-      Use this API to discover applications within your Okta connector and receive connector recommendations by manually uploading application names.
+      Use this API to implement application discovery functionality. 
+      With this functionality in place, you can discover applications within your Okta connector and receive connector recommendations by manually uploading application names.
   - name: Auth Users
     description: |
       Use this API to implement user authentication system functionality. 
@@ -411,9 +412,13 @@ tags:
 
       Refer to [Setting Up Lifecycle States](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html) for more information about lifecycle states.
   - name: Managed Clients
-    description: Read and create operations for client data and statuses
+    description: |
+      Use this API to implement managed client functionality. 
+      With this functionality in place, administrators can modify and delete existing managed clients, create new ones, and view and make changes to their log configurations. 
   - name: Managed Clusters
-    description: Read and create pperations for client Clusters, including Log Configuration
+    description: |
+      Use this API to implement managed cluster functionality. 
+      With this functionality in place, administrators can modify and delete existing managed clients, get their statuses, and create new ones. 
   - name: MFA Configuration
     description: Configure and test multifactor authentication (MFA) methods
   - name: MFA Controller
@@ -1137,8 +1142,6 @@ paths:
     $ref: './v3/paths/connectors-translations.yaml'
   /connectors/{scriptName}/source-template:
     $ref: './v3/paths/connectors-source-template.yaml'
-  /connectors/{scriptName}/correlation-config:
-    $ref: './v3/paths/connectors-correlation-config.yaml'
   /identities/{identity-id}/set-lifecycle-state:
     $ref: "./v3/paths/identity-set-lifecycle-state.yaml"
   /identity-profiles/{identity-profile-id}/lifecycle-states:

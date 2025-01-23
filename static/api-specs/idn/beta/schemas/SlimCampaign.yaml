@@ -11,14 +11,14 @@ properties:
     description: Id of the campaign
     example: 2c9079b270a266a60170a2779fcb0007
   name:
-    description: >-
+    description: |
       The campaign name. If this object is part of a template, special formatting applies; see the
       `/campaign-templates/{id}/generate` endpoint documentation for details.
     type: string
     example: Manager Campaign
   description:
     type: string
-    description: >-
+    description: |
       The campaign description. If this object is part of a template, special formatting applies; see the
       `/campaign-templates/{id}/generate` endpoint documentation for details.
     example: Everyone needs to be reviewed by their manager
@@ -49,7 +49,7 @@ properties:
     example: false
   recommendationsEnabled:
     type: boolean
-    description: >-
+    description: |
       Enables IAI for this campaign. Accepts true even if the IAI product feature is off. If IAI is turned off
       then campaigns generated from this template will indicate false. The real value will then be returned if
       IAI is ever enabled for the org in the future.
@@ -72,7 +72,7 @@ properties:
     example: ACTIVE
   correlatedStatus:
     type: string
-    description: >-
+    description: |
       The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated.
       An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source).
     enum:

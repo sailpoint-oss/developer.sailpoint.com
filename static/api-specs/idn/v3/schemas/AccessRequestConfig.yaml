@@ -10,6 +10,11 @@ properties:
     description: If this is true and the requester and reviewer are the same, the request is automatically approved. 
     default: false
     example: true
+  reauthorizationEnabled:
+    type: boolean
+    description: If this is true, reauthorization will be enforced for appropriately configured access items. Enablement of this feature is currently in a limited state.
+    default: false
+    example: true
   requestOnBehalfOfConfig:
     $ref: './RequestOnBehalfOfConfig.yaml'
     description: Request On Behalf Of configuration.

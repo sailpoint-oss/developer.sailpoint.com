@@ -4,7 +4,7 @@ get:
     - Accounts
   summary: Accounts List
   description: >-
-    This returns a list of accounts.  
+    List accounts. 
   security:
     - userAuth: [idn:accounts:read]
   x-sailpoint-userLevels:
@@ -16,6 +16,15 @@ get:
     - $ref: "../parameters/limit.yaml"
     - $ref: "../parameters/offset.yaml"
     - $ref: "../parameters/count.yaml"
+    - in: query
+      name: detailLevel
+      schema:
+        type: string
+        enum: [ SLIM, FULL ]
+      description: >-
+        This value determines whether the API provides `SLIM` or increased level of detail (`FULL`) for each account in the returned list.
+        `FULL` is the default behavior.
+      example: FULL
     - in: query
       name: filters
       schema:
@@ -91,7 +100,7 @@ get:
         Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, identity.id, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType**
   responses:
     "200":
-      description: List of account objects
+      description: List of account objects.
       content:
         application/json:
           schema:
@@ -114,7 +123,7 @@ post:
     - Accounts
   summary: Create Account
   description: |
-    This API submits an account creation task and returns the task ID.  
+    Submit an account creation task - the API then returns the task ID.  
 
     You must include the `sourceId` where the account will be created in the `attributes` object.
 
@@ -139,7 +148,7 @@ post:
           $ref: "../schemas/AccountAttributesCreate.yaml"
   responses:
     "202":
-      description: Async task details
+      description: Async task details.
       content:
         application/json:
           schema:

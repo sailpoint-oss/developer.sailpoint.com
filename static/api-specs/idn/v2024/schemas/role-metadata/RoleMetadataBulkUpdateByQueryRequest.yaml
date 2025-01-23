@@ -34,10 +34,10 @@ properties:
     description: The operation to be performed
     type: string
     enum:
-      - "add"
-      - "remove"
-      - "replace"
-    example: "replace"
+      - "ADD"
+      - "REMOVE"
+      - "REPLACE"
+    example: "REPLACE"
   replaceScope:
     description: The choice of update scope.
     type: string

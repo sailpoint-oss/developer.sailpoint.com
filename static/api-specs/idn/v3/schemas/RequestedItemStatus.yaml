@@ -32,6 +32,13 @@ properties:
     items:
       $ref: './ApprovalStatusDto.yaml'
     description: Approval details for each item.
+  approvalIds:
+    type: array
+    items:
+      type: string
+    description: List of approval IDs associated with the request.
+    example: ["85f0cf482dd44327b593624c07906c21", "fa57e1bfa36f41ee85e33ee59fcbeac5"]
+    nullable: true
   manualWorkItemDetails:
     type: array
     nullable: true

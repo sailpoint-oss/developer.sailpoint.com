@@ -2,13 +2,13 @@ get:
   tags:
     - Connectors
   operationId: getConnector
-  summary: Gets connector by script name
+  summary: Get Connector by Script Name
   description: >-
     Fetches a connector that using its script name.    
   parameters:
     - name: scriptName
       in: path
-      description: The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+      description: The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
       required: true
       style: simple
       explode: false
@@ -17,6 +17,7 @@ get:
         example: aScriptName
     - in: query
       name: locale
+      required: false
       schema:
         type: string
         enum: [ de, no, fi, sv, ru, pt, ko, zh-TW, en, it, fr, zh-CN, hu, es, cs, ja, pl, da, nl ]
@@ -43,20 +44,22 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - userAuth: [ idn:connector-config:read ]
+    - userAuth: [ idn:connector-config:read, idn:connector-config:manage ]
   x-sailpoint-userLevels:
     - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
 delete:
   tags:
     - Connectors
   operationId: deleteCustomConnector
-  summary: Deletes connector by script name
+  summary: Delete Connector by Script Name
   description: >-
     Delete a custom connector that using its script name.
   parameters:
     - name: scriptName
       in: path
-      description: The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+      description: The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
       required: true
       style: simple
       explode: false
@@ -80,26 +83,34 @@ delete:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - userAuth: [ idn:connector-config:delete ]
+    - userAuth: [ idn:connector-config:manage ]
   x-sailpoint-userLevels:
     - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
 patch:
   tags:
     - Connectors
   operationId: updateConnector
-  summary: Update connector by script name
-  description: >-
-    Patch a custom connector that using its script name.
+  summary: Update Connector by Script Name
+  description: |
+    This API updates a custom connector by script name using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 
     The following fields are patchable:
+
+
     * connectorMetadata
+
     * applicationXml
+
     * correlationConfigXml
+
     * sourceConfigXml
+
   parameters:
     - name: scriptName
       in: path
-      description: The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+      description: The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
       required: true
       style: simple
       explode: false
@@ -108,9 +119,8 @@ patch:
         example: aScriptName
   requestBody:
     required: true
-    description: >-
-      A list of connector detail update operations according to
-      the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+    description: |
+      A list of connector detail update operations
     content:
       application/json-patch+json:
         schema:
@@ -137,7 +147,9 @@ patch:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - userAuth: [ idn:connector-config:update ]
+    - userAuth: [ idn:connector-config:manage ]
   x-sailpoint-userLevels:
     - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
 

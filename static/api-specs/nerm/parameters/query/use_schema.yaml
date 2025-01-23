@@ -1,0 +1,8 @@
+name: use_schema
+in: query
+description: The use_schema parameter returns schema-mapped field names in the Profiles API response when set to true.
+required: false
+schema:
+  type: boolean
+  default: false
+  example: true

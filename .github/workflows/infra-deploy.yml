@@ -60,10 +60,6 @@ jobs:
         run: |
           brew install maven
 
-      - name: build backend
-        run: |
-          mvn clean package
-
       # push these files to AWS
       - name: run SAM build
         run: |

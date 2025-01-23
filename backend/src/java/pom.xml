@@ -57,6 +57,18 @@
                     </execution>
                 </executions>
             </plugin>
+            <!-- Maven Compiler Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+            </plugin>
+            <!-- AWS SAM Maven Plugin -->
+            <plugin>
+                <groupId>com.amazonaws.serverless</groupId>
+                <artifactId>aws-sam-cli-maven-plugin</artifactId>
+                <version>1.0.0</version>
+            </plugin>
         </plugins>
     </build>
 </project>

@@ -59,10 +59,9 @@ jobs:
       - name: install maven
         run: |
           brew install maven
-          
+
       - name: build backend
         run: |
-          cd backend/src/java
           mvn clean package
 
       # push these files to AWS

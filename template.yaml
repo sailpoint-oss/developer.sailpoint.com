@@ -82,6 +82,20 @@ Resources:
         - x86_64
       MemorySize: 128
       Timeout: 100
+  JSONPathFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: com.sailpoint.handler.JSONPathHandler::handleRequest
+      Runtime: java11
+      CodeUri: target/jsonpath-handler-1.0-SNAPSHOT.jar
+      MemorySize: 512
+      Timeout: 30
+      Events:
+        Api:
+          Type: HttpApi
+          Properties:
+            Path: /jsonpath
+            Method: POST
   # This is a Lambda function config associated with the source code: get-by-id.js
   developerSailpointGetByIdFunction:
     Type: AWS::Serverless::Function

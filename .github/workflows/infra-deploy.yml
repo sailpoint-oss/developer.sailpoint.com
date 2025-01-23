@@ -55,6 +55,16 @@ jobs:
           elif [ "${{ github.ref }}" = "refs/heads/stage" ]; then
             echo "STACK=developer-sailpoint-site-stage" >> $GITHUB_ENV
           fi
+
+      - name: install maven
+        run: |
+          brew install maven
+          
+      - name: build backend
+        run: |
+          cd backend/src/java
+          mvn clean package
+
       # push these files to AWS
       - name: run SAM build
         run: |

@@ -14,34 +14,28 @@ public class JSONPathHandler implements RequestStreamHandler {
     public void handleRequest(InputStream input, OutputStream output,
                             Context context) throws IOException {
         try {
-            // Read the input stream into a request object
-            BufferedReader reader = new BufferedReader(new InputStreamReader(input));
-            JsonRequest request = objectMapper.readValue(reader, JsonRequest.class);
+            // Read and log raw input
+            String rawInput = new BufferedReader(new InputStreamReader(input))
+                .lines()
+                .reduce("", String::concat);
+            context.getLogger().log("Raw input: " + rawInput);
 
-            // Log the received request for debugging
-            context.getLogger().log("Received request: " + objectMapper.writeValueAsString(request));
+            // Parse request
+            JsonRequest request = objectMapper.readValue(rawInput, JsonRequest.class);
+            context.getLogger().log("Parsed request - jsonData: " + request.getJsonData());
+            context.getLogger().log("Parsed request - jsonPathQuery: " + request.getJsonPathQuery());
 
-            String jsonData = request.getJsonData();
-            if (jsonData == null || jsonData.trim().isEmpty()) {
-                throw new IllegalArgumentException("JSON data cannot be empty");
-            }
-
-            // Parse the JSON data and apply the JSONPath query
-            Object result = JsonPath.parse(jsonData.trim())
+            // Parse JSON and apply query
+            Object result = JsonPath.parse(request.getJsonData())
                                   .read(request.getJsonPathQuery());
+            context.getLogger().log("Query result: " + result);
 
-            // Create response object
+            // Write response
             JsonResponse response = new JsonResponse(result);
-            
-            // Write the response
             objectMapper.writeValue(output, response);
             
         } catch (Exception e) {
-            // Log the error
-            context.getLogger().log("Error processing request: " + e.getMessage());
-            context.getLogger().log("Stack trace: " + e.getStackTrace());
-            
-            // Handle errors
+            context.getLogger().log("Error: " + e.getClass().getName() + " - " + e.getMessage());
             JsonResponse errorResponse = new JsonResponse(null, e.getMessage());
             objectMapper.writeValue(output, errorResponse);
         }
@@ -52,6 +46,9 @@ public class JSONPathHandler implements RequestStreamHandler {
     private static class JsonRequest {
         private String jsonData;
         private String jsonPathQuery;
+
+        // Default constructor required by Jackson
+        public JsonRequest() {}
 
         // Getters and setters
         public String getJsonData() { return jsonData; }
@@ -66,6 +63,7 @@ public class JSONPathHandler implements RequestStreamHandler {
 
         public JsonResponse(Object result) {
             this.result = result;
+            this.error = null;
         }
 
         public JsonResponse(Object result, String error) {

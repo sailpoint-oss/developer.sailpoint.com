@@ -1,9 +1,13 @@
 export async function evaluateJSONPath(gatewayUrl, jsonPathQuery, jsonData) {
     try {
+        // Ensure jsonData is a properly formatted JSON string
+        const jsonString = typeof jsonData === 'string' 
+            ? jsonData.trim() // Remove any whitespace
+            : JSON.stringify(jsonData);
+
         const requestBody = {
             jsonPathQuery: jsonPathQuery,
-            // Convert the JSON data to a string if it's not already
-            jsonData: typeof jsonData === 'string' ? jsonData : JSON.stringify(jsonData)
+            jsonData: jsonString
         };
 
         console.log('Sending request:', requestBody);

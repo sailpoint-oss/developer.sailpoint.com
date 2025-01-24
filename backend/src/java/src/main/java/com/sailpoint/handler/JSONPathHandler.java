@@ -21,8 +21,13 @@ public class JSONPathHandler implements RequestStreamHandler {
             // Log the received request for debugging
             context.getLogger().log("Received request: " + objectMapper.writeValueAsString(request));
 
+            String jsonData = request.getJsonData();
+            if (jsonData == null || jsonData.trim().isEmpty()) {
+                throw new IllegalArgumentException("JSON data cannot be empty");
+            }
+
             // Parse the JSON data and apply the JSONPath query
-            Object result = JsonPath.parse(request.getJsonData())
+            Object result = JsonPath.parse(jsonData.trim())
                                   .read(request.getJsonPathQuery());
 
             // Create response object
@@ -34,6 +39,7 @@ public class JSONPathHandler implements RequestStreamHandler {
         } catch (Exception e) {
             // Log the error
             context.getLogger().log("Error processing request: " + e.getMessage());
+            context.getLogger().log("Stack trace: " + e.getStackTrace());
             
             // Handle errors
             JsonResponse errorResponse = new JsonResponse(null, e.getMessage());

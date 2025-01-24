@@ -12,6 +12,7 @@ import ImplementationDropdown from '../../components/jsonpath/ImplementationDrop
 import { useDebounce } from '../../components/jsonpath/useDebounce';
 import JsonPathQueryInput from '../../components/jsonpath/JsonPathQueryInput';
 import { evaluateJSONPath } from '../../services/JSONPathService';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 // Mapping of implementations to documentation URLs and texts
 const documentationLinks = {

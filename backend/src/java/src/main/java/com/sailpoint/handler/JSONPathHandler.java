@@ -12,11 +12,14 @@ public class JSONPathHandler implements RequestStreamHandler {
     @Override
     public void handleRequest(InputStream input, OutputStream output,
                             Context context) throws IOException {
-        // Read the input stream into a request object
-        BufferedReader reader = new BufferedReader(new InputStreamReader(input));
-        JsonRequest request = objectMapper.readValue(reader, JsonRequest.class);
-
         try {
+            // Read the input stream into a request object
+            BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+            JsonRequest request = objectMapper.readValue(reader, JsonRequest.class);
+
+            // Log the received request for debugging
+            context.getLogger().log("Received request: " + objectMapper.writeValueAsString(request));
+
             // Parse the JSON data and apply the JSONPath query
             Object result = JsonPath.parse(request.getJsonData())
                                   .read(request.getJsonPathQuery());
@@ -28,6 +31,9 @@ public class JSONPathHandler implements RequestStreamHandler {
             objectMapper.writeValue(output, response);
             
         } catch (Exception e) {
+            // Log the error
+            context.getLogger().log("Error processing request: " + e.getMessage());
+            
             // Handle errors
             JsonResponse errorResponse = new JsonResponse(null, e.getMessage());
             objectMapper.writeValue(output, errorResponse);

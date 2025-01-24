@@ -40,13 +40,10 @@ export default function JsonPathEvaluator() {
   const debouncedInputJson = useDebounce(localJson, 0);
   const debouncedQuery = useDebounce(query, 0);
 
-  async function test() {
-    const result = await evaluateJSONPath(siteConfig.customFields.CMS_APP_API_ENDPOINT, "$.name", JSON.stringify({name: "John"}, null, 4))
-    console.log(result);
-  }
-  
   useEffect(() => {
-    test();
+    evaluateJSONPath(siteConfig.customFields.CMS_APP_API_ENDPOINT, "$.name", JSON.stringify({name: "John"}, null, 4)).then((result) => {
+      console.log(result);
+    });
   }, []);
 
   // Apply JSONPath query with the current implementation

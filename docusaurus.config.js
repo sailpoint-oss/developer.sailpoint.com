@@ -53,7 +53,7 @@ const config = {
           editUrl:
             'https://github.com/sailpoint-oss/developer-community-site/edit/main/',
           showLastUpdateAuthor: true,
-          showLastUpdateTime: false,
+          showLastUpdateTime: true,
           sidebarCollapsible: true,
           sidebarPath: require.resolve('./sidebars.js'),
           docItemComponent: '@theme/ApiItem', // Derived from docusaurus-theme-openapi

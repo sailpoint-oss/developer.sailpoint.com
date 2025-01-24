@@ -4,11 +4,16 @@ import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestStreamHandler;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jayway.jsonpath.JsonPath;
-import java.io.*;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.jayway.jsonpath.Configuration;
+import com.jayway.jsonpath.spi.json.JacksonJsonProvider;
+import java.io.*;
 
 public class JSONPathHandler implements RequestStreamHandler {
     private static final ObjectMapper objectMapper = new ObjectMapper();
+    private static final Configuration jsonPathConfig = Configuration.builder()
+            .jsonProvider(new JacksonJsonProvider(objectMapper))
+            .build();
 
     @Override
     public void handleRequest(InputStream input, OutputStream output,
@@ -25,8 +30,13 @@ public class JSONPathHandler implements RequestStreamHandler {
             context.getLogger().log("Parsed request - jsonData: " + request.getJsonData());
             context.getLogger().log("Parsed request - jsonPathQuery: " + request.getJsonPathQuery());
 
-            // Parse JSON and apply query
-            Object result = JsonPath.parse(request.getJsonData())
+            // First parse the JSON string into a Jackson object
+            Object document = objectMapper.readTree(request.getJsonData());
+            context.getLogger().log("Parsed JSON document: " + document);
+
+            // Use JsonPath with the parsed document
+            Object result = JsonPath.using(jsonPathConfig)
+                                  .parse(document)
                                   .read(request.getJsonPathQuery());
             context.getLogger().log("Query result: " + result);
 

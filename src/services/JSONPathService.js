@@ -6,6 +6,8 @@ export async function evaluateJSONPath(gatewayUrl, jsonPathQuery, jsonData) {
             jsonData: typeof jsonData === 'string' ? jsonData : JSON.stringify(jsonData)
         };
 
+        console.log('Sending request:', requestBody);
+
         const response = await fetch(gatewayUrl + 'jsonpath', {
             method: 'POST',
             headers: {

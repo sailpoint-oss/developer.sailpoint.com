@@ -5,6 +5,7 @@ import com.amazonaws.services.lambda.runtime.RequestStreamHandler;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jayway.jsonpath.JsonPath;
 import java.io.*;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 public class JSONPathHandler implements RequestStreamHandler {
     private static final ObjectMapper objectMapper = new ObjectMapper();
@@ -41,6 +42,7 @@ public class JSONPathHandler implements RequestStreamHandler {
     }
 
     // Inner classes for request/response structure
+    @JsonIgnoreProperties(ignoreUnknown = true)
     private static class JsonRequest {
         private String jsonData;
         private String jsonPathQuery;

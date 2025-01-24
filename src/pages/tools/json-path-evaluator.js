@@ -25,11 +25,6 @@ const documentationLinks = {
   }
 };
 
-async function test() {
-  const result = await evaluateJSONPath(siteConfig.customFields.CMS_APP_API_ENDPOINT, "$.name", JSON.stringify({name: "John"}, null, 4))
-  console.log(result);
-}
-
 export default function JsonPathEvaluator() {
   const [result, setResult] = useState(JSON.stringify([], null, 4));
   const [query, setQuery] = useState('$.requestedItemsStatus[*].name');
@@ -41,10 +36,15 @@ export default function JsonPathEvaluator() {
   const [jsonParseError, setJsonParseError] = useState(false);
   const [isQueryFocused, setIsQueryFocused] = useState(false);  // Track focus for query input
   const [isDropdownFocused, setIsDropdownFocused] = useState(false);  // Track focus for dropdown
-
+  const {siteConfig} = useDocusaurusContext();
   const debouncedInputJson = useDebounce(localJson, 0);
   const debouncedQuery = useDebounce(query, 0);
 
+  async function test() {
+    const result = await evaluateJSONPath(siteConfig.customFields.CMS_APP_API_ENDPOINT, "$.name", JSON.stringify({name: "John"}, null, 4))
+    console.log(result);
+  }
+  
   useEffect(() => {
     test();
   }, []);

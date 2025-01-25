@@ -7,12 +7,40 @@ import com.amazonaws.services.lambda.runtime.events.APIGatewayV2HTTPEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayV2HTTPResponse;
 import com.jayway.jsonpath.JsonPath;
 import com.jayway.jsonpath.Configuration;
+import com.jayway.jsonpath.spi.json.GsonJsonProvider;
+import com.jayway.jsonpath.spi.mapper.GsonMappingProvider;
 import com.google.gson.Gson;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.Set;
+import java.util.EnumSet;
+import com.jayway.jsonpath.Option;
 
 public class JSONPathHandler implements RequestHandler<APIGatewayV2HTTPEvent, APIGatewayV2HTTPResponse> {
     private static final Gson gson = new Gson();
+    
+    static {
+        // Configure JsonPath to use Gson provider
+        Configuration.setDefaults(new Configuration.Defaults() {
+            private final GsonJsonProvider jsonProvider = new GsonJsonProvider();
+            private final GsonMappingProvider mappingProvider = new GsonMappingProvider();
+
+            @Override
+            public com.jayway.jsonpath.spi.json.JsonProvider jsonProvider() {
+                return jsonProvider;
+            }
+
+            @Override
+            public com.jayway.jsonpath.spi.mapper.MappingProvider mappingProvider() {
+                return mappingProvider;
+            }
+
+            @Override
+            public Set<Option> options() {
+                return EnumSet.noneOf(Option.class);
+            }
+        });
+    }
 
     @Override
     public APIGatewayV2HTTPResponse handleRequest(APIGatewayV2HTTPEvent event, Context context) {
@@ -28,7 +56,7 @@ public class JSONPathHandler implements RequestHandler<APIGatewayV2HTTPEvent, AP
             logger.log("Request data: " + request.getJsonData());
             logger.log("Request query: " + request.getJsonPathQuery());
 
-            // Parse the JSON string directly with JsonPath
+            // Parse the JSON string directly with JsonPath (now using Gson provider)
             Object result = JsonPath.parse(request.getJsonData())
                                   .read(request.getJsonPathQuery());
 

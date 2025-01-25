@@ -1,18 +1,18 @@
 export async function evaluateJSONPath(gatewayUrl, jsonPathQuery, jsonData) {
     try {
-        // Parse the input if it's a string, otherwise use as is
-        const parsedData = typeof jsonData === 'string' 
-            ? JSON.parse(jsonData.trim())
-            : jsonData;
+        // Always convert the data to a proper JSON string
+        const jsonString = JSON.stringify(
+            typeof jsonData === 'string' ? JSON.parse(jsonData) : jsonData
+        );
 
         const requestBody = {
             jsonPathQuery: jsonPathQuery,
-            jsonData: JSON.stringify(parsedData)  // Single stringify of the parsed data
+            jsonData: jsonString
         };
 
         console.log('Sending request:', {
             jsonPathQuery,
-            jsonData: parsedData  // Log the parsed data for clarity
+            jsonData: JSON.parse(jsonString)  // Log the parsed version for readability
         });
 
         const response = await fetch(gatewayUrl + 'jsonpath', {

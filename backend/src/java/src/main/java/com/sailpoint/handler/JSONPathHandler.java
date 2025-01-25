@@ -30,14 +30,15 @@ public class JSONPathHandler implements RequestStreamHandler {
             context.getLogger().log("Parsed request - jsonData: " + request.getJsonData());
             context.getLogger().log("Parsed request - jsonPathQuery: " + request.getJsonPathQuery());
 
-            // First parse the JSON string into a Jackson object
-            Object document = objectMapper.readTree(request.getJsonData());
-            context.getLogger().log("Parsed JSON document: " + document);
+            if (request.getJsonData() == null) {
+                throw new IllegalArgumentException("JSON data cannot be null");
+            }
 
-            // Use JsonPath with the parsed document
+            // Parse the JSON string directly with JsonPath
             Object result = JsonPath.using(jsonPathConfig)
-                                  .parse(document)
+                                  .parse(request.getJsonData())
                                   .read(request.getJsonPathQuery());
+            
             context.getLogger().log("Query result: " + result);
 
             // Write response

@@ -1,91 +1,87 @@
 package com.sailpoint.handler;
 
 import com.amazonaws.services.lambda.runtime.Context;
-import com.amazonaws.services.lambda.runtime.RequestStreamHandler;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.amazonaws.services.lambda.runtime.LambdaLogger;
+import com.amazonaws.services.lambda.runtime.RequestHandler;
+import com.amazonaws.services.lambda.runtime.events.APIGatewayV2HTTPEvent;
+import com.amazonaws.services.lambda.runtime.events.APIGatewayV2HTTPResponse;
 import com.jayway.jsonpath.JsonPath;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.jayway.jsonpath.Configuration;
-import com.jayway.jsonpath.spi.json.JacksonJsonProvider;
-import java.io.*;
+import com.jayway.jsonpath.TypeRef;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import java.util.Map;
+import java.util.HashMap;
 
-public class JSONPathHandler implements RequestStreamHandler {
-    private static final ObjectMapper objectMapper = new ObjectMapper();
-    private static final Configuration jsonPathConfig = Configuration.builder()
-            .jsonProvider(new JacksonJsonProvider(objectMapper))
-            .build();
+public class JSONPathHandler implements RequestHandler<APIGatewayV2HTTPEvent, APIGatewayV2HTTPResponse> {
+    private static final Gson gson = new Gson();
 
     @Override
-    public void handleRequest(InputStream input, OutputStream output,
-                            Context context) throws IOException {
+    public APIGatewayV2HTTPResponse handleRequest(APIGatewayV2HTTPEvent event, Context context) {
+        LambdaLogger logger = context.getLogger();
+        logger.log("EVENT TYPE: " + event.getClass().toString());
+        
+        APIGatewayV2HTTPResponse response = new APIGatewayV2HTTPResponse();
+        response.setIsBase64Encoded(false);
+        
         try {
-            // Read and log raw input
-            String rawInput = new BufferedReader(new InputStreamReader(input))
-                .lines()
-                .reduce("", String::concat);
-            context.getLogger().log("Raw input: " + rawInput);
+            String rawInput = event.getBody();
+            JsonRequest request = gson.fromJson(rawInput, JsonRequest.class);
+            logger.log("Request data: " + request.getJsonData());
+            logger.log("Request query: " + request.getJsonPathQuery());
 
-            // Parse request
-            JsonRequest request = objectMapper.readValue(rawInput, JsonRequest.class);
-            context.getLogger().log("Parsed request - jsonData: " + request.getJsonData());
-            context.getLogger().log("Parsed request - jsonPathQuery: " + request.getJsonPathQuery());
+            // Parse the JSON string directly with JsonPath, using TypeRef for unknown type
+            Object result = JsonPath.parse(request.getJsonData())
+                                  .read(request.getJsonPathQuery(), new TypeRef<Object>() {});
 
-            if (request.getJsonData() == null) {
-                throw new IllegalArgumentException("JSON data cannot be null");
-            }
+            logger.log("Query result: " + result);
 
-            // Parse the JSON string directly with JsonPath
-            Object result = JsonPath.using(jsonPathConfig)
-                                  .parse(request.getJsonData())
-                                  .read(request.getJsonPathQuery());
-            
-            context.getLogger().log("Query result: " + result);
+            // Create response body with result
+            Map<String, Object> responseBody = new HashMap<>();
+            responseBody.put("result", result);
+            responseBody.put("error", null);
 
-            // Write response
-            JsonResponse response = new JsonResponse(result);
-            objectMapper.writeValue(output, response);
-            
+            response.setStatusCode(200);
+            response.setBody(gson.toJson(responseBody));
+
         } catch (Exception e) {
-            context.getLogger().log("Error: " + e.getClass().getName() + " - " + e.getMessage());
-            JsonResponse errorResponse = new JsonResponse(null, e.getMessage());
-            objectMapper.writeValue(output, errorResponse);
+            logger.log("Error: " + e.getMessage());
+            
+            // Create error response
+            Map<String, Object> errorBody = new HashMap<>();
+            errorBody.put("result", null);
+            errorBody.put("error", e.getMessage());
+
+            response.setStatusCode(400);
+            response.setBody(gson.toJson(errorBody));
         }
+
+        // Add CORS headers
+        Map<String, String> headers = new HashMap<>();
+        headers.put("Content-Type", "application/json");
+        headers.put("Access-Control-Allow-Origin", "*");
+        response.setHeaders(headers);
+
+        return response;
     }
 
-    // Inner classes for request/response structure
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    private static class JsonRequest {
+    public static class JsonRequest {
         private String jsonData;
         private String jsonPathQuery;
 
-        // Default constructor required by Jackson
-        public JsonRequest() {}
-
-        // Getters and setters
-        public String getJsonData() { return jsonData; }
-        public void setJsonData(String jsonData) { this.jsonData = jsonData; }
-        public String getJsonPathQuery() { return jsonPathQuery; }
-        public void setJsonPathQuery(String jsonPathQuery) { this.jsonPathQuery = jsonPathQuery; }
-    }
-
-    private static class JsonResponse {
-        private Object result;
-        private String error;
-
-        public JsonResponse(Object result) {
-            this.result = result;
-            this.error = null;
+        public String getJsonData() {
+            return jsonData;
         }
 
-        public JsonResponse(Object result, String error) {
-            this.result = result;
-            this.error = error;
+        public void setJsonData(String jsonData) {
+            this.jsonData = jsonData;
         }
 
-        // Getters and setters
-        public Object getResult() { return result; }
-        public void setResult(Object result) { this.result = result; }
-        public String getError() { return error; }
-        public void setError(String error) { this.error = error; }
+        public String getJsonPathQuery() {
+            return jsonPathQuery;
+        }
+
+        public void setJsonPathQuery(String jsonPathQuery) {
+            this.jsonPathQuery = jsonPathQuery;
+        }
     }
 }

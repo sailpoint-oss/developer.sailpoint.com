@@ -44,7 +44,7 @@ export default function JsonPathEvaluator() {
   useEffect(() => {
     const evaluate = async () => {
       try {
-        const response = await evaluateJSONPath(siteConfig.customFields.CMS_APP_API_ENDPOINT, "$.name", JSON.stringify({name: "John"}, null, 4))
+        const response = await evaluateJSONPath(siteConfig.customFields.CMS_APP_API_ENDPOINT, "$.address.zip", JSON.stringify({name: "John", age: 30, address: {city: "New York", state: "NY", zip: 10001}}, null, 4))
         console.log(response);
       } catch (error) {
         console.error('Error running JSONPath query:', error);

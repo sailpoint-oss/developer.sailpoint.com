@@ -6,9 +6,8 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayV2HTTPEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayV2HTTPResponse;
 import com.jayway.jsonpath.JsonPath;
-import com.jayway.jsonpath.TypeRef;
+import com.jayway.jsonpath.Configuration;
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
 import java.util.Map;
 import java.util.HashMap;
 
@@ -29,9 +28,9 @@ public class JSONPathHandler implements RequestHandler<APIGatewayV2HTTPEvent, AP
             logger.log("Request data: " + request.getJsonData());
             logger.log("Request query: " + request.getJsonPathQuery());
 
-            // Parse the JSON string directly with JsonPath, using TypeRef for unknown type
+            // Parse the JSON string directly with JsonPath
             Object result = JsonPath.parse(request.getJsonData())
-                                  .read(request.getJsonPathQuery(), new TypeRef<Object>() {});
+                                  .read(request.getJsonPathQuery());
 
             logger.log("Query result: " + result);
 
@@ -68,20 +67,9 @@ public class JSONPathHandler implements RequestHandler<APIGatewayV2HTTPEvent, AP
         private String jsonData;
         private String jsonPathQuery;
 
-        public String getJsonData() {
-            return jsonData;
-        }
-
-        public void setJsonData(String jsonData) {
-            this.jsonData = jsonData;
-        }
-
-        public String getJsonPathQuery() {
-            return jsonPathQuery;
-        }
-
-        public void setJsonPathQuery(String jsonPathQuery) {
-            this.jsonPathQuery = jsonPathQuery;
-        }
+        public String getJsonData() { return jsonData; }
+        public void setJsonData(String jsonData) { this.jsonData = jsonData; }
+        public String getJsonPathQuery() { return jsonPathQuery; }
+        public void setJsonPathQuery(String jsonPathQuery) { this.jsonPathQuery = jsonPathQuery; }
     }
 }

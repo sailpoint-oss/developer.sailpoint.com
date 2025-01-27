@@ -384,7 +384,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Index = "accounts" # String | The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*. 
+$Index = "accessprofiles" # String | The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*. 
 $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
 # Get a Document by ID
 try {

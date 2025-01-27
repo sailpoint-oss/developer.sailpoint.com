@@ -10,6 +10,7 @@ get:
       in: path
       description: The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
       required: true
+      x-sailpoint-resource-operation-id: getConnectorList
       style: simple
       explode: false
       schema:
@@ -52,6 +53,7 @@ put:
       in: path
       description: The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
       required: true
+      x-sailpoint-resource-operation-id: getConnectorList
       style: simple
       explode: false
       schema:

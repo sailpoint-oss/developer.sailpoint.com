@@ -16,6 +16,7 @@ post:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listPendingApprovals
       description: Approval ID.
       example: 2c91808b7294bea301729568c68c002e
   requestBody:

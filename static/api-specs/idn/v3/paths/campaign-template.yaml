@@ -16,6 +16,7 @@ patch:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getCampaignTemplates
       description: ID of the campaign template being modified.
       example: 2c9180835d191a86015d28455b4a2329
   requestBody:
@@ -88,6 +89,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getCampaignTemplates
       description: Requested campaign template's ID.
       example: 2c9180835d191a86015d28455b4a2329
   responses:
@@ -136,6 +138,7 @@ delete:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getCampaignTemplates
       description: ID of the campaign template being deleted.
       example: 2c9180835d191a86015d28455b4a2329
   responses:

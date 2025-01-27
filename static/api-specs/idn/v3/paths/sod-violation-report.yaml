@@ -13,6 +13,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: startSodPolicy
       description: The ID of the violation report to retrieve status for.
       example: ef38f943-47e9-4562-b5bb-8424a56397d8
   responses:

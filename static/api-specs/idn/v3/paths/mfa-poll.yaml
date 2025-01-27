@@ -15,6 +15,13 @@ post:
       schema:
         type: string
         example: okta-verify
+        nullable: false
+        enum:
+          - okta-verify
+          - duo-web
+          - kba
+          - token
+          - rsa
       required: true
       description: >-
         The name of the MFA method.

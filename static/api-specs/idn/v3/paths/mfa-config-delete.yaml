@@ -15,6 +15,10 @@ delete:
       schema:
         type: string
         example: okta-verify
+        nullable: false
+        enum:
+          - okta-verify
+          - duo-web
       required: true
       description: >-
         The name of the MFA method.

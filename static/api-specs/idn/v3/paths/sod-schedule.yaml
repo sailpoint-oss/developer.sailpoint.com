@@ -13,6 +13,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSodPolicies
       description: The ID of the SOD policy schedule to retrieve.
       example: ef38f943-47e9-4562-b5bb-8424a56397d8
   responses:
@@ -47,6 +48,7 @@ put:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSodPolicies
       description: The ID of the SOD policy to update its schedule.
       example: ef38f943-47e9-4562-b5bb-8424a56397d8
   requestBody:
@@ -87,6 +89,7 @@ delete:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSodPolicies
       description: The ID of the SOD policy the schedule must be deleted for.
       example: ef38f943-47e9-4562-b5bb-8424a56397d8
   responses:

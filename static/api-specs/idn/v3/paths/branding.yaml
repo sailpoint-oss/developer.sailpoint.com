@@ -16,6 +16,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getBrandingList
       description: The name of the branding item to be retrieved
       example: default
   responses:
@@ -50,6 +51,7 @@ put:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getBrandingList
       description: The name of the branding item to be retrieved
       example: default
   requestBody:
@@ -100,6 +102,7 @@ delete:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getBrandingList
       description: The name of the branding item to be deleted
       example: default
   responses:

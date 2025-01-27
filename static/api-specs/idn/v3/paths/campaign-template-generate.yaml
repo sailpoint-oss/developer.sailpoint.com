@@ -26,6 +26,7 @@ post:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getCampaignTemplates
       description: ID of the campaign template to use for generation.
       example: 2c9180835d191a86015d28455b4a2329
   responses:

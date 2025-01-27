@@ -16,6 +16,7 @@ post:
       description: >-
         Non-Employee sourceId
       required: true
+      x-sailpoint-resource-operation-id: listNonEmployeeSources
       schema:
         type: string
       example: e136567de87e4d029e60b3c3c55db56d

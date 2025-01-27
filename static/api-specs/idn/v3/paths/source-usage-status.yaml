@@ -10,6 +10,7 @@ get:
       in: path
       description: ID of IDN source
       required: true
+      x-sailpoint-resource-operation-id: listSources
       schema:
         type: string
       example: '2c9180835d191a86015d28455b4a2329'

@@ -18,6 +18,7 @@ get:
         type: string
         example: 2c91808571bcfcf80171c23e4b4221fc
       required: true
+      x-sailpoint-resource-operation-id: getActiveCampaigns
       description: ID of the campaign whose reports are being fetched.
   responses:
     '200':

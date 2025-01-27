@@ -338,7 +338,7 @@
   margin-right: 0.5rem;
 }
 
-@media only screen and (max-width: 1291px) {
+@media only screen and (max-width: 1450px) {
   .navbar__logo {
     content: var(--dev-sailpoint-small-logo);
   }

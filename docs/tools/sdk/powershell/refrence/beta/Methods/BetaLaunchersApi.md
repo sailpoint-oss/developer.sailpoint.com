@@ -186,7 +186,7 @@ Param Type | Name | Data Type | Required  | Description
 
 ### Return type
 
-[**GetLaunchers200Response**](../models/get-launchers200-response)
+
 
 ### Responses
 Code | Description  | Data Type
@@ -293,7 +293,7 @@ Path   | LauncherID | **String** | True  | ID of the Launcher to be launched
 
 ### Return type
 
-[**StartLauncher200Response**](../models/start-launcher200-response)
+
 
 ### Responses
 Code | Description  | Data Type

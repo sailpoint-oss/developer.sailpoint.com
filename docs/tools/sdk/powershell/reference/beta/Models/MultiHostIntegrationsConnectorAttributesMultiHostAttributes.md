@@ -1,5 +1,5 @@
 ---
-id: multi-host-integrations-connector-attributes-multi-host-attributes
+id: beta-multi-host-integrations-connector-attributes-multi-host-attributes
 title: MultiHostIntegrationsConnectorAttributesMultiHostAttributes
 pagination_label: MultiHostIntegrationsConnectorAttributesMultiHostAttributes
 sidebar_label: MultiHostIntegrationsConnectorAttributesMultiHostAttributes

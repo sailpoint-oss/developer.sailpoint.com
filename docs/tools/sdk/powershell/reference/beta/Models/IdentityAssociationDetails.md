@@ -1,5 +1,5 @@
 ---
-id: identity-association-details
+id: beta-identity-association-details
 title: IdentityAssociationDetails
 pagination_label: IdentityAssociationDetails
 sidebar_label: IdentityAssociationDetails

@@ -1,5 +1,5 @@
 ---
-id: data-access-impact-score
+id: v2024-data-access-impact-score
 title: DataAccessImpactScore
 pagination_label: DataAccessImpactScore
 sidebar_label: DataAccessImpactScore

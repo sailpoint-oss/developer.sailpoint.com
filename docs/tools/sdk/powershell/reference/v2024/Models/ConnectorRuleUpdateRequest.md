@@ -1,5 +1,5 @@
 ---
-id: connector-rule-update-request
+id: v2024-connector-rule-update-request
 title: ConnectorRuleUpdateRequest
 pagination_label: ConnectorRuleUpdateRequest
 sidebar_label: ConnectorRuleUpdateRequest

@@ -1,5 +1,5 @@
 ---
-id: bound
+id: v2024-bound
 title: Bound
 pagination_label: Bound
 sidebar_label: Bound

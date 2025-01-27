@@ -1,5 +1,5 @@
 ---
-id: search-arguments
+id: v2024-search-arguments
 title: SearchArguments
 pagination_label: SearchArguments
 sidebar_label: SearchArguments

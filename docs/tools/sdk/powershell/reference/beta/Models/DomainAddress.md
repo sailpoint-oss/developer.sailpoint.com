@@ -1,5 +1,5 @@
 ---
-id: domain-address
+id: beta-domain-address
 title: DomainAddress
 pagination_label: DomainAddress
 sidebar_label: DomainAddress

@@ -1,5 +1,5 @@
 ---
-id: account-info-dto
+id: v2024-account-info-dto
 title: AccountInfoDto
 pagination_label: AccountInfoDto
 sidebar_label: AccountInfoDto

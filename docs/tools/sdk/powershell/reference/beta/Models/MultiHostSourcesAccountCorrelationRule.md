@@ -1,5 +1,5 @@
 ---
-id: multi-host-sources-account-correlation-rule
+id: beta-multi-host-sources-account-correlation-rule
 title: MultiHostSourcesAccountCorrelationRule
 pagination_label: MultiHostSourcesAccountCorrelationRule
 sidebar_label: MultiHostSourcesAccountCorrelationRule

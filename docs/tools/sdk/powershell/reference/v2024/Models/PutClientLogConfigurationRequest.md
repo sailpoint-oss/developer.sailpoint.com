@@ -1,5 +1,5 @@
 ---
-id: put-client-log-configuration-request
+id: v2024-put-client-log-configuration-request
 title: PutClientLogConfigurationRequest
 pagination_label: PutClientLogConfigurationRequest
 sidebar_label: PutClientLogConfigurationRequest

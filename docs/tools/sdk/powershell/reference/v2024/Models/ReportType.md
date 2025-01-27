@@ -1,5 +1,5 @@
 ---
-id: report-type
+id: v2024-report-type
 title: ReportType
 pagination_label: ReportType
 sidebar_label: ReportType

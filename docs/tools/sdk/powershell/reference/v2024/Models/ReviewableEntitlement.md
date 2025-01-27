@@ -1,5 +1,5 @@
 ---
-id: reviewable-entitlement
+id: v2024-reviewable-entitlement
 title: ReviewableEntitlement
 pagination_label: ReviewableEntitlement
 sidebar_label: ReviewableEntitlement

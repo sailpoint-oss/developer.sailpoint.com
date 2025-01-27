@@ -1,5 +1,5 @@
 ---
-id: account-attributes-changed-changes-inner-new-value
+id: beta-account-attributes-changed-changes-inner-new-value
 title: AccountAttributesChangedChangesInnerNewValue
 pagination_label: AccountAttributesChangedChangesInnerNewValue
 sidebar_label: AccountAttributesChangedChangesInnerNewValue

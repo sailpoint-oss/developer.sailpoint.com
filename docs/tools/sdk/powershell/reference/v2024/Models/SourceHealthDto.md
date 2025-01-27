@@ -1,5 +1,5 @@
 ---
-id: source-health-dto
+id: v2024-source-health-dto
 title: SourceHealthDto
 pagination_label: SourceHealthDto
 sidebar_label: SourceHealthDto

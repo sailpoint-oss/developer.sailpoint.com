@@ -1,5 +1,5 @@
 ---
-id: bulk-add-tagged-object
+id: v2024-bulk-add-tagged-object
 title: BulkAddTaggedObject
 pagination_label: BulkAddTaggedObject
 sidebar_label: BulkAddTaggedObject

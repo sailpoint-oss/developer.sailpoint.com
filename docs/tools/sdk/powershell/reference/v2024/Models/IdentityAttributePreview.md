@@ -1,5 +1,5 @@
 ---
-id: identity-attribute-preview
+id: v2024-identity-attribute-preview
 title: IdentityAttributePreview
 pagination_label: IdentityAttributePreview
 sidebar_label: IdentityAttributePreview

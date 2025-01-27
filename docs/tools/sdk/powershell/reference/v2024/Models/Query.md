@@ -1,5 +1,5 @@
 ---
-id: query
+id: v2024-query
 title: Query
 pagination_label: Query
 sidebar_label: Query

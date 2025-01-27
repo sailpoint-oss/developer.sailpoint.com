@@ -1,5 +1,5 @@
 ---
-id: manual-work-item-details1
+id: v2024-manual-work-item-details1
 title: ManualWorkItemDetails1
 pagination_label: ManualWorkItemDetails1
 sidebar_label: ManualWorkItemDetails1

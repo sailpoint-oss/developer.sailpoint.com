@@ -1,5 +1,5 @@
 ---
-id: password-digit-token
+id: v2024-password-digit-token
 title: PasswordDigitToken
 pagination_label: PasswordDigitToken
 sidebar_label: PasswordDigitToken

@@ -1,5 +1,5 @@
 ---
-id: fullcampaign-all-of-role-composition-campaign-info-remediator-ref
+id: beta-fullcampaign-all-of-role-composition-campaign-info-remediator-ref
 title: FullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef
 pagination_label: FullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef
 sidebar_label: FullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef

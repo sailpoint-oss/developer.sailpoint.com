@@ -1,5 +1,5 @@
 ---
-id: exception-criteria
+id: beta-exception-criteria
 title: ExceptionCriteria
 pagination_label: ExceptionCriteria
 sidebar_label: ExceptionCriteria

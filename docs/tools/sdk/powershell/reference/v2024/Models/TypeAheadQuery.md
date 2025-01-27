@@ -1,5 +1,5 @@
 ---
-id: type-ahead-query
+id: v2024-type-ahead-query
 title: TypeAheadQuery
 pagination_label: TypeAheadQuery
 sidebar_label: TypeAheadQuery

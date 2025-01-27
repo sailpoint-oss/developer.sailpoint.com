@@ -1,5 +1,5 @@
 ---
-id: kba-question
+id: beta-kba-question
 title: KbaQuestion
 pagination_label: KbaQuestion
 sidebar_label: KbaQuestion

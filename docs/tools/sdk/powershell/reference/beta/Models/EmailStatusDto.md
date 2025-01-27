@@ -1,5 +1,5 @@
 ---
-id: email-status-dto
+id: beta-email-status-dto
 title: EmailStatusDto
 pagination_label: EmailStatusDto
 sidebar_label: EmailStatusDto

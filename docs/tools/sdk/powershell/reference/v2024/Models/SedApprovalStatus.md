@@ -1,5 +1,5 @@
 ---
-id: sed-approval-status
+id: v2024-sed-approval-status
 title: SedApprovalStatus
 pagination_label: SedApprovalStatus
 sidebar_label: SedApprovalStatus

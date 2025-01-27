@@ -1,5 +1,5 @@
 ---
-id: form-item
+id: beta-form-item
 title: FormItem
 pagination_label: FormItem
 sidebar_label: FormItem

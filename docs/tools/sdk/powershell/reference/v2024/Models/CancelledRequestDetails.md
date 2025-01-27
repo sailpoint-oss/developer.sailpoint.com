@@ -1,5 +1,5 @@
 ---
-id: cancelled-request-details
+id: v2024-cancelled-request-details
 title: CancelledRequestDetails
 pagination_label: CancelledRequestDetails
 sidebar_label: CancelledRequestDetails

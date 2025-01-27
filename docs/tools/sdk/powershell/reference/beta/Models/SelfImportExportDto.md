@@ -1,5 +1,5 @@
 ---
-id: self-import-export-dto
+id: beta-self-import-export-dto
 title: SelfImportExportDto
 pagination_label: SelfImportExportDto
 sidebar_label: SelfImportExportDto

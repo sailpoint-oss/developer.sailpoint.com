@@ -1,5 +1,5 @@
 ---
-id: fullcampaign-all-of-sources-with-orphan-entitlements
+id: beta-fullcampaign-all-of-sources-with-orphan-entitlements
 title: FullcampaignAllOfSourcesWithOrphanEntitlements
 pagination_label: FullcampaignAllOfSourcesWithOrphanEntitlements
 sidebar_label: FullcampaignAllOfSourcesWithOrphanEntitlements

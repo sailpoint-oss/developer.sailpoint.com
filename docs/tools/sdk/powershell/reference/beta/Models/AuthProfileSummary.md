@@ -1,5 +1,5 @@
 ---
-id: auth-profile-summary
+id: beta-auth-profile-summary
 title: AuthProfileSummary
 pagination_label: AuthProfileSummary
 sidebar_label: AuthProfileSummary

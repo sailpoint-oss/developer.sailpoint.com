@@ -1,5 +1,5 @@
 ---
-id: account-attributes-create-attributes
+id: v2024-account-attributes-create-attributes
 title: AccountAttributesCreateAttributes
 pagination_label: AccountAttributesCreateAttributes
 sidebar_label: AccountAttributesCreateAttributes

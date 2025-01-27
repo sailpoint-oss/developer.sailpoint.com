@@ -1,5 +1,5 @@
 ---
-id: account-activity-document
+id: v2024-account-activity-document
 title: AccountActivityDocument
 pagination_label: AccountActivityDocument
 sidebar_label: AccountActivityDocument

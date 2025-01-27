@@ -1,5 +1,5 @@
 ---
-id: subscription-put-request
+id: v2024-subscription-put-request
 title: SubscriptionPutRequest
 pagination_label: SubscriptionPutRequest
 sidebar_label: SubscriptionPutRequest

@@ -1,5 +1,5 @@
 ---
-id: v3-connector-dto
+id: v2024-v3-connector-dto
 title: V3ConnectorDto
 pagination_label: V3ConnectorDto
 sidebar_label: V3ConnectorDto

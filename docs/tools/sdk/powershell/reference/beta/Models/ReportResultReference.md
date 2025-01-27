@@ -1,5 +1,5 @@
 ---
-id: report-result-reference
+id: beta-report-result-reference
 title: ReportResultReference
 pagination_label: ReportResultReference
 sidebar_label: ReportResultReference

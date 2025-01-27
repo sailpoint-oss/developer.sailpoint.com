@@ -1,5 +1,5 @@
 ---
-id: close-access-request
+id: v2024-close-access-request
 title: CloseAccessRequest
 pagination_label: CloseAccessRequest
 sidebar_label: CloseAccessRequest

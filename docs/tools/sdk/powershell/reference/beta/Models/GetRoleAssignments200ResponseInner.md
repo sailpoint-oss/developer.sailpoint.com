@@ -1,5 +1,5 @@
 ---
-id: get-role-assignments200-response-inner
+id: beta-get-role-assignments200-response-inner
 title: GetRoleAssignments200ResponseInner
 pagination_label: GetRoleAssignments200ResponseInner
 sidebar_label: GetRoleAssignments200ResponseInner

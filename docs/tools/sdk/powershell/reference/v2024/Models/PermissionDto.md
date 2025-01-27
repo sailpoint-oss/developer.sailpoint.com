@@ -1,5 +1,5 @@
 ---
-id: permission-dto
+id: v2024-permission-dto
 title: PermissionDto
 pagination_label: PermissionDto
 sidebar_label: PermissionDto

@@ -1,5 +1,5 @@
 ---
-id: mfa-okta-config
+id: beta-mfa-okta-config
 title: MfaOktaConfig
 pagination_label: MfaOktaConfig
 sidebar_label: MfaOktaConfig

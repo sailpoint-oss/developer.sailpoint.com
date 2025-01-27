@@ -1,5 +1,5 @@
 ---
-id: load-accounts-task-task-returns-inner
+id: beta-load-accounts-task-task-returns-inner
 title: LoadAccountsTaskTaskReturnsInner
 pagination_label: LoadAccountsTaskTaskReturnsInner
 sidebar_label: LoadAccountsTaskTaskReturnsInner

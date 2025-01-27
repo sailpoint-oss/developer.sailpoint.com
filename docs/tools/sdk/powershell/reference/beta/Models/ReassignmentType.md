@@ -1,5 +1,5 @@
 ---
-id: reassignment-type
+id: beta-reassignment-type
 title: ReassignmentType
 pagination_label: ReassignmentType
 sidebar_label: ReassignmentType

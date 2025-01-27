@@ -1,5 +1,5 @@
 ---
-id: queued-check-config-details
+id: v2024-queued-check-config-details
 title: QueuedCheckConfigDetails
 pagination_label: QueuedCheckConfigDetails
 sidebar_label: QueuedCheckConfigDetails

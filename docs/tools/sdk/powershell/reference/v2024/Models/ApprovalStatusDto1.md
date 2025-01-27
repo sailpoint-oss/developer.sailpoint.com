@@ -1,5 +1,5 @@
 ---
-id: approval-status-dto1
+id: v2024-approval-status-dto1
 title: ApprovalStatusDto1
 pagination_label: ApprovalStatusDto1
 sidebar_label: ApprovalStatusDto1

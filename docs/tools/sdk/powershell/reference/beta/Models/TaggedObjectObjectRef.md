@@ -1,5 +1,5 @@
 ---
-id: tagged-object-object-ref
+id: beta-tagged-object-object-ref
 title: TaggedObjectObjectRef
 pagination_label: TaggedObjectObjectRef
 sidebar_label: TaggedObjectObjectRef

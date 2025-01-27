@@ -1,5 +1,5 @@
 ---
-id: latest-outlier-summary
+id: v2024-latest-outlier-summary
 title: LatestOutlierSummary
 pagination_label: LatestOutlierSummary
 sidebar_label: LatestOutlierSummary

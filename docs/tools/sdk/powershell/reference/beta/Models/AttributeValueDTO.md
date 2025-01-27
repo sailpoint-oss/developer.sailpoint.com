@@ -1,5 +1,5 @@
 ---
-id: attribute-value-dto
+id: beta-attribute-value-dto
 title: AttributeValueDTO
 pagination_label: AttributeValueDTO
 sidebar_label: AttributeValueDTO

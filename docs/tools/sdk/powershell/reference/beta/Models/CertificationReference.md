@@ -1,5 +1,5 @@
 ---
-id: certification-reference
+id: beta-certification-reference
 title: CertificationReference
 pagination_label: CertificationReference
 sidebar_label: CertificationReference

@@ -1,5 +1,5 @@
 ---
-id: approval-comment
+id: v2024-approval-comment
 title: ApprovalComment
 pagination_label: ApprovalComment
 sidebar_label: ApprovalComment

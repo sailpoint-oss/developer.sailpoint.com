@@ -1,5 +1,5 @@
 ---
-id: base-access
+id: v2024-base-access
 title: BaseAccess
 pagination_label: BaseAccess
 sidebar_label: BaseAccess

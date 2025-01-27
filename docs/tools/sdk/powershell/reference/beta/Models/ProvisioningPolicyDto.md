@@ -1,5 +1,5 @@
 ---
-id: provisioning-policy-dto
+id: beta-provisioning-policy-dto
 title: ProvisioningPolicyDto
 pagination_label: ProvisioningPolicyDto
 sidebar_label: ProvisioningPolicyDto

@@ -1,5 +1,5 @@
 ---
-id: sod-policy-owner-ref
+id: beta-sod-policy-owner-ref
 title: SodPolicyOwnerRef
 pagination_label: SodPolicyOwnerRef
 sidebar_label: SodPolicyOwnerRef

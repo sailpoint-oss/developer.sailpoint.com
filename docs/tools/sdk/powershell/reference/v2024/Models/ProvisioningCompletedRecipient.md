@@ -1,5 +1,5 @@
 ---
-id: provisioning-completed-recipient
+id: v2024-provisioning-completed-recipient
 title: ProvisioningCompletedRecipient
 pagination_label: ProvisioningCompletedRecipient
 sidebar_label: ProvisioningCompletedRecipient

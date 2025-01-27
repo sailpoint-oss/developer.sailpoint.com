@@ -1,5 +1,5 @@
 ---
-id: source-password-policies-inner
+id: v2024-source-password-policies-inner
 title: SourcePasswordPoliciesInner
 pagination_label: SourcePasswordPoliciesInner
 sidebar_label: SourcePasswordPoliciesInner

@@ -1,5 +1,5 @@
 ---
-id: entitlement1-access-model-metadata
+id: v2024-entitlement1-access-model-metadata
 title: Entitlement1AccessModelMetadata
 pagination_label: Entitlement1AccessModelMetadata
 sidebar_label: Entitlement1AccessModelMetadata

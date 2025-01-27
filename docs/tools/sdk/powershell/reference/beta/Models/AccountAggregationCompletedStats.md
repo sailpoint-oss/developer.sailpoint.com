@@ -1,5 +1,5 @@
 ---
-id: account-aggregation-completed-stats
+id: beta-account-aggregation-completed-stats
 title: AccountAggregationCompletedStats
 pagination_label: AccountAggregationCompletedStats
 sidebar_label: AccountAggregationCompletedStats

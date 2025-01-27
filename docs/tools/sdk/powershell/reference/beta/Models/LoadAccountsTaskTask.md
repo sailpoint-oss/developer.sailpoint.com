@@ -1,5 +1,5 @@
 ---
-id: load-accounts-task-task
+id: beta-load-accounts-task-task
 title: LoadAccountsTaskTask
 pagination_label: LoadAccountsTaskTask
 sidebar_label: LoadAccountsTaskTask

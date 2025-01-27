@@ -1,5 +1,5 @@
 ---
-id: set-lifecycle-state-request
+id: v2024-set-lifecycle-state-request
 title: SetLifecycleStateRequest
 pagination_label: SetLifecycleStateRequest
 sidebar_label: SetLifecycleStateRequest

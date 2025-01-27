@@ -1,5 +1,5 @@
 ---
-id: test-invocation
+id: v2024-test-invocation
 title: TestInvocation
 pagination_label: TestInvocation
 sidebar_label: TestInvocation

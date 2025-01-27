@@ -1,5 +1,5 @@
 ---
-id: report-details
+id: v2024-report-details
 title: ReportDetails
 pagination_label: ReportDetails
 sidebar_label: ReportDetails

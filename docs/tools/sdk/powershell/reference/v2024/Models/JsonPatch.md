@@ -1,5 +1,5 @@
 ---
-id: json-patch
+id: v2024-json-patch
 title: JsonPatch
 pagination_label: JsonPatch
 sidebar_label: JsonPatch

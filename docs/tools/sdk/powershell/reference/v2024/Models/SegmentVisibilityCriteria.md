@@ -1,5 +1,5 @@
 ---
-id: segment-visibility-criteria
+id: v2024-segment-visibility-criteria
 title: SegmentVisibilityCriteria
 pagination_label: SegmentVisibilityCriteria
 sidebar_label: SegmentVisibilityCriteria

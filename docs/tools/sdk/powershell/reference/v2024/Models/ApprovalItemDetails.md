@@ -1,5 +1,5 @@
 ---
-id: approval-item-details
+id: v2024-approval-item-details
 title: ApprovalItemDetails
 pagination_label: ApprovalItemDetails
 sidebar_label: ApprovalItemDetails

@@ -1,5 +1,5 @@
 ---
-id: pre-approval-trigger-details
+id: v2024-pre-approval-trigger-details
 title: PreApprovalTriggerDetails
 pagination_label: PreApprovalTriggerDetails
 sidebar_label: PreApprovalTriggerDetails

@@ -1,5 +1,5 @@
 ---
-id: form-definition-dynamic-schema-request
+id: beta-form-definition-dynamic-schema-request
 title: FormDefinitionDynamicSchemaRequest
 pagination_label: FormDefinitionDynamicSchemaRequest
 sidebar_label: FormDefinitionDynamicSchemaRequest

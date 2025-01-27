@@ -1,5 +1,5 @@
 ---
-id: identity-certified
+id: beta-identity-certified
 title: IdentityCertified
 pagination_label: IdentityCertified
 sidebar_label: IdentityCertified

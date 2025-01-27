@@ -1,5 +1,5 @@
 ---
-id: filter-type
+id: v2024-filter-type
 title: FilterType
 pagination_label: FilterType
 sidebar_label: FilterType

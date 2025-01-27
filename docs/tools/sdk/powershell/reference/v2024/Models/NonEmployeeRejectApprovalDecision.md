@@ -1,5 +1,5 @@
 ---
-id: non-employee-reject-approval-decision
+id: v2024-non-employee-reject-approval-decision
 title: NonEmployeeRejectApprovalDecision
 pagination_label: NonEmployeeRejectApprovalDecision
 sidebar_label: NonEmployeeRejectApprovalDecision

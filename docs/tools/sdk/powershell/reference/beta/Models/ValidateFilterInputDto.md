@@ -1,5 +1,5 @@
 ---
-id: validate-filter-input-dto
+id: beta-validate-filter-input-dto
 title: ValidateFilterInputDto
 pagination_label: ValidateFilterInputDto
 sidebar_label: ValidateFilterInputDto

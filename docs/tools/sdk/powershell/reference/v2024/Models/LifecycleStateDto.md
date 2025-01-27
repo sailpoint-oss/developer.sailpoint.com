@@ -1,5 +1,5 @@
 ---
-id: lifecycle-state-dto
+id: v2024-lifecycle-state-dto
 title: LifecycleStateDto
 pagination_label: LifecycleStateDto
 sidebar_label: LifecycleStateDto

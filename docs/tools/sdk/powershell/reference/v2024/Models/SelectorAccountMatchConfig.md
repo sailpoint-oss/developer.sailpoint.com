@@ -1,5 +1,5 @@
 ---
-id: selector-account-match-config
+id: v2024-selector-account-match-config
 title: SelectorAccountMatchConfig
 pagination_label: SelectorAccountMatchConfig
 sidebar_label: SelectorAccountMatchConfig

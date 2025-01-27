@@ -1,5 +1,5 @@
 ---
-id: source-management-workgroup
+id: v2024-source-management-workgroup
 title: SourceManagementWorkgroup
 pagination_label: SourceManagementWorkgroup
 sidebar_label: SourceManagementWorkgroup

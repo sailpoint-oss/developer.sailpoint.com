@@ -1,5 +1,5 @@
 ---
-id: certifier-response
+id: v2024-certifier-response
 title: CertifierResponse
 pagination_label: CertifierResponse
 sidebar_label: CertifierResponse

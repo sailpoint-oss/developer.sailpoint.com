@@ -1,5 +1,5 @@
 ---
-id: accounts-collected-for-aggregation-source
+id: beta-accounts-collected-for-aggregation-source
 title: AccountsCollectedForAggregationSource
 pagination_label: AccountsCollectedForAggregationSource
 sidebar_label: AccountsCollectedForAggregationSource

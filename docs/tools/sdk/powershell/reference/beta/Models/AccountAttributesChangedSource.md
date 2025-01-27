@@ -1,5 +1,5 @@
 ---
-id: account-attributes-changed-source
+id: beta-account-attributes-changed-source
 title: AccountAttributesChangedSource
 pagination_label: AccountAttributesChangedSource
 sidebar_label: AccountAttributesChangedSource

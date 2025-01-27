@@ -1,5 +1,5 @@
 ---
-id: base-common-dto1
+id: beta-base-common-dto1
 title: BaseCommonDto1
 pagination_label: BaseCommonDto1
 sidebar_label: BaseCommonDto1

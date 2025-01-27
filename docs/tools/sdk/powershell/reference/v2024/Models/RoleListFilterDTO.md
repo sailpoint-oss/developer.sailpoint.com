@@ -1,5 +1,5 @@
 ---
-id: role-list-filter-dto
+id: v2024-role-list-filter-dto
 title: RoleListFilterDTO
 pagination_label: RoleListFilterDTO
 sidebar_label: RoleListFilterDTO

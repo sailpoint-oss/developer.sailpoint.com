@@ -1,5 +1,5 @@
 ---
-id: identity-history-response
+id: v2024-identity-history-response
 title: IdentityHistoryResponse
 pagination_label: IdentityHistoryResponse
 sidebar_label: IdentityHistoryResponse

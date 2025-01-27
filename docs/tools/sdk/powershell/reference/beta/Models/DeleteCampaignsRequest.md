@@ -1,5 +1,5 @@
 ---
-id: delete-campaigns-request
+id: beta-delete-campaigns-request
 title: DeleteCampaignsRequest
 pagination_label: DeleteCampaignsRequest
 sidebar_label: DeleteCampaignsRequest

@@ -1,5 +1,5 @@
 ---
-id: field-details
+id: beta-field-details
 title: FieldDetails
 pagination_label: FieldDetails
 sidebar_label: FieldDetails

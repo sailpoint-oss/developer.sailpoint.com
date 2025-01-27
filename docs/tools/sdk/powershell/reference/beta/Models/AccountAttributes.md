@@ -1,5 +1,5 @@
 ---
-id: account-attributes
+id: beta-account-attributes
 title: AccountAttributes
 pagination_label: AccountAttributes
 sidebar_label: AccountAttributes

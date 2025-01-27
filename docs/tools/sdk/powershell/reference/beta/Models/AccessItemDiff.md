@@ -1,5 +1,5 @@
 ---
-id: access-item-diff
+id: beta-access-item-diff
 title: AccessItemDiff
 pagination_label: AccessItemDiff
 sidebar_label: AccessItemDiff

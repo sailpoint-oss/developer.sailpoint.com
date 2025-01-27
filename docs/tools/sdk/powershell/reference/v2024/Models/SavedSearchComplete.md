@@ -1,5 +1,5 @@
 ---
-id: saved-search-complete
+id: v2024-saved-search-complete
 title: SavedSearchComplete
 pagination_label: SavedSearchComplete
 sidebar_label: SavedSearchComplete

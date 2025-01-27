@@ -1,5 +1,5 @@
 ---
-id: bulk-tagged-object
+id: beta-bulk-tagged-object
 title: BulkTaggedObject
 pagination_label: BulkTaggedObject
 sidebar_label: BulkTaggedObject

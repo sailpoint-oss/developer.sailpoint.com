@@ -1,5 +1,5 @@
 ---
-id: account-correlated-identity
+id: v2024-account-correlated-identity
 title: AccountCorrelatedIdentity
 pagination_label: AccountCorrelatedIdentity
 sidebar_label: AccountCorrelatedIdentity

@@ -1,5 +1,5 @@
 ---
-id: workflow-body-owner
+id: v2024-workflow-body-owner
 title: WorkflowBodyOwner
 pagination_label: WorkflowBodyOwner
 sidebar_label: WorkflowBodyOwner

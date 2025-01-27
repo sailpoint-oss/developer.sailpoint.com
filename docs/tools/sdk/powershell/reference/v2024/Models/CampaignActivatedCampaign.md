@@ -1,5 +1,5 @@
 ---
-id: campaign-activated-campaign
+id: v2024-campaign-activated-campaign
 title: CampaignActivatedCampaign
 pagination_label: CampaignActivatedCampaign
 sidebar_label: CampaignActivatedCampaign

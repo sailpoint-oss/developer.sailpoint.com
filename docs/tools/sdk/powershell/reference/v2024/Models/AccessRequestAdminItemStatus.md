@@ -1,5 +1,5 @@
 ---
-id: access-request-admin-item-status
+id: v2024-access-request-admin-item-status
 title: AccessRequestAdminItemStatus
 pagination_label: AccessRequestAdminItemStatus
 sidebar_label: AccessRequestAdminItemStatus

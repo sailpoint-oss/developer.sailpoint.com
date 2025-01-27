@@ -1,5 +1,5 @@
 ---
-id: identity1
+id: v2024-identity1
 title: Identity1
 pagination_label: Identity1
 sidebar_label: Identity1

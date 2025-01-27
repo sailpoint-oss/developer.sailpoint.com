@@ -1,5 +1,5 @@
 ---
-id: approval1
+id: v2024-approval1
 title: Approval1
 pagination_label: Approval1
 sidebar_label: Approval1

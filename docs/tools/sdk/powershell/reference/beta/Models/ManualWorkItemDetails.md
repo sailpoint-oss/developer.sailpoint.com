@@ -1,5 +1,5 @@
 ---
-id: manual-work-item-details
+id: beta-manual-work-item-details
 title: ManualWorkItemDetails
 pagination_label: ManualWorkItemDetails
 sidebar_label: ManualWorkItemDetails

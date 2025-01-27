@@ -1,5 +1,5 @@
 ---
-id: reference1
+id: v2024-reference1
 title: Reference1
 pagination_label: Reference1
 sidebar_label: Reference1

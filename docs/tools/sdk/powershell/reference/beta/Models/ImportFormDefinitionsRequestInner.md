@@ -1,5 +1,5 @@
 ---
-id: import-form-definitions-request-inner
+id: beta-import-form-definitions-request-inner
 title: ImportFormDefinitionsRequestInner
 pagination_label: ImportFormDefinitionsRequestInner
 sidebar_label: ImportFormDefinitionsRequestInner

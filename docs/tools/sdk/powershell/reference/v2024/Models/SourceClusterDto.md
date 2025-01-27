@@ -1,5 +1,5 @@
 ---
-id: source-cluster-dto
+id: v2024-source-cluster-dto
 title: SourceClusterDto
 pagination_label: SourceClusterDto
 sidebar_label: SourceClusterDto

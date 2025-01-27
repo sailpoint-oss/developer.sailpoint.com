@@ -1,5 +1,5 @@
 ---
-id: account-aggregation-status
+id: v2024-account-aggregation-status
 title: AccountAggregationStatus
 pagination_label: AccountAggregationStatus
 sidebar_label: AccountAggregationStatus

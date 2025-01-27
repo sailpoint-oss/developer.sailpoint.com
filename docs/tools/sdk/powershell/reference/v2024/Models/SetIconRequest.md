@@ -1,5 +1,5 @@
 ---
-id: set-icon-request
+id: v2024-set-icon-request
 title: SetIconRequest
 pagination_label: SetIconRequest
 sidebar_label: SetIconRequest

@@ -1,5 +1,5 @@
 ---
-id: access-item-requester
+id: beta-access-item-requester
 title: AccessItemRequester
 pagination_label: AccessItemRequester
 sidebar_label: AccessItemRequester

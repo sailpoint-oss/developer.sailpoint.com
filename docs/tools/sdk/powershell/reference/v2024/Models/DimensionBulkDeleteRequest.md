@@ -1,5 +1,5 @@
 ---
-id: dimension-bulk-delete-request
+id: v2024-dimension-bulk-delete-request
 title: DimensionBulkDeleteRequest
 pagination_label: DimensionBulkDeleteRequest
 sidebar_label: DimensionBulkDeleteRequest

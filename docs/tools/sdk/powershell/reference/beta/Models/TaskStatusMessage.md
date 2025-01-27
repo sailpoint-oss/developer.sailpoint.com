@@ -1,5 +1,5 @@
 ---
-id: task-status-message
+id: beta-task-status-message
 title: TaskStatusMessage
 pagination_label: TaskStatusMessage
 sidebar_label: TaskStatusMessage

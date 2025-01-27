@@ -1,5 +1,5 @@
 ---
-id: completed-approval-pre-approval-trigger-result
+id: v2024-completed-approval-pre-approval-trigger-result
 title: CompletedApprovalPreApprovalTriggerResult
 pagination_label: CompletedApprovalPreApprovalTriggerResult
 sidebar_label: CompletedApprovalPreApprovalTriggerResult

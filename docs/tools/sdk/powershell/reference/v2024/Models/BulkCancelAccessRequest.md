@@ -1,5 +1,5 @@
 ---
-id: bulk-cancel-access-request
+id: v2024-bulk-cancel-access-request
 title: BulkCancelAccessRequest
 pagination_label: BulkCancelAccessRequest
 sidebar_label: BulkCancelAccessRequest

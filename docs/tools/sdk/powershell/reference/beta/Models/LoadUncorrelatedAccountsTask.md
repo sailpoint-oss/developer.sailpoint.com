@@ -1,5 +1,5 @@
 ---
-id: load-uncorrelated-accounts-task
+id: beta-load-uncorrelated-accounts-task
 title: LoadUncorrelatedAccountsTask
 pagination_label: LoadUncorrelatedAccountsTask
 sidebar_label: LoadUncorrelatedAccountsTask

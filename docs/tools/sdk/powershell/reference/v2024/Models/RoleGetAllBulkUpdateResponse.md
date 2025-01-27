@@ -1,5 +1,5 @@
 ---
-id: role-get-all-bulk-update-response
+id: v2024-role-get-all-bulk-update-response
 title: RoleGetAllBulkUpdateResponse
 pagination_label: RoleGetAllBulkUpdateResponse
 sidebar_label: RoleGetAllBulkUpdateResponse

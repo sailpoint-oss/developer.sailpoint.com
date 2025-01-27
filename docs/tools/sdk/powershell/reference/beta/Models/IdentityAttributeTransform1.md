@@ -1,5 +1,5 @@
 ---
-id: identity-attribute-transform1
+id: beta-identity-attribute-transform1
 title: IdentityAttributeTransform1
 pagination_label: IdentityAttributeTransform1
 sidebar_label: IdentityAttributeTransform1

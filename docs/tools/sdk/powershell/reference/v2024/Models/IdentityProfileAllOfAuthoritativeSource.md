@@ -1,5 +1,5 @@
 ---
-id: identity-profile-all-of-authoritative-source
+id: v2024-identity-profile-all-of-authoritative-source
 title: IdentityProfileAllOfAuthoritativeSource
 pagination_label: IdentityProfileAllOfAuthoritativeSource
 sidebar_label: IdentityProfileAllOfAuthoritativeSource

@@ -1,5 +1,5 @@
 ---
-id: account-toggle-request
+id: v2024-account-toggle-request
 title: AccountToggleRequest
 pagination_label: AccountToggleRequest
 sidebar_label: AccountToggleRequest

@@ -1,5 +1,5 @@
 ---
-id: concatenation
+id: beta-concatenation
 title: Concatenation
 pagination_label: Concatenation
 sidebar_label: Concatenation

@@ -1,5 +1,5 @@
 ---
-id: right-pad
+id: v2024-right-pad
 title: RightPad
 pagination_label: RightPad
 sidebar_label: RightPad

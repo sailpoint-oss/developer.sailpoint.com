@@ -1,5 +1,5 @@
 ---
-id: campaign-all-of-role-composition-campaign-info-remediator-ref
+id: v2024-campaign-all-of-role-composition-campaign-info-remediator-ref
 title: CampaignAllOfRoleCompositionCampaignInfoRemediatorRef
 pagination_label: CampaignAllOfRoleCompositionCampaignInfoRemediatorRef
 sidebar_label: CampaignAllOfRoleCompositionCampaignInfoRemediatorRef

@@ -1,5 +1,5 @@
 ---
-id: correlated-governance-event
+id: v2024-correlated-governance-event
 title: CorrelatedGovernanceEvent
 pagination_label: CorrelatedGovernanceEvent
 sidebar_label: CorrelatedGovernanceEvent

@@ -1,5 +1,5 @@
 ---
-id: attr-sync-source-attribute-config
+id: v2024-attr-sync-source-attribute-config
 title: AttrSyncSourceAttributeConfig
 pagination_label: AttrSyncSourceAttributeConfig
 sidebar_label: AttrSyncSourceAttributeConfig

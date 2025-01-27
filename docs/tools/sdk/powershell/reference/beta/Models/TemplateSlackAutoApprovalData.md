@@ -1,5 +1,5 @@
 ---
-id: template-slack-auto-approval-data
+id: beta-template-slack-auto-approval-data
 title: TemplateSlackAutoApprovalData
 pagination_label: TemplateSlackAutoApprovalData
 sidebar_label: TemplateSlackAutoApprovalData

@@ -1,5 +1,5 @@
 ---
-id: entitlement-approval-scheme
+id: v2024-entitlement-approval-scheme
 title: EntitlementApprovalScheme
 pagination_label: EntitlementApprovalScheme
 sidebar_label: EntitlementApprovalScheme

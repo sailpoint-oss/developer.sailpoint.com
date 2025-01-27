@@ -1,5 +1,5 @@
 ---
-id: work-items-summary
+id: beta-work-items-summary
 title: WorkItemsSummary
 pagination_label: WorkItemsSummary
 sidebar_label: WorkItemsSummary

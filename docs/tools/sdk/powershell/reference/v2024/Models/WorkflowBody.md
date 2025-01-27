@@ -1,5 +1,5 @@
 ---
-id: workflow-body
+id: v2024-workflow-body
 title: WorkflowBody
 pagination_label: WorkflowBody
 sidebar_label: WorkflowBody

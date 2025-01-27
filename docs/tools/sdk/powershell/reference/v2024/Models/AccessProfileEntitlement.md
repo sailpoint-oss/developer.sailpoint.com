@@ -1,5 +1,5 @@
 ---
-id: access-profile-entitlement
+id: v2024-access-profile-entitlement
 title: AccessProfileEntitlement
 pagination_label: AccessProfileEntitlement
 sidebar_label: AccessProfileEntitlement

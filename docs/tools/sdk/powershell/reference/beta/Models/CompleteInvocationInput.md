@@ -1,5 +1,5 @@
 ---
-id: complete-invocation-input
+id: beta-complete-invocation-input
 title: CompleteInvocationInput
 pagination_label: CompleteInvocationInput
 sidebar_label: CompleteInvocationInput

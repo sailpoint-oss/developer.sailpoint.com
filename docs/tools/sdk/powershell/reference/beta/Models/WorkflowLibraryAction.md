@@ -1,5 +1,5 @@
 ---
-id: workflow-library-action
+id: beta-workflow-library-action
 title: WorkflowLibraryAction
 pagination_label: WorkflowLibraryAction
 sidebar_label: WorkflowLibraryAction

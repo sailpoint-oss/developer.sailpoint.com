@@ -1,5 +1,5 @@
 ---
-id: form-definition-file-upload-response
+id: beta-form-definition-file-upload-response
 title: FormDefinitionFileUploadResponse
 pagination_label: FormDefinitionFileUploadResponse
 sidebar_label: FormDefinitionFileUploadResponse

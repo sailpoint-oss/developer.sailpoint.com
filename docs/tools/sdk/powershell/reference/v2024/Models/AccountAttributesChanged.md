@@ -1,5 +1,5 @@
 ---
-id: account-attributes-changed
+id: v2024-account-attributes-changed
 title: AccountAttributesChanged
 pagination_label: AccountAttributesChanged
 sidebar_label: AccountAttributesChanged

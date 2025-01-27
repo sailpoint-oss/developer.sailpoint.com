@@ -1,5 +1,5 @@
 ---
-id: role-insights-identities
+id: beta-role-insights-identities
 title: RoleInsightsIdentities
 pagination_label: RoleInsightsIdentities
 sidebar_label: RoleInsightsIdentities

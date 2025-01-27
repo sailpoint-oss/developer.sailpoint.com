@@ -1,5 +1,5 @@
 ---
-id: recommender-calculations
+id: beta-recommender-calculations
 title: RecommenderCalculations
 pagination_label: RecommenderCalculations
 sidebar_label: RecommenderCalculations

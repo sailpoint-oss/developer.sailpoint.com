@@ -1,5 +1,5 @@
 ---
-id: managed-cluster-attributes
+id: beta-managed-cluster-attributes
 title: ManagedClusterAttributes
 pagination_label: ManagedClusterAttributes
 sidebar_label: ManagedClusterAttributes

@@ -1,5 +1,5 @@
 ---
-id: source-sync-payload
+id: v2024-source-sync-payload
 title: SourceSyncPayload
 pagination_label: SourceSyncPayload
 sidebar_label: SourceSyncPayload

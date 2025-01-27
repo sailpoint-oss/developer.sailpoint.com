@@ -1,5 +1,5 @@
 ---
-id: workflow-library-operator
+id: v2024-workflow-library-operator
 title: WorkflowLibraryOperator
 pagination_label: WorkflowLibraryOperator
 sidebar_label: WorkflowLibraryOperator

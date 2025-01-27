@@ -1,5 +1,5 @@
 ---
-id: bulk-identities-accounts-response
+id: v2024-bulk-identities-accounts-response
 title: BulkIdentitiesAccountsResponse
 pagination_label: BulkIdentitiesAccountsResponse
 sidebar_label: BulkIdentitiesAccountsResponse

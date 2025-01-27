@@ -1,5 +1,5 @@
 ---
-id: certification-reference-dto
+id: beta-certification-reference-dto
 title: CertificationReferenceDto
 pagination_label: CertificationReferenceDto
 sidebar_label: CertificationReferenceDto

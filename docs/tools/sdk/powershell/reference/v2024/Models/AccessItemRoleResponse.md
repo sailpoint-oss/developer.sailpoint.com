@@ -1,5 +1,5 @@
 ---
-id: access-item-role-response
+id: v2024-access-item-role-response
 title: AccessItemRoleResponse
 pagination_label: AccessItemRoleResponse
 sidebar_label: AccessItemRoleResponse

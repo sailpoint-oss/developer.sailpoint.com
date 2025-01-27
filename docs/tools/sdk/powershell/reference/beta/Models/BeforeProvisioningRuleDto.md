@@ -1,5 +1,5 @@
 ---
-id: before-provisioning-rule-dto
+id: beta-before-provisioning-rule-dto
 title: BeforeProvisioningRuleDto
 pagination_label: BeforeProvisioningRuleDto
 sidebar_label: BeforeProvisioningRuleDto

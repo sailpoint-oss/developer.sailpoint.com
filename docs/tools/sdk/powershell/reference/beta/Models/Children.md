@@ -1,5 +1,5 @@
 ---
-id: children
+id: beta-children
 title: Children
 pagination_label: Children
 sidebar_label: Children

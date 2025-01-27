@@ -1,5 +1,5 @@
 ---
-id: form-item-details
+id: beta-form-item-details
 title: FormItemDetails
 pagination_label: FormItemDetails
 sidebar_label: FormItemDetails

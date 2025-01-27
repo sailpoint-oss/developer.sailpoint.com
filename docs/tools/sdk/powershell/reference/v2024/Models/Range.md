@@ -1,5 +1,5 @@
 ---
-id: range
+id: v2024-range
 title: Range
 pagination_label: Range
 sidebar_label: Range

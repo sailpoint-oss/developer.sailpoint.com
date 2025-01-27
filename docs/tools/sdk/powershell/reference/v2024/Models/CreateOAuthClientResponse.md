@@ -1,5 +1,5 @@
 ---
-id: create-o-auth-client-response
+id: v2024-create-o-auth-client-response
 title: CreateOAuthClientResponse
 pagination_label: CreateOAuthClientResponse
 sidebar_label: CreateOAuthClientResponse

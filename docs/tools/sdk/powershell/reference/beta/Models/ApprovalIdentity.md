@@ -1,5 +1,5 @@
 ---
-id: approval-identity
+id: beta-approval-identity
 title: ApprovalIdentity
 pagination_label: ApprovalIdentity
 sidebar_label: ApprovalIdentity

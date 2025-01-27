@@ -1,5 +1,5 @@
 ---
-id: access-request-context
+id: beta-access-request-context
 title: AccessRequestContext
 pagination_label: AccessRequestContext
 sidebar_label: AccessRequestContext

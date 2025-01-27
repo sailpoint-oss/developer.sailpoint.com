@@ -1,5 +1,5 @@
 ---
-id: index-of
+id: v2024-index-of
 title: IndexOf
 pagination_label: IndexOf
 sidebar_label: IndexOf

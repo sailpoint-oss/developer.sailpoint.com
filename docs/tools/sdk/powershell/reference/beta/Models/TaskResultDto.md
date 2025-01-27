@@ -1,5 +1,5 @@
 ---
-id: task-result-dto
+id: beta-task-result-dto
 title: TaskResultDto
 pagination_label: TaskResultDto
 sidebar_label: TaskResultDto

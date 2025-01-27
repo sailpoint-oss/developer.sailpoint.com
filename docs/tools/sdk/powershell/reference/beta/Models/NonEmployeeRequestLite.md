@@ -1,5 +1,5 @@
 ---
-id: non-employee-request-lite
+id: beta-non-employee-request-lite
 title: NonEmployeeRequestLite
 pagination_label: NonEmployeeRequestLite
 sidebar_label: NonEmployeeRequestLite

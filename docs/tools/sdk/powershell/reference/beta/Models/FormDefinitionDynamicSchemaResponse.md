@@ -1,5 +1,5 @@
 ---
-id: form-definition-dynamic-schema-response
+id: beta-form-definition-dynamic-schema-response
 title: FormDefinitionDynamicSchemaResponse
 pagination_label: FormDefinitionDynamicSchemaResponse
 sidebar_label: FormDefinitionDynamicSchemaResponse

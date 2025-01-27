@@ -1,5 +1,5 @@
 ---
-id: correlation-config
+id: v2024-correlation-config
 title: CorrelationConfig
 pagination_label: CorrelationConfig
 sidebar_label: CorrelationConfig

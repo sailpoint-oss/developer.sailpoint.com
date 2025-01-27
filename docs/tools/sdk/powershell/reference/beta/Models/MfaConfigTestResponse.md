@@ -1,5 +1,5 @@
 ---
-id: mfa-config-test-response
+id: beta-mfa-config-test-response
 title: MfaConfigTestResponse
 pagination_label: MfaConfigTestResponse
 sidebar_label: MfaConfigTestResponse

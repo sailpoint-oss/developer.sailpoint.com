@@ -1,5 +1,5 @@
 ---
-id: sp-config-import-results
+id: beta-sp-config-import-results
 title: SpConfigImportResults
 pagination_label: SpConfigImportResults
 sidebar_label: SpConfigImportResults

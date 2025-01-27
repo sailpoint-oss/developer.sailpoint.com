@@ -1,5 +1,5 @@
 ---
-id: workflow-execution-event
+id: beta-workflow-execution-event
 title: WorkflowExecutionEvent
 pagination_label: WorkflowExecutionEvent
 sidebar_label: WorkflowExecutionEvent

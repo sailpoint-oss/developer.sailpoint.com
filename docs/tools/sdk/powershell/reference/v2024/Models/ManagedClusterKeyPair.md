@@ -1,5 +1,5 @@
 ---
-id: managed-cluster-key-pair
+id: v2024-managed-cluster-key-pair
 title: ManagedClusterKeyPair
 pagination_label: ManagedClusterKeyPair
 sidebar_label: ManagedClusterKeyPair

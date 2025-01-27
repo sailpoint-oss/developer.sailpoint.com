@@ -1,5 +1,5 @@
 ---
-id: account-attribute
+id: v2024-account-attribute
 title: AccountAttribute
 pagination_label: AccountAttribute
 sidebar_label: AccountAttribute

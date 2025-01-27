@@ -1,5 +1,5 @@
 ---
-id: reassign-reference
+id: beta-reassign-reference
 title: ReassignReference
 pagination_label: ReassignReference
 sidebar_label: ReassignReference

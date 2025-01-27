@@ -1,5 +1,5 @@
 ---
-id: left-pad
+id: beta-left-pad
 title: LeftPad
 pagination_label: LeftPad
 sidebar_label: LeftPad

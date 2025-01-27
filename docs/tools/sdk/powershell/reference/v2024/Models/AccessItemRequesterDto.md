@@ -1,5 +1,5 @@
 ---
-id: access-item-requester-dto
+id: v2024-access-item-requester-dto
 title: AccessItemRequesterDto
 pagination_label: AccessItemRequesterDto
 sidebar_label: AccessItemRequesterDto

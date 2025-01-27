@@ -1,5 +1,5 @@
 ---
-id: campaign-all-of-search-campaign-info-reviewer
+id: v2024-campaign-all-of-search-campaign-info-reviewer
 title: CampaignAllOfSearchCampaignInfoReviewer
 pagination_label: CampaignAllOfSearchCampaignInfoReviewer
 sidebar_label: CampaignAllOfSearchCampaignInfoReviewer

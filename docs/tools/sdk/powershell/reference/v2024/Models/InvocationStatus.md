@@ -1,5 +1,5 @@
 ---
-id: invocation-status
+id: v2024-invocation-status
 title: InvocationStatus
 pagination_label: InvocationStatus
 sidebar_label: InvocationStatus

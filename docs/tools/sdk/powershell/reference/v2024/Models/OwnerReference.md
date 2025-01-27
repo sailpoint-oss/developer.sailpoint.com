@@ -1,5 +1,5 @@
 ---
-id: owner-reference
+id: v2024-owner-reference
 title: OwnerReference
 pagination_label: OwnerReference
 sidebar_label: OwnerReference

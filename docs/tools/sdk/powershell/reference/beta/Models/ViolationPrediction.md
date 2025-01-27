@@ -1,5 +1,5 @@
 ---
-id: violation-prediction
+id: beta-violation-prediction
 title: ViolationPrediction
 pagination_label: ViolationPrediction
 sidebar_label: ViolationPrediction

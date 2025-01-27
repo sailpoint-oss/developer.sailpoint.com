@@ -1,5 +1,5 @@
 ---
-id: identity-profile1-all-of-authoritative-source
+id: beta-identity-profile1-all-of-authoritative-source
 title: IdentityProfile1AllOfAuthoritativeSource
 pagination_label: IdentityProfile1AllOfAuthoritativeSource
 sidebar_label: IdentityProfile1AllOfAuthoritativeSource

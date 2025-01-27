@@ -1,5 +1,5 @@
 ---
-id: generate-random-string
+id: v2024-generate-random-string
 title: GenerateRandomString
 pagination_label: GenerateRandomString
 sidebar_label: GenerateRandomString

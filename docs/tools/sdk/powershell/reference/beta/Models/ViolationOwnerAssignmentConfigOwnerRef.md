@@ -1,5 +1,5 @@
 ---
-id: violation-owner-assignment-config-owner-ref
+id: beta-violation-owner-assignment-config-owner-ref
 title: ViolationOwnerAssignmentConfigOwnerRef
 pagination_label: ViolationOwnerAssignmentConfigOwnerRef
 sidebar_label: ViolationOwnerAssignmentConfigOwnerRef

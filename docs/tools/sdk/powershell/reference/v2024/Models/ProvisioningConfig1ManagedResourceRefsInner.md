@@ -1,5 +1,5 @@
 ---
-id: provisioning-config1-managed-resource-refs-inner
+id: v2024-provisioning-config1-managed-resource-refs-inner
 title: ProvisioningConfig1ManagedResourceRefsInner
 pagination_label: ProvisioningConfig1ManagedResourceRefsInner
 sidebar_label: ProvisioningConfig1ManagedResourceRefsInner

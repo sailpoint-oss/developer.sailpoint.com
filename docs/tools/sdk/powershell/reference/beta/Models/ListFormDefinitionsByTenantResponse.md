@@ -1,5 +1,5 @@
 ---
-id: list-form-definitions-by-tenant-response
+id: beta-list-form-definitions-by-tenant-response
 title: ListFormDefinitionsByTenantResponse
 pagination_label: ListFormDefinitionsByTenantResponse
 sidebar_label: ListFormDefinitionsByTenantResponse

@@ -1,5 +1,5 @@
 ---
-id: identity-manager-ref
+id: beta-identity-manager-ref
 title: IdentityManagerRef
 pagination_label: IdentityManagerRef
 sidebar_label: IdentityManagerRef

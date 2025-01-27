@@ -1,5 +1,5 @@
 ---
-id: campaign-all-of-source-owner-campaign-info
+id: v2024-campaign-all-of-source-owner-campaign-info
 title: CampaignAllOfSourceOwnerCampaignInfo
 pagination_label: CampaignAllOfSourceOwnerCampaignInfo
 sidebar_label: CampaignAllOfSourceOwnerCampaignInfo

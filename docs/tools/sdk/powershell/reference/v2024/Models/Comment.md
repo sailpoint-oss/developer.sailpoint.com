@@ -1,5 +1,5 @@
 ---
-id: comment
+id: v2024-comment
 title: Comment
 pagination_label: Comment
 sidebar_label: Comment

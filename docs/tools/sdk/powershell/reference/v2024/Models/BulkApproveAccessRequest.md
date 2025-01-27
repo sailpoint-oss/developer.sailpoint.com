@@ -1,5 +1,5 @@
 ---
-id: bulk-approve-access-request
+id: v2024-bulk-approve-access-request
 title: BulkApproveAccessRequest
 pagination_label: BulkApproveAccessRequest
 sidebar_label: BulkApproveAccessRequest

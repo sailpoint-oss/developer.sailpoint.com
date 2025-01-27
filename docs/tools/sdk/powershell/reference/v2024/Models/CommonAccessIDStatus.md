@@ -1,5 +1,5 @@
 ---
-id: common-access-id-status
+id: v2024-common-access-id-status
 title: CommonAccessIDStatus
 pagination_label: CommonAccessIDStatus
 sidebar_label: CommonAccessIDStatus

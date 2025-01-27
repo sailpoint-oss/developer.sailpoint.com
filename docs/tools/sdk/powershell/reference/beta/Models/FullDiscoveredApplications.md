@@ -1,5 +1,5 @@
 ---
-id: full-discovered-applications
+id: beta-full-discovered-applications
 title: FullDiscoveredApplications
 pagination_label: FullDiscoveredApplications
 sidebar_label: FullDiscoveredApplications

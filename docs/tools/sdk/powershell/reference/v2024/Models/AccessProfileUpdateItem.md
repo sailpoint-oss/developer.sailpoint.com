@@ -1,5 +1,5 @@
 ---
-id: access-profile-update-item
+id: v2024-access-profile-update-item
 title: AccessProfileUpdateItem
 pagination_label: AccessProfileUpdateItem
 sidebar_label: AccessProfileUpdateItem

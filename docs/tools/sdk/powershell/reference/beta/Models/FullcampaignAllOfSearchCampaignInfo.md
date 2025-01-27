@@ -1,5 +1,5 @@
 ---
-id: fullcampaign-all-of-search-campaign-info
+id: beta-fullcampaign-all-of-search-campaign-info
 title: FullcampaignAllOfSearchCampaignInfo
 pagination_label: FullcampaignAllOfSearchCampaignInfo
 sidebar_label: FullcampaignAllOfSearchCampaignInfo

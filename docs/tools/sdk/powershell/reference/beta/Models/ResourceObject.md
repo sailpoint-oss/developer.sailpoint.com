@@ -1,5 +1,5 @@
 ---
-id: resource-object
+id: beta-resource-object
 title: ResourceObject
 pagination_label: ResourceObject
 sidebar_label: ResourceObject

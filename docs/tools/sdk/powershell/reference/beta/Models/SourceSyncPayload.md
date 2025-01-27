@@ -1,5 +1,5 @@
 ---
-id: source-sync-payload
+id: beta-source-sync-payload
 title: SourceSyncPayload
 pagination_label: SourceSyncPayload
 sidebar_label: SourceSyncPayload

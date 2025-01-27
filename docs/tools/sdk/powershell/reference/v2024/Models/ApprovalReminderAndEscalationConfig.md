@@ -1,5 +1,5 @@
 ---
-id: approval-reminder-and-escalation-config
+id: v2024-approval-reminder-and-escalation-config
 title: ApprovalReminderAndEscalationConfig
 pagination_label: ApprovalReminderAndEscalationConfig
 sidebar_label: ApprovalReminderAndEscalationConfig

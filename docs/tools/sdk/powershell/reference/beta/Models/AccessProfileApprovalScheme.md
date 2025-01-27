@@ -1,5 +1,5 @@
 ---
-id: access-profile-approval-scheme
+id: beta-access-profile-approval-scheme
 title: AccessProfileApprovalScheme
 pagination_label: AccessProfileApprovalScheme
 sidebar_label: AccessProfileApprovalScheme

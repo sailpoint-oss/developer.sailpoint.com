@@ -1,5 +1,5 @@
 ---
-id: campaign-report
+id: v2024-campaign-report
 title: CampaignReport
 pagination_label: CampaignReport
 sidebar_label: CampaignReport

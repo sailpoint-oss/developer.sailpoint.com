@@ -1,5 +1,5 @@
 ---
-id: argument
+id: beta-argument
 title: Argument
 pagination_label: Argument
 sidebar_label: Argument

@@ -1,5 +1,5 @@
 ---
-id: dimension-criteria-key
+id: v2024-dimension-criteria-key
 title: DimensionCriteriaKey
 pagination_label: DimensionCriteriaKey
 sidebar_label: DimensionCriteriaKey

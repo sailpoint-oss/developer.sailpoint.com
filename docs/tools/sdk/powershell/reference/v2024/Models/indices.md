@@ -1,5 +1,5 @@
 ---
-id: index
+id: v2024-index
 title: Index
 pagination_label: Index
 sidebar_label: Index

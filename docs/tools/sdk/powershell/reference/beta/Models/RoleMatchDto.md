@@ -1,5 +1,5 @@
 ---
-id: role-match-dto
+id: beta-role-match-dto
 title: RoleMatchDto
 pagination_label: RoleMatchDto
 sidebar_label: RoleMatchDto

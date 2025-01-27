@@ -1,5 +1,5 @@
 ---
-id: target
+id: beta-target
 title: Target
 pagination_label: Target
 sidebar_label: Target

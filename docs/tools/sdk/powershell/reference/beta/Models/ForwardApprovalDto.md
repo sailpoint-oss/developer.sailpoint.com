@@ -1,5 +1,5 @@
 ---
-id: forward-approval-dto
+id: beta-forward-approval-dto
 title: ForwardApprovalDto
 pagination_label: ForwardApprovalDto
 sidebar_label: ForwardApprovalDto

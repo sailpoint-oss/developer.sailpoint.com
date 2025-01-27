@@ -1,5 +1,5 @@
 ---
-id: provisioning-policy-dto
+id: v2024-provisioning-policy-dto
 title: ProvisioningPolicyDto
 pagination_label: ProvisioningPolicyDto
 sidebar_label: ProvisioningPolicyDto

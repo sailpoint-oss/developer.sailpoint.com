@@ -1,5 +1,5 @@
 ---
-id: bucket-type
+id: v2024-bucket-type
 title: BucketType
 pagination_label: BucketType
 sidebar_label: BucketType

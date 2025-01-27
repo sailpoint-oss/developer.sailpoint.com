@@ -1,5 +1,5 @@
 ---
-id: cancel-access-request
+id: beta-cancel-access-request
 title: CancelAccessRequest
 pagination_label: CancelAccessRequest
 sidebar_label: CancelAccessRequest

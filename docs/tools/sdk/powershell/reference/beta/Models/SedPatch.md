@@ -1,5 +1,5 @@
 ---
-id: sed-patch
+id: beta-sed-patch
 title: SedPatch
 pagination_label: SedPatch
 sidebar_label: SedPatch

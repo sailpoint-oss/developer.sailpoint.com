@@ -1,5 +1,5 @@
 ---
-id: aggregation-result
+id: v2024-aggregation-result
 title: AggregationResult
 pagination_label: AggregationResult
 sidebar_label: AggregationResult

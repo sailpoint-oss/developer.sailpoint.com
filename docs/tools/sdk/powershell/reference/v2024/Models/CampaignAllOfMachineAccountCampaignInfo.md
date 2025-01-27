@@ -1,5 +1,5 @@
 ---
-id: campaign-all-of-machine-account-campaign-info
+id: v2024-campaign-all-of-machine-account-campaign-info
 title: CampaignAllOfMachineAccountCampaignInfo
 pagination_label: CampaignAllOfMachineAccountCampaignInfo
 sidebar_label: CampaignAllOfMachineAccountCampaignInfo

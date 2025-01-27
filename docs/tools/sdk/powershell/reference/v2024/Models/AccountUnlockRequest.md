@@ -1,5 +1,5 @@
 ---
-id: account-unlock-request
+id: v2024-account-unlock-request
 title: AccountUnlockRequest
 pagination_label: AccountUnlockRequest
 sidebar_label: AccountUnlockRequest

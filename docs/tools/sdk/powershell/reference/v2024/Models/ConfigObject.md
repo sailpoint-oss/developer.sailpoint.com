@@ -1,5 +1,5 @@
 ---
-id: config-object
+id: v2024-config-object
 title: ConfigObject
 pagination_label: ConfigObject
 sidebar_label: ConfigObject

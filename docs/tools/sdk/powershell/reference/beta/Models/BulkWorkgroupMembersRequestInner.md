@@ -1,5 +1,5 @@
 ---
-id: bulk-workgroup-members-request-inner
+id: beta-bulk-workgroup-members-request-inner
 title: BulkWorkgroupMembersRequestInner
 pagination_label: BulkWorkgroupMembersRequestInner
 sidebar_label: BulkWorkgroupMembersRequestInner

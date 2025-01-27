@@ -1,5 +1,5 @@
 ---
-id: exception-criteria
+id: v2024-exception-criteria
 title: ExceptionCriteria
 pagination_label: ExceptionCriteria
 sidebar_label: ExceptionCriteria

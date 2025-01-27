@@ -1,5 +1,5 @@
 ---
-id: native-change-detection-config
+id: beta-native-change-detection-config
 title: NativeChangeDetectionConfig
 pagination_label: NativeChangeDetectionConfig
 sidebar_label: NativeChangeDetectionConfig

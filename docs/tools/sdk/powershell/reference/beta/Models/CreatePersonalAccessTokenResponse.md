@@ -1,5 +1,5 @@
 ---
-id: create-personal-access-token-response
+id: beta-create-personal-access-token-response
 title: CreatePersonalAccessTokenResponse
 pagination_label: CreatePersonalAccessTokenResponse
 sidebar_label: CreatePersonalAccessTokenResponse

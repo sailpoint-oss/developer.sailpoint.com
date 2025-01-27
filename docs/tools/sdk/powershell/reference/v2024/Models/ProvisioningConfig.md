@@ -1,5 +1,5 @@
 ---
-id: provisioning-config
+id: v2024-provisioning-config
 title: ProvisioningConfig
 pagination_label: ProvisioningConfig
 sidebar_label: ProvisioningConfig

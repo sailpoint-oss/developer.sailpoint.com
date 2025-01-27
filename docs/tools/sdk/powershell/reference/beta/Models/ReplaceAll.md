@@ -1,5 +1,5 @@
 ---
-id: replace-all
+id: beta-replace-all
 title: ReplaceAll
 pagination_label: ReplaceAll
 sidebar_label: ReplaceAll

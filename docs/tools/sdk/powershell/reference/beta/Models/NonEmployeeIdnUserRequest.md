@@ -1,5 +1,5 @@
 ---
-id: non-employee-idn-user-request
+id: beta-non-employee-idn-user-request
 title: NonEmployeeIdnUserRequest
 pagination_label: NonEmployeeIdnUserRequest
 sidebar_label: NonEmployeeIdnUserRequest

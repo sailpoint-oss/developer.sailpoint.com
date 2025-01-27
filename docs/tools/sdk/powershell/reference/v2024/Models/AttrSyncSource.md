@@ -1,5 +1,5 @@
 ---
-id: attr-sync-source
+id: v2024-attr-sync-source
 title: AttrSyncSource
 pagination_label: AttrSyncSource
 sidebar_label: AttrSyncSource

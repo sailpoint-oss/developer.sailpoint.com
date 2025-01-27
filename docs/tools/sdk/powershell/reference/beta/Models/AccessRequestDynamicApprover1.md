@@ -1,5 +1,5 @@
 ---
-id: access-request-dynamic-approver1
+id: beta-access-request-dynamic-approver1
 title: AccessRequestDynamicApprover1
 pagination_label: AccessRequestDynamicApprover1
 sidebar_label: AccessRequestDynamicApprover1

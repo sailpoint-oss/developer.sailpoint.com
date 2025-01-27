@@ -1,5 +1,5 @@
 ---
-id: approval-item-details
+id: beta-approval-item-details
 title: ApprovalItemDetails
 pagination_label: ApprovalItemDetails
 sidebar_label: ApprovalItemDetails

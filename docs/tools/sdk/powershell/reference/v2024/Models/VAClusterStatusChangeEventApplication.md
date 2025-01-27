@@ -1,5 +1,5 @@
 ---
-id: va-cluster-status-change-event-application
+id: v2024-va-cluster-status-change-event-application
 title: VAClusterStatusChangeEventApplication
 pagination_label: VAClusterStatusChangeEventApplication
 sidebar_label: VAClusterStatusChangeEventApplication

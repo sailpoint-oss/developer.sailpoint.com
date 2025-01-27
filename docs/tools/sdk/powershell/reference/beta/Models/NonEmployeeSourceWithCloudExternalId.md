@@ -1,5 +1,5 @@
 ---
-id: non-employee-source-with-cloud-external-id
+id: beta-non-employee-source-with-cloud-external-id
 title: NonEmployeeSourceWithCloudExternalId
 pagination_label: NonEmployeeSourceWithCloudExternalId
 sidebar_label: NonEmployeeSourceWithCloudExternalId

@@ -1,5 +1,5 @@
 ---
-id: entitlement-source
+id: beta-entitlement-source
 title: EntitlementSource
 pagination_label: EntitlementSource
 sidebar_label: EntitlementSource

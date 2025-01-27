@@ -1,5 +1,5 @@
 ---
-id: mfa-okta-config
+id: v2024-mfa-okta-config
 title: MfaOktaConfig
 pagination_label: MfaOktaConfig
 sidebar_label: MfaOktaConfig

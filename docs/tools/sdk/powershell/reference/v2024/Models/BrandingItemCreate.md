@@ -1,5 +1,5 @@
 ---
-id: branding-item-create
+id: v2024-branding-item-create
 title: BrandingItemCreate
 pagination_label: BrandingItemCreate
 sidebar_label: BrandingItemCreate

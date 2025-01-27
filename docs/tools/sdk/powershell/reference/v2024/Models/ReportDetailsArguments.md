@@ -1,5 +1,5 @@
 ---
-id: report-details-arguments
+id: v2024-report-details-arguments
 title: ReportDetailsArguments
 pagination_label: ReportDetailsArguments
 sidebar_label: ReportDetailsArguments

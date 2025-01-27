@@ -1,5 +1,5 @@
 ---
-id: error-message
+id: beta-error-message
 title: ErrorMessage
 pagination_label: ErrorMessage
 sidebar_label: ErrorMessage

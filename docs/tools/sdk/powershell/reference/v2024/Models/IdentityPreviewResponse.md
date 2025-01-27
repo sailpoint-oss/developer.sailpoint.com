@@ -1,5 +1,5 @@
 ---
-id: identity-preview-response
+id: v2024-identity-preview-response
 title: IdentityPreviewResponse
 pagination_label: IdentityPreviewResponse
 sidebar_label: IdentityPreviewResponse

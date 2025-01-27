@@ -1,5 +1,5 @@
 ---
-id: object-mapping-bulk-patch-request
+id: v2024-object-mapping-bulk-patch-request
 title: ObjectMappingBulkPatchRequest
 pagination_label: ObjectMappingBulkPatchRequest
 sidebar_label: ObjectMappingBulkPatchRequest

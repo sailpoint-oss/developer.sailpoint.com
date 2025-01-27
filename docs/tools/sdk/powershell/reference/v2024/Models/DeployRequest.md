@@ -1,5 +1,5 @@
 ---
-id: deploy-request
+id: v2024-deploy-request
 title: DeployRequest
 pagination_label: DeployRequest
 sidebar_label: DeployRequest

@@ -1,5 +1,5 @@
 ---
-id: managed-client-status-enum
+id: beta-managed-client-status-enum
 title: ManagedClientStatusEnum
 pagination_label: ManagedClientStatusEnum
 sidebar_label: ManagedClientStatusEnum

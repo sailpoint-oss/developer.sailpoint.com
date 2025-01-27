@@ -1,5 +1,5 @@
 ---
-id: campaign-ended-campaign
+id: beta-campaign-ended-campaign
 title: CampaignEndedCampaign
 pagination_label: CampaignEndedCampaign
 sidebar_label: CampaignEndedCampaign

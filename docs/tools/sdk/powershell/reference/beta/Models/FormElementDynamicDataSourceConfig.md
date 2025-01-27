@@ -1,5 +1,5 @@
 ---
-id: form-element-dynamic-data-source-config
+id: beta-form-element-dynamic-data-source-config
 title: FormElementDynamicDataSourceConfig
 pagination_label: FormElementDynamicDataSourceConfig
 sidebar_label: FormElementDynamicDataSourceConfig

@@ -1,5 +1,5 @@
 ---
-id: identity-with-new-access-access-refs-inner
+id: beta-identity-with-new-access-access-refs-inner
 title: IdentityWithNewAccessAccessRefsInner
 pagination_label: IdentityWithNewAccessAccessRefsInner
 sidebar_label: IdentityWithNewAccessAccessRefsInner

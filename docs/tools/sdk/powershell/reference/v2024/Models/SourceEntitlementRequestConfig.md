@@ -1,5 +1,5 @@
 ---
-id: source-entitlement-request-config
+id: v2024-source-entitlement-request-config
 title: SourceEntitlementRequestConfig
 pagination_label: SourceEntitlementRequestConfig
 sidebar_label: SourceEntitlementRequestConfig

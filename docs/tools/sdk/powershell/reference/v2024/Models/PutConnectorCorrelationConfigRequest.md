@@ -1,5 +1,5 @@
 ---
-id: put-connector-correlation-config-request
+id: v2024-put-connector-correlation-config-request
 title: PutConnectorCorrelationConfigRequest
 pagination_label: PutConnectorCorrelationConfigRequest
 sidebar_label: PutConnectorCorrelationConfigRequest

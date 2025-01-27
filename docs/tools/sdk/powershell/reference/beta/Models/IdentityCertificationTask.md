@@ -1,5 +1,5 @@
 ---
-id: identity-certification-task
+id: beta-identity-certification-task
 title: IdentityCertificationTask
 pagination_label: IdentityCertificationTask
 sidebar_label: IdentityCertificationTask

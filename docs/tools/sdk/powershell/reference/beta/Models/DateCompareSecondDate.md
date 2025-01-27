@@ -1,5 +1,5 @@
 ---
-id: date-compare-second-date
+id: beta-date-compare-second-date
 title: DateCompareSecondDate
 pagination_label: DateCompareSecondDate
 sidebar_label: DateCompareSecondDate

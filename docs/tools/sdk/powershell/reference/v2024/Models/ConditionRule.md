@@ -1,5 +1,5 @@
 ---
-id: condition-rule
+id: v2024-condition-rule
 title: ConditionRule
 pagination_label: ConditionRule
 sidebar_label: ConditionRule

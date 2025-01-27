@@ -1,5 +1,5 @@
 ---
-id: sod-policy-conflicting-access-criteria
+id: beta-sod-policy-conflicting-access-criteria
 title: SodPolicyConflictingAccessCriteria
 pagination_label: SodPolicyConflictingAccessCriteria
 sidebar_label: SodPolicyConflictingAccessCriteria

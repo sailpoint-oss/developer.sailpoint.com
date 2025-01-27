@@ -1,5 +1,5 @@
 ---
-id: role-criteria-key
+id: beta-role-criteria-key
 title: RoleCriteriaKey
 pagination_label: RoleCriteriaKey
 sidebar_label: RoleCriteriaKey

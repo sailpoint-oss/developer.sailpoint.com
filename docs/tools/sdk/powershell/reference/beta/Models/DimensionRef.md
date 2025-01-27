@@ -1,5 +1,5 @@
 ---
-id: dimension-ref
+id: beta-dimension-ref
 title: DimensionRef
 pagination_label: DimensionRef
 sidebar_label: DimensionRef

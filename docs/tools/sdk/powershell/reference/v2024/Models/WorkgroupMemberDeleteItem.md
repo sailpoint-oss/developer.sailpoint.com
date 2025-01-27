@@ -1,5 +1,5 @@
 ---
-id: workgroup-member-delete-item
+id: v2024-workgroup-member-delete-item
 title: WorkgroupMemberDeleteItem
 pagination_label: WorkgroupMemberDeleteItem
 sidebar_label: WorkgroupMemberDeleteItem

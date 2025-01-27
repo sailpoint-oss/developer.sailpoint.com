@@ -1,5 +1,5 @@
 ---
-id: invocation-status-type
+id: beta-invocation-status-type
 title: InvocationStatusType
 pagination_label: InvocationStatusType
 sidebar_label: InvocationStatusType

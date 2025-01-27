@@ -1,5 +1,5 @@
 ---
-id: org-config
+id: beta-org-config
 title: OrgConfig
 pagination_label: OrgConfig
 sidebar_label: OrgConfig

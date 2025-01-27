@@ -1,5 +1,5 @@
 ---
-id: identities-accounts-bulk-request
+id: beta-identities-accounts-bulk-request
 title: IdentitiesAccountsBulkRequest
 pagination_label: IdentitiesAccountsBulkRequest
 sidebar_label: IdentitiesAccountsBulkRequest

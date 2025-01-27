@@ -1,5 +1,5 @@
 ---
-id: load-entitlement-task-returns-inner
+id: beta-load-entitlement-task-returns-inner
 title: LoadEntitlementTaskReturnsInner
 pagination_label: LoadEntitlementTaskReturnsInner
 sidebar_label: LoadEntitlementTaskReturnsInner

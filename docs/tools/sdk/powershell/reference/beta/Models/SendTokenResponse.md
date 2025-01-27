@@ -1,5 +1,5 @@
 ---
-id: send-token-response
+id: beta-send-token-response
 title: SendTokenResponse
 pagination_label: SendTokenResponse
 sidebar_label: SendTokenResponse

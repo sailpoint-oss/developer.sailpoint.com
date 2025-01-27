@@ -1,5 +1,5 @@
 ---
-id: admin-review-reassign
+id: v2024-admin-review-reassign
 title: AdminReviewReassign
 pagination_label: AdminReviewReassign
 sidebar_label: AdminReviewReassign

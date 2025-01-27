@@ -1,5 +1,5 @@
 ---
-id: connector-rule-validation-response-details-inner
+id: beta-connector-rule-validation-response-details-inner
 title: ConnectorRuleValidationResponseDetailsInner
 pagination_label: ConnectorRuleValidationResponseDetailsInner
 sidebar_label: ConnectorRuleValidationResponseDetailsInner

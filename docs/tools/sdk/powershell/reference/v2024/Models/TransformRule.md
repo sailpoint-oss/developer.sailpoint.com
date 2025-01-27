@@ -1,5 +1,5 @@
 ---
-id: transform-rule
+id: v2024-transform-rule
 title: TransformRule
 pagination_label: TransformRule
 sidebar_label: TransformRule

@@ -1,5 +1,5 @@
 ---
-id: task-status-message-parameters-inner
+id: beta-task-status-message-parameters-inner
 title: TaskStatusMessageParametersInner
 pagination_label: TaskStatusMessageParametersInner
 sidebar_label: TaskStatusMessageParametersInner

@@ -1,5 +1,5 @@
 ---
-id: access-request-admin-item-status-cancelled-request-details
+id: v2024-access-request-admin-item-status-cancelled-request-details
 title: AccessRequestAdminItemStatusCancelledRequestDetails
 pagination_label: AccessRequestAdminItemStatusCancelledRequestDetails
 sidebar_label: AccessRequestAdminItemStatusCancelledRequestDetails

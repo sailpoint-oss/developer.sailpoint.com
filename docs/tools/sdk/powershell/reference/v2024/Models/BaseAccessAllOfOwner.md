@@ -1,5 +1,5 @@
 ---
-id: base-access-all-of-owner
+id: v2024-base-access-all-of-owner
 title: BaseAccessAllOfOwner
 pagination_label: BaseAccessAllOfOwner
 sidebar_label: BaseAccessAllOfOwner

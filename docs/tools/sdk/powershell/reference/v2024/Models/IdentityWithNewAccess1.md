@@ -1,5 +1,5 @@
 ---
-id: identity-with-new-access1
+id: v2024-identity-with-new-access1
 title: IdentityWithNewAccess1
 pagination_label: IdentityWithNewAccess1
 sidebar_label: IdentityWithNewAccess1

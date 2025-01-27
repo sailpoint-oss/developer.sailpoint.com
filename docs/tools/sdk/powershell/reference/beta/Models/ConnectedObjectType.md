@@ -1,5 +1,5 @@
 ---
-id: connected-object-type
+id: beta-connected-object-type
 title: ConnectedObjectType
 pagination_label: ConnectedObjectType
 sidebar_label: ConnectedObjectType

@@ -1,5 +1,5 @@
 ---
-id: notification-template-context
+id: beta-notification-template-context
 title: NotificationTemplateContext
 pagination_label: NotificationTemplateContext
 sidebar_label: NotificationTemplateContext

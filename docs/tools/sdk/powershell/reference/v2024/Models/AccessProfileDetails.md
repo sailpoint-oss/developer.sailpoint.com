@@ -1,5 +1,5 @@
 ---
-id: access-profile-details
+id: v2024-access-profile-details
 title: AccessProfileDetails
 pagination_label: AccessProfileDetails
 sidebar_label: AccessProfileDetails

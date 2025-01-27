@@ -1,5 +1,5 @@
 ---
-id: attribute-definition
+id: v2024-attribute-definition
 title: AttributeDefinition
 pagination_label: AttributeDefinition
 sidebar_label: AttributeDefinition

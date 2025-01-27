@@ -1,5 +1,5 @@
 ---
-id: role
+id: beta-role
 title: Role
 pagination_label: Role
 sidebar_label: Role

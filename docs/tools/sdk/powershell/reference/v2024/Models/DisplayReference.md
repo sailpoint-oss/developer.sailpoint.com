@@ -1,5 +1,5 @@
 ---
-id: display-reference
+id: v2024-display-reference
 title: DisplayReference
 pagination_label: DisplayReference
 sidebar_label: DisplayReference

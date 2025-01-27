@@ -1,5 +1,5 @@
 ---
-id: account-action
+id: beta-account-action
 title: AccountAction
 pagination_label: AccountAction
 sidebar_label: AccountAction

@@ -1,5 +1,5 @@
 ---
-id: form
+id: beta-form
 title: Form
 pagination_label: Form
 sidebar_label: Form

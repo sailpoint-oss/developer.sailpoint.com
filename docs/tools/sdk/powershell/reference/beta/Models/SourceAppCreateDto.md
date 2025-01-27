@@ -1,5 +1,5 @@
 ---
-id: source-app-create-dto
+id: beta-source-app-create-dto
 title: SourceAppCreateDto
 pagination_label: SourceAppCreateDto
 sidebar_label: SourceAppCreateDto

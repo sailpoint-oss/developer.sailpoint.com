@@ -1,5 +1,5 @@
 ---
-id: workflow-library-trigger
+id: v2024-workflow-library-trigger
 title: WorkflowLibraryTrigger
 pagination_label: WorkflowLibraryTrigger
 sidebar_label: WorkflowLibraryTrigger

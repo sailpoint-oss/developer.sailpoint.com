@@ -1,5 +1,5 @@
 ---
-id: recommendation-config-dto
+id: v2024-recommendation-config-dto
 title: RecommendationConfigDto
 pagination_label: RecommendationConfigDto
 sidebar_label: RecommendationConfigDto

@@ -1,5 +1,5 @@
 ---
-id: identity-created-identity
+id: beta-identity-created-identity
 title: IdentityCreatedIdentity
 pagination_label: IdentityCreatedIdentity
 sidebar_label: IdentityCreatedIdentity

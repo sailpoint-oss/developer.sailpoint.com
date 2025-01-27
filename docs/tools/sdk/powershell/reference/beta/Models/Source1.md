@@ -1,5 +1,5 @@
 ---
-id: source1
+id: beta-source1
 title: Source1
 pagination_label: Source1
 sidebar_label: Source1

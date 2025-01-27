@@ -1,5 +1,5 @@
 ---
-id: slim-discovered-applications
+id: v2024-slim-discovered-applications
 title: SlimDiscoveredApplications
 pagination_label: SlimDiscoveredApplications
 sidebar_label: SlimDiscoveredApplications

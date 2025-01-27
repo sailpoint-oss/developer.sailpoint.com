@@ -1,5 +1,5 @@
 ---
-id: schedule-months
+id: beta-schedule-months
 title: ScheduleMonths
 pagination_label: ScheduleMonths
 sidebar_label: ScheduleMonths

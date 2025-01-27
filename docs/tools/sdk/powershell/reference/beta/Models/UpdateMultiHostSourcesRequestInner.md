@@ -1,5 +1,5 @@
 ---
-id: update-multi-host-sources-request-inner
+id: beta-update-multi-host-sources-request-inner
 title: UpdateMultiHostSourcesRequestInner
 pagination_label: UpdateMultiHostSourcesRequestInner
 sidebar_label: UpdateMultiHostSourcesRequestInner

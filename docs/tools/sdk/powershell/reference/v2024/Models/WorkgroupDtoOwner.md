@@ -1,5 +1,5 @@
 ---
-id: workgroup-dto-owner
+id: v2024-workgroup-dto-owner
 title: WorkgroupDtoOwner
 pagination_label: WorkgroupDtoOwner
 sidebar_label: WorkgroupDtoOwner

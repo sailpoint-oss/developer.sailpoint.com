@@ -1,5 +1,5 @@
 ---
-id: model-event
+id: v2024-model-event
 title: ModelEvent
 pagination_label: ModelEvent
 sidebar_label: ModelEvent

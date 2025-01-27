@@ -1,5 +1,5 @@
 ---
-id: identity-deleted
+id: beta-identity-deleted
 title: IdentityDeleted
 pagination_label: IdentityDeleted
 sidebar_label: IdentityDeleted

@@ -1,5 +1,5 @@
 ---
-id: role-mining-potential-role-source-usage
+id: v2024-role-mining-potential-role-source-usage
 title: RoleMiningPotentialRoleSourceUsage
 pagination_label: RoleMiningPotentialRoleSourceUsage
 sidebar_label: RoleMiningPotentialRoleSourceUsage

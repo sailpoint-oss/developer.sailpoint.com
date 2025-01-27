@@ -1,5 +1,5 @@
 ---
-id: workgroup-bulk-delete-request
+id: v2024-workgroup-bulk-delete-request
 title: WorkgroupBulkDeleteRequest
 pagination_label: WorkgroupBulkDeleteRequest
 sidebar_label: WorkgroupBulkDeleteRequest

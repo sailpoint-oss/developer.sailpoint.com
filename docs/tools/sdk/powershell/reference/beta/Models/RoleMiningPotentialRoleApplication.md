@@ -1,5 +1,5 @@
 ---
-id: role-mining-potential-role-application
+id: beta-role-mining-potential-role-application
 title: RoleMiningPotentialRoleApplication
 pagination_label: RoleMiningPotentialRoleApplication
 sidebar_label: RoleMiningPotentialRoleApplication

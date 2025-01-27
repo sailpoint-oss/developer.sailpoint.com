@@ -1,5 +1,5 @@
 ---
-id: managed-cluster-request
+id: v2024-managed-cluster-request
 title: ManagedClusterRequest
 pagination_label: ManagedClusterRequest
 sidebar_label: ManagedClusterRequest

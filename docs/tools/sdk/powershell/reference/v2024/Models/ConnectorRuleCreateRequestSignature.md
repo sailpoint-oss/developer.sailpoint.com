@@ -1,5 +1,5 @@
 ---
-id: connector-rule-create-request-signature
+id: v2024-connector-rule-create-request-signature
 title: ConnectorRuleCreateRequestSignature
 pagination_label: ConnectorRuleCreateRequestSignature
 sidebar_label: ConnectorRuleCreateRequestSignature

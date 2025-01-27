@@ -1,5 +1,5 @@
 ---
-id: source-app
+id: beta-source-app
 title: SourceApp
 pagination_label: SourceApp
 sidebar_label: SourceApp

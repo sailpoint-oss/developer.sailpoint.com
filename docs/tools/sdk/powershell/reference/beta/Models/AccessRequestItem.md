@@ -1,5 +1,5 @@
 ---
-id: access-request-item
+id: beta-access-request-item
 title: AccessRequestItem
 pagination_label: AccessRequestItem
 sidebar_label: AccessRequestItem

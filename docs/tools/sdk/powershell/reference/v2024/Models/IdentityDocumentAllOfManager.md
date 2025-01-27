@@ -1,5 +1,5 @@
 ---
-id: identity-document-all-of-manager
+id: v2024-identity-document-all-of-manager
 title: IdentityDocumentAllOfManager
 pagination_label: IdentityDocumentAllOfManager
 sidebar_label: IdentityDocumentAllOfManager

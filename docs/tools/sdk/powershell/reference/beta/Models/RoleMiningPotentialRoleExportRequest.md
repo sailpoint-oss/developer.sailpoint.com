@@ -1,5 +1,5 @@
 ---
-id: role-mining-potential-role-export-request
+id: beta-role-mining-potential-role-export-request
 title: RoleMiningPotentialRoleExportRequest
 pagination_label: RoleMiningPotentialRoleExportRequest
 sidebar_label: RoleMiningPotentialRoleExportRequest

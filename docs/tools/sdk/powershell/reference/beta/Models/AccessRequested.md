@@ -1,5 +1,5 @@
 ---
-id: access-requested
+id: beta-access-requested
 title: AccessRequested
 pagination_label: AccessRequested
 sidebar_label: AccessRequested

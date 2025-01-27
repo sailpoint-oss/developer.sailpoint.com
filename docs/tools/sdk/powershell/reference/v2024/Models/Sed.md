@@ -1,5 +1,5 @@
 ---
-id: sed
+id: v2024-sed
 title: Sed
 pagination_label: Sed
 sidebar_label: Sed

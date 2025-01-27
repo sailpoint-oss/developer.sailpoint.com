@@ -1,5 +1,5 @@
 ---
-id: get-active-campaigns200-response-inner
+id: v2024-get-active-campaigns200-response-inner
 title: GetActiveCampaigns200ResponseInner
 pagination_label: GetActiveCampaigns200ResponseInner
 sidebar_label: GetActiveCampaigns200ResponseInner

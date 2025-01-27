@@ -1,5 +1,5 @@
 ---
-id: service-desk-integration-template-type
+id: v2024-service-desk-integration-template-type
 title: ServiceDeskIntegrationTemplateType
 pagination_label: ServiceDeskIntegrationTemplateType
 sidebar_label: ServiceDeskIntegrationTemplateType

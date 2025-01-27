@@ -1,5 +1,5 @@
 ---
-id: pre-approval-trigger-details
+id: beta-pre-approval-trigger-details
 title: PreApprovalTriggerDetails
 pagination_label: PreApprovalTriggerDetails
 sidebar_label: PreApprovalTriggerDetails

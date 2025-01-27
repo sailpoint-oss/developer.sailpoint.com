@@ -1,5 +1,5 @@
 ---
-id: launcher-owner
+id: beta-launcher-owner
 title: LauncherOwner
 pagination_label: LauncherOwner
 sidebar_label: LauncherOwner

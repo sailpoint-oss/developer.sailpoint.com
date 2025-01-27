@@ -1,5 +1,5 @@
 ---
-id: campaign-template
+id: v2024-campaign-template
 title: CampaignTemplate
 pagination_label: CampaignTemplate
 sidebar_label: CampaignTemplate

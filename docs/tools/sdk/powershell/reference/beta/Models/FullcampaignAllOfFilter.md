@@ -1,5 +1,5 @@
 ---
-id: fullcampaign-all-of-filter
+id: beta-fullcampaign-all-of-filter
 title: FullcampaignAllOfFilter
 pagination_label: FullcampaignAllOfFilter
 sidebar_label: FullcampaignAllOfFilter

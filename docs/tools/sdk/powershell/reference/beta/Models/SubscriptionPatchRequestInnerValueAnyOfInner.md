@@ -1,5 +1,5 @@
 ---
-id: subscription-patch-request-inner-value-any-of-inner
+id: beta-subscription-patch-request-inner-value-any-of-inner
 title: SubscriptionPatchRequestInnerValueAnyOfInner
 pagination_label: SubscriptionPatchRequestInnerValueAnyOfInner
 sidebar_label: SubscriptionPatchRequestInnerValueAnyOfInner

@@ -1,5 +1,5 @@
 ---
-id: sp-config-export-results
+id: v2024-sp-config-export-results
 title: SpConfigExportResults
 pagination_label: SpConfigExportResults
 sidebar_label: SpConfigExportResults

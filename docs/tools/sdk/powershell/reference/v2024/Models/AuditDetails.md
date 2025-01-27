@@ -1,5 +1,5 @@
 ---
-id: audit-details
+id: v2024-audit-details
 title: AuditDetails
 pagination_label: AuditDetails
 sidebar_label: AuditDetails

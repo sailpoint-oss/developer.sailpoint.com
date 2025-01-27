@@ -1,5 +1,5 @@
 ---
-id: license
+id: beta-license
 title: License
 pagination_label: License
 sidebar_label: License

@@ -1,5 +1,5 @@
 ---
-id: role-criteria-level1
+id: beta-role-criteria-level1
 title: RoleCriteriaLevel1
 pagination_label: RoleCriteriaLevel1
 sidebar_label: RoleCriteriaLevel1

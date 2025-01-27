@@ -1,5 +1,5 @@
 ---
-id: campaign-report
+id: beta-campaign-report
 title: CampaignReport
 pagination_label: CampaignReport
 sidebar_label: CampaignReport

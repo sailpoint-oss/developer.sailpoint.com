@@ -1,5 +1,5 @@
 ---
-id: export-options
+id: beta-export-options
 title: ExportOptions
 pagination_label: ExportOptions
 sidebar_label: ExportOptions

@@ -1,5 +1,5 @@
 ---
-id: access-item-requester
+id: v2024-access-item-requester
 title: AccessItemRequester
 pagination_label: AccessItemRequester
 sidebar_label: AccessItemRequester

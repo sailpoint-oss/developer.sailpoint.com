@@ -1,5 +1,5 @@
 ---
-id: sp-config-object
+id: v2024-sp-config-object
 title: SpConfigObject
 pagination_label: SpConfigObject
 sidebar_label: SpConfigObject

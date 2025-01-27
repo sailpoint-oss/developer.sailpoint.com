@@ -1,5 +1,5 @@
 ---
-id: non-employee-source-lite-with-schema-attributes
+id: beta-non-employee-source-lite-with-schema-attributes
 title: NonEmployeeSourceLiteWithSchemaAttributes
 pagination_label: NonEmployeeSourceLiteWithSchemaAttributes
 sidebar_label: NonEmployeeSourceLiteWithSchemaAttributes

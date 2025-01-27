@@ -1,5 +1,5 @@
 ---
-id: entitlement-summary
+id: v2024-entitlement-summary
 title: EntitlementSummary
 pagination_label: EntitlementSummary
 sidebar_label: EntitlementSummary

@@ -1,5 +1,5 @@
 ---
-id: delete202-response
+id: beta-delete202-response
 title: Delete202Response
 pagination_label: Delete202Response
 sidebar_label: Delete202Response

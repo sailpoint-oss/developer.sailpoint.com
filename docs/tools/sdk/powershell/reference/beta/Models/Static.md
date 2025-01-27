@@ -1,5 +1,5 @@
 ---
-id: static
+id: beta-static
 title: Static
 pagination_label: Static
 sidebar_label: Static

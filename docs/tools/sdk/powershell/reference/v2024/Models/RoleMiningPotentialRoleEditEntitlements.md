@@ -1,5 +1,5 @@
 ---
-id: role-mining-potential-role-edit-entitlements
+id: v2024-role-mining-potential-role-edit-entitlements
 title: RoleMiningPotentialRoleEditEntitlements
 pagination_label: RoleMiningPotentialRoleEditEntitlements
 sidebar_label: RoleMiningPotentialRoleEditEntitlements

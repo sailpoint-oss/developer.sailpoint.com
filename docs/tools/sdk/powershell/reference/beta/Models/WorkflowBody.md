@@ -1,5 +1,5 @@
 ---
-id: workflow-body
+id: beta-workflow-body
 title: WorkflowBody
 pagination_label: WorkflowBody
 sidebar_label: WorkflowBody

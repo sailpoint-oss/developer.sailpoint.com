@@ -1,5 +1,5 @@
 ---
-id: array-inner
+id: v2024-array-inner
 title: ArrayInner
 pagination_label: ArrayInner
 sidebar_label: ArrayInner

@@ -1,5 +1,5 @@
 ---
-id: non-employee-request-without-approval-item
+id: beta-non-employee-request-without-approval-item
 title: NonEmployeeRequestWithoutApprovalItem
 pagination_label: NonEmployeeRequestWithoutApprovalItem
 sidebar_label: NonEmployeeRequestWithoutApprovalItem

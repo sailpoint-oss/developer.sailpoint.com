@@ -1,5 +1,5 @@
 ---
-id: public-identity-attribute-config
+id: beta-public-identity-attribute-config
 title: PublicIdentityAttributeConfig
 pagination_label: PublicIdentityAttributeConfig
 sidebar_label: PublicIdentityAttributeConfig

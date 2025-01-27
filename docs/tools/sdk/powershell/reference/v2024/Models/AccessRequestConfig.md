@@ -1,5 +1,5 @@
 ---
-id: access-request-config
+id: v2024-access-request-config
 title: AccessRequestConfig
 pagination_label: AccessRequestConfig
 sidebar_label: AccessRequestConfig

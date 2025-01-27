@@ -1,5 +1,5 @@
 ---
-id: source-created
+id: beta-source-created
 title: SourceCreated
 pagination_label: SourceCreated
 sidebar_label: SourceCreated

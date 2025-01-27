@@ -1,5 +1,5 @@
 ---
-id: domain-status-dto
+id: beta-domain-status-dto
 title: DomainStatusDto
 pagination_label: DomainStatusDto
 sidebar_label: DomainStatusDto

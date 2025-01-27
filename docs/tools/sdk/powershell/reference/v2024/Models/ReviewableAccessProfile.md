@@ -1,5 +1,5 @@
 ---
-id: reviewable-access-profile
+id: v2024-reviewable-access-profile
 title: ReviewableAccessProfile
 pagination_label: ReviewableAccessProfile
 sidebar_label: ReviewableAccessProfile

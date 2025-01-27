@@ -1,5 +1,5 @@
 ---
-id: form-definition-self-import-export-dto
+id: beta-form-definition-self-import-export-dto
 title: FormDefinitionSelfImportExportDto
 pagination_label: FormDefinitionSelfImportExportDto
 sidebar_label: FormDefinitionSelfImportExportDto

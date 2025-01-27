@@ -1,5 +1,5 @@
 ---
-id: outlier
+id: v2024-outlier
 title: Outlier
 pagination_label: Outlier
 sidebar_label: Outlier

@@ -1,5 +1,5 @@
 ---
-id: pending-approval
+id: beta-pending-approval
 title: PendingApproval
 pagination_label: PendingApproval
 sidebar_label: PendingApproval

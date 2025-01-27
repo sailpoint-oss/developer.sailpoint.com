@@ -1,5 +1,5 @@
 ---
-id: auth-profile
+id: v2024-auth-profile
 title: AuthProfile
 pagination_label: AuthProfile
 sidebar_label: AuthProfile

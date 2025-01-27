@@ -1,5 +1,5 @@
 ---
-id: base-document
+id: v2024-base-document
 title: BaseDocument
 pagination_label: BaseDocument
 sidebar_label: BaseDocument

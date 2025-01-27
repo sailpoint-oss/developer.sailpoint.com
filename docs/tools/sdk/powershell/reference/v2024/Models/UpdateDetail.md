@@ -1,5 +1,5 @@
 ---
-id: update-detail
+id: v2024-update-detail
 title: UpdateDetail
 pagination_label: UpdateDetail
 sidebar_label: UpdateDetail

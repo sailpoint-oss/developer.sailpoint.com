@@ -1,5 +1,5 @@
 ---
-id: review-recommendation
+id: v2024-review-recommendation
 title: ReviewRecommendation
 pagination_label: ReviewRecommendation
 sidebar_label: ReviewRecommendation

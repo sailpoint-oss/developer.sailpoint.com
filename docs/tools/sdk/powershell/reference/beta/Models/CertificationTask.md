@@ -1,5 +1,5 @@
 ---
-id: certification-task
+id: beta-certification-task
 title: CertificationTask
 pagination_label: CertificationTask
 sidebar_label: CertificationTask

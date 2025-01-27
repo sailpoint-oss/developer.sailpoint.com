@@ -1,5 +1,5 @@
 ---
-id: value
+id: v2024-value
 title: Value
 pagination_label: Value
 sidebar_label: Value

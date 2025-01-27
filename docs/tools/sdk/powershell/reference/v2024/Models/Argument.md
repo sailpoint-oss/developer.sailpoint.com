@@ -1,5 +1,5 @@
 ---
-id: argument
+id: v2024-argument
 title: Argument
 pagination_label: Argument
 sidebar_label: Argument

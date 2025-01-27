@@ -1,5 +1,5 @@
 ---
-id: password-info-query-dto
+id: v2024-password-info-query-dto
 title: PasswordInfoQueryDTO
 pagination_label: PasswordInfoQueryDTO
 sidebar_label: PasswordInfoQueryDTO

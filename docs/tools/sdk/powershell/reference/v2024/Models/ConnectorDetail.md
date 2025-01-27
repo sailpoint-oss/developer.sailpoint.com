@@ -1,5 +1,5 @@
 ---
-id: connector-detail
+id: v2024-connector-detail
 title: ConnectorDetail
 pagination_label: ConnectorDetail
 sidebar_label: ConnectorDetail

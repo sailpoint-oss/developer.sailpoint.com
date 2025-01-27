@@ -1,5 +1,5 @@
 ---
-id: role-membership-identity
+id: v2024-role-membership-identity
 title: RoleMembershipIdentity
 pagination_label: RoleMembershipIdentity
 sidebar_label: RoleMembershipIdentity

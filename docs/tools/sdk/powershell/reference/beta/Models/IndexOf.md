@@ -1,5 +1,5 @@
 ---
-id: index-of
+id: beta-index-of
 title: IndexOf
 pagination_label: IndexOf
 sidebar_label: IndexOf

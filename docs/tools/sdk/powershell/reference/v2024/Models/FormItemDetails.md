@@ -1,5 +1,5 @@
 ---
-id: form-item-details
+id: v2024-form-item-details
 title: FormItemDetails
 pagination_label: FormItemDetails
 sidebar_label: FormItemDetails

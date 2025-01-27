@@ -1,5 +1,5 @@
 ---
-id: access-request-recommendation-item-detail
+id: v2024-access-request-recommendation-item-detail
 title: AccessRequestRecommendationItemDetail
 pagination_label: AccessRequestRecommendationItemDetail
 sidebar_label: AccessRequestRecommendationItemDetail

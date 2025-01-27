@@ -1,5 +1,5 @@
 ---
-id: orphan-identities-report-arguments
+id: v2024-orphan-identities-report-arguments
 title: OrphanIdentitiesReportArguments
 pagination_label: OrphanIdentitiesReportArguments
 sidebar_label: OrphanIdentitiesReportArguments

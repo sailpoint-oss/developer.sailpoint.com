@@ -1,5 +1,5 @@
 ---
-id: config-type
+id: v2024-config-type
 title: ConfigType
 pagination_label: ConfigType
 sidebar_label: ConfigType

@@ -1,5 +1,5 @@
 ---
-id: task-result-simplified
+id: beta-task-result-simplified
 title: TaskResultSimplified
 pagination_label: TaskResultSimplified
 sidebar_label: TaskResultSimplified

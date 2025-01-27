@@ -1,5 +1,5 @@
 ---
-id: comment-dto1-author
+id: beta-comment-dto1-author
 title: CommentDto1Author
 pagination_label: CommentDto1Author
 sidebar_label: CommentDto1Author

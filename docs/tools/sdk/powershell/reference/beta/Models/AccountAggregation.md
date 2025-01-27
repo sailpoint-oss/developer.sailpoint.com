@@ -1,5 +1,5 @@
 ---
-id: account-aggregation
+id: beta-account-aggregation
 title: AccountAggregation
 pagination_label: AccountAggregation
 sidebar_label: AccountAggregation

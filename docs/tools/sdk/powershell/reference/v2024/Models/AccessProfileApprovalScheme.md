@@ -1,5 +1,5 @@
 ---
-id: access-profile-approval-scheme
+id: v2024-access-profile-approval-scheme
 title: AccessProfileApprovalScheme
 pagination_label: AccessProfileApprovalScheme
 sidebar_label: AccessProfileApprovalScheme

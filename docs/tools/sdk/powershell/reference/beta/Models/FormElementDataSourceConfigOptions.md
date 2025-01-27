@@ -1,5 +1,5 @@
 ---
-id: form-element-data-source-config-options
+id: beta-form-element-data-source-config-options
 title: FormElementDataSourceConfigOptions
 pagination_label: FormElementDataSourceConfigOptions
 sidebar_label: FormElementDataSourceConfigOptions

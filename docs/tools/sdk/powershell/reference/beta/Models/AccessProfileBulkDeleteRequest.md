@@ -1,5 +1,5 @@
 ---
-id: access-profile-bulk-delete-request
+id: beta-access-profile-bulk-delete-request
 title: AccessProfileBulkDeleteRequest
 pagination_label: AccessProfileBulkDeleteRequest
 sidebar_label: AccessProfileBulkDeleteRequest

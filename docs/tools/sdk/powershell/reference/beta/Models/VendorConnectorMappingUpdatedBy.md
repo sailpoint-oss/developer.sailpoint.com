@@ -1,5 +1,5 @@
 ---
-id: vendor-connector-mapping-updated-by
+id: beta-vendor-connector-mapping-updated-by
 title: VendorConnectorMappingUpdatedBy
 pagination_label: VendorConnectorMappingUpdatedBy
 sidebar_label: VendorConnectorMappingUpdatedBy

@@ -1,5 +1,5 @@
 ---
-id: export-payload
+id: beta-export-payload
 title: ExportPayload
 pagination_label: ExportPayload
 sidebar_label: ExportPayload

@@ -1,5 +1,5 @@
 ---
-id: send-token-request
+id: beta-send-token-request
 title: SendTokenRequest
 pagination_label: SendTokenRequest
 sidebar_label: SendTokenRequest

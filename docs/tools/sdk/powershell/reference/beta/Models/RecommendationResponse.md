@@ -1,5 +1,5 @@
 ---
-id: recommendation-response
+id: beta-recommendation-response
 title: RecommendationResponse
 pagination_label: RecommendationResponse
 sidebar_label: RecommendationResponse

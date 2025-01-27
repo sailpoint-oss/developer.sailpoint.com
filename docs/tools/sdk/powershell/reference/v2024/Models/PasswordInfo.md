@@ -1,5 +1,5 @@
 ---
-id: password-info
+id: v2024-password-info
 title: PasswordInfo
 pagination_label: PasswordInfo
 sidebar_label: PasswordInfo

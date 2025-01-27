@@ -1,5 +1,5 @@
 ---
-id: identity-attribute
+id: v2024-identity-attribute
 title: IdentityAttribute
 pagination_label: IdentityAttribute
 sidebar_label: IdentityAttribute

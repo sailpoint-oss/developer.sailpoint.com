@@ -1,5 +1,5 @@
 ---
-id: get-discovered-applications200-response-inner
+id: beta-get-discovered-applications200-response-inner
 title: GetDiscoveredApplications200ResponseInner
 pagination_label: GetDiscoveredApplications200ResponseInner
 sidebar_label: GetDiscoveredApplications200ResponseInner

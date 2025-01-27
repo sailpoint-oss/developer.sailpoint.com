@@ -1,5 +1,5 @@
 ---
-id: revocability-for-role
+id: beta-revocability-for-role
 title: RevocabilityForRole
 pagination_label: RevocabilityForRole
 sidebar_label: RevocabilityForRole

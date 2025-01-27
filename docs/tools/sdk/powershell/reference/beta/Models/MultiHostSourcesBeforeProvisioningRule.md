@@ -1,5 +1,5 @@
 ---
-id: multi-host-sources-before-provisioning-rule
+id: beta-multi-host-sources-before-provisioning-rule
 title: MultiHostSourcesBeforeProvisioningRule
 pagination_label: MultiHostSourcesBeforeProvisioningRule
 sidebar_label: MultiHostSourcesBeforeProvisioningRule

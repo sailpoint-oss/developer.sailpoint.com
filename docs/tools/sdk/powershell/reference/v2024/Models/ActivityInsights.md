@@ -1,5 +1,5 @@
 ---
-id: activity-insights
+id: v2024-activity-insights
 title: ActivityInsights
 pagination_label: ActivityInsights
 sidebar_label: ActivityInsights

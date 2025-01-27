@@ -1,5 +1,5 @@
 ---
-id: campaign-complete-options
+id: v2024-campaign-complete-options
 title: CampaignCompleteOptions
 pagination_label: CampaignCompleteOptions
 sidebar_label: CampaignCompleteOptions

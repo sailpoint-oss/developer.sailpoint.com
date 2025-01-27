@@ -1,5 +1,5 @@
 ---
-id: post-external-execute-workflow-request
+id: beta-post-external-execute-workflow-request
 title: PostExternalExecuteWorkflowRequest
 pagination_label: PostExternalExecuteWorkflowRequest
 sidebar_label: PostExternalExecuteWorkflowRequest

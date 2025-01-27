@@ -1,5 +1,5 @@
 ---
-id: sod-recipient
+id: v2024-sod-recipient
 title: SodRecipient
 pagination_label: SodRecipient
 sidebar_label: SodRecipient

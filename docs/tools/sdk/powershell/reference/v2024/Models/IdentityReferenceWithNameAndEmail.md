@@ -1,5 +1,5 @@
 ---
-id: identity-reference-with-name-and-email
+id: v2024-identity-reference-with-name-and-email
 title: IdentityReferenceWithNameAndEmail
 pagination_label: IdentityReferenceWithNameAndEmail
 sidebar_label: IdentityReferenceWithNameAndEmail

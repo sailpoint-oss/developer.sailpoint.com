@@ -1,5 +1,5 @@
 ---
-id: identity-profile-exported-object
+id: beta-identity-profile-exported-object
 title: IdentityProfileExportedObject
 pagination_label: IdentityProfileExportedObject
 sidebar_label: IdentityProfileExportedObject

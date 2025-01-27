@@ -1,5 +1,5 @@
 ---
-id: localized-message
+id: beta-localized-message
 title: LocalizedMessage
 pagination_label: LocalizedMessage
 sidebar_label: LocalizedMessage

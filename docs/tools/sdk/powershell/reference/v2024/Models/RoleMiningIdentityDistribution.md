@@ -1,5 +1,5 @@
 ---
-id: role-mining-identity-distribution
+id: v2024-role-mining-identity-distribution
 title: RoleMiningIdentityDistribution
 pagination_label: RoleMiningIdentityDistribution
 sidebar_label: RoleMiningIdentityDistribution

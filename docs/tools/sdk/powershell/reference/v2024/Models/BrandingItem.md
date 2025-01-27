@@ -1,5 +1,5 @@
 ---
-id: branding-item
+id: v2024-branding-item
 title: BrandingItem
 pagination_label: BrandingItem
 sidebar_label: BrandingItem

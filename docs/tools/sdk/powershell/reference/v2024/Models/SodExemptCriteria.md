@@ -1,5 +1,5 @@
 ---
-id: sod-exempt-criteria
+id: v2024-sod-exempt-criteria
 title: SodExemptCriteria
 pagination_label: SodExemptCriteria
 sidebar_label: SodExemptCriteria

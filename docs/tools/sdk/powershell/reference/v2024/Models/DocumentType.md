@@ -1,5 +1,5 @@
 ---
-id: document-type
+id: v2024-document-type
 title: DocumentType
 pagination_label: DocumentType
 sidebar_label: DocumentType

@@ -1,5 +1,5 @@
 ---
-id: object-export-import-options
+id: beta-object-export-import-options
 title: ObjectExportImportOptions
 pagination_label: ObjectExportImportOptions
 sidebar_label: ObjectExportImportOptions

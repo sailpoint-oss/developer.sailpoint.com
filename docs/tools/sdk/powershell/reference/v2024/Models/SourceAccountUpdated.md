@@ -1,5 +1,5 @@
 ---
-id: source-account-updated
+id: v2024-source-account-updated
 title: SourceAccountUpdated
 pagination_label: SourceAccountUpdated
 sidebar_label: SourceAccountUpdated

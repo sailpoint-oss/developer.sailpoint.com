@@ -1,5 +1,5 @@
 ---
-id: expression
+id: beta-expression
 title: Expression
 pagination_label: Expression
 sidebar_label: Expression

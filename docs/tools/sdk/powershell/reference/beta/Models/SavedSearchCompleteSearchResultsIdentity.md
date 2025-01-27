@@ -1,5 +1,5 @@
 ---
-id: saved-search-complete-search-results-identity
+id: beta-saved-search-complete-search-results-identity
 title: SavedSearchCompleteSearchResultsIdentity
 pagination_label: SavedSearchCompleteSearchResultsIdentity
 sidebar_label: SavedSearchCompleteSearchResultsIdentity

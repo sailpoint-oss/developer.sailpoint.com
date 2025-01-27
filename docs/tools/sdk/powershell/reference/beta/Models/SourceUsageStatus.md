@@ -1,5 +1,5 @@
 ---
-id: source-usage-status
+id: beta-source-usage-status
 title: SourceUsageStatus
 pagination_label: SourceUsageStatus
 sidebar_label: SourceUsageStatus

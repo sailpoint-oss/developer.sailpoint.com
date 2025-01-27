@@ -1,5 +1,5 @@
 ---
-id: update-access-profiles-in-bulk412-response
+id: beta-update-access-profiles-in-bulk412-response
 title: UpdateAccessProfilesInBulk412Response
 pagination_label: UpdateAccessProfilesInBulk412Response
 sidebar_label: UpdateAccessProfilesInBulk412Response

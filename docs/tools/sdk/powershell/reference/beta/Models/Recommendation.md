@@ -1,5 +1,5 @@
 ---
-id: recommendation
+id: beta-recommendation
 title: Recommendation
 pagination_label: Recommendation
 sidebar_label: Recommendation

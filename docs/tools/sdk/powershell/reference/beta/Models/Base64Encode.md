@@ -1,5 +1,5 @@
 ---
-id: base64-encode
+id: beta-base64-encode
 title: Base64Encode
 pagination_label: Base64Encode
 sidebar_label: Base64Encode

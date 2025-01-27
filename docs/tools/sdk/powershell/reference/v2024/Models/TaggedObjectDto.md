@@ -1,5 +1,5 @@
 ---
-id: tagged-object-dto
+id: v2024-tagged-object-dto
 title: TaggedObjectDto
 pagination_label: TaggedObjectDto
 sidebar_label: TaggedObjectDto

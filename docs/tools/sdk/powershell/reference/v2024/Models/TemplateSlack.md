@@ -1,5 +1,5 @@
 ---
-id: template-slack
+id: v2024-template-slack
 title: TemplateSlack
 pagination_label: TemplateSlack
 sidebar_label: TemplateSlack

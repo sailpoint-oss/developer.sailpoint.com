@@ -1,5 +1,5 @@
 ---
-id: task-status
+id: beta-task-status
 title: TaskStatus
 pagination_label: TaskStatus
 sidebar_label: TaskStatus

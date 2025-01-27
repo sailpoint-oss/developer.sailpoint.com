@@ -1,5 +1,5 @@
 ---
-id: named-constructs
+id: v2024-named-constructs
 title: NamedConstructs
 pagination_label: NamedConstructs
 sidebar_label: NamedConstructs

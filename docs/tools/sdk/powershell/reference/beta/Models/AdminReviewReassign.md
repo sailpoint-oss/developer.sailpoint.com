@@ -1,5 +1,5 @@
 ---
-id: admin-review-reassign
+id: beta-admin-review-reassign
 title: AdminReviewReassign
 pagination_label: AdminReviewReassign
 sidebar_label: AdminReviewReassign

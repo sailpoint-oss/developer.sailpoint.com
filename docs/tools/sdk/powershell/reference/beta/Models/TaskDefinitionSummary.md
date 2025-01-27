@@ -1,5 +1,5 @@
 ---
-id: task-definition-summary
+id: beta-task-definition-summary
 title: TaskDefinitionSummary
 pagination_label: TaskDefinitionSummary
 sidebar_label: TaskDefinitionSummary

@@ -1,5 +1,5 @@
 ---
-id: connector-rule-validation-response
+id: v2024-connector-rule-validation-response
 title: ConnectorRuleValidationResponse
 pagination_label: ConnectorRuleValidationResponse
 sidebar_label: ConnectorRuleValidationResponse

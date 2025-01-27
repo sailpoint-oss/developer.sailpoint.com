@@ -1,5 +1,5 @@
 ---
-id: mail-from-attributes
+id: v2024-mail-from-attributes
 title: MailFromAttributes
 pagination_label: MailFromAttributes
 sidebar_label: MailFromAttributes

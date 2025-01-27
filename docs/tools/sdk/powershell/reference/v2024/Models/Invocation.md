@@ -1,5 +1,5 @@
 ---
-id: invocation
+id: v2024-invocation
 title: Invocation
 pagination_label: Invocation
 sidebar_label: Invocation

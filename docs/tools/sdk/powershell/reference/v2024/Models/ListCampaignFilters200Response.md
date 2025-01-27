@@ -1,5 +1,5 @@
 ---
-id: list-campaign-filters200-response
+id: v2024-list-campaign-filters200-response
 title: ListCampaignFilters200Response
 pagination_label: ListCampaignFilters200Response
 sidebar_label: ListCampaignFilters200Response

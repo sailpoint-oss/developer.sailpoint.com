@@ -1,5 +1,5 @@
 ---
-id: identity-document
+id: v2024-identity-document
 title: IdentityDocument
 pagination_label: IdentityDocument
 sidebar_label: IdentityDocument

@@ -1,5 +1,5 @@
 ---
-id: access-item-account-response
+id: v2024-access-item-account-response
 title: AccessItemAccountResponse
 pagination_label: AccessItemAccountResponse
 sidebar_label: AccessItemAccountResponse

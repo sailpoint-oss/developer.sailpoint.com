@@ -1,5 +1,5 @@
 ---
-id: multi-host-integrations-create
+id: beta-multi-host-integrations-create
 title: MultiHostIntegrationsCreate
 pagination_label: MultiHostIntegrationsCreate
 sidebar_label: MultiHostIntegrationsCreate

@@ -1,5 +1,5 @@
 ---
-id: app-all-of-account
+id: v2024-app-all-of-account
 title: AppAllOfAccount
 pagination_label: AppAllOfAccount
 sidebar_label: AppAllOfAccount

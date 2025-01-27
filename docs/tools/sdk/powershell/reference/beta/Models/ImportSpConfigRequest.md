@@ -1,5 +1,5 @@
 ---
-id: import-sp-config-request
+id: beta-import-sp-config-request
 title: ImportSpConfigRequest
 pagination_label: ImportSpConfigRequest
 sidebar_label: ImportSpConfigRequest

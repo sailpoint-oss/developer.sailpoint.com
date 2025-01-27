@@ -1,5 +1,5 @@
 ---
-id: text-query
+id: v2024-text-query
 title: TextQuery
 pagination_label: TextQuery
 sidebar_label: TextQuery

@@ -1,5 +1,5 @@
 ---
-id: sed-assignment-response
+id: beta-sed-assignment-response
 title: SedAssignmentResponse
 pagination_label: SedAssignmentResponse
 sidebar_label: SedAssignmentResponse

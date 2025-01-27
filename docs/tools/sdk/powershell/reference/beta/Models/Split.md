@@ -1,5 +1,5 @@
 ---
-id: split
+id: beta-split
 title: Split
 pagination_label: Split
 sidebar_label: Split

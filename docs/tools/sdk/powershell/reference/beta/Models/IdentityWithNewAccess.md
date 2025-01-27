@@ -1,5 +1,5 @@
 ---
-id: identity-with-new-access
+id: beta-identity-with-new-access
 title: IdentityWithNewAccess
 pagination_label: IdentityWithNewAccess
 sidebar_label: IdentityWithNewAccess

@@ -1,5 +1,5 @@
 ---
-id: match-term
+id: beta-match-term
 title: MatchTerm
 pagination_label: MatchTerm
 sidebar_label: MatchTerm

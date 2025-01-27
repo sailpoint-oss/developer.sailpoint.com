@@ -1,5 +1,5 @@
 ---
-id: role-mining-session-status
+id: v2024-role-mining-session-status
 title: RoleMiningSessionStatus
 pagination_label: RoleMiningSessionStatus
 sidebar_label: RoleMiningSessionStatus

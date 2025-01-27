@@ -1,5 +1,5 @@
 ---
-id: processing-details
+id: v2024-processing-details
 title: ProcessingDetails
 pagination_label: ProcessingDetails
 sidebar_label: ProcessingDetails

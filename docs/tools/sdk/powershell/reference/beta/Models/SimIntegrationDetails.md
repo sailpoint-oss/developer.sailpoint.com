@@ -1,5 +1,5 @@
 ---
-id: sim-integration-details
+id: beta-sim-integration-details
 title: SimIntegrationDetails
 pagination_label: SimIntegrationDetails
 sidebar_label: SimIntegrationDetails

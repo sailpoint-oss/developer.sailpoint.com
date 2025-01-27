@@ -1,5 +1,5 @@
 ---
-id: schema
+id: v2024-schema
 title: Schema
 pagination_label: Schema
 sidebar_label: Schema

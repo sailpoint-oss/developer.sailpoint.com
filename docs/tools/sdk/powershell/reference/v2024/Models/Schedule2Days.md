@@ -1,5 +1,5 @@
 ---
-id: schedule2-days
+id: v2024-schedule2-days
 title: Schedule2Days
 pagination_label: Schedule2Days
 sidebar_label: Schedule2Days

@@ -1,5 +1,5 @@
 ---
-id: requestable-object-request-status
+id: beta-requestable-object-request-status
 title: RequestableObjectRequestStatus
 pagination_label: RequestableObjectRequestStatus
 sidebar_label: RequestableObjectRequestStatus

@@ -1,5 +1,5 @@
 ---
-id: workflow-library-action-example-output
+id: v2024-workflow-library-action-example-output
 title: WorkflowLibraryActionExampleOutput
 pagination_label: WorkflowLibraryActionExampleOutput
 sidebar_label: WorkflowLibraryActionExampleOutput

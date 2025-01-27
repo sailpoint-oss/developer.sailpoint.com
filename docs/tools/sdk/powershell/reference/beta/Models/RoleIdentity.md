@@ -1,5 +1,5 @@
 ---
-id: role-identity
+id: beta-role-identity
 title: RoleIdentity
 pagination_label: RoleIdentity
 sidebar_label: RoleIdentity

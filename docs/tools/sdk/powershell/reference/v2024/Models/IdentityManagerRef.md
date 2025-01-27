@@ -1,5 +1,5 @@
 ---
-id: identity-manager-ref
+id: v2024-identity-manager-ref
 title: IdentityManagerRef
 pagination_label: IdentityManagerRef
 sidebar_label: IdentityManagerRef

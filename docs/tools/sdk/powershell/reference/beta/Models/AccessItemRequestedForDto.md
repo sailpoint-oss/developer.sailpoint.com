@@ -1,5 +1,5 @@
 ---
-id: access-item-requested-for-dto
+id: beta-access-item-requested-for-dto
 title: AccessItemRequestedForDto
 pagination_label: AccessItemRequestedForDto
 sidebar_label: AccessItemRequestedForDto

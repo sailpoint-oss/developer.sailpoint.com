@@ -1,5 +1,5 @@
 ---
-id: entitlement-ref1
+id: v2024-entitlement-ref1
 title: EntitlementRef1
 pagination_label: EntitlementRef1
 sidebar_label: EntitlementRef1

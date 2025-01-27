@@ -1,5 +1,5 @@
 ---
-id: bearer-token-auth-config
+id: v2024-bearer-token-auth-config
 title: BearerTokenAuthConfig
 pagination_label: BearerTokenAuthConfig
 sidebar_label: BearerTokenAuthConfig

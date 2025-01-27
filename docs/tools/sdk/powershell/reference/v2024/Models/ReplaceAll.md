@@ -1,5 +1,5 @@
 ---
-id: replace-all
+id: v2024-replace-all
 title: ReplaceAll
 pagination_label: ReplaceAll
 sidebar_label: ReplaceAll

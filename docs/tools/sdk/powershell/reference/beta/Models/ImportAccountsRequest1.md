@@ -1,5 +1,5 @@
 ---
-id: import-accounts-request1
+id: beta-import-accounts-request1
 title: ImportAccountsRequest1
 pagination_label: ImportAccountsRequest1
 sidebar_label: ImportAccountsRequest1

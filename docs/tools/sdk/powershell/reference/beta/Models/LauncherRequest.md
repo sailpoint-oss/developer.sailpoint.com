@@ -1,5 +1,5 @@
 ---
-id: launcher-request
+id: beta-launcher-request
 title: LauncherRequest
 pagination_label: LauncherRequest
 sidebar_label: LauncherRequest

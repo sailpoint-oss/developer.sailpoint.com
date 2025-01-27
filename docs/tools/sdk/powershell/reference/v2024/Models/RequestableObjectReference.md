@@ -1,5 +1,5 @@
 ---
-id: requestable-object-reference
+id: v2024-requestable-object-reference
 title: RequestableObjectReference
 pagination_label: RequestableObjectReference
 sidebar_label: RequestableObjectReference

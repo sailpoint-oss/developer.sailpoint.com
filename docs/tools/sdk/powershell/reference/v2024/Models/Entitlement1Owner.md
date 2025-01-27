@@ -1,5 +1,5 @@
 ---
-id: entitlement1-owner
+id: v2024-entitlement1-owner
 title: Entitlement1Owner
 pagination_label: Entitlement1Owner
 sidebar_label: Entitlement1Owner

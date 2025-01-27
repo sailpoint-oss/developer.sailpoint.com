@@ -1,5 +1,5 @@
 ---
-id: campaign-all-of-sources-with-orphan-entitlements
+id: v2024-campaign-all-of-sources-with-orphan-entitlements
 title: CampaignAllOfSourcesWithOrphanEntitlements
 pagination_label: CampaignAllOfSourcesWithOrphanEntitlements
 sidebar_label: CampaignAllOfSourcesWithOrphanEntitlements

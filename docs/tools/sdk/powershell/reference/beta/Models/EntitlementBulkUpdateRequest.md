@@ -1,5 +1,5 @@
 ---
-id: entitlement-bulk-update-request
+id: beta-entitlement-bulk-update-request
 title: EntitlementBulkUpdateRequest
 pagination_label: EntitlementBulkUpdateRequest
 sidebar_label: EntitlementBulkUpdateRequest

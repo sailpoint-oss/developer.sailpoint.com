@@ -1,5 +1,5 @@
 ---
-id: role-mining-session-response
+id: beta-role-mining-session-response
 title: RoleMiningSessionResponse
 pagination_label: RoleMiningSessionResponse
 sidebar_label: RoleMiningSessionResponse

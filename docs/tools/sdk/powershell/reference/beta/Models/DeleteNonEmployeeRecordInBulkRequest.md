@@ -1,5 +1,5 @@
 ---
-id: delete-non-employee-record-in-bulk-request
+id: beta-delete-non-employee-record-in-bulk-request
 title: DeleteNonEmployeeRecordInBulkRequest
 pagination_label: DeleteNonEmployeeRecordInBulkRequest
 sidebar_label: DeleteNonEmployeeRecordInBulkRequest

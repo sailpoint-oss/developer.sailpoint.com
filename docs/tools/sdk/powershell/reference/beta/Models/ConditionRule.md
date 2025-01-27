@@ -1,5 +1,5 @@
 ---
-id: condition-rule
+id: beta-condition-rule
 title: ConditionRule
 pagination_label: ConditionRule
 sidebar_label: ConditionRule

@@ -1,5 +1,5 @@
 ---
-id: account-correlated
+id: v2024-account-correlated
 title: AccountCorrelated
 pagination_label: AccountCorrelated
 sidebar_label: AccountCorrelated

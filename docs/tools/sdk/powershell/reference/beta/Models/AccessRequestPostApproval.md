@@ -1,5 +1,5 @@
 ---
-id: access-request-post-approval
+id: beta-access-request-post-approval
 title: AccessRequestPostApproval
 pagination_label: AccessRequestPostApproval
 sidebar_label: AccessRequestPostApproval

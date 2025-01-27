@@ -1,5 +1,5 @@
 ---
-id: certification-signed-off
+id: beta-certification-signed-off
 title: CertificationSignedOff
 pagination_label: CertificationSignedOff
 sidebar_label: CertificationSignedOff

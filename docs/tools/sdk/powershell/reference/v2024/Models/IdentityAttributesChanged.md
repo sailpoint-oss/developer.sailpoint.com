@@ -1,5 +1,5 @@
 ---
-id: identity-attributes-changed
+id: v2024-identity-attributes-changed
 title: IdentityAttributesChanged
 pagination_label: IdentityAttributesChanged
 sidebar_label: IdentityAttributesChanged

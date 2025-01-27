@@ -1,5 +1,5 @@
 ---
-id: campaign-all-of-filter
+id: v2024-campaign-all-of-filter
 title: CampaignAllOfFilter
 pagination_label: CampaignAllOfFilter
 sidebar_label: CampaignAllOfFilter

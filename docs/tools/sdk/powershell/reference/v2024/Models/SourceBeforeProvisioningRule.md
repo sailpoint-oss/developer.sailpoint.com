@@ -1,5 +1,5 @@
 ---
-id: source-before-provisioning-rule
+id: v2024-source-before-provisioning-rule
 title: SourceBeforeProvisioningRule
 pagination_label: SourceBeforeProvisioningRule
 sidebar_label: SourceBeforeProvisioningRule

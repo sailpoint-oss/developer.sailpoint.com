@@ -1,5 +1,5 @@
 ---
-id: manual-work-item-state
+id: v2024-manual-work-item-state
 title: ManualWorkItemState
 pagination_label: ManualWorkItemState
 sidebar_label: ManualWorkItemState

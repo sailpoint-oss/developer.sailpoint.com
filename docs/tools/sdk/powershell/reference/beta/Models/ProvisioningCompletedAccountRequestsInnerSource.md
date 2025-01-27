@@ -1,5 +1,5 @@
 ---
-id: provisioning-completed-account-requests-inner-source
+id: beta-provisioning-completed-account-requests-inner-source
 title: ProvisioningCompletedAccountRequestsInnerSource
 pagination_label: ProvisioningCompletedAccountRequestsInnerSource
 sidebar_label: ProvisioningCompletedAccountRequestsInnerSource

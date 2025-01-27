@@ -1,5 +1,5 @@
 ---
-id: identity-attribute1
+id: beta-identity-attribute1
 title: IdentityAttribute1
 pagination_label: IdentityAttribute1
 sidebar_label: IdentityAttribute1

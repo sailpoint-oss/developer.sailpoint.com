@@ -1,5 +1,5 @@
 ---
-id: form-error
+id: beta-form-error
 title: FormError
 pagination_label: FormError
 sidebar_label: FormError

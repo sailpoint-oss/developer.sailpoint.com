@@ -1,5 +1,5 @@
 ---
-id: workflow-definition
+id: beta-workflow-definition
 title: WorkflowDefinition
 pagination_label: WorkflowDefinition
 sidebar_label: WorkflowDefinition

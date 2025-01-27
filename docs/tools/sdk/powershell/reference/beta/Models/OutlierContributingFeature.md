@@ -1,5 +1,5 @@
 ---
-id: outlier-contributing-feature
+id: beta-outlier-contributing-feature
 title: OutlierContributingFeature
 pagination_label: OutlierContributingFeature
 sidebar_label: OutlierContributingFeature

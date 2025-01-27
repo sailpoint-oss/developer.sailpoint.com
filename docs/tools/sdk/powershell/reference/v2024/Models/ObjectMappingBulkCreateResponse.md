@@ -1,5 +1,5 @@
 ---
-id: object-mapping-bulk-create-response
+id: v2024-object-mapping-bulk-create-response
 title: ObjectMappingBulkCreateResponse
 pagination_label: ObjectMappingBulkCreateResponse
 sidebar_label: ObjectMappingBulkCreateResponse

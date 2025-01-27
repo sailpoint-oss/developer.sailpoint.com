@@ -1,5 +1,5 @@
 ---
-id: completed-approval
+id: v2024-completed-approval
 title: CompletedApproval
 pagination_label: CompletedApproval
 sidebar_label: CompletedApproval

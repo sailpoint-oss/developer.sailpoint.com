@@ -1,5 +1,5 @@
 ---
-id: template-slack-custom-fields
+id: beta-template-slack-custom-fields
 title: TemplateSlackCustomFields
 pagination_label: TemplateSlackCustomFields
 sidebar_label: TemplateSlackCustomFields

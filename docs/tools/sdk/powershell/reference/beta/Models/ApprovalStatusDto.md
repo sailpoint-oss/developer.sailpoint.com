@@ -1,5 +1,5 @@
 ---
-id: approval-status-dto
+id: beta-approval-status-dto
 title: ApprovalStatusDto
 pagination_label: ApprovalStatusDto
 sidebar_label: ApprovalStatusDto

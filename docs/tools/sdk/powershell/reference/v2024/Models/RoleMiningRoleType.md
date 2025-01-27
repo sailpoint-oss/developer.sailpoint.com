@@ -1,5 +1,5 @@
 ---
-id: role-mining-role-type
+id: v2024-role-mining-role-type
 title: RoleMiningRoleType
 pagination_label: RoleMiningRoleType
 sidebar_label: RoleMiningRoleType

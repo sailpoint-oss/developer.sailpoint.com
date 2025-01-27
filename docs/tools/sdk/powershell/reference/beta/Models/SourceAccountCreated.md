@@ -1,5 +1,5 @@
 ---
-id: source-account-created
+id: beta-source-account-created
 title: SourceAccountCreated
 pagination_label: SourceAccountCreated
 sidebar_label: SourceAccountCreated

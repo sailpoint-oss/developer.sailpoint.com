@@ -1,5 +1,5 @@
 ---
-id: dto-type
+id: beta-dto-type
 title: DtoType
 pagination_label: DtoType
 sidebar_label: DtoType

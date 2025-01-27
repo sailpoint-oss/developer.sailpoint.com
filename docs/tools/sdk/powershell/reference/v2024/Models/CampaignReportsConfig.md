@@ -1,5 +1,5 @@
 ---
-id: campaign-reports-config
+id: v2024-campaign-reports-config
 title: CampaignReportsConfig
 pagination_label: CampaignReportsConfig
 sidebar_label: CampaignReportsConfig

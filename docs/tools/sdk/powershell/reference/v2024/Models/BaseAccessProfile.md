@@ -1,5 +1,5 @@
 ---
-id: base-access-profile
+id: v2024-base-access-profile
 title: BaseAccessProfile
 pagination_label: BaseAccessProfile
 sidebar_label: BaseAccessProfile

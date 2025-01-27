@@ -1,5 +1,5 @@
 ---
-id: object-mapping-bulk-patch-response
+id: v2024-object-mapping-bulk-patch-response
 title: ObjectMappingBulkPatchResponse
 pagination_label: ObjectMappingBulkPatchResponse
 sidebar_label: ObjectMappingBulkPatchResponse

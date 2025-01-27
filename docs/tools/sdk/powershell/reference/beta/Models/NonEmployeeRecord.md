@@ -1,5 +1,5 @@
 ---
-id: non-employee-record
+id: beta-non-employee-record
 title: NonEmployeeRecord
 pagination_label: NonEmployeeRecord
 sidebar_label: NonEmployeeRecord

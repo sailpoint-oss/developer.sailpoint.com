@@ -1,5 +1,5 @@
 ---
-id: outliers-contributing-feature-access-items
+id: beta-outliers-contributing-feature-access-items
 title: OutliersContributingFeatureAccessItems
 pagination_label: OutliersContributingFeatureAccessItems
 sidebar_label: OutliersContributingFeatureAccessItems

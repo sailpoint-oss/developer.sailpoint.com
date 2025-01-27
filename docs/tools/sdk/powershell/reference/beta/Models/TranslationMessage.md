@@ -1,5 +1,5 @@
 ---
-id: translation-message
+id: beta-translation-message
 title: TranslationMessage
 pagination_label: TranslationMessage
 sidebar_label: TranslationMessage

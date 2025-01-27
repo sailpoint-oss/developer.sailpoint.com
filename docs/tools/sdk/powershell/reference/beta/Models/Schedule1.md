@@ -1,5 +1,5 @@
 ---
-id: schedule1
+id: beta-schedule1
 title: Schedule1
 pagination_label: Schedule1
 sidebar_label: Schedule1

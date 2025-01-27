@@ -1,5 +1,5 @@
 ---
-id: campaign-activated-campaign
+id: beta-campaign-activated-campaign
 title: CampaignActivatedCampaign
 pagination_label: CampaignActivatedCampaign
 sidebar_label: CampaignActivatedCampaign

@@ -1,5 +1,5 @@
 ---
-id: access-item-associated
+id: beta-access-item-associated
 title: AccessItemAssociated
 pagination_label: AccessItemAssociated
 sidebar_label: AccessItemAssociated

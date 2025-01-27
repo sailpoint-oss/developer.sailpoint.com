@@ -1,5 +1,5 @@
 ---
-id: access-item-ref
+id: beta-access-item-ref
 title: AccessItemRef
 pagination_label: AccessItemRef
 sidebar_label: AccessItemRef

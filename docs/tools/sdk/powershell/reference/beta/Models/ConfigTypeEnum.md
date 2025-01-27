@@ -1,5 +1,5 @@
 ---
-id: config-type-enum
+id: beta-config-type-enum
 title: ConfigTypeEnum
 pagination_label: ConfigTypeEnum
 sidebar_label: ConfigTypeEnum

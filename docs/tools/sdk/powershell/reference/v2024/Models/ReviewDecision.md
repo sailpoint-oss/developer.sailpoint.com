@@ -1,5 +1,5 @@
 ---
-id: review-decision
+id: v2024-review-decision
 title: ReviewDecision
 pagination_label: ReviewDecision
 sidebar_label: ReviewDecision

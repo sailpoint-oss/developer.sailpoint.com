@@ -1,5 +1,5 @@
 ---
-id: identity
+id: beta-identity
 title: Identity
 pagination_label: Identity
 sidebar_label: Identity

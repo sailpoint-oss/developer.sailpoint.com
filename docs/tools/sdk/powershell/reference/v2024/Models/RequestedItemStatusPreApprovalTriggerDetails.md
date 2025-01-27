@@ -1,5 +1,5 @@
 ---
-id: requested-item-status-pre-approval-trigger-details
+id: v2024-requested-item-status-pre-approval-trigger-details
 title: RequestedItemStatusPreApprovalTriggerDetails
 pagination_label: RequestedItemStatusPreApprovalTriggerDetails
 sidebar_label: RequestedItemStatusPreApprovalTriggerDetails

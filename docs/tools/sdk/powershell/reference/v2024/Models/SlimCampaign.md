@@ -1,5 +1,5 @@
 ---
-id: slim-campaign
+id: v2024-slim-campaign
 title: SlimCampaign
 pagination_label: SlimCampaign
 sidebar_label: SlimCampaign

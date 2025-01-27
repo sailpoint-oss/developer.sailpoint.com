@@ -1,5 +1,5 @@
 ---
-id: provisioning-details
+id: v2024-provisioning-details
 title: ProvisioningDetails
 pagination_label: ProvisioningDetails
 sidebar_label: ProvisioningDetails

@@ -1,5 +1,5 @@
 ---
-id: sed-assignee
+id: beta-sed-assignee
 title: SedAssignee
 pagination_label: SedAssignee
 sidebar_label: SedAssignee

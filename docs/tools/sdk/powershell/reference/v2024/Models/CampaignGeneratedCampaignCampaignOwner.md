@@ -1,5 +1,5 @@
 ---
-id: campaign-generated-campaign-campaign-owner
+id: v2024-campaign-generated-campaign-campaign-owner
 title: CampaignGeneratedCampaignCampaignOwner
 pagination_label: CampaignGeneratedCampaignCampaignOwner
 sidebar_label: CampaignGeneratedCampaignCampaignOwner

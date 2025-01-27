@@ -1,5 +1,5 @@
 ---
-id: entitlement-approval-scheme
+id: beta-entitlement-approval-scheme
 title: EntitlementApprovalScheme
 pagination_label: EntitlementApprovalScheme
 sidebar_label: EntitlementApprovalScheme

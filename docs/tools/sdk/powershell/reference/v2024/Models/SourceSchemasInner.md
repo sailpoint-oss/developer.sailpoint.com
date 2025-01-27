@@ -1,5 +1,5 @@
 ---
-id: source-schemas-inner
+id: v2024-source-schemas-inner
 title: SourceSchemasInner
 pagination_label: SourceSchemasInner
 sidebar_label: SourceSchemasInner

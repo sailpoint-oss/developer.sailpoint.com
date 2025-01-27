@@ -1,5 +1,5 @@
 ---
-id: locale-origin
+id: beta-locale-origin
 title: LocaleOrigin
 pagination_label: LocaleOrigin
 sidebar_label: LocaleOrigin

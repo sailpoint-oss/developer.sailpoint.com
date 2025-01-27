@@ -1,5 +1,5 @@
 ---
-id: source-cluster
+id: v2024-source-cluster
 title: SourceCluster
 pagination_label: SourceCluster
 sidebar_label: SourceCluster

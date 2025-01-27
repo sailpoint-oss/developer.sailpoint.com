@@ -1,5 +1,5 @@
 ---
-id: certification-reference1
+id: v2024-certification-reference1
 title: CertificationReference1
 pagination_label: CertificationReference1
 sidebar_label: CertificationReference1

@@ -1,5 +1,5 @@
 ---
-id: role-criteria-level3
+id: beta-role-criteria-level3
 title: RoleCriteriaLevel3
 pagination_label: RoleCriteriaLevel3
 sidebar_label: RoleCriteriaLevel3

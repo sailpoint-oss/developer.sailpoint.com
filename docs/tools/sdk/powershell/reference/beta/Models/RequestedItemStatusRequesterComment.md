@@ -1,5 +1,5 @@
 ---
-id: requested-item-status-requester-comment
+id: beta-requested-item-status-requester-comment
 title: RequestedItemStatusRequesterComment
 pagination_label: RequestedItemStatusRequesterComment
 sidebar_label: RequestedItemStatusRequesterComment

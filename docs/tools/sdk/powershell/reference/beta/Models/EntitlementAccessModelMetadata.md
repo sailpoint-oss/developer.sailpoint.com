@@ -1,5 +1,5 @@
 ---
-id: entitlement-access-model-metadata
+id: beta-entitlement-access-model-metadata
 title: EntitlementAccessModelMetadata
 pagination_label: EntitlementAccessModelMetadata
 sidebar_label: EntitlementAccessModelMetadata

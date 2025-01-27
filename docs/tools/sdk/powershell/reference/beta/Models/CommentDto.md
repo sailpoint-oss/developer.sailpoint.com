@@ -1,5 +1,5 @@
 ---
-id: comment-dto
+id: beta-comment-dto
 title: CommentDto
 pagination_label: CommentDto
 sidebar_label: CommentDto

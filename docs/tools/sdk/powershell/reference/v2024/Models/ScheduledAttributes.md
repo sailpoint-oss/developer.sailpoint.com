@@ -1,5 +1,5 @@
 ---
-id: scheduled-attributes
+id: v2024-scheduled-attributes
 title: ScheduledAttributes
 pagination_label: ScheduledAttributes
 sidebar_label: ScheduledAttributes

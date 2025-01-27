@@ -1,5 +1,5 @@
 ---
-id: account-aggregation-status
+id: beta-account-aggregation-status
 title: AccountAggregationStatus
 pagination_label: AccountAggregationStatus
 sidebar_label: AccountAggregationStatus

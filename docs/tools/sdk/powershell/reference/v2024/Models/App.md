@@ -1,5 +1,5 @@
 ---
-id: app
+id: v2024-app
 title: App
 pagination_label: App
 sidebar_label: App

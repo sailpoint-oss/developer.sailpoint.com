@@ -1,5 +1,5 @@
 ---
-id: non-employee-approval-item-base
+id: beta-non-employee-approval-item-base
 title: NonEmployeeApprovalItemBase
 pagination_label: NonEmployeeApprovalItemBase
 sidebar_label: NonEmployeeApprovalItemBase

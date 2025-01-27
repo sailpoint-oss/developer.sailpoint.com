@@ -1,5 +1,5 @@
 ---
-id: multi-host-integrations-management-workgroup
+id: beta-multi-host-integrations-management-workgroup
 title: MultiHostIntegrationsManagementWorkgroup
 pagination_label: MultiHostIntegrationsManagementWorkgroup
 sidebar_label: MultiHostIntegrationsManagementWorkgroup

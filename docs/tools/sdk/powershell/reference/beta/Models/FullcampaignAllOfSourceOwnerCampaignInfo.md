@@ -1,5 +1,5 @@
 ---
-id: fullcampaign-all-of-source-owner-campaign-info
+id: beta-fullcampaign-all-of-source-owner-campaign-info
 title: FullcampaignAllOfSourceOwnerCampaignInfo
 pagination_label: FullcampaignAllOfSourceOwnerCampaignInfo
 sidebar_label: FullcampaignAllOfSourceOwnerCampaignInfo

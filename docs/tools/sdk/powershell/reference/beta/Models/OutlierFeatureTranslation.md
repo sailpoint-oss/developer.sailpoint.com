@@ -1,5 +1,5 @@
 ---
-id: outlier-feature-translation
+id: beta-outlier-feature-translation
 title: OutlierFeatureTranslation
 pagination_label: OutlierFeatureTranslation
 sidebar_label: OutlierFeatureTranslation

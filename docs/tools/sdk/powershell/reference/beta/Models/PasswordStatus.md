@@ -1,5 +1,5 @@
 ---
-id: password-status
+id: beta-password-status
 title: PasswordStatus
 pagination_label: PasswordStatus
 sidebar_label: PasswordStatus

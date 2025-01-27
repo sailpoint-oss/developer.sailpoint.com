@@ -1,5 +1,5 @@
 ---
-id: vendor-connector-mapping
+id: v2024-vendor-connector-mapping
 title: VendorConnectorMapping
 pagination_label: VendorConnectorMapping
 sidebar_label: VendorConnectorMapping

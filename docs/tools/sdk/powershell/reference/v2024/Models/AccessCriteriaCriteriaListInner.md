@@ -1,5 +1,5 @@
 ---
-id: access-criteria-criteria-list-inner
+id: v2024-access-criteria-criteria-list-inner
 title: AccessCriteriaCriteriaListInner
 pagination_label: AccessCriteriaCriteriaListInner
 sidebar_label: AccessCriteriaCriteriaListInner

@@ -1,5 +1,5 @@
 ---
-id: model-error
+id: beta-model-error
 title: ModelError
 pagination_label: ModelError
 sidebar_label: ModelError

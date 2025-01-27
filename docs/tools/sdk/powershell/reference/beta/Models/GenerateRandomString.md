@@ -1,5 +1,5 @@
 ---
-id: generate-random-string
+id: beta-generate-random-string
 title: GenerateRandomString
 pagination_label: GenerateRandomString
 sidebar_label: GenerateRandomString

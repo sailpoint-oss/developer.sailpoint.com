@@ -1,5 +1,5 @@
 ---
-id: revocability
+id: beta-revocability
 title: Revocability
 pagination_label: Revocability
 sidebar_label: Revocability

@@ -1,5 +1,5 @@
 ---
-id: base-common-dto
+id: v2024-base-common-dto
 title: BaseCommonDto
 pagination_label: BaseCommonDto
 sidebar_label: BaseCommonDto

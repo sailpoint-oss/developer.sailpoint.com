@@ -1,5 +1,5 @@
 ---
-id: requested-item-details
+id: v2024-requested-item-details
 title: RequestedItemDetails
 pagination_label: RequestedItemDetails
 sidebar_label: RequestedItemDetails

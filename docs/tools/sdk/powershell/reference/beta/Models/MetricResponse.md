@@ -1,5 +1,5 @@
 ---
-id: metric-response
+id: beta-metric-response
 title: MetricResponse
 pagination_label: MetricResponse
 sidebar_label: MetricResponse

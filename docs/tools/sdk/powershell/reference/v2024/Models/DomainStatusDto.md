@@ -1,5 +1,5 @@
 ---
-id: domain-status-dto
+id: v2024-domain-status-dto
 title: DomainStatusDto
 pagination_label: DomainStatusDto
 sidebar_label: DomainStatusDto

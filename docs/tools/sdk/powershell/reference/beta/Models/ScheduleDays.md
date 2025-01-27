@@ -1,5 +1,5 @@
 ---
-id: schedule-days
+id: beta-schedule-days
 title: ScheduleDays
 pagination_label: ScheduleDays
 sidebar_label: ScheduleDays

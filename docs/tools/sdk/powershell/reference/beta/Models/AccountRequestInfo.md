@@ -1,5 +1,5 @@
 ---
-id: account-request-info
+id: beta-account-request-info
 title: AccountRequestInfo
 pagination_label: AccountRequestInfo
 sidebar_label: AccountRequestInfo

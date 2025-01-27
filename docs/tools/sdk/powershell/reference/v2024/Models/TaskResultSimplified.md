@@ -1,5 +1,5 @@
 ---
-id: task-result-simplified
+id: v2024-task-result-simplified
 title: TaskResultSimplified
 pagination_label: TaskResultSimplified
 sidebar_label: TaskResultSimplified

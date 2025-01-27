@@ -1,5 +1,5 @@
 ---
-id: okta-verification-request
+id: beta-okta-verification-request
 title: OktaVerificationRequest
 pagination_label: OktaVerificationRequest
 sidebar_label: OktaVerificationRequest

@@ -1,5 +1,5 @@
 ---
-id: metric-type
+id: v2024-metric-type
 title: MetricType
 pagination_label: MetricType
 sidebar_label: MetricType

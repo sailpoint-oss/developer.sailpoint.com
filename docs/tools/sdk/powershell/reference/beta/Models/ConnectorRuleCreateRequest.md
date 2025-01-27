@@ -1,5 +1,5 @@
 ---
-id: connector-rule-create-request
+id: beta-connector-rule-create-request
 title: ConnectorRuleCreateRequest
 pagination_label: ConnectorRuleCreateRequest
 sidebar_label: ConnectorRuleCreateRequest

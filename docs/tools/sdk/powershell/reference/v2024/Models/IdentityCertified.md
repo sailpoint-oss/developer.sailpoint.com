@@ -1,5 +1,5 @@
 ---
-id: identity-certified
+id: v2024-identity-certified
 title: IdentityCertified
 pagination_label: IdentityCertified
 sidebar_label: IdentityCertified

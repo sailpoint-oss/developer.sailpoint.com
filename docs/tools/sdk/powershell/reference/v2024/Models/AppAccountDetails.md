@@ -1,5 +1,5 @@
 ---
-id: app-account-details
+id: v2024-app-account-details
 title: AppAccountDetails
 pagination_label: AppAccountDetails
 sidebar_label: AppAccountDetails

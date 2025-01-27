@@ -1,5 +1,5 @@
 ---
-id: get-historical-identity-events200-response-inner
+id: v2024-get-historical-identity-events200-response-inner
 title: GetHistoricalIdentityEvents200ResponseInner
 pagination_label: GetHistoricalIdentityEvents200ResponseInner
 sidebar_label: GetHistoricalIdentityEvents200ResponseInner

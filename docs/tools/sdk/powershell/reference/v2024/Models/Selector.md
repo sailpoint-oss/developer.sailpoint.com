@@ -1,5 +1,5 @@
 ---
-id: selector
+id: v2024-selector
 title: Selector
 pagination_label: Selector
 sidebar_label: Selector

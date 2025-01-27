@@ -1,5 +1,5 @@
 ---
-id: dkim-attributes
+id: beta-dkim-attributes
 title: DkimAttributes
 pagination_label: DkimAttributes
 sidebar_label: DkimAttributes

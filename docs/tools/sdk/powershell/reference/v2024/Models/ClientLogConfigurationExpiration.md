@@ -1,5 +1,5 @@
 ---
-id: client-log-configuration-expiration
+id: v2024-client-log-configuration-expiration
 title: ClientLogConfigurationExpiration
 pagination_label: ClientLogConfigurationExpiration
 sidebar_label: ClientLogConfigurationExpiration

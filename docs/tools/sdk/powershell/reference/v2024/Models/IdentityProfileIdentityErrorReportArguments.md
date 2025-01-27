@@ -1,5 +1,5 @@
 ---
-id: identity-profile-identity-error-report-arguments
+id: v2024-identity-profile-identity-error-report-arguments
 title: IdentityProfileIdentityErrorReportArguments
 pagination_label: IdentityProfileIdentityErrorReportArguments
 sidebar_label: IdentityProfileIdentityErrorReportArguments

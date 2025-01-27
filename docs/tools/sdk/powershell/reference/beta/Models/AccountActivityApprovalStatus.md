@@ -1,5 +1,5 @@
 ---
-id: account-activity-approval-status
+id: beta-account-activity-approval-status
 title: AccountActivityApprovalStatus
 pagination_label: AccountActivityApprovalStatus
 sidebar_label: AccountActivityApprovalStatus

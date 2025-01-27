@@ -1,5 +1,5 @@
 ---
-id: http-dispatch-mode
+id: beta-http-dispatch-mode
 title: HttpDispatchMode
 pagination_label: HttpDispatchMode
 sidebar_label: HttpDispatchMode

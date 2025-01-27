@@ -1,5 +1,5 @@
 ---
-id: role-assignment-source-type
+id: beta-role-assignment-source-type
 title: RoleAssignmentSourceType
 pagination_label: RoleAssignmentSourceType
 sidebar_label: RoleAssignmentSourceType

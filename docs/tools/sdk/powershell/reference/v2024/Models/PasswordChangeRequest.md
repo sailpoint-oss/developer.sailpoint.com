@@ -1,5 +1,5 @@
 ---
-id: password-change-request
+id: v2024-password-change-request
 title: PasswordChangeRequest
 pagination_label: PasswordChangeRequest
 sidebar_label: PasswordChangeRequest

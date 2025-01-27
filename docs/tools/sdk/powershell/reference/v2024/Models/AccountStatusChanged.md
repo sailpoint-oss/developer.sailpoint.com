@@ -1,5 +1,5 @@
 ---
-id: account-status-changed
+id: v2024-account-status-changed
 title: AccountStatusChanged
 pagination_label: AccountStatusChanged
 sidebar_label: AccountStatusChanged

@@ -1,5 +1,5 @@
 ---
-id: work-item-state
+id: v2024-work-item-state
 title: WorkItemState
 pagination_label: WorkItemState
 sidebar_label: WorkItemState

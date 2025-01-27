@@ -1,5 +1,5 @@
 ---
-id: multi-host-sources-manager-correlation-rule
+id: beta-multi-host-sources-manager-correlation-rule
 title: MultiHostSourcesManagerCorrelationRule
 pagination_label: MultiHostSourcesManagerCorrelationRule
 sidebar_label: MultiHostSourcesManagerCorrelationRule

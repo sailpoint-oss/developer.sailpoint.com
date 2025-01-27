@@ -1,5 +1,5 @@
 ---
-id: message-catalog-dto
+id: beta-message-catalog-dto
 title: MessageCatalogDto
 pagination_label: MessageCatalogDto
 sidebar_label: MessageCatalogDto

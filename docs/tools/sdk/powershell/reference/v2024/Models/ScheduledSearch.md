@@ -1,5 +1,5 @@
 ---
-id: scheduled-search
+id: v2024-scheduled-search
 title: ScheduledSearch
 pagination_label: ScheduledSearch
 sidebar_label: ScheduledSearch

@@ -1,5 +1,5 @@
 ---
-id: segment
+id: v2024-segment
 title: Segment
 pagination_label: Segment
 sidebar_label: Segment

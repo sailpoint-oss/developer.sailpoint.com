@@ -1,5 +1,5 @@
 ---
-id: left-pad
+id: v2024-left-pad
 title: LeftPad
 pagination_label: LeftPad
 sidebar_label: LeftPad

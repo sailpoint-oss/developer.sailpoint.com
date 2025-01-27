@@ -1,5 +1,5 @@
 ---
-id: provisioning-config-managed-resource-refs-inner
+id: beta-provisioning-config-managed-resource-refs-inner
 title: ProvisioningConfigManagedResourceRefsInner
 pagination_label: ProvisioningConfigManagedResourceRefsInner
 sidebar_label: ProvisioningConfigManagedResourceRefsInner

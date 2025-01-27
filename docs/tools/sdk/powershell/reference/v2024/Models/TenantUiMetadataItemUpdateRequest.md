@@ -1,5 +1,5 @@
 ---
-id: tenant-ui-metadata-item-update-request
+id: v2024-tenant-ui-metadata-item-update-request
 title: TenantUiMetadataItemUpdateRequest
 pagination_label: TenantUiMetadataItemUpdateRequest
 sidebar_label: TenantUiMetadataItemUpdateRequest

@@ -1,5 +1,5 @@
 ---
-id: access-item-approver-dto
+id: beta-access-item-approver-dto
 title: AccessItemApproverDto
 pagination_label: AccessItemApproverDto
 sidebar_label: AccessItemApproverDto

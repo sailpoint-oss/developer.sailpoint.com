@@ -1,5 +1,5 @@
 ---
-id: workflow-execution
+id: v2024-workflow-execution
 title: WorkflowExecution
 pagination_label: WorkflowExecution
 sidebar_label: WorkflowExecution

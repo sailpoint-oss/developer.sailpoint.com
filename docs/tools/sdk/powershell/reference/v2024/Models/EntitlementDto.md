@@ -1,5 +1,5 @@
 ---
-id: entitlement-dto
+id: v2024-entitlement-dto
 title: EntitlementDto
 pagination_label: EntitlementDto
 sidebar_label: EntitlementDto

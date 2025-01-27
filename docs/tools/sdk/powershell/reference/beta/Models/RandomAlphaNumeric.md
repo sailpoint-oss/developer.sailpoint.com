@@ -1,5 +1,5 @@
 ---
-id: random-alpha-numeric
+id: beta-random-alpha-numeric
 title: RandomAlphaNumeric
 pagination_label: RandomAlphaNumeric
 sidebar_label: RandomAlphaNumeric

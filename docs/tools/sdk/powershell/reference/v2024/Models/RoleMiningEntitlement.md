@@ -1,5 +1,5 @@
 ---
-id: role-mining-entitlement
+id: v2024-role-mining-entitlement
 title: RoleMiningEntitlement
 pagination_label: RoleMiningEntitlement
 sidebar_label: RoleMiningEntitlement

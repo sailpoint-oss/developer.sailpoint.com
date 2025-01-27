@@ -1,5 +1,5 @@
 ---
-id: requested-item-status
+id: beta-requested-item-status
 title: RequestedItemStatus
 pagination_label: RequestedItemStatus
 sidebar_label: RequestedItemStatus

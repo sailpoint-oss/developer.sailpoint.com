@@ -1,5 +1,5 @@
 ---
-id: grant-type
+id: beta-grant-type
 title: GrantType
 pagination_label: GrantType
 sidebar_label: GrantType

@@ -1,5 +1,5 @@
 ---
-id: recommendation-request
+id: v2024-recommendation-request
 title: RecommendationRequest
 pagination_label: RecommendationRequest
 sidebar_label: RecommendationRequest

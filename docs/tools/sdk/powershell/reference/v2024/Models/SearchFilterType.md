@@ -1,5 +1,5 @@
 ---
-id: search-filter-type
+id: v2024-search-filter-type
 title: SearchFilterType
 pagination_label: SearchFilterType
 sidebar_label: SearchFilterType

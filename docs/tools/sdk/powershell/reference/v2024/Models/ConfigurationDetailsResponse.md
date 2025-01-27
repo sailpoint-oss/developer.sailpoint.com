@@ -1,5 +1,5 @@
 ---
-id: configuration-details-response
+id: v2024-configuration-details-response
 title: ConfigurationDetailsResponse
 pagination_label: ConfigurationDetailsResponse
 sidebar_label: ConfigurationDetailsResponse

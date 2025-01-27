@@ -1,5 +1,5 @@
 ---
-id: managed-client
+id: beta-managed-client
 title: ManagedClient
 pagination_label: ManagedClient
 sidebar_label: ManagedClient

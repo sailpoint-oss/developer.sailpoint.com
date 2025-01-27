@@ -1,5 +1,5 @@
 ---
-id: update-multi-host-sources-request-inner-value
+id: beta-update-multi-host-sources-request-inner-value
 title: UpdateMultiHostSourcesRequestInnerValue
 pagination_label: UpdateMultiHostSourcesRequestInnerValue
 sidebar_label: UpdateMultiHostSourcesRequestInnerValue

@@ -1,5 +1,5 @@
 ---
-id: search-export-report-arguments
+id: v2024-search-export-report-arguments
 title: SearchExportReportArguments
 pagination_label: SearchExportReportArguments
 sidebar_label: SearchExportReportArguments

@@ -1,5 +1,5 @@
 ---
-id: access-profile-usage
+id: beta-access-profile-usage
 title: AccessProfileUsage
 pagination_label: AccessProfileUsage
 sidebar_label: AccessProfileUsage

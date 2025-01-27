@@ -1,5 +1,5 @@
 ---
-id: list-identity-access-items200-response-inner
+id: beta-list-identity-access-items200-response-inner
 title: ListIdentityAccessItems200ResponseInner
 pagination_label: ListIdentityAccessItems200ResponseInner
 sidebar_label: ListIdentityAccessItems200ResponseInner

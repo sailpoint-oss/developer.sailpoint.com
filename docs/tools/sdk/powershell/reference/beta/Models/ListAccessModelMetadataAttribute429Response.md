@@ -1,5 +1,5 @@
 ---
-id: list-access-model-metadata-attribute429-response
+id: beta-list-access-model-metadata-attribute429-response
 title: ListAccessModelMetadataAttribute429Response
 pagination_label: ListAccessModelMetadataAttribute429Response
 sidebar_label: ListAccessModelMetadataAttribute429Response

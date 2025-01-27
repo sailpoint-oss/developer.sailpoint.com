@@ -1,5 +1,5 @@
 ---
-id: access-item-access-profile-response
+id: v2024-access-item-access-profile-response
 title: AccessItemAccessProfileResponse
 pagination_label: AccessItemAccessProfileResponse
 sidebar_label: AccessItemAccessProfileResponse

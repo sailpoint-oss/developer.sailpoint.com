@@ -1,5 +1,5 @@
 ---
-id: password-policy-holders-dto-attributes
+id: v2024-password-policy-holders-dto-attributes
 title: PasswordPolicyHoldersDtoAttributes
 pagination_label: PasswordPolicyHoldersDtoAttributes
 sidebar_label: PasswordPolicyHoldersDtoAttributes

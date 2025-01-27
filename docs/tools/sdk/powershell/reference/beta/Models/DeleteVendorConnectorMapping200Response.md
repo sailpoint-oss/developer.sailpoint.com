@@ -1,5 +1,5 @@
 ---
-id: delete-vendor-connector-mapping200-response
+id: beta-delete-vendor-connector-mapping200-response
 title: DeleteVendorConnectorMapping200Response
 pagination_label: DeleteVendorConnectorMapping200Response
 sidebar_label: DeleteVendorConnectorMapping200Response

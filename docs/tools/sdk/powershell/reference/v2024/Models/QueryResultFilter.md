@@ -1,5 +1,5 @@
 ---
-id: query-result-filter
+id: v2024-query-result-filter
 title: QueryResultFilter
 pagination_label: QueryResultFilter
 sidebar_label: QueryResultFilter

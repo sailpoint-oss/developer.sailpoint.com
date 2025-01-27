@@ -1,5 +1,5 @@
 ---
-id: role-mining-session-scope
+id: v2024-role-mining-session-scope
 title: RoleMiningSessionScope
 pagination_label: RoleMiningSessionScope
 sidebar_label: RoleMiningSessionScope

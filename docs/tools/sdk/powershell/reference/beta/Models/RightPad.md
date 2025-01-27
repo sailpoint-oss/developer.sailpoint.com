@@ -1,5 +1,5 @@
 ---
-id: right-pad
+id: beta-right-pad
 title: RightPad
 pagination_label: RightPad
 sidebar_label: RightPad

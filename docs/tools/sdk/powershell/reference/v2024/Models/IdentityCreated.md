@@ -1,5 +1,5 @@
 ---
-id: identity-created
+id: v2024-identity-created
 title: IdentityCreated
 pagination_label: IdentityCreated
 sidebar_label: IdentityCreated

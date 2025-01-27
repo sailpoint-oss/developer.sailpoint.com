@@ -1,5 +1,5 @@
 ---
-id: workgroup-connection-dto
+id: v2024-workgroup-connection-dto
 title: WorkgroupConnectionDto
 pagination_label: WorkgroupConnectionDto
 sidebar_label: WorkgroupConnectionDto

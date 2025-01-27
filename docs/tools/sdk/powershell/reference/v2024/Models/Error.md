@@ -1,5 +1,5 @@
 ---
-id: model-error
+id: v2024-model-error
 title: ModelError
 pagination_label: ModelError
 sidebar_label: ModelError

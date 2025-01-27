@@ -1,5 +1,5 @@
 ---
-id: non-employee-schema-attribute-type
+id: v2024-non-employee-schema-attribute-type
 title: NonEmployeeSchemaAttributeType
 pagination_label: NonEmployeeSchemaAttributeType
 sidebar_label: NonEmployeeSchemaAttributeType

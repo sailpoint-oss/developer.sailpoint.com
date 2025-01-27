@@ -1,5 +1,5 @@
 ---
-id: provisioning-config1-plan-initializer-script
+id: v2024-provisioning-config1-plan-initializer-script
 title: ProvisioningConfig1PlanInitializerScript
 pagination_label: ProvisioningConfig1PlanInitializerScript
 sidebar_label: ProvisioningConfig1PlanInitializerScript

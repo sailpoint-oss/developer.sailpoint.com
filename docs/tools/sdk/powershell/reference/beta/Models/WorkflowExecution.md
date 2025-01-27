@@ -1,5 +1,5 @@
 ---
-id: workflow-execution
+id: beta-workflow-execution
 title: WorkflowExecution
 pagination_label: WorkflowExecution
 sidebar_label: WorkflowExecution

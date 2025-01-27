@@ -1,5 +1,5 @@
 ---
-id: recommendation-response-dto
+id: v2024-recommendation-response-dto
 title: RecommendationResponseDto
 pagination_label: RecommendationResponseDto
 sidebar_label: RecommendationResponseDto

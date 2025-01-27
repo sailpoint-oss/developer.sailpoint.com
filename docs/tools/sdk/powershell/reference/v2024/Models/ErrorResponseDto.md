@@ -1,5 +1,5 @@
 ---
-id: error-response-dto
+id: v2024-error-response-dto
 title: ErrorResponseDto
 pagination_label: ErrorResponseDto
 sidebar_label: ErrorResponseDto

@@ -1,5 +1,5 @@
 ---
-id: account-correlated-source
+id: v2024-account-correlated-source
 title: AccountCorrelatedSource
 pagination_label: AccountCorrelatedSource
 sidebar_label: AccountCorrelatedSource

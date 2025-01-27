@@ -1,5 +1,5 @@
 ---
-id: get-launchers200-response
+id: beta-get-launchers200-response
 title: GetLaunchers200Response
 pagination_label: GetLaunchers200Response
 sidebar_label: GetLaunchers200Response

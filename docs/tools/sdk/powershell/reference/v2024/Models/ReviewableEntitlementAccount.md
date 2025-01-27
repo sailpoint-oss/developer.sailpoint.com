@@ -1,5 +1,5 @@
 ---
-id: reviewable-entitlement-account
+id: v2024-reviewable-entitlement-account
 title: ReviewableEntitlementAccount
 pagination_label: ReviewableEntitlementAccount
 sidebar_label: ReviewableEntitlementAccount

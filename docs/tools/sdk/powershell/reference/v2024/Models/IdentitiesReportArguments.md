@@ -1,5 +1,5 @@
 ---
-id: identities-report-arguments
+id: v2024-identities-report-arguments
 title: IdentitiesReportArguments
 pagination_label: IdentitiesReportArguments
 sidebar_label: IdentitiesReportArguments

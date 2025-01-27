@@ -1,5 +1,5 @@
 ---
-id: role-mining-session-response-created-by
+id: v2024-role-mining-session-response-created-by
 title: RoleMiningSessionResponseCreatedBy
 pagination_label: RoleMiningSessionResponseCreatedBy
 sidebar_label: RoleMiningSessionResponseCreatedBy

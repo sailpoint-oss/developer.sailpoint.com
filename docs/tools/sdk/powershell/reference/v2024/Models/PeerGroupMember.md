@@ -1,5 +1,5 @@
 ---
-id: peer-group-member
+id: v2024-peer-group-member
 title: PeerGroupMember
 pagination_label: PeerGroupMember
 sidebar_label: PeerGroupMember

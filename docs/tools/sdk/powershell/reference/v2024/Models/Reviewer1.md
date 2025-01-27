@@ -1,5 +1,5 @@
 ---
-id: reviewer1
+id: v2024-reviewer1
 title: Reviewer1
 pagination_label: Reviewer1
 sidebar_label: Reviewer1

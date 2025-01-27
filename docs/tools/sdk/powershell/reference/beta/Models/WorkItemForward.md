@@ -1,5 +1,5 @@
 ---
-id: work-item-forward
+id: beta-work-item-forward
 title: WorkItemForward
 pagination_label: WorkItemForward
 sidebar_label: WorkItemForward

@@ -1,5 +1,5 @@
 ---
-id: form-instance-created-by
+id: beta-form-instance-created-by
 title: FormInstanceCreatedBy
 pagination_label: FormInstanceCreatedBy
 sidebar_label: FormInstanceCreatedBy

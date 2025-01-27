@@ -1,5 +1,5 @@
 ---
-id: identity-ownership-association-details
+id: v2024-identity-ownership-association-details
 title: IdentityOwnershipAssociationDetails
 pagination_label: IdentityOwnershipAssociationDetails
 sidebar_label: IdentityOwnershipAssociationDetails

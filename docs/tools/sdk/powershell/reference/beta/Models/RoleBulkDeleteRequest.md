@@ -1,5 +1,5 @@
 ---
-id: role-bulk-delete-request
+id: beta-role-bulk-delete-request
 title: RoleBulkDeleteRequest
 pagination_label: RoleBulkDeleteRequest
 sidebar_label: RoleBulkDeleteRequest

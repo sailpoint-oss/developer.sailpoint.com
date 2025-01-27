@@ -1,5 +1,5 @@
 ---
-id: model-filter
+id: v2024-model-filter
 title: ModelFilter
 pagination_label: ModelFilter
 sidebar_label: ModelFilter

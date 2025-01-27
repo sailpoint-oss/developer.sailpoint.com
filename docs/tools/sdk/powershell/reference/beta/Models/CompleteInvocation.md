@@ -1,5 +1,5 @@
 ---
-id: complete-invocation
+id: beta-complete-invocation
 title: CompleteInvocation
 pagination_label: CompleteInvocation
 sidebar_label: CompleteInvocation

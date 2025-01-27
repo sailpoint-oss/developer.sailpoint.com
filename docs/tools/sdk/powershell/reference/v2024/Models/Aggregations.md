@@ -1,5 +1,5 @@
 ---
-id: aggregations
+id: v2024-aggregations
 title: Aggregations
 pagination_label: Aggregations
 sidebar_label: Aggregations

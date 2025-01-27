@@ -1,5 +1,5 @@
 ---
-id: remediation-items
+id: v2024-remediation-items
 title: RemediationItems
 pagination_label: RemediationItems
 sidebar_label: RemediationItems

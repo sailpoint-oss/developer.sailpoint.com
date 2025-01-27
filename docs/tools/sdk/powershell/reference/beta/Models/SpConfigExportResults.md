@@ -1,5 +1,5 @@
 ---
-id: sp-config-export-results
+id: beta-sp-config-export-results
 title: SpConfigExportResults
 pagination_label: SpConfigExportResults
 sidebar_label: SpConfigExportResults

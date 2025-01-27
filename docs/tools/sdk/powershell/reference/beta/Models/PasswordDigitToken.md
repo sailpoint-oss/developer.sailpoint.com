@@ -1,5 +1,5 @@
 ---
-id: password-digit-token
+id: beta-password-digit-token
 title: PasswordDigitToken
 pagination_label: PasswordDigitToken
 sidebar_label: PasswordDigitToken

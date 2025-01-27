@@ -1,5 +1,5 @@
 ---
-id: visibility-criteria
+id: v2024-visibility-criteria
 title: VisibilityCriteria
 pagination_label: VisibilityCriteria
 sidebar_label: VisibilityCriteria

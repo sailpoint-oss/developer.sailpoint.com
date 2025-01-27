@@ -1,5 +1,5 @@
 ---
-id: workflow
+id: v2024-workflow
 title: Workflow
 pagination_label: Workflow
 sidebar_label: Workflow

@@ -1,5 +1,5 @@
 ---
-id: app-account-details
+id: beta-app-account-details
 title: AppAccountDetails
 pagination_label: AppAccountDetails
 sidebar_label: AppAccountDetails

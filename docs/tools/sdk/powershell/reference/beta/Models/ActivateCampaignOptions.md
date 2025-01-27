@@ -1,5 +1,5 @@
 ---
-id: activate-campaign-options
+id: beta-activate-campaign-options
 title: ActivateCampaignOptions
 pagination_label: ActivateCampaignOptions
 sidebar_label: ActivateCampaignOptions

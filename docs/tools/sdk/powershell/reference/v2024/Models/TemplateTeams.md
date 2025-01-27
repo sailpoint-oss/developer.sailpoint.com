@@ -1,5 +1,5 @@
 ---
-id: template-teams
+id: v2024-template-teams
 title: TemplateTeams
 pagination_label: TemplateTeams
 sidebar_label: TemplateTeams

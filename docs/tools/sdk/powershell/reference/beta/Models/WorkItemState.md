@@ -1,5 +1,5 @@
 ---
-id: work-item-state
+id: beta-work-item-state
 title: WorkItemState
 pagination_label: WorkItemState
 sidebar_label: WorkItemState

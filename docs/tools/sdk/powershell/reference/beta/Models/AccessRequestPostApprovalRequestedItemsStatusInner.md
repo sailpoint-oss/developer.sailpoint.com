@@ -1,5 +1,5 @@
 ---
-id: access-request-post-approval-requested-items-status-inner
+id: beta-access-request-post-approval-requested-items-status-inner
 title: AccessRequestPostApprovalRequestedItemsStatusInner
 pagination_label: AccessRequestPostApprovalRequestedItemsStatusInner
 sidebar_label: AccessRequestPostApprovalRequestedItemsStatusInner

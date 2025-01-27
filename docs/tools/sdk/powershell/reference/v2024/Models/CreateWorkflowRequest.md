@@ -1,5 +1,5 @@
 ---
-id: create-workflow-request
+id: v2024-create-workflow-request
 title: CreateWorkflowRequest
 pagination_label: CreateWorkflowRequest
 sidebar_label: CreateWorkflowRequest

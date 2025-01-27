@@ -1,5 +1,5 @@
 ---
-id: managed-client-status
+id: beta-managed-client-status
 title: ManagedClientStatus
 pagination_label: ManagedClientStatus
 sidebar_label: ManagedClientStatus

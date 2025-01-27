@@ -1,5 +1,5 @@
 ---
-id: provisioning-criteria-level2
+id: v2024-provisioning-criteria-level2
 title: ProvisioningCriteriaLevel2
 pagination_label: ProvisioningCriteriaLevel2
 sidebar_label: ProvisioningCriteriaLevel2

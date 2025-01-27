@@ -1,5 +1,5 @@
 ---
-id: import-entitlements-by-source-request
+id: beta-import-entitlements-by-source-request
 title: ImportEntitlementsBySourceRequest
 pagination_label: ImportEntitlementsBySourceRequest
 sidebar_label: ImportEntitlementsBySourceRequest

@@ -1,5 +1,5 @@
 ---
-id: requestability
+id: beta-requestability
 title: Requestability
 pagination_label: Requestability
 sidebar_label: Requestability

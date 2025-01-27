@@ -1,5 +1,5 @@
 ---
-id: owner-reference-dto
+id: v2024-owner-reference-dto
 title: OwnerReferenceDto
 pagination_label: OwnerReferenceDto
 sidebar_label: OwnerReferenceDto

@@ -1,5 +1,5 @@
 ---
-id: delete-source202-response
+id: v2024-delete-source202-response
 title: DeleteSource202Response
 pagination_label: DeleteSource202Response
 sidebar_label: DeleteSource202Response

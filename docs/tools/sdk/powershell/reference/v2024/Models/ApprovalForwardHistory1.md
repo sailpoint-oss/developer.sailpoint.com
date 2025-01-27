@@ -1,5 +1,5 @@
 ---
-id: approval-forward-history1
+id: v2024-approval-forward-history1
 title: ApprovalForwardHistory1
 pagination_label: ApprovalForwardHistory1
 sidebar_label: ApprovalForwardHistory1

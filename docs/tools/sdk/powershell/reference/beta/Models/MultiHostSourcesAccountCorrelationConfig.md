@@ -1,5 +1,5 @@
 ---
-id: multi-host-sources-account-correlation-config
+id: beta-multi-host-sources-account-correlation-config
 title: MultiHostSourcesAccountCorrelationConfig
 pagination_label: MultiHostSourcesAccountCorrelationConfig
 sidebar_label: MultiHostSourcesAccountCorrelationConfig

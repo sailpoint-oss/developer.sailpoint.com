@@ -1,5 +1,5 @@
 ---
-id: scheduled-search-all-of-owner
+id: v2024-scheduled-search-all-of-owner
 title: ScheduledSearchAllOfOwner
 pagination_label: ScheduledSearchAllOfOwner
 sidebar_label: ScheduledSearchAllOfOwner

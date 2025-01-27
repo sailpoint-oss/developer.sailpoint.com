@@ -1,5 +1,5 @@
 ---
-id: schema
+id: beta-schema
 title: Schema
 pagination_label: Schema
 sidebar_label: Schema

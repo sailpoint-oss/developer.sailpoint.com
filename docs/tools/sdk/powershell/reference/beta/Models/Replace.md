@@ -1,5 +1,5 @@
 ---
-id: replace
+id: beta-replace
 title: Replace
 pagination_label: Replace
 sidebar_label: Replace

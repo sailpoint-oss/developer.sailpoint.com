@@ -1,5 +1,5 @@
 ---
-id: work-item-type-manual-work-items
+id: v2024-work-item-type-manual-work-items
 title: WorkItemTypeManualWorkItems
 pagination_label: WorkItemTypeManualWorkItems
 sidebar_label: WorkItemTypeManualWorkItems

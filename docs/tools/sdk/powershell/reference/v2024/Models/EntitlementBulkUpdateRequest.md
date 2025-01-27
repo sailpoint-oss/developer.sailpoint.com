@@ -1,5 +1,5 @@
 ---
-id: entitlement-bulk-update-request
+id: v2024-entitlement-bulk-update-request
 title: EntitlementBulkUpdateRequest
 pagination_label: EntitlementBulkUpdateRequest
 sidebar_label: EntitlementBulkUpdateRequest

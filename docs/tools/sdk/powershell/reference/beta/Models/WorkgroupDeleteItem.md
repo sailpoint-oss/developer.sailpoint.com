@@ -1,5 +1,5 @@
 ---
-id: workgroup-delete-item
+id: beta-workgroup-delete-item
 title: WorkgroupDeleteItem
 pagination_label: WorkgroupDeleteItem
 sidebar_label: WorkgroupDeleteItem

@@ -1,5 +1,5 @@
 ---
-id: role-insights-summary
+id: v2024-role-insights-summary
 title: RoleInsightsSummary
 pagination_label: RoleInsightsSummary
 sidebar_label: RoleInsightsSummary

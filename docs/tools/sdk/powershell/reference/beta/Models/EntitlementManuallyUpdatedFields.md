@@ -1,5 +1,5 @@
 ---
-id: entitlement-manually-updated-fields
+id: beta-entitlement-manually-updated-fields
 title: EntitlementManuallyUpdatedFields
 pagination_label: EntitlementManuallyUpdatedFields
 sidebar_label: EntitlementManuallyUpdatedFields

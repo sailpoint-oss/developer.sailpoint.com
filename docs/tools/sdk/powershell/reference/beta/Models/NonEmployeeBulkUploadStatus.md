@@ -1,5 +1,5 @@
 ---
-id: non-employee-bulk-upload-status
+id: beta-non-employee-bulk-upload-status
 title: NonEmployeeBulkUploadStatus
 pagination_label: NonEmployeeBulkUploadStatus
 sidebar_label: NonEmployeeBulkUploadStatus

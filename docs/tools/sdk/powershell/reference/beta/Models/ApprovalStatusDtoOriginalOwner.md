@@ -1,5 +1,5 @@
 ---
-id: approval-status-dto-original-owner
+id: beta-approval-status-dto-original-owner
 title: ApprovalStatusDtoOriginalOwner
 pagination_label: ApprovalStatusDtoOriginalOwner
 sidebar_label: ApprovalStatusDtoOriginalOwner

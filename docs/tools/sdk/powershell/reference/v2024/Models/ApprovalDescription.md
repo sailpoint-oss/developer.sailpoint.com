@@ -1,5 +1,5 @@
 ---
-id: approval-description
+id: v2024-approval-description
 title: ApprovalDescription
 pagination_label: ApprovalDescription
 sidebar_label: ApprovalDescription

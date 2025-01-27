@@ -1,5 +1,5 @@
 ---
-id: verification-poll-request
+id: beta-verification-poll-request
 title: VerificationPollRequest
 pagination_label: VerificationPollRequest
 sidebar_label: VerificationPollRequest

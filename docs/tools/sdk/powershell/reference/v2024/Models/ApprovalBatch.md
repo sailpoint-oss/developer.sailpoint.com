@@ -1,5 +1,5 @@
 ---
-id: approval-batch
+id: v2024-approval-batch
 title: ApprovalBatch
 pagination_label: ApprovalBatch
 sidebar_label: ApprovalBatch

@@ -1,5 +1,5 @@
 ---
-id: sed-approval
+id: beta-sed-approval
 title: SedApproval
 pagination_label: SedApproval
 sidebar_label: SedApproval

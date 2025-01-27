@@ -1,5 +1,5 @@
 ---
-id: role-mining-potential-role-application
+id: v2024-role-mining-potential-role-application
 title: RoleMiningPotentialRoleApplication
 pagination_label: RoleMiningPotentialRoleApplication
 sidebar_label: RoleMiningPotentialRoleApplication

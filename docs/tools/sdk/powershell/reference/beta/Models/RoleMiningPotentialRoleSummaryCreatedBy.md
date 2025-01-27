@@ -1,5 +1,5 @@
 ---
-id: role-mining-potential-role-summary-created-by
+id: beta-role-mining-potential-role-summary-created-by
 title: RoleMiningPotentialRoleSummaryCreatedBy
 pagination_label: RoleMiningPotentialRoleSummaryCreatedBy
 sidebar_label: RoleMiningPotentialRoleSummaryCreatedBy

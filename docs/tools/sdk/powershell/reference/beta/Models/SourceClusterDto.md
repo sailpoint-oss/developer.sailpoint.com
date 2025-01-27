@@ -1,5 +1,5 @@
 ---
-id: source-cluster-dto
+id: beta-source-cluster-dto
 title: SourceClusterDto
 pagination_label: SourceClusterDto
 sidebar_label: SourceClusterDto

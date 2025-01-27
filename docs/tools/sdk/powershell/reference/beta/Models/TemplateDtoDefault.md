@@ -1,5 +1,5 @@
 ---
-id: template-dto-default
+id: beta-template-dto-default
 title: TemplateDtoDefault
 pagination_label: TemplateDtoDefault
 sidebar_label: TemplateDtoDefault

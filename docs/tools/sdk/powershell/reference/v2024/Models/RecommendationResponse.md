@@ -1,5 +1,5 @@
 ---
-id: recommendation-response
+id: v2024-recommendation-response
 title: RecommendationResponse
 pagination_label: RecommendationResponse
 sidebar_label: RecommendationResponse

@@ -1,5 +1,5 @@
 ---
-id: identity-reference
+id: beta-identity-reference
 title: IdentityReference
 pagination_label: IdentityReference
 sidebar_label: IdentityReference

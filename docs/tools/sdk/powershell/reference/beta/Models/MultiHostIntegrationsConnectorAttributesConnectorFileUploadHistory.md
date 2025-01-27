@@ -1,5 +1,5 @@
 ---
-id: multi-host-integrations-connector-attributes-connector-file-upload-history
+id: beta-multi-host-integrations-connector-attributes-connector-file-upload-history
 title: MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory
 pagination_label: MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory
 sidebar_label: MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory

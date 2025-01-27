@@ -1,5 +1,5 @@
 ---
-id: token-auth-response
+id: beta-token-auth-response
 title: TokenAuthResponse
 pagination_label: TokenAuthResponse
 sidebar_label: TokenAuthResponse

@@ -1,5 +1,5 @@
 ---
-id: multi-host-sources
+id: beta-multi-host-sources
 title: MultiHostSources
 pagination_label: MultiHostSources
 sidebar_label: MultiHostSources

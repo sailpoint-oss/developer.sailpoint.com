@@ -1,5 +1,5 @@
 ---
-id: client-type
+id: v2024-client-type
 title: ClientType
 pagination_label: ClientType
 sidebar_label: ClientType

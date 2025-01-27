@@ -1,5 +1,5 @@
 ---
-id: basic-auth-config
+id: beta-basic-auth-config
 title: BasicAuthConfig
 pagination_label: BasicAuthConfig
 sidebar_label: BasicAuthConfig

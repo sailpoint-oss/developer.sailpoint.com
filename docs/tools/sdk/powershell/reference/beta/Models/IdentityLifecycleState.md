@@ -1,5 +1,5 @@
 ---
-id: identity-lifecycle-state
+id: beta-identity-lifecycle-state
 title: IdentityLifecycleState
 pagination_label: IdentityLifecycleState
 sidebar_label: IdentityLifecycleState

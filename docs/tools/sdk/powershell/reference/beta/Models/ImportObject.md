@@ -1,5 +1,5 @@
 ---
-id: import-object
+id: beta-import-object
 title: ImportObject
 pagination_label: ImportObject
 sidebar_label: ImportObject

@@ -1,5 +1,5 @@
 ---
-id: outlier-contributing-feature
+id: v2024-outlier-contributing-feature
 title: OutlierContributingFeature
 pagination_label: OutlierContributingFeature
 sidebar_label: OutlierContributingFeature

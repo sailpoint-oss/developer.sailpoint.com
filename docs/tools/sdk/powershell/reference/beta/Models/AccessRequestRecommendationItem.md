@@ -1,5 +1,5 @@
 ---
-id: access-request-recommendation-item
+id: beta-access-request-recommendation-item
 title: AccessRequestRecommendationItem
 pagination_label: AccessRequestRecommendationItem
 sidebar_label: AccessRequestRecommendationItem

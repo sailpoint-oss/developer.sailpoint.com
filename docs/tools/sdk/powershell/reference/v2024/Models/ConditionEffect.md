@@ -1,5 +1,5 @@
 ---
-id: condition-effect
+id: v2024-condition-effect
 title: ConditionEffect
 pagination_label: ConditionEffect
 sidebar_label: ConditionEffect

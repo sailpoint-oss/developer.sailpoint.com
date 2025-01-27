@@ -1,5 +1,5 @@
 ---
-id: access-profile-bulk-delete-response
+id: v2024-access-profile-bulk-delete-response
 title: AccessProfileBulkDeleteResponse
 pagination_label: AccessProfileBulkDeleteResponse
 sidebar_label: AccessProfileBulkDeleteResponse

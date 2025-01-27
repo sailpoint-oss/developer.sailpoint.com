@@ -1,5 +1,5 @@
 ---
-id: network-configuration
+id: v2024-network-configuration
 title: NetworkConfiguration
 pagination_label: NetworkConfiguration
 sidebar_label: NetworkConfiguration

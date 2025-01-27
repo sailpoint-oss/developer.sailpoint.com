@@ -1,5 +1,5 @@
 ---
-id: entity-created-by-dto
+id: v2024-entity-created-by-dto
 title: EntityCreatedByDTO
 pagination_label: EntityCreatedByDTO
 sidebar_label: EntityCreatedByDTO

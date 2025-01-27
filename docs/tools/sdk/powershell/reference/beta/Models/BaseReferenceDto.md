@@ -1,5 +1,5 @@
 ---
-id: base-reference-dto
+id: beta-base-reference-dto
 title: BaseReferenceDto
 pagination_label: BaseReferenceDto
 sidebar_label: BaseReferenceDto

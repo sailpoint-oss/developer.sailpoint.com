@@ -1,5 +1,5 @@
 ---
-id: owner-dto
+id: beta-owner-dto
 title: OwnerDto
 pagination_label: OwnerDto
 sidebar_label: OwnerDto

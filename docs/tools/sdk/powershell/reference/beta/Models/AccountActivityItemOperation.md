@@ -1,5 +1,5 @@
 ---
-id: account-activity-item-operation
+id: beta-account-activity-item-operation
 title: AccountActivityItemOperation
 pagination_label: AccountActivityItemOperation
 sidebar_label: AccountActivityItemOperation

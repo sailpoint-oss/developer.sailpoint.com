@@ -1,5 +1,5 @@
 ---
-id: tenant-configuration-response
+id: v2024-tenant-configuration-response
 title: TenantConfigurationResponse
 pagination_label: TenantConfigurationResponse
 sidebar_label: TenantConfigurationResponse

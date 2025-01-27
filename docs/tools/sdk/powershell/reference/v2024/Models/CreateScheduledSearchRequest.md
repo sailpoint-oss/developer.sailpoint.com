@@ -1,5 +1,5 @@
 ---
-id: create-scheduled-search-request
+id: v2024-create-scheduled-search-request
 title: CreateScheduledSearchRequest
 pagination_label: CreateScheduledSearchRequest
 sidebar_label: CreateScheduledSearchRequest

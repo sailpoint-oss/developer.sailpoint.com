@@ -1,5 +1,5 @@
 ---
-id: mfa-duo-config
+id: beta-mfa-duo-config
 title: MfaDuoConfig
 pagination_label: MfaDuoConfig
 sidebar_label: MfaDuoConfig

@@ -1,5 +1,5 @@
 ---
-id: access-profile-usage
+id: v2024-access-profile-usage
 title: AccessProfileUsage
 pagination_label: AccessProfileUsage
 sidebar_label: AccessProfileUsage

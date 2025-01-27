@@ -1,5 +1,5 @@
 ---
-id: sod-report-result-dto
+id: v2024-sod-report-result-dto
 title: SodReportResultDto
 pagination_label: SodReportResultDto
 sidebar_label: SodReportResultDto

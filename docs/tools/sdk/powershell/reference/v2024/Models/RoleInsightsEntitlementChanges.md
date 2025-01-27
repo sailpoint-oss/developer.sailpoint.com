@@ -1,5 +1,5 @@
 ---
-id: role-insights-entitlement-changes
+id: v2024-role-insights-entitlement-changes
 title: RoleInsightsEntitlementChanges
 pagination_label: RoleInsightsEntitlementChanges
 sidebar_label: RoleInsightsEntitlementChanges

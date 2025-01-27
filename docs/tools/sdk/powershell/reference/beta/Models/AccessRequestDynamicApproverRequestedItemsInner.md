@@ -1,5 +1,5 @@
 ---
-id: access-request-dynamic-approver-requested-items-inner
+id: beta-access-request-dynamic-approver-requested-items-inner
 title: AccessRequestDynamicApproverRequestedItemsInner
 pagination_label: AccessRequestDynamicApproverRequestedItemsInner
 sidebar_label: AccessRequestDynamicApproverRequestedItemsInner

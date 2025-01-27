@@ -1,5 +1,5 @@
 ---
-id: role-assignment-source-type
+id: v2024-role-assignment-source-type
 title: RoleAssignmentSourceType
 pagination_label: RoleAssignmentSourceType
 sidebar_label: RoleAssignmentSourceType

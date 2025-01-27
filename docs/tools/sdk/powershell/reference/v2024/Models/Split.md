@@ -1,5 +1,5 @@
 ---
-id: split
+id: v2024-split
 title: Split
 pagination_label: Split
 sidebar_label: Split

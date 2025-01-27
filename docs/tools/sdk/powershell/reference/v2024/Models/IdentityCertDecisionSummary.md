@@ -1,5 +1,5 @@
 ---
-id: identity-cert-decision-summary
+id: v2024-identity-cert-decision-summary
 title: IdentityCertDecisionSummary
 pagination_label: IdentityCertDecisionSummary
 sidebar_label: IdentityCertDecisionSummary

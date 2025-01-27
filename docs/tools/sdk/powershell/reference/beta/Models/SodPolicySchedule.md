@@ -1,5 +1,5 @@
 ---
-id: sod-policy-schedule
+id: beta-sod-policy-schedule
 title: SodPolicySchedule
 pagination_label: SodPolicySchedule
 sidebar_label: SodPolicySchedule

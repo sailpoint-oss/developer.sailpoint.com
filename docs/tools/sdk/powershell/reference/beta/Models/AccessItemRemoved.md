@@ -1,5 +1,5 @@
 ---
-id: access-item-removed
+id: beta-access-item-removed
 title: AccessItemRemoved
 pagination_label: AccessItemRemoved
 sidebar_label: AccessItemRemoved

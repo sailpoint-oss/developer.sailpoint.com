@@ -1,5 +1,5 @@
 ---
-id: date-format-output-format
+id: beta-date-format-output-format
 title: DateFormatOutputFormat
 pagination_label: DateFormatOutputFormat
 sidebar_label: DateFormatOutputFormat

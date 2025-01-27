@@ -1,5 +1,5 @@
 ---
-id: common-access-item-access
+id: beta-common-access-item-access
 title: CommonAccessItemAccess
 pagination_label: CommonAccessItemAccess
 sidebar_label: CommonAccessItemAccess

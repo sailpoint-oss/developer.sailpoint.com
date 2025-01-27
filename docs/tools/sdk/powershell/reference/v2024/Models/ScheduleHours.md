@@ -1,5 +1,5 @@
 ---
-id: schedule-hours
+id: v2024-schedule-hours
 title: ScheduleHours
 pagination_label: ScheduleHours
 sidebar_label: ScheduleHours

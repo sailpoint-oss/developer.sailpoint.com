@@ -1,5 +1,5 @@
 ---
-id: public-identity-attributes-inner
+id: v2024-public-identity-attributes-inner
 title: PublicIdentityAttributesInner
 pagination_label: PublicIdentityAttributesInner
 sidebar_label: PublicIdentityAttributesInner

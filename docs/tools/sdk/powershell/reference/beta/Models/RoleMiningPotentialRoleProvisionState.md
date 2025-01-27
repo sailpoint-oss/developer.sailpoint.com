@@ -1,5 +1,5 @@
 ---
-id: role-mining-potential-role-provision-state
+id: beta-role-mining-potential-role-provision-state
 title: RoleMiningPotentialRoleProvisionState
 pagination_label: RoleMiningPotentialRoleProvisionState
 sidebar_label: RoleMiningPotentialRoleProvisionState

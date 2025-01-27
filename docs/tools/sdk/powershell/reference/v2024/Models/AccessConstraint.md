@@ -1,5 +1,5 @@
 ---
-id: access-constraint
+id: v2024-access-constraint
 title: AccessConstraint
 pagination_label: AccessConstraint
 sidebar_label: AccessConstraint

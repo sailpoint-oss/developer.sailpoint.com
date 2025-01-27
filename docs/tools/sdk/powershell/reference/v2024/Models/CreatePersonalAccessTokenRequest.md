@@ -1,5 +1,5 @@
 ---
-id: create-personal-access-token-request
+id: v2024-create-personal-access-token-request
 title: CreatePersonalAccessTokenRequest
 pagination_label: CreatePersonalAccessTokenRequest
 sidebar_label: CreatePersonalAccessTokenRequest

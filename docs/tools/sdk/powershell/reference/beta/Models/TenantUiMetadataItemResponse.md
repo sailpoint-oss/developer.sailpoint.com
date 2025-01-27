@@ -1,5 +1,5 @@
 ---
-id: tenant-ui-metadata-item-response
+id: beta-tenant-ui-metadata-item-response
 title: TenantUiMetadataItemResponse
 pagination_label: TenantUiMetadataItemResponse
 sidebar_label: TenantUiMetadataItemResponse

@@ -1,5 +1,5 @@
 ---
-id: tenant-configuration-response
+id: beta-tenant-configuration-response
 title: TenantConfigurationResponse
 pagination_label: TenantConfigurationResponse
 sidebar_label: TenantConfigurationResponse

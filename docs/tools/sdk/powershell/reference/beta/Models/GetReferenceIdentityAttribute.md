@@ -1,5 +1,5 @@
 ---
-id: get-reference-identity-attribute
+id: beta-get-reference-identity-attribute
 title: GetReferenceIdentityAttribute
 pagination_label: GetReferenceIdentityAttribute
 sidebar_label: GetReferenceIdentityAttribute

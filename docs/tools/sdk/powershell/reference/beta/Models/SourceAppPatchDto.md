@@ -1,5 +1,5 @@
 ---
-id: source-app-patch-dto
+id: beta-source-app-patch-dto
 title: SourceAppPatchDto
 pagination_label: SourceAppPatchDto
 sidebar_label: SourceAppPatchDto

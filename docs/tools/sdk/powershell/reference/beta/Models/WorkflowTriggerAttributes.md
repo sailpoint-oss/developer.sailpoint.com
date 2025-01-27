@@ -1,5 +1,5 @@
 ---
-id: workflow-trigger-attributes
+id: beta-workflow-trigger-attributes
 title: WorkflowTriggerAttributes
 pagination_label: WorkflowTriggerAttributes
 sidebar_label: WorkflowTriggerAttributes

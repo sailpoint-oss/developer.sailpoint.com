@@ -1,5 +1,5 @@
 ---
-id: access-profile-details-account-selector
+id: beta-access-profile-details-account-selector
 title: AccessProfileDetailsAccountSelector
 pagination_label: AccessProfileDetailsAccountSelector
 sidebar_label: AccessProfileDetailsAccountSelector

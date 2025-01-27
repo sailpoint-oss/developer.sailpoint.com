@@ -1,5 +1,5 @@
 ---
-id: expansion-item
+id: v2024-expansion-item
 title: ExpansionItem
 pagination_label: ExpansionItem
 sidebar_label: ExpansionItem

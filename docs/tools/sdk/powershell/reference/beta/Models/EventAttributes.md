@@ -1,5 +1,5 @@
 ---
-id: event-attributes
+id: beta-event-attributes
 title: EventAttributes
 pagination_label: EventAttributes
 sidebar_label: EventAttributes

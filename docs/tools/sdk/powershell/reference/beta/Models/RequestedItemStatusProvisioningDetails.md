@@ -1,5 +1,5 @@
 ---
-id: requested-item-status-provisioning-details
+id: beta-requested-item-status-provisioning-details
 title: RequestedItemStatusProvisioningDetails
 pagination_label: RequestedItemStatusProvisioningDetails
 sidebar_label: RequestedItemStatusProvisioningDetails

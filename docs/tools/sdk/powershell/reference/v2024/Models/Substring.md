@@ -1,5 +1,5 @@
 ---
-id: substring
+id: v2024-substring
 title: Substring
 pagination_label: Substring
 sidebar_label: Substring

@@ -1,5 +1,5 @@
 ---
-id: manual-work-item-details-current-owner
+id: v2024-manual-work-item-details-current-owner
 title: ManualWorkItemDetailsCurrentOwner
 pagination_label: ManualWorkItemDetailsCurrentOwner
 sidebar_label: ManualWorkItemDetailsCurrentOwner

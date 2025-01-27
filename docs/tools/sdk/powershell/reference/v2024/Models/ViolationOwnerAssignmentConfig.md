@@ -1,5 +1,5 @@
 ---
-id: violation-owner-assignment-config
+id: v2024-violation-owner-assignment-config
 title: ViolationOwnerAssignmentConfig
 pagination_label: ViolationOwnerAssignmentConfig
 sidebar_label: ViolationOwnerAssignmentConfig

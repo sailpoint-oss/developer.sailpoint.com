@@ -1,5 +1,5 @@
 ---
-id: sed-assignment
+id: v2024-sed-assignment
 title: SedAssignment
 pagination_label: SedAssignment
 sidebar_label: SedAssignment

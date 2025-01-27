@@ -1,5 +1,5 @@
 ---
-id: identity-certification-dto
+id: v2024-identity-certification-dto
 title: IdentityCertificationDto
 pagination_label: IdentityCertificationDto
 sidebar_label: IdentityCertificationDto

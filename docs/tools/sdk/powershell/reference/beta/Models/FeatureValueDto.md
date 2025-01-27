@@ -1,5 +1,5 @@
 ---
-id: feature-value-dto
+id: beta-feature-value-dto
 title: FeatureValueDto
 pagination_label: FeatureValueDto
 sidebar_label: FeatureValueDto

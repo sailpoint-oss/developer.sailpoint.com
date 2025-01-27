@@ -1,5 +1,5 @@
 ---
-id: campaign-all-of-search-campaign-info
+id: v2024-campaign-all-of-search-campaign-info
 title: CampaignAllOfSearchCampaignInfo
 pagination_label: CampaignAllOfSearchCampaignInfo
 sidebar_label: CampaignAllOfSearchCampaignInfo

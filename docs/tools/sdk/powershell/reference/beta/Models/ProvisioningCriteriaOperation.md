@@ -1,5 +1,5 @@
 ---
-id: provisioning-criteria-operation
+id: beta-provisioning-criteria-operation
 title: ProvisioningCriteriaOperation
 pagination_label: ProvisioningCriteriaOperation
 sidebar_label: ProvisioningCriteriaOperation

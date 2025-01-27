@@ -1,5 +1,5 @@
 ---
-id: role-insight
+id: v2024-role-insight
 title: RoleInsight
 pagination_label: RoleInsight
 sidebar_label: RoleInsight

@@ -1,5 +1,5 @@
 ---
-id: identity-sync-payload
+id: v2024-identity-sync-payload
 title: IdentitySyncPayload
 pagination_label: IdentitySyncPayload
 sidebar_label: IdentitySyncPayload

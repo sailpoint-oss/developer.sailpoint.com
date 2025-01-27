@@ -1,5 +1,5 @@
 ---
-id: service-desk-integration-dto1
+id: v2024-service-desk-integration-dto1
 title: ServiceDeskIntegrationDto1
 pagination_label: ServiceDeskIntegrationDto1
 sidebar_label: ServiceDeskIntegrationDto1

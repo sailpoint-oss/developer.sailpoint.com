@@ -1,5 +1,5 @@
 ---
-id: role-assignment-dto
+id: beta-role-assignment-dto
 title: RoleAssignmentDto
 pagination_label: RoleAssignmentDto
 sidebar_label: RoleAssignmentDto

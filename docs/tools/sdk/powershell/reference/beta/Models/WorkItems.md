@@ -1,5 +1,5 @@
 ---
-id: work-items
+id: beta-work-items
 title: WorkItems
 pagination_label: WorkItems
 sidebar_label: WorkItems

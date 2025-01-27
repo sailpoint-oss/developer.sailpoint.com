@@ -1,5 +1,5 @@
 ---
-id: identity-document-all-of-identity-profile
+id: v2024-identity-document-all-of-identity-profile
 title: IdentityDocumentAllOfIdentityProfile
 pagination_label: IdentityDocumentAllOfIdentityProfile
 sidebar_label: IdentityDocumentAllOfIdentityProfile

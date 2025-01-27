@@ -1,5 +1,5 @@
 ---
-id: kba-auth-response-item
+id: beta-kba-auth-response-item
 title: KbaAuthResponseItem
 pagination_label: KbaAuthResponseItem
 sidebar_label: KbaAuthResponseItem

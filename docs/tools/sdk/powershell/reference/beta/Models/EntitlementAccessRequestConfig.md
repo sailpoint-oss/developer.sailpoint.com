@@ -1,5 +1,5 @@
 ---
-id: entitlement-access-request-config
+id: beta-entitlement-access-request-config
 title: EntitlementAccessRequestConfig
 pagination_label: EntitlementAccessRequestConfig
 sidebar_label: EntitlementAccessRequestConfig

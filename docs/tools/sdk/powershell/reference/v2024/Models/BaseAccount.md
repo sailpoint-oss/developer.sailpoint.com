@@ -1,5 +1,5 @@
 ---
-id: base-account
+id: v2024-base-account
 title: BaseAccount
 pagination_label: BaseAccount
 sidebar_label: BaseAccount

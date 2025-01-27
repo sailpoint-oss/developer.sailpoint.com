@@ -1,5 +1,5 @@
 ---
-id: remediation-item-details
+id: beta-remediation-item-details
 title: RemediationItemDetails
 pagination_label: RemediationItemDetails
 sidebar_label: RemediationItemDetails

@@ -1,5 +1,5 @@
 ---
-id: completed-approval-reviewer-comment
+id: v2024-completed-approval-reviewer-comment
 title: CompletedApprovalReviewerComment
 pagination_label: CompletedApprovalReviewerComment
 sidebar_label: CompletedApprovalReviewerComment

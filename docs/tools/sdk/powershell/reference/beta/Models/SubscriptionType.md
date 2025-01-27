@@ -1,5 +1,5 @@
 ---
-id: subscription-type
+id: beta-subscription-type
 title: SubscriptionType
 pagination_label: SubscriptionType
 sidebar_label: SubscriptionType

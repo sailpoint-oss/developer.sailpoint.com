@@ -1,5 +1,5 @@
 ---
-id: common-access-item-state
+id: beta-common-access-item-state
 title: CommonAccessItemState
 pagination_label: CommonAccessItemState
 sidebar_label: CommonAccessItemState

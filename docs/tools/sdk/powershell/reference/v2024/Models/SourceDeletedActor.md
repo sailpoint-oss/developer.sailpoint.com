@@ -1,5 +1,5 @@
 ---
-id: source-deleted-actor
+id: v2024-source-deleted-actor
 title: SourceDeletedActor
 pagination_label: SourceDeletedActor
 sidebar_label: SourceDeletedActor

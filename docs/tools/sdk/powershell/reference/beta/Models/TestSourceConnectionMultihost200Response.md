@@ -1,5 +1,5 @@
 ---
-id: test-source-connection-multihost200-response
+id: beta-test-source-connection-multihost200-response
 title: TestSourceConnectionMultihost200Response
 pagination_label: TestSourceConnectionMultihost200Response
 sidebar_label: TestSourceConnectionMultihost200Response

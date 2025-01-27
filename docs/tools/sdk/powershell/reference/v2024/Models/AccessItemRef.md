@@ -1,5 +1,5 @@
 ---
-id: access-item-ref
+id: v2024-access-item-ref
 title: AccessItemRef
 pagination_label: AccessItemRef
 sidebar_label: AccessItemRef

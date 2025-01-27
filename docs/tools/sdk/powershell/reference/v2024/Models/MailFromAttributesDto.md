@@ -1,5 +1,5 @@
 ---
-id: mail-from-attributes-dto
+id: v2024-mail-from-attributes-dto
 title: MailFromAttributesDto
 pagination_label: MailFromAttributesDto
 sidebar_label: MailFromAttributesDto

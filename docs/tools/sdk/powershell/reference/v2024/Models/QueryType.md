@@ -1,5 +1,5 @@
 ---
-id: query-type
+id: v2024-query-type
 title: QueryType
 pagination_label: QueryType
 sidebar_label: QueryType

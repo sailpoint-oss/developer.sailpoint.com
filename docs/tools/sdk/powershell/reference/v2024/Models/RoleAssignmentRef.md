@@ -1,5 +1,5 @@
 ---
-id: role-assignment-ref
+id: v2024-role-assignment-ref
 title: RoleAssignmentRef
 pagination_label: RoleAssignmentRef
 sidebar_label: RoleAssignmentRef

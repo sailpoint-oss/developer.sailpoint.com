@@ -1,5 +1,5 @@
 ---
-id: provisioning-completed-requester
+id: beta-provisioning-completed-requester
 title: ProvisioningCompletedRequester
 pagination_label: ProvisioningCompletedRequester
 sidebar_label: ProvisioningCompletedRequester

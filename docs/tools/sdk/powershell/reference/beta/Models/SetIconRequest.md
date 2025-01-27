@@ -1,5 +1,5 @@
 ---
-id: set-icon-request
+id: beta-set-icon-request
 title: SetIconRequest
 pagination_label: SetIconRequest
 sidebar_label: SetIconRequest

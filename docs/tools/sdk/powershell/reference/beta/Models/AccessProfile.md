@@ -1,5 +1,5 @@
 ---
-id: access-profile
+id: beta-access-profile
 title: AccessProfile
 pagination_label: AccessProfile
 sidebar_label: AccessProfile

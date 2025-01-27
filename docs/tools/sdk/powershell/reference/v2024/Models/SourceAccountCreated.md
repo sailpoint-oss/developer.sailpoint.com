@@ -1,5 +1,5 @@
 ---
-id: source-account-created
+id: v2024-source-account-created
 title: SourceAccountCreated
 pagination_label: SourceAccountCreated
 sidebar_label: SourceAccountCreated

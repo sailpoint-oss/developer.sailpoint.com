@@ -1,5 +1,5 @@
 ---
-id: completion-status
+id: beta-completion-status
 title: CompletionStatus
 pagination_label: CompletionStatus
 sidebar_label: CompletionStatus

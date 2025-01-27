@@ -1,5 +1,5 @@
 ---
-id: status-response
+id: v2024-status-response
 title: StatusResponse
 pagination_label: StatusResponse
 sidebar_label: StatusResponse

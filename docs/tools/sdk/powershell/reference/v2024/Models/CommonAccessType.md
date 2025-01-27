@@ -1,5 +1,5 @@
 ---
-id: common-access-type
+id: v2024-common-access-type
 title: CommonAccessType
 pagination_label: CommonAccessType
 sidebar_label: CommonAccessType

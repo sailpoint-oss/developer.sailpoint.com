@@ -1,5 +1,5 @@
 ---
-id: send-test-notification-request-dto
+id: beta-send-test-notification-request-dto
 title: SendTestNotificationRequestDto
 pagination_label: SendTestNotificationRequestDto
 sidebar_label: SendTestNotificationRequestDto

@@ -1,5 +1,5 @@
 ---
-id: sp-config-message
+id: beta-sp-config-message
 title: SpConfigMessage
 pagination_label: SpConfigMessage
 sidebar_label: SpConfigMessage

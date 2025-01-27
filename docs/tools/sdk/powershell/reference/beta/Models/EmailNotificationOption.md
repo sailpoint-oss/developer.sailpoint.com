@@ -1,5 +1,5 @@
 ---
-id: email-notification-option
+id: beta-email-notification-option
 title: EmailNotificationOption
 pagination_label: EmailNotificationOption
 sidebar_label: EmailNotificationOption

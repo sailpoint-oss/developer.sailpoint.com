@@ -1,5 +1,5 @@
 ---
-id: campaign-alert
+id: v2024-campaign-alert
 title: CampaignAlert
 pagination_label: CampaignAlert
 sidebar_label: CampaignAlert

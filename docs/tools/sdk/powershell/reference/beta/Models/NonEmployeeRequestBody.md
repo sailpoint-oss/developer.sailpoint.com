@@ -1,5 +1,5 @@
 ---
-id: non-employee-request-body
+id: beta-non-employee-request-body
 title: NonEmployeeRequestBody
 pagination_label: NonEmployeeRequestBody
 sidebar_label: NonEmployeeRequestBody

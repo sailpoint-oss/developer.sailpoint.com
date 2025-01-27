@@ -1,5 +1,5 @@
 ---
-id: scheduled-attributes
+id: beta-scheduled-attributes
 title: ScheduledAttributes
 pagination_label: ScheduledAttributes
 sidebar_label: ScheduledAttributes

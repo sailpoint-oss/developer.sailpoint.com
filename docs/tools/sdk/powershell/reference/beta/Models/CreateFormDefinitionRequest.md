@@ -1,5 +1,5 @@
 ---
-id: create-form-definition-request
+id: beta-create-form-definition-request
 title: CreateFormDefinitionRequest
 pagination_label: CreateFormDefinitionRequest
 sidebar_label: CreateFormDefinitionRequest

@@ -1,5 +1,5 @@
 ---
-id: set-lifecycle-state200-response
+id: v2024-set-lifecycle-state200-response
 title: SetLifecycleState200Response
 pagination_label: SetLifecycleState200Response
 sidebar_label: SetLifecycleState200Response

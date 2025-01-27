@@ -1,5 +1,5 @@
 ---
-id: recommendation-request-dto
+id: v2024-recommendation-request-dto
 title: RecommendationRequestDto
 pagination_label: RecommendationRequestDto
 sidebar_label: RecommendationRequestDto

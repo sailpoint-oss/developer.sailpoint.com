@@ -1,5 +1,5 @@
 ---
-id: trim
+id: v2024-trim
 title: Trim
 pagination_label: Trim
 sidebar_label: Trim

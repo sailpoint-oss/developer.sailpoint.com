@@ -1,5 +1,5 @@
 ---
-id: lookup
+id: v2024-lookup
 title: Lookup
 pagination_label: Lookup
 sidebar_label: Lookup

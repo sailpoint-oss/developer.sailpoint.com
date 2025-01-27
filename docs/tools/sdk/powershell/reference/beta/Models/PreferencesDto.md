@@ -1,5 +1,5 @@
 ---
-id: preferences-dto
+id: beta-preferences-dto
 title: PreferencesDto
 pagination_label: PreferencesDto
 sidebar_label: PreferencesDto

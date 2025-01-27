@@ -1,5 +1,5 @@
 ---
-id: access-request-pre-approval
+id: beta-access-request-pre-approval
 title: AccessRequestPreApproval
 pagination_label: AccessRequestPreApproval
 sidebar_label: AccessRequestPreApproval

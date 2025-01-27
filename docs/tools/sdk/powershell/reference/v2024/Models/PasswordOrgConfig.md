@@ -1,5 +1,5 @@
 ---
-id: password-org-config
+id: v2024-password-org-config
 title: PasswordOrgConfig
 pagination_label: PasswordOrgConfig
 sidebar_label: PasswordOrgConfig

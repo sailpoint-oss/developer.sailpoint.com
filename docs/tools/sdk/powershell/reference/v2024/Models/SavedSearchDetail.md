@@ -1,5 +1,5 @@
 ---
-id: saved-search-detail
+id: v2024-saved-search-detail
 title: SavedSearchDetail
 pagination_label: SavedSearchDetail
 sidebar_label: SavedSearchDetail

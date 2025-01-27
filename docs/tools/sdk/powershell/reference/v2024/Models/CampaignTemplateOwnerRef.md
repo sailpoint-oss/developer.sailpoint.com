@@ -1,5 +1,5 @@
 ---
-id: campaign-template-owner-ref
+id: v2024-campaign-template-owner-ref
 title: CampaignTemplateOwnerRef
 pagination_label: CampaignTemplateOwnerRef
 sidebar_label: CampaignTemplateOwnerRef

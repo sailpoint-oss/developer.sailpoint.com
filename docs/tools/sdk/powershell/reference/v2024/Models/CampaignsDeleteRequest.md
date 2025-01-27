@@ -1,5 +1,5 @@
 ---
-id: campaigns-delete-request
+id: v2024-campaigns-delete-request
 title: CampaignsDeleteRequest
 pagination_label: CampaignsDeleteRequest
 sidebar_label: CampaignsDeleteRequest

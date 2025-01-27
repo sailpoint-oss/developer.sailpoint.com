@@ -1,5 +1,5 @@
 ---
-id: value
+id: beta-value
 title: Value
 pagination_label: Value
 sidebar_label: Value

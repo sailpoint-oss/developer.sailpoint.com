@@ -1,5 +1,5 @@
 ---
-id: source-app-bulk-update-request
+id: beta-source-app-bulk-update-request
 title: SourceAppBulkUpdateRequest
 pagination_label: SourceAppBulkUpdateRequest
 sidebar_label: SourceAppBulkUpdateRequest

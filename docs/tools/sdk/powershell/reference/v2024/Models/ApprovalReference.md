@@ -1,5 +1,5 @@
 ---
-id: approval-reference
+id: v2024-approval-reference
 title: ApprovalReference
 pagination_label: ApprovalReference
 sidebar_label: ApprovalReference

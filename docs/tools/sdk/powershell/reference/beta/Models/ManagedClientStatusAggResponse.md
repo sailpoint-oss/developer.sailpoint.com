@@ -1,5 +1,5 @@
 ---
-id: managed-client-status-agg-response
+id: beta-managed-client-status-agg-response
 title: ManagedClientStatusAggResponse
 pagination_label: ManagedClientStatusAggResponse
 sidebar_label: ManagedClientStatusAggResponse

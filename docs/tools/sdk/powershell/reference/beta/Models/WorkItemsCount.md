@@ -1,5 +1,5 @@
 ---
-id: work-items-count
+id: beta-work-items-count
 title: WorkItemsCount
 pagination_label: WorkItemsCount
 sidebar_label: WorkItemsCount

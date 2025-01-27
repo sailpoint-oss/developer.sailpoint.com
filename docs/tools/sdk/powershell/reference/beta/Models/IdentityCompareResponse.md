@@ -1,5 +1,5 @@
 ---
-id: identity-compare-response
+id: beta-identity-compare-response
 title: IdentityCompareResponse
 pagination_label: IdentityCompareResponse
 sidebar_label: IdentityCompareResponse

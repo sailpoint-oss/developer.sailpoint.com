@@ -1,5 +1,5 @@
 ---
-id: access-request-phases
+id: v2024-access-request-phases
 title: AccessRequestPhases
 pagination_label: AccessRequestPhases
 sidebar_label: AccessRequestPhases

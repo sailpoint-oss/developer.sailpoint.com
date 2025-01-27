@@ -1,5 +1,5 @@
 ---
-id: manager-correlation-mapping
+id: v2024-manager-correlation-mapping
 title: ManagerCorrelationMapping
 pagination_label: ManagerCorrelationMapping
 sidebar_label: ManagerCorrelationMapping

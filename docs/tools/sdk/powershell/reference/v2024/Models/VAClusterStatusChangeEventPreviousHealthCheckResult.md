@@ -1,5 +1,5 @@
 ---
-id: va-cluster-status-change-event-previous-health-check-result
+id: v2024-va-cluster-status-change-event-previous-health-check-result
 title: VAClusterStatusChangeEventPreviousHealthCheckResult
 pagination_label: VAClusterStatusChangeEventPreviousHealthCheckResult
 sidebar_label: VAClusterStatusChangeEventPreviousHealthCheckResult

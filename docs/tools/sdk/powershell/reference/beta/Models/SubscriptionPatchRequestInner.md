@@ -1,5 +1,5 @@
 ---
-id: subscription-patch-request-inner
+id: beta-subscription-patch-request-inner
 title: SubscriptionPatchRequestInner
 pagination_label: SubscriptionPatchRequestInner
 sidebar_label: SubscriptionPatchRequestInner

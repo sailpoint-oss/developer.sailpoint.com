@@ -1,5 +1,5 @@
 ---
-id: entitlement1-manually-updated-fields
+id: v2024-entitlement1-manually-updated-fields
 title: Entitlement1ManuallyUpdatedFields
 pagination_label: Entitlement1ManuallyUpdatedFields
 sidebar_label: Entitlement1ManuallyUpdatedFields

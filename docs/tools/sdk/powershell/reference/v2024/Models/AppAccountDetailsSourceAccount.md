@@ -1,5 +1,5 @@
 ---
-id: app-account-details-source-account
+id: v2024-app-account-details-source-account
 title: AppAccountDetailsSourceAccount
 pagination_label: AppAccountDetailsSourceAccount
 sidebar_label: AppAccountDetailsSourceAccount

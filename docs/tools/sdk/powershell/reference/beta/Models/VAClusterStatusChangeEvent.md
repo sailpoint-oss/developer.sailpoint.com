@@ -1,5 +1,5 @@
 ---
-id: va-cluster-status-change-event
+id: beta-va-cluster-status-change-event
 title: VAClusterStatusChangeEvent
 pagination_label: VAClusterStatusChangeEvent
 sidebar_label: VAClusterStatusChangeEvent

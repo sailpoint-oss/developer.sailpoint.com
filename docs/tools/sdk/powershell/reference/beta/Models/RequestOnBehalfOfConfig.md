@@ -1,5 +1,5 @@
 ---
-id: request-on-behalf-of-config
+id: beta-request-on-behalf-of-config
 title: RequestOnBehalfOfConfig
 pagination_label: RequestOnBehalfOfConfig
 sidebar_label: RequestOnBehalfOfConfig

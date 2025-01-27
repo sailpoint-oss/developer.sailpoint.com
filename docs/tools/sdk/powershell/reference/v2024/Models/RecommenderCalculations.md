@@ -1,5 +1,5 @@
 ---
-id: recommender-calculations
+id: v2024-recommender-calculations
 title: RecommenderCalculations
 pagination_label: RecommenderCalculations
 sidebar_label: RecommenderCalculations

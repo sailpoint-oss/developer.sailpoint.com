@@ -1,5 +1,5 @@
 ---
-id: access-review-item
+id: v2024-access-review-item
 title: AccessReviewItem
 pagination_label: AccessReviewItem
 sidebar_label: AccessReviewItem

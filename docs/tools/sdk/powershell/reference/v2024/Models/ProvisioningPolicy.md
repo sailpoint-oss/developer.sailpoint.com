@@ -1,5 +1,5 @@
 ---
-id: provisioning-policy
+id: v2024-provisioning-policy
 title: ProvisioningPolicy
 pagination_label: ProvisioningPolicy
 sidebar_label: ProvisioningPolicy

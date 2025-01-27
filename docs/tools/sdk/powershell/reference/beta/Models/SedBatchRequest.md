@@ -1,5 +1,5 @@
 ---
-id: sed-batch-request
+id: beta-sed-batch-request
 title: SedBatchRequest
 pagination_label: SedBatchRequest
 sidebar_label: SedBatchRequest

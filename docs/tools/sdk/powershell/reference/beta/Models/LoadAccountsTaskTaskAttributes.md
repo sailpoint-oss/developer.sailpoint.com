@@ -1,5 +1,5 @@
 ---
-id: load-accounts-task-task-attributes
+id: beta-load-accounts-task-task-attributes
 title: LoadAccountsTaskTaskAttributes
 pagination_label: LoadAccountsTaskTaskAttributes
 sidebar_label: LoadAccountsTaskTaskAttributes

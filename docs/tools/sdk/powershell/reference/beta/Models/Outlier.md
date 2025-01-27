@@ -1,5 +1,5 @@
 ---
-id: outlier
+id: beta-outlier
 title: Outlier
 pagination_label: Outlier
 sidebar_label: Outlier

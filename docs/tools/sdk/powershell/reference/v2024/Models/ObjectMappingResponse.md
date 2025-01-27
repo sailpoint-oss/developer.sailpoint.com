@@ -1,5 +1,5 @@
 ---
-id: object-mapping-response
+id: v2024-object-mapping-response
 title: ObjectMappingResponse
 pagination_label: ObjectMappingResponse
 sidebar_label: ObjectMappingResponse

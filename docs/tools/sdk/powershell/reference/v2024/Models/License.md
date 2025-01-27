@@ -1,5 +1,5 @@
 ---
-id: license
+id: v2024-license
 title: License
 pagination_label: License
 sidebar_label: License

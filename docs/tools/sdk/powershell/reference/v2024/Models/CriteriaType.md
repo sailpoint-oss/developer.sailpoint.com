@@ -1,5 +1,5 @@
 ---
-id: criteria-type
+id: v2024-criteria-type
 title: CriteriaType
 pagination_label: CriteriaType
 sidebar_label: CriteriaType

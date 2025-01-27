@@ -1,5 +1,5 @@
 ---
-id: provisioning-criteria-level3
+id: beta-provisioning-criteria-level3
 title: ProvisioningCriteriaLevel3
 pagination_label: ProvisioningCriteriaLevel3
 sidebar_label: ProvisioningCriteriaLevel3

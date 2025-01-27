@@ -1,5 +1,5 @@
 ---
-id: search
+id: v2024-search
 title: Search
 pagination_label: Search
 sidebar_label: Search

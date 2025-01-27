@@ -1,5 +1,5 @@
 ---
-id: attribute-dto
+id: v2024-attribute-dto
 title: AttributeDTO
 pagination_label: AttributeDTO
 sidebar_label: AttributeDTO

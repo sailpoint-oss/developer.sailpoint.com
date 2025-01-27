@@ -1,5 +1,5 @@
 ---
-id: import-accounts-request
+id: v2024-import-accounts-request
 title: ImportAccountsRequest
 pagination_label: ImportAccountsRequest
 sidebar_label: ImportAccountsRequest

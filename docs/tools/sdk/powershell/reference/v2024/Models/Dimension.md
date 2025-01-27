@@ -1,5 +1,5 @@
 ---
-id: dimension
+id: v2024-dimension
 title: Dimension
 pagination_label: Dimension
 sidebar_label: Dimension

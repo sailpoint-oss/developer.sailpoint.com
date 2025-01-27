@@ -1,5 +1,5 @@
 ---
-id: campaign-activated-campaign-campaign-owner
+id: v2024-campaign-activated-campaign-campaign-owner
 title: CampaignActivatedCampaignCampaignOwner
 pagination_label: CampaignActivatedCampaignCampaignOwner
 sidebar_label: CampaignActivatedCampaignCampaignOwner

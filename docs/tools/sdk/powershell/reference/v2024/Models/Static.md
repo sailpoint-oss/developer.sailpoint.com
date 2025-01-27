@@ -1,5 +1,5 @@
 ---
-id: static
+id: v2024-static
 title: Static
 pagination_label: Static
 sidebar_label: Static

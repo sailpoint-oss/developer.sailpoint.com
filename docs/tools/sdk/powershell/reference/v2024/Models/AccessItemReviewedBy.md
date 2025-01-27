@@ -1,5 +1,5 @@
 ---
-id: access-item-reviewed-by
+id: v2024-access-item-reviewed-by
 title: AccessItemReviewedBy
 pagination_label: AccessItemReviewedBy
 sidebar_label: AccessItemReviewedBy

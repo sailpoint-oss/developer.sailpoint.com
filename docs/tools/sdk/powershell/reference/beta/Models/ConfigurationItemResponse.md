@@ -1,5 +1,5 @@
 ---
-id: configuration-item-response
+id: beta-configuration-item-response
 title: ConfigurationItemResponse
 pagination_label: ConfigurationItemResponse
 sidebar_label: ConfigurationItemResponse

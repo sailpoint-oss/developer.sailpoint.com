@@ -1,5 +1,5 @@
 ---
-id: multi-host-integrations
+id: beta-multi-host-integrations
 title: MultiHostIntegrations
 pagination_label: MultiHostIntegrations
 sidebar_label: MultiHostIntegrations

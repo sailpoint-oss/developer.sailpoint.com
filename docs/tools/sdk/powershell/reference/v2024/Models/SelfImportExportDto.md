@@ -1,5 +1,5 @@
 ---
-id: self-import-export-dto
+id: v2024-self-import-export-dto
 title: SelfImportExportDto
 pagination_label: SelfImportExportDto
 sidebar_label: SelfImportExportDto

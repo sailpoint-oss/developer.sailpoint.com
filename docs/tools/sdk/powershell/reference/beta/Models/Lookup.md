@@ -1,5 +1,5 @@
 ---
-id: lookup
+id: beta-lookup
 title: Lookup
 pagination_label: Lookup
 sidebar_label: Lookup

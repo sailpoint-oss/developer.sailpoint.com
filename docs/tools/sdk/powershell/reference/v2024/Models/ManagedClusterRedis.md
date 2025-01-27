@@ -1,5 +1,5 @@
 ---
-id: managed-cluster-redis
+id: v2024-managed-cluster-redis
 title: ManagedClusterRedis
 pagination_label: ManagedClusterRedis
 sidebar_label: ManagedClusterRedis

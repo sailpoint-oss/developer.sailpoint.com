@@ -1,5 +1,5 @@
 ---
-id: external-attributes
+id: v2024-external-attributes
 title: ExternalAttributes
 pagination_label: ExternalAttributes
 sidebar_label: ExternalAttributes

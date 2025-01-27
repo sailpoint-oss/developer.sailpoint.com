@@ -1,5 +1,5 @@
 ---
-id: pat-owner
+id: beta-pat-owner
 title: PatOwner
 pagination_label: PatOwner
 sidebar_label: PatOwner

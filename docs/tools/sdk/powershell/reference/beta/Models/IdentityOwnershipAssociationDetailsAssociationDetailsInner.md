@@ -1,5 +1,5 @@
 ---
-id: identity-ownership-association-details-association-details-inner
+id: beta-identity-ownership-association-details-association-details-inner
 title: IdentityOwnershipAssociationDetailsAssociationDetailsInner
 pagination_label: IdentityOwnershipAssociationDetailsAssociationDetailsInner
 sidebar_label: IdentityOwnershipAssociationDetailsAssociationDetailsInner

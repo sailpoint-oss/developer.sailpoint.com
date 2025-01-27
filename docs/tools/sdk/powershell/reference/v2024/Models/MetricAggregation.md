@@ -1,5 +1,5 @@
 ---
-id: metric-aggregation
+id: v2024-metric-aggregation
 title: MetricAggregation
 pagination_label: MetricAggregation
 sidebar_label: MetricAggregation

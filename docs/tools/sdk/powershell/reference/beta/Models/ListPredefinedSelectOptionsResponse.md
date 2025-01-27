@@ -1,5 +1,5 @@
 ---
-id: list-predefined-select-options-response
+id: beta-list-predefined-select-options-response
 title: ListPredefinedSelectOptionsResponse
 pagination_label: ListPredefinedSelectOptionsResponse
 sidebar_label: ListPredefinedSelectOptionsResponse

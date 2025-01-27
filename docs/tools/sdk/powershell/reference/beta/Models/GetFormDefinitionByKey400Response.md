@@ -1,5 +1,5 @@
 ---
-id: get-form-definition-by-key400-response
+id: beta-get-form-definition-by-key400-response
 title: GetFormDefinitionByKey400Response
 pagination_label: GetFormDefinitionByKey400Response
 sidebar_label: GetFormDefinitionByKey400Response

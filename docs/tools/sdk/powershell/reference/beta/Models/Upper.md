@@ -1,5 +1,5 @@
 ---
-id: upper
+id: beta-upper
 title: Upper
 pagination_label: Upper
 sidebar_label: Upper

@@ -1,5 +1,5 @@
 ---
-id: base64-decode
+id: v2024-base64-decode
 title: Base64Decode
 pagination_label: Base64Decode
 sidebar_label: Base64Decode

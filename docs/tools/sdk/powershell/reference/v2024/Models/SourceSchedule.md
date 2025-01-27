@@ -1,5 +1,5 @@
 ---
-id: source-schedule
+id: v2024-source-schedule
 title: SourceSchedule
 pagination_label: SourceSchedule
 sidebar_label: SourceSchedule

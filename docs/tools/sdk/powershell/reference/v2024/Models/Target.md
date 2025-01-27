@@ -1,5 +1,5 @@
 ---
-id: target
+id: v2024-target
 title: Target
 pagination_label: Target
 sidebar_label: Target

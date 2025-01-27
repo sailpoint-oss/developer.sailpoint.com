@@ -1,5 +1,5 @@
 ---
-id: sp-config-import-job-status
+id: beta-sp-config-import-job-status
 title: SpConfigImportJobStatus
 pagination_label: SpConfigImportJobStatus
 sidebar_label: SpConfigImportJobStatus

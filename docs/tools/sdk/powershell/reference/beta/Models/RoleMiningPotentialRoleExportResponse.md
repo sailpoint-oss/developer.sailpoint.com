@@ -1,5 +1,5 @@
 ---
-id: role-mining-potential-role-export-response
+id: beta-role-mining-potential-role-export-response
 title: RoleMiningPotentialRoleExportResponse
 pagination_label: RoleMiningPotentialRoleExportResponse
 sidebar_label: RoleMiningPotentialRoleExportResponse

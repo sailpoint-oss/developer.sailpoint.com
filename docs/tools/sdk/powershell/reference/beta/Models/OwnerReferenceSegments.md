@@ -1,5 +1,5 @@
 ---
-id: owner-reference-segments
+id: beta-owner-reference-segments
 title: OwnerReferenceSegments
 pagination_label: OwnerReferenceSegments
 sidebar_label: OwnerReferenceSegments

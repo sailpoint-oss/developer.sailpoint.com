@@ -1,5 +1,5 @@
 ---
-id: http-config
+id: beta-http-config
 title: HttpConfig
 pagination_label: HttpConfig
 sidebar_label: HttpConfig

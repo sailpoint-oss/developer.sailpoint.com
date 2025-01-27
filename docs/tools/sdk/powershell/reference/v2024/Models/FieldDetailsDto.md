@@ -1,5 +1,5 @@
 ---
-id: field-details-dto
+id: v2024-field-details-dto
 title: FieldDetailsDto
 pagination_label: FieldDetailsDto
 sidebar_label: FieldDetailsDto

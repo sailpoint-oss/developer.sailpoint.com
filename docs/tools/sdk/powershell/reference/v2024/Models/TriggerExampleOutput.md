@@ -1,5 +1,5 @@
 ---
-id: trigger-example-output
+id: v2024-trigger-example-output
 title: TriggerExampleOutput
 pagination_label: TriggerExampleOutput
 sidebar_label: TriggerExampleOutput

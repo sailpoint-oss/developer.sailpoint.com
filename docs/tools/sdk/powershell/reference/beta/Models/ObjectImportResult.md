@@ -1,5 +1,5 @@
 ---
-id: object-import-result
+id: beta-object-import-result
 title: ObjectImportResult
 pagination_label: ObjectImportResult
 sidebar_label: ObjectImportResult

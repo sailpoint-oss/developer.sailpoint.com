@@ -1,5 +1,5 @@
 ---
-id: complete-invocation
+id: v2024-complete-invocation
 title: CompleteInvocation
 pagination_label: CompleteInvocation
 sidebar_label: CompleteInvocation

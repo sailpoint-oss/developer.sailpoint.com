@@ -1,5 +1,5 @@
 ---
-id: manually-updated-fields-dto
+id: beta-manually-updated-fields-dto
 title: ManuallyUpdatedFieldsDTO
 pagination_label: ManuallyUpdatedFieldsDTO
 sidebar_label: ManuallyUpdatedFieldsDTO

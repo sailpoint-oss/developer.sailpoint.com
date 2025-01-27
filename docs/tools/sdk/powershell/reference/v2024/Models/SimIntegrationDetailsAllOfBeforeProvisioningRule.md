@@ -1,5 +1,5 @@
 ---
-id: sim-integration-details-all-of-before-provisioning-rule
+id: v2024-sim-integration-details-all-of-before-provisioning-rule
 title: SimIntegrationDetailsAllOfBeforeProvisioningRule
 pagination_label: SimIntegrationDetailsAllOfBeforeProvisioningRule
 sidebar_label: SimIntegrationDetailsAllOfBeforeProvisioningRule

@@ -1,5 +1,5 @@
 ---
-id: subscription-post-request
+id: beta-subscription-post-request
 title: SubscriptionPostRequest
 pagination_label: SubscriptionPostRequest
 sidebar_label: SubscriptionPostRequest

@@ -1,5 +1,5 @@
 ---
-id: lifecyclestate-deleted
+id: v2024-lifecyclestate-deleted
 title: LifecyclestateDeleted
 pagination_label: LifecyclestateDeleted
 sidebar_label: LifecyclestateDeleted

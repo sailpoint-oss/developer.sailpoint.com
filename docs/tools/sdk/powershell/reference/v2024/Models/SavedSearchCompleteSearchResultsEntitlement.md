@@ -1,5 +1,5 @@
 ---
-id: saved-search-complete-search-results-entitlement
+id: v2024-saved-search-complete-search-results-entitlement
 title: SavedSearchCompleteSearchResultsEntitlement
 pagination_label: SavedSearchCompleteSearchResultsEntitlement
 sidebar_label: SavedSearchCompleteSearchResultsEntitlement

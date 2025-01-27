@@ -1,5 +1,5 @@
 ---
-id: approval-status
+id: beta-approval-status
 title: ApprovalStatus
 pagination_label: ApprovalStatus
 sidebar_label: ApprovalStatus

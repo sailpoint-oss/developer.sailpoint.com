@@ -1,5 +1,5 @@
 ---
-id: lookup-step
+id: beta-lookup-step
 title: LookupStep
 pagination_label: LookupStep
 sidebar_label: LookupStep

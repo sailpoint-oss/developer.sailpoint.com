@@ -1,5 +1,5 @@
 ---
-id: condition-effect
+id: beta-condition-effect
 title: ConditionEffect
 pagination_label: ConditionEffect
 sidebar_label: ConditionEffect

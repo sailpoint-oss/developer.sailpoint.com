@@ -1,5 +1,5 @@
 ---
-id: owns
+id: v2024-owns
 title: Owns
 pagination_label: Owns
 sidebar_label: Owns

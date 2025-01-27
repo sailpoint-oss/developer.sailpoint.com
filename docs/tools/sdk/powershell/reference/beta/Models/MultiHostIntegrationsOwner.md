@@ -1,5 +1,5 @@
 ---
-id: multi-host-integrations-owner
+id: beta-multi-host-integrations-owner
 title: MultiHostIntegrationsOwner
 pagination_label: MultiHostIntegrationsOwner
 sidebar_label: MultiHostIntegrationsOwner

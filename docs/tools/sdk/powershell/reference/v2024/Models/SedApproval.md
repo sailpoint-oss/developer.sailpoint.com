@@ -1,5 +1,5 @@
 ---
-id: sed-approval
+id: v2024-sed-approval
 title: SedApproval
 pagination_label: SedApproval
 sidebar_label: SedApproval

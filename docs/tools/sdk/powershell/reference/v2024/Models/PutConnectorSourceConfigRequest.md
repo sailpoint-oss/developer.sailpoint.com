@@ -1,5 +1,5 @@
 ---
-id: put-connector-source-config-request
+id: v2024-put-connector-source-config-request
 title: PutConnectorSourceConfigRequest
 pagination_label: PutConnectorSourceConfigRequest
 sidebar_label: PutConnectorSourceConfigRequest

@@ -1,5 +1,5 @@
 ---
-id: client-log-configuration
+id: v2024-client-log-configuration
 title: ClientLogConfiguration
 pagination_label: ClientLogConfiguration
 sidebar_label: ClientLogConfiguration

@@ -1,5 +1,5 @@
 ---
-id: saved-search-complete-search-results
+id: beta-saved-search-complete-search-results
 title: SavedSearchCompleteSearchResults
 pagination_label: SavedSearchCompleteSearchResults
 sidebar_label: SavedSearchCompleteSearchResults

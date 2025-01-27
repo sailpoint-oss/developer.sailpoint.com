@@ -1,5 +1,5 @@
 ---
-id: create-saved-search-request
+id: v2024-create-saved-search-request
 title: CreateSavedSearchRequest
 pagination_label: CreateSavedSearchRequest
 sidebar_label: CreateSavedSearchRequest

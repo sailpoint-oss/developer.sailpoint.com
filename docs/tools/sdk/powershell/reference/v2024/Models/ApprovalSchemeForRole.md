@@ -1,5 +1,5 @@
 ---
-id: approval-scheme-for-role
+id: v2024-approval-scheme-for-role
 title: ApprovalSchemeForRole
 pagination_label: ApprovalSchemeForRole
 sidebar_label: ApprovalSchemeForRole

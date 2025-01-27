@@ -1,5 +1,5 @@
 ---
-id: managed-client
+id: v2024-managed-client
 title: ManagedClient
 pagination_label: ManagedClient
 sidebar_label: ManagedClient

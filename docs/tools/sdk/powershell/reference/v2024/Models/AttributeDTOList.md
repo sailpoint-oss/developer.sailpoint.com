@@ -1,5 +1,5 @@
 ---
-id: attribute-dto-list
+id: v2024-attribute-dto-list
 title: AttributeDTOList
 pagination_label: AttributeDTOList
 sidebar_label: AttributeDTOList

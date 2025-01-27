@@ -1,5 +1,5 @@
 ---
-id: form-instance-response
+id: beta-form-instance-response
 title: FormInstanceResponse
 pagination_label: FormInstanceResponse
 sidebar_label: FormInstanceResponse

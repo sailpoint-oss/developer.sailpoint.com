@@ -1,5 +1,5 @@
 ---
-id: selector
+id: beta-selector
 title: Selector
 pagination_label: Selector
 sidebar_label: Selector

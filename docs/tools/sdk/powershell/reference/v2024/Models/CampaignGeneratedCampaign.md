@@ -1,5 +1,5 @@
 ---
-id: campaign-generated-campaign
+id: v2024-campaign-generated-campaign
 title: CampaignGeneratedCampaign
 pagination_label: CampaignGeneratedCampaign
 sidebar_label: CampaignGeneratedCampaign

@@ -1,5 +1,5 @@
 ---
-id: entitlement-document-all-of-source
+id: v2024-entitlement-document-all-of-source
 title: EntitlementDocumentAllOfSource
 pagination_label: EntitlementDocumentAllOfSource
 sidebar_label: EntitlementDocumentAllOfSource

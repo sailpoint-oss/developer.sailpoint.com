@@ -1,5 +1,5 @@
 ---
-id: reviewer
+id: beta-reviewer
 title: Reviewer
 pagination_label: Reviewer
 sidebar_label: Reviewer

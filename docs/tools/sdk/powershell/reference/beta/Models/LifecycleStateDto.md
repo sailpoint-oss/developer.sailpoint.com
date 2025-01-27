@@ -1,5 +1,5 @@
 ---
-id: lifecycle-state-dto
+id: beta-lifecycle-state-dto
 title: LifecycleStateDto
 pagination_label: LifecycleStateDto
 sidebar_label: LifecycleStateDto

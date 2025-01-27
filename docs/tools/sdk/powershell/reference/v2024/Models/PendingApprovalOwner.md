@@ -1,5 +1,5 @@
 ---
-id: pending-approval-owner
+id: v2024-pending-approval-owner
 title: PendingApprovalOwner
 pagination_label: PendingApprovalOwner
 sidebar_label: PendingApprovalOwner

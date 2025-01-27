@@ -1,5 +1,5 @@
 ---
-id: tenant
+id: beta-tenant
 title: Tenant
 pagination_label: Tenant
 sidebar_label: Tenant

@@ -1,5 +1,5 @@
 ---
-id: identity-attributes-changed-changes-inner-new-value
+id: beta-identity-attributes-changed-changes-inner-new-value
 title: IdentityAttributesChangedChangesInnerNewValue
 pagination_label: IdentityAttributesChangedChangesInnerNewValue
 sidebar_label: IdentityAttributesChangedChangesInnerNewValue

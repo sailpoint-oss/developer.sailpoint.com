@@ -1,5 +1,5 @@
 ---
-id: role-match-dto
+id: v2024-role-match-dto
 title: RoleMatchDto
 pagination_label: RoleMatchDto
 sidebar_label: RoleMatchDto

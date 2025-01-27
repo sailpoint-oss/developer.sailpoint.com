@@ -1,5 +1,5 @@
 ---
-id: base-reference-dto1
+id: v2024-base-reference-dto1
 title: BaseReferenceDto1
 pagination_label: BaseReferenceDto1
 sidebar_label: BaseReferenceDto1

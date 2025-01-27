@@ -1,5 +1,5 @@
 ---
-id: managed-client-request
+id: v2024-managed-client-request
 title: ManagedClientRequest
 pagination_label: ManagedClientRequest
 sidebar_label: ManagedClientRequest

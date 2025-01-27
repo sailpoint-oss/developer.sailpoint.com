@@ -1,5 +1,5 @@
 ---
-id: managed-cluster-types
+id: beta-managed-cluster-types
 title: ManagedClusterTypes
 pagination_label: ManagedClusterTypes
 sidebar_label: ManagedClusterTypes

@@ -1,5 +1,5 @@
 ---
-id: access-constraint
+id: beta-access-constraint
 title: AccessConstraint
 pagination_label: AccessConstraint
 sidebar_label: AccessConstraint

@@ -1,5 +1,5 @@
 ---
-id: tenant
+id: v2024-tenant
 title: Tenant
 pagination_label: Tenant
 sidebar_label: Tenant

@@ -1,5 +1,5 @@
 ---
-id: nested-aggregation
+id: v2024-nested-aggregation
 title: NestedAggregation
 pagination_label: NestedAggregation
 sidebar_label: NestedAggregation

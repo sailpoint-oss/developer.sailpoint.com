@@ -1,5 +1,5 @@
 ---
-id: schedule
+id: v2024-schedule
 title: Schedule
 pagination_label: Schedule
 sidebar_label: Schedule

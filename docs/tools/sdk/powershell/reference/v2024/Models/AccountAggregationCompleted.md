@@ -1,5 +1,5 @@
 ---
-id: account-aggregation-completed
+id: v2024-account-aggregation-completed
 title: AccountAggregationCompleted
 pagination_label: AccountAggregationCompleted
 sidebar_label: AccountAggregationCompleted

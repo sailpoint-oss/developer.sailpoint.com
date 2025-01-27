@@ -1,5 +1,5 @@
 ---
-id: password-info-account
+id: beta-password-info-account
 title: PasswordInfoAccount
 pagination_label: PasswordInfoAccount
 sidebar_label: PasswordInfoAccount

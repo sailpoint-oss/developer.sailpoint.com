@@ -1,5 +1,5 @@
 ---
-id: campaign-filter-details-criteria-list-inner
+id: v2024-campaign-filter-details-criteria-list-inner
 title: CampaignFilterDetailsCriteriaListInner
 pagination_label: CampaignFilterDetailsCriteriaListInner
 sidebar_label: CampaignFilterDetailsCriteriaListInner

@@ -1,5 +1,5 @@
 ---
-id: duo-verification-request
+id: beta-duo-verification-request
 title: DuoVerificationRequest
 pagination_label: DuoVerificationRequest
 sidebar_label: DuoVerificationRequest

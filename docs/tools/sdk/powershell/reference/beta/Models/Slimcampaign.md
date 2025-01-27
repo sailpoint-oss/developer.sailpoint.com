@@ -1,5 +1,5 @@
 ---
-id: slimcampaign
+id: beta-slimcampaign
 title: Slimcampaign
 pagination_label: Slimcampaign
 sidebar_label: Slimcampaign

@@ -1,5 +1,5 @@
 ---
-id: access-request-dynamic-approver
+id: v2024-access-request-dynamic-approver
 title: AccessRequestDynamicApprover
 pagination_label: AccessRequestDynamicApprover
 sidebar_label: AccessRequestDynamicApprover

@@ -1,5 +1,5 @@
 ---
-id: access-profile-document-all-of-source
+id: v2024-access-profile-document-all-of-source
 title: AccessProfileDocumentAllOfSource
 pagination_label: AccessProfileDocumentAllOfSource
 sidebar_label: AccessProfileDocumentAllOfSource

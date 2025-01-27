@@ -1,5 +1,5 @@
 ---
-id: access-item-reviewed-by
+id: beta-access-item-reviewed-by
 title: AccessItemReviewedBy
 pagination_label: AccessItemReviewedBy
 sidebar_label: AccessItemReviewedBy

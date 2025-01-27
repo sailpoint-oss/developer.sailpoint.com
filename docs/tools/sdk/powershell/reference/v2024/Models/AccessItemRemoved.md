@@ -1,5 +1,5 @@
 ---
-id: access-item-removed
+id: v2024-access-item-removed
 title: AccessItemRemoved
 pagination_label: AccessItemRemoved
 sidebar_label: AccessItemRemoved

@@ -1,5 +1,5 @@
 ---
-id: workgroup-dto
+id: beta-workgroup-dto
 title: WorkgroupDto
 pagination_label: WorkgroupDto
 sidebar_label: WorkgroupDto

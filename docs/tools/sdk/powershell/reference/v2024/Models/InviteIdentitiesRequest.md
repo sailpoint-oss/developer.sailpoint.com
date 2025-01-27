@@ -1,5 +1,5 @@
 ---
-id: invite-identities-request
+id: v2024-invite-identities-request
 title: InviteIdentitiesRequest
 pagination_label: InviteIdentitiesRequest
 sidebar_label: InviteIdentitiesRequest

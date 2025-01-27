@@ -1,5 +1,5 @@
 ---
-id: sed-batch-response
+id: beta-sed-batch-response
 title: SedBatchResponse
 pagination_label: SedBatchResponse
 sidebar_label: SedBatchResponse

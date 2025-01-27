@@ -1,5 +1,5 @@
 ---
-id: search-document
+id: v2024-search-document
 title: SearchDocument
 pagination_label: SearchDocument
 sidebar_label: SearchDocument

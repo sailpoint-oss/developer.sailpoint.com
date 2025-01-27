@@ -1,5 +1,5 @@
 ---
-id: fullcampaign
+id: beta-fullcampaign
 title: Fullcampaign
 pagination_label: Fullcampaign
 sidebar_label: Fullcampaign

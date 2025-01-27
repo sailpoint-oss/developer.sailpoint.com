@@ -1,5 +1,5 @@
 ---
-id: subscription-post-request
+id: v2024-subscription-post-request
 title: SubscriptionPostRequest
 pagination_label: SubscriptionPostRequest
 sidebar_label: SubscriptionPostRequest

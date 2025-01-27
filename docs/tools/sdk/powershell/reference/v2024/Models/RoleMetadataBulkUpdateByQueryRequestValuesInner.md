@@ -1,5 +1,5 @@
 ---
-id: role-metadata-bulk-update-by-query-request-values-inner
+id: v2024-role-metadata-bulk-update-by-query-request-values-inner
 title: RoleMetadataBulkUpdateByQueryRequestValuesInner
 pagination_label: RoleMetadataBulkUpdateByQueryRequestValuesInner
 sidebar_label: RoleMetadataBulkUpdateByQueryRequestValuesInner

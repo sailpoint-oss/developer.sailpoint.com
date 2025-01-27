@@ -1,5 +1,5 @@
 ---
-id: completed-approval-reviewed-by
+id: beta-completed-approval-reviewed-by
 title: CompletedApprovalReviewedBy
 pagination_label: CompletedApprovalReviewedBy
 sidebar_label: CompletedApprovalReviewedBy

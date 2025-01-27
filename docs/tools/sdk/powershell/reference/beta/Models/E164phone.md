@@ -1,5 +1,5 @@
 ---
-id: e164phone
+id: beta-e164phone
 title: E164phone
 pagination_label: E164phone
 sidebar_label: E164phone

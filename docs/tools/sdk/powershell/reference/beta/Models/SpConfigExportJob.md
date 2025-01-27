@@ -1,5 +1,5 @@
 ---
-id: sp-config-export-job
+id: beta-sp-config-export-job
 title: SpConfigExportJob
 pagination_label: SpConfigExportJob
 sidebar_label: SpConfigExportJob

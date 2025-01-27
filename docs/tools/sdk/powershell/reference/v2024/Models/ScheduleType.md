@@ -1,5 +1,5 @@
 ---
-id: schedule-type
+id: v2024-schedule-type
 title: ScheduleType
 pagination_label: ScheduleType
 sidebar_label: ScheduleType

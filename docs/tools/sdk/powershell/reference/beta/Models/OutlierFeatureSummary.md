@@ -1,5 +1,5 @@
 ---
-id: outlier-feature-summary
+id: beta-outlier-feature-summary
 title: OutlierFeatureSummary
 pagination_label: OutlierFeatureSummary
 sidebar_label: OutlierFeatureSummary

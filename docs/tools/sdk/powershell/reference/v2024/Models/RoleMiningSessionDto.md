@@ -1,5 +1,5 @@
 ---
-id: role-mining-session-dto
+id: v2024-role-mining-session-dto
 title: RoleMiningSessionDto
 pagination_label: RoleMiningSessionDto
 sidebar_label: RoleMiningSessionDto

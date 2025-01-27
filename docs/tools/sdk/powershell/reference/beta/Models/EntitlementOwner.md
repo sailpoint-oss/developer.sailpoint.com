@@ -1,5 +1,5 @@
 ---
-id: entitlement-owner
+id: beta-entitlement-owner
 title: EntitlementOwner
 pagination_label: EntitlementOwner
 sidebar_label: EntitlementOwner

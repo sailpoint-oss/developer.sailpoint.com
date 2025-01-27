@@ -1,5 +1,5 @@
 ---
-id: date-compare
+id: v2024-date-compare
 title: DateCompare
 pagination_label: DateCompare
 sidebar_label: DateCompare

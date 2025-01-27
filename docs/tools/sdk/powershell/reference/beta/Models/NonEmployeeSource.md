@@ -1,5 +1,5 @@
 ---
-id: non-employee-source
+id: beta-non-employee-source
 title: NonEmployeeSource
 pagination_label: NonEmployeeSource
 sidebar_label: NonEmployeeSource

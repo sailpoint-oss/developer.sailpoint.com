@@ -1,5 +1,5 @@
 ---
-id: attribute-change
+id: v2024-attribute-change
 title: AttributeChange
 pagination_label: AttributeChange
 sidebar_label: AttributeChange

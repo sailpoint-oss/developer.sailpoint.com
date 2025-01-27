@@ -1,5 +1,5 @@
 ---
-id: service-desk-integration-dto
+id: beta-service-desk-integration-dto
 title: ServiceDeskIntegrationDto
 pagination_label: ServiceDeskIntegrationDto
 sidebar_label: ServiceDeskIntegrationDto

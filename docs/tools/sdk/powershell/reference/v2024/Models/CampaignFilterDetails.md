@@ -1,5 +1,5 @@
 ---
-id: campaign-filter-details
+id: v2024-campaign-filter-details
 title: CampaignFilterDetails
 pagination_label: CampaignFilterDetails
 sidebar_label: CampaignFilterDetails

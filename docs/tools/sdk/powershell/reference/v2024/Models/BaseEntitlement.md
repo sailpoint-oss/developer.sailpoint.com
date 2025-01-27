@@ -1,5 +1,5 @@
 ---
-id: base-entitlement
+id: v2024-base-entitlement
 title: BaseEntitlement
 pagination_label: BaseEntitlement
 sidebar_label: BaseEntitlement

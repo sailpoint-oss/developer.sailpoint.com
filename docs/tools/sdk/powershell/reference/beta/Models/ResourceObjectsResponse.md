@@ -1,5 +1,5 @@
 ---
-id: resource-objects-response
+id: beta-resource-objects-response
 title: ResourceObjectsResponse
 pagination_label: ResourceObjectsResponse
 sidebar_label: ResourceObjectsResponse

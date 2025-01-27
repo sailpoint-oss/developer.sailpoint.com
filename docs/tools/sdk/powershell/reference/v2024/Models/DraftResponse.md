@@ -1,5 +1,5 @@
 ---
-id: draft-response
+id: v2024-draft-response
 title: DraftResponse
 pagination_label: DraftResponse
 sidebar_label: DraftResponse

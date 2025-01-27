@@ -1,5 +1,5 @@
 ---
-id: non-employee-approval-decision
+id: beta-non-employee-approval-decision
 title: NonEmployeeApprovalDecision
 pagination_label: NonEmployeeApprovalDecision
 sidebar_label: NonEmployeeApprovalDecision

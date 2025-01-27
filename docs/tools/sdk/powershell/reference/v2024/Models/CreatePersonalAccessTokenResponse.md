@@ -1,5 +1,5 @@
 ---
-id: create-personal-access-token-response
+id: v2024-create-personal-access-token-response
 title: CreatePersonalAccessTokenResponse
 pagination_label: CreatePersonalAccessTokenResponse
 sidebar_label: CreatePersonalAccessTokenResponse

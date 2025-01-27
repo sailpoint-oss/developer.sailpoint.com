@@ -1,5 +1,5 @@
 ---
-id: role-criteria-key-type
+id: v2024-role-criteria-key-type
 title: RoleCriteriaKeyType
 pagination_label: RoleCriteriaKeyType
 sidebar_label: RoleCriteriaKeyType

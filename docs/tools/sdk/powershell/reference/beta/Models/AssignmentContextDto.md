@@ -1,5 +1,5 @@
 ---
-id: assignment-context-dto
+id: beta-assignment-context-dto
 title: AssignmentContextDto
 pagination_label: AssignmentContextDto
 sidebar_label: AssignmentContextDto

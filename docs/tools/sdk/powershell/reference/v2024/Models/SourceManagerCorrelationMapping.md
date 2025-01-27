@@ -1,5 +1,5 @@
 ---
-id: source-manager-correlation-mapping
+id: v2024-source-manager-correlation-mapping
 title: SourceManagerCorrelationMapping
 pagination_label: SourceManagerCorrelationMapping
 sidebar_label: SourceManagerCorrelationMapping

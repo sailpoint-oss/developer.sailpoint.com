@@ -1,5 +1,5 @@
 ---
-id: provisioning-config-plan-initializer-script
+id: beta-provisioning-config-plan-initializer-script
 title: ProvisioningConfigPlanInitializerScript
 pagination_label: ProvisioningConfigPlanInitializerScript
 sidebar_label: ProvisioningConfigPlanInitializerScript

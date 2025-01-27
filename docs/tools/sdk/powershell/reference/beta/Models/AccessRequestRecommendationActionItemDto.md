@@ -1,5 +1,5 @@
 ---
-id: access-request-recommendation-action-item-dto
+id: beta-access-request-recommendation-action-item-dto
 title: AccessRequestRecommendationActionItemDto
 pagination_label: AccessRequestRecommendationActionItemDto
 sidebar_label: AccessRequestRecommendationActionItemDto

@@ -1,5 +1,5 @@
 ---
-id: base64-encode
+id: v2024-base64-encode
 title: Base64Encode
 pagination_label: Base64Encode
 sidebar_label: Base64Encode

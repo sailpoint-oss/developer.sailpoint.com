@@ -1,5 +1,5 @@
 ---
-id: access-summary
+id: v2024-access-summary
 title: AccessSummary
 pagination_label: AccessSummary
 sidebar_label: AccessSummary

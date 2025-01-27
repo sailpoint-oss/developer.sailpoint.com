@@ -1,5 +1,5 @@
 ---
-id: access-profile-role
+id: v2024-access-profile-role
 title: AccessProfileRole
 pagination_label: AccessProfileRole
 sidebar_label: AccessProfileRole

@@ -1,5 +1,5 @@
 ---
-id: source-creation-errors
+id: beta-source-creation-errors
 title: SourceCreationErrors
 pagination_label: SourceCreationErrors
 sidebar_label: SourceCreationErrors

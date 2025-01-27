@@ -1,5 +1,5 @@
 ---
-id: sp-config-rules
+id: beta-sp-config-rules
 title: SpConfigRules
 pagination_label: SpConfigRules
 sidebar_label: SpConfigRules

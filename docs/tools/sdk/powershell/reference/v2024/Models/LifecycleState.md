@@ -1,5 +1,5 @@
 ---
-id: lifecycle-state
+id: v2024-lifecycle-state
 title: LifecycleState
 pagination_label: LifecycleState
 sidebar_label: LifecycleState

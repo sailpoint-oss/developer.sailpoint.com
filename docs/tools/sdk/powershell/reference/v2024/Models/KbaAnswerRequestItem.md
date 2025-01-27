@@ -1,5 +1,5 @@
 ---
-id: kba-answer-request-item
+id: v2024-kba-answer-request-item
 title: KbaAnswerRequestItem
 pagination_label: KbaAnswerRequestItem
 sidebar_label: KbaAnswerRequestItem

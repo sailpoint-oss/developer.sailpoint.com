@@ -1,5 +1,5 @@
 ---
-id: non-employee-approval-summary
+id: beta-non-employee-approval-summary
 title: NonEmployeeApprovalSummary
 pagination_label: NonEmployeeApprovalSummary
 sidebar_label: NonEmployeeApprovalSummary

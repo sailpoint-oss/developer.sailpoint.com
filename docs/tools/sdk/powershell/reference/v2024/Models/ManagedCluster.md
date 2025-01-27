@@ -1,5 +1,5 @@
 ---
-id: managed-cluster
+id: v2024-managed-cluster
 title: ManagedCluster
 pagination_label: ManagedCluster
 sidebar_label: ManagedCluster

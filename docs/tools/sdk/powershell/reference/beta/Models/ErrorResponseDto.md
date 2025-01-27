@@ -1,5 +1,5 @@
 ---
-id: error-response-dto
+id: beta-error-response-dto
 title: ErrorResponseDto
 pagination_label: ErrorResponseDto
 sidebar_label: ErrorResponseDto

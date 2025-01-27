@@ -1,5 +1,5 @@
 ---
-id: identity-profile-all-of-owner
+id: v2024-identity-profile-all-of-owner
 title: IdentityProfileAllOfOwner
 pagination_label: IdentityProfileAllOfOwner
 sidebar_label: IdentityProfileAllOfOwner

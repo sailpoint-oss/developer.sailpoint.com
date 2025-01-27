@@ -1,5 +1,5 @@
 ---
-id: role-insights-insight
+id: beta-role-insights-insight
 title: RoleInsightsInsight
 pagination_label: RoleInsightsInsight
 sidebar_label: RoleInsightsInsight

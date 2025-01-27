@@ -1,5 +1,5 @@
 ---
-id: workgroup-dto
+id: v2024-workgroup-dto
 title: WorkgroupDto
 pagination_label: WorkgroupDto
 sidebar_label: WorkgroupDto

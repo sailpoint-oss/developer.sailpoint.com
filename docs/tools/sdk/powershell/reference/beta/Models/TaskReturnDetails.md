@@ -1,5 +1,5 @@
 ---
-id: task-return-details
+id: beta-task-return-details
 title: TaskReturnDetails
 pagination_label: TaskReturnDetails
 sidebar_label: TaskReturnDetails

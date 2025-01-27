@@ -1,5 +1,5 @@
 ---
-id: tenant-configuration-request
+id: v2024-tenant-configuration-request
 title: TenantConfigurationRequest
 pagination_label: TenantConfigurationRequest
 sidebar_label: TenantConfigurationRequest

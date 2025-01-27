@@ -1,5 +1,5 @@
 ---
-id: access-request-tracking
+id: beta-access-request-tracking
 title: AccessRequestTracking
 pagination_label: AccessRequestTracking
 sidebar_label: AccessRequestTracking

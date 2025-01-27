@@ -1,5 +1,5 @@
 ---
-id: access-item-entitlement-response
+id: beta-access-item-entitlement-response
 title: AccessItemEntitlementResponse
 pagination_label: AccessItemEntitlementResponse
 sidebar_label: AccessItemEntitlementResponse

@@ -1,5 +1,5 @@
 ---
-id: task-result-details
+id: v2024-task-result-details
 title: TaskResultDetails
 pagination_label: TaskResultDetails
 sidebar_label: TaskResultDetails

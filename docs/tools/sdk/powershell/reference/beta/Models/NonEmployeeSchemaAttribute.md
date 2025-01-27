@@ -1,5 +1,5 @@
 ---
-id: non-employee-schema-attribute
+id: beta-non-employee-schema-attribute
 title: NonEmployeeSchemaAttribute
 pagination_label: NonEmployeeSchemaAttribute
 sidebar_label: NonEmployeeSchemaAttribute

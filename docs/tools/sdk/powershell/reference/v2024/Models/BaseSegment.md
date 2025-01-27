@@ -1,5 +1,5 @@
 ---
-id: base-segment
+id: v2024-base-segment
 title: BaseSegment
 pagination_label: BaseSegment
 sidebar_label: BaseSegment

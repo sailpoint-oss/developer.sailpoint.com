@@ -1,5 +1,5 @@
 ---
-id: access-request-tracking
+id: v2024-access-request-tracking
 title: AccessRequestTracking
 pagination_label: AccessRequestTracking
 sidebar_label: AccessRequestTracking

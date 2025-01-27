@@ -1,5 +1,5 @@
 ---
-id: campaign-generated-campaign
+id: beta-campaign-generated-campaign
 title: CampaignGeneratedCampaign
 pagination_label: CampaignGeneratedCampaign
 sidebar_label: CampaignGeneratedCampaign

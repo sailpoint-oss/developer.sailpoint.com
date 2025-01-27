@@ -1,5 +1,5 @@
 ---
-id: multi-host-integrations-cluster
+id: beta-multi-host-integrations-cluster
 title: MultiHostIntegrationsCluster
 pagination_label: MultiHostIntegrationsCluster
 sidebar_label: MultiHostIntegrationsCluster

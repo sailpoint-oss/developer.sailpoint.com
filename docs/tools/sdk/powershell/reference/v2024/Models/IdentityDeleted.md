@@ -1,5 +1,5 @@
 ---
-id: identity-deleted
+id: v2024-identity-deleted
 title: IdentityDeleted
 pagination_label: IdentityDeleted
 sidebar_label: IdentityDeleted

@@ -1,5 +1,5 @@
 ---
-id: sp-config-rule
+id: v2024-sp-config-rule
 title: SpConfigRule
 pagination_label: SpConfigRule
 sidebar_label: SpConfigRule

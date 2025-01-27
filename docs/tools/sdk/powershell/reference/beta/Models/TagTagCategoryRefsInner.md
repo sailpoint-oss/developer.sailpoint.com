@@ -1,5 +1,5 @@
 ---
-id: tag-tag-category-refs-inner
+id: beta-tag-tag-category-refs-inner
 title: TagTagCategoryRefsInner
 pagination_label: TagTagCategoryRefsInner
 sidebar_label: TagTagCategoryRefsInner

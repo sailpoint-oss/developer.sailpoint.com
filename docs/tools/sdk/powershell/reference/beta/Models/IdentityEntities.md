@@ -1,5 +1,5 @@
 ---
-id: identity-entities
+id: beta-identity-entities
 title: IdentityEntities
 pagination_label: IdentityEntities
 sidebar_label: IdentityEntities

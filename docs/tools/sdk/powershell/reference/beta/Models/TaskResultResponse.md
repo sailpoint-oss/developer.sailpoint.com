@@ -1,5 +1,5 @@
 ---
-id: task-result-response
+id: beta-task-result-response
 title: TaskResultResponse
 pagination_label: TaskResultResponse
 sidebar_label: TaskResultResponse

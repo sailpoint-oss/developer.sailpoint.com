@@ -1,5 +1,5 @@
 ---
-id: get-o-auth-client-response
+id: v2024-get-o-auth-client-response
 title: GetOAuthClientResponse
 pagination_label: GetOAuthClientResponse
 sidebar_label: GetOAuthClientResponse

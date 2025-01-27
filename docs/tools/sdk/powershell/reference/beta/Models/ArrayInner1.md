@@ -1,5 +1,5 @@
 ---
-id: array-inner1
+id: beta-array-inner1
 title: ArrayInner1
 pagination_label: ArrayInner1
 sidebar_label: ArrayInner1

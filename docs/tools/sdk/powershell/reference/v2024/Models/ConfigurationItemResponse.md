@@ -1,5 +1,5 @@
 ---
-id: configuration-item-response
+id: v2024-configuration-item-response
 title: ConfigurationItemResponse
 pagination_label: ConfigurationItemResponse
 sidebar_label: ConfigurationItemResponse

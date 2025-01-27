@@ -1,5 +1,5 @@
 ---
-id: schedule-type
+id: beta-schedule-type
 title: ScheduleType
 pagination_label: ScheduleType
 sidebar_label: ScheduleType

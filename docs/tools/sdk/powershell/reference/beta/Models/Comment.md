@@ -1,5 +1,5 @@
 ---
-id: comment
+id: beta-comment
 title: Comment
 pagination_label: Comment
 sidebar_label: Comment

@@ -1,5 +1,5 @@
 ---
-id: account
+id: v2024-account
 title: Account
 pagination_label: Account
 sidebar_label: Account

@@ -1,5 +1,5 @@
 ---
-id: identity-entities
+id: v2024-identity-entities
 title: IdentityEntities
 pagination_label: IdentityEntities
 sidebar_label: IdentityEntities

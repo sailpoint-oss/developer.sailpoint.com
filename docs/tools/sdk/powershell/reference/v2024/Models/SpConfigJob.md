@@ -1,5 +1,5 @@
 ---
-id: sp-config-job
+id: v2024-sp-config-job
 title: SpConfigJob
 pagination_label: SpConfigJob
 sidebar_label: SpConfigJob

@@ -1,5 +1,5 @@
 ---
-id: transform-attributes
+id: beta-transform-attributes
 title: TransformAttributes
 pagination_label: TransformAttributes
 sidebar_label: TransformAttributes

@@ -1,5 +1,5 @@
 ---
-id: medium
+id: v2024-medium
 title: Medium
 pagination_label: Medium
 sidebar_label: Medium

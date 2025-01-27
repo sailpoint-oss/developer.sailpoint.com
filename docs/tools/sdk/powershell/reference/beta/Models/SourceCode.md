@@ -1,5 +1,5 @@
 ---
-id: source-code
+id: beta-source-code
 title: SourceCode
 pagination_label: SourceCode
 sidebar_label: SourceCode

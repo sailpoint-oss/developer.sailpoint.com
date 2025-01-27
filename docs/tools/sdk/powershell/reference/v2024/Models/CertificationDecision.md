@@ -1,5 +1,5 @@
 ---
-id: certification-decision
+id: v2024-certification-decision
 title: CertificationDecision
 pagination_label: CertificationDecision
 sidebar_label: CertificationDecision

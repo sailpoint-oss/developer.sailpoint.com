@@ -1,5 +1,5 @@
 ---
-id: bucket-aggregation
+id: v2024-bucket-aggregation
 title: BucketAggregation
 pagination_label: BucketAggregation
 sidebar_label: BucketAggregation

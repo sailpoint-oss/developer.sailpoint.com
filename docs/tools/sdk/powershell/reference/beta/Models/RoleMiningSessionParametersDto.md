@@ -1,5 +1,5 @@
 ---
-id: role-mining-session-parameters-dto
+id: beta-role-mining-session-parameters-dto
 title: RoleMiningSessionParametersDto
 pagination_label: RoleMiningSessionParametersDto
 sidebar_label: RoleMiningSessionParametersDto

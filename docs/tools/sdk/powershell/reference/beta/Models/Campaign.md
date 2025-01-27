@@ -1,5 +1,5 @@
 ---
-id: campaign
+id: beta-campaign
 title: Campaign
 pagination_label: Campaign
 sidebar_label: Campaign

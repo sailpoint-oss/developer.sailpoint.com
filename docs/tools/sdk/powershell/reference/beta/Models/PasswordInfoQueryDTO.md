@@ -1,5 +1,5 @@
 ---
-id: password-info-query-dto
+id: beta-password-info-query-dto
 title: PasswordInfoQueryDTO
 pagination_label: PasswordInfoQueryDTO
 sidebar_label: PasswordInfoQueryDTO

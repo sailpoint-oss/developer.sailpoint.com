@@ -1,5 +1,5 @@
 ---
-id: provisioning-completed
+id: beta-provisioning-completed
 title: ProvisioningCompleted
 pagination_label: ProvisioningCompleted
 sidebar_label: ProvisioningCompleted

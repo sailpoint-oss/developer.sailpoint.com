@@ -1,5 +1,5 @@
 ---
-id: campaign-reference
+id: beta-campaign-reference
 title: CampaignReference
 pagination_label: CampaignReference
 sidebar_label: CampaignReference

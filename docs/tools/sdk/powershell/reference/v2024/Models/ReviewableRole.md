@@ -1,5 +1,5 @@
 ---
-id: reviewable-role
+id: v2024-reviewable-role
 title: ReviewableRole
 pagination_label: ReviewableRole
 sidebar_label: ReviewableRole

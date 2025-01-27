@@ -1,5 +1,5 @@
 ---
-id: usage-type
+id: beta-usage-type
 title: UsageType
 pagination_label: UsageType
 sidebar_label: UsageType

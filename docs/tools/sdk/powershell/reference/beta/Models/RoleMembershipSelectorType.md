@@ -1,5 +1,5 @@
 ---
-id: role-membership-selector-type
+id: beta-role-membership-selector-type
 title: RoleMembershipSelectorType
 pagination_label: RoleMembershipSelectorType
 sidebar_label: RoleMembershipSelectorType

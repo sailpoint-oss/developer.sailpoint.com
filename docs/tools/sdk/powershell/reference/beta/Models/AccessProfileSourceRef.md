@@ -1,5 +1,5 @@
 ---
-id: access-profile-source-ref
+id: beta-access-profile-source-ref
 title: AccessProfileSourceRef
 pagination_label: AccessProfileSourceRef
 sidebar_label: AccessProfileSourceRef

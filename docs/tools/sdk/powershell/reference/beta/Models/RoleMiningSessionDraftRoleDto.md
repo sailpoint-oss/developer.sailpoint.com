@@ -1,5 +1,5 @@
 ---
-id: role-mining-session-draft-role-dto
+id: beta-role-mining-session-draft-role-dto
 title: RoleMiningSessionDraftRoleDto
 pagination_label: RoleMiningSessionDraftRoleDto
 sidebar_label: RoleMiningSessionDraftRoleDto

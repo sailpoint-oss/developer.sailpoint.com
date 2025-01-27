@@ -1,5 +1,5 @@
 ---
-id: workflow-o-auth-client
+id: beta-workflow-o-auth-client
 title: WorkflowOAuthClient
 pagination_label: WorkflowOAuthClient
 sidebar_label: WorkflowOAuthClient

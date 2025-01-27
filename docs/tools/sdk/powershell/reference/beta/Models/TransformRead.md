@@ -1,5 +1,5 @@
 ---
-id: transform-read
+id: beta-transform-read
 title: TransformRead
 pagination_label: TransformRead
 sidebar_label: TransformRead

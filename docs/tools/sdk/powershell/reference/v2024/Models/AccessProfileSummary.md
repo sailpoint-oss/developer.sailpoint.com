@@ -1,5 +1,5 @@
 ---
-id: access-profile-summary
+id: v2024-access-profile-summary
 title: AccessProfileSummary
 pagination_label: AccessProfileSummary
 sidebar_label: AccessProfileSummary

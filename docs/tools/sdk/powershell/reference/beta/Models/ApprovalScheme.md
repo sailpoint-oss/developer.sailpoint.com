@@ -1,5 +1,5 @@
 ---
-id: approval-scheme
+id: beta-approval-scheme
 title: ApprovalScheme
 pagination_label: ApprovalScheme
 sidebar_label: ApprovalScheme

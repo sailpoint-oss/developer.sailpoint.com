@@ -1,5 +1,5 @@
 ---
-id: schedule2-months
+id: v2024-schedule2-months
 title: Schedule2Months
 pagination_label: Schedule2Months
 sidebar_label: Schedule2Months

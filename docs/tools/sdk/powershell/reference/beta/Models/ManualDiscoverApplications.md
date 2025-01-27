@@ -1,5 +1,5 @@
 ---
-id: manual-discover-applications
+id: beta-manual-discover-applications
 title: ManualDiscoverApplications
 pagination_label: ManualDiscoverApplications
 sidebar_label: ManualDiscoverApplications

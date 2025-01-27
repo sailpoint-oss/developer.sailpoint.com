@@ -1,5 +1,5 @@
 ---
-id: entitlement-request-config1
+id: v2024-entitlement-request-config1
 title: EntitlementRequestConfig1
 pagination_label: EntitlementRequestConfig1
 sidebar_label: EntitlementRequestConfig1

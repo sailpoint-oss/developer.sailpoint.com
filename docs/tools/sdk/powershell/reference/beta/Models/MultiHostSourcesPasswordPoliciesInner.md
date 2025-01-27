@@ -1,5 +1,5 @@
 ---
-id: multi-host-sources-password-policies-inner
+id: beta-multi-host-sources-password-policies-inner
 title: MultiHostSourcesPasswordPoliciesInner
 pagination_label: MultiHostSourcesPasswordPoliciesInner
 sidebar_label: MultiHostSourcesPasswordPoliciesInner

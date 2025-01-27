@@ -1,5 +1,5 @@
 ---
-id: role-mining-session-state
+id: beta-role-mining-session-state
 title: RoleMiningSessionState
 pagination_label: RoleMiningSessionState
 sidebar_label: RoleMiningSessionState

@@ -1,5 +1,5 @@
 ---
-id: rule
+id: v2024-rule
 title: Rule
 pagination_label: Rule
 sidebar_label: Rule

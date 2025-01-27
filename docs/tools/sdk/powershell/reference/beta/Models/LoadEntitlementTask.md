@@ -1,5 +1,5 @@
 ---
-id: load-entitlement-task
+id: beta-load-entitlement-task
 title: LoadEntitlementTask
 pagination_label: LoadEntitlementTask
 sidebar_label: LoadEntitlementTask

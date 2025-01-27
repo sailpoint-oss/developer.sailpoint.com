@@ -1,5 +1,5 @@
 ---
-id: password-change-response
+id: v2024-password-change-response
 title: PasswordChangeResponse
 pagination_label: PasswordChangeResponse
 sidebar_label: PasswordChangeResponse

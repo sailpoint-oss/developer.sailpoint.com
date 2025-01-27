@@ -1,5 +1,5 @@
 ---
-id: campaign-alert
+id: beta-campaign-alert
 title: CampaignAlert
 pagination_label: CampaignAlert
 sidebar_label: CampaignAlert

@@ -1,5 +1,5 @@
 ---
-id: managed-client-status
+id: v2024-managed-client-status
 title: ManagedClientStatus
 pagination_label: ManagedClientStatus
 sidebar_label: ManagedClientStatus

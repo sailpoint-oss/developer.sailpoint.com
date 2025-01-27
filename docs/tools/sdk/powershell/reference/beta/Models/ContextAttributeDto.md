@@ -1,5 +1,5 @@
 ---
-id: context-attribute-dto
+id: beta-context-attribute-dto
 title: ContextAttributeDto
 pagination_label: ContextAttributeDto
 sidebar_label: ContextAttributeDto

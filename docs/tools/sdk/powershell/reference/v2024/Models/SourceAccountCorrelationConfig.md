@@ -1,5 +1,5 @@
 ---
-id: source-account-correlation-config
+id: v2024-source-account-correlation-config
 title: SourceAccountCorrelationConfig
 pagination_label: SourceAccountCorrelationConfig
 sidebar_label: SourceAccountCorrelationConfig

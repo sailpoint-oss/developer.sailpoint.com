@@ -1,5 +1,5 @@
 ---
-id: multi-policy-request
+id: beta-multi-policy-request
 title: MultiPolicyRequest
 pagination_label: MultiPolicyRequest
 sidebar_label: MultiPolicyRequest

@@ -1,5 +1,5 @@
 ---
-id: account-unlock-request
+id: beta-account-unlock-request
 title: AccountUnlockRequest
 pagination_label: AccountUnlockRequest
 sidebar_label: AccountUnlockRequest

@@ -1,5 +1,5 @@
 ---
-id: event-document
+id: v2024-event-document
 title: EventDocument
 pagination_label: EventDocument
 sidebar_label: EventDocument

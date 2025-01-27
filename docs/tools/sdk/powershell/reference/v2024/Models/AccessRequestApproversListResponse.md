@@ -1,5 +1,5 @@
 ---
-id: access-request-approvers-list-response
+id: v2024-access-request-approvers-list-response
 title: AccessRequestApproversListResponse
 pagination_label: AccessRequestApproversListResponse
 sidebar_label: AccessRequestApproversListResponse

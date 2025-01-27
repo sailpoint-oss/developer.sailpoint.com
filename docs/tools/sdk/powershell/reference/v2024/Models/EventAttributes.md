@@ -1,5 +1,5 @@
 ---
-id: event-attributes
+id: v2024-event-attributes
 title: EventAttributes
 pagination_label: EventAttributes
 sidebar_label: EventAttributes

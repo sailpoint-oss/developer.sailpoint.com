@@ -1,5 +1,5 @@
 ---
-id: get-personal-access-token-response
+id: v2024-get-personal-access-token-response
 title: GetPersonalAccessTokenResponse
 pagination_label: GetPersonalAccessTokenResponse
 sidebar_label: GetPersonalAccessTokenResponse

@@ -1,5 +1,5 @@
 ---
-id: account-status-changed-account
+id: beta-account-status-changed-account
 title: AccountStatusChangedAccount
 pagination_label: AccountStatusChangedAccount
 sidebar_label: AccountStatusChangedAccount

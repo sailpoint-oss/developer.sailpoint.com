@@ -1,5 +1,5 @@
 ---
-id: multi-host-integrations-create-sources
+id: beta-multi-host-integrations-create-sources
 title: MultiHostIntegrationsCreateSources
 pagination_label: MultiHostIntegrationsCreateSources
 sidebar_label: MultiHostIntegrationsCreateSources

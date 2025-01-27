@@ -1,5 +1,5 @@
 ---
-id: identity-profile-all-of-owner
+id: beta-identity-profile-all-of-owner
 title: IdentityProfileAllOfOwner
 pagination_label: IdentityProfileAllOfOwner
 sidebar_label: IdentityProfileAllOfOwner

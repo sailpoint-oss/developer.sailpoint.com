@@ -1,5 +1,5 @@
 ---
-id: search-attribute-config
+id: beta-search-attribute-config
 title: SearchAttributeConfig
 pagination_label: SearchAttributeConfig
 sidebar_label: SearchAttributeConfig

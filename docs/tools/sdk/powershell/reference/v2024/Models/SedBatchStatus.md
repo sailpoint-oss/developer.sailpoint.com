@@ -1,5 +1,5 @@
 ---
-id: sed-batch-status
+id: v2024-sed-batch-status
 title: SedBatchStatus
 pagination_label: SedBatchStatus
 sidebar_label: SedBatchStatus

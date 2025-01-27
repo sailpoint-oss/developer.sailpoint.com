@@ -1,5 +1,5 @@
 ---
-id: client-log-configuration-duration-minutes
+id: v2024-client-log-configuration-duration-minutes
 title: ClientLogConfigurationDurationMinutes
 pagination_label: ClientLogConfigurationDurationMinutes
 sidebar_label: ClientLogConfigurationDurationMinutes

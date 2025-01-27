@@ -1,5 +1,5 @@
 ---
-id: bulk-tagged-object-response
+id: v2024-bulk-tagged-object-response
 title: BulkTaggedObjectResponse
 pagination_label: BulkTaggedObjectResponse
 sidebar_label: BulkTaggedObjectResponse

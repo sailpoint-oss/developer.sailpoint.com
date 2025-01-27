@@ -1,5 +1,5 @@
 ---
-id: standard-level
+id: v2024-standard-level
 title: StandardLevel
 pagination_label: StandardLevel
 sidebar_label: StandardLevel

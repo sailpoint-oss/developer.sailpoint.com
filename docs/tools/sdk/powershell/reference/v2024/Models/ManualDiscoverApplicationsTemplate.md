@@ -1,5 +1,5 @@
 ---
-id: manual-discover-applications-template
+id: v2024-manual-discover-applications-template
 title: ManualDiscoverApplicationsTemplate
 pagination_label: ManualDiscoverApplicationsTemplate
 sidebar_label: ManualDiscoverApplicationsTemplate

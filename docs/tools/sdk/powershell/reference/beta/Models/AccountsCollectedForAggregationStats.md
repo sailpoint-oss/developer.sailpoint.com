@@ -1,5 +1,5 @@
 ---
-id: accounts-collected-for-aggregation-stats
+id: beta-accounts-collected-for-aggregation-stats
 title: AccountsCollectedForAggregationStats
 pagination_label: AccountsCollectedForAggregationStats
 sidebar_label: AccountsCollectedForAggregationStats

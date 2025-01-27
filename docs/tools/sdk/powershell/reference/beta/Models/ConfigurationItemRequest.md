@@ -1,5 +1,5 @@
 ---
-id: configuration-item-request
+id: beta-configuration-item-request
 title: ConfigurationItemRequest
 pagination_label: ConfigurationItemRequest
 sidebar_label: ConfigurationItemRequest

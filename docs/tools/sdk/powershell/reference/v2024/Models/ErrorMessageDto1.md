@@ -1,5 +1,5 @@
 ---
-id: error-message-dto1
+id: v2024-error-message-dto1
 title: ErrorMessageDto1
 pagination_label: ErrorMessageDto1
 sidebar_label: ErrorMessageDto1

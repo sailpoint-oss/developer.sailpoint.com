@@ -1,5 +1,5 @@
 ---
-id: error-message
+id: v2024-error-message
 title: ErrorMessage
 pagination_label: ErrorMessage
 sidebar_label: ErrorMessage

@@ -1,5 +1,5 @@
 ---
-id: source-app-create-dto-account-source
+id: beta-source-app-create-dto-account-source
 title: SourceAppCreateDtoAccountSource
 pagination_label: SourceAppCreateDtoAccountSource
 sidebar_label: SourceAppCreateDtoAccountSource

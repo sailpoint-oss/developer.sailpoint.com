@@ -1,5 +1,5 @@
 ---
-id: field-details-dto
+id: beta-field-details-dto
 title: FieldDetailsDto
 pagination_label: FieldDetailsDto
 sidebar_label: FieldDetailsDto

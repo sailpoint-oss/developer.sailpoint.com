@@ -1,5 +1,5 @@
 ---
-id: provisioning-state
+id: beta-provisioning-state
 title: ProvisioningState
 pagination_label: ProvisioningState
 sidebar_label: ProvisioningState

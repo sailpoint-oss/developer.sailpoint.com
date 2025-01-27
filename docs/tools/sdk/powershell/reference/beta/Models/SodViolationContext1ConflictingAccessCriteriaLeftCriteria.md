@@ -1,5 +1,5 @@
 ---
-id: sod-violation-context1-conflicting-access-criteria-left-criteria
+id: beta-sod-violation-context1-conflicting-access-criteria-left-criteria
 title: SodViolationContext1ConflictingAccessCriteriaLeftCriteria
 pagination_label: SodViolationContext1ConflictingAccessCriteriaLeftCriteria
 sidebar_label: SodViolationContext1ConflictingAccessCriteriaLeftCriteria

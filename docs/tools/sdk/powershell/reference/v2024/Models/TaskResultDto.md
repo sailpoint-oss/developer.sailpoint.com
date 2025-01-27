@@ -1,5 +1,5 @@
 ---
-id: task-result-dto
+id: v2024-task-result-dto
 title: TaskResultDto
 pagination_label: TaskResultDto
 sidebar_label: TaskResultDto

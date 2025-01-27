@@ -1,5 +1,5 @@
 ---
-id: campaign-all-of-role-composition-campaign-info
+id: v2024-campaign-all-of-role-composition-campaign-info
 title: CampaignAllOfRoleCompositionCampaignInfo
 pagination_label: CampaignAllOfRoleCompositionCampaignInfo
 sidebar_label: CampaignAllOfRoleCompositionCampaignInfo

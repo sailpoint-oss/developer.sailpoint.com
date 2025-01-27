@@ -1,5 +1,5 @@
 ---
-id: form-definition-response
+id: beta-form-definition-response
 title: FormDefinitionResponse
 pagination_label: FormDefinitionResponse
 sidebar_label: FormDefinitionResponse

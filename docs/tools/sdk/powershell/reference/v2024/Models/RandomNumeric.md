@@ -1,5 +1,5 @@
 ---
-id: random-numeric
+id: v2024-random-numeric
 title: RandomNumeric
 pagination_label: RandomNumeric
 sidebar_label: RandomNumeric

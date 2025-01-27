@@ -1,5 +1,5 @@
 ---
-id: approval-scheme
+id: v2024-approval-scheme
 title: ApprovalScheme
 pagination_label: ApprovalScheme
 sidebar_label: ApprovalScheme

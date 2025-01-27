@@ -1,5 +1,5 @@
 ---
-id: search-schedule-recipients-inner
+id: v2024-search-schedule-recipients-inner
 title: SearchScheduleRecipientsInner
 pagination_label: SearchScheduleRecipientsInner
 sidebar_label: SearchScheduleRecipientsInner

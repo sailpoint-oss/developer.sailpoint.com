@@ -1,5 +1,5 @@
 ---
-id: validate-filter-output-dto
+id: beta-validate-filter-output-dto
 title: ValidateFilterOutputDto
 pagination_label: ValidateFilterOutputDto
 sidebar_label: ValidateFilterOutputDto

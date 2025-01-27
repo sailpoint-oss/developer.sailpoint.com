@@ -1,5 +1,5 @@
 ---
-id: search-aggregation-specification
+id: v2024-search-aggregation-specification
 title: SearchAggregationSpecification
 pagination_label: SearchAggregationSpecification
 sidebar_label: SearchAggregationSpecification

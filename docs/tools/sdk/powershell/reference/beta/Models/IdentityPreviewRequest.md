@@ -1,5 +1,5 @@
 ---
-id: identity-preview-request
+id: beta-identity-preview-request
 title: IdentityPreviewRequest
 pagination_label: IdentityPreviewRequest
 sidebar_label: IdentityPreviewRequest

@@ -1,5 +1,5 @@
 ---
-id: approval-info-response
+id: beta-approval-info-response
 title: ApprovalInfoResponse
 pagination_label: ApprovalInfoResponse
 sidebar_label: ApprovalInfoResponse

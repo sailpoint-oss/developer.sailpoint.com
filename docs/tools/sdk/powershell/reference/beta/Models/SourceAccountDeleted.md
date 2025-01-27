@@ -1,5 +1,5 @@
 ---
-id: source-account-deleted
+id: beta-source-account-deleted
 title: SourceAccountDeleted
 pagination_label: SourceAccountDeleted
 sidebar_label: SourceAccountDeleted

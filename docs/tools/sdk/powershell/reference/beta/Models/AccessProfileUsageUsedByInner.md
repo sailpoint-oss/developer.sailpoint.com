@@ -1,5 +1,5 @@
 ---
-id: access-profile-usage-used-by-inner
+id: beta-access-profile-usage-used-by-inner
 title: AccessProfileUsageUsedByInner
 pagination_label: AccessProfileUsageUsedByInner
 sidebar_label: AccessProfileUsageUsedByInner

@@ -1,5 +1,5 @@
 ---
-id: password-policy-v3-dto
+id: v2024-password-policy-v3-dto
 title: PasswordPolicyV3Dto
 pagination_label: PasswordPolicyV3Dto
 sidebar_label: PasswordPolicyV3Dto

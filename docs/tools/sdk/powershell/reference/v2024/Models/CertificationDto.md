@@ -1,5 +1,5 @@
 ---
-id: certification-dto
+id: v2024-certification-dto
 title: CertificationDto
 pagination_label: CertificationDto
 sidebar_label: CertificationDto

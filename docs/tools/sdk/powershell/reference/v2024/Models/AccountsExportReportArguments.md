@@ -1,5 +1,5 @@
 ---
-id: accounts-export-report-arguments
+id: v2024-accounts-export-report-arguments
 title: AccountsExportReportArguments
 pagination_label: AccountsExportReportArguments
 sidebar_label: AccountsExportReportArguments

@@ -1,5 +1,5 @@
 ---
-id: account-uncorrelated-account
+id: v2024-account-uncorrelated-account
 title: AccountUncorrelatedAccount
 pagination_label: AccountUncorrelatedAccount
 sidebar_label: AccountUncorrelatedAccount

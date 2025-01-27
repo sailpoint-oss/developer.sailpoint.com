@@ -1,5 +1,5 @@
 ---
-id: correlation-config-attribute-assignments-inner
+id: beta-correlation-config-attribute-assignments-inner
 title: CorrelationConfigAttributeAssignmentsInner
 pagination_label: CorrelationConfigAttributeAssignmentsInner
 sidebar_label: CorrelationConfigAttributeAssignmentsInner

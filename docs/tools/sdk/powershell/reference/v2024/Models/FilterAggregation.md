@@ -1,5 +1,5 @@
 ---
-id: filter-aggregation
+id: v2024-filter-aggregation
 title: FilterAggregation
 pagination_label: FilterAggregation
 sidebar_label: FilterAggregation

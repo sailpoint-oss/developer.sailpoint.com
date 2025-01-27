@@ -1,5 +1,5 @@
 ---
-id: http-authentication-type
+id: beta-http-authentication-type
 title: HttpAuthenticationType
 pagination_label: HttpAuthenticationType
 sidebar_label: HttpAuthenticationType

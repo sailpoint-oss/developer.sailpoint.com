@@ -1,5 +1,5 @@
 ---
-id: access-item-owner-dto
+id: beta-access-item-owner-dto
 title: AccessItemOwnerDto
 pagination_label: AccessItemOwnerDto
 sidebar_label: AccessItemOwnerDto

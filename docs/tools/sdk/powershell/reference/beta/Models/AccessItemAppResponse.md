@@ -1,5 +1,5 @@
 ---
-id: access-item-app-response
+id: beta-access-item-app-response
 title: AccessItemAppResponse
 pagination_label: AccessItemAppResponse
 sidebar_label: AccessItemAppResponse

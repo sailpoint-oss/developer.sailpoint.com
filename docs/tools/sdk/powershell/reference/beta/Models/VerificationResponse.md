@@ -1,5 +1,5 @@
 ---
-id: verification-response
+id: beta-verification-response
 title: VerificationResponse
 pagination_label: VerificationResponse
 sidebar_label: VerificationResponse

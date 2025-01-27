@@ -1,5 +1,5 @@
 ---
-id: template-slack
+id: beta-template-slack
 title: TemplateSlack
 pagination_label: TemplateSlack
 sidebar_label: TemplateSlack

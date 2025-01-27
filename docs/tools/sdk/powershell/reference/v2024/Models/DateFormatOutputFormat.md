@@ -1,5 +1,5 @@
 ---
-id: date-format-output-format
+id: v2024-date-format-output-format
 title: DateFormatOutputFormat
 pagination_label: DateFormatOutputFormat
 sidebar_label: DateFormatOutputFormat

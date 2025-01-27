@@ -1,5 +1,5 @@
 ---
-id: aggregation-type
+id: v2024-aggregation-type
 title: AggregationType
 pagination_label: AggregationType
 sidebar_label: AggregationType

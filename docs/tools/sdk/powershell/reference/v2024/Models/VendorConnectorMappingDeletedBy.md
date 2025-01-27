@@ -1,5 +1,5 @@
 ---
-id: vendor-connector-mapping-deleted-by
+id: v2024-vendor-connector-mapping-deleted-by
 title: VendorConnectorMappingDeletedBy
 pagination_label: VendorConnectorMappingDeletedBy
 sidebar_label: VendorConnectorMappingDeletedBy

@@ -1,5 +1,5 @@
 ---
-id: attribute-definition
+id: beta-attribute-definition
 title: AttributeDefinition
 pagination_label: AttributeDefinition
 sidebar_label: AttributeDefinition

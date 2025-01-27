@@ -1,5 +1,5 @@
 ---
-id: launcher-reference
+id: beta-launcher-reference
 title: LauncherReference
 pagination_label: LauncherReference
 sidebar_label: LauncherReference

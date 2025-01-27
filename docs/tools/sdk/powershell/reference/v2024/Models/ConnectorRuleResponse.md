@@ -1,5 +1,5 @@
 ---
-id: connector-rule-response
+id: v2024-connector-rule-response
 title: ConnectorRuleResponse
 pagination_label: ConnectorRuleResponse
 sidebar_label: ConnectorRuleResponse

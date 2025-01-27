@@ -1,5 +1,5 @@
 ---
-id: bulk-remove-tagged-object
+id: v2024-bulk-remove-tagged-object
 title: BulkRemoveTaggedObject
 pagination_label: BulkRemoveTaggedObject
 sidebar_label: BulkRemoveTaggedObject

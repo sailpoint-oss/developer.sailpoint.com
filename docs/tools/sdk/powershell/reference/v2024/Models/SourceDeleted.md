@@ -1,5 +1,5 @@
 ---
-id: source-deleted
+id: v2024-source-deleted
 title: SourceDeleted
 pagination_label: SourceDeleted
 sidebar_label: SourceDeleted

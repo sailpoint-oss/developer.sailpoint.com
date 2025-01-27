@@ -1,5 +1,5 @@
 ---
-id: access-request-response1
+id: v2024-access-request-response1
 title: AccessRequestResponse1
 pagination_label: AccessRequestResponse1
 sidebar_label: AccessRequestResponse1

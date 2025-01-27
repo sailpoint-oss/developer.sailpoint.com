@@ -1,5 +1,5 @@
 ---
-id: create-uploaded-configuration-request
+id: v2024-create-uploaded-configuration-request
 title: CreateUploadedConfigurationRequest
 pagination_label: CreateUploadedConfigurationRequest
 sidebar_label: CreateUploadedConfigurationRequest

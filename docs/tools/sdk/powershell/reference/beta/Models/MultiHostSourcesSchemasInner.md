@@ -1,5 +1,5 @@
 ---
-id: multi-host-sources-schemas-inner
+id: beta-multi-host-sources-schemas-inner
 title: MultiHostSourcesSchemasInner
 pagination_label: MultiHostSourcesSchemasInner
 sidebar_label: MultiHostSourcesSchemasInner

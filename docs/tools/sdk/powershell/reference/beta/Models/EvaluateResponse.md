@@ -1,5 +1,5 @@
 ---
-id: evaluate-response
+id: beta-evaluate-response
 title: EvaluateResponse
 pagination_label: EvaluateResponse
 sidebar_label: EvaluateResponse

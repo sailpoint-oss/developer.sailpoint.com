@@ -1,5 +1,5 @@
 ---
-id: common-access-type
+id: beta-common-access-type
 title: CommonAccessType
 pagination_label: CommonAccessType
 sidebar_label: CommonAccessType

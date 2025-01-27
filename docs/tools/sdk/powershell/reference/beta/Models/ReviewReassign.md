@@ -1,5 +1,5 @@
 ---
-id: review-reassign
+id: beta-review-reassign
 title: ReviewReassign
 pagination_label: ReviewReassign
 sidebar_label: ReviewReassign

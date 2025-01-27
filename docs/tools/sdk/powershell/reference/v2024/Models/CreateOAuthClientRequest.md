@@ -1,5 +1,5 @@
 ---
-id: create-o-auth-client-request
+id: v2024-create-o-auth-client-request
 title: CreateOAuthClientRequest
 pagination_label: CreateOAuthClientRequest
 sidebar_label: CreateOAuthClientRequest

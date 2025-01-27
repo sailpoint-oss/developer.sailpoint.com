@@ -1,5 +1,5 @@
 ---
-id: attribute-definition-schema
+id: beta-attribute-definition-schema
 title: AttributeDefinitionSchema
 pagination_label: AttributeDefinitionSchema
 sidebar_label: AttributeDefinitionSchema

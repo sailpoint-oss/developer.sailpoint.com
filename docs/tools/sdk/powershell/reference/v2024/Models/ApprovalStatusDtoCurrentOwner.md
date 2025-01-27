@@ -1,5 +1,5 @@
 ---
-id: approval-status-dto-current-owner
+id: v2024-approval-status-dto-current-owner
 title: ApprovalStatusDtoCurrentOwner
 pagination_label: ApprovalStatusDtoCurrentOwner
 sidebar_label: ApprovalStatusDtoCurrentOwner

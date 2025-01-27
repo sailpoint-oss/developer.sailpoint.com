@@ -1,5 +1,5 @@
 ---
-id: test-workflow200-response
+id: beta-test-workflow200-response
 title: TestWorkflow200Response
 pagination_label: TestWorkflow200Response
 sidebar_label: TestWorkflow200Response

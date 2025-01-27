@@ -1,5 +1,5 @@
 ---
-id: visibility-criteria
+id: beta-visibility-criteria
 title: VisibilityCriteria
 pagination_label: VisibilityCriteria
 sidebar_label: VisibilityCriteria

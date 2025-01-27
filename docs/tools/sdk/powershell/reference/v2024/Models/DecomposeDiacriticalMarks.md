@@ -1,5 +1,5 @@
 ---
-id: decompose-diacritical-marks
+id: v2024-decompose-diacritical-marks
 title: DecomposeDiacriticalMarks
 pagination_label: DecomposeDiacriticalMarks
 sidebar_label: DecomposeDiacriticalMarks

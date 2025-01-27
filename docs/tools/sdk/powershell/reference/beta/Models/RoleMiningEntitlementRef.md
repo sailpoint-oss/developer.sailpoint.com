@@ -1,5 +1,5 @@
 ---
-id: role-mining-entitlement-ref
+id: beta-role-mining-entitlement-ref
 title: RoleMiningEntitlementRef
 pagination_label: RoleMiningEntitlementRef
 sidebar_label: RoleMiningEntitlementRef

@@ -1,5 +1,5 @@
 ---
-id: work-item-type
+id: beta-work-item-type
 title: WorkItemType
 pagination_label: WorkItemType
 sidebar_label: WorkItemType

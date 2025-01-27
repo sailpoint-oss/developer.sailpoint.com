@@ -1,5 +1,5 @@
 ---
-id: transform-rule
+id: beta-transform-rule
 title: TransformRule
 pagination_label: TransformRule
 sidebar_label: TransformRule

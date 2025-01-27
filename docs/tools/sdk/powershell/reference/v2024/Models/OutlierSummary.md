@@ -1,5 +1,5 @@
 ---
-id: outlier-summary
+id: v2024-outlier-summary
 title: OutlierSummary
 pagination_label: OutlierSummary
 sidebar_label: OutlierSummary

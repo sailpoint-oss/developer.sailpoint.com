@@ -1,5 +1,5 @@
 ---
-id: template-bulk-delete-dto
+id: v2024-template-bulk-delete-dto
 title: TemplateBulkDeleteDto
 pagination_label: TemplateBulkDeleteDto
 sidebar_label: TemplateBulkDeleteDto

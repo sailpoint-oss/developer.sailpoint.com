@@ -1,5 +1,5 @@
 ---
-id: accounts-async-result
+id: beta-accounts-async-result
 title: AccountsAsyncResult
 pagination_label: AccountsAsyncResult
 sidebar_label: AccountsAsyncResult

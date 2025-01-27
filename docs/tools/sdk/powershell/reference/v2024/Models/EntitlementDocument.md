@@ -1,5 +1,5 @@
 ---
-id: entitlement-document
+id: v2024-entitlement-document
 title: EntitlementDocument
 pagination_label: EntitlementDocument
 sidebar_label: EntitlementDocument

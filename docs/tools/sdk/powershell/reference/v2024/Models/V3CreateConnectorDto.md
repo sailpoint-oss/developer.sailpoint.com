@@ -1,5 +1,5 @@
 ---
-id: v3-create-connector-dto
+id: v2024-v3-create-connector-dto
 title: V3CreateConnectorDto
 pagination_label: V3CreateConnectorDto
 sidebar_label: V3CreateConnectorDto

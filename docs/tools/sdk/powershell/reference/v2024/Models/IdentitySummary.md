@@ -1,5 +1,5 @@
 ---
-id: identity-summary
+id: v2024-identity-summary
 title: IdentitySummary
 pagination_label: IdentitySummary
 sidebar_label: IdentitySummary

@@ -1,5 +1,5 @@
 ---
-id: import-options
+id: beta-import-options
 title: ImportOptions
 pagination_label: ImportOptions
 sidebar_label: ImportOptions

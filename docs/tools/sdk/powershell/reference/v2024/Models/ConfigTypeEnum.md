@@ -1,5 +1,5 @@
 ---
-id: config-type-enum
+id: v2024-config-type-enum
 title: ConfigTypeEnum
 pagination_label: ConfigTypeEnum
 sidebar_label: ConfigTypeEnum

@@ -1,5 +1,5 @@
 ---
-id: resource-objects-request
+id: v2024-resource-objects-request
 title: ResourceObjectsRequest
 pagination_label: ResourceObjectsRequest
 sidebar_label: ResourceObjectsRequest

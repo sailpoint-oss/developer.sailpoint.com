@@ -1,5 +1,5 @@
 ---
-id: notification-template-context
+id: v2024-notification-template-context
 title: NotificationTemplateContext
 pagination_label: NotificationTemplateContext
 sidebar_label: NotificationTemplateContext

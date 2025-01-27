@@ -1,5 +1,5 @@
 ---
-id: reassignment-trail-dto
+id: v2024-reassignment-trail-dto
 title: ReassignmentTrailDTO
 pagination_label: ReassignmentTrailDTO
 sidebar_label: ReassignmentTrailDTO

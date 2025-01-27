@@ -1,5 +1,5 @@
 ---
-id: form-instance-recipient
+id: v2024-form-instance-recipient
 title: FormInstanceRecipient
 pagination_label: FormInstanceRecipient
 sidebar_label: FormInstanceRecipient

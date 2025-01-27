@@ -1,5 +1,5 @@
 ---
-id: exception-access-criteria
+id: beta-exception-access-criteria
 title: ExceptionAccessCriteria
 pagination_label: ExceptionAccessCriteria
 sidebar_label: ExceptionAccessCriteria

@@ -1,5 +1,5 @@
 ---
-id: revocability
+id: v2024-revocability
 title: Revocability
 pagination_label: Revocability
 sidebar_label: Revocability

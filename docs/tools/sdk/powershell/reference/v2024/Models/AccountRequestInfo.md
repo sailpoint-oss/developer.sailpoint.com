@@ -1,5 +1,5 @@
 ---
-id: account-request-info
+id: v2024-account-request-info
 title: AccountRequestInfo
 pagination_label: AccountRequestInfo
 sidebar_label: AccountRequestInfo

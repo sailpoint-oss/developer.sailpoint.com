@@ -1,5 +1,5 @@
 ---
-id: send-account-verification-request
+id: beta-send-account-verification-request
 title: SendAccountVerificationRequest
 pagination_label: SendAccountVerificationRequest
 sidebar_label: SendAccountVerificationRequest

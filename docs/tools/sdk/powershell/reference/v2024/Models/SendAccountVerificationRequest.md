@@ -1,5 +1,5 @@
 ---
-id: send-account-verification-request
+id: v2024-send-account-verification-request
 title: SendAccountVerificationRequest
 pagination_label: SendAccountVerificationRequest
 sidebar_label: SendAccountVerificationRequest

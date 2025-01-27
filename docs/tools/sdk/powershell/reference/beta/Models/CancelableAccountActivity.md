@@ -1,5 +1,5 @@
 ---
-id: cancelable-account-activity
+id: beta-cancelable-account-activity
 title: CancelableAccountActivity
 pagination_label: CancelableAccountActivity
 sidebar_label: CancelableAccountActivity

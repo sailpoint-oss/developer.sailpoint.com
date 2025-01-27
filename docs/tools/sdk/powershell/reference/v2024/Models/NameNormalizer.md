@@ -1,5 +1,5 @@
 ---
-id: name-normalizer
+id: v2024-name-normalizer
 title: NameNormalizer
 pagination_label: NameNormalizer
 sidebar_label: NameNormalizer

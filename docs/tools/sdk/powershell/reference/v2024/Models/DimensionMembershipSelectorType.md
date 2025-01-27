@@ -1,5 +1,5 @@
 ---
-id: dimension-membership-selector-type
+id: v2024-dimension-membership-selector-type
 title: DimensionMembershipSelectorType
 pagination_label: DimensionMembershipSelectorType
 sidebar_label: DimensionMembershipSelectorType

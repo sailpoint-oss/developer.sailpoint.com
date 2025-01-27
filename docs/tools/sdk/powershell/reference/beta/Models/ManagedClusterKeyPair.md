@@ -1,5 +1,5 @@
 ---
-id: managed-cluster-key-pair
+id: beta-managed-cluster-key-pair
 title: ManagedClusterKeyPair
 pagination_label: ManagedClusterKeyPair
 sidebar_label: ManagedClusterKeyPair

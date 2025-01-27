@@ -1,5 +1,5 @@
 ---
-id: config-type-enum-camel
+id: v2024-config-type-enum-camel
 title: ConfigTypeEnumCamel
 pagination_label: ConfigTypeEnumCamel
 sidebar_label: ConfigTypeEnumCamel

@@ -1,5 +1,5 @@
 ---
-id: account-uncorrelated
+id: beta-account-uncorrelated
 title: AccountUncorrelated
 pagination_label: AccountUncorrelated
 sidebar_label: AccountUncorrelated

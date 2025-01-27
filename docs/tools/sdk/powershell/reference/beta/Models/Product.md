@@ -1,5 +1,5 @@
 ---
-id: product
+id: beta-product
 title: Product
 pagination_label: Product
 sidebar_label: Product

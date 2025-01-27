@@ -1,5 +1,5 @@
 ---
-id: access-request
+id: v2024-access-request
 title: AccessRequest
 pagination_label: AccessRequest
 sidebar_label: AccessRequest

@@ -1,5 +1,5 @@
 ---
-id: access-recommendation-message
+id: v2024-access-recommendation-message
 title: AccessRecommendationMessage
 pagination_label: AccessRecommendationMessage
 sidebar_label: AccessRecommendationMessage

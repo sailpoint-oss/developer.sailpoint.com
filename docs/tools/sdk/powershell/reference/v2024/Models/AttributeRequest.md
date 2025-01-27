@@ -1,5 +1,5 @@
 ---
-id: attribute-request
+id: v2024-attribute-request
 title: AttributeRequest
 pagination_label: AttributeRequest
 sidebar_label: AttributeRequest

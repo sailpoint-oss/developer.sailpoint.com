@@ -1,5 +1,5 @@
 ---
-id: report-results
+id: v2024-report-results
 title: ReportResults
 pagination_label: ReportResults
 sidebar_label: ReportResults

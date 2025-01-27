@@ -1,5 +1,5 @@
 ---
-id: medium
+id: beta-medium
 title: Medium
 pagination_label: Medium
 sidebar_label: Medium

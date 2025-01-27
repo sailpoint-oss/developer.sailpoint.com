@@ -1,5 +1,5 @@
 ---
-id: sod-policy-dto
+id: v2024-sod-policy-dto
 title: SodPolicyDto
 pagination_label: SodPolicyDto
 sidebar_label: SodPolicyDto

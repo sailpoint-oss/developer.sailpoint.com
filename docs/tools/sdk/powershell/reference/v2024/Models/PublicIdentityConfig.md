@@ -1,5 +1,5 @@
 ---
-id: public-identity-config
+id: v2024-public-identity-config
 title: PublicIdentityConfig
 pagination_label: PublicIdentityConfig
 sidebar_label: PublicIdentityConfig

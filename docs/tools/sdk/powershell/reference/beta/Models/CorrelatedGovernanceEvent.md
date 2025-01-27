@@ -1,5 +1,5 @@
 ---
-id: correlated-governance-event
+id: beta-correlated-governance-event
 title: CorrelatedGovernanceEvent
 pagination_label: CorrelatedGovernanceEvent
 sidebar_label: CorrelatedGovernanceEvent

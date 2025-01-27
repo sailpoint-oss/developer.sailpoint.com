@@ -1,5 +1,5 @@
 ---
-id: role-criteria-operation
+id: beta-role-criteria-operation
 title: RoleCriteriaOperation
 pagination_label: RoleCriteriaOperation
 sidebar_label: RoleCriteriaOperation

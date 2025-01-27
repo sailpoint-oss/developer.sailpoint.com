@@ -1,5 +1,5 @@
 ---
-id: translation-message
+id: v2024-translation-message
 title: TranslationMessage
 pagination_label: TranslationMessage
 sidebar_label: TranslationMessage

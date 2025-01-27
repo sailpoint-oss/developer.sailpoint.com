@@ -1,5 +1,5 @@
 ---
-id: managed-cluster-queue
+id: beta-managed-cluster-queue
 title: ManagedClusterQueue
 pagination_label: ManagedClusterQueue
 sidebar_label: ManagedClusterQueue

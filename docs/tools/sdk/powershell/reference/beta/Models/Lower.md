@@ -1,5 +1,5 @@
 ---
-id: lower
+id: beta-lower
 title: Lower
 pagination_label: Lower
 sidebar_label: Lower

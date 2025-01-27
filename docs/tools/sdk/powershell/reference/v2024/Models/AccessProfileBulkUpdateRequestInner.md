@@ -1,5 +1,5 @@
 ---
-id: access-profile-bulk-update-request-inner
+id: v2024-access-profile-bulk-update-request-inner
 title: AccessProfileBulkUpdateRequestInner
 pagination_label: AccessProfileBulkUpdateRequestInner
 sidebar_label: AccessProfileBulkUpdateRequestInner

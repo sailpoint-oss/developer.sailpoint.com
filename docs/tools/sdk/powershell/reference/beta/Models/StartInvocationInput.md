@@ -1,5 +1,5 @@
 ---
-id: start-invocation-input
+id: beta-start-invocation-input
 title: StartInvocationInput
 pagination_label: StartInvocationInput
 sidebar_label: StartInvocationInput

@@ -1,5 +1,5 @@
 ---
-id: role-bulk-update-response
+id: v2024-role-bulk-update-response
 title: RoleBulkUpdateResponse
 pagination_label: RoleBulkUpdateResponse
 sidebar_label: RoleBulkUpdateResponse

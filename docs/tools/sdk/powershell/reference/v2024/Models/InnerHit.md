@@ -1,5 +1,5 @@
 ---
-id: inner-hit
+id: v2024-inner-hit
 title: InnerHit
 pagination_label: InnerHit
 sidebar_label: InnerHit

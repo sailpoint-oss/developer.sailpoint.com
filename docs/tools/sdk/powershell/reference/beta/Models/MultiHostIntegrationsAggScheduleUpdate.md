@@ -1,5 +1,5 @@
 ---
-id: multi-host-integrations-agg-schedule-update
+id: beta-multi-host-integrations-agg-schedule-update
 title: MultiHostIntegrationsAggScheduleUpdate
 pagination_label: MultiHostIntegrationsAggScheduleUpdate
 sidebar_label: MultiHostIntegrationsAggScheduleUpdate

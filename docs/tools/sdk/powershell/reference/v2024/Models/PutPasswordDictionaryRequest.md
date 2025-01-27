@@ -1,5 +1,5 @@
 ---
-id: put-password-dictionary-request
+id: v2024-put-password-dictionary-request
 title: PutPasswordDictionaryRequest
 pagination_label: PutPasswordDictionaryRequest
 sidebar_label: PutPasswordDictionaryRequest

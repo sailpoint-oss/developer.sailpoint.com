@@ -1,5 +1,5 @@
 ---
-id: pending-approval
+id: v2024-pending-approval
 title: PendingApproval
 pagination_label: PendingApproval
 sidebar_label: PendingApproval

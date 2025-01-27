@@ -1,5 +1,5 @@
 ---
-id: requestability-for-role
+id: beta-requestability-for-role
 title: RequestabilityForRole
 pagination_label: RequestabilityForRole
 sidebar_label: RequestabilityForRole

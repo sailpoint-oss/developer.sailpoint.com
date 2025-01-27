@@ -1,5 +1,5 @@
 ---
-id: va-cluster-status-change-event-health-check-result
+id: v2024-va-cluster-status-change-event-health-check-result
 title: VAClusterStatusChangeEventHealthCheckResult
 pagination_label: VAClusterStatusChangeEventHealthCheckResult
 sidebar_label: VAClusterStatusChangeEventHealthCheckResult

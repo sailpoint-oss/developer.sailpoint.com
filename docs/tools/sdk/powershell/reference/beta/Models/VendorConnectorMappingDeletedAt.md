@@ -1,5 +1,5 @@
 ---
-id: vendor-connector-mapping-deleted-at
+id: beta-vendor-connector-mapping-deleted-at
 title: VendorConnectorMappingDeletedAt
 pagination_label: VendorConnectorMappingDeletedAt
 sidebar_label: VendorConnectorMappingDeletedAt

@@ -1,5 +1,5 @@
 ---
-id: requestable-object-type
+id: v2024-requestable-object-type
 title: RequestableObjectType
 pagination_label: RequestableObjectType
 sidebar_label: RequestableObjectType

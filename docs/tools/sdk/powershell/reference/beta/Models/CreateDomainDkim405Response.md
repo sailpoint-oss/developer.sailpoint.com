@@ -1,5 +1,5 @@
 ---
-id: create-domain-dkim405-response
+id: beta-create-domain-dkim405-response
 title: CreateDomainDkim405Response
 pagination_label: CreateDomainDkim405Response
 sidebar_label: CreateDomainDkim405Response

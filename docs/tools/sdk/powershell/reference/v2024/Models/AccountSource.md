@@ -1,5 +1,5 @@
 ---
-id: account-source
+id: v2024-account-source
 title: AccountSource
 pagination_label: AccountSource
 sidebar_label: AccountSource

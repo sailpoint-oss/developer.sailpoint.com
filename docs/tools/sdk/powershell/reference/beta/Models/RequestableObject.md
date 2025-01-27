@@ -1,5 +1,5 @@
 ---
-id: requestable-object
+id: beta-requestable-object
 title: RequestableObject
 pagination_label: RequestableObject
 sidebar_label: RequestableObject

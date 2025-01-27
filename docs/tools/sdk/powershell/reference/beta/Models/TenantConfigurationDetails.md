@@ -1,5 +1,5 @@
 ---
-id: tenant-configuration-details
+id: beta-tenant-configuration-details
 title: TenantConfigurationDetails
 pagination_label: TenantConfigurationDetails
 sidebar_label: TenantConfigurationDetails

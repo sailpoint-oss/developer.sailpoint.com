@@ -1,5 +1,5 @@
 ---
-id: non-employee-source-lite
+id: beta-non-employee-source-lite
 title: NonEmployeeSourceLite
 pagination_label: NonEmployeeSourceLite
 sidebar_label: NonEmployeeSourceLite

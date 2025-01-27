@@ -1,5 +1,5 @@
 ---
-id: sed-batch-stats
+id: beta-sed-batch-stats
 title: SedBatchStats
 pagination_label: SedBatchStats
 sidebar_label: SedBatchStats

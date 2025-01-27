@@ -1,5 +1,5 @@
 ---
-id: approval-reference
+id: beta-approval-reference
 title: ApprovalReference
 pagination_label: ApprovalReference
 sidebar_label: ApprovalReference

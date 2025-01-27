@@ -1,5 +1,5 @@
 ---
-id: standard-level
+id: beta-standard-level
 title: StandardLevel
 pagination_label: StandardLevel
 sidebar_label: StandardLevel

@@ -1,5 +1,5 @@
 ---
-id: account-attributes-create-attributes
+id: beta-account-attributes-create-attributes
 title: AccountAttributesCreateAttributes
 pagination_label: AccountAttributesCreateAttributes
 sidebar_label: AccountAttributesCreateAttributes

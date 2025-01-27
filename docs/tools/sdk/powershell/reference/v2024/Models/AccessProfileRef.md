@@ -1,5 +1,5 @@
 ---
-id: access-profile-ref
+id: v2024-access-profile-ref
 title: AccessProfileRef
 pagination_label: AccessProfileRef
 sidebar_label: AccessProfileRef

@@ -1,5 +1,5 @@
 ---
-id: resource-object
+id: v2024-resource-object
 title: ResourceObject
 pagination_label: ResourceObject
 sidebar_label: ResourceObject

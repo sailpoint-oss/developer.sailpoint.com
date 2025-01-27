@@ -1,5 +1,5 @@
 ---
-id: trim
+id: beta-trim
 title: Trim
 pagination_label: Trim
 sidebar_label: Trim

@@ -1,5 +1,5 @@
 ---
-id: fullcampaign-all-of-machine-account-campaign-info
+id: beta-fullcampaign-all-of-machine-account-campaign-info
 title: FullcampaignAllOfMachineAccountCampaignInfo
 pagination_label: FullcampaignAllOfMachineAccountCampaignInfo
 sidebar_label: FullcampaignAllOfMachineAccountCampaignInfo

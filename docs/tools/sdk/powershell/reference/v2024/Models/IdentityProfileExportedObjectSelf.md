@@ -1,5 +1,5 @@
 ---
-id: identity-profile-exported-object-self
+id: v2024-identity-profile-exported-object-self
 title: IdentityProfileExportedObjectSelf
 pagination_label: IdentityProfileExportedObjectSelf
 sidebar_label: IdentityProfileExportedObjectSelf

@@ -1,5 +1,5 @@
 ---
-id: conflicting-access-criteria
+id: beta-conflicting-access-criteria
 title: ConflictingAccessCriteria
 pagination_label: ConflictingAccessCriteria
 sidebar_label: ConflictingAccessCriteria

@@ -1,5 +1,5 @@
 ---
-id: source-deleted
+id: beta-source-deleted
 title: SourceDeleted
 pagination_label: SourceDeleted
 sidebar_label: SourceDeleted

@@ -1,5 +1,5 @@
 ---
-id: multi-host-integration-template-type
+id: beta-multi-host-integration-template-type
 title: MultiHostIntegrationTemplateType
 pagination_label: MultiHostIntegrationTemplateType
 sidebar_label: MultiHostIntegrationTemplateType

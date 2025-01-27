@@ -1,5 +1,5 @@
 ---
-id: column
+id: v2024-column
 title: Column
 pagination_label: Column
 sidebar_label: Column

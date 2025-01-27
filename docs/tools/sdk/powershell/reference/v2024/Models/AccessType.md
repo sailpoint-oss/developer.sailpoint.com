@@ -1,5 +1,5 @@
 ---
-id: access-type
+id: v2024-access-type
 title: AccessType
 pagination_label: AccessType
 sidebar_label: AccessType

@@ -1,5 +1,5 @@
 ---
-id: password-org-config
+id: beta-password-org-config
 title: PasswordOrgConfig
 pagination_label: PasswordOrgConfig
 sidebar_label: PasswordOrgConfig

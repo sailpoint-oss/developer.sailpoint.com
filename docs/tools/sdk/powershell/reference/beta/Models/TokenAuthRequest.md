@@ -1,5 +1,5 @@
 ---
-id: token-auth-request
+id: beta-token-auth-request
 title: TokenAuthRequest
 pagination_label: TokenAuthRequest
 sidebar_label: TokenAuthRequest

@@ -1,5 +1,5 @@
 ---
-id: json-patch-operation
+id: beta-json-patch-operation
 title: JsonPatchOperation
 pagination_label: JsonPatchOperation
 sidebar_label: JsonPatchOperation

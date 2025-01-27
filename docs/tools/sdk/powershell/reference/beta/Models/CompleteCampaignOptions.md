@@ -1,5 +1,5 @@
 ---
-id: complete-campaign-options
+id: beta-complete-campaign-options
 title: CompleteCampaignOptions
 pagination_label: CompleteCampaignOptions
 sidebar_label: CompleteCampaignOptions

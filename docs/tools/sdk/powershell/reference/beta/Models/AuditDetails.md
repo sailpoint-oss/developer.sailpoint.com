@@ -1,5 +1,5 @@
 ---
-id: audit-details
+id: beta-audit-details
 title: AuditDetails
 pagination_label: AuditDetails
 sidebar_label: AuditDetails

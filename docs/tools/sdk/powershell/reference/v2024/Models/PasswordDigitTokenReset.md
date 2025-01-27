@@ -1,5 +1,5 @@
 ---
-id: password-digit-token-reset
+id: v2024-password-digit-token-reset
 title: PasswordDigitTokenReset
 pagination_label: PasswordDigitTokenReset
 sidebar_label: PasswordDigitTokenReset

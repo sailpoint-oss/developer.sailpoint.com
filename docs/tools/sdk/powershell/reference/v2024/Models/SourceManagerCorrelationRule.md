@@ -1,5 +1,5 @@
 ---
-id: source-manager-correlation-rule
+id: v2024-source-manager-correlation-rule
 title: SourceManagerCorrelationRule
 pagination_label: SourceManagerCorrelationRule
 sidebar_label: SourceManagerCorrelationRule

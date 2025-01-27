@@ -1,5 +1,5 @@
 ---
-id: user-app
+id: beta-user-app
 title: UserApp
 pagination_label: UserApp
 sidebar_label: UserApp

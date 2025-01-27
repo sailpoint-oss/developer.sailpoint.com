@@ -1,5 +1,5 @@
 ---
-id: saved-search-detail-filters
+id: v2024-saved-search-detail-filters
 title: SavedSearchDetailFilters
 pagination_label: SavedSearchDetailFilters
 sidebar_label: SavedSearchDetailFilters

@@ -1,5 +1,5 @@
 ---
-id: identity-attribute-config
+id: v2024-identity-attribute-config
 title: IdentityAttributeConfig
 pagination_label: IdentityAttributeConfig
 sidebar_label: IdentityAttributeConfig

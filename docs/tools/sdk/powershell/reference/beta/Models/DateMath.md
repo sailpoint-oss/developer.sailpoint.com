@@ -1,5 +1,5 @@
 ---
-id: date-math
+id: beta-date-math
 title: DateMath
 pagination_label: DateMath
 sidebar_label: DateMath

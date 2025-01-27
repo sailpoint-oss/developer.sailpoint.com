@@ -1,5 +1,5 @@
 ---
-id: workgroup-member-add-item
+id: beta-workgroup-member-add-item
 title: WorkgroupMemberAddItem
 pagination_label: WorkgroupMemberAddItem
 sidebar_label: WorkgroupMemberAddItem

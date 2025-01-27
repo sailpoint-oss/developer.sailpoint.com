@@ -1,5 +1,5 @@
 ---
-id: identity-snapshot-summary-response
+id: v2024-identity-snapshot-summary-response
 title: IdentitySnapshotSummaryResponse
 pagination_label: IdentitySnapshotSummaryResponse
 sidebar_label: IdentitySnapshotSummaryResponse

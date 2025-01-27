@@ -1,5 +1,5 @@
 ---
-id: role-target-dto
+id: beta-role-target-dto
 title: RoleTargetDto
 pagination_label: RoleTargetDto
 sidebar_label: RoleTargetDto

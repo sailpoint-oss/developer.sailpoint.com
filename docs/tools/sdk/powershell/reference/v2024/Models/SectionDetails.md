@@ -1,5 +1,5 @@
 ---
-id: section-details
+id: v2024-section-details
 title: SectionDetails
 pagination_label: SectionDetails
 sidebar_label: SectionDetails

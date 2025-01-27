@@ -1,5 +1,5 @@
 ---
-id: uuid-generator
+id: v2024-uuid-generator
 title: UUIDGenerator
 pagination_label: UUIDGenerator
 sidebar_label: UUIDGenerator

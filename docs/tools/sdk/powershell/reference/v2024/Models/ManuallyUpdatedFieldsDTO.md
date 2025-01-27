@@ -1,5 +1,5 @@
 ---
-id: manually-updated-fields-dto
+id: v2024-manually-updated-fields-dto
 title: ManuallyUpdatedFieldsDTO
 pagination_label: ManuallyUpdatedFieldsDTO
 sidebar_label: ManuallyUpdatedFieldsDTO

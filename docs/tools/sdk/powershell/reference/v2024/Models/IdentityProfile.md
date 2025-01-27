@@ -1,5 +1,5 @@
 ---
-id: identity-profile
+id: v2024-identity-profile
 title: IdentityProfile
 pagination_label: IdentityProfile
 sidebar_label: IdentityProfile

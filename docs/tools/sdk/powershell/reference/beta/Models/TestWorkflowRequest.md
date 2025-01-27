@@ -1,5 +1,5 @@
 ---
-id: test-workflow-request
+id: beta-test-workflow-request
 title: TestWorkflowRequest
 pagination_label: TestWorkflowRequest
 sidebar_label: TestWorkflowRequest

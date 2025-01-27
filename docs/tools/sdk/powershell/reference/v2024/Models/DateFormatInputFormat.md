@@ -1,5 +1,5 @@
 ---
-id: date-format-input-format
+id: v2024-date-format-input-format
 title: DateFormatInputFormat
 pagination_label: DateFormatInputFormat
 sidebar_label: DateFormatInputFormat

@@ -1,5 +1,5 @@
 ---
-id: auth-profile-summary
+id: v2024-auth-profile-summary
 title: AuthProfileSummary
 pagination_label: AuthProfileSummary
 sidebar_label: AuthProfileSummary

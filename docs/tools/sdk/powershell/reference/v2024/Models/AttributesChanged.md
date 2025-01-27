@@ -1,5 +1,5 @@
 ---
-id: attributes-changed
+id: v2024-attributes-changed
 title: AttributesChanged
 pagination_label: AttributesChanged
 sidebar_label: AttributesChanged

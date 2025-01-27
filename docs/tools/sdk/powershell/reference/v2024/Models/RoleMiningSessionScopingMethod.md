@@ -1,5 +1,5 @@
 ---
-id: role-mining-session-scoping-method
+id: v2024-role-mining-session-scoping-method
 title: RoleMiningSessionScopingMethod
 pagination_label: RoleMiningSessionScopingMethod
 sidebar_label: RoleMiningSessionScopingMethod

@@ -1,5 +1,5 @@
 ---
-id: patch-potential-role-request-inner
+id: v2024-patch-potential-role-request-inner
 title: PatchPotentialRoleRequestInner
 pagination_label: PatchPotentialRoleRequestInner
 sidebar_label: PatchPotentialRoleRequestInner

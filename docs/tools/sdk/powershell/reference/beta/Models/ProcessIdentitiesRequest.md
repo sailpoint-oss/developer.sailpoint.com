@@ -1,5 +1,5 @@
 ---
-id: process-identities-request
+id: beta-process-identities-request
 title: ProcessIdentitiesRequest
 pagination_label: ProcessIdentitiesRequest
 sidebar_label: ProcessIdentitiesRequest

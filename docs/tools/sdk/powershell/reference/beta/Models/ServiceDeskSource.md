@@ -1,5 +1,5 @@
 ---
-id: service-desk-source
+id: beta-service-desk-source
 title: ServiceDeskSource
 pagination_label: ServiceDeskSource
 sidebar_label: ServiceDeskSource

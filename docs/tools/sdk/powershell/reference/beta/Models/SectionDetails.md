@@ -1,5 +1,5 @@
 ---
-id: section-details
+id: beta-section-details
 title: SectionDetails
 pagination_label: SectionDetails
 sidebar_label: SectionDetails

@@ -1,5 +1,5 @@
 ---
-id: grant-type
+id: v2024-grant-type
 title: GrantType
 pagination_label: GrantType
 sidebar_label: GrantType

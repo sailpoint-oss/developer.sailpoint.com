@@ -1,5 +1,5 @@
 ---
-id: access-review-reassignment
+id: v2024-access-review-reassignment
 title: AccessReviewReassignment
 pagination_label: AccessReviewReassignment
 sidebar_label: AccessReviewReassignment

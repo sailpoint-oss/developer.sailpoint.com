@@ -1,5 +1,5 @@
 ---
-id: identity-snapshot-summary-response
+id: beta-identity-snapshot-summary-response
 title: IdentitySnapshotSummaryResponse
 pagination_label: IdentitySnapshotSummaryResponse
 sidebar_label: IdentitySnapshotSummaryResponse

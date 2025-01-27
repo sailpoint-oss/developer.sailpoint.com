@@ -1,5 +1,5 @@
 ---
-id: trigger-example-output
+id: beta-trigger-example-output
 title: TriggerExampleOutput
 pagination_label: TriggerExampleOutput
 sidebar_label: TriggerExampleOutput

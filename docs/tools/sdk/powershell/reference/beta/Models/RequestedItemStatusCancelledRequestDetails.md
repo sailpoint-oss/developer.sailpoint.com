@@ -1,5 +1,5 @@
 ---
-id: requested-item-status-cancelled-request-details
+id: beta-requested-item-status-cancelled-request-details
 title: RequestedItemStatusCancelledRequestDetails
 pagination_label: RequestedItemStatusCancelledRequestDetails
 sidebar_label: RequestedItemStatusCancelledRequestDetails

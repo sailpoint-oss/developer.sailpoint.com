@@ -1,5 +1,5 @@
 ---
-id: recommendation-response-dto
+id: beta-recommendation-response-dto
 title: RecommendationResponseDto
 pagination_label: RecommendationResponseDto
 sidebar_label: RecommendationResponseDto

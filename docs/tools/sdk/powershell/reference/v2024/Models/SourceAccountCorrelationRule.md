@@ -1,5 +1,5 @@
 ---
-id: source-account-correlation-rule
+id: v2024-source-account-correlation-rule
 title: SourceAccountCorrelationRule
 pagination_label: SourceAccountCorrelationRule
 sidebar_label: SourceAccountCorrelationRule

@@ -1,5 +1,5 @@
 ---
-id: accounts-collected-for-aggregation
+id: beta-accounts-collected-for-aggregation
 title: AccountsCollectedForAggregation
 pagination_label: AccountsCollectedForAggregation
 sidebar_label: AccountsCollectedForAggregation

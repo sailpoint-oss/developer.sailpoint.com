@@ -1,5 +1,5 @@
 ---
-id: access-criteria
+id: v2024-access-criteria
 title: AccessCriteria
 pagination_label: AccessCriteria
 sidebar_label: AccessCriteria

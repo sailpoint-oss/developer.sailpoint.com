@@ -1,5 +1,5 @@
 ---
-id: recommender-calculations-identity-attributes-value
+id: beta-recommender-calculations-identity-attributes-value
 title: RecommenderCalculationsIdentityAttributesValue
 pagination_label: RecommenderCalculationsIdentityAttributesValue
 sidebar_label: RecommenderCalculationsIdentityAttributesValue

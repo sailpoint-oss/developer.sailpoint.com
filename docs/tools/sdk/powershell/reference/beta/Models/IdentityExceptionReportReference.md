@@ -1,5 +1,5 @@
 ---
-id: identity-exception-report-reference
+id: beta-identity-exception-report-reference
 title: IdentityExceptionReportReference
 pagination_label: IdentityExceptionReportReference
 sidebar_label: IdentityExceptionReportReference

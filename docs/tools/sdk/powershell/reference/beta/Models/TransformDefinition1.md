@@ -1,5 +1,5 @@
 ---
-id: transform-definition1
+id: beta-transform-definition1
 title: TransformDefinition1
 pagination_label: TransformDefinition1
 sidebar_label: TransformDefinition1

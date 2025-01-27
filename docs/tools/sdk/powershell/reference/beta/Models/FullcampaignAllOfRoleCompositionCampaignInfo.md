@@ -1,5 +1,5 @@
 ---
-id: fullcampaign-all-of-role-composition-campaign-info
+id: beta-fullcampaign-all-of-role-composition-campaign-info
 title: FullcampaignAllOfRoleCompositionCampaignInfo
 pagination_label: FullcampaignAllOfRoleCompositionCampaignInfo
 sidebar_label: FullcampaignAllOfRoleCompositionCampaignInfo

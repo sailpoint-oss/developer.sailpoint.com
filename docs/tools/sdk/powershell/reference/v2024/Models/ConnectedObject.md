@@ -1,5 +1,5 @@
 ---
-id: connected-object
+id: v2024-connected-object
 title: ConnectedObject
 pagination_label: ConnectedObject
 sidebar_label: ConnectedObject

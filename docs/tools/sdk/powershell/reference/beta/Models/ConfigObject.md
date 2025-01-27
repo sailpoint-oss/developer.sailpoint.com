@@ -1,5 +1,5 @@
 ---
-id: config-object
+id: beta-config-object
 title: ConfigObject
 pagination_label: ConfigObject
 sidebar_label: ConfigObject

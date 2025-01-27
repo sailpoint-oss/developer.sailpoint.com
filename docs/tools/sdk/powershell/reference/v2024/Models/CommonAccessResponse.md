@@ -1,5 +1,5 @@
 ---
-id: common-access-response
+id: v2024-common-access-response
 title: CommonAccessResponse
 pagination_label: CommonAccessResponse
 sidebar_label: CommonAccessResponse

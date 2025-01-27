@@ -1,5 +1,5 @@
 ---
-id: resource-bundle-message
+id: beta-resource-bundle-message
 title: ResourceBundleMessage
 pagination_label: ResourceBundleMessage
 sidebar_label: ResourceBundleMessage

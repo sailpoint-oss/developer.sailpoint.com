@@ -1,5 +1,5 @@
 ---
-id: identity-sync-job
+id: v2024-identity-sync-job
 title: IdentitySyncJob
 pagination_label: IdentitySyncJob
 sidebar_label: IdentitySyncJob

@@ -1,5 +1,5 @@
 ---
-id: multi-policy-request
+id: v2024-multi-policy-request
 title: MultiPolicyRequest
 pagination_label: MultiPolicyRequest
 sidebar_label: MultiPolicyRequest

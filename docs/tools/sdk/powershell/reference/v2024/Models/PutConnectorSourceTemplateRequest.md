@@ -1,5 +1,5 @@
 ---
-id: put-connector-source-template-request
+id: v2024-put-connector-source-template-request
 title: PutConnectorSourceTemplateRequest
 pagination_label: PutConnectorSourceTemplateRequest
 sidebar_label: PutConnectorSourceTemplateRequest

@@ -1,5 +1,5 @@
 ---
-id: workgroup-dto-owner
+id: beta-workgroup-dto-owner
 title: WorkgroupDtoOwner
 pagination_label: WorkgroupDtoOwner
 sidebar_label: WorkgroupDtoOwner

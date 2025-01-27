@@ -1,5 +1,5 @@
 ---
-id: selector-account-match-config-match-expression
+id: beta-selector-account-match-config-match-expression
 title: SelectorAccountMatchConfigMatchExpression
 pagination_label: SelectorAccountMatchConfigMatchExpression
 sidebar_label: SelectorAccountMatchConfigMatchExpression

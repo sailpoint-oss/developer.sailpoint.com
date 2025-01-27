@@ -1,5 +1,5 @@
 ---
-id: event-bridge-config
+id: v2024-event-bridge-config
 title: EventBridgeConfig
 pagination_label: EventBridgeConfig
 sidebar_label: EventBridgeConfig

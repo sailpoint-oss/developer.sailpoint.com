@@ -1,5 +1,5 @@
 ---
-id: source-sync-job
+id: beta-source-sync-job
 title: SourceSyncJob
 pagination_label: SourceSyncJob
 sidebar_label: SourceSyncJob

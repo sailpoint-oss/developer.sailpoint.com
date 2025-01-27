@@ -1,5 +1,5 @@
 ---
-id: access-item-associated
+id: v2024-access-item-associated
 title: AccessItemAssociated
 pagination_label: AccessItemAssociated
 sidebar_label: AccessItemAssociated

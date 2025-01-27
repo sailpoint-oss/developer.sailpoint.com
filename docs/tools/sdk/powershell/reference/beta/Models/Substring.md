@@ -1,5 +1,5 @@
 ---
-id: substring
+id: beta-substring
 title: Substring
 pagination_label: Substring
 sidebar_label: Substring

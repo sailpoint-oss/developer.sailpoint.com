@@ -1,5 +1,5 @@
 ---
-id: kba-answer-response-item
+id: beta-kba-answer-response-item
 title: KbaAnswerResponseItem
 pagination_label: KbaAnswerResponseItem
 sidebar_label: KbaAnswerResponseItem

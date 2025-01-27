@@ -1,5 +1,5 @@
 ---
-id: subscription
+id: beta-subscription
 title: Subscription
 pagination_label: Subscription
 sidebar_label: Subscription

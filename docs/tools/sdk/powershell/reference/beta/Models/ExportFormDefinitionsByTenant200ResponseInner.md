@@ -1,5 +1,5 @@
 ---
-id: export-form-definitions-by-tenant200-response-inner
+id: beta-export-form-definitions-by-tenant200-response-inner
 title: ExportFormDefinitionsByTenant200ResponseInner
 pagination_label: ExportFormDefinitionsByTenant200ResponseInner
 sidebar_label: ExportFormDefinitionsByTenant200ResponseInner

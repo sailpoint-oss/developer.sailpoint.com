@@ -1,5 +1,5 @@
 ---
-id: accounts-collected-for-aggregation-stats
+id: v2024-accounts-collected-for-aggregation-stats
 title: AccountsCollectedForAggregationStats
 pagination_label: AccountsCollectedForAggregationStats
 sidebar_label: AccountsCollectedForAggregationStats

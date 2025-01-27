@@ -1,5 +1,5 @@
 ---
-id: search-schedule
+id: v2024-search-schedule
 title: SearchSchedule
 pagination_label: SearchSchedule
 sidebar_label: SearchSchedule

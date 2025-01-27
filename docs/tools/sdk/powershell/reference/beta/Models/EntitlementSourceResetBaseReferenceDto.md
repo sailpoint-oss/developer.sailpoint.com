@@ -1,5 +1,5 @@
 ---
-id: entitlement-source-reset-base-reference-dto
+id: beta-entitlement-source-reset-base-reference-dto
 title: EntitlementSourceResetBaseReferenceDto
 pagination_label: EntitlementSourceResetBaseReferenceDto
 sidebar_label: EntitlementSourceResetBaseReferenceDto

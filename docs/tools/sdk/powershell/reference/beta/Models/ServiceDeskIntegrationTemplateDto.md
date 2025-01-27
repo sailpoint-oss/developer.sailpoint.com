@@ -1,5 +1,5 @@
 ---
-id: service-desk-integration-template-dto
+id: beta-service-desk-integration-template-dto
 title: ServiceDeskIntegrationTemplateDto
 pagination_label: ServiceDeskIntegrationTemplateDto
 sidebar_label: ServiceDeskIntegrationTemplateDto

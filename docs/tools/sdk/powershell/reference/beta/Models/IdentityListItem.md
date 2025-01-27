@@ -1,5 +1,5 @@
 ---
-id: identity-list-item
+id: beta-identity-list-item
 title: IdentityListItem
 pagination_label: IdentityListItem
 sidebar_label: IdentityListItem

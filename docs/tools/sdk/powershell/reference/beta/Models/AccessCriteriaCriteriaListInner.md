@@ -1,5 +1,5 @@
 ---
-id: access-criteria-criteria-list-inner
+id: beta-access-criteria-criteria-list-inner
 title: AccessCriteriaCriteriaListInner
 pagination_label: AccessCriteriaCriteriaListInner
 sidebar_label: AccessCriteriaCriteriaListInner

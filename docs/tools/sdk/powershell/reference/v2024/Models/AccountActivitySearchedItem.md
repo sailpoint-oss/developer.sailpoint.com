@@ -1,5 +1,5 @@
 ---
-id: account-activity-searched-item
+id: v2024-account-activity-searched-item
 title: AccountActivitySearchedItem
 pagination_label: AccountActivitySearchedItem
 sidebar_label: AccountActivitySearchedItem

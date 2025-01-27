@@ -1,5 +1,5 @@
 ---
-id: sod-violation-check-result
+id: beta-sod-violation-check-result
 title: SodViolationCheckResult
 pagination_label: SodViolationCheckResult
 sidebar_label: SodViolationCheckResult

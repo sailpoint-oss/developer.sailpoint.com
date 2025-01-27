@@ -1,5 +1,5 @@
 ---
-id: permission-dto
+id: beta-permission-dto
 title: PermissionDto
 pagination_label: PermissionDto
 sidebar_label: PermissionDto

@@ -1,5 +1,5 @@
 ---
-id: role-summary
+id: v2024-role-summary
 title: RoleSummary
 pagination_label: RoleSummary
 sidebar_label: RoleSummary

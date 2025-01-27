@@ -1,5 +1,5 @@
 ---
-id: form-definition-input
+id: beta-form-definition-input
 title: FormDefinitionInput
 pagination_label: FormDefinitionInput
 sidebar_label: FormDefinitionInput

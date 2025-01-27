@@ -1,5 +1,5 @@
 ---
-id: typed-reference
+id: v2024-typed-reference
 title: TypedReference
 pagination_label: TypedReference
 sidebar_label: TypedReference

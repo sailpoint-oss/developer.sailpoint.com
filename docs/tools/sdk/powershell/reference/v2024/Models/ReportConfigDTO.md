@@ -1,5 +1,5 @@
 ---
-id: report-config-dto
+id: v2024-report-config-dto
 title: ReportConfigDTO
 pagination_label: ReportConfigDTO
 sidebar_label: ReportConfigDTO

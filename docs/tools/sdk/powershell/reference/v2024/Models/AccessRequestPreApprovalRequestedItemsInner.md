@@ -1,5 +1,5 @@
 ---
-id: access-request-pre-approval-requested-items-inner
+id: v2024-access-request-pre-approval-requested-items-inner
 title: AccessRequestPreApprovalRequestedItemsInner
 pagination_label: AccessRequestPreApprovalRequestedItemsInner
 sidebar_label: AccessRequestPreApprovalRequestedItemsInner

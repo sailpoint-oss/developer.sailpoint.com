@@ -1,5 +1,5 @@
 ---
-id: managed-cluster-queue
+id: v2024-managed-cluster-queue
 title: ManagedClusterQueue
 pagination_label: ManagedClusterQueue
 sidebar_label: ManagedClusterQueue

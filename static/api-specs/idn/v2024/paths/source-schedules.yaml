@@ -19,14 +19,6 @@ get:
         type: string
       description: Source ID.
       example: 2c9180835d191a86015d28455b4a2329
-    - in: header
-      name: X-SailPoint-Experimental
-      description: Use this header to enable this experimental API.
-      example: true
-      schema:
-        type: string
-        default: true
-      required: true
   responses:
     '200':
       description: The schedules were successfully retrieved.
@@ -69,14 +61,6 @@ post:
         type: string
       description: Source ID.
       example: 2c9180835d191a86015d28455b4a2329
-    - in: header
-      name: X-SailPoint-Experimental
-      description: Use this header to enable this experimental API.
-      example: true
-      schema:
-        type: string
-        default: true
-      required: true
   requestBody:
     required: true
     content:

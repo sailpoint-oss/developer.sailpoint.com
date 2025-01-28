@@ -4,9 +4,9 @@ title: WorkReassignment
 pagination_label: WorkReassignment
 sidebar_label: WorkReassignment
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'WorkReassignment'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'WorkReassignment', 'BetaWorkReassignment'] 
 slug: /tools/sdk/powershell/beta/methods/work-reassignment
-tags: ['SDK', 'Software Development Kit', 'WorkReassignment']
+tags: ['SDK', 'Software Development Kit', 'WorkReassignment', 'BetaWorkReassignment']
 ---
 
 

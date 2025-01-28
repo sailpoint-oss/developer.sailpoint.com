@@ -4,9 +4,9 @@ title: Invocation
 pagination_label: Invocation
 sidebar_label: Invocation
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Invocation'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Invocation', 'BetaInvocation'] 
 slug: /tools/sdk/powershell/beta/models/invocation
-tags: ['SDK', 'Software Development Kit', 'Invocation']
+tags: ['SDK', 'Software Development Kit', 'Invocation', 'BetaInvocation']
 ---
 
 

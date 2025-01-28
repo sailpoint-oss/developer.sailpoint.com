@@ -4,9 +4,9 @@ title: AccessItemRequesterDto
 pagination_label: AccessItemRequesterDto
 sidebar_label: AccessItemRequesterDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessItemRequesterDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessItemRequesterDto', 'V2024AccessItemRequesterDto'] 
 slug: /tools/sdk/powershell/v2024/models/access-item-requester-dto
-tags: ['SDK', 'Software Development Kit', 'AccessItemRequesterDto']
+tags: ['SDK', 'Software Development Kit', 'AccessItemRequesterDto', 'V2024AccessItemRequesterDto']
 ---
 
 

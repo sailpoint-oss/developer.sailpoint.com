@@ -4,9 +4,9 @@ title: ActivateCampaignOptions
 pagination_label: ActivateCampaignOptions
 sidebar_label: ActivateCampaignOptions
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ActivateCampaignOptions'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ActivateCampaignOptions', 'ActivateCampaignOptions'] 
 slug: /tools/sdk/powershell/v3/models/activate-campaign-options
-tags: ['SDK', 'Software Development Kit', 'ActivateCampaignOptions']
+tags: ['SDK', 'Software Development Kit', 'ActivateCampaignOptions', 'ActivateCampaignOptions']
 ---
 
 

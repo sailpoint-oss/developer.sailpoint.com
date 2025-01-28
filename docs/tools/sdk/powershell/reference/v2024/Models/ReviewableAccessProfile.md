@@ -4,9 +4,9 @@ title: ReviewableAccessProfile
 pagination_label: ReviewableAccessProfile
 sidebar_label: ReviewableAccessProfile
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ReviewableAccessProfile'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ReviewableAccessProfile', 'V2024ReviewableAccessProfile'] 
 slug: /tools/sdk/powershell/v2024/models/reviewable-access-profile
-tags: ['SDK', 'Software Development Kit', 'ReviewableAccessProfile']
+tags: ['SDK', 'Software Development Kit', 'ReviewableAccessProfile', 'V2024ReviewableAccessProfile']
 ---
 
 

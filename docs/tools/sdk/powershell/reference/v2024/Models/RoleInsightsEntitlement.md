@@ -4,9 +4,9 @@ title: RoleInsightsEntitlement
 pagination_label: RoleInsightsEntitlement
 sidebar_label: RoleInsightsEntitlement
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleInsightsEntitlement'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleInsightsEntitlement', 'V2024RoleInsightsEntitlement'] 
 slug: /tools/sdk/powershell/v2024/models/role-insights-entitlement
-tags: ['SDK', 'Software Development Kit', 'RoleInsightsEntitlement']
+tags: ['SDK', 'Software Development Kit', 'RoleInsightsEntitlement', 'V2024RoleInsightsEntitlement']
 ---
 
 

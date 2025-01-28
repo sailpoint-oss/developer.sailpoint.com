@@ -4,9 +4,9 @@ title: SourceDeleted
 pagination_label: SourceDeleted
 sidebar_label: SourceDeleted
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SourceDeleted'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SourceDeleted', 'V2024SourceDeleted'] 
 slug: /tools/sdk/powershell/v2024/models/source-deleted
-tags: ['SDK', 'Software Development Kit', 'SourceDeleted']
+tags: ['SDK', 'Software Development Kit', 'SourceDeleted', 'V2024SourceDeleted']
 ---
 
 

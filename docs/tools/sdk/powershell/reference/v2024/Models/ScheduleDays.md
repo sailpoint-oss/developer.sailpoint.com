@@ -4,9 +4,9 @@ title: ScheduleDays
 pagination_label: ScheduleDays
 sidebar_label: ScheduleDays
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ScheduleDays'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ScheduleDays', 'V2024ScheduleDays'] 
 slug: /tools/sdk/powershell/v2024/models/schedule-days
-tags: ['SDK', 'Software Development Kit', 'ScheduleDays']
+tags: ['SDK', 'Software Development Kit', 'ScheduleDays', 'V2024ScheduleDays']
 ---
 
 

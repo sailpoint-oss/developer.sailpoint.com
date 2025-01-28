@@ -4,9 +4,9 @@ title: LookupStep
 pagination_label: LookupStep
 sidebar_label: LookupStep
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'LookupStep'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'LookupStep', 'BetaLookupStep'] 
 slug: /tools/sdk/powershell/beta/models/lookup-step
-tags: ['SDK', 'Software Development Kit', 'LookupStep']
+tags: ['SDK', 'Software Development Kit', 'LookupStep', 'BetaLookupStep']
 ---
 
 

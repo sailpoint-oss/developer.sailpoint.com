@@ -4,9 +4,9 @@ title: SodReportResultDto
 pagination_label: SodReportResultDto
 sidebar_label: SodReportResultDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SodReportResultDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SodReportResultDto', 'V2024SodReportResultDto'] 
 slug: /tools/sdk/powershell/v2024/models/sod-report-result-dto
-tags: ['SDK', 'Software Development Kit', 'SodReportResultDto']
+tags: ['SDK', 'Software Development Kit', 'SodReportResultDto', 'V2024SodReportResultDto']
 ---
 
 

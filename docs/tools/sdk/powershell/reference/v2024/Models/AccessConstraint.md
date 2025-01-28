@@ -4,9 +4,9 @@ title: AccessConstraint
 pagination_label: AccessConstraint
 sidebar_label: AccessConstraint
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessConstraint'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessConstraint', 'V2024AccessConstraint'] 
 slug: /tools/sdk/powershell/v2024/models/access-constraint
-tags: ['SDK', 'Software Development Kit', 'AccessConstraint']
+tags: ['SDK', 'Software Development Kit', 'AccessConstraint', 'V2024AccessConstraint']
 ---
 
 

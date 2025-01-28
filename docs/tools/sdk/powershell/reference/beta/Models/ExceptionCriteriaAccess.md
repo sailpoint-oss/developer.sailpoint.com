@@ -4,9 +4,9 @@ title: ExceptionCriteriaAccess
 pagination_label: ExceptionCriteriaAccess
 sidebar_label: ExceptionCriteriaAccess
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ExceptionCriteriaAccess'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ExceptionCriteriaAccess', 'BetaExceptionCriteriaAccess'] 
 slug: /tools/sdk/powershell/beta/models/exception-criteria-access
-tags: ['SDK', 'Software Development Kit', 'ExceptionCriteriaAccess']
+tags: ['SDK', 'Software Development Kit', 'ExceptionCriteriaAccess', 'BetaExceptionCriteriaAccess']
 ---
 
 

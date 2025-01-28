@@ -4,9 +4,9 @@ title: EntityCreatedByDTO
 pagination_label: EntityCreatedByDTO
 sidebar_label: EntityCreatedByDTO
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'EntityCreatedByDTO'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'EntityCreatedByDTO', 'BetaEntityCreatedByDTO'] 
 slug: /tools/sdk/powershell/beta/models/entity-created-by-dto
-tags: ['SDK', 'Software Development Kit', 'EntityCreatedByDTO']
+tags: ['SDK', 'Software Development Kit', 'EntityCreatedByDTO', 'BetaEntityCreatedByDTO']
 ---
 
 

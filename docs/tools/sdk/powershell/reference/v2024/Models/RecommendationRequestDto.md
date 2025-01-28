@@ -4,9 +4,9 @@ title: RecommendationRequestDto
 pagination_label: RecommendationRequestDto
 sidebar_label: RecommendationRequestDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RecommendationRequestDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RecommendationRequestDto', 'V2024RecommendationRequestDto'] 
 slug: /tools/sdk/powershell/v2024/models/recommendation-request-dto
-tags: ['SDK', 'Software Development Kit', 'RecommendationRequestDto']
+tags: ['SDK', 'Software Development Kit', 'RecommendationRequestDto', 'V2024RecommendationRequestDto']
 ---
 
 

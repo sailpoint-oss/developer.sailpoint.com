@@ -4,9 +4,9 @@ title: FullcampaignAllOfMachineAccountCampaignInfo
 pagination_label: FullcampaignAllOfMachineAccountCampaignInfo
 sidebar_label: FullcampaignAllOfMachineAccountCampaignInfo
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'FullcampaignAllOfMachineAccountCampaignInfo'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'FullcampaignAllOfMachineAccountCampaignInfo', 'BetaFullcampaignAllOfMachineAccountCampaignInfo'] 
 slug: /tools/sdk/powershell/beta/models/fullcampaign-all-of-machine-account-campaign-info
-tags: ['SDK', 'Software Development Kit', 'FullcampaignAllOfMachineAccountCampaignInfo']
+tags: ['SDK', 'Software Development Kit', 'FullcampaignAllOfMachineAccountCampaignInfo', 'BetaFullcampaignAllOfMachineAccountCampaignInfo']
 ---
 
 

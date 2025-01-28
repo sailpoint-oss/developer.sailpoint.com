@@ -4,9 +4,9 @@ title: RoleMiningSessionScopingMethod
 pagination_label: RoleMiningSessionScopingMethod
 sidebar_label: RoleMiningSessionScopingMethod
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMiningSessionScopingMethod'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMiningSessionScopingMethod', 'V2024RoleMiningSessionScopingMethod'] 
 slug: /tools/sdk/powershell/v2024/models/role-mining-session-scoping-method
-tags: ['SDK', 'Software Development Kit', 'RoleMiningSessionScopingMethod']
+tags: ['SDK', 'Software Development Kit', 'RoleMiningSessionScopingMethod', 'V2024RoleMiningSessionScopingMethod']
 ---
 
 

@@ -4,9 +4,9 @@ title: ConflictingAccessCriteria
 pagination_label: ConflictingAccessCriteria
 sidebar_label: ConflictingAccessCriteria
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ConflictingAccessCriteria'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ConflictingAccessCriteria', 'BetaConflictingAccessCriteria'] 
 slug: /tools/sdk/powershell/beta/models/conflicting-access-criteria
-tags: ['SDK', 'Software Development Kit', 'ConflictingAccessCriteria']
+tags: ['SDK', 'Software Development Kit', 'ConflictingAccessCriteria', 'BetaConflictingAccessCriteria']
 ---
 
 

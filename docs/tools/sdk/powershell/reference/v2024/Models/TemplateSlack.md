@@ -4,9 +4,9 @@ title: TemplateSlack
 pagination_label: TemplateSlack
 sidebar_label: TemplateSlack
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TemplateSlack'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TemplateSlack', 'V2024TemplateSlack'] 
 slug: /tools/sdk/powershell/v2024/models/template-slack
-tags: ['SDK', 'Software Development Kit', 'TemplateSlack']
+tags: ['SDK', 'Software Development Kit', 'TemplateSlack', 'V2024TemplateSlack']
 ---
 
 

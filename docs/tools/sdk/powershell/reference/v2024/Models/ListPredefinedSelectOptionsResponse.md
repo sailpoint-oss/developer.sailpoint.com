@@ -4,9 +4,9 @@ title: ListPredefinedSelectOptionsResponse
 pagination_label: ListPredefinedSelectOptionsResponse
 sidebar_label: ListPredefinedSelectOptionsResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ListPredefinedSelectOptionsResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ListPredefinedSelectOptionsResponse', 'V2024ListPredefinedSelectOptionsResponse'] 
 slug: /tools/sdk/powershell/v2024/models/list-predefined-select-options-response
-tags: ['SDK', 'Software Development Kit', 'ListPredefinedSelectOptionsResponse']
+tags: ['SDK', 'Software Development Kit', 'ListPredefinedSelectOptionsResponse', 'V2024ListPredefinedSelectOptionsResponse']
 ---
 
 

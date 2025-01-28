@@ -4,9 +4,9 @@ title: PutConnectorCorrelationConfigRequest
 pagination_label: PutConnectorCorrelationConfigRequest
 sidebar_label: PutConnectorCorrelationConfigRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'PutConnectorCorrelationConfigRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'PutConnectorCorrelationConfigRequest', 'V2024PutConnectorCorrelationConfigRequest'] 
 slug: /tools/sdk/powershell/v2024/models/put-connector-correlation-config-request
-tags: ['SDK', 'Software Development Kit', 'PutConnectorCorrelationConfigRequest']
+tags: ['SDK', 'Software Development Kit', 'PutConnectorCorrelationConfigRequest', 'V2024PutConnectorCorrelationConfigRequest']
 ---
 
 

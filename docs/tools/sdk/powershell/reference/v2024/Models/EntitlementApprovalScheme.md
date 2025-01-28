@@ -4,9 +4,9 @@ title: EntitlementApprovalScheme
 pagination_label: EntitlementApprovalScheme
 sidebar_label: EntitlementApprovalScheme
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'EntitlementApprovalScheme'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'EntitlementApprovalScheme', 'V2024EntitlementApprovalScheme'] 
 slug: /tools/sdk/powershell/v2024/models/entitlement-approval-scheme
-tags: ['SDK', 'Software Development Kit', 'EntitlementApprovalScheme']
+tags: ['SDK', 'Software Development Kit', 'EntitlementApprovalScheme', 'V2024EntitlementApprovalScheme']
 ---
 
 

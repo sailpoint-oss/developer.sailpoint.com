@@ -4,9 +4,9 @@ title: IdpDetails
 pagination_label: IdpDetails
 sidebar_label: IdpDetails
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdpDetails'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdpDetails', 'IdpDetails'] 
 slug: /tools/sdk/powershell/v3/models/idp-details
-tags: ['SDK', 'Software Development Kit', 'IdpDetails']
+tags: ['SDK', 'Software Development Kit', 'IdpDetails', 'IdpDetails']
 ---
 
 

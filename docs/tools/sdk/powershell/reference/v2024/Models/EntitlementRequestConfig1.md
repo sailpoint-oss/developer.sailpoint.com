@@ -4,9 +4,9 @@ title: EntitlementRequestConfig1
 pagination_label: EntitlementRequestConfig1
 sidebar_label: EntitlementRequestConfig1
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'EntitlementRequestConfig1'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'EntitlementRequestConfig1', 'V2024EntitlementRequestConfig1'] 
 slug: /tools/sdk/powershell/v2024/models/entitlement-request-config1
-tags: ['SDK', 'Software Development Kit', 'EntitlementRequestConfig1']
+tags: ['SDK', 'Software Development Kit', 'EntitlementRequestConfig1', 'V2024EntitlementRequestConfig1']
 ---
 
 

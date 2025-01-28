@@ -4,9 +4,9 @@ title: RequestedItemStatusProvisioningDetails
 pagination_label: RequestedItemStatusProvisioningDetails
 sidebar_label: RequestedItemStatusProvisioningDetails
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RequestedItemStatusProvisioningDetails'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RequestedItemStatusProvisioningDetails', 'RequestedItemStatusProvisioningDetails'] 
 slug: /tools/sdk/powershell/v3/models/requested-item-status-provisioning-details
-tags: ['SDK', 'Software Development Kit', 'RequestedItemStatusProvisioningDetails']
+tags: ['SDK', 'Software Development Kit', 'RequestedItemStatusProvisioningDetails', 'RequestedItemStatusProvisioningDetails']
 ---
 
 

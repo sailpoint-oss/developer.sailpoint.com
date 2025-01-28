@@ -4,9 +4,9 @@ title: SpConfigMessage
 pagination_label: SpConfigMessage
 sidebar_label: SpConfigMessage
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SpConfigMessage'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SpConfigMessage', 'V2024SpConfigMessage'] 
 slug: /tools/sdk/powershell/v2024/models/sp-config-message
-tags: ['SDK', 'Software Development Kit', 'SpConfigMessage']
+tags: ['SDK', 'Software Development Kit', 'SpConfigMessage', 'V2024SpConfigMessage']
 ---
 
 

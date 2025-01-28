@@ -4,9 +4,9 @@ title: DateMath
 pagination_label: DateMath
 sidebar_label: DateMath
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'DateMath'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'DateMath', 'V2024DateMath'] 
 slug: /tools/sdk/powershell/v2024/models/date-math
-tags: ['SDK', 'Software Development Kit', 'DateMath']
+tags: ['SDK', 'Software Development Kit', 'DateMath', 'V2024DateMath']
 ---
 
 

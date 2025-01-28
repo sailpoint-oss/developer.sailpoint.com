@@ -4,9 +4,9 @@ title: WorkgroupDtoOwner
 pagination_label: WorkgroupDtoOwner
 sidebar_label: WorkgroupDtoOwner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'WorkgroupDtoOwner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'WorkgroupDtoOwner', 'V2024WorkgroupDtoOwner'] 
 slug: /tools/sdk/powershell/v2024/models/workgroup-dto-owner
-tags: ['SDK', 'Software Development Kit', 'WorkgroupDtoOwner']
+tags: ['SDK', 'Software Development Kit', 'WorkgroupDtoOwner', 'V2024WorkgroupDtoOwner']
 ---
 
 

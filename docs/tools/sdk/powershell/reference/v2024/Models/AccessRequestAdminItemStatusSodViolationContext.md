@@ -4,9 +4,9 @@ title: AccessRequestAdminItemStatusSodViolationContext
 pagination_label: AccessRequestAdminItemStatusSodViolationContext
 sidebar_label: AccessRequestAdminItemStatusSodViolationContext
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestAdminItemStatusSodViolationContext'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestAdminItemStatusSodViolationContext', 'V2024AccessRequestAdminItemStatusSodViolationContext'] 
 slug: /tools/sdk/powershell/v2024/models/access-request-admin-item-status-sod-violation-context
-tags: ['SDK', 'Software Development Kit', 'AccessRequestAdminItemStatusSodViolationContext']
+tags: ['SDK', 'Software Development Kit', 'AccessRequestAdminItemStatusSodViolationContext', 'V2024AccessRequestAdminItemStatusSodViolationContext']
 ---
 
 

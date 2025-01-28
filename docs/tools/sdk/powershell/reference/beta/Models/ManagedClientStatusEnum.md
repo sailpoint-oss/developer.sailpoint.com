@@ -4,9 +4,9 @@ title: ManagedClientStatusEnum
 pagination_label: ManagedClientStatusEnum
 sidebar_label: ManagedClientStatusEnum
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ManagedClientStatusEnum'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ManagedClientStatusEnum', 'BetaManagedClientStatusEnum'] 
 slug: /tools/sdk/powershell/beta/models/managed-client-status-enum
-tags: ['SDK', 'Software Development Kit', 'ManagedClientStatusEnum']
+tags: ['SDK', 'Software Development Kit', 'ManagedClientStatusEnum', 'BetaManagedClientStatusEnum']
 ---
 
 

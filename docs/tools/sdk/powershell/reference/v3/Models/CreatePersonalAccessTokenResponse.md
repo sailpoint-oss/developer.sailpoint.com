@@ -4,9 +4,9 @@ title: CreatePersonalAccessTokenResponse
 pagination_label: CreatePersonalAccessTokenResponse
 sidebar_label: CreatePersonalAccessTokenResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CreatePersonalAccessTokenResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CreatePersonalAccessTokenResponse', 'CreatePersonalAccessTokenResponse'] 
 slug: /tools/sdk/powershell/v3/models/create-personal-access-token-response
-tags: ['SDK', 'Software Development Kit', 'CreatePersonalAccessTokenResponse']
+tags: ['SDK', 'Software Development Kit', 'CreatePersonalAccessTokenResponse', 'CreatePersonalAccessTokenResponse']
 ---
 
 

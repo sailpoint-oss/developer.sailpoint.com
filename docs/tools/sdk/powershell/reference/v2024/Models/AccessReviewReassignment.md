@@ -4,9 +4,9 @@ title: AccessReviewReassignment
 pagination_label: AccessReviewReassignment
 sidebar_label: AccessReviewReassignment
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessReviewReassignment'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessReviewReassignment', 'V2024AccessReviewReassignment'] 
 slug: /tools/sdk/powershell/v2024/models/access-review-reassignment
-tags: ['SDK', 'Software Development Kit', 'AccessReviewReassignment']
+tags: ['SDK', 'Software Development Kit', 'AccessReviewReassignment', 'V2024AccessReviewReassignment']
 ---
 
 

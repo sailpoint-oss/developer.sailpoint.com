@@ -4,9 +4,9 @@ title: ReviewableEntitlementAccountOwner
 pagination_label: ReviewableEntitlementAccountOwner
 sidebar_label: ReviewableEntitlementAccountOwner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ReviewableEntitlementAccountOwner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ReviewableEntitlementAccountOwner', 'V2024ReviewableEntitlementAccountOwner'] 
 slug: /tools/sdk/powershell/v2024/models/reviewable-entitlement-account-owner
-tags: ['SDK', 'Software Development Kit', 'ReviewableEntitlementAccountOwner']
+tags: ['SDK', 'Software Development Kit', 'ReviewableEntitlementAccountOwner', 'V2024ReviewableEntitlementAccountOwner']
 ---
 
 

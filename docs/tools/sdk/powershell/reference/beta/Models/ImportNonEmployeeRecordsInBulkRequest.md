@@ -4,9 +4,9 @@ title: ImportNonEmployeeRecordsInBulkRequest
 pagination_label: ImportNonEmployeeRecordsInBulkRequest
 sidebar_label: ImportNonEmployeeRecordsInBulkRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ImportNonEmployeeRecordsInBulkRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ImportNonEmployeeRecordsInBulkRequest', 'BetaImportNonEmployeeRecordsInBulkRequest'] 
 slug: /tools/sdk/powershell/beta/models/import-non-employee-records-in-bulk-request
-tags: ['SDK', 'Software Development Kit', 'ImportNonEmployeeRecordsInBulkRequest']
+tags: ['SDK', 'Software Development Kit', 'ImportNonEmployeeRecordsInBulkRequest', 'BetaImportNonEmployeeRecordsInBulkRequest']
 ---
 
 

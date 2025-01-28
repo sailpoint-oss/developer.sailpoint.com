@@ -4,9 +4,9 @@ title: ModelError
 pagination_label: ModelError
 sidebar_label: ModelError
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ModelError'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ModelError', 'BetaModelError'] 
 slug: /tools/sdk/powershell/beta/models/model-error
-tags: ['SDK', 'Software Development Kit', 'ModelError']
+tags: ['SDK', 'Software Development Kit', 'ModelError', 'BetaModelError']
 ---
 
 

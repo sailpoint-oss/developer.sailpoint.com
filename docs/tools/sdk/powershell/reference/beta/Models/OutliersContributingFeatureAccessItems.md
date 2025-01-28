@@ -4,9 +4,9 @@ title: OutliersContributingFeatureAccessItems
 pagination_label: OutliersContributingFeatureAccessItems
 sidebar_label: OutliersContributingFeatureAccessItems
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'OutliersContributingFeatureAccessItems'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'OutliersContributingFeatureAccessItems', 'BetaOutliersContributingFeatureAccessItems'] 
 slug: /tools/sdk/powershell/beta/models/outliers-contributing-feature-access-items
-tags: ['SDK', 'Software Development Kit', 'OutliersContributingFeatureAccessItems']
+tags: ['SDK', 'Software Development Kit', 'OutliersContributingFeatureAccessItems', 'BetaOutliersContributingFeatureAccessItems']
 ---
 
 

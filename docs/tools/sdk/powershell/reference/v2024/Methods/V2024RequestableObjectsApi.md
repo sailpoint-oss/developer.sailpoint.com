@@ -4,9 +4,9 @@ title: RequestableObjects
 pagination_label: RequestableObjects
 sidebar_label: RequestableObjects
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RequestableObjects'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RequestableObjects', 'V2024RequestableObjects'] 
 slug: /tools/sdk/powershell/v2024/methods/requestable-objects
-tags: ['SDK', 'Software Development Kit', 'RequestableObjects']
+tags: ['SDK', 'Software Development Kit', 'RequestableObjects', 'V2024RequestableObjects']
 ---
 
 

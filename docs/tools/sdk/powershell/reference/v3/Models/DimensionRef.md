@@ -4,9 +4,9 @@ title: DimensionRef
 pagination_label: DimensionRef
 sidebar_label: DimensionRef
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'DimensionRef'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'DimensionRef', 'DimensionRef'] 
 slug: /tools/sdk/powershell/v3/models/dimension-ref
-tags: ['SDK', 'Software Development Kit', 'DimensionRef']
+tags: ['SDK', 'Software Development Kit', 'DimensionRef', 'DimensionRef']
 ---
 
 

@@ -4,9 +4,9 @@ title: LoadAccountsTaskTaskAttributes
 pagination_label: LoadAccountsTaskTaskAttributes
 sidebar_label: LoadAccountsTaskTaskAttributes
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'LoadAccountsTaskTaskAttributes'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'LoadAccountsTaskTaskAttributes', 'BetaLoadAccountsTaskTaskAttributes'] 
 slug: /tools/sdk/powershell/beta/models/load-accounts-task-task-attributes
-tags: ['SDK', 'Software Development Kit', 'LoadAccountsTaskTaskAttributes']
+tags: ['SDK', 'Software Development Kit', 'LoadAccountsTaskTaskAttributes', 'BetaLoadAccountsTaskTaskAttributes']
 ---
 
 

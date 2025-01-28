@@ -4,9 +4,9 @@ title: SubscriptionType
 pagination_label: SubscriptionType
 sidebar_label: SubscriptionType
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SubscriptionType'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SubscriptionType', 'V2024SubscriptionType'] 
 slug: /tools/sdk/powershell/v2024/models/subscription-type
-tags: ['SDK', 'Software Development Kit', 'SubscriptionType']
+tags: ['SDK', 'Software Development Kit', 'SubscriptionType', 'V2024SubscriptionType']
 ---
 
 

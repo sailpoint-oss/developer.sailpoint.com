@@ -4,9 +4,9 @@ title: AccessProfileSourceRef
 pagination_label: AccessProfileSourceRef
 sidebar_label: AccessProfileSourceRef
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessProfileSourceRef'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessProfileSourceRef', 'V2024AccessProfileSourceRef'] 
 slug: /tools/sdk/powershell/v2024/models/access-profile-source-ref
-tags: ['SDK', 'Software Development Kit', 'AccessProfileSourceRef']
+tags: ['SDK', 'Software Development Kit', 'AccessProfileSourceRef', 'V2024AccessProfileSourceRef']
 ---
 
 

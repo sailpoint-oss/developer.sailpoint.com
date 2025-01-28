@@ -4,9 +4,9 @@ title: AccessProfileBulkUpdateRequestInner
 pagination_label: AccessProfileBulkUpdateRequestInner
 sidebar_label: AccessProfileBulkUpdateRequestInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessProfileBulkUpdateRequestInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessProfileBulkUpdateRequestInner', 'V2024AccessProfileBulkUpdateRequestInner'] 
 slug: /tools/sdk/powershell/v2024/models/access-profile-bulk-update-request-inner
-tags: ['SDK', 'Software Development Kit', 'AccessProfileBulkUpdateRequestInner']
+tags: ['SDK', 'Software Development Kit', 'AccessProfileBulkUpdateRequestInner', 'V2024AccessProfileBulkUpdateRequestInner']
 ---
 
 

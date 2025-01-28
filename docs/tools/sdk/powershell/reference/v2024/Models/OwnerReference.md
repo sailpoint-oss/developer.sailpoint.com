@@ -4,9 +4,9 @@ title: OwnerReference
 pagination_label: OwnerReference
 sidebar_label: OwnerReference
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'OwnerReference'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'OwnerReference', 'V2024OwnerReference'] 
 slug: /tools/sdk/powershell/v2024/models/owner-reference
-tags: ['SDK', 'Software Development Kit', 'OwnerReference']
+tags: ['SDK', 'Software Development Kit', 'OwnerReference', 'V2024OwnerReference']
 ---
 
 

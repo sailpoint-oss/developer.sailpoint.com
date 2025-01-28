@@ -4,9 +4,9 @@ title: AccessItemAccountResponse
 pagination_label: AccessItemAccountResponse
 sidebar_label: AccessItemAccountResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessItemAccountResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessItemAccountResponse', 'BetaAccessItemAccountResponse'] 
 slug: /tools/sdk/powershell/beta/models/access-item-account-response
-tags: ['SDK', 'Software Development Kit', 'AccessItemAccountResponse']
+tags: ['SDK', 'Software Development Kit', 'AccessItemAccountResponse', 'BetaAccessItemAccountResponse']
 ---
 
 

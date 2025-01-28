@@ -4,9 +4,9 @@ title: RoleMiningSessionScope
 pagination_label: RoleMiningSessionScope
 sidebar_label: RoleMiningSessionScope
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMiningSessionScope'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMiningSessionScope', 'V2024RoleMiningSessionScope'] 
 slug: /tools/sdk/powershell/v2024/models/role-mining-session-scope
-tags: ['SDK', 'Software Development Kit', 'RoleMiningSessionScope']
+tags: ['SDK', 'Software Development Kit', 'RoleMiningSessionScope', 'V2024RoleMiningSessionScope']
 ---
 
 

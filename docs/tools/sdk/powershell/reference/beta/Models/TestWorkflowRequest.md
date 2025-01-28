@@ -4,9 +4,9 @@ title: TestWorkflowRequest
 pagination_label: TestWorkflowRequest
 sidebar_label: TestWorkflowRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TestWorkflowRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TestWorkflowRequest', 'BetaTestWorkflowRequest'] 
 slug: /tools/sdk/powershell/beta/models/test-workflow-request
-tags: ['SDK', 'Software Development Kit', 'TestWorkflowRequest']
+tags: ['SDK', 'Software Development Kit', 'TestWorkflowRequest', 'BetaTestWorkflowRequest']
 ---
 
 

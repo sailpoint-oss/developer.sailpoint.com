@@ -4,9 +4,9 @@ title: GenerateRandomString
 pagination_label: GenerateRandomString
 sidebar_label: GenerateRandomString
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'GenerateRandomString'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'GenerateRandomString', 'BetaGenerateRandomString'] 
 slug: /tools/sdk/powershell/beta/models/generate-random-string
-tags: ['SDK', 'Software Development Kit', 'GenerateRandomString']
+tags: ['SDK', 'Software Development Kit', 'GenerateRandomString', 'BetaGenerateRandomString']
 ---
 
 

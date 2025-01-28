@@ -4,9 +4,9 @@ title: RoleCriteriaKeyType
 pagination_label: RoleCriteriaKeyType
 sidebar_label: RoleCriteriaKeyType
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleCriteriaKeyType'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleCriteriaKeyType', 'BetaRoleCriteriaKeyType'] 
 slug: /tools/sdk/powershell/beta/models/role-criteria-key-type
-tags: ['SDK', 'Software Development Kit', 'RoleCriteriaKeyType']
+tags: ['SDK', 'Software Development Kit', 'RoleCriteriaKeyType', 'BetaRoleCriteriaKeyType']
 ---
 
 

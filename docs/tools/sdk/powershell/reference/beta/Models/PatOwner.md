@@ -4,9 +4,9 @@ title: PatOwner
 pagination_label: PatOwner
 sidebar_label: PatOwner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'PatOwner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'PatOwner', 'BetaPatOwner'] 
 slug: /tools/sdk/powershell/beta/models/pat-owner
-tags: ['SDK', 'Software Development Kit', 'PatOwner']
+tags: ['SDK', 'Software Development Kit', 'PatOwner', 'BetaPatOwner']
 ---
 
 

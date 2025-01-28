@@ -4,9 +4,9 @@ title: AttrSyncSourceAttributeConfig
 pagination_label: AttrSyncSourceAttributeConfig
 sidebar_label: AttrSyncSourceAttributeConfig
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AttrSyncSourceAttributeConfig'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AttrSyncSourceAttributeConfig', 'V2024AttrSyncSourceAttributeConfig'] 
 slug: /tools/sdk/powershell/v2024/models/attr-sync-source-attribute-config
-tags: ['SDK', 'Software Development Kit', 'AttrSyncSourceAttributeConfig']
+tags: ['SDK', 'Software Development Kit', 'AttrSyncSourceAttributeConfig', 'V2024AttrSyncSourceAttributeConfig']
 ---
 
 

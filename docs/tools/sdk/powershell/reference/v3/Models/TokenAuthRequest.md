@@ -4,9 +4,9 @@ title: TokenAuthRequest
 pagination_label: TokenAuthRequest
 sidebar_label: TokenAuthRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TokenAuthRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TokenAuthRequest', 'TokenAuthRequest'] 
 slug: /tools/sdk/powershell/v3/models/token-auth-request
-tags: ['SDK', 'Software Development Kit', 'TokenAuthRequest']
+tags: ['SDK', 'Software Development Kit', 'TokenAuthRequest', 'TokenAuthRequest']
 ---
 
 

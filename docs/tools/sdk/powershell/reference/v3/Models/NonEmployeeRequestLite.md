@@ -4,9 +4,9 @@ title: NonEmployeeRequestLite
 pagination_label: NonEmployeeRequestLite
 sidebar_label: NonEmployeeRequestLite
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'NonEmployeeRequestLite'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'NonEmployeeRequestLite', 'NonEmployeeRequestLite'] 
 slug: /tools/sdk/powershell/v3/models/non-employee-request-lite
-tags: ['SDK', 'Software Development Kit', 'NonEmployeeRequestLite']
+tags: ['SDK', 'Software Development Kit', 'NonEmployeeRequestLite', 'NonEmployeeRequestLite']
 ---
 
 

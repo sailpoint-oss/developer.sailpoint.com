@@ -4,9 +4,9 @@ title: CompletedApprovalReviewedBy
 pagination_label: CompletedApprovalReviewedBy
 sidebar_label: CompletedApprovalReviewedBy
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CompletedApprovalReviewedBy'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CompletedApprovalReviewedBy', 'BetaCompletedApprovalReviewedBy'] 
 slug: /tools/sdk/powershell/beta/models/completed-approval-reviewed-by
-tags: ['SDK', 'Software Development Kit', 'CompletedApprovalReviewedBy']
+tags: ['SDK', 'Software Development Kit', 'CompletedApprovalReviewedBy', 'BetaCompletedApprovalReviewedBy']
 ---
 
 

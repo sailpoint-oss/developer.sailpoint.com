@@ -4,9 +4,9 @@ title: CreateDomainDkim405Response
 pagination_label: CreateDomainDkim405Response
 sidebar_label: CreateDomainDkim405Response
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CreateDomainDkim405Response'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CreateDomainDkim405Response', 'V2024CreateDomainDkim405Response'] 
 slug: /tools/sdk/powershell/v2024/models/create-domain-dkim405-response
-tags: ['SDK', 'Software Development Kit', 'CreateDomainDkim405Response']
+tags: ['SDK', 'Software Development Kit', 'CreateDomainDkim405Response', 'V2024CreateDomainDkim405Response']
 ---
 
 

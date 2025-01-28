@@ -4,9 +4,9 @@ title: CampaignAllOfFilter
 pagination_label: CampaignAllOfFilter
 sidebar_label: CampaignAllOfFilter
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignAllOfFilter'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignAllOfFilter', 'CampaignAllOfFilter'] 
 slug: /tools/sdk/powershell/v3/models/campaign-all-of-filter
-tags: ['SDK', 'Software Development Kit', 'CampaignAllOfFilter']
+tags: ['SDK', 'Software Development Kit', 'CampaignAllOfFilter', 'CampaignAllOfFilter']
 ---
 
 

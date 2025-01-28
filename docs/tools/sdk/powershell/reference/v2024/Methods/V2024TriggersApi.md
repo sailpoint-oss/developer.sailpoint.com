@@ -4,9 +4,9 @@ title: Triggers
 pagination_label: Triggers
 sidebar_label: Triggers
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Triggers'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Triggers', 'V2024Triggers'] 
 slug: /tools/sdk/powershell/v2024/methods/triggers
-tags: ['SDK', 'Software Development Kit', 'Triggers']
+tags: ['SDK', 'Software Development Kit', 'Triggers', 'V2024Triggers']
 ---
 
 

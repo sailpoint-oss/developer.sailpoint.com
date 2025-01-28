@@ -4,9 +4,9 @@ title: Upper
 pagination_label: Upper
 sidebar_label: Upper
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Upper'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Upper', 'V2024Upper'] 
 slug: /tools/sdk/powershell/v2024/models/upper
-tags: ['SDK', 'Software Development Kit', 'Upper']
+tags: ['SDK', 'Software Development Kit', 'Upper', 'V2024Upper']
 ---
 
 

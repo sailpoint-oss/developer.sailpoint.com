@@ -4,9 +4,9 @@ title: WorkgroupMemberAddItem
 pagination_label: WorkgroupMemberAddItem
 sidebar_label: WorkgroupMemberAddItem
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'WorkgroupMemberAddItem'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'WorkgroupMemberAddItem', 'V2024WorkgroupMemberAddItem'] 
 slug: /tools/sdk/powershell/v2024/models/workgroup-member-add-item
-tags: ['SDK', 'Software Development Kit', 'WorkgroupMemberAddItem']
+tags: ['SDK', 'Software Development Kit', 'WorkgroupMemberAddItem', 'V2024WorkgroupMemberAddItem']
 ---
 
 

@@ -4,9 +4,9 @@ title: SourceAccountDeleted
 pagination_label: SourceAccountDeleted
 sidebar_label: SourceAccountDeleted
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SourceAccountDeleted'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SourceAccountDeleted', 'V2024SourceAccountDeleted'] 
 slug: /tools/sdk/powershell/v2024/models/source-account-deleted
-tags: ['SDK', 'Software Development Kit', 'SourceAccountDeleted']
+tags: ['SDK', 'Software Development Kit', 'SourceAccountDeleted', 'V2024SourceAccountDeleted']
 ---
 
 

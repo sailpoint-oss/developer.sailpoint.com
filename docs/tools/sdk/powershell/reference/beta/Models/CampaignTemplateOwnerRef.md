@@ -4,9 +4,9 @@ title: CampaignTemplateOwnerRef
 pagination_label: CampaignTemplateOwnerRef
 sidebar_label: CampaignTemplateOwnerRef
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignTemplateOwnerRef'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignTemplateOwnerRef', 'BetaCampaignTemplateOwnerRef'] 
 slug: /tools/sdk/powershell/beta/models/campaign-template-owner-ref
-tags: ['SDK', 'Software Development Kit', 'CampaignTemplateOwnerRef']
+tags: ['SDK', 'Software Development Kit', 'CampaignTemplateOwnerRef', 'BetaCampaignTemplateOwnerRef']
 ---
 
 

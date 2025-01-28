@@ -4,9 +4,9 @@ title: MultiHostIntegrationsAggScheduleUpdate
 pagination_label: MultiHostIntegrationsAggScheduleUpdate
 sidebar_label: MultiHostIntegrationsAggScheduleUpdate
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'MultiHostIntegrationsAggScheduleUpdate'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'MultiHostIntegrationsAggScheduleUpdate', 'BetaMultiHostIntegrationsAggScheduleUpdate'] 
 slug: /tools/sdk/powershell/beta/models/multi-host-integrations-agg-schedule-update
-tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrationsAggScheduleUpdate']
+tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrationsAggScheduleUpdate', 'BetaMultiHostIntegrationsAggScheduleUpdate']
 ---
 
 

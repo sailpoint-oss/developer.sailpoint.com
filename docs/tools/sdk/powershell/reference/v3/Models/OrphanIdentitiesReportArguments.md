@@ -4,9 +4,9 @@ title: OrphanIdentitiesReportArguments
 pagination_label: OrphanIdentitiesReportArguments
 sidebar_label: OrphanIdentitiesReportArguments
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'OrphanIdentitiesReportArguments'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'OrphanIdentitiesReportArguments', 'OrphanIdentitiesReportArguments'] 
 slug: /tools/sdk/powershell/v3/models/orphan-identities-report-arguments
-tags: ['SDK', 'Software Development Kit', 'OrphanIdentitiesReportArguments']
+tags: ['SDK', 'Software Development Kit', 'OrphanIdentitiesReportArguments', 'OrphanIdentitiesReportArguments']
 ---
 
 

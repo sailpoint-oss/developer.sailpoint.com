@@ -4,9 +4,9 @@ title: FormDefinitionSelfImportExportDto
 pagination_label: FormDefinitionSelfImportExportDto
 sidebar_label: FormDefinitionSelfImportExportDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'FormDefinitionSelfImportExportDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'FormDefinitionSelfImportExportDto', 'BetaFormDefinitionSelfImportExportDto'] 
 slug: /tools/sdk/powershell/beta/models/form-definition-self-import-export-dto
-tags: ['SDK', 'Software Development Kit', 'FormDefinitionSelfImportExportDto']
+tags: ['SDK', 'Software Development Kit', 'FormDefinitionSelfImportExportDto', 'BetaFormDefinitionSelfImportExportDto']
 ---
 
 

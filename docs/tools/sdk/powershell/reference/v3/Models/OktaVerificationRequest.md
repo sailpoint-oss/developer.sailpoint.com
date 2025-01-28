@@ -4,9 +4,9 @@ title: OktaVerificationRequest
 pagination_label: OktaVerificationRequest
 sidebar_label: OktaVerificationRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'OktaVerificationRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'OktaVerificationRequest', 'OktaVerificationRequest'] 
 slug: /tools/sdk/powershell/v3/models/okta-verification-request
-tags: ['SDK', 'Software Development Kit', 'OktaVerificationRequest']
+tags: ['SDK', 'Software Development Kit', 'OktaVerificationRequest', 'OktaVerificationRequest']
 ---
 
 

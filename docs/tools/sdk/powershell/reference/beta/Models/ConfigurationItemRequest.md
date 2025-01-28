@@ -4,9 +4,9 @@ title: ConfigurationItemRequest
 pagination_label: ConfigurationItemRequest
 sidebar_label: ConfigurationItemRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ConfigurationItemRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ConfigurationItemRequest', 'BetaConfigurationItemRequest'] 
 slug: /tools/sdk/powershell/beta/models/configuration-item-request
-tags: ['SDK', 'Software Development Kit', 'ConfigurationItemRequest']
+tags: ['SDK', 'Software Development Kit', 'ConfigurationItemRequest', 'BetaConfigurationItemRequest']
 ---
 
 

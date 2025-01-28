@@ -4,9 +4,9 @@ title: PutClientLogConfigurationRequest
 pagination_label: PutClientLogConfigurationRequest
 sidebar_label: PutClientLogConfigurationRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'PutClientLogConfigurationRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'PutClientLogConfigurationRequest', 'PutClientLogConfigurationRequest'] 
 slug: /tools/sdk/powershell/v3/models/put-client-log-configuration-request
-tags: ['SDK', 'Software Development Kit', 'PutClientLogConfigurationRequest']
+tags: ['SDK', 'Software Development Kit', 'PutClientLogConfigurationRequest', 'PutClientLogConfigurationRequest']
 ---
 
 

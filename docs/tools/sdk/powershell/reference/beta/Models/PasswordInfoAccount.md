@@ -4,9 +4,9 @@ title: PasswordInfoAccount
 pagination_label: PasswordInfoAccount
 sidebar_label: PasswordInfoAccount
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'PasswordInfoAccount'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'PasswordInfoAccount', 'BetaPasswordInfoAccount'] 
 slug: /tools/sdk/powershell/beta/models/password-info-account
-tags: ['SDK', 'Software Development Kit', 'PasswordInfoAccount']
+tags: ['SDK', 'Software Development Kit', 'PasswordInfoAccount', 'BetaPasswordInfoAccount']
 ---
 
 

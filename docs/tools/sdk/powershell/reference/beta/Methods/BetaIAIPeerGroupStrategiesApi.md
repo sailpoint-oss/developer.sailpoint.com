@@ -4,9 +4,9 @@ title: IAIPeerGroupStrategies
 pagination_label: IAIPeerGroupStrategies
 sidebar_label: IAIPeerGroupStrategies
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IAIPeerGroupStrategies'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IAIPeerGroupStrategies', 'BetaIAIPeerGroupStrategies'] 
 slug: /tools/sdk/powershell/beta/methods/iai-peer-group-strategies
-tags: ['SDK', 'Software Development Kit', 'IAIPeerGroupStrategies']
+tags: ['SDK', 'Software Development Kit', 'IAIPeerGroupStrategies', 'BetaIAIPeerGroupStrategies']
 ---
 
 

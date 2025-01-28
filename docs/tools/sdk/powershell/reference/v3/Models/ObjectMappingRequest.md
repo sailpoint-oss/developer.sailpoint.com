@@ -4,9 +4,9 @@ title: ObjectMappingRequest
 pagination_label: ObjectMappingRequest
 sidebar_label: ObjectMappingRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ObjectMappingRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ObjectMappingRequest', 'ObjectMappingRequest'] 
 slug: /tools/sdk/powershell/v3/models/object-mapping-request
-tags: ['SDK', 'Software Development Kit', 'ObjectMappingRequest']
+tags: ['SDK', 'Software Development Kit', 'ObjectMappingRequest', 'ObjectMappingRequest']
 ---
 
 

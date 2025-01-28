@@ -4,9 +4,9 @@ title: ExternalAttributes
 pagination_label: ExternalAttributes
 sidebar_label: ExternalAttributes
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ExternalAttributes'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ExternalAttributes', 'V2024ExternalAttributes'] 
 slug: /tools/sdk/powershell/v2024/models/external-attributes
-tags: ['SDK', 'Software Development Kit', 'ExternalAttributes']
+tags: ['SDK', 'Software Development Kit', 'ExternalAttributes', 'V2024ExternalAttributes']
 ---
 
 

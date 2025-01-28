@@ -4,9 +4,9 @@ title: SODPolicies
 pagination_label: SODPolicies
 sidebar_label: SODPolicies
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SODPolicies'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SODPolicies', 'BetaSODPolicies'] 
 slug: /tools/sdk/powershell/beta/methods/sod-policies
-tags: ['SDK', 'Software Development Kit', 'SODPolicies']
+tags: ['SDK', 'Software Development Kit', 'SODPolicies', 'BetaSODPolicies']
 ---
 
 

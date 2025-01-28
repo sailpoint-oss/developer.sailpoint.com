@@ -4,9 +4,9 @@ title: DeleteSource202Response
 pagination_label: DeleteSource202Response
 sidebar_label: DeleteSource202Response
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'DeleteSource202Response'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'DeleteSource202Response', 'DeleteSource202Response'] 
 slug: /tools/sdk/powershell/v3/models/delete-source202-response
-tags: ['SDK', 'Software Development Kit', 'DeleteSource202Response']
+tags: ['SDK', 'Software Development Kit', 'DeleteSource202Response', 'DeleteSource202Response']
 ---
 
 

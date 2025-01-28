@@ -4,9 +4,9 @@ title: AttributeDTOList
 pagination_label: AttributeDTOList
 sidebar_label: AttributeDTOList
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AttributeDTOList'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AttributeDTOList', 'V2024AttributeDTOList'] 
 slug: /tools/sdk/powershell/v2024/models/attribute-dto-list
-tags: ['SDK', 'Software Development Kit', 'AttributeDTOList']
+tags: ['SDK', 'Software Development Kit', 'AttributeDTOList', 'V2024AttributeDTOList']
 ---
 
 

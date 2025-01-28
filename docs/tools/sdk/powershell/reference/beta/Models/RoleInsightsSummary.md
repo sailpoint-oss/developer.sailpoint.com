@@ -4,9 +4,9 @@ title: RoleInsightsSummary
 pagination_label: RoleInsightsSummary
 sidebar_label: RoleInsightsSummary
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleInsightsSummary'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleInsightsSummary', 'BetaRoleInsightsSummary'] 
 slug: /tools/sdk/powershell/beta/models/role-insights-summary
-tags: ['SDK', 'Software Development Kit', 'RoleInsightsSummary']
+tags: ['SDK', 'Software Development Kit', 'RoleInsightsSummary', 'BetaRoleInsightsSummary']
 ---
 
 

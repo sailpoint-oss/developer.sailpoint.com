@@ -4,9 +4,9 @@ title: TemplateTeams
 pagination_label: TemplateTeams
 sidebar_label: TemplateTeams
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TemplateTeams'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TemplateTeams', 'BetaTemplateTeams'] 
 slug: /tools/sdk/powershell/beta/models/template-teams
-tags: ['SDK', 'Software Development Kit', 'TemplateTeams']
+tags: ['SDK', 'Software Development Kit', 'TemplateTeams', 'BetaTemplateTeams']
 ---
 
 

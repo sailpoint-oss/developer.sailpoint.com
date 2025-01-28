@@ -4,9 +4,9 @@ title: SourceUsage
 pagination_label: SourceUsage
 sidebar_label: SourceUsage
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SourceUsage'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SourceUsage', 'V2024SourceUsage'] 
 slug: /tools/sdk/powershell/v2024/models/source-usage
-tags: ['SDK', 'Software Development Kit', 'SourceUsage']
+tags: ['SDK', 'Software Development Kit', 'SourceUsage', 'V2024SourceUsage']
 ---
 
 

@@ -4,9 +4,9 @@ title: Subscription
 pagination_label: Subscription
 sidebar_label: Subscription
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Subscription'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Subscription', 'V2024Subscription'] 
 slug: /tools/sdk/powershell/v2024/models/subscription
-tags: ['SDK', 'Software Development Kit', 'Subscription']
+tags: ['SDK', 'Software Development Kit', 'Subscription', 'V2024Subscription']
 ---
 
 

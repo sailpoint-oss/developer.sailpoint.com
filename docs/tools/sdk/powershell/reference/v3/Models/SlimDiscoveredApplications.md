@@ -4,9 +4,9 @@ title: SlimDiscoveredApplications
 pagination_label: SlimDiscoveredApplications
 sidebar_label: SlimDiscoveredApplications
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SlimDiscoveredApplications'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SlimDiscoveredApplications', 'SlimDiscoveredApplications'] 
 slug: /tools/sdk/powershell/v3/models/slim-discovered-applications
-tags: ['SDK', 'Software Development Kit', 'SlimDiscoveredApplications']
+tags: ['SDK', 'Software Development Kit', 'SlimDiscoveredApplications', 'SlimDiscoveredApplications']
 ---
 
 

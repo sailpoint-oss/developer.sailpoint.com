@@ -4,9 +4,9 @@ title: ImportFormDefinitionsRequestInner
 pagination_label: ImportFormDefinitionsRequestInner
 sidebar_label: ImportFormDefinitionsRequestInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ImportFormDefinitionsRequestInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ImportFormDefinitionsRequestInner', 'BetaImportFormDefinitionsRequestInner'] 
 slug: /tools/sdk/powershell/beta/models/import-form-definitions-request-inner
-tags: ['SDK', 'Software Development Kit', 'ImportFormDefinitionsRequestInner']
+tags: ['SDK', 'Software Development Kit', 'ImportFormDefinitionsRequestInner', 'BetaImportFormDefinitionsRequestInner']
 ---
 
 

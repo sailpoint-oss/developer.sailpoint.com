@@ -4,9 +4,9 @@ title: PasswordChangeRequest
 pagination_label: PasswordChangeRequest
 sidebar_label: PasswordChangeRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'PasswordChangeRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'PasswordChangeRequest', 'V2024PasswordChangeRequest'] 
 slug: /tools/sdk/powershell/v2024/models/password-change-request
-tags: ['SDK', 'Software Development Kit', 'PasswordChangeRequest']
+tags: ['SDK', 'Software Development Kit', 'PasswordChangeRequest', 'V2024PasswordChangeRequest']
 ---
 
 

@@ -4,9 +4,9 @@ title: ImportEntitlementsBySourceRequest
 pagination_label: ImportEntitlementsBySourceRequest
 sidebar_label: ImportEntitlementsBySourceRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ImportEntitlementsBySourceRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ImportEntitlementsBySourceRequest', 'BetaImportEntitlementsBySourceRequest'] 
 slug: /tools/sdk/powershell/beta/models/import-entitlements-by-source-request
-tags: ['SDK', 'Software Development Kit', 'ImportEntitlementsBySourceRequest']
+tags: ['SDK', 'Software Development Kit', 'ImportEntitlementsBySourceRequest', 'BetaImportEntitlementsBySourceRequest']
 ---
 
 

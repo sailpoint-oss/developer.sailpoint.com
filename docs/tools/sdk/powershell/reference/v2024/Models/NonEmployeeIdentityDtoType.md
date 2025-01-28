@@ -4,9 +4,9 @@ title: NonEmployeeIdentityDtoType
 pagination_label: NonEmployeeIdentityDtoType
 sidebar_label: NonEmployeeIdentityDtoType
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'NonEmployeeIdentityDtoType'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'NonEmployeeIdentityDtoType', 'V2024NonEmployeeIdentityDtoType'] 
 slug: /tools/sdk/powershell/v2024/models/non-employee-identity-dto-type
-tags: ['SDK', 'Software Development Kit', 'NonEmployeeIdentityDtoType']
+tags: ['SDK', 'Software Development Kit', 'NonEmployeeIdentityDtoType', 'V2024NonEmployeeIdentityDtoType']
 ---
 
 

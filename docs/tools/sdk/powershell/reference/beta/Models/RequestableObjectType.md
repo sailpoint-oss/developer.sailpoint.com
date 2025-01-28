@@ -4,9 +4,9 @@ title: RequestableObjectType
 pagination_label: RequestableObjectType
 sidebar_label: RequestableObjectType
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RequestableObjectType'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RequestableObjectType', 'BetaRequestableObjectType'] 
 slug: /tools/sdk/powershell/beta/models/requestable-object-type
-tags: ['SDK', 'Software Development Kit', 'RequestableObjectType']
+tags: ['SDK', 'Software Development Kit', 'RequestableObjectType', 'BetaRequestableObjectType']
 ---
 
 

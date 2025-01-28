@@ -4,9 +4,9 @@ title: RoleCriteriaLevel2
 pagination_label: RoleCriteriaLevel2
 sidebar_label: RoleCriteriaLevel2
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleCriteriaLevel2'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleCriteriaLevel2', 'V2024RoleCriteriaLevel2'] 
 slug: /tools/sdk/powershell/v2024/models/role-criteria-level2
-tags: ['SDK', 'Software Development Kit', 'RoleCriteriaLevel2']
+tags: ['SDK', 'Software Development Kit', 'RoleCriteriaLevel2', 'V2024RoleCriteriaLevel2']
 ---
 
 

@@ -4,9 +4,9 @@ title: LifecycleState
 pagination_label: LifecycleState
 sidebar_label: LifecycleState
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'LifecycleState'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'LifecycleState', 'BetaLifecycleState'] 
 slug: /tools/sdk/powershell/beta/models/lifecycle-state
-tags: ['SDK', 'Software Development Kit', 'LifecycleState']
+tags: ['SDK', 'Software Development Kit', 'LifecycleState', 'BetaLifecycleState']
 ---
 
 

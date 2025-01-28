@@ -4,9 +4,9 @@ title: FieldDetailsDto
 pagination_label: FieldDetailsDto
 sidebar_label: FieldDetailsDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'FieldDetailsDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'FieldDetailsDto', 'V2024FieldDetailsDto'] 
 slug: /tools/sdk/powershell/v2024/models/field-details-dto
-tags: ['SDK', 'Software Development Kit', 'FieldDetailsDto']
+tags: ['SDK', 'Software Development Kit', 'FieldDetailsDto', 'V2024FieldDetailsDto']
 ---
 
 

@@ -4,9 +4,9 @@ title: AccessItemOwnerDto
 pagination_label: AccessItemOwnerDto
 sidebar_label: AccessItemOwnerDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessItemOwnerDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessItemOwnerDto', 'BetaAccessItemOwnerDto'] 
 slug: /tools/sdk/powershell/beta/models/access-item-owner-dto
-tags: ['SDK', 'Software Development Kit', 'AccessItemOwnerDto']
+tags: ['SDK', 'Software Development Kit', 'AccessItemOwnerDto', 'BetaAccessItemOwnerDto']
 ---
 
 

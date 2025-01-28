@@ -4,9 +4,9 @@ title: IdentityAttributesChangedIdentity
 pagination_label: IdentityAttributesChangedIdentity
 sidebar_label: IdentityAttributesChangedIdentity
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityAttributesChangedIdentity'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityAttributesChangedIdentity', 'V2024IdentityAttributesChangedIdentity'] 
 slug: /tools/sdk/powershell/v2024/models/identity-attributes-changed-identity
-tags: ['SDK', 'Software Development Kit', 'IdentityAttributesChangedIdentity']
+tags: ['SDK', 'Software Development Kit', 'IdentityAttributesChangedIdentity', 'V2024IdentityAttributesChangedIdentity']
 ---
 
 

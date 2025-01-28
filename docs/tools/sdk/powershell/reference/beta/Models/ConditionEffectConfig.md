@@ -4,9 +4,9 @@ title: ConditionEffectConfig
 pagination_label: ConditionEffectConfig
 sidebar_label: ConditionEffectConfig
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ConditionEffectConfig'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ConditionEffectConfig', 'BetaConditionEffectConfig'] 
 slug: /tools/sdk/powershell/beta/models/condition-effect-config
-tags: ['SDK', 'Software Development Kit', 'ConditionEffectConfig']
+tags: ['SDK', 'Software Development Kit', 'ConditionEffectConfig', 'BetaConditionEffectConfig']
 ---
 
 

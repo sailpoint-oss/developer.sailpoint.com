@@ -4,9 +4,9 @@ title: AttributeChange
 pagination_label: AttributeChange
 sidebar_label: AttributeChange
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AttributeChange'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AttributeChange', 'V2024AttributeChange'] 
 slug: /tools/sdk/powershell/v2024/models/attribute-change
-tags: ['SDK', 'Software Development Kit', 'AttributeChange']
+tags: ['SDK', 'Software Development Kit', 'AttributeChange', 'V2024AttributeChange']
 ---
 
 

@@ -4,9 +4,9 @@ title: MultiHostIntegrationsManagementWorkgroup
 pagination_label: MultiHostIntegrationsManagementWorkgroup
 sidebar_label: MultiHostIntegrationsManagementWorkgroup
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'MultiHostIntegrationsManagementWorkgroup'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'MultiHostIntegrationsManagementWorkgroup', 'BetaMultiHostIntegrationsManagementWorkgroup'] 
 slug: /tools/sdk/powershell/beta/models/multi-host-integrations-management-workgroup
-tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrationsManagementWorkgroup']
+tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrationsManagementWorkgroup', 'BetaMultiHostIntegrationsManagementWorkgroup']
 ---
 
 

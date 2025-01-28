@@ -4,9 +4,9 @@ title: AccessProfileApprovalScheme
 pagination_label: AccessProfileApprovalScheme
 sidebar_label: AccessProfileApprovalScheme
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessProfileApprovalScheme'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessProfileApprovalScheme', 'V2024AccessProfileApprovalScheme'] 
 slug: /tools/sdk/powershell/v2024/models/access-profile-approval-scheme
-tags: ['SDK', 'Software Development Kit', 'AccessProfileApprovalScheme']
+tags: ['SDK', 'Software Development Kit', 'AccessProfileApprovalScheme', 'V2024AccessProfileApprovalScheme']
 ---
 
 

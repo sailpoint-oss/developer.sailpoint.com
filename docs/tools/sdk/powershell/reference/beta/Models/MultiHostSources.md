@@ -4,9 +4,9 @@ title: MultiHostSources
 pagination_label: MultiHostSources
 sidebar_label: MultiHostSources
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'MultiHostSources'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'MultiHostSources', 'BetaMultiHostSources'] 
 slug: /tools/sdk/powershell/beta/models/multi-host-sources
-tags: ['SDK', 'Software Development Kit', 'MultiHostSources']
+tags: ['SDK', 'Software Development Kit', 'MultiHostSources', 'BetaMultiHostSources']
 ---
 
 

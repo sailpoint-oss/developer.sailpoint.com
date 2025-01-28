@@ -4,9 +4,9 @@ title: ApprovalIdentity
 pagination_label: ApprovalIdentity
 sidebar_label: ApprovalIdentity
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ApprovalIdentity'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ApprovalIdentity', 'BetaApprovalIdentity'] 
 slug: /tools/sdk/powershell/beta/models/approval-identity
-tags: ['SDK', 'Software Development Kit', 'ApprovalIdentity']
+tags: ['SDK', 'Software Development Kit', 'ApprovalIdentity', 'BetaApprovalIdentity']
 ---
 
 

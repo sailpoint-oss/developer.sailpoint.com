@@ -4,9 +4,9 @@ title: PreviewDataSourceResponse
 pagination_label: PreviewDataSourceResponse
 sidebar_label: PreviewDataSourceResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'PreviewDataSourceResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'PreviewDataSourceResponse', 'V2024PreviewDataSourceResponse'] 
 slug: /tools/sdk/powershell/v2024/models/preview-data-source-response
-tags: ['SDK', 'Software Development Kit', 'PreviewDataSourceResponse']
+tags: ['SDK', 'Software Development Kit', 'PreviewDataSourceResponse', 'V2024PreviewDataSourceResponse']
 ---
 
 

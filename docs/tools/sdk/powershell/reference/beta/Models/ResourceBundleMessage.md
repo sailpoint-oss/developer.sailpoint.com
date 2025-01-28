@@ -4,9 +4,9 @@ title: ResourceBundleMessage
 pagination_label: ResourceBundleMessage
 sidebar_label: ResourceBundleMessage
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ResourceBundleMessage'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ResourceBundleMessage', 'BetaResourceBundleMessage'] 
 slug: /tools/sdk/powershell/beta/models/resource-bundle-message
-tags: ['SDK', 'Software Development Kit', 'ResourceBundleMessage']
+tags: ['SDK', 'Software Development Kit', 'ResourceBundleMessage', 'BetaResourceBundleMessage']
 ---
 
 

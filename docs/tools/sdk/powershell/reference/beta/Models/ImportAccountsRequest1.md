@@ -4,9 +4,9 @@ title: ImportAccountsRequest1
 pagination_label: ImportAccountsRequest1
 sidebar_label: ImportAccountsRequest1
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ImportAccountsRequest1'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ImportAccountsRequest1', 'BetaImportAccountsRequest1'] 
 slug: /tools/sdk/powershell/beta/models/import-accounts-request1
-tags: ['SDK', 'Software Development Kit', 'ImportAccountsRequest1']
+tags: ['SDK', 'Software Development Kit', 'ImportAccountsRequest1', 'BetaImportAccountsRequest1']
 ---
 
 

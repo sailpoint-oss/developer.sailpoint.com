@@ -4,9 +4,9 @@ title: Concatenation
 pagination_label: Concatenation
 sidebar_label: Concatenation
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Concatenation'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Concatenation', 'V2024Concatenation'] 
 slug: /tools/sdk/powershell/v2024/models/concatenation
-tags: ['SDK', 'Software Development Kit', 'Concatenation']
+tags: ['SDK', 'Software Development Kit', 'Concatenation', 'V2024Concatenation']
 ---
 
 

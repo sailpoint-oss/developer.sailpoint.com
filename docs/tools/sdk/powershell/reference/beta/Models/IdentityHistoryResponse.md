@@ -4,9 +4,9 @@ title: IdentityHistoryResponse
 pagination_label: IdentityHistoryResponse
 sidebar_label: IdentityHistoryResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityHistoryResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityHistoryResponse', 'BetaIdentityHistoryResponse'] 
 slug: /tools/sdk/powershell/beta/models/identity-history-response
-tags: ['SDK', 'Software Development Kit', 'IdentityHistoryResponse']
+tags: ['SDK', 'Software Development Kit', 'IdentityHistoryResponse', 'BetaIdentityHistoryResponse']
 ---
 
 

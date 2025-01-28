@@ -4,9 +4,9 @@ title: Medium
 pagination_label: Medium
 sidebar_label: Medium
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Medium'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Medium', 'V2024Medium'] 
 slug: /tools/sdk/powershell/v2024/models/medium
-tags: ['SDK', 'Software Development Kit', 'Medium']
+tags: ['SDK', 'Software Development Kit', 'Medium', 'V2024Medium']
 ---
 
 

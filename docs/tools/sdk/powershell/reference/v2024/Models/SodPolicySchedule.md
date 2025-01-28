@@ -4,9 +4,9 @@ title: SodPolicySchedule
 pagination_label: SodPolicySchedule
 sidebar_label: SodPolicySchedule
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SodPolicySchedule'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SodPolicySchedule', 'V2024SodPolicySchedule'] 
 slug: /tools/sdk/powershell/v2024/models/sod-policy-schedule
-tags: ['SDK', 'Software Development Kit', 'SodPolicySchedule']
+tags: ['SDK', 'Software Development Kit', 'SodPolicySchedule', 'V2024SodPolicySchedule']
 ---
 
 

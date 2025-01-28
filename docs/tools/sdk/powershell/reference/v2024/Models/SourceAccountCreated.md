@@ -4,9 +4,9 @@ title: SourceAccountCreated
 pagination_label: SourceAccountCreated
 sidebar_label: SourceAccountCreated
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SourceAccountCreated'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SourceAccountCreated', 'V2024SourceAccountCreated'] 
 slug: /tools/sdk/powershell/v2024/models/source-account-created
-tags: ['SDK', 'Software Development Kit', 'SourceAccountCreated']
+tags: ['SDK', 'Software Development Kit', 'SourceAccountCreated', 'V2024SourceAccountCreated']
 ---
 
 

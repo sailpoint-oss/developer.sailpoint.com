@@ -4,9 +4,9 @@ title: AccessRequestDynamicApprover
 pagination_label: AccessRequestDynamicApprover
 sidebar_label: AccessRequestDynamicApprover
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestDynamicApprover'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestDynamicApprover', 'V2024AccessRequestDynamicApprover'] 
 slug: /tools/sdk/powershell/v2024/models/access-request-dynamic-approver
-tags: ['SDK', 'Software Development Kit', 'AccessRequestDynamicApprover']
+tags: ['SDK', 'Software Development Kit', 'AccessRequestDynamicApprover', 'V2024AccessRequestDynamicApprover']
 ---
 
 

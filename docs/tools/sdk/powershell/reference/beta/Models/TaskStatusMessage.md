@@ -4,9 +4,9 @@ title: TaskStatusMessage
 pagination_label: TaskStatusMessage
 sidebar_label: TaskStatusMessage
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TaskStatusMessage'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TaskStatusMessage', 'BetaTaskStatusMessage'] 
 slug: /tools/sdk/powershell/beta/models/task-status-message
-tags: ['SDK', 'Software Development Kit', 'TaskStatusMessage']
+tags: ['SDK', 'Software Development Kit', 'TaskStatusMessage', 'BetaTaskStatusMessage']
 ---
 
 

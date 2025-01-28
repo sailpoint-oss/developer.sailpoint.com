@@ -4,9 +4,9 @@ title: AccessItemReviewedBy
 pagination_label: AccessItemReviewedBy
 sidebar_label: AccessItemReviewedBy
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessItemReviewedBy'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessItemReviewedBy', 'V2024AccessItemReviewedBy'] 
 slug: /tools/sdk/powershell/v2024/models/access-item-reviewed-by
-tags: ['SDK', 'Software Development Kit', 'AccessItemReviewedBy']
+tags: ['SDK', 'Software Development Kit', 'AccessItemReviewedBy', 'V2024AccessItemReviewedBy']
 ---
 
 

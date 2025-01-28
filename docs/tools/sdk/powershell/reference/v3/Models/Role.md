@@ -4,9 +4,9 @@ title: Role
 pagination_label: Role
 sidebar_label: Role
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Role'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Role', 'Role'] 
 slug: /tools/sdk/powershell/v3/models/role
-tags: ['SDK', 'Software Development Kit', 'Role']
+tags: ['SDK', 'Software Development Kit', 'Role', 'Role']
 ---
 
 

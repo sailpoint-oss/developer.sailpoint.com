@@ -4,9 +4,9 @@ title: VerificationResponse
 pagination_label: VerificationResponse
 sidebar_label: VerificationResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'VerificationResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'VerificationResponse', 'BetaVerificationResponse'] 
 slug: /tools/sdk/powershell/beta/models/verification-response
-tags: ['SDK', 'Software Development Kit', 'VerificationResponse']
+tags: ['SDK', 'Software Development Kit', 'VerificationResponse', 'BetaVerificationResponse']
 ---
 
 

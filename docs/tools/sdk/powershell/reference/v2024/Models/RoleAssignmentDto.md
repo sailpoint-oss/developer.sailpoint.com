@@ -4,9 +4,9 @@ title: RoleAssignmentDto
 pagination_label: RoleAssignmentDto
 sidebar_label: RoleAssignmentDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleAssignmentDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleAssignmentDto', 'V2024RoleAssignmentDto'] 
 slug: /tools/sdk/powershell/v2024/models/role-assignment-dto
-tags: ['SDK', 'Software Development Kit', 'RoleAssignmentDto']
+tags: ['SDK', 'Software Development Kit', 'RoleAssignmentDto', 'V2024RoleAssignmentDto']
 ---
 
 

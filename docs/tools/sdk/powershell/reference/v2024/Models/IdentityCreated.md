@@ -4,9 +4,9 @@ title: IdentityCreated
 pagination_label: IdentityCreated
 sidebar_label: IdentityCreated
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityCreated'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityCreated', 'V2024IdentityCreated'] 
 slug: /tools/sdk/powershell/v2024/models/identity-created
-tags: ['SDK', 'Software Development Kit', 'IdentityCreated']
+tags: ['SDK', 'Software Development Kit', 'IdentityCreated', 'V2024IdentityCreated']
 ---
 
 

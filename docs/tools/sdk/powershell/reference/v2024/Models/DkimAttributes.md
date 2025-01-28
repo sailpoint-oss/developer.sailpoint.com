@@ -4,9 +4,9 @@ title: DkimAttributes
 pagination_label: DkimAttributes
 sidebar_label: DkimAttributes
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'DkimAttributes'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'DkimAttributes', 'V2024DkimAttributes'] 
 slug: /tools/sdk/powershell/v2024/models/dkim-attributes
-tags: ['SDK', 'Software Development Kit', 'DkimAttributes']
+tags: ['SDK', 'Software Development Kit', 'DkimAttributes', 'V2024DkimAttributes']
 ---
 
 

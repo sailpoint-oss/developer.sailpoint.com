@@ -4,9 +4,9 @@ title: AccessRequestAdminItemStatus
 pagination_label: AccessRequestAdminItemStatus
 sidebar_label: AccessRequestAdminItemStatus
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestAdminItemStatus'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestAdminItemStatus', 'V2024AccessRequestAdminItemStatus'] 
 slug: /tools/sdk/powershell/v2024/models/access-request-admin-item-status
-tags: ['SDK', 'Software Development Kit', 'AccessRequestAdminItemStatus']
+tags: ['SDK', 'Software Development Kit', 'AccessRequestAdminItemStatus', 'V2024AccessRequestAdminItemStatus']
 ---
 
 

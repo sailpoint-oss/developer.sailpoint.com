@@ -4,9 +4,9 @@ title: EmailStatusDto
 pagination_label: EmailStatusDto
 sidebar_label: EmailStatusDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'EmailStatusDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'EmailStatusDto', 'BetaEmailStatusDto'] 
 slug: /tools/sdk/powershell/beta/models/email-status-dto
-tags: ['SDK', 'Software Development Kit', 'EmailStatusDto']
+tags: ['SDK', 'Software Development Kit', 'EmailStatusDto', 'BetaEmailStatusDto']
 ---
 
 

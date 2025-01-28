@@ -4,9 +4,9 @@ title: LocalizedMessage
 pagination_label: LocalizedMessage
 sidebar_label: LocalizedMessage
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'LocalizedMessage'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'LocalizedMessage', 'V2024LocalizedMessage'] 
 slug: /tools/sdk/powershell/v2024/models/localized-message
-tags: ['SDK', 'Software Development Kit', 'LocalizedMessage']
+tags: ['SDK', 'Software Development Kit', 'LocalizedMessage', 'V2024LocalizedMessage']
 ---
 
 

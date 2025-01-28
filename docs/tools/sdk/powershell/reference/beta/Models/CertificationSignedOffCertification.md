@@ -4,9 +4,9 @@ title: CertificationSignedOffCertification
 pagination_label: CertificationSignedOffCertification
 sidebar_label: CertificationSignedOffCertification
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CertificationSignedOffCertification'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CertificationSignedOffCertification', 'BetaCertificationSignedOffCertification'] 
 slug: /tools/sdk/powershell/beta/models/certification-signed-off-certification
-tags: ['SDK', 'Software Development Kit', 'CertificationSignedOffCertification']
+tags: ['SDK', 'Software Development Kit', 'CertificationSignedOffCertification', 'BetaCertificationSignedOffCertification']
 ---
 
 

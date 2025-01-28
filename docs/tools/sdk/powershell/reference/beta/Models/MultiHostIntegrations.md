@@ -4,9 +4,9 @@ title: MultiHostIntegrations
 pagination_label: MultiHostIntegrations
 sidebar_label: MultiHostIntegrations
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'MultiHostIntegrations'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'MultiHostIntegrations', 'BetaMultiHostIntegrations'] 
 slug: /tools/sdk/powershell/beta/models/multi-host-integrations
-tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrations']
+tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrations', 'BetaMultiHostIntegrations']
 ---
 
 

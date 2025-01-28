@@ -4,9 +4,9 @@ title: ApprovalReference
 pagination_label: ApprovalReference
 sidebar_label: ApprovalReference
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ApprovalReference'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ApprovalReference', 'V2024ApprovalReference'] 
 slug: /tools/sdk/powershell/v2024/models/approval-reference
-tags: ['SDK', 'Software Development Kit', 'ApprovalReference']
+tags: ['SDK', 'Software Development Kit', 'ApprovalReference', 'V2024ApprovalReference']
 ---
 
 

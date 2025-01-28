@@ -4,9 +4,9 @@ title: HttpConfig
 pagination_label: HttpConfig
 sidebar_label: HttpConfig
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'HttpConfig'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'HttpConfig', 'V2024HttpConfig'] 
 slug: /tools/sdk/powershell/v2024/models/http-config
-tags: ['SDK', 'Software Development Kit', 'HttpConfig']
+tags: ['SDK', 'Software Development Kit', 'HttpConfig', 'V2024HttpConfig']
 ---
 
 

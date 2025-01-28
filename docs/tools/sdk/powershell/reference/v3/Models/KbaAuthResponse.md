@@ -4,9 +4,9 @@ title: KbaAuthResponse
 pagination_label: KbaAuthResponse
 sidebar_label: KbaAuthResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'KbaAuthResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'KbaAuthResponse', 'KbaAuthResponse'] 
 slug: /tools/sdk/powershell/v3/models/kba-auth-response
-tags: ['SDK', 'Software Development Kit', 'KbaAuthResponse']
+tags: ['SDK', 'Software Development Kit', 'KbaAuthResponse', 'KbaAuthResponse']
 ---
 
 

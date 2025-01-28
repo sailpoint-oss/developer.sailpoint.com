@@ -4,9 +4,9 @@ title: LoadUncorrelatedAccountsTaskTaskAttributes
 pagination_label: LoadUncorrelatedAccountsTaskTaskAttributes
 sidebar_label: LoadUncorrelatedAccountsTaskTaskAttributes
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'LoadUncorrelatedAccountsTaskTaskAttributes'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'LoadUncorrelatedAccountsTaskTaskAttributes', 'BetaLoadUncorrelatedAccountsTaskTaskAttributes'] 
 slug: /tools/sdk/powershell/beta/models/load-uncorrelated-accounts-task-task-attributes
-tags: ['SDK', 'Software Development Kit', 'LoadUncorrelatedAccountsTaskTaskAttributes']
+tags: ['SDK', 'Software Development Kit', 'LoadUncorrelatedAccountsTaskTaskAttributes', 'BetaLoadUncorrelatedAccountsTaskTaskAttributes']
 ---
 
 

@@ -4,9 +4,9 @@ title: UpdateDetail
 pagination_label: UpdateDetail
 sidebar_label: UpdateDetail
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'UpdateDetail'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'UpdateDetail', 'UpdateDetail'] 
 slug: /tools/sdk/powershell/v3/models/update-detail
-tags: ['SDK', 'Software Development Kit', 'UpdateDetail']
+tags: ['SDK', 'Software Development Kit', 'UpdateDetail', 'UpdateDetail']
 ---
 
 

@@ -4,9 +4,9 @@ title: RoleBulkDeleteRequest
 pagination_label: RoleBulkDeleteRequest
 sidebar_label: RoleBulkDeleteRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleBulkDeleteRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleBulkDeleteRequest', 'RoleBulkDeleteRequest'] 
 slug: /tools/sdk/powershell/v3/models/role-bulk-delete-request
-tags: ['SDK', 'Software Development Kit', 'RoleBulkDeleteRequest']
+tags: ['SDK', 'Software Development Kit', 'RoleBulkDeleteRequest', 'RoleBulkDeleteRequest']
 ---
 
 

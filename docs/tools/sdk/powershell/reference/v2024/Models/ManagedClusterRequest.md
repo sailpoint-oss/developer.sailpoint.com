@@ -4,9 +4,9 @@ title: ManagedClusterRequest
 pagination_label: ManagedClusterRequest
 sidebar_label: ManagedClusterRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ManagedClusterRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ManagedClusterRequest', 'V2024ManagedClusterRequest'] 
 slug: /tools/sdk/powershell/v2024/models/managed-cluster-request
-tags: ['SDK', 'Software Development Kit', 'ManagedClusterRequest']
+tags: ['SDK', 'Software Development Kit', 'ManagedClusterRequest', 'V2024ManagedClusterRequest']
 ---
 
 

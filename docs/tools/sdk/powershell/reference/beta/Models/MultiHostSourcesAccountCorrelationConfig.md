@@ -4,9 +4,9 @@ title: MultiHostSourcesAccountCorrelationConfig
 pagination_label: MultiHostSourcesAccountCorrelationConfig
 sidebar_label: MultiHostSourcesAccountCorrelationConfig
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'MultiHostSourcesAccountCorrelationConfig'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'MultiHostSourcesAccountCorrelationConfig', 'BetaMultiHostSourcesAccountCorrelationConfig'] 
 slug: /tools/sdk/powershell/beta/models/multi-host-sources-account-correlation-config
-tags: ['SDK', 'Software Development Kit', 'MultiHostSourcesAccountCorrelationConfig']
+tags: ['SDK', 'Software Development Kit', 'MultiHostSourcesAccountCorrelationConfig', 'BetaMultiHostSourcesAccountCorrelationConfig']
 ---
 
 

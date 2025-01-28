@@ -4,9 +4,9 @@ title: AccountsExportReportArguments
 pagination_label: AccountsExportReportArguments
 sidebar_label: AccountsExportReportArguments
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccountsExportReportArguments'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccountsExportReportArguments', 'V2024AccountsExportReportArguments'] 
 slug: /tools/sdk/powershell/v2024/models/accounts-export-report-arguments
-tags: ['SDK', 'Software Development Kit', 'AccountsExportReportArguments']
+tags: ['SDK', 'Software Development Kit', 'AccountsExportReportArguments', 'V2024AccountsExportReportArguments']
 ---
 
 

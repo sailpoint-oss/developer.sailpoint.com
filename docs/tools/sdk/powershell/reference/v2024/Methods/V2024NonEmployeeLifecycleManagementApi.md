@@ -4,9 +4,9 @@ title: NonEmployeeLifecycleManagement
 pagination_label: NonEmployeeLifecycleManagement
 sidebar_label: NonEmployeeLifecycleManagement
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'NonEmployeeLifecycleManagement'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'NonEmployeeLifecycleManagement', 'V2024NonEmployeeLifecycleManagement'] 
 slug: /tools/sdk/powershell/v2024/methods/non-employee-lifecycle-management
-tags: ['SDK', 'Software Development Kit', 'NonEmployeeLifecycleManagement']
+tags: ['SDK', 'Software Development Kit', 'NonEmployeeLifecycleManagement', 'V2024NonEmployeeLifecycleManagement']
 ---
 
 

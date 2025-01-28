@@ -4,9 +4,9 @@ title: IAIOutliers
 pagination_label: IAIOutliers
 sidebar_label: IAIOutliers
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IAIOutliers'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IAIOutliers', 'BetaIAIOutliers'] 
 slug: /tools/sdk/powershell/beta/methods/iai-outliers
-tags: ['SDK', 'Software Development Kit', 'IAIOutliers']
+tags: ['SDK', 'Software Development Kit', 'IAIOutliers', 'BetaIAIOutliers']
 ---
 
 

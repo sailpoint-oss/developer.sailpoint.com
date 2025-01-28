@@ -4,9 +4,9 @@ title: FormElementDynamicDataSource
 pagination_label: FormElementDynamicDataSource
 sidebar_label: FormElementDynamicDataSource
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'FormElementDynamicDataSource'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'FormElementDynamicDataSource', 'BetaFormElementDynamicDataSource'] 
 slug: /tools/sdk/powershell/beta/models/form-element-dynamic-data-source
-tags: ['SDK', 'Software Development Kit', 'FormElementDynamicDataSource']
+tags: ['SDK', 'Software Development Kit', 'FormElementDynamicDataSource', 'BetaFormElementDynamicDataSource']
 ---
 
 

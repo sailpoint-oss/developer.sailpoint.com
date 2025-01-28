@@ -4,9 +4,9 @@ title: IdentityLifecycleState
 pagination_label: IdentityLifecycleState
 sidebar_label: IdentityLifecycleState
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityLifecycleState'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityLifecycleState', 'V2024IdentityLifecycleState'] 
 slug: /tools/sdk/powershell/v2024/models/identity-lifecycle-state
-tags: ['SDK', 'Software Development Kit', 'IdentityLifecycleState']
+tags: ['SDK', 'Software Development Kit', 'IdentityLifecycleState', 'V2024IdentityLifecycleState']
 ---
 
 

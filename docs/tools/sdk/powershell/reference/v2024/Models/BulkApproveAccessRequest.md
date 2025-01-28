@@ -4,9 +4,9 @@ title: BulkApproveAccessRequest
 pagination_label: BulkApproveAccessRequest
 sidebar_label: BulkApproveAccessRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'BulkApproveAccessRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'BulkApproveAccessRequest', 'V2024BulkApproveAccessRequest'] 
 slug: /tools/sdk/powershell/v2024/models/bulk-approve-access-request
-tags: ['SDK', 'Software Development Kit', 'BulkApproveAccessRequest']
+tags: ['SDK', 'Software Development Kit', 'BulkApproveAccessRequest', 'V2024BulkApproveAccessRequest']
 ---
 
 

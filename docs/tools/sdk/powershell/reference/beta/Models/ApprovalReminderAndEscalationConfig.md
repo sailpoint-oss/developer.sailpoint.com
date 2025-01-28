@@ -4,9 +4,9 @@ title: ApprovalReminderAndEscalationConfig
 pagination_label: ApprovalReminderAndEscalationConfig
 sidebar_label: ApprovalReminderAndEscalationConfig
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ApprovalReminderAndEscalationConfig'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ApprovalReminderAndEscalationConfig', 'BetaApprovalReminderAndEscalationConfig'] 
 slug: /tools/sdk/powershell/beta/models/approval-reminder-and-escalation-config
-tags: ['SDK', 'Software Development Kit', 'ApprovalReminderAndEscalationConfig']
+tags: ['SDK', 'Software Development Kit', 'ApprovalReminderAndEscalationConfig', 'BetaApprovalReminderAndEscalationConfig']
 ---
 
 

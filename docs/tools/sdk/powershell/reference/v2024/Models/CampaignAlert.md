@@ -4,9 +4,9 @@ title: CampaignAlert
 pagination_label: CampaignAlert
 sidebar_label: CampaignAlert
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignAlert'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignAlert', 'V2024CampaignAlert'] 
 slug: /tools/sdk/powershell/v2024/models/campaign-alert
-tags: ['SDK', 'Software Development Kit', 'CampaignAlert']
+tags: ['SDK', 'Software Development Kit', 'CampaignAlert', 'V2024CampaignAlert']
 ---
 
 

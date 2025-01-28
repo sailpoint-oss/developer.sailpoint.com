@@ -4,9 +4,9 @@ title: TaskResultDetailsReturnsInner
 pagination_label: TaskResultDetailsReturnsInner
 sidebar_label: TaskResultDetailsReturnsInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TaskResultDetailsReturnsInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TaskResultDetailsReturnsInner', 'V2024TaskResultDetailsReturnsInner'] 
 slug: /tools/sdk/powershell/v2024/models/task-result-details-returns-inner
-tags: ['SDK', 'Software Development Kit', 'TaskResultDetailsReturnsInner']
+tags: ['SDK', 'Software Development Kit', 'TaskResultDetailsReturnsInner', 'V2024TaskResultDetailsReturnsInner']
 ---
 
 

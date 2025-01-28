@@ -4,9 +4,9 @@ title: SodPolicyConflictingAccessCriteria
 pagination_label: SodPolicyConflictingAccessCriteria
 sidebar_label: SodPolicyConflictingAccessCriteria
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SodPolicyConflictingAccessCriteria'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SodPolicyConflictingAccessCriteria', 'BetaSodPolicyConflictingAccessCriteria'] 
 slug: /tools/sdk/powershell/beta/models/sod-policy-conflicting-access-criteria
-tags: ['SDK', 'Software Development Kit', 'SodPolicyConflictingAccessCriteria']
+tags: ['SDK', 'Software Development Kit', 'SodPolicyConflictingAccessCriteria', 'BetaSodPolicyConflictingAccessCriteria']
 ---
 
 

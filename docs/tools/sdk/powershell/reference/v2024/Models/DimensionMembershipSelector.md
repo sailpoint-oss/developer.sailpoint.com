@@ -4,9 +4,9 @@ title: DimensionMembershipSelector
 pagination_label: DimensionMembershipSelector
 sidebar_label: DimensionMembershipSelector
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'DimensionMembershipSelector'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'DimensionMembershipSelector', 'V2024DimensionMembershipSelector'] 
 slug: /tools/sdk/powershell/v2024/models/dimension-membership-selector
-tags: ['SDK', 'Software Development Kit', 'DimensionMembershipSelector']
+tags: ['SDK', 'Software Development Kit', 'DimensionMembershipSelector', 'V2024DimensionMembershipSelector']
 ---
 
 

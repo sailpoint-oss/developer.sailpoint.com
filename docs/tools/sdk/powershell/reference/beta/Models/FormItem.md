@@ -4,9 +4,9 @@ title: FormItem
 pagination_label: FormItem
 sidebar_label: FormItem
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'FormItem'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'FormItem', 'BetaFormItem'] 
 slug: /tools/sdk/powershell/beta/models/form-item
-tags: ['SDK', 'Software Development Kit', 'FormItem']
+tags: ['SDK', 'Software Development Kit', 'FormItem', 'BetaFormItem']
 ---
 
 

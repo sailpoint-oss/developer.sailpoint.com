@@ -4,9 +4,9 @@ title: ClientLogConfiguration
 pagination_label: ClientLogConfiguration
 sidebar_label: ClientLogConfiguration
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ClientLogConfiguration'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ClientLogConfiguration', 'V2024ClientLogConfiguration'] 
 slug: /tools/sdk/powershell/v2024/models/client-log-configuration
-tags: ['SDK', 'Software Development Kit', 'ClientLogConfiguration']
+tags: ['SDK', 'Software Development Kit', 'ClientLogConfiguration', 'V2024ClientLogConfiguration']
 ---
 
 

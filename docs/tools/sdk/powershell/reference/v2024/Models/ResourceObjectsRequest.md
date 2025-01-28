@@ -4,9 +4,9 @@ title: ResourceObjectsRequest
 pagination_label: ResourceObjectsRequest
 sidebar_label: ResourceObjectsRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ResourceObjectsRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ResourceObjectsRequest', 'V2024ResourceObjectsRequest'] 
 slug: /tools/sdk/powershell/v2024/models/resource-objects-request
-tags: ['SDK', 'Software Development Kit', 'ResourceObjectsRequest']
+tags: ['SDK', 'Software Development Kit', 'ResourceObjectsRequest', 'V2024ResourceObjectsRequest']
 ---
 
 

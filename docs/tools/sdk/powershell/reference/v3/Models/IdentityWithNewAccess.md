@@ -4,9 +4,9 @@ title: IdentityWithNewAccess
 pagination_label: IdentityWithNewAccess
 sidebar_label: IdentityWithNewAccess
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityWithNewAccess'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityWithNewAccess', 'IdentityWithNewAccess'] 
 slug: /tools/sdk/powershell/v3/models/identity-with-new-access
-tags: ['SDK', 'Software Development Kit', 'IdentityWithNewAccess']
+tags: ['SDK', 'Software Development Kit', 'IdentityWithNewAccess', 'IdentityWithNewAccess']
 ---
 
 

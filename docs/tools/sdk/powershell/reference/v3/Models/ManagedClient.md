@@ -4,9 +4,9 @@ title: ManagedClient
 pagination_label: ManagedClient
 sidebar_label: ManagedClient
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ManagedClient'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ManagedClient', 'ManagedClient'] 
 slug: /tools/sdk/powershell/v3/models/managed-client
-tags: ['SDK', 'Software Development Kit', 'ManagedClient']
+tags: ['SDK', 'Software Development Kit', 'ManagedClient', 'ManagedClient']
 ---
 
 

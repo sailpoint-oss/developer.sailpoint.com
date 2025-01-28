@@ -4,9 +4,9 @@ title: IdentitiesAccountsBulkRequest
 pagination_label: IdentitiesAccountsBulkRequest
 sidebar_label: IdentitiesAccountsBulkRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentitiesAccountsBulkRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentitiesAccountsBulkRequest', 'BetaIdentitiesAccountsBulkRequest'] 
 slug: /tools/sdk/powershell/beta/models/identities-accounts-bulk-request
-tags: ['SDK', 'Software Development Kit', 'IdentitiesAccountsBulkRequest']
+tags: ['SDK', 'Software Development Kit', 'IdentitiesAccountsBulkRequest', 'BetaIdentitiesAccountsBulkRequest']
 ---
 
 

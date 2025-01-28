@@ -4,9 +4,9 @@ title: LifecyclestateDeleted
 pagination_label: LifecyclestateDeleted
 sidebar_label: LifecyclestateDeleted
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'LifecyclestateDeleted'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'LifecyclestateDeleted', 'LifecyclestateDeleted'] 
 slug: /tools/sdk/powershell/v3/models/lifecyclestate-deleted
-tags: ['SDK', 'Software Development Kit', 'LifecyclestateDeleted']
+tags: ['SDK', 'Software Development Kit', 'LifecyclestateDeleted', 'LifecyclestateDeleted']
 ---
 
 

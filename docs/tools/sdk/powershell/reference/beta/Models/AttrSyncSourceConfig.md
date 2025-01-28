@@ -4,9 +4,9 @@ title: AttrSyncSourceConfig
 pagination_label: AttrSyncSourceConfig
 sidebar_label: AttrSyncSourceConfig
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AttrSyncSourceConfig'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AttrSyncSourceConfig', 'BetaAttrSyncSourceConfig'] 
 slug: /tools/sdk/powershell/beta/models/attr-sync-source-config
-tags: ['SDK', 'Software Development Kit', 'AttrSyncSourceConfig']
+tags: ['SDK', 'Software Development Kit', 'AttrSyncSourceConfig', 'BetaAttrSyncSourceConfig']
 ---
 
 

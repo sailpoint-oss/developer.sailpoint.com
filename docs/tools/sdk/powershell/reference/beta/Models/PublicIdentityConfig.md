@@ -4,9 +4,9 @@ title: PublicIdentityConfig
 pagination_label: PublicIdentityConfig
 sidebar_label: PublicIdentityConfig
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'PublicIdentityConfig'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'PublicIdentityConfig', 'BetaPublicIdentityConfig'] 
 slug: /tools/sdk/powershell/beta/models/public-identity-config
-tags: ['SDK', 'Software Development Kit', 'PublicIdentityConfig']
+tags: ['SDK', 'Software Development Kit', 'PublicIdentityConfig', 'BetaPublicIdentityConfig']
 ---
 
 

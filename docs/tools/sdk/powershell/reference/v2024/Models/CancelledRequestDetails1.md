@@ -4,9 +4,9 @@ title: CancelledRequestDetails1
 pagination_label: CancelledRequestDetails1
 sidebar_label: CancelledRequestDetails1
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CancelledRequestDetails1'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CancelledRequestDetails1', 'V2024CancelledRequestDetails1'] 
 slug: /tools/sdk/powershell/v2024/models/cancelled-request-details1
-tags: ['SDK', 'Software Development Kit', 'CancelledRequestDetails1']
+tags: ['SDK', 'Software Development Kit', 'CancelledRequestDetails1', 'V2024CancelledRequestDetails1']
 ---
 
 

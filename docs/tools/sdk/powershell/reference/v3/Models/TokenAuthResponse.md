@@ -4,9 +4,9 @@ title: TokenAuthResponse
 pagination_label: TokenAuthResponse
 sidebar_label: TokenAuthResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TokenAuthResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TokenAuthResponse', 'TokenAuthResponse'] 
 slug: /tools/sdk/powershell/v3/models/token-auth-response
-tags: ['SDK', 'Software Development Kit', 'TokenAuthResponse']
+tags: ['SDK', 'Software Development Kit', 'TokenAuthResponse', 'TokenAuthResponse']
 ---
 
 

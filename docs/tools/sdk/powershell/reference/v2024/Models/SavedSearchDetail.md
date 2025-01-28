@@ -4,9 +4,9 @@ title: SavedSearchDetail
 pagination_label: SavedSearchDetail
 sidebar_label: SavedSearchDetail
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SavedSearchDetail'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SavedSearchDetail', 'V2024SavedSearchDetail'] 
 slug: /tools/sdk/powershell/v2024/models/saved-search-detail
-tags: ['SDK', 'Software Development Kit', 'SavedSearchDetail']
+tags: ['SDK', 'Software Development Kit', 'SavedSearchDetail', 'V2024SavedSearchDetail']
 ---
 
 

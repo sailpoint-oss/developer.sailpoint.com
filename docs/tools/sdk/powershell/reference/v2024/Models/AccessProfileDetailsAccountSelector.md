@@ -4,9 +4,9 @@ title: AccessProfileDetailsAccountSelector
 pagination_label: AccessProfileDetailsAccountSelector
 sidebar_label: AccessProfileDetailsAccountSelector
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessProfileDetailsAccountSelector'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessProfileDetailsAccountSelector', 'V2024AccessProfileDetailsAccountSelector'] 
 slug: /tools/sdk/powershell/v2024/models/access-profile-details-account-selector
-tags: ['SDK', 'Software Development Kit', 'AccessProfileDetailsAccountSelector']
+tags: ['SDK', 'Software Development Kit', 'AccessProfileDetailsAccountSelector', 'V2024AccessProfileDetailsAccountSelector']
 ---
 
 

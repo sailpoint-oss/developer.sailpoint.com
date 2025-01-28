@@ -4,9 +4,9 @@ title: ImportSpConfigRequest
 pagination_label: ImportSpConfigRequest
 sidebar_label: ImportSpConfigRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ImportSpConfigRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ImportSpConfigRequest', 'BetaImportSpConfigRequest'] 
 slug: /tools/sdk/powershell/beta/models/import-sp-config-request
-tags: ['SDK', 'Software Development Kit', 'ImportSpConfigRequest']
+tags: ['SDK', 'Software Development Kit', 'ImportSpConfigRequest', 'BetaImportSpConfigRequest']
 ---
 
 

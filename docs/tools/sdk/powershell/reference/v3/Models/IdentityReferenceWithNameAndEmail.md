@@ -4,9 +4,9 @@ title: IdentityReferenceWithNameAndEmail
 pagination_label: IdentityReferenceWithNameAndEmail
 sidebar_label: IdentityReferenceWithNameAndEmail
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityReferenceWithNameAndEmail'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityReferenceWithNameAndEmail', 'IdentityReferenceWithNameAndEmail'] 
 slug: /tools/sdk/powershell/v3/models/identity-reference-with-name-and-email
-tags: ['SDK', 'Software Development Kit', 'IdentityReferenceWithNameAndEmail']
+tags: ['SDK', 'Software Development Kit', 'IdentityReferenceWithNameAndEmail', 'IdentityReferenceWithNameAndEmail']
 ---
 
 

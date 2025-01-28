@@ -4,9 +4,9 @@ title: CommentDtoAuthor
 pagination_label: CommentDtoAuthor
 sidebar_label: CommentDtoAuthor
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CommentDtoAuthor'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CommentDtoAuthor', 'V2024CommentDtoAuthor'] 
 slug: /tools/sdk/powershell/v2024/models/comment-dto-author
-tags: ['SDK', 'Software Development Kit', 'CommentDtoAuthor']
+tags: ['SDK', 'Software Development Kit', 'CommentDtoAuthor', 'V2024CommentDtoAuthor']
 ---
 
 

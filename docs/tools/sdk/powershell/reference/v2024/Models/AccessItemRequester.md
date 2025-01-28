@@ -4,9 +4,9 @@ title: AccessItemRequester
 pagination_label: AccessItemRequester
 sidebar_label: AccessItemRequester
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessItemRequester'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessItemRequester', 'V2024AccessItemRequester'] 
 slug: /tools/sdk/powershell/v2024/models/access-item-requester
-tags: ['SDK', 'Software Development Kit', 'AccessItemRequester']
+tags: ['SDK', 'Software Development Kit', 'AccessItemRequester', 'V2024AccessItemRequester']
 ---
 
 

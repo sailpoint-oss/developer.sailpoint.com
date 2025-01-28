@@ -4,9 +4,9 @@ title: AccessRequestApprovals
 pagination_label: AccessRequestApprovals
 sidebar_label: AccessRequestApprovals
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestApprovals'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestApprovals', 'AccessRequestApprovals'] 
 slug: /tools/sdk/powershell/v3/methods/access-request-approvals
-tags: ['SDK', 'Software Development Kit', 'AccessRequestApprovals']
+tags: ['SDK', 'Software Development Kit', 'AccessRequestApprovals', 'AccessRequestApprovals']
 ---
 
 

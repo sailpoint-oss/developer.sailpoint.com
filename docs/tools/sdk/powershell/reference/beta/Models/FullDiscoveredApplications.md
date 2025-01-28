@@ -4,9 +4,9 @@ title: FullDiscoveredApplications
 pagination_label: FullDiscoveredApplications
 sidebar_label: FullDiscoveredApplications
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'FullDiscoveredApplications'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'FullDiscoveredApplications', 'BetaFullDiscoveredApplications'] 
 slug: /tools/sdk/powershell/beta/models/full-discovered-applications
-tags: ['SDK', 'Software Development Kit', 'FullDiscoveredApplications']
+tags: ['SDK', 'Software Development Kit', 'FullDiscoveredApplications', 'BetaFullDiscoveredApplications']
 ---
 
 

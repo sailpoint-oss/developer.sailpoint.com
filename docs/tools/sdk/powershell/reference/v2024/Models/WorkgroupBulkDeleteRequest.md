@@ -4,9 +4,9 @@ title: WorkgroupBulkDeleteRequest
 pagination_label: WorkgroupBulkDeleteRequest
 sidebar_label: WorkgroupBulkDeleteRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'WorkgroupBulkDeleteRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'WorkgroupBulkDeleteRequest', 'V2024WorkgroupBulkDeleteRequest'] 
 slug: /tools/sdk/powershell/v2024/models/workgroup-bulk-delete-request
-tags: ['SDK', 'Software Development Kit', 'WorkgroupBulkDeleteRequest']
+tags: ['SDK', 'Software Development Kit', 'WorkgroupBulkDeleteRequest', 'V2024WorkgroupBulkDeleteRequest']
 ---
 
 

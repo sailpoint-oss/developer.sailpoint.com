@@ -4,9 +4,9 @@ title: RoleMiningPotentialRoleApplication
 pagination_label: RoleMiningPotentialRoleApplication
 sidebar_label: RoleMiningPotentialRoleApplication
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMiningPotentialRoleApplication'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMiningPotentialRoleApplication', 'BetaRoleMiningPotentialRoleApplication'] 
 slug: /tools/sdk/powershell/beta/models/role-mining-potential-role-application
-tags: ['SDK', 'Software Development Kit', 'RoleMiningPotentialRoleApplication']
+tags: ['SDK', 'Software Development Kit', 'RoleMiningPotentialRoleApplication', 'BetaRoleMiningPotentialRoleApplication']
 ---
 
 

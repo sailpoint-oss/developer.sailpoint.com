@@ -4,9 +4,9 @@ title: RoleCriteriaLevel1
 pagination_label: RoleCriteriaLevel1
 sidebar_label: RoleCriteriaLevel1
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleCriteriaLevel1'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleCriteriaLevel1', 'RoleCriteriaLevel1'] 
 slug: /tools/sdk/powershell/v3/models/role-criteria-level1
-tags: ['SDK', 'Software Development Kit', 'RoleCriteriaLevel1']
+tags: ['SDK', 'Software Development Kit', 'RoleCriteriaLevel1', 'RoleCriteriaLevel1']
 ---
 
 

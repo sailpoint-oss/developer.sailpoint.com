@@ -4,9 +4,9 @@ title: RequestedItemDetails
 pagination_label: RequestedItemDetails
 sidebar_label: RequestedItemDetails
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RequestedItemDetails'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RequestedItemDetails', 'RequestedItemDetails'] 
 slug: /tools/sdk/powershell/v3/models/requested-item-details
-tags: ['SDK', 'Software Development Kit', 'RequestedItemDetails']
+tags: ['SDK', 'Software Development Kit', 'RequestedItemDetails', 'RequestedItemDetails']
 ---
 
 

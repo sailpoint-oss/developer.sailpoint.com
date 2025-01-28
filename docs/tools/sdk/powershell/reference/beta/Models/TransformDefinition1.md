@@ -4,9 +4,9 @@ title: TransformDefinition1
 pagination_label: TransformDefinition1
 sidebar_label: TransformDefinition1
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TransformDefinition1'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TransformDefinition1', 'BetaTransformDefinition1'] 
 slug: /tools/sdk/powershell/beta/models/transform-definition1
-tags: ['SDK', 'Software Development Kit', 'TransformDefinition1']
+tags: ['SDK', 'Software Development Kit', 'TransformDefinition1', 'BetaTransformDefinition1']
 ---
 
 

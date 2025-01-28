@@ -4,9 +4,9 @@ title: OutlierSummary
 pagination_label: OutlierSummary
 sidebar_label: OutlierSummary
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'OutlierSummary'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'OutlierSummary', 'V2024OutlierSummary'] 
 slug: /tools/sdk/powershell/v2024/models/outlier-summary
-tags: ['SDK', 'Software Development Kit', 'OutlierSummary']
+tags: ['SDK', 'Software Development Kit', 'OutlierSummary', 'V2024OutlierSummary']
 ---
 
 

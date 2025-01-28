@@ -4,9 +4,9 @@ title: DeleteVendorConnectorMapping200Response
 pagination_label: DeleteVendorConnectorMapping200Response
 sidebar_label: DeleteVendorConnectorMapping200Response
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'DeleteVendorConnectorMapping200Response'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'DeleteVendorConnectorMapping200Response', 'BetaDeleteVendorConnectorMapping200Response'] 
 slug: /tools/sdk/powershell/beta/models/delete-vendor-connector-mapping200-response
-tags: ['SDK', 'Software Development Kit', 'DeleteVendorConnectorMapping200Response']
+tags: ['SDK', 'Software Development Kit', 'DeleteVendorConnectorMapping200Response', 'BetaDeleteVendorConnectorMapping200Response']
 ---
 
 

@@ -4,9 +4,9 @@ title: AttributeDefinitionSchema
 pagination_label: AttributeDefinitionSchema
 sidebar_label: AttributeDefinitionSchema
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AttributeDefinitionSchema'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AttributeDefinitionSchema', 'BetaAttributeDefinitionSchema'] 
 slug: /tools/sdk/powershell/beta/models/attribute-definition-schema
-tags: ['SDK', 'Software Development Kit', 'AttributeDefinitionSchema']
+tags: ['SDK', 'Software Development Kit', 'AttributeDefinitionSchema', 'BetaAttributeDefinitionSchema']
 ---
 
 

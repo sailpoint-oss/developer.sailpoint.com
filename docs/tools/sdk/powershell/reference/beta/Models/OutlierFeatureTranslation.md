@@ -4,9 +4,9 @@ title: OutlierFeatureTranslation
 pagination_label: OutlierFeatureTranslation
 sidebar_label: OutlierFeatureTranslation
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'OutlierFeatureTranslation'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'OutlierFeatureTranslation', 'BetaOutlierFeatureTranslation'] 
 slug: /tools/sdk/powershell/beta/models/outlier-feature-translation
-tags: ['SDK', 'Software Development Kit', 'OutlierFeatureTranslation']
+tags: ['SDK', 'Software Development Kit', 'OutlierFeatureTranslation', 'BetaOutlierFeatureTranslation']
 ---
 
 

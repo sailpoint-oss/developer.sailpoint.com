@@ -4,9 +4,9 @@ title: CampaignFilterDetailsCriteriaListInner
 pagination_label: CampaignFilterDetailsCriteriaListInner
 sidebar_label: CampaignFilterDetailsCriteriaListInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignFilterDetailsCriteriaListInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignFilterDetailsCriteriaListInner', 'V2024CampaignFilterDetailsCriteriaListInner'] 
 slug: /tools/sdk/powershell/v2024/models/campaign-filter-details-criteria-list-inner
-tags: ['SDK', 'Software Development Kit', 'CampaignFilterDetailsCriteriaListInner']
+tags: ['SDK', 'Software Development Kit', 'CampaignFilterDetailsCriteriaListInner', 'V2024CampaignFilterDetailsCriteriaListInner']
 ---
 
 

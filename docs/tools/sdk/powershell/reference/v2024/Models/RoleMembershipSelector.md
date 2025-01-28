@@ -4,9 +4,9 @@ title: RoleMembershipSelector
 pagination_label: RoleMembershipSelector
 sidebar_label: RoleMembershipSelector
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMembershipSelector'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMembershipSelector', 'V2024RoleMembershipSelector'] 
 slug: /tools/sdk/powershell/v2024/models/role-membership-selector
-tags: ['SDK', 'Software Development Kit', 'RoleMembershipSelector']
+tags: ['SDK', 'Software Development Kit', 'RoleMembershipSelector', 'V2024RoleMembershipSelector']
 ---
 
 

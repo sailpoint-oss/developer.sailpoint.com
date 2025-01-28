@@ -4,9 +4,9 @@ title: RoleMiningSessionParametersDto
 pagination_label: RoleMiningSessionParametersDto
 sidebar_label: RoleMiningSessionParametersDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMiningSessionParametersDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMiningSessionParametersDto', 'BetaRoleMiningSessionParametersDto'] 
 slug: /tools/sdk/powershell/beta/models/role-mining-session-parameters-dto
-tags: ['SDK', 'Software Development Kit', 'RoleMiningSessionParametersDto']
+tags: ['SDK', 'Software Development Kit', 'RoleMiningSessionParametersDto', 'BetaRoleMiningSessionParametersDto']
 ---
 
 

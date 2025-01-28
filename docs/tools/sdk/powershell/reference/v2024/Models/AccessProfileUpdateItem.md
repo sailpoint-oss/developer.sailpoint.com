@@ -4,9 +4,9 @@ title: AccessProfileUpdateItem
 pagination_label: AccessProfileUpdateItem
 sidebar_label: AccessProfileUpdateItem
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessProfileUpdateItem'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessProfileUpdateItem', 'V2024AccessProfileUpdateItem'] 
 slug: /tools/sdk/powershell/v2024/models/access-profile-update-item
-tags: ['SDK', 'Software Development Kit', 'AccessProfileUpdateItem']
+tags: ['SDK', 'Software Development Kit', 'AccessProfileUpdateItem', 'V2024AccessProfileUpdateItem']
 ---
 
 

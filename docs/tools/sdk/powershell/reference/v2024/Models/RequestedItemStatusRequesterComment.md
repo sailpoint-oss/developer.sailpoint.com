@@ -4,9 +4,9 @@ title: RequestedItemStatusRequesterComment
 pagination_label: RequestedItemStatusRequesterComment
 sidebar_label: RequestedItemStatusRequesterComment
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RequestedItemStatusRequesterComment'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RequestedItemStatusRequesterComment', 'V2024RequestedItemStatusRequesterComment'] 
 slug: /tools/sdk/powershell/v2024/models/requested-item-status-requester-comment
-tags: ['SDK', 'Software Development Kit', 'RequestedItemStatusRequesterComment']
+tags: ['SDK', 'Software Development Kit', 'RequestedItemStatusRequesterComment', 'V2024RequestedItemStatusRequesterComment']
 ---
 
 

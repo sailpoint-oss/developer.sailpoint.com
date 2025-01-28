@@ -4,9 +4,9 @@ title: NonEmployeeBulkUploadStatus
 pagination_label: NonEmployeeBulkUploadStatus
 sidebar_label: NonEmployeeBulkUploadStatus
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'NonEmployeeBulkUploadStatus'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'NonEmployeeBulkUploadStatus', 'V2024NonEmployeeBulkUploadStatus'] 
 slug: /tools/sdk/powershell/v2024/models/non-employee-bulk-upload-status
-tags: ['SDK', 'Software Development Kit', 'NonEmployeeBulkUploadStatus']
+tags: ['SDK', 'Software Development Kit', 'NonEmployeeBulkUploadStatus', 'V2024NonEmployeeBulkUploadStatus']
 ---
 
 

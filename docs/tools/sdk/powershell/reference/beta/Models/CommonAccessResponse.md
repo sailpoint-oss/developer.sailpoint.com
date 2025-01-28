@@ -4,9 +4,9 @@ title: CommonAccessResponse
 pagination_label: CommonAccessResponse
 sidebar_label: CommonAccessResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CommonAccessResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CommonAccessResponse', 'BetaCommonAccessResponse'] 
 slug: /tools/sdk/powershell/beta/models/common-access-response
-tags: ['SDK', 'Software Development Kit', 'CommonAccessResponse']
+tags: ['SDK', 'Software Development Kit', 'CommonAccessResponse', 'BetaCommonAccessResponse']
 ---
 
 

@@ -4,9 +4,9 @@ title: CampaignAllOfRoleCompositionCampaignInfo
 pagination_label: CampaignAllOfRoleCompositionCampaignInfo
 sidebar_label: CampaignAllOfRoleCompositionCampaignInfo
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignAllOfRoleCompositionCampaignInfo'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignAllOfRoleCompositionCampaignInfo', 'CampaignAllOfRoleCompositionCampaignInfo'] 
 slug: /tools/sdk/powershell/v3/models/campaign-all-of-role-composition-campaign-info
-tags: ['SDK', 'Software Development Kit', 'CampaignAllOfRoleCompositionCampaignInfo']
+tags: ['SDK', 'Software Development Kit', 'CampaignAllOfRoleCompositionCampaignInfo', 'CampaignAllOfRoleCompositionCampaignInfo']
 ---
 
 

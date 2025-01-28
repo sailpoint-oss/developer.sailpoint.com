@@ -4,9 +4,9 @@ title: ClientLogConfigurationDurationMinutes
 pagination_label: ClientLogConfigurationDurationMinutes
 sidebar_label: ClientLogConfigurationDurationMinutes
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ClientLogConfigurationDurationMinutes'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ClientLogConfigurationDurationMinutes', 'V2024ClientLogConfigurationDurationMinutes'] 
 slug: /tools/sdk/powershell/v2024/models/client-log-configuration-duration-minutes
-tags: ['SDK', 'Software Development Kit', 'ClientLogConfigurationDurationMinutes']
+tags: ['SDK', 'Software Development Kit', 'ClientLogConfigurationDurationMinutes', 'V2024ClientLogConfigurationDurationMinutes']
 ---
 
 

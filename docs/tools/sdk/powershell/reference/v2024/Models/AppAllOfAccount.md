@@ -4,9 +4,9 @@ title: AppAllOfAccount
 pagination_label: AppAllOfAccount
 sidebar_label: AppAllOfAccount
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AppAllOfAccount'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AppAllOfAccount', 'V2024AppAllOfAccount'] 
 slug: /tools/sdk/powershell/v2024/models/app-all-of-account
-tags: ['SDK', 'Software Development Kit', 'AppAllOfAccount']
+tags: ['SDK', 'Software Development Kit', 'AppAllOfAccount', 'V2024AppAllOfAccount']
 ---
 
 

@@ -4,9 +4,9 @@ title: FormError
 pagination_label: FormError
 sidebar_label: FormError
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'FormError'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'FormError', 'BetaFormError'] 
 slug: /tools/sdk/powershell/beta/models/form-error
-tags: ['SDK', 'Software Development Kit', 'FormError']
+tags: ['SDK', 'Software Development Kit', 'FormError', 'BetaFormError']
 ---
 
 

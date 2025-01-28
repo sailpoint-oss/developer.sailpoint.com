@@ -4,9 +4,9 @@ title: Tags
 pagination_label: Tags
 sidebar_label: Tags
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Tags'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Tags', 'BetaTags'] 
 slug: /tools/sdk/powershell/beta/methods/tags
-tags: ['SDK', 'Software Development Kit', 'Tags']
+tags: ['SDK', 'Software Development Kit', 'Tags', 'BetaTags']
 ---
 
 

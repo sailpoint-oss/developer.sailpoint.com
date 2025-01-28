@@ -4,9 +4,9 @@ title: AccessRecommendationMessage
 pagination_label: AccessRecommendationMessage
 sidebar_label: AccessRecommendationMessage
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRecommendationMessage'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRecommendationMessage', 'BetaAccessRecommendationMessage'] 
 slug: /tools/sdk/powershell/beta/models/access-recommendation-message
-tags: ['SDK', 'Software Development Kit', 'AccessRecommendationMessage']
+tags: ['SDK', 'Software Development Kit', 'AccessRecommendationMessage', 'BetaAccessRecommendationMessage']
 ---
 
 

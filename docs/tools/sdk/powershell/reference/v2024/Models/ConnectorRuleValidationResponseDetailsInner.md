@@ -4,9 +4,9 @@ title: ConnectorRuleValidationResponseDetailsInner
 pagination_label: ConnectorRuleValidationResponseDetailsInner
 sidebar_label: ConnectorRuleValidationResponseDetailsInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ConnectorRuleValidationResponseDetailsInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ConnectorRuleValidationResponseDetailsInner', 'V2024ConnectorRuleValidationResponseDetailsInner'] 
 slug: /tools/sdk/powershell/v2024/models/connector-rule-validation-response-details-inner
-tags: ['SDK', 'Software Development Kit', 'ConnectorRuleValidationResponseDetailsInner']
+tags: ['SDK', 'Software Development Kit', 'ConnectorRuleValidationResponseDetailsInner', 'V2024ConnectorRuleValidationResponseDetailsInner']
 ---
 
 

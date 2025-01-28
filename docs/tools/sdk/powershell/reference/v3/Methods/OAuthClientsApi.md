@@ -4,9 +4,9 @@ title: OAuthClients
 pagination_label: OAuthClients
 sidebar_label: OAuthClients
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'OAuthClients'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'OAuthClients', 'OAuthClients'] 
 slug: /tools/sdk/powershell/v3/methods/o-auth-clients
-tags: ['SDK', 'Software Development Kit', 'OAuthClients']
+tags: ['SDK', 'Software Development Kit', 'OAuthClients', 'OAuthClients']
 ---
 
 

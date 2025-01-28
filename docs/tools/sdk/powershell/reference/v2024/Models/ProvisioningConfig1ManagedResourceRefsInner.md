@@ -4,9 +4,9 @@ title: ProvisioningConfig1ManagedResourceRefsInner
 pagination_label: ProvisioningConfig1ManagedResourceRefsInner
 sidebar_label: ProvisioningConfig1ManagedResourceRefsInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ProvisioningConfig1ManagedResourceRefsInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ProvisioningConfig1ManagedResourceRefsInner', 'V2024ProvisioningConfig1ManagedResourceRefsInner'] 
 slug: /tools/sdk/powershell/v2024/models/provisioning-config1-managed-resource-refs-inner
-tags: ['SDK', 'Software Development Kit', 'ProvisioningConfig1ManagedResourceRefsInner']
+tags: ['SDK', 'Software Development Kit', 'ProvisioningConfig1ManagedResourceRefsInner', 'V2024ProvisioningConfig1ManagedResourceRefsInner']
 ---
 
 

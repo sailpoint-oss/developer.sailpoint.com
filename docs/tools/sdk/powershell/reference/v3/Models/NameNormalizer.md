@@ -4,9 +4,9 @@ title: NameNormalizer
 pagination_label: NameNormalizer
 sidebar_label: NameNormalizer
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'NameNormalizer'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'NameNormalizer', 'NameNormalizer'] 
 slug: /tools/sdk/powershell/v3/models/name-normalizer
-tags: ['SDK', 'Software Development Kit', 'NameNormalizer']
+tags: ['SDK', 'Software Development Kit', 'NameNormalizer', 'NameNormalizer']
 ---
 
 

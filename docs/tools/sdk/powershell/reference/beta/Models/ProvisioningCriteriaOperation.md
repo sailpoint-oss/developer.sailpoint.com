@@ -4,9 +4,9 @@ title: ProvisioningCriteriaOperation
 pagination_label: ProvisioningCriteriaOperation
 sidebar_label: ProvisioningCriteriaOperation
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ProvisioningCriteriaOperation'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ProvisioningCriteriaOperation', 'BetaProvisioningCriteriaOperation'] 
 slug: /tools/sdk/powershell/beta/models/provisioning-criteria-operation
-tags: ['SDK', 'Software Development Kit', 'ProvisioningCriteriaOperation']
+tags: ['SDK', 'Software Development Kit', 'ProvisioningCriteriaOperation', 'BetaProvisioningCriteriaOperation']
 ---
 
 

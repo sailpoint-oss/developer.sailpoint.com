@@ -4,9 +4,9 @@ title: ManagedClusterRedis
 pagination_label: ManagedClusterRedis
 sidebar_label: ManagedClusterRedis
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ManagedClusterRedis'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ManagedClusterRedis', 'BetaManagedClusterRedis'] 
 slug: /tools/sdk/powershell/beta/models/managed-cluster-redis
-tags: ['SDK', 'Software Development Kit', 'ManagedClusterRedis']
+tags: ['SDK', 'Software Development Kit', 'ManagedClusterRedis', 'BetaManagedClusterRedis']
 ---
 
 

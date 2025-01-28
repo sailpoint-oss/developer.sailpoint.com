@@ -4,9 +4,9 @@ title: Branding
 pagination_label: Branding
 sidebar_label: Branding
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Branding'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Branding', 'V2024Branding'] 
 slug: /tools/sdk/powershell/v2024/methods/branding
-tags: ['SDK', 'Software Development Kit', 'Branding']
+tags: ['SDK', 'Software Development Kit', 'Branding', 'V2024Branding']
 ---
 
 

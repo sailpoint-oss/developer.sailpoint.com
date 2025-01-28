@@ -4,9 +4,9 @@ title: CertificationCampaigns
 pagination_label: CertificationCampaigns
 sidebar_label: CertificationCampaigns
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CertificationCampaigns'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CertificationCampaigns', 'BetaCertificationCampaigns'] 
 slug: /tools/sdk/powershell/beta/methods/certification-campaigns
-tags: ['SDK', 'Software Development Kit', 'CertificationCampaigns']
+tags: ['SDK', 'Software Development Kit', 'CertificationCampaigns', 'BetaCertificationCampaigns']
 ---
 
 

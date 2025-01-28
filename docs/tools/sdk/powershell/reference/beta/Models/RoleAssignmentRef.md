@@ -4,9 +4,9 @@ title: RoleAssignmentRef
 pagination_label: RoleAssignmentRef
 sidebar_label: RoleAssignmentRef
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleAssignmentRef'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleAssignmentRef', 'BetaRoleAssignmentRef'] 
 slug: /tools/sdk/powershell/beta/models/role-assignment-ref
-tags: ['SDK', 'Software Development Kit', 'RoleAssignmentRef']
+tags: ['SDK', 'Software Development Kit', 'RoleAssignmentRef', 'BetaRoleAssignmentRef']
 ---
 
 

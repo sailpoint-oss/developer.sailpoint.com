@@ -4,9 +4,9 @@ title: SpConfigObject
 pagination_label: SpConfigObject
 sidebar_label: SpConfigObject
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SpConfigObject'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SpConfigObject', 'BetaSpConfigObject'] 
 slug: /tools/sdk/powershell/beta/models/sp-config-object
-tags: ['SDK', 'Software Development Kit', 'SpConfigObject']
+tags: ['SDK', 'Software Development Kit', 'SpConfigObject', 'BetaSpConfigObject']
 ---
 
 

@@ -4,9 +4,9 @@ title: WorkflowTrigger
 pagination_label: WorkflowTrigger
 sidebar_label: WorkflowTrigger
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'WorkflowTrigger'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'WorkflowTrigger', 'BetaWorkflowTrigger'] 
 slug: /tools/sdk/powershell/beta/models/workflow-trigger
-tags: ['SDK', 'Software Development Kit', 'WorkflowTrigger']
+tags: ['SDK', 'Software Development Kit', 'WorkflowTrigger', 'BetaWorkflowTrigger']
 ---
 
 

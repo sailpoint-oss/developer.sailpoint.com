@@ -4,9 +4,9 @@ title: CreateScheduledSearchRequest
 pagination_label: CreateScheduledSearchRequest
 sidebar_label: CreateScheduledSearchRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CreateScheduledSearchRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CreateScheduledSearchRequest', 'V2024CreateScheduledSearchRequest'] 
 slug: /tools/sdk/powershell/v2024/models/create-scheduled-search-request
-tags: ['SDK', 'Software Development Kit', 'CreateScheduledSearchRequest']
+tags: ['SDK', 'Software Development Kit', 'CreateScheduledSearchRequest', 'V2024CreateScheduledSearchRequest']
 ---
 
 

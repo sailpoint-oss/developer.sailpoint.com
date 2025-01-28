@@ -4,9 +4,9 @@ title: SpConfigExportResults
 pagination_label: SpConfigExportResults
 sidebar_label: SpConfigExportResults
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SpConfigExportResults'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SpConfigExportResults', 'BetaSpConfigExportResults'] 
 slug: /tools/sdk/powershell/beta/models/sp-config-export-results
-tags: ['SDK', 'Software Development Kit', 'SpConfigExportResults']
+tags: ['SDK', 'Software Development Kit', 'SpConfigExportResults', 'BetaSpConfigExportResults']
 ---
 
 

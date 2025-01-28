@@ -4,9 +4,9 @@ title: ConnectorRuleResponse
 pagination_label: ConnectorRuleResponse
 sidebar_label: ConnectorRuleResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ConnectorRuleResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ConnectorRuleResponse', 'BetaConnectorRuleResponse'] 
 slug: /tools/sdk/powershell/beta/models/connector-rule-response
-tags: ['SDK', 'Software Development Kit', 'ConnectorRuleResponse']
+tags: ['SDK', 'Software Development Kit', 'ConnectorRuleResponse', 'BetaConnectorRuleResponse']
 ---
 
 

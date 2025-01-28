@@ -4,9 +4,9 @@ title: IdentitySummary
 pagination_label: IdentitySummary
 sidebar_label: IdentitySummary
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentitySummary'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentitySummary', 'IdentitySummary'] 
 slug: /tools/sdk/powershell/v3/models/identity-summary
-tags: ['SDK', 'Software Development Kit', 'IdentitySummary']
+tags: ['SDK', 'Software Development Kit', 'IdentitySummary', 'IdentitySummary']
 ---
 
 

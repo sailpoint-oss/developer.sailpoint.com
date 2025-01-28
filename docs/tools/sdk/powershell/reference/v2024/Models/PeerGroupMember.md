@@ -4,9 +4,9 @@ title: PeerGroupMember
 pagination_label: PeerGroupMember
 sidebar_label: PeerGroupMember
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'PeerGroupMember'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'PeerGroupMember', 'V2024PeerGroupMember'] 
 slug: /tools/sdk/powershell/v2024/models/peer-group-member
-tags: ['SDK', 'Software Development Kit', 'PeerGroupMember']
+tags: ['SDK', 'Software Development Kit', 'PeerGroupMember', 'V2024PeerGroupMember']
 ---
 
 

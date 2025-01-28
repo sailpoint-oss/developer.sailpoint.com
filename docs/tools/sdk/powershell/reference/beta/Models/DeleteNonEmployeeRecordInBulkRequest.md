@@ -4,9 +4,9 @@ title: DeleteNonEmployeeRecordInBulkRequest
 pagination_label: DeleteNonEmployeeRecordInBulkRequest
 sidebar_label: DeleteNonEmployeeRecordInBulkRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'DeleteNonEmployeeRecordInBulkRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'DeleteNonEmployeeRecordInBulkRequest', 'BetaDeleteNonEmployeeRecordInBulkRequest'] 
 slug: /tools/sdk/powershell/beta/models/delete-non-employee-record-in-bulk-request
-tags: ['SDK', 'Software Development Kit', 'DeleteNonEmployeeRecordInBulkRequest']
+tags: ['SDK', 'Software Development Kit', 'DeleteNonEmployeeRecordInBulkRequest', 'BetaDeleteNonEmployeeRecordInBulkRequest']
 ---
 
 

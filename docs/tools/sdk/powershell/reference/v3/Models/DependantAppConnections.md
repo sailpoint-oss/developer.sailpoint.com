@@ -4,9 +4,9 @@ title: DependantAppConnections
 pagination_label: DependantAppConnections
 sidebar_label: DependantAppConnections
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'DependantAppConnections'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'DependantAppConnections', 'DependantAppConnections'] 
 slug: /tools/sdk/powershell/v3/models/dependant-app-connections
-tags: ['SDK', 'Software Development Kit', 'DependantAppConnections']
+tags: ['SDK', 'Software Development Kit', 'DependantAppConnections', 'DependantAppConnections']
 ---
 
 

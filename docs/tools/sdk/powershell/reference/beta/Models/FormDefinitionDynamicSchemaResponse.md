@@ -4,9 +4,9 @@ title: FormDefinitionDynamicSchemaResponse
 pagination_label: FormDefinitionDynamicSchemaResponse
 sidebar_label: FormDefinitionDynamicSchemaResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'FormDefinitionDynamicSchemaResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'FormDefinitionDynamicSchemaResponse', 'BetaFormDefinitionDynamicSchemaResponse'] 
 slug: /tools/sdk/powershell/beta/models/form-definition-dynamic-schema-response
-tags: ['SDK', 'Software Development Kit', 'FormDefinitionDynamicSchemaResponse']
+tags: ['SDK', 'Software Development Kit', 'FormDefinitionDynamicSchemaResponse', 'BetaFormDefinitionDynamicSchemaResponse']
 ---
 
 

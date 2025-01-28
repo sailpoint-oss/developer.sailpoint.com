@@ -4,9 +4,9 @@ title: StatusResponse
 pagination_label: StatusResponse
 sidebar_label: StatusResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'StatusResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'StatusResponse', 'V2024StatusResponse'] 
 slug: /tools/sdk/powershell/v2024/models/status-response
-tags: ['SDK', 'Software Development Kit', 'StatusResponse']
+tags: ['SDK', 'Software Development Kit', 'StatusResponse', 'V2024StatusResponse']
 ---
 
 

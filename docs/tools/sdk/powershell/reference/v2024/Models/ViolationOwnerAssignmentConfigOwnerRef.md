@@ -4,9 +4,9 @@ title: ViolationOwnerAssignmentConfigOwnerRef
 pagination_label: ViolationOwnerAssignmentConfigOwnerRef
 sidebar_label: ViolationOwnerAssignmentConfigOwnerRef
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ViolationOwnerAssignmentConfigOwnerRef'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ViolationOwnerAssignmentConfigOwnerRef', 'V2024ViolationOwnerAssignmentConfigOwnerRef'] 
 slug: /tools/sdk/powershell/v2024/models/violation-owner-assignment-config-owner-ref
-tags: ['SDK', 'Software Development Kit', 'ViolationOwnerAssignmentConfigOwnerRef']
+tags: ['SDK', 'Software Development Kit', 'ViolationOwnerAssignmentConfigOwnerRef', 'V2024ViolationOwnerAssignmentConfigOwnerRef']
 ---
 
 

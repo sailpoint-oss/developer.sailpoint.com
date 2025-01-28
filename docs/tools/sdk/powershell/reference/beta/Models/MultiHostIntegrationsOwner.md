@@ -4,9 +4,9 @@ title: MultiHostIntegrationsOwner
 pagination_label: MultiHostIntegrationsOwner
 sidebar_label: MultiHostIntegrationsOwner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'MultiHostIntegrationsOwner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'MultiHostIntegrationsOwner', 'BetaMultiHostIntegrationsOwner'] 
 slug: /tools/sdk/powershell/beta/models/multi-host-integrations-owner
-tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrationsOwner']
+tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrationsOwner', 'BetaMultiHostIntegrationsOwner']
 ---
 
 

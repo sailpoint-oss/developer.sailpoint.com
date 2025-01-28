@@ -4,9 +4,9 @@ title: TenantUiMetadataItemResponse
 pagination_label: TenantUiMetadataItemResponse
 sidebar_label: TenantUiMetadataItemResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TenantUiMetadataItemResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TenantUiMetadataItemResponse', 'V2024TenantUiMetadataItemResponse'] 
 slug: /tools/sdk/powershell/v2024/models/tenant-ui-metadata-item-response
-tags: ['SDK', 'Software Development Kit', 'TenantUiMetadataItemResponse']
+tags: ['SDK', 'Software Development Kit', 'TenantUiMetadataItemResponse', 'V2024TenantUiMetadataItemResponse']
 ---
 
 

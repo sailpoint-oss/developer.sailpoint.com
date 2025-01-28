@@ -4,9 +4,9 @@ title: ListCampaignFilters200Response
 pagination_label: ListCampaignFilters200Response
 sidebar_label: ListCampaignFilters200Response
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ListCampaignFilters200Response'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ListCampaignFilters200Response', 'V2024ListCampaignFilters200Response'] 
 slug: /tools/sdk/powershell/v2024/models/list-campaign-filters200-response
-tags: ['SDK', 'Software Development Kit', 'ListCampaignFilters200Response']
+tags: ['SDK', 'Software Development Kit', 'ListCampaignFilters200Response', 'V2024ListCampaignFilters200Response']
 ---
 
 

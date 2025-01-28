@@ -4,9 +4,9 @@ title: DimensionCriteriaLevel1
 pagination_label: DimensionCriteriaLevel1
 sidebar_label: DimensionCriteriaLevel1
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'DimensionCriteriaLevel1'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'DimensionCriteriaLevel1', 'V2024DimensionCriteriaLevel1'] 
 slug: /tools/sdk/powershell/v2024/models/dimension-criteria-level1
-tags: ['SDK', 'Software Development Kit', 'DimensionCriteriaLevel1']
+tags: ['SDK', 'Software Development Kit', 'DimensionCriteriaLevel1', 'V2024DimensionCriteriaLevel1']
 ---
 
 

@@ -4,9 +4,9 @@ title: UserAppOwner
 pagination_label: UserAppOwner
 sidebar_label: UserAppOwner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'UserAppOwner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'UserAppOwner', 'V2024UserAppOwner'] 
 slug: /tools/sdk/powershell/v2024/models/user-app-owner
-tags: ['SDK', 'Software Development Kit', 'UserAppOwner']
+tags: ['SDK', 'Software Development Kit', 'UserAppOwner', 'V2024UserAppOwner']
 ---
 
 

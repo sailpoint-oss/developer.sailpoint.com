@@ -4,9 +4,9 @@ title: SourceHealthDto
 pagination_label: SourceHealthDto
 sidebar_label: SourceHealthDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SourceHealthDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SourceHealthDto', 'SourceHealthDto'] 
 slug: /tools/sdk/powershell/v3/models/source-health-dto
-tags: ['SDK', 'Software Development Kit', 'SourceHealthDto']
+tags: ['SDK', 'Software Development Kit', 'SourceHealthDto', 'SourceHealthDto']
 ---
 
 

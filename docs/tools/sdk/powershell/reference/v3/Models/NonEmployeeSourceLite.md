@@ -4,9 +4,9 @@ title: NonEmployeeSourceLite
 pagination_label: NonEmployeeSourceLite
 sidebar_label: NonEmployeeSourceLite
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'NonEmployeeSourceLite'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'NonEmployeeSourceLite', 'NonEmployeeSourceLite'] 
 slug: /tools/sdk/powershell/v3/models/non-employee-source-lite
-tags: ['SDK', 'Software Development Kit', 'NonEmployeeSourceLite']
+tags: ['SDK', 'Software Development Kit', 'NonEmployeeSourceLite', 'NonEmployeeSourceLite']
 ---
 
 

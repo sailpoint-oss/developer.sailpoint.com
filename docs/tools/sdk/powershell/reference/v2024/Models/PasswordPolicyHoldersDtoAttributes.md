@@ -4,9 +4,9 @@ title: PasswordPolicyHoldersDtoAttributes
 pagination_label: PasswordPolicyHoldersDtoAttributes
 sidebar_label: PasswordPolicyHoldersDtoAttributes
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'PasswordPolicyHoldersDtoAttributes'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'PasswordPolicyHoldersDtoAttributes', 'V2024PasswordPolicyHoldersDtoAttributes'] 
 slug: /tools/sdk/powershell/v2024/models/password-policy-holders-dto-attributes
-tags: ['SDK', 'Software Development Kit', 'PasswordPolicyHoldersDtoAttributes']
+tags: ['SDK', 'Software Development Kit', 'PasswordPolicyHoldersDtoAttributes', 'V2024PasswordPolicyHoldersDtoAttributes']
 ---
 
 

@@ -4,9 +4,9 @@ title: CertificationPhase
 pagination_label: CertificationPhase
 sidebar_label: CertificationPhase
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CertificationPhase'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CertificationPhase', 'CertificationPhase'] 
 slug: /tools/sdk/powershell/v3/models/certification-phase
-tags: ['SDK', 'Software Development Kit', 'CertificationPhase']
+tags: ['SDK', 'Software Development Kit', 'CertificationPhase', 'CertificationPhase']
 ---
 
 

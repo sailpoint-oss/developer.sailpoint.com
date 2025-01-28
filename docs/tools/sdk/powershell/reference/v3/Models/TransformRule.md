@@ -4,9 +4,9 @@ title: TransformRule
 pagination_label: TransformRule
 sidebar_label: TransformRule
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TransformRule'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TransformRule', 'TransformRule'] 
 slug: /tools/sdk/powershell/v3/models/transform-rule
-tags: ['SDK', 'Software Development Kit', 'TransformRule']
+tags: ['SDK', 'Software Development Kit', 'TransformRule', 'TransformRule']
 ---
 
 

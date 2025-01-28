@@ -4,9 +4,9 @@ title: RecommenderCalculations
 pagination_label: RecommenderCalculations
 sidebar_label: RecommenderCalculations
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RecommenderCalculations'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RecommenderCalculations', 'V2024RecommenderCalculations'] 
 slug: /tools/sdk/powershell/v2024/models/recommender-calculations
-tags: ['SDK', 'Software Development Kit', 'RecommenderCalculations']
+tags: ['SDK', 'Software Development Kit', 'RecommenderCalculations', 'V2024RecommenderCalculations']
 ---
 
 

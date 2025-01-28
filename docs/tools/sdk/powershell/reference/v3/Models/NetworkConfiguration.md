@@ -4,9 +4,9 @@ title: NetworkConfiguration
 pagination_label: NetworkConfiguration
 sidebar_label: NetworkConfiguration
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'NetworkConfiguration'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'NetworkConfiguration', 'NetworkConfiguration'] 
 slug: /tools/sdk/powershell/v3/models/network-configuration
-tags: ['SDK', 'Software Development Kit', 'NetworkConfiguration']
+tags: ['SDK', 'Software Development Kit', 'NetworkConfiguration', 'NetworkConfiguration']
 ---
 
 

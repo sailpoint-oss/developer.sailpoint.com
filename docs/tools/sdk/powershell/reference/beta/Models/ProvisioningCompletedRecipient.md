@@ -4,9 +4,9 @@ title: ProvisioningCompletedRecipient
 pagination_label: ProvisioningCompletedRecipient
 sidebar_label: ProvisioningCompletedRecipient
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ProvisioningCompletedRecipient'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ProvisioningCompletedRecipient', 'BetaProvisioningCompletedRecipient'] 
 slug: /tools/sdk/powershell/beta/models/provisioning-completed-recipient
-tags: ['SDK', 'Software Development Kit', 'ProvisioningCompletedRecipient']
+tags: ['SDK', 'Software Development Kit', 'ProvisioningCompletedRecipient', 'BetaProvisioningCompletedRecipient']
 ---
 
 

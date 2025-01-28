@@ -4,9 +4,9 @@ title: NonEmployeeApprovalDecision
 pagination_label: NonEmployeeApprovalDecision
 sidebar_label: NonEmployeeApprovalDecision
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'NonEmployeeApprovalDecision'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'NonEmployeeApprovalDecision', 'NonEmployeeApprovalDecision'] 
 slug: /tools/sdk/powershell/v3/models/non-employee-approval-decision
-tags: ['SDK', 'Software Development Kit', 'NonEmployeeApprovalDecision']
+tags: ['SDK', 'Software Development Kit', 'NonEmployeeApprovalDecision', 'NonEmployeeApprovalDecision']
 ---
 
 

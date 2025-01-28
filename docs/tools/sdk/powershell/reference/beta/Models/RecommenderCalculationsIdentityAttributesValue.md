@@ -4,9 +4,9 @@ title: RecommenderCalculationsIdentityAttributesValue
 pagination_label: RecommenderCalculationsIdentityAttributesValue
 sidebar_label: RecommenderCalculationsIdentityAttributesValue
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RecommenderCalculationsIdentityAttributesValue'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RecommenderCalculationsIdentityAttributesValue', 'BetaRecommenderCalculationsIdentityAttributesValue'] 
 slug: /tools/sdk/powershell/beta/models/recommender-calculations-identity-attributes-value
-tags: ['SDK', 'Software Development Kit', 'RecommenderCalculationsIdentityAttributesValue']
+tags: ['SDK', 'Software Development Kit', 'RecommenderCalculationsIdentityAttributesValue', 'BetaRecommenderCalculationsIdentityAttributesValue']
 ---
 
 

@@ -4,9 +4,9 @@ title: InviteIdentitiesRequest
 pagination_label: InviteIdentitiesRequest
 sidebar_label: InviteIdentitiesRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'InviteIdentitiesRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'InviteIdentitiesRequest', 'BetaInviteIdentitiesRequest'] 
 slug: /tools/sdk/powershell/beta/models/invite-identities-request
-tags: ['SDK', 'Software Development Kit', 'InviteIdentitiesRequest']
+tags: ['SDK', 'Software Development Kit', 'InviteIdentitiesRequest', 'BetaInviteIdentitiesRequest']
 ---
 
 

@@ -4,9 +4,9 @@ title: SetLifecycleState200Response
 pagination_label: SetLifecycleState200Response
 sidebar_label: SetLifecycleState200Response
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SetLifecycleState200Response'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SetLifecycleState200Response', 'V2024SetLifecycleState200Response'] 
 slug: /tools/sdk/powershell/v2024/models/set-lifecycle-state200-response
-tags: ['SDK', 'Software Development Kit', 'SetLifecycleState200Response']
+tags: ['SDK', 'Software Development Kit', 'SetLifecycleState200Response', 'V2024SetLifecycleState200Response']
 ---
 
 

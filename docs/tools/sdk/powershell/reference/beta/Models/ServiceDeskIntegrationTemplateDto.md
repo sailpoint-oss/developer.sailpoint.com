@@ -4,9 +4,9 @@ title: ServiceDeskIntegrationTemplateDto
 pagination_label: ServiceDeskIntegrationTemplateDto
 sidebar_label: ServiceDeskIntegrationTemplateDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ServiceDeskIntegrationTemplateDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ServiceDeskIntegrationTemplateDto', 'BetaServiceDeskIntegrationTemplateDto'] 
 slug: /tools/sdk/powershell/beta/models/service-desk-integration-template-dto
-tags: ['SDK', 'Software Development Kit', 'ServiceDeskIntegrationTemplateDto']
+tags: ['SDK', 'Software Development Kit', 'ServiceDeskIntegrationTemplateDto', 'BetaServiceDeskIntegrationTemplateDto']
 ---
 
 

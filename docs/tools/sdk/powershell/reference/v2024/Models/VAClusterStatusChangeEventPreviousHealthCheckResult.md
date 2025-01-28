@@ -4,9 +4,9 @@ title: VAClusterStatusChangeEventPreviousHealthCheckResult
 pagination_label: VAClusterStatusChangeEventPreviousHealthCheckResult
 sidebar_label: VAClusterStatusChangeEventPreviousHealthCheckResult
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'VAClusterStatusChangeEventPreviousHealthCheckResult'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'VAClusterStatusChangeEventPreviousHealthCheckResult', 'V2024VAClusterStatusChangeEventPreviousHealthCheckResult'] 
 slug: /tools/sdk/powershell/v2024/models/va-cluster-status-change-event-previous-health-check-result
-tags: ['SDK', 'Software Development Kit', 'VAClusterStatusChangeEventPreviousHealthCheckResult']
+tags: ['SDK', 'Software Development Kit', 'VAClusterStatusChangeEventPreviousHealthCheckResult', 'V2024VAClusterStatusChangeEventPreviousHealthCheckResult']
 ---
 
 

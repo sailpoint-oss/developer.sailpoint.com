@@ -4,9 +4,9 @@ title: SubscriptionPostRequest
 pagination_label: SubscriptionPostRequest
 sidebar_label: SubscriptionPostRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SubscriptionPostRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SubscriptionPostRequest', 'BetaSubscriptionPostRequest'] 
 slug: /tools/sdk/powershell/beta/models/subscription-post-request
-tags: ['SDK', 'Software Development Kit', 'SubscriptionPostRequest']
+tags: ['SDK', 'Software Development Kit', 'SubscriptionPostRequest', 'BetaSubscriptionPostRequest']
 ---
 
 

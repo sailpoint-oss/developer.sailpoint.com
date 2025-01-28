@@ -4,9 +4,9 @@ title: AccessItemRemoved
 pagination_label: AccessItemRemoved
 sidebar_label: AccessItemRemoved
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessItemRemoved'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessItemRemoved', 'V2024AccessItemRemoved'] 
 slug: /tools/sdk/powershell/v2024/models/access-item-removed
-tags: ['SDK', 'Software Development Kit', 'AccessItemRemoved']
+tags: ['SDK', 'Software Development Kit', 'AccessItemRemoved', 'V2024AccessItemRemoved']
 ---
 
 

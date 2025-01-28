@@ -4,9 +4,9 @@ title: WorkflowExecutionEvent
 pagination_label: WorkflowExecutionEvent
 sidebar_label: WorkflowExecutionEvent
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'WorkflowExecutionEvent'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'WorkflowExecutionEvent', 'WorkflowExecutionEvent'] 
 slug: /tools/sdk/powershell/v3/models/workflow-execution-event
-tags: ['SDK', 'Software Development Kit', 'WorkflowExecutionEvent']
+tags: ['SDK', 'Software Development Kit', 'WorkflowExecutionEvent', 'WorkflowExecutionEvent']
 ---
 
 

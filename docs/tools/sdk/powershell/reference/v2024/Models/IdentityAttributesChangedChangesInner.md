@@ -4,9 +4,9 @@ title: IdentityAttributesChangedChangesInner
 pagination_label: IdentityAttributesChangedChangesInner
 sidebar_label: IdentityAttributesChangedChangesInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityAttributesChangedChangesInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityAttributesChangedChangesInner', 'V2024IdentityAttributesChangedChangesInner'] 
 slug: /tools/sdk/powershell/v2024/models/identity-attributes-changed-changes-inner
-tags: ['SDK', 'Software Development Kit', 'IdentityAttributesChangedChangesInner']
+tags: ['SDK', 'Software Development Kit', 'IdentityAttributesChangedChangesInner', 'V2024IdentityAttributesChangedChangesInner']
 ---
 
 

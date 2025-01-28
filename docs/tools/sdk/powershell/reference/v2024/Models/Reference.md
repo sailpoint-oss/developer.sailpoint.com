@@ -4,9 +4,9 @@ title: Reference
 pagination_label: Reference
 sidebar_label: Reference
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Reference'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Reference', 'V2024Reference'] 
 slug: /tools/sdk/powershell/v2024/models/reference
-tags: ['SDK', 'Software Development Kit', 'Reference']
+tags: ['SDK', 'Software Development Kit', 'Reference', 'V2024Reference']
 ---
 
 

@@ -4,9 +4,9 @@ title: SedPatch
 pagination_label: SedPatch
 sidebar_label: SedPatch
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SedPatch'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SedPatch', 'BetaSedPatch'] 
 slug: /tools/sdk/powershell/beta/models/sed-patch
-tags: ['SDK', 'Software Development Kit', 'SedPatch']
+tags: ['SDK', 'Software Development Kit', 'SedPatch', 'BetaSedPatch']
 ---
 
 

@@ -4,9 +4,9 @@ title: Dimensions
 pagination_label: Dimensions
 sidebar_label: Dimensions
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Dimensions'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Dimensions', 'V2024Dimensions'] 
 slug: /tools/sdk/powershell/v2024/methods/dimensions
-tags: ['SDK', 'Software Development Kit', 'Dimensions']
+tags: ['SDK', 'Software Development Kit', 'Dimensions', 'V2024Dimensions']
 ---
 
 

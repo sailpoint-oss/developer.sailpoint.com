@@ -4,9 +4,9 @@ title: IdentityAccess
 pagination_label: IdentityAccess
 sidebar_label: IdentityAccess
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityAccess'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityAccess', 'V2024IdentityAccess'] 
 slug: /tools/sdk/powershell/v2024/models/identity-access
-tags: ['SDK', 'Software Development Kit', 'IdentityAccess']
+tags: ['SDK', 'Software Development Kit', 'IdentityAccess', 'V2024IdentityAccess']
 ---
 
 

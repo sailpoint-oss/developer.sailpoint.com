@@ -4,9 +4,9 @@ title: MFAConfiguration
 pagination_label: MFAConfiguration
 sidebar_label: MFAConfiguration
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'MFAConfiguration'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'MFAConfiguration', 'BetaMFAConfiguration'] 
 slug: /tools/sdk/powershell/beta/methods/mfa-configuration
-tags: ['SDK', 'Software Development Kit', 'MFAConfiguration']
+tags: ['SDK', 'Software Development Kit', 'MFAConfiguration', 'BetaMFAConfiguration']
 ---
 
 

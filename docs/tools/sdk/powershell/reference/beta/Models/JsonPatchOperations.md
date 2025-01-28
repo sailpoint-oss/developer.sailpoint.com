@@ -4,9 +4,9 @@ title: JsonPatchOperations
 pagination_label: JsonPatchOperations
 sidebar_label: JsonPatchOperations
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'JsonPatchOperations'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'JsonPatchOperations', 'BetaJsonPatchOperations'] 
 slug: /tools/sdk/powershell/beta/models/json-patch-operations
-tags: ['SDK', 'Software Development Kit', 'JsonPatchOperations']
+tags: ['SDK', 'Software Development Kit', 'JsonPatchOperations', 'BetaJsonPatchOperations']
 ---
 
 

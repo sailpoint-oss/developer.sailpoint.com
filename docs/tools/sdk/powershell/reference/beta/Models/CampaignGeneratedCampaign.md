@@ -4,9 +4,9 @@ title: CampaignGeneratedCampaign
 pagination_label: CampaignGeneratedCampaign
 sidebar_label: CampaignGeneratedCampaign
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignGeneratedCampaign'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignGeneratedCampaign', 'BetaCampaignGeneratedCampaign'] 
 slug: /tools/sdk/powershell/beta/models/campaign-generated-campaign
-tags: ['SDK', 'Software Development Kit', 'CampaignGeneratedCampaign']
+tags: ['SDK', 'Software Development Kit', 'CampaignGeneratedCampaign', 'BetaCampaignGeneratedCampaign']
 ---
 
 

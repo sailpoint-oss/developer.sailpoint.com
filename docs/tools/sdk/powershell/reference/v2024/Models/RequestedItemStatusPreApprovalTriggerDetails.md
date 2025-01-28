@@ -4,9 +4,9 @@ title: RequestedItemStatusPreApprovalTriggerDetails
 pagination_label: RequestedItemStatusPreApprovalTriggerDetails
 sidebar_label: RequestedItemStatusPreApprovalTriggerDetails
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RequestedItemStatusPreApprovalTriggerDetails'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RequestedItemStatusPreApprovalTriggerDetails', 'V2024RequestedItemStatusPreApprovalTriggerDetails'] 
 slug: /tools/sdk/powershell/v2024/models/requested-item-status-pre-approval-trigger-details
-tags: ['SDK', 'Software Development Kit', 'RequestedItemStatusPreApprovalTriggerDetails']
+tags: ['SDK', 'Software Development Kit', 'RequestedItemStatusPreApprovalTriggerDetails', 'V2024RequestedItemStatusPreApprovalTriggerDetails']
 ---
 
 

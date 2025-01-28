@@ -4,9 +4,9 @@ title: ObjectMappingResponse
 pagination_label: ObjectMappingResponse
 sidebar_label: ObjectMappingResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ObjectMappingResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ObjectMappingResponse', 'V2024ObjectMappingResponse'] 
 slug: /tools/sdk/powershell/v2024/models/object-mapping-response
-tags: ['SDK', 'Software Development Kit', 'ObjectMappingResponse']
+tags: ['SDK', 'Software Development Kit', 'ObjectMappingResponse', 'V2024ObjectMappingResponse']
 ---
 
 

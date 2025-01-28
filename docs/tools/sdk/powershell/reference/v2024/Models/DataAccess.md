@@ -4,9 +4,9 @@ title: DataAccess
 pagination_label: DataAccess
 sidebar_label: DataAccess
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'DataAccess'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'DataAccess', 'V2024DataAccess'] 
 slug: /tools/sdk/powershell/v2024/models/data-access
-tags: ['SDK', 'Software Development Kit', 'DataAccess']
+tags: ['SDK', 'Software Development Kit', 'DataAccess', 'V2024DataAccess']
 ---
 
 

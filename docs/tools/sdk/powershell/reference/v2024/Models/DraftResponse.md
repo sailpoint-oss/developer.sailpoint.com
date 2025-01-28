@@ -4,9 +4,9 @@ title: DraftResponse
 pagination_label: DraftResponse
 sidebar_label: DraftResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'DraftResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'DraftResponse', 'V2024DraftResponse'] 
 slug: /tools/sdk/powershell/v2024/models/draft-response
-tags: ['SDK', 'Software Development Kit', 'DraftResponse']
+tags: ['SDK', 'Software Development Kit', 'DraftResponse', 'V2024DraftResponse']
 ---
 
 

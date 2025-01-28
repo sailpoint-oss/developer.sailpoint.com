@@ -4,9 +4,9 @@ title: CorrelationConfigAttributeAssignmentsInner
 pagination_label: CorrelationConfigAttributeAssignmentsInner
 sidebar_label: CorrelationConfigAttributeAssignmentsInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CorrelationConfigAttributeAssignmentsInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CorrelationConfigAttributeAssignmentsInner', 'V2024CorrelationConfigAttributeAssignmentsInner'] 
 slug: /tools/sdk/powershell/v2024/models/correlation-config-attribute-assignments-inner
-tags: ['SDK', 'Software Development Kit', 'CorrelationConfigAttributeAssignmentsInner']
+tags: ['SDK', 'Software Development Kit', 'CorrelationConfigAttributeAssignmentsInner', 'V2024CorrelationConfigAttributeAssignmentsInner']
 ---
 
 

@@ -4,9 +4,9 @@ title: ConfigurationResponse
 pagination_label: ConfigurationResponse
 sidebar_label: ConfigurationResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ConfigurationResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ConfigurationResponse', 'BetaConfigurationResponse'] 
 slug: /tools/sdk/powershell/beta/models/configuration-response
-tags: ['SDK', 'Software Development Kit', 'ConfigurationResponse']
+tags: ['SDK', 'Software Development Kit', 'ConfigurationResponse', 'BetaConfigurationResponse']
 ---
 
 

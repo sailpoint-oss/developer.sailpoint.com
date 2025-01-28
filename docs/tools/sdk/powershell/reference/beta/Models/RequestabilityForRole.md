@@ -4,9 +4,9 @@ title: RequestabilityForRole
 pagination_label: RequestabilityForRole
 sidebar_label: RequestabilityForRole
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RequestabilityForRole'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RequestabilityForRole', 'BetaRequestabilityForRole'] 
 slug: /tools/sdk/powershell/beta/models/requestability-for-role
-tags: ['SDK', 'Software Development Kit', 'RequestabilityForRole']
+tags: ['SDK', 'Software Development Kit', 'RequestabilityForRole', 'BetaRequestabilityForRole']
 ---
 
 

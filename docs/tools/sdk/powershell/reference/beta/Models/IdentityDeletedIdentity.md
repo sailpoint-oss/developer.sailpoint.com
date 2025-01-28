@@ -4,9 +4,9 @@ title: IdentityDeletedIdentity
 pagination_label: IdentityDeletedIdentity
 sidebar_label: IdentityDeletedIdentity
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityDeletedIdentity'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityDeletedIdentity', 'BetaIdentityDeletedIdentity'] 
 slug: /tools/sdk/powershell/beta/models/identity-deleted-identity
-tags: ['SDK', 'Software Development Kit', 'IdentityDeletedIdentity']
+tags: ['SDK', 'Software Development Kit', 'IdentityDeletedIdentity', 'BetaIdentityDeletedIdentity']
 ---
 
 

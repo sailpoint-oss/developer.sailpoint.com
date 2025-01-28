@@ -4,9 +4,9 @@ title: SourceSyncPayload
 pagination_label: SourceSyncPayload
 sidebar_label: SourceSyncPayload
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SourceSyncPayload'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SourceSyncPayload', 'BetaSourceSyncPayload'] 
 slug: /tools/sdk/powershell/beta/models/source-sync-payload
-tags: ['SDK', 'Software Development Kit', 'SourceSyncPayload']
+tags: ['SDK', 'Software Development Kit', 'SourceSyncPayload', 'BetaSourceSyncPayload']
 ---
 
 

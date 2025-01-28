@@ -4,9 +4,9 @@ title: SpConfigImportResults
 pagination_label: SpConfigImportResults
 sidebar_label: SpConfigImportResults
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SpConfigImportResults'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SpConfigImportResults', 'V2024SpConfigImportResults'] 
 slug: /tools/sdk/powershell/v2024/models/sp-config-import-results
-tags: ['SDK', 'Software Development Kit', 'SpConfigImportResults']
+tags: ['SDK', 'Software Development Kit', 'SpConfigImportResults', 'V2024SpConfigImportResults']
 ---
 
 

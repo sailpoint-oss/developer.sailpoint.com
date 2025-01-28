@@ -4,9 +4,9 @@ title: InnerHit
 pagination_label: InnerHit
 sidebar_label: InnerHit
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'InnerHit'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'InnerHit', 'V2024InnerHit'] 
 slug: /tools/sdk/powershell/v2024/models/inner-hit
-tags: ['SDK', 'Software Development Kit', 'InnerHit']
+tags: ['SDK', 'Software Development Kit', 'InnerHit', 'V2024InnerHit']
 ---
 
 

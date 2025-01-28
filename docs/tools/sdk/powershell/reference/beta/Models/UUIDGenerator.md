@@ -4,9 +4,9 @@ title: UUIDGenerator
 pagination_label: UUIDGenerator
 sidebar_label: UUIDGenerator
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'UUIDGenerator'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'UUIDGenerator', 'BetaUUIDGenerator'] 
 slug: /tools/sdk/powershell/beta/models/uuid-generator
-tags: ['SDK', 'Software Development Kit', 'UUIDGenerator']
+tags: ['SDK', 'Software Development Kit', 'UUIDGenerator', 'BetaUUIDGenerator']
 ---
 
 

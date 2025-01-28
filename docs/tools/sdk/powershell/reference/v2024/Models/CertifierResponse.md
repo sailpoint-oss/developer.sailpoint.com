@@ -4,9 +4,9 @@ title: CertifierResponse
 pagination_label: CertifierResponse
 sidebar_label: CertifierResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CertifierResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CertifierResponse', 'V2024CertifierResponse'] 
 slug: /tools/sdk/powershell/v2024/models/certifier-response
-tags: ['SDK', 'Software Development Kit', 'CertifierResponse']
+tags: ['SDK', 'Software Development Kit', 'CertifierResponse', 'V2024CertifierResponse']
 ---
 
 

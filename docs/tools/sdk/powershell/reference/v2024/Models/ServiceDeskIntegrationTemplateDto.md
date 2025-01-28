@@ -4,9 +4,9 @@ title: ServiceDeskIntegrationTemplateDto
 pagination_label: ServiceDeskIntegrationTemplateDto
 sidebar_label: ServiceDeskIntegrationTemplateDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ServiceDeskIntegrationTemplateDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ServiceDeskIntegrationTemplateDto', 'V2024ServiceDeskIntegrationTemplateDto'] 
 slug: /tools/sdk/powershell/v2024/models/service-desk-integration-template-dto
-tags: ['SDK', 'Software Development Kit', 'ServiceDeskIntegrationTemplateDto']
+tags: ['SDK', 'Software Development Kit', 'ServiceDeskIntegrationTemplateDto', 'V2024ServiceDeskIntegrationTemplateDto']
 ---
 
 

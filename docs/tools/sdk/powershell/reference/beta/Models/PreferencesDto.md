@@ -4,9 +4,9 @@ title: PreferencesDto
 pagination_label: PreferencesDto
 sidebar_label: PreferencesDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'PreferencesDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'PreferencesDto', 'BetaPreferencesDto'] 
 slug: /tools/sdk/powershell/beta/models/preferences-dto
-tags: ['SDK', 'Software Development Kit', 'PreferencesDto']
+tags: ['SDK', 'Software Development Kit', 'PreferencesDto', 'BetaPreferencesDto']
 ---
 
 

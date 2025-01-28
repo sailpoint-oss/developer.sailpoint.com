@@ -4,9 +4,9 @@ title: SearchSchedule
 pagination_label: SearchSchedule
 sidebar_label: SearchSchedule
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SearchSchedule'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SearchSchedule', 'SearchSchedule'] 
 slug: /tools/sdk/powershell/v3/models/search-schedule
-tags: ['SDK', 'Software Development Kit', 'SearchSchedule']
+tags: ['SDK', 'Software Development Kit', 'SearchSchedule', 'SearchSchedule']
 ---
 
 

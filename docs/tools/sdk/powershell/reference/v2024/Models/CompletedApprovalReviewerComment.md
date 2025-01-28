@@ -4,9 +4,9 @@ title: CompletedApprovalReviewerComment
 pagination_label: CompletedApprovalReviewerComment
 sidebar_label: CompletedApprovalReviewerComment
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CompletedApprovalReviewerComment'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CompletedApprovalReviewerComment', 'V2024CompletedApprovalReviewerComment'] 
 slug: /tools/sdk/powershell/v2024/models/completed-approval-reviewer-comment
-tags: ['SDK', 'Software Development Kit', 'CompletedApprovalReviewerComment']
+tags: ['SDK', 'Software Development Kit', 'CompletedApprovalReviewerComment', 'V2024CompletedApprovalReviewerComment']
 ---
 
 

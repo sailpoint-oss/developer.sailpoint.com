@@ -4,9 +4,9 @@ title: LocaleOrigin
 pagination_label: LocaleOrigin
 sidebar_label: LocaleOrigin
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'LocaleOrigin'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'LocaleOrigin', 'BetaLocaleOrigin'] 
 slug: /tools/sdk/powershell/beta/models/locale-origin
-tags: ['SDK', 'Software Development Kit', 'LocaleOrigin']
+tags: ['SDK', 'Software Development Kit', 'LocaleOrigin', 'BetaLocaleOrigin']
 ---
 
 

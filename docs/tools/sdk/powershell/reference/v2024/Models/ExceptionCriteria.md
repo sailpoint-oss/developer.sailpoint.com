@@ -4,9 +4,9 @@ title: ExceptionCriteria
 pagination_label: ExceptionCriteria
 sidebar_label: ExceptionCriteria
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ExceptionCriteria'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ExceptionCriteria', 'V2024ExceptionCriteria'] 
 slug: /tools/sdk/powershell/v2024/models/exception-criteria
-tags: ['SDK', 'Software Development Kit', 'ExceptionCriteria']
+tags: ['SDK', 'Software Development Kit', 'ExceptionCriteria', 'V2024ExceptionCriteria']
 ---
 
 

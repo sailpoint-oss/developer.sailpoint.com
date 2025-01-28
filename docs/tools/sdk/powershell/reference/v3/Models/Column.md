@@ -4,9 +4,9 @@ title: Column
 pagination_label: Column
 sidebar_label: Column
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Column'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Column', 'Column'] 
 slug: /tools/sdk/powershell/v3/models/column
-tags: ['SDK', 'Software Development Kit', 'Column']
+tags: ['SDK', 'Software Development Kit', 'Column', 'Column']
 ---
 
 

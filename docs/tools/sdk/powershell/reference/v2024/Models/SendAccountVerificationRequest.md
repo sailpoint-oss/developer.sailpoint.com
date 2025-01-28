@@ -4,9 +4,9 @@ title: SendAccountVerificationRequest
 pagination_label: SendAccountVerificationRequest
 sidebar_label: SendAccountVerificationRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SendAccountVerificationRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SendAccountVerificationRequest', 'V2024SendAccountVerificationRequest'] 
 slug: /tools/sdk/powershell/v2024/models/send-account-verification-request
-tags: ['SDK', 'Software Development Kit', 'SendAccountVerificationRequest']
+tags: ['SDK', 'Software Development Kit', 'SendAccountVerificationRequest', 'V2024SendAccountVerificationRequest']
 ---
 
 

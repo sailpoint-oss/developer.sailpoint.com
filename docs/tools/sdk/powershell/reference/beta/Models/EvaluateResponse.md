@@ -4,9 +4,9 @@ title: EvaluateResponse
 pagination_label: EvaluateResponse
 sidebar_label: EvaluateResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'EvaluateResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'EvaluateResponse', 'BetaEvaluateResponse'] 
 slug: /tools/sdk/powershell/beta/models/evaluate-response
-tags: ['SDK', 'Software Development Kit', 'EvaluateResponse']
+tags: ['SDK', 'Software Development Kit', 'EvaluateResponse', 'BetaEvaluateResponse']
 ---
 
 

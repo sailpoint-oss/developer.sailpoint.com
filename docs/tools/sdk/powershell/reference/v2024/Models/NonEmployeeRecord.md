@@ -4,9 +4,9 @@ title: NonEmployeeRecord
 pagination_label: NonEmployeeRecord
 sidebar_label: NonEmployeeRecord
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'NonEmployeeRecord'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'NonEmployeeRecord', 'V2024NonEmployeeRecord'] 
 slug: /tools/sdk/powershell/v2024/models/non-employee-record
-tags: ['SDK', 'Software Development Kit', 'NonEmployeeRecord']
+tags: ['SDK', 'Software Development Kit', 'NonEmployeeRecord', 'V2024NonEmployeeRecord']
 ---
 
 

@@ -4,9 +4,9 @@ title: SourceAccountUpdated
 pagination_label: SourceAccountUpdated
 sidebar_label: SourceAccountUpdated
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SourceAccountUpdated'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SourceAccountUpdated', 'V2024SourceAccountUpdated'] 
 slug: /tools/sdk/powershell/v2024/models/source-account-updated
-tags: ['SDK', 'Software Development Kit', 'SourceAccountUpdated']
+tags: ['SDK', 'Software Development Kit', 'SourceAccountUpdated', 'V2024SourceAccountUpdated']
 ---
 
 

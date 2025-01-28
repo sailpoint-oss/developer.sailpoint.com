@@ -4,9 +4,9 @@ title: ResourceObject
 pagination_label: ResourceObject
 sidebar_label: ResourceObject
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ResourceObject'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ResourceObject', 'V2024ResourceObject'] 
 slug: /tools/sdk/powershell/v2024/models/resource-object
-tags: ['SDK', 'Software Development Kit', 'ResourceObject']
+tags: ['SDK', 'Software Development Kit', 'ResourceObject', 'V2024ResourceObject']
 ---
 
 

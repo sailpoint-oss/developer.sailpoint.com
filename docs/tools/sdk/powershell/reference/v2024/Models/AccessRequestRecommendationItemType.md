@@ -4,9 +4,9 @@ title: AccessRequestRecommendationItemType
 pagination_label: AccessRequestRecommendationItemType
 sidebar_label: AccessRequestRecommendationItemType
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestRecommendationItemType'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestRecommendationItemType', 'V2024AccessRequestRecommendationItemType'] 
 slug: /tools/sdk/powershell/v2024/models/access-request-recommendation-item-type
-tags: ['SDK', 'Software Development Kit', 'AccessRequestRecommendationItemType']
+tags: ['SDK', 'Software Development Kit', 'AccessRequestRecommendationItemType', 'V2024AccessRequestRecommendationItemType']
 ---
 
 

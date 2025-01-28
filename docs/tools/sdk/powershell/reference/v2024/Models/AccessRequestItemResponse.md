@@ -4,9 +4,9 @@ title: AccessRequestItemResponse
 pagination_label: AccessRequestItemResponse
 sidebar_label: AccessRequestItemResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestItemResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestItemResponse', 'V2024AccessRequestItemResponse'] 
 slug: /tools/sdk/powershell/v2024/models/access-request-item-response
-tags: ['SDK', 'Software Development Kit', 'AccessRequestItemResponse']
+tags: ['SDK', 'Software Development Kit', 'AccessRequestItemResponse', 'V2024AccessRequestItemResponse']
 ---
 
 

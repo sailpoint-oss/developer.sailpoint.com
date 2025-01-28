@@ -4,9 +4,9 @@ title: BackupOptions
 pagination_label: BackupOptions
 sidebar_label: BackupOptions
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'BackupOptions'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'BackupOptions', 'V2024BackupOptions'] 
 slug: /tools/sdk/powershell/v2024/models/backup-options
-tags: ['SDK', 'Software Development Kit', 'BackupOptions']
+tags: ['SDK', 'Software Development Kit', 'BackupOptions', 'V2024BackupOptions']
 ---
 
 

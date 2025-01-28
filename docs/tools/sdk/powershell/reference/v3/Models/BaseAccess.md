@@ -4,9 +4,9 @@ title: BaseAccess
 pagination_label: BaseAccess
 sidebar_label: BaseAccess
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'BaseAccess'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'BaseAccess', 'BaseAccess'] 
 slug: /tools/sdk/powershell/v3/models/base-access
-tags: ['SDK', 'Software Development Kit', 'BaseAccess']
+tags: ['SDK', 'Software Development Kit', 'BaseAccess', 'BaseAccess']
 ---
 
 

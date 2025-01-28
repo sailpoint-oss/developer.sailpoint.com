@@ -4,9 +4,9 @@ title: Segments
 pagination_label: Segments
 sidebar_label: Segments
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Segments'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Segments', 'V2024Segments'] 
 slug: /tools/sdk/powershell/v2024/methods/segments
-tags: ['SDK', 'Software Development Kit', 'Segments']
+tags: ['SDK', 'Software Development Kit', 'Segments', 'V2024Segments']
 ---
 
 

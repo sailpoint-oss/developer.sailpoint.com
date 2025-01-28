@@ -4,9 +4,9 @@ title: FormElementValidationsSet
 pagination_label: FormElementValidationsSet
 sidebar_label: FormElementValidationsSet
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'FormElementValidationsSet'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'FormElementValidationsSet', 'BetaFormElementValidationsSet'] 
 slug: /tools/sdk/powershell/beta/models/form-element-validations-set
-tags: ['SDK', 'Software Development Kit', 'FormElementValidationsSet']
+tags: ['SDK', 'Software Development Kit', 'FormElementValidationsSet', 'BetaFormElementValidationsSet']
 ---
 
 

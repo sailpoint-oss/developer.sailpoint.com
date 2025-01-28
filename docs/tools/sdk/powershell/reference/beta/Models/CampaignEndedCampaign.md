@@ -4,9 +4,9 @@ title: CampaignEndedCampaign
 pagination_label: CampaignEndedCampaign
 sidebar_label: CampaignEndedCampaign
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignEndedCampaign'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignEndedCampaign', 'BetaCampaignEndedCampaign'] 
 slug: /tools/sdk/powershell/beta/models/campaign-ended-campaign
-tags: ['SDK', 'Software Development Kit', 'CampaignEndedCampaign']
+tags: ['SDK', 'Software Development Kit', 'CampaignEndedCampaign', 'BetaCampaignEndedCampaign']
 ---
 
 

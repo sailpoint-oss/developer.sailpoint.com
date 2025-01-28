@@ -4,9 +4,9 @@ title: ConditionRule
 pagination_label: ConditionRule
 sidebar_label: ConditionRule
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ConditionRule'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ConditionRule', 'BetaConditionRule'] 
 slug: /tools/sdk/powershell/beta/models/condition-rule
-tags: ['SDK', 'Software Development Kit', 'ConditionRule']
+tags: ['SDK', 'Software Development Kit', 'ConditionRule', 'BetaConditionRule']
 ---
 
 

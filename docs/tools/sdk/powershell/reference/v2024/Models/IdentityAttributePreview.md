@@ -4,9 +4,9 @@ title: IdentityAttributePreview
 pagination_label: IdentityAttributePreview
 sidebar_label: IdentityAttributePreview
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityAttributePreview'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityAttributePreview', 'V2024IdentityAttributePreview'] 
 slug: /tools/sdk/powershell/v2024/models/identity-attribute-preview
-tags: ['SDK', 'Software Development Kit', 'IdentityAttributePreview']
+tags: ['SDK', 'Software Development Kit', 'IdentityAttributePreview', 'V2024IdentityAttributePreview']
 ---
 
 

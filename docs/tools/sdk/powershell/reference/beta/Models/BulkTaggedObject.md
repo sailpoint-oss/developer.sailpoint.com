@@ -4,9 +4,9 @@ title: BulkTaggedObject
 pagination_label: BulkTaggedObject
 sidebar_label: BulkTaggedObject
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'BulkTaggedObject'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'BulkTaggedObject', 'BetaBulkTaggedObject'] 
 slug: /tools/sdk/powershell/beta/models/bulk-tagged-object
-tags: ['SDK', 'Software Development Kit', 'BulkTaggedObject']
+tags: ['SDK', 'Software Development Kit', 'BulkTaggedObject', 'BetaBulkTaggedObject']
 ---
 
 

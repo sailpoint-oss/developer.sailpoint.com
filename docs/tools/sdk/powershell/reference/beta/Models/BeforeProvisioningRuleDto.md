@@ -4,9 +4,9 @@ title: BeforeProvisioningRuleDto
 pagination_label: BeforeProvisioningRuleDto
 sidebar_label: BeforeProvisioningRuleDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'BeforeProvisioningRuleDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'BeforeProvisioningRuleDto', 'BetaBeforeProvisioningRuleDto'] 
 slug: /tools/sdk/powershell/beta/models/before-provisioning-rule-dto
-tags: ['SDK', 'Software Development Kit', 'BeforeProvisioningRuleDto']
+tags: ['SDK', 'Software Development Kit', 'BeforeProvisioningRuleDto', 'BetaBeforeProvisioningRuleDto']
 ---
 
 

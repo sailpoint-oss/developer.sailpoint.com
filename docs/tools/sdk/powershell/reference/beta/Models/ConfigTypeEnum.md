@@ -4,9 +4,9 @@ title: ConfigTypeEnum
 pagination_label: ConfigTypeEnum
 sidebar_label: ConfigTypeEnum
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ConfigTypeEnum'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ConfigTypeEnum', 'BetaConfigTypeEnum'] 
 slug: /tools/sdk/powershell/beta/models/config-type-enum
-tags: ['SDK', 'Software Development Kit', 'ConfigTypeEnum']
+tags: ['SDK', 'Software Development Kit', 'ConfigTypeEnum', 'BetaConfigTypeEnum']
 ---
 
 

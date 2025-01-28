@@ -4,9 +4,9 @@ title: IAIAccessRequestRecommendations
 pagination_label: IAIAccessRequestRecommendations
 sidebar_label: IAIAccessRequestRecommendations
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IAIAccessRequestRecommendations'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IAIAccessRequestRecommendations', 'V2024IAIAccessRequestRecommendations'] 
 slug: /tools/sdk/powershell/v2024/methods/iai-access-request-recommendations
-tags: ['SDK', 'Software Development Kit', 'IAIAccessRequestRecommendations']
+tags: ['SDK', 'Software Development Kit', 'IAIAccessRequestRecommendations', 'V2024IAIAccessRequestRecommendations']
 ---
 
 

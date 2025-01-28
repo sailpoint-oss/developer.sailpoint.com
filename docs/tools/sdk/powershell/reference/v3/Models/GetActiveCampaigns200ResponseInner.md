@@ -4,9 +4,9 @@ title: GetActiveCampaigns200ResponseInner
 pagination_label: GetActiveCampaigns200ResponseInner
 sidebar_label: GetActiveCampaigns200ResponseInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'GetActiveCampaigns200ResponseInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'GetActiveCampaigns200ResponseInner', 'GetActiveCampaigns200ResponseInner'] 
 slug: /tools/sdk/powershell/v3/models/get-active-campaigns200-response-inner
-tags: ['SDK', 'Software Development Kit', 'GetActiveCampaigns200ResponseInner']
+tags: ['SDK', 'Software Development Kit', 'GetActiveCampaigns200ResponseInner', 'GetActiveCampaigns200ResponseInner']
 ---
 
 

@@ -4,9 +4,9 @@ title: DimensionBulkDeleteRequest
 pagination_label: DimensionBulkDeleteRequest
 sidebar_label: DimensionBulkDeleteRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'DimensionBulkDeleteRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'DimensionBulkDeleteRequest', 'V2024DimensionBulkDeleteRequest'] 
 slug: /tools/sdk/powershell/v2024/models/dimension-bulk-delete-request
-tags: ['SDK', 'Software Development Kit', 'DimensionBulkDeleteRequest']
+tags: ['SDK', 'Software Development Kit', 'DimensionBulkDeleteRequest', 'V2024DimensionBulkDeleteRequest']
 ---
 
 

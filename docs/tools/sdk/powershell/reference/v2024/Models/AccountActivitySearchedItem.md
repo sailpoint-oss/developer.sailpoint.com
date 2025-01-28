@@ -4,9 +4,9 @@ title: AccountActivitySearchedItem
 pagination_label: AccountActivitySearchedItem
 sidebar_label: AccountActivitySearchedItem
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccountActivitySearchedItem'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccountActivitySearchedItem', 'V2024AccountActivitySearchedItem'] 
 slug: /tools/sdk/powershell/v2024/models/account-activity-searched-item
-tags: ['SDK', 'Software Development Kit', 'AccountActivitySearchedItem']
+tags: ['SDK', 'Software Development Kit', 'AccountActivitySearchedItem', 'V2024AccountActivitySearchedItem']
 ---
 
 

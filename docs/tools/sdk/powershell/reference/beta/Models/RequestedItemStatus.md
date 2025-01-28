@@ -4,9 +4,9 @@ title: RequestedItemStatus
 pagination_label: RequestedItemStatus
 sidebar_label: RequestedItemStatus
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RequestedItemStatus'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RequestedItemStatus', 'BetaRequestedItemStatus'] 
 slug: /tools/sdk/powershell/beta/models/requested-item-status
-tags: ['SDK', 'Software Development Kit', 'RequestedItemStatus']
+tags: ['SDK', 'Software Development Kit', 'RequestedItemStatus', 'BetaRequestedItemStatus']
 ---
 
 

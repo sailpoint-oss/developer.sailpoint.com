@@ -4,9 +4,9 @@ title: ManagedClusters
 pagination_label: ManagedClusters
 sidebar_label: ManagedClusters
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ManagedClusters'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ManagedClusters', 'BetaManagedClusters'] 
 slug: /tools/sdk/powershell/beta/methods/managed-clusters
-tags: ['SDK', 'Software Development Kit', 'ManagedClusters']
+tags: ['SDK', 'Software Development Kit', 'ManagedClusters', 'BetaManagedClusters']
 ---
 
 

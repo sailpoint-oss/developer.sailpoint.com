@@ -4,9 +4,9 @@ title: OutlierContributingFeatureValue
 pagination_label: OutlierContributingFeatureValue
 sidebar_label: OutlierContributingFeatureValue
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'OutlierContributingFeatureValue'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'OutlierContributingFeatureValue', 'V2024OutlierContributingFeatureValue'] 
 slug: /tools/sdk/powershell/v2024/models/outlier-contributing-feature-value
-tags: ['SDK', 'Software Development Kit', 'OutlierContributingFeatureValue']
+tags: ['SDK', 'Software Development Kit', 'OutlierContributingFeatureValue', 'V2024OutlierContributingFeatureValue']
 ---
 
 

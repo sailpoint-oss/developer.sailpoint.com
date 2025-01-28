@@ -4,9 +4,9 @@ title: DomainStatusDto
 pagination_label: DomainStatusDto
 sidebar_label: DomainStatusDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'DomainStatusDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'DomainStatusDto', 'V2024DomainStatusDto'] 
 slug: /tools/sdk/powershell/v2024/models/domain-status-dto
-tags: ['SDK', 'Software Development Kit', 'DomainStatusDto']
+tags: ['SDK', 'Software Development Kit', 'DomainStatusDto', 'V2024DomainStatusDto']
 ---
 
 

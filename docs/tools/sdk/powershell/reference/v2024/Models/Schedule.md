@@ -4,9 +4,9 @@ title: Schedule
 pagination_label: Schedule
 sidebar_label: Schedule
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Schedule'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Schedule', 'V2024Schedule'] 
 slug: /tools/sdk/powershell/v2024/models/schedule
-tags: ['SDK', 'Software Development Kit', 'Schedule']
+tags: ['SDK', 'Software Development Kit', 'Schedule', 'V2024Schedule']
 ---
 
 

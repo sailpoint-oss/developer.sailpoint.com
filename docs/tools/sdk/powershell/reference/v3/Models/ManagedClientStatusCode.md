@@ -4,9 +4,9 @@ title: ManagedClientStatusCode
 pagination_label: ManagedClientStatusCode
 sidebar_label: ManagedClientStatusCode
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ManagedClientStatusCode'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ManagedClientStatusCode', 'ManagedClientStatusCode'] 
 slug: /tools/sdk/powershell/v3/models/managed-client-status-code
-tags: ['SDK', 'Software Development Kit', 'ManagedClientStatusCode']
+tags: ['SDK', 'Software Development Kit', 'ManagedClientStatusCode', 'ManagedClientStatusCode']
 ---
 
 

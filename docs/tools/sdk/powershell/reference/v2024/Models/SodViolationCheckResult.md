@@ -4,9 +4,9 @@ title: SodViolationCheckResult
 pagination_label: SodViolationCheckResult
 sidebar_label: SodViolationCheckResult
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SodViolationCheckResult'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SodViolationCheckResult', 'V2024SodViolationCheckResult'] 
 slug: /tools/sdk/powershell/v2024/models/sod-violation-check-result
-tags: ['SDK', 'Software Development Kit', 'SodViolationCheckResult']
+tags: ['SDK', 'Software Development Kit', 'SodViolationCheckResult', 'V2024SodViolationCheckResult']
 ---
 
 

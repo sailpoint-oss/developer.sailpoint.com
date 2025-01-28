@@ -4,9 +4,9 @@ title: Reassignment
 pagination_label: Reassignment
 sidebar_label: Reassignment
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Reassignment'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Reassignment', 'BetaReassignment'] 
 slug: /tools/sdk/powershell/beta/models/reassignment
-tags: ['SDK', 'Software Development Kit', 'Reassignment']
+tags: ['SDK', 'Software Development Kit', 'Reassignment', 'BetaReassignment']
 ---
 
 

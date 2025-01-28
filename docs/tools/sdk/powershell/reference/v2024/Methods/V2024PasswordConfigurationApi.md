@@ -4,9 +4,9 @@ title: PasswordConfiguration
 pagination_label: PasswordConfiguration
 sidebar_label: PasswordConfiguration
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'PasswordConfiguration'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'PasswordConfiguration', 'V2024PasswordConfiguration'] 
 slug: /tools/sdk/powershell/v2024/methods/password-configuration
-tags: ['SDK', 'Software Development Kit', 'PasswordConfiguration']
+tags: ['SDK', 'Software Development Kit', 'PasswordConfiguration', 'V2024PasswordConfiguration']
 ---
 
 

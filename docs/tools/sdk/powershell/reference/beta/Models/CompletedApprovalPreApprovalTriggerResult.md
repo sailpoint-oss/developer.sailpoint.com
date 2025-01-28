@@ -4,9 +4,9 @@ title: CompletedApprovalPreApprovalTriggerResult
 pagination_label: CompletedApprovalPreApprovalTriggerResult
 sidebar_label: CompletedApprovalPreApprovalTriggerResult
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CompletedApprovalPreApprovalTriggerResult'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CompletedApprovalPreApprovalTriggerResult', 'BetaCompletedApprovalPreApprovalTriggerResult'] 
 slug: /tools/sdk/powershell/beta/models/completed-approval-pre-approval-trigger-result
-tags: ['SDK', 'Software Development Kit', 'CompletedApprovalPreApprovalTriggerResult']
+tags: ['SDK', 'Software Development Kit', 'CompletedApprovalPreApprovalTriggerResult', 'BetaCompletedApprovalPreApprovalTriggerResult']
 ---
 
 

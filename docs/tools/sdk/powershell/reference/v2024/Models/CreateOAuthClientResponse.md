@@ -4,9 +4,9 @@ title: CreateOAuthClientResponse
 pagination_label: CreateOAuthClientResponse
 sidebar_label: CreateOAuthClientResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CreateOAuthClientResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CreateOAuthClientResponse', 'V2024CreateOAuthClientResponse'] 
 slug: /tools/sdk/powershell/v2024/models/create-o-auth-client-response
-tags: ['SDK', 'Software Development Kit', 'CreateOAuthClientResponse']
+tags: ['SDK', 'Software Development Kit', 'CreateOAuthClientResponse', 'V2024CreateOAuthClientResponse']
 ---
 
 

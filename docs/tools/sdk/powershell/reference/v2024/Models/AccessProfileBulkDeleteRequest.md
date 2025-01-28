@@ -4,9 +4,9 @@ title: AccessProfileBulkDeleteRequest
 pagination_label: AccessProfileBulkDeleteRequest
 sidebar_label: AccessProfileBulkDeleteRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessProfileBulkDeleteRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessProfileBulkDeleteRequest', 'V2024AccessProfileBulkDeleteRequest'] 
 slug: /tools/sdk/powershell/v2024/models/access-profile-bulk-delete-request
-tags: ['SDK', 'Software Development Kit', 'AccessProfileBulkDeleteRequest']
+tags: ['SDK', 'Software Development Kit', 'AccessProfileBulkDeleteRequest', 'V2024AccessProfileBulkDeleteRequest']
 ---
 
 

@@ -4,9 +4,9 @@ title: AccessType
 pagination_label: AccessType
 sidebar_label: AccessType
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessType'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessType', 'BetaAccessType'] 
 slug: /tools/sdk/powershell/beta/models/access-type
-tags: ['SDK', 'Software Development Kit', 'AccessType']
+tags: ['SDK', 'Software Development Kit', 'AccessType', 'BetaAccessType']
 ---
 
 

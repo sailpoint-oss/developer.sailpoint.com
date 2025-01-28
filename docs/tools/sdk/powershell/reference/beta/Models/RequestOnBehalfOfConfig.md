@@ -4,9 +4,9 @@ title: RequestOnBehalfOfConfig
 pagination_label: RequestOnBehalfOfConfig
 sidebar_label: RequestOnBehalfOfConfig
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RequestOnBehalfOfConfig'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RequestOnBehalfOfConfig', 'BetaRequestOnBehalfOfConfig'] 
 slug: /tools/sdk/powershell/beta/models/request-on-behalf-of-config
-tags: ['SDK', 'Software Development Kit', 'RequestOnBehalfOfConfig']
+tags: ['SDK', 'Software Development Kit', 'RequestOnBehalfOfConfig', 'BetaRequestOnBehalfOfConfig']
 ---
 
 

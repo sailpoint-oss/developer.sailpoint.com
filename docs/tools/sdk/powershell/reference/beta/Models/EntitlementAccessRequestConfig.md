@@ -4,9 +4,9 @@ title: EntitlementAccessRequestConfig
 pagination_label: EntitlementAccessRequestConfig
 sidebar_label: EntitlementAccessRequestConfig
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'EntitlementAccessRequestConfig'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'EntitlementAccessRequestConfig', 'BetaEntitlementAccessRequestConfig'] 
 slug: /tools/sdk/powershell/beta/models/entitlement-access-request-config
-tags: ['SDK', 'Software Development Kit', 'EntitlementAccessRequestConfig']
+tags: ['SDK', 'Software Development Kit', 'EntitlementAccessRequestConfig', 'BetaEntitlementAccessRequestConfig']
 ---
 
 

@@ -4,9 +4,9 @@ title: CampaignAllOfMachineAccountCampaignInfo
 pagination_label: CampaignAllOfMachineAccountCampaignInfo
 sidebar_label: CampaignAllOfMachineAccountCampaignInfo
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignAllOfMachineAccountCampaignInfo'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignAllOfMachineAccountCampaignInfo', 'V2024CampaignAllOfMachineAccountCampaignInfo'] 
 slug: /tools/sdk/powershell/v2024/models/campaign-all-of-machine-account-campaign-info
-tags: ['SDK', 'Software Development Kit', 'CampaignAllOfMachineAccountCampaignInfo']
+tags: ['SDK', 'Software Development Kit', 'CampaignAllOfMachineAccountCampaignInfo', 'V2024CampaignAllOfMachineAccountCampaignInfo']
 ---
 
 

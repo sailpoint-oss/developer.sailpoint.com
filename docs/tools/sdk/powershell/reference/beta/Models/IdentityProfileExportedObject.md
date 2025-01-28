@@ -4,9 +4,9 @@ title: IdentityProfileExportedObject
 pagination_label: IdentityProfileExportedObject
 sidebar_label: IdentityProfileExportedObject
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityProfileExportedObject'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityProfileExportedObject', 'BetaIdentityProfileExportedObject'] 
 slug: /tools/sdk/powershell/beta/models/identity-profile-exported-object
-tags: ['SDK', 'Software Development Kit', 'IdentityProfileExportedObject']
+tags: ['SDK', 'Software Development Kit', 'IdentityProfileExportedObject', 'BetaIdentityProfileExportedObject']
 ---
 
 

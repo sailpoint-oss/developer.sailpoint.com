@@ -4,9 +4,9 @@ title: ManualWorkItemState
 pagination_label: ManualWorkItemState
 sidebar_label: ManualWorkItemState
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ManualWorkItemState'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ManualWorkItemState', 'ManualWorkItemState'] 
 slug: /tools/sdk/powershell/v3/models/manual-work-item-state
-tags: ['SDK', 'Software Development Kit', 'ManualWorkItemState']
+tags: ['SDK', 'Software Development Kit', 'ManualWorkItemState', 'ManualWorkItemState']
 ---
 
 

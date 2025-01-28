@@ -4,9 +4,9 @@ title: ModelEvent
 pagination_label: ModelEvent
 sidebar_label: ModelEvent
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ModelEvent'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ModelEvent', 'V2024ModelEvent'] 
 slug: /tools/sdk/powershell/v2024/models/model-event
-tags: ['SDK', 'Software Development Kit', 'ModelEvent']
+tags: ['SDK', 'Software Development Kit', 'ModelEvent', 'V2024ModelEvent']
 ---
 
 

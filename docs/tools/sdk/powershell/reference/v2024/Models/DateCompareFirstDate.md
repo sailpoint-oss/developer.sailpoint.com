@@ -4,9 +4,9 @@ title: DateCompareFirstDate
 pagination_label: DateCompareFirstDate
 sidebar_label: DateCompareFirstDate
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'DateCompareFirstDate'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'DateCompareFirstDate', 'V2024DateCompareFirstDate'] 
 slug: /tools/sdk/powershell/v2024/models/date-compare-first-date
-tags: ['SDK', 'Software Development Kit', 'DateCompareFirstDate']
+tags: ['SDK', 'Software Development Kit', 'DateCompareFirstDate', 'V2024DateCompareFirstDate']
 ---
 
 

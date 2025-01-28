@@ -4,9 +4,9 @@ title: SourceAccountCorrelationConfig
 pagination_label: SourceAccountCorrelationConfig
 sidebar_label: SourceAccountCorrelationConfig
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SourceAccountCorrelationConfig'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SourceAccountCorrelationConfig', 'V2024SourceAccountCorrelationConfig'] 
 slug: /tools/sdk/powershell/v2024/models/source-account-correlation-config
-tags: ['SDK', 'Software Development Kit', 'SourceAccountCorrelationConfig']
+tags: ['SDK', 'Software Development Kit', 'SourceAccountCorrelationConfig', 'V2024SourceAccountCorrelationConfig']
 ---
 
 

@@ -4,9 +4,9 @@ title: TranslationMessage
 pagination_label: TranslationMessage
 sidebar_label: TranslationMessage
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TranslationMessage'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TranslationMessage', 'BetaTranslationMessage'] 
 slug: /tools/sdk/powershell/beta/models/translation-message
-tags: ['SDK', 'Software Development Kit', 'TranslationMessage']
+tags: ['SDK', 'Software Development Kit', 'TranslationMessage', 'BetaTranslationMessage']
 ---
 
 

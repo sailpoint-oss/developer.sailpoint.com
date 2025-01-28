@@ -4,9 +4,9 @@ title: Base64Decode
 pagination_label: Base64Decode
 sidebar_label: Base64Decode
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Base64Decode'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Base64Decode', 'V2024Base64Decode'] 
 slug: /tools/sdk/powershell/v2024/models/base64-decode
-tags: ['SDK', 'Software Development Kit', 'Base64Decode']
+tags: ['SDK', 'Software Development Kit', 'Base64Decode', 'V2024Base64Decode']
 ---
 
 

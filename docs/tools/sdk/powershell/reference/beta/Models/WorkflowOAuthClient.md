@@ -4,9 +4,9 @@ title: WorkflowOAuthClient
 pagination_label: WorkflowOAuthClient
 sidebar_label: WorkflowOAuthClient
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'WorkflowOAuthClient'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'WorkflowOAuthClient', 'BetaWorkflowOAuthClient'] 
 slug: /tools/sdk/powershell/beta/models/workflow-o-auth-client
-tags: ['SDK', 'Software Development Kit', 'WorkflowOAuthClient']
+tags: ['SDK', 'Software Development Kit', 'WorkflowOAuthClient', 'BetaWorkflowOAuthClient']
 ---
 
 

@@ -4,9 +4,9 @@ title: CampaignFilterDetails
 pagination_label: CampaignFilterDetails
 sidebar_label: CampaignFilterDetails
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignFilterDetails'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignFilterDetails', 'V2024CampaignFilterDetails'] 
 slug: /tools/sdk/powershell/v2024/models/campaign-filter-details
-tags: ['SDK', 'Software Development Kit', 'CampaignFilterDetails']
+tags: ['SDK', 'Software Development Kit', 'CampaignFilterDetails', 'V2024CampaignFilterDetails']
 ---
 
 

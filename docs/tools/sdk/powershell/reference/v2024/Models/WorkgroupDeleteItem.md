@@ -4,9 +4,9 @@ title: WorkgroupDeleteItem
 pagination_label: WorkgroupDeleteItem
 sidebar_label: WorkgroupDeleteItem
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'WorkgroupDeleteItem'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'WorkgroupDeleteItem', 'V2024WorkgroupDeleteItem'] 
 slug: /tools/sdk/powershell/v2024/models/workgroup-delete-item
-tags: ['SDK', 'Software Development Kit', 'WorkgroupDeleteItem']
+tags: ['SDK', 'Software Development Kit', 'WorkgroupDeleteItem', 'V2024WorkgroupDeleteItem']
 ---
 
 

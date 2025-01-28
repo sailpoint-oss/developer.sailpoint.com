@@ -4,9 +4,9 @@ title: ObjectMappingBulkCreateResponse
 pagination_label: ObjectMappingBulkCreateResponse
 sidebar_label: ObjectMappingBulkCreateResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ObjectMappingBulkCreateResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ObjectMappingBulkCreateResponse', 'ObjectMappingBulkCreateResponse'] 
 slug: /tools/sdk/powershell/v3/models/object-mapping-bulk-create-response
-tags: ['SDK', 'Software Development Kit', 'ObjectMappingBulkCreateResponse']
+tags: ['SDK', 'Software Development Kit', 'ObjectMappingBulkCreateResponse', 'ObjectMappingBulkCreateResponse']
 ---
 
 

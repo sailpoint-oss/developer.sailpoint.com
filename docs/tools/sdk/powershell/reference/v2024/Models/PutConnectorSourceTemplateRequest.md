@@ -4,9 +4,9 @@ title: PutConnectorSourceTemplateRequest
 pagination_label: PutConnectorSourceTemplateRequest
 sidebar_label: PutConnectorSourceTemplateRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'PutConnectorSourceTemplateRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'PutConnectorSourceTemplateRequest', 'V2024PutConnectorSourceTemplateRequest'] 
 slug: /tools/sdk/powershell/v2024/models/put-connector-source-template-request
-tags: ['SDK', 'Software Development Kit', 'PutConnectorSourceTemplateRequest']
+tags: ['SDK', 'Software Development Kit', 'PutConnectorSourceTemplateRequest', 'V2024PutConnectorSourceTemplateRequest']
 ---
 
 

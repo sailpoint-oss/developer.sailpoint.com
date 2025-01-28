@@ -4,9 +4,9 @@ title: V3ConnectorDto
 pagination_label: V3ConnectorDto
 sidebar_label: V3ConnectorDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'V3ConnectorDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'V3ConnectorDto', 'BetaV3ConnectorDto'] 
 slug: /tools/sdk/powershell/beta/models/v3-connector-dto
-tags: ['SDK', 'Software Development Kit', 'V3ConnectorDto']
+tags: ['SDK', 'Software Development Kit', 'V3ConnectorDto', 'BetaV3ConnectorDto']
 ---
 
 

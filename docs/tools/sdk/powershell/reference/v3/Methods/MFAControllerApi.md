@@ -4,9 +4,9 @@ title: MFAController
 pagination_label: MFAController
 sidebar_label: MFAController
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'MFAController'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'MFAController', 'MFAController'] 
 slug: /tools/sdk/powershell/v3/methods/mfa-controller
-tags: ['SDK', 'Software Development Kit', 'MFAController']
+tags: ['SDK', 'Software Development Kit', 'MFAController', 'MFAController']
 ---
 
 

@@ -4,9 +4,9 @@ title: TaggedObjectDto
 pagination_label: TaggedObjectDto
 sidebar_label: TaggedObjectDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TaggedObjectDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TaggedObjectDto', 'TaggedObjectDto'] 
 slug: /tools/sdk/powershell/v3/models/tagged-object-dto
-tags: ['SDK', 'Software Development Kit', 'TaggedObjectDto']
+tags: ['SDK', 'Software Development Kit', 'TaggedObjectDto', 'TaggedObjectDto']
 ---
 
 

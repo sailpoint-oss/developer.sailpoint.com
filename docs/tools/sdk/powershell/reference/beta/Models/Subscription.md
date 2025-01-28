@@ -4,9 +4,9 @@ title: Subscription
 pagination_label: Subscription
 sidebar_label: Subscription
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Subscription'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Subscription', 'BetaSubscription'] 
 slug: /tools/sdk/powershell/beta/models/subscription
-tags: ['SDK', 'Software Development Kit', 'Subscription']
+tags: ['SDK', 'Software Development Kit', 'Subscription', 'BetaSubscription']
 ---
 
 

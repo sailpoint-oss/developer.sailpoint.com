@@ -4,9 +4,9 @@ title: IdentityCertified
 pagination_label: IdentityCertified
 sidebar_label: IdentityCertified
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityCertified'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityCertified', 'V2024IdentityCertified'] 
 slug: /tools/sdk/powershell/v2024/models/identity-certified
-tags: ['SDK', 'Software Development Kit', 'IdentityCertified']
+tags: ['SDK', 'Software Development Kit', 'IdentityCertified', 'V2024IdentityCertified']
 ---
 
 

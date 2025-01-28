@@ -4,9 +4,9 @@ title: WorkflowDefinition
 pagination_label: WorkflowDefinition
 sidebar_label: WorkflowDefinition
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'WorkflowDefinition'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'WorkflowDefinition', 'BetaWorkflowDefinition'] 
 slug: /tools/sdk/powershell/beta/models/workflow-definition
-tags: ['SDK', 'Software Development Kit', 'WorkflowDefinition']
+tags: ['SDK', 'Software Development Kit', 'WorkflowDefinition', 'BetaWorkflowDefinition']
 ---
 
 

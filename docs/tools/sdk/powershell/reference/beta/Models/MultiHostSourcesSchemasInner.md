@@ -4,9 +4,9 @@ title: MultiHostSourcesSchemasInner
 pagination_label: MultiHostSourcesSchemasInner
 sidebar_label: MultiHostSourcesSchemasInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'MultiHostSourcesSchemasInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'MultiHostSourcesSchemasInner', 'BetaMultiHostSourcesSchemasInner'] 
 slug: /tools/sdk/powershell/beta/models/multi-host-sources-schemas-inner
-tags: ['SDK', 'Software Development Kit', 'MultiHostSourcesSchemasInner']
+tags: ['SDK', 'Software Development Kit', 'MultiHostSourcesSchemasInner', 'BetaMultiHostSourcesSchemasInner']
 ---
 
 

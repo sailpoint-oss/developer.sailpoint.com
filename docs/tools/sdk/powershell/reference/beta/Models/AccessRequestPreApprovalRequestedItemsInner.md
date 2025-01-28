@@ -4,9 +4,9 @@ title: AccessRequestPreApprovalRequestedItemsInner
 pagination_label: AccessRequestPreApprovalRequestedItemsInner
 sidebar_label: AccessRequestPreApprovalRequestedItemsInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestPreApprovalRequestedItemsInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestPreApprovalRequestedItemsInner', 'BetaAccessRequestPreApprovalRequestedItemsInner'] 
 slug: /tools/sdk/powershell/beta/models/access-request-pre-approval-requested-items-inner
-tags: ['SDK', 'Software Development Kit', 'AccessRequestPreApprovalRequestedItemsInner']
+tags: ['SDK', 'Software Development Kit', 'AccessRequestPreApprovalRequestedItemsInner', 'BetaAccessRequestPreApprovalRequestedItemsInner']
 ---
 
 

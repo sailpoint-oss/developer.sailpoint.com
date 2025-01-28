@@ -4,9 +4,9 @@ title: AccessItemApproverDto
 pagination_label: AccessItemApproverDto
 sidebar_label: AccessItemApproverDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessItemApproverDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessItemApproverDto', 'BetaAccessItemApproverDto'] 
 slug: /tools/sdk/powershell/beta/models/access-item-approver-dto
-tags: ['SDK', 'Software Development Kit', 'AccessItemApproverDto']
+tags: ['SDK', 'Software Development Kit', 'AccessItemApproverDto', 'BetaAccessItemApproverDto']
 ---
 
 

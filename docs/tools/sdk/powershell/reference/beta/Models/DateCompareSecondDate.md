@@ -4,9 +4,9 @@ title: DateCompareSecondDate
 pagination_label: DateCompareSecondDate
 sidebar_label: DateCompareSecondDate
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'DateCompareSecondDate'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'DateCompareSecondDate', 'BetaDateCompareSecondDate'] 
 slug: /tools/sdk/powershell/beta/models/date-compare-second-date
-tags: ['SDK', 'Software Development Kit', 'DateCompareSecondDate']
+tags: ['SDK', 'Software Development Kit', 'DateCompareSecondDate', 'BetaDateCompareSecondDate']
 ---
 
 

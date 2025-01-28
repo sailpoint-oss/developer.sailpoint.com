@@ -4,9 +4,9 @@ title: RightPad
 pagination_label: RightPad
 sidebar_label: RightPad
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RightPad'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RightPad', 'BetaRightPad'] 
 slug: /tools/sdk/powershell/beta/models/right-pad
-tags: ['SDK', 'Software Development Kit', 'RightPad']
+tags: ['SDK', 'Software Development Kit', 'RightPad', 'BetaRightPad']
 ---
 
 

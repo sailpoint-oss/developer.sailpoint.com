@@ -4,9 +4,9 @@ title: EventBridgeConfig
 pagination_label: EventBridgeConfig
 sidebar_label: EventBridgeConfig
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'EventBridgeConfig'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'EventBridgeConfig', 'BetaEventBridgeConfig'] 
 slug: /tools/sdk/powershell/beta/models/event-bridge-config
-tags: ['SDK', 'Software Development Kit', 'EventBridgeConfig']
+tags: ['SDK', 'Software Development Kit', 'EventBridgeConfig', 'BetaEventBridgeConfig']
 ---
 
 

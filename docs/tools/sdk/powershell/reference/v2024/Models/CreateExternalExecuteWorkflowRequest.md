@@ -4,9 +4,9 @@ title: CreateExternalExecuteWorkflowRequest
 pagination_label: CreateExternalExecuteWorkflowRequest
 sidebar_label: CreateExternalExecuteWorkflowRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CreateExternalExecuteWorkflowRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CreateExternalExecuteWorkflowRequest', 'V2024CreateExternalExecuteWorkflowRequest'] 
 slug: /tools/sdk/powershell/v2024/models/create-external-execute-workflow-request
-tags: ['SDK', 'Software Development Kit', 'CreateExternalExecuteWorkflowRequest']
+tags: ['SDK', 'Software Development Kit', 'CreateExternalExecuteWorkflowRequest', 'V2024CreateExternalExecuteWorkflowRequest']
 ---
 
 

@@ -4,9 +4,9 @@ title: ConnectedObjectType
 pagination_label: ConnectedObjectType
 sidebar_label: ConnectedObjectType
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ConnectedObjectType'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ConnectedObjectType', 'BetaConnectedObjectType'] 
 slug: /tools/sdk/powershell/beta/models/connected-object-type
-tags: ['SDK', 'Software Development Kit', 'ConnectedObjectType']
+tags: ['SDK', 'Software Development Kit', 'ConnectedObjectType', 'BetaConnectedObjectType']
 ---
 
 

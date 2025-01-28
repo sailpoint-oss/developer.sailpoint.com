@@ -4,9 +4,9 @@ title: WorkItemsCount
 pagination_label: WorkItemsCount
 sidebar_label: WorkItemsCount
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'WorkItemsCount'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'WorkItemsCount', 'V2024WorkItemsCount'] 
 slug: /tools/sdk/powershell/v2024/models/work-items-count
-tags: ['SDK', 'Software Development Kit', 'WorkItemsCount']
+tags: ['SDK', 'Software Development Kit', 'WorkItemsCount', 'V2024WorkItemsCount']
 ---
 
 

@@ -4,9 +4,9 @@ title: AccountActivities
 pagination_label: AccountActivities
 sidebar_label: AccountActivities
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccountActivities'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccountActivities', 'BetaAccountActivities'] 
 slug: /tools/sdk/powershell/beta/methods/account-activities
-tags: ['SDK', 'Software Development Kit', 'AccountActivities']
+tags: ['SDK', 'Software Development Kit', 'AccountActivities', 'BetaAccountActivities']
 ---
 
 

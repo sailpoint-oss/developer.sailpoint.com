@@ -4,9 +4,9 @@ title: SearchFilterType
 pagination_label: SearchFilterType
 sidebar_label: SearchFilterType
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SearchFilterType'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SearchFilterType', 'SearchFilterType'] 
 slug: /tools/sdk/powershell/v3/models/search-filter-type
-tags: ['SDK', 'Software Development Kit', 'SearchFilterType']
+tags: ['SDK', 'Software Development Kit', 'SearchFilterType', 'SearchFilterType']
 ---
 
 

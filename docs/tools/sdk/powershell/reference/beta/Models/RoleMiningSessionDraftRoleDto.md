@@ -4,9 +4,9 @@ title: RoleMiningSessionDraftRoleDto
 pagination_label: RoleMiningSessionDraftRoleDto
 sidebar_label: RoleMiningSessionDraftRoleDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMiningSessionDraftRoleDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMiningSessionDraftRoleDto', 'BetaRoleMiningSessionDraftRoleDto'] 
 slug: /tools/sdk/powershell/beta/models/role-mining-session-draft-role-dto
-tags: ['SDK', 'Software Development Kit', 'RoleMiningSessionDraftRoleDto']
+tags: ['SDK', 'Software Development Kit', 'RoleMiningSessionDraftRoleDto', 'BetaRoleMiningSessionDraftRoleDto']
 ---
 
 

@@ -4,9 +4,9 @@ title: RoleBulkUpdateResponse
 pagination_label: RoleBulkUpdateResponse
 sidebar_label: RoleBulkUpdateResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleBulkUpdateResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleBulkUpdateResponse', 'V2024RoleBulkUpdateResponse'] 
 slug: /tools/sdk/powershell/v2024/models/role-bulk-update-response
-tags: ['SDK', 'Software Development Kit', 'RoleBulkUpdateResponse']
+tags: ['SDK', 'Software Development Kit', 'RoleBulkUpdateResponse', 'V2024RoleBulkUpdateResponse']
 ---
 
 

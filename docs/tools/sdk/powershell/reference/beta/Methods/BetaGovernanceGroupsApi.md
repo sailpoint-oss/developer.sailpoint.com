@@ -4,9 +4,9 @@ title: GovernanceGroups
 pagination_label: GovernanceGroups
 sidebar_label: GovernanceGroups
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'GovernanceGroups'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'GovernanceGroups', 'BetaGovernanceGroups'] 
 slug: /tools/sdk/powershell/beta/methods/governance-groups
-tags: ['SDK', 'Software Development Kit', 'GovernanceGroups']
+tags: ['SDK', 'Software Development Kit', 'GovernanceGroups', 'BetaGovernanceGroups']
 ---
 
 

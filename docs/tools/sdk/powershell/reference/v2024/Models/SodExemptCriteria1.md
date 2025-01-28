@@ -4,9 +4,9 @@ title: SodExemptCriteria1
 pagination_label: SodExemptCriteria1
 sidebar_label: SodExemptCriteria1
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SodExemptCriteria1'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SodExemptCriteria1', 'V2024SodExemptCriteria1'] 
 slug: /tools/sdk/powershell/v2024/models/sod-exempt-criteria1
-tags: ['SDK', 'Software Development Kit', 'SodExemptCriteria1']
+tags: ['SDK', 'Software Development Kit', 'SodExemptCriteria1', 'V2024SodExemptCriteria1']
 ---
 
 

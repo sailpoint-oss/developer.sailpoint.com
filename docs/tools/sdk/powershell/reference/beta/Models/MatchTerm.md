@@ -4,9 +4,9 @@ title: MatchTerm
 pagination_label: MatchTerm
 sidebar_label: MatchTerm
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'MatchTerm'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'MatchTerm', 'BetaMatchTerm'] 
 slug: /tools/sdk/powershell/beta/models/match-term
-tags: ['SDK', 'Software Development Kit', 'MatchTerm']
+tags: ['SDK', 'Software Development Kit', 'MatchTerm', 'BetaMatchTerm']
 ---
 
 

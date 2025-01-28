@@ -4,9 +4,9 @@ title: SavedSearchCompleteSearchResultsIdentity
 pagination_label: SavedSearchCompleteSearchResultsIdentity
 sidebar_label: SavedSearchCompleteSearchResultsIdentity
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SavedSearchCompleteSearchResultsIdentity'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SavedSearchCompleteSearchResultsIdentity', 'V2024SavedSearchCompleteSearchResultsIdentity'] 
 slug: /tools/sdk/powershell/v2024/models/saved-search-complete-search-results-identity
-tags: ['SDK', 'Software Development Kit', 'SavedSearchCompleteSearchResultsIdentity']
+tags: ['SDK', 'Software Development Kit', 'SavedSearchCompleteSearchResultsIdentity', 'V2024SavedSearchCompleteSearchResultsIdentity']
 ---
 
 

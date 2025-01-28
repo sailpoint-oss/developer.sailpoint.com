@@ -4,9 +4,9 @@ title: Icons
 pagination_label: Icons
 sidebar_label: Icons
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Icons'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Icons', 'BetaIcons'] 
 slug: /tools/sdk/powershell/beta/methods/icons
-tags: ['SDK', 'Software Development Kit', 'Icons']
+tags: ['SDK', 'Software Development Kit', 'Icons', 'BetaIcons']
 ---
 
 

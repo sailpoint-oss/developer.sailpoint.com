@@ -4,9 +4,9 @@ title: ReviewableEntitlementAccount
 pagination_label: ReviewableEntitlementAccount
 sidebar_label: ReviewableEntitlementAccount
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ReviewableEntitlementAccount'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ReviewableEntitlementAccount', 'ReviewableEntitlementAccount'] 
 slug: /tools/sdk/powershell/v3/models/reviewable-entitlement-account
-tags: ['SDK', 'Software Development Kit', 'ReviewableEntitlementAccount']
+tags: ['SDK', 'Software Development Kit', 'ReviewableEntitlementAccount', 'ReviewableEntitlementAccount']
 ---
 
 

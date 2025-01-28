@@ -4,9 +4,9 @@ title: SodPolicyOwnerRef
 pagination_label: SodPolicyOwnerRef
 sidebar_label: SodPolicyOwnerRef
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SodPolicyOwnerRef'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SodPolicyOwnerRef', 'BetaSodPolicyOwnerRef'] 
 slug: /tools/sdk/powershell/beta/models/sod-policy-owner-ref
-tags: ['SDK', 'Software Development Kit', 'SodPolicyOwnerRef']
+tags: ['SDK', 'Software Development Kit', 'SodPolicyOwnerRef', 'BetaSodPolicyOwnerRef']
 ---
 
 

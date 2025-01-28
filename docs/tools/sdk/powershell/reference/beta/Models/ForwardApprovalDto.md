@@ -4,9 +4,9 @@ title: ForwardApprovalDto
 pagination_label: ForwardApprovalDto
 sidebar_label: ForwardApprovalDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ForwardApprovalDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ForwardApprovalDto', 'BetaForwardApprovalDto'] 
 slug: /tools/sdk/powershell/beta/models/forward-approval-dto
-tags: ['SDK', 'Software Development Kit', 'ForwardApprovalDto']
+tags: ['SDK', 'Software Development Kit', 'ForwardApprovalDto', 'BetaForwardApprovalDto']
 ---
 
 

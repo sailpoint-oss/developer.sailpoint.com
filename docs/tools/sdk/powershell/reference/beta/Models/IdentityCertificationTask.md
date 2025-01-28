@@ -4,9 +4,9 @@ title: IdentityCertificationTask
 pagination_label: IdentityCertificationTask
 sidebar_label: IdentityCertificationTask
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityCertificationTask'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityCertificationTask', 'BetaIdentityCertificationTask'] 
 slug: /tools/sdk/powershell/beta/models/identity-certification-task
-tags: ['SDK', 'Software Development Kit', 'IdentityCertificationTask']
+tags: ['SDK', 'Software Development Kit', 'IdentityCertificationTask', 'BetaIdentityCertificationTask']
 ---
 
 

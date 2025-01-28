@@ -4,9 +4,9 @@ title: CertificationReferenceDto
 pagination_label: CertificationReferenceDto
 sidebar_label: CertificationReferenceDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CertificationReferenceDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CertificationReferenceDto', 'BetaCertificationReferenceDto'] 
 slug: /tools/sdk/powershell/beta/models/certification-reference-dto
-tags: ['SDK', 'Software Development Kit', 'CertificationReferenceDto']
+tags: ['SDK', 'Software Development Kit', 'CertificationReferenceDto', 'BetaCertificationReferenceDto']
 ---
 
 

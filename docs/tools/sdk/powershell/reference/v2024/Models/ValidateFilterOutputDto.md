@@ -4,9 +4,9 @@ title: ValidateFilterOutputDto
 pagination_label: ValidateFilterOutputDto
 sidebar_label: ValidateFilterOutputDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ValidateFilterOutputDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ValidateFilterOutputDto', 'V2024ValidateFilterOutputDto'] 
 slug: /tools/sdk/powershell/v2024/models/validate-filter-output-dto
-tags: ['SDK', 'Software Development Kit', 'ValidateFilterOutputDto']
+tags: ['SDK', 'Software Development Kit', 'ValidateFilterOutputDto', 'V2024ValidateFilterOutputDto']
 ---
 
 

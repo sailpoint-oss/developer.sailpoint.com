@@ -4,9 +4,9 @@ title: AuditDetails
 pagination_label: AuditDetails
 sidebar_label: AuditDetails
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AuditDetails'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AuditDetails', 'BetaAuditDetails'] 
 slug: /tools/sdk/powershell/beta/models/audit-details
-tags: ['SDK', 'Software Development Kit', 'AuditDetails']
+tags: ['SDK', 'Software Development Kit', 'AuditDetails', 'BetaAuditDetails']
 ---
 
 

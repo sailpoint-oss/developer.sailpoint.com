@@ -4,9 +4,9 @@ title: PreApprovalTriggerDetails
 pagination_label: PreApprovalTriggerDetails
 sidebar_label: PreApprovalTriggerDetails
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'PreApprovalTriggerDetails'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'PreApprovalTriggerDetails', 'V2024PreApprovalTriggerDetails'] 
 slug: /tools/sdk/powershell/v2024/models/pre-approval-trigger-details
-tags: ['SDK', 'Software Development Kit', 'PreApprovalTriggerDetails']
+tags: ['SDK', 'Software Development Kit', 'PreApprovalTriggerDetails', 'V2024PreApprovalTriggerDetails']
 ---
 
 

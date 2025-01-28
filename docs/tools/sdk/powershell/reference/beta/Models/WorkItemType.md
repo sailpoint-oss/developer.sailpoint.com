@@ -4,9 +4,9 @@ title: WorkItemType
 pagination_label: WorkItemType
 sidebar_label: WorkItemType
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'WorkItemType'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'WorkItemType', 'BetaWorkItemType'] 
 slug: /tools/sdk/powershell/beta/models/work-item-type
-tags: ['SDK', 'Software Development Kit', 'WorkItemType']
+tags: ['SDK', 'Software Development Kit', 'WorkItemType', 'BetaWorkItemType']
 ---
 
 

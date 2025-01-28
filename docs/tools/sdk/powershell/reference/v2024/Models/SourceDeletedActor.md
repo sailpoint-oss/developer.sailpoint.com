@@ -4,9 +4,9 @@ title: SourceDeletedActor
 pagination_label: SourceDeletedActor
 sidebar_label: SourceDeletedActor
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SourceDeletedActor'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SourceDeletedActor', 'V2024SourceDeletedActor'] 
 slug: /tools/sdk/powershell/v2024/models/source-deleted-actor
-tags: ['SDK', 'Software Development Kit', 'SourceDeletedActor']
+tags: ['SDK', 'Software Development Kit', 'SourceDeletedActor', 'V2024SourceDeletedActor']
 ---
 
 

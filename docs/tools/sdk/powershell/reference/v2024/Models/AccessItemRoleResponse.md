@@ -4,9 +4,9 @@ title: AccessItemRoleResponse
 pagination_label: AccessItemRoleResponse
 sidebar_label: AccessItemRoleResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessItemRoleResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessItemRoleResponse', 'V2024AccessItemRoleResponse'] 
 slug: /tools/sdk/powershell/v2024/models/access-item-role-response
-tags: ['SDK', 'Software Development Kit', 'AccessItemRoleResponse']
+tags: ['SDK', 'Software Development Kit', 'AccessItemRoleResponse', 'V2024AccessItemRoleResponse']
 ---
 
 

@@ -4,9 +4,9 @@ title: VerificationPollRequest
 pagination_label: VerificationPollRequest
 sidebar_label: VerificationPollRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'VerificationPollRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'VerificationPollRequest', 'BetaVerificationPollRequest'] 
 slug: /tools/sdk/powershell/beta/models/verification-poll-request
-tags: ['SDK', 'Software Development Kit', 'VerificationPollRequest']
+tags: ['SDK', 'Software Development Kit', 'VerificationPollRequest', 'BetaVerificationPollRequest']
 ---
 
 

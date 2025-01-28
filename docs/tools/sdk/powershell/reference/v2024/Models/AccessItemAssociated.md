@@ -4,9 +4,9 @@ title: AccessItemAssociated
 pagination_label: AccessItemAssociated
 sidebar_label: AccessItemAssociated
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessItemAssociated'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessItemAssociated', 'V2024AccessItemAssociated'] 
 slug: /tools/sdk/powershell/v2024/models/access-item-associated
-tags: ['SDK', 'Software Development Kit', 'AccessItemAssociated']
+tags: ['SDK', 'Software Development Kit', 'AccessItemAssociated', 'V2024AccessItemAssociated']
 ---
 
 

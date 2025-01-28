@@ -4,9 +4,9 @@ title: GetDiscoveredApplications200ResponseInner
 pagination_label: GetDiscoveredApplications200ResponseInner
 sidebar_label: GetDiscoveredApplications200ResponseInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'GetDiscoveredApplications200ResponseInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'GetDiscoveredApplications200ResponseInner', 'GetDiscoveredApplications200ResponseInner'] 
 slug: /tools/sdk/powershell/v3/models/get-discovered-applications200-response-inner
-tags: ['SDK', 'Software Development Kit', 'GetDiscoveredApplications200ResponseInner']
+tags: ['SDK', 'Software Development Kit', 'GetDiscoveredApplications200ResponseInner', 'GetDiscoveredApplications200ResponseInner']
 ---
 
 

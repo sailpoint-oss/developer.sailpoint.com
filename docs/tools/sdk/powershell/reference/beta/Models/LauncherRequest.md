@@ -4,9 +4,9 @@ title: LauncherRequest
 pagination_label: LauncherRequest
 sidebar_label: LauncherRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'LauncherRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'LauncherRequest', 'BetaLauncherRequest'] 
 slug: /tools/sdk/powershell/beta/models/launcher-request
-tags: ['SDK', 'Software Development Kit', 'LauncherRequest']
+tags: ['SDK', 'Software Development Kit', 'LauncherRequest', 'BetaLauncherRequest']
 ---
 
 

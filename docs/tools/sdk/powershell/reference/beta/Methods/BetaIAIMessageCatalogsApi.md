@@ -4,9 +4,9 @@ title: IAIMessageCatalogs
 pagination_label: IAIMessageCatalogs
 sidebar_label: IAIMessageCatalogs
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IAIMessageCatalogs'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IAIMessageCatalogs', 'BetaIAIMessageCatalogs'] 
 slug: /tools/sdk/powershell/beta/methods/iai-message-catalogs
-tags: ['SDK', 'Software Development Kit', 'IAIMessageCatalogs']
+tags: ['SDK', 'Software Development Kit', 'IAIMessageCatalogs', 'BetaIAIMessageCatalogs']
 ---
 
 

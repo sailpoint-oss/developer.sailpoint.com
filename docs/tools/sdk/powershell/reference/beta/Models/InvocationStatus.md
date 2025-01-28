@@ -4,9 +4,9 @@ title: InvocationStatus
 pagination_label: InvocationStatus
 sidebar_label: InvocationStatus
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'InvocationStatus'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'InvocationStatus', 'BetaInvocationStatus'] 
 slug: /tools/sdk/powershell/beta/models/invocation-status
-tags: ['SDK', 'Software Development Kit', 'InvocationStatus']
+tags: ['SDK', 'Software Development Kit', 'InvocationStatus', 'BetaInvocationStatus']
 ---
 
 

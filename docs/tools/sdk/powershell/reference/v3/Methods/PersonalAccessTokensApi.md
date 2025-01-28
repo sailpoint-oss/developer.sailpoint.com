@@ -4,9 +4,9 @@ title: PersonalAccessTokens
 pagination_label: PersonalAccessTokens
 sidebar_label: PersonalAccessTokens
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'PersonalAccessTokens'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'PersonalAccessTokens', 'PersonalAccessTokens'] 
 slug: /tools/sdk/powershell/v3/methods/personal-access-tokens
-tags: ['SDK', 'Software Development Kit', 'PersonalAccessTokens']
+tags: ['SDK', 'Software Development Kit', 'PersonalAccessTokens', 'PersonalAccessTokens']
 ---
 
 

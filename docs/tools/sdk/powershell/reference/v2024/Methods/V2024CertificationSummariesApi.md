@@ -4,9 +4,9 @@ title: CertificationSummaries
 pagination_label: CertificationSummaries
 sidebar_label: CertificationSummaries
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CertificationSummaries'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CertificationSummaries', 'V2024CertificationSummaries'] 
 slug: /tools/sdk/powershell/v2024/methods/certification-summaries
-tags: ['SDK', 'Software Development Kit', 'CertificationSummaries']
+tags: ['SDK', 'Software Development Kit', 'CertificationSummaries', 'V2024CertificationSummaries']
 ---
 
 

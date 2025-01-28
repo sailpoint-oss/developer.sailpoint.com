@@ -4,9 +4,9 @@ title: ImportFormDefinitions202Response
 pagination_label: ImportFormDefinitions202Response
 sidebar_label: ImportFormDefinitions202Response
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ImportFormDefinitions202Response'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ImportFormDefinitions202Response', 'V2024ImportFormDefinitions202Response'] 
 slug: /tools/sdk/powershell/v2024/models/import-form-definitions202-response
-tags: ['SDK', 'Software Development Kit', 'ImportFormDefinitions202Response']
+tags: ['SDK', 'Software Development Kit', 'ImportFormDefinitions202Response', 'V2024ImportFormDefinitions202Response']
 ---
 
 

@@ -4,9 +4,9 @@ title: ManagedClientStatusAggResponse
 pagination_label: ManagedClientStatusAggResponse
 sidebar_label: ManagedClientStatusAggResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ManagedClientStatusAggResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ManagedClientStatusAggResponse', 'BetaManagedClientStatusAggResponse'] 
 slug: /tools/sdk/powershell/beta/models/managed-client-status-agg-response
-tags: ['SDK', 'Software Development Kit', 'ManagedClientStatusAggResponse']
+tags: ['SDK', 'Software Development Kit', 'ManagedClientStatusAggResponse', 'BetaManagedClientStatusAggResponse']
 ---
 
 

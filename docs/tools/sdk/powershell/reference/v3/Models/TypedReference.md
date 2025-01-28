@@ -4,9 +4,9 @@ title: TypedReference
 pagination_label: TypedReference
 sidebar_label: TypedReference
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TypedReference'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TypedReference', 'TypedReference'] 
 slug: /tools/sdk/powershell/v3/models/typed-reference
-tags: ['SDK', 'Software Development Kit', 'TypedReference']
+tags: ['SDK', 'Software Development Kit', 'TypedReference', 'TypedReference']
 ---
 
 

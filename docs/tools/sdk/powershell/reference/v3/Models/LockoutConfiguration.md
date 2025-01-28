@@ -4,9 +4,9 @@ title: LockoutConfiguration
 pagination_label: LockoutConfiguration
 sidebar_label: LockoutConfiguration
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'LockoutConfiguration'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'LockoutConfiguration', 'LockoutConfiguration'] 
 slug: /tools/sdk/powershell/v3/models/lockout-configuration
-tags: ['SDK', 'Software Development Kit', 'LockoutConfiguration']
+tags: ['SDK', 'Software Development Kit', 'LockoutConfiguration', 'LockoutConfiguration']
 ---
 
 

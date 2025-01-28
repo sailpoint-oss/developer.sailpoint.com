@@ -4,9 +4,9 @@ title: GetReferenceIdentityAttribute
 pagination_label: GetReferenceIdentityAttribute
 sidebar_label: GetReferenceIdentityAttribute
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'GetReferenceIdentityAttribute'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'GetReferenceIdentityAttribute', 'GetReferenceIdentityAttribute'] 
 slug: /tools/sdk/powershell/v3/models/get-reference-identity-attribute
-tags: ['SDK', 'Software Development Kit', 'GetReferenceIdentityAttribute']
+tags: ['SDK', 'Software Development Kit', 'GetReferenceIdentityAttribute', 'GetReferenceIdentityAttribute']
 ---
 
 

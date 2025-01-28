@@ -4,9 +4,9 @@ title: TenantConfigurationResponse
 pagination_label: TenantConfigurationResponse
 sidebar_label: TenantConfigurationResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TenantConfigurationResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TenantConfigurationResponse', 'V2024TenantConfigurationResponse'] 
 slug: /tools/sdk/powershell/v2024/models/tenant-configuration-response
-tags: ['SDK', 'Software Development Kit', 'TenantConfigurationResponse']
+tags: ['SDK', 'Software Development Kit', 'TenantConfigurationResponse', 'V2024TenantConfigurationResponse']
 ---
 
 

@@ -4,9 +4,9 @@ title: NonEmployeeRequestBody
 pagination_label: NonEmployeeRequestBody
 sidebar_label: NonEmployeeRequestBody
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'NonEmployeeRequestBody'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'NonEmployeeRequestBody', 'BetaNonEmployeeRequestBody'] 
 slug: /tools/sdk/powershell/beta/models/non-employee-request-body
-tags: ['SDK', 'Software Development Kit', 'NonEmployeeRequestBody']
+tags: ['SDK', 'Software Development Kit', 'NonEmployeeRequestBody', 'BetaNonEmployeeRequestBody']
 ---
 
 

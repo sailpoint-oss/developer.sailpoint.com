@@ -4,9 +4,9 @@ title: GetOAuthClientResponse
 pagination_label: GetOAuthClientResponse
 sidebar_label: GetOAuthClientResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'GetOAuthClientResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'GetOAuthClientResponse', 'V2024GetOAuthClientResponse'] 
 slug: /tools/sdk/powershell/v2024/models/get-o-auth-client-response
-tags: ['SDK', 'Software Development Kit', 'GetOAuthClientResponse']
+tags: ['SDK', 'Software Development Kit', 'GetOAuthClientResponse', 'V2024GetOAuthClientResponse']
 ---
 
 

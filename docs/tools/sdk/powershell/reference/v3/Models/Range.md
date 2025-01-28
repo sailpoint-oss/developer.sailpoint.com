@@ -4,9 +4,9 @@ title: Range
 pagination_label: Range
 sidebar_label: Range
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Range'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Range', 'Range'] 
 slug: /tools/sdk/powershell/v3/models/range
-tags: ['SDK', 'Software Development Kit', 'Range']
+tags: ['SDK', 'Software Development Kit', 'Range', 'Range']
 ---
 
 

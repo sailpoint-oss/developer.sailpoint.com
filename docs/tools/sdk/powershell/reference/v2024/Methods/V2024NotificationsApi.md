@@ -4,9 +4,9 @@ title: Notifications
 pagination_label: Notifications
 sidebar_label: Notifications
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Notifications'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Notifications', 'V2024Notifications'] 
 slug: /tools/sdk/powershell/v2024/methods/notifications
-tags: ['SDK', 'Software Development Kit', 'Notifications']
+tags: ['SDK', 'Software Development Kit', 'Notifications', 'V2024Notifications']
 ---
 
 

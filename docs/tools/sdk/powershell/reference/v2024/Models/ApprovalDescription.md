@@ -4,9 +4,9 @@ title: ApprovalDescription
 pagination_label: ApprovalDescription
 sidebar_label: ApprovalDescription
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ApprovalDescription'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ApprovalDescription', 'V2024ApprovalDescription'] 
 slug: /tools/sdk/powershell/v2024/models/approval-description
-tags: ['SDK', 'Software Development Kit', 'ApprovalDescription']
+tags: ['SDK', 'Software Development Kit', 'ApprovalDescription', 'V2024ApprovalDescription']
 ---
 
 

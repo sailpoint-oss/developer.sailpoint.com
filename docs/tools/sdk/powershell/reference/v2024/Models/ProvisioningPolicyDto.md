@@ -4,9 +4,9 @@ title: ProvisioningPolicyDto
 pagination_label: ProvisioningPolicyDto
 sidebar_label: ProvisioningPolicyDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ProvisioningPolicyDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ProvisioningPolicyDto', 'V2024ProvisioningPolicyDto'] 
 slug: /tools/sdk/powershell/v2024/models/provisioning-policy-dto
-tags: ['SDK', 'Software Development Kit', 'ProvisioningPolicyDto']
+tags: ['SDK', 'Software Development Kit', 'ProvisioningPolicyDto', 'V2024ProvisioningPolicyDto']
 ---
 
 

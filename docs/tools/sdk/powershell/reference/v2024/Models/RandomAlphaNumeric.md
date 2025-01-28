@@ -4,9 +4,9 @@ title: RandomAlphaNumeric
 pagination_label: RandomAlphaNumeric
 sidebar_label: RandomAlphaNumeric
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RandomAlphaNumeric'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RandomAlphaNumeric', 'V2024RandomAlphaNumeric'] 
 slug: /tools/sdk/powershell/v2024/models/random-alpha-numeric
-tags: ['SDK', 'Software Development Kit', 'RandomAlphaNumeric']
+tags: ['SDK', 'Software Development Kit', 'RandomAlphaNumeric', 'V2024RandomAlphaNumeric']
 ---
 
 

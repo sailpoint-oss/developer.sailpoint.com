@@ -4,9 +4,9 @@ title: CreateFormDefinitionRequest
 pagination_label: CreateFormDefinitionRequest
 sidebar_label: CreateFormDefinitionRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CreateFormDefinitionRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CreateFormDefinitionRequest', 'BetaCreateFormDefinitionRequest'] 
 slug: /tools/sdk/powershell/beta/models/create-form-definition-request
-tags: ['SDK', 'Software Development Kit', 'CreateFormDefinitionRequest']
+tags: ['SDK', 'Software Development Kit', 'CreateFormDefinitionRequest', 'BetaCreateFormDefinitionRequest']
 ---
 
 

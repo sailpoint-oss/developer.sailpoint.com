@@ -4,9 +4,9 @@ title: WorkItemForward
 pagination_label: WorkItemForward
 sidebar_label: WorkItemForward
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'WorkItemForward'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'WorkItemForward', 'BetaWorkItemForward'] 
 slug: /tools/sdk/powershell/beta/models/work-item-forward
-tags: ['SDK', 'Software Development Kit', 'WorkItemForward']
+tags: ['SDK', 'Software Development Kit', 'WorkItemForward', 'BetaWorkItemForward']
 ---
 
 

@@ -4,9 +4,9 @@ title: AccessItemRequestedForDto
 pagination_label: AccessItemRequestedForDto
 sidebar_label: AccessItemRequestedForDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessItemRequestedForDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessItemRequestedForDto', 'V2024AccessItemRequestedForDto'] 
 slug: /tools/sdk/powershell/v2024/models/access-item-requested-for-dto
-tags: ['SDK', 'Software Development Kit', 'AccessItemRequestedForDto']
+tags: ['SDK', 'Software Development Kit', 'AccessItemRequestedForDto', 'V2024AccessItemRequestedForDto']
 ---
 
 

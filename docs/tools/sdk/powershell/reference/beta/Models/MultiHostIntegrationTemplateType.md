@@ -4,9 +4,9 @@ title: MultiHostIntegrationTemplateType
 pagination_label: MultiHostIntegrationTemplateType
 sidebar_label: MultiHostIntegrationTemplateType
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'MultiHostIntegrationTemplateType'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'MultiHostIntegrationTemplateType', 'BetaMultiHostIntegrationTemplateType'] 
 slug: /tools/sdk/powershell/beta/models/multi-host-integration-template-type
-tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrationTemplateType']
+tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrationTemplateType', 'BetaMultiHostIntegrationTemplateType']
 ---
 
 

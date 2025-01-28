@@ -4,9 +4,9 @@ title: ActivityInsights
 pagination_label: ActivityInsights
 sidebar_label: ActivityInsights
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ActivityInsights'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ActivityInsights', 'ActivityInsights'] 
 slug: /tools/sdk/powershell/v3/models/activity-insights
-tags: ['SDK', 'Software Development Kit', 'ActivityInsights']
+tags: ['SDK', 'Software Development Kit', 'ActivityInsights', 'ActivityInsights']
 ---
 
 

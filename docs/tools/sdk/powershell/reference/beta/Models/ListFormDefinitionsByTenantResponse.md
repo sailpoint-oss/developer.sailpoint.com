@@ -4,9 +4,9 @@ title: ListFormDefinitionsByTenantResponse
 pagination_label: ListFormDefinitionsByTenantResponse
 sidebar_label: ListFormDefinitionsByTenantResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ListFormDefinitionsByTenantResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ListFormDefinitionsByTenantResponse', 'BetaListFormDefinitionsByTenantResponse'] 
 slug: /tools/sdk/powershell/beta/models/list-form-definitions-by-tenant-response
-tags: ['SDK', 'Software Development Kit', 'ListFormDefinitionsByTenantResponse']
+tags: ['SDK', 'Software Development Kit', 'ListFormDefinitionsByTenantResponse', 'BetaListFormDefinitionsByTenantResponse']
 ---
 
 

@@ -4,9 +4,9 @@ title: AccountAttributesChangedChangesInnerNewValue
 pagination_label: AccountAttributesChangedChangesInnerNewValue
 sidebar_label: AccountAttributesChangedChangesInnerNewValue
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccountAttributesChangedChangesInnerNewValue'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccountAttributesChangedChangesInnerNewValue', 'V2024AccountAttributesChangedChangesInnerNewValue'] 
 slug: /tools/sdk/powershell/v2024/models/account-attributes-changed-changes-inner-new-value
-tags: ['SDK', 'Software Development Kit', 'AccountAttributesChangedChangesInnerNewValue']
+tags: ['SDK', 'Software Development Kit', 'AccountAttributesChangedChangesInnerNewValue', 'V2024AccountAttributesChangedChangesInnerNewValue']
 ---
 
 

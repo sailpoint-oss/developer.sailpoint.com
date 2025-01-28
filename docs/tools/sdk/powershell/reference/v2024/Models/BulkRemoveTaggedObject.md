@@ -4,9 +4,9 @@ title: BulkRemoveTaggedObject
 pagination_label: BulkRemoveTaggedObject
 sidebar_label: BulkRemoveTaggedObject
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'BulkRemoveTaggedObject'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'BulkRemoveTaggedObject', 'V2024BulkRemoveTaggedObject'] 
 slug: /tools/sdk/powershell/v2024/models/bulk-remove-tagged-object
-tags: ['SDK', 'Software Development Kit', 'BulkRemoveTaggedObject']
+tags: ['SDK', 'Software Development Kit', 'BulkRemoveTaggedObject', 'V2024BulkRemoveTaggedObject']
 ---
 
 

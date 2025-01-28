@@ -4,9 +4,9 @@ title: SubscriptionPatchRequestInner
 pagination_label: SubscriptionPatchRequestInner
 sidebar_label: SubscriptionPatchRequestInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SubscriptionPatchRequestInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SubscriptionPatchRequestInner', 'V2024SubscriptionPatchRequestInner'] 
 slug: /tools/sdk/powershell/v2024/models/subscription-patch-request-inner
-tags: ['SDK', 'Software Development Kit', 'SubscriptionPatchRequestInner']
+tags: ['SDK', 'Software Development Kit', 'SubscriptionPatchRequestInner', 'V2024SubscriptionPatchRequestInner']
 ---
 
 

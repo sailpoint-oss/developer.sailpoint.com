@@ -4,9 +4,9 @@ title: AccessRequestPreApproval1
 pagination_label: AccessRequestPreApproval1
 sidebar_label: AccessRequestPreApproval1
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestPreApproval1'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestPreApproval1', 'V2024AccessRequestPreApproval1'] 
 slug: /tools/sdk/powershell/v2024/models/access-request-pre-approval1
-tags: ['SDK', 'Software Development Kit', 'AccessRequestPreApproval1']
+tags: ['SDK', 'Software Development Kit', 'AccessRequestPreApproval1', 'V2024AccessRequestPreApproval1']
 ---
 
 

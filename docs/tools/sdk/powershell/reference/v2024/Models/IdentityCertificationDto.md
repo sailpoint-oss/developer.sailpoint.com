@@ -4,9 +4,9 @@ title: IdentityCertificationDto
 pagination_label: IdentityCertificationDto
 sidebar_label: IdentityCertificationDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityCertificationDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityCertificationDto', 'V2024IdentityCertificationDto'] 
 slug: /tools/sdk/powershell/v2024/models/identity-certification-dto
-tags: ['SDK', 'Software Development Kit', 'IdentityCertificationDto']
+tags: ['SDK', 'Software Development Kit', 'IdentityCertificationDto', 'V2024IdentityCertificationDto']
 ---
 
 

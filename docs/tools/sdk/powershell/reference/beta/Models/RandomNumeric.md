@@ -4,9 +4,9 @@ title: RandomNumeric
 pagination_label: RandomNumeric
 sidebar_label: RandomNumeric
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RandomNumeric'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RandomNumeric', 'BetaRandomNumeric'] 
 slug: /tools/sdk/powershell/beta/models/random-numeric
-tags: ['SDK', 'Software Development Kit', 'RandomNumeric']
+tags: ['SDK', 'Software Development Kit', 'RandomNumeric', 'BetaRandomNumeric']
 ---
 
 

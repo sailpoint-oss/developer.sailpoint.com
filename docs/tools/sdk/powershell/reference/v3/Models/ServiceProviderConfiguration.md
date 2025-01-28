@@ -4,9 +4,9 @@ title: ServiceProviderConfiguration
 pagination_label: ServiceProviderConfiguration
 sidebar_label: ServiceProviderConfiguration
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ServiceProviderConfiguration'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ServiceProviderConfiguration', 'ServiceProviderConfiguration'] 
 slug: /tools/sdk/powershell/v3/models/service-provider-configuration
-tags: ['SDK', 'Software Development Kit', 'ServiceProviderConfiguration']
+tags: ['SDK', 'Software Development Kit', 'ServiceProviderConfiguration', 'ServiceProviderConfiguration']
 ---
 
 

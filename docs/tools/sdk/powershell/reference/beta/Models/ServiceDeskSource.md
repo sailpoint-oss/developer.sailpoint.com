@@ -4,9 +4,9 @@ title: ServiceDeskSource
 pagination_label: ServiceDeskSource
 sidebar_label: ServiceDeskSource
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ServiceDeskSource'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ServiceDeskSource', 'BetaServiceDeskSource'] 
 slug: /tools/sdk/powershell/beta/models/service-desk-source
-tags: ['SDK', 'Software Development Kit', 'ServiceDeskSource']
+tags: ['SDK', 'Software Development Kit', 'ServiceDeskSource', 'BetaServiceDeskSource']
 ---
 
 

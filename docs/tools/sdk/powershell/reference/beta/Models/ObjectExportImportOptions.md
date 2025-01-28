@@ -4,9 +4,9 @@ title: ObjectExportImportOptions
 pagination_label: ObjectExportImportOptions
 sidebar_label: ObjectExportImportOptions
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ObjectExportImportOptions'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ObjectExportImportOptions', 'BetaObjectExportImportOptions'] 
 slug: /tools/sdk/powershell/beta/models/object-export-import-options
-tags: ['SDK', 'Software Development Kit', 'ObjectExportImportOptions']
+tags: ['SDK', 'Software Development Kit', 'ObjectExportImportOptions', 'BetaObjectExportImportOptions']
 ---
 
 

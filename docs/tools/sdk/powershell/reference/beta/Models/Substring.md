@@ -4,9 +4,9 @@ title: Substring
 pagination_label: Substring
 sidebar_label: Substring
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Substring'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Substring', 'BetaSubstring'] 
 slug: /tools/sdk/powershell/beta/models/substring
-tags: ['SDK', 'Software Development Kit', 'Substring']
+tags: ['SDK', 'Software Development Kit', 'Substring', 'BetaSubstring']
 ---
 
 

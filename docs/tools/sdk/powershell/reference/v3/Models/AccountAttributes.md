@@ -4,9 +4,9 @@ title: AccountAttributes
 pagination_label: AccountAttributes
 sidebar_label: AccountAttributes
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccountAttributes'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccountAttributes', 'AccountAttributes'] 
 slug: /tools/sdk/powershell/v3/models/account-attributes
-tags: ['SDK', 'Software Development Kit', 'AccountAttributes']
+tags: ['SDK', 'Software Development Kit', 'AccountAttributes', 'AccountAttributes']
 ---
 
 

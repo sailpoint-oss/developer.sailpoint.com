@@ -4,9 +4,9 @@ title: BearerTokenAuthConfig
 pagination_label: BearerTokenAuthConfig
 sidebar_label: BearerTokenAuthConfig
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'BearerTokenAuthConfig'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'BearerTokenAuthConfig', 'V2024BearerTokenAuthConfig'] 
 slug: /tools/sdk/powershell/v2024/models/bearer-token-auth-config
-tags: ['SDK', 'Software Development Kit', 'BearerTokenAuthConfig']
+tags: ['SDK', 'Software Development Kit', 'BearerTokenAuthConfig', 'V2024BearerTokenAuthConfig']
 ---
 
 

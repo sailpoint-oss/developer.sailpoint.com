@@ -4,9 +4,9 @@ title: RoleMiningIdentity
 pagination_label: RoleMiningIdentity
 sidebar_label: RoleMiningIdentity
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMiningIdentity'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMiningIdentity', 'BetaRoleMiningIdentity'] 
 slug: /tools/sdk/powershell/beta/models/role-mining-identity
-tags: ['SDK', 'Software Development Kit', 'RoleMiningIdentity']
+tags: ['SDK', 'Software Development Kit', 'RoleMiningIdentity', 'BetaRoleMiningIdentity']
 ---
 
 

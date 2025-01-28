@@ -4,9 +4,9 @@ title: TaskManagement
 pagination_label: TaskManagement
 sidebar_label: TaskManagement
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TaskManagement'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TaskManagement', 'BetaTaskManagement'] 
 slug: /tools/sdk/powershell/beta/methods/task-management
-tags: ['SDK', 'Software Development Kit', 'TaskManagement']
+tags: ['SDK', 'Software Development Kit', 'TaskManagement', 'BetaTaskManagement']
 ---
 
 

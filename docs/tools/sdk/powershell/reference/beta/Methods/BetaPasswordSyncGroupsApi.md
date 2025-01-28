@@ -4,9 +4,9 @@ title: PasswordSyncGroups
 pagination_label: PasswordSyncGroups
 sidebar_label: PasswordSyncGroups
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'PasswordSyncGroups'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'PasswordSyncGroups', 'BetaPasswordSyncGroups'] 
 slug: /tools/sdk/powershell/beta/methods/password-sync-groups
-tags: ['SDK', 'Software Development Kit', 'PasswordSyncGroups']
+tags: ['SDK', 'Software Development Kit', 'PasswordSyncGroups', 'BetaPasswordSyncGroups']
 ---
 
 

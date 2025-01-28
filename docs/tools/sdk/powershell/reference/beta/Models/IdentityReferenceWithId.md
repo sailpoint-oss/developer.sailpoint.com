@@ -4,9 +4,9 @@ title: IdentityReferenceWithId
 pagination_label: IdentityReferenceWithId
 sidebar_label: IdentityReferenceWithId
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityReferenceWithId'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityReferenceWithId', 'BetaIdentityReferenceWithId'] 
 slug: /tools/sdk/powershell/beta/models/identity-reference-with-id
-tags: ['SDK', 'Software Development Kit', 'IdentityReferenceWithId']
+tags: ['SDK', 'Software Development Kit', 'IdentityReferenceWithId', 'BetaIdentityReferenceWithId']
 ---
 
 

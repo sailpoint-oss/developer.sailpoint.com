@@ -4,9 +4,9 @@ title: Account
 pagination_label: Account
 sidebar_label: Account
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Account'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Account', 'V2024Account'] 
 slug: /tools/sdk/powershell/v2024/models/account
-tags: ['SDK', 'Software Development Kit', 'Account']
+tags: ['SDK', 'Software Development Kit', 'Account', 'V2024Account']
 ---
 
 

@@ -4,9 +4,9 @@ title: AttributeDefinition
 pagination_label: AttributeDefinition
 sidebar_label: AttributeDefinition
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AttributeDefinition'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AttributeDefinition', 'AttributeDefinition'] 
 slug: /tools/sdk/powershell/v3/models/attribute-definition
-tags: ['SDK', 'Software Development Kit', 'AttributeDefinition']
+tags: ['SDK', 'Software Development Kit', 'AttributeDefinition', 'AttributeDefinition']
 ---
 
 

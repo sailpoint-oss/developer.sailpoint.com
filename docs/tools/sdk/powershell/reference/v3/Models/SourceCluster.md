@@ -4,9 +4,9 @@ title: SourceCluster
 pagination_label: SourceCluster
 sidebar_label: SourceCluster
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SourceCluster'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SourceCluster', 'SourceCluster'] 
 slug: /tools/sdk/powershell/v3/models/source-cluster
-tags: ['SDK', 'Software Development Kit', 'SourceCluster']
+tags: ['SDK', 'Software Development Kit', 'SourceCluster', 'SourceCluster']
 ---
 
 

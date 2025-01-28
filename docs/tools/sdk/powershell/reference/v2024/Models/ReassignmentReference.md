@@ -4,9 +4,9 @@ title: ReassignmentReference
 pagination_label: ReassignmentReference
 sidebar_label: ReassignmentReference
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ReassignmentReference'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ReassignmentReference', 'V2024ReassignmentReference'] 
 slug: /tools/sdk/powershell/v2024/models/reassignment-reference
-tags: ['SDK', 'Software Development Kit', 'ReassignmentReference']
+tags: ['SDK', 'Software Development Kit', 'ReassignmentReference', 'V2024ReassignmentReference']
 ---
 
 

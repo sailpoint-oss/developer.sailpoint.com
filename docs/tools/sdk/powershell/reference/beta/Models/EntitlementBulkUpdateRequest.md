@@ -4,9 +4,9 @@ title: EntitlementBulkUpdateRequest
 pagination_label: EntitlementBulkUpdateRequest
 sidebar_label: EntitlementBulkUpdateRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'EntitlementBulkUpdateRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'EntitlementBulkUpdateRequest', 'BetaEntitlementBulkUpdateRequest'] 
 slug: /tools/sdk/powershell/beta/models/entitlement-bulk-update-request
-tags: ['SDK', 'Software Development Kit', 'EntitlementBulkUpdateRequest']
+tags: ['SDK', 'Software Development Kit', 'EntitlementBulkUpdateRequest', 'BetaEntitlementBulkUpdateRequest']
 ---
 
 

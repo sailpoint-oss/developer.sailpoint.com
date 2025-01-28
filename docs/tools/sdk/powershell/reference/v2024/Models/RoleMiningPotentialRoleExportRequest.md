@@ -4,9 +4,9 @@ title: RoleMiningPotentialRoleExportRequest
 pagination_label: RoleMiningPotentialRoleExportRequest
 sidebar_label: RoleMiningPotentialRoleExportRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMiningPotentialRoleExportRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMiningPotentialRoleExportRequest', 'V2024RoleMiningPotentialRoleExportRequest'] 
 slug: /tools/sdk/powershell/v2024/models/role-mining-potential-role-export-request
-tags: ['SDK', 'Software Development Kit', 'RoleMiningPotentialRoleExportRequest']
+tags: ['SDK', 'Software Development Kit', 'RoleMiningPotentialRoleExportRequest', 'V2024RoleMiningPotentialRoleExportRequest']
 ---
 
 

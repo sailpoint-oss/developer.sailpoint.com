@@ -4,9 +4,9 @@ title: AccessRequestIdentityMetrics
 pagination_label: AccessRequestIdentityMetrics
 sidebar_label: AccessRequestIdentityMetrics
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestIdentityMetrics'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestIdentityMetrics', 'V2024AccessRequestIdentityMetrics'] 
 slug: /tools/sdk/powershell/v2024/methods/access-request-identity-metrics
-tags: ['SDK', 'Software Development Kit', 'AccessRequestIdentityMetrics']
+tags: ['SDK', 'Software Development Kit', 'AccessRequestIdentityMetrics', 'V2024AccessRequestIdentityMetrics']
 ---
 
 

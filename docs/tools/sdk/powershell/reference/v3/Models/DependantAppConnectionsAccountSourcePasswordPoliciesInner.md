@@ -4,9 +4,9 @@ title: DependantAppConnectionsAccountSourcePasswordPoliciesInner
 pagination_label: DependantAppConnectionsAccountSourcePasswordPoliciesInner
 sidebar_label: DependantAppConnectionsAccountSourcePasswordPoliciesInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'DependantAppConnectionsAccountSourcePasswordPoliciesInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'DependantAppConnectionsAccountSourcePasswordPoliciesInner', 'DependantAppConnectionsAccountSourcePasswordPoliciesInner'] 
 slug: /tools/sdk/powershell/v3/models/dependant-app-connections-account-source-password-policies-inner
-tags: ['SDK', 'Software Development Kit', 'DependantAppConnectionsAccountSourcePasswordPoliciesInner']
+tags: ['SDK', 'Software Development Kit', 'DependantAppConnectionsAccountSourcePasswordPoliciesInner', 'DependantAppConnectionsAccountSourcePasswordPoliciesInner']
 ---
 
 

@@ -4,9 +4,9 @@ title: BulkIdentitiesAccountsResponse
 pagination_label: BulkIdentitiesAccountsResponse
 sidebar_label: BulkIdentitiesAccountsResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'BulkIdentitiesAccountsResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'BulkIdentitiesAccountsResponse', 'V2024BulkIdentitiesAccountsResponse'] 
 slug: /tools/sdk/powershell/v2024/models/bulk-identities-accounts-response
-tags: ['SDK', 'Software Development Kit', 'BulkIdentitiesAccountsResponse']
+tags: ['SDK', 'Software Development Kit', 'BulkIdentitiesAccountsResponse', 'V2024BulkIdentitiesAccountsResponse']
 ---
 
 

@@ -4,9 +4,9 @@ title: IdentityListItem
 pagination_label: IdentityListItem
 sidebar_label: IdentityListItem
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityListItem'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityListItem', 'BetaIdentityListItem'] 
 slug: /tools/sdk/powershell/beta/models/identity-list-item
-tags: ['SDK', 'Software Development Kit', 'IdentityListItem']
+tags: ['SDK', 'Software Development Kit', 'IdentityListItem', 'BetaIdentityListItem']
 ---
 
 

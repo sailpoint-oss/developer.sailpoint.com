@@ -4,9 +4,9 @@ title: NestedAggregation
 pagination_label: NestedAggregation
 sidebar_label: NestedAggregation
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'NestedAggregation'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'NestedAggregation', 'V2024NestedAggregation'] 
 slug: /tools/sdk/powershell/v2024/models/nested-aggregation
-tags: ['SDK', 'Software Development Kit', 'NestedAggregation']
+tags: ['SDK', 'Software Development Kit', 'NestedAggregation', 'V2024NestedAggregation']
 ---
 
 

@@ -4,9 +4,9 @@ title: DeployResponse
 pagination_label: DeployResponse
 sidebar_label: DeployResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'DeployResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'DeployResponse', 'V2024DeployResponse'] 
 slug: /tools/sdk/powershell/v2024/models/deploy-response
-tags: ['SDK', 'Software Development Kit', 'DeployResponse']
+tags: ['SDK', 'Software Development Kit', 'DeployResponse', 'V2024DeployResponse']
 ---
 
 

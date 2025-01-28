@@ -4,9 +4,9 @@ title: FormInstanceRecipient
 pagination_label: FormInstanceRecipient
 sidebar_label: FormInstanceRecipient
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'FormInstanceRecipient'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'FormInstanceRecipient', 'V2024FormInstanceRecipient'] 
 slug: /tools/sdk/powershell/v2024/models/form-instance-recipient
-tags: ['SDK', 'Software Development Kit', 'FormInstanceRecipient']
+tags: ['SDK', 'Software Development Kit', 'FormInstanceRecipient', 'V2024FormInstanceRecipient']
 ---
 
 

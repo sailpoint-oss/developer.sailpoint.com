@@ -4,9 +4,9 @@ title: IdentityPreviewResponseIdentity
 pagination_label: IdentityPreviewResponseIdentity
 sidebar_label: IdentityPreviewResponseIdentity
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityPreviewResponseIdentity'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityPreviewResponseIdentity', 'V2024IdentityPreviewResponseIdentity'] 
 slug: /tools/sdk/powershell/v2024/models/identity-preview-response-identity
-tags: ['SDK', 'Software Development Kit', 'IdentityPreviewResponseIdentity']
+tags: ['SDK', 'Software Development Kit', 'IdentityPreviewResponseIdentity', 'V2024IdentityPreviewResponseIdentity']
 ---
 
 

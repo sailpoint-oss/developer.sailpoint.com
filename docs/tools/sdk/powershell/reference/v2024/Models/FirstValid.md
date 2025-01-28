@@ -4,9 +4,9 @@ title: FirstValid
 pagination_label: FirstValid
 sidebar_label: FirstValid
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'FirstValid'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'FirstValid', 'V2024FirstValid'] 
 slug: /tools/sdk/powershell/v2024/models/first-valid
-tags: ['SDK', 'Software Development Kit', 'FirstValid']
+tags: ['SDK', 'Software Development Kit', 'FirstValid', 'V2024FirstValid']
 ---
 
 

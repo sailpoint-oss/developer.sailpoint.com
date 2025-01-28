@@ -4,9 +4,9 @@ title: AccessRequestType
 pagination_label: AccessRequestType
 sidebar_label: AccessRequestType
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestType'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestType', 'AccessRequestType'] 
 slug: /tools/sdk/powershell/v3/models/access-request-type
-tags: ['SDK', 'Software Development Kit', 'AccessRequestType']
+tags: ['SDK', 'Software Development Kit', 'AccessRequestType', 'AccessRequestType']
 ---
 
 

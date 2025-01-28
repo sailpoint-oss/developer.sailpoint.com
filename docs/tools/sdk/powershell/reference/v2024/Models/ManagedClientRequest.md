@@ -4,9 +4,9 @@ title: ManagedClientRequest
 pagination_label: ManagedClientRequest
 sidebar_label: ManagedClientRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ManagedClientRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ManagedClientRequest', 'V2024ManagedClientRequest'] 
 slug: /tools/sdk/powershell/v2024/models/managed-client-request
-tags: ['SDK', 'Software Development Kit', 'ManagedClientRequest']
+tags: ['SDK', 'Software Development Kit', 'ManagedClientRequest', 'V2024ManagedClientRequest']
 ---
 
 

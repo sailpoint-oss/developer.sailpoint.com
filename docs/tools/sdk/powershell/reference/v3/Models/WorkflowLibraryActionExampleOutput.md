@@ -4,9 +4,9 @@ title: WorkflowLibraryActionExampleOutput
 pagination_label: WorkflowLibraryActionExampleOutput
 sidebar_label: WorkflowLibraryActionExampleOutput
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'WorkflowLibraryActionExampleOutput'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'WorkflowLibraryActionExampleOutput', 'WorkflowLibraryActionExampleOutput'] 
 slug: /tools/sdk/powershell/v3/models/workflow-library-action-example-output
-tags: ['SDK', 'Software Development Kit', 'WorkflowLibraryActionExampleOutput']
+tags: ['SDK', 'Software Development Kit', 'WorkflowLibraryActionExampleOutput', 'WorkflowLibraryActionExampleOutput']
 ---
 
 

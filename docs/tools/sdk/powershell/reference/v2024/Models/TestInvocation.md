@@ -4,9 +4,9 @@ title: TestInvocation
 pagination_label: TestInvocation
 sidebar_label: TestInvocation
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TestInvocation'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TestInvocation', 'V2024TestInvocation'] 
 slug: /tools/sdk/powershell/v2024/models/test-invocation
-tags: ['SDK', 'Software Development Kit', 'TestInvocation']
+tags: ['SDK', 'Software Development Kit', 'TestInvocation', 'V2024TestInvocation']
 ---
 
 

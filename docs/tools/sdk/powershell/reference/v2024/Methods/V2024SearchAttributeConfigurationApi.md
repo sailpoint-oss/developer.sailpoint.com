@@ -4,9 +4,9 @@ title: SearchAttributeConfiguration
 pagination_label: SearchAttributeConfiguration
 sidebar_label: SearchAttributeConfiguration
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SearchAttributeConfiguration'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SearchAttributeConfiguration', 'V2024SearchAttributeConfiguration'] 
 slug: /tools/sdk/powershell/v2024/methods/search-attribute-configuration
-tags: ['SDK', 'Software Development Kit', 'SearchAttributeConfiguration']
+tags: ['SDK', 'Software Development Kit', 'SearchAttributeConfiguration', 'V2024SearchAttributeConfiguration']
 ---
 
 

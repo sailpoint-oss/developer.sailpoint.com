@@ -4,9 +4,9 @@ title: Target
 pagination_label: Target
 sidebar_label: Target
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Target'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Target', 'BetaTarget'] 
 slug: /tools/sdk/powershell/beta/models/target
-tags: ['SDK', 'Software Development Kit', 'Target']
+tags: ['SDK', 'Software Development Kit', 'Target', 'BetaTarget']
 ---
 
 

@@ -4,9 +4,9 @@ title: CreateOAuthClientRequest
 pagination_label: CreateOAuthClientRequest
 sidebar_label: CreateOAuthClientRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CreateOAuthClientRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CreateOAuthClientRequest', 'BetaCreateOAuthClientRequest'] 
 slug: /tools/sdk/powershell/beta/models/create-o-auth-client-request
-tags: ['SDK', 'Software Development Kit', 'CreateOAuthClientRequest']
+tags: ['SDK', 'Software Development Kit', 'CreateOAuthClientRequest', 'BetaCreateOAuthClientRequest']
 ---
 
 

@@ -4,9 +4,9 @@ title: LeftPad
 pagination_label: LeftPad
 sidebar_label: LeftPad
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'LeftPad'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'LeftPad', 'BetaLeftPad'] 
 slug: /tools/sdk/powershell/beta/models/left-pad
-tags: ['SDK', 'Software Development Kit', 'LeftPad']
+tags: ['SDK', 'Software Development Kit', 'LeftPad', 'BetaLeftPad']
 ---
 
 

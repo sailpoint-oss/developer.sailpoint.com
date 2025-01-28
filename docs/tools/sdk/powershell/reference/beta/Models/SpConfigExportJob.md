@@ -4,9 +4,9 @@ title: SpConfigExportJob
 pagination_label: SpConfigExportJob
 sidebar_label: SpConfigExportJob
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SpConfigExportJob'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SpConfigExportJob', 'BetaSpConfigExportJob'] 
 slug: /tools/sdk/powershell/beta/models/sp-config-export-job
-tags: ['SDK', 'Software Development Kit', 'SpConfigExportJob']
+tags: ['SDK', 'Software Development Kit', 'SpConfigExportJob', 'BetaSpConfigExportJob']
 ---
 
 

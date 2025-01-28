@@ -4,9 +4,9 @@ title: SpConfigRule
 pagination_label: SpConfigRule
 sidebar_label: SpConfigRule
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SpConfigRule'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SpConfigRule', 'V2024SpConfigRule'] 
 slug: /tools/sdk/powershell/v2024/models/sp-config-rule
-tags: ['SDK', 'Software Development Kit', 'SpConfigRule']
+tags: ['SDK', 'Software Development Kit', 'SpConfigRule', 'V2024SpConfigRule']
 ---
 
 

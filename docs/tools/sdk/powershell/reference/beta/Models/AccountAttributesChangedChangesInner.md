@@ -4,9 +4,9 @@ title: AccountAttributesChangedChangesInner
 pagination_label: AccountAttributesChangedChangesInner
 sidebar_label: AccountAttributesChangedChangesInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccountAttributesChangedChangesInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccountAttributesChangedChangesInner', 'BetaAccountAttributesChangedChangesInner'] 
 slug: /tools/sdk/powershell/beta/models/account-attributes-changed-changes-inner
-tags: ['SDK', 'Software Development Kit', 'AccountAttributesChangedChangesInner']
+tags: ['SDK', 'Software Development Kit', 'AccountAttributesChangedChangesInner', 'BetaAccountAttributesChangedChangesInner']
 ---
 
 

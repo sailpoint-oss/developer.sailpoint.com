@@ -4,9 +4,9 @@ title: BulkWorkgroupMembersRequestInner
 pagination_label: BulkWorkgroupMembersRequestInner
 sidebar_label: BulkWorkgroupMembersRequestInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'BulkWorkgroupMembersRequestInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'BulkWorkgroupMembersRequestInner', 'BetaBulkWorkgroupMembersRequestInner'] 
 slug: /tools/sdk/powershell/beta/models/bulk-workgroup-members-request-inner
-tags: ['SDK', 'Software Development Kit', 'BulkWorkgroupMembersRequestInner']
+tags: ['SDK', 'Software Development Kit', 'BulkWorkgroupMembersRequestInner', 'BetaBulkWorkgroupMembersRequestInner']
 ---
 
 

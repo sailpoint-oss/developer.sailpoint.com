@@ -4,9 +4,9 @@ title: Section
 pagination_label: Section
 sidebar_label: Section
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Section'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Section', 'BetaSection'] 
 slug: /tools/sdk/powershell/beta/models/section
-tags: ['SDK', 'Software Development Kit', 'Section']
+tags: ['SDK', 'Software Development Kit', 'Section', 'BetaSection']
 ---
 
 

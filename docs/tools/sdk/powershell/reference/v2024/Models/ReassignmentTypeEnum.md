@@ -4,9 +4,9 @@ title: ReassignmentTypeEnum
 pagination_label: ReassignmentTypeEnum
 sidebar_label: ReassignmentTypeEnum
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ReassignmentTypeEnum'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ReassignmentTypeEnum', 'V2024ReassignmentTypeEnum'] 
 slug: /tools/sdk/powershell/v2024/models/reassignment-type-enum
-tags: ['SDK', 'Software Development Kit', 'ReassignmentTypeEnum']
+tags: ['SDK', 'Software Development Kit', 'ReassignmentTypeEnum', 'V2024ReassignmentTypeEnum']
 ---
 
 

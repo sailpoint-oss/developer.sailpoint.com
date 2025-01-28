@@ -4,9 +4,9 @@ title: MultiHostSourcesAccountCorrelationRule
 pagination_label: MultiHostSourcesAccountCorrelationRule
 sidebar_label: MultiHostSourcesAccountCorrelationRule
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'MultiHostSourcesAccountCorrelationRule'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'MultiHostSourcesAccountCorrelationRule', 'BetaMultiHostSourcesAccountCorrelationRule'] 
 slug: /tools/sdk/powershell/beta/models/multi-host-sources-account-correlation-rule
-tags: ['SDK', 'Software Development Kit', 'MultiHostSourcesAccountCorrelationRule']
+tags: ['SDK', 'Software Development Kit', 'MultiHostSourcesAccountCorrelationRule', 'BetaMultiHostSourcesAccountCorrelationRule']
 ---
 
 

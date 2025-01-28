@@ -4,9 +4,9 @@ title: IdentityEntities
 pagination_label: IdentityEntities
 sidebar_label: IdentityEntities
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityEntities'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityEntities', 'BetaIdentityEntities'] 
 slug: /tools/sdk/powershell/beta/models/identity-entities
-tags: ['SDK', 'Software Development Kit', 'IdentityEntities']
+tags: ['SDK', 'Software Development Kit', 'IdentityEntities', 'BetaIdentityEntities']
 ---
 
 

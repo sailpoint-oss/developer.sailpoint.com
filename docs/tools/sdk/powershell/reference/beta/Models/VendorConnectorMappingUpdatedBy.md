@@ -4,9 +4,9 @@ title: VendorConnectorMappingUpdatedBy
 pagination_label: VendorConnectorMappingUpdatedBy
 sidebar_label: VendorConnectorMappingUpdatedBy
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'VendorConnectorMappingUpdatedBy'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'VendorConnectorMappingUpdatedBy', 'BetaVendorConnectorMappingUpdatedBy'] 
 slug: /tools/sdk/powershell/beta/models/vendor-connector-mapping-updated-by
-tags: ['SDK', 'Software Development Kit', 'VendorConnectorMappingUpdatedBy']
+tags: ['SDK', 'Software Development Kit', 'VendorConnectorMappingUpdatedBy', 'BetaVendorConnectorMappingUpdatedBy']
 ---
 
 

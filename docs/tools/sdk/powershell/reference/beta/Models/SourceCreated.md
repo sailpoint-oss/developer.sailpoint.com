@@ -4,9 +4,9 @@ title: SourceCreated
 pagination_label: SourceCreated
 sidebar_label: SourceCreated
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SourceCreated'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SourceCreated', 'BetaSourceCreated'] 
 slug: /tools/sdk/powershell/beta/models/source-created
-tags: ['SDK', 'Software Development Kit', 'SourceCreated']
+tags: ['SDK', 'Software Development Kit', 'SourceCreated', 'BetaSourceCreated']
 ---
 
 

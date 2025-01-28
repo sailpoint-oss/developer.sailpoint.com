@@ -4,9 +4,9 @@ title: CertificationReference
 pagination_label: CertificationReference
 sidebar_label: CertificationReference
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CertificationReference'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CertificationReference', 'BetaCertificationReference'] 
 slug: /tools/sdk/powershell/beta/models/certification-reference
-tags: ['SDK', 'Software Development Kit', 'CertificationReference']
+tags: ['SDK', 'Software Development Kit', 'CertificationReference', 'BetaCertificationReference']
 ---
 
 

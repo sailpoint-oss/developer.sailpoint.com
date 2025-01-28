@@ -4,9 +4,9 @@ title: AccessProfileRole
 pagination_label: AccessProfileRole
 sidebar_label: AccessProfileRole
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessProfileRole'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessProfileRole', 'V2024AccessProfileRole'] 
 slug: /tools/sdk/powershell/v2024/models/access-profile-role
-tags: ['SDK', 'Software Development Kit', 'AccessProfileRole']
+tags: ['SDK', 'Software Development Kit', 'AccessProfileRole', 'V2024AccessProfileRole']
 ---
 
 

@@ -4,9 +4,9 @@ title: Schedule2
 pagination_label: Schedule2
 sidebar_label: Schedule2
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Schedule2'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Schedule2', 'V2024Schedule2'] 
 slug: /tools/sdk/powershell/v2024/models/schedule2
-tags: ['SDK', 'Software Development Kit', 'Schedule2']
+tags: ['SDK', 'Software Development Kit', 'Schedule2', 'V2024Schedule2']
 ---
 
 

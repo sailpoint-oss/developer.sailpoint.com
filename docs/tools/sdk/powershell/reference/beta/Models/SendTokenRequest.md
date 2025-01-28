@@ -4,9 +4,9 @@ title: SendTokenRequest
 pagination_label: SendTokenRequest
 sidebar_label: SendTokenRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SendTokenRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SendTokenRequest', 'BetaSendTokenRequest'] 
 slug: /tools/sdk/powershell/beta/models/send-token-request
-tags: ['SDK', 'Software Development Kit', 'SendTokenRequest']
+tags: ['SDK', 'Software Development Kit', 'SendTokenRequest', 'BetaSendTokenRequest']
 ---
 
 

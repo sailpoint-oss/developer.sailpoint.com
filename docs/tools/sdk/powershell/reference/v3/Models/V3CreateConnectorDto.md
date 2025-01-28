@@ -4,9 +4,9 @@ title: V3CreateConnectorDto
 pagination_label: V3CreateConnectorDto
 sidebar_label: V3CreateConnectorDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'V3CreateConnectorDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'V3CreateConnectorDto', 'V3CreateConnectorDto'] 
 slug: /tools/sdk/powershell/v3/models/v3-create-connector-dto
-tags: ['SDK', 'Software Development Kit', 'V3CreateConnectorDto']
+tags: ['SDK', 'Software Development Kit', 'V3CreateConnectorDto', 'V3CreateConnectorDto']
 ---
 
 

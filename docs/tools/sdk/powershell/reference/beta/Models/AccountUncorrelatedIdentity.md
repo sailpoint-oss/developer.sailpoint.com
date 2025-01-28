@@ -4,9 +4,9 @@ title: AccountUncorrelatedIdentity
 pagination_label: AccountUncorrelatedIdentity
 sidebar_label: AccountUncorrelatedIdentity
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccountUncorrelatedIdentity'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccountUncorrelatedIdentity', 'BetaAccountUncorrelatedIdentity'] 
 slug: /tools/sdk/powershell/beta/models/account-uncorrelated-identity
-tags: ['SDK', 'Software Development Kit', 'AccountUncorrelatedIdentity']
+tags: ['SDK', 'Software Development Kit', 'AccountUncorrelatedIdentity', 'BetaAccountUncorrelatedIdentity']
 ---
 
 

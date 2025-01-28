@@ -4,9 +4,9 @@ title: CampaignGeneratedCampaignCampaignOwner
 pagination_label: CampaignGeneratedCampaignCampaignOwner
 sidebar_label: CampaignGeneratedCampaignCampaignOwner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignGeneratedCampaignCampaignOwner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignGeneratedCampaignCampaignOwner', 'BetaCampaignGeneratedCampaignCampaignOwner'] 
 slug: /tools/sdk/powershell/beta/models/campaign-generated-campaign-campaign-owner
-tags: ['SDK', 'Software Development Kit', 'CampaignGeneratedCampaignCampaignOwner']
+tags: ['SDK', 'Software Development Kit', 'CampaignGeneratedCampaignCampaignOwner', 'BetaCampaignGeneratedCampaignCampaignOwner']
 ---
 
 

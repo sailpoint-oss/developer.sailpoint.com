@@ -4,9 +4,9 @@ title: IdentityManagerRef
 pagination_label: IdentityManagerRef
 sidebar_label: IdentityManagerRef
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityManagerRef'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityManagerRef', 'V2024IdentityManagerRef'] 
 slug: /tools/sdk/powershell/v2024/models/identity-manager-ref
-tags: ['SDK', 'Software Development Kit', 'IdentityManagerRef']
+tags: ['SDK', 'Software Development Kit', 'IdentityManagerRef', 'V2024IdentityManagerRef']
 ---
 
 

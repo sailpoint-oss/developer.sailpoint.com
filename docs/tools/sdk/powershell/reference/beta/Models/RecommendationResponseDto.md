@@ -4,9 +4,9 @@ title: RecommendationResponseDto
 pagination_label: RecommendationResponseDto
 sidebar_label: RecommendationResponseDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RecommendationResponseDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RecommendationResponseDto', 'BetaRecommendationResponseDto'] 
 slug: /tools/sdk/powershell/beta/models/recommendation-response-dto
-tags: ['SDK', 'Software Development Kit', 'RecommendationResponseDto']
+tags: ['SDK', 'Software Development Kit', 'RecommendationResponseDto', 'BetaRecommendationResponseDto']
 ---
 
 

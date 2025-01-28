@@ -4,9 +4,9 @@ title: Transform
 pagination_label: Transform
 sidebar_label: Transform
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Transform'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Transform', 'Transform'] 
 slug: /tools/sdk/powershell/v3/models/transform
-tags: ['SDK', 'Software Development Kit', 'Transform']
+tags: ['SDK', 'Software Development Kit', 'Transform', 'Transform']
 ---
 
 

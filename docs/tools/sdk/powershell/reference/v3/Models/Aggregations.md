@@ -4,9 +4,9 @@ title: Aggregations
 pagination_label: Aggregations
 sidebar_label: Aggregations
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Aggregations'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Aggregations', 'Aggregations'] 
 slug: /tools/sdk/powershell/v3/models/aggregations
-tags: ['SDK', 'Software Development Kit', 'Aggregations']
+tags: ['SDK', 'Software Development Kit', 'Aggregations', 'Aggregations']
 ---
 
 

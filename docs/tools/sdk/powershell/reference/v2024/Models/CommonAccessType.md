@@ -4,9 +4,9 @@ title: CommonAccessType
 pagination_label: CommonAccessType
 sidebar_label: CommonAccessType
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CommonAccessType'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CommonAccessType', 'V2024CommonAccessType'] 
 slug: /tools/sdk/powershell/v2024/models/common-access-type
-tags: ['SDK', 'Software Development Kit', 'CommonAccessType']
+tags: ['SDK', 'Software Development Kit', 'CommonAccessType', 'V2024CommonAccessType']
 ---
 
 

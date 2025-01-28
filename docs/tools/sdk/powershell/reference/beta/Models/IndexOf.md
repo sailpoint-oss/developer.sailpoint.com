@@ -4,9 +4,9 @@ title: IndexOf
 pagination_label: IndexOf
 sidebar_label: IndexOf
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IndexOf'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IndexOf', 'BetaIndexOf'] 
 slug: /tools/sdk/powershell/beta/models/index-of
-tags: ['SDK', 'Software Development Kit', 'IndexOf']
+tags: ['SDK', 'Software Development Kit', 'IndexOf', 'BetaIndexOf']
 ---
 
 

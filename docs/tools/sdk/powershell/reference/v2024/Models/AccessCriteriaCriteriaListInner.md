@@ -4,9 +4,9 @@ title: AccessCriteriaCriteriaListInner
 pagination_label: AccessCriteriaCriteriaListInner
 sidebar_label: AccessCriteriaCriteriaListInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessCriteriaCriteriaListInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessCriteriaCriteriaListInner', 'V2024AccessCriteriaCriteriaListInner'] 
 slug: /tools/sdk/powershell/v2024/models/access-criteria-criteria-list-inner
-tags: ['SDK', 'Software Development Kit', 'AccessCriteriaCriteriaListInner']
+tags: ['SDK', 'Software Development Kit', 'AccessCriteriaCriteriaListInner', 'V2024AccessCriteriaCriteriaListInner']
 ---
 
 

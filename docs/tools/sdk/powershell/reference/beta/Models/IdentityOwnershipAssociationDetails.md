@@ -4,9 +4,9 @@ title: IdentityOwnershipAssociationDetails
 pagination_label: IdentityOwnershipAssociationDetails
 sidebar_label: IdentityOwnershipAssociationDetails
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityOwnershipAssociationDetails'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityOwnershipAssociationDetails', 'BetaIdentityOwnershipAssociationDetails'] 
 slug: /tools/sdk/powershell/beta/models/identity-ownership-association-details
-tags: ['SDK', 'Software Development Kit', 'IdentityOwnershipAssociationDetails']
+tags: ['SDK', 'Software Development Kit', 'IdentityOwnershipAssociationDetails', 'BetaIdentityOwnershipAssociationDetails']
 ---
 
 

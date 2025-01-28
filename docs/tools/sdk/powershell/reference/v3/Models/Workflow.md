@@ -4,9 +4,9 @@ title: Workflow
 pagination_label: Workflow
 sidebar_label: Workflow
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Workflow'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Workflow', 'Workflow'] 
 slug: /tools/sdk/powershell/v3/models/workflow
-tags: ['SDK', 'Software Development Kit', 'Workflow']
+tags: ['SDK', 'Software Development Kit', 'Workflow', 'Workflow']
 ---
 
 

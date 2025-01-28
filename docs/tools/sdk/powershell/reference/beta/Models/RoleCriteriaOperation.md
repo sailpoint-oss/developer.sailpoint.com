@@ -4,9 +4,9 @@ title: RoleCriteriaOperation
 pagination_label: RoleCriteriaOperation
 sidebar_label: RoleCriteriaOperation
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleCriteriaOperation'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleCriteriaOperation', 'BetaRoleCriteriaOperation'] 
 slug: /tools/sdk/powershell/beta/models/role-criteria-operation
-tags: ['SDK', 'Software Development Kit', 'RoleCriteriaOperation']
+tags: ['SDK', 'Software Development Kit', 'RoleCriteriaOperation', 'BetaRoleCriteriaOperation']
 ---
 
 

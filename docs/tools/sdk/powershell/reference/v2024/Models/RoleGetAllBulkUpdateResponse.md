@@ -4,9 +4,9 @@ title: RoleGetAllBulkUpdateResponse
 pagination_label: RoleGetAllBulkUpdateResponse
 sidebar_label: RoleGetAllBulkUpdateResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleGetAllBulkUpdateResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleGetAllBulkUpdateResponse', 'V2024RoleGetAllBulkUpdateResponse'] 
 slug: /tools/sdk/powershell/v2024/models/role-get-all-bulk-update-response
-tags: ['SDK', 'Software Development Kit', 'RoleGetAllBulkUpdateResponse']
+tags: ['SDK', 'Software Development Kit', 'RoleGetAllBulkUpdateResponse', 'V2024RoleGetAllBulkUpdateResponse']
 ---
 
 

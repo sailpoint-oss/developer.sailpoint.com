@@ -4,9 +4,9 @@ title: AccountStatusChangedAccount
 pagination_label: AccountStatusChangedAccount
 sidebar_label: AccountStatusChangedAccount
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccountStatusChangedAccount'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccountStatusChangedAccount', 'BetaAccountStatusChangedAccount'] 
 slug: /tools/sdk/powershell/beta/models/account-status-changed-account
-tags: ['SDK', 'Software Development Kit', 'AccountStatusChangedAccount']
+tags: ['SDK', 'Software Development Kit', 'AccountStatusChangedAccount', 'BetaAccountStatusChangedAccount']
 ---
 
 

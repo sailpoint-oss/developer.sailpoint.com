@@ -4,9 +4,9 @@ title: RequestedItemStatusRequestState
 pagination_label: RequestedItemStatusRequestState
 sidebar_label: RequestedItemStatusRequestState
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RequestedItemStatusRequestState'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RequestedItemStatusRequestState', 'V2024RequestedItemStatusRequestState'] 
 slug: /tools/sdk/powershell/v2024/models/requested-item-status-request-state
-tags: ['SDK', 'Software Development Kit', 'RequestedItemStatusRequestState']
+tags: ['SDK', 'Software Development Kit', 'RequestedItemStatusRequestState', 'V2024RequestedItemStatusRequestState']
 ---
 
 

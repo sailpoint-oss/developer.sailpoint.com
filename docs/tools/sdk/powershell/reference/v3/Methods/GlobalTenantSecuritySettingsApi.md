@@ -4,9 +4,9 @@ title: GlobalTenantSecuritySettings
 pagination_label: GlobalTenantSecuritySettings
 sidebar_label: GlobalTenantSecuritySettings
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'GlobalTenantSecuritySettings'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'GlobalTenantSecuritySettings', 'GlobalTenantSecuritySettings'] 
 slug: /tools/sdk/powershell/v3/methods/global-tenant-security-settings
-tags: ['SDK', 'Software Development Kit', 'GlobalTenantSecuritySettings']
+tags: ['SDK', 'Software Development Kit', 'GlobalTenantSecuritySettings', 'GlobalTenantSecuritySettings']
 ---
 
 

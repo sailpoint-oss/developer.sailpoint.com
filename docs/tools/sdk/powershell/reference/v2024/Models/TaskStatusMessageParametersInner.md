@@ -4,9 +4,9 @@ title: TaskStatusMessageParametersInner
 pagination_label: TaskStatusMessageParametersInner
 sidebar_label: TaskStatusMessageParametersInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TaskStatusMessageParametersInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TaskStatusMessageParametersInner', 'V2024TaskStatusMessageParametersInner'] 
 slug: /tools/sdk/powershell/v2024/models/task-status-message-parameters-inner
-tags: ['SDK', 'Software Development Kit', 'TaskStatusMessageParametersInner']
+tags: ['SDK', 'Software Development Kit', 'TaskStatusMessageParametersInner', 'V2024TaskStatusMessageParametersInner']
 ---
 
 

@@ -4,9 +4,9 @@ title: Sources
 pagination_label: Sources
 sidebar_label: Sources
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Sources'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Sources', 'BetaSources'] 
 slug: /tools/sdk/powershell/beta/methods/sources
-tags: ['SDK', 'Software Development Kit', 'Sources']
+tags: ['SDK', 'Software Development Kit', 'Sources', 'BetaSources']
 ---
 
 

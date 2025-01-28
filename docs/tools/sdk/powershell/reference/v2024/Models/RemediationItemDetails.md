@@ -4,9 +4,9 @@ title: RemediationItemDetails
 pagination_label: RemediationItemDetails
 sidebar_label: RemediationItemDetails
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RemediationItemDetails'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RemediationItemDetails', 'V2024RemediationItemDetails'] 
 slug: /tools/sdk/powershell/v2024/models/remediation-item-details
-tags: ['SDK', 'Software Development Kit', 'RemediationItemDetails']
+tags: ['SDK', 'Software Development Kit', 'RemediationItemDetails', 'V2024RemediationItemDetails']
 ---
 
 

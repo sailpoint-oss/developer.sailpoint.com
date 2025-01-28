@@ -4,9 +4,9 @@ title: BulkAddTaggedObject
 pagination_label: BulkAddTaggedObject
 sidebar_label: BulkAddTaggedObject
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'BulkAddTaggedObject'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'BulkAddTaggedObject', 'BulkAddTaggedObject'] 
 slug: /tools/sdk/powershell/v3/models/bulk-add-tagged-object
-tags: ['SDK', 'Software Development Kit', 'BulkAddTaggedObject']
+tags: ['SDK', 'Software Development Kit', 'BulkAddTaggedObject', 'BulkAddTaggedObject']
 ---
 
 

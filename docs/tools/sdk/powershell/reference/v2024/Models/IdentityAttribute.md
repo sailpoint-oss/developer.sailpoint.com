@@ -4,9 +4,9 @@ title: IdentityAttribute
 pagination_label: IdentityAttribute
 sidebar_label: IdentityAttribute
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityAttribute'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityAttribute', 'V2024IdentityAttribute'] 
 slug: /tools/sdk/powershell/v2024/models/identity-attribute
-tags: ['SDK', 'Software Development Kit', 'IdentityAttribute']
+tags: ['SDK', 'Software Development Kit', 'IdentityAttribute', 'V2024IdentityAttribute']
 ---
 
 

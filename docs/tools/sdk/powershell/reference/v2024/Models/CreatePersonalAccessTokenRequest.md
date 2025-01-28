@@ -4,9 +4,9 @@ title: CreatePersonalAccessTokenRequest
 pagination_label: CreatePersonalAccessTokenRequest
 sidebar_label: CreatePersonalAccessTokenRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CreatePersonalAccessTokenRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CreatePersonalAccessTokenRequest', 'V2024CreatePersonalAccessTokenRequest'] 
 slug: /tools/sdk/powershell/v2024/models/create-personal-access-token-request
-tags: ['SDK', 'Software Development Kit', 'CreatePersonalAccessTokenRequest']
+tags: ['SDK', 'Software Development Kit', 'CreatePersonalAccessTokenRequest', 'V2024CreatePersonalAccessTokenRequest']
 ---
 
 

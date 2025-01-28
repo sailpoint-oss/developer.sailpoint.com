@@ -4,9 +4,9 @@ title: MultiHostIntegrationsConnectorAttributesMultiHostAttributes
 pagination_label: MultiHostIntegrationsConnectorAttributesMultiHostAttributes
 sidebar_label: MultiHostIntegrationsConnectorAttributesMultiHostAttributes
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'MultiHostIntegrationsConnectorAttributesMultiHostAttributes'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'MultiHostIntegrationsConnectorAttributesMultiHostAttributes', 'BetaMultiHostIntegrationsConnectorAttributesMultiHostAttributes'] 
 slug: /tools/sdk/powershell/beta/models/multi-host-integrations-connector-attributes-multi-host-attributes
-tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrationsConnectorAttributesMultiHostAttributes']
+tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrationsConnectorAttributesMultiHostAttributes', 'BetaMultiHostIntegrationsConnectorAttributesMultiHostAttributes']
 ---
 
 

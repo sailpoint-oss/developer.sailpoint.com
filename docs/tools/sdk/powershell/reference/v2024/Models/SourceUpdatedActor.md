@@ -4,9 +4,9 @@ title: SourceUpdatedActor
 pagination_label: SourceUpdatedActor
 sidebar_label: SourceUpdatedActor
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SourceUpdatedActor'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SourceUpdatedActor', 'V2024SourceUpdatedActor'] 
 slug: /tools/sdk/powershell/v2024/models/source-updated-actor
-tags: ['SDK', 'Software Development Kit', 'SourceUpdatedActor']
+tags: ['SDK', 'Software Development Kit', 'SourceUpdatedActor', 'V2024SourceUpdatedActor']
 ---
 
 

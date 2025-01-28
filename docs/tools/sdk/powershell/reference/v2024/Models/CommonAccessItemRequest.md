@@ -4,9 +4,9 @@ title: CommonAccessItemRequest
 pagination_label: CommonAccessItemRequest
 sidebar_label: CommonAccessItemRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CommonAccessItemRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CommonAccessItemRequest', 'V2024CommonAccessItemRequest'] 
 slug: /tools/sdk/powershell/v2024/models/common-access-item-request
-tags: ['SDK', 'Software Development Kit', 'CommonAccessItemRequest']
+tags: ['SDK', 'Software Development Kit', 'CommonAccessItemRequest', 'V2024CommonAccessItemRequest']
 ---
 
 

@@ -4,9 +4,9 @@ title: NonEmployeeIdnUserRequest
 pagination_label: NonEmployeeIdnUserRequest
 sidebar_label: NonEmployeeIdnUserRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'NonEmployeeIdnUserRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'NonEmployeeIdnUserRequest', 'BetaNonEmployeeIdnUserRequest'] 
 slug: /tools/sdk/powershell/beta/models/non-employee-idn-user-request
-tags: ['SDK', 'Software Development Kit', 'NonEmployeeIdnUserRequest']
+tags: ['SDK', 'Software Development Kit', 'NonEmployeeIdnUserRequest', 'BetaNonEmployeeIdnUserRequest']
 ---
 
 

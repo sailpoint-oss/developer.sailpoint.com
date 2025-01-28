@@ -4,9 +4,9 @@ title: NonEmployeeSourceWithCloudExternalId
 pagination_label: NonEmployeeSourceWithCloudExternalId
 sidebar_label: NonEmployeeSourceWithCloudExternalId
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'NonEmployeeSourceWithCloudExternalId'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'NonEmployeeSourceWithCloudExternalId', 'BetaNonEmployeeSourceWithCloudExternalId'] 
 slug: /tools/sdk/powershell/beta/models/non-employee-source-with-cloud-external-id
-tags: ['SDK', 'Software Development Kit', 'NonEmployeeSourceWithCloudExternalId']
+tags: ['SDK', 'Software Development Kit', 'NonEmployeeSourceWithCloudExternalId', 'BetaNonEmployeeSourceWithCloudExternalId']
 ---
 
 

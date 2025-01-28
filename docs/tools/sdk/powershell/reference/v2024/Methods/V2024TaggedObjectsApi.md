@@ -4,9 +4,9 @@ title: TaggedObjects
 pagination_label: TaggedObjects
 sidebar_label: TaggedObjects
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TaggedObjects'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TaggedObjects', 'V2024TaggedObjects'] 
 slug: /tools/sdk/powershell/v2024/methods/tagged-objects
-tags: ['SDK', 'Software Development Kit', 'TaggedObjects']
+tags: ['SDK', 'Software Development Kit', 'TaggedObjects', 'V2024TaggedObjects']
 ---
 
 

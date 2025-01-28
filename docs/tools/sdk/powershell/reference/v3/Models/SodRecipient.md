@@ -4,9 +4,9 @@ title: SodRecipient
 pagination_label: SodRecipient
 sidebar_label: SodRecipient
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SodRecipient'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SodRecipient', 'SodRecipient'] 
 slug: /tools/sdk/powershell/v3/models/sod-recipient
-tags: ['SDK', 'Software Development Kit', 'SodRecipient']
+tags: ['SDK', 'Software Development Kit', 'SodRecipient', 'SodRecipient']
 ---
 
 

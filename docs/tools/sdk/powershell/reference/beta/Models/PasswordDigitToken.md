@@ -4,9 +4,9 @@ title: PasswordDigitToken
 pagination_label: PasswordDigitToken
 sidebar_label: PasswordDigitToken
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'PasswordDigitToken'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'PasswordDigitToken', 'BetaPasswordDigitToken'] 
 slug: /tools/sdk/powershell/beta/models/password-digit-token
-tags: ['SDK', 'Software Development Kit', 'PasswordDigitToken']
+tags: ['SDK', 'Software Development Kit', 'PasswordDigitToken', 'BetaPasswordDigitToken']
 ---
 
 

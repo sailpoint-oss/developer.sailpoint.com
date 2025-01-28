@@ -4,9 +4,9 @@ title: ClientType
 pagination_label: ClientType
 sidebar_label: ClientType
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ClientType'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ClientType', 'ClientType'] 
 slug: /tools/sdk/powershell/v3/models/client-type
-tags: ['SDK', 'Software Development Kit', 'ClientType']
+tags: ['SDK', 'Software Development Kit', 'ClientType', 'ClientType']
 ---
 
 

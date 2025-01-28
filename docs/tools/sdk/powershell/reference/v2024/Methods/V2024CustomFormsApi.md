@@ -4,9 +4,9 @@ title: CustomForms
 pagination_label: CustomForms
 sidebar_label: CustomForms
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CustomForms'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CustomForms', 'V2024CustomForms'] 
 slug: /tools/sdk/powershell/v2024/methods/custom-forms
-tags: ['SDK', 'Software Development Kit', 'CustomForms']
+tags: ['SDK', 'Software Development Kit', 'CustomForms', 'V2024CustomForms']
 ---
 
 

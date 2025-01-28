@@ -4,9 +4,9 @@ title: ModelFilter
 pagination_label: ModelFilter
 sidebar_label: ModelFilter
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ModelFilter'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ModelFilter', 'ModelFilter'] 
 slug: /tools/sdk/powershell/v3/models/model-filter
-tags: ['SDK', 'Software Development Kit', 'ModelFilter']
+tags: ['SDK', 'Software Development Kit', 'ModelFilter', 'ModelFilter']
 ---
 
 

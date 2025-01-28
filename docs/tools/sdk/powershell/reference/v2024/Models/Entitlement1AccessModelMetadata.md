@@ -4,9 +4,9 @@ title: Entitlement1AccessModelMetadata
 pagination_label: Entitlement1AccessModelMetadata
 sidebar_label: Entitlement1AccessModelMetadata
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Entitlement1AccessModelMetadata'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Entitlement1AccessModelMetadata', 'V2024Entitlement1AccessModelMetadata'] 
 slug: /tools/sdk/powershell/v2024/models/entitlement1-access-model-metadata
-tags: ['SDK', 'Software Development Kit', 'Entitlement1AccessModelMetadata']
+tags: ['SDK', 'Software Development Kit', 'Entitlement1AccessModelMetadata', 'V2024Entitlement1AccessModelMetadata']
 ---
 
 

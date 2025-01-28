@@ -4,9 +4,9 @@ title: SodViolationContextConflictingAccessCriteria
 pagination_label: SodViolationContextConflictingAccessCriteria
 sidebar_label: SodViolationContextConflictingAccessCriteria
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SodViolationContextConflictingAccessCriteria'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SodViolationContextConflictingAccessCriteria', 'BetaSodViolationContextConflictingAccessCriteria'] 
 slug: /tools/sdk/powershell/beta/models/sod-violation-context-conflicting-access-criteria
-tags: ['SDK', 'Software Development Kit', 'SodViolationContextConflictingAccessCriteria']
+tags: ['SDK', 'Software Development Kit', 'SodViolationContextConflictingAccessCriteria', 'BetaSodViolationContextConflictingAccessCriteria']
 ---
 
 

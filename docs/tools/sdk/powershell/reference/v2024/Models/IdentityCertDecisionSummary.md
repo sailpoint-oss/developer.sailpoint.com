@@ -4,9 +4,9 @@ title: IdentityCertDecisionSummary
 pagination_label: IdentityCertDecisionSummary
 sidebar_label: IdentityCertDecisionSummary
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityCertDecisionSummary'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityCertDecisionSummary', 'V2024IdentityCertDecisionSummary'] 
 slug: /tools/sdk/powershell/v2024/models/identity-cert-decision-summary
-tags: ['SDK', 'Software Development Kit', 'IdentityCertDecisionSummary']
+tags: ['SDK', 'Software Development Kit', 'IdentityCertDecisionSummary', 'V2024IdentityCertDecisionSummary']
 ---
 
 

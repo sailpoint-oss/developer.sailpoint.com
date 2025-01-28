@@ -4,9 +4,9 @@ title: AccessItemEntitlementResponse
 pagination_label: AccessItemEntitlementResponse
 sidebar_label: AccessItemEntitlementResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessItemEntitlementResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessItemEntitlementResponse', 'V2024AccessItemEntitlementResponse'] 
 slug: /tools/sdk/powershell/v2024/models/access-item-entitlement-response
-tags: ['SDK', 'Software Development Kit', 'AccessItemEntitlementResponse']
+tags: ['SDK', 'Software Development Kit', 'AccessItemEntitlementResponse', 'V2024AccessItemEntitlementResponse']
 ---
 
 

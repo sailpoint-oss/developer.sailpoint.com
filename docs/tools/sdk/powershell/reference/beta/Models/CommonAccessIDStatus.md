@@ -4,9 +4,9 @@ title: CommonAccessIDStatus
 pagination_label: CommonAccessIDStatus
 sidebar_label: CommonAccessIDStatus
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CommonAccessIDStatus'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CommonAccessIDStatus', 'BetaCommonAccessIDStatus'] 
 slug: /tools/sdk/powershell/beta/models/common-access-id-status
-tags: ['SDK', 'Software Development Kit', 'CommonAccessIDStatus']
+tags: ['SDK', 'Software Development Kit', 'CommonAccessIDStatus', 'BetaCommonAccessIDStatus']
 ---
 
 

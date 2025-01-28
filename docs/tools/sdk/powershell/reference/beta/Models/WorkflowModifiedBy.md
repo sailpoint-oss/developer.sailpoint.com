@@ -4,9 +4,9 @@ title: WorkflowModifiedBy
 pagination_label: WorkflowModifiedBy
 sidebar_label: WorkflowModifiedBy
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'WorkflowModifiedBy'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'WorkflowModifiedBy', 'BetaWorkflowModifiedBy'] 
 slug: /tools/sdk/powershell/beta/models/workflow-modified-by
-tags: ['SDK', 'Software Development Kit', 'WorkflowModifiedBy']
+tags: ['SDK', 'Software Development Kit', 'WorkflowModifiedBy', 'BetaWorkflowModifiedBy']
 ---
 
 

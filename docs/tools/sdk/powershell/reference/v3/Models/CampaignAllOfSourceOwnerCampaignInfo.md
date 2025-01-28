@@ -4,9 +4,9 @@ title: CampaignAllOfSourceOwnerCampaignInfo
 pagination_label: CampaignAllOfSourceOwnerCampaignInfo
 sidebar_label: CampaignAllOfSourceOwnerCampaignInfo
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignAllOfSourceOwnerCampaignInfo'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignAllOfSourceOwnerCampaignInfo', 'CampaignAllOfSourceOwnerCampaignInfo'] 
 slug: /tools/sdk/powershell/v3/models/campaign-all-of-source-owner-campaign-info
-tags: ['SDK', 'Software Development Kit', 'CampaignAllOfSourceOwnerCampaignInfo']
+tags: ['SDK', 'Software Development Kit', 'CampaignAllOfSourceOwnerCampaignInfo', 'CampaignAllOfSourceOwnerCampaignInfo']
 ---
 
 

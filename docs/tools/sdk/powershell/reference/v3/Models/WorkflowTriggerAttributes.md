@@ -4,9 +4,9 @@ title: WorkflowTriggerAttributes
 pagination_label: WorkflowTriggerAttributes
 sidebar_label: WorkflowTriggerAttributes
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'WorkflowTriggerAttributes'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'WorkflowTriggerAttributes', 'WorkflowTriggerAttributes'] 
 slug: /tools/sdk/powershell/v3/models/workflow-trigger-attributes
-tags: ['SDK', 'Software Development Kit', 'WorkflowTriggerAttributes']
+tags: ['SDK', 'Software Development Kit', 'WorkflowTriggerAttributes', 'WorkflowTriggerAttributes']
 ---
 
 

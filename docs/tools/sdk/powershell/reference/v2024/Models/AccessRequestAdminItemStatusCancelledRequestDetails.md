@@ -4,9 +4,9 @@ title: AccessRequestAdminItemStatusCancelledRequestDetails
 pagination_label: AccessRequestAdminItemStatusCancelledRequestDetails
 sidebar_label: AccessRequestAdminItemStatusCancelledRequestDetails
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestAdminItemStatusCancelledRequestDetails'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestAdminItemStatusCancelledRequestDetails', 'V2024AccessRequestAdminItemStatusCancelledRequestDetails'] 
 slug: /tools/sdk/powershell/v2024/models/access-request-admin-item-status-cancelled-request-details
-tags: ['SDK', 'Software Development Kit', 'AccessRequestAdminItemStatusCancelledRequestDetails']
+tags: ['SDK', 'Software Development Kit', 'AccessRequestAdminItemStatusCancelledRequestDetails', 'V2024AccessRequestAdminItemStatusCancelledRequestDetails']
 ---
 
 

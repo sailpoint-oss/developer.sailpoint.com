@@ -4,9 +4,9 @@ title: AssignmentContextDto
 pagination_label: AssignmentContextDto
 sidebar_label: AssignmentContextDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AssignmentContextDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AssignmentContextDto', 'BetaAssignmentContextDto'] 
 slug: /tools/sdk/powershell/beta/models/assignment-context-dto
-tags: ['SDK', 'Software Development Kit', 'AssignmentContextDto']
+tags: ['SDK', 'Software Development Kit', 'AssignmentContextDto', 'BetaAssignmentContextDto']
 ---
 
 

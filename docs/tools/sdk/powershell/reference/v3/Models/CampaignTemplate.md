@@ -4,9 +4,9 @@ title: CampaignTemplate
 pagination_label: CampaignTemplate
 sidebar_label: CampaignTemplate
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignTemplate'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignTemplate', 'CampaignTemplate'] 
 slug: /tools/sdk/powershell/v3/models/campaign-template
-tags: ['SDK', 'Software Development Kit', 'CampaignTemplate']
+tags: ['SDK', 'Software Development Kit', 'CampaignTemplate', 'CampaignTemplate']
 ---
 
 

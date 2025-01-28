@@ -4,9 +4,9 @@ title: PendingApprovalAction
 pagination_label: PendingApprovalAction
 sidebar_label: PendingApprovalAction
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'PendingApprovalAction'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'PendingApprovalAction', 'V2024PendingApprovalAction'] 
 slug: /tools/sdk/powershell/v2024/models/pending-approval-action
-tags: ['SDK', 'Software Development Kit', 'PendingApprovalAction']
+tags: ['SDK', 'Software Development Kit', 'PendingApprovalAction', 'V2024PendingApprovalAction']
 ---
 
 

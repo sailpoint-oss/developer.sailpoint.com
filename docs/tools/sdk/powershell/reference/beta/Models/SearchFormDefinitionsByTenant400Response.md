@@ -4,9 +4,9 @@ title: SearchFormDefinitionsByTenant400Response
 pagination_label: SearchFormDefinitionsByTenant400Response
 sidebar_label: SearchFormDefinitionsByTenant400Response
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SearchFormDefinitionsByTenant400Response'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SearchFormDefinitionsByTenant400Response', 'BetaSearchFormDefinitionsByTenant400Response'] 
 slug: /tools/sdk/powershell/beta/models/search-form-definitions-by-tenant400-response
-tags: ['SDK', 'Software Development Kit', 'SearchFormDefinitionsByTenant400Response']
+tags: ['SDK', 'Software Development Kit', 'SearchFormDefinitionsByTenant400Response', 'BetaSearchFormDefinitionsByTenant400Response']
 ---
 
 

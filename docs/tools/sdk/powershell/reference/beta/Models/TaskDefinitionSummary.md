@@ -4,9 +4,9 @@ title: TaskDefinitionSummary
 pagination_label: TaskDefinitionSummary
 sidebar_label: TaskDefinitionSummary
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TaskDefinitionSummary'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TaskDefinitionSummary', 'BetaTaskDefinitionSummary'] 
 slug: /tools/sdk/powershell/beta/models/task-definition-summary
-tags: ['SDK', 'Software Development Kit', 'TaskDefinitionSummary']
+tags: ['SDK', 'Software Development Kit', 'TaskDefinitionSummary', 'BetaTaskDefinitionSummary']
 ---
 
 

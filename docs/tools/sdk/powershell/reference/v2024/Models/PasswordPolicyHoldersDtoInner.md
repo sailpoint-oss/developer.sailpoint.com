@@ -4,9 +4,9 @@ title: PasswordPolicyHoldersDtoInner
 pagination_label: PasswordPolicyHoldersDtoInner
 sidebar_label: PasswordPolicyHoldersDtoInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'PasswordPolicyHoldersDtoInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'PasswordPolicyHoldersDtoInner', 'V2024PasswordPolicyHoldersDtoInner'] 
 slug: /tools/sdk/powershell/v2024/models/password-policy-holders-dto-inner
-tags: ['SDK', 'Software Development Kit', 'PasswordPolicyHoldersDtoInner']
+tags: ['SDK', 'Software Development Kit', 'PasswordPolicyHoldersDtoInner', 'V2024PasswordPolicyHoldersDtoInner']
 ---
 
 

@@ -4,9 +4,9 @@ title: DependantConnectionsMissingDto
 pagination_label: DependantConnectionsMissingDto
 sidebar_label: DependantConnectionsMissingDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'DependantConnectionsMissingDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'DependantConnectionsMissingDto', 'DependantConnectionsMissingDto'] 
 slug: /tools/sdk/powershell/v3/models/dependant-connections-missing-dto
-tags: ['SDK', 'Software Development Kit', 'DependantConnectionsMissingDto']
+tags: ['SDK', 'Software Development Kit', 'DependantConnectionsMissingDto', 'DependantConnectionsMissingDto']
 ---
 
 

@@ -4,9 +4,9 @@ title: AccountCorrelated
 pagination_label: AccountCorrelated
 sidebar_label: AccountCorrelated
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccountCorrelated'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccountCorrelated', 'V2024AccountCorrelated'] 
 slug: /tools/sdk/powershell/v2024/models/account-correlated
-tags: ['SDK', 'Software Development Kit', 'AccountCorrelated']
+tags: ['SDK', 'Software Development Kit', 'AccountCorrelated', 'V2024AccountCorrelated']
 ---
 
 

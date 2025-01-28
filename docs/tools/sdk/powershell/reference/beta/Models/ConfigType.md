@@ -4,9 +4,9 @@ title: ConfigType
 pagination_label: ConfigType
 sidebar_label: ConfigType
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ConfigType'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ConfigType', 'BetaConfigType'] 
 slug: /tools/sdk/powershell/beta/models/config-type
-tags: ['SDK', 'Software Development Kit', 'ConfigType']
+tags: ['SDK', 'Software Development Kit', 'ConfigType', 'BetaConfigType']
 ---
 
 

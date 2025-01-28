@@ -4,9 +4,9 @@ title: AccountToggleRequest
 pagination_label: AccountToggleRequest
 sidebar_label: AccountToggleRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccountToggleRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccountToggleRequest', 'V2024AccountToggleRequest'] 
 slug: /tools/sdk/powershell/v2024/models/account-toggle-request
-tags: ['SDK', 'Software Development Kit', 'AccountToggleRequest']
+tags: ['SDK', 'Software Development Kit', 'AccountToggleRequest', 'V2024AccountToggleRequest']
 ---
 
 

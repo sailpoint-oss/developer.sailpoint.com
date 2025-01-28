@@ -4,9 +4,9 @@ title: ExceptionAccessCriteria
 pagination_label: ExceptionAccessCriteria
 sidebar_label: ExceptionAccessCriteria
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ExceptionAccessCriteria'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ExceptionAccessCriteria', 'V2024ExceptionAccessCriteria'] 
 slug: /tools/sdk/powershell/v2024/models/exception-access-criteria
-tags: ['SDK', 'Software Development Kit', 'ExceptionAccessCriteria']
+tags: ['SDK', 'Software Development Kit', 'ExceptionAccessCriteria', 'V2024ExceptionAccessCriteria']
 ---
 
 

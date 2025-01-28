@@ -4,9 +4,9 @@ title: StartInvocationInput
 pagination_label: StartInvocationInput
 sidebar_label: StartInvocationInput
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'StartInvocationInput'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'StartInvocationInput', 'V2024StartInvocationInput'] 
 slug: /tools/sdk/powershell/v2024/models/start-invocation-input
-tags: ['SDK', 'Software Development Kit', 'StartInvocationInput']
+tags: ['SDK', 'Software Development Kit', 'StartInvocationInput', 'V2024StartInvocationInput']
 ---
 
 

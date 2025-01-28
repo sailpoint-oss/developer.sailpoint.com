@@ -4,9 +4,9 @@ title: SourceConnectionsDto
 pagination_label: SourceConnectionsDto
 sidebar_label: SourceConnectionsDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SourceConnectionsDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SourceConnectionsDto', 'SourceConnectionsDto'] 
 slug: /tools/sdk/powershell/v3/models/source-connections-dto
-tags: ['SDK', 'Software Development Kit', 'SourceConnectionsDto']
+tags: ['SDK', 'Software Development Kit', 'SourceConnectionsDto', 'SourceConnectionsDto']
 ---
 
 

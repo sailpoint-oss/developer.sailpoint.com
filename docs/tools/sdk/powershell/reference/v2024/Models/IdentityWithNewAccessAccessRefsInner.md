@@ -4,9 +4,9 @@ title: IdentityWithNewAccessAccessRefsInner
 pagination_label: IdentityWithNewAccessAccessRefsInner
 sidebar_label: IdentityWithNewAccessAccessRefsInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityWithNewAccessAccessRefsInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityWithNewAccessAccessRefsInner', 'V2024IdentityWithNewAccessAccessRefsInner'] 
 slug: /tools/sdk/powershell/v2024/models/identity-with-new-access-access-refs-inner
-tags: ['SDK', 'Software Development Kit', 'IdentityWithNewAccessAccessRefsInner']
+tags: ['SDK', 'Software Development Kit', 'IdentityWithNewAccessAccessRefsInner', 'V2024IdentityWithNewAccessAccessRefsInner']
 ---
 
 

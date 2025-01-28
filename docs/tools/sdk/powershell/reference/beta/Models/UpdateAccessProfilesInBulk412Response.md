@@ -4,9 +4,9 @@ title: UpdateAccessProfilesInBulk412Response
 pagination_label: UpdateAccessProfilesInBulk412Response
 sidebar_label: UpdateAccessProfilesInBulk412Response
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'UpdateAccessProfilesInBulk412Response'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'UpdateAccessProfilesInBulk412Response', 'BetaUpdateAccessProfilesInBulk412Response'] 
 slug: /tools/sdk/powershell/beta/models/update-access-profiles-in-bulk412-response
-tags: ['SDK', 'Software Development Kit', 'UpdateAccessProfilesInBulk412Response']
+tags: ['SDK', 'Software Development Kit', 'UpdateAccessProfilesInBulk412Response', 'BetaUpdateAccessProfilesInBulk412Response']
 ---
 
 

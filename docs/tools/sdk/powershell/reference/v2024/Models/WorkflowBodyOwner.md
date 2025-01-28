@@ -4,9 +4,9 @@ title: WorkflowBodyOwner
 pagination_label: WorkflowBodyOwner
 sidebar_label: WorkflowBodyOwner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'WorkflowBodyOwner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'WorkflowBodyOwner', 'V2024WorkflowBodyOwner'] 
 slug: /tools/sdk/powershell/v2024/models/workflow-body-owner
-tags: ['SDK', 'Software Development Kit', 'WorkflowBodyOwner']
+tags: ['SDK', 'Software Development Kit', 'WorkflowBodyOwner', 'V2024WorkflowBodyOwner']
 ---
 
 

@@ -4,9 +4,9 @@ title: PublicIdentities
 pagination_label: PublicIdentities
 sidebar_label: PublicIdentities
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'PublicIdentities'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'PublicIdentities', 'V2024PublicIdentities'] 
 slug: /tools/sdk/powershell/v2024/methods/public-identities
-tags: ['SDK', 'Software Development Kit', 'PublicIdentities']
+tags: ['SDK', 'Software Development Kit', 'PublicIdentities', 'V2024PublicIdentities']
 ---
 
 

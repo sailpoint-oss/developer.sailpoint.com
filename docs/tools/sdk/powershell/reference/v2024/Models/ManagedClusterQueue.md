@@ -4,9 +4,9 @@ title: ManagedClusterQueue
 pagination_label: ManagedClusterQueue
 sidebar_label: ManagedClusterQueue
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ManagedClusterQueue'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ManagedClusterQueue', 'V2024ManagedClusterQueue'] 
 slug: /tools/sdk/powershell/v2024/models/managed-cluster-queue
-tags: ['SDK', 'Software Development Kit', 'ManagedClusterQueue']
+tags: ['SDK', 'Software Development Kit', 'ManagedClusterQueue', 'V2024ManagedClusterQueue']
 ---
 
 

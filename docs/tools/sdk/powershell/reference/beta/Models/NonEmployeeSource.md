@@ -4,9 +4,9 @@ title: NonEmployeeSource
 pagination_label: NonEmployeeSource
 sidebar_label: NonEmployeeSource
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'NonEmployeeSource'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'NonEmployeeSource', 'BetaNonEmployeeSource'] 
 slug: /tools/sdk/powershell/beta/models/non-employee-source
-tags: ['SDK', 'Software Development Kit', 'NonEmployeeSource']
+tags: ['SDK', 'Software Development Kit', 'NonEmployeeSource', 'BetaNonEmployeeSource']
 ---
 
 

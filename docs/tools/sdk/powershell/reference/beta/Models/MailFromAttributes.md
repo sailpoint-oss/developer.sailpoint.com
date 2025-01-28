@@ -4,9 +4,9 @@ title: MailFromAttributes
 pagination_label: MailFromAttributes
 sidebar_label: MailFromAttributes
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'MailFromAttributes'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'MailFromAttributes', 'BetaMailFromAttributes'] 
 slug: /tools/sdk/powershell/beta/models/mail-from-attributes
-tags: ['SDK', 'Software Development Kit', 'MailFromAttributes']
+tags: ['SDK', 'Software Development Kit', 'MailFromAttributes', 'BetaMailFromAttributes']
 ---
 
 

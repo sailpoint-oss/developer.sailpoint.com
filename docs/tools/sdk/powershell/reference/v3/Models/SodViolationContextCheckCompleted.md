@@ -4,9 +4,9 @@ title: SodViolationContextCheckCompleted
 pagination_label: SodViolationContextCheckCompleted
 sidebar_label: SodViolationContextCheckCompleted
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SodViolationContextCheckCompleted'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SodViolationContextCheckCompleted', 'SodViolationContextCheckCompleted'] 
 slug: /tools/sdk/powershell/v3/models/sod-violation-context-check-completed
-tags: ['SDK', 'Software Development Kit', 'SodViolationContextCheckCompleted']
+tags: ['SDK', 'Software Development Kit', 'SodViolationContextCheckCompleted', 'SodViolationContextCheckCompleted']
 ---
 
 

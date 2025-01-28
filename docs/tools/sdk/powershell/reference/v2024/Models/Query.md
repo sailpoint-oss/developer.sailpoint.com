@@ -4,9 +4,9 @@ title: Query
 pagination_label: Query
 sidebar_label: Query
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Query'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Query', 'V2024Query'] 
 slug: /tools/sdk/powershell/v2024/models/query
-tags: ['SDK', 'Software Development Kit', 'Query']
+tags: ['SDK', 'Software Development Kit', 'Query', 'V2024Query']
 ---
 
 

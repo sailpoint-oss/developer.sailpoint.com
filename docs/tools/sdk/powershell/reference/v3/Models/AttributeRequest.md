@@ -4,9 +4,9 @@ title: AttributeRequest
 pagination_label: AttributeRequest
 sidebar_label: AttributeRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AttributeRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AttributeRequest', 'AttributeRequest'] 
 slug: /tools/sdk/powershell/v3/models/attribute-request
-tags: ['SDK', 'Software Development Kit', 'AttributeRequest']
+tags: ['SDK', 'Software Development Kit', 'AttributeRequest', 'AttributeRequest']
 ---
 
 

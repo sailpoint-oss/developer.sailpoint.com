@@ -4,9 +4,9 @@ title: ProvisioningConfigManagedResourceRefsInner
 pagination_label: ProvisioningConfigManagedResourceRefsInner
 sidebar_label: ProvisioningConfigManagedResourceRefsInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ProvisioningConfigManagedResourceRefsInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ProvisioningConfigManagedResourceRefsInner', 'BetaProvisioningConfigManagedResourceRefsInner'] 
 slug: /tools/sdk/powershell/beta/models/provisioning-config-managed-resource-refs-inner
-tags: ['SDK', 'Software Development Kit', 'ProvisioningConfigManagedResourceRefsInner']
+tags: ['SDK', 'Software Development Kit', 'ProvisioningConfigManagedResourceRefsInner', 'BetaProvisioningConfigManagedResourceRefsInner']
 ---
 
 

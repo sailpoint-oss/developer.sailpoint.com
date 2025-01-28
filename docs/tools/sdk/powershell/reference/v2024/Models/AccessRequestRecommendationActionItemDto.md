@@ -4,9 +4,9 @@ title: AccessRequestRecommendationActionItemDto
 pagination_label: AccessRequestRecommendationActionItemDto
 sidebar_label: AccessRequestRecommendationActionItemDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestRecommendationActionItemDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestRecommendationActionItemDto', 'V2024AccessRequestRecommendationActionItemDto'] 
 slug: /tools/sdk/powershell/v2024/models/access-request-recommendation-action-item-dto
-tags: ['SDK', 'Software Development Kit', 'AccessRequestRecommendationActionItemDto']
+tags: ['SDK', 'Software Development Kit', 'AccessRequestRecommendationActionItemDto', 'V2024AccessRequestRecommendationActionItemDto']
 ---
 
 

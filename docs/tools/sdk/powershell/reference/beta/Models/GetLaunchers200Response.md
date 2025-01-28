@@ -4,9 +4,9 @@ title: GetLaunchers200Response
 pagination_label: GetLaunchers200Response
 sidebar_label: GetLaunchers200Response
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'GetLaunchers200Response'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'GetLaunchers200Response', 'BetaGetLaunchers200Response'] 
 slug: /tools/sdk/powershell/beta/models/get-launchers200-response
-tags: ['SDK', 'Software Development Kit', 'GetLaunchers200Response']
+tags: ['SDK', 'Software Development Kit', 'GetLaunchers200Response', 'BetaGetLaunchers200Response']
 ---
 
 

@@ -4,9 +4,9 @@ title: ConfigObject
 pagination_label: ConfigObject
 sidebar_label: ConfigObject
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ConfigObject'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ConfigObject', 'BetaConfigObject'] 
 slug: /tools/sdk/powershell/beta/models/config-object
-tags: ['SDK', 'Software Development Kit', 'ConfigObject']
+tags: ['SDK', 'Software Development Kit', 'ConfigObject', 'BetaConfigObject']
 ---
 
 

@@ -4,9 +4,9 @@ title: ProvisioningCompleted
 pagination_label: ProvisioningCompleted
 sidebar_label: ProvisioningCompleted
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ProvisioningCompleted'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ProvisioningCompleted', 'V2024ProvisioningCompleted'] 
 slug: /tools/sdk/powershell/v2024/models/provisioning-completed
-tags: ['SDK', 'Software Development Kit', 'ProvisioningCompleted']
+tags: ['SDK', 'Software Development Kit', 'ProvisioningCompleted', 'V2024ProvisioningCompleted']
 ---
 
 

@@ -4,9 +4,9 @@ title: Children
 pagination_label: Children
 sidebar_label: Children
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Children'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Children', 'BetaChildren'] 
 slug: /tools/sdk/powershell/beta/models/children
-tags: ['SDK', 'Software Development Kit', 'Children']
+tags: ['SDK', 'Software Development Kit', 'Children', 'BetaChildren']
 ---
 
 

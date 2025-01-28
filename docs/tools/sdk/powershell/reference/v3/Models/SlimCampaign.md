@@ -4,9 +4,9 @@ title: SlimCampaign
 pagination_label: SlimCampaign
 sidebar_label: SlimCampaign
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SlimCampaign'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SlimCampaign', 'SlimCampaign'] 
 slug: /tools/sdk/powershell/v3/models/slim-campaign
-tags: ['SDK', 'Software Development Kit', 'SlimCampaign']
+tags: ['SDK', 'Software Development Kit', 'SlimCampaign', 'SlimCampaign']
 ---
 
 

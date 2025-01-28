@@ -4,9 +4,9 @@ title: SendTestNotificationRequestDto
 pagination_label: SendTestNotificationRequestDto
 sidebar_label: SendTestNotificationRequestDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SendTestNotificationRequestDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SendTestNotificationRequestDto', 'BetaSendTestNotificationRequestDto'] 
 slug: /tools/sdk/powershell/beta/models/send-test-notification-request-dto
-tags: ['SDK', 'Software Development Kit', 'SendTestNotificationRequestDto']
+tags: ['SDK', 'Software Development Kit', 'SendTestNotificationRequestDto', 'BetaSendTestNotificationRequestDto']
 ---
 
 

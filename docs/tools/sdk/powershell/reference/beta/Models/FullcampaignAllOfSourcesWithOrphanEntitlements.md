@@ -4,9 +4,9 @@ title: FullcampaignAllOfSourcesWithOrphanEntitlements
 pagination_label: FullcampaignAllOfSourcesWithOrphanEntitlements
 sidebar_label: FullcampaignAllOfSourcesWithOrphanEntitlements
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'FullcampaignAllOfSourcesWithOrphanEntitlements'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'FullcampaignAllOfSourcesWithOrphanEntitlements', 'BetaFullcampaignAllOfSourcesWithOrphanEntitlements'] 
 slug: /tools/sdk/powershell/beta/models/fullcampaign-all-of-sources-with-orphan-entitlements
-tags: ['SDK', 'Software Development Kit', 'FullcampaignAllOfSourcesWithOrphanEntitlements']
+tags: ['SDK', 'Software Development Kit', 'FullcampaignAllOfSourcesWithOrphanEntitlements', 'BetaFullcampaignAllOfSourcesWithOrphanEntitlements']
 ---
 
 

@@ -4,9 +4,9 @@ title: ContextAttributeDto
 pagination_label: ContextAttributeDto
 sidebar_label: ContextAttributeDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ContextAttributeDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ContextAttributeDto', 'BetaContextAttributeDto'] 
 slug: /tools/sdk/powershell/beta/models/context-attribute-dto
-tags: ['SDK', 'Software Development Kit', 'ContextAttributeDto']
+tags: ['SDK', 'Software Development Kit', 'ContextAttributeDto', 'BetaContextAttributeDto']
 ---
 
 

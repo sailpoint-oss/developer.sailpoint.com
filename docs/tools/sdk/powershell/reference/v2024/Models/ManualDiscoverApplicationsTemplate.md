@@ -4,9 +4,9 @@ title: ManualDiscoverApplicationsTemplate
 pagination_label: ManualDiscoverApplicationsTemplate
 sidebar_label: ManualDiscoverApplicationsTemplate
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ManualDiscoverApplicationsTemplate'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ManualDiscoverApplicationsTemplate', 'V2024ManualDiscoverApplicationsTemplate'] 
 slug: /tools/sdk/powershell/v2024/models/manual-discover-applications-template
-tags: ['SDK', 'Software Development Kit', 'ManualDiscoverApplicationsTemplate']
+tags: ['SDK', 'Software Development Kit', 'ManualDiscoverApplicationsTemplate', 'V2024ManualDiscoverApplicationsTemplate']
 ---
 
 

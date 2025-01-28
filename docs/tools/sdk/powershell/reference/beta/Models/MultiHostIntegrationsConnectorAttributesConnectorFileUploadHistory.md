@@ -4,9 +4,9 @@ title: MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory
 pagination_label: MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory
 sidebar_label: MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory', 'BetaMultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory'] 
 slug: /tools/sdk/powershell/beta/models/multi-host-integrations-connector-attributes-connector-file-upload-history
-tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory']
+tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory', 'BetaMultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory']
 ---
 
 

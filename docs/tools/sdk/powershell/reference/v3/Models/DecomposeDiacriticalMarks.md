@@ -4,9 +4,9 @@ title: DecomposeDiacriticalMarks
 pagination_label: DecomposeDiacriticalMarks
 sidebar_label: DecomposeDiacriticalMarks
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'DecomposeDiacriticalMarks'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'DecomposeDiacriticalMarks', 'DecomposeDiacriticalMarks'] 
 slug: /tools/sdk/powershell/v3/models/decompose-diacritical-marks
-tags: ['SDK', 'Software Development Kit', 'DecomposeDiacriticalMarks']
+tags: ['SDK', 'Software Development Kit', 'DecomposeDiacriticalMarks', 'DecomposeDiacriticalMarks']
 ---
 
 

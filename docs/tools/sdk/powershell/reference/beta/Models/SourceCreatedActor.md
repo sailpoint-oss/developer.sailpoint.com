@@ -4,9 +4,9 @@ title: SourceCreatedActor
 pagination_label: SourceCreatedActor
 sidebar_label: SourceCreatedActor
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SourceCreatedActor'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SourceCreatedActor', 'BetaSourceCreatedActor'] 
 slug: /tools/sdk/powershell/beta/models/source-created-actor
-tags: ['SDK', 'Software Development Kit', 'SourceCreatedActor']
+tags: ['SDK', 'Software Development Kit', 'SourceCreatedActor', 'BetaSourceCreatedActor']
 ---
 
 

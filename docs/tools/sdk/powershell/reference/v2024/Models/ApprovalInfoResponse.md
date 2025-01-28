@@ -4,9 +4,9 @@ title: ApprovalInfoResponse
 pagination_label: ApprovalInfoResponse
 sidebar_label: ApprovalInfoResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ApprovalInfoResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ApprovalInfoResponse', 'V2024ApprovalInfoResponse'] 
 slug: /tools/sdk/powershell/v2024/models/approval-info-response
-tags: ['SDK', 'Software Development Kit', 'ApprovalInfoResponse']
+tags: ['SDK', 'Software Development Kit', 'ApprovalInfoResponse', 'V2024ApprovalInfoResponse']
 ---
 
 

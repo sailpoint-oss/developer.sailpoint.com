@@ -4,9 +4,9 @@ title: WorkItemsForm
 pagination_label: WorkItemsForm
 sidebar_label: WorkItemsForm
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'WorkItemsForm'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'WorkItemsForm', 'V2024WorkItemsForm'] 
 slug: /tools/sdk/powershell/v2024/models/work-items-form
-tags: ['SDK', 'Software Development Kit', 'WorkItemsForm']
+tags: ['SDK', 'Software Development Kit', 'WorkItemsForm', 'V2024WorkItemsForm']
 ---
 
 

@@ -4,9 +4,9 @@ title: ConnectorDetail1
 pagination_label: ConnectorDetail1
 sidebar_label: ConnectorDetail1
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ConnectorDetail1'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ConnectorDetail1', 'V2024ConnectorDetail1'] 
 slug: /tools/sdk/powershell/v2024/models/connector-detail1
-tags: ['SDK', 'Software Development Kit', 'ConnectorDetail1']
+tags: ['SDK', 'Software Development Kit', 'ConnectorDetail1', 'V2024ConnectorDetail1']
 ---
 
 

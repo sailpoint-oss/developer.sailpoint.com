@@ -4,9 +4,9 @@ title: RoleMembershipIdentity
 pagination_label: RoleMembershipIdentity
 sidebar_label: RoleMembershipIdentity
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMembershipIdentity'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMembershipIdentity', 'RoleMembershipIdentity'] 
 slug: /tools/sdk/powershell/v3/models/role-membership-identity
-tags: ['SDK', 'Software Development Kit', 'RoleMembershipIdentity']
+tags: ['SDK', 'Software Development Kit', 'RoleMembershipIdentity', 'RoleMembershipIdentity']
 ---
 
 

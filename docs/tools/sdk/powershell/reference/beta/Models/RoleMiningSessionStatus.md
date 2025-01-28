@@ -4,9 +4,9 @@ title: RoleMiningSessionStatus
 pagination_label: RoleMiningSessionStatus
 sidebar_label: RoleMiningSessionStatus
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMiningSessionStatus'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMiningSessionStatus', 'BetaRoleMiningSessionStatus'] 
 slug: /tools/sdk/powershell/beta/models/role-mining-session-status
-tags: ['SDK', 'Software Development Kit', 'RoleMiningSessionStatus']
+tags: ['SDK', 'Software Development Kit', 'RoleMiningSessionStatus', 'BetaRoleMiningSessionStatus']
 ---
 
 

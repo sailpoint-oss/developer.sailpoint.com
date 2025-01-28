@@ -4,9 +4,9 @@ title: IdentityAssociationDetails
 pagination_label: IdentityAssociationDetails
 sidebar_label: IdentityAssociationDetails
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityAssociationDetails'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityAssociationDetails', 'BetaIdentityAssociationDetails'] 
 slug: /tools/sdk/powershell/beta/models/identity-association-details
-tags: ['SDK', 'Software Development Kit', 'IdentityAssociationDetails']
+tags: ['SDK', 'Software Development Kit', 'IdentityAssociationDetails', 'BetaIdentityAssociationDetails']
 ---
 
 

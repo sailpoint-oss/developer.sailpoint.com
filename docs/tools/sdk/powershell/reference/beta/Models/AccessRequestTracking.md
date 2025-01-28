@@ -4,9 +4,9 @@ title: AccessRequestTracking
 pagination_label: AccessRequestTracking
 sidebar_label: AccessRequestTracking
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestTracking'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestTracking', 'BetaAccessRequestTracking'] 
 slug: /tools/sdk/powershell/beta/models/access-request-tracking
-tags: ['SDK', 'Software Development Kit', 'AccessRequestTracking']
+tags: ['SDK', 'Software Development Kit', 'AccessRequestTracking', 'BetaAccessRequestTracking']
 ---
 
 

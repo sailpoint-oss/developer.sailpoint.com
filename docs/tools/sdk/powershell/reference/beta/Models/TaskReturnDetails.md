@@ -4,9 +4,9 @@ title: TaskReturnDetails
 pagination_label: TaskReturnDetails
 sidebar_label: TaskReturnDetails
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TaskReturnDetails'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TaskReturnDetails', 'BetaTaskReturnDetails'] 
 slug: /tools/sdk/powershell/beta/models/task-return-details
-tags: ['SDK', 'Software Development Kit', 'TaskReturnDetails']
+tags: ['SDK', 'Software Development Kit', 'TaskReturnDetails', 'BetaTaskReturnDetails']
 ---
 
 

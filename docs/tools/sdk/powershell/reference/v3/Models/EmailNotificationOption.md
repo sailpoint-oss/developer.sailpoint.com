@@ -4,9 +4,9 @@ title: EmailNotificationOption
 pagination_label: EmailNotificationOption
 sidebar_label: EmailNotificationOption
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'EmailNotificationOption'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'EmailNotificationOption', 'EmailNotificationOption'] 
 slug: /tools/sdk/powershell/v3/models/email-notification-option
-tags: ['SDK', 'Software Development Kit', 'EmailNotificationOption']
+tags: ['SDK', 'Software Development Kit', 'EmailNotificationOption', 'EmailNotificationOption']
 ---
 
 

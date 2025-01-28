@@ -4,9 +4,9 @@ title: ProvisioningCompletedAccountRequestsInner
 pagination_label: ProvisioningCompletedAccountRequestsInner
 sidebar_label: ProvisioningCompletedAccountRequestsInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ProvisioningCompletedAccountRequestsInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ProvisioningCompletedAccountRequestsInner', 'V2024ProvisioningCompletedAccountRequestsInner'] 
 slug: /tools/sdk/powershell/v2024/models/provisioning-completed-account-requests-inner
-tags: ['SDK', 'Software Development Kit', 'ProvisioningCompletedAccountRequestsInner']
+tags: ['SDK', 'Software Development Kit', 'ProvisioningCompletedAccountRequestsInner', 'V2024ProvisioningCompletedAccountRequestsInner']
 ---
 
 

@@ -4,9 +4,9 @@ title: Split
 pagination_label: Split
 sidebar_label: Split
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Split'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Split', 'BetaSplit'] 
 slug: /tools/sdk/powershell/beta/models/split
-tags: ['SDK', 'Software Development Kit', 'Split']
+tags: ['SDK', 'Software Development Kit', 'Split', 'BetaSplit']
 ---
 
 

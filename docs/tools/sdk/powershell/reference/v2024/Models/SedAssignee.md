@@ -4,9 +4,9 @@ title: SedAssignee
 pagination_label: SedAssignee
 sidebar_label: SedAssignee
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SedAssignee'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SedAssignee', 'V2024SedAssignee'] 
 slug: /tools/sdk/powershell/v2024/models/sed-assignee
-tags: ['SDK', 'Software Development Kit', 'SedAssignee']
+tags: ['SDK', 'Software Development Kit', 'SedAssignee', 'V2024SedAssignee']
 ---
 
 

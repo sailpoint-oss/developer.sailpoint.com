@@ -4,9 +4,9 @@ title: RoleMiningPotentialRoleEntitlements
 pagination_label: RoleMiningPotentialRoleEntitlements
 sidebar_label: RoleMiningPotentialRoleEntitlements
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMiningPotentialRoleEntitlements'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMiningPotentialRoleEntitlements', 'V2024RoleMiningPotentialRoleEntitlements'] 
 slug: /tools/sdk/powershell/v2024/models/role-mining-potential-role-entitlements
-tags: ['SDK', 'Software Development Kit', 'RoleMiningPotentialRoleEntitlements']
+tags: ['SDK', 'Software Development Kit', 'RoleMiningPotentialRoleEntitlements', 'V2024RoleMiningPotentialRoleEntitlements']
 ---
 
 

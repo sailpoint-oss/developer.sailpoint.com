@@ -4,9 +4,9 @@ title: StandardLevel
 pagination_label: StandardLevel
 sidebar_label: StandardLevel
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'StandardLevel'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'StandardLevel', 'V2024StandardLevel'] 
 slug: /tools/sdk/powershell/v2024/models/standard-level
-tags: ['SDK', 'Software Development Kit', 'StandardLevel']
+tags: ['SDK', 'Software Development Kit', 'StandardLevel', 'V2024StandardLevel']
 ---
 
 

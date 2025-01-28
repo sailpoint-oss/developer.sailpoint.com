@@ -4,9 +4,9 @@ title: EntitlementSourceResetBaseReferenceDto
 pagination_label: EntitlementSourceResetBaseReferenceDto
 sidebar_label: EntitlementSourceResetBaseReferenceDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'EntitlementSourceResetBaseReferenceDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'EntitlementSourceResetBaseReferenceDto', 'BetaEntitlementSourceResetBaseReferenceDto'] 
 slug: /tools/sdk/powershell/beta/models/entitlement-source-reset-base-reference-dto
-tags: ['SDK', 'Software Development Kit', 'EntitlementSourceResetBaseReferenceDto']
+tags: ['SDK', 'Software Development Kit', 'EntitlementSourceResetBaseReferenceDto', 'BetaEntitlementSourceResetBaseReferenceDto']
 ---
 
 

@@ -4,9 +4,9 @@ title: AccessRequestResponse
 pagination_label: AccessRequestResponse
 sidebar_label: AccessRequestResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestResponse', 'AccessRequestResponse'] 
 slug: /tools/sdk/powershell/v3/models/access-request-response
-tags: ['SDK', 'Software Development Kit', 'AccessRequestResponse']
+tags: ['SDK', 'Software Development Kit', 'AccessRequestResponse', 'AccessRequestResponse']
 ---
 
 

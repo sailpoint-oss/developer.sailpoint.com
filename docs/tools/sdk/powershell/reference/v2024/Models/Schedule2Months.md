@@ -4,9 +4,9 @@ title: Schedule2Months
 pagination_label: Schedule2Months
 sidebar_label: Schedule2Months
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Schedule2Months'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Schedule2Months', 'V2024Schedule2Months'] 
 slug: /tools/sdk/powershell/v2024/models/schedule2-months
-tags: ['SDK', 'Software Development Kit', 'Schedule2Months']
+tags: ['SDK', 'Software Development Kit', 'Schedule2Months', 'V2024Schedule2Months']
 ---
 
 

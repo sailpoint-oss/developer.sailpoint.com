@@ -4,9 +4,9 @@ title: EntitlementManuallyUpdatedFields
 pagination_label: EntitlementManuallyUpdatedFields
 sidebar_label: EntitlementManuallyUpdatedFields
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'EntitlementManuallyUpdatedFields'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'EntitlementManuallyUpdatedFields', 'BetaEntitlementManuallyUpdatedFields'] 
 slug: /tools/sdk/powershell/beta/models/entitlement-manually-updated-fields
-tags: ['SDK', 'Software Development Kit', 'EntitlementManuallyUpdatedFields']
+tags: ['SDK', 'Software Development Kit', 'EntitlementManuallyUpdatedFields', 'BetaEntitlementManuallyUpdatedFields']
 ---
 
 

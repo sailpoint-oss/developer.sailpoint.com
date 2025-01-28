@@ -4,9 +4,9 @@ title: Argument
 pagination_label: Argument
 sidebar_label: Argument
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Argument'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Argument', 'V2024Argument'] 
 slug: /tools/sdk/powershell/v2024/models/argument
-tags: ['SDK', 'Software Development Kit', 'Argument']
+tags: ['SDK', 'Software Development Kit', 'Argument', 'V2024Argument']
 ---
 
 

@@ -4,9 +4,9 @@ title: EventAttributes
 pagination_label: EventAttributes
 sidebar_label: EventAttributes
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'EventAttributes'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'EventAttributes', 'BetaEventAttributes'] 
 slug: /tools/sdk/powershell/beta/models/event-attributes
-tags: ['SDK', 'Software Development Kit', 'EventAttributes']
+tags: ['SDK', 'Software Development Kit', 'EventAttributes', 'BetaEventAttributes']
 ---
 
 

@@ -4,9 +4,9 @@ title: FullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef
 pagination_label: FullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef
 sidebar_label: FullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'FullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'FullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef', 'BetaFullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef'] 
 slug: /tools/sdk/powershell/beta/models/fullcampaign-all-of-role-composition-campaign-info-remediator-ref
-tags: ['SDK', 'Software Development Kit', 'FullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef']
+tags: ['SDK', 'Software Development Kit', 'FullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef', 'BetaFullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef']
 ---
 
 

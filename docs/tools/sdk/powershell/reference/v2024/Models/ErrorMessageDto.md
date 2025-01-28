@@ -4,9 +4,9 @@ title: ErrorMessageDto
 pagination_label: ErrorMessageDto
 sidebar_label: ErrorMessageDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ErrorMessageDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ErrorMessageDto', 'V2024ErrorMessageDto'] 
 slug: /tools/sdk/powershell/v2024/models/error-message-dto
-tags: ['SDK', 'Software Development Kit', 'ErrorMessageDto']
+tags: ['SDK', 'Software Development Kit', 'ErrorMessageDto', 'V2024ErrorMessageDto']
 ---
 
 

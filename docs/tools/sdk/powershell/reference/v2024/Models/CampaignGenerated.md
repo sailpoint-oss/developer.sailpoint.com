@@ -4,9 +4,9 @@ title: CampaignGenerated
 pagination_label: CampaignGenerated
 sidebar_label: CampaignGenerated
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignGenerated'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignGenerated', 'V2024CampaignGenerated'] 
 slug: /tools/sdk/powershell/v2024/models/campaign-generated
-tags: ['SDK', 'Software Development Kit', 'CampaignGenerated']
+tags: ['SDK', 'Software Development Kit', 'CampaignGenerated', 'V2024CampaignGenerated']
 ---
 
 

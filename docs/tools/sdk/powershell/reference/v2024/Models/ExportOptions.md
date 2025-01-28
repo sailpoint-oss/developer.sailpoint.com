@@ -4,9 +4,9 @@ title: ExportOptions
 pagination_label: ExportOptions
 sidebar_label: ExportOptions
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ExportOptions'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ExportOptions', 'V2024ExportOptions'] 
 slug: /tools/sdk/powershell/v2024/models/export-options
-tags: ['SDK', 'Software Development Kit', 'ExportOptions']
+tags: ['SDK', 'Software Development Kit', 'ExportOptions', 'V2024ExportOptions']
 ---
 
 

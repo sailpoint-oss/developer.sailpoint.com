@@ -4,9 +4,9 @@ title: RequestedItemStatusSodViolationContext
 pagination_label: RequestedItemStatusSodViolationContext
 sidebar_label: RequestedItemStatusSodViolationContext
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RequestedItemStatusSodViolationContext'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RequestedItemStatusSodViolationContext', 'V2024RequestedItemStatusSodViolationContext'] 
 slug: /tools/sdk/powershell/v2024/models/requested-item-status-sod-violation-context
-tags: ['SDK', 'Software Development Kit', 'RequestedItemStatusSodViolationContext']
+tags: ['SDK', 'Software Development Kit', 'RequestedItemStatusSodViolationContext', 'V2024RequestedItemStatusSodViolationContext']
 ---
 
 

@@ -4,9 +4,9 @@ title: SuggestedEntitlementDescription
 pagination_label: SuggestedEntitlementDescription
 sidebar_label: SuggestedEntitlementDescription
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SuggestedEntitlementDescription'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SuggestedEntitlementDescription', 'V2024SuggestedEntitlementDescription'] 
 slug: /tools/sdk/powershell/v2024/methods/suggested-entitlement-description
-tags: ['SDK', 'Software Development Kit', 'SuggestedEntitlementDescription']
+tags: ['SDK', 'Software Development Kit', 'SuggestedEntitlementDescription', 'V2024SuggestedEntitlementDescription']
 ---
 
 

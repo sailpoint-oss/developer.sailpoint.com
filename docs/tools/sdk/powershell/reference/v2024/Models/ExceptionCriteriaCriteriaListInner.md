@@ -4,9 +4,9 @@ title: ExceptionCriteriaCriteriaListInner
 pagination_label: ExceptionCriteriaCriteriaListInner
 sidebar_label: ExceptionCriteriaCriteriaListInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ExceptionCriteriaCriteriaListInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ExceptionCriteriaCriteriaListInner', 'V2024ExceptionCriteriaCriteriaListInner'] 
 slug: /tools/sdk/powershell/v2024/models/exception-criteria-criteria-list-inner
-tags: ['SDK', 'Software Development Kit', 'ExceptionCriteriaCriteriaListInner']
+tags: ['SDK', 'Software Development Kit', 'ExceptionCriteriaCriteriaListInner', 'V2024ExceptionCriteriaCriteriaListInner']
 ---
 
 

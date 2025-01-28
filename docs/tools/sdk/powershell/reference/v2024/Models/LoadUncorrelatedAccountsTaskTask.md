@@ -4,9 +4,9 @@ title: LoadUncorrelatedAccountsTaskTask
 pagination_label: LoadUncorrelatedAccountsTaskTask
 sidebar_label: LoadUncorrelatedAccountsTaskTask
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'LoadUncorrelatedAccountsTaskTask'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'LoadUncorrelatedAccountsTaskTask', 'V2024LoadUncorrelatedAccountsTaskTask'] 
 slug: /tools/sdk/powershell/v2024/models/load-uncorrelated-accounts-task-task
-tags: ['SDK', 'Software Development Kit', 'LoadUncorrelatedAccountsTaskTask']
+tags: ['SDK', 'Software Development Kit', 'LoadUncorrelatedAccountsTaskTask', 'V2024LoadUncorrelatedAccountsTaskTask']
 ---
 
 

@@ -4,9 +4,9 @@ title: DimensionCriteriaKey
 pagination_label: DimensionCriteriaKey
 sidebar_label: DimensionCriteriaKey
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'DimensionCriteriaKey'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'DimensionCriteriaKey', 'V2024DimensionCriteriaKey'] 
 slug: /tools/sdk/powershell/v2024/models/dimension-criteria-key
-tags: ['SDK', 'Software Development Kit', 'DimensionCriteriaKey']
+tags: ['SDK', 'Software Development Kit', 'DimensionCriteriaKey', 'V2024DimensionCriteriaKey']
 ---
 
 

@@ -4,9 +4,9 @@ title: SourcePasswordPoliciesInner
 pagination_label: SourcePasswordPoliciesInner
 sidebar_label: SourcePasswordPoliciesInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SourcePasswordPoliciesInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SourcePasswordPoliciesInner', 'V2024SourcePasswordPoliciesInner'] 
 slug: /tools/sdk/powershell/v2024/models/source-password-policies-inner
-tags: ['SDK', 'Software Development Kit', 'SourcePasswordPoliciesInner']
+tags: ['SDK', 'Software Development Kit', 'SourcePasswordPoliciesInner', 'V2024SourcePasswordPoliciesInner']
 ---
 
 

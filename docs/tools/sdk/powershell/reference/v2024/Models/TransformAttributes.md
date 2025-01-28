@@ -4,9 +4,9 @@ title: TransformAttributes
 pagination_label: TransformAttributes
 sidebar_label: TransformAttributes
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TransformAttributes'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TransformAttributes', 'V2024TransformAttributes'] 
 slug: /tools/sdk/powershell/v2024/models/transform-attributes
-tags: ['SDK', 'Software Development Kit', 'TransformAttributes']
+tags: ['SDK', 'Software Development Kit', 'TransformAttributes', 'V2024TransformAttributes']
 ---
 
 

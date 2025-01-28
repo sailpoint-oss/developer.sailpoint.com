@@ -4,9 +4,9 @@ title: JITConfiguration
 pagination_label: JITConfiguration
 sidebar_label: JITConfiguration
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'JITConfiguration'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'JITConfiguration', 'JITConfiguration'] 
 slug: /tools/sdk/powershell/v3/models/jit-configuration
-tags: ['SDK', 'Software Development Kit', 'JITConfiguration']
+tags: ['SDK', 'Software Development Kit', 'JITConfiguration', 'JITConfiguration']
 ---
 
 

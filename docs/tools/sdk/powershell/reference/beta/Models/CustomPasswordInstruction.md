@@ -4,9 +4,9 @@ title: CustomPasswordInstruction
 pagination_label: CustomPasswordInstruction
 sidebar_label: CustomPasswordInstruction
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CustomPasswordInstruction'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CustomPasswordInstruction', 'BetaCustomPasswordInstruction'] 
 slug: /tools/sdk/powershell/beta/models/custom-password-instruction
-tags: ['SDK', 'Software Development Kit', 'CustomPasswordInstruction']
+tags: ['SDK', 'Software Development Kit', 'CustomPasswordInstruction', 'BetaCustomPasswordInstruction']
 ---
 
 

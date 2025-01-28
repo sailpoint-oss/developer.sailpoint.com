@@ -4,9 +4,9 @@ title: ConnectorRuleValidationResponse
 pagination_label: ConnectorRuleValidationResponse
 sidebar_label: ConnectorRuleValidationResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ConnectorRuleValidationResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ConnectorRuleValidationResponse', 'V2024ConnectorRuleValidationResponse'] 
 slug: /tools/sdk/powershell/v2024/models/connector-rule-validation-response
-tags: ['SDK', 'Software Development Kit', 'ConnectorRuleValidationResponse']
+tags: ['SDK', 'Software Development Kit', 'ConnectorRuleValidationResponse', 'V2024ConnectorRuleValidationResponse']
 ---
 
 

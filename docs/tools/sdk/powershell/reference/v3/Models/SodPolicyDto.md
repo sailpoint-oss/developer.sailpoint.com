@@ -4,9 +4,9 @@ title: SodPolicyDto
 pagination_label: SodPolicyDto
 sidebar_label: SodPolicyDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SodPolicyDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SodPolicyDto', 'SodPolicyDto'] 
 slug: /tools/sdk/powershell/v3/models/sod-policy-dto
-tags: ['SDK', 'Software Development Kit', 'SodPolicyDto']
+tags: ['SDK', 'Software Development Kit', 'SodPolicyDto', 'SodPolicyDto']
 ---
 
 

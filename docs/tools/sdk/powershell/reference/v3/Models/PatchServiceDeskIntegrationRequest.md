@@ -4,9 +4,9 @@ title: PatchServiceDeskIntegrationRequest
 pagination_label: PatchServiceDeskIntegrationRequest
 sidebar_label: PatchServiceDeskIntegrationRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'PatchServiceDeskIntegrationRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'PatchServiceDeskIntegrationRequest', 'PatchServiceDeskIntegrationRequest'] 
 slug: /tools/sdk/powershell/v3/models/patch-service-desk-integration-request
-tags: ['SDK', 'Software Development Kit', 'PatchServiceDeskIntegrationRequest']
+tags: ['SDK', 'Software Development Kit', 'PatchServiceDeskIntegrationRequest', 'PatchServiceDeskIntegrationRequest']
 ---
 
 

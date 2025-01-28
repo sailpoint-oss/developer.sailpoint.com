@@ -4,9 +4,9 @@ title: Schedule1Hours
 pagination_label: Schedule1Hours
 sidebar_label: Schedule1Hours
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Schedule1Hours'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Schedule1Hours', 'Schedule1Hours'] 
 slug: /tools/sdk/powershell/v3/models/schedule1-hours
-tags: ['SDK', 'Software Development Kit', 'Schedule1Hours']
+tags: ['SDK', 'Software Development Kit', 'Schedule1Hours', 'Schedule1Hours']
 ---
 
 

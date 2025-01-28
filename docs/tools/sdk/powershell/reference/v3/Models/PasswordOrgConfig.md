@@ -4,9 +4,9 @@ title: PasswordOrgConfig
 pagination_label: PasswordOrgConfig
 sidebar_label: PasswordOrgConfig
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'PasswordOrgConfig'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'PasswordOrgConfig', 'PasswordOrgConfig'] 
 slug: /tools/sdk/powershell/v3/models/password-org-config
-tags: ['SDK', 'Software Development Kit', 'PasswordOrgConfig']
+tags: ['SDK', 'Software Development Kit', 'PasswordOrgConfig', 'PasswordOrgConfig']
 ---
 
 

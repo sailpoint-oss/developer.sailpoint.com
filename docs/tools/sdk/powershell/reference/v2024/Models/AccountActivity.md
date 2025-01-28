@@ -4,9 +4,9 @@ title: AccountActivity
 pagination_label: AccountActivity
 sidebar_label: AccountActivity
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccountActivity'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccountActivity', 'V2024AccountActivity'] 
 slug: /tools/sdk/powershell/v2024/models/account-activity
-tags: ['SDK', 'Software Development Kit', 'AccountActivity']
+tags: ['SDK', 'Software Development Kit', 'AccountActivity', 'V2024AccountActivity']
 ---
 
 

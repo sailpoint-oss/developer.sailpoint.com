@@ -4,9 +4,9 @@ title: PendingApprovalOwner
 pagination_label: PendingApprovalOwner
 sidebar_label: PendingApprovalOwner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'PendingApprovalOwner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'PendingApprovalOwner', 'V2024PendingApprovalOwner'] 
 slug: /tools/sdk/powershell/v2024/models/pending-approval-owner
-tags: ['SDK', 'Software Development Kit', 'PendingApprovalOwner']
+tags: ['SDK', 'Software Development Kit', 'PendingApprovalOwner', 'V2024PendingApprovalOwner']
 ---
 
 

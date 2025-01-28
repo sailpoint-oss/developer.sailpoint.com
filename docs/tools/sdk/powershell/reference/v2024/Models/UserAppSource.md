@@ -4,9 +4,9 @@ title: UserAppSource
 pagination_label: UserAppSource
 sidebar_label: UserAppSource
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'UserAppSource'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'UserAppSource', 'V2024UserAppSource'] 
 slug: /tools/sdk/powershell/v2024/models/user-app-source
-tags: ['SDK', 'Software Development Kit', 'UserAppSource']
+tags: ['SDK', 'Software Development Kit', 'UserAppSource', 'V2024UserAppSource']
 ---
 
 

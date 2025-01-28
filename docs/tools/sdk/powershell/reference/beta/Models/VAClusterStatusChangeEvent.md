@@ -4,9 +4,9 @@ title: VAClusterStatusChangeEvent
 pagination_label: VAClusterStatusChangeEvent
 sidebar_label: VAClusterStatusChangeEvent
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'VAClusterStatusChangeEvent'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'VAClusterStatusChangeEvent', 'BetaVAClusterStatusChangeEvent'] 
 slug: /tools/sdk/powershell/beta/models/va-cluster-status-change-event
-tags: ['SDK', 'Software Development Kit', 'VAClusterStatusChangeEvent']
+tags: ['SDK', 'Software Development Kit', 'VAClusterStatusChangeEvent', 'BetaVAClusterStatusChangeEvent']
 ---
 
 

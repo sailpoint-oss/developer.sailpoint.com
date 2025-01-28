@@ -4,9 +4,9 @@ title: SimIntegrationDetails
 pagination_label: SimIntegrationDetails
 sidebar_label: SimIntegrationDetails
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SimIntegrationDetails'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SimIntegrationDetails', 'BetaSimIntegrationDetails'] 
 slug: /tools/sdk/powershell/beta/models/sim-integration-details
-tags: ['SDK', 'Software Development Kit', 'SimIntegrationDetails']
+tags: ['SDK', 'Software Development Kit', 'SimIntegrationDetails', 'BetaSimIntegrationDetails']
 ---
 
 

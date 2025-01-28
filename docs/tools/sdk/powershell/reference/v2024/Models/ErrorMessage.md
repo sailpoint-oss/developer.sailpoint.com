@@ -4,9 +4,9 @@ title: ErrorMessage
 pagination_label: ErrorMessage
 sidebar_label: ErrorMessage
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ErrorMessage'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ErrorMessage', 'V2024ErrorMessage'] 
 slug: /tools/sdk/powershell/v2024/models/error-message
-tags: ['SDK', 'Software Development Kit', 'ErrorMessage']
+tags: ['SDK', 'Software Development Kit', 'ErrorMessage', 'V2024ErrorMessage']
 ---
 
 

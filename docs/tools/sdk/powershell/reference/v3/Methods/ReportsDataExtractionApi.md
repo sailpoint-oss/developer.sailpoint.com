@@ -4,9 +4,9 @@ title: ReportsDataExtraction
 pagination_label: ReportsDataExtraction
 sidebar_label: ReportsDataExtraction
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ReportsDataExtraction'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ReportsDataExtraction', 'ReportsDataExtraction'] 
 slug: /tools/sdk/powershell/v3/methods/reports-data-extraction
-tags: ['SDK', 'Software Development Kit', 'ReportsDataExtraction']
+tags: ['SDK', 'Software Development Kit', 'ReportsDataExtraction', 'ReportsDataExtraction']
 ---
 
 

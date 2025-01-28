@@ -4,9 +4,9 @@ title: DataAccessPoliciesInner
 pagination_label: DataAccessPoliciesInner
 sidebar_label: DataAccessPoliciesInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'DataAccessPoliciesInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'DataAccessPoliciesInner', 'V2024DataAccessPoliciesInner'] 
 slug: /tools/sdk/powershell/v2024/models/data-access-policies-inner
-tags: ['SDK', 'Software Development Kit', 'DataAccessPoliciesInner']
+tags: ['SDK', 'Software Development Kit', 'DataAccessPoliciesInner', 'V2024DataAccessPoliciesInner']
 ---
 
 

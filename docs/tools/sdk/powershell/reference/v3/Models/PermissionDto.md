@@ -4,9 +4,9 @@ title: PermissionDto
 pagination_label: PermissionDto
 sidebar_label: PermissionDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'PermissionDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'PermissionDto', 'PermissionDto'] 
 slug: /tools/sdk/powershell/v3/models/permission-dto
-tags: ['SDK', 'Software Development Kit', 'PermissionDto']
+tags: ['SDK', 'Software Development Kit', 'PermissionDto', 'PermissionDto']
 ---
 
 

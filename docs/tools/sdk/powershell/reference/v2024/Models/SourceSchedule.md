@@ -4,9 +4,9 @@ title: SourceSchedule
 pagination_label: SourceSchedule
 sidebar_label: SourceSchedule
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SourceSchedule'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SourceSchedule', 'V2024SourceSchedule'] 
 slug: /tools/sdk/powershell/v2024/models/source-schedule
-tags: ['SDK', 'Software Development Kit', 'SourceSchedule']
+tags: ['SDK', 'Software Development Kit', 'SourceSchedule', 'V2024SourceSchedule']
 ---
 
 

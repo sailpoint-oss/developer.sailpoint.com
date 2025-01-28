@@ -4,9 +4,9 @@ title: ListCompleteWorkflowLibrary200ResponseInner
 pagination_label: ListCompleteWorkflowLibrary200ResponseInner
 sidebar_label: ListCompleteWorkflowLibrary200ResponseInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ListCompleteWorkflowLibrary200ResponseInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ListCompleteWorkflowLibrary200ResponseInner', 'BetaListCompleteWorkflowLibrary200ResponseInner'] 
 slug: /tools/sdk/powershell/beta/models/list-complete-workflow-library200-response-inner
-tags: ['SDK', 'Software Development Kit', 'ListCompleteWorkflowLibrary200ResponseInner']
+tags: ['SDK', 'Software Development Kit', 'ListCompleteWorkflowLibrary200ResponseInner', 'BetaListCompleteWorkflowLibrary200ResponseInner']
 ---
 
 

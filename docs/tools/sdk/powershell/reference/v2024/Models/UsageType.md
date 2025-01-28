@@ -4,9 +4,9 @@ title: UsageType
 pagination_label: UsageType
 sidebar_label: UsageType
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'UsageType'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'UsageType', 'V2024UsageType'] 
 slug: /tools/sdk/powershell/v2024/models/usage-type
-tags: ['SDK', 'Software Development Kit', 'UsageType']
+tags: ['SDK', 'Software Development Kit', 'UsageType', 'V2024UsageType']
 ---
 
 

@@ -4,9 +4,9 @@ title: DateCompare
 pagination_label: DateCompare
 sidebar_label: DateCompare
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'DateCompare'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'DateCompare', 'BetaDateCompare'] 
 slug: /tools/sdk/powershell/beta/models/date-compare
-tags: ['SDK', 'Software Development Kit', 'DateCompare']
+tags: ['SDK', 'Software Development Kit', 'DateCompare', 'BetaDateCompare']
 ---
 
 

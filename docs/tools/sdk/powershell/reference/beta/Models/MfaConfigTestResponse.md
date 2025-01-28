@@ -4,9 +4,9 @@ title: MfaConfigTestResponse
 pagination_label: MfaConfigTestResponse
 sidebar_label: MfaConfigTestResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'MfaConfigTestResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'MfaConfigTestResponse', 'BetaMfaConfigTestResponse'] 
 slug: /tools/sdk/powershell/beta/models/mfa-config-test-response
-tags: ['SDK', 'Software Development Kit', 'MfaConfigTestResponse']
+tags: ['SDK', 'Software Development Kit', 'MfaConfigTestResponse', 'BetaMfaConfigTestResponse']
 ---
 
 

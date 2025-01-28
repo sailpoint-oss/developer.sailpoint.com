@@ -4,9 +4,9 @@ title: AccountSource
 pagination_label: AccountSource
 sidebar_label: AccountSource
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccountSource'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccountSource', 'AccountSource'] 
 slug: /tools/sdk/powershell/v3/models/account-source
-tags: ['SDK', 'Software Development Kit', 'AccountSource']
+tags: ['SDK', 'Software Development Kit', 'AccountSource', 'AccountSource']
 ---
 
 

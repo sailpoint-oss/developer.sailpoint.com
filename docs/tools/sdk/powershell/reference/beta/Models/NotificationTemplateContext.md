@@ -4,9 +4,9 @@ title: NotificationTemplateContext
 pagination_label: NotificationTemplateContext
 sidebar_label: NotificationTemplateContext
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'NotificationTemplateContext'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'NotificationTemplateContext', 'BetaNotificationTemplateContext'] 
 slug: /tools/sdk/powershell/beta/models/notification-template-context
-tags: ['SDK', 'Software Development Kit', 'NotificationTemplateContext']
+tags: ['SDK', 'Software Development Kit', 'NotificationTemplateContext', 'BetaNotificationTemplateContext']
 ---
 
 

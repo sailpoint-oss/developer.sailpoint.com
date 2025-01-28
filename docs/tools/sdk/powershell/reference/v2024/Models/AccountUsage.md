@@ -4,9 +4,9 @@ title: AccountUsage
 pagination_label: AccountUsage
 sidebar_label: AccountUsage
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccountUsage'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccountUsage', 'V2024AccountUsage'] 
 slug: /tools/sdk/powershell/v2024/models/account-usage
-tags: ['SDK', 'Software Development Kit', 'AccountUsage']
+tags: ['SDK', 'Software Development Kit', 'AccountUsage', 'V2024AccountUsage']
 ---
 
 

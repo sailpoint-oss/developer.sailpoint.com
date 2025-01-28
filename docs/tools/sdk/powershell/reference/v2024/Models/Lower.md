@@ -4,9 +4,9 @@ title: Lower
 pagination_label: Lower
 sidebar_label: Lower
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Lower'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Lower', 'V2024Lower'] 
 slug: /tools/sdk/powershell/v2024/models/lower
-tags: ['SDK', 'Software Development Kit', 'Lower']
+tags: ['SDK', 'Software Development Kit', 'Lower', 'V2024Lower']
 ---
 
 

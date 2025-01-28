@@ -4,9 +4,9 @@ title: OwnerDto
 pagination_label: OwnerDto
 sidebar_label: OwnerDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'OwnerDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'OwnerDto', 'V2024OwnerDto'] 
 slug: /tools/sdk/powershell/v2024/models/owner-dto
-tags: ['SDK', 'Software Development Kit', 'OwnerDto']
+tags: ['SDK', 'Software Development Kit', 'OwnerDto', 'V2024OwnerDto']
 ---
 
 

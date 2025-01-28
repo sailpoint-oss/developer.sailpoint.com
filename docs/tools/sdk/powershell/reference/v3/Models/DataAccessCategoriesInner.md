@@ -4,9 +4,9 @@ title: DataAccessCategoriesInner
 pagination_label: DataAccessCategoriesInner
 sidebar_label: DataAccessCategoriesInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'DataAccessCategoriesInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'DataAccessCategoriesInner', 'DataAccessCategoriesInner'] 
 slug: /tools/sdk/powershell/v3/models/data-access-categories-inner
-tags: ['SDK', 'Software Development Kit', 'DataAccessCategoriesInner']
+tags: ['SDK', 'Software Development Kit', 'DataAccessCategoriesInner', 'DataAccessCategoriesInner']
 ---
 
 

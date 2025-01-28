@@ -4,9 +4,9 @@ title: ProvisioningConfig1PlanInitializerScript
 pagination_label: ProvisioningConfig1PlanInitializerScript
 sidebar_label: ProvisioningConfig1PlanInitializerScript
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ProvisioningConfig1PlanInitializerScript'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ProvisioningConfig1PlanInitializerScript', 'V2024ProvisioningConfig1PlanInitializerScript'] 
 slug: /tools/sdk/powershell/v2024/models/provisioning-config1-plan-initializer-script
-tags: ['SDK', 'Software Development Kit', 'ProvisioningConfig1PlanInitializerScript']
+tags: ['SDK', 'Software Development Kit', 'ProvisioningConfig1PlanInitializerScript', 'V2024ProvisioningConfig1PlanInitializerScript']
 ---
 
 

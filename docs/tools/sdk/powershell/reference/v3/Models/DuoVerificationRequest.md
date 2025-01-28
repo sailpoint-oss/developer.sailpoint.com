@@ -4,9 +4,9 @@ title: DuoVerificationRequest
 pagination_label: DuoVerificationRequest
 sidebar_label: DuoVerificationRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'DuoVerificationRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'DuoVerificationRequest', 'DuoVerificationRequest'] 
 slug: /tools/sdk/powershell/v3/models/duo-verification-request
-tags: ['SDK', 'Software Development Kit', 'DuoVerificationRequest']
+tags: ['SDK', 'Software Development Kit', 'DuoVerificationRequest', 'DuoVerificationRequest']
 ---
 
 

@@ -4,9 +4,9 @@ title: ConnectedObject
 pagination_label: ConnectedObject
 sidebar_label: ConnectedObject
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ConnectedObject'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ConnectedObject', 'V2024ConnectedObject'] 
 slug: /tools/sdk/powershell/v2024/models/connected-object
-tags: ['SDK', 'Software Development Kit', 'ConnectedObject']
+tags: ['SDK', 'Software Development Kit', 'ConnectedObject', 'V2024ConnectedObject']
 ---
 
 

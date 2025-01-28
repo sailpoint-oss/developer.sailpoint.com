@@ -4,9 +4,9 @@ title: ReassignReference
 pagination_label: ReassignReference
 sidebar_label: ReassignReference
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ReassignReference'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ReassignReference', 'BetaReassignReference'] 
 slug: /tools/sdk/powershell/beta/models/reassign-reference
-tags: ['SDK', 'Software Development Kit', 'ReassignReference']
+tags: ['SDK', 'Software Development Kit', 'ReassignReference', 'BetaReassignReference']
 ---
 
 

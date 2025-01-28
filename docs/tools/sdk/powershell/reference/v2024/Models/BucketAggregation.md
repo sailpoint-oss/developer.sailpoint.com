@@ -4,9 +4,9 @@ title: BucketAggregation
 pagination_label: BucketAggregation
 sidebar_label: BucketAggregation
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'BucketAggregation'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'BucketAggregation', 'V2024BucketAggregation'] 
 slug: /tools/sdk/powershell/v2024/models/bucket-aggregation
-tags: ['SDK', 'Software Development Kit', 'BucketAggregation']
+tags: ['SDK', 'Software Development Kit', 'BucketAggregation', 'V2024BucketAggregation']
 ---
 
 

@@ -4,9 +4,9 @@ title: AccountInfoDto
 pagination_label: AccountInfoDto
 sidebar_label: AccountInfoDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccountInfoDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccountInfoDto', 'BetaAccountInfoDto'] 
 slug: /tools/sdk/powershell/beta/models/account-info-dto
-tags: ['SDK', 'Software Development Kit', 'AccountInfoDto']
+tags: ['SDK', 'Software Development Kit', 'AccountInfoDto', 'BetaAccountInfoDto']
 ---
 
 

@@ -4,9 +4,9 @@ title: RoleMatchDto
 pagination_label: RoleMatchDto
 sidebar_label: RoleMatchDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMatchDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMatchDto', 'BetaRoleMatchDto'] 
 slug: /tools/sdk/powershell/beta/models/role-match-dto
-tags: ['SDK', 'Software Development Kit', 'RoleMatchDto']
+tags: ['SDK', 'Software Development Kit', 'RoleMatchDto', 'BetaRoleMatchDto']
 ---
 
 

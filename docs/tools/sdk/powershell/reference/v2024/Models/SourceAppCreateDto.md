@@ -4,9 +4,9 @@ title: SourceAppCreateDto
 pagination_label: SourceAppCreateDto
 sidebar_label: SourceAppCreateDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SourceAppCreateDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SourceAppCreateDto', 'V2024SourceAppCreateDto'] 
 slug: /tools/sdk/powershell/v2024/models/source-app-create-dto
-tags: ['SDK', 'Software Development Kit', 'SourceAppCreateDto']
+tags: ['SDK', 'Software Development Kit', 'SourceAppCreateDto', 'V2024SourceAppCreateDto']
 ---
 
 

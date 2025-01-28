@@ -4,9 +4,9 @@ title: ApprovalStatusDtoCurrentOwner
 pagination_label: ApprovalStatusDtoCurrentOwner
 sidebar_label: ApprovalStatusDtoCurrentOwner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ApprovalStatusDtoCurrentOwner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ApprovalStatusDtoCurrentOwner', 'V2024ApprovalStatusDtoCurrentOwner'] 
 slug: /tools/sdk/powershell/v2024/models/approval-status-dto-current-owner
-tags: ['SDK', 'Software Development Kit', 'ApprovalStatusDtoCurrentOwner']
+tags: ['SDK', 'Software Development Kit', 'ApprovalStatusDtoCurrentOwner', 'V2024ApprovalStatusDtoCurrentOwner']
 ---
 
 

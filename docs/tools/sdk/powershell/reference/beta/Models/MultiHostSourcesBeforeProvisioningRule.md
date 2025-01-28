@@ -4,9 +4,9 @@ title: MultiHostSourcesBeforeProvisioningRule
 pagination_label: MultiHostSourcesBeforeProvisioningRule
 sidebar_label: MultiHostSourcesBeforeProvisioningRule
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'MultiHostSourcesBeforeProvisioningRule'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'MultiHostSourcesBeforeProvisioningRule', 'BetaMultiHostSourcesBeforeProvisioningRule'] 
 slug: /tools/sdk/powershell/beta/models/multi-host-sources-before-provisioning-rule
-tags: ['SDK', 'Software Development Kit', 'MultiHostSourcesBeforeProvisioningRule']
+tags: ['SDK', 'Software Development Kit', 'MultiHostSourcesBeforeProvisioningRule', 'BetaMultiHostSourcesBeforeProvisioningRule']
 ---
 
 

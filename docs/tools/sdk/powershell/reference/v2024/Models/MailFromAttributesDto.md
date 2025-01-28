@@ -4,9 +4,9 @@ title: MailFromAttributesDto
 pagination_label: MailFromAttributesDto
 sidebar_label: MailFromAttributesDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'MailFromAttributesDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'MailFromAttributesDto', 'V2024MailFromAttributesDto'] 
 slug: /tools/sdk/powershell/v2024/models/mail-from-attributes-dto
-tags: ['SDK', 'Software Development Kit', 'MailFromAttributesDto']
+tags: ['SDK', 'Software Development Kit', 'MailFromAttributesDto', 'V2024MailFromAttributesDto']
 ---
 
 

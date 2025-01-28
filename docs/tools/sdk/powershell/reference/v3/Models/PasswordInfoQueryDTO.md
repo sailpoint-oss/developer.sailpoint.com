@@ -4,9 +4,9 @@ title: PasswordInfoQueryDTO
 pagination_label: PasswordInfoQueryDTO
 sidebar_label: PasswordInfoQueryDTO
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'PasswordInfoQueryDTO'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'PasswordInfoQueryDTO', 'PasswordInfoQueryDTO'] 
 slug: /tools/sdk/powershell/v3/models/password-info-query-dto
-tags: ['SDK', 'Software Development Kit', 'PasswordInfoQueryDTO']
+tags: ['SDK', 'Software Development Kit', 'PasswordInfoQueryDTO', 'PasswordInfoQueryDTO']
 ---
 
 

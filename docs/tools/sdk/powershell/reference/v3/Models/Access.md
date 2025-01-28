@@ -4,9 +4,9 @@ title: Access
 pagination_label: Access
 sidebar_label: Access
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Access'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Access', 'Access'] 
 slug: /tools/sdk/powershell/v3/models/access
-tags: ['SDK', 'Software Development Kit', 'Access']
+tags: ['SDK', 'Software Development Kit', 'Access', 'Access']
 ---
 
 

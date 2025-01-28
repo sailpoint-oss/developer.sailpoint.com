@@ -4,9 +4,9 @@ title: RecommendationResponse
 pagination_label: RecommendationResponse
 sidebar_label: RecommendationResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RecommendationResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RecommendationResponse', 'V2024RecommendationResponse'] 
 slug: /tools/sdk/powershell/v2024/models/recommendation-response
-tags: ['SDK', 'Software Development Kit', 'RecommendationResponse']
+tags: ['SDK', 'Software Development Kit', 'RecommendationResponse', 'V2024RecommendationResponse']
 ---
 
 

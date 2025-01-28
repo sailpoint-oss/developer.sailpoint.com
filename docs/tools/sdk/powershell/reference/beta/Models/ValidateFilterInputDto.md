@@ -4,9 +4,9 @@ title: ValidateFilterInputDto
 pagination_label: ValidateFilterInputDto
 sidebar_label: ValidateFilterInputDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ValidateFilterInputDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ValidateFilterInputDto', 'BetaValidateFilterInputDto'] 
 slug: /tools/sdk/powershell/beta/models/validate-filter-input-dto
-tags: ['SDK', 'Software Development Kit', 'ValidateFilterInputDto']
+tags: ['SDK', 'Software Development Kit', 'ValidateFilterInputDto', 'BetaValidateFilterInputDto']
 ---
 
 

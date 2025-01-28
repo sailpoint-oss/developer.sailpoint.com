@@ -4,9 +4,9 @@ title: BasicAuthConfig
 pagination_label: BasicAuthConfig
 sidebar_label: BasicAuthConfig
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'BasicAuthConfig'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'BasicAuthConfig', 'V2024BasicAuthConfig'] 
 slug: /tools/sdk/powershell/v2024/models/basic-auth-config
-tags: ['SDK', 'Software Development Kit', 'BasicAuthConfig']
+tags: ['SDK', 'Software Development Kit', 'BasicAuthConfig', 'V2024BasicAuthConfig']
 ---
 
 

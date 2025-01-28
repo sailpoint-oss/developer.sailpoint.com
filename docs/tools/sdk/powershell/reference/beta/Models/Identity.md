@@ -4,9 +4,9 @@ title: Identity
 pagination_label: Identity
 sidebar_label: Identity
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Identity'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Identity', 'BetaIdentity'] 
 slug: /tools/sdk/powershell/beta/models/identity
-tags: ['SDK', 'Software Development Kit', 'Identity']
+tags: ['SDK', 'Software Development Kit', 'Identity', 'BetaIdentity']
 ---
 
 

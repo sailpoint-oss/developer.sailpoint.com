@@ -4,9 +4,9 @@ title: FormCondition
 pagination_label: FormCondition
 sidebar_label: FormCondition
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'FormCondition'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'FormCondition', 'BetaFormCondition'] 
 slug: /tools/sdk/powershell/beta/models/form-condition
-tags: ['SDK', 'Software Development Kit', 'FormCondition']
+tags: ['SDK', 'Software Development Kit', 'FormCondition', 'BetaFormCondition']
 ---
 
 

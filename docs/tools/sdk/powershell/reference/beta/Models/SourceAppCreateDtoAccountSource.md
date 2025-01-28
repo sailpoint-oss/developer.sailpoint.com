@@ -4,9 +4,9 @@ title: SourceAppCreateDtoAccountSource
 pagination_label: SourceAppCreateDtoAccountSource
 sidebar_label: SourceAppCreateDtoAccountSource
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SourceAppCreateDtoAccountSource'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SourceAppCreateDtoAccountSource', 'BetaSourceAppCreateDtoAccountSource'] 
 slug: /tools/sdk/powershell/beta/models/source-app-create-dto-account-source
-tags: ['SDK', 'Software Development Kit', 'SourceAppCreateDtoAccountSource']
+tags: ['SDK', 'Software Development Kit', 'SourceAppCreateDtoAccountSource', 'BetaSourceAppCreateDtoAccountSource']
 ---
 
 

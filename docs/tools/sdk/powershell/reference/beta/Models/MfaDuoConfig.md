@@ -4,9 +4,9 @@ title: MfaDuoConfig
 pagination_label: MfaDuoConfig
 sidebar_label: MfaDuoConfig
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'MfaDuoConfig'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'MfaDuoConfig', 'BetaMfaDuoConfig'] 
 slug: /tools/sdk/powershell/beta/models/mfa-duo-config
-tags: ['SDK', 'Software Development Kit', 'MfaDuoConfig']
+tags: ['SDK', 'Software Development Kit', 'MfaDuoConfig', 'BetaMfaDuoConfig']
 ---
 
 

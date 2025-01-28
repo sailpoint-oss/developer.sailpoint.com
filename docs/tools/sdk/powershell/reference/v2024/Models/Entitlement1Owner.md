@@ -4,9 +4,9 @@ title: Entitlement1Owner
 pagination_label: Entitlement1Owner
 sidebar_label: Entitlement1Owner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Entitlement1Owner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Entitlement1Owner', 'V2024Entitlement1Owner'] 
 slug: /tools/sdk/powershell/v2024/models/entitlement1-owner
-tags: ['SDK', 'Software Development Kit', 'Entitlement1Owner']
+tags: ['SDK', 'Software Development Kit', 'Entitlement1Owner', 'V2024Entitlement1Owner']
 ---
 
 

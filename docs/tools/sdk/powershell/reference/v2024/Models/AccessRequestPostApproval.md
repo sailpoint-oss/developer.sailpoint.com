@@ -4,9 +4,9 @@ title: AccessRequestPostApproval
 pagination_label: AccessRequestPostApproval
 sidebar_label: AccessRequestPostApproval
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestPostApproval'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestPostApproval', 'V2024AccessRequestPostApproval'] 
 slug: /tools/sdk/powershell/v2024/models/access-request-post-approval
-tags: ['SDK', 'Software Development Kit', 'AccessRequestPostApproval']
+tags: ['SDK', 'Software Development Kit', 'AccessRequestPostApproval', 'V2024AccessRequestPostApproval']
 ---
 
 

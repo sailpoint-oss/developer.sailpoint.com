@@ -4,9 +4,9 @@ title: IdentityDocumentAllOfIdentityProfile
 pagination_label: IdentityDocumentAllOfIdentityProfile
 sidebar_label: IdentityDocumentAllOfIdentityProfile
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityDocumentAllOfIdentityProfile'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityDocumentAllOfIdentityProfile', 'V2024IdentityDocumentAllOfIdentityProfile'] 
 slug: /tools/sdk/powershell/v2024/models/identity-document-all-of-identity-profile
-tags: ['SDK', 'Software Development Kit', 'IdentityDocumentAllOfIdentityProfile']
+tags: ['SDK', 'Software Development Kit', 'IdentityDocumentAllOfIdentityProfile', 'V2024IdentityDocumentAllOfIdentityProfile']
 ---
 
 

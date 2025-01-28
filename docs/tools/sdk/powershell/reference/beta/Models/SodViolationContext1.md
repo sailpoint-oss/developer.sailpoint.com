@@ -4,9 +4,9 @@ title: SodViolationContext1
 pagination_label: SodViolationContext1
 sidebar_label: SodViolationContext1
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SodViolationContext1'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SodViolationContext1', 'BetaSodViolationContext1'] 
 slug: /tools/sdk/powershell/beta/models/sod-violation-context1
-tags: ['SDK', 'Software Development Kit', 'SodViolationContext1']
+tags: ['SDK', 'Software Development Kit', 'SodViolationContext1', 'BetaSodViolationContext1']
 ---
 
 

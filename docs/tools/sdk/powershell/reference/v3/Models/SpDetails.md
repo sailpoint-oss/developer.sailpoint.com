@@ -4,9 +4,9 @@ title: SpDetails
 pagination_label: SpDetails
 sidebar_label: SpDetails
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SpDetails'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SpDetails', 'SpDetails'] 
 slug: /tools/sdk/powershell/v3/models/sp-details
-tags: ['SDK', 'Software Development Kit', 'SpDetails']
+tags: ['SDK', 'Software Development Kit', 'SpDetails', 'SpDetails']
 ---
 
 

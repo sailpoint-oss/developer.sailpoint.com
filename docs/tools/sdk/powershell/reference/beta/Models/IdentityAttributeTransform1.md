@@ -4,9 +4,9 @@ title: IdentityAttributeTransform1
 pagination_label: IdentityAttributeTransform1
 sidebar_label: IdentityAttributeTransform1
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityAttributeTransform1'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityAttributeTransform1', 'BetaIdentityAttributeTransform1'] 
 slug: /tools/sdk/powershell/beta/models/identity-attribute-transform1
-tags: ['SDK', 'Software Development Kit', 'IdentityAttributeTransform1']
+tags: ['SDK', 'Software Development Kit', 'IdentityAttributeTransform1', 'BetaIdentityAttributeTransform1']
 ---
 
 

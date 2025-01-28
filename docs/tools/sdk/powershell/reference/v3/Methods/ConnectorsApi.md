@@ -4,9 +4,9 @@ title: Connectors
 pagination_label: Connectors
 sidebar_label: Connectors
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Connectors'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Connectors', 'Connectors'] 
 slug: /tools/sdk/powershell/v3/methods/connectors
-tags: ['SDK', 'Software Development Kit', 'Connectors']
+tags: ['SDK', 'Software Development Kit', 'Connectors', 'Connectors']
 ---
 
 

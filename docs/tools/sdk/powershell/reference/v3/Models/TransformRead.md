@@ -4,9 +4,9 @@ title: TransformRead
 pagination_label: TransformRead
 sidebar_label: TransformRead
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TransformRead'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TransformRead', 'TransformRead'] 
 slug: /tools/sdk/powershell/v3/models/transform-read
-tags: ['SDK', 'Software Development Kit', 'TransformRead']
+tags: ['SDK', 'Software Development Kit', 'TransformRead', 'TransformRead']
 ---
 
 

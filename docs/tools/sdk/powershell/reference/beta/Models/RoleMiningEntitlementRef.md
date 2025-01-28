@@ -4,9 +4,9 @@ title: RoleMiningEntitlementRef
 pagination_label: RoleMiningEntitlementRef
 sidebar_label: RoleMiningEntitlementRef
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMiningEntitlementRef'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMiningEntitlementRef', 'BetaRoleMiningEntitlementRef'] 
 slug: /tools/sdk/powershell/beta/models/role-mining-entitlement-ref
-tags: ['SDK', 'Software Development Kit', 'RoleMiningEntitlementRef']
+tags: ['SDK', 'Software Development Kit', 'RoleMiningEntitlementRef', 'BetaRoleMiningEntitlementRef']
 ---
 
 

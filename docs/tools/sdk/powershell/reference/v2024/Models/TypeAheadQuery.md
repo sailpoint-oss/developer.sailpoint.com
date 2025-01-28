@@ -4,9 +4,9 @@ title: TypeAheadQuery
 pagination_label: TypeAheadQuery
 sidebar_label: TypeAheadQuery
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TypeAheadQuery'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TypeAheadQuery', 'V2024TypeAheadQuery'] 
 slug: /tools/sdk/powershell/v2024/models/type-ahead-query
-tags: ['SDK', 'Software Development Kit', 'TypeAheadQuery']
+tags: ['SDK', 'Software Development Kit', 'TypeAheadQuery', 'V2024TypeAheadQuery']
 ---
 
 

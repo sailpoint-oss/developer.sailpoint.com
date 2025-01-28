@@ -4,9 +4,9 @@ title: WorkflowLibraryAction
 pagination_label: WorkflowLibraryAction
 sidebar_label: WorkflowLibraryAction
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'WorkflowLibraryAction'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'WorkflowLibraryAction', 'V2024WorkflowLibraryAction'] 
 slug: /tools/sdk/powershell/v2024/models/workflow-library-action
-tags: ['SDK', 'Software Development Kit', 'WorkflowLibraryAction']
+tags: ['SDK', 'Software Development Kit', 'WorkflowLibraryAction', 'V2024WorkflowLibraryAction']
 ---
 
 

@@ -4,9 +4,9 @@ title: QueuedCheckConfigDetails
 pagination_label: QueuedCheckConfigDetails
 sidebar_label: QueuedCheckConfigDetails
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'QueuedCheckConfigDetails'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'QueuedCheckConfigDetails', 'V2024QueuedCheckConfigDetails'] 
 slug: /tools/sdk/powershell/v2024/models/queued-check-config-details
-tags: ['SDK', 'Software Development Kit', 'QueuedCheckConfigDetails']
+tags: ['SDK', 'Software Development Kit', 'QueuedCheckConfigDetails', 'V2024QueuedCheckConfigDetails']
 ---
 
 

@@ -4,9 +4,9 @@ title: IAICommonAccess
 pagination_label: IAICommonAccess
 sidebar_label: IAICommonAccess
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IAICommonAccess'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IAICommonAccess', 'BetaIAICommonAccess'] 
 slug: /tools/sdk/powershell/beta/methods/iai-common-access
-tags: ['SDK', 'Software Development Kit', 'IAICommonAccess']
+tags: ['SDK', 'Software Development Kit', 'IAICommonAccess', 'BetaIAICommonAccess']
 ---
 
 

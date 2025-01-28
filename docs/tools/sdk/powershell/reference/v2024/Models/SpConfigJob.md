@@ -4,9 +4,9 @@ title: SpConfigJob
 pagination_label: SpConfigJob
 sidebar_label: SpConfigJob
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SpConfigJob'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SpConfigJob', 'V2024SpConfigJob'] 
 slug: /tools/sdk/powershell/v2024/models/sp-config-job
-tags: ['SDK', 'Software Development Kit', 'SpConfigJob']
+tags: ['SDK', 'Software Development Kit', 'SpConfigJob', 'V2024SpConfigJob']
 ---
 
 

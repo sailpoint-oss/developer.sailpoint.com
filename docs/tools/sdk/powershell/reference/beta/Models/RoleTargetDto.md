@@ -4,9 +4,9 @@ title: RoleTargetDto
 pagination_label: RoleTargetDto
 sidebar_label: RoleTargetDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleTargetDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleTargetDto', 'BetaRoleTargetDto'] 
 slug: /tools/sdk/powershell/beta/models/role-target-dto
-tags: ['SDK', 'Software Development Kit', 'RoleTargetDto']
+tags: ['SDK', 'Software Development Kit', 'RoleTargetDto', 'BetaRoleTargetDto']
 ---
 
 

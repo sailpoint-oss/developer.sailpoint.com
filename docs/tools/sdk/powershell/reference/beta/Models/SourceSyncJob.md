@@ -4,9 +4,9 @@ title: SourceSyncJob
 pagination_label: SourceSyncJob
 sidebar_label: SourceSyncJob
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SourceSyncJob'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SourceSyncJob', 'BetaSourceSyncJob'] 
 slug: /tools/sdk/powershell/beta/models/source-sync-job
-tags: ['SDK', 'Software Development Kit', 'SourceSyncJob']
+tags: ['SDK', 'Software Development Kit', 'SourceSyncJob', 'BetaSourceSyncJob']
 ---
 
 

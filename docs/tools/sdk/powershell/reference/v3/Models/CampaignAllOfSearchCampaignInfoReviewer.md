@@ -4,9 +4,9 @@ title: CampaignAllOfSearchCampaignInfoReviewer
 pagination_label: CampaignAllOfSearchCampaignInfoReviewer
 sidebar_label: CampaignAllOfSearchCampaignInfoReviewer
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignAllOfSearchCampaignInfoReviewer'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignAllOfSearchCampaignInfoReviewer', 'CampaignAllOfSearchCampaignInfoReviewer'] 
 slug: /tools/sdk/powershell/v3/models/campaign-all-of-search-campaign-info-reviewer
-tags: ['SDK', 'Software Development Kit', 'CampaignAllOfSearchCampaignInfoReviewer']
+tags: ['SDK', 'Software Development Kit', 'CampaignAllOfSearchCampaignInfoReviewer', 'CampaignAllOfSearchCampaignInfoReviewer']
 ---
 
 

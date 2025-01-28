@@ -4,9 +4,9 @@ title: SelectorAccountMatchConfigMatchExpression
 pagination_label: SelectorAccountMatchConfigMatchExpression
 sidebar_label: SelectorAccountMatchConfigMatchExpression
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SelectorAccountMatchConfigMatchExpression'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SelectorAccountMatchConfigMatchExpression', 'BetaSelectorAccountMatchConfigMatchExpression'] 
 slug: /tools/sdk/powershell/beta/models/selector-account-match-config-match-expression
-tags: ['SDK', 'Software Development Kit', 'SelectorAccountMatchConfigMatchExpression']
+tags: ['SDK', 'Software Development Kit', 'SelectorAccountMatchConfigMatchExpression', 'BetaSelectorAccountMatchConfigMatchExpression']
 ---
 
 

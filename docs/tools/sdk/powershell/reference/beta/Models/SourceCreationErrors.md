@@ -4,9 +4,9 @@ title: SourceCreationErrors
 pagination_label: SourceCreationErrors
 sidebar_label: SourceCreationErrors
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SourceCreationErrors'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SourceCreationErrors', 'BetaSourceCreationErrors'] 
 slug: /tools/sdk/powershell/beta/models/source-creation-errors
-tags: ['SDK', 'Software Development Kit', 'SourceCreationErrors']
+tags: ['SDK', 'Software Development Kit', 'SourceCreationErrors', 'BetaSourceCreationErrors']
 ---
 
 

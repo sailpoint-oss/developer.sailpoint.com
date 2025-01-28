@@ -4,9 +4,9 @@ title: ApprovalStatus
 pagination_label: ApprovalStatus
 sidebar_label: ApprovalStatus
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ApprovalStatus'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ApprovalStatus', 'BetaApprovalStatus'] 
 slug: /tools/sdk/powershell/beta/models/approval-status
-tags: ['SDK', 'Software Development Kit', 'ApprovalStatus']
+tags: ['SDK', 'Software Development Kit', 'ApprovalStatus', 'BetaApprovalStatus']
 ---
 
 

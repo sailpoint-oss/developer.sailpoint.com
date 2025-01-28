@@ -4,9 +4,9 @@ title: GetRoleAssignments200ResponseInner
 pagination_label: GetRoleAssignments200ResponseInner
 sidebar_label: GetRoleAssignments200ResponseInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'GetRoleAssignments200ResponseInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'GetRoleAssignments200ResponseInner', 'V2024GetRoleAssignments200ResponseInner'] 
 slug: /tools/sdk/powershell/v2024/models/get-role-assignments200-response-inner
-tags: ['SDK', 'Software Development Kit', 'GetRoleAssignments200ResponseInner']
+tags: ['SDK', 'Software Development Kit', 'GetRoleAssignments200ResponseInner', 'V2024GetRoleAssignments200ResponseInner']
 ---
 
 

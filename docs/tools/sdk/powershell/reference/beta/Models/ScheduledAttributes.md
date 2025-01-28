@@ -4,9 +4,9 @@ title: ScheduledAttributes
 pagination_label: ScheduledAttributes
 sidebar_label: ScheduledAttributes
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ScheduledAttributes'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ScheduledAttributes', 'BetaScheduledAttributes'] 
 slug: /tools/sdk/powershell/beta/models/scheduled-attributes
-tags: ['SDK', 'Software Development Kit', 'ScheduledAttributes']
+tags: ['SDK', 'Software Development Kit', 'ScheduledAttributes', 'BetaScheduledAttributes']
 ---
 
 

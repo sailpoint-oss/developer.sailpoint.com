@@ -4,9 +4,9 @@ title: AccountAggregationCompleted
 pagination_label: AccountAggregationCompleted
 sidebar_label: AccountAggregationCompleted
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccountAggregationCompleted'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccountAggregationCompleted', 'BetaAccountAggregationCompleted'] 
 slug: /tools/sdk/powershell/beta/models/account-aggregation-completed
-tags: ['SDK', 'Software Development Kit', 'AccountAggregationCompleted']
+tags: ['SDK', 'Software Development Kit', 'AccountAggregationCompleted', 'BetaAccountAggregationCompleted']
 ---
 
 

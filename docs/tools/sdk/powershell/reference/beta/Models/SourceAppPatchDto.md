@@ -4,9 +4,9 @@ title: SourceAppPatchDto
 pagination_label: SourceAppPatchDto
 sidebar_label: SourceAppPatchDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SourceAppPatchDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SourceAppPatchDto', 'BetaSourceAppPatchDto'] 
 slug: /tools/sdk/powershell/beta/models/source-app-patch-dto
-tags: ['SDK', 'Software Development Kit', 'SourceAppPatchDto']
+tags: ['SDK', 'Software Development Kit', 'SourceAppPatchDto', 'BetaSourceAppPatchDto']
 ---
 
 

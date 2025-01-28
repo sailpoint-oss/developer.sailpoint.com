@@ -4,9 +4,9 @@ title: SodViolationContext
 pagination_label: SodViolationContext
 sidebar_label: SodViolationContext
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SodViolationContext'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SodViolationContext', 'V2024SodViolationContext'] 
 slug: /tools/sdk/powershell/v2024/models/sod-violation-context
-tags: ['SDK', 'Software Development Kit', 'SodViolationContext']
+tags: ['SDK', 'Software Development Kit', 'SodViolationContext', 'V2024SodViolationContext']
 ---
 
 

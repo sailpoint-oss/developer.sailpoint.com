@@ -4,9 +4,9 @@ title: SetLifecycleStateRequest
 pagination_label: SetLifecycleStateRequest
 sidebar_label: SetLifecycleStateRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SetLifecycleStateRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SetLifecycleStateRequest', 'V2024SetLifecycleStateRequest'] 
 slug: /tools/sdk/powershell/v2024/models/set-lifecycle-state-request
-tags: ['SDK', 'Software Development Kit', 'SetLifecycleStateRequest']
+tags: ['SDK', 'Software Development Kit', 'SetLifecycleStateRequest', 'V2024SetLifecycleStateRequest']
 ---
 
 

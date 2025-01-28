@@ -4,9 +4,9 @@ title: EntitlementDto
 pagination_label: EntitlementDto
 sidebar_label: EntitlementDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'EntitlementDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'EntitlementDto', 'V2024EntitlementDto'] 
 slug: /tools/sdk/powershell/v2024/models/entitlement-dto
-tags: ['SDK', 'Software Development Kit', 'EntitlementDto']
+tags: ['SDK', 'Software Development Kit', 'EntitlementDto', 'V2024EntitlementDto']
 ---
 
 

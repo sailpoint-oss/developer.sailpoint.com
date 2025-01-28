@@ -4,9 +4,9 @@ title: AttributeValueDTO
 pagination_label: AttributeValueDTO
 sidebar_label: AttributeValueDTO
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AttributeValueDTO'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AttributeValueDTO', 'AttributeValueDTO'] 
 slug: /tools/sdk/powershell/v3/models/attribute-value-dto
-tags: ['SDK', 'Software Development Kit', 'AttributeValueDTO']
+tags: ['SDK', 'Software Development Kit', 'AttributeValueDTO', 'AttributeValueDTO']
 ---
 
 

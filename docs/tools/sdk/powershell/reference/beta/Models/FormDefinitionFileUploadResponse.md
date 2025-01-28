@@ -4,9 +4,9 @@ title: FormDefinitionFileUploadResponse
 pagination_label: FormDefinitionFileUploadResponse
 sidebar_label: FormDefinitionFileUploadResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'FormDefinitionFileUploadResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'FormDefinitionFileUploadResponse', 'BetaFormDefinitionFileUploadResponse'] 
 slug: /tools/sdk/powershell/beta/models/form-definition-file-upload-response
-tags: ['SDK', 'Software Development Kit', 'FormDefinitionFileUploadResponse']
+tags: ['SDK', 'Software Development Kit', 'FormDefinitionFileUploadResponse', 'BetaFormDefinitionFileUploadResponse']
 ---
 
 

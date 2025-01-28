@@ -4,9 +4,9 @@ title: IdentitySyncPayload
 pagination_label: IdentitySyncPayload
 sidebar_label: IdentitySyncPayload
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentitySyncPayload'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentitySyncPayload', 'BetaIdentitySyncPayload'] 
 slug: /tools/sdk/powershell/beta/models/identity-sync-payload
-tags: ['SDK', 'Software Development Kit', 'IdentitySyncPayload']
+tags: ['SDK', 'Software Development Kit', 'IdentitySyncPayload', 'BetaIdentitySyncPayload']
 ---
 
 

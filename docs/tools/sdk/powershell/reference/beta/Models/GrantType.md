@@ -4,9 +4,9 @@ title: GrantType
 pagination_label: GrantType
 sidebar_label: GrantType
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'GrantType'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'GrantType', 'BetaGrantType'] 
 slug: /tools/sdk/powershell/beta/models/grant-type
-tags: ['SDK', 'Software Development Kit', 'GrantType']
+tags: ['SDK', 'Software Development Kit', 'GrantType', 'BetaGrantType']
 ---
 
 

@@ -4,9 +4,9 @@ title: ProcessIdentitiesRequest
 pagination_label: ProcessIdentitiesRequest
 sidebar_label: ProcessIdentitiesRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ProcessIdentitiesRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ProcessIdentitiesRequest', 'V2024ProcessIdentitiesRequest'] 
 slug: /tools/sdk/powershell/v2024/models/process-identities-request
-tags: ['SDK', 'Software Development Kit', 'ProcessIdentitiesRequest']
+tags: ['SDK', 'Software Development Kit', 'ProcessIdentitiesRequest', 'V2024ProcessIdentitiesRequest']
 ---
 
 

@@ -4,9 +4,9 @@ title: PasswordDigitTokenReset
 pagination_label: PasswordDigitTokenReset
 sidebar_label: PasswordDigitTokenReset
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'PasswordDigitTokenReset'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'PasswordDigitTokenReset', 'BetaPasswordDigitTokenReset'] 
 slug: /tools/sdk/powershell/beta/models/password-digit-token-reset
-tags: ['SDK', 'Software Development Kit', 'PasswordDigitTokenReset']
+tags: ['SDK', 'Software Development Kit', 'PasswordDigitTokenReset', 'BetaPasswordDigitTokenReset']
 ---
 
 

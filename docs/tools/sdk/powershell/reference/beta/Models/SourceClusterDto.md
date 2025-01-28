@@ -4,9 +4,9 @@ title: SourceClusterDto
 pagination_label: SourceClusterDto
 sidebar_label: SourceClusterDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SourceClusterDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SourceClusterDto', 'BetaSourceClusterDto'] 
 slug: /tools/sdk/powershell/beta/models/source-cluster-dto
-tags: ['SDK', 'Software Development Kit', 'SourceClusterDto']
+tags: ['SDK', 'Software Development Kit', 'SourceClusterDto', 'BetaSourceClusterDto']
 ---
 
 

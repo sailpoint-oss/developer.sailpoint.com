@@ -4,9 +4,9 @@ title: AccessRequestRecommendationItemDetail
 pagination_label: AccessRequestRecommendationItemDetail
 sidebar_label: AccessRequestRecommendationItemDetail
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestRecommendationItemDetail'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestRecommendationItemDetail', 'BetaAccessRequestRecommendationItemDetail'] 
 slug: /tools/sdk/powershell/beta/models/access-request-recommendation-item-detail
-tags: ['SDK', 'Software Development Kit', 'AccessRequestRecommendationItemDetail']
+tags: ['SDK', 'Software Development Kit', 'AccessRequestRecommendationItemDetail', 'BetaAccessRequestRecommendationItemDetail']
 ---
 
 

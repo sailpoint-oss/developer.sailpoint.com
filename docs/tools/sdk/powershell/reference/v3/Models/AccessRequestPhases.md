@@ -4,9 +4,9 @@ title: AccessRequestPhases
 pagination_label: AccessRequestPhases
 sidebar_label: AccessRequestPhases
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestPhases'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestPhases', 'AccessRequestPhases'] 
 slug: /tools/sdk/powershell/v3/models/access-request-phases
-tags: ['SDK', 'Software Development Kit', 'AccessRequestPhases']
+tags: ['SDK', 'Software Development Kit', 'AccessRequestPhases', 'AccessRequestPhases']
 ---
 
 

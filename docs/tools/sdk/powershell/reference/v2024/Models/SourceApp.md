@@ -4,9 +4,9 @@ title: SourceApp
 pagination_label: SourceApp
 sidebar_label: SourceApp
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SourceApp'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SourceApp', 'V2024SourceApp'] 
 slug: /tools/sdk/powershell/v2024/models/source-app
-tags: ['SDK', 'Software Development Kit', 'SourceApp']
+tags: ['SDK', 'Software Development Kit', 'SourceApp', 'V2024SourceApp']
 ---
 
 

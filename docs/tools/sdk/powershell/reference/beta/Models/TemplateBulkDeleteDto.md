@@ -4,9 +4,9 @@ title: TemplateBulkDeleteDto
 pagination_label: TemplateBulkDeleteDto
 sidebar_label: TemplateBulkDeleteDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TemplateBulkDeleteDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TemplateBulkDeleteDto', 'BetaTemplateBulkDeleteDto'] 
 slug: /tools/sdk/powershell/beta/models/template-bulk-delete-dto
-tags: ['SDK', 'Software Development Kit', 'TemplateBulkDeleteDto']
+tags: ['SDK', 'Software Development Kit', 'TemplateBulkDeleteDto', 'BetaTemplateBulkDeleteDto']
 ---
 
 

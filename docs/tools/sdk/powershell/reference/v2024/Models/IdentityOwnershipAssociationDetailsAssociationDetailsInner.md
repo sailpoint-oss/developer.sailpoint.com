@@ -4,9 +4,9 @@ title: IdentityOwnershipAssociationDetailsAssociationDetailsInner
 pagination_label: IdentityOwnershipAssociationDetailsAssociationDetailsInner
 sidebar_label: IdentityOwnershipAssociationDetailsAssociationDetailsInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityOwnershipAssociationDetailsAssociationDetailsInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityOwnershipAssociationDetailsAssociationDetailsInner', 'V2024IdentityOwnershipAssociationDetailsAssociationDetailsInner'] 
 slug: /tools/sdk/powershell/v2024/models/identity-ownership-association-details-association-details-inner
-tags: ['SDK', 'Software Development Kit', 'IdentityOwnershipAssociationDetailsAssociationDetailsInner']
+tags: ['SDK', 'Software Development Kit', 'IdentityOwnershipAssociationDetailsAssociationDetailsInner', 'V2024IdentityOwnershipAssociationDetailsAssociationDetailsInner']
 ---
 
 

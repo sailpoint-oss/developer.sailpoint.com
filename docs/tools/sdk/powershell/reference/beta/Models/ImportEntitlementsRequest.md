@@ -4,9 +4,9 @@ title: ImportEntitlementsRequest
 pagination_label: ImportEntitlementsRequest
 sidebar_label: ImportEntitlementsRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ImportEntitlementsRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ImportEntitlementsRequest', 'BetaImportEntitlementsRequest'] 
 slug: /tools/sdk/powershell/beta/models/import-entitlements-request
-tags: ['SDK', 'Software Development Kit', 'ImportEntitlementsRequest']
+tags: ['SDK', 'Software Development Kit', 'ImportEntitlementsRequest', 'BetaImportEntitlementsRequest']
 ---
 
 

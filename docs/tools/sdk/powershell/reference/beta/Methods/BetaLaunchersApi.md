@@ -4,9 +4,9 @@ title: Launchers
 pagination_label: Launchers
 sidebar_label: Launchers
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Launchers'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Launchers', 'BetaLaunchers'] 
 slug: /tools/sdk/powershell/beta/methods/launchers
-tags: ['SDK', 'Software Development Kit', 'Launchers']
+tags: ['SDK', 'Software Development Kit', 'Launchers', 'BetaLaunchers']
 ---
 
 

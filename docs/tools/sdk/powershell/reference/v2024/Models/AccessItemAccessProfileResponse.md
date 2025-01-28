@@ -4,9 +4,9 @@ title: AccessItemAccessProfileResponse
 pagination_label: AccessItemAccessProfileResponse
 sidebar_label: AccessItemAccessProfileResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessItemAccessProfileResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessItemAccessProfileResponse', 'V2024AccessItemAccessProfileResponse'] 
 slug: /tools/sdk/powershell/v2024/models/access-item-access-profile-response
-tags: ['SDK', 'Software Development Kit', 'AccessItemAccessProfileResponse']
+tags: ['SDK', 'Software Development Kit', 'AccessItemAccessProfileResponse', 'V2024AccessItemAccessProfileResponse']
 ---
 
 

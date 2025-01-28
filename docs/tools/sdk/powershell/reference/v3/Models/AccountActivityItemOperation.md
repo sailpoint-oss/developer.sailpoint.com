@@ -4,9 +4,9 @@ title: AccountActivityItemOperation
 pagination_label: AccountActivityItemOperation
 sidebar_label: AccountActivityItemOperation
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccountActivityItemOperation'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccountActivityItemOperation', 'AccountActivityItemOperation'] 
 slug: /tools/sdk/powershell/v3/models/account-activity-item-operation
-tags: ['SDK', 'Software Development Kit', 'AccountActivityItemOperation']
+tags: ['SDK', 'Software Development Kit', 'AccountActivityItemOperation', 'AccountActivityItemOperation']
 ---
 
 

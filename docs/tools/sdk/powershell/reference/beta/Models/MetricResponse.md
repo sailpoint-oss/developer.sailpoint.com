@@ -4,9 +4,9 @@ title: MetricResponse
 pagination_label: MetricResponse
 sidebar_label: MetricResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'MetricResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'MetricResponse', 'BetaMetricResponse'] 
 slug: /tools/sdk/powershell/beta/models/metric-response
-tags: ['SDK', 'Software Development Kit', 'MetricResponse']
+tags: ['SDK', 'Software Development Kit', 'MetricResponse', 'BetaMetricResponse']
 ---
 
 

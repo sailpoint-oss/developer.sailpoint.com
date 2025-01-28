@@ -4,9 +4,9 @@ title: AuthProfileSummary
 pagination_label: AuthProfileSummary
 sidebar_label: AuthProfileSummary
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AuthProfileSummary'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AuthProfileSummary', 'V2024AuthProfileSummary'] 
 slug: /tools/sdk/powershell/v2024/models/auth-profile-summary
-tags: ['SDK', 'Software Development Kit', 'AuthProfileSummary']
+tags: ['SDK', 'Software Development Kit', 'AuthProfileSummary', 'V2024AuthProfileSummary']
 ---
 
 

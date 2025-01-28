@@ -4,9 +4,9 @@ title: IAIRoleMining
 pagination_label: IAIRoleMining
 sidebar_label: IAIRoleMining
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IAIRoleMining'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IAIRoleMining', 'V2024IAIRoleMining'] 
 slug: /tools/sdk/powershell/v2024/methods/iai-role-mining
-tags: ['SDK', 'Software Development Kit', 'IAIRoleMining']
+tags: ['SDK', 'Software Development Kit', 'IAIRoleMining', 'V2024IAIRoleMining']
 ---
 
 

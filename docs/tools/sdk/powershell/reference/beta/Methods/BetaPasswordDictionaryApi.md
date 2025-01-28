@@ -4,9 +4,9 @@ title: PasswordDictionary
 pagination_label: PasswordDictionary
 sidebar_label: PasswordDictionary
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'PasswordDictionary'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'PasswordDictionary', 'BetaPasswordDictionary'] 
 slug: /tools/sdk/powershell/beta/methods/password-dictionary
-tags: ['SDK', 'Software Development Kit', 'PasswordDictionary']
+tags: ['SDK', 'Software Development Kit', 'PasswordDictionary', 'BetaPasswordDictionary']
 ---
 
 

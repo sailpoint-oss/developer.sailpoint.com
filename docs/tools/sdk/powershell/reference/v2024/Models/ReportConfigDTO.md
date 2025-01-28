@@ -4,9 +4,9 @@ title: ReportConfigDTO
 pagination_label: ReportConfigDTO
 sidebar_label: ReportConfigDTO
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ReportConfigDTO'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ReportConfigDTO', 'V2024ReportConfigDTO'] 
 slug: /tools/sdk/powershell/v2024/models/report-config-dto
-tags: ['SDK', 'Software Development Kit', 'ReportConfigDTO']
+tags: ['SDK', 'Software Development Kit', 'ReportConfigDTO', 'V2024ReportConfigDTO']
 ---
 
 

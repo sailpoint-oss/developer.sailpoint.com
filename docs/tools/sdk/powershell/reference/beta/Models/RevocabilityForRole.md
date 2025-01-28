@@ -4,9 +4,9 @@ title: RevocabilityForRole
 pagination_label: RevocabilityForRole
 sidebar_label: RevocabilityForRole
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RevocabilityForRole'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RevocabilityForRole', 'BetaRevocabilityForRole'] 
 slug: /tools/sdk/powershell/beta/models/revocability-for-role
-tags: ['SDK', 'Software Development Kit', 'RevocabilityForRole']
+tags: ['SDK', 'Software Development Kit', 'RevocabilityForRole', 'BetaRevocabilityForRole']
 ---
 
 

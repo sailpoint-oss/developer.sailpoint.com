@@ -4,9 +4,9 @@ title: ApprovalSchemeForRole
 pagination_label: ApprovalSchemeForRole
 sidebar_label: ApprovalSchemeForRole
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ApprovalSchemeForRole'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ApprovalSchemeForRole', 'V2024ApprovalSchemeForRole'] 
 slug: /tools/sdk/powershell/v2024/models/approval-scheme-for-role
-tags: ['SDK', 'Software Development Kit', 'ApprovalSchemeForRole']
+tags: ['SDK', 'Software Development Kit', 'ApprovalSchemeForRole', 'V2024ApprovalSchemeForRole']
 ---
 
 

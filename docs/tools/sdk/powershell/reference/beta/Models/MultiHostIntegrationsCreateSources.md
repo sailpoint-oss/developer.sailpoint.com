@@ -4,9 +4,9 @@ title: MultiHostIntegrationsCreateSources
 pagination_label: MultiHostIntegrationsCreateSources
 sidebar_label: MultiHostIntegrationsCreateSources
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'MultiHostIntegrationsCreateSources'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'MultiHostIntegrationsCreateSources', 'BetaMultiHostIntegrationsCreateSources'] 
 slug: /tools/sdk/powershell/beta/models/multi-host-integrations-create-sources
-tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrationsCreateSources']
+tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrationsCreateSources', 'BetaMultiHostIntegrationsCreateSources']
 ---
 
 

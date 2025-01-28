@@ -4,9 +4,9 @@ title: WorkflowAllOfCreator
 pagination_label: WorkflowAllOfCreator
 sidebar_label: WorkflowAllOfCreator
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'WorkflowAllOfCreator'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'WorkflowAllOfCreator', 'V2024WorkflowAllOfCreator'] 
 slug: /tools/sdk/powershell/v2024/models/workflow-all-of-creator
-tags: ['SDK', 'Software Development Kit', 'WorkflowAllOfCreator']
+tags: ['SDK', 'Software Development Kit', 'WorkflowAllOfCreator', 'V2024WorkflowAllOfCreator']
 ---
 
 

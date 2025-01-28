@@ -4,9 +4,9 @@ title: SetIconRequest
 pagination_label: SetIconRequest
 sidebar_label: SetIconRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SetIconRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SetIconRequest', 'V2024SetIconRequest'] 
 slug: /tools/sdk/powershell/v2024/models/set-icon-request
-tags: ['SDK', 'Software Development Kit', 'SetIconRequest']
+tags: ['SDK', 'Software Development Kit', 'SetIconRequest', 'V2024SetIconRequest']
 ---
 
 

@@ -4,9 +4,9 @@ title: BackupResponse
 pagination_label: BackupResponse
 sidebar_label: BackupResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'BackupResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'BackupResponse', 'V2024BackupResponse'] 
 slug: /tools/sdk/powershell/v2024/models/backup-response
-tags: ['SDK', 'Software Development Kit', 'BackupResponse']
+tags: ['SDK', 'Software Development Kit', 'BackupResponse', 'V2024BackupResponse']
 ---
 
 

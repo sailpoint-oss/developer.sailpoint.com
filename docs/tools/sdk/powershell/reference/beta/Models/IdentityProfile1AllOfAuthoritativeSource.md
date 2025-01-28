@@ -4,9 +4,9 @@ title: IdentityProfile1AllOfAuthoritativeSource
 pagination_label: IdentityProfile1AllOfAuthoritativeSource
 sidebar_label: IdentityProfile1AllOfAuthoritativeSource
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityProfile1AllOfAuthoritativeSource'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityProfile1AllOfAuthoritativeSource', 'BetaIdentityProfile1AllOfAuthoritativeSource'] 
 slug: /tools/sdk/powershell/beta/models/identity-profile1-all-of-authoritative-source
-tags: ['SDK', 'Software Development Kit', 'IdentityProfile1AllOfAuthoritativeSource']
+tags: ['SDK', 'Software Development Kit', 'IdentityProfile1AllOfAuthoritativeSource', 'BetaIdentityProfile1AllOfAuthoritativeSource']
 ---
 
 

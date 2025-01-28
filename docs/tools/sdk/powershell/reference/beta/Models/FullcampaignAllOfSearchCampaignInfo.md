@@ -4,9 +4,9 @@ title: FullcampaignAllOfSearchCampaignInfo
 pagination_label: FullcampaignAllOfSearchCampaignInfo
 sidebar_label: FullcampaignAllOfSearchCampaignInfo
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'FullcampaignAllOfSearchCampaignInfo'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'FullcampaignAllOfSearchCampaignInfo', 'BetaFullcampaignAllOfSearchCampaignInfo'] 
 slug: /tools/sdk/powershell/beta/models/fullcampaign-all-of-search-campaign-info
-tags: ['SDK', 'Software Development Kit', 'FullcampaignAllOfSearchCampaignInfo']
+tags: ['SDK', 'Software Development Kit', 'FullcampaignAllOfSearchCampaignInfo', 'BetaFullcampaignAllOfSearchCampaignInfo']
 ---
 
 

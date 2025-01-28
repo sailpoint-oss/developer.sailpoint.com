@@ -4,9 +4,9 @@ title: JsonPatch
 pagination_label: JsonPatch
 sidebar_label: JsonPatch
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'JsonPatch'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'JsonPatch', 'BetaJsonPatch'] 
 slug: /tools/sdk/powershell/beta/models/json-patch
-tags: ['SDK', 'Software Development Kit', 'JsonPatch']
+tags: ['SDK', 'Software Development Kit', 'JsonPatch', 'BetaJsonPatch']
 ---
 
 

@@ -4,9 +4,9 @@ title: TriggerExampleOutput
 pagination_label: TriggerExampleOutput
 sidebar_label: TriggerExampleOutput
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TriggerExampleOutput'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TriggerExampleOutput', 'BetaTriggerExampleOutput'] 
 slug: /tools/sdk/powershell/beta/models/trigger-example-output
-tags: ['SDK', 'Software Development Kit', 'TriggerExampleOutput']
+tags: ['SDK', 'Software Development Kit', 'TriggerExampleOutput', 'BetaTriggerExampleOutput']
 ---
 
 

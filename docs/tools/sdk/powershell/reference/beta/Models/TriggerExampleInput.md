@@ -4,9 +4,9 @@ title: TriggerExampleInput
 pagination_label: TriggerExampleInput
 sidebar_label: TriggerExampleInput
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TriggerExampleInput'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TriggerExampleInput', 'BetaTriggerExampleInput'] 
 slug: /tools/sdk/powershell/beta/models/trigger-example-input
-tags: ['SDK', 'Software Development Kit', 'TriggerExampleInput']
+tags: ['SDK', 'Software Development Kit', 'TriggerExampleInput', 'BetaTriggerExampleInput']
 ---
 
 

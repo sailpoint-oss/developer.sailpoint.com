@@ -4,9 +4,9 @@ title: RoleMetadataBulkUpdateByQueryRequestValuesInner
 pagination_label: RoleMetadataBulkUpdateByQueryRequestValuesInner
 sidebar_label: RoleMetadataBulkUpdateByQueryRequestValuesInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMetadataBulkUpdateByQueryRequestValuesInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMetadataBulkUpdateByQueryRequestValuesInner', 'V2024RoleMetadataBulkUpdateByQueryRequestValuesInner'] 
 slug: /tools/sdk/powershell/v2024/models/role-metadata-bulk-update-by-query-request-values-inner
-tags: ['SDK', 'Software Development Kit', 'RoleMetadataBulkUpdateByQueryRequestValuesInner']
+tags: ['SDK', 'Software Development Kit', 'RoleMetadataBulkUpdateByQueryRequestValuesInner', 'V2024RoleMetadataBulkUpdateByQueryRequestValuesInner']
 ---
 
 

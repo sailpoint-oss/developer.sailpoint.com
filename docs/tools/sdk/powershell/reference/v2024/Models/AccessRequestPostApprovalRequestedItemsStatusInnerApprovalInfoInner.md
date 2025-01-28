@@ -4,9 +4,9 @@ title: AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner
 pagination_label: AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner
 sidebar_label: AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner', 'V2024AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner'] 
 slug: /tools/sdk/powershell/v2024/models/access-request-post-approval-requested-items-status-inner-approval-info-inner
-tags: ['SDK', 'Software Development Kit', 'AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner']
+tags: ['SDK', 'Software Development Kit', 'AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner', 'V2024AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner']
 ---
 
 

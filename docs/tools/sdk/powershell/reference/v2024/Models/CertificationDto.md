@@ -4,9 +4,9 @@ title: CertificationDto
 pagination_label: CertificationDto
 sidebar_label: CertificationDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CertificationDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CertificationDto', 'V2024CertificationDto'] 
 slug: /tools/sdk/powershell/v2024/models/certification-dto
-tags: ['SDK', 'Software Development Kit', 'CertificationDto']
+tags: ['SDK', 'Software Development Kit', 'CertificationDto', 'V2024CertificationDto']
 ---
 
 

@@ -4,9 +4,9 @@ title: ManualWorkItemDetails
 pagination_label: ManualWorkItemDetails
 sidebar_label: ManualWorkItemDetails
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ManualWorkItemDetails'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ManualWorkItemDetails', 'ManualWorkItemDetails'] 
 slug: /tools/sdk/powershell/v3/models/manual-work-item-details
-tags: ['SDK', 'Software Development Kit', 'ManualWorkItemDetails']
+tags: ['SDK', 'Software Development Kit', 'ManualWorkItemDetails', 'ManualWorkItemDetails']
 ---
 
 

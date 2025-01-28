@@ -4,9 +4,9 @@ title: AccessCriteria
 pagination_label: AccessCriteria
 sidebar_label: AccessCriteria
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessCriteria'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessCriteria', 'V2024AccessCriteria'] 
 slug: /tools/sdk/powershell/v2024/models/access-criteria
-tags: ['SDK', 'Software Development Kit', 'AccessCriteria']
+tags: ['SDK', 'Software Development Kit', 'AccessCriteria', 'V2024AccessCriteria']
 ---
 
 

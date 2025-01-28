@@ -4,9 +4,9 @@ title: SourceUsageStatus
 pagination_label: SourceUsageStatus
 sidebar_label: SourceUsageStatus
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SourceUsageStatus'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SourceUsageStatus', 'V2024SourceUsageStatus'] 
 slug: /tools/sdk/powershell/v2024/models/source-usage-status
-tags: ['SDK', 'Software Development Kit', 'SourceUsageStatus']
+tags: ['SDK', 'Software Development Kit', 'SourceUsageStatus', 'V2024SourceUsageStatus']
 ---
 
 

@@ -4,9 +4,9 @@ title: ServiceProviderConfigurationFederationProtocolDetailsInner
 pagination_label: ServiceProviderConfigurationFederationProtocolDetailsInner
 sidebar_label: ServiceProviderConfigurationFederationProtocolDetailsInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ServiceProviderConfigurationFederationProtocolDetailsInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ServiceProviderConfigurationFederationProtocolDetailsInner', 'ServiceProviderConfigurationFederationProtocolDetailsInner'] 
 slug: /tools/sdk/powershell/v3/models/service-provider-configuration-federation-protocol-details-inner
-tags: ['SDK', 'Software Development Kit', 'ServiceProviderConfigurationFederationProtocolDetailsInner']
+tags: ['SDK', 'Software Development Kit', 'ServiceProviderConfigurationFederationProtocolDetailsInner', 'ServiceProviderConfigurationFederationProtocolDetailsInner']
 ---
 
 

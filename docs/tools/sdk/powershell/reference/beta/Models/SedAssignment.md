@@ -4,9 +4,9 @@ title: SedAssignment
 pagination_label: SedAssignment
 sidebar_label: SedAssignment
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SedAssignment'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SedAssignment', 'BetaSedAssignment'] 
 slug: /tools/sdk/powershell/beta/models/sed-assignment
-tags: ['SDK', 'Software Development Kit', 'SedAssignment']
+tags: ['SDK', 'Software Development Kit', 'SedAssignment', 'BetaSedAssignment']
 ---
 
 

@@ -4,9 +4,9 @@ title: MessageCatalogDto
 pagination_label: MessageCatalogDto
 sidebar_label: MessageCatalogDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'MessageCatalogDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'MessageCatalogDto', 'BetaMessageCatalogDto'] 
 slug: /tools/sdk/powershell/beta/models/message-catalog-dto
-tags: ['SDK', 'Software Development Kit', 'MessageCatalogDto']
+tags: ['SDK', 'Software Development Kit', 'MessageCatalogDto', 'BetaMessageCatalogDto']
 ---
 
 

@@ -4,9 +4,9 @@ title: ProvisioningConfig
 pagination_label: ProvisioningConfig
 sidebar_label: ProvisioningConfig
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ProvisioningConfig'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ProvisioningConfig', 'V2024ProvisioningConfig'] 
 slug: /tools/sdk/powershell/v2024/models/provisioning-config
-tags: ['SDK', 'Software Development Kit', 'ProvisioningConfig']
+tags: ['SDK', 'Software Development Kit', 'ProvisioningConfig', 'V2024ProvisioningConfig']
 ---
 
 

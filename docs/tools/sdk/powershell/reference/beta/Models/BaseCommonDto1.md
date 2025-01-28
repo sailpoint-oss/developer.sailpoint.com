@@ -4,9 +4,9 @@ title: BaseCommonDto1
 pagination_label: BaseCommonDto1
 sidebar_label: BaseCommonDto1
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'BaseCommonDto1'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'BaseCommonDto1', 'BetaBaseCommonDto1'] 
 slug: /tools/sdk/powershell/beta/models/base-common-dto1
-tags: ['SDK', 'Software Development Kit', 'BaseCommonDto1']
+tags: ['SDK', 'Software Development Kit', 'BaseCommonDto1', 'BetaBaseCommonDto1']
 ---
 
 

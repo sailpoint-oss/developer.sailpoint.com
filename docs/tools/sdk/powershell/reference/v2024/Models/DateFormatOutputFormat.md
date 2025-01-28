@@ -4,9 +4,9 @@ title: DateFormatOutputFormat
 pagination_label: DateFormatOutputFormat
 sidebar_label: DateFormatOutputFormat
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'DateFormatOutputFormat'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'DateFormatOutputFormat', 'V2024DateFormatOutputFormat'] 
 slug: /tools/sdk/powershell/v2024/models/date-format-output-format
-tags: ['SDK', 'Software Development Kit', 'DateFormatOutputFormat']
+tags: ['SDK', 'Software Development Kit', 'DateFormatOutputFormat', 'V2024DateFormatOutputFormat']
 ---
 
 

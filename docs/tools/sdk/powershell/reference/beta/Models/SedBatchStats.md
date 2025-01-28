@@ -4,9 +4,9 @@ title: SedBatchStats
 pagination_label: SedBatchStats
 sidebar_label: SedBatchStats
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SedBatchStats'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SedBatchStats', 'BetaSedBatchStats'] 
 slug: /tools/sdk/powershell/beta/models/sed-batch-stats
-tags: ['SDK', 'Software Development Kit', 'SedBatchStats']
+tags: ['SDK', 'Software Development Kit', 'SedBatchStats', 'BetaSedBatchStats']
 ---
 
 

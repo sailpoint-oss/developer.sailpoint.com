@@ -4,9 +4,9 @@ title: RoleMiningSessionResponseCreatedBy
 pagination_label: RoleMiningSessionResponseCreatedBy
 sidebar_label: RoleMiningSessionResponseCreatedBy
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMiningSessionResponseCreatedBy'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMiningSessionResponseCreatedBy', 'BetaRoleMiningSessionResponseCreatedBy'] 
 slug: /tools/sdk/powershell/beta/models/role-mining-session-response-created-by
-tags: ['SDK', 'Software Development Kit', 'RoleMiningSessionResponseCreatedBy']
+tags: ['SDK', 'Software Development Kit', 'RoleMiningSessionResponseCreatedBy', 'BetaRoleMiningSessionResponseCreatedBy']
 ---
 
 

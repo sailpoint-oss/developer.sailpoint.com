@@ -4,9 +4,9 @@ title: AggregationResult
 pagination_label: AggregationResult
 sidebar_label: AggregationResult
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AggregationResult'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AggregationResult', 'V2024AggregationResult'] 
 slug: /tools/sdk/powershell/v2024/models/aggregation-result
-tags: ['SDK', 'Software Development Kit', 'AggregationResult']
+tags: ['SDK', 'Software Development Kit', 'AggregationResult', 'V2024AggregationResult']
 ---
 
 

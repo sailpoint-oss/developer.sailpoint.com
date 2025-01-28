@@ -4,9 +4,9 @@ title: WorkItemState
 pagination_label: WorkItemState
 sidebar_label: WorkItemState
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'WorkItemState'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'WorkItemState', 'BetaWorkItemState'] 
 slug: /tools/sdk/powershell/beta/models/work-item-state
-tags: ['SDK', 'Software Development Kit', 'WorkItemState']
+tags: ['SDK', 'Software Development Kit', 'WorkItemState', 'BetaWorkItemState']
 ---
 
 

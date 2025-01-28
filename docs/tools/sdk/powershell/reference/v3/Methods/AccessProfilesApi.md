@@ -4,9 +4,9 @@ title: AccessProfiles
 pagination_label: AccessProfiles
 sidebar_label: AccessProfiles
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessProfiles'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessProfiles', 'AccessProfiles'] 
 slug: /tools/sdk/powershell/v3/methods/access-profiles
-tags: ['SDK', 'Software Development Kit', 'AccessProfiles']
+tags: ['SDK', 'Software Development Kit', 'AccessProfiles', 'AccessProfiles']
 ---
 
 

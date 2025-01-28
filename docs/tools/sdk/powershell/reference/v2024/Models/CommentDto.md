@@ -4,9 +4,9 @@ title: CommentDto
 pagination_label: CommentDto
 sidebar_label: CommentDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CommentDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CommentDto', 'V2024CommentDto'] 
 slug: /tools/sdk/powershell/v2024/models/comment-dto
-tags: ['SDK', 'Software Development Kit', 'CommentDto']
+tags: ['SDK', 'Software Development Kit', 'CommentDto', 'V2024CommentDto']
 ---
 
 

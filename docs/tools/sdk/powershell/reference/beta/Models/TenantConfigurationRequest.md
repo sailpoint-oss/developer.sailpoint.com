@@ -4,9 +4,9 @@ title: TenantConfigurationRequest
 pagination_label: TenantConfigurationRequest
 sidebar_label: TenantConfigurationRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TenantConfigurationRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TenantConfigurationRequest', 'BetaTenantConfigurationRequest'] 
 slug: /tools/sdk/powershell/beta/models/tenant-configuration-request
-tags: ['SDK', 'Software Development Kit', 'TenantConfigurationRequest']
+tags: ['SDK', 'Software Development Kit', 'TenantConfigurationRequest', 'BetaTenantConfigurationRequest']
 ---
 
 

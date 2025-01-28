@@ -4,9 +4,9 @@ title: CampaignsDeleteRequest
 pagination_label: CampaignsDeleteRequest
 sidebar_label: CampaignsDeleteRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignsDeleteRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignsDeleteRequest', 'CampaignsDeleteRequest'] 
 slug: /tools/sdk/powershell/v3/models/campaigns-delete-request
-tags: ['SDK', 'Software Development Kit', 'CampaignsDeleteRequest']
+tags: ['SDK', 'Software Development Kit', 'CampaignsDeleteRequest', 'CampaignsDeleteRequest']
 ---
 
 

@@ -4,9 +4,9 @@ title: ObjectMappingBulkPatchRequest
 pagination_label: ObjectMappingBulkPatchRequest
 sidebar_label: ObjectMappingBulkPatchRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ObjectMappingBulkPatchRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ObjectMappingBulkPatchRequest', 'ObjectMappingBulkPatchRequest'] 
 slug: /tools/sdk/powershell/v3/models/object-mapping-bulk-patch-request
-tags: ['SDK', 'Software Development Kit', 'ObjectMappingBulkPatchRequest']
+tags: ['SDK', 'Software Development Kit', 'ObjectMappingBulkPatchRequest', 'ObjectMappingBulkPatchRequest']
 ---
 
 

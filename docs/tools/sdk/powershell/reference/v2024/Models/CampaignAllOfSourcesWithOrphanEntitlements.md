@@ -4,9 +4,9 @@ title: CampaignAllOfSourcesWithOrphanEntitlements
 pagination_label: CampaignAllOfSourcesWithOrphanEntitlements
 sidebar_label: CampaignAllOfSourcesWithOrphanEntitlements
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignAllOfSourcesWithOrphanEntitlements'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignAllOfSourcesWithOrphanEntitlements', 'V2024CampaignAllOfSourcesWithOrphanEntitlements'] 
 slug: /tools/sdk/powershell/v2024/models/campaign-all-of-sources-with-orphan-entitlements
-tags: ['SDK', 'Software Development Kit', 'CampaignAllOfSourcesWithOrphanEntitlements']
+tags: ['SDK', 'Software Development Kit', 'CampaignAllOfSourcesWithOrphanEntitlements', 'V2024CampaignAllOfSourcesWithOrphanEntitlements']
 ---
 
 

@@ -4,9 +4,9 @@ title: Sed
 pagination_label: Sed
 sidebar_label: Sed
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Sed'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Sed', 'V2024Sed'] 
 slug: /tools/sdk/powershell/v2024/models/sed
-tags: ['SDK', 'Software Development Kit', 'Sed']
+tags: ['SDK', 'Software Development Kit', 'Sed', 'V2024Sed']
 ---
 
 

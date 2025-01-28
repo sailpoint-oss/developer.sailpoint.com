@@ -4,9 +4,9 @@ title: ScheduleType
 pagination_label: ScheduleType
 sidebar_label: ScheduleType
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ScheduleType'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ScheduleType', 'BetaScheduleType'] 
 slug: /tools/sdk/powershell/beta/models/schedule-type
-tags: ['SDK', 'Software Development Kit', 'ScheduleType']
+tags: ['SDK', 'Software Development Kit', 'ScheduleType', 'BetaScheduleType']
 ---
 
 

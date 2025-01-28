@@ -4,9 +4,9 @@ title: SubSearchAggregationSpecification
 pagination_label: SubSearchAggregationSpecification
 sidebar_label: SubSearchAggregationSpecification
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SubSearchAggregationSpecification'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SubSearchAggregationSpecification', 'SubSearchAggregationSpecification'] 
 slug: /tools/sdk/powershell/v3/models/sub-search-aggregation-specification
-tags: ['SDK', 'Software Development Kit', 'SubSearchAggregationSpecification']
+tags: ['SDK', 'Software Development Kit', 'SubSearchAggregationSpecification', 'SubSearchAggregationSpecification']
 ---
 
 

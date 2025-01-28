@@ -4,9 +4,9 @@ title: Reviewer1
 pagination_label: Reviewer1
 sidebar_label: Reviewer1
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Reviewer1'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Reviewer1', 'V2024Reviewer1'] 
 slug: /tools/sdk/powershell/v2024/models/reviewer1
-tags: ['SDK', 'Software Development Kit', 'Reviewer1']
+tags: ['SDK', 'Software Development Kit', 'Reviewer1', 'V2024Reviewer1']
 ---
 
 

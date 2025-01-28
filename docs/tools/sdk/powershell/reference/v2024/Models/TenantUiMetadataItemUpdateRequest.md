@@ -4,9 +4,9 @@ title: TenantUiMetadataItemUpdateRequest
 pagination_label: TenantUiMetadataItemUpdateRequest
 sidebar_label: TenantUiMetadataItemUpdateRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TenantUiMetadataItemUpdateRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TenantUiMetadataItemUpdateRequest', 'V2024TenantUiMetadataItemUpdateRequest'] 
 slug: /tools/sdk/powershell/v2024/models/tenant-ui-metadata-item-update-request
-tags: ['SDK', 'Software Development Kit', 'TenantUiMetadataItemUpdateRequest']
+tags: ['SDK', 'Software Development Kit', 'TenantUiMetadataItemUpdateRequest', 'V2024TenantUiMetadataItemUpdateRequest']
 ---
 
 

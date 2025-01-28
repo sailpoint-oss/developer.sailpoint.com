@@ -4,9 +4,9 @@ title: ProvisioningPolicy
 pagination_label: ProvisioningPolicy
 sidebar_label: ProvisioningPolicy
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ProvisioningPolicy'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ProvisioningPolicy', 'ProvisioningPolicy'] 
 slug: /tools/sdk/powershell/v3/models/provisioning-policy
-tags: ['SDK', 'Software Development Kit', 'ProvisioningPolicy']
+tags: ['SDK', 'Software Development Kit', 'ProvisioningPolicy', 'ProvisioningPolicy']
 ---
 
 

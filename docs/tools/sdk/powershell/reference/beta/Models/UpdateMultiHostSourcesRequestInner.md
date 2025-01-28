@@ -4,9 +4,9 @@ title: UpdateMultiHostSourcesRequestInner
 pagination_label: UpdateMultiHostSourcesRequestInner
 sidebar_label: UpdateMultiHostSourcesRequestInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'UpdateMultiHostSourcesRequestInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'UpdateMultiHostSourcesRequestInner', 'BetaUpdateMultiHostSourcesRequestInner'] 
 slug: /tools/sdk/powershell/beta/models/update-multi-host-sources-request-inner
-tags: ['SDK', 'Software Development Kit', 'UpdateMultiHostSourcesRequestInner']
+tags: ['SDK', 'Software Development Kit', 'UpdateMultiHostSourcesRequestInner', 'BetaUpdateMultiHostSourcesRequestInner']
 ---
 
 

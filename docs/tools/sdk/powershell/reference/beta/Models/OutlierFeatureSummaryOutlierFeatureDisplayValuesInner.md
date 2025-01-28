@@ -4,9 +4,9 @@ title: OutlierFeatureSummaryOutlierFeatureDisplayValuesInner
 pagination_label: OutlierFeatureSummaryOutlierFeatureDisplayValuesInner
 sidebar_label: OutlierFeatureSummaryOutlierFeatureDisplayValuesInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'OutlierFeatureSummaryOutlierFeatureDisplayValuesInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'OutlierFeatureSummaryOutlierFeatureDisplayValuesInner', 'BetaOutlierFeatureSummaryOutlierFeatureDisplayValuesInner'] 
 slug: /tools/sdk/powershell/beta/models/outlier-feature-summary-outlier-feature-display-values-inner
-tags: ['SDK', 'Software Development Kit', 'OutlierFeatureSummaryOutlierFeatureDisplayValuesInner']
+tags: ['SDK', 'Software Development Kit', 'OutlierFeatureSummaryOutlierFeatureDisplayValuesInner', 'BetaOutlierFeatureSummaryOutlierFeatureDisplayValuesInner']
 ---
 
 

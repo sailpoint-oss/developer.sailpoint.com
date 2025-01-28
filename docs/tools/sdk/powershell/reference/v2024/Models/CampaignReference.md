@@ -4,9 +4,9 @@ title: CampaignReference
 pagination_label: CampaignReference
 sidebar_label: CampaignReference
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignReference'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignReference', 'V2024CampaignReference'] 
 slug: /tools/sdk/powershell/v2024/models/campaign-reference
-tags: ['SDK', 'Software Development Kit', 'CampaignReference']
+tags: ['SDK', 'Software Development Kit', 'CampaignReference', 'V2024CampaignReference']
 ---
 
 

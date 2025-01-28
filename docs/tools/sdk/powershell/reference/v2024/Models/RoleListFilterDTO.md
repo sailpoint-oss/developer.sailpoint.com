@@ -4,9 +4,9 @@ title: RoleListFilterDTO
 pagination_label: RoleListFilterDTO
 sidebar_label: RoleListFilterDTO
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleListFilterDTO'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleListFilterDTO', 'V2024RoleListFilterDTO'] 
 slug: /tools/sdk/powershell/v2024/models/role-list-filter-dto
-tags: ['SDK', 'Software Development Kit', 'RoleListFilterDTO']
+tags: ['SDK', 'Software Development Kit', 'RoleListFilterDTO', 'V2024RoleListFilterDTO']
 ---
 
 

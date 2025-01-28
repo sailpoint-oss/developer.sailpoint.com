@@ -4,9 +4,9 @@ title: ProcessingDetails
 pagination_label: ProcessingDetails
 sidebar_label: ProcessingDetails
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ProcessingDetails'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ProcessingDetails', 'V2024ProcessingDetails'] 
 slug: /tools/sdk/powershell/v2024/models/processing-details
-tags: ['SDK', 'Software Development Kit', 'ProcessingDetails']
+tags: ['SDK', 'Software Development Kit', 'ProcessingDetails', 'V2024ProcessingDetails']
 ---
 
 

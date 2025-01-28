@@ -4,9 +4,9 @@ title: RoleAssignmentSourceType
 pagination_label: RoleAssignmentSourceType
 sidebar_label: RoleAssignmentSourceType
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleAssignmentSourceType'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleAssignmentSourceType', 'V2024RoleAssignmentSourceType'] 
 slug: /tools/sdk/powershell/v2024/models/role-assignment-source-type
-tags: ['SDK', 'Software Development Kit', 'RoleAssignmentSourceType']
+tags: ['SDK', 'Software Development Kit', 'RoleAssignmentSourceType', 'V2024RoleAssignmentSourceType']
 ---
 
 

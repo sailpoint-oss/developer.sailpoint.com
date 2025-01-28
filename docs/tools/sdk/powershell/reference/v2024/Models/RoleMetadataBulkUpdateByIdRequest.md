@@ -4,9 +4,9 @@ title: RoleMetadataBulkUpdateByIdRequest
 pagination_label: RoleMetadataBulkUpdateByIdRequest
 sidebar_label: RoleMetadataBulkUpdateByIdRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMetadataBulkUpdateByIdRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMetadataBulkUpdateByIdRequest', 'V2024RoleMetadataBulkUpdateByIdRequest'] 
 slug: /tools/sdk/powershell/v2024/models/role-metadata-bulk-update-by-id-request
-tags: ['SDK', 'Software Development Kit', 'RoleMetadataBulkUpdateByIdRequest']
+tags: ['SDK', 'Software Development Kit', 'RoleMetadataBulkUpdateByIdRequest', 'V2024RoleMetadataBulkUpdateByIdRequest']
 ---
 
 

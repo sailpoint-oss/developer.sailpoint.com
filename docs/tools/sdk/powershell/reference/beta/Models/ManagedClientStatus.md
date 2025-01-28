@@ -4,9 +4,9 @@ title: ManagedClientStatus
 pagination_label: ManagedClientStatus
 sidebar_label: ManagedClientStatus
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ManagedClientStatus'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ManagedClientStatus', 'BetaManagedClientStatus'] 
 slug: /tools/sdk/powershell/beta/models/managed-client-status
-tags: ['SDK', 'Software Development Kit', 'ManagedClientStatus']
+tags: ['SDK', 'Software Development Kit', 'ManagedClientStatus', 'BetaManagedClientStatus']
 ---
 
 

@@ -4,9 +4,9 @@ title: SourceEntitlementRequestConfig
 pagination_label: SourceEntitlementRequestConfig
 sidebar_label: SourceEntitlementRequestConfig
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SourceEntitlementRequestConfig'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SourceEntitlementRequestConfig', 'V2024SourceEntitlementRequestConfig'] 
 slug: /tools/sdk/powershell/v2024/models/source-entitlement-request-config
-tags: ['SDK', 'Software Development Kit', 'SourceEntitlementRequestConfig']
+tags: ['SDK', 'Software Development Kit', 'SourceEntitlementRequestConfig', 'V2024SourceEntitlementRequestConfig']
 ---
 
 

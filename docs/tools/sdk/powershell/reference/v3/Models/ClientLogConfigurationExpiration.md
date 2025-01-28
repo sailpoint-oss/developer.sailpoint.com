@@ -4,9 +4,9 @@ title: ClientLogConfigurationExpiration
 pagination_label: ClientLogConfigurationExpiration
 sidebar_label: ClientLogConfigurationExpiration
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ClientLogConfigurationExpiration'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ClientLogConfigurationExpiration', 'ClientLogConfigurationExpiration'] 
 slug: /tools/sdk/powershell/v3/models/client-log-configuration-expiration
-tags: ['SDK', 'Software Development Kit', 'ClientLogConfigurationExpiration']
+tags: ['SDK', 'Software Development Kit', 'ClientLogConfigurationExpiration', 'ClientLogConfigurationExpiration']
 ---
 
 

@@ -4,9 +4,9 @@ title: SpConfigExportJobStatus
 pagination_label: SpConfigExportJobStatus
 sidebar_label: SpConfigExportJobStatus
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SpConfigExportJobStatus'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SpConfigExportJobStatus', 'V2024SpConfigExportJobStatus'] 
 slug: /tools/sdk/powershell/v2024/models/sp-config-export-job-status
-tags: ['SDK', 'Software Development Kit', 'SpConfigExportJobStatus']
+tags: ['SDK', 'Software Development Kit', 'SpConfigExportJobStatus', 'V2024SpConfigExportJobStatus']
 ---
 
 

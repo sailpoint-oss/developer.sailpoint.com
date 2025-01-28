@@ -4,9 +4,9 @@ title: SourceBeforeProvisioningRule
 pagination_label: SourceBeforeProvisioningRule
 sidebar_label: SourceBeforeProvisioningRule
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SourceBeforeProvisioningRule'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SourceBeforeProvisioningRule', 'SourceBeforeProvisioningRule'] 
 slug: /tools/sdk/powershell/v3/models/source-before-provisioning-rule
-tags: ['SDK', 'Software Development Kit', 'SourceBeforeProvisioningRule']
+tags: ['SDK', 'Software Development Kit', 'SourceBeforeProvisioningRule', 'SourceBeforeProvisioningRule']
 ---
 
 

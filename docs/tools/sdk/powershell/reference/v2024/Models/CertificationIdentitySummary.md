@@ -4,9 +4,9 @@ title: CertificationIdentitySummary
 pagination_label: CertificationIdentitySummary
 sidebar_label: CertificationIdentitySummary
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CertificationIdentitySummary'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CertificationIdentitySummary', 'V2024CertificationIdentitySummary'] 
 slug: /tools/sdk/powershell/v2024/models/certification-identity-summary
-tags: ['SDK', 'Software Development Kit', 'CertificationIdentitySummary']
+tags: ['SDK', 'Software Development Kit', 'CertificationIdentitySummary', 'V2024CertificationIdentitySummary']
 ---
 
 

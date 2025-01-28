@@ -4,9 +4,9 @@ title: ReportType
 pagination_label: ReportType
 sidebar_label: ReportType
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ReportType'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ReportType', 'BetaReportType'] 
 slug: /tools/sdk/powershell/beta/models/report-type
-tags: ['SDK', 'Software Development Kit', 'ReportType']
+tags: ['SDK', 'Software Development Kit', 'ReportType', 'BetaReportType']
 ---
 
 

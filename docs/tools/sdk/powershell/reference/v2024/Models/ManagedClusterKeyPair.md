@@ -4,9 +4,9 @@ title: ManagedClusterKeyPair
 pagination_label: ManagedClusterKeyPair
 sidebar_label: ManagedClusterKeyPair
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ManagedClusterKeyPair'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ManagedClusterKeyPair', 'V2024ManagedClusterKeyPair'] 
 slug: /tools/sdk/powershell/v2024/models/managed-cluster-key-pair
-tags: ['SDK', 'Software Development Kit', 'ManagedClusterKeyPair']
+tags: ['SDK', 'Software Development Kit', 'ManagedClusterKeyPair', 'V2024ManagedClusterKeyPair']
 ---
 
 

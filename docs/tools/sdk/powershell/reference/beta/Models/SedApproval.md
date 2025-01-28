@@ -4,9 +4,9 @@ title: SedApproval
 pagination_label: SedApproval
 sidebar_label: SedApproval
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SedApproval'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SedApproval', 'BetaSedApproval'] 
 slug: /tools/sdk/powershell/beta/models/sed-approval
-tags: ['SDK', 'Software Development Kit', 'SedApproval']
+tags: ['SDK', 'Software Development Kit', 'SedApproval', 'BetaSedApproval']
 ---
 
 

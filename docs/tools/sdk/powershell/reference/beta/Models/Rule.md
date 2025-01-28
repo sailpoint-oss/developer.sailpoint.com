@@ -4,9 +4,9 @@ title: Rule
 pagination_label: Rule
 sidebar_label: Rule
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Rule'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Rule', 'BetaRule'] 
 slug: /tools/sdk/powershell/beta/models/rule
-tags: ['SDK', 'Software Development Kit', 'Rule']
+tags: ['SDK', 'Software Development Kit', 'Rule', 'BetaRule']
 ---
 
 

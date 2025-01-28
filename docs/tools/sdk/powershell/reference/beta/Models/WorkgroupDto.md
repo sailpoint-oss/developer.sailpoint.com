@@ -4,9 +4,9 @@ title: WorkgroupDto
 pagination_label: WorkgroupDto
 sidebar_label: WorkgroupDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'WorkgroupDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'WorkgroupDto', 'BetaWorkgroupDto'] 
 slug: /tools/sdk/powershell/beta/models/workgroup-dto
-tags: ['SDK', 'Software Development Kit', 'WorkgroupDto']
+tags: ['SDK', 'Software Development Kit', 'WorkgroupDto', 'BetaWorkgroupDto']
 ---
 
 

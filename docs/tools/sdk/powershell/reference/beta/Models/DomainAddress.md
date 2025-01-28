@@ -4,9 +4,9 @@ title: DomainAddress
 pagination_label: DomainAddress
 sidebar_label: DomainAddress
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'DomainAddress'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'DomainAddress', 'BetaDomainAddress'] 
 slug: /tools/sdk/powershell/beta/models/domain-address
-tags: ['SDK', 'Software Development Kit', 'DomainAddress']
+tags: ['SDK', 'Software Development Kit', 'DomainAddress', 'BetaDomainAddress']
 ---
 
 

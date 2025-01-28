@@ -4,9 +4,9 @@ title: CampaignActivatedCampaign
 pagination_label: CampaignActivatedCampaign
 sidebar_label: CampaignActivatedCampaign
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignActivatedCampaign'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignActivatedCampaign', 'BetaCampaignActivatedCampaign'] 
 slug: /tools/sdk/powershell/beta/models/campaign-activated-campaign
-tags: ['SDK', 'Software Development Kit', 'CampaignActivatedCampaign']
+tags: ['SDK', 'Software Development Kit', 'CampaignActivatedCampaign', 'BetaCampaignActivatedCampaign']
 ---
 
 

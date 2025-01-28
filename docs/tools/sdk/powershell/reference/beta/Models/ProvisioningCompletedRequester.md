@@ -4,9 +4,9 @@ title: ProvisioningCompletedRequester
 pagination_label: ProvisioningCompletedRequester
 sidebar_label: ProvisioningCompletedRequester
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ProvisioningCompletedRequester'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ProvisioningCompletedRequester', 'BetaProvisioningCompletedRequester'] 
 slug: /tools/sdk/powershell/beta/models/provisioning-completed-requester
-tags: ['SDK', 'Software Development Kit', 'ProvisioningCompletedRequester']
+tags: ['SDK', 'Software Development Kit', 'ProvisioningCompletedRequester', 'BetaProvisioningCompletedRequester']
 ---
 
 

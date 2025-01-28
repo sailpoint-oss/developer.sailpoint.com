@@ -4,9 +4,9 @@ title: Index
 pagination_label: Index
 sidebar_label: Index
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Index'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Index', 'V2024Index'] 
 slug: /tools/sdk/powershell/v2024/models/index
-tags: ['SDK', 'Software Development Kit', 'Index']
+tags: ['SDK', 'Software Development Kit', 'Index', 'V2024Index']
 ---
 
 

@@ -4,9 +4,9 @@ title: ExportFormDefinitionsByTenant200ResponseInner
 pagination_label: ExportFormDefinitionsByTenant200ResponseInner
 sidebar_label: ExportFormDefinitionsByTenant200ResponseInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ExportFormDefinitionsByTenant200ResponseInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ExportFormDefinitionsByTenant200ResponseInner', 'BetaExportFormDefinitionsByTenant200ResponseInner'] 
 slug: /tools/sdk/powershell/beta/models/export-form-definitions-by-tenant200-response-inner
-tags: ['SDK', 'Software Development Kit', 'ExportFormDefinitionsByTenant200ResponseInner']
+tags: ['SDK', 'Software Development Kit', 'ExportFormDefinitionsByTenant200ResponseInner', 'BetaExportFormDefinitionsByTenant200ResponseInner']
 ---
 
 

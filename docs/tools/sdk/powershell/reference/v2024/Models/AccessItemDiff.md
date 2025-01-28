@@ -4,9 +4,9 @@ title: AccessItemDiff
 pagination_label: AccessItemDiff
 sidebar_label: AccessItemDiff
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessItemDiff'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessItemDiff', 'V2024AccessItemDiff'] 
 slug: /tools/sdk/powershell/v2024/models/access-item-diff
-tags: ['SDK', 'Software Development Kit', 'AccessItemDiff']
+tags: ['SDK', 'Software Development Kit', 'AccessItemDiff', 'V2024AccessItemDiff']
 ---
 
 

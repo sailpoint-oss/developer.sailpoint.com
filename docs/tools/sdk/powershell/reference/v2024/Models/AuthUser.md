@@ -4,9 +4,9 @@ title: AuthUser
 pagination_label: AuthUser
 sidebar_label: AuthUser
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AuthUser'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AuthUser', 'V2024AuthUser'] 
 slug: /tools/sdk/powershell/v2024/models/auth-user
-tags: ['SDK', 'Software Development Kit', 'AuthUser']
+tags: ['SDK', 'Software Development Kit', 'AuthUser', 'V2024AuthUser']
 ---
 
 

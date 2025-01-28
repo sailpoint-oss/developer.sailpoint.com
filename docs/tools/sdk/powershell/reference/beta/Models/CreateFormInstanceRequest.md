@@ -4,9 +4,9 @@ title: CreateFormInstanceRequest
 pagination_label: CreateFormInstanceRequest
 sidebar_label: CreateFormInstanceRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CreateFormInstanceRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CreateFormInstanceRequest', 'BetaCreateFormInstanceRequest'] 
 slug: /tools/sdk/powershell/beta/models/create-form-instance-request
-tags: ['SDK', 'Software Development Kit', 'CreateFormInstanceRequest']
+tags: ['SDK', 'Software Development Kit', 'CreateFormInstanceRequest', 'BetaCreateFormInstanceRequest']
 ---
 
 

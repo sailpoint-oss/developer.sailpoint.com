@@ -4,9 +4,9 @@ title: ConnectorRuleUpdateRequest
 pagination_label: ConnectorRuleUpdateRequest
 sidebar_label: ConnectorRuleUpdateRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ConnectorRuleUpdateRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ConnectorRuleUpdateRequest', 'BetaConnectorRuleUpdateRequest'] 
 slug: /tools/sdk/powershell/beta/models/connector-rule-update-request
-tags: ['SDK', 'Software Development Kit', 'ConnectorRuleUpdateRequest']
+tags: ['SDK', 'Software Development Kit', 'ConnectorRuleUpdateRequest', 'BetaConnectorRuleUpdateRequest']
 ---
 
 

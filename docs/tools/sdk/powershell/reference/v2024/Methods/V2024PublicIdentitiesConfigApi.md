@@ -4,9 +4,9 @@ title: PublicIdentitiesConfig
 pagination_label: PublicIdentitiesConfig
 sidebar_label: PublicIdentitiesConfig
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'PublicIdentitiesConfig'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'PublicIdentitiesConfig', 'V2024PublicIdentitiesConfig'] 
 slug: /tools/sdk/powershell/v2024/methods/public-identities-config
-tags: ['SDK', 'Software Development Kit', 'PublicIdentitiesConfig']
+tags: ['SDK', 'Software Development Kit', 'PublicIdentitiesConfig', 'V2024PublicIdentitiesConfig']
 ---
 
 

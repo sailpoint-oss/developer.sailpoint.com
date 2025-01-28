@@ -4,9 +4,9 @@ title: BaseSegment
 pagination_label: BaseSegment
 sidebar_label: BaseSegment
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'BaseSegment'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'BaseSegment', 'BaseSegment'] 
 slug: /tools/sdk/powershell/v3/models/base-segment
-tags: ['SDK', 'Software Development Kit', 'BaseSegment']
+tags: ['SDK', 'Software Development Kit', 'BaseSegment', 'BaseSegment']
 ---
 
 

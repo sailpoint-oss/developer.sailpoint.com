@@ -4,9 +4,9 @@ title: ExportPayload
 pagination_label: ExportPayload
 sidebar_label: ExportPayload
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ExportPayload'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ExportPayload', 'V2024ExportPayload'] 
 slug: /tools/sdk/powershell/v2024/models/export-payload
-tags: ['SDK', 'Software Development Kit', 'ExportPayload']
+tags: ['SDK', 'Software Development Kit', 'ExportPayload', 'V2024ExportPayload']
 ---
 
 

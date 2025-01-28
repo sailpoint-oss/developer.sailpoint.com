@@ -4,9 +4,9 @@ title: ConfigTypeEnumCamel
 pagination_label: ConfigTypeEnumCamel
 sidebar_label: ConfigTypeEnumCamel
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ConfigTypeEnumCamel'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ConfigTypeEnumCamel', 'BetaConfigTypeEnumCamel'] 
 slug: /tools/sdk/powershell/beta/models/config-type-enum-camel
-tags: ['SDK', 'Software Development Kit', 'ConfigTypeEnumCamel']
+tags: ['SDK', 'Software Development Kit', 'ConfigTypeEnumCamel', 'BetaConfigTypeEnumCamel']
 ---
 
 

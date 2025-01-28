@@ -4,9 +4,9 @@ title: Conditional
 pagination_label: Conditional
 sidebar_label: Conditional
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Conditional'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Conditional', 'Conditional'] 
 slug: /tools/sdk/powershell/v3/models/conditional
-tags: ['SDK', 'Software Development Kit', 'Conditional']
+tags: ['SDK', 'Software Development Kit', 'Conditional', 'Conditional']
 ---
 
 

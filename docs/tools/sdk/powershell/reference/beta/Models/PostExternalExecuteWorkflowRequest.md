@@ -4,9 +4,9 @@ title: PostExternalExecuteWorkflowRequest
 pagination_label: PostExternalExecuteWorkflowRequest
 sidebar_label: PostExternalExecuteWorkflowRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'PostExternalExecuteWorkflowRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'PostExternalExecuteWorkflowRequest', 'BetaPostExternalExecuteWorkflowRequest'] 
 slug: /tools/sdk/powershell/beta/models/post-external-execute-workflow-request
-tags: ['SDK', 'Software Development Kit', 'PostExternalExecuteWorkflowRequest']
+tags: ['SDK', 'Software Development Kit', 'PostExternalExecuteWorkflowRequest', 'BetaPostExternalExecuteWorkflowRequest']
 ---
 
 

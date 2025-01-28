@@ -4,9 +4,9 @@ title: RequestableObjectRequestStatus
 pagination_label: RequestableObjectRequestStatus
 sidebar_label: RequestableObjectRequestStatus
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RequestableObjectRequestStatus'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RequestableObjectRequestStatus', 'BetaRequestableObjectRequestStatus'] 
 slug: /tools/sdk/powershell/beta/models/requestable-object-request-status
-tags: ['SDK', 'Software Development Kit', 'RequestableObjectRequestStatus']
+tags: ['SDK', 'Software Development Kit', 'RequestableObjectRequestStatus', 'BetaRequestableObjectRequestStatus']
 ---
 
 

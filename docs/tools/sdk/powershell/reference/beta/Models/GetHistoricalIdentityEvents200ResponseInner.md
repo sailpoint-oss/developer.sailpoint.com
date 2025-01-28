@@ -4,9 +4,9 @@ title: GetHistoricalIdentityEvents200ResponseInner
 pagination_label: GetHistoricalIdentityEvents200ResponseInner
 sidebar_label: GetHistoricalIdentityEvents200ResponseInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'GetHistoricalIdentityEvents200ResponseInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'GetHistoricalIdentityEvents200ResponseInner', 'BetaGetHistoricalIdentityEvents200ResponseInner'] 
 slug: /tools/sdk/powershell/beta/models/get-historical-identity-events200-response-inner
-tags: ['SDK', 'Software Development Kit', 'GetHistoricalIdentityEvents200ResponseInner']
+tags: ['SDK', 'Software Development Kit', 'GetHistoricalIdentityEvents200ResponseInner', 'BetaGetHistoricalIdentityEvents200ResponseInner']
 ---
 
 

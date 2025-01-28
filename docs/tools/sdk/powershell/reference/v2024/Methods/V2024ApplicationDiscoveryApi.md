@@ -4,9 +4,9 @@ title: ApplicationDiscovery
 pagination_label: ApplicationDiscovery
 sidebar_label: ApplicationDiscovery
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ApplicationDiscovery'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ApplicationDiscovery', 'V2024ApplicationDiscovery'] 
 slug: /tools/sdk/powershell/v2024/methods/application-discovery
-tags: ['SDK', 'Software Development Kit', 'ApplicationDiscovery']
+tags: ['SDK', 'Software Development Kit', 'ApplicationDiscovery', 'V2024ApplicationDiscovery']
 ---
 
 

@@ -4,9 +4,9 @@ title: LoadAccountsTaskTaskMessagesInner
 pagination_label: LoadAccountsTaskTaskMessagesInner
 sidebar_label: LoadAccountsTaskTaskMessagesInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'LoadAccountsTaskTaskMessagesInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'LoadAccountsTaskTaskMessagesInner', 'V2024LoadAccountsTaskTaskMessagesInner'] 
 slug: /tools/sdk/powershell/v2024/models/load-accounts-task-task-messages-inner
-tags: ['SDK', 'Software Development Kit', 'LoadAccountsTaskTaskMessagesInner']
+tags: ['SDK', 'Software Development Kit', 'LoadAccountsTaskTaskMessagesInner', 'V2024LoadAccountsTaskTaskMessagesInner']
 ---
 
 

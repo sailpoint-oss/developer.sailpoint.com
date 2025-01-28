@@ -4,9 +4,9 @@ title: AccountAggregationCompletedStats
 pagination_label: AccountAggregationCompletedStats
 sidebar_label: AccountAggregationCompletedStats
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccountAggregationCompletedStats'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccountAggregationCompletedStats', 'V2024AccountAggregationCompletedStats'] 
 slug: /tools/sdk/powershell/v2024/models/account-aggregation-completed-stats
-tags: ['SDK', 'Software Development Kit', 'AccountAggregationCompletedStats']
+tags: ['SDK', 'Software Development Kit', 'AccountAggregationCompletedStats', 'V2024AccountAggregationCompletedStats']
 ---
 
 

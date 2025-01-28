@@ -4,9 +4,9 @@ title: SessionConfiguration
 pagination_label: SessionConfiguration
 sidebar_label: SessionConfiguration
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SessionConfiguration'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SessionConfiguration', 'SessionConfiguration'] 
 slug: /tools/sdk/powershell/v3/models/session-configuration
-tags: ['SDK', 'Software Development Kit', 'SessionConfiguration']
+tags: ['SDK', 'Software Development Kit', 'SessionConfiguration', 'SessionConfiguration']
 ---
 
 

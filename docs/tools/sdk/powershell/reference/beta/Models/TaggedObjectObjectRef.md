@@ -4,9 +4,9 @@ title: TaggedObjectObjectRef
 pagination_label: TaggedObjectObjectRef
 sidebar_label: TaggedObjectObjectRef
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TaggedObjectObjectRef'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TaggedObjectObjectRef', 'BetaTaggedObjectObjectRef'] 
 slug: /tools/sdk/powershell/beta/models/tagged-object-object-ref
-tags: ['SDK', 'Software Development Kit', 'TaggedObjectObjectRef']
+tags: ['SDK', 'Software Development Kit', 'TaggedObjectObjectRef', 'BetaTaggedObjectObjectRef']
 ---
 
 

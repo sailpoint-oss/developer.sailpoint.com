@@ -4,9 +4,9 @@ title: ManagerCorrelationMapping
 pagination_label: ManagerCorrelationMapping
 sidebar_label: ManagerCorrelationMapping
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ManagerCorrelationMapping'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ManagerCorrelationMapping', 'ManagerCorrelationMapping'] 
 slug: /tools/sdk/powershell/v3/models/manager-correlation-mapping
-tags: ['SDK', 'Software Development Kit', 'ManagerCorrelationMapping']
+tags: ['SDK', 'Software Development Kit', 'ManagerCorrelationMapping', 'ManagerCorrelationMapping']
 ---
 
 

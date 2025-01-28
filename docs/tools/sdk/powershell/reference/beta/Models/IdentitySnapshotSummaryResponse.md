@@ -4,9 +4,9 @@ title: IdentitySnapshotSummaryResponse
 pagination_label: IdentitySnapshotSummaryResponse
 sidebar_label: IdentitySnapshotSummaryResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentitySnapshotSummaryResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentitySnapshotSummaryResponse', 'BetaIdentitySnapshotSummaryResponse'] 
 slug: /tools/sdk/powershell/beta/models/identity-snapshot-summary-response
-tags: ['SDK', 'Software Development Kit', 'IdentitySnapshotSummaryResponse']
+tags: ['SDK', 'Software Development Kit', 'IdentitySnapshotSummaryResponse', 'BetaIdentitySnapshotSummaryResponse']
 ---
 
 

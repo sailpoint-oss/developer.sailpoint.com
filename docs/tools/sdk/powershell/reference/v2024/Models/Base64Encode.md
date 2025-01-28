@@ -4,9 +4,9 @@ title: Base64Encode
 pagination_label: Base64Encode
 sidebar_label: Base64Encode
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Base64Encode'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Base64Encode', 'V2024Base64Encode'] 
 slug: /tools/sdk/powershell/v2024/models/base64-encode
-tags: ['SDK', 'Software Development Kit', 'Base64Encode']
+tags: ['SDK', 'Software Development Kit', 'Base64Encode', 'V2024Base64Encode']
 ---
 
 

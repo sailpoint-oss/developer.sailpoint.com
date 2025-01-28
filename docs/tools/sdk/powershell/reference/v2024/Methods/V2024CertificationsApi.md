@@ -4,9 +4,9 @@ title: Certifications
 pagination_label: Certifications
 sidebar_label: Certifications
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Certifications'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Certifications', 'V2024Certifications'] 
 slug: /tools/sdk/powershell/v2024/methods/certifications
-tags: ['SDK', 'Software Development Kit', 'Certifications']
+tags: ['SDK', 'Software Development Kit', 'Certifications', 'V2024Certifications']
 ---
 
 

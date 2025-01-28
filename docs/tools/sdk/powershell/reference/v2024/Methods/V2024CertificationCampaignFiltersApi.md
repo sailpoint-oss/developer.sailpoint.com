@@ -4,9 +4,9 @@ title: CertificationCampaignFilters
 pagination_label: CertificationCampaignFilters
 sidebar_label: CertificationCampaignFilters
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CertificationCampaignFilters'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CertificationCampaignFilters', 'V2024CertificationCampaignFilters'] 
 slug: /tools/sdk/powershell/v2024/methods/certification-campaign-filters
-tags: ['SDK', 'Software Development Kit', 'CertificationCampaignFilters']
+tags: ['SDK', 'Software Development Kit', 'CertificationCampaignFilters', 'V2024CertificationCampaignFilters']
 ---
 
 

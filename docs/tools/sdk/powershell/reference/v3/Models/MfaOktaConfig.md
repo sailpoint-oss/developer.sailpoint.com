@@ -4,9 +4,9 @@ title: MfaOktaConfig
 pagination_label: MfaOktaConfig
 sidebar_label: MfaOktaConfig
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'MfaOktaConfig'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'MfaOktaConfig', 'MfaOktaConfig'] 
 slug: /tools/sdk/powershell/v3/models/mfa-okta-config
-tags: ['SDK', 'Software Development Kit', 'MfaOktaConfig']
+tags: ['SDK', 'Software Development Kit', 'MfaOktaConfig', 'MfaOktaConfig']
 ---
 
 

@@ -4,9 +4,9 @@ title: CompleteInvocationInput
 pagination_label: CompleteInvocationInput
 sidebar_label: CompleteInvocationInput
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CompleteInvocationInput'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CompleteInvocationInput', 'BetaCompleteInvocationInput'] 
 slug: /tools/sdk/powershell/beta/models/complete-invocation-input
-tags: ['SDK', 'Software Development Kit', 'CompleteInvocationInput']
+tags: ['SDK', 'Software Development Kit', 'CompleteInvocationInput', 'BetaCompleteInvocationInput']
 ---
 
 

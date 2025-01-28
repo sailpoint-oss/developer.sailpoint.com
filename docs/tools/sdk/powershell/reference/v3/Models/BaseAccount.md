@@ -4,9 +4,9 @@ title: BaseAccount
 pagination_label: BaseAccount
 sidebar_label: BaseAccount
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'BaseAccount'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'BaseAccount', 'BaseAccount'] 
 slug: /tools/sdk/powershell/v3/models/base-account
-tags: ['SDK', 'Software Development Kit', 'BaseAccount']
+tags: ['SDK', 'Software Development Kit', 'BaseAccount', 'BaseAccount']
 ---
 
 

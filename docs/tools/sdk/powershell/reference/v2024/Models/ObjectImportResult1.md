@@ -4,9 +4,9 @@ title: ObjectImportResult1
 pagination_label: ObjectImportResult1
 sidebar_label: ObjectImportResult1
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ObjectImportResult1'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ObjectImportResult1', 'V2024ObjectImportResult1'] 
 slug: /tools/sdk/powershell/v2024/models/object-import-result1
-tags: ['SDK', 'Software Development Kit', 'ObjectImportResult1']
+tags: ['SDK', 'Software Development Kit', 'ObjectImportResult1', 'V2024ObjectImportResult1']
 ---
 
 

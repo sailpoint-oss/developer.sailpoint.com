@@ -4,9 +4,9 @@ title: Search
 pagination_label: Search
 sidebar_label: Search
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Search'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Search', 'Search'] 
 slug: /tools/sdk/powershell/v3/methods/search
-tags: ['SDK', 'Software Development Kit', 'Search']
+tags: ['SDK', 'Software Development Kit', 'Search', 'Search']
 ---
 
 

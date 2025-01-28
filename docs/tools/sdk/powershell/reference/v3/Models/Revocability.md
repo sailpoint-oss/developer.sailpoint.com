@@ -4,9 +4,9 @@ title: Revocability
 pagination_label: Revocability
 sidebar_label: Revocability
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Revocability'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Revocability', 'Revocability'] 
 slug: /tools/sdk/powershell/v3/models/revocability
-tags: ['SDK', 'Software Development Kit', 'Revocability']
+tags: ['SDK', 'Software Development Kit', 'Revocability', 'Revocability']
 ---
 
 

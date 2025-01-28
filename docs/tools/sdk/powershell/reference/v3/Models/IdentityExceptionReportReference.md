@@ -4,9 +4,9 @@ title: IdentityExceptionReportReference
 pagination_label: IdentityExceptionReportReference
 sidebar_label: IdentityExceptionReportReference
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityExceptionReportReference'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityExceptionReportReference', 'IdentityExceptionReportReference'] 
 slug: /tools/sdk/powershell/v3/models/identity-exception-report-reference
-tags: ['SDK', 'Software Development Kit', 'IdentityExceptionReportReference']
+tags: ['SDK', 'Software Development Kit', 'IdentityExceptionReportReference', 'IdentityExceptionReportReference']
 ---
 
 

@@ -4,9 +4,9 @@ title: CorrelationConfig
 pagination_label: CorrelationConfig
 sidebar_label: CorrelationConfig
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CorrelationConfig'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CorrelationConfig', 'BetaCorrelationConfig'] 
 slug: /tools/sdk/powershell/beta/models/correlation-config
-tags: ['SDK', 'Software Development Kit', 'CorrelationConfig']
+tags: ['SDK', 'Software Development Kit', 'CorrelationConfig', 'BetaCorrelationConfig']
 ---
 
 

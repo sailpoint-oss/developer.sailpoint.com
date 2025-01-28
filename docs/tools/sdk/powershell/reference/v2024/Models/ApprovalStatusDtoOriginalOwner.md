@@ -4,9 +4,9 @@ title: ApprovalStatusDtoOriginalOwner
 pagination_label: ApprovalStatusDtoOriginalOwner
 sidebar_label: ApprovalStatusDtoOriginalOwner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ApprovalStatusDtoOriginalOwner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ApprovalStatusDtoOriginalOwner', 'V2024ApprovalStatusDtoOriginalOwner'] 
 slug: /tools/sdk/powershell/v2024/models/approval-status-dto-original-owner
-tags: ['SDK', 'Software Development Kit', 'ApprovalStatusDtoOriginalOwner']
+tags: ['SDK', 'Software Development Kit', 'ApprovalStatusDtoOriginalOwner', 'V2024ApprovalStatusDtoOriginalOwner']
 ---
 
 

@@ -4,9 +4,9 @@ title: RoleIdentity
 pagination_label: RoleIdentity
 sidebar_label: RoleIdentity
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleIdentity'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleIdentity', 'V2024RoleIdentity'] 
 slug: /tools/sdk/powershell/v2024/models/role-identity
-tags: ['SDK', 'Software Development Kit', 'RoleIdentity']
+tags: ['SDK', 'Software Development Kit', 'RoleIdentity', 'V2024RoleIdentity']
 ---
 
 

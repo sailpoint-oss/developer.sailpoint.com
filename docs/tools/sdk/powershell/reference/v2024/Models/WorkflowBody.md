@@ -4,9 +4,9 @@ title: WorkflowBody
 pagination_label: WorkflowBody
 sidebar_label: WorkflowBody
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'WorkflowBody'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'WorkflowBody', 'V2024WorkflowBody'] 
 slug: /tools/sdk/powershell/v2024/models/workflow-body
-tags: ['SDK', 'Software Development Kit', 'WorkflowBody']
+tags: ['SDK', 'Software Development Kit', 'WorkflowBody', 'V2024WorkflowBody']
 ---
 
 

@@ -4,9 +4,9 @@ title: RoleMiningPotentialRoleExportState
 pagination_label: RoleMiningPotentialRoleExportState
 sidebar_label: RoleMiningPotentialRoleExportState
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMiningPotentialRoleExportState'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMiningPotentialRoleExportState', 'BetaRoleMiningPotentialRoleExportState'] 
 slug: /tools/sdk/powershell/beta/models/role-mining-potential-role-export-state
-tags: ['SDK', 'Software Development Kit', 'RoleMiningPotentialRoleExportState']
+tags: ['SDK', 'Software Development Kit', 'RoleMiningPotentialRoleExportState', 'BetaRoleMiningPotentialRoleExportState']
 ---
 
 

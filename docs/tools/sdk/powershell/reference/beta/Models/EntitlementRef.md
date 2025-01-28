@@ -4,9 +4,9 @@ title: EntitlementRef
 pagination_label: EntitlementRef
 sidebar_label: EntitlementRef
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'EntitlementRef'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'EntitlementRef', 'BetaEntitlementRef'] 
 slug: /tools/sdk/powershell/beta/models/entitlement-ref
-tags: ['SDK', 'Software Development Kit', 'EntitlementRef']
+tags: ['SDK', 'Software Development Kit', 'EntitlementRef', 'BetaEntitlementRef']
 ---
 
 

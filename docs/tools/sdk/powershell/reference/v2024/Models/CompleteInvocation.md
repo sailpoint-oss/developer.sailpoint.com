@@ -4,9 +4,9 @@ title: CompleteInvocation
 pagination_label: CompleteInvocation
 sidebar_label: CompleteInvocation
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CompleteInvocation'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CompleteInvocation', 'V2024CompleteInvocation'] 
 slug: /tools/sdk/powershell/v2024/models/complete-invocation
-tags: ['SDK', 'Software Development Kit', 'CompleteInvocation']
+tags: ['SDK', 'Software Development Kit', 'CompleteInvocation', 'V2024CompleteInvocation']
 ---
 
 

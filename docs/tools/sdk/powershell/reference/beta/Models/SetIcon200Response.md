@@ -4,9 +4,9 @@ title: SetIcon200Response
 pagination_label: SetIcon200Response
 sidebar_label: SetIcon200Response
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SetIcon200Response'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SetIcon200Response', 'BetaSetIcon200Response'] 
 slug: /tools/sdk/powershell/beta/models/set-icon200-response
-tags: ['SDK', 'Software Development Kit', 'SetIcon200Response']
+tags: ['SDK', 'Software Development Kit', 'SetIcon200Response', 'BetaSetIcon200Response']
 ---
 
 

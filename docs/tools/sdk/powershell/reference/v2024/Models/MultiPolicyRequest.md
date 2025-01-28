@@ -4,9 +4,9 @@ title: MultiPolicyRequest
 pagination_label: MultiPolicyRequest
 sidebar_label: MultiPolicyRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'MultiPolicyRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'MultiPolicyRequest', 'V2024MultiPolicyRequest'] 
 slug: /tools/sdk/powershell/v2024/models/multi-policy-request
-tags: ['SDK', 'Software Development Kit', 'MultiPolicyRequest']
+tags: ['SDK', 'Software Development Kit', 'MultiPolicyRequest', 'V2024MultiPolicyRequest']
 ---
 
 

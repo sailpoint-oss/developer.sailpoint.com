@@ -4,9 +4,9 @@ title: BaseDocument
 pagination_label: BaseDocument
 sidebar_label: BaseDocument
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'BaseDocument'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'BaseDocument', 'BaseDocument'] 
 slug: /tools/sdk/powershell/v3/models/base-document
-tags: ['SDK', 'Software Development Kit', 'BaseDocument']
+tags: ['SDK', 'Software Development Kit', 'BaseDocument', 'BaseDocument']
 ---
 
 

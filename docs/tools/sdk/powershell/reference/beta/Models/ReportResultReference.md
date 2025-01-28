@@ -4,9 +4,9 @@ title: ReportResultReference
 pagination_label: ReportResultReference
 sidebar_label: ReportResultReference
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ReportResultReference'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ReportResultReference', 'BetaReportResultReference'] 
 slug: /tools/sdk/powershell/beta/models/report-result-reference
-tags: ['SDK', 'Software Development Kit', 'ReportResultReference']
+tags: ['SDK', 'Software Development Kit', 'ReportResultReference', 'BetaReportResultReference']
 ---
 
 

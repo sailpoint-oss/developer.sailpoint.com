@@ -4,9 +4,9 @@ title: TaskStatus
 pagination_label: TaskStatus
 sidebar_label: TaskStatus
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TaskStatus'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TaskStatus', 'V2024TaskStatus'] 
 slug: /tools/sdk/powershell/v2024/models/task-status
-tags: ['SDK', 'Software Development Kit', 'TaskStatus']
+tags: ['SDK', 'Software Development Kit', 'TaskStatus', 'V2024TaskStatus']
 ---
 
 

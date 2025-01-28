@@ -4,9 +4,9 @@ title: CampaignAllOfSearchCampaignInfo
 pagination_label: CampaignAllOfSearchCampaignInfo
 sidebar_label: CampaignAllOfSearchCampaignInfo
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignAllOfSearchCampaignInfo'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignAllOfSearchCampaignInfo', 'V2024CampaignAllOfSearchCampaignInfo'] 
 slug: /tools/sdk/powershell/v2024/models/campaign-all-of-search-campaign-info
-tags: ['SDK', 'Software Development Kit', 'CampaignAllOfSearchCampaignInfo']
+tags: ['SDK', 'Software Development Kit', 'CampaignAllOfSearchCampaignInfo', 'V2024CampaignAllOfSearchCampaignInfo']
 ---
 
 

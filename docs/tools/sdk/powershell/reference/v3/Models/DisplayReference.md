@@ -4,9 +4,9 @@ title: DisplayReference
 pagination_label: DisplayReference
 sidebar_label: DisplayReference
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'DisplayReference'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'DisplayReference', 'DisplayReference'] 
 slug: /tools/sdk/powershell/v3/models/display-reference
-tags: ['SDK', 'Software Development Kit', 'DisplayReference']
+tags: ['SDK', 'Software Development Kit', 'DisplayReference', 'DisplayReference']
 ---
 
 

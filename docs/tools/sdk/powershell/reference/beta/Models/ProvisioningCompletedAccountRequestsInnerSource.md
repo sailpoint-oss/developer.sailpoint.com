@@ -4,9 +4,9 @@ title: ProvisioningCompletedAccountRequestsInnerSource
 pagination_label: ProvisioningCompletedAccountRequestsInnerSource
 sidebar_label: ProvisioningCompletedAccountRequestsInnerSource
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ProvisioningCompletedAccountRequestsInnerSource'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ProvisioningCompletedAccountRequestsInnerSource', 'BetaProvisioningCompletedAccountRequestsInnerSource'] 
 slug: /tools/sdk/powershell/beta/models/provisioning-completed-account-requests-inner-source
-tags: ['SDK', 'Software Development Kit', 'ProvisioningCompletedAccountRequestsInnerSource']
+tags: ['SDK', 'Software Development Kit', 'ProvisioningCompletedAccountRequestsInnerSource', 'BetaProvisioningCompletedAccountRequestsInnerSource']
 ---
 
 

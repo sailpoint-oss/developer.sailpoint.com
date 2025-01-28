@@ -4,9 +4,9 @@ title: WorkgroupConnectionDto
 pagination_label: WorkgroupConnectionDto
 sidebar_label: WorkgroupConnectionDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'WorkgroupConnectionDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'WorkgroupConnectionDto', 'V2024WorkgroupConnectionDto'] 
 slug: /tools/sdk/powershell/v2024/models/workgroup-connection-dto
-tags: ['SDK', 'Software Development Kit', 'WorkgroupConnectionDto']
+tags: ['SDK', 'Software Development Kit', 'WorkgroupConnectionDto', 'V2024WorkgroupConnectionDto']
 ---
 
 

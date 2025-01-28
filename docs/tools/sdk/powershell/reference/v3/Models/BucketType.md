@@ -4,9 +4,9 @@ title: BucketType
 pagination_label: BucketType
 sidebar_label: BucketType
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'BucketType'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'BucketType', 'BucketType'] 
 slug: /tools/sdk/powershell/v3/models/bucket-type
-tags: ['SDK', 'Software Development Kit', 'BucketType']
+tags: ['SDK', 'Software Development Kit', 'BucketType', 'BucketType']
 ---
 
 

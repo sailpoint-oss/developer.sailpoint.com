@@ -4,9 +4,9 @@ title: OutlierContributingFeature
 pagination_label: OutlierContributingFeature
 sidebar_label: OutlierContributingFeature
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'OutlierContributingFeature'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'OutlierContributingFeature', 'BetaOutlierContributingFeature'] 
 slug: /tools/sdk/powershell/beta/models/outlier-contributing-feature
-tags: ['SDK', 'Software Development Kit', 'OutlierContributingFeature']
+tags: ['SDK', 'Software Development Kit', 'OutlierContributingFeature', 'BetaOutlierContributingFeature']
 ---
 
 

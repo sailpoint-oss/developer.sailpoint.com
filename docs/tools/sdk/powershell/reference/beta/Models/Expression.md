@@ -4,9 +4,9 @@ title: Expression
 pagination_label: Expression
 sidebar_label: Expression
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Expression'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Expression', 'BetaExpression'] 
 slug: /tools/sdk/powershell/beta/models/expression
-tags: ['SDK', 'Software Development Kit', 'Expression']
+tags: ['SDK', 'Software Development Kit', 'Expression', 'BetaExpression']
 ---
 
 

@@ -4,9 +4,9 @@ title: Field
 pagination_label: Field
 sidebar_label: Field
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Field'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Field', 'BetaField'] 
 slug: /tools/sdk/powershell/beta/models/field
-tags: ['SDK', 'Software Development Kit', 'Field']
+tags: ['SDK', 'Software Development Kit', 'Field', 'BetaField']
 ---
 
 

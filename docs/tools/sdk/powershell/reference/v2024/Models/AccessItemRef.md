@@ -4,9 +4,9 @@ title: AccessItemRef
 pagination_label: AccessItemRef
 sidebar_label: AccessItemRef
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessItemRef'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessItemRef', 'V2024AccessItemRef'] 
 slug: /tools/sdk/powershell/v2024/models/access-item-ref
-tags: ['SDK', 'Software Development Kit', 'AccessItemRef']
+tags: ['SDK', 'Software Development Kit', 'AccessItemRef', 'V2024AccessItemRef']
 ---
 
 

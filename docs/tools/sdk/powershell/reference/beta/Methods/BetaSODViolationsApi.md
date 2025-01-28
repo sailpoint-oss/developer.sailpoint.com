@@ -4,9 +4,9 @@ title: SODViolations
 pagination_label: SODViolations
 sidebar_label: SODViolations
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SODViolations'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SODViolations', 'BetaSODViolations'] 
 slug: /tools/sdk/powershell/beta/methods/sod-violations
-tags: ['SDK', 'Software Development Kit', 'SODViolations']
+tags: ['SDK', 'Software Development Kit', 'SODViolations', 'BetaSODViolations']
 ---
 
 

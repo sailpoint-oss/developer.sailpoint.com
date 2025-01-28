@@ -4,9 +4,9 @@ title: TaskResultDetails
 pagination_label: TaskResultDetails
 sidebar_label: TaskResultDetails
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TaskResultDetails'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TaskResultDetails', 'V2024TaskResultDetails'] 
 slug: /tools/sdk/powershell/v2024/models/task-result-details
-tags: ['SDK', 'Software Development Kit', 'TaskResultDetails']
+tags: ['SDK', 'Software Development Kit', 'TaskResultDetails', 'V2024TaskResultDetails']
 ---
 
 

@@ -4,9 +4,9 @@ title: SearchArguments
 pagination_label: SearchArguments
 sidebar_label: SearchArguments
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SearchArguments'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SearchArguments', 'V2024SearchArguments'] 
 slug: /tools/sdk/powershell/v2024/models/search-arguments
-tags: ['SDK', 'Software Development Kit', 'SearchArguments']
+tags: ['SDK', 'Software Development Kit', 'SearchArguments', 'V2024SearchArguments']
 ---
 
 

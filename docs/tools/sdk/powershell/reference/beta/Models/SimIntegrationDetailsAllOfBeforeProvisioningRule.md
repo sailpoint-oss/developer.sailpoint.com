@@ -4,9 +4,9 @@ title: SimIntegrationDetailsAllOfBeforeProvisioningRule
 pagination_label: SimIntegrationDetailsAllOfBeforeProvisioningRule
 sidebar_label: SimIntegrationDetailsAllOfBeforeProvisioningRule
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SimIntegrationDetailsAllOfBeforeProvisioningRule'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SimIntegrationDetailsAllOfBeforeProvisioningRule', 'BetaSimIntegrationDetailsAllOfBeforeProvisioningRule'] 
 slug: /tools/sdk/powershell/beta/models/sim-integration-details-all-of-before-provisioning-rule
-tags: ['SDK', 'Software Development Kit', 'SimIntegrationDetailsAllOfBeforeProvisioningRule']
+tags: ['SDK', 'Software Development Kit', 'SimIntegrationDetailsAllOfBeforeProvisioningRule', 'BetaSimIntegrationDetailsAllOfBeforeProvisioningRule']
 ---
 
 

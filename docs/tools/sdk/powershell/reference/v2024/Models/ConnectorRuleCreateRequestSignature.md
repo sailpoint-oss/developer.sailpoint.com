@@ -4,9 +4,9 @@ title: ConnectorRuleCreateRequestSignature
 pagination_label: ConnectorRuleCreateRequestSignature
 sidebar_label: ConnectorRuleCreateRequestSignature
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ConnectorRuleCreateRequestSignature'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ConnectorRuleCreateRequestSignature', 'V2024ConnectorRuleCreateRequestSignature'] 
 slug: /tools/sdk/powershell/v2024/models/connector-rule-create-request-signature
-tags: ['SDK', 'Software Development Kit', 'ConnectorRuleCreateRequestSignature']
+tags: ['SDK', 'Software Development Kit', 'ConnectorRuleCreateRequestSignature', 'V2024ConnectorRuleCreateRequestSignature']
 ---
 
 

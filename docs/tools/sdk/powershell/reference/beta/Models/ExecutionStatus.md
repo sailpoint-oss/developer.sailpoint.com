@@ -4,9 +4,9 @@ title: ExecutionStatus
 pagination_label: ExecutionStatus
 sidebar_label: ExecutionStatus
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ExecutionStatus'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ExecutionStatus', 'BetaExecutionStatus'] 
 slug: /tools/sdk/powershell/beta/models/execution-status
-tags: ['SDK', 'Software Development Kit', 'ExecutionStatus']
+tags: ['SDK', 'Software Development Kit', 'ExecutionStatus', 'BetaExecutionStatus']
 ---
 
 

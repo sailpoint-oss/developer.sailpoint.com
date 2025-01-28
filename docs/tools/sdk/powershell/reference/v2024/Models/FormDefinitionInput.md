@@ -4,9 +4,9 @@ title: FormDefinitionInput
 pagination_label: FormDefinitionInput
 sidebar_label: FormDefinitionInput
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'FormDefinitionInput'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'FormDefinitionInput', 'V2024FormDefinitionInput'] 
 slug: /tools/sdk/powershell/v2024/models/form-definition-input
-tags: ['SDK', 'Software Development Kit', 'FormDefinitionInput']
+tags: ['SDK', 'Software Development Kit', 'FormDefinitionInput', 'V2024FormDefinitionInput']
 ---
 
 

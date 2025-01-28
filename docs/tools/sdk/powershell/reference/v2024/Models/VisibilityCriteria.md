@@ -4,9 +4,9 @@ title: VisibilityCriteria
 pagination_label: VisibilityCriteria
 sidebar_label: VisibilityCriteria
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'VisibilityCriteria'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'VisibilityCriteria', 'V2024VisibilityCriteria'] 
 slug: /tools/sdk/powershell/v2024/models/visibility-criteria
-tags: ['SDK', 'Software Development Kit', 'VisibilityCriteria']
+tags: ['SDK', 'Software Development Kit', 'VisibilityCriteria', 'V2024VisibilityCriteria']
 ---
 
 

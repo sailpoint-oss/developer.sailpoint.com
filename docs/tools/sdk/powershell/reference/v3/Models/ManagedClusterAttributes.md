@@ -4,9 +4,9 @@ title: ManagedClusterAttributes
 pagination_label: ManagedClusterAttributes
 sidebar_label: ManagedClusterAttributes
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ManagedClusterAttributes'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ManagedClusterAttributes', 'ManagedClusterAttributes'] 
 slug: /tools/sdk/powershell/v3/models/managed-cluster-attributes
-tags: ['SDK', 'Software Development Kit', 'ManagedClusterAttributes']
+tags: ['SDK', 'Software Development Kit', 'ManagedClusterAttributes', 'ManagedClusterAttributes']
 ---
 
 

@@ -4,9 +4,9 @@ title: Schema
 pagination_label: Schema
 sidebar_label: Schema
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Schema'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Schema', 'BetaSchema'] 
 slug: /tools/sdk/powershell/beta/models/schema
-tags: ['SDK', 'Software Development Kit', 'Schema']
+tags: ['SDK', 'Software Development Kit', 'Schema', 'BetaSchema']
 ---
 
 

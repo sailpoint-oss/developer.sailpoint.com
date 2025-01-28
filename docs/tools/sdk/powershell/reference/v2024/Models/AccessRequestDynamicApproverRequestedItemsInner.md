@@ -4,9 +4,9 @@ title: AccessRequestDynamicApproverRequestedItemsInner
 pagination_label: AccessRequestDynamicApproverRequestedItemsInner
 sidebar_label: AccessRequestDynamicApproverRequestedItemsInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestDynamicApproverRequestedItemsInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestDynamicApproverRequestedItemsInner', 'V2024AccessRequestDynamicApproverRequestedItemsInner'] 
 slug: /tools/sdk/powershell/v2024/models/access-request-dynamic-approver-requested-items-inner
-tags: ['SDK', 'Software Development Kit', 'AccessRequestDynamicApproverRequestedItemsInner']
+tags: ['SDK', 'Software Development Kit', 'AccessRequestDynamicApproverRequestedItemsInner', 'V2024AccessRequestDynamicApproverRequestedItemsInner']
 ---
 
 

@@ -4,9 +4,9 @@ title: SourceAppAccountSource
 pagination_label: SourceAppAccountSource
 sidebar_label: SourceAppAccountSource
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SourceAppAccountSource'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SourceAppAccountSource', 'BetaSourceAppAccountSource'] 
 slug: /tools/sdk/powershell/beta/models/source-app-account-source
-tags: ['SDK', 'Software Development Kit', 'SourceAppAccountSource']
+tags: ['SDK', 'Software Development Kit', 'SourceAppAccountSource', 'BetaSourceAppAccountSource']
 ---
 
 

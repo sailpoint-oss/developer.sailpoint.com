@@ -4,9 +4,9 @@ title: TemplateSlackCustomFields
 pagination_label: TemplateSlackCustomFields
 sidebar_label: TemplateSlackCustomFields
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TemplateSlackCustomFields'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TemplateSlackCustomFields', 'BetaTemplateSlackCustomFields'] 
 slug: /tools/sdk/powershell/beta/models/template-slack-custom-fields
-tags: ['SDK', 'Software Development Kit', 'TemplateSlackCustomFields']
+tags: ['SDK', 'Software Development Kit', 'TemplateSlackCustomFields', 'BetaTemplateSlackCustomFields']
 ---
 
 

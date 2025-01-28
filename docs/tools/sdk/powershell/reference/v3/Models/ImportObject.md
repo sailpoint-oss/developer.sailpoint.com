@@ -4,9 +4,9 @@ title: ImportObject
 pagination_label: ImportObject
 sidebar_label: ImportObject
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ImportObject'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ImportObject', 'ImportObject'] 
 slug: /tools/sdk/powershell/v3/models/import-object
-tags: ['SDK', 'Software Development Kit', 'ImportObject']
+tags: ['SDK', 'Software Development Kit', 'ImportObject', 'ImportObject']
 ---
 
 

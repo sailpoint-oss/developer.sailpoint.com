@@ -4,9 +4,9 @@ title: PublicIdentityAttributesInner
 pagination_label: PublicIdentityAttributesInner
 sidebar_label: PublicIdentityAttributesInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'PublicIdentityAttributesInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'PublicIdentityAttributesInner', 'V2024PublicIdentityAttributesInner'] 
 slug: /tools/sdk/powershell/v2024/models/public-identity-attributes-inner
-tags: ['SDK', 'Software Development Kit', 'PublicIdentityAttributesInner']
+tags: ['SDK', 'Software Development Kit', 'PublicIdentityAttributesInner', 'V2024PublicIdentityAttributesInner']
 ---
 
 

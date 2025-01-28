@@ -4,9 +4,9 @@ title: EntitlementSummary
 pagination_label: EntitlementSummary
 sidebar_label: EntitlementSummary
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'EntitlementSummary'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'EntitlementSummary', 'V2024EntitlementSummary'] 
 slug: /tools/sdk/powershell/v2024/models/entitlement-summary
-tags: ['SDK', 'Software Development Kit', 'EntitlementSummary']
+tags: ['SDK', 'Software Development Kit', 'EntitlementSummary', 'V2024EntitlementSummary']
 ---
 
 

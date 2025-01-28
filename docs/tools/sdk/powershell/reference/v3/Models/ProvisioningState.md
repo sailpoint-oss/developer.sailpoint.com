@@ -4,9 +4,9 @@ title: ProvisioningState
 pagination_label: ProvisioningState
 sidebar_label: ProvisioningState
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ProvisioningState'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ProvisioningState', 'ProvisioningState'] 
 slug: /tools/sdk/powershell/v3/models/provisioning-state
-tags: ['SDK', 'Software Development Kit', 'ProvisioningState']
+tags: ['SDK', 'Software Development Kit', 'ProvisioningState', 'ProvisioningState']
 ---
 
 

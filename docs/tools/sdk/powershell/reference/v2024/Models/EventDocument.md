@@ -4,9 +4,9 @@ title: EventDocument
 pagination_label: EventDocument
 sidebar_label: EventDocument
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'EventDocument'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'EventDocument', 'V2024EventDocument'] 
 slug: /tools/sdk/powershell/v2024/models/event-document
-tags: ['SDK', 'Software Development Kit', 'EventDocument']
+tags: ['SDK', 'Software Development Kit', 'EventDocument', 'V2024EventDocument']
 ---
 
 

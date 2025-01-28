@@ -4,9 +4,9 @@ title: BaseAccessProfile
 pagination_label: BaseAccessProfile
 sidebar_label: BaseAccessProfile
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'BaseAccessProfile'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'BaseAccessProfile', 'BaseAccessProfile'] 
 slug: /tools/sdk/powershell/v3/models/base-access-profile
-tags: ['SDK', 'Software Development Kit', 'BaseAccessProfile']
+tags: ['SDK', 'Software Development Kit', 'BaseAccessProfile', 'BaseAccessProfile']
 ---
 
 

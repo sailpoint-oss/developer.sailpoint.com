@@ -4,9 +4,9 @@ title: NonEmployeeRequestWithoutApprovalItem
 pagination_label: NonEmployeeRequestWithoutApprovalItem
 sidebar_label: NonEmployeeRequestWithoutApprovalItem
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'NonEmployeeRequestWithoutApprovalItem'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'NonEmployeeRequestWithoutApprovalItem', 'V2024NonEmployeeRequestWithoutApprovalItem'] 
 slug: /tools/sdk/powershell/v2024/models/non-employee-request-without-approval-item
-tags: ['SDK', 'Software Development Kit', 'NonEmployeeRequestWithoutApprovalItem']
+tags: ['SDK', 'Software Development Kit', 'NonEmployeeRequestWithoutApprovalItem', 'V2024NonEmployeeRequestWithoutApprovalItem']
 ---
 
 

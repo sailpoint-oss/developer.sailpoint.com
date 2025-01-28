@@ -4,9 +4,9 @@ title: Operation
 pagination_label: Operation
 sidebar_label: Operation
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Operation'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Operation', 'V2024Operation'] 
 slug: /tools/sdk/powershell/v2024/models/operation
-tags: ['SDK', 'Software Development Kit', 'Operation']
+tags: ['SDK', 'Software Development Kit', 'Operation', 'V2024Operation']
 ---
 
 

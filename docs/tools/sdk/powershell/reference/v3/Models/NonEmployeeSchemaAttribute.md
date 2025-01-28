@@ -4,9 +4,9 @@ title: NonEmployeeSchemaAttribute
 pagination_label: NonEmployeeSchemaAttribute
 sidebar_label: NonEmployeeSchemaAttribute
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'NonEmployeeSchemaAttribute'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'NonEmployeeSchemaAttribute', 'NonEmployeeSchemaAttribute'] 
 slug: /tools/sdk/powershell/v3/models/non-employee-schema-attribute
-tags: ['SDK', 'Software Development Kit', 'NonEmployeeSchemaAttribute']
+tags: ['SDK', 'Software Development Kit', 'NonEmployeeSchemaAttribute', 'NonEmployeeSchemaAttribute']
 ---
 
 

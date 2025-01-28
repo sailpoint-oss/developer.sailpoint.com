@@ -4,9 +4,9 @@ title: WorkflowLibraryFormFields
 pagination_label: WorkflowLibraryFormFields
 sidebar_label: WorkflowLibraryFormFields
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'WorkflowLibraryFormFields'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'WorkflowLibraryFormFields', 'V2024WorkflowLibraryFormFields'] 
 slug: /tools/sdk/powershell/v2024/models/workflow-library-form-fields
-tags: ['SDK', 'Software Development Kit', 'WorkflowLibraryFormFields']
+tags: ['SDK', 'Software Development Kit', 'WorkflowLibraryFormFields', 'V2024WorkflowLibraryFormFields']
 ---
 
 

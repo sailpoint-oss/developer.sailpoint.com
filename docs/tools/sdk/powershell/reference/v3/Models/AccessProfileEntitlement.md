@@ -4,9 +4,9 @@ title: AccessProfileEntitlement
 pagination_label: AccessProfileEntitlement
 sidebar_label: AccessProfileEntitlement
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessProfileEntitlement'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessProfileEntitlement', 'AccessProfileEntitlement'] 
 slug: /tools/sdk/powershell/v3/models/access-profile-entitlement
-tags: ['SDK', 'Software Development Kit', 'AccessProfileEntitlement']
+tags: ['SDK', 'Software Development Kit', 'AccessProfileEntitlement', 'AccessProfileEntitlement']
 ---
 
 

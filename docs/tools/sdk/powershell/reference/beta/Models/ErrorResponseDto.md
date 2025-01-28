@@ -4,9 +4,9 @@ title: ErrorResponseDto
 pagination_label: ErrorResponseDto
 sidebar_label: ErrorResponseDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ErrorResponseDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ErrorResponseDto', 'BetaErrorResponseDto'] 
 slug: /tools/sdk/powershell/beta/models/error-response-dto
-tags: ['SDK', 'Software Development Kit', 'ErrorResponseDto']
+tags: ['SDK', 'Software Development Kit', 'ErrorResponseDto', 'BetaErrorResponseDto']
 ---
 
 

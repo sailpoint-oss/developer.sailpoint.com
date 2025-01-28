@@ -4,9 +4,9 @@ title: CancelableAccountActivity
 pagination_label: CancelableAccountActivity
 sidebar_label: CancelableAccountActivity
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CancelableAccountActivity'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CancelableAccountActivity', 'BetaCancelableAccountActivity'] 
 slug: /tools/sdk/powershell/beta/models/cancelable-account-activity
-tags: ['SDK', 'Software Development Kit', 'CancelableAccountActivity']
+tags: ['SDK', 'Software Development Kit', 'CancelableAccountActivity', 'BetaCancelableAccountActivity']
 ---
 
 

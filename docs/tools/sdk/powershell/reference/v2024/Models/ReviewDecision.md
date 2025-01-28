@@ -4,9 +4,9 @@ title: ReviewDecision
 pagination_label: ReviewDecision
 sidebar_label: ReviewDecision
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ReviewDecision'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ReviewDecision', 'V2024ReviewDecision'] 
 slug: /tools/sdk/powershell/v2024/models/review-decision
-tags: ['SDK', 'Software Development Kit', 'ReviewDecision']
+tags: ['SDK', 'Software Development Kit', 'ReviewDecision', 'V2024ReviewDecision']
 ---
 
 

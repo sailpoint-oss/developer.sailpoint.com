@@ -4,9 +4,9 @@ title: GetPersonalAccessTokenResponse
 pagination_label: GetPersonalAccessTokenResponse
 sidebar_label: GetPersonalAccessTokenResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'GetPersonalAccessTokenResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'GetPersonalAccessTokenResponse', 'BetaGetPersonalAccessTokenResponse'] 
 slug: /tools/sdk/powershell/beta/models/get-personal-access-token-response
-tags: ['SDK', 'Software Development Kit', 'GetPersonalAccessTokenResponse']
+tags: ['SDK', 'Software Development Kit', 'GetPersonalAccessTokenResponse', 'BetaGetPersonalAccessTokenResponse']
 ---
 
 

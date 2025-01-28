@@ -4,9 +4,9 @@ title: ListWorkgroupMembers200ResponseInner
 pagination_label: ListWorkgroupMembers200ResponseInner
 sidebar_label: ListWorkgroupMembers200ResponseInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ListWorkgroupMembers200ResponseInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ListWorkgroupMembers200ResponseInner', 'V2024ListWorkgroupMembers200ResponseInner'] 
 slug: /tools/sdk/powershell/v2024/models/list-workgroup-members200-response-inner
-tags: ['SDK', 'Software Development Kit', 'ListWorkgroupMembers200ResponseInner']
+tags: ['SDK', 'Software Development Kit', 'ListWorkgroupMembers200ResponseInner', 'V2024ListWorkgroupMembers200ResponseInner']
 ---
 
 

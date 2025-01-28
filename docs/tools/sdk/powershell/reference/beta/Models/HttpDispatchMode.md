@@ -4,9 +4,9 @@ title: HttpDispatchMode
 pagination_label: HttpDispatchMode
 sidebar_label: HttpDispatchMode
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'HttpDispatchMode'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'HttpDispatchMode', 'BetaHttpDispatchMode'] 
 slug: /tools/sdk/powershell/beta/models/http-dispatch-mode
-tags: ['SDK', 'Software Development Kit', 'HttpDispatchMode']
+tags: ['SDK', 'Software Development Kit', 'HttpDispatchMode', 'BetaHttpDispatchMode']
 ---
 
 

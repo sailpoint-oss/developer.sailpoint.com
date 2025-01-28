@@ -4,9 +4,9 @@ title: SedBatchStatus
 pagination_label: SedBatchStatus
 sidebar_label: SedBatchStatus
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SedBatchStatus'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SedBatchStatus', 'BetaSedBatchStatus'] 
 slug: /tools/sdk/powershell/beta/models/sed-batch-status
-tags: ['SDK', 'Software Development Kit', 'SedBatchStatus']
+tags: ['SDK', 'Software Development Kit', 'SedBatchStatus', 'BetaSedBatchStatus']
 ---
 
 

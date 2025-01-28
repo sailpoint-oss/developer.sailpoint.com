@@ -4,9 +4,9 @@ title: DeployRequest
 pagination_label: DeployRequest
 sidebar_label: DeployRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'DeployRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'DeployRequest', 'V2024DeployRequest'] 
 slug: /tools/sdk/powershell/v2024/models/deploy-request
-tags: ['SDK', 'Software Development Kit', 'DeployRequest']
+tags: ['SDK', 'Software Development Kit', 'DeployRequest', 'V2024DeployRequest']
 ---
 
 

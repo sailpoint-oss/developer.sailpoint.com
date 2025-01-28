@@ -4,9 +4,9 @@ title: FilterAggregation
 pagination_label: FilterAggregation
 sidebar_label: FilterAggregation
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'FilterAggregation'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'FilterAggregation', 'FilterAggregation'] 
 slug: /tools/sdk/powershell/v3/models/filter-aggregation
-tags: ['SDK', 'Software Development Kit', 'FilterAggregation']
+tags: ['SDK', 'Software Development Kit', 'FilterAggregation', 'FilterAggregation']
 ---
 
 

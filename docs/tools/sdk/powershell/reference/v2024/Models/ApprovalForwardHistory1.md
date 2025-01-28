@@ -4,9 +4,9 @@ title: ApprovalForwardHistory1
 pagination_label: ApprovalForwardHistory1
 sidebar_label: ApprovalForwardHistory1
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ApprovalForwardHistory1'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ApprovalForwardHistory1', 'V2024ApprovalForwardHistory1'] 
 slug: /tools/sdk/powershell/v2024/models/approval-forward-history1
-tags: ['SDK', 'Software Development Kit', 'ApprovalForwardHistory1']
+tags: ['SDK', 'Software Development Kit', 'ApprovalForwardHistory1', 'V2024ApprovalForwardHistory1']
 ---
 
 

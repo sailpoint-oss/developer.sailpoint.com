@@ -4,9 +4,9 @@ title: RecommendationConfigDto
 pagination_label: RecommendationConfigDto
 sidebar_label: RecommendationConfigDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RecommendationConfigDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RecommendationConfigDto', 'BetaRecommendationConfigDto'] 
 slug: /tools/sdk/powershell/beta/models/recommendation-config-dto
-tags: ['SDK', 'Software Development Kit', 'RecommendationConfigDto']
+tags: ['SDK', 'Software Development Kit', 'RecommendationConfigDto', 'BetaRecommendationConfigDto']
 ---
 
 

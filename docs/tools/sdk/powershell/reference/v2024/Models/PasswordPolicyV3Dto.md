@@ -4,9 +4,9 @@ title: PasswordPolicyV3Dto
 pagination_label: PasswordPolicyV3Dto
 sidebar_label: PasswordPolicyV3Dto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'PasswordPolicyV3Dto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'PasswordPolicyV3Dto', 'V2024PasswordPolicyV3Dto'] 
 slug: /tools/sdk/powershell/v2024/models/password-policy-v3-dto
-tags: ['SDK', 'Software Development Kit', 'PasswordPolicyV3Dto']
+tags: ['SDK', 'Software Development Kit', 'PasswordPolicyV3Dto', 'V2024PasswordPolicyV3Dto']
 ---
 
 

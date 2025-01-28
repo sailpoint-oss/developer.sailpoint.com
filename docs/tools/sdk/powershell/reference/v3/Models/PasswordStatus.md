@@ -4,9 +4,9 @@ title: PasswordStatus
 pagination_label: PasswordStatus
 sidebar_label: PasswordStatus
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'PasswordStatus'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'PasswordStatus', 'PasswordStatus'] 
 slug: /tools/sdk/powershell/v3/models/password-status
-tags: ['SDK', 'Software Development Kit', 'PasswordStatus']
+tags: ['SDK', 'Software Development Kit', 'PasswordStatus', 'PasswordStatus']
 ---
 
 

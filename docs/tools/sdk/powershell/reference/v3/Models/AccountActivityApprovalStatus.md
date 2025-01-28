@@ -4,9 +4,9 @@ title: AccountActivityApprovalStatus
 pagination_label: AccountActivityApprovalStatus
 sidebar_label: AccountActivityApprovalStatus
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccountActivityApprovalStatus'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccountActivityApprovalStatus', 'AccountActivityApprovalStatus'] 
 slug: /tools/sdk/powershell/v3/models/account-activity-approval-status
-tags: ['SDK', 'Software Development Kit', 'AccountActivityApprovalStatus']
+tags: ['SDK', 'Software Development Kit', 'AccountActivityApprovalStatus', 'AccountActivityApprovalStatus']
 ---
 
 

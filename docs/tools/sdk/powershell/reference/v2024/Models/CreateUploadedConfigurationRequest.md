@@ -4,9 +4,9 @@ title: CreateUploadedConfigurationRequest
 pagination_label: CreateUploadedConfigurationRequest
 sidebar_label: CreateUploadedConfigurationRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CreateUploadedConfigurationRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CreateUploadedConfigurationRequest', 'V2024CreateUploadedConfigurationRequest'] 
 slug: /tools/sdk/powershell/v2024/models/create-uploaded-configuration-request
-tags: ['SDK', 'Software Development Kit', 'CreateUploadedConfigurationRequest']
+tags: ['SDK', 'Software Development Kit', 'CreateUploadedConfigurationRequest', 'V2024CreateUploadedConfigurationRequest']
 ---
 
 

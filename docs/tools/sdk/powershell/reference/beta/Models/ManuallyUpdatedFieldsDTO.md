@@ -4,9 +4,9 @@ title: ManuallyUpdatedFieldsDTO
 pagination_label: ManuallyUpdatedFieldsDTO
 sidebar_label: ManuallyUpdatedFieldsDTO
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ManuallyUpdatedFieldsDTO'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ManuallyUpdatedFieldsDTO', 'BetaManuallyUpdatedFieldsDTO'] 
 slug: /tools/sdk/powershell/beta/models/manually-updated-fields-dto
-tags: ['SDK', 'Software Development Kit', 'ManuallyUpdatedFieldsDTO']
+tags: ['SDK', 'Software Development Kit', 'ManuallyUpdatedFieldsDTO', 'BetaManuallyUpdatedFieldsDTO']
 ---
 
 

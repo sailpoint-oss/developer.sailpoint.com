@@ -4,9 +4,9 @@ title: FormDefinitionDynamicSchemaRequest
 pagination_label: FormDefinitionDynamicSchemaRequest
 sidebar_label: FormDefinitionDynamicSchemaRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'FormDefinitionDynamicSchemaRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'FormDefinitionDynamicSchemaRequest', 'V2024FormDefinitionDynamicSchemaRequest'] 
 slug: /tools/sdk/powershell/v2024/models/form-definition-dynamic-schema-request
-tags: ['SDK', 'Software Development Kit', 'FormDefinitionDynamicSchemaRequest']
+tags: ['SDK', 'Software Development Kit', 'FormDefinitionDynamicSchemaRequest', 'V2024FormDefinitionDynamicSchemaRequest']
 ---
 
 

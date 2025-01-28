@@ -4,9 +4,9 @@ title: ServiceDeskIntegration
 pagination_label: ServiceDeskIntegration
 sidebar_label: ServiceDeskIntegration
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ServiceDeskIntegration'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ServiceDeskIntegration', 'BetaServiceDeskIntegration'] 
 slug: /tools/sdk/powershell/beta/methods/service-desk-integration
-tags: ['SDK', 'Software Development Kit', 'ServiceDeskIntegration']
+tags: ['SDK', 'Software Development Kit', 'ServiceDeskIntegration', 'BetaServiceDeskIntegration']
 ---
 
 

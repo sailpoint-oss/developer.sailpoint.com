@@ -4,9 +4,9 @@ title: VendorConnectorMappingDeletedBy
 pagination_label: VendorConnectorMappingDeletedBy
 sidebar_label: VendorConnectorMappingDeletedBy
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'VendorConnectorMappingDeletedBy'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'VendorConnectorMappingDeletedBy', 'V2024VendorConnectorMappingDeletedBy'] 
 slug: /tools/sdk/powershell/v2024/models/vendor-connector-mapping-deleted-by
-tags: ['SDK', 'Software Development Kit', 'VendorConnectorMappingDeletedBy']
+tags: ['SDK', 'Software Development Kit', 'VendorConnectorMappingDeletedBy', 'V2024VendorConnectorMappingDeletedBy']
 ---
 
 

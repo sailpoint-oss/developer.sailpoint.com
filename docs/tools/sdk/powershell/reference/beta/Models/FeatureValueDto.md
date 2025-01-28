@@ -4,9 +4,9 @@ title: FeatureValueDto
 pagination_label: FeatureValueDto
 sidebar_label: FeatureValueDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'FeatureValueDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'FeatureValueDto', 'BetaFeatureValueDto'] 
 slug: /tools/sdk/powershell/beta/models/feature-value-dto
-tags: ['SDK', 'Software Development Kit', 'FeatureValueDto']
+tags: ['SDK', 'Software Development Kit', 'FeatureValueDto', 'BetaFeatureValueDto']
 ---
 
 

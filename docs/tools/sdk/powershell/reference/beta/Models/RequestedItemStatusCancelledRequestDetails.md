@@ -4,9 +4,9 @@ title: RequestedItemStatusCancelledRequestDetails
 pagination_label: RequestedItemStatusCancelledRequestDetails
 sidebar_label: RequestedItemStatusCancelledRequestDetails
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RequestedItemStatusCancelledRequestDetails'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RequestedItemStatusCancelledRequestDetails', 'BetaRequestedItemStatusCancelledRequestDetails'] 
 slug: /tools/sdk/powershell/beta/models/requested-item-status-cancelled-request-details
-tags: ['SDK', 'Software Development Kit', 'RequestedItemStatusCancelledRequestDetails']
+tags: ['SDK', 'Software Development Kit', 'RequestedItemStatusCancelledRequestDetails', 'BetaRequestedItemStatusCancelledRequestDetails']
 ---
 
 

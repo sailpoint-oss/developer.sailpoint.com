@@ -4,9 +4,9 @@ title: ConfigurationHub
 pagination_label: ConfigurationHub
 sidebar_label: ConfigurationHub
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ConfigurationHub'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ConfigurationHub', 'V2024ConfigurationHub'] 
 slug: /tools/sdk/powershell/v2024/methods/configuration-hub
-tags: ['SDK', 'Software Development Kit', 'ConfigurationHub']
+tags: ['SDK', 'Software Development Kit', 'ConfigurationHub', 'V2024ConfigurationHub']
 ---
 
 

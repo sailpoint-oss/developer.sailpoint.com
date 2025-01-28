@@ -4,9 +4,9 @@ title: PasswordPolicyHoldersDtoAttributesIdentityAttrInner
 pagination_label: PasswordPolicyHoldersDtoAttributesIdentityAttrInner
 sidebar_label: PasswordPolicyHoldersDtoAttributesIdentityAttrInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'PasswordPolicyHoldersDtoAttributesIdentityAttrInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'PasswordPolicyHoldersDtoAttributesIdentityAttrInner', 'V2024PasswordPolicyHoldersDtoAttributesIdentityAttrInner'] 
 slug: /tools/sdk/powershell/v2024/models/password-policy-holders-dto-attributes-identity-attr-inner
-tags: ['SDK', 'Software Development Kit', 'PasswordPolicyHoldersDtoAttributesIdentityAttrInner']
+tags: ['SDK', 'Software Development Kit', 'PasswordPolicyHoldersDtoAttributesIdentityAttrInner', 'V2024PasswordPolicyHoldersDtoAttributesIdentityAttrInner']
 ---
 
 

@@ -4,9 +4,9 @@ title: SavedSearchCompleteSearchResultsEntitlement
 pagination_label: SavedSearchCompleteSearchResultsEntitlement
 sidebar_label: SavedSearchCompleteSearchResultsEntitlement
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SavedSearchCompleteSearchResultsEntitlement'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SavedSearchCompleteSearchResultsEntitlement', 'BetaSavedSearchCompleteSearchResultsEntitlement'] 
 slug: /tools/sdk/powershell/beta/models/saved-search-complete-search-results-entitlement
-tags: ['SDK', 'Software Development Kit', 'SavedSearchCompleteSearchResultsEntitlement']
+tags: ['SDK', 'Software Development Kit', 'SavedSearchCompleteSearchResultsEntitlement', 'BetaSavedSearchCompleteSearchResultsEntitlement']
 ---
 
 

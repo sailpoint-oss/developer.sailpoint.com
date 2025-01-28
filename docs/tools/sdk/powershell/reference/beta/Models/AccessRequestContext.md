@@ -4,9 +4,9 @@ title: AccessRequestContext
 pagination_label: AccessRequestContext
 sidebar_label: AccessRequestContext
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestContext'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestContext', 'BetaAccessRequestContext'] 
 slug: /tools/sdk/powershell/beta/models/access-request-context
-tags: ['SDK', 'Software Development Kit', 'AccessRequestContext']
+tags: ['SDK', 'Software Development Kit', 'AccessRequestContext', 'BetaAccessRequestContext']
 ---
 
 

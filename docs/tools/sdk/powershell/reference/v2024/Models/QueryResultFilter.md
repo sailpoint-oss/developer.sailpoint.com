@@ -4,9 +4,9 @@ title: QueryResultFilter
 pagination_label: QueryResultFilter
 sidebar_label: QueryResultFilter
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'QueryResultFilter'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'QueryResultFilter', 'V2024QueryResultFilter'] 
 slug: /tools/sdk/powershell/v2024/models/query-result-filter
-tags: ['SDK', 'Software Development Kit', 'QueryResultFilter']
+tags: ['SDK', 'Software Development Kit', 'QueryResultFilter', 'V2024QueryResultFilter']
 ---
 
 

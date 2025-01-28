@@ -4,9 +4,9 @@ title: ProvisioningCriteriaLevel1
 pagination_label: ProvisioningCriteriaLevel1
 sidebar_label: ProvisioningCriteriaLevel1
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ProvisioningCriteriaLevel1'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ProvisioningCriteriaLevel1', 'BetaProvisioningCriteriaLevel1'] 
 slug: /tools/sdk/powershell/beta/models/provisioning-criteria-level1
-tags: ['SDK', 'Software Development Kit', 'ProvisioningCriteriaLevel1']
+tags: ['SDK', 'Software Development Kit', 'ProvisioningCriteriaLevel1', 'BetaProvisioningCriteriaLevel1']
 ---
 
 

@@ -4,9 +4,9 @@ title: ManualWorkItemState
 pagination_label: ManualWorkItemState
 sidebar_label: ManualWorkItemState
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ManualWorkItemState'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ManualWorkItemState', 'BetaManualWorkItemState'] 
 slug: /tools/sdk/powershell/beta/models/manual-work-item-state
-tags: ['SDK', 'Software Development Kit', 'ManualWorkItemState']
+tags: ['SDK', 'Software Development Kit', 'ManualWorkItemState', 'BetaManualWorkItemState']
 ---
 
 

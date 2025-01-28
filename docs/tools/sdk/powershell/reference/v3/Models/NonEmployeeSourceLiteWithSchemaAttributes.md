@@ -4,9 +4,9 @@ title: NonEmployeeSourceLiteWithSchemaAttributes
 pagination_label: NonEmployeeSourceLiteWithSchemaAttributes
 sidebar_label: NonEmployeeSourceLiteWithSchemaAttributes
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'NonEmployeeSourceLiteWithSchemaAttributes'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'NonEmployeeSourceLiteWithSchemaAttributes', 'NonEmployeeSourceLiteWithSchemaAttributes'] 
 slug: /tools/sdk/powershell/v3/models/non-employee-source-lite-with-schema-attributes
-tags: ['SDK', 'Software Development Kit', 'NonEmployeeSourceLiteWithSchemaAttributes']
+tags: ['SDK', 'Software Development Kit', 'NonEmployeeSourceLiteWithSchemaAttributes', 'NonEmployeeSourceLiteWithSchemaAttributes']
 ---
 
 

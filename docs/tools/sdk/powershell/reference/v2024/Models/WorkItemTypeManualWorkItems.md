@@ -4,9 +4,9 @@ title: WorkItemTypeManualWorkItems
 pagination_label: WorkItemTypeManualWorkItems
 sidebar_label: WorkItemTypeManualWorkItems
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'WorkItemTypeManualWorkItems'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'WorkItemTypeManualWorkItems', 'V2024WorkItemTypeManualWorkItems'] 
 slug: /tools/sdk/powershell/v2024/models/work-item-type-manual-work-items
-tags: ['SDK', 'Software Development Kit', 'WorkItemTypeManualWorkItems']
+tags: ['SDK', 'Software Development Kit', 'WorkItemTypeManualWorkItems', 'V2024WorkItemTypeManualWorkItems']
 ---
 
 

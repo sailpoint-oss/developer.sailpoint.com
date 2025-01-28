@@ -4,9 +4,9 @@ title: TestSourceConnectionMultihost200Response
 pagination_label: TestSourceConnectionMultihost200Response
 sidebar_label: TestSourceConnectionMultihost200Response
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TestSourceConnectionMultihost200Response'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TestSourceConnectionMultihost200Response', 'BetaTestSourceConnectionMultihost200Response'] 
 slug: /tools/sdk/powershell/beta/models/test-source-connection-multihost200-response
-tags: ['SDK', 'Software Development Kit', 'TestSourceConnectionMultihost200Response']
+tags: ['SDK', 'Software Development Kit', 'TestSourceConnectionMultihost200Response', 'BetaTestSourceConnectionMultihost200Response']
 ---
 
 

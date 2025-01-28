@@ -4,9 +4,9 @@ title: PendingApproval
 pagination_label: PendingApproval
 sidebar_label: PendingApproval
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'PendingApproval'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'PendingApproval', 'BetaPendingApproval'] 
 slug: /tools/sdk/powershell/beta/models/pending-approval
-tags: ['SDK', 'Software Development Kit', 'PendingApproval']
+tags: ['SDK', 'Software Development Kit', 'PendingApproval', 'BetaPendingApproval']
 ---
 
 

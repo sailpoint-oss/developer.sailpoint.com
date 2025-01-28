@@ -4,9 +4,9 @@ title: RoleListFilterDTOAmmKeyValuesInner
 pagination_label: RoleListFilterDTOAmmKeyValuesInner
 sidebar_label: RoleListFilterDTOAmmKeyValuesInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleListFilterDTOAmmKeyValuesInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleListFilterDTOAmmKeyValuesInner', 'V2024RoleListFilterDTOAmmKeyValuesInner'] 
 slug: /tools/sdk/powershell/v2024/models/role-list-filter-dto-amm-key-values-inner
-tags: ['SDK', 'Software Development Kit', 'RoleListFilterDTOAmmKeyValuesInner']
+tags: ['SDK', 'Software Development Kit', 'RoleListFilterDTOAmmKeyValuesInner', 'V2024RoleListFilterDTOAmmKeyValuesInner']
 ---
 
 

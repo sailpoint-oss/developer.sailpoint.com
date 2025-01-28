@@ -4,9 +4,9 @@ title: BulkTaggedObjectResponse
 pagination_label: BulkTaggedObjectResponse
 sidebar_label: BulkTaggedObjectResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'BulkTaggedObjectResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'BulkTaggedObjectResponse', 'V2024BulkTaggedObjectResponse'] 
 slug: /tools/sdk/powershell/v2024/models/bulk-tagged-object-response
-tags: ['SDK', 'Software Development Kit', 'BulkTaggedObjectResponse']
+tags: ['SDK', 'Software Development Kit', 'BulkTaggedObjectResponse', 'V2024BulkTaggedObjectResponse']
 ---
 
 

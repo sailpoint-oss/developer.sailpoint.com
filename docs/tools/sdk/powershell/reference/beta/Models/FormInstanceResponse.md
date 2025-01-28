@@ -4,9 +4,9 @@ title: FormInstanceResponse
 pagination_label: FormInstanceResponse
 sidebar_label: FormInstanceResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'FormInstanceResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'FormInstanceResponse', 'BetaFormInstanceResponse'] 
 slug: /tools/sdk/powershell/beta/models/form-instance-response
-tags: ['SDK', 'Software Development Kit', 'FormInstanceResponse']
+tags: ['SDK', 'Software Development Kit', 'FormInstanceResponse', 'BetaFormInstanceResponse']
 ---
 
 

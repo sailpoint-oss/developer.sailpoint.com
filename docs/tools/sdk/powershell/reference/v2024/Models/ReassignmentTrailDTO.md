@@ -4,9 +4,9 @@ title: ReassignmentTrailDTO
 pagination_label: ReassignmentTrailDTO
 sidebar_label: ReassignmentTrailDTO
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ReassignmentTrailDTO'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ReassignmentTrailDTO', 'V2024ReassignmentTrailDTO'] 
 slug: /tools/sdk/powershell/v2024/models/reassignment-trail-dto
-tags: ['SDK', 'Software Development Kit', 'ReassignmentTrailDTO']
+tags: ['SDK', 'Software Development Kit', 'ReassignmentTrailDTO', 'V2024ReassignmentTrailDTO']
 ---
 
 

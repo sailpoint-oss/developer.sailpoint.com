@@ -4,9 +4,9 @@ title: SubscriptionPutRequest
 pagination_label: SubscriptionPutRequest
 sidebar_label: SubscriptionPutRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SubscriptionPutRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SubscriptionPutRequest', 'V2024SubscriptionPutRequest'] 
 slug: /tools/sdk/powershell/v2024/models/subscription-put-request
-tags: ['SDK', 'Software Development Kit', 'SubscriptionPutRequest']
+tags: ['SDK', 'Software Development Kit', 'SubscriptionPutRequest', 'V2024SubscriptionPutRequest']
 ---
 
 

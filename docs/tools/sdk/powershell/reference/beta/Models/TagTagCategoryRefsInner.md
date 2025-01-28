@@ -4,9 +4,9 @@ title: TagTagCategoryRefsInner
 pagination_label: TagTagCategoryRefsInner
 sidebar_label: TagTagCategoryRefsInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TagTagCategoryRefsInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TagTagCategoryRefsInner', 'BetaTagTagCategoryRefsInner'] 
 slug: /tools/sdk/powershell/beta/models/tag-tag-category-refs-inner
-tags: ['SDK', 'Software Development Kit', 'TagTagCategoryRefsInner']
+tags: ['SDK', 'Software Development Kit', 'TagTagCategoryRefsInner', 'BetaTagTagCategoryRefsInner']
 ---
 
 

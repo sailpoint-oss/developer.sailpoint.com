@@ -4,9 +4,9 @@ title: FormDefinitionResponse
 pagination_label: FormDefinitionResponse
 sidebar_label: FormDefinitionResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'FormDefinitionResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'FormDefinitionResponse', 'BetaFormDefinitionResponse'] 
 slug: /tools/sdk/powershell/beta/models/form-definition-response
-tags: ['SDK', 'Software Development Kit', 'FormDefinitionResponse']
+tags: ['SDK', 'Software Development Kit', 'FormDefinitionResponse', 'BetaFormDefinitionResponse']
 ---
 
 

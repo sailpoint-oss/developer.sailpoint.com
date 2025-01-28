@@ -4,9 +4,9 @@ title: CommonAccessItemAccess
 pagination_label: CommonAccessItemAccess
 sidebar_label: CommonAccessItemAccess
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CommonAccessItemAccess'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CommonAccessItemAccess', 'BetaCommonAccessItemAccess'] 
 slug: /tools/sdk/powershell/beta/models/common-access-item-access
-tags: ['SDK', 'Software Development Kit', 'CommonAccessItemAccess']
+tags: ['SDK', 'Software Development Kit', 'CommonAccessItemAccess', 'BetaCommonAccessItemAccess']
 ---
 
 

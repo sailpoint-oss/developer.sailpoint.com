@@ -4,9 +4,9 @@ title: ConnectorDetail
 pagination_label: ConnectorDetail
 sidebar_label: ConnectorDetail
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ConnectorDetail'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ConnectorDetail', 'BetaConnectorDetail'] 
 slug: /tools/sdk/powershell/beta/models/connector-detail
-tags: ['SDK', 'Software Development Kit', 'ConnectorDetail']
+tags: ['SDK', 'Software Development Kit', 'ConnectorDetail', 'BetaConnectorDetail']
 ---
 
 

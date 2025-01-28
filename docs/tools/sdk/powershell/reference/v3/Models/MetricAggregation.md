@@ -4,9 +4,9 @@ title: MetricAggregation
 pagination_label: MetricAggregation
 sidebar_label: MetricAggregation
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'MetricAggregation'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'MetricAggregation', 'MetricAggregation'] 
 slug: /tools/sdk/powershell/v3/models/metric-aggregation
-tags: ['SDK', 'Software Development Kit', 'MetricAggregation']
+tags: ['SDK', 'Software Development Kit', 'MetricAggregation', 'MetricAggregation']
 ---
 
 

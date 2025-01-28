@@ -4,9 +4,9 @@ title: WorkflowLibraryOperator
 pagination_label: WorkflowLibraryOperator
 sidebar_label: WorkflowLibraryOperator
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'WorkflowLibraryOperator'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'WorkflowLibraryOperator', 'V2024WorkflowLibraryOperator'] 
 slug: /tools/sdk/powershell/v2024/models/workflow-library-operator
-tags: ['SDK', 'Software Development Kit', 'WorkflowLibraryOperator']
+tags: ['SDK', 'Software Development Kit', 'WorkflowLibraryOperator', 'V2024WorkflowLibraryOperator']
 ---
 
 

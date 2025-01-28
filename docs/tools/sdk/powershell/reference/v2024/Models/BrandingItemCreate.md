@@ -4,9 +4,9 @@ title: BrandingItemCreate
 pagination_label: BrandingItemCreate
 sidebar_label: BrandingItemCreate
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'BrandingItemCreate'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'BrandingItemCreate', 'V2024BrandingItemCreate'] 
 slug: /tools/sdk/powershell/v2024/models/branding-item-create
-tags: ['SDK', 'Software Development Kit', 'BrandingItemCreate']
+tags: ['SDK', 'Software Development Kit', 'BrandingItemCreate', 'V2024BrandingItemCreate']
 ---
 
 

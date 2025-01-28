@@ -4,9 +4,9 @@ title: TemplateSlackAutoApprovalData
 pagination_label: TemplateSlackAutoApprovalData
 sidebar_label: TemplateSlackAutoApprovalData
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TemplateSlackAutoApprovalData'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TemplateSlackAutoApprovalData', 'V2024TemplateSlackAutoApprovalData'] 
 slug: /tools/sdk/powershell/v2024/models/template-slack-auto-approval-data
-tags: ['SDK', 'Software Development Kit', 'TemplateSlackAutoApprovalData']
+tags: ['SDK', 'Software Development Kit', 'TemplateSlackAutoApprovalData', 'V2024TemplateSlackAutoApprovalData']
 ---
 
 

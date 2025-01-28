@@ -4,9 +4,9 @@ title: FullcampaignAllOfSearchCampaignInfoReviewer
 pagination_label: FullcampaignAllOfSearchCampaignInfoReviewer
 sidebar_label: FullcampaignAllOfSearchCampaignInfoReviewer
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'FullcampaignAllOfSearchCampaignInfoReviewer'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'FullcampaignAllOfSearchCampaignInfoReviewer', 'BetaFullcampaignAllOfSearchCampaignInfoReviewer'] 
 slug: /tools/sdk/powershell/beta/models/fullcampaign-all-of-search-campaign-info-reviewer
-tags: ['SDK', 'Software Development Kit', 'FullcampaignAllOfSearchCampaignInfoReviewer']
+tags: ['SDK', 'Software Development Kit', 'FullcampaignAllOfSearchCampaignInfoReviewer', 'BetaFullcampaignAllOfSearchCampaignInfoReviewer']
 ---
 
 

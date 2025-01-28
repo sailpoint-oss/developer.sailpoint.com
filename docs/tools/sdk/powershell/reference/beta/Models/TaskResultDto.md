@@ -4,9 +4,9 @@ title: TaskResultDto
 pagination_label: TaskResultDto
 sidebar_label: TaskResultDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TaskResultDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TaskResultDto', 'BetaTaskResultDto'] 
 slug: /tools/sdk/powershell/beta/models/task-result-dto
-tags: ['SDK', 'Software Development Kit', 'TaskResultDto']
+tags: ['SDK', 'Software Development Kit', 'TaskResultDto', 'BetaTaskResultDto']
 ---
 
 

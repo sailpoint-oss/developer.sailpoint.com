@@ -4,9 +4,9 @@ title: IdentityPreviewRequest
 pagination_label: IdentityPreviewRequest
 sidebar_label: IdentityPreviewRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityPreviewRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityPreviewRequest', 'V2024IdentityPreviewRequest'] 
 slug: /tools/sdk/powershell/v2024/models/identity-preview-request
-tags: ['SDK', 'Software Development Kit', 'IdentityPreviewRequest']
+tags: ['SDK', 'Software Development Kit', 'IdentityPreviewRequest', 'V2024IdentityPreviewRequest']
 ---
 
 

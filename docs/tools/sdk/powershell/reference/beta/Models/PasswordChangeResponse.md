@@ -4,9 +4,9 @@ title: PasswordChangeResponse
 pagination_label: PasswordChangeResponse
 sidebar_label: PasswordChangeResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'PasswordChangeResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'PasswordChangeResponse', 'BetaPasswordChangeResponse'] 
 slug: /tools/sdk/powershell/beta/models/password-change-response
-tags: ['SDK', 'Software Development Kit', 'PasswordChangeResponse']
+tags: ['SDK', 'Software Development Kit', 'PasswordChangeResponse', 'BetaPasswordChangeResponse']
 ---
 
 

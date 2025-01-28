@@ -4,9 +4,9 @@ title: RoleInsightsRole
 pagination_label: RoleInsightsRole
 sidebar_label: RoleInsightsRole
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleInsightsRole'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleInsightsRole', 'V2024RoleInsightsRole'] 
 slug: /tools/sdk/powershell/v2024/models/role-insights-role
-tags: ['SDK', 'Software Development Kit', 'RoleInsightsRole']
+tags: ['SDK', 'Software Development Kit', 'RoleInsightsRole', 'V2024RoleInsightsRole']
 ---
 
 

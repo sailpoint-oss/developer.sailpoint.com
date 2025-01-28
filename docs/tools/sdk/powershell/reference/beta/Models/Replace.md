@@ -4,9 +4,9 @@ title: Replace
 pagination_label: Replace
 sidebar_label: Replace
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Replace'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Replace', 'BetaReplace'] 
 slug: /tools/sdk/powershell/beta/models/replace
-tags: ['SDK', 'Software Development Kit', 'Replace']
+tags: ['SDK', 'Software Development Kit', 'Replace', 'BetaReplace']
 ---
 
 

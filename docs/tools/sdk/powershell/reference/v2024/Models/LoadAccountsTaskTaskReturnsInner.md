@@ -4,9 +4,9 @@ title: LoadAccountsTaskTaskReturnsInner
 pagination_label: LoadAccountsTaskTaskReturnsInner
 sidebar_label: LoadAccountsTaskTaskReturnsInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'LoadAccountsTaskTaskReturnsInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'LoadAccountsTaskTaskReturnsInner', 'V2024LoadAccountsTaskTaskReturnsInner'] 
 slug: /tools/sdk/powershell/v2024/models/load-accounts-task-task-returns-inner
-tags: ['SDK', 'Software Development Kit', 'LoadAccountsTaskTaskReturnsInner']
+tags: ['SDK', 'Software Development Kit', 'LoadAccountsTaskTaskReturnsInner', 'V2024LoadAccountsTaskTaskReturnsInner']
 ---
 
 

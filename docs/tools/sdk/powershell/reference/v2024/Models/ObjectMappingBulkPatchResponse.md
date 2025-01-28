@@ -4,9 +4,9 @@ title: ObjectMappingBulkPatchResponse
 pagination_label: ObjectMappingBulkPatchResponse
 sidebar_label: ObjectMappingBulkPatchResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ObjectMappingBulkPatchResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ObjectMappingBulkPatchResponse', 'V2024ObjectMappingBulkPatchResponse'] 
 slug: /tools/sdk/powershell/v2024/models/object-mapping-bulk-patch-response
-tags: ['SDK', 'Software Development Kit', 'ObjectMappingBulkPatchResponse']
+tags: ['SDK', 'Software Development Kit', 'ObjectMappingBulkPatchResponse', 'V2024ObjectMappingBulkPatchResponse']
 ---
 
 

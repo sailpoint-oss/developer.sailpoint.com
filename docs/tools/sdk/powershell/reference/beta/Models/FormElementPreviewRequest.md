@@ -4,9 +4,9 @@ title: FormElementPreviewRequest
 pagination_label: FormElementPreviewRequest
 sidebar_label: FormElementPreviewRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'FormElementPreviewRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'FormElementPreviewRequest', 'BetaFormElementPreviewRequest'] 
 slug: /tools/sdk/powershell/beta/models/form-element-preview-request
-tags: ['SDK', 'Software Development Kit', 'FormElementPreviewRequest']
+tags: ['SDK', 'Software Development Kit', 'FormElementPreviewRequest', 'BetaFormElementPreviewRequest']
 ---
 
 

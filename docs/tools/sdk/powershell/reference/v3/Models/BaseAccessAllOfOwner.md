@@ -4,9 +4,9 @@ title: BaseAccessAllOfOwner
 pagination_label: BaseAccessAllOfOwner
 sidebar_label: BaseAccessAllOfOwner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'BaseAccessAllOfOwner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'BaseAccessAllOfOwner', 'BaseAccessAllOfOwner'] 
 slug: /tools/sdk/powershell/v3/models/base-access-all-of-owner
-tags: ['SDK', 'Software Development Kit', 'BaseAccessAllOfOwner']
+tags: ['SDK', 'Software Development Kit', 'BaseAccessAllOfOwner', 'BaseAccessAllOfOwner']
 ---
 
 

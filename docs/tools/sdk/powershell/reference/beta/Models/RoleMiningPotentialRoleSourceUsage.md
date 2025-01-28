@@ -4,9 +4,9 @@ title: RoleMiningPotentialRoleSourceUsage
 pagination_label: RoleMiningPotentialRoleSourceUsage
 sidebar_label: RoleMiningPotentialRoleSourceUsage
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMiningPotentialRoleSourceUsage'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMiningPotentialRoleSourceUsage', 'BetaRoleMiningPotentialRoleSourceUsage'] 
 slug: /tools/sdk/powershell/beta/models/role-mining-potential-role-source-usage
-tags: ['SDK', 'Software Development Kit', 'RoleMiningPotentialRoleSourceUsage']
+tags: ['SDK', 'Software Development Kit', 'RoleMiningPotentialRoleSourceUsage', 'BetaRoleMiningPotentialRoleSourceUsage']
 ---
 
 

@@ -4,9 +4,9 @@ title: ReviewableEntitlement
 pagination_label: ReviewableEntitlement
 sidebar_label: ReviewableEntitlement
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ReviewableEntitlement'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ReviewableEntitlement', 'ReviewableEntitlement'] 
 slug: /tools/sdk/powershell/v3/models/reviewable-entitlement
-tags: ['SDK', 'Software Development Kit', 'ReviewableEntitlement']
+tags: ['SDK', 'Software Development Kit', 'ReviewableEntitlement', 'ReviewableEntitlement']
 ---
 
 

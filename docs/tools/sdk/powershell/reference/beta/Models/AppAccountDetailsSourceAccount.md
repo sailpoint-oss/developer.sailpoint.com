@@ -4,9 +4,9 @@ title: AppAccountDetailsSourceAccount
 pagination_label: AppAccountDetailsSourceAccount
 sidebar_label: AppAccountDetailsSourceAccount
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AppAccountDetailsSourceAccount'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AppAccountDetailsSourceAccount', 'BetaAppAccountDetailsSourceAccount'] 
 slug: /tools/sdk/powershell/beta/models/app-account-details-source-account
-tags: ['SDK', 'Software Development Kit', 'AppAccountDetailsSourceAccount']
+tags: ['SDK', 'Software Development Kit', 'AppAccountDetailsSourceAccount', 'BetaAppAccountDetailsSourceAccount']
 ---
 
 

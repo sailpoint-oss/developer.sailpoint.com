@@ -4,9 +4,9 @@ title: AccessProfileUsageUsedByInner
 pagination_label: AccessProfileUsageUsedByInner
 sidebar_label: AccessProfileUsageUsedByInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessProfileUsageUsedByInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessProfileUsageUsedByInner', 'BetaAccessProfileUsageUsedByInner'] 
 slug: /tools/sdk/powershell/beta/models/access-profile-usage-used-by-inner
-tags: ['SDK', 'Software Development Kit', 'AccessProfileUsageUsedByInner']
+tags: ['SDK', 'Software Development Kit', 'AccessProfileUsageUsedByInner', 'BetaAccessProfileUsageUsedByInner']
 ---
 
 

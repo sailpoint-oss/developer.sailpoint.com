@@ -4,9 +4,9 @@ title: FormElementDataSourceConfigOptions
 pagination_label: FormElementDataSourceConfigOptions
 sidebar_label: FormElementDataSourceConfigOptions
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'FormElementDataSourceConfigOptions'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'FormElementDataSourceConfigOptions', 'V2024FormElementDataSourceConfigOptions'] 
 slug: /tools/sdk/powershell/v2024/models/form-element-data-source-config-options
-tags: ['SDK', 'Software Development Kit', 'FormElementDataSourceConfigOptions']
+tags: ['SDK', 'Software Development Kit', 'FormElementDataSourceConfigOptions', 'V2024FormElementDataSourceConfigOptions']
 ---
 
 

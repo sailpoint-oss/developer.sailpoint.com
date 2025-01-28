@@ -4,9 +4,9 @@ title: SearchDocument
 pagination_label: SearchDocument
 sidebar_label: SearchDocument
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SearchDocument'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SearchDocument', 'SearchDocument'] 
 slug: /tools/sdk/powershell/v3/models/search-document
-tags: ['SDK', 'Software Development Kit', 'SearchDocument']
+tags: ['SDK', 'Software Development Kit', 'SearchDocument', 'SearchDocument']
 ---
 
 

@@ -4,9 +4,9 @@ title: ObjectExportImportNames
 pagination_label: ObjectExportImportNames
 sidebar_label: ObjectExportImportNames
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ObjectExportImportNames'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ObjectExportImportNames', 'ObjectExportImportNames'] 
 slug: /tools/sdk/powershell/v3/models/object-export-import-names
-tags: ['SDK', 'Software Development Kit', 'ObjectExportImportNames']
+tags: ['SDK', 'Software Development Kit', 'ObjectExportImportNames', 'ObjectExportImportNames']
 ---
 
 

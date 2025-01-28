@@ -4,9 +4,9 @@ title: IdentityProfilesConnections
 pagination_label: IdentityProfilesConnections
 sidebar_label: IdentityProfilesConnections
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityProfilesConnections'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityProfilesConnections', 'IdentityProfilesConnections'] 
 slug: /tools/sdk/powershell/v3/models/identity-profiles-connections
-tags: ['SDK', 'Software Development Kit', 'IdentityProfilesConnections']
+tags: ['SDK', 'Software Development Kit', 'IdentityProfilesConnections', 'IdentityProfilesConnections']
 ---
 
 

@@ -4,9 +4,9 @@ title: BaseEntitlement
 pagination_label: BaseEntitlement
 sidebar_label: BaseEntitlement
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'BaseEntitlement'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'BaseEntitlement', 'BaseEntitlement'] 
 slug: /tools/sdk/powershell/v3/models/base-entitlement
-tags: ['SDK', 'Software Development Kit', 'BaseEntitlement']
+tags: ['SDK', 'Software Development Kit', 'BaseEntitlement', 'BaseEntitlement']
 ---
 
 

@@ -4,9 +4,9 @@ title: MultiHostSourcesManagerCorrelationRule
 pagination_label: MultiHostSourcesManagerCorrelationRule
 sidebar_label: MultiHostSourcesManagerCorrelationRule
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'MultiHostSourcesManagerCorrelationRule'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'MultiHostSourcesManagerCorrelationRule', 'BetaMultiHostSourcesManagerCorrelationRule'] 
 slug: /tools/sdk/powershell/beta/models/multi-host-sources-manager-correlation-rule
-tags: ['SDK', 'Software Development Kit', 'MultiHostSourcesManagerCorrelationRule']
+tags: ['SDK', 'Software Development Kit', 'MultiHostSourcesManagerCorrelationRule', 'BetaMultiHostSourcesManagerCorrelationRule']
 ---
 
 

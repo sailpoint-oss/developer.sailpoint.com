@@ -4,9 +4,9 @@ title: ConnectorRuleCreateRequest
 pagination_label: ConnectorRuleCreateRequest
 sidebar_label: ConnectorRuleCreateRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ConnectorRuleCreateRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ConnectorRuleCreateRequest', 'BetaConnectorRuleCreateRequest'] 
 slug: /tools/sdk/powershell/beta/models/connector-rule-create-request
-tags: ['SDK', 'Software Development Kit', 'ConnectorRuleCreateRequest']
+tags: ['SDK', 'Software Development Kit', 'ConnectorRuleCreateRequest', 'BetaConnectorRuleCreateRequest']
 ---
 
 

@@ -4,9 +4,9 @@ title: KbaAnswerResponseItem
 pagination_label: KbaAnswerResponseItem
 sidebar_label: KbaAnswerResponseItem
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'KbaAnswerResponseItem'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'KbaAnswerResponseItem', 'BetaKbaAnswerResponseItem'] 
 slug: /tools/sdk/powershell/beta/models/kba-answer-response-item
-tags: ['SDK', 'Software Development Kit', 'KbaAnswerResponseItem']
+tags: ['SDK', 'Software Development Kit', 'KbaAnswerResponseItem', 'BetaKbaAnswerResponseItem']
 ---
 
 

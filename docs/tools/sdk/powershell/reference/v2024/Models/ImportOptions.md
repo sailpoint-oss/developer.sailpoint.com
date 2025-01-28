@@ -4,9 +4,9 @@ title: ImportOptions
 pagination_label: ImportOptions
 sidebar_label: ImportOptions
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ImportOptions'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ImportOptions', 'V2024ImportOptions'] 
 slug: /tools/sdk/powershell/v2024/models/import-options
-tags: ['SDK', 'Software Development Kit', 'ImportOptions']
+tags: ['SDK', 'Software Development Kit', 'ImportOptions', 'V2024ImportOptions']
 ---
 
 

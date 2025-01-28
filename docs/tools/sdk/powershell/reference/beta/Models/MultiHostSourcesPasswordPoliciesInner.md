@@ -4,9 +4,9 @@ title: MultiHostSourcesPasswordPoliciesInner
 pagination_label: MultiHostSourcesPasswordPoliciesInner
 sidebar_label: MultiHostSourcesPasswordPoliciesInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'MultiHostSourcesPasswordPoliciesInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'MultiHostSourcesPasswordPoliciesInner', 'BetaMultiHostSourcesPasswordPoliciesInner'] 
 slug: /tools/sdk/powershell/beta/models/multi-host-sources-password-policies-inner
-tags: ['SDK', 'Software Development Kit', 'MultiHostSourcesPasswordPoliciesInner']
+tags: ['SDK', 'Software Development Kit', 'MultiHostSourcesPasswordPoliciesInner', 'BetaMultiHostSourcesPasswordPoliciesInner']
 ---
 
 

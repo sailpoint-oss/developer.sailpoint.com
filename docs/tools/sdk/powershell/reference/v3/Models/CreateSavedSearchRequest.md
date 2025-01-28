@@ -4,9 +4,9 @@ title: CreateSavedSearchRequest
 pagination_label: CreateSavedSearchRequest
 sidebar_label: CreateSavedSearchRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CreateSavedSearchRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CreateSavedSearchRequest', 'CreateSavedSearchRequest'] 
 slug: /tools/sdk/powershell/v3/models/create-saved-search-request
-tags: ['SDK', 'Software Development Kit', 'CreateSavedSearchRequest']
+tags: ['SDK', 'Software Development Kit', 'CreateSavedSearchRequest', 'CreateSavedSearchRequest']
 ---
 
 

@@ -4,9 +4,9 @@ title: Lookup
 pagination_label: Lookup
 sidebar_label: Lookup
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Lookup'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Lookup', 'BetaLookup'] 
 slug: /tools/sdk/powershell/beta/models/lookup
-tags: ['SDK', 'Software Development Kit', 'Lookup']
+tags: ['SDK', 'Software Development Kit', 'Lookup', 'BetaLookup']
 ---
 
 

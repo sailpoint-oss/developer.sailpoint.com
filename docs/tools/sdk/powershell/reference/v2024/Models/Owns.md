@@ -4,9 +4,9 @@ title: Owns
 pagination_label: Owns
 sidebar_label: Owns
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Owns'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Owns', 'V2024Owns'] 
 slug: /tools/sdk/powershell/v2024/models/owns
-tags: ['SDK', 'Software Development Kit', 'Owns']
+tags: ['SDK', 'Software Development Kit', 'Owns', 'V2024Owns']
 ---
 
 

@@ -4,9 +4,9 @@ title: BaseReferenceDto
 pagination_label: BaseReferenceDto
 sidebar_label: BaseReferenceDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'BaseReferenceDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'BaseReferenceDto', 'BetaBaseReferenceDto'] 
 slug: /tools/sdk/powershell/beta/models/base-reference-dto
-tags: ['SDK', 'Software Development Kit', 'BaseReferenceDto']
+tags: ['SDK', 'Software Development Kit', 'BaseReferenceDto', 'BetaBaseReferenceDto']
 ---
 
 

@@ -4,9 +4,9 @@ title: AccountsAsyncResult
 pagination_label: AccountsAsyncResult
 sidebar_label: AccountsAsyncResult
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccountsAsyncResult'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccountsAsyncResult', 'BetaAccountsAsyncResult'] 
 slug: /tools/sdk/powershell/beta/models/accounts-async-result
-tags: ['SDK', 'Software Development Kit', 'AccountsAsyncResult']
+tags: ['SDK', 'Software Development Kit', 'AccountsAsyncResult', 'BetaAccountsAsyncResult']
 ---
 
 

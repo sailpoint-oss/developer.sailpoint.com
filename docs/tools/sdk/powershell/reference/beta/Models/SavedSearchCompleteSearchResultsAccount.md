@@ -4,9 +4,9 @@ title: SavedSearchCompleteSearchResultsAccount
 pagination_label: SavedSearchCompleteSearchResultsAccount
 sidebar_label: SavedSearchCompleteSearchResultsAccount
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SavedSearchCompleteSearchResultsAccount'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SavedSearchCompleteSearchResultsAccount', 'BetaSavedSearchCompleteSearchResultsAccount'] 
 slug: /tools/sdk/powershell/beta/models/saved-search-complete-search-results-account
-tags: ['SDK', 'Software Development Kit', 'SavedSearchCompleteSearchResultsAccount']
+tags: ['SDK', 'Software Development Kit', 'SavedSearchCompleteSearchResultsAccount', 'BetaSavedSearchCompleteSearchResultsAccount']
 ---
 
 

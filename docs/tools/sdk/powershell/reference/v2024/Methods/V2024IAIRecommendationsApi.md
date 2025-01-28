@@ -4,9 +4,9 @@ title: IAIRecommendations
 pagination_label: IAIRecommendations
 sidebar_label: IAIRecommendations
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IAIRecommendations'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IAIRecommendations', 'V2024IAIRecommendations'] 
 slug: /tools/sdk/powershell/v2024/methods/iai-recommendations
-tags: ['SDK', 'Software Development Kit', 'IAIRecommendations']
+tags: ['SDK', 'Software Development Kit', 'IAIRecommendations', 'V2024IAIRecommendations']
 ---
 
 

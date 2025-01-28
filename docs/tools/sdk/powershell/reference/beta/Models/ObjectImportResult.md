@@ -4,9 +4,9 @@ title: ObjectImportResult
 pagination_label: ObjectImportResult
 sidebar_label: ObjectImportResult
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ObjectImportResult'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ObjectImportResult', 'BetaObjectImportResult'] 
 slug: /tools/sdk/powershell/beta/models/object-import-result
-tags: ['SDK', 'Software Development Kit', 'ObjectImportResult']
+tags: ['SDK', 'Software Development Kit', 'ObjectImportResult', 'BetaObjectImportResult']
 ---
 
 

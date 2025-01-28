@@ -4,9 +4,9 @@ title: OwnerReferenceDto
 pagination_label: OwnerReferenceDto
 sidebar_label: OwnerReferenceDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'OwnerReferenceDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'OwnerReferenceDto', 'BetaOwnerReferenceDto'] 
 slug: /tools/sdk/powershell/beta/models/owner-reference-dto
-tags: ['SDK', 'Software Development Kit', 'OwnerReferenceDto']
+tags: ['SDK', 'Software Development Kit', 'OwnerReferenceDto', 'BetaOwnerReferenceDto']
 ---
 
 

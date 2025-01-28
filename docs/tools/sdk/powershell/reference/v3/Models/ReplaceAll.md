@@ -4,9 +4,9 @@ title: ReplaceAll
 pagination_label: ReplaceAll
 sidebar_label: ReplaceAll
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ReplaceAll'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ReplaceAll', 'ReplaceAll'] 
 slug: /tools/sdk/powershell/v3/models/replace-all
-tags: ['SDK', 'Software Development Kit', 'ReplaceAll']
+tags: ['SDK', 'Software Development Kit', 'ReplaceAll', 'ReplaceAll']
 ---
 
 

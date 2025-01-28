@@ -4,9 +4,9 @@ title: Static
 pagination_label: Static
 sidebar_label: Static
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Static'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Static', 'Static'] 
 slug: /tools/sdk/powershell/v3/models/static
-tags: ['SDK', 'Software Development Kit', 'Static']
+tags: ['SDK', 'Software Development Kit', 'Static', 'Static']
 ---
 
 

@@ -4,9 +4,9 @@ title: MetricType
 pagination_label: MetricType
 sidebar_label: MetricType
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'MetricType'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'MetricType', 'V2024MetricType'] 
 slug: /tools/sdk/powershell/v2024/models/metric-type
-tags: ['SDK', 'Software Development Kit', 'MetricType']
+tags: ['SDK', 'Software Development Kit', 'MetricType', 'V2024MetricType']
 ---
 
 

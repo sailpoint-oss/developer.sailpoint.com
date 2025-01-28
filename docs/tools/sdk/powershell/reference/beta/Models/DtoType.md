@@ -4,9 +4,9 @@ title: DtoType
 pagination_label: DtoType
 sidebar_label: DtoType
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'DtoType'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'DtoType', 'BetaDtoType'] 
 slug: /tools/sdk/powershell/beta/models/dto-type
-tags: ['SDK', 'Software Development Kit', 'DtoType']
+tags: ['SDK', 'Software Development Kit', 'DtoType', 'BetaDtoType']
 ---
 
 

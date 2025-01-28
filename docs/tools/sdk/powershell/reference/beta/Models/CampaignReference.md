@@ -4,9 +4,9 @@ title: CampaignReference
 pagination_label: CampaignReference
 sidebar_label: CampaignReference
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignReference'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignReference', 'BetaCampaignReference'] 
 slug: /tools/sdk/powershell/beta/models/campaign-reference
-tags: ['SDK', 'Software Development Kit', 'CampaignReference']
+tags: ['SDK', 'Software Development Kit', 'CampaignReference', 'BetaCampaignReference']
 ---
 
 

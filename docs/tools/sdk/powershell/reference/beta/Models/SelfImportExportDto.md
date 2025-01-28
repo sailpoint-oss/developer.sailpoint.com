@@ -4,9 +4,9 @@ title: SelfImportExportDto
 pagination_label: SelfImportExportDto
 sidebar_label: SelfImportExportDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SelfImportExportDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SelfImportExportDto', 'BetaSelfImportExportDto'] 
 slug: /tools/sdk/powershell/beta/models/self-import-export-dto
-tags: ['SDK', 'Software Development Kit', 'SelfImportExportDto']
+tags: ['SDK', 'Software Development Kit', 'SelfImportExportDto', 'BetaSelfImportExportDto']
 ---
 
 

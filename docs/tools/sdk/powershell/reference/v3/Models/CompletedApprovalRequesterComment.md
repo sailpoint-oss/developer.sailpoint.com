@@ -4,9 +4,9 @@ title: CompletedApprovalRequesterComment
 pagination_label: CompletedApprovalRequesterComment
 sidebar_label: CompletedApprovalRequesterComment
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CompletedApprovalRequesterComment'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CompletedApprovalRequesterComment', 'CompletedApprovalRequesterComment'] 
 slug: /tools/sdk/powershell/v3/models/completed-approval-requester-comment
-tags: ['SDK', 'Software Development Kit', 'CompletedApprovalRequesterComment']
+tags: ['SDK', 'Software Development Kit', 'CompletedApprovalRequesterComment', 'CompletedApprovalRequesterComment']
 ---
 
 

@@ -4,9 +4,9 @@ title: SpConfigImportJobStatus
 pagination_label: SpConfigImportJobStatus
 sidebar_label: SpConfigImportJobStatus
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SpConfigImportJobStatus'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SpConfigImportJobStatus', 'V2024SpConfigImportJobStatus'] 
 slug: /tools/sdk/powershell/v2024/models/sp-config-import-job-status
-tags: ['SDK', 'Software Development Kit', 'SpConfigImportJobStatus']
+tags: ['SDK', 'Software Development Kit', 'SpConfigImportJobStatus', 'V2024SpConfigImportJobStatus']
 ---
 
 

@@ -4,9 +4,9 @@ title: AccountAttributesChangedSource
 pagination_label: AccountAttributesChangedSource
 sidebar_label: AccountAttributesChangedSource
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccountAttributesChangedSource'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccountAttributesChangedSource', 'BetaAccountAttributesChangedSource'] 
 slug: /tools/sdk/powershell/beta/models/account-attributes-changed-source
-tags: ['SDK', 'Software Development Kit', 'AccountAttributesChangedSource']
+tags: ['SDK', 'Software Development Kit', 'AccountAttributesChangedSource', 'BetaAccountAttributesChangedSource']
 ---
 
 

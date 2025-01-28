@@ -4,9 +4,9 @@ title: FederationProtocolDetails
 pagination_label: FederationProtocolDetails
 sidebar_label: FederationProtocolDetails
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'FederationProtocolDetails'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'FederationProtocolDetails', 'FederationProtocolDetails'] 
 slug: /tools/sdk/powershell/v3/models/federation-protocol-details
-tags: ['SDK', 'Software Development Kit', 'FederationProtocolDetails']
+tags: ['SDK', 'Software Development Kit', 'FederationProtocolDetails', 'FederationProtocolDetails']
 ---
 
 

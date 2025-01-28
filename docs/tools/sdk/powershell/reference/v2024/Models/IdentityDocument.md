@@ -4,9 +4,9 @@ title: IdentityDocument
 pagination_label: IdentityDocument
 sidebar_label: IdentityDocument
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityDocument'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityDocument', 'V2024IdentityDocument'] 
 slug: /tools/sdk/powershell/v2024/models/identity-document
-tags: ['SDK', 'Software Development Kit', 'IdentityDocument']
+tags: ['SDK', 'Software Development Kit', 'IdentityDocument', 'V2024IdentityDocument']
 ---
 
 

@@ -4,9 +4,9 @@ title: TaskResultSimplified
 pagination_label: TaskResultSimplified
 sidebar_label: TaskResultSimplified
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TaskResultSimplified'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TaskResultSimplified', 'BetaTaskResultSimplified'] 
 slug: /tools/sdk/powershell/beta/models/task-result-simplified
-tags: ['SDK', 'Software Development Kit', 'TaskResultSimplified']
+tags: ['SDK', 'Software Development Kit', 'TaskResultSimplified', 'BetaTaskResultSimplified']
 ---
 
 

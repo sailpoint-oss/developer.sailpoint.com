@@ -4,9 +4,9 @@ title: ViolationOwnerAssignmentConfig
 pagination_label: ViolationOwnerAssignmentConfig
 sidebar_label: ViolationOwnerAssignmentConfig
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ViolationOwnerAssignmentConfig'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ViolationOwnerAssignmentConfig', 'BetaViolationOwnerAssignmentConfig'] 
 slug: /tools/sdk/powershell/beta/models/violation-owner-assignment-config
-tags: ['SDK', 'Software Development Kit', 'ViolationOwnerAssignmentConfig']
+tags: ['SDK', 'Software Development Kit', 'ViolationOwnerAssignmentConfig', 'BetaViolationOwnerAssignmentConfig']
 ---
 
 

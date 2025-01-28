@@ -4,9 +4,9 @@ title: NonEmployeeBulkUploadJob
 pagination_label: NonEmployeeBulkUploadJob
 sidebar_label: NonEmployeeBulkUploadJob
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'NonEmployeeBulkUploadJob'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'NonEmployeeBulkUploadJob', 'BetaNonEmployeeBulkUploadJob'] 
 slug: /tools/sdk/powershell/beta/models/non-employee-bulk-upload-job
-tags: ['SDK', 'Software Development Kit', 'NonEmployeeBulkUploadJob']
+tags: ['SDK', 'Software Development Kit', 'NonEmployeeBulkUploadJob', 'BetaNonEmployeeBulkUploadJob']
 ---
 
 

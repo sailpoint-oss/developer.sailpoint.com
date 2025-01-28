@@ -4,9 +4,9 @@ title: ReviewableRole
 pagination_label: ReviewableRole
 sidebar_label: ReviewableRole
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ReviewableRole'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ReviewableRole', 'ReviewableRole'] 
 slug: /tools/sdk/powershell/v3/models/reviewable-role
-tags: ['SDK', 'Software Development Kit', 'ReviewableRole']
+tags: ['SDK', 'Software Development Kit', 'ReviewableRole', 'ReviewableRole']
 ---
 
 

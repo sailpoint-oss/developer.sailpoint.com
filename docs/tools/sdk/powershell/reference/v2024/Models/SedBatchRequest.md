@@ -4,9 +4,9 @@ title: SedBatchRequest
 pagination_label: SedBatchRequest
 sidebar_label: SedBatchRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SedBatchRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SedBatchRequest', 'V2024SedBatchRequest'] 
 slug: /tools/sdk/powershell/v2024/models/sed-batch-request
-tags: ['SDK', 'Software Development Kit', 'SedBatchRequest']
+tags: ['SDK', 'Software Development Kit', 'SedBatchRequest', 'V2024SedBatchRequest']
 ---
 
 

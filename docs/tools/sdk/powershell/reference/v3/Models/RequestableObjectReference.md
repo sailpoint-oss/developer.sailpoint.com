@@ -4,9 +4,9 @@ title: RequestableObjectReference
 pagination_label: RequestableObjectReference
 sidebar_label: RequestableObjectReference
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RequestableObjectReference'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RequestableObjectReference', 'RequestableObjectReference'] 
 slug: /tools/sdk/powershell/v3/models/requestable-object-reference
-tags: ['SDK', 'Software Development Kit', 'RequestableObjectReference']
+tags: ['SDK', 'Software Development Kit', 'RequestableObjectReference', 'RequestableObjectReference']
 ---
 
 

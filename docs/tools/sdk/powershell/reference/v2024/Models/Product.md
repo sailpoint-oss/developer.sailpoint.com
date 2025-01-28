@@ -4,9 +4,9 @@ title: Product
 pagination_label: Product
 sidebar_label: Product
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Product'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Product', 'V2024Product'] 
 slug: /tools/sdk/powershell/v2024/models/product
-tags: ['SDK', 'Software Development Kit', 'Product']
+tags: ['SDK', 'Software Development Kit', 'Product', 'V2024Product']
 ---
 
 

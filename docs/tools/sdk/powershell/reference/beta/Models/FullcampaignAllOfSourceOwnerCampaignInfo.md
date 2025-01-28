@@ -4,9 +4,9 @@ title: FullcampaignAllOfSourceOwnerCampaignInfo
 pagination_label: FullcampaignAllOfSourceOwnerCampaignInfo
 sidebar_label: FullcampaignAllOfSourceOwnerCampaignInfo
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'FullcampaignAllOfSourceOwnerCampaignInfo'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'FullcampaignAllOfSourceOwnerCampaignInfo', 'BetaFullcampaignAllOfSourceOwnerCampaignInfo'] 
 slug: /tools/sdk/powershell/beta/models/fullcampaign-all-of-source-owner-campaign-info
-tags: ['SDK', 'Software Development Kit', 'FullcampaignAllOfSourceOwnerCampaignInfo']
+tags: ['SDK', 'Software Development Kit', 'FullcampaignAllOfSourceOwnerCampaignInfo', 'BetaFullcampaignAllOfSourceOwnerCampaignInfo']
 ---
 
 

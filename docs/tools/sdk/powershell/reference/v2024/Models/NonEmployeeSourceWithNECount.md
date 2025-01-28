@@ -4,9 +4,9 @@ title: NonEmployeeSourceWithNECount
 pagination_label: NonEmployeeSourceWithNECount
 sidebar_label: NonEmployeeSourceWithNECount
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'NonEmployeeSourceWithNECount'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'NonEmployeeSourceWithNECount', 'V2024NonEmployeeSourceWithNECount'] 
 slug: /tools/sdk/powershell/v2024/models/non-employee-source-with-ne-count
-tags: ['SDK', 'Software Development Kit', 'NonEmployeeSourceWithNECount']
+tags: ['SDK', 'Software Development Kit', 'NonEmployeeSourceWithNECount', 'V2024NonEmployeeSourceWithNECount']
 ---
 
 

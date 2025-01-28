@@ -4,9 +4,9 @@ title: RoleMiningSessionResponse
 pagination_label: RoleMiningSessionResponse
 sidebar_label: RoleMiningSessionResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMiningSessionResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMiningSessionResponse', 'V2024RoleMiningSessionResponse'] 
 slug: /tools/sdk/powershell/v2024/models/role-mining-session-response
-tags: ['SDK', 'Software Development Kit', 'RoleMiningSessionResponse']
+tags: ['SDK', 'Software Development Kit', 'RoleMiningSessionResponse', 'V2024RoleMiningSessionResponse']
 ---
 
 

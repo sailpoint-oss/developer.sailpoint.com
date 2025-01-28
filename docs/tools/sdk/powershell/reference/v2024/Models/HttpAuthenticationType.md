@@ -4,9 +4,9 @@ title: HttpAuthenticationType
 pagination_label: HttpAuthenticationType
 sidebar_label: HttpAuthenticationType
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'HttpAuthenticationType'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'HttpAuthenticationType', 'V2024HttpAuthenticationType'] 
 slug: /tools/sdk/powershell/v2024/models/http-authentication-type
-tags: ['SDK', 'Software Development Kit', 'HttpAuthenticationType']
+tags: ['SDK', 'Software Development Kit', 'HttpAuthenticationType', 'V2024HttpAuthenticationType']
 ---
 
 

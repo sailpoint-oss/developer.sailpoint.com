@@ -4,9 +4,9 @@ title: UserAppAccount
 pagination_label: UserAppAccount
 sidebar_label: UserAppAccount
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'UserAppAccount'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'UserAppAccount', 'BetaUserAppAccount'] 
 slug: /tools/sdk/powershell/beta/models/user-app-account
-tags: ['SDK', 'Software Development Kit', 'UserAppAccount']
+tags: ['SDK', 'Software Development Kit', 'UserAppAccount', 'BetaUserAppAccount']
 ---
 
 

@@ -4,9 +4,9 @@ title: CampaignReportsConfig
 pagination_label: CampaignReportsConfig
 sidebar_label: CampaignReportsConfig
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignReportsConfig'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignReportsConfig', 'V2024CampaignReportsConfig'] 
 slug: /tools/sdk/powershell/v2024/models/campaign-reports-config
-tags: ['SDK', 'Software Development Kit', 'CampaignReportsConfig']
+tags: ['SDK', 'Software Development Kit', 'CampaignReportsConfig', 'V2024CampaignReportsConfig']
 ---
 
 

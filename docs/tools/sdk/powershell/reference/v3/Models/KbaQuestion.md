@@ -4,9 +4,9 @@ title: KbaQuestion
 pagination_label: KbaQuestion
 sidebar_label: KbaQuestion
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'KbaQuestion'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'KbaQuestion', 'KbaQuestion'] 
 slug: /tools/sdk/powershell/v3/models/kba-question
-tags: ['SDK', 'Software Development Kit', 'KbaQuestion']
+tags: ['SDK', 'Software Development Kit', 'KbaQuestion', 'KbaQuestion']
 ---
 
 

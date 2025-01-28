@@ -4,9 +4,9 @@ title: ViolationPrediction
 pagination_label: ViolationPrediction
 sidebar_label: ViolationPrediction
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ViolationPrediction'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ViolationPrediction', 'V2024ViolationPrediction'] 
 slug: /tools/sdk/powershell/v2024/models/violation-prediction
-tags: ['SDK', 'Software Development Kit', 'ViolationPrediction']
+tags: ['SDK', 'Software Development Kit', 'ViolationPrediction', 'V2024ViolationPrediction']
 ---
 
 

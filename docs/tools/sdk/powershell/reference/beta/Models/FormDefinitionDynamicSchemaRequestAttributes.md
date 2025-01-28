@@ -4,9 +4,9 @@ title: FormDefinitionDynamicSchemaRequestAttributes
 pagination_label: FormDefinitionDynamicSchemaRequestAttributes
 sidebar_label: FormDefinitionDynamicSchemaRequestAttributes
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'FormDefinitionDynamicSchemaRequestAttributes'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'FormDefinitionDynamicSchemaRequestAttributes', 'BetaFormDefinitionDynamicSchemaRequestAttributes'] 
 slug: /tools/sdk/powershell/beta/models/form-definition-dynamic-schema-request-attributes
-tags: ['SDK', 'Software Development Kit', 'FormDefinitionDynamicSchemaRequestAttributes']
+tags: ['SDK', 'Software Development Kit', 'FormDefinitionDynamicSchemaRequestAttributes', 'BetaFormDefinitionDynamicSchemaRequestAttributes']
 ---
 
 

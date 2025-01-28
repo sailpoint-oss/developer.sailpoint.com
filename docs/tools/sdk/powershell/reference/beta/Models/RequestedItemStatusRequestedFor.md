@@ -4,9 +4,9 @@ title: RequestedItemStatusRequestedFor
 pagination_label: RequestedItemStatusRequestedFor
 sidebar_label: RequestedItemStatusRequestedFor
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RequestedItemStatusRequestedFor'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RequestedItemStatusRequestedFor', 'BetaRequestedItemStatusRequestedFor'] 
 slug: /tools/sdk/powershell/beta/models/requested-item-status-requested-for
-tags: ['SDK', 'Software Development Kit', 'RequestedItemStatusRequestedFor']
+tags: ['SDK', 'Software Development Kit', 'RequestedItemStatusRequestedFor', 'BetaRequestedItemStatusRequestedFor']
 ---
 
 

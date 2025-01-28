@@ -4,9 +4,9 @@ title: ManualWorkItemDetailsCurrentOwner
 pagination_label: ManualWorkItemDetailsCurrentOwner
 sidebar_label: ManualWorkItemDetailsCurrentOwner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ManualWorkItemDetailsCurrentOwner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ManualWorkItemDetailsCurrentOwner', 'ManualWorkItemDetailsCurrentOwner'] 
 slug: /tools/sdk/powershell/v3/models/manual-work-item-details-current-owner
-tags: ['SDK', 'Software Development Kit', 'ManualWorkItemDetailsCurrentOwner']
+tags: ['SDK', 'Software Development Kit', 'ManualWorkItemDetailsCurrentOwner', 'ManualWorkItemDetailsCurrentOwner']
 ---
 
 

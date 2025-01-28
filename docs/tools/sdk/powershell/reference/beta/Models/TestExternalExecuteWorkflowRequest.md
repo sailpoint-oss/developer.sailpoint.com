@@ -4,9 +4,9 @@ title: TestExternalExecuteWorkflowRequest
 pagination_label: TestExternalExecuteWorkflowRequest
 sidebar_label: TestExternalExecuteWorkflowRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TestExternalExecuteWorkflowRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TestExternalExecuteWorkflowRequest', 'BetaTestExternalExecuteWorkflowRequest'] 
 slug: /tools/sdk/powershell/beta/models/test-external-execute-workflow-request
-tags: ['SDK', 'Software Development Kit', 'TestExternalExecuteWorkflowRequest']
+tags: ['SDK', 'Software Development Kit', 'TestExternalExecuteWorkflowRequest', 'BetaTestExternalExecuteWorkflowRequest']
 ---
 
 

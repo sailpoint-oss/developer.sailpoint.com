@@ -4,9 +4,9 @@ title: ReviewReassign
 pagination_label: ReviewReassign
 sidebar_label: ReviewReassign
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ReviewReassign'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ReviewReassign', 'V2024ReviewReassign'] 
 slug: /tools/sdk/powershell/v2024/models/review-reassign
-tags: ['SDK', 'Software Development Kit', 'ReviewReassign']
+tags: ['SDK', 'Software Development Kit', 'ReviewReassign', 'V2024ReviewReassign']
 ---
 
 

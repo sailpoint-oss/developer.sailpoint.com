@@ -4,9 +4,9 @@ title: SedApprovalStatus
 pagination_label: SedApprovalStatus
 sidebar_label: SedApprovalStatus
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SedApprovalStatus'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SedApprovalStatus', 'V2024SedApprovalStatus'] 
 slug: /tools/sdk/powershell/v2024/models/sed-approval-status
-tags: ['SDK', 'Software Development Kit', 'SedApprovalStatus']
+tags: ['SDK', 'Software Development Kit', 'SedApprovalStatus', 'V2024SedApprovalStatus']
 ---
 
 

@@ -4,9 +4,9 @@ title: Entitlements
 pagination_label: Entitlements
 sidebar_label: Entitlements
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Entitlements'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Entitlements', 'V2024Entitlements'] 
 slug: /tools/sdk/powershell/v2024/methods/entitlements
-tags: ['SDK', 'Software Development Kit', 'Entitlements']
+tags: ['SDK', 'Software Development Kit', 'Entitlements', 'V2024Entitlements']
 ---
 
 

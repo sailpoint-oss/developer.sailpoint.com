@@ -4,9 +4,9 @@ title: AccessModelMetadata
 pagination_label: AccessModelMetadata
 sidebar_label: AccessModelMetadata
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessModelMetadata'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessModelMetadata', 'V2024AccessModelMetadata'] 
 slug: /tools/sdk/powershell/v2024/methods/access-model-metadata
-tags: ['SDK', 'Software Development Kit', 'AccessModelMetadata']
+tags: ['SDK', 'Software Development Kit', 'AccessModelMetadata', 'V2024AccessModelMetadata']
 ---
 
 

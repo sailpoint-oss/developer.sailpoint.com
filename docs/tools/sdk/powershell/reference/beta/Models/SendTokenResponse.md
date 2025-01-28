@@ -4,9 +4,9 @@ title: SendTokenResponse
 pagination_label: SendTokenResponse
 sidebar_label: SendTokenResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SendTokenResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SendTokenResponse', 'BetaSendTokenResponse'] 
 slug: /tools/sdk/powershell/beta/models/send-token-response
-tags: ['SDK', 'Software Development Kit', 'SendTokenResponse']
+tags: ['SDK', 'Software Development Kit', 'SendTokenResponse', 'BetaSendTokenResponse']
 ---
 
 

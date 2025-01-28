@@ -4,9 +4,9 @@ title: PatchPotentialRoleRequestInner
 pagination_label: PatchPotentialRoleRequestInner
 sidebar_label: PatchPotentialRoleRequestInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'PatchPotentialRoleRequestInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'PatchPotentialRoleRequestInner', 'BetaPatchPotentialRoleRequestInner'] 
 slug: /tools/sdk/powershell/beta/models/patch-potential-role-request-inner
-tags: ['SDK', 'Software Development Kit', 'PatchPotentialRoleRequestInner']
+tags: ['SDK', 'Software Development Kit', 'PatchPotentialRoleRequestInner', 'BetaPatchPotentialRoleRequestInner']
 ---
 
 

@@ -4,9 +4,9 @@ title: E164phone
 pagination_label: E164phone
 sidebar_label: E164phone
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'E164phone'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'E164phone', 'V2024E164phone'] 
 slug: /tools/sdk/powershell/v2024/models/e164phone
-tags: ['SDK', 'Software Development Kit', 'E164phone']
+tags: ['SDK', 'Software Development Kit', 'E164phone', 'V2024E164phone']
 ---
 
 

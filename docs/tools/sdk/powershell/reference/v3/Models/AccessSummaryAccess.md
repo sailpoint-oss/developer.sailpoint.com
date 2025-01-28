@@ -4,9 +4,9 @@ title: AccessSummaryAccess
 pagination_label: AccessSummaryAccess
 sidebar_label: AccessSummaryAccess
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessSummaryAccess'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessSummaryAccess', 'AccessSummaryAccess'] 
 slug: /tools/sdk/powershell/v3/models/access-summary-access
-tags: ['SDK', 'Software Development Kit', 'AccessSummaryAccess']
+tags: ['SDK', 'Software Development Kit', 'AccessSummaryAccess', 'AccessSummaryAccess']
 ---
 
 

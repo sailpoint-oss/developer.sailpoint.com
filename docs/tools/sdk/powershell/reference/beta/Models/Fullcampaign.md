@@ -4,9 +4,9 @@ title: Fullcampaign
 pagination_label: Fullcampaign
 sidebar_label: Fullcampaign
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Fullcampaign'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Fullcampaign', 'BetaFullcampaign'] 
 slug: /tools/sdk/powershell/beta/models/fullcampaign
-tags: ['SDK', 'Software Development Kit', 'Fullcampaign']
+tags: ['SDK', 'Software Development Kit', 'Fullcampaign', 'BetaFullcampaign']
 ---
 
 

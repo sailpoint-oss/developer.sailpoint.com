@@ -4,9 +4,9 @@ title: WorkItemsSummary
 pagination_label: WorkItemsSummary
 sidebar_label: WorkItemsSummary
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'WorkItemsSummary'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'WorkItemsSummary', 'V2024WorkItemsSummary'] 
 slug: /tools/sdk/powershell/v2024/models/work-items-summary
-tags: ['SDK', 'Software Development Kit', 'WorkItemsSummary']
+tags: ['SDK', 'Software Development Kit', 'WorkItemsSummary', 'V2024WorkItemsSummary']
 ---
 
 

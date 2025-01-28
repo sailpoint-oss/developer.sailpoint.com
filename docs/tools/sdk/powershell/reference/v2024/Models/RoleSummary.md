@@ -4,9 +4,9 @@ title: RoleSummary
 pagination_label: RoleSummary
 sidebar_label: RoleSummary
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleSummary'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleSummary', 'V2024RoleSummary'] 
 slug: /tools/sdk/powershell/v2024/models/role-summary
-tags: ['SDK', 'Software Development Kit', 'RoleSummary']
+tags: ['SDK', 'Software Development Kit', 'RoleSummary', 'V2024RoleSummary']
 ---
 
 

@@ -4,9 +4,9 @@ title: License
 pagination_label: License
 sidebar_label: License
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'License'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'License', 'BetaLicense'] 
 slug: /tools/sdk/powershell/beta/models/license
-tags: ['SDK', 'Software Development Kit', 'License']
+tags: ['SDK', 'Software Development Kit', 'License', 'BetaLicense']
 ---
 
 

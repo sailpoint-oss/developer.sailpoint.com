@@ -4,9 +4,9 @@ title: ReportResults
 pagination_label: ReportResults
 sidebar_label: ReportResults
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ReportResults'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ReportResults', 'ReportResults'] 
 slug: /tools/sdk/powershell/v3/models/report-results
-tags: ['SDK', 'Software Development Kit', 'ReportResults']
+tags: ['SDK', 'Software Development Kit', 'ReportResults', 'ReportResults']
 ---
 
 

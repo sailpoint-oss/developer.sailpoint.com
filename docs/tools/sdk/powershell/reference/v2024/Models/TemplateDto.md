@@ -4,9 +4,9 @@ title: TemplateDto
 pagination_label: TemplateDto
 sidebar_label: TemplateDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TemplateDto'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TemplateDto', 'V2024TemplateDto'] 
 slug: /tools/sdk/powershell/v2024/models/template-dto
-tags: ['SDK', 'Software Development Kit', 'TemplateDto']
+tags: ['SDK', 'Software Development Kit', 'TemplateDto', 'V2024TemplateDto']
 ---
 
 

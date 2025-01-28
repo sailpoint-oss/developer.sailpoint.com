@@ -4,9 +4,9 @@ title: MultiHostIntegrationsCreate
 pagination_label: MultiHostIntegrationsCreate
 sidebar_label: MultiHostIntegrationsCreate
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'MultiHostIntegrationsCreate'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'MultiHostIntegrationsCreate', 'BetaMultiHostIntegrationsCreate'] 
 slug: /tools/sdk/powershell/beta/models/multi-host-integrations-create
-tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrationsCreate']
+tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrationsCreate', 'BetaMultiHostIntegrationsCreate']
 ---
 
 

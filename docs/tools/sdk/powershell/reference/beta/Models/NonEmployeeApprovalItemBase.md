@@ -4,9 +4,9 @@ title: NonEmployeeApprovalItemBase
 pagination_label: NonEmployeeApprovalItemBase
 sidebar_label: NonEmployeeApprovalItemBase
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'NonEmployeeApprovalItemBase'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'NonEmployeeApprovalItemBase', 'BetaNonEmployeeApprovalItemBase'] 
 slug: /tools/sdk/powershell/beta/models/non-employee-approval-item-base
-tags: ['SDK', 'Software Development Kit', 'NonEmployeeApprovalItemBase']
+tags: ['SDK', 'Software Development Kit', 'NonEmployeeApprovalItemBase', 'BetaNonEmployeeApprovalItemBase']
 ---
 
 

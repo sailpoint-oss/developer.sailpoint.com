@@ -4,9 +4,9 @@ title: LauncherOwner
 pagination_label: LauncherOwner
 sidebar_label: LauncherOwner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'LauncherOwner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'LauncherOwner', 'BetaLauncherOwner'] 
 slug: /tools/sdk/powershell/beta/models/launcher-owner
-tags: ['SDK', 'Software Development Kit', 'LauncherOwner']
+tags: ['SDK', 'Software Development Kit', 'LauncherOwner', 'BetaLauncherOwner']
 ---
 
 

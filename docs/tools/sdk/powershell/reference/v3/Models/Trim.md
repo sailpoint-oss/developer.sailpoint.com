@@ -4,9 +4,9 @@ title: Trim
 pagination_label: Trim
 sidebar_label: Trim
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Trim'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Trim', 'Trim'] 
 slug: /tools/sdk/powershell/v3/models/trim
-tags: ['SDK', 'Software Development Kit', 'Trim']
+tags: ['SDK', 'Software Development Kit', 'Trim', 'Trim']
 ---
 
 

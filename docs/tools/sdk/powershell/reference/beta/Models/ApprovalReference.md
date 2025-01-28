@@ -4,9 +4,9 @@ title: ApprovalReference
 pagination_label: ApprovalReference
 sidebar_label: ApprovalReference
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ApprovalReference'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ApprovalReference', 'BetaApprovalReference'] 
 slug: /tools/sdk/powershell/beta/models/approval-reference
-tags: ['SDK', 'Software Development Kit', 'ApprovalReference']
+tags: ['SDK', 'Software Development Kit', 'ApprovalReference', 'BetaApprovalReference']
 ---
 
 

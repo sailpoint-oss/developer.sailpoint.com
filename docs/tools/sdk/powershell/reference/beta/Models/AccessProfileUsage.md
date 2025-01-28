@@ -4,9 +4,9 @@ title: AccessProfileUsage
 pagination_label: AccessProfileUsage
 sidebar_label: AccessProfileUsage
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessProfileUsage'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessProfileUsage', 'BetaAccessProfileUsage'] 
 slug: /tools/sdk/powershell/beta/models/access-profile-usage
-tags: ['SDK', 'Software Development Kit', 'AccessProfileUsage']
+tags: ['SDK', 'Software Development Kit', 'AccessProfileUsage', 'BetaAccessProfileUsage']
 ---
 
 

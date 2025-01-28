@@ -4,9 +4,9 @@ title: OrgConfig
 pagination_label: OrgConfig
 sidebar_label: OrgConfig
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'OrgConfig'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'OrgConfig', 'BetaOrgConfig'] 
 slug: /tools/sdk/powershell/beta/methods/org-config
-tags: ['SDK', 'Software Development Kit', 'OrgConfig']
+tags: ['SDK', 'Software Development Kit', 'OrgConfig', 'BetaOrgConfig']
 ---
 
 

@@ -4,9 +4,9 @@ title: PutPasswordDictionaryRequest
 pagination_label: PutPasswordDictionaryRequest
 sidebar_label: PutPasswordDictionaryRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'PutPasswordDictionaryRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'PutPasswordDictionaryRequest', 'PutPasswordDictionaryRequest'] 
 slug: /tools/sdk/powershell/v3/models/put-password-dictionary-request
-tags: ['SDK', 'Software Development Kit', 'PutPasswordDictionaryRequest']
+tags: ['SDK', 'Software Development Kit', 'PutPasswordDictionaryRequest', 'PutPasswordDictionaryRequest']
 ---
 
 

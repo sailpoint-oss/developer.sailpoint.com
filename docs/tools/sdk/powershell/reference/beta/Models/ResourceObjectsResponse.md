@@ -4,9 +4,9 @@ title: ResourceObjectsResponse
 pagination_label: ResourceObjectsResponse
 sidebar_label: ResourceObjectsResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ResourceObjectsResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ResourceObjectsResponse', 'BetaResourceObjectsResponse'] 
 slug: /tools/sdk/powershell/beta/models/resource-objects-response
-tags: ['SDK', 'Software Development Kit', 'ResourceObjectsResponse']
+tags: ['SDK', 'Software Development Kit', 'ResourceObjectsResponse', 'BetaResourceObjectsResponse']
 ---
 
 

@@ -4,9 +4,9 @@ title: CriteriaType
 pagination_label: CriteriaType
 sidebar_label: CriteriaType
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CriteriaType'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CriteriaType', 'CriteriaType'] 
 slug: /tools/sdk/powershell/v3/models/criteria-type
-tags: ['SDK', 'Software Development Kit', 'CriteriaType']
+tags: ['SDK', 'Software Development Kit', 'CriteriaType', 'CriteriaType']
 ---
 
 

@@ -4,9 +4,9 @@ title: NativeChangeDetectionConfig
 pagination_label: NativeChangeDetectionConfig
 sidebar_label: NativeChangeDetectionConfig
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'NativeChangeDetectionConfig'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'NativeChangeDetectionConfig', 'BetaNativeChangeDetectionConfig'] 
 slug: /tools/sdk/powershell/beta/models/native-change-detection-config
-tags: ['SDK', 'Software Development Kit', 'NativeChangeDetectionConfig']
+tags: ['SDK', 'Software Development Kit', 'NativeChangeDetectionConfig', 'BetaNativeChangeDetectionConfig']
 ---
 
 

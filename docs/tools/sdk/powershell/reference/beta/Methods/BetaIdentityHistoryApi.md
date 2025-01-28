@@ -4,9 +4,9 @@ title: IdentityHistory
 pagination_label: IdentityHistory
 sidebar_label: IdentityHistory
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityHistory'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityHistory', 'BetaIdentityHistory'] 
 slug: /tools/sdk/powershell/beta/methods/identity-history
-tags: ['SDK', 'Software Development Kit', 'IdentityHistory']
+tags: ['SDK', 'Software Development Kit', 'IdentityHistory', 'BetaIdentityHistory']
 ---
 
 

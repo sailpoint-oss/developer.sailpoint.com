@@ -4,9 +4,9 @@ title: SearchAggregationSpecification
 pagination_label: SearchAggregationSpecification
 sidebar_label: SearchAggregationSpecification
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SearchAggregationSpecification'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SearchAggregationSpecification', 'SearchAggregationSpecification'] 
 slug: /tools/sdk/powershell/v3/models/search-aggregation-specification
-tags: ['SDK', 'Software Development Kit', 'SearchAggregationSpecification']
+tags: ['SDK', 'Software Development Kit', 'SearchAggregationSpecification', 'SearchAggregationSpecification']
 ---
 
 

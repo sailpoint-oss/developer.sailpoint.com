@@ -4,9 +4,9 @@ title: Selector
 pagination_label: Selector
 sidebar_label: Selector
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Selector'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Selector', 'Selector'] 
 slug: /tools/sdk/powershell/v3/models/selector
-tags: ['SDK', 'Software Development Kit', 'Selector']
+tags: ['SDK', 'Software Development Kit', 'Selector', 'Selector']
 ---
 
 

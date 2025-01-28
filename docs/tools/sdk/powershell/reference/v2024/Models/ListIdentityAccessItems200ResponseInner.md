@@ -4,9 +4,9 @@ title: ListIdentityAccessItems200ResponseInner
 pagination_label: ListIdentityAccessItems200ResponseInner
 sidebar_label: ListIdentityAccessItems200ResponseInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ListIdentityAccessItems200ResponseInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ListIdentityAccessItems200ResponseInner', 'V2024ListIdentityAccessItems200ResponseInner'] 
 slug: /tools/sdk/powershell/v2024/models/list-identity-access-items200-response-inner
-tags: ['SDK', 'Software Development Kit', 'ListIdentityAccessItems200ResponseInner']
+tags: ['SDK', 'Software Development Kit', 'ListIdentityAccessItems200ResponseInner', 'V2024ListIdentityAccessItems200ResponseInner']
 ---
 
 

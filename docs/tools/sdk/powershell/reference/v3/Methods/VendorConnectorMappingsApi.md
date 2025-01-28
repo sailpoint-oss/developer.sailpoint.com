@@ -4,9 +4,9 @@ title: VendorConnectorMappings
 pagination_label: VendorConnectorMappings
 sidebar_label: VendorConnectorMappings
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'VendorConnectorMappings'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'VendorConnectorMappings', 'VendorConnectorMappings'] 
 slug: /tools/sdk/powershell/v3/methods/vendor-connector-mappings
-tags: ['SDK', 'Software Development Kit', 'VendorConnectorMappings']
+tags: ['SDK', 'Software Development Kit', 'VendorConnectorMappings', 'VendorConnectorMappings']
 ---
 
 

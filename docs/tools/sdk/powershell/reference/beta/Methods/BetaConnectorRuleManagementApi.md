@@ -4,9 +4,9 @@ title: ConnectorRuleManagement
 pagination_label: ConnectorRuleManagement
 sidebar_label: ConnectorRuleManagement
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ConnectorRuleManagement'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ConnectorRuleManagement', 'BetaConnectorRuleManagement'] 
 slug: /tools/sdk/powershell/beta/methods/connector-rule-management
-tags: ['SDK', 'Software Development Kit', 'ConnectorRuleManagement']
+tags: ['SDK', 'Software Development Kit', 'ConnectorRuleManagement', 'BetaConnectorRuleManagement']
 ---
 
 

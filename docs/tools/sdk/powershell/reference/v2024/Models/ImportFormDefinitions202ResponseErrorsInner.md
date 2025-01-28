@@ -4,9 +4,9 @@ title: ImportFormDefinitions202ResponseErrorsInner
 pagination_label: ImportFormDefinitions202ResponseErrorsInner
 sidebar_label: ImportFormDefinitions202ResponseErrorsInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ImportFormDefinitions202ResponseErrorsInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ImportFormDefinitions202ResponseErrorsInner', 'V2024ImportFormDefinitions202ResponseErrorsInner'] 
 slug: /tools/sdk/powershell/v2024/models/import-form-definitions202-response-errors-inner
-tags: ['SDK', 'Software Development Kit', 'ImportFormDefinitions202ResponseErrorsInner']
+tags: ['SDK', 'Software Development Kit', 'ImportFormDefinitions202ResponseErrorsInner', 'V2024ImportFormDefinitions202ResponseErrorsInner']
 ---
 
 

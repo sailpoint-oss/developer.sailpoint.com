@@ -4,9 +4,9 @@ title: TaskResultResponse
 pagination_label: TaskResultResponse
 sidebar_label: TaskResultResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'TaskResultResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'TaskResultResponse', 'BetaTaskResultResponse'] 
 slug: /tools/sdk/powershell/beta/models/task-result-response
-tags: ['SDK', 'Software Development Kit', 'TaskResultResponse']
+tags: ['SDK', 'Software Development Kit', 'TaskResultResponse', 'BetaTaskResultResponse']
 ---
 
 

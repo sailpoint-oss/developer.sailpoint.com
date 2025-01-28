@@ -4,9 +4,9 @@ title: Comment
 pagination_label: Comment
 sidebar_label: Comment
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Comment'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Comment', 'Comment'] 
 slug: /tools/sdk/powershell/v3/models/comment
-tags: ['SDK', 'Software Development Kit', 'Comment']
+tags: ['SDK', 'Software Development Kit', 'Comment', 'Comment']
 ---
 
 

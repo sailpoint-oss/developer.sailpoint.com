@@ -4,9 +4,9 @@ title: RoleMiningPotentialRoleSummaryCreatedBy
 pagination_label: RoleMiningPotentialRoleSummaryCreatedBy
 sidebar_label: RoleMiningPotentialRoleSummaryCreatedBy
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMiningPotentialRoleSummaryCreatedBy'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'RoleMiningPotentialRoleSummaryCreatedBy', 'BetaRoleMiningPotentialRoleSummaryCreatedBy'] 
 slug: /tools/sdk/powershell/beta/models/role-mining-potential-role-summary-created-by
-tags: ['SDK', 'Software Development Kit', 'RoleMiningPotentialRoleSummaryCreatedBy']
+tags: ['SDK', 'Software Development Kit', 'RoleMiningPotentialRoleSummaryCreatedBy', 'BetaRoleMiningPotentialRoleSummaryCreatedBy']
 ---
 
 

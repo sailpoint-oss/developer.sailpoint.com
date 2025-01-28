@@ -4,9 +4,9 @@ title: EntitlementDocumentAllOfSource
 pagination_label: EntitlementDocumentAllOfSource
 sidebar_label: EntitlementDocumentAllOfSource
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'EntitlementDocumentAllOfSource'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'EntitlementDocumentAllOfSource', 'EntitlementDocumentAllOfSource'] 
 slug: /tools/sdk/powershell/v3/models/entitlement-document-all-of-source
-tags: ['SDK', 'Software Development Kit', 'EntitlementDocumentAllOfSource']
+tags: ['SDK', 'Software Development Kit', 'EntitlementDocumentAllOfSource', 'EntitlementDocumentAllOfSource']
 ---
 
 

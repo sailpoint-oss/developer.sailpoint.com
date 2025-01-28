@@ -4,9 +4,9 @@ title: CampaignReportsConfig
 pagination_label: CampaignReportsConfig
 sidebar_label: CampaignReportsConfig
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignReportsConfig'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignReportsConfig', 'BetaCampaignReportsConfig'] 
 slug: /tools/sdk/powershell/beta/models/campaign-reports-config
-tags: ['SDK', 'Software Development Kit', 'CampaignReportsConfig']
+tags: ['SDK', 'Software Development Kit', 'CampaignReportsConfig', 'BetaCampaignReportsConfig']
 ---
 
 

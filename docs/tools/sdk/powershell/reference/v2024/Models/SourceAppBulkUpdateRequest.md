@@ -4,9 +4,9 @@ title: SourceAppBulkUpdateRequest
 pagination_label: SourceAppBulkUpdateRequest
 sidebar_label: SourceAppBulkUpdateRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SourceAppBulkUpdateRequest'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SourceAppBulkUpdateRequest', 'V2024SourceAppBulkUpdateRequest'] 
 slug: /tools/sdk/powershell/v2024/models/source-app-bulk-update-request
-tags: ['SDK', 'Software Development Kit', 'SourceAppBulkUpdateRequest']
+tags: ['SDK', 'Software Development Kit', 'SourceAppBulkUpdateRequest', 'V2024SourceAppBulkUpdateRequest']
 ---
 
 

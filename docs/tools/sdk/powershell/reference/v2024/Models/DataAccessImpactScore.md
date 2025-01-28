@@ -4,9 +4,9 @@ title: DataAccessImpactScore
 pagination_label: DataAccessImpactScore
 sidebar_label: DataAccessImpactScore
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'DataAccessImpactScore'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'DataAccessImpactScore', 'V2024DataAccessImpactScore'] 
 slug: /tools/sdk/powershell/v2024/models/data-access-impact-score
-tags: ['SDK', 'Software Development Kit', 'DataAccessImpactScore']
+tags: ['SDK', 'Software Development Kit', 'DataAccessImpactScore', 'V2024DataAccessImpactScore']
 ---
 
 

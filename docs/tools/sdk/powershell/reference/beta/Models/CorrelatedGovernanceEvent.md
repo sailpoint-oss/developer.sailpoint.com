@@ -4,9 +4,9 @@ title: CorrelatedGovernanceEvent
 pagination_label: CorrelatedGovernanceEvent
 sidebar_label: CorrelatedGovernanceEvent
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'CorrelatedGovernanceEvent'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'CorrelatedGovernanceEvent', 'BetaCorrelatedGovernanceEvent'] 
 slug: /tools/sdk/powershell/beta/models/correlated-governance-event
-tags: ['SDK', 'Software Development Kit', 'CorrelatedGovernanceEvent']
+tags: ['SDK', 'Software Development Kit', 'CorrelatedGovernanceEvent', 'BetaCorrelatedGovernanceEvent']
 ---
 
 

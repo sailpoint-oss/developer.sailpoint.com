@@ -4,9 +4,9 @@ title: AccountAttributesChangedAccount
 pagination_label: AccountAttributesChangedAccount
 sidebar_label: AccountAttributesChangedAccount
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccountAttributesChangedAccount'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccountAttributesChangedAccount', 'V2024AccountAttributesChangedAccount'] 
 slug: /tools/sdk/powershell/v2024/models/account-attributes-changed-account
-tags: ['SDK', 'Software Development Kit', 'AccountAttributesChangedAccount']
+tags: ['SDK', 'Software Development Kit', 'AccountAttributesChangedAccount', 'V2024AccountAttributesChangedAccount']
 ---
 
 

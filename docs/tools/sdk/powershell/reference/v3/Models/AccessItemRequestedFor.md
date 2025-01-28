@@ -4,9 +4,9 @@ title: AccessItemRequestedFor
 pagination_label: AccessItemRequestedFor
 sidebar_label: AccessItemRequestedFor
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccessItemRequestedFor'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessItemRequestedFor', 'AccessItemRequestedFor'] 
 slug: /tools/sdk/powershell/v3/models/access-item-requested-for
-tags: ['SDK', 'Software Development Kit', 'AccessItemRequestedFor']
+tags: ['SDK', 'Software Development Kit', 'AccessItemRequestedFor', 'AccessItemRequestedFor']
 ---
 
 

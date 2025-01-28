@@ -4,9 +4,9 @@ title: LoadEntitlementTaskReturnsInner
 pagination_label: LoadEntitlementTaskReturnsInner
 sidebar_label: LoadEntitlementTaskReturnsInner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'LoadEntitlementTaskReturnsInner'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'LoadEntitlementTaskReturnsInner', 'BetaLoadEntitlementTaskReturnsInner'] 
 slug: /tools/sdk/powershell/beta/models/load-entitlement-task-returns-inner
-tags: ['SDK', 'Software Development Kit', 'LoadEntitlementTaskReturnsInner']
+tags: ['SDK', 'Software Development Kit', 'LoadEntitlementTaskReturnsInner', 'BetaLoadEntitlementTaskReturnsInner']
 ---
 
 

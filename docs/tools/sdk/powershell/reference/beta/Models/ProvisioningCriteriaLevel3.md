@@ -4,9 +4,9 @@ title: ProvisioningCriteriaLevel3
 pagination_label: ProvisioningCriteriaLevel3
 sidebar_label: ProvisioningCriteriaLevel3
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ProvisioningCriteriaLevel3'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'ProvisioningCriteriaLevel3', 'BetaProvisioningCriteriaLevel3'] 
 slug: /tools/sdk/powershell/beta/models/provisioning-criteria-level3
-tags: ['SDK', 'Software Development Kit', 'ProvisioningCriteriaLevel3']
+tags: ['SDK', 'Software Development Kit', 'ProvisioningCriteriaLevel3', 'BetaProvisioningCriteriaLevel3']
 ---
 
 

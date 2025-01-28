@@ -4,9 +4,9 @@ title: SedBatchResponse
 pagination_label: SedBatchResponse
 sidebar_label: SedBatchResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SedBatchResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'SedBatchResponse', 'V2024SedBatchResponse'] 
 slug: /tools/sdk/powershell/v2024/models/sed-batch-response
-tags: ['SDK', 'Software Development Kit', 'SedBatchResponse']
+tags: ['SDK', 'Software Development Kit', 'SedBatchResponse', 'V2024SedBatchResponse']
 ---
 
 

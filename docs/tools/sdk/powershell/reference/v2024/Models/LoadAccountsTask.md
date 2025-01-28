@@ -4,9 +4,9 @@ title: LoadAccountsTask
 pagination_label: LoadAccountsTask
 sidebar_label: LoadAccountsTask
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'LoadAccountsTask'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'LoadAccountsTask', 'V2024LoadAccountsTask'] 
 slug: /tools/sdk/powershell/v2024/models/load-accounts-task
-tags: ['SDK', 'Software Development Kit', 'LoadAccountsTask']
+tags: ['SDK', 'Software Development Kit', 'LoadAccountsTask', 'V2024LoadAccountsTask']
 ---
 
 

@@ -4,9 +4,9 @@ title: Apps
 pagination_label: Apps
 sidebar_label: Apps
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Apps'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'Apps', 'BetaApps'] 
 slug: /tools/sdk/powershell/beta/methods/apps
-tags: ['SDK', 'Software Development Kit', 'Apps']
+tags: ['SDK', 'Software Development Kit', 'Apps', 'BetaApps']
 ---
 
 

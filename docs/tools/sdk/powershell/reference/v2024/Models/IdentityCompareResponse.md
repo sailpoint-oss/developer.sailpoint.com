@@ -4,9 +4,9 @@ title: IdentityCompareResponse
 pagination_label: IdentityCompareResponse
 sidebar_label: IdentityCompareResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityCompareResponse'] 
+keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityCompareResponse', 'V2024IdentityCompareResponse'] 
 slug: /tools/sdk/powershell/v2024/models/identity-compare-response
-tags: ['SDK', 'Software Development Kit', 'IdentityCompareResponse']
+tags: ['SDK', 'Software Development Kit', 'IdentityCompareResponse', 'V2024IdentityCompareResponse']
 ---
 
 

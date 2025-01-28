@@ -224,6 +224,7 @@
 
 :root {
   font-family: Poppins !important;
+  --doc-sidebar-width: 445px !important;
 }
 
 :root {

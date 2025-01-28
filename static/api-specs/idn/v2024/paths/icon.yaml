@@ -10,6 +10,8 @@ put:
     name: objectType
     schema:
       type: string
+      enum:
+       - application
     required: true
     description: Object type. Available options ['application']
     example: application
@@ -18,6 +20,7 @@ put:
     schema:
       type: string
     required: true
+    x-sailpoint-resource-operation-id: listSources
     description: Object id.
     example: a291e870-48c3-4953-b656-fb5ce2a93169
   - name: X-SailPoint-Experimental
@@ -81,6 +84,8 @@ delete:
     name: objectType
     schema:
       type: string
+      enum:
+        - application
     required: true
     description: Object type. Available options ['application']
     example: application
@@ -89,6 +94,7 @@ delete:
     schema:
       type: string
     required: true
+    x-sailpoint-resource-operation-id: listSources
     description: Object id.
     example: a291e870-48c3-4953-b656-fb5ce2a93169
   - name: X-SailPoint-Experimental

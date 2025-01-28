@@ -16,6 +16,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getIdentityOutliers
       description: The outlier id
       example: 2c918085842e69ae018432d22ccb212f
     - in: path

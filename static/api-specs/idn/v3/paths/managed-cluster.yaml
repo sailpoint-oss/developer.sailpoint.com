@@ -9,6 +9,7 @@ get:
       in: path
       description: Managed cluster ID.
       required: true
+      x-sailpoint-resource-operation-id: getManagedClusters
       example: 2c9180897de347a2017de8859e8c5039
       style: simple
       explode: false
@@ -50,6 +51,7 @@ patch:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getManagedClusters
       description: Managed cluster ID.
       example: 2c9180897de347a2017de8859e8c5039
   requestBody:
@@ -97,6 +99,7 @@ delete:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getManagedClusters
       description: Managed cluster ID.
       example: 2c9180897de347a2017de8859e8c5039
     - in: query

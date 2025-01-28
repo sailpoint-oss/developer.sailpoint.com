@@ -14,6 +14,7 @@ get:
     - in: path
       name: roleId
       required: true
+      x-sailpoint-resource-operation-id: listRoles
       schema:
         type: string
       description: Parent Role Id of the dimension.
@@ -23,6 +24,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listDimensions
       description: Id of the Dimension
       example: 2c9180835d191a86015d28455b4a2329
   responses:
@@ -75,6 +77,7 @@ patch:
     - in: path
       name: roleId
       required: true
+      x-sailpoint-resource-operation-id: listRoles
       schema:
         type: string
       description: Parent Role Id of the dimension.
@@ -84,6 +87,7 @@ patch:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listDimensions
       description: Id of the Dimension
       example: 2c9180835d191a86015d28455b4a2329
   requestBody:
@@ -92,7 +96,7 @@ patch:
         schema:
           type: array
           items:
-            $ref: '../schemas/JsonPatchOperation.yaml'
+            $ref: '../../v3/schemas/JsonPatchOperation.yaml'
         examples:
           Update a Dimension name and description field in One Call:
             description: This example shows how multiple fields may be updated with a single patch call.
@@ -220,6 +224,7 @@ delete:
     - in: path
       name: roleId
       required: true
+      x-sailpoint-resource-operation-id: listRoles
       schema:
         type: string
       description: Parent Role Id of the dimension.
@@ -229,6 +234,7 @@ delete:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listDimensions
       description: Id of the Dimension
       example: 2c9180835d191a86015d28455b4a2329
   responses:

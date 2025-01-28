@@ -12,6 +12,7 @@ get:
     - in: path
       name: id
       required: true
+      x-sailpoint-resource-operation-id: listSources
       schema:
         type: string
       description: The Source id
@@ -62,6 +63,7 @@ post:
     - in: path
       name: id
       required: true
+      x-sailpoint-resource-operation-id: listSources
       schema:
         type: string
       description: The Source id

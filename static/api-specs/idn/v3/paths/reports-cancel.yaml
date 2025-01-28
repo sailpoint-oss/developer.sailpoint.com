@@ -12,6 +12,7 @@ post:
       in: path
       description: ID of the running Report to cancel
       required: true
+      x-sailpoint-resource-operation-id: startReport
       style: simple
       explode: false
       schema:

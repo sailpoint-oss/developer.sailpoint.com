@@ -19,6 +19,7 @@ put:
       type: string
     example: 12345
     required: true
+    x-sailpoint-resource-operation-id: getSIMIntegrations
   - name: X-SailPoint-Experimental
     in: header
     description: Use this header to enable this experimental API.
@@ -65,6 +66,7 @@ get:
       type: string
     example: 12345
     required: true
+    x-sailpoint-resource-operation-id: getSIMIntegrations
   - name: X-SailPoint-Experimental
     in: header
     description: Use this header to enable this experimental API.
@@ -111,6 +113,7 @@ delete:
       type: string
     example: 12345
     required: true
+    x-sailpoint-resource-operation-id: getSIMIntegrations
   - name: X-SailPoint-Experimental
     in: header
     description: Use this header to enable this experimental API.
@@ -160,6 +163,7 @@ patch:
       type: string
     example: 12345
     required: true
+    x-sailpoint-resource-operation-id: getSIMIntegrations
   - name: X-SailPoint-Experimental
     in: header
     description: Use this header to enable this experimental API.

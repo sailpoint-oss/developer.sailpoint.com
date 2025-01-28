@@ -9,6 +9,7 @@ get:
       in: path
       description: ID of managed cluster to get log configuration for.
       required: true
+      x-sailpoint-resource-operation-id: getManagedClusters
       schema:
         type: string
         format: uuid
@@ -49,6 +50,7 @@ put:
       in: path
       description: ID of the managed cluster to update the log configuration for.
       required: true
+      x-sailpoint-resource-operation-id: getManagedClusters
       schema:
         type: string
         format: uuid

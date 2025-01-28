@@ -15,6 +15,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSodPolicies
       description: The ID of the SOD Policy to retrieve.
       example: ef38f943-47e9-4562-b5bb-8424a56397d8
   responses:
@@ -142,6 +143,7 @@ put:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSodPolicies
       description: The ID of the SOD policy to update.
       example: ef38f943-47e9-4562-b5bb-8424a56397d8
   requestBody:
@@ -354,6 +356,7 @@ delete:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSodPolicies
       description: The ID of the SOD Policy to delete.
       example: ef38f943-47e9-4562-b5bb-8424a56397d8
     - in: query
@@ -402,6 +405,7 @@ patch:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSodPolicies
       description: The ID of the SOD policy being modified.
       example: 2c918083-5d19-1a86-015d-28455b4a2329
   requestBody:

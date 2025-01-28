@@ -12,6 +12,7 @@ post:
 
       String specifying FormDefinitionID'
     required: true
+    x-sailpoint-resource-operation-id: searchFormDefinitionsByTenant
     example: 00000000-0000-0000-0000-000000000000
     schema:
       type: string

@@ -17,6 +17,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listNonEmployeeSources
       example: ef38f94347e94562b5bb8424a56397d8
       description: The Source id
   responses:
@@ -61,6 +62,7 @@ post:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listNonEmployeeSources
       description: The Source id
       example: ef38f94347e94562b5bb8424a56397d8
   requestBody:
@@ -103,6 +105,7 @@ delete:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listNonEmployeeSources
       description: The Source id
       example: ef38f94347e94562b5bb8424a56397d8
   responses:

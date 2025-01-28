@@ -35,6 +35,7 @@ get:
     schema:
       type: string
     required: true
+    x-sailpoint-resource-operation-id: getTaskStatusList
     description: The account aggregation id
     example: 2c91808477a6b0c60177a81146b8110b
   - name: X-SailPoint-Experimental

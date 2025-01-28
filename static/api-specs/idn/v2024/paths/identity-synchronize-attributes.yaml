@@ -17,6 +17,7 @@ post:
     schema:
       type: string
     required: true
+    x-sailpoint-resource-operation-id: listIdentities
     description: The Identity id
   - name: X-SailPoint-Experimental
     in: header

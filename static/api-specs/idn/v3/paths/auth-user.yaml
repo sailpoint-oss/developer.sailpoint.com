@@ -11,6 +11,7 @@ get:
       description: >-
         Identity ID
       required: true
+      x-sailpoint-resource-operation-id: listIdentities
       schema:
         type: string
       example: ef38f94347e94562b5bb8424a56397d8
@@ -56,6 +57,7 @@ patch:
       description: >-
         Identity ID
       required: true
+      x-sailpoint-resource-operation-id: listIdentities
       schema:
         type: string
       example: ef38f94347e94562b5bb8424a56397d8

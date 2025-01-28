@@ -18,6 +18,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listAccounts
       description: Account ID.
       example: ef38f94347e94562b5bb8424a56397d8
   responses:
@@ -67,6 +68,7 @@ patch:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listAccounts
       description: Account ID.
       example: ef38f94347e94562b5bb8424a56397d8
   requestBody:
@@ -148,6 +150,7 @@ put:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listAccounts
       description: Account ID.
       example: ef38f94347e94562b5bb8424a56397d8
   requestBody:
@@ -201,6 +204,7 @@ delete:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listAccounts
       description: Account ID.
       example: ef38f94347e94562b5bb8424a56397d8
   responses:

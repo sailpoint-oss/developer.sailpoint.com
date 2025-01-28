@@ -9,6 +9,7 @@ get:
     - in: path
       name: id
       required: true
+      x-sailpoint-resource-operation-id: listAccessProfiles
       schema:
         type: string
       description: >-
@@ -99,6 +100,7 @@ patch:
       in: path
       description: ID of the Access Profile to patch
       required: true
+      x-sailpoint-resource-operation-id: listAccessProfiles
       schema:
         type: string
         example: 2c91808a7813090a017814121919ecca
@@ -209,6 +211,7 @@ delete:
       in: path
       description: ID of the Access Profile to delete
       required: true
+      x-sailpoint-resource-operation-id: listAccessProfiles
       schema:
         type: string
         example: 2c91808a7813090a017814121919ecca

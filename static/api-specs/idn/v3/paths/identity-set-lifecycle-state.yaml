@@ -15,6 +15,7 @@ post:
       description: >-
         ID of the identity to update.
       required: true
+      x-sailpoint-resource-operation-id: listIdentities
       example: 2c9180857893f1290178944561990364
       schema:
         type: string

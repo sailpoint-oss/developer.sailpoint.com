@@ -16,6 +16,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getActiveCampaigns
       description: ID of the campaign to be retrieved.
       example: 2c91808571bcfcf80171c23e4b4221fc
     - in: query
@@ -77,6 +78,7 @@ patch:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getActiveCampaigns
       description: ID of the campaign template being modified.
       example: 2c91808571bcfcf80171c23e4b4221fc
   requestBody:

@@ -15,6 +15,7 @@ get:
     - in: path
       name: sourceId
       required: true
+      x-sailpoint-resource-operation-id: listSources
       schema:
         type: string
       description: The Source id.
@@ -29,14 +30,6 @@ get:
       required: true
       description: The Schedule type.
       example: ACCOUNT_AGGREGATION
-    - in: header
-      name: X-SailPoint-Experimental
-      description: Use this header to enable this experimental API.
-      example: true
-      schema:
-        type: string
-        default: true
-      required: true      
   responses:
     '200':
       description: The requested Schedule was successfully retrieved.
@@ -78,6 +71,7 @@ patch:
     - in: path
       name: sourceId
       required: true
+      x-sailpoint-resource-operation-id: listSources
       schema:
         type: string
       description: The Source id.
@@ -92,14 +86,6 @@ patch:
       required: true
       description: The Schedule type.
       example: ACCOUNT_AGGREGATION
-    - in: header
-      name: X-SailPoint-Experimental
-      description: Use this header to enable this experimental API.
-      example: true
-      schema:
-        type: string
-        default: true
-      required: true      
   requestBody:
     required: true
     description: The JSONPatch payload used to update the schedule.
@@ -153,6 +139,7 @@ delete:
     - in: path
       name: sourceId
       required: true
+      x-sailpoint-resource-operation-id: listSources
       schema:
         type: string
       description: The Source id.
@@ -167,14 +154,6 @@ delete:
       required: true
       description: The Schedule type.
       example: ACCOUNT_AGGREGATION
-    - in: header
-      name: X-SailPoint-Experimental
-      description: Use this header to enable this experimental API.
-      example: true
-      schema:
-        type: string
-        default: true
-      required: true
   responses:
     '204':
       $ref: '../../v3/responses/204.yaml'

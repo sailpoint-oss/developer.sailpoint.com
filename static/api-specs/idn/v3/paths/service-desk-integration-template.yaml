@@ -9,6 +9,7 @@ get:
       in: path
       description: The scriptName value of the Service Desk integration template to get
       required: true
+      x-sailpoint-resource-operation-id: getServiceDeskIntegrations
       style: simple
       explode: false
       schema:

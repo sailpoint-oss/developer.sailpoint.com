@@ -13,6 +13,8 @@ get:
     name: strategy
     schema:
       type: string
+      enum:
+       - entitlement
     required: true
     description: The strategy used to create peer groups. Currently, 'entitlement'
       is supported.

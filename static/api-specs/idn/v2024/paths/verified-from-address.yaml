@@ -10,6 +10,7 @@ delete:
     schema:
       type: string
     required: true
+    x-sailpoint-resource-operation-id: listFromAddresses
   - name: X-SailPoint-Experimental
     in: header
     description: Use this header to enable this experimental API.

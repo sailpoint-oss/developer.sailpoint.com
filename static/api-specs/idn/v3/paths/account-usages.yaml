@@ -10,6 +10,7 @@ get:
       in: path
       description: ID of IDN account
       required: true
+      x-sailpoint-resource-operation-id: listAccounts
       schema:
         type: string
       example: 'ef38f94347e94562b5bb8424a56397d8'

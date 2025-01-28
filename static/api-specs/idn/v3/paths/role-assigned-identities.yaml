@@ -12,6 +12,7 @@ get:
           ID of the Role for which the assigned Identities are to be listed
         example: 2c91808a7813090a017814121e121518
         required: true
+        x-sailpoint-resource-operation-id: listRoles
       - $ref: '../../v3/parameters/limit.yaml'
       - $ref: '../../v3/parameters/offset.yaml'
       - $ref: '../../v3/parameters/count.yaml'

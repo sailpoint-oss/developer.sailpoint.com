@@ -1,0 +1,53 @@
+---
+id: v2024-service-desk-integration-dto1
+title: ServiceDeskIntegrationDto1
+pagination_label: ServiceDeskIntegrationDto1
+sidebar_label: ServiceDeskIntegrationDto1
+sidebar_class_name: powershellsdk
+keywords: ['powershell', 'PowerShell', 'sdk', 'ServiceDeskIntegrationDto1'] 
+slug: /tools/sdk/powershell/v2024/models/service-desk-integration-dto1
+tags: ['SDK', 'Software Development Kit', 'ServiceDeskIntegrationDto1']
+---
+
+
+# ServiceDeskIntegrationDto1
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Name** |  **String** | Service Desk integration's name. The name must be unique. | [required]
+**Description** |  **String** | Service Desk integration's description. | [required]
+**Type** |  **String** | Service Desk integration types:  - ServiceNowSDIM - ServiceNow  | [required][default to "ServiceNowSDIM"]
+**OwnerRef** |  Pointer to [**OwnerDto**](owner-dto) |  | [optional] 
+**ClusterRef** |  Pointer to [**SourceClusterDto**](source-cluster-dto) |  | [optional] 
+**Cluster** |  Pointer to **String** | Cluster ID for the Service Desk integration (replaced by clusterRef, retained for backward compatibility). | [optional] 
+**ManagedSources** |  Pointer to **[]String** | Source IDs for the Service Desk integration (replaced by provisioningConfig.managedSResourceRefs, but retained here for backward compatibility). | [optional] 
+**ProvisioningConfig** |  Pointer to [**ProvisioningConfig1**](provisioning-config1) |  | [optional] 
+**Attributes** |  [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Service Desk integration's attributes. Validation constraints enforced by the implementation. | [required]
+**BeforeProvisioningRule** |  Pointer to [**BeforeProvisioningRuleDto**](before-provisioning-rule-dto) |  | [optional] 
+
+## Examples
+
+- Prepare the resource
+```powershell
+$ServiceDeskIntegrationDto1 = Initialize-PSSailpoint.V2024ServiceDeskIntegrationDto1  -Name Service Desk Integration Name `
+ -Description A very nice Service Desk integration `
+ -Type ServiceNowSDIM `
+ -OwnerRef null `
+ -ClusterRef null `
+ -Cluster xyzzy999 `
+ -ManagedSources [2c9180835d191a86015d28455b4a2329, 2c5680835d191a85765d28455b4a9823] `
+ -ProvisioningConfig null `
+ -Attributes {property&#x3D;value, key&#x3D;value} `
+ -BeforeProvisioningRule null
+```
+
+- Convert the resource to JSON
+```powershell
+$ServiceDeskIntegrationDto1 | ConvertTo-JSON
+```
+
+
+[[Back to top]](#) 
+

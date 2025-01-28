@@ -9,6 +9,7 @@ get:
     in: path
     description: Manager's identity ID.
     required: true
+    x-sailpoint-resource-operation-id: listIdentities
     schema:
       type: string
     example: 7025c863-c270-4ba6-beea-edf3cb091573
@@ -25,8 +26,10 @@ get:
     required: true
     schema:
       type: string
-      items:
-        $ref: ../../beta/schemas/AccessItemRef.yaml
+      enum:
+      - ENTITLEMENT
+      - ROLE
+      - ACCESS_PROFILE
     example: ENTITLEMENT
   - name: X-SailPoint-Experimental
     in: header

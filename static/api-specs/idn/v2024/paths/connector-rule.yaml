@@ -9,6 +9,7 @@ get:
     in: path
     description: ID of the connector rule to get.
     required: true
+    x-sailpoint-resource-operation-id: getConnectorRuleList
     style: simple
     explode: false
     schema:
@@ -59,6 +60,7 @@ put:
     in: path
     description: ID of the connector rule to update.
     required: true
+    x-sailpoint-resource-operation-id: getConnectorRuleList
     style: simple
     explode: false
     schema:
@@ -113,6 +115,7 @@ delete:
     in: path
     description: ID of the connector rule to delete.
     required: true
+    x-sailpoint-resource-operation-id: getConnectorRuleList
     style: simple
     explode: false
     schema:

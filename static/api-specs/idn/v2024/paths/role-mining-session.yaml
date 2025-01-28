@@ -12,6 +12,7 @@ patch:
     schema:
       type: string
     required: true
+    x-sailpoint-resource-operation-id: getRoleMiningSessions
     description: The role mining session id to be patched
     example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
   - name: X-SailPoint-Experimental
@@ -76,6 +77,7 @@ get:
     schema:
       type: string
     required: true
+    x-sailpoint-resource-operation-id: getRoleMiningSessions
     description: The role mining session id to be retrieved.
     example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
   - name: X-SailPoint-Experimental

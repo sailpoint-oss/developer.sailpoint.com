@@ -13,6 +13,7 @@ get:
     schema:
       type: string
     required: true
+    x-sailpoint-resource-operation-id: getPotentialRoleSummaries
     description: A potential role id
     example: e0cc5d7d-bf7f-4f81-b2af-8885b09d9923
   - in: path
@@ -20,6 +21,7 @@ get:
     schema:
       type: string
     required: true
+    x-sailpoint-resource-operation-id: listSources
     description: A source id
     example: 2c9180877620c1460176267f336a106f
   - in: query

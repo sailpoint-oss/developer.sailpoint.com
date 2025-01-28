@@ -11,6 +11,7 @@ post:
   - name: id
     in: path
     required: true
+    x-sailpoint-resource-operation-id: listEntitlements
     schema:
       type: string
     description: The entitlement id.
@@ -18,6 +19,7 @@ post:
   - name: attributeKey
     in: path
     required: true
+    x-sailpoint-resource-operation-id: listAccessModelMetadataAttribute
     schema:
       type: string
     description: Technical name of the Attribute.
@@ -25,6 +27,7 @@ post:
   - name: attributeValue
     in: path
     required: true
+    x-sailpoint-resource-operation-id: listAccessModelMetadataAttributeValue
     schema:
       type: string
     description: Technical name of the Attribute Value.
@@ -67,6 +70,7 @@ delete:
   - name: id
     in: path
     required: true
+    x-sailpoint-resource-operation-id: listEntitlements
     schema:
       type: string
     description: The entitlement id.
@@ -74,6 +78,7 @@ delete:
   - name: attributeKey
     in: path
     required: true
+    x-sailpoint-resource-operation-id: listAccessModelMetadataAttribute
     schema:
       type: string
     description: Technical name of the Attribute.
@@ -81,6 +86,7 @@ delete:
   - name: attributeValue
     in: path
     required: true
+    x-sailpoint-resource-operation-id: listAccessModelMetadataAttributeValue
     schema:
       type: string
     description: Technical name of the Attribute Value.

@@ -35,6 +35,14 @@ get:
       type: string
       default: true
     required: true
+  - name: id
+    in: path
+    description: ID of the Auth Profile to patch.
+    required: true
+    x-sailpoint-resource-operation-id: getProfileConfigList
+    schema:
+      type: string
+      example: 2c91808a7813090a017814121919ecca
 patch:
   operationId: patchProfileConfig
   tags:
@@ -50,6 +58,7 @@ patch:
     in: path
     description: ID of the Auth Profile to patch.
     required: true
+    x-sailpoint-resource-operation-id: getProfileConfigList
     schema:
       type: string
       example: 2c91808a7813090a017814121919ecca

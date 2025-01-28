@@ -13,6 +13,7 @@ get:
   - in: path
     name: id
     required: true
+    x-sailpoint-resource-operation-id: getApprovals
     schema:
       type: string
     description: ID of the approval that is to be returned

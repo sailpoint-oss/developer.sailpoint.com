@@ -12,6 +12,7 @@ get:
       in: path
       description: ID of the source app
       required: true
+      x-sailpoint-resource-operation-id: listAllSourceApp
       schema:
         type: string
         example: 2c91808a7813090a017814121e121518
@@ -62,6 +63,7 @@ patch:
       in: path
       description: ID of the source app to patch
       required: true
+      x-sailpoint-resource-operation-id: listAllSourceApp
       schema:
         type: string
         example: 2c91808a7813090a017814121e121518
@@ -205,6 +207,7 @@ delete:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listAllSourceApp
       description: source app ID.
       example: 2c9180835d191a86015d28455b4a2329
     - name: X-SailPoint-Experimental

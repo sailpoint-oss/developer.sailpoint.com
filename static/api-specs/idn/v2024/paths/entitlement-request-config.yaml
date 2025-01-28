@@ -14,6 +14,7 @@ get:
     schema:
       type: string
     required: true
+    x-sailpoint-resource-operation-id: listEntitlements
     description: Entitlement Id
     example: 2c91808874ff91550175097daaec161c
   - name: X-SailPoint-Experimental
@@ -70,6 +71,7 @@ put:
     in: path
     description: Entitlement ID
     required: true
+    x-sailpoint-resource-operation-id: listEntitlements
     schema:
       type: string
       example: 2c91808a7813090a017814121e121518

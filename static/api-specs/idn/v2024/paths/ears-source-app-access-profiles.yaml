@@ -12,6 +12,7 @@ get:
       in: path
       description: ID of the source app
       required: true
+      x-sailpoint-resource-operation-id: listAllSourceApp
       schema:
         type: string
         example: 2c91808a7813090a017814121e121518

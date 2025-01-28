@@ -13,6 +13,7 @@ get:
     - in: path
       name: roleId
       required: true
+      x-sailpoint-resource-operation-id: listRoles
       schema:
         type: string
       description: Parent Role Id of the dimension.
@@ -113,6 +114,7 @@ post:
     - in: path
       name: roleId
       required: true
+      x-sailpoint-resource-operation-id: listRoles
       schema:
         type: string
       description: Parent Role Id of the dimension.

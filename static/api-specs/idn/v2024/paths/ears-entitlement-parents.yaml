@@ -17,6 +17,7 @@ get:
     schema:
       type: string
     required: true
+    x-sailpoint-resource-operation-id: listEntitlements
     description: Entitlement Id
     example: 2c91808c74ff913f0175097daa9d59cd
   - in: query

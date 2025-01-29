@@ -66,7 +66,7 @@ Resources:
             Identity:
               Headers:
                 - Authorization
-            AuthorizerPayloadFormatVersion: 2.0
+            AuthorizerPayloadFormatVersion: "2.0"
             EnableSimpleResponses: false
   DeveloperSailpointAuthFunction:
     Type: AWS::Serverless::Function
@@ -82,19 +82,37 @@ Resources:
         - x86_64
       MemorySize: 128
       Timeout: 100
-  JSONPathFunction:
+  JSONPathGoFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: com.sailpoint.handler.JSONPathHandler::handleRequest
-      Runtime: java11
-      CodeUri: backend/src/java
-      MemorySize: 512
+      Handler: main::handler
+      Runtime: go1.x
+      CodeUri: backend/src/go
+      MemorySize: 128
       Timeout: 30
       Events:
         Api:
           Type: HttpApi
           Properties:
-            Path: /jsonpath
+            Path: /jsonpath/go
+            Method: POST
+            ApiId:
+              Ref: DeveloperSailpointApiGatewayApiv2
+            Auth:
+              Authorizer: NONE
+  JSONPathJavaFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: com.sailpoint.handler.JSONPathHandler::handleRequest
+      Runtime: java11
+      CodeUri: backend/src/java
+      MemorySize: 128
+      Timeout: 30
+      Events:
+        Api:
+          Type: HttpApi
+          Properties:
+            Path: /jsonpath/java
             Method: POST
             ApiId:
               Ref: DeveloperSailpointApiGatewayApiv2

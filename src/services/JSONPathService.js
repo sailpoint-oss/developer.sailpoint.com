@@ -1,9 +1,10 @@
-export async function evaluateJSONPath(gatewayUrl, jsonPathQuery, jsonData) {
+// Common function to handle JSONPath evaluation
+async function evaluateJSONPath(gatewayUrl, endpoint, jsonPathQuery, jsonData) {
     try {
         // Ensure we have a proper JSON string
         const jsonString = typeof jsonData === 'string' 
-            ? jsonData  // Keep string as is
-            : JSON.stringify(jsonData);  // Convert object to string
+            ? jsonData 
+            : JSON.stringify(jsonData);
 
         const requestBody = {
             jsonPathQuery,
@@ -13,7 +14,7 @@ export async function evaluateJSONPath(gatewayUrl, jsonPathQuery, jsonData) {
         // Log the actual data being sent
         console.log('Sending request:', JSON.stringify(requestBody, null, 2));
 
-        const response = await fetch(gatewayUrl + 'jsonpath', {
+        const response = await fetch(`${gatewayUrl}jsonpath/${endpoint}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -37,4 +38,13 @@ export async function evaluateJSONPath(gatewayUrl, jsonPathQuery, jsonData) {
             error: error.message
         };
     }
+}
+
+// Specific implementation functions that use the common logic
+export function evaluateJSONPathJava(gatewayUrl, jsonPathQuery, jsonData) {
+    return evaluateJSONPath(gatewayUrl, 'java', jsonPathQuery, jsonData);
+}
+
+export function evaluateJSONPathGo(gatewayUrl, jsonPathQuery, jsonData) {
+    return evaluateJSONPath(gatewayUrl, 'go', jsonPathQuery, jsonData);
 }

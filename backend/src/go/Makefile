@@ -2,3 +2,4 @@
 
 build-JSONPathGoFunction:
 	GOARCH=arm64 GOOS=linux go build -tags lambda.norpc -o bootstrap
+	zip -FS bootstrap.zip bootstrap

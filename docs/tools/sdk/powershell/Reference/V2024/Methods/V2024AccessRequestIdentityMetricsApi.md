@@ -11,6 +11,12 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequestIdentityMetrics', 'V2024
 
 
 # AccessRequestIdentityMetrics
+  Use this API to implement access request identity metrics functionality.
+With this functionality in place, access request reviewers can see relevant details about the requested access item and associated source activity. 
+This allows reviewers to see how many of the identities who share a manager with the access requester have this same type of access and how many of them have had activity in the related source. 
+This additional context about whether the access has been granted before and how often it has been used can help those approving access requests make more informed decisions.
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 

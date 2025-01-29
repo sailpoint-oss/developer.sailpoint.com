@@ -11,6 +11,25 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequestApprovals', 'AccessReque
 
 
 # AccessRequestApprovals
+  Use this API to implement and customize access request approval functionality. 
+With this functionality in place, administrators can delegate qualified users to review users&#39; requests for access or managers&#39; requests to revoke team members&#39; access to applications, entitlements, or roles.      
+This enables more qualified users to review access requests and the others to spend their time on other tasks.  
+
+In Identity Security Cloud, users can request access to applications, entitlements, and roles, and managers can request that team members&#39; access be revoked.   
+For applications and entitlements, administrators can set access profiles to require approval from the access profile owner, the application owner, the source owner, the requesting user&#39;s manager, or a governance group for access to be granted or revoked.   
+For roles, administrators can also set roles to allow access requests and require approval from the role owner, the requesting user&#39;s manager, or a governance group for access to be granted or revoked.   
+If the administrator designates a governance group as the required approver, any governance group member can approve the requests.
+   
+When a user submits an access request, Identity Security Cloud sends the first required approver in the queue an email notification, based on the access request configuration&#39;s approval and reminder escalation configuration.
+
+In Approvals in Identity Security Cloud, required approvers can view pending access requests under the Requested tab and approve or deny them, or the approvers can reassign the requests to different reviewers for approval.   
+If the required approver approves the request and is the only reviewer required, Identity Security Cloud grants or revokes access, based on the request.   
+If multiple reviewers are required, Identity Security Cloud sends the request to the next reviewer in the queue, based on the access request configuration&#39;s approval reminder and escalation configuration.   
+The required approver can then view any completed access requests under the Reviewed tab.   
+
+Refer to [Access Requests](https://documentation.sailpoint.com/saas/help/requests/index.html) for more information about access request approvals.
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 

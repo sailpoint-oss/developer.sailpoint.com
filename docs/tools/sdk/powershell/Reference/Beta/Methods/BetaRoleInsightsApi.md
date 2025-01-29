@@ -11,6 +11,8 @@ tags: ['SDK', 'Software Development Kit', 'RoleInsights', 'BetaRoleInsights']
 
 
 # RoleInsights
+   
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 

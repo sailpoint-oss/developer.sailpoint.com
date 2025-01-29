@@ -11,6 +11,25 @@ tags: ['SDK', 'Software Development Kit', 'Segments', 'Segments']
 
 
 # Segments
+  Use this API to implement and customize access request segment functionality. 
+With this functionality in place, administrators can create and manage access request segments. 
+Segments provide organizations with a way to make the access their users have even more granular - this can simply the access request process for the organization&#39;s users and improves security by reducing the risk of overprovisoning access. 
+
+Segments represent sets of identities, all grouped by specified identity attributes, who are only able to see and access the access items associated with their segments.
+For example, administrators could group all their organization&#39;s London office employees into one segment, &quot;London Office Employees,&quot; by their shared location. 
+The administrators could then define the access items the London employees would need, and the identities in the &quot;London Office Employees&quot; would then only be able to see and access those items.
+
+In Identity Security Cloud, administrators can use the &#39;Access&#39; drop-down menu and select &#39;Segments&#39; to reach the &#39;Access Requests Segments&#39; page. 
+This page lists all the existing access request segments, along with their statuses, enabled or disabled. 
+Administrators can use this page to create, edit, enable, disable, and delete segments. 
+To create a segment, an administrator must provide a name, define the identities grouped in the segment, and define the items the identities in the segment can access.
+These items can be access profiles, roles, or entitlements. 
+
+When administrators use the API to create and manage segments, they use a JSON expression in the &#x60;visibilityCriteria&#x60; object to define the segment&#39;s identities and access items. 
+
+Refer to [Managing Access Request Segments](https://documentation.sailpoint.com/saas/help/requests/segments.html) for more information about segments in Identity Security Cloud.
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 

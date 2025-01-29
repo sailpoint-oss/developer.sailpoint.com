@@ -11,6 +11,13 @@ tags: ['SDK', 'Software Development Kit', 'AuthUsers', 'V2024AuthUsers']
 
 
 # AuthUsers
+  Use this API to implement user authentication system functionality. 
+With this functionality in place, users can get a user&#39;s authentication system details, including their capabilities, and modify those capabilities. 
+The user&#39;s capabilities refer to their access to different systems, or authorization, within the tenant, like access to certifications (CERT_ADMIN) or reports (REPORT_ADMIN). 
+These capabilities also determine a user&#39;s access to the different APIs. 
+This API provides users with a way to determine a user&#39;s access and make quick and easy changes to that access. 
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 

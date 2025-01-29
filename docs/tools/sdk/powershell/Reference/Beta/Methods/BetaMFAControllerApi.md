@@ -11,6 +11,8 @@ tags: ['SDK', 'Software Development Kit', 'MFAController', 'BetaMFAController']
 
 
 # MFAController
+  This API used for multifactor authentication functionality belong to gov-multi-auth service. This controller allow you to verify authentication by specified method 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 

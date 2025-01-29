@@ -11,6 +11,61 @@ tags: ['SDK', 'Software Development Kit', 'TaggedObjects', 'V2024TaggedObjects']
 
 
 # TaggedObjects
+  Use this API to implement object tagging functionality. 
+With object tagging functionality in place, any user in an organization can use tags as a way to group objects together and find them more quickly when the user searches Identity Security Cloud. 
+
+In Identity Security Cloud, users can search their tenants for information and add tags objects they find.
+Tagging an object provides users with a way of grouping objects together and makes it easier to find these objects in the future. 
+
+For example, if a user is searching for an entitlement that grants a risky level of access to Active Directory, it&#39;s possible that the user may have to search through hundreds of entitlements to find the correct one. 
+Once the user finds that entitlement, the user can add a tag to the entitlement, &quot;AD_RISKY&quot; to make it easier to find the entitlement again.
+The user can add the same tag to multiple objects the user wants to group together for an easy future search, and the user can also do so in bulk.
+When the user wants to find that tagged entitlement again, the user can search for &quot;tags:AD_RISKY&quot; to find all objects with that tag. 
+
+With the API, you can tag even more different object types than you can in Identity Security Cloud (access profiles, entitlements, identities, and roles). 
+You can use the API to tag all these objects:
+
+- Access profiles 
+
+- Applications 
+
+- Certification campaigns
+
+- Entitlements
+
+- Identities 
+
+- Roles 
+
+- SOD (separation of duties) policies
+
+- Sources 
+
+You can also use the API to directly find, create, and manage tagged objects without using search queries. 
+
+There are limits to tags: 
+
+- You can have up to 500 different tags in your tenant.
+
+- You can apply up to 30 tags to one object. 
+
+- You can have up to 10,000 tag associations, pairings of 1 tag to 1 object, in your tenant. 
+
+Because of these limits, it is recommended that you work with your governance experts and security teams to establish a list of tags that are most expressive of governance objects and access managed by Identity Security Cloud. 
+
+These are the types of information often expressed in tags: 
+
+- Affected departments
+
+- Compliance and regulatory categories 
+
+- Remediation urgency levels 
+
+- Risk levels 
+
+Refer to [Tagging Items in Search](https://documentation.sailpoint.com/saas/help/search/index.html?h&#x3D;tags#tagging-items-in-search) for more information about tagging objects in Identity Security Cloud. 
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 

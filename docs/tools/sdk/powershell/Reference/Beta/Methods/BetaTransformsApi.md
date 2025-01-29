@@ -11,6 +11,8 @@ tags: ['SDK', 'Software Development Kit', 'Transforms', 'BetaTransforms']
 
 
 # Transforms
+  Operations for creating, managing, and deleting transforms. 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 

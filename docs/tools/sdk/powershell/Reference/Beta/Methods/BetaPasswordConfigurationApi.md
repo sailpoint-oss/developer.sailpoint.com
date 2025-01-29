@@ -11,6 +11,14 @@ tags: ['SDK', 'Software Development Kit', 'PasswordConfiguration', 'BetaPassword
 
 
 # PasswordConfiguration
+  Use this API to implement organization password configuration functionality.
+With this functionality in place, organization administrators can create organization-specific password configurations.
+
+These configurations include details like custom password instructions, as well as digit token length and duration.
+
+Refer to [Configuring User Authentication for Password Resets](https://documentation.sailpoint.com/saas/help/pwd/pwd_reset.html) for more information about organization password configuration functionality.
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 

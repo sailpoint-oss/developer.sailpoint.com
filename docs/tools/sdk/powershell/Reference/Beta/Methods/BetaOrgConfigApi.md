@@ -11,6 +11,10 @@ tags: ['SDK', 'Software Development Kit', 'OrgConfig', 'BetaOrgConfig']
 
 
 # OrgConfig
+  Use this API to implement organization configuration functionality. 
+Administrators can use this functionality to manage organization settings, such as time zones. 
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 

@@ -11,6 +11,8 @@ tags: ['SDK', 'Software Development Kit', 'IAIMessageCatalogs', 'BetaIAIMessageC
 
 
 # IAIMessageCatalogs
+   
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 

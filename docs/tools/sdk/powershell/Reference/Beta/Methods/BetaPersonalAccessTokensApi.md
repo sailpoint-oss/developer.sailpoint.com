@@ -11,6 +11,19 @@ tags: ['SDK', 'Software Development Kit', 'PersonalAccessTokens', 'BetaPersonalA
 
 
 # PersonalAccessTokens
+  Use this API to implement personal access token (PAT) functionality.
+With this functionality in place, users can use PATs as an alternative to passwords for authentication in Identity Security Cloud.
+
+PATs embed user information into the client ID and secret.
+This replaces the API clients&#39; need to store and provide a username and password to establish a connection, improving Identity Security Cloud organizations&#39; integration security.
+
+In Identity Security Cloud, users can do the following to create and manage their PATs: Select the dropdown menu under their names, select Preferences, and then select Personal Access Tokens.
+They must then provide a description about the token&#39;s purpose.
+They can then select &#39;Create Token&#39; at the bottom of the page to generate and view the Secret and Client ID.
+
+Refer to [Managing Personal Access Tokens](https://documentation.sailpoint.com/saas/help/common/generate_tokens.html) for more information about PATs.
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 

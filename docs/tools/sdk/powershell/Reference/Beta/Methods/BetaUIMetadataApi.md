@@ -11,6 +11,9 @@ tags: ['SDK', 'Software Development Kit', 'UIMetadata', 'BetaUIMetadata']
 
 
 # UIMetadata
+  API for managing UI Metadata. Use this API to manage metadata about your User Interface.
+For example you can set the iFrameWhitelist parameter to permit another domain to encapsulate IDN within an iframe or set the usernameEmptyText to change the placeholder text for Username on your tenant&#39;s login screen. 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 

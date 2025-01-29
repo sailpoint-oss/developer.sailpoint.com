@@ -11,6 +11,42 @@ tags: ['SDK', 'Software Development Kit', 'AccessProfiles', 'V2024AccessProfiles
 
 
 # AccessProfiles
+  Use this API to implement and customize access profile functionality. 
+With this functionality in place, administrators can create access profiles and configure them for use throughout Identity Security Cloud, enabling users to get the access they need quickly and securely.
+
+Access profiles group entitlements, which represent access rights on sources. 
+
+For example, an Active Directory source in Identity Security Cloud can have multiple entitlements: the first, &#39;Employees,&#39; may represent the access all employees have at the organization, and a second, &#39;Developers,&#39; may represent the access all developers have at the organization.
+
+An administrator can then create a broader set of access in the form of an access profile, &#39;AD Developers&#39; grouping the &#39;Employees&#39; entitlement with the &#39;Developers&#39; entitlement.
+
+When users only need Active Directory employee access, they can request access to the &#39;Employees&#39; entitlement.
+
+When users need both Active Directory employee and developer access, they can request access to the &#39;AD Developers&#39; access profile.
+
+Access profiles are the most important units of access in Identity Security Cloud. Identity Security Cloud uses access profiles in many features, including the following:
+
+- Provisioning: When you use the Provisioning Service, lifecycle states and roles both grant access to users in the form of access profiles.
+
+- Certifications: You can approve or revoke access profiles in certification campaigns, just like entitlements. 
+
+- Access Requests: You can assign access profiles to applications, and when a user requests access to the app associated with an access profile and someone approves the request, access is granted to both the application and its associated access profile.
+
+- Roles: You can group one or more access profiles into a role to quickly assign access items based on an identity&#39;s role. 
+
+In Identity Security Cloud, administrators can use the Access drop-down menu and select Access Profiles to view, configure, and delete existing access profiles, as well as create new ones. 
+Administrators can enable and disable an access profile, and they can also make the following configurations: 
+
+- Manage Entitlements: Manage the profile&#39;s access by adding and removing entitlements. 
+
+- Access Requests: Configure access profiles to be requestable and establish an approval process for any requests that the access profile be granted or revoked. 
+Do not configure an access profile to be requestable without first establishing a secure access request approval process for the access profile.
+
+- Multiple Account Options: Define the logic Identity Security Cloud uses to provision access to an identity with multiple accounts on the source. 
+
+Refer to [Managing Access Profiles](https://documentation.sailpoint.com/saas/help/access/access-profiles.html) for more information about access profiles.
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 

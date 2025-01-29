@@ -11,6 +11,8 @@ tags: ['SDK', 'Software Development Kit', 'Tenant', 'BetaTenant']
 
 
 # Tenant
+  API for reading tenant details. 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 

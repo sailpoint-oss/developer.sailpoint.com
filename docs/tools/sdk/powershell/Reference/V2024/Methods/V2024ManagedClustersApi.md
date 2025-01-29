@@ -11,6 +11,10 @@ tags: ['SDK', 'Software Development Kit', 'ManagedClusters', 'V2024ManagedCluste
 
 
 # ManagedClusters
+  Use this API to implement managed cluster functionality. 
+With this functionality in place, administrators can modify and delete existing managed clients, get their statuses, and create new ones. 
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 

@@ -11,6 +11,8 @@ tags: ['SDK', 'Software Development Kit', 'MFAConfiguration', 'V2024MFAConfigura
 
 
 # MFAConfiguration
+  Configure and test multifactor authentication (MFA) methods 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 

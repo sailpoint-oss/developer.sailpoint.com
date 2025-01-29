@@ -11,6 +11,18 @@ tags: ['SDK', 'Software Development Kit', 'WorkReassignment', 'V2024WorkReassign
 
 
 # WorkReassignment
+  Use this API to implement work reassignment functionality.
+
+Work Reassignment allows access request reviews, certifications, and manual provisioning tasks assigned to a user to be reassigned to a different user. This is primarily used for:
+
+- Temporarily redirecting work for users who are out of office, such as on vacation or sick leave
+- Permanently redirecting work for users who should not be assigned these tasks at all, such as senior executives or service identities
+
+Users can define reassignments for themselves, managers can add them for their team members, and administrators can configure them on any user’s behalf. Work assigned during the specified reassignment timeframes will be automatically reassigned to the designated user as it is created.
+
+Refer to [Work Reassignment](https://documentation.sailpoint.com/saas/help/users/work_reassignment.html) for more information about this topic.
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 

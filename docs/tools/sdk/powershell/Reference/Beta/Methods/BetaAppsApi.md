@@ -11,6 +11,10 @@ tags: ['SDK', 'Software Development Kit', 'Apps', 'BetaApps']
 
 
 # Apps
+  Use this API to implement source application functionality. 
+With this functionality in place, you can create, customize, and manage applications within sources.
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 

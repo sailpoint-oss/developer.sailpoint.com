@@ -11,6 +11,35 @@ tags: ['SDK', 'Software Development Kit', 'CertificationCampaignFilters', 'V2024
 
 
 # CertificationCampaignFilters
+  Use this API to implement the certification campaign filter functionality. These filters can be used to create a certification campaign that includes a subset of your entitlements or users to certify.
+
+For example, if for a certification campaign an organization wants to certify only specific users or entitlements, then those can be included/excluded on the basis of campaign filters.
+
+For more information about creating a campaign filter, refer to [Creating a Campaign Filter](https://documentation.sailpoint.com/saas/help/certs/campaign_filters.html#creating-a-campaign-filter)
+
+You can create campaign filters using any of the following criteria types:
+
+- Access Profile : This criteria type includes or excludes access profiles from a campaign.
+
+- Account Attribute : This criteria type includes or excludes certification items that match a specified value in an account attribute.
+
+- Entitlement : This criteria type includes or excludes entitlements from a campaign.
+
+- Identity : This criteria type includes or excludes specific identities from your campaign.
+
+- Identity Attribute : This criteria type includes or excludes identities based on whether they have an identity attribute that matches criteria you&#39;ve chosen.
+
+- Role : This criteria type includes or excludes roles, as opposed to identities.
+
+- Source : This criteria type includes or excludes entitlements from a source you select.
+
+For more information about these criteria types, refer to [Types of Campaign Filters](https://documentation.sailpoint.com/saas/help/certs/campaign_filters.html#types-of-campaign-filters)
+
+Once the campaign filter is created, it can be linked while creating the campaign. The generated campaign will have the items to review as per the campaign filter.
+
+For example, An inclusion campaign filter is created with a source of Source 1, an operation of Equals, and an entitlement of Entitlement 1. When this filter is selected, only users who have Entitlement 1 are included in the campaign, and only Entitlement 1 is shown in the certification.
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 

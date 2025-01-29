@@ -11,6 +11,17 @@ tags: ['SDK', 'Software Development Kit', 'ConfigurationHub', 'ConfigurationHub'
 
 
 # ConfigurationHub
+  Upload configurations and manage object mappings between tenants.
+
+Configuration files can be managed and deployed using Configuration Hub by uploading a JSON file which contains configuration data.
+
+The function of object mapping allows objects with varying names and IDs to be compared. While objects are compared, a user can replace a value in the source tenant with a new value. Object mapping also helps in locating referenced objects to the source object during the drafting process.
+
+Refer to [Uploading a Configuration File](https://documentation.sailpoint.com/saas/help/confighub/config_hub.html#uploading-a-configuration-file) for more information about uploading Configuration Files
+
+Refer to [Mapping Objects](https://documentation.sailpoint.com/saas/help/confighub/config_hub.html#mapping-objects) for more information about object mappings.
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 

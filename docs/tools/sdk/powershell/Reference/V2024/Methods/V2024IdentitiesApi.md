@@ -11,6 +11,23 @@ tags: ['SDK', 'Software Development Kit', 'Identities', 'V2024Identities']
 
 
 # Identities
+  Use this API to implement identity functionality.
+With this functionality in place, administrators can synchronize an identity&#39;s attributes with its various source attributes.
+
+Identity Security Cloud uses identities as users&#39; authoritative accounts. Identities can own other accounts, entitlements, and attributes.
+
+An identity has a variety of attributes, such as an account name, an email address, a job title, and more.
+These identity attributes can be correlated with different attributes on different sources.
+For example, the identity John.Smith can own an account in the GitHub source with the account name John-Smith-Org, and Identity Security Cloud knows they are the same person with the same access and attributes.
+
+In Identity Security Cloud, administrators often set up these synchronizations to get triggered automatically with a change or to run on a schedule.
+To manually synchronize attributes for an identity, administrators can use the Identities drop-down menu and select Identity List to view the list of identities.
+They can then select the identity they want to manually synchronize and use the hamburger menu to select &#39;Synchronize Attributes.&#39;
+Doing so immediately begins the attribute synchronization and analyzes all accounts for the selected identity.
+
+Refer to [Synchronizing Attributes](https://documentation.sailpoint.com/saas/help/provisioning/attr_sync.html) for more information about synchronizing attributes.
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 

@@ -11,6 +11,31 @@ tags: ['SDK', 'Software Development Kit', 'Certifications', 'Certifications']
 
 
 # Certifications
+  Use this API to implement certification functionality. 
+With this functionality in place, administrators and designated certification reviewers can review users&#39; access certifications and decide whether to approve access, revoke it, or reassign the review to another reviewer. 
+Implementing certifications improves organizations&#39; data security by reducing inappropriate access through a distributed review process and helping them satisfy audit and regulatory requirements. 
+
+A certification refers to Identity Security Cloud&#39;s mechanism for reviewing a user&#39;s access to entitlements (sets of permissions) and approving or removing that access. 
+These serve as a way of showing that a user&#39;s access has been reviewed and approved. 
+Multiple certifications by different reviewers are often required to approve a user&#39;s access. 
+A set of multiple certifications is called a certification campaign.
+
+For example, an organization may use a Manager Certification as a way of showing that a user&#39;s access has been reviewed and approved by their manager, or if the certification is part of a campaign, that the user&#39;s access has been reviewed and approved by multiple managers. 
+Once this certification has been completed, Identity Security Cloud  would provision all the access the user needs, nothing more. 
+
+Organization administrators or certification administrators can designate other Identity Security Cloud users as certification reviewers. 
+Those reviewers can select the &#39;Certifications&#39; tab to view any of the certifications they either need to review or have already reviewed under the &#39;Active&#39; and &#39;Completed&#39; tabs, respectively. 
+
+When a certification campaign is in progress, certification reviewers will see certifications listed under &#39;Active,&#39; where they can review the involved identities. 
+Under the &#39;Decision&#39; column on the right, next to each access item, reviewers can select the checkmark to approve access, select the &#39;X&#39; to revoke access, or they can toggle the &#39;More Options&#39; menu to reassign the certification to another reviewer and provide a reason for reassignment in the form of a comment. 
+
+Once a reviewer has made decisions on all the certification&#39;s involved access items, he or she must select &#39;Sign Off&#39; to complete the review process.
+Doing so converts the certification into read-only status, preventing any further changes to the review decisions and deleting the work item (task) from the reviewer&#39;s list of work items. 
+
+Once all the reviewers have signed off, the certification campaign either completes or, if any reviewers decided to revoke access for any of the involved identities, it moves into a remediation phase. In the remediation phase, identities&#39; entitlements are altered to remove any entitlements marked for revocation.
+In this situation, the certification campaign completes once all the remediation requests are completed.
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 

@@ -11,6 +11,22 @@ tags: ['SDK', 'Software Development Kit', 'WorkItems', 'WorkItems']
 
 
 # WorkItems
+  Use this API to implement work item functionality. 
+With this functionality in place, users can manage their work items (tasks). 
+
+Work items refer to the tasks users see in Identity Security Cloud&#39;s Task Manager. 
+They can see the pending work items they need to complete, as well as the work items they have already completed. 
+Task Manager lists the work items along with the involved sources, identities, accounts, and the timestamp when the work item was created. 
+For example, a user may see a pending &#39;Create an Account&#39; work item for the identity Fred.Astaire in GitHub for Fred&#39;s GitHub account, fred-astaire-sp. 
+Once the user completes the work item, the work item will be listed with his or her other completed work items. 
+
+To complete work items, users can use their dashboards and select the &#39;My Tasks&#39; widget. 
+The widget will list any work items they need to complete, and they can select the work item from the list to review its details. 
+When they complete the work item, they can select &#39;Mark Complete&#39; to add it to their list of completed work items. 
+
+Refer to [Task Manager](https://documentation.sailpoint.com/saas/user-help/task_manager.html) for more information about work items, including the different types of work items users may need to complete.
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 

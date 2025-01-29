@@ -11,6 +11,11 @@ tags: ['SDK', 'Software Development Kit', 'ReportsDataExtraction', 'ReportsDataE
 
 
 # ReportsDataExtraction
+  Use this API to implement reports lifecycle managing and monitoring.
+With this functionality in place, users can run reports, view their results, and cancel reports in progress. 
+This can be potentially helpful for auditing purposes. 
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 

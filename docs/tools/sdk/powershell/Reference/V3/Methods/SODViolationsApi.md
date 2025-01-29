@@ -11,6 +11,26 @@ tags: ['SDK', 'Software Development Kit', 'SODViolations', 'SODViolations']
 
 
 # SODViolations
+  Use this API to check for current &quot;separation of duties&quot; (SOD) policy violations as well as potential future SOD policy violations. 
+With SOD violation functionality in place, administrators can get information about current SOD policy violations and predict whether an access change will trigger new violations, which helps to prevent them from occurring at all. 
+
+&quot;Separation of duties&quot; refers to the concept that people shouldn&#39;t have conflicting sets of access - all their access should be configured in a way that protects your organization&#39;s assets and data.  
+For example, people who record monetary transactions shouldn&#39;t be able to issue payment for those transactions.
+Any changes to major system configurations should be approved by someone other than the person requesting the change. 
+
+Organizations can use &quot;separation of duties&quot; (SOD) policies to enforce and track their internal security rules throughout their tenants.
+These SOD policies limit each user&#39;s involvement in important processes and protects the organization from individuals gaining excessive access. 
+
+Once a SOD policy is in place, if an identity has conflicting access items, a SOD violation will trigger. 
+These violations are included in SOD violation reports that other users will see in emails at regular intervals if they&#39;re subscribed to the SOD policy.
+The other users can then better help to enforce these SOD policies.
+
+Administrators can use the SOD violations APIs to check a set of identities for any current SOD violations, and they can use them to check whether adding an access item would potentially trigger a SOD violation. 
+This second option is a good way to prevent SOD violations from triggering at all. 
+
+Refer to [Handling Policy Violations](https://documentation.sailpoint.com/saas/help/sod/policy-violations.html) for more information about SOD policy violations. 
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 

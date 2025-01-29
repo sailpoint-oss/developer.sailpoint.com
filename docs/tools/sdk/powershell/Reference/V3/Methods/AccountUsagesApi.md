@@ -11,6 +11,11 @@ tags: ['SDK', 'Software Development Kit', 'AccountUsages', 'AccountUsages']
 
 
 # AccountUsages
+  Use this API to implement account usage insight functionality.
+With this functionality in place, administrators can gather information and insights about how their tenants&#39; source accounts are being used.
+This allows organizations to get the information they need to start optimizing and securing source account usage.
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 

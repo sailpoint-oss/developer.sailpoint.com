@@ -11,6 +11,11 @@ tags: ['SDK', 'Software Development Kit', 'SourceUsages', 'V2024SourceUsages']
 
 
 # SourceUsages
+  Use this API to implement source usage insight functionality.
+With this functionality in place, administrators can gather information and insights about how their tenants&#39; sources are being used.
+This allows organizations to get the information they need to start optimizing and securing source usage.
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 

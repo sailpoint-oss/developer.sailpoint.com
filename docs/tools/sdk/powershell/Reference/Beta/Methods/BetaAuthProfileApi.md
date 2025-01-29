@@ -11,6 +11,14 @@ tags: ['SDK', 'Software Development Kit', 'AuthProfile', 'BetaAuthProfile']
 
 
 # AuthProfile
+  Use this API to implement Auth Profile functionality. 
+With this functionality in place, users can read authentication profiles and make changes to them. 
+
+An authentication profile represents an identity profile&#39;s authentication configuration. 
+When the identity profile is created, its authentication profile is also created. 
+An authentication profile includes information like its authentication profile type (&#x60;BLOCK&#x60;, &#x60;MFA&#x60;, &#x60;NON_PTA&#x60;, PTA&#x60;) and settings controlling whether or not it blocks access from off network or untrusted geographies. 
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 

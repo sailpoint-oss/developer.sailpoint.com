@@ -11,6 +11,8 @@ tags: ['SDK', 'Software Development Kit', 'IAICommonAccess', 'BetaIAICommonAcces
 
 
 # IAICommonAccess
+   
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 

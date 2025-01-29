@@ -11,6 +11,35 @@ tags: ['SDK', 'Software Development Kit', 'Accounts', 'Accounts']
 
 
 # Accounts
+  Use this API to implement and customize account functionality.
+With this functionality in place, administrators can manage users&#39; access across sources in Identity Security Cloud. 
+
+In Identity Security Cloud, an account refers to a user&#39;s account on a supported source.
+This typically includes a unique identifier for the user, a unique password, a set of permissions associated with the source and a set of attributes. Identity Security Cloud loads accounts through the creation of sources in Identity Security Cloud.
+
+Administrators can correlate users&#39; identities with the users&#39; accounts on the different sources they use. 
+This allows Identity Security Cloud to govern the access of identities and all their correlated accounts securely and cohesively. 
+
+To view the accounts on a source and their correlated identities, administrators can use the Connections drop-down menu, select Sources, select the relevant source, and select its Account tab. 
+
+To view and edit source account statuses for an identity in Identity Security Cloud, administrators can use the Identities drop-down menu, select Identity List, select the relevant identity, and select its Accounts tab. 
+Administrators can toggle an account&#39;s Actions to aggregate the account, enable/disable it, unlock it, or remove it from the identity. 
+
+Accounts can have the following statuses: 
+
+- Enabled: The account is enabled. The user can access it.
+
+- Disabled: The account is disabled, and the user cannot access it, but the identity is not disabled in Identity Security Cloud. This can occur when an administrator disables the account or when the user&#39;s lifecycle state changes. 
+
+- Locked: The account is locked. This may occur when someone has entered an incorrect password for the account too many times.
+
+- Pending: The account is currently updating. This status typically lasts seconds. 
+
+Administrators can select the source account to view its attributes, entitlements, and the last time the account&#39;s password was changed.
+
+Refer to [Managing User Accounts](https://documentation.sailpoint.com/saas/help/common/users/user_access.html#managing-user-accounts) for more information about accounts.
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 

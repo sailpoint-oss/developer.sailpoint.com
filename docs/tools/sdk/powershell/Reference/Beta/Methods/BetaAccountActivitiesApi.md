@@ -11,6 +11,41 @@ tags: ['SDK', 'Software Development Kit', 'AccountActivities', 'BetaAccountActiv
 
 
 # AccountActivities
+  Use this API to implement account activity tracking functionality.
+With this functionality in place, users can track source account activity in Identity Security Cloud, which greatly improves traceability in the system.
+
+An account activity refers to a log of each action performed on a source account. This is useful for auditing the changes that occur on an account throughout its life.
+In Identity Security Cloud&#39;s Search, users can search for account activities and select the activity&#39;s row to get an overview of the activity&#39;s account action and view its progress, its involved sources, and its most basic metadata, such as the identity requesting the option and the recipient.
+
+Account activity includes most actions Identity Security Cloud completes on source accounts. Users can search in Identity Security Cloud for the following account action types:
+
+- Access Request: These include any access requests the source account is involved in.
+
+- Account Attribute Updates: These include updates to a single attribute on an account on a source.
+
+- Account State Update: These include locking or unlocking actions on an account on a source.
+
+- Certification: These include actions removing an entitlement from an account on a source as a result of the entitlement&#39;s revocation during a certification.
+
+- Cloud Automated &#x60;Lifecyclestate&#x60;: These include automated lifecycle state changes that result in a source account&#39;s correlated identity being assigned to a different lifecycle state.
+Identity Security Cloud replaces the &#x60;Lifecyclestate&#x60; variable with the name of the lifecycle state it has moved the account&#39;s identity to.
+
+- Identity Attribute Update: These include updates to a source account&#39;s correlated identity attributes as the result of a provisioning action.
+When you update an identity attribute that also updates an identity&#39;s lifecycle state, the cloud automated &#x60;Lifecyclestate&#x60; event also displays.
+Account Activity does not include attribute updates that occur as a result of aggregation.
+
+- Identity Refresh: These include correlated identity refreshes that occur for an account on a source whenever the account&#39;s correlated identity profile gets a new role or updates.
+These also include refreshes that occur whenever Identity Security Cloud assigns an application to the account&#39;s correlated identity based on the application&#39;s being assigned to All Users From Source or Specific Users From Source.
+
+- Lifecycle State Refresh: These include the actions that took place when a lifecycle state changed. This event only occurs after a cloud automated &#x60;Lifecyclestate&#x60; change or a lifecycle state change.
+
+- Lifecycle State Change: These include the account activities that result from an identity&#39;s manual assignment to a null lifecycle state.
+
+- Password Change: These include password changes on sources.
+
+Refer to [Account Activity](https://documentation.sailpoint.com/saas/help/search/index.html#account-activity) for more information about account activities.
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 

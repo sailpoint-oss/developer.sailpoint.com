@@ -11,6 +11,23 @@ tags: ['SDK', 'Software Development Kit', 'Certifications', 'BetaCertifications'
 
 
 # Certifications
+  Use this API to implement certification functionality.
+This API provides specific functionality that improves an organization&#39;s ability to manage its certification process.
+
+A certification refers to Identity Security Cloud&#39;s mechanism for reviewing a user&#39;s access to entitlements (sets of permissions) and approving or removing that access.
+These certifications serve as a way of showing that a user&#39;s access has been reviewed and approved.
+Multiple certifications by different reviewers are often required to approve a user&#39;s access.
+A set of multiple certifications is called a certification campaign.
+
+For example, an organization may use a Manager Certification as a way of showing that a user&#39;s access has been reviewed and approved by their manager, or if the certification is part of a campaign, that the user&#39;s access has been reviewed and approved by multiple managers.
+Once this certification has been completed, Identity Security Cloud  would provision all the access the user needs, nothing more.
+
+This API enables administrators and reviewers to get useful information about certifications at a high level, such as the reviewers involved, and at a more granular level, such as the permissions affected by changes to entitlements within those certifications.
+It also provides the useful ability to reassign identities and items within certifications to other reviewers, rather than [reassigning the entire certifications themselves](https://developer.sailpoint.com/idn/api/beta/submit-reassign-certs-async/).
+
+Refer to [Managing User Accounts](https://documentation.sailpoint.com/saas/help/common/users/user_access.html#managing-user-accounts) for more information about accounts.
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 

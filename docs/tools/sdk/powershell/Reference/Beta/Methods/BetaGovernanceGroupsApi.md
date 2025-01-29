@@ -11,6 +11,13 @@ tags: ['SDK', 'Software Development Kit', 'GovernanceGroups', 'BetaGovernanceGro
 
 
 # GovernanceGroups
+  Use this API to implement and customize Governance Group functionality. With this functionality in place, administrators can create Governance Groups and configure them for use throughout Identity Security Cloud.
+
+A governance group is a group of users that can make governance decisions about access. If your organization has the Access Request or Certifications service, you can configure governance groups to review access requests or certifications. A governance group can determine whether specific access is appropriate for a user.
+
+Refer to [Creating and Managing Governance Groups](https://documentation.sailpoint.com/saas/help/common/users/governance_groups.html) for more information about how to build Governance Groups in the visual builder in the Identity Security Cloud UI.
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 

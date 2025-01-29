@@ -11,6 +11,31 @@ tags: ['SDK', 'Software Development Kit', 'Search', 'Search']
 
 
 # Search
+  Use this API to implement search functionality. 
+With search functionality in place, users can search their tenants for nearly any information from throughout their organizations. 
+
+Identity Security Cloud enables organizations to store user data from across all their connected sources and manage the users&#39; access, so the ability to query and filter that data is essential.  
+Its search goes through all those sources and finds the results quickly and specifically. 
+
+The search query is flexible - it can be very broad or very narrow. 
+The search only returns results for searchable objects it is filtering for. 
+The following objects are searchable: identities, roles, access profiles, entitlements, events, and account activities. 
+By default, no filter is applied, so a search for &quot;Ad&quot; returns both the identity &quot;Adam.Archer&quot; as well as the role &quot;Administrator.&quot;
+
+Users can further narrow their results by using Identity Security Cloud&#39;s specific syntax and punctuation to structure their queries. 
+For example, the query &quot;attributes.location:austin AND NOT manager.name:amanda.ross&quot; returns all results associated with the Austin location, but it excludes those associated with the manager Amanda Ross.
+Refer to [Building a Search Query](https://documentation.sailpoint.com/saas/help/search/building-query.html) for more information about how to construct specific search queries. 
+
+Refer to [Using Search](https://documentation.sailpoint.com/saas/help/search/index.html) for more information about Identity Security Cloud&#39;s search and its different possibilities. 
+
+The search feature uses Elasticsearch as a datastore and query engine. 
+The power of Elasticsearch makes this feature suitable for ad-hoc reporting.
+However, data from the operational databases (ex. identities, roles, events, etc) has to be ingested into Elasticsearch. 
+This ingestion process introduces a latency from when the operational data is created to when it is available in search. 
+Depending on the system load, this can take a few seconds to a few minutes. 
+Please keep this latency in mind when you use search.
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 

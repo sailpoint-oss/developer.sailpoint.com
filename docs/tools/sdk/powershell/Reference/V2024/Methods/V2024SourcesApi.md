@@ -11,6 +11,65 @@ tags: ['SDK', 'Software Development Kit', 'Sources', 'V2024Sources']
 
 
 # Sources
+  Use this API to implement and customize source functionality. 
+With source functionality in place, organizations can use Identity Security Cloud to connect their various sources and user data sets and manage access across all those different sources in a secure, scalable way. 
+
+[Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html) refer to the Identity Security Cloud representations for external applications, databases, and directory management systems that maintain their own sets of users, like Dropbox, GitHub, and Workday, for example.
+Organizations may use hundreds, if not thousands, of different source systems, and any one employee within an organization likely has a different user record on each source, often with different permissions on many of those records. 
+Connecting these sources to Identity Security Cloud makes it possible to manage user access across them all.
+Then, if a new hire starts at an organization, Identity Security Cloud can grant the new hire access to all the sources they need.
+If an employee moves to a new department and needs access to new sources but no longer needs access to others, Identity Security Cloud can grant the necessary access and revoke the unnecessary access for all the employee&#39;s various sources. 
+If an employee leaves the company, Identity Security Cloud can revoke access to all the employee&#39;s various source accounts immediately. 
+These are just a few examples of the many ways that source functionality makes identity governance easier, more efficient, and more secure. 
+
+In Identity Security Cloud, administrators can create configure, manage, and edit sources, and they can designate other users as source admins to be able to do so.
+They can also designate users as source sub-admins, who can perform the same source actions but only on sources associated with their governance groups.
+Admins go to Connections &gt; Sources to see a list of the existing source representations in their organizations. 
+They can create new sources or select existing ones. 
+
+To create a new source, the following must be specified: Source Name, Description, Source Owner, and Connection Type.
+Refer to [Configuring a Source](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html#configuring-a-source) for more information about the source configuration process. 
+
+Identity Security Cloud connects with its sources either by a direct communication with the source server (connection information specific to the source must be provided) or a flat file feed, a CSV file containing all the relevant information about the accounts to be loaded in.
+Different sources use different connectors to share data with Identity Security Cloud, and each connector&#39;s setup process is specific to that connector. 
+SailPoint has built a number of connectors to come out of the box and connect to the most common sources, and SailPoint actively maintains these connectors.
+Refer to [Identity Security Cloud Connectors](https://documentation.sailpoint.com/connectors/identitynow/landingpages/help/landingpages/identitynow_connectivity_landing.html) for more information about these SailPoint supported connectors. 
+Refer to the following links for more information about two useful connectors: 
+
+- [JDBC Connector](https://documentation.sailpoint.com/connectors/jdbc/help/integrating_jdbc/introduction.html): This customizable connector an directly connect to databases that support JDBC (Java Database Connectivity).
+
+- [Web Services Connector](https://documentation.sailpoint.com/connectors/webservices/help/integrating_webservices/introduction.html): This connector can directly connect to databases that support Web Services. 
+
+Refer to [SaaS Connectivity](https://developer.sailpoint.com/docs/connectivity/saas-connectivity/) for more information about SailPoint&#39;s new connectivity framework that makes it easy to build and manage custom connectors to SaaS sources. 
+
+When admins select existing sources, they can view the following information about the source:
+
+- Associated connections (any associated identity profiles, apps, or references to the source in a transform).
+
+- Associated user accounts. These accounts are linked to their identities - this provides a more complete picture of each user&#39;s access across sources.
+
+- Associated entitlements (sets of access rights on sources).
+
+- Associated access profiles (groupings of entitlements). 
+
+The user account data and the entitlements update with each data aggregation from the source. 
+Organizations generally run scheduled, automated data aggregations to ensure that their data is always in sync between their sources and their Identity Security Cloud tenants so an access change on a source is detected quickly in Identity Security Cloud.
+Admins can view a history of these aggregations, and they can also run manual imports. 
+Refer to [Loading Account Data](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html) for more information about manual and scheduled aggregations. 
+
+Admins can also make changes to determine which user account data Identity Security Cloud collects from the source and how it correlates that account data with identity data. 
+To define which account attributes the source shares with Identity Security Cloud, admins can edit the account schema on the source.
+Refer to [Managing Source Account Schemas](https://documentation.sailpoint.com/saas/help/accounts/schema.html) for more information about source account schemas and how to edit them. 
+To define the mapping between the source account attributes and their correlating identity attributes, admins can edit the correlation configuration on the source. 
+Refer to [Assigning Source Accounts to Identities](https://documentation.sailpoint.com/saas/help/accounts/correlation.html) for more information about this correlation process between source accounts and identities.
+
+Admins can also delete sources, but they must first ensure that the sources no longer have any active connections: the source must not be associated with any identity profile or any app, and it must not be referenced by any transform.
+Refer to [Deleting Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html#deleting-sources) for more information about deleting sources. 
+
+Well organized, mapped out connections between sources and Identity Security Cloud are essential to achieving comprehensive identity access governance across all the source systems organizations need. 
+Refer to [Managing Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html) for more information about all the different things admins can do with sources once they are connected.
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
@@ -296,7 +355,6 @@ Use this API to create a new schedule for a type on the specified source in Iden
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceId | **String** | True  | Source ID.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | Schedule1 | [**Schedule1**](../models/schedule1) | True  | 
 
 ### Return type
@@ -321,15 +379,14 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Schedule1 = @""@
 # Create Schedule on Source
 try {
     $Result = ConvertFrom-JsonToSchedule1 -Json $Schedule1
-    New-V2024SourceSchedule-V2024SourceId $SourceId -V2024XSailPointExperimental $XSailPointExperimental -V2024Schedule1 $Result
+    New-V2024SourceSchedule-V2024SourceId $SourceId -V2024Schedule1 $Result
     
     # Below is a request that includes all optional parameters
-    # New-V2024SourceSchedule -V2024SourceId $SourceId -V2024XSailPointExperimental $XSailPointExperimental -V2024Schedule1 $Schedule1  
+    # New-V2024SourceSchedule -V2024SourceId $SourceId -V2024Schedule1 $Schedule1  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024SourceSchedule"
     Write-Host $_.ErrorDetails
@@ -625,7 +682,6 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceId | **String** | True  | The Source id.
 Path   | ScheduleType | **String** | True  | The Schedule type.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 
@@ -651,13 +707,12 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 $ScheduleType = "ACCOUNT_AGGREGATION" # String | The Schedule type.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 # Delete Source Schedule by type.
 try {
-    Remove-V2024SourceSchedule-V2024SourceId $SourceId -V2024ScheduleType $ScheduleType -V2024XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024SourceSchedule-V2024SourceId $SourceId -V2024ScheduleType $ScheduleType 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024SourceSchedule -V2024SourceId $SourceId -V2024ScheduleType $ScheduleType -V2024XSailPointExperimental $XSailPointExperimental  
+    # Remove-V2024SourceSchedule -V2024SourceId $SourceId -V2024ScheduleType $ScheduleType  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024SourceSchedule"
     Write-Host $_.ErrorDetails
@@ -1201,7 +1256,6 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceId | **String** | True  | The Source id.
 Path   | ScheduleType | **String** | True  | The Schedule type.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 
@@ -1227,13 +1281,12 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 $ScheduleType = "ACCOUNT_AGGREGATION" # String | The Schedule type.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 # Get Source Schedule by Type
 try {
-    Get-V2024SourceSchedule-V2024SourceId $SourceId -V2024ScheduleType $ScheduleType -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SourceSchedule-V2024SourceId $SourceId -V2024ScheduleType $ScheduleType 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024SourceSchedule -V2024SourceId $SourceId -V2024ScheduleType $ScheduleType -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024SourceSchedule -V2024SourceId $SourceId -V2024ScheduleType $ScheduleType  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SourceSchedule"
     Write-Host $_.ErrorDetails
@@ -1250,7 +1303,6 @@ Use this API to list the schedules that exist on the specified source in Identit
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceId | **String** | True  | Source ID.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 
@@ -1275,13 +1327,12 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 # List Schedules on Source
 try {
-    Get-V2024SourceSchedules-V2024SourceId $SourceId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SourceSchedules-V2024SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024SourceSchedules -V2024SourceId $SourceId -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024SourceSchedules -V2024SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SourceSchedules"
     Write-Host $_.ErrorDetails
@@ -2871,7 +2922,6 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceId | **String** | True  | The Source id.
 Path   | ScheduleType | **String** | True  | The Schedule type.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | The JSONPatch payload used to update the schedule.
 
 ### Return type
@@ -2898,7 +2948,6 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 $ScheduleType = "ACCOUNT_AGGREGATION" # String | The Schedule type.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
  # JsonPatchOperation[] | The JSONPatch payload used to update the schedule.
  $JsonPatchOperation = @"{
   "op" : "replace",
@@ -2909,10 +2958,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Update Source Schedule (Partial)
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024SourceSchedule-V2024SourceId $SourceId -V2024ScheduleType $ScheduleType -V2024XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $Result
+    Update-V2024SourceSchedule-V2024SourceId $SourceId -V2024ScheduleType $ScheduleType -V2024JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
-    # Update-V2024SourceSchedule -V2024SourceId $SourceId -V2024ScheduleType $ScheduleType -V2024XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $JsonPatchOperation  
+    # Update-V2024SourceSchedule -V2024SourceId $SourceId -V2024ScheduleType $ScheduleType -V2024JsonPatchOperation $JsonPatchOperation  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024SourceSchedule"
     Write-Host $_.ErrorDetails

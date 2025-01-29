@@ -11,6 +11,11 @@ tags: ['SDK', 'Software Development Kit', 'RequestableObjects', 'RequestableObje
 
 
 # RequestableObjects
+  Use this API to implement requestable object functionality. 
+With this functionality in place, administrators can determine which access items can be requested with the [Access Request APIs](https://developer.sailpoint.com/docs/api/v3/access-requests/), along with their statuses. 
+This can be helpful for administrators who are implementing and customizing access request functionality as a way of checking which items are requestable as they are created, assigned, and made available.
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 

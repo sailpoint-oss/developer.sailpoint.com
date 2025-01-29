@@ -11,6 +11,32 @@ tags: ['SDK', 'Software Development Kit', 'PasswordManagement', 'PasswordManagem
 
 
 # PasswordManagement
+  Use this API to implement password management functionality.  
+With this functionality in place, users can manage their identity passwords for all their applications.
+
+In Identity Security Cloud, users can select their names in the upper right corner of the page and use the drop-down menu to select Password Manager. 
+Password Manager lists the user&#39;s identity&#39;s applications, possibly grouped to share passwords. 
+Users can then select &#39;Change Password&#39; to update their passwords. 
+
+Grouping passwords allows users to update their passwords more broadly, rather than requiring them to update each password individually. 
+Password Manager may list the applications and sources in the following groups:
+
+- Password Group: This refers to a group of applications that share a password. 
+For example, a user can use the same password for Google Drive, Google Mail, and YouTube. 
+Updating the password for the password group updates the password for all its included applications.
+
+- Multi-Application Source: This refers to a source with multiple applications that share a password. 
+For example, a user can have a source, G Suite, that includes the Google Calendar, Google Drive, and Google Mail applications. 
+Updating the password for the multi-application source updates the password for all its included applications. 
+
+- Applications: These are applications that do not share passwords with other applications.
+
+An organization may require some authentication for users to update their passwords. 
+Users may be required to answer security questions or use a third-party authenticator before they can confirm their updates. 
+
+Refer to [Managing Passwords](https://documentation.sailpoint.com/saas/user-help/accounts/passwords.html) for more information about password management.
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 

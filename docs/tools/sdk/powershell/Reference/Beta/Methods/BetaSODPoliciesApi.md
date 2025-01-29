@@ -11,6 +11,34 @@ tags: ['SDK', 'Software Development Kit', 'SODPolicies', 'BetaSODPolicies']
 
 
 # SODPolicies
+  Use this API to implement and manage &quot;separation of duties&quot; (SOD) policies. 
+With SOD policy functionality in place, administrators can organize the access in their tenants to prevent individuals from gaining conflicting or excessive access. 
+
+&quot;Separation of duties&quot; refers to the concept that people shouldn&#39;t have conflicting sets of access - all their access should be configured in a way that protects your organization&#39;s assets and data.  
+For example, people who record monetary transactions shouldn&#39;t be able to issue payment for those transactions.
+Any changes to major system configurations should be approved by someone other than the person requesting the change. 
+
+Organizations can use &quot;separation of duties&quot; (SOD) policies to enforce and track their internal security rules throughout their tenants.
+These SOD policies limit each user&#39;s involvement in important processes and protects the organization from individuals gaining excessive access. 
+
+To create SOD policies in Identity Security Cloud, administrators use &#39;Search&#39; and then access &#39;Policies&#39;.
+To create a policy, they must configure two lists of access items. Each access item can only be added to one of the two lists.
+They can search for the entitlements they want to add to these access lists.
+
+&gt;Note: You can have a maximum of 500 policies of any type (including general policies) in your organization. In each access-based SOD policy, you can have a maximum of 50 entitlements in each access list.
+
+Once a SOD policy is in place, if an identity has access items on both lists, a SOD violation will trigger. 
+These violations are included in SOD violation reports that other users will see in emails at regular intervals if they&#39;re subscribed to the SOD policy.
+The other users can then better help to enforce these SOD policies. 
+
+To create a subscription to a SOD policy in Identity Security Cloud, administrators use &#39;Search&#39; and then access &#39;Layers&#39;.
+They can create a subscription to the policy and schedule it to run at a regular interval. 
+
+Refer to [Managing Policies](https://documentation.sailpoint.com/saas/help/sod/manage-policies.html) for more information about SOD policies. 
+
+Refer to [Subscribe to a SOD Policy](https://documentation.sailpoint.com/saas/help/sod/policy-violations.html#subscribe-to-an-sod-policy) for more information about SOD policy subscriptions.
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 

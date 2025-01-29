@@ -11,6 +11,39 @@ tags: ['SDK', 'Software Development Kit', 'NonEmployeeLifecycleManagement', 'V20
 
 
 # NonEmployeeLifecycleManagement
+  Use this API to implement non-employee lifecycle management functionality. 
+With this functionality in place, administrators can create non-employee records and configure them for use in their organizations. 
+This allows organizations to provide secure access to non-employees and control that access. 
+
+The &#39;non-employee&#39; term refers to any consultant, contractor, intern, or other user in an organization who is not a full-time permanent employee. 
+Organizations can track non-employees&#39; access and activity in Identity Security Cloud by creating and maintaining non-employee sources. 
+Organizations can have a maximum of 50 non-employee sources. 
+
+By using SailPoint&#39;s Non-Employee Lifecycle Management functionality, you agree to the following:
+
+- SailPoint is not responsible for storing sensitive data. 
+You may only add account attributes to non-employee identities that are necessary for business operations and are consistent with your contractual limitations on data that may be sent or stored in Identity Security Cloud.
+
+- You are responsible for regularly downloading your list of non-employee accounts for all the sources you create and storing this list of accounts in a managed location to maintain an authoritative system of record and backup data for these accounts.
+
+To manage non-employees in Identity Security Cloud, administrators must create a non-employee source and add accounts to the source. 
+
+To create a non-employee source in Identity Security Cloud, administrators must use the Admin panel to go to Connections &gt; Sources.
+They must then specify &#39;Non-Employee&#39; in the &#39;Source Type&#39; field. 
+Refer to [Creating a Non-Employee Source](https://documentation.sailpoint.com/saas/help/common/non-employee-mgmt.html#creating-a-non-employee-source) for more details about how to create non-employee sources.
+
+To add accounts to a non-employee source in Identity Security Cloud, administrators can select the non-employee source and add the accounts. 
+They can also use the &#39;Manage Non-Employees&#39; widget on their user dashboards to reach the list of sources and then select the non-employee source they want to add the accounts to. 
+
+Administrators can either add accounts individually or in bulk. Each non-employee source can have a maximum of 20,000 accounts. 
+To add accounts in bulk, they must select the &#39;Bulk Upload&#39; option and upload a CSV file. 
+Refer to [Adding Accounts](https://documentation.sailpoint.com/saas/help/common/non-employee-mgmt.html#adding-accounts) for more details about how to add accounts to non-employee sources.
+
+Once administrators have created the non-employee source and added accounts to it, they can create identity profiles to generate identities for the non-employee accounts and manage the non-employee identities the same way they would any other identities. 
+
+Refer to [Managing Non-Employee Sources and Accounts](https://documentation.sailpoint.com/saas/help/common/non-employee-mgmt.html) for more information about non-employee lifecycle management.
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 

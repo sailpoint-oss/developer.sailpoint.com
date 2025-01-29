@@ -11,6 +11,11 @@ tags: ['SDK', 'Software Development Kit', 'Launchers', 'BetaLaunchers']
 
 
 # Launchers
+  Use this API to manage Launchers.
+
+Launchers are objects that allow users to launch various tasks from ISC such as Privileged Workflows.
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 

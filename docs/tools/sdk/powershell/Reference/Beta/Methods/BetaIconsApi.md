@@ -11,6 +11,10 @@ tags: ['SDK', 'Software Development Kit', 'Icons', 'BetaIcons']
 
 
 # Icons
+  Use this API to implement functionality related to object icons (application icons for example). 
+With this functionality in place, administrators can set or remove an icon for specific object type for use throughout Identity Security Cloud.
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 

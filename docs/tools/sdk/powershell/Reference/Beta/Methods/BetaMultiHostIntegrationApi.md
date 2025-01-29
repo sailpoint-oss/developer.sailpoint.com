@@ -11,6 +11,11 @@ tags: ['SDK', 'Software Development Kit', 'MultiHostIntegration', 'BetaMultiHost
 
 
 # MultiHostIntegration
+  Use this API to build a Multi-Host Integration.
+Multi-Host Integration will help customers to configure and manage similar type of target system in Identity Security Cloud.
+In Identity Security Cloud, administrators can create a Multi-Host Integration by going to Admin &gt; Connections &gt; Multi-Host Sources and selecting &#39;Create.&#39;
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 

@@ -11,6 +11,8 @@ tags: ['SDK', 'Software Development Kit', 'SPConfig', 'V2024SPConfig']
 
 
 # SPConfig
+  Import and export configuration for some objects between tenants. 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 

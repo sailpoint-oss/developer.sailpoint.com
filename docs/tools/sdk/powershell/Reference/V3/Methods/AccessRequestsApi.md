@@ -11,6 +11,23 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequests', 'AccessRequests']
 
 
 # AccessRequests
+  Use this API to implement and customize access request functionality. 
+With this functionality in place, users can request access to applications, entitlements, or roles, and managers can request that team members&#39; access be revoked.
+This allows users to get access to the tools they need quickly and securely, and it allows managers to take away access to those tools. 
+
+Identity Security Cloud&#39;s Access Request service allows end users to request access that requires approval before it can be granted to users and enables qualified users to review those requests and approve or deny them.
+
+In the Request Center in Identity Security Cloud, users can view available applications, roles, and entitlements and request access to them. 
+If the requested tools requires approval, the requests appear as &#39;Pending&#39; under the My Requests tab until the required approver approves, rejects, or cancels them. 
+
+Users can use My Requests to track and/or cancel the requests.
+
+In My Team on the Identity Security Cloud Home, managers can submit requests to revoke their team members&#39; access. 
+They can use the My Requests tab under Request Center to track and/or cancel the requests.
+
+Refer to [Requesting Access](https://documentation.sailpoint.com/saas/user-help/requests/requesting_access.html) for more information about access requests.
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 

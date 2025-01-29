@@ -11,6 +11,8 @@ tags: ['SDK', 'Software Development Kit', 'IdentityHistory', 'V2024IdentityHisto
 
 
 # IdentityHistory
+   
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
@@ -129,7 +131,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
-$AccessType = "role" # String | The specific type which needs to be compared
+$AccessType = "accessProfile" # String | The specific type which needs to be compared
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $AccessAssociated = $false # Boolean | Indicates if added or removed access needs to be returned. true - added, false - removed, null - both added & removed (optional)
 $Snapshot1 = "2008-03-01T13:00:00Z" # String | The snapshot 1 of identity (optional)

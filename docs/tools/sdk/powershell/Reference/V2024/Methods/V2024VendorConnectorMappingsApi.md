@@ -11,6 +11,12 @@ tags: ['SDK', 'Software Development Kit', 'VendorConnectorMappings', 'V2024Vendo
 
 
 # VendorConnectorMappings
+  Vendors use ISC connectors to connect their source data to ISC, but the data in their source and the data in ISC may be stored in different formats. 
+Connector mappings allow vendors to match their data on both sides of the connection. 
+The vendors can then track and manage access across their sources from ISC. 
+This API allows you to create and manage these vendor connector mappings. 
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 

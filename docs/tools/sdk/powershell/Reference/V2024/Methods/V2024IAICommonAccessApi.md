@@ -11,6 +11,8 @@ tags: ['SDK', 'Software Development Kit', 'IAICommonAccess', 'V2024IAICommonAcce
 
 
 # IAICommonAccess
+   
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 

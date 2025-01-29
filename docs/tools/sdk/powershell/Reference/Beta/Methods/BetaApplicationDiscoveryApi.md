@@ -11,6 +11,10 @@ tags: ['SDK', 'Software Development Kit', 'ApplicationDiscovery', 'BetaApplicati
 
 
 # ApplicationDiscovery
+  Use this API to implement application discovery functionality. 
+With this functionality in place, you can discover applications within your Okta connector and receive connector recommendations by manually uploading application names.
+ 
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 

@@ -56,10 +56,6 @@ jobs:
             echo "STACK=developer-sailpoint-site-stage" >> $GITHUB_ENV
           fi
 
-      - name: install maven
-        run: |
-          brew install maven
-
       # push these files to AWS
       - name: run SAM build
         run: |

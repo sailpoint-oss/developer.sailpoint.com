@@ -31,6 +31,7 @@ func evaluate(path string, jsonStr string) (string, error) {
 }
 
 func handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
+
 	var body Request
 
 	json.Unmarshal([]byte(request.Body), &body)

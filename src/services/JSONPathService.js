@@ -7,8 +7,8 @@ async function evaluateJSONPath(gatewayUrl, endpoint, jsonPathQuery, jsonData) {
             : JSON.stringify(jsonData);
 
         const requestBody = {
-            jsonPathQuery,
-            jsonData: jsonString
+            path: jsonPathQuery,
+            json: jsonString
         };
 
         // Log the actual data being sent

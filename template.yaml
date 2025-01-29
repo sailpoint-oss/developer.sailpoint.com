@@ -85,8 +85,8 @@ Resources:
   JSONPathGoFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: main::handler
-      Runtime: go1.x
+      Handler: bootstrap::handler
+      Runtime: provided.al2
       CodeUri: backend/src/go
       MemorySize: 128
       Timeout: 30

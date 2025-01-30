@@ -1,20 +1,21 @@
 package com.sailpoint.handler;
 
+import java.util.EnumSet;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.LambdaLogger;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayV2HTTPEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayV2HTTPResponse;
-import com.jayway.jsonpath.JsonPath;
+import com.google.gson.Gson;
 import com.jayway.jsonpath.Configuration;
+import com.jayway.jsonpath.JsonPath;
+import com.jayway.jsonpath.Option;
 import com.jayway.jsonpath.spi.json.GsonJsonProvider;
 import com.jayway.jsonpath.spi.mapper.GsonMappingProvider;
-import com.google.gson.Gson;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Set;
-import java.util.EnumSet;
-import com.jayway.jsonpath.Option;
 
 public class JSONPathHandler implements RequestHandler<APIGatewayV2HTTPEvent, APIGatewayV2HTTPResponse> {
     private static final Gson gson = new Gson();
@@ -53,12 +54,12 @@ public class JSONPathHandler implements RequestHandler<APIGatewayV2HTTPEvent, AP
         try {
             String rawInput = event.getBody();
             JsonRequest request = gson.fromJson(rawInput, JsonRequest.class);
-            logger.log("Request data: " + request.getJsonData());
-            logger.log("Request query: " + request.getJsonPathQuery());
+            logger.log("Request data: " + request.getjson());
+            logger.log("Request query: " + request.getpath());
 
             // Parse the JSON string directly with JsonPath (now using Gson provider)
-            Object result = JsonPath.parse(request.getJsonData())
-                                  .read(request.getJsonPathQuery());
+            Object result = JsonPath.parse(request.getjson())
+                                  .read(request.getpath());
 
             logger.log("Query result: " + result);
 
@@ -92,12 +93,12 @@ public class JSONPathHandler implements RequestHandler<APIGatewayV2HTTPEvent, AP
     }
 
     public static class JsonRequest {
-        private String jsonData;
-        private String jsonPathQuery;
+        private String json;
+        private String path;
 
-        public String getJsonData() { return jsonData; }
-        public void setJsonData(String jsonData) { this.jsonData = jsonData; }
-        public String getJsonPathQuery() { return jsonPathQuery; }
-        public void setJsonPathQuery(String jsonPathQuery) { this.jsonPathQuery = jsonPathQuery; }
+        public String getjson() { return json; }
+        public void setjson(String json) { this.json = json; }
+        public String getpath() { return path; }
+        public void setpath(String path) { this.path = path; }
     }
 }

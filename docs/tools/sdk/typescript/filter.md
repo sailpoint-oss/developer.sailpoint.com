@@ -5,7 +5,7 @@ pagination_label: Filtering
 sidebar_label: Filtering
 sidebar_position: 9
 sidebar_class_name: typescriptsdk
-keywords: ['tsc', 'typescript', 'sdk', 'filter', 'filterString', 'account filtering', 'filtering']
+keywords: ['tsc', 'typescript', 'sdk', 'filter', 'filterString', 'account filtering','group filtering' 'filtering']
 description: Learn how to use the TypeScript SDK to filter results.
 slug: /tools/sdk/typescript/filter
 tags: ['SDK']
@@ -13,7 +13,7 @@ tags: ['SDK']
 
 Often there is a need to filter resource objects (e.g accounts) on a source during an aggregation process.
 
-While some source connectors offer an ability to filter accounts natively, other source connectors may not, usually due to technical limitations - such as a lack of filtering abilities in APIs the connector is calling.
+While some source connectors offer an ability to filter accounts/groups natively, other source connectors may not, usually due to technical limitations - such as a lack of filtering abilities in APIs the connector is calling.
 
 Filter class does have an ability to filter resource objects on its side, as part of the aggregation process. This is configured by setting a filterString property on the source configuration. Once configured, the aggregation process matches resource objects as they are aggregated against the filter string.
 

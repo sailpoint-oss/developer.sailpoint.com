@@ -1639,7 +1639,7 @@ module.exports = [
             //   baseUrl: '/docs/api/v2025',
             // },
             v3: {
-              specPath: 'static/api-specs/idn/sailpoint-api.v3.yaml',
+              specPath: 'static/code-examples/v3.yaml',
               outputDir: 'docs/api/v3',
               downloadUrl: 'https://raw.githubusercontent.com/sailpoint-oss/api-specs/main/dereferenced/deref-sailpoint-api.v3.yaml',
               label: 'v3',

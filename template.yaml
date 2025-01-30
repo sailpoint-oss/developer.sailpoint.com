@@ -102,6 +102,8 @@ Resources:
               Ref: DeveloperSailpointApiGatewayApiv2
             Auth:
               Authorizer: NONE
+            ThrottlingBurstLimit: 10
+            ThrottlingRateLimit: 5
   JSONPathJavaFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -120,6 +122,8 @@ Resources:
               Ref: DeveloperSailpointApiGatewayApiv2
             Auth:
               Authorizer: NONE
+            ThrottlingBurstLimit: 10
+            ThrottlingRateLimit: 5
   # This is a Lambda function config associated with the source code: get-by-id.js
   developerSailpointGetByIdFunction:
     Type: AWS::Serverless::Function

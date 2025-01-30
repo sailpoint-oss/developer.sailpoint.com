@@ -22,6 +22,12 @@ async function evaluateJSONPath(gatewayUrl, endpoint, jsonPathQuery, jsonData) {
         if (!response.ok) {
             const errorText = await response.text();
             console.error('JSONPath error:', errorText);
+            
+            // Handle rate limiting specifically
+            if (response.status === 429) {
+                throw new Error('Too many requests. Please wait a moment and try again.');
+            }
+            
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         

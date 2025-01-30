@@ -5,7 +5,7 @@ pagination_label: Filtering
 sidebar_label: Filtering
 sidebar_position: 9
 sidebar_class_name: typescriptsdk
-keywords: ['tsc', 'typescript', 'sdk', 'filter', 'filterString', 'account filtering','group filtering' 'filtering']
+keywords: ['tsc', 'typescript', 'sdk', 'filter', 'filterString', 'account filtering','group filtering', 'filtering']
 description: Learn how to use the TypeScript SDK to filter results.
 slug: /tools/sdk/typescript/filter
 tags: ['SDK']

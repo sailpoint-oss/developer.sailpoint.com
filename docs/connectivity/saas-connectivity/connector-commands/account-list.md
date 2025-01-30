@@ -241,8 +241,7 @@ Filter resource objects on a source during an account aggregation process. In or
 
 1. In order to configure Filtering feature, you need to modify the source configurations to add in a `filterString` or `account.filterString` property. This can be done with a simple partial update to the source, using the REST APIs.   
 
-<details>
- <summary><code>PATCH</code><code>/v3/sources/{id}</code></summary>
+PATCH/v3/sources/{id}
 
 ##### HTTP Headers
 
@@ -306,9 +305,7 @@ curl -X PATCH \
 
 > content-type: application/json
 
-> A modified source object.
-
-</details>  
+> A modified source object. 
 
 2. In the `stdAccountList` command, before sending the Resource Object (accounts), you need to filter the accounts. Accounts which match the filter string will be filtered. Accounts which do not match, will be sent to ISC as normal.
 

@@ -18,6 +18,7 @@ get:
       required: true
       description: ID of the campaign template whose schedule is being fetched.
       example: "04bedce387bd47b2ae1f86eb0bb36dee"
+      x-sailpoint-resource-operation-id: getCampaignTemplates
   responses:
     '200':
       description: >-
@@ -60,6 +61,7 @@ put:
       required: true
       description: ID of the campaign template being scheduled.
       example: 04bedce387bd47b2ae1f86eb0bb36dee
+      x-sailpoint-resource-operation-id: getCampaignTemplates
   requestBody:
     content:
       application/json:
@@ -167,6 +169,7 @@ delete:
       required: true
       description: ID of the campaign template whose schedule is being deleted.
       example: "04bedce387bd47b2ae1f86eb0bb36dee"
+      x-sailpoint-resource-operation-id: getCampaignTemplates
   responses:
     '204':
       $ref: '../../v3/responses/204.yaml'

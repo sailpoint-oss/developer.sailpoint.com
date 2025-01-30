@@ -15,6 +15,7 @@ post:
         type: string
       required: true
       description: The certification ID
+      x-sailpoint-resource-operation-id: listCertifications
   requestBody:
     required: true
     content:

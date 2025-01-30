@@ -5,6 +5,15 @@ get:
   summary: Get Auth Profile.
   description: >-
     This API returns auth profile information.
+  parameters:
+    - name: id
+      in: path
+      description: ID of the Auth Profile to get.
+      required: true
+      schema:
+        type: string
+        example: 2c91808a7813090a017814121919ecca
+      x-sailpoint-resource-operation-id: getProfileConfigList
   security:
     - userAuth: [sp:auth-profile:read]
   responses:
@@ -43,6 +52,7 @@ patch:
       schema:
         type: string
         example: 2c91808a7813090a017814121919ecca
+      x-sailpoint-resource-operation-id: getProfileConfigList
   requestBody:
     content:
       application/json-patch+json:

@@ -13,6 +13,7 @@ post:
       in: path
       description: ID of the cluster to reboot
       required: true
+      x-sailpoint-resource-operation-id: getManagedClusters
       style: simple
       explode: false
       schema:

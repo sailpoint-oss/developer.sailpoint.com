@@ -15,6 +15,7 @@ get:
       required: true
       description: The entitlement ID
       example: 2c91808874ff91550175097daaec161c
+      x-sailpoint-resource-operation-id: listEntitlements
   responses:
     '200':
       description: An entitlement
@@ -101,6 +102,7 @@ patch:
       schema:
         type: string
         example: 2c91808a7813090a017814121e121518
+      x-sailpoint-resource-operation-id: listEntitlements
   requestBody:
     content:
       application/json-patch+json:

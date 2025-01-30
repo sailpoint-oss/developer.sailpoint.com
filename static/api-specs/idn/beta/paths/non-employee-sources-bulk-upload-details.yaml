@@ -18,6 +18,7 @@ get:
       description: >-
         Source ID (UUID)
       required: true
+      x-sailpoint-resource-operation-id: listNonEmployeeSources
       schema:
         type: string
   responses:

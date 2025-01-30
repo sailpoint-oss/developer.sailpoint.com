@@ -12,6 +12,7 @@ get:
     - in: path
       name: key
       required: true
+      x-sailpoint-resource-operation-id: listNotificationPreferences
       example: cloud_manual_work_item_summary
       schema:
         type: string
@@ -50,6 +51,7 @@ put:
     - in: path
       name: key
       required: true
+      x-sailpoint-resource-operation-id: listNotificationPreferences
       example: cloud_manual_work_item_summary
       schema:
         type: string

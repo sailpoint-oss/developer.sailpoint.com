@@ -14,9 +14,11 @@ post:
         type: "string"
       description: The entitlement id.
       example: 2c91808c74ff913f0175097daa9d59cd
+      x-sailpoint-resource-operation-id: listEntitlements
     - name: "attributeKey"
       in: "path"
       required: true
+      x-sailpoint-resource-operation-id: listAccessModelMetadataAttribute
       schema:
         type: "string"
       description: Technical name of the Attribute.
@@ -24,6 +26,7 @@ post:
     - name: "attributeValue"
       in: "path"
       required: true
+      x-sailpoint-resource-operation-id: listAccessModelMetadataAttributeValue
       schema:
         type: "string"
       description: Technical name of the Attribute Value.
@@ -61,9 +64,11 @@ delete:
         type: "string"
       description: The entitlement id.
       example: 2c91808c74ff913f0175097daa9d59cd
+      x-sailpoint-resource-operation-id: listEntitlements
     - name: "attributeKey"
       in: "path"
       required: true
+      x-sailpoint-resource-operation-id: listAccessModelMetadataAttribute
       schema:
         type: "string"
       description: Technical name of the Attribute.
@@ -71,6 +76,7 @@ delete:
     - name: "attributeValue"
       in: "path"
       required: true
+      x-sailpoint-resource-operation-id: listAccessModelMetadataAttributeValue
       schema:
         type: "string"
       description: Technical name of the Attribute Value.

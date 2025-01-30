@@ -9,6 +9,7 @@ get:
       in: path
       description: ID of the Managed Cluster Status to get
       required: true
+      x-sailpoint-resource-operation-id: getManagedClusters
       schema:
         type: string
         example: aClusterId

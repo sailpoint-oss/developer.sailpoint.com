@@ -17,6 +17,7 @@ get:
         type: string
       description: Parent Role Id of the dimension.
       example: 6603fba3004f43c687610a29195252ce
+      x-sailpoint-resource-operation-id: listRoles
     - in: query
       name: for-subadmin
       schema:
@@ -117,6 +118,7 @@ post:
         type: string
       description: Parent Role Id of the dimension.
       example: 6603fba3004f43c687610a29195252ce
+      x-sailpoint-resource-operation-id: listRoles
   requestBody:
     required: true
     content:

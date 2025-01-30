@@ -18,13 +18,15 @@ get:
           type: string
         description: Parent Role Id of the dimension.
         example: 6603fba3004f43c687610a29195252ce
+        x-sailpoint-resource-operation-id: listRoles
       - in: path
         name: dimensionId
         schema:
           type: string
         required: true
-        description: Id of the Dimension
+        description: ID of the Dimension
         example: 2c9180835d191a86015d28455b4a2329
+        x-sailpoint-resource-operation-id: listDimensions
       - $ref: '../../v3/parameters/limit.yaml'
       - $ref: '../../v3/parameters/offset.yaml'
       - $ref: '../../v3/parameters/count.yaml'

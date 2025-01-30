@@ -14,6 +14,7 @@ get:
       in: path
       description: Name of the extended search attribute configuration to get.
       required: true
+      x-sailpoint-resource-operation-id: getSearchAttributeConfig
       schema:
         type: string
         example: "newMailAttribute"
@@ -55,6 +56,7 @@ delete:
       in: path
       description: Name of the extended search attribute configuration to delete.
       required: true
+      x-sailpoint-resource-operation-id: getSearchAttributeConfig
       schema:
         type: string
         example: "newMailAttribute"
@@ -94,6 +96,7 @@ patch:
       in: path
       description: Name of the extended search attribute configuration to patch.
       required: true
+      x-sailpoint-resource-operation-id: getSearchAttributeConfig
       schema:
         type: string
         example: promotedMailAttribute

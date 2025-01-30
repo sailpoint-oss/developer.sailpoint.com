@@ -9,6 +9,7 @@ get:
       in: path
       description: Form instance ID
       required: true
+      x-sailpoint-resource-operation-id: searchFormInstancesByTenant
       schema:
         type: string
         x-go-name: FormInstanceID
@@ -150,6 +151,7 @@ patch:
       in: path
       description: Form instance ID
       required: true
+      x-sailpoint-resource-operation-id: searchFormInstancesByTenant
       schema:
         type: string
         x-go-name: FormInstanceID

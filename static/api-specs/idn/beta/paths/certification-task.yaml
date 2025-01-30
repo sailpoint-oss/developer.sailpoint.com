@@ -18,6 +18,7 @@ get:
       required: true
       description: The task ID
       example: 63b32151-26c0-42f4-9299-8898dc1c9daa
+      x-sailpoint-resource-operation-id: getPendingCertificationTasks
   responses:
     '200':
       description: A certification task

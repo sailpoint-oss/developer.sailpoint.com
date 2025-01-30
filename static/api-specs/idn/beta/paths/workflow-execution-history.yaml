@@ -12,6 +12,7 @@ get:
       in: path
       description: Id of the workflow execution
       required: true
+      x-sailpoint-resource-operation-id: getWorkflowExecutions
       style: simple
       explode: false
       schema:

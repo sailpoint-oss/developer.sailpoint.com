@@ -12,6 +12,7 @@ post:
       in: path
       description: Task ID of task to cancel
       required: true
+      x-sailpoint-resource-operation-id: getPendingTasks
       style: simple
       explode: false
       schema:

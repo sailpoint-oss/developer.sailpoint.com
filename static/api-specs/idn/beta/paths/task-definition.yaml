@@ -12,6 +12,7 @@ get:
       in: path
       description: ID of the TaskDefinition to get a summary for
       required: true
+      x-sailpoint-resource-operation-id: getTaskDefinitionSummaryList
       style: simple
       explode: false
       schema:
@@ -49,6 +50,7 @@ patch:
       in: path
       description: ID of the TaskDefinition to patch
       required: true
+      x-sailpoint-resource-operation-id: getTaskDefinitionSummaryList
       style: simple
       explode: false
       schema:

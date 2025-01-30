@@ -13,6 +13,7 @@ get:
       required: true
       description: The role ID
       example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
+      x-sailpoint-resource-operation-id: listRoles
     - in: query
       name: entitlementId
       description: Returns only identities in the specified role that have the specified entitlement. If no entitlment is specified, all identities in the role are returned.
@@ -21,6 +22,7 @@ get:
       explode: true
       schema:
         type: string
+      x-sailpoint-resource-operation-id: listEntitlements
     - in: query
       name: hasEntitlement
       description: Do the identities have the entitlementId or not (if entitlementId included, otherwise ignored)

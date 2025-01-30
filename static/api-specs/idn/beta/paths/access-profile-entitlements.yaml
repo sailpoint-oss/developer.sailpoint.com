@@ -16,6 +16,7 @@ get:
         schema:
           type: string
           example: 2c91808a7813090a017814121919ecca
+        x-sailpoint-resource-operation-id: listAccessProfiles
       - $ref: '../../v3/parameters/limit.yaml'
       - $ref: '../../v3/parameters/offset.yaml'
       - $ref: '../../v3/parameters/count.yaml'

@@ -23,6 +23,7 @@ get:
         The identity (UUID) of the approver for whom for whom the summary is
         being retrieved. Use "me" instead to indicate the current user.
       required: true
+      x-sailpoint-resource-operation-id: listIdentities
   responses:
     "200":
       description: summary of non-employee approval requests

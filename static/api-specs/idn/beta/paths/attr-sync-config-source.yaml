@@ -19,6 +19,7 @@ get:
         type: string
       description: The source id
       example: 2c9180835d191a86015d28455b4a2329
+      x-sailpoint-resource-operation-id: listSources
   responses:
     '200':
       description: Attribute synchronization configuration for a source
@@ -62,6 +63,7 @@ put:
         type: string
       description: The source id
       example: 2c9180835d191a86015d28455b4a2329
+      x-sailpoint-resource-operation-id: listSources
   requestBody:
     required: true
     content:

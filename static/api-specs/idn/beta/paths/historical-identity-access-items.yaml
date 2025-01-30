@@ -11,6 +11,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listHistoricalIdentities
       description: The identity id
       example: '8c190e6787aa4ed9a90bd9d5344523fb'
     - in: query

@@ -21,6 +21,7 @@ post:
       schema:
         type: string
       description: Parent Role Id of the dimensions.
+      x-sailpoint-resource-operation-id: listRoles
       example: 6603fba3004f43c687610a29195252ce
   requestBody:
     required: true

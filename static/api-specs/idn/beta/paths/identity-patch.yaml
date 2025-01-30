@@ -16,6 +16,7 @@ patch:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listIdentities
       description: The ID of the identity being modified.
       example: 2c9180835d191a86015d28455b4a2329
   requestBody:

@@ -16,6 +16,7 @@ post:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listIdentities
       description: The identity id.
       example: 2c91808384203c2d018437e631158309
   responses:

@@ -13,6 +13,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listConfigurations
       description: The configuration type
       example: 'idn'
   responses:
@@ -47,6 +48,7 @@ put:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listConfigurations
       description: The configuration type
       example: 'idn'
   responses:
@@ -81,6 +83,7 @@ delete:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listConfigurations
       description: The configuration type
       example: 'idn'
   responses:

@@ -18,6 +18,7 @@ get:
         example: 2c91808571bcfcf80171c23e4b4221fc
       required: true
       description: ID of the campaign whose reports are being fetched.
+      x-sailpoint-resource-operation-id: getActiveCampaigns
   responses:
     '200':
       description: Array of campaign report objects.

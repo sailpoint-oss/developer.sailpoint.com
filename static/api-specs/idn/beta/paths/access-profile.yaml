@@ -14,6 +14,7 @@ get:
       description: >-
         ID of the Access Profile
       example: 2c9180837ca6693d017ca8d097500149
+      x-sailpoint-resource-operation-id: listAccessProfiles
   responses:
     '200':
       description: An AccessProfile
@@ -69,6 +70,7 @@ patch:
       schema:
         type: string
         example: 2c91808a7813090a017814121919ecca
+      x-sailpoint-resource-operation-id: listAccessProfiles
   requestBody:
     content:
       application/json-patch+json:
@@ -151,6 +153,7 @@ delete:
       schema:
         type: string
         example: 2c91808a7813090a017814121919ecca
+      x-sailpoint-resource-operation-id: listAccessProfiles
   responses:
     '204':
       $ref: "../../v3/responses/204.yaml"

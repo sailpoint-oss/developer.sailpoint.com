@@ -10,6 +10,7 @@ get:
       in: path
       description: ID of the Managed Client Status to get
       required: true
+      x-sailpoint-resource-operation-id: getManagedClients
       schema:
         type: string
         example: aClientId
@@ -53,6 +54,7 @@ post:
       in: path
       description: ID of the Managed Client Status to update
       required: true
+      x-sailpoint-resource-operation-id: getManagedClients
       schema:
         type: string
         example: aClientId

@@ -15,6 +15,7 @@ post:
       schema:
         type: string
         example: 2c91808a7813090a017814121e121518
+      x-sailpoint-resource-operation-id: listAllSourceApp
     - $ref: '../../v3/parameters/limit.yaml'
   requestBody:
     required: true

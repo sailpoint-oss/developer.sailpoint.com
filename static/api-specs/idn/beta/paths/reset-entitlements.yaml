@@ -13,6 +13,7 @@ post:
       in: path
       description: ID of source for the entitlement reset
       required: true
+      x-sailpoint-resource-operation-id: listSources
       schema:
         type: string
         example: 2c91808a7813090a017814121919ecca

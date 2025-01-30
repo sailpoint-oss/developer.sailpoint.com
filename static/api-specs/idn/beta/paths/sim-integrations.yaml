@@ -19,6 +19,7 @@ put:
         type: string
       example: 12345
       required: true
+      x-sailpoint-resource-operation-id: getSIMIntegrations
   responses:
     '200':
       description: details of the updated integration
@@ -55,6 +56,7 @@ get:
         type: string
       example: 12345
       required: true
+      x-sailpoint-resource-operation-id: getSIMIntegrations
   responses:
     '200':
       description: The DTO containing the details of the SIM integration
@@ -91,6 +93,7 @@ delete:
         type: string
       example: 12345
       required: true
+      x-sailpoint-resource-operation-id: getSIMIntegrations
   responses:
     '200':
       description: No content response
@@ -130,6 +133,7 @@ patch:
         type: string
       example: 12345
       required: true
+      x-sailpoint-resource-operation-id: getSIMIntegrations
   responses:
     '200':
       description: The updated DTO containing the details of the SIM integration.

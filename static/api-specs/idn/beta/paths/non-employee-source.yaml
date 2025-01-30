@@ -14,6 +14,7 @@ get:
       description: >-
         Source Id
       required: true
+      x-sailpoint-resource-operation-id: listNonEmployeeSources
       schema:
         type: string
   responses:
@@ -50,6 +51,7 @@ patch:
       description: >-
         Source Id
       required: true
+      x-sailpoint-resource-operation-id: listNonEmployeeSources
       example: 2c91808b6ef1d43e016efba0ce470904
       schema:
         type: string
@@ -108,6 +110,7 @@ delete:
       description: >-
         Source Id
       required: true
+      x-sailpoint-resource-operation-id: listNonEmployeeSources
       example: 2c91808b6ef1d43e016efba0ce470904
       schema:
         type: string

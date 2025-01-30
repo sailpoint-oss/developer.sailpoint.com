@@ -15,8 +15,8 @@ get:
       type: string
     description: >-
       ID of the approval that to be returned.
-    example:
-      38453251-6be2-5f8f-df93-5ce19e295837
+    example: 38453251-6be2-5f8f-df93-5ce19e295837
+    x-sailpoint-resource-operation-id: getApprovals
   responses:
     '200':
       description: Approval object

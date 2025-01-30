@@ -18,6 +18,7 @@ post:
         example: 2c91808571bcfcf80171c23e4b4221fc
       required: true
       description: ID of the campaign the remediation scan is being run for.
+      x-sailpoint-resource-operation-id: getActiveCampaigns
   responses:
     '202':
       $ref: '../../v3/responses/202.yaml'

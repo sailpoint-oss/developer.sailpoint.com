@@ -15,6 +15,7 @@ get:
       schema:
         type: string
         example: 2c91808a7813090a017814121e121518
+      x-sailpoint-resource-operation-id: listAllSourceApp
   responses:
     '200':
       description: Responds with the source app.
@@ -57,6 +58,7 @@ patch:
       schema:
         type: string
         example: 2c91808a7813090a017814121e121518
+      x-sailpoint-resource-operation-id: listAllSourceApp
   requestBody:
     content:
       application/json-patch+json:
@@ -191,6 +193,7 @@ delete:
       required: true
       description: source app ID.
       example: 2c9180835d191a86015d28455b4a2329
+      x-sailpoint-resource-operation-id: listAllSourceApp
   responses:
     '200':
       description: Responds with the source app as deleted.

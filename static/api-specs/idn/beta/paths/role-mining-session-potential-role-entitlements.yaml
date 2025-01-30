@@ -25,6 +25,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getRoleMiningSessions
       description: The role mining session id
       example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
     - in: path
@@ -32,6 +33,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getPotentialRoleSummaries
       description: A potential role id in a role mining session
       example: 62f28d91-7d9f-4d17-be15-666d5b41d77f
     - $ref: '../../v3/parameters/offset.yaml'

@@ -8,10 +8,10 @@ import TerminalFontSizeDropdown from '../../components/jsonpath/TerminalFontSize
 import InputTerminal from '../../components/jsonpath/InputTerminal';
 import ResultTerminal from '../../components/jsonpath/ResultTerminal';
 import ImplementationDropdown from '../../components/jsonpath/ImplementationDropdown';
-import { useDebounce } from '../../components/jsonpath/useDebounce';
 import JsonPathQueryInput from '../../components/jsonpath/JsonPathQueryInput';
 import { evaluateJSONPathJava, evaluateJSONPathGo } from '../../services/JSONPathService';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import Button from '@mui/material/Button';
 
 // Mapping of implementations to documentation URLs and texts
 const documentationLinks = {
@@ -37,8 +37,6 @@ export default function JsonPathEvaluator() {
   const [isQueryFocused, setIsQueryFocused] = useState(false);  // Track focus for query input
   const [isDropdownFocused, setIsDropdownFocused] = useState(false);  // Track focus for dropdown
   const { siteConfig } = useDocusaurusContext();
-  const debouncedInputJson = useDebounce(localJson, 0);
-  const debouncedQuery = useDebounce(query, 0);
 
   // Apply JSONPath query with the current implementation
   const applyJsonPathQuery = async (json, jsonPath) => {
@@ -92,13 +90,6 @@ export default function JsonPathEvaluator() {
     }
   };
 
-  // Apply the debounced query and input JSON whenever they change
-  useEffect(() => {
-    if (debouncedQuery || debouncedInputJson) {
-      applyJsonPathQuery(debouncedInputJson, debouncedQuery);
-    }
-  }, [debouncedQuery, debouncedInputJson, implementation]);
-
   // Handle input change
   const handleJsonChange = (newJson) => {
     setLocalJson(newJson);
@@ -133,6 +124,11 @@ export default function JsonPathEvaluator() {
     setIsDropdownFocused(false);
   };
 
+  // Add a handler for the Run button
+  const handleRunQuery = () => {
+    applyJsonPathQuery(localJson, query);
+  };
+
   return (
     <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
       <main>
@@ -140,12 +136,11 @@ export default function JsonPathEvaluator() {
           <div className={styles.actionBar}>
             <Stack sx={{ justifyContent: 'center' }} direction="row" spacing={2}>
               <Stack sx={{ justifyContent: 'center' }} spacing={2}>
-                {/* Use the new JsonPathQueryInput component with focus handlers */}
                 <JsonPathQueryInput
                   value={query}
                   onChange={handleQueryChange}
-                  onFocus={handleQueryFocus}  // Pass the focus handler
-                  onBlur={handleQueryBlur}    // Pass the blur handler
+                  onFocus={handleQueryFocus}
+                  onBlur={handleQueryBlur}
                 />
                 {documentationLinks[implementation] && (
                   <Link
@@ -168,6 +163,15 @@ export default function JsonPathEvaluator() {
                 onFocus={handleDropdownFocus}
                 onBlur={handleDropdownBlur}
               />
+
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={handleRunQuery}
+                sx={{ height: '56px' }}
+              >
+                Run
+              </Button>
 
               <TerminalFontSizeDropdown
                 fontSize={fontSize}

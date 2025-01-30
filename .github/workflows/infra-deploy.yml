@@ -82,12 +82,6 @@ jobs:
           export NODE_OPTIONS="--max_old_space_size=16384"
           export DOCUSAURUS_IGNORE_SSG_WARNINGS=true
           npm ci 
-          speccy resolve --quiet static/api-specs/idn/sailpoint-api.v3.yaml -o static/code-examples/v3/v3.yaml 
-          node src/components/overlay.js static/code-examples/v3/v3.yaml  static/code-examples/v3/code_examples_overlay.yaml   
-          speccy resolve --quiet static/api-specs/idn/sailpoint-api.beta.yaml -o static/code-examples/beta/beta.yaml  
-          node src/components/overlay.js static/code-examples/beta/beta.yaml  static/code-examples/beta/code_examples_overlay.yaml
-          speccy resolve --quiet static/api-specs/idn/sailpoint-api.v2024.yaml -o static/code-examples/v2024/v2024.yaml
-          node src/components/overlay.js static/code-examples/v2024/v2024.yaml  static/code-examples/v2024/code_examples_overlay.yaml
           npm run gen-api-docs-all
           npm run build
       # push these files to AWS

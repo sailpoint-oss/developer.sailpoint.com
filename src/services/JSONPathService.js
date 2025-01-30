@@ -11,9 +11,6 @@ async function evaluateJSONPath(gatewayUrl, endpoint, jsonPathQuery, jsonData) {
             json: jsonString
         };
 
-        // Log the actual data being sent
-        console.log('Sending request:', JSON.stringify(requestBody, null, 2));
-
         const response = await fetch(`${gatewayUrl}jsonpath/${endpoint}`, {
             method: 'POST',
             headers: {
@@ -29,7 +26,6 @@ async function evaluateJSONPath(gatewayUrl, endpoint, jsonPathQuery, jsonData) {
         }
         
         const json = await response.json();
-        console.log('JSONPath response:', json);
 
         // Parse the result if it's a string containing JSON
         if (json.result && typeof json.result === 'string') {

@@ -62,7 +62,7 @@ if (process.argv.length !== 4) {
 // Resolve paths to ensure consistency
 const openApiFilePath = path.resolve(process.argv[2]);
 const overlayFilePath = path.resolve(process.argv[3]);
-const outputFilePath = path.resolve('updated-openapi-spec.yaml');
+const outputFilePath = path.resolve(process.argv[2]);
 
 // Run the function
 applyOverlayToSpec(openApiFilePath, overlayFilePath, outputFilePath);

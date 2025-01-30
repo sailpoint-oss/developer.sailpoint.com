@@ -54,14 +54,10 @@ public class JSONPathHandler implements RequestHandler<APIGatewayV2HTTPEvent, AP
         try {
             String rawInput = event.getBody();
             JsonRequest request = gson.fromJson(rawInput, JsonRequest.class);
-            logger.log("Request data: " + request.getjson());
-            logger.log("Request query: " + request.getpath());
 
             // Parse the JSON string directly with JsonPath (now using Gson provider)
             Object result = JsonPath.parse(request.getjson())
                                   .read(request.getpath());
-
-            logger.log("Query result: " + result);
 
             // Create response body with result
             Map<String, Object> responseBody = new HashMap<>();
@@ -83,10 +79,8 @@ public class JSONPathHandler implements RequestHandler<APIGatewayV2HTTPEvent, AP
             response.setBody(gson.toJson(errorBody));
         }
 
-        // Add CORS headers
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
-        headers.put("Access-Control-Allow-Origin", "*");
         response.setHeaders(headers);
 
         return response;

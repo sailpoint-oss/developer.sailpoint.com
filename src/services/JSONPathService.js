@@ -30,6 +30,17 @@ async function evaluateJSONPath(gatewayUrl, endpoint, jsonPathQuery, jsonData) {
         
         const json = await response.json();
         console.log('JSONPath response:', json);
+
+        // Parse the result if it's a string containing JSON
+        if (json.result && typeof json.result === 'string') {
+            try {
+                json.result = JSON.parse(json.result);
+            } catch (e) {
+                // If it's not valid JSON, keep the original string
+                console.log('Result was not JSON parseable, keeping as is');
+            }
+        }
+
         return json;
     } catch (error) {
         console.error('JSONPath evaluation failed:', error);

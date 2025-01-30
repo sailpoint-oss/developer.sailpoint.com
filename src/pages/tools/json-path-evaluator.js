@@ -56,14 +56,25 @@ export default function JsonPathEvaluator() {
 
     try {
       let result;
+      let tempResult;
       const parsedJson = JSON.parse(json);
 
       switch (implementation) {
         case 'Workflows':
-          result = await evaluateJSONPathGo(siteConfig.customFields.CMS_APP_API_ENDPOINT, jsonPath, parsedJson);
+          tempResult = await evaluateJSONPathGo(siteConfig.customFields.CMS_APP_API_ENDPOINT, jsonPath, parsedJson);
+          if(tempResult.result) {
+            result = tempResult.result;
+          } else {
+            result = tempResult.error;
+          }
           break;
         case 'EventTrigger':
-          result = await evaluateJSONPathJava(siteConfig.customFields.CMS_APP_API_ENDPOINT, jsonPath, parsedJson);
+          tempResult = await evaluateJSONPathJava(siteConfig.customFields.CMS_APP_API_ENDPOINT, jsonPath, parsedJson);
+          if(tempResult.result) {
+            result = tempResult.result;
+          } else {
+            result = tempResult.error;
+          }
           break;
       }
 

@@ -84,6 +84,8 @@ Resources:
       Timeout: 100
   JSONPathGoFunction:
     Type: AWS::Serverless::Function
+    Metadata:
+      BuildMethod: go1.x
     Properties:
       Handler: bootstrap
       Runtime: provided.al2023

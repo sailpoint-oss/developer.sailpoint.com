@@ -13,6 +13,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getPeerGroupOutliersContributingFeatures
       description: Contributing feature id
       example: "04654b66-7561-4090-94f9-abee0722a1af"
   responses:

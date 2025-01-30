@@ -13,6 +13,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getManagedClients
       description: The Managed client ID
       example: aClientId
   responses:

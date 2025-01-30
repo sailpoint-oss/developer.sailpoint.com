@@ -8,6 +8,7 @@ post:
       in: path
       description: Form definition ID
       required: true
+      x-sailpoint-resource-operation-id: searchFormDefinitionsByTenant
       schema:
         type: string
         x-go-name: FormDefinitionID

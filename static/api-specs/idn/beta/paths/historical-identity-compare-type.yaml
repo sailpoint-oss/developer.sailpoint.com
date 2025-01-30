@@ -12,12 +12,19 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listHistoricalIdentities
       description: The identity id
       example: 8c190e6787aa4ed9a90bd9d5344523fb
     - in: path
       name: accessType
       schema:
         type: string
+        enum:
+          - accessProfile
+          - account
+          - app
+          - entitlement
+          - role
       required: true
       description: The specific type which needs to be compared
       example: role

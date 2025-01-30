@@ -11,6 +11,7 @@ get:
         
         Form definition ID
       required: true
+      x-sailpoint-resource-operation-id: searchFormDefinitionsByTenant
       example: 00000000-0000-0000-0000-000000000000
       schema:
         type: string
@@ -23,6 +24,7 @@ get:
         
         String specifying the hashed name of the uploaded file we are retrieving.
       required: true
+      x-sailpoint-resource-operation-id: createFormDefinitionFileRequest
       example: 00000031N0J7R2B57M8YG73J7M.png
       schema:
         type: string

@@ -9,6 +9,7 @@ get:
       in: path
       description: ID of the Launcher to be retrieved
       required: true
+      x-sailpoint-resource-operation-id: getLaunchers
       schema:
         type: string
         format: uuid
@@ -47,6 +48,7 @@ put:
       in: path
       description: ID of the Launcher to be replaced
       required: true
+      x-sailpoint-resource-operation-id: getLaunchers
       schema:
         type: string
         format: uuid
@@ -92,6 +94,7 @@ delete:
       in: path
       description: ID of the Launcher to be deleted
       required: true
+      x-sailpoint-resource-operation-id: getLaunchers
       schema:
         type: string
         format: uuid

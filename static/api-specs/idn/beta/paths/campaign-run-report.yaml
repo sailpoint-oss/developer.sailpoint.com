@@ -18,6 +18,7 @@ post:
         example: 2c91808571bcfcf80171c23e4b4221fc
       required: true
       description: ID of the campaign the report is being run for.
+      x-sailpoint-resource-operation-id: getActiveCampaigns
     - in: path
       name: type
       schema:

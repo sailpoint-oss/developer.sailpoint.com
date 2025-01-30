@@ -11,8 +11,9 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listIdentityGroups
       description: The identity group id
-      example: 'ff8081814d2a8036014d701f3fbf53fa'  
+      example: 'ff8081814d2a8036014d701f3fbf53fa'
   responses:
     '200':
       description: An identity group for a customer.

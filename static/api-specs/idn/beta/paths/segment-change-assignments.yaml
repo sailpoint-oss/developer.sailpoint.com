@@ -20,6 +20,7 @@ post:
     - in: path
       name: id
       required: true
+      x-sailpoint-resource-operation-id: listSegments
       schema:
         type: string
       description: The ID of the Segment

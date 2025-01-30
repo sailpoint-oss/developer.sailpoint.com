@@ -15,6 +15,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listIdentities
       description: Identity Id to get the role assignments for
       example: ef38f94347e94562b5bb8424a56397d8
     - in: query
@@ -24,6 +25,7 @@ get:
       required: false
       description: Role Id to filter the role assignments with
       example: e7697a1e96d04db1ac7b0f4544915d2c
+      x-sailpoint-resource-operation-id: listRoles
     - in: query
       name: roleName
       schema:

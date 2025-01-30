@@ -9,6 +9,7 @@ get:
       in: path
       description: ID of the Service Desk integration to get
       required: true
+      x-sailpoint-resource-operation-id: getServiceDeskIntegrations
       style: simple
       explode: false
       schema:
@@ -49,6 +50,7 @@ put:
       in: path
       description: ID of the Service Desk integration to update
       required: true
+      x-sailpoint-resource-operation-id: getServiceDeskIntegrations
       style: simple
       explode: false
       schema:
@@ -96,6 +98,7 @@ delete:
       in: path
       description: ID of Service Desk integration to delete
       required: true
+      x-sailpoint-resource-operation-id: getServiceDeskIntegrations
       style: simple
       explode: false
       schema:
@@ -132,6 +135,7 @@ patch:
       in: path
       description: ID of the Service Desk integration to update
       required: true
+      x-sailpoint-resource-operation-id: getServiceDeskIntegrations
       style: simple
       explode: false
       schema:

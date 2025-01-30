@@ -13,6 +13,7 @@ get:
       schema:
         type: string
       example: 'ef38f94347e94562b5bb8424a56397d8'
+      x-sailpoint-resource-operation-id: listAccounts
     - $ref: '../../v3/parameters/limit.yaml'
     - $ref: '../../v3/parameters/offset.yaml'
     - $ref: '../../v3/parameters/count.yaml'

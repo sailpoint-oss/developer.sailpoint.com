@@ -14,6 +14,7 @@ delete:
         type: string
       description: unique identity id
       required: true
+      x-sailpoint-resource-operation-id: listIdentities
       example: 2c91808781a71ddb0181b9090b5c504e
     - in: path
       name: configType

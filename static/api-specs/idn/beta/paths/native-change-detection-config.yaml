@@ -14,6 +14,7 @@ get:
     - in: path
       name: id
       required: true
+      x-sailpoint-resource-operation-id: listSources
       schema:
         type: string
       description: The source id
@@ -54,6 +55,7 @@ put:
     - in: path
       name: id
       required: true
+      x-sailpoint-resource-operation-id: listSources
       schema:
         type: string
       description: The source id
@@ -99,6 +101,7 @@ delete:
     - in: path
       name: id
       required: true
+      x-sailpoint-resource-operation-id: listSources
       schema:
         type: string
       description: The source id

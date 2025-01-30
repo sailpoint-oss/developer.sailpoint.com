@@ -44,6 +44,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listIdentityCertifications
       description: The certification ID
       example: ef38f94347e94562b5bb8424a56397d8
     - in: path
@@ -51,6 +52,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listIdentityAccessReviewItems
       description: The certification item ID
       example: 2c91808671bcbab40171bd945d961227
     - $ref: '../../v3/parameters/limit.yaml'

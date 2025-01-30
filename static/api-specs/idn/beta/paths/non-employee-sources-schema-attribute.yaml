@@ -13,6 +13,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getNonEmployeeSourceSchemaAttributes
       description: The Schema Attribute Id (UUID)
     - in: path
       example: "2c918085842e69ae018432d22ccb212f"
@@ -20,6 +21,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listNonEmployeeSources
       description: The Source id
   responses:
     '200':
@@ -56,6 +58,7 @@ patch:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getNonEmployeeSourceSchemaAttributes
       example: 2c91808b6ef1d43e016efba0ce470904
       description: The Schema Attribute Id (UUID)
     - in: path
@@ -63,6 +66,7 @@ patch:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listNonEmployeeSources
       example: 2c91808b6ef1d43e016efba0ce470904
       description: The Source id
   requestBody:
@@ -114,6 +118,7 @@ delete:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getNonEmployeeSourceSchemaAttributes
       example: 2c91808b6ef1d43e016efba0ce470904
       description: The Schema Attribute Id (UUID)
     - in: path
@@ -121,6 +126,7 @@ delete:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listNonEmployeeSources
       example: 2c91808b6ef1d43e016efba0ce470904
       description: The Source id
   responses:

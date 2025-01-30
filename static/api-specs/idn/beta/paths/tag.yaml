@@ -15,6 +15,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listTags
       description: The ID of the object reference to retrieve.
       example: 329d96cf-3bdb-40a9-988a-b5037ab89022
   responses:
@@ -53,6 +54,7 @@ delete:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listTags
       description: The ID of the object reference to delete.
       example: 329d96cf-3bdb-40a9-988a-b5037ab89022
   responses:

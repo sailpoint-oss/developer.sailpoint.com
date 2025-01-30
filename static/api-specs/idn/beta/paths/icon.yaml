@@ -11,8 +11,10 @@ put:
       name: objectType
       schema:
         type: string
+        enum:
+          - application
       required: true
-      description: Object type. Available options ['application']
+      description: Object type
       example: application
     - in: path
       name: objectId
@@ -21,6 +23,7 @@ put:
       required: true
       description: Object id.
       example: a291e870-48c3-4953-b656-fb5ce2a93169
+      x-sailpoint-resource-operation-id: searchObjects
   requestBody:
     required: true
     content:
@@ -74,8 +77,10 @@ delete:
       name: objectType
       schema:
         type: string
+        enum:
+          - application
       required: true
-      description: Object type. Available options ['application']
+      description: Object type
       example: application
     - in: path
       name: objectId
@@ -84,6 +89,7 @@ delete:
       required: true
       description: Object id.
       example: a291e870-48c3-4953-b656-fb5ce2a93169
+      x-sailpoint-resource-operation-id: searchObjects
   security:
     - userAuth: [idn:icons:manage]
   responses:

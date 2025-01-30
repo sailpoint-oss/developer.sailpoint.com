@@ -13,6 +13,7 @@ get:
       description: >-
         Identity Profile ID.
       required: true
+      x-sailpoint-resource-operation-id: listIdentityProfiles
       schema:
         type: string
       example: 2b838de9-db9b-abcf-e646-d4f274ad4238
@@ -21,6 +22,7 @@ get:
       description: >-
         Lifecycle State ID.
       required: true
+      x-sailpoint-resource-operation-id: listLifecycleStates
       schema:
         type: string
       example: ef38f94347e94562b5bb8424a56397d8
@@ -57,6 +59,7 @@ patch:
       description: >-
         Identity Profile ID.
       required: true
+      x-sailpoint-resource-operation-id: listIdentityProfiles
       schema:
         type: string
       example: 2b838de9-db9b-abcf-e646-d4f274ad4238
@@ -65,6 +68,7 @@ patch:
       description: >-
         Lifecycle State ID.
       required: true
+      x-sailpoint-resource-operation-id: listLifecycleStates
       schema:
         type: string
       example: ef38f94347e94562b5bb8424a56397d8

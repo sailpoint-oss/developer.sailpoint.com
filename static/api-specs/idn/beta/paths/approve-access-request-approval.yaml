@@ -13,6 +13,7 @@ post:
       required: true
       description: Approval ID.
       example: 2c91808b7294bea301729568c68c002e
+      x-sailpoint-resource-operation-id: getApprovals
   requestBody:
     description: Reviewer's comment.
     required: true

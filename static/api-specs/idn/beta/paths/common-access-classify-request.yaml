@@ -14,6 +14,7 @@ get:
       required: true
       description: The common access classification request id
       example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
+      x-sailpoint-resource-operation-id: commonAccessClassify
   responses:
     '200':
       description: Succeeded. Returns details of an earlier common access classification request.

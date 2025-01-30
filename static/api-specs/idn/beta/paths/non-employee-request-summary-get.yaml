@@ -23,6 +23,7 @@ get:
         summary is being retrieved. Use "me" instead to indicate the current
         user.
       required: true
+      x-sailpoint-resource-operation-id: listNonEmployeeRecords
       schema:
         type: string
         format: uuid (if user is Org Admin)

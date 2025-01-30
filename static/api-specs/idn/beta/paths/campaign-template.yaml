@@ -18,6 +18,7 @@ get:
       required: true
       description: Requested campaign template's ID.
       example: 2c9180835d191a86015d28455b4a2329
+      x-sailpoint-resource-operation-id: getCampaignTemplates
   responses:
     '200':
       description: Data for the campaign matching the given ID.
@@ -66,6 +67,7 @@ patch:
       required: true
       description: ID of the campaign template being modified.
       example: 2c9180835d191a86015d28455b4a2329
+      x-sailpoint-resource-operation-id: getCampaignTemplates
   requestBody:
     required: true
     description: |
@@ -138,6 +140,7 @@ delete:
       required: true
       description: ID of the campaign template being deleted.
       example: 2c9180835d191a86015d28455b4a2329
+      x-sailpoint-resource-operation-id: getCampaignTemplates
   responses:
     '204':
       $ref: '../../v3/responses/204.yaml'

@@ -10,6 +10,7 @@ get:
       in: path
       description: ID of ManagedCluster to get log configuration for
       required: true
+      x-sailpoint-resource-operation-id: getManagedClusters
       style: simple
       explode: false
       schema:
@@ -48,6 +49,7 @@ put:
       in: path
       description: ID of ManagedCluster to update log configuration for
       required: true
+      x-sailpoint-resource-operation-id: getManagedClusters
       style: simple
       explode: false
       schema:

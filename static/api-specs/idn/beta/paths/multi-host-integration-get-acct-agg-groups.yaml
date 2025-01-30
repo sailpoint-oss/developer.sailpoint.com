@@ -13,6 +13,7 @@ get:
       in: path
       description: ID of the Multi-Host Integration to update
       required: true
+      x-sailpoint-resource-operation-id: getMultiHostIntegrations
       style: simple
       explode: false
       schema:

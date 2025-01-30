@@ -12,6 +12,7 @@ get:
       in: path
       description: Task ID.
       required: true
+      x-sailpoint-resource-operation-id: getTaskStatusList
       example: 00eebcf881994e419d72e757fd30dc0e
       style: simple
       explode: false
@@ -60,6 +61,7 @@ patch:
       description: Task ID.
       example: 00eebcf881994e419d72e757fd30dc0e
       required: true
+      x-sailpoint-resource-operation-id: getTaskStatusList
       style: simple
       explode: false
       schema:

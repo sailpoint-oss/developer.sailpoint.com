@@ -17,6 +17,7 @@ post:
       required: true
       description: The account id
       example: ef38f94347e94562b5bb8424a56397d8
+      x-sailpoint-resource-operation-id: listAccounts
   requestBody:
     required: true
     content:

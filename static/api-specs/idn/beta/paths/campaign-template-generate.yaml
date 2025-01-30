@@ -30,6 +30,7 @@ post:
       required: true
       description: ID of the campaign template to use for generation.
       example: 2c9180835d191a86015d28455b4a2329
+      x-sailpoint-resource-operation-id: getCampaignTemplates
   responses:
     '200':
       description: >-

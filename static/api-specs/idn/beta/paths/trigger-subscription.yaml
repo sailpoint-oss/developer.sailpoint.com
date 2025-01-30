@@ -20,6 +20,7 @@ put:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSubscriptions
       description: Subscription ID
       example: 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde
   requestBody:
@@ -109,6 +110,7 @@ patch:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSubscriptions
       description: ID of the Subscription to patch
       example: 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde
   requestBody:
@@ -151,6 +153,7 @@ delete:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSubscriptions
       description: Subscription ID
       example: 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde
   responses:

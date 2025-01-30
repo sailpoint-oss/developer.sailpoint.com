@@ -18,6 +18,7 @@ get:
         type: string
       description: Parent Role Id of the dimension.
       example: 6603fba3004f43c687610a29195252ce
+      x-sailpoint-resource-operation-id: listRoles
     - in: path
       name: dimensionId
       schema:
@@ -25,6 +26,7 @@ get:
       required: true
       description: Id of the Dimension
       example: 2c9180835d191a86015d28455b4a2329
+      x-sailpoint-resource-operation-id: listDimensions
   responses:
     '200':
       description: Dimension
@@ -79,6 +81,7 @@ patch:
         type: string
       description: Parent Role Id of the dimension.
       example: 6603fba3004f43c687610a29195252ce
+      x-sailpoint-resource-operation-id: listRoles
     - in: path
       name: dimensionId
       schema:
@@ -86,6 +89,7 @@ patch:
       required: true
       description: Id of the Dimension
       example: 2c9180835d191a86015d28455b4a2329
+      x-sailpoint-resource-operation-id: listDimensions
   requestBody:
     content:
       application/json-patch+json:
@@ -224,6 +228,7 @@ delete:
         type: string
       description: Parent Role Id of the dimension.
       example: 6603fba3004f43c687610a29195252ce
+      x-sailpoint-resource-operation-id: listRoles
     - in: path
       name: dimensionId
       schema:
@@ -231,6 +236,7 @@ delete:
       required: true
       description: Id of the Dimension
       example: 2c9180835d191a86015d28455b4a2329
+      x-sailpoint-resource-operation-id: listDimensions
   responses:
     '204':
       $ref: "../../v3/responses/204.yaml"

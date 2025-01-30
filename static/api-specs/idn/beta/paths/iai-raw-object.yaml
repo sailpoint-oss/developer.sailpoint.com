@@ -9,6 +9,8 @@ get:
       name: type
       schema:
         type: string
+        enum:
+          - potential-role
       description: Indicates of which type objects to get
       example: potential-role
       required: true
@@ -19,6 +21,7 @@ get:
       description: Object Id
       example: 28da7f68-e1ed-460e-986d-520d594f174c
       required: true
+      x-sailpoint-resource-operation-id: searchObjects
   responses:
     '200':
       description: List of Objects

@@ -18,6 +18,7 @@ get:
       required: true
       description: Entitlement Id
       example: 2c91808c74ff913f0175097daa9d59cd
+      x-sailpoint-resource-operation-id: listEntitlements
     - in: query
       name: sorters
       schema:

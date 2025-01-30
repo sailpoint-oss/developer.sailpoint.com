@@ -13,6 +13,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listHistoricalIdentities
       description: Identity ID. 
       example: '8c190e6787aa4ed9a90bd9d5344523fb'
     - in: path
@@ -26,6 +27,12 @@ get:
       name: type
       schema:
         type: string
+        enum:
+          - role
+          - access_profile
+          - entitlement
+          - app
+          - account
       description: Access item type.
       example: account
   responses:

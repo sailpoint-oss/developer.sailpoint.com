@@ -18,6 +18,7 @@ get:
         ID of the Identity for which the assigned Roles are to be listed
       example: 2c9180857dc9900e017dd3a36e1c3ab8
       required: true
+      x-sailpoint-resource-operation-id: listIdentities
   responses:
     '200':
       description: List of Roles

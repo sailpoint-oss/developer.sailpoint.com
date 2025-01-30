@@ -13,6 +13,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSegments
       description: The segment ID to retrieve.
       example: ef38f94347e94562b5bb8424a56397d8
   responses:
@@ -51,6 +52,7 @@ delete:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSegments
       description: The segment ID to delete.
       example: ef38f94347e94562b5bb8424a56397d8
   responses:
@@ -85,6 +87,7 @@ patch:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSegments
       description: The segment ID to modify.
       example: ef38f94347e94562b5bb8424a56397d8
   requestBody:

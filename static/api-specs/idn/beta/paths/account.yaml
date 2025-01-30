@@ -17,6 +17,7 @@ get:
       required: true
       description: Account ID.
       example: ef38f94347e94562b5bb8424a56397d8
+      x-sailpoint-resource-operation-id: listAccounts
   responses:
     "200":
       description: Account object.
@@ -63,6 +64,7 @@ patch:
       required: true
       description: Account ID.
       example: ef38f94347e94562b5bb8424a56397d8
+      x-sailpoint-resource-operation-id: listAccounts
   requestBody:
     required: true
     description: >-
@@ -142,6 +144,7 @@ put:
       required: true
       description: Account ID.
       example: ef38f94347e94562b5bb8424a56397d8
+      x-sailpoint-resource-operation-id: listAccounts
   requestBody:
     required: true
     content:
@@ -193,6 +196,7 @@ delete:
       required: true
       description: Account ID.
       example: ef38f94347e94562b5bb8424a56397d8
+      x-sailpoint-resource-operation-id: listAccounts
   responses:
     "202":
       description: Async task details.

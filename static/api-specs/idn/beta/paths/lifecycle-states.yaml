@@ -13,6 +13,7 @@ get:
       description: >-
         Identity Profile ID
       required: true
+      x-sailpoint-resource-operation-id: listIdentityProfiles
       schema:
         type: string
     - $ref: '../../v3/parameters/limit.yaml'
@@ -61,6 +62,7 @@ post:
       description: >-
         Identity Profile ID
       required: true
+      x-sailpoint-resource-operation-id: listIdentityProfiles
       schema:
         type: string
   requestBody:

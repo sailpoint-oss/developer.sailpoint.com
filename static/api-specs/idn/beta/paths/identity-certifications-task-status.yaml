@@ -12,12 +12,14 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listIdentityCertifications
       description: The identity campaign certification ID
     - in: path
       name: taskId
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getIdentityCertificationPendingTasks
       description: The certification task ID
   responses:
     '200':

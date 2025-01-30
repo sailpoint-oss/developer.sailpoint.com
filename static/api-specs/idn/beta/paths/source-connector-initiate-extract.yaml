@@ -15,13 +15,17 @@ post:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSources
       description: The ID of the Source
       example: cef3ee201db947c5912551015ba0c679
     - in: path
       name: messageType
       schema:
         type: string
-        enum: [security-extract, utilization-extract, changelog-extract]
+        enum: 
+         - security-extract
+         - utilization-extract
+         - changelog-extract
       required: true
       description: The type of extract request
       example: security-extract

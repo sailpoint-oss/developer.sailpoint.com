@@ -15,6 +15,7 @@ post:
       required: true
       description: The certification ID
       example: ef38f94347e94562b5bb8424a56397d8
+      x-sailpoint-resource-operation-id: listCertifications
   responses:
     '200':
       description: A certification object

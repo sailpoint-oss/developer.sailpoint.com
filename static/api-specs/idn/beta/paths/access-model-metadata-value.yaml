@@ -14,6 +14,7 @@ get:
         type: "string"
       description: Technical name of the Attribute.
       example: "iscPrivacy"
+      x-sailpoint-resource-operation-id: listAccessModelMetadataAttribute
     - name: "value"
       in: "path"
       required: true
@@ -21,6 +22,7 @@ get:
         type: "string"
       description: Technical name of the Attribute value.
       example: "public"
+      x-sailpoint-resource-operation-id: listAccessModelMetadataAttributeValue
   responses:
     "200":
       description: "OK"

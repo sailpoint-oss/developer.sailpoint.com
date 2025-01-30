@@ -14,6 +14,7 @@ get:
         type: "string"
       description: Technical name of the Attribute.
       example: "iscPrivacy"
+      x-sailpoint-resource-operation-id: listAccessModelMetadataAttribute
   responses:
     "200":
       description: "OK"

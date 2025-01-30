@@ -15,6 +15,7 @@ post:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSources
       description: The Source ID
       example: 5893805454fb79640134ffda7c6903d7
   requestBody:

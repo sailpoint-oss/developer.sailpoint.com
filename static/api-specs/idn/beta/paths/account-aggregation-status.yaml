@@ -30,6 +30,7 @@ get:
       required: true
       description: The account aggregation id
       example: 2c91808477a6b0c60177a81146b8110b
+      x-sailpoint-resource-operation-id: importAccounts
   responses:
     '200':
       description: An account aggregation status object

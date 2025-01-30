@@ -15,6 +15,7 @@ get:
         type: string
         format: uuid
       required: true
+      x-sailpoint-resource-operation-id: listIdentityProfiles
       description: The Identity Profile ID
       example: ef38f94347e94562b5bb8424a56397d8
   responses:
@@ -62,6 +63,7 @@ delete:
         type: string
         format: uuid
       required: true
+      x-sailpoint-resource-operation-id: listIdentityProfiles
       description: The Identity Profile ID.
       example: ef38f94347e94562b5bb8424a56397d8
   responses:
@@ -121,6 +123,7 @@ patch:
         type: string
         format: uuid
       required: true
+      x-sailpoint-resource-operation-id: listIdentityProfiles
       description: The Identity Profile ID
       example: ef38f94347e94562b5bb8424a56397d8
   requestBody:

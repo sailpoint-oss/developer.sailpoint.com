@@ -11,6 +11,7 @@ delete:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listFromAddresses
   responses:
     '204':
       $ref: '../../v3/responses/204.yaml'

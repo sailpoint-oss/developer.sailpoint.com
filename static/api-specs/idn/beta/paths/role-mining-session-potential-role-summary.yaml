@@ -11,6 +11,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getRoleMiningSessions
       description: The role mining session id
       example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
     - in: path
@@ -18,6 +19,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getPotentialRoleSummaries
       description: A potential role id in a role mining session
       example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
   responses:
@@ -62,6 +64,7 @@ patch:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getRoleMiningSessions
       description: The role mining session id
       example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
     - in: path
@@ -69,6 +72,7 @@ patch:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getPotentialRoleSummaries
       description: The potential role summary id
       example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
   requestBody:

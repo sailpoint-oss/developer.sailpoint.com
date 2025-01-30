@@ -13,6 +13,7 @@ get:
       in: path
       description: The Managed Process ID
       required: true
+      x-sailpoint-resource-operation-id: getManagedProcesses
       schema:
         type: string
       example: aProcessId
@@ -53,6 +54,7 @@ patch:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getManagedProcesses
       description: The Managed Process ID
       example: aProcessId
   requestBody:
@@ -99,6 +101,7 @@ delete:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getManagedProcesses
       description: The Managed Process ID
       example: aProcessId
   responses:

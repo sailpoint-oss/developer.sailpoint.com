@@ -152,6 +152,7 @@ patch:
       name: id
       example: ebab396f-0af1-4050-89b7-dafc63ec70e7
       required: true
+      x-sailpoint-resource-operation-id: listSeds
       schema:
         type: string
         format: uuid

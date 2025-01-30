@@ -18,6 +18,7 @@ get:
       schema:
         type: string
       example: 8c190e6787aa4ed9a90bd9d5344523fb
+      x-sailpoint-resource-operation-id: getConnectorRuleList
   responses:
     '200':
       description: Connector rule with the given ID
@@ -61,6 +62,7 @@ put:
       schema:
         type: string
       example: 8c190e6787aa4ed9a90bd9d5344523fb
+      x-sailpoint-resource-operation-id: getConnectorRuleList
   requestBody:
     description: >-
       The connector rule with updated data
@@ -110,6 +112,7 @@ delete:
       schema:
         type: string
       example: 8c190e6787aa4ed9a90bd9d5344523fb
+      x-sailpoint-resource-operation-id: getConnectorRuleList
   responses:
     '204':
       $ref: '../../v3/responses/204.yaml'

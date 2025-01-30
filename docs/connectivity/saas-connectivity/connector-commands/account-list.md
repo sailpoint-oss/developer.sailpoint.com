@@ -242,13 +242,13 @@ Filter resource objects on a source during an account aggregation process. In or
 1. In order to configure Filtering feature, you need to modify the source configurations to add in a `filterString` or `account.filterString` property. This can be done with a simple partial update to the source, using the REST APIs.   
 
 <details>
- <summary><code>PATCH</code><code>/v3/sources/{id}</code></summary>
+ <summary><code>PATCH</code><code>/v3/sources/\{id\}</code></summary>
 
 ##### HTTP Headers
 
 > | Key      |  Value     | Description               |
 > |-----------|-----------|-------------------------|
-> | authorization      |  Bearer {token} | This is the JWT OAuth token   |
+> | authorization      |  Bearer \{token\} | This is the JWT OAuth token   |
 > | content-type     |  application/json-patch+json | This is needed for PATCH operations   |
 
 ##### Path Parameters
@@ -306,8 +306,6 @@ curl -X PATCH \
 
 > content-type: application/json
 
-> A modified source object.
-
 </details>  
 
 2. In the `stdAccountList` command, before sending the Resource Object (accounts), you need to filter the accounts. Accounts which match the filter string will be filtered. Accounts which do not match, will be sent to ISC as normal.
@@ -350,4 +348,4 @@ In the above example, we are setting the constructor with filter string value fe
 })
 ```
 
-Reference doc link : [Filter Class](/docs/tools/sdk/typescript/filter.md)
+Reference doc link Filter : [Filter Class](/docs/tools/sdk/typescript/filter.md)

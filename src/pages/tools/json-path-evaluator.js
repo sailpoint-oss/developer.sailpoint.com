@@ -80,6 +80,7 @@ export default function JsonPathEvaluator() {
             break;
         }
       } catch (error) {
+        console.log(error);
         result = error.message;
       }
       

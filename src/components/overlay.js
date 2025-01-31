@@ -16,27 +16,21 @@ function applyOverlayToSpec(openApiFilePath, overlayFilePath, outputFilePath) {
 
         // Apply overlay
         overlay.forEach(({ path: apiPath, method, xCodeSample }) => {
-            console.log(`Processing: ${apiPath} ${method}`); // Debugging: Check which path and method are being processed
-            console.log("xCodeSample:", xCodeSample); // Debugging: Log xCodeSample to verify it's correct
             // Ensure that the path and method exist in the OpenAPI spec
             if (openApiSpec.paths[apiPath] && openApiSpec.paths[apiPath][method.toLowerCase()]) {
                 // Check if xCodeSample exists and is properly structured
                 if (xCodeSample && Array.isArray(xCodeSample) && xCodeSample.length > 0) {
-                    console.log("xCodeSample:", xCodeSample); // Debugging: Log xCodeSample to verify it's correct
-
                     // Check if x-codeSamples already exists and is an array, if not initialize it
                     const methodSpec = openApiSpec.paths[apiPath][method.toLowerCase()];
 
                     if (!Array.isArray(methodSpec['x-codeSamples'])) {
                         methodSpec['x-codeSamples'] = [];
-                        console.log("Initialized x-codeSamples as an array"); // Debugging: Log array initialization
                     }
 
                     // Add the xCodeSample to the x-codeSamples array
                     xCodeSample.forEach(sample => {
                         methodSpec['x-codeSamples'].push(sample);
                     });
-                    console.log("Pushed xCodeSample to x-codeSamples"); // Debugging: Log successful push
                 } else {
                     console.warn(`Skipping entry: xCodeSample is missing or malformed for path: ${apiPath} method: ${method}`);
                 }
@@ -47,7 +41,6 @@ function applyOverlayToSpec(openApiFilePath, overlayFilePath, outputFilePath) {
 
         // Write the updated OpenAPI spec to the output file
         fs.writeFileSync(outputFilePath, yaml.dump(openApiSpec, { noRefs: true, lineWidth: -1 }), 'utf8');
-        console.log(`Successfully updated OpenAPI spec and saved to ${outputFilePath}`);
     } catch (err) {
         console.error(`Error: ${err.message}`);
     }

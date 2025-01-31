@@ -27,7 +27,7 @@ async function evaluateJSONPath(gatewayUrl, endpoint, jsonPathQuery, jsonData) {
             throw new Error('Too many requests. Please wait a moment and try again.');
         }
 
-        throw new Error('JSON Path evaluation error:', errorText);
+        throw new Error(`JSON Path evaluation error: ${errorText}`);
     }
 
     const json = await response.json();

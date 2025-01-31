@@ -55,6 +55,7 @@ jobs:
           elif [ "${{ github.ref }}" = "refs/heads/stage" ]; then
             echo "STACK=developer-sailpoint-site-stage" >> $GITHUB_ENV
           fi
+
       # push these files to AWS
       - name: run SAM build
         run: |

@@ -3,6 +3,7 @@
 
 # Production
 /build
+.aws-sam
 
 # Generated files
 .docusaurus

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '@theme/Layout';
 import styles from './json-path.module.css';
-import * as jp from 'jsonpathly';
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
 import Link from '@mui/material/Link';
@@ -9,8 +8,10 @@ import TerminalFontSizeDropdown from '../../components/jsonpath/TerminalFontSize
 import InputTerminal from '../../components/jsonpath/InputTerminal';
 import ResultTerminal from '../../components/jsonpath/ResultTerminal';
 import ImplementationDropdown from '../../components/jsonpath/ImplementationDropdown';
-import { useDebounce } from '../../components/jsonpath/useDebounce';
 import JsonPathQueryInput from '../../components/jsonpath/JsonPathQueryInput';
+import { evaluateJSONPathJava, evaluateJSONPathGo } from '../../services/JSONPathService';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import Button from '@mui/material/Button';
 
 // Mapping of implementations to documentation URLs and texts
 const documentationLinks = {
@@ -35,12 +36,10 @@ export default function JsonPathEvaluator() {
   const [jsonParseError, setJsonParseError] = useState(false);
   const [isQueryFocused, setIsQueryFocused] = useState(false);  // Track focus for query input
   const [isDropdownFocused, setIsDropdownFocused] = useState(false);  // Track focus for dropdown
-
-  const debouncedInputJson = useDebounce(localJson, 0);
-  const debouncedQuery = useDebounce(query, 0);
+  const { siteConfig } = useDocusaurusContext();
 
   // Apply JSONPath query with the current implementation
-  const applyJsonPathQuery = (json, jsonPath) => {
+  const applyJsonPathQuery = async (json, jsonPath) => {
     const quoteCount = (jsonPath.match(/"/g) || []).length;
     if (quoteCount % 2 !== 0) {
       setResult('No match');
@@ -54,8 +53,28 @@ export default function JsonPathEvaluator() {
     }
 
     try {
+      let result;
+      let tempResult;
       const parsedJson = JSON.parse(json);
-      const result = jp.query(parsedJson, jsonPath, implementation);
+
+      switch (implementation) {
+        case 'Workflows':
+          tempResult = await evaluateJSONPathGo(siteConfig.customFields.CMS_APP_API_ENDPOINT, jsonPath, parsedJson);
+          if(tempResult.result) {
+            result = tempResult.result;
+          } else {
+            result = tempResult.error;
+          }
+          break;
+        case 'EventTrigger':
+          tempResult = await evaluateJSONPathJava(siteConfig.customFields.CMS_APP_API_ENDPOINT, jsonPath, parsedJson);
+          if(tempResult.result) {
+            result = tempResult.result;
+          } else {
+            result = tempResult.error;
+          }
+          break;
+      }
 
       setResult((result.length > 0 || typeof result === 'number' || typeof result === 'object' || typeof result === 'boolean') ? JSON.stringify(result, null, 2) : 'No match');
       setQueryParseError('');
@@ -70,13 +89,6 @@ export default function JsonPathEvaluator() {
       setQueryParseError(error.message || 'Error executing JSONPath query');
     }
   };
-
-  // Apply the debounced query and input JSON whenever they change
-  useEffect(() => {
-    if (debouncedQuery || debouncedInputJson) {
-      applyJsonPathQuery(debouncedInputJson, debouncedQuery);
-    }
-  }, [debouncedQuery, debouncedInputJson, implementation]);
 
   // Handle input change
   const handleJsonChange = (newJson) => {
@@ -112,6 +124,11 @@ export default function JsonPathEvaluator() {
     setIsDropdownFocused(false);
   };
 
+  // Add a handler for the Run button
+  const handleRunQuery = () => {
+    applyJsonPathQuery(localJson, query);
+  };
+
   return (
     <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
       <main>
@@ -119,12 +136,11 @@ export default function JsonPathEvaluator() {
           <div className={styles.actionBar}>
             <Stack sx={{ justifyContent: 'center' }} direction="row" spacing={2}>
               <Stack sx={{ justifyContent: 'center' }} spacing={2}>
-                {/* Use the new JsonPathQueryInput component with focus handlers */}
                 <JsonPathQueryInput
                   value={query}
                   onChange={handleQueryChange}
-                  onFocus={handleQueryFocus}  // Pass the focus handler
-                  onBlur={handleQueryBlur}    // Pass the blur handler
+                  onFocus={handleQueryFocus}
+                  onBlur={handleQueryBlur}
                 />
                 {documentationLinks[implementation] && (
                   <Link
@@ -144,15 +160,24 @@ export default function JsonPathEvaluator() {
               <ImplementationDropdown
                 implementation={implementation}
                 onImplementationChange={handleImplementationChange}
-                onFocus={handleDropdownFocus} 
-                onBlur={handleDropdownBlur}    
+                onFocus={handleDropdownFocus}
+                onBlur={handleDropdownBlur}
               />
+
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={handleRunQuery}
+                sx={{ height: '56px' }}
+              >
+                Run
+              </Button>
 
               <TerminalFontSizeDropdown
                 fontSize={fontSize}
                 onFontSizeChange={setFontSize}
-                onFocus={handleDropdownFocus} 
-                onBlur={handleDropdownBlur} 
+                onFocus={handleDropdownFocus}
+                onBlur={handleDropdownBlur}
               />
             </Stack>
           </div>

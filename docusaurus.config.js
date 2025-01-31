@@ -130,7 +130,7 @@ const config = {
     'AUTH_PASSWORD': process.env.AUTH_PASSWORD,
     'ENDPOINT_OVERRIDE': process.env.ENDPOINT_OVERRIDE,
     'SAMPLE_TABLE': process.env.SAMPLE_TABLE,
-    'CMS_APP_API_ENDPOINT': process.env.CMS_APP_API_ENDPOINT,
+    'CMS_APP_API_ENDPOINT': process.env.NODE_ENV === 'development' ? 'http://localhost:3000/' : process.env.CMS_APP_API_ENDPOINT,
   },
 };
 

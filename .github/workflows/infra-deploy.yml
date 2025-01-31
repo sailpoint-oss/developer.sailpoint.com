@@ -82,12 +82,7 @@ jobs:
           export NODE_OPTIONS="--max_old_space_size=16384"
           export DOCUSAURUS_IGNORE_SSG_WARNINGS=true
           npm ci 
-          npm run speecy-beta-spec
-          npm run overlay-code-examples-beta
-          npm run speecy-v3-spec
-          npm run overlay-code-examples-v3
-          npm run speecy-v2024-spec
-          npm run overlay-code-examples-v2024
+          npm run gen-all-api-specs-code-examples
           npm run gen-api-docs-all
           npm run build
       # push these files to AWS

@@ -61,6 +61,7 @@ export default function JsonPathEvaluator() {
         switch (implementation) {
           case 'Workflows':
             tempResult = await evaluateJSONPathGo(siteConfig.customFields.CMS_APP_API_ENDPOINT, jsonPath, parsedJson);
+            console.log(tempResult);
             if (tempResult.data.error) {
               result = tempResult.data.error;
             } else {  
